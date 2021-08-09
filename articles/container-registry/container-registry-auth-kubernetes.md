@@ -1,24 +1,28 @@
 ---
-title: Autenticación desde un clúster de Kubernetes
+title: Autenticación con una instancia de Azure Container Registry mediante un secreto de extracción de Kubernetes
 description: Obtenga información sobre cómo proporcionar a un clúster de Kubernetes acceso a las imágenes en su instancia de Azure Container Registry al crear un secreto de extracción con una entidad de servicio.
 ms.topic: article
 author: karolz-ms
 ms.author: karolz
 ms.reviewer: danlep
-ms.date: 05/28/2020
-ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/02/2021
+ms.openlocfilehash: 149035de0fc84c75cdcaa73c91d6cd5379c53498
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84309822"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439627"
 ---
-# <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Extracción de imágenes de una instancia de Azure Container Registry a un clúster de Kubernetes
+# <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster-using-a-pull-secret"></a>Extracción de imágenes de una instancia de Azure Container Registry a un clúster de Kubernetes mediante un secreto de extracción
 
-Puede usar una instancia de Azure Container Registry como origen de las imágenes de contenedor con cualquier clúster de Kubernetes, incluidos los clústeres de Kubernetes "locales", como [minikube](https://minikube.sigs.k8s.io/) y [kind](https://kind.sigs.k8s.io/). En este artículo se muestra cómo crear un secreto de extracción de Kubernetes basado en una entidad de servicio de Azure Active Directory. A continuación, use el secreto para extraer imágenes de una instancia de Azure Container Registry en una implementación de Kubernetes.
+Puede usar una instancia de Azure Container Registry como origen de las imágenes de contenedor con cualquier clúster de Kubernetes, incluidos los clústeres de Kubernetes "locales", como [minikube](https://minikube.sigs.k8s.io/) y [kind](https://kind.sigs.k8s.io/). En este artículo se muestra cómo crear un secreto de extracción de Kubernetes mediante credenciales para una instancia de Azure Container Registry. A continuación, use el secreto para extraer imágenes de una instancia de Azure Container Registry en una implementación de pods.
 
-> [!TIP]
-> Si usa la instancia administrada de [Azure Kubernetes Service](../aks/intro-kubernetes.md), también puede [integrar el clúster](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) en una instancia de Azure Container Registry de destino para las extracciones de imágenes. 
+En este ejemplo se crea un secreto de extracción mediante [credenciales de entidad de servicio](container-registry-auth-service-principal.md) de Azure Active Directory. También puede configurar un secreto de extracción con otras credenciales de Azure Container Registry, como un [token de acceso con ámbito de repositorio.](container-registry-repository-scoped-permissions.md)
+
+> [!NOTE]
+> Aunque los secretos de extracción se usan habitualmente, conllevan una sobrecarga de administración adicional. Si usa [Azure Kubernetes Service](../aks/intro-kubernetes.md), se recomiendan [otras opciones](authenticate-kubernetes-options.md), como usar la identidad administrada o la entidad de servicio del clúster para extraer la imagen de manera segura sin un valor `imagePullSecrets` adicional en cada pod.
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se supone que ya ha creado una instancia privada de Azure Container Registry. Además, debe tener un clúster de Kubernetes en ejecución y accesible a través de la herramienta de línea de comandos `kubectl`.
 
@@ -90,4 +94,4 @@ En el ejemplo anterior, `my-awesome-app:v1` es el nombre de la imagen que se va 
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset

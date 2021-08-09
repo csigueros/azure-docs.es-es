@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: 57a417948d23d40801eb34cf10aab1e6f17037e6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c377f6b1ff84f04506badf581dc7c12d64e68e0d
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644087"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839390"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
 Cuando se produce una excepción, puede recopilar automáticamente una instantánea de depuración desde la aplicación web activa. La instantánea muestra el estado del código fuente y las variables en el momento en que se produjo la excepción. En [Application Insights](./app-insights-overview.md), Snapshot Debugger supervisa los datos de telemetría de las excepciones de su aplicación web. Recopila instantáneas de las excepciones más importantes con el fin de que tenga la información necesaria para diagnosticar problemas en producción. Incluya el [paquete NuGet del recopilador de instantáneas](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación y, opcionalmente, configure los parámetros de recopilación en [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Las instantáneas aparecen en [excepciones](./asp-net-exceptions.md) en el portal de Application Insights.
@@ -61,7 +61,7 @@ Los propietarios de la suscripción deben asignar el rol `Application Insights S
 
 
 > [!IMPORTANT]
-> Las instantáneas pueden contener información personal y otra información confidencial en valores de variables y parámetros.
+> Tenga en cuenta que las instantáneas pueden contener datos personales u otra información confidencial en los valores de las variables y parámetros. Los datos de las instantáneas se almacenan en la misma región que el recurso de App Insights.
 
 ## <a name="view-snapshots-in-the-portal"></a>Visualización de instantáneas en el portal
 

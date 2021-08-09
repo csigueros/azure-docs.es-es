@@ -3,14 +3,14 @@ title: Habilitación del cifrado basado en host en Azure Kubernetes Service (AKS
 description: Aprenda a configurar un cifrado basado en host en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 03/03/2021
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 3d5009c164ab09d3977bb15d85b166a31c1f1a0b
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.date: 04/26/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 41f0a9beda1c72b778d4f238cc5aa629e10b6d7e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754324"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094283"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks"></a>Cifrado basado en host en Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,9 @@ Esta característica solo se puede establecer durante la creación del clúster 
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- La CLI de Azure, versión 2.23.0 o posterior
+
+- Asegúrese de que tiene instalada la extensión de la CLI v2.23 o posterior.
+
 
 ### <a name="limitations"></a>Limitaciones
 

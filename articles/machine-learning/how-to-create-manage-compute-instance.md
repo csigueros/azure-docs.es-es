@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: db6414ecf4b1b5fcbdf52d59c0c79b72998e610a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c678c36ff653d8975f7a0fe1a82395c3093758f6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375222"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458558"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -163,8 +163,19 @@ En el script se pueden hacer referencia a los argumentos del script como $1, $2,
 Si el script estaba haciendo algo específico de azureuser, como instalar el entorno de Conda o el kernel de Jupyter, tendrá que colocarlo en el bloque *sudo -u azureuser* de este modo.
 
 ```shell
-sudo -u azureuser -i <<'EOF'
+#!/bin/bash
 
+set -e
+
+# This script installs a pip package in compute instance azureml_py38 environment
+
+sudo -u azureuser -i <<'EOF'
+# PARAMETERS
+PACKAGE=numpy
+ENVIRONMENT=azureml_py38 
+conda activate "$ENVIRONMENT"
+pip install "$PACKAGE"
+conda deactivate
 EOF
 ```
 Tenga en cuenta que *sudo -u azureuser* sí cambia el directorio de trabajo actual a */home/azureuser*. Tampoco puede acceder a los argumentos del script de este bloque.
@@ -208,6 +219,7 @@ En una [plantilla](https://github.com/Azure/azure-quickstart-templates/tree/mast
     }
 }
 ```
+El elemento *scriptData* anterior especifica la ubicación del script de creación en el recurso compartido de archivos de cuadernos, como *Users/admin/testscript.sh.* . *scriptArguments* es opcional anteriormente y especifica los argumentos del script de creación.
 
 En su lugar, podría proporcionar el script en línea para una plantilla de Resource Manager.  El comando de shell puede hacer referencia a las dependencias cargadas en el recurso compartido de archivos de Notebooks.  Cuando se usa una cadena insertada, el directorio de trabajo para el script es */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users*.
 

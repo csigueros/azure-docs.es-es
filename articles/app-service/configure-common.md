@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: a865c1070150b31399b5b738a0a469a07e0b13de
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 55f34ec9416bdca81d025efb0910b10a7fa48736
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122364"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585877"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
@@ -59,7 +59,7 @@ Para editar una configuración, haga clic en el **Editar** situado a la derecha.
 Cuando termine, haga clic en **Actualizar**. No olvide hacer clic en **Guardar** en la página **Configuración**.
 
 > [!NOTE]
-> En contenedores de Linux predeterminados o personalizados, cualquier estructura de clave JSON anidada en el nombre de configuración de la aplicación `ApplicationInsights:InstrumentationKey` debe configurarse en App Service como `ApplicationInsights__InstrumentationKey` para el nombre de clave. Es decir, los símbolos `:` deben reemplazarse por `__` (doble subrayado).
+> En un servicio de aplicaciones de Linux predeterminado o en un contenedor de Linux personalizado, cualquier estructura de claves JSON anidada en el nombre de configuración de la aplicación, como `ApplicationInsights:InstrumentationKey`, debe configurarse en App Service como `ApplicationInsights__InstrumentationKey` para el nombre de clave. Es decir, los símbolos `:` deben reemplazarse por `__` (doble subrayado).
 >
 
 ### <a name="edit-in-bulk"></a>Editar en masa
@@ -200,7 +200,7 @@ En este caso, puede configurar algunas opciones comunes para la aplicación. Alg
     ![Configuración general de los contenedores de Linux](./media/configure-common/open-general-linux.png)
 
 - **Configuración de plataforma**: Le permite configurar opciones para la plataforma de alojamiento, incluidas:
-    - **Valor de bits**: 32 bits o 64 bits.
+    - **Valor de bits**: 32 bits o 64 bits. (El valor predeterminado es 32 bits para las instancias de App Service creadas en el portal).
     - **Protocolo Websocket**: para [ASP.NET SignalR] o [socket.io](https://socket.io/), por ejemplo.
     - **Always On**: mantiene la aplicación cargada, incluso cuando no hay tráfico. Esto es necesario en los WebJobs continuos o WebJobs que se desencadenan mediante una expresión CRON.
       > [!NOTE]

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2020
+ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 011b50449f0a02b128bc000535f93e1809fd9777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0824a0947318172ec8094787f4fe01058f1a5e7
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92673875"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846142"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Asignación de roles de recursos de Azure en Privileged Identity Management
 
@@ -34,6 +34,10 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) puede adm
 
 > [!NOTE]
 > Los usuarios o los miembros de un grupo asignados a los roles de suscripción Propietario o Administrador de acceso de usuario y los administradores globales de Azure AD que permiten la administración de suscripciones en Azure AD tienen permisos de administrador de recursos de forma predeterminada. Estos administradores pueden asignar roles, configurar opciones de rol y revisar el acceso con Privileged Identity Management a los recursos de Azure. Un usuario no puede administrar Privileged Identity Management para recursos sin permisos de administrador de recursos. Consulte la lista de [roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
+
+## <a name="role-assignment-conditions"></a>Condiciones de asignación de roles
+
+Puede usar la versión preliminar del control de acceso basado en atributos de Azure (Azure ABAC) para establecer condiciones de recursos en las asignaciones de roles aptos mediante Privileged Identity Management (PIM). Con PIM, los usuarios finales deben activar una asignación de roles apta para obtener permiso para realizar determinadas acciones. El uso de las condiciones de Azure ABAC en PIM permite no solo limitar los permisos de los roles de un usuario a un recurso mediante condiciones específicas, sino también usar PIM para proteger la asignación de roles con una configuración del límite de tiempo, un flujo de trabajo de aprobación y un registro de auditoría, entre otros. Para más información, consulte el artículo sobre la [versión preliminar pública del control de acceso basado en atributos de Azure](../../role-based-access-control/conditions-overview.md).
 
 ## <a name="assign-a-role"></a>Asignar un rol
 
@@ -108,6 +112,10 @@ Siga estos pasos para actualizar o quiotar una asignación de roles existente.
 1. Busque la asignación de roles en las pestañas **Roles elegibles** o **Roles activos**.
 
     ![Actualizar o quitar la asignación de roles](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+
+1. Para agregar o actualizar una condición para refinar el acceso a los recursos de Azure, seleccione **Agregar** o **Ver o editar** en la columna **Condición** de la asignación de roles. Actualmente, los roles Propietario de datos de Storage Blob, Lector de datos de Storage Blob y Colaborador de datos de Storage Blob en Privileged Identity Management son los únicos que se admiten como parte de la [versión preliminar pública del control de acceso basado en atributos de Azure](../../role-based-access-control/conditions-overview.md).
+
+    ![Actualización o eliminación de atributos para el control de acceso](./media/pim-resource-roles-assign-roles/resources-abac-update-remove.png)
 
 1. Seleccione **Actualizar** o **Quitar** para actualizar o quitar la asignación de roles.
 

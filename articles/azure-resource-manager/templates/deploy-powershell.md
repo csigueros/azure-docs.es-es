@@ -1,21 +1,19 @@
 ---
 title: Implementación de recursos con una plantilla y PowerShell
-description: Use Azure Resource Manager y Azure PowerShell para implementar recursos para Azure. Los recursos se definen en una plantilla de Resource Manager o un archivo Bicep.
+description: Use Azure Resource Manager y Azure PowerShell para implementar recursos para Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/13/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2f7d9709a62d7c791296e26d28f391c1eeeab728
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ee67ca1f924c2159ab85a47ffdf73dfb7c3fc9f5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737052"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957820"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
 
-En este artículo, se explica cómo se utiliza Azure PowerShell con plantillas de Azure Resource Manager (plantillas de ARM) o archivos Bicep para implementar recursos en Azure. Si no está familiarizado con los conceptos de implementación y administración de las soluciones de Azure, vea la [información general sobre plantillas](overview.md) o la [visión general sobre Bicep](bicep-overview.md).
-
-Para implementar archivos Bicep, necesita [Azure PowerShell versión 5.6.0 o posterior](/powershell/azure/install-az-ps).
+En este artículo, se explica cómo se utiliza Azure PowerShell con plantillas de Azure Resource Manager para implementar recursos en Azure. Si no está familiarizado con los conceptos de implementación y administración de las soluciones de Azure, vea [Información general sobre plantillas](overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -35,13 +33,13 @@ La implementación puede tener como destino un grupo de recursos, una suscripci�
 - Para implementar en un **grupo de recursos**, utilice [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
   ```azurepowershell
-  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template-or-bicep>
+  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
   ```
 
 - Para hacer la implementación en una **suscripción**, use [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment), que es un alias del cmdlet `New-AzDeployment`:
 
   ```azurepowershell
-  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
+  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
   ```
 
   Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
@@ -49,7 +47,7 @@ La implementación puede tener como destino un grupo de recursos, una suscripci�
 - Para hacer la implementación en un **grupo de administración**, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
   ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
+  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
   ```
 
   Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
@@ -57,7 +55,7 @@ La implementación puede tener como destino un grupo de recursos, una suscripci�
 - Para hacer la implementación en un **inquilino**, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
   ```azurepowershell
-  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template-or-bicep>
+  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
   ```
 
   Para más información sobre las implementaciones a nivel de inquilino, consulte [Creación de recursos en el nivel de inquilino](deploy-to-tenant.md).
@@ -92,7 +90,7 @@ Si especifica un nombre único para cada implementación, podrá ejecutarlas sim
 
 Para evitar conflictos con las implementaciones simultáneas y garantizar que las entradas del historial de implementaciones son únicas, asigne un nombre diferente a cada implementación.
 
-## <a name="deploy-local-template-or-bicep-file"></a>Implementación de una plantilla local o un archivo Bicep
+## <a name="deploy-local-template"></a>Implementar una plantilla local
 
 Puede implementar una plantilla desde la máquina local o una que esté almacenada externamente. En esta sección se describe la implementación de una plantilla local.
 
@@ -102,21 +100,18 @@ Si va a realizar la implementación en un grupo de recursos que no existe, cree 
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-Para implementar una plantilla local o archivo Bicep, use el parámetro `-TemplateFile` en el comando de implementación. En el ejemplo siguiente también se muestra cómo establecer un valor de parámetro que procede de la plantilla.
+Para implementar una plantilla local, use el parámetro `-TemplateFile` en el comando de implementación. En el ejemplo siguiente también se muestra cómo establecer un valor de parámetro que procede de la plantilla.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateFile <path-to-template-or-bicep>
+  -TemplateFile <path-to-template>
 ```
 
 La implementación puede tardar unos minutos en finalizar.
 
 ## <a name="deploy-remote-template"></a>Implementación de una plantilla remota
-
-> [!NOTE]
-> Actualmente, Azure PowerShell no admite la implementación de archivos Bicep remotos. Use la [CLI de Bicep](./bicep-install.md#development-environment) para compilar el archivo de Bicep en una plantilla JSON y, luego, cargue el archivo JSON en la ubicación remota.
 
 En lugar de almacenar las plantillas de ARM en el equipo local, quizás prefiera almacenarlas en una ubicación externa. Puede almacenar plantillas en un repositorio de control de código fuente (por ejemplo, GitHub). O bien, puede almacenarlas en una cuenta de Azure Storage para el acceso compartido en su organización.
 
@@ -153,8 +148,6 @@ Para obtener más información, vea [Uso de rutas de acceso relativas para plant
 
 ## <a name="deploy-template-spec"></a>Implementación de la especificación de plantilla
 
-> [!NOTE]
-> Actualmente, Azure PowerShell no admite la creación de especificaciones de plantilla mediante archivos Bicep. Sin embargo, puede crear un archivo Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. A continuación, se muestra un [ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 En lugar de implementar una plantilla local o remota, puede crear una [especificación de plantilla](template-specs.md). La especificación de plantilla es un recurso de su suscripción de Azure que contiene una plantilla de ARM. Facilita el uso compartido de la plantilla de forma segura con los usuarios de la organización. Use el control de acceso basado en rol de Azure (RBAC de Azure) para conceder acceso a la especificación de la plantilla. Esta funcionalidad actualmente está en su versión preliminar.
 
 En los ejemplos siguientes se muestra cómo se crea e implementa una especificación de plantilla.
@@ -180,11 +173,11 @@ New-AzResourceGroupDeployment `
   -TemplateSpecId $id
 ```
 
-Para obtener más información, consulte [Especificaciones de plantilla de Azure Resource Manager (versión preliminar)](template-specs.md).
+Para más información, vea [Especificaciones de plantilla de Azure Resource Manager](template-specs.md).
 
 ## <a name="preview-changes"></a>Vista previa de los cambios
 
-Antes de implementar la plantilla, puede obtener una vista previa de los cambios que la plantilla realizará en su entorno. Use la [operación Y si](template-deploy-what-if.md) para comprobar que la plantilla realiza los cambios esperados. La operación y si también valida que la plantilla no tenga errores.
+Antes de implementar la plantilla, puede obtener una vista previa de los cambios que la plantilla realizará en su entorno. Use la [operación Y si](./deploy-what-if.md) para comprobar que la plantilla realiza los cambios esperados. La operación y si también valida que la plantilla no tenga errores.
 
 ## <a name="pass-parameter-values"></a>Pase de valores de parámetros
 
@@ -197,7 +190,7 @@ Para pasar parámetros en línea, proporcione los nombres de parámetro con el c
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile <path-to-template-or-bicep> `
+  -TemplateFile <path-to-template> `
   -exampleString "inline string" `
   -exampleArray $arrayParam
 ```
@@ -207,7 +200,7 @@ También puede obtener el contenido del archivo y proporcionar ese contenido com
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile <path-to-template-or-bicep> `
+  -TemplateFile <path-to-template> `
   -exampleString $(Get-Content -Path c:\MyTemplates\stringcontent.txt -Raw) `
   -exampleArray $arrayParam
 ```
@@ -221,13 +214,13 @@ $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
 $hash2 = @{ Name = "secondSubnet"; AddressPrefix = "10.0.1.0/24"}
 $subnetArray = $hash1, $hash2
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile <path-to-template-or-bicep> `
+  -TemplateFile <path-to-template> `
   -exampleArray $subnetArray
 ```
 
 ### <a name="parameter-files"></a>Archivos de parámetros
 
-En lugar de pasar parámetros como valores en línea en el script, quizá le resulte más fácil usar un archivo JSON que contiene los valores de parámetro. El archivo de parámetros puede ser un archivo local o un archivo externo con un identificador URI accesible. Tanto la plantilla de ARM como el archivo Bicep usan archivos de parámetros JSON.
+En lugar de pasar parámetros como valores en línea en el script, quizá le resulte más fácil usar un archivo JSON que contiene los valores de parámetro. El archivo de parámetros puede ser un archivo local o un archivo externo con un identificador URI accesible.
 
 Para más información sobre el archivo de parámetro, consulte [Creación de un archivo de parámetros de Resource Manager](parameter-files.md).
 
@@ -235,7 +228,7 @@ Para pasar un archivo de parámetros local, use el parámetro `TemplateParameter
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile <path-to-template-or-bicep> `
+  -TemplateFile <path-to-template> `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
@@ -251,5 +244,5 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 - Para revertir a una implementación correcta cuando se produce un error, consulte [Revertir en caso de error a una implementación correcta](rollback-on-error.md).
 - Para especificar cómo controlar los recursos que existen en el grupo de recursos, pero que no están definidos en la plantilla, consulte [Modos de implementación de Azure Resource Manager](deployment-modes.md).
-- Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+- Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).
 - Para más información sobre la implementación de una plantilla que requiere un token de SAS, vea [Implementación de una plantilla de Resource Manager privada con el token de SAS](secure-template-with-sas-token.md).

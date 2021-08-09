@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 54be25317717bcf98b9e296d5c9ed59643cd334e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0337a9aec4991dddbf95cf1ac2e2ec6adf7d28ea
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044760"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471596"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 Este artículo sirve de introducción a los servicios de seguridad de Azure que ayudan a proteger los datos, recursos y aplicaciones en la nube, así como a satisfacer las necesidades de seguridad de su negocio.
@@ -147,7 +147,7 @@ Azure AD Privileged Identity Management le permite:
 
 ## <a name="secure-resource-access"></a>Protección del acceso a los recursos
 
-El control de acceso de Azure se inicia desde una perspectiva de facturación. El propietario de una cuenta de Azure, a la que se accede desde el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions), es el administrador de cuenta (AA). Las suscripciones son un contenedor para la facturación, pero también sirven de límite de seguridad: cada suscripción tiene un administrador de servicios (SA) que puede agregar, quitar y modificar recursos de Azure en esa suscripción mediante Azure Portal. El administrador de servicios predeterminado de una suscripción nueva es el administrador de cuenta, pero este puede cambiar el administrador de servicios en el Centro de cuentas de Azure.
+El control de acceso de Azure se inicia desde una perspectiva de facturación. El propietario de una cuenta de Azure, a la que se accede desde [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), es el administrador de cuenta (AA). Las suscripciones son un contenedor para la facturación, pero también sirven de límite de seguridad: cada suscripción tiene un administrador de servicios (SA) que puede agregar, quitar y modificar recursos de Azure en esa suscripción mediante Azure Portal. El administrador de servicios predeterminado de una suscripción nueva es el administrador de cuenta, pero este último puede cambiar el administrador de servicios en Azure Portal.
 
 ![Acceso protegido a los recursos de Azure](./media/technical-capabilities/azure-security-technical-capabilities-fig3.png)
 

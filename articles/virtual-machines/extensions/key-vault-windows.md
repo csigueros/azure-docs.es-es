@@ -10,12 +10,13 @@ ms.collection: windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a984d044134dbd775bacb653f8590ee78724f15b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 546537003d599dc66f77ace31471e04c8cef2d43
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563564"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854835"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Key Vault para Windows
 
@@ -81,7 +82,7 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
-          "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
+          "pollingIntervalInS": <string specifying polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
@@ -120,7 +121,7 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine o CurrentUser (distingue mayúsculas de minúsculas) | string |
 | requireInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate","https://myvault.vault.azure.net/secrets/mycertificate2"] | matriz de cadenas
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | matriz de cadenas
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
@@ -151,7 +152,7 @@ La configuración de JSON para una extensión de máquina virtual debe estar ani
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
-          "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
+          "pollingIntervalInS": <string specifying polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"]>
@@ -176,9 +177,20 @@ Para activar esta opción, establezca lo siguiente:
 > El uso de esta característica no es compatible con una plantilla de Resource Manager que crea una identidad asignada por el sistema y actualiza una directiva de acceso de Key Vault con esa identidad. Su utilización producirá un interbloqueo porque la directiva de acceso al almacén no se puede actualizar hasta que se hayan iniciado todas las extensiones. En su lugar, debe usar una *identidad MSI asignada por el usuario única* y establecer una ACL previamente en los almacenes con esa identidad antes de la implementación.
 
 ## <a name="azure-powershell-deployment"></a>Implementación de Azure PowerShell
-> [!WARNING]
-> Los clientes de PowerShell suelen agregar `\` a `"` en el archivo settings.json, lo cual producirá en akvvm_service el error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`.
 
+> [!WARNING]
+> Los clientes de PowerShell suelen agregar `\` a `"` en settings.json, lo que hace que akvvm_service produzca un error `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.` Los caracteres `\` y `"` adicionales serán visibles en el portal, en **Extensiones**, en **Configuración**. Para evitarlo, inicialice `$settings` como `HashTable` de PowerShell:
+> 
+> ```powershell
+> $settings = @{
+>     "secretsManagementSettings" = @{ 
+>         "pollingIntervalInS"       = "<pollingInterval>"; 
+>         "certificateStoreName"     = "<certStoreName>"; 
+>         "certificateStoreLocation" = "<certStoreLoc>"; 
+>         "observedCertificates"     = @("<observedCert1>", "<observedCert2>") } }
+> ```
+>
+  
 Azure PowerShell puede usarse para implementar la extensión de máquina virtual de Key Vault en una máquina virtual o un conjunto de escalado de máquinas virtuales. 
 
 * Para implementar la extensión en una máquina virtual:

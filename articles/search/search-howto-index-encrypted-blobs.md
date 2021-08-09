@@ -1,5 +1,5 @@
 ---
-title: Búsqueda de contenido cifrado de Azure Blob Storage
+title: Búsqueda de contenido cifrado de Azure Blob Storage
 titleSuffix: Azure Cognitive Search
 description: Aprenda a indexar y extraer texto de documentos cifrados en Azure Blob Storage con Azure Cognitive Search.
 manager: nitinme
@@ -9,18 +9,18 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
-ms.openlocfilehash: 4bab8def514df21d948d67f3cfba846c43917be2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e70361b747cac10b602efcf590963b707c7d5da7
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96530942"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559005"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Indexación de blobs cifrados mediante indexadores de blobs y conjuntos de aptitudes en Azure Cognitive Search
 
 En este artículo se muestra cómo usar [Azure Cognitive Search](search-what-is-azure-search.md) para indexar documentos que se han cifrado previamente en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) mediante [Azure Key Vault](../key-vault/general/overview.md). Normalmente, los indexadores no pueden extraer contenido de archivos cifrados porque no tienen acceso a la clave de cifrado. Sin embargo, al aprovechar la aptitud personalizada [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile), seguida de [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), puede proporcionar acceso controlado a la clave para descifrar los archivos y, a continuación, extraer contenido de ellos. De este modo, se desbloquea la capacidad de indexar estos documentos sin poner en peligro el estado de cifrado de los documentos almacenados.
 
-A partir de documentos completos (texto no estructurado) cifrados previamente, como PDF, HTML, DOCX y PPTX en Azure Blob Storage, en esta guía se usan Postman y las API de REST de Búsqueda para realizar las siguientes tareas:
+A partir de documentos completos (texto no estructurado) cifrados previamente, como PDF, HTML, DOCX y PPTX en Azure Blob Storage, en esta guía se usan Postman y las API de REST de Búsqueda para realizar las tareas siguientes:
 
 > [!div class="checklist"]
 > * Definir una canalización que descifre los documentos y extraiga texto de ellos.

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 90855059461fcd5f8ed8d2733d2b6d4addaccde3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ede3650aa185e178f6df21ff285115e4230b521f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94535051"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471961"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Seguridad en Azure Database for MySQL
 
@@ -47,7 +47,7 @@ Al crear el servidor de Azure Database for MySQL, se deben proporcionar las cre
 
 ## <a name="threat-protection"></a>Protección contra amenazas
 
-Puede optar por usar [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md), que detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a sus servidores o de aprovechar sus vulnerabilidades.
+Puede optar por usar [Azure Defender para bases de datos relacionales de código abierto](../security-center/defender-for-databases-introduction.md), que detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a sus servidores o de aprovechar sus vulnerabilidades.
 
 Existe un [registro de auditoría](concepts-audit-logs.md) disponible para realizar un seguimiento de las actividades en las bases de datos. 
 

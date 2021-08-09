@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 4/27/2021
+ms.date: 05/28/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60473d034820627605616c0bc280f1f105f4b3e5
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cdd4fe2f749f36fe0016e0cba71093cd6083dda8
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124120"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783791"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Cree una revisión de acceso para los roles de Azure AD en Azure AD Privileged Identity Management (PIM).
 
@@ -32,15 +32,15 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] Para más información sobre las licencias para PIM, consulte [Requisitos de licencia para usar Privileged Identity Management](subscription-requirements.md).
 
 > [!Note]
->  Actualmente, se puede limitar el ámbito de una revisión de acceso a las entidades de servicio con acceso a Azure AD y roles de recursos de Azure (versión preliminar) con una edición de Azure Active Directory Premium P2 activa en el inquilino. El modelo de licencia de las entidades de servicio finalizará con la disponibilidad general de esta característica y es posible que se requieran licencias adicionales.
+> Actualmente, se puede limitar el ámbito de una revisión de acceso a las entidades de servicio con acceso a Azure AD y roles de recursos de Azure (versión preliminar) con una edición de Azure Active Directory Premium P2 activa en el inquilino. El modelo de licencia de las entidades de servicio finalizará con la disponibilidad general de esta característica y es posible que se requieran licencias adicionales.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-[Administrador de roles con privilegios](../roles/permissions-reference.md#privileged-role-administrator)
+[Administrador global](../roles/permissions-reference.md#global-administrator)
 
 ## <a name="open-access-reviews"></a>Abrir las revisiones de acceso
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que sea miembro del rol Administrador de roles con privilegios.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como usuario al que se le asigna el rol administrador global.
 
 2. Seleccione **Identity Governance**.
  
@@ -73,16 +73,16 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 12. En **Revisar la pertenencia al rol**, seleccione los roles de Azure AD con privilegios que se deben revisar. 
 
     > [!NOTE]
-    > - Los roles seleccionados aquí incluyen [roles permanentes y elegibles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
     > - Si selecciona más de un rol, se crearán varias revisiones de acceso. Por ejemplo, al seleccionar cinco roles, se crearán cinco revisiones de acceso independientes.
     > - En el caso de los roles con grupos asignados, el acceso de cada grupo vinculado con el rol en revisión se revisará como parte de la revisión de acceso.
     Si va a crear una revisión de acceso de los **roles de Azure AD**, a continuación se muestra un ejemplo de la lista de revisión de pertenencia.
 
-    ![Panel para la revisión de pertenencia que muestra los roles de Azure AD que puede seleccionar](./media/pim-how-to-start-security-review/review-membership.png)
+    > [!NOTE]
+    > Si selecciona más de un rol, se crearán varias revisiones de acceso. Por ejemplo, al seleccionar cinco roles, se crearán cinco revisiones de acceso independientes.
 
-    Si va a crear una revisión de acceso de los **roles de recursos de Azure**, la imagen a continuación muestra un ejemplo de la lista de revisión de pertenencia.
+1. En el **tipo de asignación**, defina el ámbito de la revisión según la asignación de la entidad de seguridad al rol. Elija **Eligible assignments only** (Solo asignaciones aptas), en versión preliminar, para revisar las asignaciones aptas (independientemente del estado de activación al crear la revisión) o **Active Assignments only** (Solo asignaciones activas), en versión preliminar, para revisar las asignaciones activas. Elija **All active and eligible assignments** (Todas las asignaciones activas y aptas) para revisar todas las asignaciones, independientemente del tipo.
 
-    ![Panel para la revisión de pertenencia que muestra los recursos de Azure que puede seleccionar](./media/pim-how-to-start-security-review/review-membership-azure-resource-roles.png)
+     ![Lista de revisores de tipos de asignación](./media/pim-how-to-start-security-review/assignment-type-select.png)
 
 13. En la sección **Revisores**, seleccione una o más personas para que revisen a todos los usuarios. También puede seleccionar que los miembros revisen su propio acceso.
 

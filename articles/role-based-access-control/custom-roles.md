@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 05/19/2021
 ms.author: rolyon
-ms.openlocfilehash: 9779c2a269902d856d1639ce78028d0e658656bb
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c9ab7faebc28354e96cf1c54332fc1d7b19ef196
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479838"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469912"
 ---
 # <a name="azure-custom-roles"></a>Roles personalizados de Azure
 
@@ -185,12 +185,6 @@ En lugar de agregar todas estas cadenas, podría agregar únicamente una cadena 
 Microsoft.CostManagement/exports/*
 ```
 
-Una sola cadena puede tener varios caracteres comodín. Por ejemplo, la siguiente cadena representa todos los permisos de consulta de Cost Management.
-
-```
-Microsoft.CostManagement/*/query/*
-```
-
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quién puede crear, eliminar, actualizar o ver un rol personalizado
 
 Al igual que los roles integrados, la propiedad `AssignableScopes` especifica los ámbitos en los que el rol está disponible para la asignación. La propiedad `AssignableScopes` de un rol personalizado también controla quién puede crear, eliminar, actualizar o ver dicho rol.
@@ -210,6 +204,7 @@ En la siguiente lista se describen los límites de los roles personalizados.
 - `AssignableScopes` no se puede establecer en el ámbito raíz (`"/"`).
 - No puede usar caracteres comodín (`*`) en `AssignableScopes`. Esta restricción de caracteres comodín ayuda a garantizar que un usuario no pueda obtener acceso a un ámbito mediante la actualización de la definición de rol.
 - Solo se puede definir un grupo de administración en `AssignableScopes` de un rol personalizado. La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar.
+- Solo puede tener un carácter comodín en una cadena de acción.
 - No se pueden asignar roles personalizados con `DataActions` en el ámbito del grupo de administración.
 - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles.
 

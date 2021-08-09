@@ -3,12 +3,12 @@ title: Habilite las identidades administradas en las máquinas virtuales de labo
 description: En este artículo se muestra cómo un propietario del laboratorio puede habilitar identidades administradas asignadas por el usuario en las máquinas virtuales de laboratorio.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b4bf2900acebaeecd5cbc4cb65635aee6de87dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d2c7b944d37160df241e6ca4407c730593f1b62
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88717646"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854043"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Habilitar identidades administradas asignadas por el usuario en máquinas virtuales de laboratorio en Azure DevTest Labs
 Como propietario de un laboratorio, puede habilitar las identidades administradas asignadas por el usuario en las máquinas virtuales (VM) del laboratorio en Azure DevTest Labs.
@@ -40,23 +40,22 @@ Para agregar una identidad administrada asignada por el usuario para las máquin
 
 1.  Después de crear una identidad, tenga en cuenta el identificador de recurso de la identidad. Debería ser similar al ejemplo siguiente: 
 
-    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-2. Ejecute un método PUT HTTPS para agregar un nuevo recurso **ServiceRunner** al laboratorio, tal como se muestra en el ejemplo siguiente. 
+    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}`.
+    
+2. Ejecute un método HTTPS PUT en el recurso de laboratorio para agregar una o varias identidades asignadas por el usuario al campo **managementIdentities**.
 
-    El recurso del ejecutor del servicio es un recurso de proxy para administrar y controlar identidades administradas en DevTest Labs. El nombre del ejecutor del servicio puede ser cualquier nombre válido, pero se recomienda usar el nombre del recurso de identidad administrado.
 
     ```json
     {
-        "identity": {
-            "type": "userAssigned",
-            "userAssignedIdentities": { 
-                "[userAssignedIdentityResourceId]": {}
-            }
-            },
         "location": "southeastasia",
         "properties": {
-            "identityUsageType": "VirtualMachine"
-        }
+        ...
+            "managementIdentities": {
+               "/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}": {}
+        },
+        ...
+        },
+    ...
     }
     ```
 

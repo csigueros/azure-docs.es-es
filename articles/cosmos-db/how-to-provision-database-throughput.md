@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 4ecbee2260da735cd6ba74d3b9ffb55b4a652e9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7466a2e620a9489fe7b3b69967388d3ad4b7ab85
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93342008"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065343"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Aprovisionamiento del rendimiento estándar (manual) en una base de datos de Azure Cosmos DB: SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,8 +31,10 @@ Si va a usar otra API, vea los artículos [MongoDB API](how-to-provision-through
 1. Abra el panel de **Data Explorer** y seleccione **Nueva base de datos**. Especifique los detalles siguientes:
 
    * Escriba un identificador de base de datos.
-   * Seleccione la opción **Provision database throughput** (Aprovisionar rendimiento de base de datos).
-   * Escriba un rendimiento, por ejemplo 1000 RU.
+   * Seleccione la opción **Share throughput across containers** (Compartir rendimiento entre contenedores).
+   * Seleccione un rendimiento de **Autoscale** (Escalabilidad automática) o **Manual** y especifique el valor de **Database throughput** (Rendimiento de base de datos) (por ejemplo, 1000 RU/s).
+   * Escriba un nombre para el contenedor en **Container ID** (Id. de contenedor).
+   * Escriba una clave en **Clave de partición**.
    * Seleccione **Aceptar**.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Captura de pantalla del cuadro de diálogo Nueva base de datos":::

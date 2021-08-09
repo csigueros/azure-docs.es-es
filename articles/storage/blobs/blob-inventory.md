@@ -2,24 +2,24 @@
 title: Uso del inventario de Azure Storage para administrar datos de blobs (versión preliminar)
 description: El inventario de Azure Storage es una herramienta que ayuda a obtener información general de todos los datos de blobs dentro de una cuenta de almacenamiento.
 services: storage
-author: twooley
+author: normesta
 ms.service: storage
 ms.date: 04/01/2021
 ms.topic: conceptual
-ms.author: twooley
+ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 33d50d1a6b5e84d178b522851795bcc42f5fc169
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 14092e4d6ea63c96b653aaf09160e69a8ad30299
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277273"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753780"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Uso del inventario de blobs de Azure Storage para administrar datos de blobs (versión preliminar)
 
-La característica de inventario de blobs de Azure Storage proporciona información general de todos los datos de blobs dentro de una cuenta de almacenamiento. Use el informe de inventario para comprender el tamaño total de los datos, la antigüedad, el estado de cifrado, etc. El informe proporciona información general de los datos para los requisitos empresariales y de cumplimiento. Una vez habilitado, se crea automáticamente un informe de inventario a diario.
+La característica de inventario de blobs de Azure Storage proporciona información general de todos los datos de blobs dentro de una cuenta de almacenamiento. Use el informe de inventario para comprender el tamaño total de los datos, la antigüedad, los niveles de acceso, etc. El informe proporciona información general de los datos para los requisitos empresariales y de cumplimiento. Una vez habilitado, se crea automáticamente un informe de inventario a diario.
 
 ## <a name="availability"></a>Disponibilidad
 
@@ -30,14 +30,7 @@ El inventario de blobs es compatible con las cuentas de almacenamiento de blob e
 
 ### <a name="preview-regions"></a>Regiones en versión preliminar
 
-La versión preliminar del inventario de blobs está disponible en las cuentas de almacenamiento de las siguientes regiones:
-
-- Centro de Francia
-- Centro de Canadá
-- Este de Canadá
-- Este de EE. UU.
-- Este de EE. UU. 2
-- Oeste de Europa
+La versión preliminar del inventario de blobs está disponible en las cuentas de almacenamiento de todas las regiones públicas, excepto Oeste de EE. UU.
 
 ### <a name="pricing-and-billing"></a>Precios y facturación
 

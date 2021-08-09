@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 05/27/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5273d2aedd1382146b83197afb48c5120dcbb11
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 80de2d30055d5a78f4a0105d33f01b4fabfbcd47
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108767750"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955095"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 
@@ -25,7 +25,7 @@ Al agregar un usuario invitado al directorio, la cuenta de este tiene un estado 
 
    > [!IMPORTANT]
    > - **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Gmail de Google no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
-   > - **A partir de octubre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
+   > - **A partir de octubre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, animamos a los clientes a participar en la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md), que ahora está disponible con carácter general.
 
 ## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>Canje e inicio de sesión mediante un punto de conexión común
 
@@ -59,6 +59,20 @@ Al agregar un usuario invitado al directorio [mediante Azure Portal](./b2b-quick
 2. El invitado selecciona **Aceptar invitación** en el correo electrónico.
 3. El invitado usará sus propias credenciales para iniciar sesión en el directorio. Si el invitado no tiene una cuenta que se pueda federar al directorio y la característica [código de acceso de un solo uso (OTP) de correo electrónico](./one-time-passcode.md) no está habilitada, se solicita al invitado que cree una cuenta [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personal o una [cuenta de autoservicio de Azure AD](../enterprise-users/directory-self-service-signup.md). Consulte [Flujo de canje de invitación](#invitation-redemption-flow) para más información.
 4. Al invitado se le guiará por la [experiencia de consentimiento](#consent-experience-for-the-guest) que se describe a continuación.
+
+## <a name="redemption-limitation-with-conflicting-contact-object"></a>Limitación de canje con el objeto Contact en conflicto
+A veces, el correo electrónico del usuario invitado externo puede entrar en conflicto con un objeto [Contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) existente, lo que da lugar a que el usuario invitado se cree sin una propiedad proxyAddress. Se trata de una limitación conocida que impide que los usuarios invitados hagan lo siguiente: 
+- Canjear una invitación a través de un vínculo directo mediante [IdP de SAML/WS-Fed](/azure/active-directory/external-identities/direct-federation), [cuentas de Microsoft](/azure/active-directory/external-identities/microsoft-account), [federación de Google](/azure/active-directory/external-identities/google-federation) o cuentas de [código de acceso de un solo uso de correo electrónico](/azure/active-directory/external-identities/one-time-passcode). 
+- Canjear una invitación a través de un vínculo de canje de correo electrónico de invitación mediante [IdP de SAML/WS-Fed](/azure/active-directory/external-identities/direct-federation) y cuentas de [código de acceso de un solo uso de correo electrónico](/azure/active-directory/external-identities/one-time-passcode).
+- Volver a iniciar sesión en una aplicación después del canje mediante cuentas de [IdP de SAML/WS-Fed](/azure/active-directory/external-identities/direct-federation) y de [federación de Google](/azure/active-directory/external-identities/google-federation).
+
+Para desbloquear a los usuarios que no pueden canjear una invitación debido a un objeto [Contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) en conflicto, siga estos pasos:
+1. Elimine el objeto Contact en conflicto.
+2. Elimine el usuario invitado en Azure Portal (la propiedad "Invitación aceptada" del usuario debe estar en un estado pendiente).
+3. Vuelva a invitar al usuario externo.
+4. Espere a que el usuario canjee la invitación.
+5. Vuelva a agregar el correo electrónico de contacto del usuario en Exchange y cualquier DL de la que debe formar parte.
+
 ## <a name="invitation-redemption-flow"></a>Flujo del canje de invitación
 
 Cuando un usuario hace clic en el vínculo **Aceptar invitación** de un [correo electrónico de invitación](invitation-email-elements.md), Azure AD canjea automáticamente la invitación basándose en el flujo de canje, del modo que se muestra a continuación:

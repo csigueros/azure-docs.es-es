@@ -1,28 +1,28 @@
 ---
-title: 'Solución de problemas con la conexión al servicio de Windows Virtual Desktop (clásico): Azure'
-description: Cómo resolver problemas al configurar conexiones de cliente en un entorno de inquilinos de Windows Virtual Desktop (clásico).
+title: 'Solución de problemas con la conexión al servicio de Azure Virtual Desktop (clásico): Azure'
+description: Cómo resolver problemas al configurar conexiones de cliente en un entorno de inquilinos de Azure Virtual Desktop (clásico).
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: afd5ba23838f2771825511c4aa67b39934e757f6
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 856d6e65273b15c843bffe40c818b07c60f00fb0
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444197"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753942"
 ---
-# <a name="windows-virtual-desktop-classic-service-connections"></a>Conexiones al servicio de Windows Virtual Desktop (clásico)
+# <a name="azure-virtual-desktop-classic-service-connections"></a>Conexiones al servicio de Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../troubleshoot-service-connection.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../troubleshoot-service-connection.md).
 
-Use este artículo para resolver problemas con conexiones de cliente de Windows Virtual Desktop.
+Use este artículo para resolver problemas con conexiones de cliente de Azure Virtual Desktop.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 
-Puede proporcionarnos comentarios y hablar sobre el servicio Windows Virtual Desktop con el equipo del producto y otros miembros activos de la comunidad en la [comunidad técnica de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Puede proporcionarnos comentarios y hablar sobre el servicio Azure Virtual Desktop con el equipo del producto y otros miembros activos de la comunidad en la [comunidad técnica de Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>El usuario se conecta, pero no se muestra nada (ninguna fuente)
 
@@ -40,8 +40,8 @@ Si se usa el cliente web, confirme que no hay ningún problema de credenciales a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview-2019.md).
-- Para solucionar problemas durante la creación de un grupo de inquilinos y de hosts en un entorno de Windows Virtual Desktop, consulte [Creación de los grupos de inquilinos y de host](troubleshoot-set-up-issues-2019.md).
-- Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration-2019.md).
-- Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell-2019.md).
+- Para obtener información general sobre cómo solucionar problemas de Azure Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview-2019.md).
+- Para solucionar problemas durante la creación de un grupo de inquilinos y de hosts en un entorno de Azure Virtual Desktop, consulte [Creación de los grupos de inquilinos y de host](troubleshoot-set-up-issues-2019.md).
+- Para solucionar problemas al configurar una máquina virtual (VM) en Azure Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration-2019.md).
+- Para solucionar problemas al usar PowerShell con Azure Virtual Desktop, consulte [PowerShell para Azure Virtual Desktop](troubleshoot-powershell-2019.md).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

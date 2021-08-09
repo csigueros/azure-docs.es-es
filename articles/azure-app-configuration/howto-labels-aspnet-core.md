@@ -1,21 +1,21 @@
 ---
-title: Uso de configuraciones para cada entorno
+title: Uso de etiquetas para proporcionar valores de configuración para cada entorno.
 titleSuffix: Azure App Configuration
-description: Uso de etiquetas para proporcionar valores de configuración para cada entorno.
+description: En este artículo se describe cómo usar etiquetas para recuperar los valores de configuración de una aplicación para el entorno en el que esta se ejecuta actualmente.
 ms.service: azure-app-configuration
 author: AlexandraKemperMS
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 3/12/2020
 ms.author: alkemper
-ms.openlocfilehash: 84286df063994f3def15079cb9b190550d5bd977
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6d9aadff5fba66aef260c674f5a01904b289da2
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96929623"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592365"
 ---
-# <a name="use-labels-to-enable-configurations-for-different-environments"></a>Uso de etiquetas para habilitar configuraciones en distintos entornos
+# <a name="use-labels-to-provide-per-environment-configuration-values"></a>Uso de etiquetas para proporcionar valores de configuración para cada entorno.
 
 Muchas aplicaciones deben usar diferentes configuraciones en distintos entornos. Supongamos que una aplicación tiene un valor de configuración que define la cadena de conexión que se debe usar para la base de datos de back-end. Los desarrolladores de la aplicación usan una base de datos distinta de la que se usa en producción. La cadena de conexión de base de datos que la aplicación usa debe cambiarse a medida que la aplicación pasa del entorno de desarrollo a uno de producción.
 
@@ -38,29 +38,80 @@ De forma predeterminada, Azure App Configuration solo carga los valores de confi
 
 En la sección anterior, creó un valor de configuración diferente para el entorno de desarrollo. Use la variable `HostingEnvironment.EnvironmentName` para determinar de forma dinámica en qué entorno se está ejecutando actualmente la aplicación. Para obtener más información, consulte [Usar varios entornos en ASP.NET Core](/aspnet/core/fundamentals/environments).
 
-Cargue los valores de configuración con la etiqueta correspondiente al entorno actual. Para ello, pase el nombre del entorno al método `Select`:
+Agregue una referencia al espacio de nombres [Microsoft.Extensions.Configuration.AzureAppConfiguration](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration) para acceder a las clases [KeyFilter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.keyfilter) y [LabelFilter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.labelfilter).
 
 ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                config.AddAzureAppConfiguration(options =>
-                    options
-                        .Connect(Environment.GetEnvironmentVariable("AppConfigConnectionString"))
-                        // Load configuration values with no label
-                        .Select(KeyFilter.Any, LabelFilter.Null)
-                        // Override with any configuration values specific to current hosting env
-                        .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
-                );
-            })
-            .UseStartup<Startup>());
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+``` 
+
+Cargue los valores de configuración con la etiqueta correspondiente al entorno actual. Para ello, pase el nombre del entorno al método `Select`:
+
+### <a name="net-core-5x"></a>[.NET Core 5.x](#tab/core5x)
+
+```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(options =>
+                options
+                    .Connect(settings.GetConnectionString("AppConfig"))
+                    // Load configuration values with no label
+                    .Select(KeyFilter.Any, LabelFilter.Null)
+                    // Override with any configuration values specific to current hosting env
+                    .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
+            );
+        })
+        .UseStartup<Startup>());
 ```
 
+### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+
+```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(options =>
+                options
+                    .Connect(settings.GetConnectionString("AppConfig"))
+                    // Load configuration values with no label
+                    .Select(KeyFilter.Any, LabelFilter.Null)
+                    // Override with any configuration values specific to current hosting env
+                    .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
+            );
+        })
+        .UseStartup<Startup>());
+```
+
+### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+        .ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(options =>
+                options
+                    .Connect(settings.GetConnectionString("AppConfig"))
+                    // Load configuration values with no label
+                    .Select(KeyFilter.Any, LabelFilter.Null)
+                    // Override with any configuration values specific to current hosting env
+                    .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
+            );
+        })
+        .UseStartup<Startup>();
+```
+---
+
+
 > [!IMPORTANT]
-> El fragmento de código anterior carga la cadena de conexión de App Configuration desde una variable de entorno denominada `AppConfigConnectionString`. Asegúrese de que esta variable de entorno se haya configurado correctamente.
+> El fragmento de código anterior usa la herramienta Secret Manager para cargar la cadena de conexión de App Configuration. Para obtener información sobre cómo almacenar la cadena de conexión mediante Secret Manager, consulte [Inicio rápido: Creación de una aplicación ASP.NET Core con Azure App Configuration](quickstart-aspnet-core-app.md).
 
 Se llama dos veces al método `Select`. La primera vez, carga los valores de configuración sin etiqueta. A continuación, carga los valores de configuración con la etiqueta correspondiente al entorno actual. Estos valores específicos del entorno invalidan a todos los valores correspondientes sin etiqueta. No es necesario definir valores específicos del entorno para cada clave. Si una clave no tiene algún valor con una etiqueta que corresponda al entorno actual, se usará el valor sin etiqueta.
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef56db4ef67515d14f8462db2975e68a1a86f238
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 367d2679b360bfc90d84609384c61c9b66ba3706
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105959864"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538321"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Habilitación del inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory 
 
@@ -106,6 +106,10 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 Este comando genera las propiedades del servidor Kerberos de Azure AD. Puede revisar las propiedades para comprobar que todo está en orden.
 
+> [!NOTE]
+
+La ejecución en otro dominio tras suministrar la credencial hará que se conecte a través de NTLM y, a continuación, se producirá un error si los usuarios forman parte del grupo de seguridad "Usuarios protegidos" en AD. Solución alternativa: inicie sesión con otro usuario de dominio en el cuadro ADConnect y no proporcione -domainCredential, consumiría el vale de Kerebros del usuario que tiene la sesión iniciada. Para confirmarlo, ejecute whoami /groups para validar si el usuario tiene los privilegios necesarios en AD para ejecutar el comando anterior.
+ 
 | Propiedad | Descripción |
 | --- | --- |
 | ID | Identificador único del objeto controlador de dominio de AD DS. En ocasiones, a este identificador se le conoce como "ranura" o "id. de rama". |

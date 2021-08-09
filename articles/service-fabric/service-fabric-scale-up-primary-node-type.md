@@ -4,16 +4,17 @@ description: Escale verticalmente el clúster de Service Fabric agregando un nue
 ms.date: 12/11/2020
 ms.author: pepogors
 ms.topic: how-to
-ms.openlocfilehash: 325ece761481077171a670c52e9d98071237601a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ad6b105d18f431c53c9fc46a463271e0481b4f0b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251188"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688585"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Escalado vertical del tipo de nodo principal de un clúster de Service Fabric
 
-En este artículo se explica cómo se escala verticalmente el tipo de nodo principal de un clúster de Service Fabric con el tiempo de inactividad mínimo. La estrategia general para actualizar un tipo de nodo de clúster de Service Fabric es:
+En este artículo se explica cómo se escala verticalmente el tipo de nodo principal de un clúster de Service Fabric con el tiempo de inactividad mínimo. Las actualizaciones de SKU locales no se admiten en nodos de clúster de Service Fabric, ya que estas operaciones pueden conllevar la pérdida de datos y de disponibilidad. El método más seguro, confiable y recomendado para escalar verticalmente un tipo de nodo de Service Fabric es:
 
 1. Agregue un nuevo tipo de nodo a su clúster de Service Fabric, respaldado por la configuración y la SKU del conjunto de escalado de máquinas virtuales actualizadas (o modificadas). Este paso también implica la configuración de un nuevo equilibrador de carga, una subred y una dirección IP pública para el conjunto de escalado.
 

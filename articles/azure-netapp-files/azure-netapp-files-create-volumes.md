@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 393163cadf1907ac5bbb769ea2644bea190773ed
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: d8e8daba3806ad651f66324f362eb2573111dd80
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794329"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112070910"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creación de un volumen de NFS para Azure NetApp Files
 
@@ -102,11 +102,12 @@ En este artículo se muestra cómo crear un volumen NFS. Para los volúmenes SMB
 
 3. Haga clic en **Protocolo** y realice las siguientes acciones:  
     * Seleccione **NFS** como tipo de protocolo para el volumen.   
-    * Especifique la **ruta de acceso de archivo** que se usará para crear la ruta de acceso de exportación para el nuevo volumen. La ruta de acceso de exportación se usa para montar el volumen y tener acceso a él.
 
-        El nombre de la ruta de acceso de archivo solo puede contener letras, números y guiones ("-"). El nombre debe tener entre 16 y 40 caracteres. 
-
-        La ruta de acceso del archivo debe ser única dentro de cada suscripción y cada región. 
+    * Especifique una **ruta de archivo** única para el volumen. Esta ruta de acceso se usa al crear destinos de montaje. Los requisitos de la ruta de acceso son los siguientes:   
+        - Debe ser única dentro de cada subred de la región. 
+        - Debe comenzar con un carácter alfabético.
+        - Solo puede contener letras, números o guiones (`-`). 
+        - La longitud no debe superar los 80 caracteres.
 
     * Seleccione la versión de NFS (**NFSv3** o **NFSv4.1**) del volumen.  
 

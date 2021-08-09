@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: f979ca04a276f52e5f76a8e4327f9ff8ef390fe6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cbd2ef972753abfc9f18fed4a15c6ed0357daae0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143708"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095687"
 ---
 #  <a name="session-log-in-copy-activity"></a>Registro de sesión en la actividad de copia
 
@@ -20,6 +20,11 @@ ms.locfileid: "108143708"
 Puede registrar los nombres de archivo copiados en la actividad de copia, lo que puede ayudarle a asegurarse de que los datos no se copian correctamente desde el almacén de origen al de destino, sino que también son coherentes entre el almacén de origen y el de destino mediante la revisión de los archivos copiados en los registros de sesión de la actividad de copia.  
 
 Al habilitar la configuración de tolerancia a errores en la actividad de copia para omitir los datos con errores, también se pueden registrar los archivos omitidos y las filas omitidas.  Puede obtener más detalles en [Tolerancia a errores de la actividad de copia en Azure Data Factory](copy-activity-fault-tolerance.md). 
+
+Dado que tiene la oportunidad de obtener todos los nombres de archivo copiados por la actividad de copia de ADF mediante la habilitación del registro de sesión, le será útil en los escenarios siguientes:
+-   Después de usar las actividades de copia de ADF para copiar los archivos de un almacenamiento a otro, verá que algunos archivos se muestran en el almacén de destino, lo que no debería suceder. Puede examinar los registros de sesión de la actividad de copia para ver qué actividad de copia copió realmente esos archivos y cuándo copiar esos archivos. Por estos, puede encontrar fácilmente la causa principal y corregir las configuraciones en ADF.   
+-   Después de usar las actividades de copia de ADF para copiar los archivos de un almacenamiento a otro, cree que los archivos copiados en el destino no son los mismos que los del almacén de origen. Puede examinar los registros de sesión de la actividad de copia para obtener la marca de tiempo de los trabajos de copia, así como los metadatos de los archivos cuando las actividades de copia de ADF los leen desde el almacén de origen.  Por estos, puede saber si otras aplicaciones han actualizado esos archivos en el almacén de origen después de que ADF los haya copiado.  
+
 
 ## <a name="configuration"></a>Configuración
 En el ejemplo siguiente se proporciona una definición JSON para habilitar el registro de sesión en la actividad de copia: 

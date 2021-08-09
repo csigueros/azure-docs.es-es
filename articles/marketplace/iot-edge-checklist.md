@@ -1,18 +1,18 @@
 ---
-title: Lista de comprobación de certificación previa para las ofertas de módulos IoT Edge en Azure Marketplace
-description: Obtenga información sobre los requisitos de certificación específicos para publicar ofertas de módulos IoT Edge en Azure Marketplace.
+title: Lista de comprobación de certificación previa para las ofertas de módulos IoT Edge en Azure Marketplace
+description: Obtenga información sobre los requisitos de certificación específicos para publicar ofertas de módulos IoT Edge en Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-author: keferna
-ms.author: keferna
-ms.date: 03/01/2021
-ms.openlocfilehash: 31c19f62f0328fca05562eaa2f19b7a79c0f3e15
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+author: aarathin
+ms.author: aarathin
+ms.date: 05/21/2021
+ms.openlocfilehash: ec24d4df5a792166812693ad90f21396771ecdd6
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562705"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537887"
 ---
 # <a name="pre-certification-checklist-for-iot-edge-modules"></a>Lista de comprobación de certificación previa para los módulos IoT Edge
 
@@ -79,5 +79,5 @@ Verifique lo siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Implementación de módulos desde el marketplace comercial](../iot-edge/how-to-deploy-modules-portal.md#deploy-from-azure-marketplace)
-- [Publicación del módulo Edge en el Centro de partners](./partner-center-portal/azure-iot-edge-module-creation.md)
+- [Publicación del módulo Edge en el Centro de partners](./iot-edge-offer-setup.md)
 - [Implementación del módulo IoT Edge](../iot-edge/quickstart-linux.md)

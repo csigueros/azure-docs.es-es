@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 06/4/2021
 ms.author: damaerte
-ms.openlocfilehash: f824bddf833a1e2c01a3b779abc2c5252d8e0547
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 250e4bc171950bb643a75bdc9d80bdb2941cb97a
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89468664"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539304"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Introducción a Azure Cloud Shell
 
@@ -112,6 +112,10 @@ Obtenga más información sobre cómo montar una [cuenta de almacenamiento nueva
 * Los permisos se establecen como usuario de Linux normal en Bash.
 
 Obtenga más información sobre las características en [Bash en Cloud Shell](features.md) y [PowerShell en Cloud Shell](./features.md).
+
+## <a name="complaince"></a>Conformidad
+### <a name="encryption-at-rest"></a>Cifrado en reposo
+Toda infraestructura de Cloud Shell es compatible con el cifrado doble en reposo de forma predeterminada. Los usuarios no tienen que hacer nada.
 
 ## <a name="pricing"></a>Precios
 

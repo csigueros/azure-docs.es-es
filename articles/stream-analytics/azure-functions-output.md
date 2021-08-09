@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: e5ea7a1abbbd6ab4be32955179227fbd539cf641
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: ccedab6284fd5dac5a3d9f8d221a22803a3571f8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019625"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110666677"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Salida de Azure Functions desde Azure Stream Analytics
 
@@ -45,6 +45,11 @@ La clave de partición se basa en la cláusula PARTITION BY de la consulta. El n
 ## <a name="output-batch-size"></a>Tamaño de lote de salida
 
 El tamaño predeterminado de lote es de 262 144 bytes (256 KB). El número predeterminado de eventos por lote es 100. El tamaño del lote es configurable y puede aumentar o disminuir en las opciones de salida de Stream Analytics.
+
+## <a name="limitation"></a>Limitación
+
+Azure Functions debería completar su solicitud en menos de 100 segundos dado que, transcurrido este tiempo, el cliente HTTP agota el tiempo de espera. Si Azure Functions tarda más de 100 segundos en procesar un lote de datos, hay un tiempo de espera que desencadenará un reintento. Este reintento puede dar lugar a que se dupliquen los datos, ya que Azure Functions los procesará de nuevo y podría generar la misma salida, dado que es posible que se haya generado parcialmente en la solicitud anterior.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

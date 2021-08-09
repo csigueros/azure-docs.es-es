@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 0a83dd143ae626108fdf8d2645b8cc368a3f3e05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ad08f613fc6f7b712c5443ad935c40c97bfdba4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100516573"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464906"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Acceso a datos de Cassandra API de Azure Cosmos DB desde Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -48,9 +48,12 @@ En este artículo se explica cómo trabajar con Cassandra API de Azure Cosmos 
 
 * **Conector de Spark de Cassandra:** : para integrar Cassandra API de Azure Cosmos DB con Spark, se debe asociar el conector Cassandra al clúster de Azure Databricks. Para asociar el clúster:
 
-  * Revise la versión del entorno de ejecución de Databricks y la versión de Spark. A continuación, busque las [coordenadas de Maven](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) que son compatibles con el conector de Spark de Cassandra y asócielas al clúster. Consulte el artículo ["Upload a Maven package or Spark package"](https://docs.databricks.com/user-guide/libraries.html) (Carga de un paquete de Maven o Spark) para asociar la biblioteca del conector al clúster. Por ejemplo, la coordenada de Maven para "Databricks Runtime versión 4.3", "Spark 2.3.1" y "Scala 2.11" es `spark-cassandra-connector_2.11-2.3.1`
+  * Revise la versión del entorno de ejecución de Databricks y la versión de Spark. A continuación, busque las [coordenadas de Maven](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) que son compatibles con el conector de Spark de Cassandra y asócielas al clúster. Consulte el artículo ["Upload a Maven package or Spark package"](https://docs.databricks.com/user-guide/libraries.html) (Carga de un paquete de Maven o Spark) para asociar la biblioteca del conector al clúster. Se recomienda seleccionar el entorno de ejecución de Databricks Runtime versión 7.5, que admite Spark 3.0: Para agregar el conector de Cassandra de Apache Spark, su clúster, seleccione **Bibliotecas** > **Instalar Nueva** > **Maven** y, a continuación, agregue `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` en las coordenadas de Maven. Si usa Spark 2.x, se recomienda utilizar un entorno con la versión de Spark 2.4.5 y el conector de Spark en las coordenadas de Maven `com.datastax.spark:spark-cassandra-connector_2.11:2.4.3`.
 
-* **Biblioteca específica de Cassandra API de Azure Cosmos DB:** se requiere un generador de conexión personalizado para configurar la directiva de reintentos desde el conector de Spark de Cassandra a Cassandra API de Azure Cosmos DB. Agregue las `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0`[coordenadas de Maven](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) para asociar la biblioteca al clúster.
+* **Biblioteca específica de Cassandra API de Azure Cosmos DB:** si utiliza Spark 2.x, se requiere un generador de conexión personalizado para configurar la directiva de reintentos desde el conector de Spark de Cassandra a Cassandra API de Azure Cosmos DB. Agregue las `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.2.0`[coordenadas de Maven](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.2.0/jar) para asociar la biblioteca al clúster.
+
+> [!NOTE]
+> Si usa Spark 3.0 o posterior, no es necesario instalar la biblioteca específica de Cassandra API de Cosmos DB mencionada anteriormente.
 
 ## <a name="sample-notebooks"></a>Cuadernos de ejemplo
 

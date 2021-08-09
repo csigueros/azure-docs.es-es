@@ -3,16 +3,19 @@ title: 'Configuración de una puerta de señal para la grabación de vídeo basa
 description: En este artículo se proporcionan instrucciones sobre cómo configurar una puerta de señal en una canalización.
 ms.topic: how-to
 ms.date: 4/12/2021
-ms.openlocfilehash: e7871f017d416e164a6160336646d8285c3792a7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e03524e7e12a0081172918159e9f2d2ed2e4a7d6
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388574"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413436"
 ---
 # <a name="configuring-a-signal-gate-for-event-based-video-recording"></a>Configuración de una puerta de señal para la grabación de vídeo basada en eventos
 
 Dentro de una canalización, un [nodo de procesador de puerta de señal](pipeline.md#signal-gate-processor) le permite reenviar el elemento multimedia de un nodo a otro cuando un evento desencadena la puerta. Cuando se desencadena, la puerta se abre y permite el flujo de elementos multimedia durante una duración especificada. En ausencia de eventos para desencadenar la puerta, esta se cierra y el elemento multimedia deja de fluir. Puede usar el procesador de puerta de señal para la grabación de vídeo basada en eventos.
+
+> [!NOTE]
+> Un nodo de procesador de puerta de señal debe ir seguido inmediatamente de un receptor de vídeo o un receptor de archivos.
 
 En este artículo aprenderá a configurar un procesador de puerta de señal.
 
@@ -71,8 +74,8 @@ Los identificadores de correlación se establecen para cada evento. Estos identi
 
 * **activationEvaluationWindow**: de 0 a 10 segundos
 * **activationSignalOffset**: de -1 minuto a 1 minuto
-* **minimumActivationTime**: de 1 segundo a 1 hora
-* **maximumActivationTime**: de 1 segundo a 1 hora
+* **minimumActivationTime**: de 10 segundos a 1 hora.
+* **maximumActivationTime**: de 10 segundos a 1 hora.
 
 En el caso de uso, los parámetros se establecerían de la siguiente manera:
 

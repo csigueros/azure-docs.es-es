@@ -9,23 +9,25 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/11/2021
+ms.date: 06/03/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: fc04655db898902a93c4e404f51d15393db3d92e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: ff6e4f0a3c2b79f63376a480986f15014d20f9ae
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785266"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565363"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Uso de áreas de trabajo detrás de un firewall en Azure Machine Learning
 
 En este artículo, aprenderá a configurar Azure Firewall para controlar el acceso al área de trabajo de Azure Machine Learning y a la red pública de Internet. Para obtener más información sobre la protección de Azure Machine Learning, consulte [Seguridad de empresa para Azure Machine Learning](concept-enterprise-security.md).
 
-> [!WARNING]
-> El acceso al almacenamiento de datos detrás de un firewall solo se admite en las experiencias de Code First. No se admite el uso de [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) para acceder a los datos que se encuentran detrás de un firewall. Para trabajar con el almacenamiento de datos en una red privada con Studio, primero debe [configurar una red virtual](../virtual-network/quick-create-portal.md) y [proporcionar al estudio acceso a los datos almacenados dentro de una red virtual](how-to-enable-studio-virtual-network.md).
-
 ## <a name="azure-firewall"></a>Azure Firewall
+
+> [!IMPORTANT]
+> Azure Firewall es un servicio de Azure que proporciona seguridad _para los recursos de Azure Virtual Network_. Otros servicios de Azure, como las cuentas de Azure Storage, tienen su configuración del firewall propia, que se _aplica al punto de conexión público para esa instancia de servicio específica_. La información contenida en este documento es específica de Azure Firewall.
+> 
+> Para obtener información sobre la configuración del firewall de la instancia del servicio, consulte [Uso de Studio en una red virtual](how-to-enable-studio-virtual-network.md#firewall-settings).
 
 Al usar Azure Firewall, use la __traducción de direcciones de red de destino (DNAT)__ para crear reglas NAT para el tráfico entrante. En el caso del tráfico saliente, cree reglas de __red__ o de __aplicación__. Estas colecciones de reglas se describen con más detalle en [¿Cuáles son algunos de los conceptos de Azure Firewall?](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts)
 
@@ -107,6 +109,18 @@ Para más información, consulte [Creación de un grupo de Azure Batch en una re
 
 1. Para restringir el acceso a los modelos implementados en Azure Kubernetes Service (AKS), consulte [Control del tráfico de salida en Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
+### <a name="diagnostics-for-support"></a>Diagnósticos de soporte técnico
+
+Si necesita recopilar información de diagnóstico al trabajar con el soporte técnico de Microsoft, siga estos pasos:
+
+1. Agregue una __regla de red__ para permitir el tráfico hacia la etiqueta `AzureMonitor` y desde esta.
+1. Agregue __reglas de aplicación__ para los hosts siguientes. Seleccione __http, https__ como __Protocolo:Puerto__ para estos hosts:
+
+    + **dc.applicationinsights.azure.com**
+    + **dc.applicationinsights.microsoft.com**
+    + **dc.services.visualstudio.com**
+
+    Para obtener una lista de las direcciones IP para los hosts de Azure Monitor, vea [Direcciones IP usadas por Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ## <a name="other-firewalls"></a>Otros firewalls
 
 La guía de esta sección es genérica, ya que cada firewall tiene su propia terminología y configuraciones específicas. Si tiene alguna pregunta sobre cómo permitir la comunicación a través del firewall, consulte la documentación del firewall que usa.
@@ -148,7 +162,7 @@ Los hosts de esta sección son propiedad de Microsoft y proporcionan servicios n
 | Instancia de proceso | \*.instances.azureml.ms |  |  |
 
 > [!IMPORTANT]
-> El firewall debe permitir la comunicación con \*.instances.azureml.ms a través del puerto __TCP__ __18881__.
+> El firewall debe permitir la comunicación con \*.instances.azureml.ms a través de los puertos __TCP__ __18881, 443 y 8787__.
 
 **Recursos asociados usados por Azure Machine Learning**
 
@@ -167,6 +181,8 @@ Además, use la información de [tunelización forzada](how-to-secure-training-v
 
 Para obtener información sobre la restricción del acceso a los modelos implementados en Azure Kubernetes Service (AKS), consulte [Control del tráfico de salida en Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
+> [!TIP]
+> Si trabaja con el servicio de soporte técnico de Microsoft para recopilar información de diagnóstico, debe permitir el tráfico saliente a las direcciones IP que usan los hosts de Azure Monitor. Para obtener una lista de las direcciones IP para los hosts de Azure Monitor, vea [Direcciones IP usadas por Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ### <a name="python-hosts"></a>Hosts de Python
 
 Los hosts de esta sección se usan para instalar paquetes de Python. Son necesarios durante el desarrollo, el entrenamiento y la implementación. 

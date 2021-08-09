@@ -1,17 +1,17 @@
 ---
-title: 'Configuración de scripts de PowerShell para asociación de aplicaciones en formato MSIX para Windows Virtual Desktop: Azure'
-description: Cree scripts de PowerShell para la asociación de aplicaciones en formato MSIX para Windows Virtual Desktop.
+title: 'Configuración de scripts de PowerShell para asociación de aplicaciones en formato MSIX para Azure Virtual Desktop: Azure'
+description: Cree scripts de PowerShell para la asociación de aplicaciones en formato MSIX para Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 43a8cb00804927784982999db13ee193c34f55ca
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 1ff5ea8c4bb0af326b37d0e4ff2185be22393f16
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835387"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745446"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach"></a>Creación de scripts de PowerShell para la asociación de aplicaciones en formato MSIX (versión preliminar)
 
@@ -135,7 +135,7 @@ Antes de actualizar los scripts de PowerShell, asegúrese de que tiene el GUID d
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where { $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult] AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
     $asTaskAsyncOperation = $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult], [Windows.Management.Deployment.DeploymentProgress])
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
-    $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
+    $path = $msixJunction + $parentFolder + $packageName 
     $path = ([System.Uri]$path).AbsoluteUri
     $asyncOperation = $packageManager.StagePackageAsync($path, $null, "StageInPlace")
     $task = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))
@@ -261,6 +261,6 @@ catch [Exception]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Esta característica no se admite actualmente, pero puede preguntarle a la comunidad en [TechCommunity sobre Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Esta característica no se admite actualmente, pero puede preguntarle a la comunidad en [TechCommunity sobre Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-También puede dejar comentarios sobre Windows Virtual Desktop en el [Concentrador de comentarios de Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+También puede dejar comentarios sobre Azure Virtual Desktop en el [Centro de opiniones de Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).

@@ -4,20 +4,35 @@ titleSuffix: Azure Data Science Virtual  Machine
 description: Obtenga una lista de los problemas conocidos y soluciones para Azure Data Science Virtual Machine
 services: machine-learning
 ms.service: data-science-vm
-author: gvashishtha
-ms.author: gopalv
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: reference
-ms.date: 10/10/2019
-ms.openlocfilehash: bcd75347f91109967ac48427ca0b8855c11b7d9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/27/2021
+ms.openlocfilehash: 8e3393f236152e591b054ee2d7c4c2753c2ff670
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101656863"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408756"
 ---
 # <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>Problemas conocidos y solución de problemas de Azure Data Science Virtual Machine
 
 Este artículo lo ayuda a encontrar y corregir errores que podría tener al usar Azure Data Science Virtual Machine.
+
+## <a name="prompted-for-password-when-running-sudo-command-ubuntu"></a>Se solicita una contraseña al ejecutar el comando sudo (Ubuntu)
+
+Al ejecutar un comando `sudo` en una máquina Ubuntu, es posible que se le pida que vuelva a escribir la contraseña para confirmar que realmente es el usuario que ha iniciado sesión. Este es el comportamiento esperado y el predeterminado en sistemas Linux como Ubuntu.
+Sin embargo, en algunos escenarios, una autenticación repetida no es necesaria y es bastante molesta.
+
+Para deshabilitar la reautenticación en la mayoría de los casos, puede ejecutar el siguiente comando en un terminal.
+
+`echo -e "\n$USER ALL=(ALL) NOPASSWD: ALL\n" | sudo tee -a /etc/sudoers`
+
+Después de reiniciar el terminal, sudo no pedirá otro inicio de sesión y considerará que la autenticación del inicio de sesión es suficiente.
+
+## <a name="accessing-sql-server-windows"></a>Acceso a SQL Server (Windows)
+
+Al intentar conectarse a la instancia de SQL Server preinstalada, podría producirse un error del tipo "Error de inicio de sesión". Para conectarse correctamente a la instancia de SQL Server, debe ejecutar el programa con el que se conecta, por ejemplo, SQL Server Management Studio (SSMS), en modo de administrador. El modo de administrador es necesario porque, según el comportamiento predeterminado de DSVM, solo los administradores pueden conectarse.
 
 ## <a name="python-package-installation-issues"></a>Problemas de instalación del paquete de Python
 

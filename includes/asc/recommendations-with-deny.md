@@ -2,26 +2,26 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/21/2021
+ms.date: 06/14/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 5fc36e327a9530105182f0a23b3ef22ab324e01c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7433dd53346141147f8d7f0c7bdb1b3b076d152
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803267"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112083683"
 ---
+- [Habilitar si es necesario] Las cuentas de Azure Cosmos DB deben usar claves administradas por el cliente para cifrar los datos en reposo
+- [Habilitar si es necesario] Las áreas de trabajo de Azure Machine Learning deben cifrarse con una clave administrada por el cliente (CMK)
+- [Habilitar si es necesario] Las cuentas de Cognitive Services deben habilitar el cifrado de datos con una clave administrada por el cliente (CMK)
+- [Habilitar si es necesario] Los registros de contenedor se deben cifrar con una clave administrada por el cliente (CMK)
 - Se debe restringir el acceso a las cuentas de almacenamiento con configuraciones de red virtual y firewall
 - Las variables de cuenta de automatización deben cifrarse
 - Azure Cache for Redis debe residir en una red virtual
-- Las cuentas de Azure Cosmos DB deben usar claves administradas por el cliente para cifrar los datos en reposo
-- Las áreas de trabajo de Azure Machine Learning deben cifrarse con una clave administrada por el cliente (CMK).
 - Azure Spring Cloud debe usar la inserción de red
-- Las cuentas de Cognitive Services deben habilitar el cifrado de datos con una clave administrada por el cliente (CMK)
 - Debe aplicar los límites de CPU y memoria de los contenedores.
 - Las imágenes de contenedor solo deben implementarse desde registros de confianza
-- Las instancias de Container Registry se deben cifrar con una clave administrada por el cliente (CMK)
 - Debe evitar los contenedores con elevación de privilegios.
 - Deben evitarse los contenedores que comparten espacios de nombres de host confidenciales.
 - Los contenedores solo deben escuchar en los puertos permitidos.

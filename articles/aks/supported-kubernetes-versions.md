@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/29/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: c86166c2e38e3fec251707626f5cf9ebab938299
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: f2f1c01ec323452997f5e7ab8f20e13e1d572a72
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209218"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438205"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -143,12 +143,18 @@ Para ver el historial de versiones anteriores, vea [Kubernetes](https://en.wikip
 
 |  Versión de K8s | Versión anterior  | Versión preliminar de AKS  | Disponibilidad general de AKS  | Final de la vida útil |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.18  | 23 de marzo de 2020  | Mayo de 2020   | Agosto de 2020  | 1.21 disponibilidad general | 
+| 1.18  | 23 de marzo de 2020  | Mayo de 2020   | Agosto de 2020  | *1.21 disponibilidad general | 
 | 1.19  | 4 de agosto de 2020  | Septiembre de 2020   | Noviembre de 2020  | 1.22 disponibilidad general | 
 | 1.20  | 8 de diciembre de 2020  | Enero de 2021   | Marzo de 2021  | 1.23 Disponibilidad general |
 | 1.21  | 8 de abril de 2021 | Mayo de 2021   | Junio de 2021  | 1.24 disponibilidad general |
+| 1,22  | 4 de agosto de 2021 | Septiembre de 2021   | Octubre de 2021  | 1.25 disponibilidad general |
+| 1.23  | Diciembre de 2021 | Enero de 2022   | Febrero de 2022  | 1.26 disponibilidad general |
 
-
+>[!NOTE]
+>La versión 1.18 de AKS seguirá estando disponible hasta el 31 de julio de 2021. Después de esta fecha, AKS volverá a su soporte técnico normal con tres versiones repartidas en el tiempo. Es importante tener en cuenta lo siguiente, ya que el soporte técnico del 30 de junio al 31 de julio de 2021 estará limitada en el ámbito. A continuación se muestra a qué se limitarán los usuarios:
+> - Creación de nuevos clústeres y grupos de nodos en la versión 1.18.
+> - Operaciones CRUD en clústeres 1.18.
+> - Soporte técnico de Azure para incidencias de la plataforma no relacionadas con Kubernetes. Las incidencias de la plataforma incluyen problemas con las redes, el almacenamiento o la ejecución de procesos en Azure. Se solicitará que las solicitudes de soporte técnico para la aplicación de revisiones y la solución de problemas de K8s se actualicen a una versión compatible.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7cff009d5d1e187e8d0330fadca530b57b3e3d21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0280b8af673ebcf994ca537cbc929f9035a8d6d
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935218"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556503"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Asistente para la importación de datos de Azure Cognitive Search
 
@@ -93,7 +93,7 @@ El asistente para la importación de datos se inicia desde la barra de comandos 
 
    ![Comando de importación de datos en el portal](./media/search-import-data-portal/import-data-cmd2.png "Inicio del Asistente para la importación de datos")
 
-Puede iniciar la **importación de datos** desde otros servicios de Azure, como Azure Cosmos DB, Azure SQL Database, SQL Managed Instance y Azure Blob Storage. Busque la opción para **agregar Azure Cognitive Search** en el panel de navegación izquierdo en la página de información general del servicio.
+**Importar datos** también se puede ejecutar desde otros servicios de Azure, como Azure Cosmos DB, Azure SQL Database, SQL Managed Instance y Azure Blob Storage. Busque la opción para **agregar Azure Cognitive Search** en el panel de navegación izquierdo en la página de información general del servicio.
 
 <a name="index-definition"></a>
 

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: 1b66397fcc6ed32c7630aea1287c8f6865ebcbc5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3034f117f8efa383a9f7a5e768e8d5627ea32099
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749760"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668411"
 ---
 # <a name="glossary-of-iot-terms"></a>Glosario de términos de IoT
 
@@ -85,6 +85,10 @@ Un tipo de [punto de conexión](#endpoint) que se crea en IoT Hub. Todas las ins
 ### <a name="cloud-gateway"></a>Puerta de enlace en la nube
 
 Una puerta de enlace en la nube habilita la conectividad para dispositivos que no se pueden conectar directamente a [IoT Hub](#iot-hub). Una puerta de enlace en la nube se hospeda en la nube a diferencia de una [puerta de enlace de campo](#field-gateway) que se ejecuta localmente en los dispositivos. Un caso de uso típico de una puerta de enlace en la nube es la implementación de la traducción de protocolos para los dispositivos.
+
+### <a name="cloud-property"></a>Propiedad de nube
+
+En IoT Central, las propiedades de nube forman parte de la [plantilla de dispositivo](#device-model), pero no del [modelo de dispositivo](#device-model). Las propiedades de la nube permiten al desarrollador de soluciones especificar los metadatos de los dispositivos que se van a almacenar en la aplicación de IoT Central. Las propiedades de la nube no afectan al código que escribe el desarrollador de dispositivos para implementar el modelo de dispositivo.
 
 ### <a name="cloud-to-device"></a>De la nube al dispositivo
 
@@ -195,6 +199,10 @@ IoT Hub Device Provisioning Service (DPS) es un servicio auxiliar de [IoT Hub](#
 ### <a name="device-rest-api"></a>API REST de dispositivos
 
 Puede usar la [API REST de dispositivos](/rest/api/iothub/device) desde un dispositivo para enviar mensajes del dispositivo a la nube a IoT Hub y recibir mensajes [de la nube al dispositivo](#cloud-to-device) desde una instancia de IoT Hub. Por lo general, debería usar uno de los [SDK de dispositivos](#azure-iot-device-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
+
+### <a name="device-template"></a>Plantilla de dispositivo
+
+En IoT Central, una [plantilla de dispositivo](../iot-central/core/concepts-device-templates.md) es un plano técnico que define las características y los comportamientos de un tipo de dispositivo que se conecta a la aplicación. Por ejemplo, la plantilla de dispositivo define la telemetría que un dispositivo envía para que IoT Central pueda crear visualizaciones que usen las unidades y los tipos de datos correctos. Un [modelo de dispositivo](#device-model) forma parte de la plantilla de dispositivo.
 
 ### <a name="device-twin"></a>Dispositivo gemelo
 
@@ -368,7 +376,9 @@ Los aceleradores de soluciones de Azure IoT agrupan varios servicios de Azure en
 
 ### <a name="job"></a>Trabajo
 
-El back-end de solución puede utilizar [trabajos](../iot-hub/iot-hub-devguide-jobs.md) para programar y realizar el seguimiento de actividades en un conjunto de dispositivos registrados con IoT Hub. Las actividades incluyen actualizar las [propiedades deseadas](#desired-properties) del dispositivo gemelo, actualizar las [etiquetas](#tags) del dispositivo gemelo e invocar [métodos directos](#direct-method). [IoT Hub](#iot-hub) también usa trabajos para [importar y exportar](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) elementos desde el [registro de identidades](#identity-registry).
+En [IoT Hub](#iot-hub), los [trabajos](../iot-hub/iot-hub-devguide-jobs.md) permiten programar y realizar un seguimiento de las actividades en un conjunto de dispositivos registrados con IoT Hub. Las actividades incluyen actualizar las [propiedades deseadas](#desired-properties) del dispositivo gemelo, actualizar las [etiquetas](#tags) del dispositivo gemelo e invocar [métodos directos](#direct-method). IoT Hub también utiliza trabajos para [importar y exportar](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) desde el [registro de identidad](#identity-registry).
+
+En IoT Central, los [trabajos](../iot-central/core/howto-run-a-job.md) permiten administrar los dispositivos conectados de forma masiva mediante el establecimiento de propiedades y la llamada a comandos. Los trabajos de IoT Central también le permiten actualizar las [propiedades de nube](#cloud-property) de forma masiva.
 
 ## <a name="l"></a>L
 

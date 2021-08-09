@@ -8,25 +8,34 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ed23f563fce9760768a99e5bbf58f68500d665
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c56c6597e7ff2553089b62cabb84b24168b7cabf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103012027"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085733"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Eliminación de asignaciones de rol de un grupo en Azure Active Directory
 
 En este artículo se describe cómo un administrador de TI puede quitar roles de Azure AD asignados a grupos. En Azure Portal, ahora puede eliminar asignaciones de roles directas e indirectas a un usuario. Si un usuario tiene asignado un rol mediante la pertenencia a un grupo, elimine el usuario del grupo para quitar la asignación de roles.
 
-## <a name="using-azure-admin-center"></a>Uso del centro de administración de Azure
+## <a name="prerequisites"></a>Requisitos previos
 
-1. Inicie sesión en el [centro de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
+- Una licencia de Azure AD Premium P1 o P2
+- Administrador global o administrador de roles con privilegios
+- Módulo de AzureADPreview al usar PowerShell
+- Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
+
+Para más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
+
+## <a name="azure-portal"></a>Portal de Azure
+
+1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
 
 1. Seleccione **Roles y administradores** > **_nombre de rol_**.
 
@@ -36,7 +45,7 @@ En este artículo se describe cómo un administrador de TI puede quitar roles de
 
 1. Cuando se le solicite confirmación, seleccione **Sí**.
 
-## <a name="using-powershell"></a>Usar PowerShell
+## <a name="powershell"></a>PowerShell
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>Creación de un grupo al que se pueda asignar un rol
 
@@ -62,7 +71,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinition
 Remove-AzureAdMSRoleAssignment -Id $roleAssignment.Id 
 ```
 
-## <a name="using-microsoft-graph-api"></a>Uso de Microsoft Graph API
+## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 ### <a name="create-a-group-that-can-be-assigned-an-azure-ad-role"></a>Creación de un grupo al que asignar un rol de Azure AD
 

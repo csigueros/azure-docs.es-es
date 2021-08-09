@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
-ms.custom: references_regions, synapse-cosmos-db
-ms.openlocfilehash: 5cfe932d4f9ea60a044ce0b594df800fa37af6f1
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
+ms.openlocfilehash: bba594a6b0482457acad8bead382099a1e8e3a5b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904935"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968040"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -195,7 +195,7 @@ En los vínculos siguientes se muestra cómo crear un contenedor habilitado para
 Después de habilitar el almacén analítico con un valor de TTL determinado, tal vez quiera actualizarlo a un valor válido diferente más adelante. Puede actualizar el valor desde Azure Portal, mediante la CLI de Azure, desde PowerShell o con los SDK de Cosmos DB. Para obtener información sobre las distintas opciones de configuración de TTL analítico, consulte el artículo [valores de TTL analítico admitidos](analytical-store-introduction.md#analytical-ttl).
 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Si creó un contenedor habilitado para el almacén analítico mediante Azure Portal, dicho contenedor contiene un TTL analítico predeterminado de -1. Siga estos pasos para actualizar dicho valor:
 
@@ -270,7 +270,8 @@ El grupo de SQL sin servidor permite consultar y analizar los datos de los conte
 
 ## <a name="use-serverless-sql-pool-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Uso de un grupo de SQL sin servidor para analizar datos en Power BI y visualizarlos
 
-Se puede compilar una base de datos de grupo de SQL sin servidor y vistas a través de Synapse Link para Azure Cosmos DB. Posteriormente se pueden consultar los contenedores de Azure Cosmos y, después, compilar un modelo con Power BI sobre esas vistas para reflejar la consulta. Para obtener más información, vea el artículo sobre cómo usar un [grupo de SQL sin servidor para analizar los datos de Azure Cosmos DB con Synapse Link](synapse-link-power-bi.md).
+Se puede crear una base de datos de grupo de SQL sin servidor y vistas a través de Synapse Link para Azure Cosmos DB. Posteriormente se pueden consultar los contenedores de Azure Cosmos y, después, compilar un modelo con Power BI sobre esas vistas para reflejar la consulta. No hay ningún impacto en el rendimiento ni en el costo de las cargas de trabajo transaccionales y tampoco existe ninguna complejidad en la administración de canalizaciones de ETL. Puede usar los modos [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) o [importación](/power-bi/connect-data/service-dataset-modes-understand#import-mode). Para obtener más información, vea el artículo sobre cómo usar un [grupo de SQL sin servidor para analizar los datos de Azure Cosmos DB con Synapse Link](synapse-link-power-bi.md).
+
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 

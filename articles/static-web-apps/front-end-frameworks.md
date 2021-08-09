@@ -1,5 +1,5 @@
 ---
-title: Configuración de marcos de servidores front-end con Azure Static Web Apps versión preliminar
+title: Configuración de marcos de servidores front-end con Azure Static Web Apps
 description: Configuración de los marcos de servidores front-end populares necesarios para Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
@@ -7,14 +7,14 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 9f02c9ad10e2b03bddc7c3ca2cfb54932464b69a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 767b20600c8edb2752a87a10c788ee446a8f15b3
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731758"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813981"
 ---
-# <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configuración de marcos y bibliotecas de servidores front-end con Azure Static Web Apps versión preliminar
+# <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps"></a>Configuración de marcos y bibliotecas de servidores front-end con Azure Static Web Apps
 
 Azure Static Web Apps requiere que tenga los valores de configuración adecuados en el [archivo de configuración de compilación](github-actions-workflow.md) para el marco o la biblioteca del servidor front-end.
 

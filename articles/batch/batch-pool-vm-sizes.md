@@ -2,14 +2,14 @@
 title: Elección de los tamaños y las imágenes de máquina virtual de los grupos
 description: Cómo elegir uno de los tamaños de máquina virtual y una de las versiones de sistema operativo disponibles para los nodos de proceso en grupos de Azure Batch
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 06/01/2021
 ms.custom: seodec18
-ms.openlocfilehash: 6de7decbf40eede74dd7b92f9f1139e1b31450c8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b5314d3672da87ac1d2fadca61046348a369e218
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126262"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789123"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño y una imagen de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -35,7 +35,7 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | Dv4, Dsv4 | No compatible |
 | Ev3, Esv3 | Todos los tamaños, excepto E64is_v3 |
 | Eav4, Easv4 | Todos los tamaños |
-| Edv4, Edsv4 |  Todos los tamaños |
+| Edv4, Edsv4 |  Todos los tamaños, excepto Standard_E20d_v4, Standard_E20ds_v4, Standard_E80ids_v4 |
 | Ev4, Esv4 | No compatible |
 | F, Fs | Todos los tamaños |
 | Fsv2 | Todos los tamaños |
@@ -43,7 +43,7 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | H | Todos los tamaños |
 | HB | Todos los tamaños |
 | HBv2 | Todos los tamaños |
-| HBv3 | Standard_HB120rs_v3 (otros tamaños todavía no están disponibles) |
+| HBv3 | Todos los tamaños |
 | HC | Todos los tamaños |
 | LS | Todos los tamaños |
 | Lsv2 | Todos los tamaños |
@@ -55,6 +55,7 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | NCasT4_v3 | Todos los tamaños |
 | ND | Todos los tamaños |
 | NDv2 | Ninguno: no disponible todavía |
+| NP | Todos los tamaños |
 | NV | Todos los tamaños |
 | NVv3 | Todos los tamaños |
 | NVv4 | Todos los tamaños |

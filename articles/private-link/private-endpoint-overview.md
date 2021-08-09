@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 92f9c3baaa8260bdc154f8752b56a63cf1444ebe
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7359dc8199c01bae7f7463b83079193397e40519
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140414"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072899"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -109,6 +109,12 @@ El propietario del recurso de vínculo privado puede realizar las siguientes acc
  
 > [!NOTE]
 > Solo un punto de conexión privado en un estado aprobado puede enviar tráfico a un recurso de vínculo privado determinado. 
+
+### <a name="rbac-permissions"></a>Permisos de RBAC
+
+Estos son permisos de RBAC específicos que el usuario necesita para poder crear un punto de conexión privado. Para más información sobre los roles personalizados, consulte [Pasos para crear un rol personalizado](/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role).
+
+Microsoft.Resources/deployments/* Microsoft.Resources/subscriptions/resourcegroups/resources/read Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/read Microsoft.Network/virtualNetworks/subnets/write Microsoft.Network/virtualNetworks/subnets/join/action Microsoft.Network/privateEndpoints/read Microsoft.Network/privateEndpoints/write Microsoft.Network/locations/availablePrivateEndpointTypes/read
 
 ### <a name="connecting-using-alias"></a>Conexión mediante alias
 El alias es un moniker único que se genera cuando el propietario del servicio crea el servicio de vínculo privado detrás de un equilibrador de carga estándar. El propietario del servicio puede compartir este alias con sus consumidores sin conexión. Los consumidores pueden solicitar una conexión al servicio de vínculo privado mediante el URI de recurso o el alias. Si desea conectarse mediante el alias, debe crear un punto de conexión privado mediante el método de aprobación de conexión manual. Para usar el método de aprobación de conexión manual, establezca el parámetro solicitud manual en true durante el flujo de creación del punto de conexión privado. Consulte [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) y [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) para obtener más información. 

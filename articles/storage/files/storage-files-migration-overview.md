@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 44fa4fb953399622d75f0239d3e7d626557629f7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0c91f81c1909819f3a5b8d8475ccdd676132dd13
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744702"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477488"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migración a recursos compartidos de archivos de Azure
 
@@ -45,7 +45,7 @@ La fidelidad de los archivos en una migración se puede definir como la capacida
 
 - Almacenar toda la información del archivo aplicable en el origen.
 - Transferir archivos con la herramienta de migración.
-- Almacenar archivos en el almacenamiento de destino de la migración.
+- Almacenar archivos en el almacenamiento de destino de la migración. </br> En última instancia, el destino de las guías de migración de esta página es uno o varios recursos compartidos de archivos de Azure. Tenga en cuenta esta [lista de características o fidelidad de archivos que no admiten los recursos compartidos de archivos de Azure](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 Para asegurarse de que la migración se realiza de manera fluida, identifique [la mejor herramienta de copia para sus necesidades](#migration-toolbox) y haga coincidir un destino de almacenamiento con el origen.
 
@@ -57,7 +57,7 @@ Un usuario de Active Directory, que es su controlador de dominio local, puede t
 
 El flujo de datos alternativo es el aspecto principal de la fidelidad de los archivos que actualmente no se puede almacenar en un archivo de un recurso compartido de archivos de Azure. Se conserva localmente cuando se usa Azure File Sync.
 
-Obtenga más información sobre la [autenticación de Azure AD](storage-files-identity-auth-active-directory-enable.md) y la [autenticación de Azure AD DS](storage-files-identity-auth-active-directory-domain-service-enable.md) de los recursos compartidos de archivos de Azure.
+Aprenda más sobre la [autenticación de Active Directory local](storage-files-identity-auth-active-directory-enable.md) y la [autenticación de Azure AD DS](storage-files-identity-auth-active-directory-domain-service-enable.md) con los recursos compartidos de archivos de Azure.
 
 ## <a name="migration-guides"></a>Guías de migración
 
@@ -85,8 +85,8 @@ Un escenario sin un vínculo aún no tiene ninguna guía de migración publicada
 | Windows Server 2012 y versiones anteriores | <ul><li>Mediante DataBox y Azure File Sync a un sistema operativo de servidor reciente</li><li>Mediante el servicio de migración de almacenamiento a un servidor reciente con Azure File Sync y, a continuación, cárguelo</li></ul> | <ul><li>Mediante el servicio de migración de almacenamiento a un servidor reciente con Azure File Sync</li><li>[Mediante RoboCopy a un recurso compartido de archivos de Azure montado](storage-files-migration-robocopy.md)</li></ul> |
 | Almacenamiento conectado a la red (NAS) | <ul><li>[Mediante la carga de Azure File Sync](storage-files-migration-nas-hybrid.md)</li><li>[Mediante DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>[Mediante DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>[Mediante RoboCopy a un recurso compartido de archivos de Azure montado](storage-files-migration-robocopy.md)</li></ul> |
 | Linux/Samba | <ul><li>[Azure File Sync y RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>[Mediante RoboCopy a un recurso compartido de archivos de Azure montado](storage-files-migration-robocopy.md)</li></ul> |
-| Dispositivo de nube Microsoft Azure StorSimple 8100 o dispositivo de nube StorSimple 8600 | <ul><li>[Mediante un servicio en la nube de migración de datos dedicado](storage-files-migration-storsimple-8000.md)</li></ul> | <ul><li>[Mediante un servicio en la nube de migración de datos dedicado](storage-files-migration-storsimple-8000.md)</li></ul> |
-| Dispositivo de nube StorSimple 1200 | <ul><li>[Mediante Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
+| Dispositivos de la serie Microsoft Azure StorSimple 8100 o 8600 | <ul><li>[Mediante un servicio en la nube de migración de datos dedicado](storage-files-migration-storsimple-8000.md)</li></ul> | <ul><li>[Mediante un servicio en la nube de migración de datos dedicado](storage-files-migration-storsimple-8000.md)</li></ul> |
+| Aplicación virtual StorSimple 1200 | <ul><li>[Mediante Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
 
 ## <a name="migration-toolbox"></a>Cuadro de herramientas de migración
 
@@ -119,9 +119,9 @@ En la tabla siguiente se clasifican las herramientas de Microsoft y su idoneidad
 |![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Compatible. Los recursos compartidos de archivos de Azure se pueden montar como unidades de red. | Fidelidad completa* |
 |![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Integrado de forma nativa en recursos compartidos de archivos de Azure. | Fidelidad completa* |
 |![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Servicio de migración de almacenamiento | Indirectamente compatible. Los recursos compartidos de archivos de Azure se pueden montar como unidades de red en servidores de destino de SMS. | Fidelidad completa* |
-|![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy </br>versión 10.6 | Compatible. | No admite una copia de la lista de control de acceso raíz de origen; de lo contrario, la fidelidad será completa.* </br>[Más información sobre cómo usar AzCopy con recursos compartidos de archivos de Azure](../common/storage-use-azcopy-files.md) |
 |![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Compatible. | DataBox es totalmente compatible con los metadatos. |
-|![No es totalmente recomendable.](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Explorador de Azure Storage </br>versión 1.14 | Compatible. | No copia las ACL. Admite marcas de tiempo.  |
+|![No es totalmente recomendable.](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| AzCopy </br>Versión más reciente | Se admite, pero no se recomienda. | No admite copias diferenciales a gran escala y es posible que se pierda cierta fidelidad en los archivos. </br>[Más información sobre cómo usar AzCopy con recursos compartidos de archivos de Azure](../common/storage-use-azcopy-files.md) |
+|![No es totalmente recomendable.](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Explorador de Azure Storage </br>Versión más reciente | Compatible pero no se recomienda. | Pierde la mayor parte de fidelidad en los archivos, como las listas ACL. Admite marcas de tiempo. |
 |![No recomendado](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Compatible. | No copia los metadatos. |
 |||||
 

@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 5888a7cc8aa58d1c6edab191e1243ebc60000fd6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea65011a27b7dab65ea75b5365bdcdf2be67d8b2
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048874"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747138"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Cómo configurar la indexación de SharePoint Online en Cognitive Search (versión preliminar)
 
@@ -49,6 +49,10 @@ La detección de eliminaciones también se admite de forma predeterminada. Esto 
 
 ## <a name="setting-up-sharepoint-online-indexing"></a>Configuración de la indexación de SharePoint Online
 Para configurar el indexador de SharePoint Online, tendrá que realizar algunas acciones en Azure Portal y otras con la API REST en versión preliminar. Esta versión preliminar no es compatible con el SDK.
+
+ En el vídeo siguiente se muestra cómo configurar el indexador de SharePoint Online.
+ 
+> [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
 ### <a name="step-1-enable-system-assigned-managed-identity"></a>Paso 1: Habilitación de una identidad administrada asignada por el sistema
 Cuando se habilita una identidad administrada asignada por el sistema, Azure crea una identidad para el servicio de búsqueda que el indexador puede usar.
@@ -87,7 +91,7 @@ El indexador de SharePoint Online usará esta aplicación de AAD para la autenti
 
 1.  Proporcione el consentimiento del administrador (solo es necesario para determinados inquilinos).
 
-    Algunos inquilinos están bloqueados y hace falta el consentimiento del administrador para usar estos permisos de API delegados. Si este es el caso, deberá tener dicho consentimiento para esta aplicación de AAD antes de crear el indexador. 
+    Algunos inquilinos están bloqueados y hace falta el consentimiento del administrador para usar estos permisos de API delegados. Si este es el caso, deberá tener dicho consentimiento para esta aplicación de AAD antes de crear el indexador.
 
     Dado que no todos los inquilinos tienen este requisito, se recomienda omitir primero este paso y continuar con las instrucciones. Sabrá si necesita el consentimiento del administrador si, al crear el indexador, se produce un error en la autenticación que indica que necesita que un administrador apruebe la autenticación. En ese caso, use el siguiente botón para que un administrador de inquilinos le conceda el consentimiento.
 

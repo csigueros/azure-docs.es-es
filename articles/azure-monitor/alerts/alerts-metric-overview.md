@@ -3,16 +3,16 @@ title: Comprender cómo funcionan las alertas de métricas en Azure Monitor.
 description: Obtenga información general acerca de lo que puede hacer con las alertas de métricas y cómo funcionan en Azure Monitor.
 ms.date: 03/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8a243f0a2130e0ec2ebafe726f48e07c148807c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd0672523329b17b0e101d5abb16700254b8a918
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016090"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441337"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
-Las alertas de métricas en Azure Monitor funcionan en la parte superior de las métricas multidimensionales. Estas métricas pueden ser [métricas de plataforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [métricas personalizadas](../essentials/metrics-custom-overview.md), [registros populares de Azure Monitor convertidos en métricas](./alerts-metric-logs.md) y métricas de Application Insights. Las alertas de métricas se evalúan a intervalos regulares para comprobar si las condiciones de una o varias series temporales para las métricas son verdaderas y recibirá una notificación cuando se cumplan las evaluaciones. Como las alertas de métricas tienen un estado, solo envían notificaciones cuando cambia ese estado.
+Las alertas de métricas en Azure Monitor funcionan en la parte superior de las métricas multidimensionales. Estas métricas pueden ser [métricas de plataforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [métricas personalizadas](../essentials/metrics-custom-overview.md), [registros populares de Azure Monitor convertidos en métricas](./alerts-metric-logs.md) y métricas de Application Insights. Las alertas de métricas se evalúan a intervalos regulares para comprobar si las condiciones de una o varias series temporales para las métricas son verdaderas y recibirá una notificación cuando se cumplan las evaluaciones. Como las alertas de métricas tienen estado de forma predeterminada, solo envían notificaciones cuando ese estado cambia (activada, resuelta). Si quiere que no tengan estado, consulte [Generación de alertas de métricas cada vez que se cumple mi condición](alerts-troubleshoot-metric.md#make-metric-alerts-occur-every-time-my-condition-is-met).
 
 ## <a name="how-do-metric-alerts-work"></a>Cómo funcionan las alertas de métricas
 
@@ -130,8 +130,6 @@ El aumento de los períodos de retroceso y del número de infracciones también 
 > - Regla de alertas de métricas que supervisa varios recursos: Cuando se agrega un nuevo recurso al ámbito.
 > - Regla de alertas de métricas que supervisa una métrica que no se emite de manera continua (métrica dispersa): Cuando la métrica se emite después de un período de más de 24 horas en el que no se emitió.
 
-
-
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Supervisión a escala mediante alertas de métricas en Azure Monitor
 
 Hasta ahora, ha visto cómo se puede usar una única alerta de métrica para supervisar una o varias series temporales de métricas relacionadas con un único recurso de Azure. Con frecuencia, es posible que desee aplicar la misma regla de alertas a muchos recursos. Azure Monitor también permite supervisar varios recursos (del mismo tipo) utilizando una sola regla de alertas de métricas con los recursos que se encuentran en la misma región de Azure. 
@@ -174,7 +172,6 @@ En cuanto a las alertas de métricas, normalmente recibirá una notificación en
 ## <a name="supported-resource-types-for-metric-alerts"></a>Tipos de recursos admitidos en las alertas métricas
 
 En este [artículo](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported) puede encontrar la lista completa de tipos de recursos admitidos.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

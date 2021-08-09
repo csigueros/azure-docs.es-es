@@ -4,19 +4,19 @@ description: Describe cómo validar un punto de conexión HTTP y luego recibir y
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 75c80fb85d39298f1130537971bc700897c039d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93494bc35099c2ef9cbc93ed6713d8a2608f2c4c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023738"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473445"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recepción de eventos en un punto de conexión de HTTP
 
 En este artículo se describe cómo [validar un punto de conexión de HTTP](webhook-event-delivery.md) para recibir eventos de una suscripción a eventos y, a continuación, recibir y deserializar los eventos. En este artículo se utiliza una función de Azure para fines de demostración; sin embargo, se aplican los mismos conceptos con independencia de dónde se hospede la aplicación.
 
 > [!NOTE]
-> Se recomienda **encarecidamente** que use un [desencadenador de la cuadrícula de eventos](../azure-functions/functions-bindings-event-grid.md) al desencadenar una función de Azure con Event Grid. Aquí se usa un desencadenador de Webhook genérico con fines ilustrativos.
+> Se recomienda que use un [desencadenador de Event Grid](../azure-functions/functions-bindings-event-grid.md) al desencadenar una instancia de Azure Functions con Event Grid. Proporciona una integración más sencilla y rápida entre Event Grid y Azure Functions. Sin embargo, tenga en cuenta que el desencadenador de Event Grid para Azure Functions no admite el escenario en el que el código hospedado necesita controlar el código de estado HTTP devuelto a Event Grid. Dada esta limitación, el código que se ejecuta en una instancia de Azure Functions no podría devolver un error 5XX para iniciar un reintento de entrega de eventos con Event Grid, por ejemplo.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

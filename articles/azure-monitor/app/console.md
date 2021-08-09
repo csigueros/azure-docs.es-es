@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: aa39a1eca04621fc4db75f755402d3679403e814
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee78fb4f778ac1ab629a68173249bdcada7b00fa
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96920592"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082601"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicaciones de consola .NET
 
@@ -24,7 +24,7 @@ Necesita una suscripción a [Microsoft Azure](https://azure.com). Inicie sesión
 ## <a name="getting-started"></a>Introducción
 
 > [!IMPORTANT]
-> Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La [cadena de conexión](./sdk-connection-string.md?tabs=net) identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
+> Las [cadenas de conexión](./sdk-connection-string.md?tabs=net) se recomiendan por encima de las claves de instrumentación. Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La cadena de conexión identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
 
 * En [Azure Portal](https://portal.azure.com), [cree un recurso de Application Insights](./create-new-resource.md). Para el tipo de aplicación, elija **General**.
 * Realice una copia de la clave de instrumentación. Busque la clave en la lista desplegable **Essentials** del recurso que creó.

@@ -7,26 +7,29 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 8b8f42d75a0d214bdc504c8cc0adb6f234ea036e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0ed20af6b27822f1f437f584e9b73eb416941d6f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751128"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066005"
 ---
-# <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticación y autorización para Azure Static Web Apps (versión preliminar)
+# <a name="authentication-and-authorization-for-azure-static-web-apps"></a>Autenticación y autorización para Azure Static Web Apps
 
-Azure Static Web Apps dinamiza la experiencia de autenticación al administrar la autenticación con los proveedores siguientes:
+Azure Static Web Apps proporciona una experiencia de autenticación simplificada. De forma predeterminada, tiene acceso a una serie de proveedores preconfigurados o a la opción de [registrar un proveedor personalizado](./authentication-custom.md).
 
-- Azure Active Directory
-- GitHub
-- Twitter
+- Cualquier usuario puede autenticarse con un proveedor habilitado.
+- Una vez iniciada la sesión, los usuarios pertenecen a los roles `anonymous` y `authenticated` de forma predeterminada.
+- Los usuarios autorizados obtienen acceso a [rutas](configuration.md#routes) restringidas mediante reglas definidas en el [archivo staticwebapp.config.json](./configuration.md).
+- Los usuarios se unen a los roles personalizados a través de [invitaciones](#invitations) específicas del proveedor o a través de un [registro de proveedor de Azure Active Directory personalizado](./authentication-custom.md).
+- Todos los proveedores de autenticación están habilitados de forma predeterminada.
+  - Para restringir un proveedor de autenticación, [bloquee el acceso](#block-an-authorization-provider) con una regla de ruta personalizada.
+- Estos son los proveedores preconfigurados:
+  - Azure Active Directory
+  - GitHub
+  - Twitter
 
-Las [invitaciones](#invitations) específicas de los proveedores asocian los usuarios con roles, y a los usuarios autorizados se les concede acceso a las [rutas](configuration.md#routes) mediante reglas definidas en el archivo _staticwebapp.config.json_.
-
-Todos los proveedores de autenticación están habilitados de forma predeterminada. Para restringir un proveedor de autenticación, [bloquee el acceso](#block-an-authorization-provider) con una regla de ruta personalizada.
-
-Los temas sobre autenticación y autorización se superponen significativamente con los conceptos de enrutamiento. Asegúrese de leer la [guía de configuración](configuration.md#routes) junto con este artículo.
+Los temas de autenticación y autorización se superponen significativamente con los conceptos de enrutamiento, que se detallan en la [guía de configuración de la aplicación](configuration.md#routes).
 
 ## <a name="roles"></a>Roles
 
@@ -41,7 +44,10 @@ Además de los roles integrados, puede crear nuevos roles, asignarlos a los usua
 
 ### <a name="add-a-user-to-a-role"></a>Adición de un usuario a un rol
 
-Para agregar usuarios al sitio web, genere invitaciones que le permitan asociar usuarios a roles específicos. Los roles se definen y mantienen en el archivo _staticwebapp.config.json_.
+Para agregar un usuario a un rol, genere invitaciones que le permitan asociar usuarios a roles concretos. Los roles se definen y mantienen en el archivo _staticwebapp.config.json_.
+
+> [!NOTE]
+> Puede optar por [registrar un proveedor de Azure Active Directory personalizado](./authentication-custom.md) para evitar la emisión de invitaciones para la administración de grupos.
 
 <a name="invitations" id="invitations"></a>
 
@@ -101,7 +107,7 @@ Al quitar un usuario, tenga en cuenta los elementos siguientes:
 
 ## <a name="remove-personal-identifying-information"></a>Eliminación de la información de identificación personal
 
-Al conceder consentimiento a una aplicación como usuario final, la aplicación tiene acceso a su dirección de correo electrónico o nombre de usuario, según el proveedor de identidades. Una vez que se proporcione esta información, el propietario de la aplicación decidirá cómo administrar la información de identificación personal.
+Al conceder consentimiento a una aplicación como usuario final, la aplicación tiene acceso a su dirección de correo electrónico o a su nombre de usuario, según el proveedor de identidades. Una vez que se proporcione esta información, el propietario de la aplicación decidirá cómo administrar la información de identificación personal.
 
 Los usuarios finales deben ponerse en contacto con los administradores de las aplicaciones web individuales para revocar esta información de sus sistemas.
 
@@ -123,7 +129,7 @@ Azure Static Web Apps usa la carpeta del sistema `/.auth` para proporcionar acce
 
 ## <a name="login"></a>Inicio de sesión
 
-Use la tabla siguiente para buscar la ruta de inicio de sesión específica de los proveedores.
+Use la siguiente tabla para buscar la ruta específica de los proveedores.
 
 | Proveedor de autorización | Ruta de inicio de sesión             |
 | ---------------------- | ----------------------- |
@@ -131,7 +137,7 @@ Use la tabla siguiente para buscar la ruta de inicio de sesión específica de l
 | GitHub                 | `/.auth/login/github`   |
 | Twitter                | `/.auth/login/twitter`  |
 
-Por ejemplo, para iniciar sesión con GitHub, podría incluir un vínculo de inicio de sesión como el siguiente fragmento de código:
+Por ejemplo, para iniciar sesión con GitHub, podría incluir un vínculo como el siguiente fragmento de código:
 
 ```html
 <a href="/.auth/login/github">Login</a>

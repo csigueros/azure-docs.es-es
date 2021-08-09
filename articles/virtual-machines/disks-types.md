@@ -3,17 +3,17 @@ title: 'Selección de un tipo de disco para máquinas virtuales IaaS de Azure: d
 description: Obtenga información sobre los tipos de disco de Azure disponibles para las máquinas virtuales, incluidos los discos ultra, SSD Premium, SSD estándar y HDD estándar.
 author: roygara
 ms.author: rogarana
-ms.date: 09/30/2020
+ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 782d4d18e9b6ffc16c1d95a995cef806adc42904
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96500774"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083429"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>¿Qué tipos de disco están disponibles en Azure?
 
@@ -42,7 +42,7 @@ Cuando aprovisione un disco ultra, puede configurar de forma independiente la ca
 Estas son algunas funcionalidades clave de los discos Ultra:
 
 - Capacidad de disco: intervalos de capacidad de discos Ultra desde 4 GiB hasta 64 TiB.
-- IOPS de disco: los dispositivos Ultra admiten límites de IOPS de 300 IOPS/GiB y hasta un máximo de 160 K IOPS por disco. Para recuperar la tasa de unidades IOPS que aprovisionó, asegúrese de que la cantidad de IOPS de disco seleccionadas sea menor que el límite de IOPS de la máquina virtual. El valor mínimo garantizado de IOPS por disco es 2 IOPS/GiB, con una base de referencia general mínima de 100 IOPS. Por ejemplo, si tuviera un disco Ultra de 4 GiB, tendrá un mínimo de 100 IOPS, en lugar de ocho IOPS.
+- IOPS de disco: los dispositivos Ultra admiten límites de IOPS de 300 IOPS/GiB y hasta un máximo de 160 K IOPS por disco. Para recuperar la tasa de unidades IOPS que aprovisionó, asegúrese de que la cantidad de IOPS de disco seleccionadas sea menor que el límite de IOPS de la máquina virtual. El valor mínimo garantizado de IOPS por disco es 1 IOPS/GiB, con una línea base general mínima de 100 IOPS. Por ejemplo, si tuviera un disco Ultra de 4 GiB, tendrá un mínimo de 100 IOPS, en lugar de 8 IOPS.
 - Rendimiento del disco: con los discos Ultra, el límite de rendimiento de un solo disco es de 256 KiB/s por cada IOPS aprovisionada, y hasta 2000 MBps como máximo por disco (donde MBps = 10^6 bytes por segundo). El rendimiento mínimo garantizado por disco es 4 KiB/s por cada IOPS aprovisionada, con una base de referencia total como mínima de 1 MBps.
 - Los discos Ultra admiten el ajuste de los atributos de rendimiento del disco (IOPS y rendimiento) en tiempo de ejecución sin necesidad de desasociar el disco de la máquina virtual. Cuando se ha enviado una operación de cambio de tamaño del rendimiento del disco en un disco, este cambio puede tardar hasta una hora en surtir efecto. Hay un límite de cuatro operaciones de cambio de tamaño de rendimiento en un período de 24 horas. Se puede producir un error en la operación de ajuste de tamaño del rendimiento debido a la falta de capacidad de ancho de banda de rendimiento.
 

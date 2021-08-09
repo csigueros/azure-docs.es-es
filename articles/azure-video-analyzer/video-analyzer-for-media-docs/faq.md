@@ -6,14 +6,14 @@ services: media-services
 author: Juliako
 manager: femila
 ms.topic: article
-ms.date: 05/06/2021
+ms.date: 05/25/2021
 ms.author: juliako
-ms.openlocfilehash: 620ebb81462f807b46c12aeee596e8873c99a1e4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1c4b96bf7874c5ade93601f7ff40238ef04cb7ee
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386779"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966677"
 ---
 # <a name="video-analyzer-for-media-frequently-asked-questions"></a>Preguntas más frecuentes sobre Video Analyzer for Media
 
@@ -102,6 +102,12 @@ Si quiere obtener información sobre el nuevo vídeo, puede indexarlo con Video 
 
 Si hay varias secuencias de audio, Video Analyzer for Media toma la primera que encuentra y procesa solo esa. En cualquier secuencia de audio que procesa Video Analyzer for Media, toma los distintos canales (si los hay) y los procesa como mono. En el caso de la manipulación de secuencias/canales, puede usar comandos ffmpeg en el archivo antes de indexarlo.
 
+### <a name="can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall"></a>¿Puede una cuenta de almacenamiento conectada a la cuenta de Media Services estar detrás de un firewall?
+
+La cuenta de pago de Video Analyzer for Media usa la cuenta de Media Services especificada que está conectada a una cuenta de almacenamiento. Actualmente, para usar una cuenta de almacenamiento conectada que está detrás de un firewall, debe ponerse en contacto con el soporte técnico de Video Analyzer for Media para que le den las instrucciones exactas. 
+
+Para abrir una nueva solicitud de soporte técnico en Azure Portal, vaya a [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 ### <a name="what-is-the-sla-for-video-analyzer-for-media"></a>¿Cuál es el Acuerdo de Nivel de Servicio de Video Analyzer for Media?
 
 El Acuerdo de Nivel de Servicio de Azure Media Services abarca Video Analyzer for Media y se encuentra en la página del [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/). El Acuerdo de Nivel de Servicio solo se aplica a las cuentas de pago de Video Analyzer for Media y no a la evaluación gratuita.
@@ -136,7 +142,7 @@ De conformidad con los [Términos de los servicios en línea de Azure](https://w
 
 Sí, el contenido y su información se mantienen dentro de la región de Azure (excepto las regiones de Singapur y Sur de Brasil) a menos que tenga una configuración manual en la suscripción de Azure que use varias regiones de Azure.
 
-Los datos del cliente de una región se replican por motivos de BCDR en la [región emparejada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs).
+Los datos del cliente de una región se replican por motivos de BCDR en la [región emparejada](../../best-practices-availability-paired-regions.md#azure-regional-pairs).
 
 ### <a name="what-is-the-privacy-policy-for-video-analyzer-for-media"></a>¿Cuál es la directiva de privacidad de Video Analyzer for Media?
 

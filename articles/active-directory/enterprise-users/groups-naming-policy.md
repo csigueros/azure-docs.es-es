@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 06/11/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00291907ddea75ba4507779d1226502dc8343aea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fc67b0b038abda37c591162caad9b3b94e6c440
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365708"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027486"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Aplicación de una directiva de nomenclatura en los grupos de Microsoft 365 en Azure Active Directory
 
@@ -70,12 +70,12 @@ Reglas de la lista de palabras bloqueadas:
 ### <a name="roles-and-permissions"></a>Roles y permisos
 
 Para configurar la directiva de nomenclatura, se necesita uno de los roles siguientes:
+
 - Administrador global
 - Administrador del grupo
-- Escritor de directorio
+- Escritor de directorios
 
-
-Algunos administradores pueden quedar excluidos de estas directivas, en todas las cargas de trabajo de grupo y puntos de conexión, de forma que pueden crear grupos mediante palabras bloqueadas y con sus propias convenciones de nomenclatura. A continuación se muestra la lista de roles de administrador excluidos de la directiva de nomenclatura de grupos.
+Algunos roles de administradores pueden quedar excluidos de estas directivas, en todas las cargas de trabajo de grupo y puntos de conexión, de forma que pueden crear grupos mediante palabras bloqueadas y con sus propias convenciones de nomenclatura. A continuación se muestra la lista de roles de administrador excluidos de la directiva de nomenclatura de grupos:
 
 - Administrador global
 - Administrador de usuarios

@@ -10,16 +10,25 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
-ms.openlocfilehash: 6218715878ec40fecee79f1c93bf2ca1820af007
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 3a1de2f0e35a3ef747818d7dea47ecacb2753cea
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277018"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747282"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de la versión de Azure SQL Edge 
 
 En este artículo se describen las novedades y los cambios en cada nueva versión de Azure SQL Edge.
+
+## <a name="azure-sql-edge-104"></a>Azure SQL Edge 1.0.4
+
+Número de versión del motor de SQL: 15.0.2000.1558
+
+### <a name="whats-new"></a>Novedades
+
+- Compatibilidad de PREDICT con ONNX 
+    - Mejoras en el control de datos nulos en PREDICT para ONNX
 
 ## <a name="azure-sql-edge-103"></a>Azure SQL Edge 1.0.3
 

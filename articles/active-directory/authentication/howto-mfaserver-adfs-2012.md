@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 06/01/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b38a27788a4bbb25ff0405a54ca5e64258dd135
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 23d568e78027617a57ce8a534511cd052157a11d
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286031"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785954"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configuración del Servidor Azure Multi-Factor Authentication para trabajar con AD FS en Windows Server
 
@@ -98,7 +98,7 @@ Siga estos pasos para editar el archivo MultiFactorAuthenticationAdfsAdapter.con
 Hay dos opciones para configurar el SDK del servicio Web. La primera es con un nombre de usuario y una contraseña, y la segunda es con un certificado de cliente. Siga estos pasos para la primera opción o pase a la segunda.  
 
 1. Establezca el valor de **WebServiceSdkUsername** en una cuenta miembro del grupo de seguridad PhoneFactor Admins. Utilice el formato &lt;dominio&gt;&#92;&lt;nombre de usuario&gt;.  
-2. Establezca el valor de **WebServiceSdkPassword** en la contraseña de la cuenta apropiada.
+2. Establezca el valor de **WebServiceSdkPassword** en la contraseña de la cuenta apropiada. El carácter especial "&" no se puede usar en **WebServiceSdkPassword**.
 
 ### <a name="configure-the-web-service-sdk-with-a-client-certificate"></a>Configuración del SDK del servicio web con un certificado de cliente
 

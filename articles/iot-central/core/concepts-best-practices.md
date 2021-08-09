@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom:
 - device-developer
-ms.openlocfilehash: 683ec2b75cad36e4f4745b74ec3207bde9af9ac3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a3cbfa17d3b063ddcef90820dc31a080a768cbcd
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760956"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110493769"
 ---
 # <a name="best-practices-for-device-development"></a>Procedimientos recomendados para el desarrollo de dispositivos
 
@@ -56,6 +56,38 @@ Si el dispositivo obtiene alguno de los errores siguientes al conectarse, debe u
 - Error interno 500 del servicio.
 
 Para obtener más información sobre los códigos de error de los dispositivos, vea [Solución de problemas de conexiones de dispositivos](troubleshoot-connection.md).
+
+## <a name="test-failover-capabilities"></a>Prueba de las funcionalidades de conmutación por error
+
+La CLI de Azure permite probar las funcionalidades de conmutación por error del código de cliente del dispositivo. El comando de la CLI funciona cambiando temporalmente un registro de dispositivo a un centro de IoT interno diferente. Puede comprobar que la conmutación por error del dispositivo funcionó comprobando que el dispositivo sigue enviando telemetría y respondiendo a los comandos de la aplicación IoT Central.
+
+Para ejecutar la prueba de conmutación por error del dispositivo, ejecute el siguiente comando:
+
+```azurecli
+az iot central device manual-failover \
+    --app-id {Application ID of your IoT Central application} \
+    --device-id {Device ID of the device you're testing} \
+    --ttl-minutes {How to wait before moving the device back to it's original IoT hub}
+```
+
+> [!TIP]
+> Para buscar el **identificador de la aplicación**, vaya a **Administración > Su aplicación** en su aplicación IoT Central.
+
+Si el comando se ejecuta correctamente, verá una salida similar a la siguiente:
+
+```output
+Command group 'iot central device' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+{
+  "hubIdentifier": "6bd4...bafa",
+  "message": "Success! This device is now being failed over. You can check your device'’'s status using 'iot central device registration-info' command. The device will revert to its original hub at Tue, 18 May 2021 11:03:45 GMT. You can choose to failback earlier using device-manual-failback command. Learn more: https://aka.ms/iotc-device-test"
+}
+```
+
+Para más información sobre el comando de la CLI, consulte [az iot central device manual-failover](/cli/azure/iot/central/device#az_iot_central_device_manual_failover).
+
+Ahora puede comprobar que la telemetría del dispositivo sigue llegando a su aplicación IoT Central.
+
+Para ver código de dispositivo de ejemplo que controla las conmutaciones por error en varios lenguajes de programación, consulte [Clientes de alta disponibilidad de IoT](https://github.com/iot-for-all/iot-central-high-availability-clients).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

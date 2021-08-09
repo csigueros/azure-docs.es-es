@@ -8,6 +8,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -15,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 9a9cfc444c101b603b5287fa862c36d5befef91a
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: d3a4a8bb54c5bafa9eb50ed4441cd6eebe2acc6c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110189655"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079920"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Almacenamiento: procedimientos recomendados de rendimiento de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +30,7 @@ En este artículo se proporcionan los procedimientos recomendados y guías de al
 
 Por lo general, existe un equilibrio entre la optimización de los costos y la optimización del rendimiento. Esta serie de procedimientos recomendados de rendimiento se centra en cómo obtener el *mejor* rendimiento de SQL Server en las máquinas virtuales de Azure. Si su carga de trabajo es menos exigente, podría no necesitar todas las optimizaciones recomendadas. Tenga en cuenta sus necesidades de rendimiento, costos y patrones de carga de trabajo a medida que evalúa estas recomendaciones.
 
-Para obtener más información, consulte otros artículos de esta serie: [Lista de comprobación de rendimiento](performance-guidelines-best-practices-checklist.md), [Tamaño de VM ](performance-guidelines-best-practices-vm-size.md)y [Recopilación de la línea base](performance-guidelines-best-practices-collect-baseline.md). 
+Para obtener más información, consulte otros artículos de esta serie: [Lista de comprobación](performance-guidelines-best-practices-checklist.md), [Tamaño de VM](performance-guidelines-best-practices-vm-size.md), [Seguridad](security-considerations-best-practices.md), [Configuración de HADR](hadr-cluster-best-practices.md) y [Recopilación de la base de referencia](performance-guidelines-best-practices-collect-baseline.md). 
 
 ## <a name="checklist"></a>Lista de comprobación
 
@@ -277,10 +278,12 @@ Existen métricas de Azure Monitor específicas que son útiles para detectar el
 Para obtener más información sobre los procedimientos recomendados de rendimiento, consulte otros artículos de esta serie:
 - [Lista de comprobación rápida](performance-guidelines-best-practices-checklist.md)
 - [Tamaño de VM](performance-guidelines-best-practices-vm-size.md)
+- [Seguridad](security-considerations-best-practices.md)
+- [Configuración de HADR](hadr-cluster-best-practices.md)
 - [Recopilación de la línea base](performance-guidelines-best-practices-collect-baseline.md)
 
 Para ver los procedimientos recomendados de seguridad, consulte [Consideraciones de seguridad para SQL Server en Azure Virtual Machines](security-considerations-best-practices.md).
 
 Para realizar pruebas detalladas del rendimiento de SQL Server en máquinas virtuales de Azure con las pruebas comparativas TPC-E y TPC_C, consulte el blog en el que se explica cómo [optimizar el rendimiento de OLTP](https://techcommunity.microsoft.com/t5/sql-server/optimize-oltp-performance-with-sql-server-on-azure-vm/ba-p/916794).
 
-Revise otros artículos sobre la máquina virtual de SQL Server en [Introducción a SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.md).
+Revise otros artículos sobre la máquina virtual de SQL Server en [Introducción a SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.yml).

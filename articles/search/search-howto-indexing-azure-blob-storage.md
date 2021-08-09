@@ -7,20 +7,24 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 05/14/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 40e3e804d62bfd0ece669ebd46891f0c72dcb71e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 848ffc1d4352d464a9afb1c65a0a8c60eb3cffa3
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140342"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558897"
 ---
 # <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Configuración de una indexación de blobs en Cognitive Search
 
-Un indexador de blobs se usa para la ingesta de contenido de Azure Blob Storage a un índice de Cognitive Search. Los indexadores de blobs se usan con frecuencia en el [Enriquecimiento de IA](cognitive-search-concept-intro.md), donde un [conjunto de aptitudes](cognitive-search-working-with-skillsets.md) agrega una imagen y un procesamiento de lenguaje natural para crear el contenido de búsqueda. Sin embargo, también puede usar indexadores de blob sin enriquecimiento de IA para ingerir contenido de documentos basados en texto, como PDF, documentos de Microsoft Office y formatos de archivo.
+Un indexador de blobs se usa para la ingesta de contenido de Azure Blob Storage en un índice de Cognitive Search. Los indexadores de blobs se usan con frecuencia en el [Enriquecimiento de IA](cognitive-search-concept-intro.md), donde un [conjunto de aptitudes](cognitive-search-working-with-skillsets.md) agrega una imagen y un procesamiento de lenguaje natural para crear el contenido de búsqueda. Sin embargo, también puede usar indexadores de blob sin enriquecimiento de IA para ingerir contenido de documentos basados en texto, como PDF, documentos de Microsoft Office y formatos de archivo.
 
 En este artículo se muestra cómo configurar un indexador de blobs para cualquiera de los escenarios descritos. Si no está familiarizado con los conceptos de indexador, comience con [Indexadores de Azure Cognitive Search](search-indexer-overview.md) y [Creación de un indexador de búsqueda](search-howto-create-indexers.md) antes de profundizar en la indexación de blobs.
+
+## <a name="supported-access-tiers"></a>Niveles de acceso admitidos
+
+Entre los [niveles de acceso](../storage/blobs/storage-blob-storage-tiers.md) de Blob Storage se incluyen el nivel de acceso frecuente, esporádico y de archivo. Los indexadores solo tienen acceso frecuente y esporádico. 
 
 <a name="SupportedFormats"></a>
 

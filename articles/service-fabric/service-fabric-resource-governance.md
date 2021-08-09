@@ -3,12 +3,12 @@ title: Gobernanza de recursos para contenedores y servicios
 description: Azure Service Fabric le permite especificar los límites y las solicitudes de recursos de los servicios que se ejecutan como procesos o contenedores.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: d760766870c8c2be0a2d2384f6d012b75bc92fbd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2265640346525c6521d7f421c2e589979cceb4ca
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735665"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783413"
 ---
 # <a name="resource-governance"></a>Regulación de recursos
 
@@ -264,14 +264,18 @@ Comentarios adicionales:
 
 ## <a name="other-resources-for-containers"></a>Otros recursos para los contenedores
 
-Además de la CPU y de la memoria, es posible especificar otros límites de recursos para los contenedores. Estos límites se especifican en el nivel del paquete de código y se aplican cuando se inicia el contenedor. A diferencia de con la CPU y la memoria, Cluster Resource Manager no tiene en cuenta estos recursos y no realiza ninguna comprobación de capacidad ni de equilibrio de carga para ellos.
+Además de la CPU y de la memoria, es posible especificar otros [límites de recursos para los contenedores](service-fabric-service-model-schema-complex-types.md#resourcegovernancepolicytype-complextype). Estos límites se especifican en el nivel del paquete de código y se aplican cuando se inicia el contenedor. A diferencia de con la CPU y la memoria, Cluster Resource Manager no tiene en cuenta estos recursos y no realiza ninguna comprobación de capacidad ni de equilibrio de carga para ellos.
 
-* *MemorySwapInMB*: la cantidad de memoria de intercambio que puede usar un contenedor.
-* *MemoryReservationInMB*: el límite flexible para la gobernanza de memoria que se aplica únicamente cuando se detecta contención de la memoria en el nodo.
-* *CpuPercent*: porcentaje de CPU que puede usar el contenedor. Si se especifican los límites y las solicitudes de CPU para el paquete de servicio, este parámetro se omite de forma efectiva.
-* *MaximumIOps*: E/S máximas que puede usar un contenedor (lectura y escritura).
-* *MaximumIOBytesps*: E/S máxima (bytes por segundo) que puede usar un contenedor (lectura y escritura).
-* *BlockIOWeight*: peso de E/S de bloque en relación con otros contenedores.
+* *MemorySwapInMB*: la cantidad total de memoria de intercambio que puede utilizarse, en MB. Debe ser un entero positivo.
+* *MemoryReservationInMB*: límite flexible (en MB) para la gobernanza de memoria que se aplica únicamente cuando se detecta contención de la memoria en el nodo. Debe ser un entero positivo.
+* *CpuPercent*: porcentaje que se puede utilizar de las CPU disponibles (solo para Windows). Debe ser un entero positivo. No se puede usar con CpuShares, CpuCores o CpuCoresLimit.
+* *CpuShares*: peso relativo de CPU. Debe ser un entero positivo. No se puede usar con CpuPercent, CpuCores o CpuCoresLimit.
+* *MaximumIOps*: máxima tasa de E/S (lectura y escritura) en términos de IOPS que se puede usar. Debe ser un entero positivo.
+* *MaximumIOBandwidth*: máximo de E/S (bytes por segundo) que se puede usar (lectura y escritura). Debe ser un entero positivo.
+* *BlockIOWeight*: peso de E/S en bloque, en relación con otros paquetes de código. Debe ser un entero positivo comprendido entre 10 y 1000.
+* *DiskQuotaInMB*: cuota de disco para contenedores. Debe ser un entero positivo.
+* *KernelMemoryInMB:* límites de memoria del kernel en bytes.  Debe ser un entero positivo.  Tenga en cuenta que esto es específico de Linux, y Docker en Windows generará un error si se establece.
+* *ShmSizeInMB*: tamaño de */dev/shm* en bytes. Si se omite, el sistema usa 64 MB.  Debe ser un entero positivo. Tenga en cuenta que esto es específico de Linux, pero Docker solo ignorará (y no generará un error) si se especifica.
 
 Estos recursos se pueden combinar con la CPU y la memoria. Este es un ejemplo de cómo se especifican recursos adicionales para los contenedores:
 

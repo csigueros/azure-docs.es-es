@@ -10,12 +10,12 @@ ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
-ms.openlocfilehash: 66b5bb47f68f0731b3c7f5cc3192427b87f7c2db
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 45a0fbac0fbe1bd513717ba1ab1d30b3cffbf78e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109490067"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065951"
 ---
 # <a name="actions-and-attributes-for-azure-role-assignment-conditions-in-azure-storage-preview"></a>Acciones y atributos para las condiciones de asignación de roles de Azure en Azure Storage (versión preliminar)
 
@@ -89,6 +89,9 @@ En la tabla siguiente se enumeran las descripciones de los atributos admitidos p
 
 > [!NOTE]
 > Al especificar las condiciones para el atributo `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path`, los valores no deben incluir el nombre del contenedor ni un carácter "/" al comienzo. Use los caracteres de la ruta de acceso sin ninguna codificación de dirección URL.
+
+> [!NOTE]
+> Las etiquetas de índice de blobs no se admiten en las cuentas de almacenamiento de Data Lake Storage Gen2, que tienen un [espacio de nombres jerárquico](../blobs/data-lake-storage-namespace.md) (HNS). No debe crear condiciones de asignación de roles mediante etiquetas de índice en cuentas de almacenamiento que tengan HNS habilitado.
 
 ## <a name="attributes-available-for-each-action"></a>Atributos disponibles para cada acción
 

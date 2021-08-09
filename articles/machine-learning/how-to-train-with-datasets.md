@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 25dfad48d3782c50797c855a0a8cbfded6581e0e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 573868d8dc637afcab1970d0e41ed2ed0830808d
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788020"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538839"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Entrenamiento de modelos con conjuntos de datos de Azure Machine Learning 
 
@@ -232,9 +232,13 @@ Al **montar** un conjunto de datos, se asocian a un directorio (punto de montaje
 
 Al **descargar** un conjunto de datos, todos los archivos a los que se hace referencia en él se descargarán en el destino de proceso. La descarga se admite con todos los tipos de proceso. 
 
+> [!NOTE]
+> El nombre de la ruta de acceso de descarga no debe tener más de 255 caracteres alfanuméricos para el sistema operativo Windows. En el caso de Linux, el nombre de la ruta de acceso de descarga no debe tener más de 4096 caracteres alfanuméricos. Además, para el sistema operativo Linux, el nombre de archivo (que es el último segmento de la ruta de acceso de descarga `/path/to/file/{filename}`) no debe tener más de 255 caracteres alfanuméricos.
+
 Si el script procesa todos los archivos a los que se hace referencia en el conjunto de datos y el disco de proceso puede caber en el conjunto de datos completo, se recomienda la descarga para evitar la sobrecarga de la transmisión de datos desde los servicios de almacenamiento. Si el tamaño de los datos supera el tamaño del disco de proceso, no es posible realizar la descarga. En este escenario, se recomienda el montaje, ya que en el momento del procesamiento solo se cargan los archivos de datos usados por el script.
 
 El siguiente código monta el elemento `dataset` en el directorio temporal de `mounted_path`.
+
 
 ```python
 import tempfile
@@ -289,29 +293,45 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-* **Error al inicializar el conjunto de datos:  se ha agotado el tiempo de espera a que el punto de montaje estuviera listo**: 
+**Error al inicializar el conjunto de datos:  se ha agotado el tiempo de espera a que el punto de montaje estuviera listo**: 
   * Si no tiene ninguna [regla de grupos de seguridad de red](../virtual-network/network-security-groups-overview.md) y usa `azureml-sdk>=1.12.0`, actualice `azureml-dataset-runtime` y sus dependencias a las más recientes para la versión secundaria específica, o bien, si la usa en una ejecución, vuelva a crear el entorno para que pueda tener la revisión más reciente con la corrección. 
   * Si usa `azureml-sdk<1.12.0`, actualice a la versión más reciente.
   * Si tiene reglas de grupos de seguridad de red de salida, asegúrese de que haya una regla de salida que permita todo el tráfico de la etiqueta de servicio `AzureResourceMonitor`.
 
-### <a name="overloaded-azurefile-storage"></a>Almacenamiento AzureFile sobrecargado
+### <a name="azurefile-storage"></a>Almacenamiento en AzureFile
 
-Si recibe un error `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, aplique las siguientes soluciones alternativas.
+**No se pueden cargar archivos de proyecto en el directorio de trabajo en AzureFile porque el almacenamiento está sobrecargado**:
 
-Si usa un recurso compartido de archivos para otras cargas de trabajo, como la transferencia de datos, se recomienda usar blobs para que el recurso compartido de archivos se pueda usar para el envío de ejecuciones. También puede dividir la carga de trabajo entre dos áreas de trabajo diferentes.
+* Si usa un recurso compartido de archivos para otras cargas de trabajo, como la transferencia de datos, se recomienda usar blobs para que el recurso compartido de archivos se pueda usar para el envío de ejecuciones.
+
+* Otra opción es dividir la carga de trabajo entre dos áreas de trabajo diferentes.
+
+**ConfigException: no se pudo crear una conexión a AzureFileService debido a que faltan credenciales. Se deben vincular una clave de cuenta o un token de SAS al almacén de blobs predeterminado del área de trabajo.**
+
+Para asegurarse de que las credenciales de acceso de almacenamiento están vinculadas al área de trabajo y al almacén de datos de archivos asociado, complete los pasos siguientes:
+
+1. Vaya al área de trabajo en [Azure Portal](https://ms.portal.azure.com).
+1. Seleccione el vínculo de almacenamiento en la página **Información general** del área de trabajo.
+1. En la página de almacenamiento, seleccione **Claves de acceso** en el menú de la izquierda. 
+1. Copie la clave.
+1. Vaya a la instancia de [Estudio de Azure Machine Learning](https://ml.azure.com) del área de trabajo.
+1. En el estudio, seleccione el almacén de datos de archivos para el que desea proporcionar credenciales de autenticación. 
+1. Seleccione **Actualizar autenticación**.
+1. Pegue la clave de los pasos anteriores. 
+1. Seleccione **Guardar**. 
 
 ### <a name="passing-data-as-input"></a>Paso de datos como entrada
 
-*  **TypeError: FileNotFound: no se encontró el archivo o directorio**: Este error se produce si la ruta de acceso al archivo que se proporcionó no es donde se encuentra el archivo. Debe asegurarse de que la forma en que hace referencia al archivo es coherente con la ubicación en la que montó el conjunto de archivos en el destino de proceso. Para garantizar un estado determinista, se recomienda usar la ruta de acceso abstracta al montar un conjunto de datos en un destino de proceso. Por ejemplo, en el código siguiente se monta el conjunto de datos en la raíz del sistema de archivos del destino de proceso, `/tmp`. 
+**TypeError: FileNotFound: no se encontró el archivo o directorio**: Este error se produce si la ruta de acceso al archivo que se proporcionó no es donde se encuentra el archivo. Debe asegurarse de que la forma en que hace referencia al archivo es coherente con la ubicación en la que montó el conjunto de archivos en el destino de proceso. Para garantizar un estado determinista, se recomienda usar la ruta de acceso abstracta al montar un conjunto de datos en un destino de proceso. Por ejemplo, en el código siguiente se monta el conjunto de datos en la raíz del sistema de archivos del destino de proceso, `/tmp`. 
     
-    ```python
-    # Note the leading / in '/tmp/dataset'
-    script_params = {
-        '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
-    } 
-    ```
+```python
+# Note the leading / in '/tmp/dataset'
+script_params = {
+    '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+} 
+```
 
-    Si no incluye la barra diagonal inicial ("/"), tendrá que prefijar el directorio de trabajo (por ejemplo, `/mnt/batch/.../tmp/dataset`) en el destino de proceso para indicar dónde quiere que se monte el conjunto de datos.
+Si no incluye la barra diagonal inicial ("/"), tendrá que prefijar el directorio de trabajo (por ejemplo, `/mnt/batch/.../tmp/dataset`) en el destino de proceso para indicar dónde quiere que se monte el conjunto de datos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

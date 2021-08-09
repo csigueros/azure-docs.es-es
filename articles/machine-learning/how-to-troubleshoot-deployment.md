@@ -10,12 +10,12 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 4d1bffd39fa474a5c973ca2b6fd45e9f59964e39
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: df2e47b75b4dd01274a2ec2c4f5b5acaac164ca0
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110098297"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536281"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Solución de problemas de una implementación de modelo remota 
 
@@ -84,6 +84,28 @@ print(service.get_logs())
 ## <a name="debug-locally"></a>Depuración local
 
 Si tiene problemas al implementar un modelo en ACI o AKS, impleméntelo como servicio web local. El uso de un servicio web local facilita la solución de problemas. Para solucionar problemas de implementación en un entorno local, consulte el [artículo de solución de problemas en un entorno local](./how-to-troubleshoot-deployment-local.md).
+
+## <a name="azure-machine-learning-inference-http-server"></a>Servidor HTTP de inferencia de Azure Machine Learning
+
+El servidor de inferencia local permite depurar rápidamente el script de entrada (`score.py`). En caso de que el script de puntuación subyacente tenga un error, el servidor no podrá inicializar ni atender el modelo. Se producirá una excepción con la ubicación donde se produjeron los problemas. [Más información sobre el servidor HTTP de inferencia de Azure Machine Learning](how-to-inference-server-http.md)
+
+1. Instale el paquete `azureml-inference-server-http` desde la fuente [pypi](https://pypi.org/):
+
+    ```bash
+    python -m pip install azureml-inference-server-http
+    ```
+
+2. Inicie el servidor y establezca `score.py` como script de entrada:
+
+    ```bash
+    azmlinfsrv --entry_script score.py
+    ```
+
+3. Envíe una solicitud de puntuación al servidor mediante `curl`:
+
+    ```bash
+    curl -p 127.0.0.1:5001/score
+    ```
 
 ## <a name="container-cannot-be-scheduled"></a>No se puede programar el contenedor
 

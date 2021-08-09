@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de VMware con Azure Backup Serv
 description: En este artículo, aprenderá a usar Azure Backup Server para realizar una copia de seguridad de las máquinas virtuales de VMware que se ejecutan en un servidor de VMWare vCenter y ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12374393d0f94c567a68f1e28b6479e0747f3d40
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96002960"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084599"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 
@@ -308,7 +308,7 @@ Agregue vCenter Server a Azure Backup Server.
 
 6. Seleccione **Agregar** para agregar el servidor de VMware a la lista de servidores. Luego, seleccione **Siguiente**.
 
-    ![Agregar credencial y el servidor de VMWare](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
+    ![Agregar credencial y el servidor de VMware](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
 7. En la página **Resumen**, seleccione **Agregar** para agregar el servidor de VMware a Azure Backup Server. El nuevo servidor se agrega inmediatamente, no se necesita ningún agente en el servidor de VMware.
 
@@ -403,24 +403,24 @@ Agregue máquinas virtuales de VMware para la copia de seguridad. Los grupos de 
 >[!NOTE]
 > Esta característica es aplicable a MABS V3 UR1.
 
-Con las versiones anteriores de MABS, las copias de seguridad paralelas se realizaban solo entre grupos de protección. Con MABS V3 UR1, todas las copias de seguridad de máquinas virtuales VMWare de un solo grupo de protección serán paralelas, lo que agiliza las copias de seguridad de máquinas virtuales. Todos los trabajos de replicación diferencial de VMWare se ejecutan en paralelo. De forma predeterminada, el número de trabajos que se ejecuta en paralelo está establecido en ocho.
+Con las versiones anteriores de MABS, las copias de seguridad paralelas se realizaban solo entre grupos de protección. Con MABS V3 UR1, todas las copias de seguridad de máquinas virtuales VMware de un solo grupo de protección son paralelas, lo que agiliza las copias de seguridad de máquinas virtuales. Todos los trabajos de replicación diferencial de VMware se ejecutan en paralelo. De forma predeterminada, el número de trabajos que se ejecuta en paralelo está establecido en ocho.
 
 Para modificar el número de trabajos, utilice la clave del Registro como se muestra a continuación (no está presente de forma predeterminada, por lo que es preciso agregarla):
 
-**Ruta de acceso de la clave:** : `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMWare`<BR>
+**Ruta de acceso de la clave:** : `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMware`<BR>
 **Tipo de clave**: Valor de DWORD (32 bits).
 
 > [!NOTE]
-> Puede modificar el número de trabajos a un valor mayor. Si establece el número de trabajos en 1, los trabajos de replicación se ejecutan en serie. Para aumentar el número, debe tener en cuenta el rendimiento de VMWare. Teniendo en cuenta el número de recursos que se utilizan y el uso adicional que se requiere en el servidor de VMWare vSphere, debe determinar el número de trabajos de replicación diferencial que se ejecutan en paralelo. Además, este cambio solo afectará a los grupos de protección recién creados. Para los grupos de protección existentes, debe agregar temporalmente otra máquina virtual al grupo de protección. De este modo, se debería actualizar la configuración del grupo de protección en consecuencia. Puede quitar esta máquina virtual del grupo de protección después de completar el procedimiento.
+> Puede modificar el número de trabajos a un valor mayor. Si establece el número de trabajos en 1, los trabajos de replicación se ejecutan en serie. Para aumentar el número, debe tener en cuenta el rendimiento de VMware. Teniendo en cuenta el número de recursos que se utilizan y el uso adicional que se requiere en el servidor de VMWare vSphere, debe determinar el número de trabajos de replicación diferencial que se ejecutan en paralelo. Además, este cambio solo afectará a los grupos de protección recién creados. Para los grupos de protección existentes, debe agregar temporalmente otra máquina virtual al grupo de protección. De este modo, se debería actualizar la configuración del grupo de protección en consecuencia. Puede quitar esta máquina virtual del grupo de protección después de completar el procedimiento.
 
-## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
+## <a name="vmware-vsphere-67"></a>VMware vSphere 6.7
 
 Para realizar una copia de seguridad de vSphere 6.7, siga estos pasos:
 
 - Habilitar TLS 1.2 en el servidor de MABS
 
 >[!NOTE]
->En VMWare 6.7 y versiones posteriores se ha habilitado TLS como protocolo de comunicación.
+>En VMware 6.7 y versiones posteriores se había habilitado TLS como protocolo de comunicación.
 
 - Establezca las claves del Registro de esta forma:
 
@@ -453,7 +453,7 @@ Con MABS V3 UR1, puede excluir discos específicos de una copia de seguridad de
 
 Para configurar la exclusión de disco, siga estos pasos:
 
-### <a name="identify-the-vmware-vm-and-disk-details-to-be-excluded"></a>Identificación de la máquina virtual de VMware y los detalles del disco que se van a excluir
+### <a name="identify-the-vmware-vm-and-disk-details-to-be-excluded"></a>Identifique la máquina virtual de VMware y los detalles del disco que se van a excluir.
 
   1. En la consola de VMware, vaya a la configuración de la máquina virtual para la que desee excluir el disco.
   2. Seleccione el disco que desee excluir y anote su ruta de acceso.

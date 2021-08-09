@@ -11,14 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: dcaa0f964b2a3c047826bb82ae8d1121e38f1796
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f541985b7e8210084ae11a9f48e18f735e6e4335
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378862"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479877"
 ---
-# <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Seguimiento de experimentos de aprendizaje automático de Azure Databricks con MLflow y Azure Machine Learning (versión preliminar)
+# <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning"></a>Seguimiento de experimentos de aprendizaje automático de Azure Databricks con MLflow y Azure Machine Learning
 
 En este artículo, aprenderá a habilitar el identificador URI de seguimiento y la API de registro de MLflow, conocidos en conjunto como [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), para conectar los experimentos de Azure Databricks (ADB), MLflow y Azure Machine Learning.
 
@@ -27,9 +27,6 @@ En este artículo, aprenderá a habilitar el identificador URI de seguimiento y 
 Consulte [Seguimiento de ejecuciones de experimentos con MLflow y Azure Machine Learning (versión preliminar)](how-to-use-mlflow.md) para conocer otras integraciones de la funcionalidad de MLflow y Azure Machine Learning.
 
 Si tiene un proyecto de MLflow para entrenar con Azure Machine Learning, consulte [Entrenamiento de modelos de Machine Learning con MLflow y Azure Machine Learning (versión preliminar)](how-to-train-mlflow-projects.md).
-
->[!NOTE]
-> Como biblioteca de código abierto, MLflow cambia con frecuencia. Como tal, la funcionalidad que se pone a disposición a través de la integración de Azure Machine Learning y MLflow debe considerarse como una vista previa y no es totalmente compatible con Microsoft.
 
 > [!TIP]
 > La información de este documento va destinada principalmente a aquellos científicos de datos y desarrolladores que deseen supervisar el proceso de entrenamiento del modelo. Los administradores que estén interesados en la supervisión del uso de recursos y eventos desde Azure Machine Learning, como cuotas, ejecuciones de entrenamiento completadas o implementaciones de modelos completadas pueden consultar [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).

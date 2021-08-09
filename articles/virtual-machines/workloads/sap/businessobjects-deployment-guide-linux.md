@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: faaed05a52708ed1c2563e6476a1e86faa02dcf7
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: a97454abdf91ddaaf355283a5bbed99adc184e0d
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107946824"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020428"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Linux en Azure
 
@@ -371,7 +371,7 @@ Para más información, consulte [Private Link para Azure Database for MySQL](.
    +----------------------------------------------------------------------------+
    ```
 
-### <a name="install-mysql-c-api-connector-libmysqlclient-on-linux-server"></a>Instalación del conector de MySQL C API (libmysqlclient) en el servidor Linux
+### <a name="install-mysql-c-api-connector-libmysqlclient-on-a-linux-server"></a>Instalación del conector MySQL C API (libmysqlclient) en un servidor Linux
 
 Para que el servidor de aplicaciones de SAP BOBI tenga acceso a la base de datos, requiere cliente o controladores de base de datos. El conector de MySQL C API para Linux debe usarse para tener acceso a las bases de datos CMS y de auditoría. No se admite la conexión ODBC con la base de datos CMS. En esta sección se proporcionan instrucciones sobre cómo configurar el conector de MySQL C API en Linux.
 

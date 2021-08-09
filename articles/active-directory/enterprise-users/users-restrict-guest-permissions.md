@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 01/14/2020
+ms.date: 06/01/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b93da489d1d2cbaa96ea8ed99b096ea8b7af45e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f1b9ceb41300d8a53d192602812f1e3c04017609
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746160"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371469"
 ---
-# <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restricción de los permisos de acceso de invitados (versión preliminar) en Azure Active Directory
+# <a name="restrict-guest-access-permissions-in-azure-active-directory"></a>Restricción de los permisos de acceso de invitados en Azure Active Directory
 
-Azure Active Directory (Azure AD) le permite restringir qué usuarios invitados externos se pueden ver en su organización de Azure AD. De forma predeterminada, los usuarios invitados se establecen en un nivel de permisos limitado en Azure AD, mientras que el valor predeterminado para los usuarios miembros es el conjunto completo de permisos de usuario predeterminados. Se trata de la versión preliminar de un nuevo nivel de permisos de usuarios invitados en la configuración de colaboración externa de la organización de Azure AD para un acceso aún más restringido, por lo que las opciones de acceso de invitado ahora son:
+Azure Active Directory (Azure AD) le permite restringir qué usuarios invitados externos se pueden ver en su organización de Azure AD. De forma predeterminada, los usuarios invitados se establecen en un nivel de permisos limitado en Azure AD, mientras que el valor predeterminado para los usuarios miembros es el conjunto completo de permisos de usuario. Se trata de un nuevo nivel de permisos de usuarios invitados en la configuración de colaboración externa de la organización de Azure AD para un acceso aún más restringido, por lo que los niveles de acceso de invitado son:
 
 Nivel de permiso         | Nivel de acceso | Value
 ----------------         | ------------ | -----

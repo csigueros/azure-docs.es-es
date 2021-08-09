@@ -4,12 +4,12 @@ description: Describe la configuración manual de la supervisión de Application
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 7e4c4b0ba4dca9b51f120e6092c13195a061aa87
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 37f090f44099dc45d6c258e10b09d164277fcb47
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754540"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077183"
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 
@@ -50,7 +50,7 @@ Cuando se haya creado la aplicación, se abrirá un panel nuevo. En este panel p
 La clave de instrumentación identifica el recurso con el que quiere asociar los datos de telemetría. Necesitará copiar la clave de instrumentación y agregarla al código de la aplicación.
 
 > [!IMPORTANT]
-> Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La [cadena de conexión](./sdk-connection-string.md?tabs=net) identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
+> Las [cadenas de conexión](./sdk-connection-string.md) se recomiendan por encima de las claves de instrumentación. Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La cadena de conexión identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
 
 ## <a name="install-the-sdk-in-your-app"></a>Instalación del SDK en la aplicación
 

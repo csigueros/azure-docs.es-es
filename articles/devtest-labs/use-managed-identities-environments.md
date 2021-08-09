@@ -3,16 +3,20 @@ title: Uso de identidades administradas de Azure para crear entornos en DevTest 
 description: Obtenga más información sobre el uso de identidades administradas en Azure para implementar entornos en un laboratorio de Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0f3e4b4d7030eb26c25b291e03caaa430d1979c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a8afd74014cb940be17d9a84168e8bfe7daff67
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98185791"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854691"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Uso de identidades administradas de Azure para implementar entornos en un laboratorio 
 
-Como propietario de un laboratorio, puede usar una identidad administrada para implementar entornos en un laboratorio. Esta característica es útil en escenarios en los que el entorno contiene o incluye referencias a recursos de Azure, como almacenes de claves, galerías de imágenes compartidas y redes que son externas al grupo de recursos del entorno. Permite la creación de entornos de espacio aislado que no se limitan al grupo de recursos de dicho entorno.
+Como propietario de un laboratorio, puede usar una identidad administrada para implementar entornos en un laboratorio. Esta característica es útil en escenarios en los que el entorno contiene o incluye referencias a recursos de Azure, como almacenes de claves, galerías de imágenes compartidas y redes que son externas al grupo de recursos del entorno. Permite la creación de entornos de espacio aislado que no se limitan al grupo de recursos de dicho entorno. 
+
+De forma predeterminada, al crear un entorno, el laboratorio crea una identidad asignada por el sistema para acceder a los recursos y servicios de Azure en nombre de un usuario del laboratorio al implementar la plantilla de Azure Resource Manager (plantilla de ARM). Obtenga más información sobre [por qué un laboratorio crea una identidad asignada por el sistema](configure-lab-identity.md#scenarios-for-using-labs-system-assigned-identity). Para los laboratorios nuevos y existentes, se crea una identidad asignada por el sistema de forma predeterminada la primera vez que se crea un entorno de laboratorio.  
+
+Tenga en cuenta que, como propietario del laboratorio, puede optar por conceder los permisos de la identidad asignada por el sistema del laboratorio para acceder a recursos de Azure fuera del laboratorio o puede usar su propia identidad asignada por el usuario para el escenario. La identidad asignada por el sistema del laboratorio solo es válida durante la vida útil del laboratorio. La identidad asignada por el sistema se elimina al eliminar el laboratorio. Si tiene entornos en varios laboratorios que necesitan usar una identidad, considere la posibilidad de usar una identidad asignada por el usuario.  
 
 > [!NOTE]
 > Actualmente, se admite una única identidad asignada por el usuario por laboratorio. 
@@ -48,44 +52,30 @@ Para cambiar la identidad administrada por el usuario asignada al laboratorio, p
 
 1. Tras crear una identidad, anote su id. de recurso. Debería ser similar al ejemplo siguiente: 
 
-    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-1. Ejecute un método HTTPS PUT para agregar un nuevo recurso `ServiceRunner` al laboratorio similar al ejemplo siguiente. El recurso del ejecutor del servicio es un recurso de proxy para administrar y controlar identidades administradas en DevTest Labs. El nombre del ejecutor del servicio puede ser cualquier nombre válido, pero se recomienda usar el nombre del recurso de identidad administrada. 
+    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}`.
+
+1. Ejecute un método HTTP PUT en el recurso de laboratorio para agregar una identidad asignada por el usuario o habilitar una identidad asignada por el sistema para el laboratorio.
+
+   > [!NOTE]
+   > Independientemente de si crea una identidad asignada por el usuario, el laboratorio crea automáticamente una identidad asignada por el sistema la primera vez que se crea un entorno de laboratorio. Sin embargo, si una identidad asignada por el usuario ya está configurada para el laboratorio, el servicio DevTest Lab sigue utilizando esa identidad para implementar entornos de laboratorio. 
  
     ```json
-    PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}
+    
+    PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{labname}
 
     {
         "location": "{location}",
+        "properties": {
+          **lab properties**
+         } 
         "identity":{
-            "type": "userAssigned",
+            "type": "SystemAssigned,UserAssigned",
             "userAssignedIdentities":{
-                "[userAssignedIdentityResourceId]":{}
+                "/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}":{}
             }
-        }
-        "properties":{
-            "identityUsageType":"Environment"
-                     }
-          
+        } 
     }
-    ```
- 
-    Este es un ejemplo: 
-
-    ```json
-    PUT https://management.azure.com/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.Devtestlab/labs/mylab/serviceRunners/sampleuseridentity
-
-    {
-        "location": "eastus",
-        "identity":{
-            "type": "userAssigned",
-            "userAssignedIdentities":{
-                "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sampleuseridentity":{}
-            }
-        }
-        "properties":{
-            "identityUsageType":"Environment"
-                     }
-    }
+    
     ```
  
 Una vez que la identidad asignada por el usuario se agrega al laboratorio, el servicio de Azure DevTest Labs la usará al implementar entornos de Azure Resource Manager. Por ejemplo, si necesita la plantilla de Resource Manager para tener acceso a una imagen externa de la galería de imágenes compartidas, asegúrese de que la identidad que ha agregado al laboratorio tiene los permisos mínimos necesarios para el recurso de la galería de imágenes compartidas. 

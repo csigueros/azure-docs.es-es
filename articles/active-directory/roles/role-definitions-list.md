@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d37b2988d32c854e4184adee998341ebadcee053
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 00fc768357d80fa22305b3b85e084dc636bd5a7c
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467772"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796416"
 ---
 # <a name="list-azure-ad-role-definitions"></a>Enumeración de las definiciones de roles de Azure AD
 
@@ -32,7 +32,7 @@ En este artículo se describe cómo enumerar los roles integrados y personalizad
 
 1. Seleccione **Roles y administradores** para ver la lista de todos los roles disponibles.
 
-    ![lista de roles en el portal de Azure AD](./media/role-definitions-list/view-roles-in-azure-active-directory.png)
+    ![lista de roles en Azure Portal](./media/role-definitions-list/view-roles-in-azure-active-directory.png)
 
 1. A la derecha, seleccione el botón de puntos suspensivos y, a continuación, **Descripción** para ver la lista completa de permisos de un rol.
 
@@ -43,5 +43,5 @@ En este artículo se describe cómo enumerar los roles integrados y personalizad
 ## <a name="next-steps"></a>Pasos siguientes
 
 * No dude en compartir con nosotros en el [foro de roles administrativos de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Para obtener más información sobre los roles y la asignación de roles de administrador, consulte el artículo [Assign administrator roles](permissions-reference.md) (Asignación de roles de administrador).
+* Para más información sobre los permisos de roles, consulte [Roles integrados en Azure AD](permissions-reference.md).
 * Para conocer los permisos predeterminados de usuario, vea una [comparación de los permisos predeterminados de usuario miembro e invitado](../fundamentals/users-default-permissions.md).

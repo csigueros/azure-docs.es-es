@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 37e6777f206e980e7ea37c00559ad6988c38cc7b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2cd15836e69ca5174822de95e3fced3a9659096f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738996"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971085"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -43,7 +43,7 @@ En la tabla se resumen los requisitos del hipervisor de VMware.
 
 
 
-### <a name="vm-requirements-agentless"></a>Requisitos de VM (sin agente)
+### <a name="vm-requirements-agentless"></a>Requisitos de VM (sin agente) 
 
 En la tabla se resumen los requisitos de migración sin agente para las VM de VMware.
 
@@ -51,10 +51,10 @@ En la tabla se resumen los requisitos de migración sin agente para las VM de VM
 --- | ---
 **Sistemas operativos compatibles** | Puede migrar los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](../virtual-machines/linux/endorsed-distros.md) que admite Azure.
 **VM Windows en Azure** | Es posible que tenga que [realizar algunos cambios](prepare-for-migration.md#verify-required-changes-before-migrating) en las VM antes de la migración. 
-**VM Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS y 18.04LTS<br/> - Debian 7, 8, 9 <br/> Oracle Linux 7.7, 7.7-CI<br/> En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
+**VM Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x <br/> - Cent OS 8, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 11, 12, 15 SP0, 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS y 18.04LTS<br/> - Debian 7, 8, 9 <br/> Oracle Linux 6, 7.7, 7.7-CI y 7.8<br/> En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 **Arranque de Linux** | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si /boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos.
 **Arranque UEFI** | Compatible. Las máquinas virtuales basadas en UEFI se migrarán a máquinas virtuales de generación 2 de Azure. 
-**Tamaño del disco** | Disco de sistema operativo de 2 TB y 32 TB para los discos de datos.
+**Tamaño del disco** | Disco de sistema operativo de hasta 2 TB para las VM de Gen 1 y Gen 2; 32 TB para discos de datos.
 **Límites del disco** |  Hasta 60 discos por máquina virtual.
 **Discos/volúmenes cifrados** | Las máquinas virtuales con volúmenes o discos cifrados no se admiten para la migración.
 **Clúster de discos compartido** | No compatible.
@@ -131,7 +131,7 @@ En la tabla se resume la compatibilidad de las máquinas virtuales de VMware con
 **Arranque UEFI** | Compatible. Las máquinas virtuales basadas en UEFI se migrarán a máquinas virtuales de segunda generación de Azure. 
 **UEFI: arranque seguro**         | No se admiten para la migración.
 **Disco de destino** | Las VM solo se pueden migrar a discos administrados (HDD Estándar, SSD estándar, SSD Premium) en Azure.
-**Tamaño del disco** | Disco de sistema operativo de 2 TB y 32 TB para los discos de datos.
+**Tamaño del disco** | Disco de sistema operativo de hasta 2 TB para la VM de generación 1; disco de sistema operativo de hasta 4 TB para la VM de generación 2; 32 TB para discos de datos.
 **Límites del disco** |  Hasta 63 discos por máquina virtual.
 **Discos/volúmenes cifrados** | Las máquinas virtuales con volúmenes o discos cifrados no se admiten para la migración.
 **Clúster de discos compartido** | No compatible.

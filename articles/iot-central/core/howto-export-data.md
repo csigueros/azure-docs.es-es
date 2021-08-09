@@ -4,16 +4,16 @@ description: Cómo usar la nueva exportación de datos para exportar los datos d
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 05/03/2021
+ms.date: 06/04/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: e8df0d2adebd4815a2079699bdebec5eb41b183f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 914fd683c45415db4af1f932404bc2cc2cf35716
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760704"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111814556"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportación de datos de IoT a destinos en la nube mediante la característica de exportación de datos
 
@@ -138,15 +138,17 @@ Ahora que tiene un destino al que exportar los datos, configure la exportación 
     
     | Tipo de datos | Filtros disponibles| 
     |--------------|------------------|
-    |Telemetría|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo y plantilla de dispositivo</li><li>Filtrar el flujo para que solo contenga la telemetría que cumpla las condiciones de filtro</li><li>Filtrar el flujo para que solo contenga la telemetría de dispositivos con propiedades que coincidan con las condiciones de filtro</li><li>Filtrar el flujo para que solo contenga la telemetría que tenga *propiedades de mensaje* que cumplan la condición de filtro. Las *propiedades de mensaje* (también denominadas *propiedades de aplicación*) se envían en un contenedor de pares de clave-valor en cada mensaje de telemetría enviado opcionalmente por los dispositivos que usan los SDK de dispositivo. Para crear un filtro de propiedad de mensaje, escriba la clave de la propiedad de mensaje que busca y especifique una condición. Solo se exportarán los mensajes de telemetría con propiedades que coincidan con la condición de filtro especificada. [Obtenga más información sobre las propiedades de aplicaciones en la documentación de IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md). </li></ul>|
-    |Cambios de la propiedad|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo y plantilla de dispositivo</li><li>Filtrar el flujo para que contenga solo los cambios de propiedad que cumplan las condiciones de filtro</li></ul>|
-    |Conectividad de dispositivos|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo y plantilla de dispositivo</li><li>Filtrar el flujo para que solo contenga los cambios de dispositivos con propiedades que coincidan con las condiciones de filtro</li></ul>|
-    |Ciclo de vida del dispositivo|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo y plantilla de dispositivo</li><li>Filtrar el flujo para que solo contenga los cambios de dispositivos con propiedades que coincidan con las condiciones de filtro</li></ul>|
+    |Telemetría|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo, plantilla de dispositivo y si el dispositivo está simulado</li><li>Filtrar el flujo para que solo contenga la telemetría que cumpla las condiciones de filtro</li><li>Filtrar el flujo para que solo contenga la telemetría de dispositivos con propiedades que coincidan con las condiciones de filtro</li><li>Filtrar el flujo para que solo contenga la telemetría que tenga *propiedades de mensaje* que cumplan la condición de filtro. Las *propiedades de mensaje* (también denominadas *propiedades de aplicación*) se envían en un contenedor de pares de clave-valor en cada mensaje de telemetría enviado opcionalmente por los dispositivos que usan los SDK de dispositivo. Para crear un filtro de propiedad de mensaje, escriba la clave de la propiedad de mensaje que busca y especifique una condición. Solo se exportarán los mensajes de telemetría con propiedades que coincidan con la condición de filtro especificada. [Obtenga más información sobre las propiedades de aplicaciones en la documentación de IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md). </li></ul>|
+    |Cambios de la propiedad|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo, plantilla de dispositivo y si el dispositivo está simulado</li><li>Filtrar el flujo para que contenga solo los cambios de propiedad que cumplan las condiciones de filtro</li></ul>|
+    |Conectividad de dispositivos|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo, plantilla de dispositivo y si el dispositivo está simulado</li><li>Filtrar el flujo para que solo contenga los cambios de dispositivos con propiedades que coincidan con las condiciones de filtro</li></ul>|
+    |Ciclo de vida del dispositivo|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo, plantilla de dispositivo y si el dispositivo está aprovisionado, habilitado o simulado</li><li>Filtrar el flujo para que solo contenga los cambios de dispositivos con propiedades que coincidan con las condiciones de filtro</li></ul>|
     |Ciclo de vida de plantillas de dispositivo|<ul><li>Filtrar por plantilla de dispositivo</li></ul>|
     
-1. Opcionalmente, puede enriquecer los mensajes exportados con metadatos adicionales de pares clave-valor. Están disponibles los siguientes enriquecimientos para los tipos de exportación de datos de telemetría y cambios de propiedad: <a name="DataExportEnrichmnents"></a>
+1. Opcionalmente, puede enriquecer los mensajes exportados con metadatos adicionales de pares clave-valor. Están disponibles los enriquecimientos siguientes para los tipos de exportación de datos de telemetría, cambios de propiedad, conectividad de dispositivo y ciclo de vida de dispositivo: <a name="DataExportEnrichmnents"></a>
     - **Cadena personalizada**: agrega una cadena estática personalizada a cada mensaje. Escriba cualquier clave y especifique cualquier valor de cadena.
-    - **Propiedad**: agrega la propiedad notificada de dispositivo actual o el valor de propiedad de la nube a cada mensaje. Escriba cualquier clave y elija una propiedad de dispositivo o nube. Si el mensaje exportado procede de un dispositivo que no tiene la propiedad especificada, no obtendrá el enriquecimiento.
+    - **Propiedad**, que agrega a cada mensaje:
+       - Metadatos del dispositivo, como el nombre del dispositivo, el nombre de la plantilla de dispositivo, si está habilitado, aprovisionado y simulado.
+       - La propiedad notificada de dispositivo actual o el valor de propiedad de la nube a cada mensaje. Si el mensaje exportado procede de un dispositivo que no tiene la propiedad especificada, no obtendrá el enriquecimiento.
 
 1. Agregue un destino nuevo o uno que ya haya creado. Seleccione el vínculo **Create a new one** (Crear uno nuevo) y agregue la siguiente información:
 
@@ -206,6 +208,8 @@ Cada mensaje exportado contiene un formato normalizado del mensaje completo que 
 - `templateId`: el identificador de la plantilla de dispositivo asociada al dispositivo.
 - `enqueuedTime`: la hora a la que IoT Central recibió este mensaje.
 - `enrichments`: cualquier enriquecimiento configurado en la exportación.
+- `module`: el módulo IoT Edge que envió este mensaje. Este campo solo aparece si el mensaje provino de un módulo IoT Edge.
+- `component`: el componente que envió este mensaje. Este campo solo aparece si las funcionalidades enviadas en el mensaje se modelaron como un [componente en la plantilla de dispositivo](howto-set-up-template.md#create-a-component).
 - `messageProperties`: propiedades adicionales que el dispositivo envió con el mensaje. A veces, estas propiedades se denominan *propiedades de la aplicación*. [Puede encontrar más información en la documentación de IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 En el caso de Event Hubs y Service Bus, IoT Central exporta un mensaje nuevo rápidamente después de recibir el mensaje de un dispositivo. En las propiedades de usuario (también conocidas como propiedades de la aplicación) de cada mensaje, `iotcentral-device-id`, `iotcentral-application-id` e `iotcentral-message-source` se incluyen automáticamente.
@@ -237,6 +241,8 @@ En el ejemplo siguiente se muestra un mensaje de telemetría exportado:
     "enrichments": {
       "userSpecifiedKey": "sampleValue"
     },
+    "module": "VitalsModule",
+    "component": "DeviceComponent",
     "messageProperties": {
       "messageProp": "value"
     }
@@ -249,6 +255,9 @@ Los mensajes de telemetría tienen propiedades de metadatos además de la carga 
 Puede agregar propiedades a los mensajes de telemetría si necesita agregar metadatos personalizados a los mensajes de telemetría. Por ejemplo, tiene que agregar una marca de tiempo cuando el dispositivo crea el mensaje.
 
 En el fragmento de código siguiente se muestra cómo agregar la propiedad `iothub-creation-time-utc` al mensaje cuando se crea en el dispositivo:
+
+> [!IMPORTANT]
+> El formato de esta marca de tiempo debe ser UTC sin información de zona horaria. Por ejemplo, `2021-04-21T11:30:16Z` es válido y `2021-04-21T11:30:16-07:00` no lo es.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -372,7 +381,9 @@ En el ejemplo siguiente, se muestra un mensaje de cambio de propiedad exportado 
     }],
     "enrichments": {
         "userSpecifiedKey" : "sampleValue"
-    }
+    },
+    "module": "VitalsModule",
+    "component": "DeviceComponent"
 }
 ```
 ## <a name="device-connectivity-changes-format"></a>Formato de los cambios de conectividad de dispositivos

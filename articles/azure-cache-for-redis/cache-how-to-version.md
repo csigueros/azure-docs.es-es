@@ -6,15 +6,23 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: d9f48de7ef5d9525a995af4ebbd12c5f14f40189
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23bc9f92f405fe29aa43b266c0b18b8620e1d18c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93349144"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463104"
 ---
 # <a name="set-redis-version-for-azure-cache-for-redis-preview"></a>Establecimiento de la versión de Redis para Azure Cache for Redis (versión preliminar)
 En este artículo, aprenderá a configurar la versión del software de Redis que se usará con la instancia de caché. Azure Cache for Redis ofrece la versión principal más reciente de Redis y al menos una versión anterior. Actualizará estas versiones con regularidad a medida que se publique el software de Redis más reciente. Puede elegir entre las dos versiones disponibles. Tenga en cuenta que la instancia de caché se actualizará a la siguiente versión automáticamente si ya no se admite la versión que usa actualmente.
+
+> [!NOTE]
+> Redis 6 se encuentra actualmente en versión preliminar. En este momento, Redis 6 no admite la agrupación en clústeres, la redundancia de zona, ACL, PowerShell, la CLI de Azure, Terraform ni la replicación geográfica entre las versiones de caché de Redis 4.0 y 6.0. Tampoco se puede cambiar la versión de Redis una vez creada una memoria caché. 
+>
+
+> [!IMPORTANT]
+> Una vez que Redis 6.0 esté disponible con carácter general (GA), esta será la versión predeterminada de Redis para las nuevas cachés. Seguirá teniendo la opción de crear cachés de Redis 4.0 y podrá actualizar las memorias caché de Redis 4.0 a la versión Redis 6.0 con la disponibilidad general. 
+>
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)

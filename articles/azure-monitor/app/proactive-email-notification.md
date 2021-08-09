@@ -6,14 +6,19 @@ author: harelbr
 ms.author: harelbr
 ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: fa14f0dd40a30a4750d9bb102d8e67608f958135
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0937683eaacefc9fe4bbee21802a0f1657918efd
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101734509"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536706"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Cambio de las notificaciones por correo electrónico de detección inteligente
+
+>[!NOTE]
+>Puede migrar los recursos de Application Insights a la detección inteligente basada en alertas (versión preliminar). La migración crea reglas de alerta para los distintos módulos de detección inteligente. Una vez creadas, puede administrar y configurar dichas reglas como cualquier otra regla de Azure Monitor. También puede configurar grupos de acciones para estas reglas, lo que habilita varios métodos para realizar acciones o desencadenar notificaciones en nuevas detecciones.
+>
+> Consulte el artículo sobre la [migración de alertas de detección inteligente](../alerts/alerts-smart-detections-migration.md) para obtener más detalles sobre el proceso de migración y el comportamiento de la detección inteligente después de la migración.
 
 Según los comentarios de los clientes, el 1 de abril de 2019 vamos a cambiar los roles predeterminados de quienes reciben notificaciones por correo electrónico de detección inteligente.
 

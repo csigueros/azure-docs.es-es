@@ -4,18 +4,18 @@ titleSuffix: Azure Maps
 description: 'Conozca dos maneras de autenticar solicitudes en Azure Maps: autenticación de clave compartida y autenticación de Azure Active Directory (Azure AD).'
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9c973859c8b7a3d04693946f50377837c3538b85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f594f910a6645a3a1a0cc8e71afcb65cac8735
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101094093"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616366"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
@@ -30,8 +30,8 @@ Azure Maps admite dos formas de autenticar las solicitudes: Autenticación de cl
 
 Para obtener información sobre cómo ver sus claves en Azure Portal, consulte [Administración de la autenticación](./how-to-manage-authentication.md#view-authentication-details).
 
-> [!TIP]
-> Por motivos de seguridad, se recomienda que rote las claves principal y secundaria. Para rotar las claves, actualice la aplicación para que use la clave secundaria, impleméntela y, luego, presione el botón de ciclo/actualización situado junto a la clave principal para generar una nueva clave principal. La clave principal anterior se deshabilitará. Para más información sobre la rotación de claves, consulte [Configuración de Azure Key Vault con la auditoría y la rotación de claves](../key-vault/secrets/tutorial-rotation-dual.md).
+> [!NOTE]
+> Las claves principal y secundaria deben tratarse como datos confidenciales. La clave compartida se usa para autenticar todas las API REST de Azure Maps.  Los usuarios que usan una clave compartida deben abstraer la clave de API, bien a través de variables de entorno o del almacenamiento de secretos seguro, donde se puede administrar de forma centralizada.
 
 ## <a name="azure-ad-authentication"></a>Autenticación de Azure AD
 
@@ -51,7 +51,7 @@ Para información general sobre la autenticación con Azure AD, consulte [¿Qu�
 
 ### <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Identidades administradas para recursos de Azure y Azure Maps
 
-Las [identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) proporcionan a los servicios de Azure una entidad de seguridad basada en un aplicación administrada automáticamente, que se puede autenticar con Azure AD. Con el control de acceso basado en rol de Azure (RBAC de Azure), se puede autorizar el acceso de la entidad de seguridad de la identidad administrada a los servicios de Azure Maps. Algunos ejemplos de identidades administradas son: Azure App Service, Azure Functions y Azure Virtual Machines. Para obtener una lista de identidades administradas, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+Las [identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) proporcionan a los servicios de Azure una entidad de seguridad basada en aplicaciones administrada automáticamente que se puede autenticar con Azure AD. Con el control de acceso basado en rol de Azure (RBAC de Azure), se puede autorizar el acceso de la entidad de seguridad de la identidad administrada a los servicios de Azure Maps. Algunos ejemplos de identidades administradas son: Azure App Service, Azure Functions y Azure Virtual Machines. Para obtener una lista de identidades administradas, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### <a name="configuring-application-azure-ad-authentication"></a>Configuración de la aplicación de autenticación de Azure AD
 
@@ -80,9 +80,9 @@ Para información sobre cómo ver el identificador de cliente, consulte [Visuali
 
 ## <a name="authorization-with-role-based-access-control"></a>Autorización con el control de acceso basado en rol
 
-Azure Maps admite el acceso a todos los tipos de entidad de seguridad para el [control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/overview.md), por ejemplo, usuarios individuales de Azure AD, grupos, aplicaciones, recursos de Azure e identidades administradas de Azure. A los tipos de entidad de seguridad se les concede un conjunto de permisos, también conocido como definición de roles. Una definición de roles proporciona permisos para las acciones de la API REST. La aplicación del acceso a una o varias cuentas de Azure Maps se conoce como ámbito. Al aplicar una entidad de seguridad, una definición de roles y un ámbito, se crea una asignación de roles. 
+Azure Maps admite el acceso a todos los tipos de entidad de seguridad para el [control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/overview.md), por ejemplo, usuarios individuales de Azure AD, grupos, aplicaciones, recursos de Azure e identidades administradas de Azure. A los tipos de entidad de seguridad se les concede un conjunto de permisos, también conocido como definición de roles. Una definición de roles proporciona permisos para las acciones de la API REST. La aplicación del acceso a una o varias cuentas de Azure Maps se conoce como ámbito. Al aplicar una entidad de seguridad, una definición de roles y un ámbito, se crea una asignación de roles.
 
-En las secciones siguientes se habla de los conceptos y componentes de la integración de Azure Maps con RBAC de Azure. Como parte del proceso de configuración de la cuenta de Azure Maps, se asocia un directorio de Azure AD a la suscripción de Azure en la que reside la cuenta de Azure Maps. 
+En las secciones siguientes se habla de los conceptos y componentes de la integración de Azure Maps con RBAC de Azure. Como parte del proceso de configuración de la cuenta de Azure Maps, se asocia un directorio de Azure AD a la suscripción de Azure en la que reside la cuenta de Azure Maps.
 
 Al configurar RBAC de Azure, elija una entidad de seguridad y aplíquela a una asignación de roles. Para más información sobre cómo agregar asignaciones de roles en Azure Portal, consulte [Asignación de roles de Azure](../role-based-access-control/role-assignments-portal.md).
 

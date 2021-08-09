@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Conozca Azure Policy y aprenda a utilizar directivas integradas en Azure Machine Learning para asegurarse de que las áreas de trabajo se ajustan a sus requisitos.
 author: aashishb
 ms.author: aashishb
-ms.date: 05/03/2021
+ms.date: 05/10/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 688af6bbc4de786c36011312f64fb6d67e34183f
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 02225a3be02612b9baa0a66aff3d3dcd5ef1bb87
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633814"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067481"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Auditoría y administración de Azure Machine Learning mediante Azure Policy
 
@@ -28,8 +28,14 @@ ms.locfileid: "109633814"
 | **Punto de conexión privado** | Configure la subred de Azure Virtual Network donde se debe crear el punto de conexión privado. |
 | **Zona DNS privada** | Configure la zona DNS privada que se usará para el vínculo privado. |
 | **Identidad administrada asignada por el usuario** | Audite o exija que las áreas de trabajo usen una identidad administrada asignada por el usuario. |
+| **Deshabilitación de la autenticación local** | Audite o exija que los recursos de proceso de Azure Machine Learning tengan los métodos de autenticación local deshabilitados. |
+| **Modificación o deshabilitación de la autenticación local** | Configure los recursos de proceso para deshabilitar los métodos de autenticación local. |
 
 Se pueden establecer directivas en ámbitos diferentes, por ejemplo, en el nivel de suscripción o de grupo de recursos. Para más información, consulte la [documentación de Azure Policy](../governance/policy/overview.md).
+
+## <a name="conditional-access-policies"></a>Directivas de acceso condicional
+
+Para controlar quién puede acceder al área de trabajo de Azure Machine Learning, use el [acceso condicional](../active-directory/conditional-access/overview.md) de Azure Active Directory.
 
 ## <a name="built-in-policies"></a>Directivas integradas
 
@@ -79,6 +85,21 @@ Permite controlar si se crea un área de trabajo mediante una identidad administ
 Para configurar esta directiva, establezca el parámetro de efecto en __audit__, __deny__ o __disabled__. Si se establece en __audit__, puede crear un área de trabajo sin tener que especificar una identidad administrada asignada por el usuario. En cambio, se utiliza una identidad asignada por el sistema y se crea un evento de advertencia en el registro de actividad.
 
 Si la directiva se establece en __deny__, no podrá crear un área de trabajo a menos que proporcione una identidad asignada por el usuario durante el proceso de creación. Si intenta crear un área de trabajo sin proporcionar una identidad asignada por el usuario obtendrá un error como resultado. Este error también se registra en el registro de actividad. Como parte de este error, también se devuelve el identificador de la directiva.
+
+## <a name="disable-local-authentication"></a>Deshabilitación de la autenticación local
+
+Controla si una instancia o un clúster de proceso de Azure Machine Learning debe deshabilitar la autenticación local (SSH).
+
+Para configurar esta directiva, establezca el parámetro de efecto en __audit__, __deny__ o __disabled__. Si lo establece en __audit__, podrá crear un proceso con SSH habilitado y un evento de advertencia en el registro de actividad.
+
+Si la directiva se establece en __deny__, no podrá crear un proceso, salvo que se deshabilite SSH. Al intentar crear un proceso con SSH habilitado, se produce un error. El error también se registra en el registro de actividad. Como parte de este error, también se devuelve el identificador de la directiva.
+
+
+## <a name="modifydisable-local-authentication"></a>Modificación o deshabilitación de la autenticación local
+
+Modifica cualquier clúster de proceso o solicitud de creación de instancia de Azure Machine Learning para deshabilitar la autenticación local (SSH).
+
+Para configurar esta directiva, establezca el parámetro de efecto en __Modificar__ o __Deshabilitado__. Si establece __Modificar__, cualquier creación de un clúster de proceso o de una instancia dentro del ámbito en el que se aplica la directiva tendrá deshabilitada automáticamente la autenticación local.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

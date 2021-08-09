@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 07/16/2020
+ms.date: 05/14/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 4b3692884da921eeabcafc5a72419278af2d5440
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 8233edd12d4bde5c71d69cfbeab49ebdc8137dbc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888663"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072013"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -61,9 +61,10 @@ Para usar un [__destino de proceso__ de Azure Machine Learning](concept-compute-
 > * Si va a colocar varios clústeres o instancias de proceso en una red virtual, es posible que tenga que solicitar un aumento de la cuota para uno o varios de los recursos.
 > * Si las cuentas de Azure Storage del área de trabajo también están protegidas en una red virtual, deben estar en la misma red virtual y subred que el clúster o la instancia de Proceso de Azure Machine Learning. Configure las opciones de firewall de almacenamiento para permitir la comunicación con la red virtual y subred en las que reside el proceso. Tenga en cuenta que la casilla "Permitir que los servicios de Microsoft de confianza accedan a esta cuenta" no es suficiente para permitir la comunicación desde el proceso.
 > * Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, asegúrese de que la comunicación de socket web no esté deshabilitada. Asegúrese de que la red permita las conexiones WebSocket a *.instances.azureml.net e *.instances.azureml.ms. 
-> * Cuando se implementa la instancia de proceso en un área de trabajo de vínculo privado, solo se puede tener acceso a ella desde dentro de la red virtual. Si usa un archivo de host o DNS personalizado, agregue una entrada para `<instance-name>.<region>.instances.azureml.ms` con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md).
+> * Cuando se implementa la instancia de proceso en un área de trabajo de vínculo privado, solo se puede tener acceso a ella desde dentro de la red virtual. Si usa un archivo de host o DNS personalizado, agregue una entrada para `<instance-name>.<region>.instances.azureml.ms` con la dirección IP privada del punto de conexión privado del área de trabajo. Para más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md).
 > * La subred que se usa para implementar la instancia o el clúster de proceso no se debe delegar a ningún otro servicio como ACI.
 > * Las directivas de punto de conexión de servicio de red virtual no funcionan para las cuentas de almacenamiento del sistema de la instancia o el clúster de proceso.
+> * Si el almacenamiento y la instancia de proceso se encuentran en regiones diferentes, es posible que vea tiempos de espera intermitentes.
 
     
 > [!TIP]
@@ -118,7 +119,7 @@ Si no quiere usar las reglas de salida predeterminadas y quiere limitar el acces
    - Azure Storage, mediante la __etiqueta de servicio__ de __Storage.RegionName__, donde `{RegionName}` es el nombre de una región de Azure.
    - Azure Container Registry, mediante la __etiqueta de servicio__ de __AzureContainerRegistry.RegionName__ donde `{RegionName}` es el nombre de una región de Azure.
    - Azure Machine Learning, mediante la __etiqueta de servicio__ de __AzureMachineLearning__
-   - Azure Resource Manager, mediante la __etiqueta de servicio__ de __AzureResourceManager__
+   - Azure Resource Manager, mediante la __etiqueta de servicio__ de __Azure Resource Manager__
    - Azure Active Directory, mediante la __etiqueta de servicio__ de __AzureActiveDirectory__
 
 La configuración de la regla de NSG en Azure Portal se muestra en la siguiente imagen:
@@ -159,11 +160,11 @@ La configuración de la regla de NSG en Azure Portal se muestra en la siguiente 
 
 Si usa la [tunelización forzada](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) con el proceso de Azure Machine Learning, debe permitir la comunicación con la red pública de Internet desde la subred que contiene el recurso de proceso. Esta comunicación se usa para la programación de tareas y el acceso a Azure Storage.
 
-Hay dos maneras en que puede lograrlo:
+Hay dos formas de permitir esta comunicación:
 
 * Use una instancia de [Virtual Network NAT](../virtual-network/nat-overview.md). Una puerta de enlace NAT proporciona conectividad de salida a Internet para una o más subredes en su red virtual. Para obtener más información, consulte [Diseño de redes virtuales con recursos de puertas de enlace NAT](../virtual-network/nat-gateway-resource.md).
 
-* Agregue [rutas definidas por el usuario (UDR)](../virtual-network/virtual-networks-udr-overview.md) a la subred que contiene el recurso de proceso. Establezca una ruta definida por el usuario para cada dirección IP que use el servicio Azure Batch en la región en la que existen sus recursos. Estas UDR permiten que el servicio Batch se comunique con los nodos de proceso para programar tareas. Agregue también la dirección IP de Azure Machine Learning Service, ya que esto es necesario para acceder a las instancias de proceso. Cuando agregue la dirección IP de Azure Machine Learning Service, debe agregar la dirección IP para las regiones __primaria y secundaria__ de Azure. La región primaria es aquella en la que se encuentra el área de trabajo.
+* Agregue [rutas definidas por el usuario (UDR)](../virtual-network/virtual-networks-udr-overview.md) a la subred que contiene el recurso de proceso. Establezca una ruta definida por el usuario para cada dirección IP que use el servicio Azure Batch en la región en la que existen sus recursos. Estas UDR permiten que el servicio Batch se comunique con los nodos de proceso para programar tareas. Agregue también la dirección IP de Azure Machine Learning Service, ya que la IP es necesaria para acceder a Instancias de proceso. Cuando agregue la dirección IP de Azure Machine Learning Service, debe agregar la dirección IP para las regiones __primaria y secundaria__ de Azure. La región primaria es aquella en la que se encuentra el área de trabajo.
 
     Para ubicar la región secundaria, consulte [Garantía de continuidad empresarial y recuperación ante desastres con regiones emparejadas de Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs). Por ejemplo, si Azure Machine Learning Service está en la región Este de EE. UU. 2, la región secundaria es Centro de EE. UU. 
 
@@ -203,22 +204,24 @@ Hay dos maneras en que puede lograrlo:
 Para crear un clúster de Proceso de Machine Learning, siga los pasos siguientes:
 
 1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/) y, después, seleccione la suscripción y el área de trabajo.
+1. Seleccione __Proceso__ a la izquierda, __Clústeres de proceso__ en el centro y, luego, seleccione __+ Nuevo__.
 
-1. Seleccione __Proceso__ a la izquierda.
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster.png" alt-text="Captura de pantalla de creación de un clúster":::
 
-1. Seleccione __Clústeres de entrenamiento__ en el centro y, después, seleccione __+__ .
+1. En el cuadro de diálogo __Create compute cluster__ (Crear clúster de proceso), seleccione el tamaño y la configuración de la máquina virtual que necesita y, después, seleccione __Siguiente__.
 
-1. En el cuadro de diálogo __Nuevo clúster de entrenamiento__, expanda la sección __Configuración avanzada__.
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-vm.png" alt-text="Captura de pantalla de la configuración de la máquina virtual":::
 
-1. Para configurar este recurso de proceso para que use una red virtual, realice las acciones siguientes en la sección __Configurar la red virtual__:
+1. En la sección __Parámetros de configuración__, establezca los valores de __Nombre del proceso__, __Red virtual__ y __Subred__.
 
-    1. En la lista desplegable __Grupo de recursos__, seleccione el grupo de recursos que contiene la red virtual.
-    1. En la lista desplegable __Red virtual__, seleccione la red que contiene la subred.
-    1. En la lista desplegable __Subred__, seleccione la subred que se va a usar.
+    > [!TIP]
+    > Si el área de trabajo usa un punto de conexión privado para conectarse a la red virtual, el campo de selección __Red virtual__ está atenuado.
 
-   ![Configuración de la red virtual de Proceso de Machine Learning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Captura de pantalla de la configuración de la red virtual":::
 
-También puede crear un clúster de Proceso de Machine Learning con el SDK de Azure Machine Learning. El código siguiente crea un nuevo clúster de Proceso de Machine Learning en la `default` subred de una red virtual denominada `mynetwork`:
+1. Seleccione __Crear__ para crear el clúster de proceso.
+
+También puede crear un clúster de proceso de Machine Learning mediante el SDK de Azure Machine Learning. El código siguiente crea un nuevo clúster de Proceso de Machine Learning en la `default` subred de una red virtual denominada `mynetwork`:
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -258,9 +261,9 @@ Cuando finaliza el proceso de creación, el modelo se entrena mediante el clúst
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-### <a name="access-data-in-a-compute-instance-notebook"></a>Acceso a los datos en un cuaderno de instancia de Compute
+### <a name="access-data-in-a-compute-instance-notebook"></a>Acceso a los datos en un cuaderno de una instancia de proceso
 
-Si usa cuadernos en una instancia de Azure Compute, debe asegurarse de que el cuaderno se ejecuta en un recurso de proceso detrás de la misma red virtual y subred que los datos. 
+Si usa cuadernos en una instancia de proceso de Azure Machine Learning, debe asegurarse de que el cuaderno se ejecuta en un recurso de proceso detrás de la misma red virtual y subred que los datos. 
 
 Tendrá que configurar la instancia de Compute para que esté en la misma red virtual durante la creación en **Configuración avanzada** > **Configurar la red virtual**. No se puede agregar una instancia de Compute existente a una red virtual.
 

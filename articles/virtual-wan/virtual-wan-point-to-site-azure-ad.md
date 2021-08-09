@@ -7,12 +7,13 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: alzam
-ms.openlocfilehash: f16a7675805fa2665c25b5d4a9c3847b710ec71b
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 59b93327aae8a400b4d1ab6c9ea3f67e5bd9dd03
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164208"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703360"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configuración de la autenticación de Azure Active Directory para una VPN de usuario
 
@@ -88,31 +89,32 @@ Una configuración de VPN de usuario define los parámetros para conectarse a lo
 
    ![Captura de pantalla que muestra el elemento de menú Configuraciones de VPN de usuario seleccionado.](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
-2. Haga clic en **+Create user VPN config** (+Crear configuración de VPN de usuario).
+2. Haga clic en **+Crear una configuración de VPN de usuario**.
 
    ![Captura de pantalla que muestra el vínculo Crear configuración de VPN de usuario.](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. Escriba la información y haga clic en **Crear**.
-
+3. En **Datos básicos**, especifique los parámetros siguientes:
    * **Nombre de la configuración**: escriba el nombre que desea asignar a la configuración de VPN de usuario.
-   * **Tipo de túnel**: seleccione OpenVPN.
+    * **Tipo de túnel**: seleccione OpenVPN en el menú desplegable.
+4. Vaya a **Azure Active Directory**. Cambie **Azure Active Directory** a "Sí" y proporcione los siguientes valores en función de los detalles del inquilino. 
    * **Método de autenticación**: seleccione Azure Active Directory.
    * **Público**: escriba el identificador de aplicación de la [aplicación de Azure VPN](openvpn-azure-ad-tenant.md) Enterprise registrada en el inquilino de Azure AD. 
    * **Emisor** - `https://sts.windows.net/<your Directory ID>/`
    * **Inquilino de AAD** - `https://login.microsoftonline.com/<your Directory ID>`
   
-   ![Captura de pantalla que muestra el panel Crear configuración de VPN de usuario, donde puede especificar los valores.](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
+   ![Captura de pantalla que muestra el panel Crear configuración de VPN de usuario, donde puede especificar los valores.](media/virtual-wan-point-to-site-azure-ad/configure-aad-profile.png)
 
 ## <a name="edit-hub-assignment"></a><a name="hub"></a>Edición de la asignación del concentrador
 
 1. Vaya a la hoja **Centros de conectividad** de la red virtual WAN.
 2. Seleccione el concentrador al que desea asociar la configuración del servidor VPN y haga clic en los puntos suspensivos (...).
 
-   ![Captura de pantalla que muestra la opción Editar centro de conectividad virtual seleccionada en el menú.](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
+   ![Captura de pantalla que muestra la opción Editar centro de conectividad virtual seleccionada en el menú.](media/virtual-wan-point-to-site-azure-ad/select-hub.png)
 3. Haga clic en **Editar centro de conectividad virtual**.
 4. Active la casilla **Incluir puerta de enlace de punto a sitio** y elija la **unidad de escalado de puerta de enlace** que quiera.
 
-   ![Captura de pantalla que muestra el cuadro de diálogo Editar centro de conectividad virtual, donde puede seleccionar la unidad de escala de la puerta de enlace.](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/edit-virtual-hub.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo Editar centro de conectividad virtual, donde puede seleccionar la unidad de escala de la puerta de enlace."lightbox="./media/virtual-wan-point-to-site-azure-ad/edit-virtual-hub.png":::
+
 5. Especifique el **Grupo de direcciones** del que se asignarán direcciones IP a los clientes VPN.
 6. Haga clic en **Confirmar**.
 7. La operación puede tardar hasta 30 minutos en completarse.

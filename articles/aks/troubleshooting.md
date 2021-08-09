@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas y resolver pr
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 0892f11a79c62669d77cceb2dbc4f9a9f86c623a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 257f3473da4284080d7977021cb97c6dbce0fbde
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108765942"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535174"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -214,6 +214,10 @@ Si el estado de aprovisionamiento del clúster permanece como *Error* o las apli
 ## <a name="my-watch-is-stale-or-azure-ad-pod-identity-nmi-is-returning-status-500"></a>Mi inspección está obsoleta o NMI de identidad del pod de Azure AD devuelve el estado 500
 
 Si usa Azure Firewall como en este [ejemplo](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall), puede encontrar este problema, ya que las conexiones TCP de larga duración a través del firewall que usan las reglas de aplicación actualmente tienen un error (que se resolverá en Q1CY21) que hace que Go `keepalives` se termine en el firewall. Hasta que se solucione este problema, puede mitigarlo mediante la incorporación de una regla de red (en lugar de una regla de aplicación) a la dirección IP del servidor de la API de AKS.
+
+## <a name="when-resuming-my-cluster-after-a-stop-operation-why-is-my-node-count-not-in-the-autoscaler-min-and-max-range"></a>Al reanudar mi clúster después de una operación de parada, ¿por qué mi número de nodos no está en el intervalo entre mínimo y máximo del escalador automático?
+
+Si usa el escalador automático de clústeres, al iniciar la copia de seguridad del clúster, es posible que el número de nodos actual no esté entre los valores de intervalo mínimo y máximo establecidos. Este comportamiento es normal. El clúster comienza con el número de nodos que necesita para ejecutar sus cargas de trabajo, que no se verá afectados por la configuración del escalador automático. Cuando el clúster realiza operaciones de escalado, los valores mínimo y máximo afectarán al número de nodos actual y el clúster finalmente entrará y permanecerá en ese intervalo deseado hasta que detenga el clúster.
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Solución de problemas de Azure Storage y AKS
 

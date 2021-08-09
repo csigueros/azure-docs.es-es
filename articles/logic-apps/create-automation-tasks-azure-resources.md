@@ -3,24 +3,22 @@ title: Creación de tareas de automatización para administrar y supervisar recu
 description: Configure tareas automatizadas que lo ayuden a administrar los recursos de Azure y a supervisar los costos mediante la creación de flujos de trabajo que se ejecuten en Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
-ms.date: 04/05/2021
-ms.openlocfilehash: 0a98f9e4b108d2498fa19bc0b041f9d52272c7d2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.reviewer: azla
+ms.topic: how-to
+ms.date: 06/09/2021
+ms.openlocfilehash: bd8ac7857d5be31aafd9a1e91cbd276d79823ed2
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774943"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747156"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Administración de los recursos de Azure y supervisión de los costos mediante la creación de tareas de automatización (versión preliminar)
 
 > [!IMPORTANT]
-> Esta funcionalidad se encuentra en versión preliminar pública, se ofrece sin contrato de nivel de servicio y no se recomienda usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidad está en versión preliminar, no se recomienda para cargas de trabajo de producción y no se incluye en los contratos de nivel de servicio. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Para que pueda administrar los [recursos de Azure](../azure-resource-manager/management/overview.md#terminology) de manera más sencilla, puede crear tareas de administración automatizadas para un recurso o un grupo de recursos específico mediante el uso de plantillas de tareas de automatización, cuya disponibilidad varía en función del tipo de recurso. Por ejemplo, para una [cuenta de Azure Storage](../storage/common/storage-account-overview.md), puede configurar una tarea de automatización que le envíe el costo mensual de esa cuenta de almacenamiento. En el caso de una [máquina virtual de Azure](https://azure.microsoft.com/services/virtual-machines/), puede crear una tarea de automatización que active o desactive esa máquina virtual según una programación predefinida.
-
-En segundo plano, una tarea de automatización en realidad es un flujo de trabajo que se ejecuta en el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y se factura según las mismas [tarifas de precios](https://azure.microsoft.com/pricing/details/logic-apps/) y el mismo [modelo de precios](../logic-apps/logic-apps-pricing.md). Después de crear la tarea, ábrala en el Diseñador de aplicación lógica para ver y editar el flujo subyacente. Cuando una tarea completa al menos una ejecución, se puede revisar el estado, el historial, las entradas y las salidas de cada ejecución.
 
 A continuación se muestran las plantillas de tareas actualmente disponibles en esta versión preliminar:
 
@@ -45,11 +43,24 @@ En este artículo se muestra cómo completar las tareas siguientes:
 
 ## <a name="how-do-automation-tasks-differ-from-azure-automation"></a>¿Qué diferencias hay entre las tareas de automatización y Azure Automation?
 
-Actualmente, se puede crear una tarea de automatización solo en el nivel de recurso, ver el historial de ejecución de la tarea y editar el flujo de trabajo de la aplicación lógica subyacente de la tarea, que se basa en el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Las tareas de automatización son más básicas y ligeras que [Azure Automation](../automation/automation-intro.md).
+Las tareas de automatización son más básicas y ligeras que [Azure Automation](../automation/automation-intro.md). Actualmente, las tareas de automatización solo se pueden en el nivel de recursos de Azure. En segundo plano, una tarea de automatización es realmente un recurso de aplicación lógica que ejecuta un flujo de trabajo y cuenta con la tecnología del [*servicio Azure Logic Apps* multiinquilino](../logic-apps/logic-apps-overview.md). Después de crear la tarea de automatización, puede ver y editar el flujo de trabajo subyacente abriendo la tarea en el diseñador de flujos de trabajo. Cuando una tarea finaliza al menos una ejecución, se puede revisar el estado de la tarea, el historial de la ejecución del flujo de trabajo, las entradas y las salidas de cada ejecución.
 
 En comparación, Azure Automation es un servicio de automatización y configuración basado en la nube que facilita una administración coherente en los entornos que se encuentran dentro y fuera de Azure. El servicio consta de la [automatización de procesos para organizarlos](../automation/automation-intro.md#process-automation) a través del uso de [runbooks](../automation/automation-runbook-execution.md), administración de configuración con [Change Tracking e Inventario](../automation/change-tracking/overview.md), administración de actualizaciones, funcionalidades compartidas y características heterogéneas. Azure proporciona un control completo durante la implementación, las operaciones y la retirada de las cargas de trabajo y recursos.
 
-## <a name="prerequisites"></a>Requisitos previos
+<a name="pricing"></a>
+
+## <a name="pricing"></a>Precios
+
+La creación de una tarea de automatización no conlleva cargos automáticamente. Debajo, una tarea de automatización es una aplicación lógica basada en varios inquilinos, por lo que el [modelo de precios de consumo](logic-apps-pricing.md) también se aplica a las tareas de automatización. La medición y facturación se basan en las ejecuciones del desencadenador y de la acción en el flujo de trabajo de la aplicación lógica subyacente.
+
+Las ejecuciones se miden y facturan, independientemente de si el flujo de trabajo se ejecuta correctamente o de si se crea una instancia del flujo de trabajo. Por ejemplo, suponga que la tarea de automatización usa un desencadenador de sondeo que realiza regularmente una llamada saliente a un punto de conexión. Esta solicitud de salida se mide y factura como una ejecución, independientemente de si el desencadenador se activa o se omite, lo que afecta a si se crea una instancia de flujo de trabajo.
+
+Tanto los desencadenadores como las acciones utilizan las [tarifas del plan de consumo](https://azure.microsoft.com/pricing/details/logic-apps/), que difieren en función de si estas operaciones son ["integradas"](../connectors/built-in.md) o ["administradas" (Estándar o Enterprise).](../connectors/managed.md) Los desencadenadores y las acciones también realizan transacciones de almacenamiento, que usan la [tarifa de datos del plan de consumo](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+> [!TIP]
+> Como bonificación mensual, el plan de consumo incluye *varios miles* de ejecuciones integradas gratuitas. Para obtener información específica, consulte las [tarifas del plan de consumo](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una cuenta y una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

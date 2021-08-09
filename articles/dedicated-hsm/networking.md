@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 14f7a88e756123b807852d78b6511939b81fd9db
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cd87d2261ab89b521829d1049a0c17db125a14f3
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126064"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112063421"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Redes de Azure Dedicated HSM
 
@@ -41,10 +41,9 @@ Antes de aprovisionar un dispositivo HSM dedicado, los clientes primero deberán
 
 Las subredes segmentan la red virtual en espacios de direcciones independientes utilizables por los recursos de Azure que coloque en ellos. Los HMS dedicados se implementan en una subred que se encuentra en la red virtual. Cada dispositivo HSM dedicado que se implementa en la subred del cliente recibirá una dirección IP privada de esta subred. La subred en la que se implementa el dispositivo HSM debe delegarse explícitamente al servicio: Microsoft.HardwareSecurityModules/dedicatedHSMs. Esto concede determinados permisos al servicio HSM para la implementación en la subred. La delegación a HSM dedicados impone ciertas restricciones de directiva en la subred. Actualmente no se admiten grupos de seguridad de red (NSG) ni rutas definidas por el usuario (UDR) en las subredes delegadas. En consecuencia, una vez que una subred se delega a HSM dedicados, solo puede usarse para implementar recursos HSM. Al implementar cualquier otro recurso de cliente en la subred se producirá un error.
 
-
 ### <a name="expressroute-gateway"></a>Puerta de enlace de ExpressRoute
 
-Un requisito de la arquitectura actual es la configuración de una puerta de enlace de ExpressRoute en la subred de los clientes en la que debe colocarse un dispositivo HSM para permitir la integración del dispositivo HSM en Azure. Esta puerta de enlace de ExpressRoute no se puede utilizar para conectar ubicaciones locales a los dispositivos HSM de los clientes en Azure.
+Un requisito de la arquitectura actual es la configuración de una [puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) en la subred de los clientes en la que debe colocarse un dispositivo HSM para permitir la integración del dispositivo HSM en Azure. Esta [puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) no se puede utilizar para conectar ubicaciones locales a los dispositivos HSM de los clientes en Azure.
 
 ## <a name="connecting-your-on-premises-it-to-azure"></a>Conexión del entorno de TI local a Azure
 
@@ -105,7 +104,7 @@ Este diseño de redes requiere los elementos siguientes:
 
 Dado que agregar la solución de proxy de NVA también permite que un firewall de NVA en el centro de tránsito/DMZ se coloque lógicamente delante de la NIC de HSM, se proporcionan las directivas de denegación predeterminadas necesarias. En nuestro ejemplo, usaremos Azure Firewall para este propósito y necesitaremos los siguientes elementos:
 1. Una instancia de Azure Firewall implementada en la subred "AzureFirewallSubnet" en la red virtual del centro de DMZ.
-2. Una tabla de enrutamiento con una UDR que dirija hacia Azure Firewall el tráfico que se envía al punto de conexión privado de Azure ILB. Esta tabla de enrutamiento se aplicará a GatewaySubnet donde reside la puerta de enlace virtual de ExpressRoute del cliente.
+2. Una tabla de enrutamiento con una UDR que dirija hacia Azure Firewall el tráfico que se envía al punto de conexión privado de Azure ILB. Esta tabla de enrutamiento se aplicará a GatewaySubnet donde reside la [puerta de enlace virtual de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) del cliente.
 3. Reglas de seguridad de red dentro de Azure Firewall para permitir el reenvío entre un intervalo de orígenes de confianza y el punto de conexión privado de Azure IBL escuchando en el puerto TCP 1792. Esta lógica de seguridad agregará la directiva de "denegación predeterminada" necesaria en el servicio Dedicated HSM. Es decir, solo se permitirán los intervalos IP de origen de confianza en el servicio Dedicated HSM. Se quitarán todos los demás intervalos.  
 4. Una tabla de enrutamiento con una UDR que dirija hacia Azure Firewall el tráfico que se envía al entorno local. Esta tabla de enrutamiento se aplicará a la subred de proxy de NVA. 
 5. Un NSG aplicado a la subred de NVA del proxy para confiar solo en el intervalo de subredes de Azure Firewall como origen, y para permitir el reenvío solo a la dirección IP de la NIC de HSM a través del puerto TCP 1792. 
@@ -141,7 +140,7 @@ Hay un par de arquitecturas que puede usar como alternativa al Emparejamiento de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas más frecuentes](faq.md)
+- [Preguntas más frecuentes](faq.yml)
 - [Compatibilidad](supportability.md)
 - [Alta disponibilidad](high-availability.md)
 - [Seguridad física](physical-security.md)

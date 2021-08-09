@@ -1,14 +1,14 @@
 ---
 title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
-ms.date: 05/18/2021
+ms.date: 06/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3a0e6c1e824016dbfdef4a1e351972a34ea2daa5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f9a9d6b937256787d0457f150d5f3dfaca81d9cd
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099197"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020248"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -41,7 +41,7 @@ Resource Graph proporciona varias tablas para los datos que almacena sobre los t
 |PolicyResources |No |Incluye recursos _relacionados_ con `Microsoft.PolicyInsights`. (**Versión preliminar**) |
 |RecoveryServicesResources |Parcial, solo unirse _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.DataProtection` y `Microsoft.RecoveryServices`. |
 |SecurityResources |Sí (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Security`. |
-|ServiceHealthResources |No |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth`. |
+|ServiceHealthResources |No (vista previa) |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth`. |
 |WorkloadMonitorResources |No |Incluye recursos _relacionados_ con `Microsoft.WorkloadMonitor`. |
 
 Para ver una lista completa, incluidos los tipos de recursos, consulte [Referencia: tablas y tipos de recursos admitidos](../reference/supported-tables-resources.md).

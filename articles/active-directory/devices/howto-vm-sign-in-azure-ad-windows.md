@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 06/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e29aab4db0e568d06ab3d5f0f898b2fec9fee181
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 834aa7643583683f7ee64abdbd1e18e0b76c6ada
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732801"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538805"
 ---
 # <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory
 
@@ -32,7 +32,6 @@ Usar la autenticación basada en Azure AD para iniciar sesión en máquinas vir
 - Puede usar las directivas de implementación y auditoría de Azure para requerir el inicio de sesión de Azure AD para las máquinas virtuales Windows y para marcar el uso de cuentas locales no aprobadas en las máquinas virtuales.
 - El inicio de sesión en máquinas virtuales Windows con Azure Active Directory también funciona para los clientes que usan los Servicios de federación.
 - Automatice y escale la unión de Azure AD con la inscripción automática de MDM en Intune de las máquinas virtuales Windows de Azure que forman parte de las implementaciones de VDI. La inscripción automática de MDM requiere una licencia P1 de Azure AD. Las máquinas virtuales con Windows Server 2019 no admiten la inscripción de MDM.
-
 
 > [!NOTE]
 > Una vez habilitada esta funcionalidad, las máquinas virtuales de Windows en Azure se unirán a Azure AD. No se puede unir a otro dominio, como AD local o Azure AD DS. Si tiene que hacerlo, tendrá que desconectar la máquina virtual del inquilino de Azure AD desinstalando la extensión.
@@ -55,8 +54,6 @@ Esta característica ahora está disponible en las siguientes nubes de Azure:
 - Azure Government
 - Azure China
 
-
-
 ### <a name="network-requirements"></a>Requisitos de red
 
 Para habilitar la autenticación de Azure AD para las VM Windows en Azure, debe asegurarse de que la configuración de red de las VM permita el acceso de salida a los siguientes puntos de conexión a través del puerto TCP 443:
@@ -67,20 +64,17 @@ Para Azure global
 - `https://login.microsoftonline.com`: para flujos de autenticación.
 - `https://pas.windows.net`: para flujos de RBAC de Azure.
 
-
 Para Azure Government
 - `https://enterpriseregistration.microsoftonline.us`: para el registro de dispositivos.
 - `http://169.254.169.254`: Azure Instance Metadata Service.
 - `https://login.microsoftonline.us`: para flujos de autenticación.
 - `https://pasff.usgovcloudapi.net`: para flujos de RBAC de Azure.
 
-
 Para Azure China
 - `https://enterpriseregistration.partner.microsoftonline.cn`: para el registro de dispositivos.
 - `http://169.254.169.254`: punto de conexión de Azure Instance Metadata Service.
 - `https://login.chinacloudapi.cn`: para flujos de autenticación.
 - `https://pas.chinacloudapi.cn`: para flujos de RBAC de Azure.
-
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Habilitar el inicio de sesión de Azure AD en VM Windows en Azure
 
@@ -258,7 +252,7 @@ Para que la VM complete el proceso de unión a Azure AD, la extensión AADLoginF
 
    > [!NOTE]
    > Si la extensión se reinicia después del error inicial, el registro con el error de implementación se guardará como `CommandExecution_YYYYMMDDHHMMSSSSS.log`. "
-1. Abra un símbolo del sistema de PowerShell en la VM y compruebe estas consultas con el punto de conexión de Instance Metadata Service (IMDS) que se ejecuta en el host de Azure:
+1. Abra una ventana de PowerShell en la máquina virtual y compruebe que al ejecutar estas consultas en el punto de conexión de Instance Metadata Service (IMDS) en el host de Azure, se devuelve lo siguiente:
 
    | Comando para ejecutar | Salida prevista |
    | --- | --- |
@@ -269,7 +263,7 @@ Para que la VM complete el proceso de unión a Azure AD, la extensión AADLoginF
    > [!NOTE]
    > El token de acceso se puede descodificar mediante una herramienta, como [calebb.net](http://calebb.net/). Compruebe que el objeto `appid` del token de acceso coincide con la identidad administrada asignada a la máquina virtual.
 
-1. Asegúrese de que los punto de conexión necesarios sean accesibles desde la VM. Para ello, use la siguiente línea de comandos:
+1. Asegúrese de que los puntos de conexión necesarios sean accesibles desde la máquina virtual con PowerShell:
    
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
@@ -294,7 +288,7 @@ Este código de salida se convierte en `DSREG_E_MSI_TENANTID_UNAVAILABLE` porque
 
 1. Compruebe que la VM de Azure puede recuperar el id. de inquilino de Instance Metadata Service.
 
-   - Establezca una conexión RDP a la VM como administrador local y compruebe que el punto de conexión devuelve un id. de inquilino válido. Para ello, ejecute este comando desde una línea de comandos con privilegios elevados en la VM:
+   - Establezca una conexión RDP a la VM como administrador local y compruebe que el punto de conexión devuelve un identificador de inquilino válido. Para ello, ejecute este comando desde una ventana de PowerShell con privilegios elevados en la máquina virtual:
       
       - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
@@ -304,7 +298,7 @@ Este código de salida se convierte en `DSREG_E_MSI_TENANTID_UNAVAILABLE` porque
 
 Este código de salida se convierte en `DSREG_AUTOJOIN_DISC_FAILED` porque la extensión no puede alcanzar el punto de conexión de `https://enterpriseregistration.windows.net`.
 
-1. Compruebe que los punto de conexión necesarios son accesibles desde la VM. Para ello, use la siguiente línea de comandos:
+1. Compruebe que los puntos de conexión necesarios son accesibles desde la VM con PowerShell:
 
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`

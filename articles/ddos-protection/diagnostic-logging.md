@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 7f8e3df927b74cff7e4dc8bf1456600740c07088
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8ae9365199edfde078cad39783458fc3f86ebd6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567685"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061505"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Visualización y configuración del registro de diagnósticos de DDoS
 
@@ -128,9 +128,7 @@ En la tabla siguiente se muestran los nombres y las descripciones de los campos:
 
 ## <a name="enable-diagnostic-logging-on-all-public-ips"></a>Habilitación del registro de diagnóstico en todas las direcciones IP públicas
 
-Esta [plantilla](https://aka.ms/ddosdiaglogs) crea una definición de Azure Policy para habilitar automáticamente el registro de diagnóstico en todos los registros de direcciones IP públicas de un ámbito definido.
-
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FPolicy%20-%20DDOS%20Enable%20Diagnostic%20Logging%2FAzure%20Policy%2FDDoSLogs.json)
+Esta [directiva integrada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F752154a7-1e0f-45c6-a880-ac75a7e4f648) habilita automáticamente el registro de diagnóstico en todos los registros de IP pública de un ámbito definido. Para obtener una lista completa de directivas integradas, consulte [Definiciones de directivas integradas de Azure Policy para Azure DDoS Protection estándar](policy-reference.md).
 
 ## <a name="view-log-data-in-workbooks"></a>Visualización de los datos de registro en los libros
 

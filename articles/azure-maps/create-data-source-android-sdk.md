@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: e870134e2ecd431aa3e5c02638120027f0d47df2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7ba00e1f3bd28b3fa24b14bc31080655a8d4c98b
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101467"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792089"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Creación de un origen de datos (Android SDK)
 
@@ -590,7 +590,7 @@ Azure Maps se adhiere a la [especificación de mosaicos vectoriales de Mapbox](h
 - [Documentación](/rest/api/maps/renderv2/getmaptilepreview) | [Detalles del formato de datos](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) de mosaicos de carreteras
 - [Documentación](/rest/api/maps/traffic/gettrafficincidenttile) | [Detalles del formato de datos](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) de incidentes de tráfico
 - [Documentación](/rest/api/maps/traffic/gettrafficflowtile) | [Detalles del formato de datos](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de flujo de tráfico
-- El Creador de Azure Maps también permite crear mosaicos vectoriales personalizados y acceder a ellos a través de [Render V2 de obtención de mosaicos](/rest/api/maps/renderv2/getmaptilepreview).
+- Creator de Azure Maps también permite crear mosaicos vectoriales personalizados y acceder a ellos a través de [Render V2-Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview).
 
 > [!TIP]
 > Al usar mosaicos de imagen vectoriales o de trama del servicio de representación de Azure Maps con el SDK web, puede reemplazar `atlas.microsoft.com` por el marcador de posición `azmapsdomain.invalid`. Este marcador de posición se reemplazará por el mismo dominio usado por el mapa y también anexará automáticamente los mismos detalles de autenticación. Esto simplifica considerablemente la autenticación con el servicio de representación al usar la autenticación de Azure Active Directory.

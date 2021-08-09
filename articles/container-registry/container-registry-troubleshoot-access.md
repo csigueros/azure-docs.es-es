@@ -3,12 +3,12 @@ title: Solución de problemas de red con el registro
 description: Síntomas, causas y resolución de problemas comunes al acceder a un registro de contenedor de Azure en una red virtual o detrás de un firewall
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: dc2110405713791d11fb438565fc091da9c9dd5c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d9cfa0aa902fca1afd1033d40b33ccdf5baa56d7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780759"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066683"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solución de problemas de red con el registro
 
@@ -68,7 +68,7 @@ Vínculos relacionados:
 * [Configuración de reglas para acceder a un registro de contenedor de Azure detrás de un firewall](container-registry-firewall-access-rules.md)
 * [Configuración del proxy HTTP/HTTPS](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
 * [Replicación geográfica de Azure Container Registry](container-registry-geo-replication.md)
-* [Registros de Azure Container Registry para la evaluación y auditoría de diagnóstico](container-registry-diagnostics-audit-logs.md)
+* [Supervisión de Azure Container Registry](monitor-service.md)
 
 ### <a name="configure-public-access-to-registry"></a>Configurar el acceso público al registro
 
@@ -126,11 +126,11 @@ Vínculos relacionados:
 
 ## <a name="advanced-troubleshooting"></a>Pasos detallados para solucionar problemas de conexión a Escritorio remoto a máquinas virtuales Windows en Azure
 
-Si la [colección de registros de recursos](container-registry-diagnostics-audit-logs.md) está habilitada en el registro, revise el registro ContainterRegistryLoginEvents. Este registro almacena los eventos y el estado de autenticación, incluida la identidad entrante y la dirección IP. Consulte el registro para conocer los [errores de autenticación del registro](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
+Si la [colección de registros de recursos](monitor-service.md) está habilitada en el registro, revise el registro ContainterRegistryLoginEvents. Este registro almacena los eventos y el estado de autenticación, incluida la identidad entrante y la dirección IP. Consulte el registro para conocer los [errores de autenticación del registro](monitor-service.md#registry-authentication-failures). 
 
 Vínculos relacionados:
 
-* [Registros para la evaluación y auditoría de diagnóstico](container-registry-diagnostics-audit-logs.md)
+* [Supervisión de Azure Container Registry](monitor-service.md)
 * [Preguntas frecuentes sobre Container Registry](container-registry-faq.md)
 * [Base de referencia de Azure Security para Azure Container Registry](security-baseline.md)
 * [Procedimientos recomendados para Azure Container Registry](container-registry-best-practices.md)

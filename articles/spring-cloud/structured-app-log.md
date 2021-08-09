@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 64b84c248a943c8558bf1e5fea646a36046c7f1b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ef51fc0c67c938a2d0933b6032072acc24e42dd3
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740418"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494635"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Registro de aplicaciones estructurado para Azure Spring Cloud
 
@@ -20,7 +20,10 @@ En este artículo se explica cómo generar y recopilar datos de registro de apli
 
 ## <a name="log-schema-requirements"></a>Requisitos del esquema de registro
 
-Para mejorar la experiencia de consulta de registros, es necesario que un registro de aplicaciones esté en formato JSON y se ajuste a un esquema. Azure Spring Cloud usa este esquema para analizar la aplicación y transmitirla a Log Analytics. 
+Para mejorar la experiencia de consulta de registros, es necesario que un registro de aplicaciones esté en formato JSON y se ajuste a un esquema. Azure Spring Cloud usa este esquema para analizar la aplicación y transmitirla a Log Analytics.
+
+> [!NOTE]
+> La habilitación del formato de registro JSON dificulta la lectura de la salida del streaming de registros desde la consola. Para obtener una salida legible, anexe el argumento `--format-json` al comando de la CLI `az spring-cloud app logs`. Consulte [Aplicación de formato a los registros estructurados de JSON](./how-to-log-streaming.md#format-json-structured-logs).
 
 **Requisitos del esquema JSON:**
 

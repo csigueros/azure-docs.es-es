@@ -1,9 +1,9 @@
 ---
 title: Descripción del aprovisionamiento de aplicaciones en Azure Active Directory
-description: Descripción del funcionamiento del aprovisionamiento de aplicaciones en Azure Active Directory.
+description: Describa el funcionamiento del aprovisionamiento de aplicaciones en Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: f2f2f121ba6dde7bc516f40d5e50d53acb80b18a
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: e95359d24cda6b0d23084010d8ab19566dd2197c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109782872"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409386"
 ---
 # <a name="how-application-provisioning-works-in-azure-active-directory"></a>Funcionamiento del aprovisionamiento de aplicaciones en Azure Active Directory
 

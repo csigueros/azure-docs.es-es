@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/04/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9c9d5ae5fec9b9258527606d352cef83d5b5a41c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 295dfa5a02ce3f46049805339a4f7918ce20361e
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742830"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565201"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Notas para desarrolladores sobre Azure Active Directory B2C
 
@@ -37,8 +37,9 @@ Los [flujos de usuario y las directivas personalizadas](user-flow-overview.md) d
 | [Registro e inicio de sesión](add-sign-up-and-sign-in-policy.md) con nombre de usuario y contraseña.| GA | GA | |
 | [Flujo de edición de perfiles](add-profile-editing-policy.md) | GA | GA | |
 | [Autoservicio de restablecimiento de contraseña](add-password-reset-policy.md) | GA| GA| |
-| [Forzar el restablecimiento de contraseñas](force-password-reset.md) | Vista previa | N/D | |
+| [Forzar el restablecimiento de contraseñas](force-password-reset.md) | Disponibilidad general | N/D | |
 | [Registro e inicio de sesión por teléfono](phone-authentication-user-flows.md) | GA | GA | |
+| [Identity Protection y acceso condicional](conditional-access-user-flow.md) | GA | GA | No disponible para aplicaciones SAML |
 
 ## <a name="oauth-20-application-authorization-flows"></a>Flujos de autorización de aplicaciones de OAuth 2.0
 
@@ -83,6 +84,7 @@ En la tabla siguiente se resumen los flujos de autenticación de aplicaciones de
 | [Verificación de correo electrónico personalizado](custom-email-mailjet.md) | N/D | GA| |
 | [Personalización de la interfaz de usuario con plantillas integradas](customize-ui.md) | GA| GA| |
 | [Personalización de la interfaz de usuario con plantillas personalizadas](customize-ui-with-html.md) | GA| GA| Mediante plantillas HTML. |
+| [Versión de diseño de página](page-layout.md) | GA | GA | |
 | [JavaScript](javascript-and-page-layout.md) | GA | GA | |
 | [Experiencia de inicio de sesión insertada](embedded-login.md) | N/D |  Vista previa| Mediante el elemento de marco en línea `<iframe>`. |
 | [Complejidad de la contraseña](password-complexity.md) | GA | GA | |

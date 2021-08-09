@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 448998328ff15b74b0aa0b17e2435a7ff55c54a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed1101d75685eb397eb3e45683adb886288ee49b
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83124196"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809011"
 ---
 # <a name="work-with-incidents-in-many-workspaces-at-once"></a>Procesamiento de incidentes en varias áreas de trabajo a la vez 
 
@@ -50,7 +50,7 @@ En **Vista de varias áreas de trabajo**, de momento solo hay disponible la pant
 
 - Deberá tener permisos de lectura y escritura en todas las áreas de trabajo desde las que haya seleccionado incidentes. Si solo tiene permisos de lectura en algunas áreas de trabajo y selecciona incidentes en estas, se le mostrarán mensajes de advertencia. No podrá modificar esos incidentes ni ningún otro que haya seleccionado (aunque tenga permisos para los demás).
 
-- Si elige un solo incidente y hace clic en **Ver detalles completos** o **Investigar**, a partir de entonces se encontrará en el contexto de datos del área de trabajo del incidente y no en otros.
+- Si elige un solo incidente y hace clic en **Ver detalles completos** o **Acciones** > **Investigar**, a partir de ese momento se encontrará en el contexto de datos del área de trabajo del incidente, no en otros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, aprendió a consultar los incidentes en varias áreas de trabajo de Azure Sentinel simultáneamente, así como a trabajar con ellos. Para más información sobre Azure Sentinel, consulte los siguientes artículos:

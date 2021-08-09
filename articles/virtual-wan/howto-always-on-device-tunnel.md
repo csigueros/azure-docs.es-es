@@ -1,19 +1,19 @@
 ---
 title: Configuración de un túnel VPN Always On
 titleSuffix: Azure Virtual WAN
-description: Pasos para configurar un túnel del dispositivo VPN Always On en Virtual WAN
+description: Aprenda a configurar un túnel de dispositivo VPN Always On en Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: e814487cb4dab9c8c19daab2ea3bb81391d4a98f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69899179b65400e8a3b81f497e950aa3123c624e
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90983688"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579757"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel-for-virtual-wan"></a>Configuración de un túnel de dispositivo VPN Always On para Virtual WAN
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87156914769c2cb76b7509b74ebfeb13b15af95e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100384459"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784201"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Descripción de los roles necesarios para realizar tareas comunes en Synapse
 
@@ -116,7 +116,7 @@ Revisar asignaciones de roles RBAC de Synapse en cualquier ámbito|Usuario de Sy
 Asignar y quitar asignaciones de roles RBAC de Synapse para usuarios, grupos y entidades de servicio| Administrador de Synapse en el área de trabajo o en un ámbito de elemento de área de trabajo específico|roleAssignments/escritura, eliminación 
 
 >[!Note]
->Los usuarios invitados de otro inquilino no podrán revisar, agregar ni cambiar las asignaciones de roles, independientemente del rol que se les haya asignado. 
+>Los usuarios invitados de otro inquilino también podrán revisar, agregar o cambiar las asignaciones de roles cuando se hayan asignado como administradores de Synapse. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

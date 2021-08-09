@@ -5,14 +5,14 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 05/18/2021
 ms.custom: seo-nov-2020
-ms.openlocfilehash: ba0dd347c4ee2cb41b34c2fc34f1848a7295dc3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55899fc38652462f0f98b4ad2d916cf10f203458
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97368671"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470977"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creación de contenedores y bases de datos de Azure Cosmos con rendimiento de escalabilidad automática
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -59,7 +59,7 @@ El punto de entrada para el rendimiento máximo de la escalabilidad automática,
 
 ## <a name="enable-autoscale-on-existing-resources"></a>Habilitación de la escalabilidad automática en recursos existentes
 
-Use [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), una [plantilla de Azure Resource Manager](how-to-provision-autoscale-throughput.md#azure-resource-manager), la [CLI](how-to-provision-autoscale-throughput.md#azure-cli) o [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) para habilitar la escalabilidad automática en una base de datos o un contenedor existentes. Puede cambiar entre la escalabilidad automática y el rendimiento aprovisionado estándar (manual) en cualquier momento. Consulte esta [documentación](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obtener más información.
+Use [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), la [CLI](how-to-provision-autoscale-throughput.md#azure-cli) o [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) para habilitar la escalabilidad automática en una base de datos o un contenedor existente. Puede cambiar entre la escalabilidad automática y el rendimiento aprovisionado estándar (manual) en cualquier momento. Consulte esta [documentación](autoscale-faq.yml#how-does-the-migration-between-autoscale-and-standard--manual--provisioned-throughput-work-) para obtener más información.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Límites de rendimiento y almacenamiento para Escalabilidad automática
 
@@ -67,7 +67,7 @@ Para cualquier valor de `Tmax`, la base de datos o el contenedor pueden almacena
 
 Por ejemplo, si comienza con un máximo de 50 000 RU/s (que se escalan entre 5 000 y 50 000 RU/s), puede almacenar hasta 500 GB de datos. Si supera los 500 GB: por ejemplo, el almacenamiento es ahora de 600 GB, el nuevo número máximo será de 60 000 RU/s (que se escalan entre 6 000 y 60 000 RU/s).
 
-Si usa el rendimiento de nivel de base de datos con escalabilidad automática, puede hacer que los primeros 25 contenedores compartan un número máximo de 4 000 RU/s de escalabilidad automática (que se escalan entre 400 y 4 000 RU/s), siempre que no supere los 40 GB de almacenamiento. Consulte esta [documentación](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) para obtener más información.
+Si usa el rendimiento de nivel de base de datos con escalabilidad automática, puede hacer que los primeros 25 contenedores compartan un número máximo de 4 000 RU/s de escalabilidad automática (que se escalan entre 400 y 4 000 RU/s), siempre que no supere los 40 GB de almacenamiento. Consulte esta [documentación](autoscale-faq.yml#can-i-change-the-max-ru-s-on-the-database-or-container--) para obtener más información.
 
 ## <a name="comparison--containers-configured-with-manual-vs-autoscale-throughput"></a>Comparación: contenedores configurados con rendimiento manual frente a la escalabilidad automática
 Para más información, consulte esta [documentación](how-to-choose-offer.md) sobre cómo elegir entre el rendimiento estándar (manual) y la escalabilidad automática.  
@@ -82,7 +82,7 @@ Para más información, consulte esta [documentación](how-to-choose-offer.md) s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Revise las [preguntas más frecuentes sobre Escalabilidad automática](autoscale-faq.md).
+* Revise las [preguntas más frecuentes sobre Escalabilidad automática](autoscale-faq.yml).
 * Obtenga información acerca de cómo [elegir entre el rendimiento manual y de escalabilidad automática](how-to-choose-offer.md).
 * Obtenga información sobre el [aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos](how-to-provision-autoscale-throughput.md).
 * Más información sobre la [creación de particiones](partitioning-overview.md) en Azure Cosmos DB.

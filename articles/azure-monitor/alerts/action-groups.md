@@ -3,14 +3,14 @@ title: Creación y administración de grupos de acciones en Azure Portal
 description: Obtenga información acerca de cómo crear y administrar grupos de acciones en Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 05/28/2021
 ms.author: dukek
-ms.openlocfilehash: ae170fc500f8682a6c090b654fdfd0325b8eb49e
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 2f5244fd8ef414a1bed6781c702014e805f47a76
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795409"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060325"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. 
@@ -160,6 +160,8 @@ Al configurar el *Rol de ARM de correo electrónico*, debe asegurarse de que se 
 ### <a name="function"></a>Función
 Llama a un punto de conexión del desencadenador HTTP existente en [Azure Functions](../../azure-functions/functions-get-started.md). Para controlar una solicitud, el punto de conexión debe controlar el verbo HTTP POST.
 
+Al definir la acción de la función, el punto de conexión httptrigger y la clave de acceso de la función se guardan en la definición de la acción. Por ejemplo: https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key. Si cambia la clave de acceso de la función, deberá quitar y volver a crear la acción de la función del grupo de acciones.
+
 En un grupo de acciones puede tener un número limitado de acciones de función.
 
 ### <a name="itsm"></a>ITSM
@@ -304,12 +306,14 @@ Los precios de los países o regiones admitidos se muestran en la [página de pr
 | 351 | Portugal |
 | 1 | Puerto Rico |
 | 40 | Rumanía |
+| 7  | Rusia  |
 | 65 | Singapur |
 | 27 | Sudáfrica |
 | 82 | Corea del Sur |
 | 34 | España |
 | 41 | Suiza |
 | 886 | Taiwán |
+| 971 | Emiratos Árabes Unidos    |
 | 44 | Reino Unido |
 | 1 | Estados Unidos |
 

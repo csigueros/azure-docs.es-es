@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: f111729d7d7707ed4f40ce8f89ce76975fb47400
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 53804e99a3bc341669c0d4943464835cc7d1e531
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536456"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463293"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparación de características de los planes de tarifa de Azure API Management
 
@@ -41,6 +41,7 @@ Cada [plan de tarifa](https://aka.ms/apimpricing) de API Management ofrece un co
 | API de administración directa                                                                        | No          | Sí       | Sí   | Sí      | Sí     |
 | Métricas y registros de Azure Monitor                                                               | No          | Sí       | Sí   | Sí      | Sí     |
 | IP estática                                                                                    | No          | Sí       | Sí   | Sí      | Sí     |
+| [API de WebSocket (versión preliminar)](websocket-api.md)                                                                                    | No          | Sí       | Sí   | Sí      | Sí     |
 
 <sup>1</sup> Habilita el uso de Azure AD (y Azure AD B2C) como proveedor de identidades para el inicio de sesión del usuario en el portal para desarrolladores.<br/>
 <sup>2</sup> Incluye funciones relacionadas, por ejemplo, plantillas y notificaciones de usuarios, grupos, problemas, aplicaciones y correo electrónico.<br/>

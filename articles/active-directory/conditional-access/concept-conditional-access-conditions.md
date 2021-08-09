@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 05/18/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59664a0b5127e9fde8f2890cd396bec120eff29d
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 1e0aaac1c52a2def624f8bc8736219685458ad42
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330664"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070299"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
@@ -82,9 +82,9 @@ Cuando el botón de alternancia **Configurar** está establecido en **Sí**, se 
       -  Esta opción incluye aplicaciones como las aplicaciones de teléfono y escritorio de Office.
 - Clientes de autenticación heredada
    - Clientes de Exchange ActiveSync
-      - Esto incluye cualquier uso del protocolo Exchange ActiveSync (EAS).
+      - Esta selección incluye cualquier uso del protocolo Exchange ActiveSync (EAS).
       - Cuando la directiva bloquea el uso de Exchange ActiveSync, el usuario afectado recibirá un único mensaje de correo electrónico de cuarentena. Este mensaje de correo electrónico proporciona información sobre por qué está bloqueado e incluye instrucciones de corrección si es posible.
-      - Los administradores pueden aplicar directivas solo a las plataformas admitidas (como iOS, Android y Windows) a través de MS Graph API de acceso condicional.
+      - Los administradores pueden aplicar directivas solo a las plataformas admitidas (como iOS, Android y Windows) mediante Microsoft Graph API de acceso condicional.
    - Otros clientes
       - Esta opción incluye clientes que usan protocolos de autenticación básicos/heredados que no admiten la autenticación moderna.
          - SMTP autenticado: usado por clientes POP e IMAP para enviar mensajes de correo electrónico.
@@ -157,7 +157,7 @@ Esta configuración afecta a los intentos de acceso realizados desde las siguien
 | Aplicación de Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS y Android |
 | Aplicación de Correo electrónico/Calendario/People, Outlook 2016, Outlook 2013 (con la autenticación moderna)| Exchange Online | Windows 10 |
 | Directiva de MFA y de ubicación para las aplicaciones. No se admiten las directivas basadas en dispositivos.| Cualquier servicio de aplicaciones de Mis aplicaciones | Android e iOS |
-| Microsoft Teams Services: controla todos los servicios que admiten Microsoft Teams y todas sus aplicaciones cliente: escritorio de Windows, iOS, Android, WP y cliente web | Equipos de Microsoft | Windows 10, Windows 8.1, Windows 7, iOS, Android y macOS |
+| Microsoft Teams Services: esta aplicación cliente controla todos los servicios que admiten Microsoft Teams y todas sus aplicaciones cliente: escritorio de Windows, iOS, Android, WP y cliente web. | Equipos de Microsoft | Windows 10, Windows 8.1, Windows 7, iOS, Android y macOS |
 | Aplicaciones de Office 2016, Office 2013 (con autenticación moderna), [cliente de sincronización de OneDrive](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7, Windows 7 |
 | Aplicaciones de Office 2016, aplicaciones universales de Office, Office 2013 (con autenticación moderna), [cliente de sincronización de OneDrive](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
 | Office 2016 (solo Word, Excel, PowerPoint y OneNote). | SharePoint | macOS |
@@ -195,6 +195,13 @@ La condición del estado del dispositivo se puede usar para excluir dispositivos
 
 Por ejemplo, *Todos los usuarios* que acceden a la aplicación en la nube *Administración de Microsoft Azure*, incluido **Todos los estados de dispositivo**, excluidos **Unido a Azure AD híbrido de dispositivo** y **Dispositivo marcado como compatible** y para *Controles de acceso*, **Bloquear**. 
    - En este ejemplo se crea una directiva que solo permite el acceso a la Administración de Microsoft Azure desde dispositivos unidos a Azure AD híbrido o desde dispositivos marcados como compatibles.
+
+> [!IMPORTANT]
+> El estado del dispositivo y los filtros para dispositivos no se pueden usar juntos en la directiva de acceso condicional. Los filtros para dispositivos proporcionan una selección de destino más granular, incluida la compatibilidad con la información de estado del dispositivo de destino a través de las propiedades `trustType` y `isCompliant`.
+
+## <a name="filters-for-devices-preview"></a>Filtros para dispositivos (versión preliminar)
+
+Hay una nueva condición opcional en el acceso condicional denominada filtros para dispositivos. Al configurar filtros para dispositivos como condición, las organizaciones pueden elegir incluir o excluir dispositivos según unos filtros mediante una expresión de regla en las propiedades del dispositivo. La expresión de regla de los filtros de dispositivos se puede crear mediante el generador de reglas o la sintaxis de regla. Esta experiencia es similar a la que se usa para las reglas de pertenencia dinámica para grupos. Para más información, consulte el artículo [Acceso condicional: Filtros para dispositivos (versión preliminar)](concept-condition-filters-for-devices.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

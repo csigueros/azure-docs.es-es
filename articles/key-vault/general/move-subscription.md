@@ -9,12 +9,13 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1a1cd8c051f9e04c09ef2986805873d8e7fea54e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7e1e4dd244045e86a0fb9e6d65f81a4149cf6659
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817637"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413328"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Traslado de Azure Key Vault a otra suscripción
 
@@ -28,6 +29,10 @@ ms.locfileid: "107817637"
 > Si usa identidades de servicio administradas (MSI), lea las instrucciones posteriores al traslado, al final del documento. 
 
 [Azure Key Vault](overview.md) se asocia automáticamente al identificador de inquilino predeterminado de [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) para la suscripción en la que se ha creado. Puede encontrar el identificador de inquilino asociado a la suscripción si sigue esta [guía](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md). Todas las entradas de la directiva de acceso y las asignaciones de roles también se asocian con este identificador de inquilino.  Al trasladar una suscripción de Azure del inquilino A al inquilino B, las entidades de servicio (usuarios y aplicaciones) del inquilino B no podrán acceder a los almacenes de claves ya existentes. Para corregir este problema, es necesario:
+
+> [!NOTE]
+> Si el almacén de claves se crea mediante [Azure Lighthouse](../../lighthouse/overview.md), está vinculado al identificador de inquilino de administración en su lugar. Azure Lighthouse solo es compatible con el modelo de permisos de directiva de acceso al almacén.
+> Para más información sobre los inquilinos de Azure Lighthouse, consulte [Inquilinos, usuarios y roles en Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md).
 
 * Cambiar el identificador de inquilino asociado a todas las instancias de Key Vault existentes en la suscripción al inquilino B.
 * Quitar todas las entradas de la directiva de acceso existentes.
@@ -87,7 +92,7 @@ Connect-AzAccount                                                          #Log 
 
 ```azurecli
 az account set -s <your-subscriptionId>                                    # Select your Azure Subscription
-tenantId=$(az account show --query tenantId)                               # Get your tenantId
+$tenantId=$(az account show --query tenantId)                               # Get your tenantId
 az keyvault update -n myvault --remove Properties.accessPolicies           # Remove the access policies
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
 ```

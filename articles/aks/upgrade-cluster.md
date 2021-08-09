@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo actualizar un clúster de Azure Ku
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 925edc3d83b9acc0a2c91001ada39921d3653824
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 772cb9d33c9bf9307ca0dc16536933fc9123de4b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737664"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085805"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -167,6 +167,10 @@ Para establecer el canal de actualización automática en el clúster existente,
 az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
+## <a name="using-cluster-auto-upgrade-with-planned-maintenance"></a>Uso de la actualización automática del clúster con mantenimiento planeado
+
+Si usa el mantenimiento planeado, así como la actualización automática, la actualización se iniciará durante la ventana de mantenimiento especificada. Para más información sobre el mantenimiento planeado, consulte [Uso del mantenimiento planeado a fin de programar ventanas de mantenimiento para el clúster de Azure Kubernetes Service (AKS) (versión preliminar)][planned-maintenance].
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo se ha mostrado cómo actualizar un clúster de AKS existente. Para más información acerca de la implementación y administración de clústeres de AKS, consulte el conjunto de tutoriales.
@@ -190,3 +194,4 @@ En este artículo se ha mostrado cómo actualizar un clúster de AKS existente. 
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster
+[planned-maintenance]: planned-maintenance.md

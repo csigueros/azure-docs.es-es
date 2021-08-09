@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 06/03/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d332c831cc764c61a4672ea5ad1db231b68e106
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 70c441cc2bae0c318e312ccfa64b5161937c2457
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952378"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963801"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Requisitos de licencias del autoservicio de restablecimiento de contraseña de Azure Active Directory
 
@@ -25,8 +25,6 @@ Para reducir las llamadas al departamento de soporte técnico y la pérdida de p
 En este artículo se detallan las diferentes formas en las que se puede obtener la licencia del autoservicio de restablecimiento de contraseña y cómo se puede usar. Para obtener información específica sobre precios y facturación, consulte [Página de precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Comparación de ediciones y características
-
-SSPR requiere una licencia solo para el inquilino. 
 
 En la tabla siguiente se describen los distintos escenarios de SSPR para el cambio, restablecimiento o escritura diferida local de contraseñas y las SKU que proporcionan la característica.
 
@@ -41,6 +39,8 @@ En la tabla siguiente se describen los distintos escenarios de SSPR para el camb
 
 Para obtener información adicional sobre licencias, incluidos los costos, consulte las siguientes páginas:
 
+
+* [Guía de concesión de licencias de Microsoft 365 para seguridad y cumplimiento](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance)
 * [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Características y funcionalidades de Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

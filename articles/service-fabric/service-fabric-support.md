@@ -1,22 +1,35 @@
 ---
 title: Más información sobre las opciones de soporte técnico de Azure Service Fabric
 description: Versiones de clúster de Azure Service Fabric compatibles y vínculos para presentar incidencias de soporte técnico
-author: pkcsf
+author: erikadoyle
 ms.topic: troubleshooting
-ms.date: 8/24/2018
-ms.author: pkc
-ms.openlocfilehash: 9ba2f25665620524cd55a6f81c796aa024362d9d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 5/17/2021
+ms.author: edoyle
+ms.custom: support-help-page
+ms.openlocfilehash: a4f83d6ddf09ca449da74f163a82baf2b12adc91
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123040"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950064"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opciones de soporte técnico de Azure Service Fabric
 
 Hemos creado una serie de opciones de solicitud de soporte técnico para satisfacer las necesidades de administración de los clústeres y las cargas de trabajo de aplicación de Service Fabric, en función de la urgencia de la ayuda necesaria y de la gravedad del problema.
 
+## <a name="self-help-troubleshooting"></a>Autoayuda para la solución de problemas
+<div class='icon is-large'>
+    <img alt='Self help content' src='./media/logos/doc-logo.png'>
+</div>
+
+Este es el material al que hacen referencia los servicios de asistencia al cliente cuando se crea un vale, los ingenieros de confiabilidad del sitio de Service Fabric para responder a un incidente y los usuarios al detectar soluciones a problemas activos del sistema.
+
+Para obtener una lista completa de contenido de autoayuda para la solución de problemas, vea [Guías de solución de problemas de Service Fabric](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides).
+
 ## <a name="create-an-azure-support-request"></a>Creación de una solicitud de soporte técnico de Azure
+<div class='icon is-large'>
+    <img alt='Azure support' src='./media/logos/azure-logo.png'>
+</div>
 
 Para notificar los problemas relacionados con el clúster de Service Fabric que se ejecuta en Azure, abra una incidencia de soporte técnico [en Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) o en el [portal de soporte técnico de Microsoft](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
@@ -33,6 +46,9 @@ Más información sobre:
 <a id="getlivesitesupportonprem"></a>
 
 ## <a name="create-a-support-request-for-standalone-service-fabric-clusters"></a>Creación de una solicitud de soporte técnico para clústeres de Service Fabric independientes
+<div class='icon is-large'>
+    <img alt='Azure support' src='./media/logos/azure-logo.png'>
+</div>
 
 Si desea informar sobre problemas relacionados con los clústeres de Service Fabric que se ejecutan de forma local o en otras nubes, puede abrir una incidencia de soporte técnico en el [Portal de soporte técnico de Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
@@ -42,22 +58,34 @@ Más información sobre:
 - [Soporte técnico Premier de Microsoft](https://support.microsoft.com/en-us/premier).
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Publicación de una pregunta en Microsoft Q&A
+<div class='icon is-large'>
+    <img alt='Microsoft Q&A' src='./media/logos/microsoft-logo.png'>
+</div>   
 
 Obtenga respuestas a las preguntas sobre Service Fabric directamente de los ingenieros de Microsoft, los profesionales más valiosos (MVP) de Azure y los miembros de nuestra comunidad de expertos.
 
-[Microsoft Q&A](https://docs.microsoft.com/answers/products/) es el origen recomendado de Azure del soporte técnico de la comunidad.
+[Microsoft Q&A](/answers/topics/azure-service-fabric.html) es el origen recomendado de Azure del soporte técnico de la comunidad.
 
-Si no encuentra una respuesta a su problema en Microsoft Q&A, envíe una pregunta nueva. Asegúrese de publicar su pregunta con la etiqueta **azure-service-fabric**. Estas son algunas sugerencias de Microsoft Q&A para escribir [preguntas de alta calidad](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html).
+Si no encuentra una respuesta a su problema en Microsoft Q&A, envíe una pregunta nueva. Asegúrese de publicar su pregunta con la etiqueta [**azure-service-fabric**](/answers/topics/azure-service-fabric.html). Estas son algunas sugerencias de Microsoft Q&A para escribir [preguntas de alta calidad](/answers/articles/24951/how-to-write-a-quality-question.html).
 
 ## <a name="open-a-github-issue"></a>Apertura de una incidencia en GitHub
+<div class='icon is-large'>
+    <img alt='GitHub-image' src='./media/logos/github-logo.png'>
+</div>
 
 Informe de los problemas de Azure Service Fabric en el [GitHub de Service Fabric](https://github.com/microsoft/service-fabric/issues). Este repositorio está diseñado para informar y rastrear problemas con Azure Service Fabric y para generar solicitudes de funciones pequeñas. **No use este medio para informar problemas con el sitio activo**.
 
 ## <a name="check-the-stackoverflow-forum"></a>Consulta del foro StackOverflow
+<div class='icon is-large'>
+    <img alt='Stack Overflow' src='./media/logos/stack-overflow-logo.png'>
+</div>
 
 La etiqueta `azure-service-fabric` de [StackOverflow][stackoverflow] se usa para formular preguntas generales sobre cómo funciona la plataforma y cómo usarla para llevar a cabo determinadas tareas.
 
 ## <a name="submit-feedback-on-azure-feedback"></a>Envío de comentarios sobre Azure
+<div class='icon is-large'>
+    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
+</div>
 
 El [foro de comentarios de Azure para Service Fabric][uservoice-forum] es el mejor lugar para enviar ideas significativas sobre las características del producto. Revisamos las solicitudes más populares y las factorizamos para nuestra planeación de medio a largo plazo. Se recomienda buscar apoyo para sus sugerencias dentro de la comunidad.
 
@@ -66,6 +94,19 @@ El [foro de comentarios de Azure para Service Fabric][uservoice-forum] es el mej
 > Las **versiones preliminares de Service Fabric no se admiten para su uso en producción.** En ocasiones, creamos versiones preliminares especiales que contienen cambios significativos en las características para los que nos gustaría sondear los comentarios iniciales. Solo debe usar versiones preliminares en entornos de prueba aislados que no atiendan las cargas de trabajo de producción. El clúster de producción debe estar ejecutando siempre una versión de Service Fabric compatible y estable. No ofrecemos ninguna opción de soporte técnico de pago para estas versiones preliminares.
 >
 > Una versión preliminar siempre comienza con un número de versión principal y secundaria de 255. Por ejemplo, si ve una versión 255.255.5703.949 de Service Fabric, esa versión es preliminar y solo está prevista para su uso en clústeres de prueba. Estas versiones preliminares también se anuncian en el [blog del equipo de Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) y se detallan en las características incluidas. Use una de las opciones enumeradas anteriormente para proporcionar comentarios.
+
+
+## <a name="stay-informed-of-updates-and-new-releases"></a>Mantenerse informado sobre las actualizaciones y nuevas versiones
+
+<div class='icon is-large'>
+    <img alt='Stay informed' src='./media/logos/updates-logo.png'>
+</div>
+
+Obtenga información sobre las actualizaciones de productos, el mapa de ruta y los anuncios importantes en [Actualizaciones de Azure](https://azure.microsoft.com/updates/?product=service-fabric).
+
+Para consultar las últimas versiones y actualizaciones de los SDK y el entorno de ejecución de Service Fabric, vea [Versiones de Service Fabric](release-notes.md).
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

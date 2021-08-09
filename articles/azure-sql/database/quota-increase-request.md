@@ -3,18 +3,18 @@ title: Solicitar un aumento de cuota
 description: En esta página se describe cómo crear una solicitud de soporte técnico para aumentar las cuotas de Azure SQL Database y las instancias administradas de Azure SQL.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: deployment-configuration
 ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 06/04/2020
-ms.openlocfilehash: 27719663acfbdbcd7293defc4b746153359adb61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5530becdcbe150ddc7ab2608bdf964ac269ed99
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251864"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409026"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Solicitud de aumentos de cuota para Azure SQL Database y la instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ Use los pasos siguientes para crear una nueva solicitud de soporte técnico desd
 
    ![Vínculo a Proporcionar detalles](./media/quota-increase-request/provide-details-link.png)
 
-Cuando hace clic en **Proporcionar detalles** aparece la ventana **Detalles de la cuota**, que le permite agregar información adicional. En las secciones siguientes se describen las distintas opciones de tipos de cuota de **SQL Database** e **Instancia administrada de SQL Database**.
+Cuando hace clic en **Proporcionar detalles** aparece la ventana **Detalles de la cuota**, que le permite agregar información adicional. En las secciones siguientes se describen las distintas opciones de tipos de cuota de **SQL Database** y **SQL Managed Instance**.
 
 ## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a> Tipos de cuota de SQL Database
 
@@ -110,7 +110,7 @@ Si su suscripción requiere acceso en una región determinada, seleccione la opc
 
 ### <a name="request-enabling-specific-hardware-in-a-region"></a>Solicitud de habilitación de hardware específico en una región
 
-Si alguna [generación de hardware](service-tiers-vcore.md#hardware-generations) que desee usar no está disponible en su región (consulte la [disponibilidad del hardware](service-tiers-vcore.md#hardware-availability)), siga estos pasos para solicitarla.
+Si alguna generación de hardware que desee usar no está disponible en su región, siga estos pasos para solicitarla. Para obtener más información sobre las generaciones de hardware y la disponibilidad regional, vea [Generaciones de hardware para SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations) o [Generaciones de hardware para SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations).
 
 1. Seleccione el tipo de cuota **Otra solicitud de cuota**.
 

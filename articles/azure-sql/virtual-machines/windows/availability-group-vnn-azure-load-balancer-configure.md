@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2d89759438cb625a0e220af10ab6b287096f6390
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a31d32a4888e50cdfccf1bf609418fb31ef69e3
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359887"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569604"
 ---
 # <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configuración del equilibrador de carga para el cliente de escucha de VNN para AG
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,9 +37,9 @@ Para obtener una opción de conectividad alternativa para los clientes con SQL 
 
 Antes de completar los pasos de este artículo, ya debe tener:
 
-- Decidido que Azure Load Balancer es la [opción de conectividad adecuada para su solución HADR](hadr-cluster-best-practices.md#connectivity).
+- Decidido que Azure Load Balancer es la [opción de conectividad adecuada para su grupo de disponibilidad](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn).
 - Configurado el cliente de [escucha del grupo de disponibilidad](availability-group-overview.md).
-- Instalada la versión más reciente de [PowerShell](/powershell/azure/install-az-ps). 
+- Instalada la versión más reciente de [PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). 
 
 
 ## <a name="create-load-balancer"></a>Creación de un equilibrador de carga
@@ -125,7 +125,7 @@ Para establecer el parámetro del puerto de sondeo de clúster, actualice las va
 
 ```powershell
 $ClusterNetworkName = "<Cluster Network Name>"
-$IPResourceName = "<SQL Server FCI / AG Listener IP Address Resource Name>" 
+$IPResourceName = "<Availability group Listener IP Address Resource Name>" 
 $ILBIP = "<n.n.n.n>" 
 [int]$ProbePort = <nnnnn>
 
@@ -152,12 +152,28 @@ Después de establecer el sondeo de clúster puede ver todos los parámetros del
 Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
 
+## <a name="modify-connection-string"></a>Modificación de la cadena de conexión 
+
+Para los clientes que lo admitan, agregue `MultiSubnetFailover=True` a la cadena de conexión. Cuando la opción de conexión MultiSubnetFailover no es necesaria, ofrece la ventaja de una conmutación por error más rápida de la subred. Esto se debe a que el controlador de cliente intentará abrir un socket de TCP para cada dirección IP en paralelo. El controlador cliente esperará que la primera dirección IP responda y, una vez que lo haga, la utilizará para la conexión.
+
+Si el cliente no admite el parámetro MultiSubnetFailover, puede modificar la configuración de RegisterAllProvidersIP y HostRecordTTL para evitar retrasos en la conectividad posteriores a la conmutación por error. 
+
+Use PowerShell para modificar la configuración de RegisterAllProvidersIp y HostRecordTTL: 
+
+```powershell
+Get-ClusterResource yourListenerName | Set-ClusterParameter RegisterAllProvidersIP 0  
+Get-ClusterResource yourListenerName|Set-ClusterParameter HostRecordTTL 300 
+```
+
+Para obtener más información, consulte la documentación sobre el [tiempo de espera de la conexión de escucha](/troubleshoot/sql/availability-groups/listener-connection-times-out) de SQL Server. 
+
+> [!TIP]
+> - Establezca el parámetro MultiSubnetFailover en true en la cadena de conexión, incluso para las soluciones HADR que abarquen una única subred, para admitir la expansión futura de las subredes sin necesidad de actualizar las cadenas de conexión.  
+> - De forma predeterminada, los clientes almacenan en memoria caché los registros DNS de clúster durante 20 minutos. Al reducir el valor HostRecordTTL, se reduce el período de vida (TTL) del registro almacenado en memoria caché y los clientes heredados pueden volver a conectarse más rápido. Por lo tanto, la reducción del valor de HostRecordTTL también puede producir un aumento de tráfico en los servidores DNS.
 
 ## <a name="test-failover"></a>Conmutación por error de prueba
 
-
 Pruebe la conmutación por error del recurso en clúster para validar la funcionalidad del clúster. 
-
 
 Siga estos pasos.
 
@@ -178,7 +194,14 @@ Para probar la conectividad, inicie sesión en otra máquina virtual de la misma
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de las características HADR de SQL Server en Azure, consulte [Grupos de disponibilidad](availability-group-overview.md) e [Instancia de clúster de conmutación por error](failover-cluster-instance-overview.md). También puede consultar los [procedimientos recomendados](hadr-cluster-best-practices.md) para configurar el entorno para una alta disponibilidad y recuperación ante desastres. 
+Una vez creado el nombre de red virtual, puede optimizar la [configuración del clúster para las máquinas virtuales de SQL Server](hadr-cluster-best-practices.md). 
+
+Para obtener más información, consulte:
+
+- [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
+- [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
 
 
 

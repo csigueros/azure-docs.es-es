@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: e56867b66e963239a62a13876fee78f4075ea65b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0592af3d5f73476b1dd479fde2651be07ba8aa33
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744326"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949806"
 ---
 # <a name="np-series"></a>Serie NP 
 Las máquinas virtuales de la serie NP cuentan con tecnología de FPGA [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) para acelerar las cargas de trabajo, como inferencia de aprendizaje automático, transcodificación de vídeo, y búsqueda y análisis de bases de datos. Las VM de la serie NP también cuentan con tecnología de CPU Intel Xeon 8171M (Skylake) con toda la velocidad de reloj de la turbo de 3,2 GHz.
@@ -41,15 +41,15 @@ Compatibilidad con generación de VM: Generación 1<br>
 
 **P:** ¿Cómo solicitar cuota para máquinas virtuales NP?
 
-**A:** Siga esta página [Aumentar los límites por serie de máquinas virtuales](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). Las máquinas virtuales NP están disponibles en Este de EE. UU., Oeste de EE. UU. 2, Oeste de Europa y Sudeste de Asia.
+**A:** Siga esta página [Aumentar los límites por serie de máquinas virtuales](../azure-portal/supportability/per-vm-quota-requests.md). Las máquinas virtuales NP están disponibles en Este de EE. UU., Oeste de EE. UU. 2, Oeste de Europa y Sudeste de Asia.
 
 **P:** ¿Qué versión de Vitis debo usar? 
 
-**R:** Xilinx recomienda [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
+**R:** Xilinx recomienda [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html), aunque también puede usar las opciones de Marketplace de máquinas virtuales de desarrollo (máquinas virtuales de desarrollo Vcela 2020.2 para Ubuntu 18.04 y Centos 7.8).
 
 **P:** ¿Necesito usar máquinas virtuales de NP para desarrollar mi solución? 
 
-**R:** No, puede desarrollarla en el entorno local e implementarla en la nube. Asegúrese de seguir la [documentación de atestación](https://docs.microsoft.com/azure/virtual-machines/field-programmable-gate-arrays-attestation) para realizar la implementación en VM de NP. 
+**R:** No, puede desarrollarla en el entorno local e implementarla en la nube. Asegúrese de seguir la [documentación de atestación](./field-programmable-gate-arrays-attestation.md) para realizar la implementación en VM de NP. 
 
 **P:** ¿Qué archivo devuelto por la atestación tengo que usar al programar la FPGA en una VM de NP?
 
@@ -122,11 +122,22 @@ Instale los siguientes paquetes.
 
 **A:** Se puede omitir sin ningún problema. 
 
-**P:** ¿Cuáles son las diferencias entre las máquinas virtuales locales y de NP con respecto a XRT? 
+**P:** ¿Cuáles son las diferencias entre las máquinas virtuales locales y de NP?
 
-**R:** En Azure, la plataforma XDMA 2.1 solo admite características de retención de datos de Host_Mem(SB) y DDR. 
+**R:**  
+<br>
+<b>- Con respecto a XOCL/XCLMGMT: </b>
+<br>
+En las máquinas virtuales de Azure NP, solo está presente el punto de conexión de rol (id. de dispositivo 5005), que usa el controlador XOCL.
 
-Para habilitar Host_Mem(SB) (1 GB de RAM):  sudo xbutil host_mem --enable --size 1g 
+En la matriz de puertas programables (FPGA) local, están presentes el punto de conexión de administración (id. de dispositivo 5004) y el punto de conexión de rol (id. de dispositivo 5005), que usan los controladores XCLMGMT y XOCL, respectivamente.
+
+<br>
+<b>- Con respecto a XRT: </b>
+<br>
+En las máquinas virtuales de Azure de la serie NP, la plataforma XDMA 2.1 solo admite características de retención de datos de Host_Mem(SB) y DDR. 
+<br>
+Para habilitar Host_Mem(SB) (hasta 1 GB de RAM): sudo xbutil host_mem --enable --size 1g 
 
 Para deshabilitar Host_Mem(SB): sudo xbutil host_mem --disable 
 

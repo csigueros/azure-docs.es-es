@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: c55e60627cd2c06c592af0475e84817d284eb6b5
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: f42cb2f3f00c75dea262b7151bef5efad4e9aa92
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634210"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569609"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidad empresarial y HADR para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -118,52 +118,10 @@ Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una re
 
 Para configurar la alta disponibilidad, coloque las máquinas virtuales con SQL Server participantes dispersas por las zonas de disponibilidad de la región. Habrá cargos adicionales por las transferencias de red a red entre las zonas de disponibilidad. Para más información, consulte [Zonas de disponibilidad](../../../availability-zones/az-overview.md). 
 
-
-### <a name="failover-cluster-behavior-in-azure-networking"></a>Comportamiento de clúster de conmutación por error en redes de Azure
-El servicio DHCP no compatible con RFC en Azure puede hacer que se produzcan errores en la creación de determinadas configuraciones de clúster de conmutación por error. Este error se produce porque se asigna una dirección IP duplicada al nombre de red del clúster, como la misma dirección IP que uno de los nodos del clúster. Se trata de un problema al usar los grupos de disponibilidad, lo que depende de la característica de clúster de conmutación por error de Windows.
-
-Considere un escenario en el que se crea un clúster de dos nodos y se pone en conexión:
-
-1. El clúster se conecta y NODE1 solicita una dirección IP asignada de manera dinámica para el nombre de red del clúster.
-2. El servicio DHCP no otorga ninguna dirección IP a excepción de la propia de NODE1, ya que el servicio DHCP reconoce que la solicitud proviene del NODE1 mismo.
-3. Windows detecta que se asigna una dirección duplicada tanto a NODE1 como al nombre de red del clúster de conmutación por error y que el grupo de clústeres predeterminado no puede ponerse en línea.
-4. El grupo de clústeres predeterminado se mueve a NODE2. NODO2 trata la dirección IP de NODE1 como la dirección IP del clúster y pone en línea el grupo de clústeres predeterminado.
-5. Cuando NODE2 intenta establecer conectividad con NODE1, los paquetes dirigidos a NODE1 nunca abandonan NODE2, porque resuelve la dirección IP de NODE1 en sí mismo. NODE2 no puede establecer conectividad con NODE1, pierde el cuórum y cierra el clúster.
-6. NODE1 puede enviar paquetes a NODE2, pero NODE2 no puede responder. Node1 pierde el cuórum y cierra el clúster.
-
-Puede evitar este escenario asignando una dirección IP estática no utilizada al nombre de red del clúster para poner en línea el nombre de red del clúster. Por ejemplo, puede usar una dirección IP de vínculo local como 169.254.1.1. Para simplificar este proceso, vea [Configuración del clúster de conmutación por error de Windows en Azure para grupos de disponibilidad](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
-
-Para más información, vea [Configuración de grupos de disponibilidad en Azure (GUI)](./availability-group-quickstart-template-configure.md).
-
-### <a name="support-for-availability-group-listeners"></a>Compatibilidad con escuchas de grupo de disponibilidad
-Se admiten escuchas de grupo de disponibilidad en máquinas virtuales de Azure que ejecuten Windows Server 2012 y versiones posteriores. Esta compatibilidad es posible gracias al uso de puntos de conexión de carga equilibrada habilitados en las máquinas virtuales de Azure y que son nodos del grupo de disponibilidad. Debe seguir pasos de configuración especiales para que los agentes de escucha funcionen tanto con las aplicaciones cliente que se ejecutan en Azure como con las que se ejecutan en el entorno local.
-
-Existen dos opciones principales para configurar el agente de escucha: externa (público) o interna. El agente de escucha externo (público) usa un equilibrador de carga accesible desde Internet y está asociado a una IP virtual pública (VIP) que es accesible a través de Internet. Un agente de escucha interno usa un equilibrador de carga interno y solo admite clientes dentro de la misma red virtual. Para cada tipo de equilibrador de carga, debe habilitar Direct Server Return. 
-
-Si el grupo de disponibilidad abarca varias subredes de Azure (como por ejemplo, una implementación que comprenda varias regiones de Azure), la cadena de conexión de cliente debe incluir `MultisubnetFailover=True`. Esto se traduce en intentos de conexión en paralelo a las réplicas de las diferentes subredes. Para instrucciones sobre cómo configurar un cliente de escucha, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad en Azure](availability-group-listener-powershell-configure.md).
-
-
-Puede seguir conectándose a cada réplica de disponibilidad por separado conectándose directamente a la instancia del servicio. Además, como los grupos de disponibilidad son compatibles con las versiones anteriores de los clientes de creación de reflejo de la base de datos, puede conectarse a las réplicas de disponibilidad como asociados de creación de reflejo de la base de datos siempre y cuando las réplicas estén configuradas de forma similar a la creación de reflejo de la base de datos:
-
-* Hay una réplica principal y una réplica secundaria.
-* La réplica secundaria está configurada como no legible (la opción **Réplica secundaria legible** está establecida en **No**).
-
-A continuación se muestra una cadena de conexión de cliente de ejemplo correspondiente a esta configuración similar a la creación de reflejo de la base de datos que usa ADO.NET o SQL Server Native Client:
-
-```console
-Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
-```
-
-Para obtener más información sobre la conectividad del cliente, consulte:
-
-* [Usar palabras clave de cadena de conexión con SQL Server Native Client](/sql/relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client)
-* [Conectar clientes a una sesión de creación de reflejo de la base de datos (SQL Server)](/sql/database-engine/database-mirroring/connect-clients-to-a-database-mirroring-session-sql-server)
-* [Conexión con el agente de escucha del grupo de disponibilidad en TI híbrida](/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
-* [Agentes de escucha del grupo de disponibilidad, conectividad de cliente y conmutación por error de una aplicación (SQL Server)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
-* [Uso de cadenas de conexión de creación de reflejo de la base de datos con grupos de disponibilidad](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
-
 ### <a name="network-latency-in-hybrid-it"></a>Latencia de red en TI híbrida
 Implemente la solución HADR partiendo de la suposición de que podría haber períodos de tiempo con una alta latencia de red entre la red local y Azure. Al implementar réplicas en Azure, use la confirmación asincrónica en lugar de la confirmación sincrónica para el modo de sincronización. Al implementar servidores de creación de reflejo de la base de datos tanto en el entorno local como en Azure, use el modo de alto rendimiento en lugar del modo de alta seguridad.
+
+Consulte los [procedimientos recomendados para la configuración de alta disponibilidad y recuperación ante desastres](hadr-cluster-best-practices.md) para ver la configuración del clúster y de HADR que pueden ayudar a adaptarse al entorno en la nube. 
 
 ### <a name="geo-replication-support"></a>Compatibilidad de la replicación geográfica
 La replicación geográfica en discos de Azure no admite que el archivo de datos y el archivo de registro de la misma base de datos se almacenen en discos independientes. La GRS replica los cambios en cada disco independiente y asincrónicamente. Este mecanismo garantiza el orden de escritura en un único disco en la copia con replicación geográfica pero no a través de las copias con replicación geográfica de varios discos. Si configura una base de datos para almacenar su archivo de datos y su archivo de registro en discos independientes, los discos recuperados después de un desastre pueden contener una copia más actualizada del archivo de datos que el archivo de registro, lo que interrumpe el registro de escritura previa en SQL Server y las propiedades ACID (atomicidad, coherencia, aislamiento y durabilidad) de las transacciones. 

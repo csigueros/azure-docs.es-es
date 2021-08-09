@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1703e206bb13aa6f239346f7a724004a00ddfeca
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92677719"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111568925"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Creación y administración de blobs en Azure Blob Storage con Azure Logic Apps
 
@@ -180,6 +180,9 @@ Puede colocar la cuenta de almacenamiento en una red virtual de Azure que admini
 ### <a name="access-storage-accounts-as-a-trusted-service-with-managed-identities"></a>Acceso a las cuentas de almacenamiento como un servicio de confianza con identidades administradas
 
 Para conceder a los servicios de confianza de Microsoft acceso a una cuenta de almacenamiento a través de un firewall, puede configurar una excepción para esos servicios en esa cuenta de almacenamiento. Esta solución permite que los servicios de Azure que admiten las [entidades administradas para la autenticación](../active-directory/managed-identities-azure-resources/overview.md) accedan a las cuentas de almacenamiento detrás de firewalls como servicios de confianza. En concreto, para que una aplicación lógica de una instancia de Azure multiinquilino global acceda a estas cuentas de almacenamiento, primero debe [habilitar la compatibilidad con identidades administradas](../logic-apps/create-managed-service-identity.md) en la aplicación lógica. Luego, use el desencadenador o la acción HTTP en la aplicación lógica y [establezca su tipo de autenticación para usar la identidad administrada de la aplicación lógica](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). En este escenario, *solo* puede usar el desencadenador o la acción HTTP.
+
+> [!NOTE]
+> Si usa la funcionalidad de identidad administrada para autenticar el acceso a la cuenta de almacenamiento, no puede usar las operaciones integradas de Azure Blob Storage. Debe usar la acción o el desencadenador HTTP que tenga configurada la identidad administrada para autenticar la conexión de la cuenta de almacenamiento. Para ejecutar las operaciones de almacenamiento necesarias, tiene que llamar a las API REST correspondientes para Azure Blob Storage. Para más información, revise la [API REST de Blob service](/rest/api/storageservices/blob-service-rest-api).
 
 Para configurar la excepción y la compatibilidad con identidad administrada, siga estos pasos generales:
 

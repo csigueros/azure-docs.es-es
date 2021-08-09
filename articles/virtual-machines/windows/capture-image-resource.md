@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 9128c44b7f446ab849d2afac055005a1b5fb3fcb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1c67f9d4fda2e0ca26d8125f30e2f71213b0749
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562238"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853089"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -31,7 +31,9 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 > [!IMPORTANT]
 > Una vez que se ha ejecutado sysprep en una máquina virtual, se considera *generalizada* y no se puede reiniciar. El proceso de generalización de una máquina virtual no es reversible. Si necesita mantener el funcionamiento original de la máquina virtual, debe crear una [copia de la máquina virtual](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) y generalizar la copia. 
 >
->Sysprep requiere que las unidades se descifren por completo. Si ha habilitado el cifrado en la VM, deshabilite el cifrado antes de ejecutar Sysprep.
+>Sysprep requiere que las unidades se descifren por completo. Si ha habilitado el cifrado en la VM, deshabilite el cifrado de Azure antes de ejecutar Sysprep. 
+>
+>Para deshabilitar Azure Disk Encryption con PowerShell, use Disable-AzVMDiskEncryption seguido de Remove-AzVMDiskEncryptionExtension. Si se ejecuta Remove-AzVMDiskEncryptionExtension antes de deshabilitar el cifrado, se produce un error. Los comandos del nivel superior no solo descifran el disco de la máquina virtual, sino fuera de la máquina virtual también actualizan configuración importante de cifrado de nivel de plataforma y configuración de extensión asociada con la máquina virtual. Si la configuración no se mantiene en la alineación, la plataforma no puede informar del estado de cifrado ni aprovisionar la máquina virtual correctamente.
 >
 > Si tiene pensado ejecutar Sysprep antes de cargar el disco duro virtual (VHD) en Azure por primera vez, asegúrese de que tiene [preparada la máquina virtual](prepare-for-upload-vhd-image.md).  
 > 

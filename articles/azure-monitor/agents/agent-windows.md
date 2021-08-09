@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
-ms.openlocfilehash: aec39b86f9651539028efce93ba6a88c3be75b0c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e7a20b617808457ad9512f5dc835e4de33f880f3
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038317"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585225"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Instalación del agente de Log Analytics en equipos Windows
 En este artículo se proporcionan detalles sobre cómo instalar el agente de Log Analytics en equipos Windows mediante los siguientes métodos:
@@ -23,6 +23,9 @@ En este artículo se proporcionan detalles sobre cómo instalar el agente de Log
 
 > [!NOTE]
 > Si tiene que configurar el agente para que informe a varias áreas de trabajo, esto no puede realizarse durante la instalación inicial, solo después actualizando la configuración del Panel de control o PowerShell, tal como se describe en [Adición o eliminación de un área de trabajo](agent-manage.md#adding-or-removing-a-workspace).  
+
+> [!NOTE]
+> Al instalar el agente de Log Analytics, normalmente no es necesario reiniciar la máquina.  
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 

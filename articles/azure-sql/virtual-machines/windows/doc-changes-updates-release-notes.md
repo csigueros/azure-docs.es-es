@@ -7,28 +7,35 @@ ms.author: mathoma
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
+ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/25/2021
-ms.openlocfilehash: ba33373cb89e5d1faba0a9dc66233fc363e9e47d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 512d502dc5877c15086d69f96643d4251dfc167b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755664"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078697"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure permite implementar una máquina virtual (VM) con una imagen de SQL Server integrada. En este artículo se resumen los cambios en la documentación asociados a las nuevas características y mejoras de las versiones recientes de [SQL Server en Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
+## <a name="may-2021"></a>Mayo de 2021
+
+| Cambios | Detalles |
+| --- | --- |
+| **Actualización de contenido de HADR** | Hemos actualizado y mejorado nuestro contenido de alta disponibilidad y recuperación ante desastres (HADR). Ahora hay el artículo [Información general del clúster de conmutación por error de Windows Server](hadr-windows-server-failover-cluster-overview.md) disponible, así como un [procedimiento consolidado de configuración del quórum](hadr-cluster-quorum-configure-how-to.md) para las máquinas virtuales de SQL Server.  Además, hemos mejorado los [procedimientos recomendados del clúster](hadr-cluster-best-practices.md) con recomendaciones de configuración más completas que se han adoptado en la nube.| 
+
 
 ## <a name="april-2021"></a>Abril de 2021
 
 | Cambios | Detalles |
 | --- | --- |
-| **Migración de alta disponibilidad a una máquina virtual** | Azure Migrate ofrece compatibilidad para elevar y trasladar toda la solución de alta disponibilidad a SQL Server en máquinas virtuales de Azure. Traiga el [grupo de disponibilidad](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) o la [instancia de clúster de conmutación por error](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) a máquinas virtuales de SQL Server Azure Migrate hoy mismo. | 
+| **Migración de alta disponibilidad a una máquina virtual** | Azure Migrate ofrece compatibilidad con la migración mediante lift-and-shift de toda la solución de alta disponibilidad a SQL Server en máquinas virtuales de Azure. Traiga el [grupo de disponibilidad](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) o la [instancia de clúster de conmutación por error](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) a máquinas virtuales de SQL Server Azure Migrate hoy mismo. | 
 
 
 ## <a name="march-2021"></a>Marzo de 2021
@@ -104,5 +111,5 @@ Azure permite implementar una máquina virtual (VM) con una imagen de SQL Serve
 
 * [Introducción a SQL Server en máquinas virtuales Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Aprovisionamiento de una máquina virtual Linux con SQL Server en Azure Portal](../linux/sql-vm-create-portal-quickstart.md)
-* [Preguntas más frecuentes (Linux)](../linux/frequently-asked-questions-faq.md)
+* [Preguntas más frecuentes (Linux)](../linux/frequently-asked-questions-faq.yml)
 * [Documentación de SQL Server en Linux](/sql/linux/sql-server-linux-overview)

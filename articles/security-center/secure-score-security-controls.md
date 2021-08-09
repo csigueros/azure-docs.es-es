@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 05/05/2021
 ms.author: memildin
-ms.openlocfilehash: 9879b5154866436e3216243b123b3575e6cd3df4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e6582aedbc8357715f4e49cc8d5a780859ef3929
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754926"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062087"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Puntuación de seguridad de Azure Security Center
 
@@ -111,7 +111,7 @@ Aunque la iniciativa de seguridad predeterminada de Security Center se basa en l
 
 
 
-## <a name="secure-score-faq"></a>Preguntas frecuentes sobre la puntuación de seguridad
+## <a name="faq---secure-score"></a>Preguntas más frecuentes: Secure Score
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Si solo se corrigen tres de las cuatro recomendaciones de un control de seguridad, ¿cambiará mi puntuación de seguridad?
 No. No cambiará hasta que corrija todas las recomendaciones para un único recurso. Para obtener la puntuación máxima de un control, debe corregir todas las recomendaciones de todos los recursos.

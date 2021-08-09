@@ -4,13 +4,13 @@ description: Describe cómo ver solicitudes de soporte técnico, enviar mensajes
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 12/14/2020
-ms.openlocfilehash: 4d0c03e0035f6b71a23891ac1691f5421c1bdb76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: bc9edecd918668e76c36308a660c47d3a8fd9e8b
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502525"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496530"
 ---
 # <a name="manage-an-azure-support-request"></a>Administración de una solicitud de soporte técnico de Azure
 
@@ -56,17 +56,17 @@ En esta página, puede buscar, filtrar y ordenar solicitudes de soporte técnico
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Compartir información de diagnóstico con el soporte técnico de Azure
 
-Al crear una solicitud de soporte técnico, la opción **Compartir información de diagnóstico** está seleccionada de forma predeterminada. Esto permite al soporte técnico de Azure recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure:
+Al crear una solicitud de soporte técnico, la opción **Compartir información de diagnóstico** está seleccionada de forma predeterminada. Esta opción permite al soporte técnico de Azure recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure que pueden ayudar a resolver el problema.
 
-* No se puede borrar esta opción después de crear una solicitud.
+Para cambiar la selección de **Compartir información de diagnóstico** una vez creada la solicitud:
 
-* Si desactivó la opción al crear una solicitud, puede seleccionarla una vez creada la solicitud.
-
-    1. En la página **Todas las solicitudes de soporte técnico**, seleccione la solicitud.
+1. En la página **Todas las solicitudes de soporte técnico**, seleccione la solicitud.
     
-    1. En la página **Solicitud de soporte técnico**, seleccione **Conceder permiso** y, a continuación, **Sí** y **Aceptar**.
+1. En la página **Solicitud de soporte técnico**, busque **Compartir información de diagnóstico** y, a continuación, seleccione **Cambiar**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Conceder permisos para la información de diagnóstico":::
+1.  Seleccione **Sí** o **No** y, a continuación, seleccione **Aceptar** para confirmar.
+    
+    :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Conceder permisos para la información de diagnóstico":::
 
 ## <a name="upload-files"></a>Carga de archivos
 

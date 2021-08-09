@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: bc1238f3386ff835b8d21bfe2a360474ec3a5885
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5dbaae5478c0cafbb6a37a6466e15671f26a8d83
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075365"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703737"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Asociados de conectividad de ExpressRoute y ubicaciones de emparejamiento
 
@@ -81,7 +81,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **du datamena** |Compatible |Compatible | Dubai2 |
 | **eir** |Compatible |Compatible |Dublín|
 | **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Compatible |Compatible |Singapur, Singapur2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Atlanta, Berlín, Bogotá, Canberra2, Chicago, Dallas, Dubái2, Dublín, Fráncfort, Fráncfort2, Ginebra, RAE de Hong Kong, Londres, Londres2, Los Ángeles, Los Ángeles2, Melbourne, Miami, Milán, Nueva York, Osaka, París, Río de Janeiro, São Paulo, Seattle, Seúl, Silicon Valley, Singapur, Estocolmo, Sídney, Tokio, Toronto, Washington D. C., Zúrich |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Atlanta, Berlín, Bogotá, Canberra2, Chicago, Dallas, Dubái2, Dublín, Fráncfort, Fráncfort2, Ginebra, RAE de Hong Kong, Londres, Londres2, Los Ángeles, Los Ángeles2, Melbourne, Miami, Milán, Nueva York, Osaka, París, Río de Janeiro, São Paulo, Seattle, Seúl, Silicon Valley, Singapur, Singapur2Estocolmo, Sídney, Tokio, Toronto, Washington D. C., Zúrich |
 | **Etisalat UAE** |Compatible |Compatible |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Dublín, Fráncfort, Londres |
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** |Compatible |Compatible |Taipéi|
@@ -133,6 +133,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Compatible |Compatible | Londres2, Washington DC |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Compatible |Compatible |Chennai (Madrás), Mumbai (Bombay)2 |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Compatible |Compatible |Hong Kong2, Singapore, Singapore2 |
+| **[SK Telecom](http://b2b.tworld.co.kr/bizts/solution/solutionTemplate.bs?solutionId=0085)** |Compatible |Compatible |Seúl |
 | **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Compatible |Compatible |Osaka, Tokyo |
 | **[Sohonet](https://www.sohonet.com/fastlane/)** |Compatible |Compatible |Londres2 |
 | **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |Compatible |Compatible |Auckland, Sídney |

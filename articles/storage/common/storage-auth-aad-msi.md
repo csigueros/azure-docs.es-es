@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 15d5e1d68dce69b5b2f68a02f8b4832393cdd59c
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 8f99516b0c93dfacfecdfa07f6f72a26effedd44
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713475"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901950"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure
 
@@ -168,7 +168,7 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Administración de los derechos de acceso a los datos de almacenamiento con RBAC de Azure](./storage-auth-aad-rbac-portal.md).
-- [Usar Azure AD con aplicaciones de almacenamiento](storage-auth-aad-app.md).
+- [Asignación de un rol de Azure el acceso a datos de blob](../blobs/assign-azure-role-data-access.md).
+- [Uso de Azure AD con aplicaciones de almacenamiento](storage-auth-aad-app.md).
 - [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de blob](../blobs/authorize-data-operations-powershell.md)
 - [Tutorial: Almacenamiento del acceso de App Service mediante identidades administradas](../../app-service/scenario-secure-app-access-storage.md)

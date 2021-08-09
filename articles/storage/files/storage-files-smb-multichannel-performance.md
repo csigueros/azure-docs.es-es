@@ -1,22 +1,22 @@
 ---
 title: 'Rendimiento de SMB multicanal: Azure Files'
 description: Obtenga información sobre el rendimiento de SMB multicanal.
-author: gunjanj
+author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/16/2020
-ms.author: gunjanj
+ms.date: 05/17/2021
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a9edd93aa265622732be4a7582cce9900959bf6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8b2f64b0249cfe3b8a0a2e1bebcf7daabfe94dc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374990"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094625"
 ---
 # <a name="smb-multichannel-performance"></a>Rendimiento de SMB multicanal
 
-SMB multicanal de Azure Files (versión preliminar) habilita un cliente SMB 3.x para establecer varias conexiones de red en los recursos compartidos de archivos Premium de una cuenta de FileStorage. El protocolo SMB 3.0 presentó la característica SMB multicanal en clientes de Windows Server 2012 y Windows 8. Por este motivo, cualquier cliente SMB 3.x de Azure Files que admita SMB multicanal podrá aprovechar la característica para sus recursos compartidos de archivos Premium de Azure. No hay ningún costo adicional por habilitar SMB multicanal en una cuenta de almacenamiento.
+SMB multicanal de Azure Files (versión preliminar) habilita un cliente SMB 3.x para establecer varias conexiones de red en los recursos compartidos de archivos Premium de una cuenta de FileStorage. El protocolo SMB 3.x presentó la característica SMB multicanal en clientes de Windows Server 2012 y Windows 8. Por este motivo, cualquier cliente SMB 3.x de Azure Files que admita SMB multicanal podrá aprovechar la característica para sus recursos compartidos de archivos Premium de Azure. No hay ningún costo adicional por habilitar SMB multicanal en una cuenta de almacenamiento.
 
 ## <a name="benefits"></a>Ventajas
 

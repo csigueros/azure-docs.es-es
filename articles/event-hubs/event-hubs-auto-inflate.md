@@ -1,68 +1,64 @@
 ---
-title: 'Escalado vertical y automático de las unidades de procesamiento: Azure Event Hubs | Microsoft Docs'
-description: Habilite el inflado automático en un espacio de nombres para escalar verticalmente las unidades de procesamiento.
+title: Escalado vertical automático de las unidades de procesamiento de Azure Event Hubs
+description: Habilite el inflado automático en un espacio de nombres para escalar verticalmente las unidades de procesamiento (nivel estándar).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: e4e54282b7f455f661238b0129dd1f8f9c70d9d6
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 05/26/2021
+ms.openlocfilehash: 6f45e5a023110132db9904da7d8b84f4906dd8b7
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738111"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617213"
 ---
-# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs
-Azure Event Hubs es una plataforma de streaming de datos muy escalable. Por lo tanto, el uso de Event Hubs suele aumentar después de empezar a utilizar el servicio. Para esta utilización, es necesario incrementar las [unidades de procesamiento](event-hubs-scalability.md#throughput-units) predeterminadas con el objetivo de escalar Event Hubs y controlar velocidades de transferencia más elevadas. La característica de **inflado automático** de Event Hubs escala verticalmente y de forma automática mediante el aumento del número de unidades de procesamiento para responder a las necesidades de utilización. Al aumentar las unidades de rendimiento, se evitan escenarios de limitación en los que nos encontramos con:
+# <a name="automatically-scale-up-azure-event-hubs-throughput-units-standard-tier"></a>Escalado vertical automático de unidades de procesamiento de Azure Event Hubs (nivel estándar) 
+Azure Event Hubs es una plataforma de streaming de datos muy escalable. Por lo tanto, el uso de Event Hubs suele aumentar después de empezar a utilizar el servicio. Tal uso requiere el aumento de las [unidades de procesamiento (TU)](event-hubs-scalability.md#throughput-units) para escalar Event Hubs y administrar velocidades de transferencia más elevadas. La característica de **inflado automático** de Event Hubs realiza el escalado vertical de forma automática mediante el aumento del número de unidades de procesamiento para responder a las necesidades de uso. Al aumentar las TU, se evitan escenarios de limitación en los que nos encontramos con:
 
-* Velocidades de entrada de datos que superan las unidades de rendimiento establecidas.
-* Velocidades de solicitud de salida de datos que superan las unidades de rendimiento establecidas.
+* Velocidades de entrada de datos que superan las TU establecidas 
+* Velocidades de solicitud de salida de datos que superan las TU establecidas
 
 El servicio Event Hubs aumenta el rendimiento cuando la carga aumenta más allá del umbral mínimo, sin que se produzca ningún problema de las solicitudes con errores de ServerBusy.
 
-## <a name="how-auto-inflate-works"></a>Funcionamiento del inflado automático
+> [!NOTE]
+> Para más información sobre el nivel **prémium**, consulte [Event Hubs Premium](event-hubs-premium-overview.md).
 
-El tráfico de los Event Hubs lo controlan las [unidades de procesamiento](event-hubs-scalability.md#throughput-units). Una sola unidad de procesamiento permite una entrada de 1 MB por segundo y una salida que duplica esa cifra. Event Hubs estándar se puede configurar con un número de unidades de procesamiento de uno a veinte. El inflado automático permite empezar poco a poco con las unidades de procesamiento mínimas que se elijan. Después, la característica escala automáticamente la cantidad hasta el límite máximo de unidades de procesamiento que necesite, según el aumento del tráfico. El inflado automático proporciona las siguientes ventajas:
+## <a name="how-auto-inflate-works-in-standard-tier"></a>Funcionamiento del inflado automático en el nivel estándar
+El tráfico de Event Hubs se controla mediante unidades de procesamiento (nivel estándar). Para conocer los límites, como las velocidades de entrada y salida por unidad de procesamiento, consulte [Cuotas y límites de Event Hubs](event-hubs-quotas.md). El inflado automático permite empezar poco a poco con las unidades de procesamiento mínimas requeridas elegidas. Después, la característica realiza el escalado automático hasta el límite máximo de unidades de procesamiento que necesite, según el aumento del tráfico. El inflado automático proporciona las siguientes ventajas:
 
 - Un mecanismo de escalado eficaz para empezar poco a poco y escalar verticalmente a medida que aumente el tráfico.
 - Escalado automático hasta el límite superior especificado sin problemas de limitación.
 - Más control sobre el escalado, ya que se puede controlar el momento y la cantidad que se escala.
 
-## <a name="enable-auto-inflate-on-a-namespace"></a>Habilitación del inflado automático en un espacio de nombres
+ ## <a name="enable-auto-inflate-on-a-namespace"></a>Habilitación del inflado automático en un espacio de nombres
+Puede habilitar o deshabilitar el inflado automático en un espacio de nombres de Event Hubs de nivel estándar mediante [Azure Portal](https://portal.azure.com) o una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-inflate).
 
-Puede habilitar o deshabilitar aumentar el inflado automático en un espacio de nombres de Event Hubs del nivel Estándar mediante cualquiera de los métodos siguientes:
-
-- [Azure Portal](https://portal.azure.com)
-- Una [Plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-inflate).
+En los espacios de nombres de Event Hubs de nivel prémium, la característica se habilita automáticamente. No se puede deshabilitar. 
 
 > [!NOTE]
 > Los espacios de nombres de Event Hubs de nivel Básico no admiten el inflado automático.
 
-### <a name="enable-auto-inflate-through-the-portal"></a>Habilitación del inflado automático mediante Azure Portal
+## <a name="use-azure-portal"></a>Usar Azure Portal
+En Azure Portal, puede habilitar la característica al crear un espacio de nombres de Event Hubs estándar o después de crear el espacio de nombres. También puede establecer las unidades de procesamiento del espacio de nombres y especificar el límite máximo. 
 
+Puede habilitar la característica de inflado automático **al crear un espacio de nombres de Event Hubs**. En la imagen siguiente se muestra cómo habilitar la característica de inflado automático para un espacio de nombres de nivel estándar y cómo configurar las unidades de procesamiento para comenzar con el número máximo de ellas. 
 
-#### <a name="enable-at-the-time-of-creation"></a>Habilitación en el momento de creación
-Puede habilitar la característica de inflado automático **al crear un espacio de nombres de Event Hubs**:
+:::image type="content" source="./media/event-hubs-auto-inflate/event-hubs-auto-inflate.png" alt-text="Captura de pantalla de la habilitación del inflado automático en el momento de la creación del centro de eventos para un espacio de nombres de nivel estándar":::
 
-![Habilitación del inflado automático en el momento de creación de centro de eventos](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+Con esta opción habilitada, puede empezar poco a poco con las unidades de procesamiento y escalarlas verticalmente a medida que sus necesidades de uso aumenten. El límite superior del inflado no afecta inmediatamente al precio, que depende del número de unidades de procesamiento utilizadas por hora.
 
-Con esta opción habilitada, puede empezar poco a poco con las unidades de procesamiento y escalarlas verticalmente a medida que sus necesidades de utilización sean más exigentes. El límite superior del inflado no afecta inmediatamente al precio, que depende del número de unidades de procesamiento utilizadas por hora.
+Para habilitar la característica de inflado automático y modificar su configuración para un centro de eventos existente, siga estos pasos:
 
-#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Habilitación del inflado automático para un centro de eventos existente
-También puede habilitar la característica de inflado automático y modificar su configuración mediante las siguientes instrucciones:
-
-1. En la página **Espacio de nombres de Event Hubs**, seleccione **Deshabilitado** en **Unidades de procesamiento de inflado automático**.
-
-    ![Seleccione las unidades de procesamiento en la página Espacio de nombres de Event Hubs.](./media/event-hubs-auto-inflate/select-throughput-units.png)
+1. En la página **Espacio de nombres de Event Hubs**, seleccione **Escalar** en **Configuración** en el menú de la izquierda.
 2. En la página **Configuración de escalado**, seleccione la casilla de verificación **Habilitar** (si no se ha habilitado la característica de escalabilidad automática).
 
-    ![Seleccione Habilitar.](./media/event-hubs-auto-inflate/scale-settings.png)
+    :::image type="content" source="./media/event-hubs-auto-inflate/scale-settings.png" alt-text="Captura de pantalla de la habilitación del inflado automático para un espacio de nombres estándar existente":::
 3. Escriba el número **máximo** de unidades de rendimiento o use la barra de desplazamiento para establecer el valor.
 4. (opcional) Actualice el número **mínimo** de unidades de procesamiento en la parte superior de esta página.
-
 
 > [!NOTE]
 > Al aplicar la configuración de inflado automático para aumentar las unidades de procesamiento, el servicio Event Hubs emite los registros de diagnóstico que le proporcionan información acerca de por qué y cuándo aumentó el rendimiento. Para habilitar el registro de diagnóstico para un centro de eventos, seleccione **configuración de diagnóstico** en el menú izquierdo de la página del centro de eventos en Azure Portal. Para más información, vea [Configuración de registros de diagnóstico de Azure Event Hubs](event-hubs-diagnostic-logs.md).
 
-### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Habilitación del inflado automático mediante una plantilla de Azure Resource Manager
+
+## <a name="use-an-azure-resource-manager-template"></a>Uso de una plantilla de Azure Resource Manager
 
 Puede habilitar el inflado automático durante la implementación de una plantilla de Azure Resource Manager. Por ejemplo, establezca la propiedad `isAutoInflateEnabled` en **True**, y `maximumThroughputUnits` en 10. Por ejemplo:
 

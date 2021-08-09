@@ -1,7 +1,7 @@
 ---
-title: Creación de áreas de trabajo en el portal
+title: Administración de áreas de trabajo en el portal o el SDK de Python
 titleSuffix: Azure Machine Learning
-description: Aprenda a crear, ver y eliminar áreas de trabajo de Azure Machine Learning en Azure Portal o con el SDK de Python.
+description: Aprenda a administrar áreas de trabajo de Azure Machine Learning en Azure Portal o con el SDK de Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,18 +10,18 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8583229104d29f48784c7790e505852ac4b08dfd
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e84f0d45666e158805a9290d2e446672a6867fb2
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376295"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030852"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creación y administración de áreas de trabajo de Azure Machine Learning 
+# <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Administración de áreas de trabajo de Azure Machine Learning en el portal o con el SDK de Python
 
 En este artículo creará, verá y eliminará [**áreas de trabajo de Azure Machine Learning**](concept-workspace.md) para [Azure Machine Learning](overview-what-is-azure-ml.md) con Azure Portal o el [SDK de Python](/python/api/overview/azure/ml/).
 
-A medida que cambian las necesidades o aumentan los requisitos de automatización, también puede crear y eliminar áreas de trabajo [mediante la CLI](reference-azure-machine-learning-cli.md) o [a través de la extensión de VS Code](how-to-setup-vs-code.md).
+A medida que cambian las necesidades o aumentan los requisitos de automatización, también puede administrar áreas de trabajo [mediante la CLI](reference-azure-machine-learning-cli.md) o [a través de la extensión de VS Code](how-to-setup-vs-code.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -134,7 +134,7 @@ Si tiene problemas para obtener acceso a su suscripción, consulte [Configuraci�
    Campo|Descripción 
    ---|---
    Nombre del área de trabajo |Escriba un nombre único que identifique el área de trabajo. En este ejemplo, se usa **docs-ws**. Los nombres deben ser únicos en el grupo de recursos. Utilice un nombre que sea fácil de recordar y que se diferencie del de las áreas de trabajo creadas por otros. El nombre del área de trabajo no distingue mayúsculas de minúsculas.
-   Suscripción |Seleccione la suscripción de Azure que quiera usar.
+   Subscription |Seleccione la suscripción de Azure que quiera usar.
    Resource group | Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo, se usa **docs-aml**. Necesita el rol *colaborador* o *propietario* para usar un grupo de recursos existente.  Para obtener más información sobre el acceso, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
    Region | Seleccione la región de Azure más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
    | Cuenta de almacenamiento | Cuenta de almacenamiento predeterminada para el área de trabajo. De manera predeterminada, se crea una nueva. |

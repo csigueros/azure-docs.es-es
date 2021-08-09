@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 06/04/2021
 ms.author: alzam
-ms.openlocfilehash: 4f406e0f0afd75cfc21b2fe71c41a1ec2c86dd51
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: c9b6671a2baa807d8def27a78d7776eb6fec2c1a
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228863"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559437"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transición al protocolo OpenVPN o IKEv2 desde SSTP
 
@@ -23,11 +23,11 @@ Una conexión de puerta de enlace de VPN de punto a sitio (P2S) permite crear un
 
 La conexión VPN de punto a sitio usa uno de los siguientes protocolos:
 
-* **Protocolo OpenVPN&reg;** , un protocolo VPN basado en SSL/TLS. Una solución de VPN basada en SSL puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que utiliza SSL. OpenVPN puede utilizarse para la conexión desde dispositivos Android, iOS (11.0 y versiones posteriores), Windows, Linux y Mac (OSX 10.13 y versiones posteriores).
+* **Protocolo OpenVPN&reg;** , un protocolo VPN basado en SSL/TLS. Una solución de VPN basada en SSL puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que utiliza SSL. OpenVPN puede utilizarse para la conexión desde dispositivos Android, iOS (versión 11.0 y posteriores), Windows, Linux y Mac (macOS 10.13 y versiones posteriores).
 
 * El **protocolo de túnel de sockets seguro (SSTP)** , que es un protocolo VPN propio basado en SSL. Una solución de VPN basada en SSL puede penetrar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 saliente, que utiliza SSL. El protocolo SSTP solo se admite en dispositivos Windows. Azure es compatible con todas las versiones de Windows que tienen SSTP (Windows 7 y versiones posteriores). **SSTP admite como máximo 128 conexiones simultáneas, con independencia de la SKU de puerta de enlace**.
 
-* La conexión VPN IKEv2, una solución de VPN con protocolo de seguridad de Internet basada en estándares. La conexión VPN IKEv2 puede utilizarse para la conexión desde dispositivos Mac (versión de OSX 10.11 y versiones posteriores).
+* La conexión VPN IKEv2, una solución de VPN con protocolo de seguridad de Internet basada en estándares. La conexión VPN IKEv2 puede utilizarse para la conexión desde dispositivos Mac (versión macOS 10.11 y posteriores).
 
 
 >[!NOTE]

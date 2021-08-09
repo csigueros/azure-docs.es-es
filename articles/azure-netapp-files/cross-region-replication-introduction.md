@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/22/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: 298a94f20b12ae6e965441a3a7492e99e7c71e22
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 4273e69e3143c25fb78961c5b6b128b69b69dbd1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795067"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068130"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicación entre regiones de volúmenes de Azure NetApp Files
 
@@ -45,7 +45,7 @@ La replicación de volúmenes de Azure NetApp Files se admite entre varios no pa
 * Norte de Europa y Oeste de Europa
 * Sur de Reino Unido y Oeste de Reino Unido
 
-### <a name="azure-regional-non-pairs"></a>No pares regionales de Azure
+### <a name="azure-regional-non-standard-pairs"></a>Pares no estándar regionales de Azure
 
 *   Oeste de EE. UU. 2 y Este de EE. UU.
 *   Centro y Sur de EE. UU. y Centro de EE. UU.

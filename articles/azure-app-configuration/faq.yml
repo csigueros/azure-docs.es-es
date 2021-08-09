@@ -1,0 +1,153 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes de Azure App Configuration
+  description: Lea las respuestas a las preguntas más frecuentes (P+F) sobre Azure App Configuration, por ejemplo, las diferencias con Azure Key Vault.
+  services: azure-app-configuration
+  author: AlexandraKemperMS
+  ms.service: azure-app-configuration
+  ms.topic: conceptual
+  ms.date: 02/19/2020
+  ms.author: alkemper
+  ms.custom: references_regions
+  ms.openlocfilehash: c5871704dd2b999bbb9033abc20f41099b53d000
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "111907662"
+title: Preguntas frecuentes de Azure App Configuration
+summary: En este artículo se responde a preguntas frecuentes sobre Azure App Configuration.
+sections:
+- name: Omitido
+  questions:
+  - question: ¿En qué se diferencia App Configuration de Azure Key Vault?
+    answer: >
+      App Configuration ayuda a los desarrolladores a administrar la configuración de las aplicaciones y a controlar la disponibilidad de características. Pretende simplificar muchas de las tareas del trabajo con datos de configuración complejos.
+
+
+      App Configuration admite:
+
+
+      - Espacios de nombres jerárquicos
+
+      - Etiquetado
+
+      - Consultas amplias
+
+      - Recuperación por lotes
+
+      - Operaciones de administración especializadas
+
+      - Una interfaz de usuario de administración de características
+
+
+      App Configuration complementa a Key Vault y los dos deben usarse en paralelo en la mayoría de las implementaciones de aplicaciones.
+  - question: ¿Debo almacenar secretos en App Configuration?
+    answer: >
+      Aunque App Configuration ofrece mayor seguridad, Key Vault sigue siendo el mejor lugar para almacenar los secretos de la aplicación. Key Vault proporciona cifrado de nivel de hardware, directivas de acceso pormenorizadas y operaciones de administración como la rotación de certificados.
+
+
+      Puede crear valores de App Configuration que hagan referencia a secretos almacenados en Key Vault. Para obtener más información, consulte [Uso de referencias de Key Vault en una aplicación de ASP.NET Core](./use-key-vault-references-dotnet-core.md).
+  - question: ¿Cifra App Configuration mis datos?
+    answer: Sí. App Configuration cifra todos los valores de clave que contiene, así como la comunicación de red. Los nombres de clave y las etiquetas se usan como índices para recuperar los datos de configuración y no se cifran.
+  - question: ¿En qué se diferencia App Configuration de la configuración de Azure App Service?
+    answer: >
+      Azure App Service permite definir la configuración de la aplicación para cada instancia de App Service. Estas configuraciones se pasan como variables de entorno al código de la aplicación. Si lo desea, puede asociar un valor a una ranura de implementación específica. Para obtener más información, consulte [Configuración de aplicaciones](../app-service/configure-common.md#configure-app-settings).
+
+
+      En cambio, Azure App Configuration permite definir una configuración que se puede compartir entre varias aplicaciones. Esto incluye las aplicaciones que se ejecutan en App Service, así como otras plataformas. El código de la aplicación accede a esta configuración mediante los proveedores de configuración para .NET y Java, mediante el SDK de Azure o directamente mediante las API REST.
+
+
+      También puede importar y exportar configuraciones entre App Service y App Configuration. Esta funcionalidad permite configurar rápidamente un nuevo almacén de App Configuration en función de la configuración de App Service existente. También puede compartir la configuración con una aplicación existente que se base en la configuración de App Service.
+  - question: ¿Hay alguna limitación de tamaño en las claves y los valores almacenados en App Configuration?
+    answer: Hay un límite de 10 KB para un único elemento de clave-valor.
+  - question: ¿Cómo debo almacenar las configuraciones para varios entornos (pruebas, ensayo, producción etc.)?
+    answer: >
+      Puede controlar quién accede a App Configuration en cada almacén. Use un almacén independiente para cada entorno que requiera permisos distintos. Este enfoque ofrece el mejor aislamiento de seguridad.
+
+
+      Si no necesita aislamiento de seguridad entre entornos, puede usar etiquetas para diferenciar los valores de configuración. [Uso de etiquetas para habilitar diferentes configuraciones para distintos entornos](./howto-labels-aspnet-core.md) proporciona un ejemplo completo.
+  - question: ¿Cuáles son los métodos recomendados para usar App Configuration?
+    answer: >
+      Consulte los [procedimientos recomendados](./howto-best-practices.md).
+  - question: ¿Cuánto cuesta App Configuration?
+    answer: >
+      Hay dos planes de tarifa:
+
+
+      - Nivel Gratis
+
+      - Nivel Estándar.
+
+
+      Si ha creado un almacén antes de la introducción del nivel Estándar, este se mueve automáticamente al nivel Gratis cuando está disponible con carácter general. Puede optar por actualizar al nivel Estándar o continuar en el nivel Gratis.
+
+
+      No se puede degradar un almacén del nivel Estándar al nivel Gratis. Puede crear un nuevo almacén en el nivel Gratis y luego importar los datos de configuración en ese almacén.
+  - question: ¿Qué nivel de App Configuration debo usar?
+    answer: >
+      Ambos niveles de App Configuration ofrecen funcionalidad básica, como opciones de configuración, marcas de características, referencias de Key Vault, operaciones de administración básicas, métricas y registros.
+
+
+      A continuación se indican algunas consideraciones para elegir un nivel.
+
+
+      - **Recursos por suscripción**: Un recurso se compone de un único almacén de configuración. Cada suscripción está limitada a un almacén de configuración en el nivel Gratis. Las suscripciones pueden tener un número ilimitado de almacenes de configuración en el nivel Estándar.
+
+      - **Almacenamiento por recurso**: En el nivel Gratis, cada almacén de configuración está limitado a 10 MB de almacenamiento. En el nivel Estándar, cada almacén de configuración puede usar hasta 1 GB de almacenamiento.
+
+      - **Historial de revisiones**: App Configuration almacena un historial de todos los cambios realizados en las claves. En el nivel Gratis, el historial se almacena durante siete días. En el nivel Estándar, el historial se almacena durante 30 días.
+
+      - **Cuota de solicitudes**: los almacenes del nivel Gratis se limitan a 1 000 solicitudes al día. Cuando un almacén alcanza 1000 solicitudes, devuelve el código de estado HTTP 429 para todas las solicitudes hasta medianoche UTC.
+
+          Los almacenes de nivel Estándar están limitados a 20 000 solicitudes por hora. Cuando se agota la cuota, se devuelve el código de estado HTTP 429 para todas las solicitudes hasta el final de la hora.
+
+      - **Contrato de nivel de servicio**: El nivel Estándar tiene un contrato de nivel de servicio del 99,9 % de disponibilidad. El nivel Gratis no tiene un contrato de nivel de servicio.
+
+      - **Características de seguridad**: ambos niveles proporcionan funcionalidad de seguridad básica, lo que incluye el cifrado con claves administradas por Microsoft, la autenticación mediante HMAC o Azure Active Directory, la compatibilidad con RBAC de Azure, la identidad administrada y las etiquetas de servicio. El nivel Estándar ofrece una funcionalidad de seguridad más avanzada, incluida la compatibilidad con Private Link y el cifrado con claves administradas por el cliente.
+
+      - **Costo**: Los almacenes del nivel Estándar tienen un cargo de uso diario. Las primeras 200 000 solicitudes de cada día se incluyen en el cargo diario. También hay un cargo por uso por encima del límite por las solicitudes más allá de la asignación diaria. El uso de un almacén del nivel Gratis no supone ningún costo.
+  - question: ¿Puedo actualizar un almacén desde el nivel Gratis al nivel Estándar? ¿Puedo degradar un almacén del nivel Estándar al nivel Gratis?
+    answer: >
+      Puede actualizar desde el nivel Gratis al nivel Estándar en cualquier momento.
+
+
+      No se puede degradar un almacén del nivel Estándar al nivel Gratis. Puede crear un nuevo almacén en el nivel Gratis y, a continuación, [importar los datos de configuración en ese almacén](howto-import-export-data.md).
+  - question: ¿Dónde residen los datos almacenados en App Configuration?
+    answer: >
+      Los datos de cliente almacenados en App Configuration residen en la región en la que se creó el almacén de App Configuration del cliente. Esto se aplica a todas las regiones disponibles. Los clientes y los usuarios finales pueden mover, copiar o acceder a los datos de cliente desde cualquier ubicación global.
+  - question: ¿Cómo App Configuration garantiza una alta disponibilidad de los datos?
+    answer: "\nAzure App Configuration admite Azure Availability Zones para proteger la aplicación y los datos frente a errores de un solo centro de datos.Todas las regiones habilitadas para la zona de disponibilidad constan de un mínimo de tres zonas de disponibilidad, donde cada una es un centro de datos físicamente independiente.Para lograr resistencia, esta compatibilidad de App Configuration está habilitada para todos los clientes sin costo adicional. Las regiones en las que App Configuration tiene Availability Zones habilitado son Este de EE.  UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de EE. UU. 2, Norte de Europa, Oeste de Europa, Centro de Francia, Sur de Reino Unido, Sudeste Asiático y Japón Oriental. Para más información, vea  [Regiones y zonas de disponibilidad en Azure](../availability-zones/az-overview.md).\n\n \n"
+  - question: ¿Hay algún límite para el número de solicitudes que se realiza a App Configuration?
+    answer: >
+      Los almacenes de configuración del nivel Gratis están limitados a 1000 solicitudes al día. Los almacenes de configuración del nivel Estándar pueden experimentar una limitación temporal cuando la tasa de solicitudes supera las 20 000 solicitudes por hora.
+
+
+      Cuando un almacén alcanza su límite, devolverá el código de estado HTTP 429 para todas las solicitudes realizadas hasta que expire el período de tiempo. El encabezado `retry-after-ms` de la respuesta proporciona un tiempo de espera sugerido (en milisegundos) antes de volver a intentar la solicitud.
+
+
+      Si la aplicación recibe periódicamente respuestas de código de estado HTTP 429, considere la posibilidad de rediseñarla para reducir el número de solicitudes realizadas. Para obtener más información, consulte [Reducción de las solicitudes realizadas a App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration).
+  - question: Mi aplicación recibe respuestas con el código de estado HTTP 429. ¿Por qué?
+    answer: >
+      Recibirá una respuesta con el código de estado HTTP 429 en estas circunstancias:
+
+
+      * Superación del límite de solicitudes diarias de un almacén en el nivel Gratis.
+
+      * Limitación temporal debido a una tasa de solicitudes elevada para un almacén en el nivel Estándar.
+
+      * Uso de ancho de banda excesivo.
+
+      * Intento de crear o modificar una clave cuando se ha superado la cuota de almacenamiento.
+
+
+      Compruebe el cuerpo de la respuesta 429 para conocer el motivo específico por el que se produjo un error en la solicitud.
+  - question: ¿Cómo puedo recibir anuncios sobre nuevas versiones y otra información relacionada con App Configuration?
+    answer: >
+      Suscríbase a nuestro [repositorio de anuncios de GitHub](https://github.com/Azure/AppConfiguration-Announcements).
+  - question: ¿Cómo puedo notificar un problema o proporcionar una sugerencia?
+    answer: >
+      Puede comunicarse con nosotros directamente en [GitHub](https://github.com/Azure/AppConfiguration/issues).
+  - question: Pasos siguientes
+    answer: >
+      * [Acerca de Azure App Configuration](./overview.md)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: cc55cd17a547b9c63f2c26479d5797fae016d8d7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 422ba2ecaed8803a49c0a82b85d821d3f55c9bbd
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044075"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072018"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implementación de Azure Monitor a escala mediante Azure Policy
 Aunque algunas características de Azure Monitor se configuran una vez o un número limitado de veces, otras se deben repetir para cada recurso que desee supervisar. En este artículo se describen los métodos para usar Azure Policy para implementar Azure Monitor a escala con el fin de asegurarse de que la supervisión se configura de forma coherente y precisa para todos los recursos de Azure.
@@ -41,6 +41,29 @@ Para ver las definiciones de directivas integradas relacionadas con la supervisi
 3. En **Tipo**, seleccione *Integrada* y, en **Categoría**, seleccione *Supervisión*.
 
   ![Captura de pantalla de la página Definiciones de Azure Policy en Azure Portal, que muestra una lista de definiciones de directivas para la categoría Supervisión y el Tipo Integrado.](media/deploy-scale/builtin-policies.png)
+
+## <a name="azure-monitor-agent-preview"></a>Agente de Azure Monitor (versión preliminar)
+El [agente de Azure Monitor](agents/azure-monitor-agent-overview.md) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales de Azure y los entrega a Azure Monitor. Usa [reglas de recopilación de datos](agents/data-collection-rule-overview.md) a fin de configurar datos para su recopilación de cada agente, lo que permite la capacidad de administración de la configuración de recopilación a gran escala mientras se habilitan configuraciones con ámbito únicas para subconjuntos de máquinas.  
+Use las directivas e iniciativas de directiva siguientes para instalar automáticamente el agente y asociarlo a una regla de recopilación de datos, cada vez que cree una máquina virtual.
+
+### <a name="built-in-policy-initiatives"></a>Iniciativas de directiva integradas
+Vea los requisitos previos para la instalación del agente [aquí](agents/azure-monitor-agent-install.md#prerequisites). 
+
+Hay iniciativas de directiva para máquinas virtuales Windows y Linux, que se componen de directivas individuales que
+- Instalan la extensión del agente de Azure Monitor en la máquina virtual
+- Crean e implementan la asociación para vincular la máquina virtual a una regla de recopilación de datos
+
+  ![Captura de pantalla parcial de la página Definiciones de Azure Policy que muestra dos iniciativas de directiva integradas para configurar el agente de Azure Monitor.](media/deploy-scale/built-in-ama-dcr-initiatives.png)  
+
+### <a name="built-in-policy"></a>Directiva integrada  
+Puede optar por usar las directivas individuales según sus necesidades, desde la iniciativa de directiva correspondiente. Por ejemplo, si solo desea instalar automáticamente el agente, basta con que use la primera directiva de la iniciativa como se muestra a continuación:  
+
+  ![Captura de pantalla parcial de la página Definiciones de Azure Policy que muestra las directivas que se incluyen en la iniciativa para configurar el agente de Azure Monitor.](media/deploy-scale/built-in-ama-dcr-policy.png)  
+
+### <a name="remediation"></a>Corrección
+Las iniciativas o directivas se aplicarán a cada máquina virtual a medida que estas se creen. Una [tarea de corrección](../governance/policy/how-to/remediate-resources.md) implementa las definiciones de directivas de la iniciativa en los **recursos existentes**, de modo que esto le permite configurar el agente de Azure Monitor para los recursos que ya se han creado. Al crear la asignación mediante Azure Portal, tiene la opción de crear una tarea de corrección al mismo tiempo. Consulte [Corrección de los recursos no compatibles con Azure Policy](../governance/policy/how-to/remediate-resources.md) para más información sobre la corrección.
+
+![Corrección de la iniciativa para AMA](media/deploy-scale/built-in-ama-dcr-remediation.png)
 
 
 ## <a name="diagnostic-settings"></a>Configuración de diagnóstico

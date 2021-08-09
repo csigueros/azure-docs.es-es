@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: aa224a09317aafd49ae10c89ae0c50455ddd4602
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5cd9438eecc973524d8e5f7218ad0c92ab627f87
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709929"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559885"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Supervisión de operaciones y actividades de Azure Cognitive Search
 
@@ -87,7 +87,7 @@ Muchos servicios, entre los que se incluye Azure Cognitive Search, se integran c
 
 Azure Monitor proporciona varias opciones de almacenamiento y la que seleccione determina cómo puede consumir los datos:
 
-* Elija Almacenamiento de blobs de Azure si quiere [visualizar datos de registro](search-monitor-logs-powerbi.md) en un informe de Power BI.
+* Elija Azure Blob Storage si quiere [visualizar datos de registro](search-monitor-logs-powerbi.md) en un informe de Power BI.
 * Elija Log Analytics si quiere explorar los datos a través de consultas de Kusto.
 
 Azure Monitor tiene su propia estructura de facturación y los registros de diagnóstico a los que se hace referencia en esta sección tienen un costo asociado. Para obtener más información, vea [Uso y costos estimados en Azure Monitor](../azure-monitor//usage-estimated-costs.md).

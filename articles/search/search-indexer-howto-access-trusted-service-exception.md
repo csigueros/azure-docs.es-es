@@ -8,19 +8,19 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2021
-ms.openlocfilehash: 16808be9b4a0c3a03a2a56a5255809b585aa404f
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: db614d99a3c25e6f782c0be6bea95ec82124b8e5
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715801"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554847"
 ---
 # <a name="indexer-access-to-azure-storage-using-the-trusted-service-exception-azure-cognitive-search"></a>Acceso del indexador a Azure Storage mediante una excepción de servicio de confianza (Azure Cognitive Search)
 
 En un servicio Azure Cognitive Search, los indexadores que acceden a los datos de las cuentas de Azure Storage pueden utilizar la funcionalidad de [excepción de servicio de confianza](../storage/common/storage-network-security.md#exceptions) para acceder a los datos de forma segura. Este mecanismo ofrece a los clientes que no pueden conceder [al indexador acceso mediante las reglas de firewall de IP](search-indexer-howto-access-ip-restricted.md) una alternativa sencilla, segura y gratuita para acceder a los datos de las cuentas de almacenamiento.
 
 > [!NOTE]
-> La compatibilidad con el acceso a los datos de las cuentas de almacenamiento mediante una excepción de servicio de confianza se limita a Azure Blob Storage y al almacenamiento de Azure Data Lake Gen2. Azure Table Storage no se admite.
+> La compatibilidad con el acceso a los datos de las cuentas de almacenamiento mediante una excepción de servicio de confianza se limita a Azure Blob Storage y al almacenamiento de Azure Data Lake Gen2. Azure Table Storage no se admite.
 
 ## <a name="step-1-configure-a-connection-using-a-managed-identity"></a>Paso 1: Configurar una conexión mediante una identidad administrada
 

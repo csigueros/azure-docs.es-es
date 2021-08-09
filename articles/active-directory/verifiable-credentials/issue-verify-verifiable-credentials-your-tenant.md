@@ -10,12 +10,12 @@ ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: c73c6ce641e5e8386d636f87253cb111c17ae69c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 987ab6346788f78316b0682631b7cefde12cad29
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466084"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111437729"
 ---
 # <a name="tutorial---issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Tutorial: emisión y comprobación de credenciales verificables mediante el inquilino (versión preliminar)
 
@@ -66,36 +66,6 @@ Registre una aplicación denominada "Aplicación VC Wallet" en Azure AD y obten
 
    ![puntos de conexión del emisor](media/issue-verify-verifable-credentials-your-tenant/application-endpoints.png)
 
-## <a name="set-up-your-node-app-with-access-to-azure-key-vault"></a>Configuración de la aplicación Node con acceso a Azure Key Vault
-
-Para autenticar la solicitud de emisión de credenciales de un usuario, el sitio web del emisor utiliza las claves criptográficas en Azure Key Vault. Para obtener acceso a Azure Key Vault, el sitio web necesita un identificador de cliente y un secreto de cliente que se pueda usar para autenticarse en Azure Key Vault.
-
-1. Al ver la página de información general de la aplicación VC Wallet, seleccione **Certificados y secretos**.
-    ![Certificados y secretos](media/issue-verify-verifable-credentials-your-tenant/vc-wallet-app-certs-secrets.png)
-1. En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente**.
-    1. Agregue una descripción como "Secreto de cliente de la credencial verificable de Node"
-    1. Expira: en un año.
-  ![Secreto de aplicación con una expiración de un año](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
-1. Copie el SECRETO. Necesita esta información para actualizar la aplicación Node de ejemplo.
-
->[!WARNING]
-> Tiene una oportunidad para copiar el secreto. Después, el secreto es un valor con hash unidireccional. No copie el id. 
-
-Después de crear la aplicación y el secreto de cliente en Azure AD, debe conceder a la aplicación los permisos necesarios para realizar operaciones en Key Vault. Es necesario realizar estos cambios de permisos para permitir que el sitio web tenga acceso a las claves privadas almacenadas allí y las use.
-
-1. Vaya a Key Vault.
-2. Seleccione el almacén de claves que estamos usando para estos tutoriales.
-3. Elija **Directivas de acceso** en el panel de navegación izquierdo.
-4. Elija **+Agregar directiva de acceso**.
-5. En la sección **Permisos de la clave**, elija **Obtener** y **Firmar**.
-6. Seleccione **Entidad de seguridad** y use el id. de aplicación para buscar la aplicación que registró anteriormente. Selecciónela.
-7. Seleccione **Agregar**.
-8. Elija **GUARDAR**.
-
-Para más información sobre los permisos de Key Vault y el control de acceso, consulte la [Guía de RBAC de Key Vault](../../key-vault/general/rbac-guide.md).
-
-![asignación de los permisos del almacén de claves](media/issue-verify-verifable-credentials-your-tenant/key-vault-permissions.png)
-## <a name="make-changes-to-match-your-environment"></a>Realización de cambios para que coincidan con el entorno
 
 Hasta ahora, hemos estado trabajando con nuestra aplicación de ejemplo. La aplicación usa [Azure Active Directory B2C](../../active-directory-b2c/overview.md) y ahora estamos cambiando para usar Azure AD, por lo que necesitamos hacer algunos cambios, no solo para que coincidan con su entorno, sino también para admitir notificaciones adicionales que no se usaron antes.
 
@@ -160,7 +130,54 @@ Ahora, cuando se presenta a un usuario el "Inicio de sesión" para obtener la cr
 1. En la página de credenciales verificables, cree una nueva credencial denominada **modifiedCredentialExpert** con el archivo de visualización anterior y el nuevo archivo de reglas (**modified-credentialExpert.json**).
 1. Una vez completado el proceso de creación de credenciales desde la página **Información general**, copie la **dirección URL de emisión de credenciales** y guárdela porque la necesitamos en la sección siguiente.
 
-## <a name="before-we-continue"></a>Antes de continuar
+## <a name="set-up-your-node-app-with-access-to-azure-key-vault"></a>Configuración de la aplicación Node con acceso a Azure Key Vault
+
+Para autenticar la solicitud de emisión de credenciales de un usuario, el sitio web del emisor utiliza las claves criptográficas en Azure Key Vault. Para obtener acceso a Azure Key Vault, el sitio web necesita un identificador de cliente y un secreto de cliente que se pueda usar para autenticarse en Azure Key Vault.
+
+En primer lugar, es necesario registrar otra aplicación. Este registro es para el sitio web. El registro anterior para la aplicación de cartera es solo para permitir que los usuarios inicien sesión en el directorio con la aplicación de cartera; en nuestro caso, está en el mismo directorio, pero el registro de la aplicación de cartera también podría haberse realizado en un directorio diferente. Un procedimiento recomendado es separar los registros de aplicaciones si la responsabilidad de las aplicaciones es diferente. En este caso, necesitamos nuestro sitio web para obtener acceso a Key Vault.
+
+1. Siga las instrucciones para registrar una aplicación con [Azure AD](../develop/quickstart-register-app.md). Al registrarse, use los valores siguientes.
+
+   - Nombre: "Sitio web VC"
+   - Tipos de cuenta admitidos: Solo las cuentas de este directorio organizativo
+
+   :::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/vc-website-app-app-registration.png" alt-text="Captura de pantalla que muestra cómo registrar una aplicación.":::
+
+1. Después de registrar la aplicación, anote el id. de aplicación (cliente). Este valor lo necesitará más adelante.
+
+   :::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/vc-website-app-app-details.png" alt-text="Captura de pantalla que muestra el id. de cliente de la aplicación.":::
+
+1. Al ver la página de información general de la aplicación Sitio web VC, seleccione **Certificates & secrets** (Certificados y secretos).
+
+    :::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/vc-website-app-certificates-secrets.png" alt-text="Captura de pantalla que muestra el panel de certificados y secretos.":::
+
+1. En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente**.
+    1. Agregue una descripción como "Secreto de cliente de la credencial verificable de Node"
+    1. Expira: en un año.
+
+    ![Secreto de aplicación con una expiración de un año](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
+
+1. Copie el SECRETO. Necesita esta información para actualizar la aplicación Node de ejemplo.
+
+>[!WARNING]
+> Tiene una oportunidad para copiar el secreto. Después, el secreto es un valor con hash unidireccional. No copie el id. 
+
+Después de crear la aplicación y el secreto de cliente en Azure AD, debe conceder a la aplicación los permisos necesarios para realizar operaciones en Key Vault. Es necesario realizar estos cambios de permisos para permitir que el sitio web tenga acceso a las claves privadas almacenadas allí y las use.
+
+1. Vaya a Key Vault.
+2. Seleccione el almacén de claves que estamos usando para estos tutoriales.
+3. Elija **Directivas de acceso** en el panel de navegación izquierdo.
+4. Elija **+Agregar directiva de acceso**.
+5. En la sección **Permisos de la clave**, elija **Obtener** y **Firmar**.
+6. Seleccione **Entidad de seguridad** y use el id. de aplicación para buscar la aplicación que registró anteriormente. Selecciónela.
+7. Seleccione **Agregar**.
+8. Elija **GUARDAR**.
+
+:::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/key-vault-permissions.png" alt-text="Captura de pantalla que muestra la incorporación de una directiva de acceso.":::
+
+Para más información sobre los permisos de Key Vault y el control de acceso, consulte la [Guía de RBAC de Key Vault](../../key-vault/general/rbac-guide.md).
+
+## <a name="make-changes-to-the-sample-app"></a>Realización de cambios en la aplicación de ejemplo
 
 Necesitamos poner algunos valores juntos para poder realizar los cambios de código necesarios. Usamos estos valores en la sección siguiente para que el código de ejemplo use sus propias claves almacenadas en el almacén. Hasta ahora, debemos tener listos los siguientes valores.
 
@@ -190,7 +207,7 @@ Hay algunos otros valores que necesitamos obtener antes de poder realizar los ca
 2. Pegue el DID en la barra de búsqueda.
 
 4. En la respuesta con formato, busque la sección denominada **verificationMethod**.
-5. En "verificationMethod", copie el identificador y etiquételo como kvSigningKeyId.
+5. En "verificationMethod", copie `id` y etiquételo como kvSigningKeyId.
     
     ```json=
     "verificationMethod": [

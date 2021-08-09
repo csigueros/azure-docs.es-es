@@ -5,19 +5,19 @@ description: Aprenda a configurar una instancia de Azure SQL Database y Azure Sy
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 96b35e65f11e9f0c1dec6b75465454be962dce46
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: df531a38d7a38141ee07a88ddce77a2e85c2cd98
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109735141"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413598"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y la CLI de Azure: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -74,7 +74,7 @@ Utilice el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/se
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
-Para agregar permisos al servidor en un HSM administrado, agregue el rol de RBAC local "Cifrado del servicio criptográfico de HSM administrado" al servidor. Esto permitirá que el servidor realice operaciones para obtener la clave, ajustarla y desajustarla en las claves del HSM administrado.
+Para agregar permisos al servidor en un HSM administrado, agregue el rol de RBAC local "Usuario de cifrado del servicio de criptografía de HSM administrado" al servidor. Esto permitirá que el servidor realice operaciones para obtener la clave, ajustarla y desajustarla en las claves del HSM administrado.
 [Instrucciones para aprovisionar el acceso al servidor en HSM administrado](../../key-vault/managed-hsm/role-management.md)
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Agregar la clave de Key Vault al servidor y establecer el protector de TDE

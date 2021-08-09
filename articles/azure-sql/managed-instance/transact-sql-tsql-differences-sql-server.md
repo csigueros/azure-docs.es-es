@@ -3,20 +3,20 @@ title: Diferencias de T-SQL entre SQL Server y una Instancia administrada de Az
 description: En este artículo se describen las diferencias de Transact-SQL (T-SQL) entre una Instancia administrada de Azure SQL y SQL Server.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.devlang: ''
 ms.topic: reference
 author: danimir
 ms.author: danil
-ms.reviewer: sstein, bonova, danil
+ms.reviewer: mathoma, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1a2ef6000a10c9b6879547377e26b6982e820ef1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8c3ab997aeb179754e4c365dc41b795cf5c3bdc7
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745800"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528565"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -406,10 +406,12 @@ Operaciones:
 - La función `OPENDATASOURCE` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Solo se admiten los valores `SQLNCLI`, `SQLNCLI11` y `SQLOLEDB` como proveedor. Un ejemplo es `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
 - Los servidores vinculados no se pueden usar para leer archivos (Excel y CSV) de los recursos compartidos de red. Intente usar [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lee los archivos CSV de Azure Blob Storage o un [servidor vinculado que hace referencia a un grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Realice un seguimiento de estas solicitudes en el [elemento de comentarios de la Instancia administrada de SQL](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|.
 
+Los servidores vinculados en Azure SQL Managed Instance solo admiten la autenticación de SQL. Todavía no se admite la autenticación de AAD.
+
 ### <a name="polybase"></a>PolyBase
 
-El único tipo disponible de origen externo es RDBMS (en versión preliminar pública) para Azure SQL Database, Azure SQL Managed Instance y el grupo de Azure Synapse. Puede usar [una tabla externa que haga referencia a un grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) como solución alternativa para las tablas externas Polybase, que lee directamente desde Azure Storage. En Azure SQL Managed Instance, puede usar servidores vinculados para [un grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) o SQL Server para leer los datos de Azure Storage.
-Para más información acerca de Polybase, consulte [Polybase](/sql/relational-databases/polybase/polybase-guide).
+El trabajo para habilitar la compatibilidad con PolyBase en SQL Managed Instance está [en curso](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35698078-enable-polybase-on-sql-managed-instance). Mientras tanto, como solución alternativa, puede usar servidores vinculados a un [grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) o a SQL Server para consultar datos de archivos almacenados en Azure Data Lake o Azure Storage.   
+Para obtener información general acerca de PolyBase, consulte [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicación
 

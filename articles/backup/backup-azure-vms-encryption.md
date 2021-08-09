@@ -2,13 +2,13 @@
 title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 08/18/2020
-ms.openlocfilehash: 4396eb25980610e9ba22e640957b24147e875cba
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.date: 06/03/2021
+ms.openlocfilehash: 226c3d08903385a1df97d83209762452a70ed816
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803267"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565655"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -66,21 +66,20 @@ Además, hay un par de cosas que puede que deba hacer en algunas circunstancias:
 ## <a name="configure-a-backup-policy"></a>Configuración de una directiva de copia de seguridad
 
 1. Si todavía no ha creado un almacén de copia de seguridad de Recovery Services, siga [estas instrucciones](backup-create-rs-vault.md).
-1. Abra el almacén en el portal y seleccione **+ Copia de seguridad** en la sección **Introducción**.
+1. Vaya al Centro de copias de seguridad y haga clic en **+ Copia de seguridad** en la pestaña **Información general**.
 
     ![Panel de copia de seguridad](./media/backup-azure-vms-encryption/select-backup.png)
 
-1. En **Objetivo de Backup** > **Where is your workload running?** (¿Dónde se ejecuta su carga de trabajo?), seleccione **Azure**.
-1. En **¿De qué desea hacer una copia de seguridad?** , seleccione **Máquina virtual**. A continuación, seleccione **Copia de seguridad**.
+1. Seleccione **Azure Virtual Machines** en **Tipo de origen de datos** y seleccione el almacén que ha creado, a continuación, haga clic en **Continuar**.
 
-      ![Panel de escenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+     ![Panel de escenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-1. En **Directiva de copia de seguridad**, > **Elegir una directiva de copia de seguridad**, seleccione la directiva que quiere asociar al almacén. Después, seleccione **Aceptar**.
-    - Una directiva de copia de seguridad especifica cuándo se realizan las copias de seguridad y cuánto tiempo se almacenan.
-    - Los detalles de la directiva predeterminada se muestran en el menú desplegable.
+1. Seleccione la directiva que quiere asociar al almacén y, luego, seleccione **Aceptar**.
+   - Una directiva de copia de seguridad especifica cuándo se realizan las copias de seguridad y cuánto tiempo se almacenan.
+   - Los detalles de la directiva predeterminada se muestran en el menú desplegable.
 
-    ![Elegir directiva de copia de seguridad](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
-
+   ![Elegir directiva de copia de seguridad](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+    
 1. Si no quiere usar la directiva predeterminada, seleccione **Crear nueva** y [Crear una directiva personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. En **Máquinas virtuales**, seleccione **Agregar**.
@@ -107,19 +106,20 @@ Además, hay un par de cosas que puede que deba hacer en algunas circunstancias:
 
 La copia de seguridad inicial se ejecutará según la programación, peor puede ejecutarla inmediatamente de la manera siguiente:
 
-1. En el menú del almacén, seleccione **Elementos de copia de seguridad**.
-2. En **Elementos de copia de seguridad**, seleccione **Máquina virtual de Azure**.
-3. En la lista **Elementos de copia de seguridad**, seleccione el botón de puntos suspensivos (...).
-4. Seleccione **Hacer copia de seguridad ahora**.
-5. En **Realizar copia de seguridad ahora**, use el control del calendario para seleccionar el último día que debería retenerse el punto de recuperación. Después, seleccione **Aceptar**.
-6. Supervise las notificaciones del portal. Puede supervisar el progreso del trabajo en el panel del almacén > **Trabajos de copia de seguridad** > **En curso**. Según el tamaño de la máquina virtual, la creación de la copia de seguridad inicial puede tardar un tiempo.
+1. Vaya al **Centro de copias de seguridad** y seleccione el elemento de menú **Instancias de Backup**.
+1. Seleccione **Azure Virtual Machines** como **Tipo de origen de datos** y busque la VM que configuró para la copia de seguridad.
+1. Haga clic con el botón derecho en la fila pertinente o seleccione el icono de más (…) y haga clic en **Realizar copia de seguridad ahora**.
+1. En **Realizar copia de seguridad ahora**, use el control del calendario para seleccionar el último día que debería retenerse el punto de recuperación. Después, seleccione **Aceptar**.
+1. Supervise las notificaciones del portal.
+   Para supervisar el progreso del trabajo, vaya a **Centro de copias de seguridad** > **Trabajos de copia de seguridad** y filtre la lista por trabajos **En curso**.
+   Según el tamaño de la máquina virtual, la creación de la copia de seguridad inicial puede tardar un tiempo.
 
 ## <a name="provide-permissions"></a>Proporcionar los permisos
 
 Azure Backup necesita acceso de solo lectura para realizar la copia de seguridad de las claves y los secretos, junto con las máquinas virtuales asociadas.
 
 - El almacén de claves está asociado con el inquilino de Azure AD de la suscripción de Azure. Si es un **usuario miembro**, Azure Backup adquiere el acceso al almacén de claves sin realizar más acciones.
-- Si es un **usuario invitado**, debe proporcionar permisos para que Azure Backup acceda al almacén de claves.
+- Si es un **usuario invitado**, debe proporcionar permisos para que Azure Backup acceda al almacén de claves. Debe tener acceso a los almacenes de claves para configurar Backup para VM cifradas.
 
 Para establecer los permisos:
 
@@ -161,12 +161,14 @@ Restaure las máquinas virtuales cifradas de la manera siguiente:
 1. [Restaure el disco de máquina virtual](backup-azure-arm-restore-vms.md#restore-disks).
 
    > [!NOTE]
-   > Una vez restaurado el disco de máquina virtual, intercambie el disco del sistema operativo de la máquina virtual original por el disco de la máquina virtual restaurado sin volver a crearlo. [Más información](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
+   > Después de restaurar el disco de VM, puede intercambiar manualmente el disco del sistema operativo de la VM original por el disco de la VM restaurado sin volver a crearlo. [Más información](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
 
 2. Vuelva a crear la instancia de máquina virtual mediante una de las siguientes acciones:
     1. Use la plantilla que se generó durante la operación de restauración para personalizar la configuración de la máquina virtual y desencadene la implementación de la máquina virtual. [Más información](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    2. Cree una máquina virtual a partir de los discos restaurados mediante PowerShell. [Más información](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-3. En el caso de VM Linux, vuelva a instalar la extensión ADE para que los discos de datos estén abiertos y montados.
+       >[!NOTE]
+       >Al implementar la plantilla, compruebe los contenedores de la cuenta de almacenamiento y la configuración pública o privada.
+    1. Cree una máquina virtual a partir de los discos restaurados mediante PowerShell. [Más información](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+1. En el caso de VM Linux, vuelva a instalar la extensión ADE para que los discos de datos estén abiertos y montados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

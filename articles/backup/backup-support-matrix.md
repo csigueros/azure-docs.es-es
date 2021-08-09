@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad de Azure Backup
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 06/11/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5c74a34efe8075ab7a34fab4570d9513900b3f81
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 2b5700498bd09e24adeb6d1a386e8bb8da6b92c7
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517426"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006732"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -151,8 +151,8 @@ Azure Backup ha agregado la característica Restauración entre regiones para re
 
 | Tipo de administración de copias de seguridad | Compatible                                                    | Regiones admitidas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Compatible con máquinas virtuales de Azure (incluidas máquinas virtuales de Azure cifradas), con discos administrados y no administrados. No se admite para máquinas virtuales clásicas. | Disponible en todas las regiones públicas de Azure y las regiones soberanas, excepto Centro de Francia, Centro de Australia, Norte de Sudáfrica, Norte de Emiratos Árabes Unidos, Norte de Suiza, Centro-oeste de Alemania, Este de Noruega, US Gov Iowa y US Gov Virginia. <br>Para obtener información sobre el uso en esas regiones, póngase en contacto con [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
-| SQL/SAP HANA | En versión preliminar                                                      | Disponible en todas las regiones públicas de Azure y las regiones soberanas, excepto Centro de Francia, Centro de Australia, Norte de Sudáfrica, Norte de Emiratos Árabes Unidos, Norte de Suiza, Centro-oeste de Alemania, Este de Noruega, US Gov Iowa y US Gov Virginia. <br>Para obtener información sobre el uso en esas regiones, póngase en contacto con [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Azure VM               | Compatible con máquinas virtuales de Azure (incluidas máquinas virtuales de Azure cifradas), con discos administrados y no administrados. No se admite para máquinas virtuales clásicas. | Está disponible en todas las regiones públicas y soberanas de Azure, excepto en IOWA y UG Virginia. |
+| SQL/SAP HANA | Disponible      | Está disponible en todas las regiones públicas y soberanas de Azure, excepto en Centro de Francia, IOWA y UG Virginia. |
 | Agente de MARS/local  | No                                                           | N/D               |
 | AFS (recursos compartidos de archivos de Azure)                 | No                                                           | N/D               |
 

@@ -2,13 +2,13 @@
 title: Configuración de Azure Arc para App Service, Functions y Logic Apps
 description: En el caso Azure Arc clústeres de Kubernetes habilitados, aprenda a habilitar aplicaciones App Service, aplicaciones de funciones y aplicaciones lógicas.
 ms.topic: article
-ms.date: 05/03/2021
-ms.openlocfilehash: 35c58b05a1c5835028e36d8cd1afa878c803612e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 05/26/2021
+ms.openlocfilehash: e5e1b1ec8dd9a7e7ddf006222d2990bb6c354cd8
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388457"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890139"
 ---
 # <a name="set-up-an-azure-arc-enabled-kubernetes-cluster-to-run-app-service-functions-and-logic-apps-preview"></a>Configuración de un clúster de Kubernetes habilitado para Azure Arc para ejecutar App Service, Functions y Logic Apps (versión preliminar)
 
@@ -23,7 +23,7 @@ Si no tiene una cuenta de Azure, [regístrese hoy mismo](https://azure.microsoft
 <!-- ## Prerequisites
 
 - Create a Kubernetes cluster in a supported Kubernetes distribution and connect it to Azure Arc in a supported region. See [Public preview limitations](overview-arc-integration.md#public-preview-limitations).
-- [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- [Install Azure CLI](/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](../cloud-shell/overview.md).
 - [Install kubectl](https://kubernetes.io/docs/tasks/tools/). It's also preinstalled in the Azure Cloud Shell.
 
 ## Obtain cluster information
@@ -51,6 +51,8 @@ az extension add --upgrade --yes --name connectedk8s
 az extension add --upgrade --yes --name k8s-extension
 az extension add --upgrade --yes --name customlocation
 az provider register --namespace Microsoft.ExtendedLocation --wait
+az provider register --namespace Microsoft.Web --wait
+az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az extension remove --name appservice-kube
 az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
 ```
@@ -58,11 +60,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 ## <a name="create-a-connected-cluster"></a>Creación de un clúster conectado
 
 > [!NOTE]
-> A medida que se validan más distribuciones de Kubernetes para entornos de Kubernetes de App Service, consulte [Inicio rápido: conexión de un clúster de Kubernetes existente a Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) para obtener instrucciones generales sobre cómo crear un clúster de Kubernetes habilitado para Azure Arc.
-
-<!-- https://github.com/MicrosoftDocs/azure-docs-pr/pull/156618 -->
-
-Dado que App Service en Arc solo se valida actualmente en [Azure Kubernetes Service](/azure/aks/), cree un clúster habilitado para Azure Arc en Azure Kubernetes Service. 
+> En este tutorial se usa [Azure Kubernetes Service (AKS)](../aks/index.yml) para proporcionar instrucciones concretas para configurar un entorno desde cero. Sin embargo, para una carga de trabajo de producción, es probable que no quiera habilitar Azure Arc en un clúster de AKS, ya que ya está administrado en Azure. Los pasos siguientes le ayudarán a empezar a comprender el servicio, pero en el caso de las implementaciones de producción, deben considerarse ilustrativos, no prescriptivos. Vea [Inicio rápido: conexión de un clúster de Kubernetes existente a Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) para obtener instrucciones generales sobre cómo crear un clúster de Kubernetes habilitado para Azure Arc.
 
 1. Cree un clúster en Azure Kubernetes Service con una dirección IP pública. Sustituya `<group-name>` por el nombre del grupo de recursos que desee.
 
@@ -162,7 +160,7 @@ Aunque no se necesita un [área de trabajo de Log Analytics](../azure-monitor/lo
         --release-train stable \
         --auto-upgrade-minor-version true \
         --scope cluster \
-        --release-namespace '${namespace}' \
+        --release-namespace $namespace \
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${namespace}" \
         --configuration-settings "clusterName=${kubeEnvironmentName}" \
@@ -220,7 +218,7 @@ Aunque no se necesita un [área de trabajo de Log Analytics](../azure-monitor/lo
 Puede usar `kubectl` para ver los pods que se han creado en el clúster de Kubernetes:
 
 ```bash
-kubectl get pods -n ${namespace}
+kubectl get pods -n $namespace
 ```
 
 Puede obtener más información sobre estos pods y su rol en el sistema de [Pods creados por la extensión de App Service](overview-arc-integration.md#pods-created-by-the-app-service-extension).
@@ -246,7 +244,7 @@ La [ubicación personalizada](../azure-arc/kubernetes/custom-locations.md) en Az
         --resource-group $groupName \
         --name $customLocationName \
         --host-resource-id $connectedClusterId \
-        --namespace ${namespace} \
+        --namespace $namespace \
         --cluster-extension-ids $extensionId
     ```
     
@@ -281,7 +279,7 @@ Para poder empezar a crear aplicaciones en la ubicación personalizada, necesita
         --resource-group $groupName \
         --name $kubeEnvironmentName \
         --custom-location $customLocationId \
-        --static-ip "$staticIp"
+        --static-ip $staticIp
     ```
     
 2. Valide que el entorno de Kubernetes de App Service se ha creado correctamente con el siguiente comando. La salida debe mostrar la propiedad `provisioningState` como `Succeeded`. Si no es así, vuelva a ejecutarla después de un minuto.

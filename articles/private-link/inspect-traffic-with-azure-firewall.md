@@ -8,14 +8,17 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: c3218d8781377e76f05d10a8da2c954ac0b685a7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8bcf300c9e17bd809a0dc35443917dee2a908e27
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641989"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075590"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Uso de Azure Firewall para inspeccionar el tráfico destinado a un punto de conexión privado
+
+> [!NOTE]
+> Si desea proteger el tráfico a puntos de conexión privados en Azure Virtual WAN mediante el centro virtual protegido, consulte [Protección del tráfico destinado a puntos de conexión privados en Azure Virtual WAN](../firewall-manager/private-link-inspection-secure-virtual-hub.md).
 
 Un punto de conexión privado de Azure es el bloque de creación fundamental para Azure Private Link. Los puntos de conexión privados permiten que los recursos de Azure implementados en una red virtual se comuniquen de forma privada con recursos de Private Link.
 
@@ -173,7 +176,7 @@ Reemplazar los siguientes parámetros de los pasos por la siguiente información
     | **Cuenta de administrador** |  |
     | Tipo de autenticación | Seleccione **Contraseña**. |
     | Nombre de usuario | Escriba un nombre de usuario de su elección. |
-    | Contraseña | Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Contraseña | Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/linux/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Vuelva a escribir la contraseña. |
     | **Reglas de puerto de entrada** |  |
     | Puertos de entrada públicos | Seleccione **Ninguno**. |
@@ -197,6 +200,8 @@ Reemplazar los siguientes parámetros de los pasos por la siguiente información
 6. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración.
 
 7. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="deploy-the-firewall"></a>Implementación del firewall
 

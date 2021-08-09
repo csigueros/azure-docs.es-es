@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 2b305955dbfcf99bccede041cbfcd18aef065cf1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e8164a6ee56a332528cdce8e81cd85460af0c1db
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770108"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752394"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Configuración del almacenamiento en caché para el enriquecimiento en Azure Cognitive Search
 
@@ -75,7 +75,7 @@ Modifique el objeto de caché para incluir las siguientes propiedades obligatori
 ```
 
 > [!NOTE]
-> La caché del indexador requiere una cuenta de almacenamiento de uso general v2. Para más información, consulte los [diferentes tipos de cuentas de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+> La caché del indexador requiere una cuenta de almacenamiento de uso general v2. Para más información, consulte los [diferentes tipos de cuentas de almacenamiento](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 ### <a name="step-3-reset-the-indexer"></a>Paso 3: Restablecimiento del indizador
 
@@ -127,7 +127,7 @@ Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```
 
-Una vez que se ejecuta el indexador, puede encontrar la caché en Azure Blob Storage. El nombre del contenedor adopta el siguiente formato: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
+Una vez que se ejecuta el indexador, puede encontrar la caché en Azure Blob Storage. El nombre del contenedor adopta el siguiente formato: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
 
 > [!NOTE]
 > Restablecer y volver a ejecutar el indexador produce una recompilación completa para que se pueda almacenar en caché el contenido. Todos los enriquecimientos cognitivos se volverán a ejecutar en todos los documentos.

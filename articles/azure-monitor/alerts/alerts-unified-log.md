@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: a72d27584441e853c6eeeb732df2691fd347857e
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: 2744a1dd36751175e7bd421210bdb5b92b53dfe5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109664535"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456927"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
@@ -26,7 +26,7 @@ Las alertas de registro son uno de los tipos de alerta que se admiten en [Alerta
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Las alertas de registro ejecutan consultas sobre los datos de Log Analytics. En primer lugar, debe comenzar a [recopilar datos de registro](../essentials/resource-logs.md) y consultar estos datos de registro para detectar problemas. Puede usar el [artículo de ejemplos de consultas de alertas](../logs/example-queries.md) en Log Analytics para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../logs/log-analytics-tutorial.md).
+Las alertas de registro ejecutan consultas sobre los datos de Log Analytics. En primer lugar, debe comenzar a [recopilar datos de registro](../essentials/resource-logs.md) y consultar estos datos de registro para detectar problemas. Puede usar el [artículo de ejemplos de consultas de alertas](../logs/queries.md) en Log Analytics para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../logs/log-analytics-tutorial.md).
 
 El [colaborador de supervisión de Azure](../roles-permissions-security.md) es un rol común necesario para crear, modificar y actualizar las alertas de registro. También se necesitan derechos de acceso y de ejecución de consulta para los registros de recursos. El acceso parcial a los registros de recursos puede producir errores en las consultas o devolver resultados parciales. [Más información sobre la configuración de alertas de registro en Azure](./alerts-log.md).
 
@@ -180,11 +180,11 @@ Por ejemplo, si el valor de [**Granularidad de agregación**](#aggregation-granu
 
 ## <a name="state-and-resolving-alerts"></a>Estado y resolución de alertas
 
-Las alertas de registro pueden ser sin estado o con estado (actualmente en versión preliminar cuando se usa la API).
+Las alertas de registro pueden ser sin estado o con estado (actualmente en versión preliminar).
 
 Las alertas sin estado se activan cada vez que se cumple la condición, incluso si se han activado anteriormente. Puede [marcar la alerta como cerrada](../alerts/alerts-managing-alert-states.md) una vez que se resuelva la instancia de alerta. También puede silenciar acciones para evitar que se desencadenen durante un período después de que se active una regla de alertas. En áreas de trabajo de Log Analytics y Application Insights, esta opción se llama **Suprimir alertas**. En los demás tipos de recursos, se denomina **Silenciar acciones**. 
 
-Consulte este ejemplo de evaluación de alertas:
+Consulte este ejemplo de evaluación de alertas sin estado:
 
 | Time    | Evaluación de la condición de registro | Resultado 
 | ------- | ----------| ----------| ------- 
@@ -193,7 +193,7 @@ Consulte este ejemplo de evaluación de alertas:
 | 00:15 | true  | La alerta se desencadena y se llama a los grupos de acciones. Estado de nueva alerta ACTIVA.
 | 00:20 | false | La alerta no se activa. No se llamó a ninguna acción. El estado de las alertas anteriores sigue como ACTIVA.
 
-Las alertas con estado se activa una vez por incidente y se resuelven. Al crear o actualizar reglas de alertas de registro existentes, agregue la marca `autoMitigate` con el valor `true` de tipo `Boolean`, en la sección `properties`. Puede usar esta característica en estas versiones de API: `2018-04-16` y `2020-05-01-preview`.
+Las alertas con estado se activa una vez por incidente y se resuelven. Esta característica se encuentra actualmente en versión preliminar en la nube pública de Azure. Puede establecer esta opción mediante **Automatically resolve alerts** (Resolución automática de alertas) de la sección de detalles de alertas.
 
 ## <a name="location-selection-in-log-alerts"></a>Selección de ubicación en alertas de registro
 

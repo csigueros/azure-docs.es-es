@@ -3,12 +3,12 @@ title: Configuración del clúster administrado de Service Fabric
 description: Aprenda a configurar el clúster administrado de Service Fabric para las actualizaciones automáticas del sistema operativo, las reglas de grupo de seguridad de red y mucho más.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 42c8cf75a274ba3b4630caf9ac7e0d194465cfe7
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 5fd2736917517f20d3d093492c6011d6fcf716cf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109735483"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067445"
 ---
 # <a name="service-fabric-managed-cluster-configuration-options"></a>Opciones de configuración del clúster administrado de Service Fabric
 
@@ -21,6 +21,7 @@ Además de seleccionar el [SKU de clúster administrado de Service Fabric](overv
 * Habilitación de las [actualizaciones automáticas del sistema operativo](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) para nodos de clúster
 * Habilitación del [cifrado de discos de datos y sistema operativo](how-to-enable-managed-cluster-disk-encryption.md) en los nodos de clúster
 * Selección del SKU de [tipo de disco administrado](how-to-managed-cluster-managed-disk.md) del clúster
+* Configuración de las [opciones de actualización](how-to-managed-cluster-upgrades.md) del clúster para las actualizaciones del runtime
 
 ## <a name="enable-automatic-os-image-upgrades"></a>Habilitar las actualizaciones automáticas de las imágenes del sistema operativo
 

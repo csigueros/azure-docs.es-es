@@ -7,21 +7,17 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
-ms.openlocfilehash: d8acab17e9d8dfc078b46f6a279cc671a70b0a50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b804536c54cce64ace2605999c7cc28cef357a4d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91974845"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072332"
 ---
-# <a name="preview-maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>Vista previa: Control de mantenimiento para las actualizaciones de imágenes del sistema operativo en conjuntos de escalado de máquinas virtuales de Azure mediante PowerShell
+# <a name="maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>Control de mantenimiento para las actualizaciones de imágenes del sistema operativo en conjuntos de escalado de máquinas virtuales de Azure mediante PowerShell
 
 El control de mantenimiento le permite decidir cuándo aplicar las actualizaciones automáticas de imágenes del sistema operativo invitado a los conjuntos de escalado de máquinas virtuales. En este tema se tratan las opciones de Azure PowerShell para el control de mantenimiento. Para más información sobre el uso del control de mantenimiento, consulte [Control de mantenimiento para conjuntos de escalado de máquinas virtuales de Azure](virtual-machine-scale-sets-maintenance-control.md).
-
-> [!IMPORTANT]
-> El control de mantenimiento para las actualizaciones de imágenes del sistema operativo en conjuntos de escalado de máquinas virtuales de Azure se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="enable-the-powershell-module"></a>Habilitación del módulo de PowerShell
@@ -112,12 +108,10 @@ New-AzConfigurationAssignment `
 
 ## <a name="enable-automatic-os-upgrade"></a>Habilitación de la actualización automática del sistema operativo
 
-Puede habilitar las actualizaciones automáticas del sistema operativo para cada conjunto de escalado de máquinas virtuales que vaya a usar el control de mantenimiento. Consulte el documento [Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) para habilitar las actualizaciones automáticas del sistema operativo en el conjunto de escalado de máquinas virtuales. 
+Puede habilitar las actualizaciones automáticas del sistema operativo para cada conjunto de escalado de máquinas virtuales que vaya a usar el control de mantenimiento. Para más información sobre cómo habilitar las actualizaciones automáticas del sistema operativo en el conjunto de escalado de máquinas virtuales, consulte [Actualizaciones automáticas de imágenes del sistema operativo del conjunto de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre el mantenimiento y las actualizaciones de las máquinas virtuales que se ejecutan en Azure.
-
 > [!div class="nextstepaction"]
-> [Mantenimiento y actualizaciones](maintenance-and-updates.md)
+> [Información sobre el mantenimiento y las actualizaciones de las máquinas virtuales que se ejecutan en Azure](maintenance-and-updates.md)

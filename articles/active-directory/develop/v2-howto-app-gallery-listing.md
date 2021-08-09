@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/14/2020
+ms.date: 06/10/2021
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f2a04a341239b62290eecac8c0e1ce70b7c927c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ade77d05e209d65a9d7aa40451362bd66718cf75
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988914"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033344"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicación de la aplicación en la galería de aplicaciones de Azure AD
 
@@ -81,7 +81,7 @@ Necesita una cuenta permanente para las pruebas con al menos dos usuarios regist
 
 **¿Cómo obtener Azure AD para desarrolladores?**
 
-Puede obtener una cuenta de prueba gratuita con todas las características de Azure AD premium gratis durante 90 días. Este período puede ampliarse siempre que realice labores de desarrollo con dicha cuenta: https://docs.microsoft.com/office/developer-program/office-365-developer-program
+Puede obtener una cuenta de prueba gratuita con todas las características de Azure AD premium gratis durante 90 días. Este período puede ampliarse siempre que realice labores de desarrollo con dicha cuenta: [Únase al programa de desarrolladores de Microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Paso 1: Elija el estándar de inicio de sesión único adecuado para su aplicación
 
@@ -287,17 +287,6 @@ Puede actualizar o quitar una aplicación existente en la galería en el [portal
 > [!NOTE]
 > Si tiene algún problema con el acceso, revise la sección anterior sobre cómo crear una cuenta. Si esto no funciona, póngase en contacto con el [equipo de integración del SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-### <a name="list-requests-by-customers"></a>Listado de solicitudes de los clientes
-
-Los clientes pueden enviar una solicitud para mostrar una aplicación mediante la selección de **App requests by Customers** > **Submit new request** (Solicitudes de aplicaciones de los clientes -> Enviar solicitud nueva).
-
-![Muestra el icono de aplicaciones solicitadas por los clientes.](./media/howto-app-gallery-listing/customer-submit-request.png)
-
-Este es el flujo de las aplicaciones solicitadas por el cliente.
-
-![Muestra el flujo de aplicaciones solicitadas por los clientes.](./media/howto-app-gallery-listing/customer-request-2.png)
-
-
 ### <a name="timelines"></a>Escalas de tiempo
 
 La escala de tiempo para el proceso del listado de una aplicación de SAML 2.0 o WS-Fed en la galería es de entre 7 y 10 días laborables.
@@ -316,7 +305,20 @@ Si necesita ponerse en contacto con una instancia superior, envíe un correo ele
 ## <a name="step-7---join-the-microsoft-partner-network"></a>Paso 7: Únase a Microsoft Partner Network
 Microsoft Partner Network proporciona acceso instantáneo a recursos, programas, herramientas y conexiones exclusivos. Para unirse a la red y crear el plan de comercialización, vea [Llegue a los clientes comerciales](https://partner.microsoft.com/explore/commercial#gtm).
 
+## <a name="request-apps-by-sharing-isv-app-team-contact"></a>Solicitud de aplicaciones mediante el envío del contacto del equipo de aplicación de ISV
+
+Los clientes pueden solicitar la aplicación compartiendo la información de contacto de la aplicación y de ISV [aquí](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/AppRequestsByCustomers.aspx).
+
+![Muestra el icono de aplicaciones solicitadas por los clientes.](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Este es el flujo de las aplicaciones solicitadas por el cliente.
+
+![Muestra el flujo de aplicaciones solicitadas por los clientes.](./media/howto-app-gallery-listing/customer-request-2.png)
+
+> [!Note]
+> Si tiene algún [problema de acceso](#issues-on-logging-into-portal), envíe un correo electrónico al [equipo de integración de aplicaciones de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Aprovisionamiento de usuarios de SCIM con Azure Active Directory (Azure AD)](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Escenarios de autenticación de Azure AD](authentication-flows-app-scenarios.md)

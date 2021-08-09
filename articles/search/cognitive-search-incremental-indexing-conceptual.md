@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: d17577d7e138c4c04b7f386cb166e765c0e2e10c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f3d9d9481821902246721c5c27ed99451f323ba3
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733110"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539818"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enriquecimiento incremental y almacenamiento en caché en Azure Cognitive Search
 
@@ -42,7 +42,7 @@ El enriquecimiento incremental agrega una caché a la canalización de enriqueci
 Físicamente, la caché se almacena en un contenedor de blobs en la cuenta de Azure Storage. La memoria caché también utiliza Table Storage para obtener un registro interno de las actualizaciones de procesamiento. Todos los índices de un servicio de búsqueda pueden compartir la misma cuenta de almacenamiento para la caché del indexador. A cada indizador se le asigna un identificador de caché único e inmutable al contenedor que usa.
 
 > [!NOTE]
-> La caché del indexador requiere una cuenta de almacenamiento de uso general. Para más información, consulte los [diferentes tipos de cuentas de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+> La caché del indexador requiere una cuenta de almacenamiento de uso general. Para más información, consulte los [diferentes tipos de cuentas de almacenamiento](/storage/common/storage-account-overview#types-of-storage-accounts).
 
 ## <a name="cache-configuration"></a>Configuración de la caché
 
@@ -118,6 +118,30 @@ En este caso, puede usar [Reset Skills](/rest/api/searchservice/preview-api/rese
 ### <a name="reset-documents"></a>Restablecimiento de documentos
 
 Al [restablecer un indexador](/rest/api/searchservice/reset-indexer), se volverán a procesar todos los documentos del corpus de búsqueda. En aquellos escenarios en los que solo haya que volver a procesar unos pocos documentos y no se pueda actualizar el origen de datos, use [Restablecimiento de documentos (versión preliminar)](/rest/api/searchservice/preview-api/reset-documents) para forzar el reprocesamiento de documentos específicos. Cuando se restablece un documento, el indizador invalida la caché del mismo y el documento se vuelve a procesar mediante su lectura desde el origen de datos. Para más información, consulte el artículo en el que se explican los [procedimientos para ejecutar o restablecer indexadores, aptitudes y documentos](search-howto-run-reset-indexers.md).
+
+Para restablecer documentos específicos, la carga útil de la solicitud contiene una lista de claves de documento que se leen desde el índice. En función de cómo se llame a la API, la solicitud anexará la lista de claves, la sobrescribirá o la pondrá en cola:
+
++ La llamada a la API varias veces con diferentes claves anexa las nuevas claves a la lista de claves de documento restablecidas. 
+
++ La llamada a la API con el parámetro querystring `overwrite` establecido en true sobrescribirá la lista actual de claves de documento que se van a restablecer con la carga útil de la solicitud.
+
++ La llamada a la API solo da como resultado que las claves de documento se agreguen a la cola de tareas que realiza el indexador. La próxima vez que se invoque al indexador, ya sea de forma programada o a petición, se dará prioridad al procesamiento de las claves de restablecimiento de documento antes que a cualquier otro cambio del origen de datos.
+
+En el ejemplo siguiente se muestra una solicitud de restablecimiento de documento:
+
+```http
+POST https://[search service name].search.windows.net/indexers/[indexer name]/resetdocs?api-version=2020-06-30-Preview
+Content-Type: application/json
+api-key: [admin key]
+
+{
+    "documentKeys" : [
+        "key1",
+        "key2",
+        "key3"
+    ]
+}
+```
 
 ## <a name="change-detection"></a>Detección de cambios
 

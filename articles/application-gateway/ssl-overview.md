@@ -5,14 +5,14 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 06/03/2021
 ms.author: victorh
-ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0800373919ba95f48d30b9fe6eb5e7f8eb99a82a
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001293"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111422073"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway
 
@@ -107,7 +107,7 @@ Los certificados de autenticación han dejado de usarse, y se han reemplazado po
 >
 > Para que un certificado TLS/SSL sea de confianza, ese certificado del servidor back-end debe haber sido emitido por una entidad de certificación conocida. Si el certificado no lo emitió una entidad de certificación de confianza, Application Gateway comprobará si el certificado de la entidad de certificación emisora lo emitió una entidad de certificación de confianza y así sucesivamente hasta encontrar una entidad de certificación de confianza (momento en el que se establecerá una conexión segura y de confianza) o hasta no encontrar una entidad de certificación de confianza (en cuyo caso Application Gateway marcará el back-end como incorrecto). Por lo tanto, se recomienda que el certificado de servidor de back-end contenga tanto la CA raíz como la intermedia.
 
-- Si el certificado está autofirmado o lo han firmado intermediarios desconocidos, tendrá que definir un certificado raíz de confianza para habilitar TLS de un extremo a otro en la SKU v2. La instancia de Application Gateway se comunica únicamente con back-ends cuyo certificado raíz del certificado del servidor coincida con alguno de la lista de certificados raíz de confianza en la configuración HTTP de back-end asociada con el grupo.
+- Si el certificado del servidor backend está autofirmado o lo han firmado CA o intermediarios desconocidos, tendrá que habilitar TLS de un extremo a otro en Application Gateway v2 y se debe cargar un certificado raíz de confianza. La instancia de Application Gateway se comunicará únicamente con back-ends cuyo certificado raíz del certificado del servidor coincida con alguno de la lista de certificados raíz de confianza en la configuración HTTP de back-end asociada con el grupo.
 
 - Además de la coincidencia del certificado raíz, Application Gateway v2 también valida si el valor de host especificado en la configuración de HTTP del back-end coincide con el del nombre común (CN) presentado por el certificado TLS/SSL del servidor back-end. Cuando se intenta establecer una conexión TLS con el back-end, Application Gateway v2 establece la extensión Indicación de nombre de servidor (SNI) en el host especificado en la configuración de HTTP de back-end.
 

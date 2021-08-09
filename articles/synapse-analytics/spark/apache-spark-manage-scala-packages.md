@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: c70ecc4fc5469d728bc12d47024585ccf00ff98e
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: bed5c6b1b1cf21de0105e0eeb2096d359177c115
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098713"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109815007"
 ---
 # <a name="manage-scala-and-java-packages-for-apache-spark-in-azure-synapse-analytics"></a>Administración de paquetes de Scala y Java para Apache Spark en Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ Para agregar paquetes de área de trabajo:
 ## <a name="pool-libraries"></a>Bibliotecas de grupos
 Una vez que haya identificado los paquetes de Scala y Java que le gustaría usar para la aplicación Spark, puede instalarlos en un grupo de Spark. Las bibliotecas de nivel de grupo están disponibles para todos los cuadernos y todos los trabajos que se ejecutan en el grupo.
 
-Puede actualizar las bibliotecas de grupos de Spark desde Azure Synapse Studio o Azure Portal, donde puede seleccionar las bibliotecas de área de trabajo que se van a instalar. 
+Puede actualizar las bibliotecas de grupos de Spark desde Synapse Studio o Azure Portal. donde puede seleccionar las bibliotecas de área de trabajo que se van a instalar. 
 
 Después de guardar los cambios, un trabajo de Spark ejecutará la instalación y almacenará en caché el entorno resultante para reutilizarlo más adelante. Una vez completado el trabajo, los nuevos trabajos o sesiones de cuaderno de Spark usarán las bibliotecas de grupos actualizadas. 
 
@@ -53,8 +53,8 @@ Después de guardar los cambios, un trabajo de Spark ejecutará la instalación 
 > - Si el paquete que va a instalar es de gran tamaño o tarda mucho tiempo en instalarse, afectará al tiempo de inicio de la instancia de Spark.
 > - No se admite la modificación de la versión de PySpark, Python, Scala/Java, .NET o Spark.
 
-#### <a name="manage-packages-from-azure-synapse-studio-or-azure-portal"></a>Administración de paquetes desde Azure Synapse Studio o Azure Portal
-Las bibliotecas de grupos de Spark se pueden administrar desde Azure Synapse Studio o Azure Portal. 
+#### <a name="manage-packages-from-synapse-studio-or-azure-portal"></a>Administración de paquetes desde Synapse Studio o Azure Portal
+Las bibliotecas de grupos de Spark se pueden administrar desde Synapse Studio o Azure Portal. 
 
 Para actualizar o agregar bibliotecas a un grupo de Spark:
 1. Navegue hasta el área de trabajo de Azure Synapse Analytics desde Azure Portal.

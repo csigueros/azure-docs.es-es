@@ -5,14 +5,14 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 05/17/2021
 ms.author: qixwang
-ms.openlocfilehash: 94c22ffd423c32ba5f489298267464ca36abaecd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b25f56b238c7f0c42a1ba589f7da2d68344c915
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101098141"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464397"
 ---
 # <a name="configure-an-azure-front-door-standardpremium-route"></a>Configuración de una ruta en Azure Front Door Standard o Premium
 
@@ -52,7 +52,7 @@ Para configurar un grupo de orígenes, consulte este artículo sobre la [creaci�
 
     :::image type="content" source="../media/how-to-configure-route/add-route-page.png" alt-text="Instantánea de la página &quot;Agregar una ruta&quot;." lightbox="../media/how-to-configure-route/add-route-page-expanded.png"::: 
 
-    | Configuración | Value |
+    | Configuración | Descripción |
     | --- | --- |
     | Nombre | Especifique un nombre único para la nueva ruta. |   
     | Domain| Seleccione uno o varios dominios validados que no estén asociados a otra ruta. |
@@ -60,7 +60,7 @@ Para configurar un grupo de orígenes, consulte este artículo sobre la [creaci�
     | Accepted protocols (Protocolos aceptados) | Especifique los protocolos que desea que Azure Front Door acepte cuando el cliente realice la solicitud. |
     | Redirect | Especifique si HTTPS se va a aplicar forzosamente con las solicitudes HTTP entrantes. |
     | Origin group (Grupo de orígenes) | Seleccione el grupo de orígenes al que se debe reenviar la solicitud cuando esta se devuelva al origen. |
-    | Ruta de acceso de origen | Especifique la ruta de acceso a los recursos que desea almacenar en la memoria caché. Si desea permitir que cualquier recurso pueda almacenarse en la memoria caché del dominio, deje este valor en blanco. |
+    | Ruta de acceso de origen | Esta ruta de acceso se usa para volver a escribir la dirección URL que Azure Front Door usará al construir la solicitud reenviada al origen. De forma predeterminada, no se proporciona esta ruta de acceso. Por lo tanto, Azure Front Door usará la ruta de acceso de la dirección URL entrante en la solicitud al origen. También puede especificar una ruta de acceso con caracteres comodín, que copiará cualquier parte correspondiente de la ruta de acceso entrante a la ruta de acceso de la solicitud al origen. </br></br>Modelo de coincidencia: `/foo/*`</br>Ruta de acceso de origen: `/fwd/`</br></br>Ruta de acceso de dirección URL entrante: `/foo/a/b/c/`</br>Dirección URL de Azure Front Door al origen: `fwd/a/b/c` |
     | Protocolo de reenvío | Seleccione el protocolo utilizado para reenviar la solicitud. |
     | Almacenamiento en memoria caché | Seleccione esta opción para habilitar el almacenamiento en caché de contenido estático con Azure Front Door. |
     | Regla | Seleccione los conjuntos de reglas que se aplicarán a esta ruta. Para más información sobre cómo configurar las reglas, consulte el artículo sobre [configuración de un conjunto de reglas para Azure Front Door](how-to-configure-rule-set.md). | 

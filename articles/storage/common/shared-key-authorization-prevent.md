@@ -1,31 +1,29 @@
 ---
-title: Evitar autorización con clave compartida (versión preliminar)
+title: Evitar autorización con clave compartida
 titleSuffix: Azure Storage
-description: Para exigir que los clientes usen Azure AD para autorizar solicitudes, puede denegar las solicitudes a la cuenta de almacenamiento que están autorizadas con la clave compartida (versión preliminar).
+description: Para exigir que los clientes usen Azure AD para autorizar las solicitudes, puede denegar las solicitudes a la cuenta de almacenamiento que están autorizadas con la clave compartida.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 05/27/2021
 ms.author: tamram
-ms.reviewer: fryu
-ms.openlocfilehash: b7290abe102d22bb87c87c3c9d13ee99c127b942
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: sohamnc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0262cdd348c03dafd378af95374beacf2bc77c23
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199912"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679276"
 ---
-# <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir la autorización con clave compartida para una cuenta de Azure Storage (versión preliminar)
+# <a name="prevent-shared-key-authorization-for-an-azure-storage-account"></a>Impedir la autorización con clave compartida para una cuenta de Azure Storage
 
-Cada solicitud segura a una cuenta de Azure Storage debe estar autorizada. De forma predeterminada, las solicitudes se pueden autorizar con credenciales de Azure Active Directory (Azure AD) o mediante la clave de acceso de la cuenta para la autorización con clave compartida. De estos dos tipos de autorización, Azure AD proporciona mayor seguridad y facilidad de uso a través de la clave compartida y es el que Microsoft recomienda. Para exigir que los clientes usen Azure AD para autorizar solicitudes, puede denegar las solicitudes a la cuenta de almacenamiento que están autorizadas con la clave compartida (versión preliminar).
+Cada solicitud segura a una cuenta de Azure Storage debe estar autorizada. De forma predeterminada, las solicitudes se pueden autorizar con credenciales de Azure Active Directory (Azure AD) o mediante la clave de acceso de la cuenta para la autorización con clave compartida. De estos dos tipos de autorización, Azure AD proporciona mayor seguridad y facilidad de uso a través de la clave compartida y es el que Microsoft recomienda. Para exigir que los clientes usen Azure AD para autorizar las solicitudes, puede denegar las solicitudes a la cuenta de almacenamiento que están autorizadas con la clave compartida.
 
 Cuando se impide la autorización con clave compartida para una cuenta de almacenamiento, Azure Storage rechaza todas las solicitudes posteriores a esa cuenta autorizadas con las claves de acceso de la cuenta. Solo se realizarán correctamente las solicitudes protegidas que estén autorizadas con Azure AD. Para más información sobre el uso de Azure AD, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](storage-auth-aad.md).
 
-> [!IMPORTANT]
-> La denegación de la autorización con clave compartida se encuentra actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
-
-En este artículo se describe cómo detectar solicitudes enviadas con la autorización con clave compartida y cómo corregir la autorización con clave compartida para la cuenta de almacenamiento. Para aprender a registrarse para la versión preliminar, consulte [Acerca de la versión preliminar](#about-the-preview).
+En este artículo se describe cómo detectar solicitudes enviadas con la autorización con clave compartida y cómo corregir la autorización con clave compartida para la cuenta de almacenamiento.
 
 ## <a name="detect-the-type-of-authorization-used-by-client-applications"></a>Detección del tipo de autorización que usan las aplicaciones cliente
 
@@ -33,7 +31,7 @@ Si impide la autorización con clave compartida para una cuenta de almacenamient
 
 Use métricas para determinar el número de solicitudes que la cuenta de almacenamiento está recibiendo y que están autorizadas con una clave compartida o una firma de acceso compartido (SAS). Use los registros para determinar qué clientes envían esas solicitudes.
 
-Para más información sobre cómo interpretar las solicitudes realizadas con una firma de acceso compartido durante la versión preliminar, consulte [Acerca de la versión preliminar](#about-the-preview).
+Una SAS puede estar autorizada con una clave compartida o con Azure AD. Para más información sobre cómo interpretar las solicitudes realizadas con una firma de acceso compartido, consulte [Descripción de cómo la denegación de la clave compartida afecta a los tokens de SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ### <a name="monitor-how-many-requests-are-authorized-with-shared-key"></a>Supervisión del número de solicitudes autorizadas con clave compartida
 
@@ -77,7 +75,6 @@ El registro de Azure Storage en Azure Monitor admite el uso de consultas de regi
 
 Para registrar datos de Azure Storage con Azure Monitor y analizarlos con Azure Log Analytics, primero debe crear una configuración de diagnóstico que indique qué tipos de solicitudes y para qué servicios de almacenamiento quiere registrar los datos. Para crear una configuración de diagnóstico en Azure Portal, siga estos pasos:
 
-1. Inscríbase en la [versión preliminar de registro de Azure Storage en Azure Monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Cree un área de trabajo de Log Analytics en la suscripción que contenga la cuenta de Azure Storage o use un área de trabajo de Log Analytics existente. Después de configurar el registro de la cuenta de almacenamiento, los registros estarán disponibles en el área de trabajo de Log Analytics. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. Vaya a la cuenta de almacenamiento en Azure Portal.
 1. En la sección Supervisión, seleccione **Configuración de diagnóstico (versión preliminar)** .
@@ -158,6 +155,8 @@ az storage account update \
 
 Después de denegar la autorización con clave compartida, la solicitud a la cuenta de almacenamiento con autorización con clave compartida no se podrá realizar y dará un error con el código de error 403 (prohibido). Azure Storage devuelve un error que indica que la autorización basada en clave no se permite en la cuenta de almacenamiento.
 
+La propiedad **AllowSharedKeyAccess** se admite en cuentas de almacenamiento que usan únicamente el modelo de implementación de Azure Resource Manager. Para información sobre qué cuentas de almacenamiento usan el modelo de implementación de Azure Resource Manager, consulte [Tipos de cuentas de almacenamiento](storage-account-overview.md#types-of-storage-accounts).
+
 ### <a name="verify-that-shared-key-access-is-not-allowed"></a>Verificación de que el acceso a la clave compartida no se permite
 
 Para verificar que la autorización con clave compartida ya no se permite, puede intentar llamar a una operación de datos con la clave de acceso a la cuenta. En el siguiente ejemplo intenta crear un contenedor utilizando la clave de acceso. Esta llamada no se podrá realizar cuando se deniegue la autorización con clave compartida para la cuenta de almacenamiento. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
@@ -213,6 +212,13 @@ Cuando el acceso con clave compartida se deniega para la cuenta de almacenamient
 | SAS de servicio | Clave compartida | La solicitud se deniega para todos los servicios de Azure Storage. |
 | SAS de cuenta | Clave compartida | La solicitud se deniega para todos los servicios de Azure Storage. |
 
+Las métricas y el registro de Azure en Azure Monitor no distinguen entre los distintos tipos de firmas de acceso compartido. El filtro **SAS** en el Explorador de métricas de Azure y el campo **SAS** en el registro de Azure Storage en Azure Monitor informan de las solicitudes que están autorizadas con cualquier tipo de SAS. Sin embargo, los distintos tipos de firmas de acceso compartido se autorizan de manera diferente y se comportan de manera distinta cuando se deniega el acceso con clave compartida:
+
+- Un token de SAS de servicio o un token de SAS de cuenta está autorizado con clave compartida y no se permitirá en una solicitud a Blob Storage cuando la propiedad **AllowSharedKeyAccess** esté establecida en **false**.
+- Una SAS de delegación de usuario está autorizada con Azure AD y se permitirá en una solicitud a Blob Storage cuando la propiedad **AllowSharedKeyAccess** esté establecida en **false**.
+
+Cuando evalúe el tráfico a la cuenta de almacenamiento, tenga en cuenta que las métricas y los registros tal y como se describen en [Detección del tipo de autorización que usan las aplicaciones cliente](#detect-the-type-of-authorization-used-by-client-applications) pueden incluir solicitudes realizadas con una SAS de delegación de usuario.
+
 Para obtener más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](storage-sas-overview.md).
 
 ## <a name="consider-compatibility-with-other-azure-tools-and-services"></a>Consideración de la compatibilidad con otras herramientas y servicios
@@ -238,21 +244,6 @@ Azure Storage admite la autorización de Azure AD solo para solicitudes de Blob 
 Microsoft recomienda migrar los datos de Azure Files o Table Storage a una cuenta de almacenamiento independiente antes de denegar el acceso a la cuenta a través de la clave compartida, o bien que no aplique esta configuración a las cuentas de almacenamiento que admiten cargas de trabajo de Azure Files o Table Storage.
 
 Denegar el acceso con clave compartida para una cuenta de almacenamiento no afecta a las conexiones SMB a Azure Files.
-
-## <a name="about-the-preview"></a>Acerca de la versión preliminar
-
-La versión preliminar para denegar la autorización con clave compartida está disponible en la nube pública de Azure. Solo se admite para las cuentas de almacenamiento que utilizan el modelo de implementación de Azure Resource Manager. Para información sobre qué cuentas de almacenamiento usan el modelo de implementación de Azure Resource Manager, consulte [Tipos de cuentas de almacenamiento](storage-account-overview.md#types-of-storage-accounts).
-
-La versión preliminar incluye las limitaciones que se describen en las secciones siguientes.
-
-### <a name="metrics-and-logging-report-all-requests-made-with-a-sas-regardless-of-how-they-are-authorized"></a>Métricas y registro informe de todas las solicitudes realizadas con una SAS, independientemente de cómo estén autorizadas
-
-Las métricas y el registro de Azure en Azure Monitor no distinguen entre los distintos tipos de firmas de acceso compartido en la versión preliminar. El filtro **SAS** en el Explorador de métricas de Azure y el campo **SAS** en el registro de Azure Storage en Azure Monitor informan de las solicitudes que están autorizadas con cualquier tipo de SAS. Sin embargo, los distintos tipos de firmas de acceso compartido se autorizan de manera diferente y se comportan de manera distinta cuando se deniega el acceso con clave compartida:
-
-- Un token de SAS de servicio o un token de SAS de cuenta está autorizado con clave compartida y no se permitirá en una solicitud a Blob Storage cuando la propiedad **AllowSharedKeyAccess** esté establecida en **false**.
-- Una SAS de delegación de usuario está autorizada con Azure AD y se permitirá en una solicitud a Blob Storage cuando la propiedad **AllowSharedKeyAccess** esté establecida en **false**.
-
-Cuando evalúe el tráfico a la cuenta de almacenamiento, tenga en cuenta que las métricas y los registros tal y como se describen en [Detección del tipo de autorización que usan las aplicaciones cliente](#detect-the-type-of-authorization-used-by-client-applications) pueden incluir solicitudes realizadas con una SAS de delegación de usuario. Para más información sobre el modo en que Azure Storage responde a una SAS cuando la propiedad **AllowSharedKeyAccess** está establecida en **false**, consulte [Descripción de cómo la denegación de la clave compartida afecta a los tokens de SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

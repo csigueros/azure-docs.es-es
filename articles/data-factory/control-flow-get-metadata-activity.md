@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jianleishen
-ms.openlocfilehash: e4715802f7b284bd9e6ce9a41b44c3750c33c260
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 6c375143217379b7ec795778f8947d88b70aa4bc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482766"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062819"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
 
@@ -30,7 +30,9 @@ La actividad de obtención de metadatos toma un conjunto de datos como entrada y
 | Conector/Metadatos | itemName<br>(archivo/carpeta) | itemType<br>(archivo/carpeta) | tamaño<br>(archivo) | created<br>(archivo/carpeta) | lastModified<sup>1</sup><br>(archivo/carpeta) |childItems<br>(carpeta) |contentMD5<br>(archivo) | structure<sup>2</sup><br/>(archivo) | columnCount<sup>2</sup><br>(archivo) | exists<sup>3</sup><br>(archivo/carpeta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Almacenamiento compatible con Amazon S3](connector-amazon-s3-compatible-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Oracle Cloud Storage](connector-oracle-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Almacenamiento de blobs de Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
@@ -40,12 +42,12 @@ La actividad de obtención de metadatos toma un conjunto de datos como entrada y
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
 <sup>1</sup> Metadatos `lastModified`:
-- En el caso de Amazon S3 y Google Cloud Storage, `lastModified` se aplica al cubo y a la clave, pero no a la carpeta virtual, y `exists` se aplica al cubo y a la clave, pero no al prefijo ni a la carpeta virtual. 
+- En el caso de Amazon S3, almacenamiento compatible con Amazon S3, Google Cloud Storage and Oracle Cloud Storage, `lastModified` se aplica al cubo y a la clave, pero no a la carpeta virtual, y `exists` se aplica al cubo y a la clave, pero no al prefijo ni a la carpeta virtual. 
 - En el caso de Azure Blob Storage, `lastModified` se aplica al contenedor y al blob, pero no a la carpeta virtual.
 
 <sup>2</sup> Los metadatos `structure` y `columnCount` no se admiten cuando se obtienen metadatos de archivos binarios, JSON o XML.
 
-<sup>3</sup> Metadatos `exists`: para Amazon S3 y Google Cloud Storage, `exists` se aplica al depósito y a la clave, pero no al prefijo o a la carpeta virtual.
+<sup>3</sup> Metadatos `exists`: en el caso de Amazon S3, almacenamiento compatible con Amazon S3, Google Cloud Storage y Oracle Cloud Storage, `exists` se aplica al cubo y a la clave, pero no al prefijo ni a la carpeta virtual.
 
 Tenga en cuenta lo siguiente:
 

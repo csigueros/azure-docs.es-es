@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91ca017bf94f2c9a75a8016fb861cc085dc47ebe
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358378"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556971"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada
 
@@ -49,17 +49,17 @@ En este paso, concederá permiso a su servicio de Azure Cognitive Search para le
     ![Agregar asignación de roles](./media/search-managed-identities/add-role-assignment-storage.png "Agregar asignación de roles")
 
 4. Seleccione los roles apropiados según el tipo de cuenta de almacenamiento que quiera indexar:
-    1. Azure Blob Storage requiere que se agregue el rol **Lector de datos de Storage Blob** al servicio de búsqueda.
+    1. Azure Blob Storage requiere que se agregue el rol **Lector de datos de Storage Blob** al servicio de búsqueda.
     1. Azure Data Lake Storage Gen2 requiere que se agregue el rol **Lector de datos de Storage Blob** al servicio de búsqueda.
-    1. Almacenamiento de tablas de Azure requiere que se agregue el rol **Lector y acceso a los datos** al servicio de búsqueda.
+    1. Azure Table Storage requiere que se agregue el rol **Lector y acceso a los datos** al servicio de búsqueda.
 5.  Deje **Asignar acceso a** como **Usuario, grupo o entidad de servicio de Azure AD**.
 6.  Busque el servicio de búsqueda, selecciónelo y elija **Guardar**.
 
-    Ejemplo de Azure Blob Storage y Azure Data Lake Storage Gen2:
+    Ejemplo de Azure Blob Storage y Azure Data Lake Storage Gen2:
 
     ![Agregar la asignación del rol Lector de datos de Storage Blob](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Agregar la asignación del rol Lector de datos de Storage Blob")
 
-    Ejemplo de Azure Table Storage:
+    Ejemplo de Azure Table Storage:
 
     ![Agregue la asignación del rol Lector y acceso a datos](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Agregar la asignación del rol Lector y acceso a datos").
 

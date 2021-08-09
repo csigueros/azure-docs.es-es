@@ -3,12 +3,12 @@ title: Introducción a Azure Resource Health
 description: Obtenga información sobre cómo Azure Resource Health ayuda a diagnosticar problemas en los servicios que afectan a los recursos de Azure y a obtener soporte técnico para resolverlos.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 25425eadfaf54ba56cde3b377a44cd85c2b68959
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 903a86d216e118f783411b38ef7ad75ad004df7f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90967873"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786262"
 ---
 # <a name="resource-health-overview"></a>Introducción a Resource Health
  
@@ -52,7 +52,7 @@ Los eventos no relacionados con la plataforma se desencadenan por las acciones d
 
 ### <a name="unknown"></a>Desconocido
 
-*Desconocido* indica que Resource Health no ha recibido información sobre el recurso durante más de 10 minutos. Si bien este estado no es una indicación definitiva del estado del recurso, es un punto de datos importante para la solución de problemas.
+*Desconocido* indica que Resource Health no ha recibido información sobre el recurso durante más de 10 minutos. Esto ocurre normalmente cuando se han desasignado las máquinas virtuales. Si bien este estado no es una indicación definitiva del estado del recurso, es un punto de datos importante para la solución de problemas.
 
 Si el recurso se ejecuta según lo esperado, el estado del recurso cambia a *Disponible* al cabo de unos minutos.
 
@@ -68,17 +68,15 @@ Los distintos recursos tienen sus propios criterios respecto a cuándo notifican
 
 ![Estado de *Degradado* en una máquina virtual](./media/resource-health-overview/degraded.png)
 
-## <a name="reporting-an-incorrect-status"></a>Informe de un estado incorrecto
-
-Si cree que el estado de mantenimiento actual es incorrecto, puede hacérnoslo saber. Para ello, seleccione **Report incorrect health status** (Notificar estado de mantenimiento incorrecto). Si se ve afectado por un problema de Azure, se recomienda que se ponga en contacto con el soporte técnico de Resource Health.
-
-![Formulario para enviar información sobre un estado incorrecto](./media/resource-health-overview/incorrect-status.png)
-
 ## <a name="history-information"></a>Información del historial
 
 Puede tener acceso al historial de hasta 30 días en la sección **Historial de estado** de Resource Health.
 
 ![Lista de eventos de Resource Health durante las últimas dos semanas](./media/resource-health-overview/history-blade.png)
+
+## <a name="root-cause-information"></a>Información de la causa principal
+
+Si Azure tiene más información sobre la causa principal de una falta de disponibilidad iniciada por la plataforma, esa información puede publicarse en el estado del recurso hasta 72 horas después de la falta de disponibilidad inicial. Esta información solo está disponible para la máquina virtual en este momento. 
 
 ## <a name="get-started"></a>Introducción
 

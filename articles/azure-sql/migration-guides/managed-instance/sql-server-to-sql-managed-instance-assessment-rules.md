@@ -6,16 +6,16 @@ ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: MashaMSFT
+author: rajeshsetlem
+ms.author: rsetlem
+ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: fc8959d44fbacd90916a045d23db4bee872c4670
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 489ba57063244d399c9dd0255641568f2db5c6de
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026043"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034578"
 ---
 # <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>Reglas de evaluación para la migración de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -56,14 +56,13 @@ Más información: [Diferencias del Agente SQL Server en Azure SQL Managed Insta
 ## <a name="assembly-from-file"></a>Ensamblado del archivo<a id="AssemblyFromFile"></a>
 
 **Título: No se admiten "CREATE ASSEMBLY" y "ALTER ASSEMBLY" con un parámetro de archivo en Azure SQL Managed Instance.**    
-**Categoría**: Advertencia   
+**Categoría**: Problema   
 
 **Descripción**   
-Azure SQL Managed Instance no puede acceder a recursos compartidos de archivos ni a carpetas de Windows. Vea en la sección "Objetos afectados" los usos específicos de las instrucciones BULK INSERT que no hacen referencia a un BLOB de Azure. Los objetos con "BULK INSERT" en los que el origen no sea Azure Blob Storage no funcionarán después de migrar a Azure SQL Managed Instance.
-
+Azure SQL Managed Instance no admite "CREATE ASSEMBLY" o "ALTER ASSEMBLY" con un parámetro de archivo. Se admite un parámetro binario. Consulte la sección Objetos afectados para el objeto específico donde se usa el parámetro de archivo.
 
 **Recomendación**   
-Necesitará convertir las instrucciones BULK INSERT que usen archivos locales o recursos compartidos de archivo para que usen archivos de Azure Blob Storage al realizar la migración a Azure SQL Managed Instance. También puede migrar a SQL Server en la máquina virtual de Azure. 
+Revise los objetos mediante "CREATE ASSEMBLY" o "ALTER ASSEMBLY" con un parámetro de archivo. Si alguno de estos objetos es necesario, convierta el parámetro de archivo en un parámetro binario. También puede migrar a SQL Server en la máquina virtual de Azure. 
 
 Más información: [Diferencias de CLR en Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#clr)
 
@@ -386,10 +385,8 @@ Más información: [Límites de recursos de Azure SQL Managed Instance ](../../m
 **Descripción**   
 OPENROWSET admite operaciones masivas a través de un proveedor integrado BULK que permite que los datos se lean y se devuelvan en forma de conjunto de filas. No se admite OPENROWSET con orígenes de datos que no son Azure Blob Storage en Azure SQL Managed Instance. 
 
-
-
 **Recomendación**   
-La función OPENROWSET puede utilizarse para ejecutar consultas solo en instancias de SQL Server (ya sean administradas, locales o en máquinas virtuales). Solo se admiten los valores SQLNCLI, SQLNCLI11 y SQLOLEDB como proveedor. Por lo tanto, la acción recomendada es identificar las bases de datos dependientes de instancias remotas que no son SQL Server y considere la posibilidad de moverlas a la base de datos que se está migrando. También puede migrar a SQL Server en la máquina virtual de Azure.
+Azure SQL Managed Instance no puede acceder a los recursos compartidos de archivos ni carpetas de Windows, por lo que los archivos se deben importar desde Azure Blob Storage. Por lo tanto, solo se admite el tipo de blob DATASOURCE en la función OPENROWSET. También puede migrar a SQL Server en la máquina virtual de Azure.
 
 Más información: [Diferencias de inserción masiva y OPENROWSET en Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset)
 

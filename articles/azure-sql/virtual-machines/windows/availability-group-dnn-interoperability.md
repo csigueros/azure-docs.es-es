@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/08/2020
 ms.author: mathoma
-ms.openlocfilehash: 19b4b7407468b19419e2f85193b1f8fb6ace39c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7ff8eaaca03a2c977311c6469e06714c87ce53f
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359411"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572363"
 ---
 # <a name="feature-interoperability-with-ag-and-dnn-listener"></a>Interoperabilidad de características con grupos de disponibilidad y cliente de escucha de DNN 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,6 +27,13 @@ Existen determinadas características de SQL Server que dependen de un nombre d
 
 En este artículo se detallan las características de SQL Server y la interoperabilidad con el cliente de escucha de DNN del grupo de disponibilidad. 
 
+## <a name="behavior-differences"></a>Diferencias de comportamiento
+
+Hay algunas diferencias de comportamiento entre la funcionalidad del agente de escucha de VNN y el agente de escucha de DNN que son importantes para tenerlas en cuenta: 
+
+- **Tiempo de conmutación por error**: el tiempo de conmutación por error es más rápido cuando se usa un agente de escucha de DNN, ya que no es necesario esperar a que el equilibrador de carga de red detecte el evento de error y cambie su enrutamiento. 
+- **Conexiones existentes**: Las conexiones establecidas con una *base de datos específica* dentro de un grupo de disponibilidad de conmutación por error se cerrarán, pero otras conexiones a la réplica principal permanecerán abiertas, ya que el DNN permanece en línea durante el proceso de conmutación por error. Esto es diferente de un entorno VNN tradicional en el que todas las conexiones a la réplica principal normalmente se cierran cuando se conmuta por error el grupo de disponibilidad, el agente de escucha se queda sin conexión y la réplica principal cambia al rol secundario. Al usar un agente de escucha de DNN, es posible que tenga que ajustar las cadenas de conexión de la aplicación para asegurarse de que las conexiones se redirijan a la nueva réplica principal tras la conmutación por error.
+- **Transacciones abiertas**: Las transacciones abiertas en una base de datos de un grupo de disponibilidad con conmutación por error se cerrarán y revertirán, y tendrá que volver a conectarse *manualmente*. Por ejemplo, en SQL Server Management Studio, cierre la ventana de consulta y abra otra nueva. 
 
 ## <a name="client-drivers"></a>Controladores cliente
 
@@ -125,8 +132,10 @@ Configure el servidor vinculado con el puerto y el nombre del cliente de escucha
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, consulte: 
+Para obtener más información, consulte:
 
-- [Tecnologías de clúster de Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Grupo de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
+- [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
 

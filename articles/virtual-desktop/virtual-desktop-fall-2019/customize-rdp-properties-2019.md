@@ -1,28 +1,28 @@
 ---
-title: 'Personalización de las propiedades de RDP con Windows Virtual Desktop (clásico) de PowerShell: Azure'
-description: Personalización de las propiedades de RDP para Windows Virtual Desktop (clásico) con cmdlets de PowerShell.
+title: 'Personalización de las propiedades de RDP con Azure Virtual Desktop (clásico) de PowerShell: Azure'
+description: Procedimiento para personalizar las propiedades de RDP para Azure Virtual Desktop (clásico) con cmdlets de PowerShell.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: db7d44cfdcb0f91a3633373c12f00c6eb8c94d52
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 9a9d5461be3a3e8954593d8230ea3d58f0c7ef6c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445081"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752088"
 ---
-# <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Personalización de las propiedades del Protocolo de Escritorio remoto de un grupo de hosts de Windows Virtual Desktop (clásico)
+# <a name="customize-remote-desktop-protocol-properties-for-a--azure-virtual-desktop-classic-host-pool"></a>Personalización de las propiedades del Protocolo de Escritorio remoto de un grupo de hosts de Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../customize-rdp-properties.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../customize-rdp-properties.md).
 
-La personalización de las propiedades de Protocolo de escritorio remoto (RDP) de un grupo de hosts, como el uso de varios monitores y la redirección de audio, permite ofrecer una experiencia óptima a los usuarios en función de sus necesidades. Las propiedades de RDP se pueden personalizar en Windows Virtual Desktop mediante el parámetro **- CustomRdpProperty** del cmdlet **conjunto RdsHostPool**.
+La personalización de las propiedades de Protocolo de escritorio remoto (RDP) de un grupo de hosts, como el uso de varios monitores y la redirección de audio, permite ofrecer una experiencia óptima a los usuarios en función de sus necesidades. Las propiedades de RDP se pueden personalizar en Azure Virtual Desktop mediante el parámetro **- CustomRdpProperty** del cmdlet **RdsHostPool**.
 
 En [Configuración admitida del archivo RDP](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext) encontrará una lista completa de las propiedades admitidas y sus valores predeterminados.
 
-En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
+En primer lugar y, si aún no lo ha hecho, descargue e importe el [módulo de PowerShell para Azure Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -76,7 +76,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha personalizado las propiedades de RDP grupo de hosts especificado, puede iniciar sesión en un cliente de Windows Virtual Desktop para realizar pruebas como parte de una sesión de usuario. Estos dos procedimientos siguientes le indicarán cómo conectarse a una sesión mediante el cliente que elija:
+Ahora que ha personalizado las propiedades de RDP grupo de hosts especificado, puede iniciar sesión en un cliente de Azure Virtual Desktop para realizar pruebas como parte de una sesión de usuario. Estos dos procedimientos siguientes le indicarán cómo conectarse a una sesión mediante el cliente que elija:
 
 - [Conexión con el cliente de Escritorio de Windows](connect-windows-7-10-2019.md)
 - [Conexión con el cliente web](connect-web-2019.md)

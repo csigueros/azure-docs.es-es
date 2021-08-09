@@ -2,13 +2,13 @@
 title: Configuración de una VPN de sitio a sitio en vWAN para Azure VMware Solution
 description: Obtenga información sobre cómo establecer un túnel de sitio a sitio de VPN (IPsec IKEv1 e IKEv2) en Azure VMware Solution.
 ms.topic: how-to
-ms.date: 03/23/2021
-ms.openlocfilehash: 4d410a94b822db8eeed0ba166908c804a1a6eaaa
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.date: 06/11/2021
+ms.openlocfilehash: f3fbd3d9507e0203bc58494c2c1a748f1be7e585
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802782"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112021431"
 ---
 # <a name="configure-a-site-to-site-vpn-in-vwan-for-azure-vmware-solution"></a>Configuración de una VPN de sitio a sitio en vWAN para Azure VMware Solution
 
@@ -17,8 +17,11 @@ En este artículo analizaremos los pasos necesarios para establecer un túnel VP
 :::image type="content" source="media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png" alt-text="Diagrama que muestra la arquitectura de un túnel VPN de sitio a sitio." border="false":::
 
 En este artículo de procedimientos:
+
 - Va a crear un centro de Azure Virtual WAN y una puerta de enlace de VPN con una dirección IP pública asociada. 
+
 - Va a crear una puerta de enlace de Azure ExpressRoute y establecer un punto de conexión de Azure VMware Solution. 
+
 - Va a habilitar una configuración local de VPN basada en directivas. 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -67,15 +70,22 @@ Debe tener una dirección IP de acceso público que termine en un dispositivo VP
  
 3. En la pestaña **Aspectos básicos**, complete los campos necesarios. 
 
-   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics2.png" alt-text="Captura de pantalla de la pestaña Aspectos básicos del nuevo sitio VPN":::  
+   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics2.png" alt-text="Captura de pantalla de la pestaña Aspectos básicos del nuevo sitio VPN" lightbox="media/create-ipsec-tunnel/create-vpn-site-basics2.png":::  
 
-   1. Establezca la opción **Protocolo de puerta de enlace de borde** en **Habilitar**.  Cuando está habilitada, garantiza que tanto Azure VMware Solution como los servidores locales anuncien sus rutas a través del túnel. Si esta opción está deshabilitada, las subredes que tienen que anunciarse deberán mantenerse manualmente. Si faltan subredes, HCX no podrá formar la malla del servicio. Para obtener más información, consulte [Acerca de BGP con Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   1. Seleccione la **región** de la lista.
+
+   1. Proporcione un **nombre** para la VPN de sitio a sitio.
+
+   1. Proporcione el **proveedor de dispositivos** del dispositivo VPN local, por ejemplo, Cisco.
    
-   1. En **Espacio de direcciones privadas**, escriba el bloque CIDR local. Se usa para enrutar todo el tráfico enlazado en el entorno local a través del túnel. El bloque CIDR solo es necesario si no se habilita BGP.
+   1. Proporcione el **espacio de direcciones privadas**. Use el bloque CIDR local para enrutar todo el tráfico vinculado al entorno local a través del túnel. El bloque CIDR solo es necesario si no se configura el [Protocolo de puerta de enlace de borde (BGP) en las puertas de enlace de VPN de Azure](../vpn-gateway/bgp-howto.md).
 
-1. Seleccione **Siguiente: Vínculos** y complete los campos obligatorios. La especificación de los nombres del proveedor y el vínculo le permite distinguir entre cualquier número de puertas de enlace que puedan crearse en algún momento como parte del centro. El BGP y el número de sistema autónomo (ASN) deben ser únicos dentro de su organización.
+1. Seleccione **Siguiente: Vínculos** y complete los campos obligatorios. La especificación de los nombres del proveedor y el vínculo le permite distinguir entre cualquier número de puertas de enlace que puedan crearse en algún momento como parte del centro.  El [BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) y el número de sistema autónomo (ASN) deben ser únicos dentro de su organización. BGP garantiza que tanto Azure VMware Solution como los servidores locales anuncian sus rutas a través del túnel. Si esta opción está deshabilitada, las subredes que tienen que anunciarse deberán mantenerse manualmente. Si faltan subredes, HCX no podrá formar la malla del servicio. 
+ 
+   >[!IMPORTANT]
+   >De forma predeterminada, Azure asigna una dirección IP privada desde el intervalo del prefijo GatewaySubnet automáticamente como dirección IP de BGP de Azure en la instancia de Azure VPN Gateway. La dirección de BGP APIPA de Azure es necesaria cuando los dispositivos VPN locales usan una dirección APIPA (169.254.0.1 a 169.254.255.254) como dirección IP de BGP. Azure VPN Gateway elegirá la dirección APIPA personalizada si el recurso de puerta de enlace de red local correspondiente (red local) tiene una dirección APIPA como dirección IP del par BGP. Si la puerta de enlace de red local usa una dirección IP normal (no APIPA), Azure VPN Gateway revertirá a la dirección IP privada del intervalo GatewaySubnet.
 
-   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-links.png" alt-text="Captura de pantalla que muestra los detalles del vínculo":::
+   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-links.png" alt-text="Captura de pantalla que muestra los detalles del vínculo" lightbox="media/create-ipsec-tunnel/create-vpn-site-links.png":::
 
 1. Seleccione **Revisar + crear**. 
 
@@ -97,8 +107,11 @@ Las configuraciones de VPN basadas en directivas requieren que se especifiquen r
    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Captura de pantalla de la página de Azure para el sitio del centro de WAN virtual que muestra un botón de puntos suspensivos seleccionado para acceder a la opción Editar la conexión de VPN a este concentrador." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
 3. Edite la conexión entre el sitio de VPN y el centro y, luego, seleccione **Guardar**.
+
    - Para el protocolo de seguridad de Internet (IPSec), seleccione **Personalizado**.
+
    - Para la opción Usar el selector de tráfico basado en directivas, seleccione **Habilitar**.
+
    - Especifique los detalles de **Fase 1 IKE** y **Fase 2 IKE (IPsec)** . 
  
    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Captura de pantalla de la página Editar conexión VPN."::: 
@@ -106,7 +119,9 @@ Las configuraciones de VPN basadas en directivas requieren que se especifiquen r
    Los selectores de tráfico o las subredes que forman parte del dominio de cifrado basado en directivas deben ser los siguientes:
     
    - Centro de centro de conectividad de Virtual WAN `/24`
+
    - Nube privada de Azure VMware Solution `/22`
+
    - Red virtual de Azure conectada (si existe)
 
 ## <a name="step-5-connect-your-vpn-site-to-the-hub"></a>Paso 5. Conexión del sitio de VPN con el centro
@@ -144,8 +159,11 @@ Las configuraciones de VPN basadas en directivas requieren que se especifiquen r
       :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Captura de pantalla que muestra la página de ExpressRoute de la nube privada con la opción Canjear la clave de autorización seleccionada.":::
 
    1. Pegue la clave de autorización en el campo **Clave de autorización**.
+
    1. Pegue el identificador de ExpressRoute en el campo **URI de circuito del mismo nivel**. 
+
    1. Seleccione **Asocie automáticamente este circuito de ExpressRoute con el centro**. 
+
    1. Seleccione **Agregar** para establecer el vínculo. 
 
 5. Para probar la conexión, [cree un segmento NSX-T](./tutorial-nsx-t-network-segment.md) y aprovisione una máquina virtual en la red. Haga ping a los puntos de conexión locales y de Azure VMware Solution.

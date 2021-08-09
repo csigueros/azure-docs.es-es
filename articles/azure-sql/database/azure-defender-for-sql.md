@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.author: memildin
 manager: rkarlin
 author: memildin
-ms.date: 03/08/2021
-ms.openlocfilehash: 27f17b3d1060e8b693c2a34cdb4643840f1bfd13
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 06/07/2021
+ms.openlocfilehash: 12cc4fc1c0aafa148b765f329f0badab127f3644
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452324"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111571070"
 ---
 # <a name="azure-defender-for-sql"></a>Azure Defender para SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure Defender para SQL es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Azure Defender está disponible para Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics. Incluye una funcionalidad para detectar y clasificar datos confidenciales, buscar y mitigar los potenciales puntos vulnerables de una base de datos y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. Proporciona una ubicación única para habilitar y administrar estas funcionalidades.
+Azure Defender para SQL es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Azure Defender está disponible para Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics. Incluye funcionalidades para buscar y mitigar las posibles vulnerabilidades de la base de datos, así como para detectar actividades anómalas que puedan indicar una amenaza para ella. Proporciona una ubicación única para habilitar y administrar estas funcionalidades.
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-sql"></a>¿Cuáles son las ventajas de Azure Defender para SQL?
 

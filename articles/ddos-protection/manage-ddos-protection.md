@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: b38f2831136b0ccec4aa241135f2fd342c939845
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ae33d1695188e103c7c56374a5f39e8fc0d27430
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936893"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061415"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Inicio rápido: Creación y configuración de Azure DDoS Protection Estándar
 
@@ -76,7 +76,7 @@ No puede mover una red virtual a otro grupo de recursos ni a otra suscripción s
 
 ### <a name="enable-ddos-protection-for-all-virtual-networks"></a>Habilitación de la protección contra DDoS en todas las redes virtuales
 
-Esta [directiva](https://aka.ms/ddosvnetpolicy) detectará cualquier red virtual de un ámbito definido que no tenga DDoS Protection Standard habilitado y, a continuación, creará opcionalmente una tarea de corrección que creará a su vez la asociación para proteger la red virtual. Para obtener instrucciones detalladas paso a paso sobre cómo implementar esta directiva, consulte https://aka.ms/ddosvnetpolicy-techcommunity.
+Esta [directiva integrada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d) detectará cualquier red virtual de un ámbito definido que no tenga DDoS Protection Estándar habilitado y, después, creará opcionalmente una tarea de corrección que creará a su vez la asociación para proteger la red virtual. Para obtener una lista completa de directivas integradas, consulte [Definiciones de directivas integradas de Azure Policy para Azure DDoS Protection estándar](policy-reference.md). 
 
 ## <a name="validate-and-test"></a>Validación y prueba
 

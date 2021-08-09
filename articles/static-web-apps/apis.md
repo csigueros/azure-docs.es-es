@@ -5,56 +5,67 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 6698be44252e7f7baf935bd80a87e2f04781e25e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8d9654ce534bea9a6f1a10ffc9605278b1c598e9
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143492"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372527"
 ---
-# <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Compatibilidad de API en Azure Static Web Apps (versión preliminar) con Azure Functions
+# <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Compatibilidad de API en Azure Static Web Apps con Azure Functions
 
-Azure Static Web Apps proporciona puntos de conexión de API sin servidor a través de [Azure Functions](../azure-functions/functions-overview.md). Al aprovechar Azure Functions, las API se escalan dinámicamente según la demanda e incluyen las características siguientes:
+Azure Static Web Apps proporciona puntos de conexión de API sin servidor a través de [Azure Functions](../azure-functions/functions-overview.md). Mediante Azure Functions, las API se escalan dinámicamente según la demanda e incluyen las características siguientes:
 
 - **Seguridad integrada** con acceso directo a los datos de [autenticación y autorización basada en roles](user-information.md) del usuario.
+
 - **Enrutamiento de conexión directa** que hace que la ruta de _api_ esté disponible para la aplicación web de forma segura sin necesidad de reglas de CORS personalizadas.
-- **Desencadenadores HTTP** y enlaces de entrada y salida.
+
+Las API de Azure Static Web Apps admiten dos configuraciones posibles:
+
+- **Funciones administradas:** de forma predeterminada, la API de una aplicación web estática es una aplicación de Azure Functions administrada e implementada por Azure Static Web Apps y asociada a algunas restricciones.
+
+- **Traiga sus propias funciones**: opcionalmente, puede [proporcionar una aplicación de Azure Functions existente](functions-bring-your-own.md) de cualquier tipo de plan que vaya acompañada de todas las características de Azure Functions. Con esta configuración, es responsable de controlar una implementación independiente para la aplicación de Functions.
+
+En la tabla siguiente se comparan las diferencias entre el uso de funciones administradas y existentes.
+
+| Característica | Funciones administradas | Traiga sus propias funciones |
+| --- | --- | --- |
+| Acceso a los [desencadenadores](../azure-functions/functions-triggers-bindings.md#supported-bindings) de Azure Functions | Solo HTTP | Todo |
+| [Entornos de ejecución](../azure-functions/supported-languages.md#languages-by-runtime-version) de Azure Functions admitidos | Node.js 12<br>.NET Core 3.1<br>Python 3.8 | Todo |
+| [Planes de hospedaje](../azure-functions/functions-scale.md) de Azure Functions admitidos | Consumo | Consumo<br>Premium<br>Dedicado |
+| [Seguridad integrada](user-information.md) con acceso directo a los datos de autenticación y autorización basada en roles del usuario | ✔ | ✔ |
+| [Integración del enrutamiento](./configuration.md?#routes) que hace que la ruta de _api_ esté disponible para la aplicación web de forma segura sin necesidad de reglas de CORS personalizadas. | ✔ | ✔ |
+| Modelo de programación de [Durable Functions](../azure-functions/durable/durable-functions-overview.md) | | ✔ |
+| [Identidad administrada](../app-service/overview-managed-identity.md) | | ✔ |
+| Administración de tokens de [autenticación y autorización de Azure App Service](../app-service/configure-authentication-provider-aad.md) | | ✔ |
+| Funciones de API disponibles fuera de Azure Static Web Apps |  | ✔ |
 
 ## <a name="configuration"></a>Configuración
 
-Los puntos de conexión de API están a disposición de la aplicación web a través de la ruta de _api_. Aunque esta ruta es fija, usted tiene control sobre la carpeta y el proyecto donde se encuentra la aplicación de Azure Functions asociada. Para cambiar esta ubicación, [edite el archivo YAML del flujo de trabajo](github-actions-workflow.md#build-and-deploy), que se encuentra en la carpeta _.github/workflows_ de su repositorio.
+Los puntos de conexión de API están a disposición de la aplicación web a través de la ruta de _api_.
+
+| Funciones administradas | Traiga sus propias funciones |
+| --- | --- |
+| Aunque la ruta de _api_ es fija, tiene control sobre la ubicación de la carpeta de la aplicación de funciones administrada. Para cambiar esta ubicación, [edite el archivo YAML del flujo de trabajo](github-actions-workflow.md#build-and-deploy), que se encuentra en la carpeta _.github/workflows_ de su repositorio. | Las solicitudes a la ruta de _api_ se envían a la aplicación de Azure Functions existente. |
+
+## <a name="troubleshooting-and-logs"></a>Solución de problemas y registros
+
+Los registros solo están disponibles si agrega [Application Insights](monitor.md).
+
+| Funciones administradas | Traiga sus propias funciones |
+| --- | --- |
+| Para activar el registro, habilite Application Insights en la aplicación web estática. | Para activar el registro, habilite Application Insights en la aplicación de Azure Functions. |
 
 ## <a name="constraints"></a>Restricciones
 
-Azure Static Web Apps proporciona una API a través de Azure Functions. Las funcionalidades de Azure Functions se centran en un conjunto específico de características que le permiten crear una API para una aplicación web, y permitir que la aplicación web se conecte a la API de forma segura. Estas características presentan algunas restricciones, entre otras:
-
 - El prefijo de la ruta de la API debe ser _api_.
-- La API debe ser una aplicación de Azure Functions Node.js 12, .NET Core 3.1 o Python 3.8.
 - Las reglas de enrutamiento para las funciones de API solo admiten [redirigir](configuration.md#defining-routes) y [proteger las rutas con roles](configuration.md#securing-routes-with-roles).
-- Los desencadenadores se limitan a [HTTP](../azure-functions/functions-bindings-http-webhook.md).
-  - Se admiten los [enlaces](../azure-functions/functions-triggers-bindings.md#supported-bindings) de entrada y salida.
-- Los registros solo están disponibles si agrega [Application Insights](../azure-functions/functions-monitoring.md) a la aplicación de Functions.
-- El servicio administra algunas opciones de configuración de la aplicación. Por lo tanto, no se pueden configurar las opciones de la aplicación que comienzan con los prefijos siguientes:
-    - `APPSETTING_`
-    - `AZUREBLOBSTORAGE_`
-    - `AZUREFILESSTORAGE_`
-    - `AZURE_FUNCTION_`
-    - `CONTAINER_`
-    - `DIAGNOSTICS_`
-    - `DOCKER_`
-    - `FUNCTIONS_`
-    - `IDENTITY_`
-    - `MACHINEKEY_`
-    - `MAINSITE_`
-    - `MSDEPLOY_`
-    - `SCMSITE_`
-    - `SCM_`
-    - `WEBSITES_`
-    - `WEBSITE_`
-    - `WEBSOCKET_`
-    - `AzureWeb`
+
+| Funciones administradas | Traiga sus propias funciones |
+| --- | --- |
+| <ul><li>Los desencadenadores se limitan a [HTTP](../azure-functions/functions-bindings-http-webhook.md).</li><li>La aplicación de Azure Functions debe estar en Node.js 12, .NET Core 3.1 o Python 3.8.</li><li>El servicio administra algunas configuraciones de la aplicación, por lo que el tiempo de ejecución reserva los siguientes prefijos:<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li></ul> | <ul><li>Es responsable de administrar la implementación de la aplicación de Azure Functions.</li></ul> |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

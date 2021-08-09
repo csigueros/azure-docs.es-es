@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: 1e0015887482023097cfb98ff244c3b53c808a85
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: f16b77e8707c2eb8be9e693df7f3ad9f78366020
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685844"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097217"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -70,60 +70,59 @@ Si va a conectarse desde fuera de Azure, las conexiones tienen la directiva de c
 
 ## <a name="gateway-ip-addresses"></a>Direcciones IP de puerta de enlace
 
-En la tabla siguiente se muestran las direcciones IP de las puertas de enlace por región. Para conectarse a SQL Database o Azure Synapse, debe permitir el tráfico de red desde y hacia **todas** las puertas de enlace de la región.
+En la tabla siguiente se enumeran las direcciones IP de puerta de enlace individuales y también los intervalos de direcciones IP de puerta de enlace por región.
 
-En el siguiente artículo se describen los detalles de cómo se migrará el tráfico a las nuevas puertas de enlace de regiones específicas: [Migración de tráfico de Azure SQL Database a puertas de enlace más recientes](gateway-migration.md)
+Periódicamente, retiraremos las puertas de enlace con hardware antiguo y migraremos el tráfico a nuevas puertas de enlace según el proceso descrito en [Migración del tráfico de Azure SQL Database a puertas de enlace más recientes](gateway-migration.md). Se recomienda encarecidamente a los clientes que usen **intervalos de direcciones IP de puerta de enlace** para que no les afecte esta actividad en una región.
 
-| Nombre de la región          | Direcciones IP de puerta de enlace |
-| --- | --- |
-| Centro de Australia    | 20.36.105.0, 20.36.104.6, 20.36.104.7 |
-| Centro de Australia 2   | 20.36.113.0, 20.36.112.6 |
-| Este de Australia       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
-| Sudeste de Australia | 191.239.192.109, 13.73.109.251, 13.77.48.10, 13.77.49.32 |
-| Sur de Brasil         | 191.233.200.14, 191.234.144.16, 191.234.152.3 |
-| Centro de Canadá       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
-| Este de Canadá          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
-| Centro de EE. UU.           | 13.67.215.62, 52.182.137.15, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
-| Este de China           | 139.219.130.35     |
-| Este de China 2         | 40.73.82.1         |
-| Norte de China          | 139.219.15.17      |
-| Norte de China 2        | 40.73.50.0         |
-| Este de Asia            | 52.175.33.150, 13.75.32.4, 13.75.32.14 |
-| Este de EE. UU.              | 40.121.158.30, 40.79.153.12, 40.78.225.32 |
-| Este de EE. UU. 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3, 40.70.144.193 |
-| Centro de Francia       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
-| Sur de Francia         | 40.79.177.0, 40.79.177.10, 40.79.177.12 |
-| Centro de Alemania      | 51.4.144.100       |
-| Nordeste de Alemania   | 51.5.144.179       |
-| Centro-oeste de Alemania | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
-| India central        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 |
-| Sur de India          | 104.211.224.146    |
-| India occidental           | 104.211.160.80, 104.211.144.4 |
-| Japón Oriental           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5, 13.78.104.32 |
-| Japón Occidental           | 104.214.148.156, 40.74.100.192, 40.74.97.10 |
-| Centro de Corea del Sur        | 52.231.32.42, 52.231.17.22, 52.231.17.23, 20.44.24.32, 20.194.64.33 |
-| Corea del Sur          | 52.231.200.86, 52.231.151.96 |
-| Centro-Norte de EE. UU     | 23.96.178.199, 23.98.55.75, 52.162.104.33, 52.162.105.9 |
-| Norte de Europa         | 40.113.93.91, 52.138.224.1, 13.74.104.113 |
-| Este de Noruega          | 51.120.96.0, 51.120.96.33 |
-| Oeste de Noruega          | 51.120.216.0       |
-| Norte de Sudáfrica   | 102.133.152.0, 102.133.120.2, 102.133.152.32 |
-| Oeste de Sudáfrica    | 102.133.24.0       |
-| Centro-sur de EE. UU.     | 13.66.62.124, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
-| Sudeste de Asia      | 104.43.15.0, 40.78.232.3, 13.67.16.193 |
-| Norte de Suiza    | 51.107.56.0, 51.107.57.0 |
-| Oeste de Suiza     | 51.107.152.0, 51.107.153.0 |
-| Centro de Emiratos Árabes Unidos          | 20.37.72.64        |
-| Norte de Emiratos Árabes Unidos            | 65.52.248.0        |
-| Sur de Reino Unido             | 51.140.184.11, 51.105.64.0, 51.140.144.36, 51.105.72.32 |
-| Oeste de Reino Unido              | 51.141.8.11, 51.140.208.96, 51.140.208.97 |
-| Centro-Oeste de EE. UU.      | 13.78.145.25, 13.78.248.43, 13.71.193.32, 13.71.193.33 |
-| Oeste de Europa          | 40.68.37.158, 104.40.168.105, 52.236.184.163  |
-| Oeste de EE. UU.              | 104.42.238.205, 13.86.216.196   |
-| Oeste de EE. UU. 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
-| Oeste de EE. UU. 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
-|                      |                    |
+> [!IMPORTANT]
+> Los inicios de sesión de SQL Database o Azure Synapse pueden dirigirse a **cualquiera de las puertas de enlace de una región**. Para la conectividad constante con SQL Database o Azure Synapse, permita el tráfico de red hacia y desde **TODAS** las direcciones IP de puerta de enlace o los intervalos de direcciones IP de puerta de enlace de la región.
 
+| Nombre de la región          | Direcciones IP de puerta de enlace | Intervalos de direcciones de IP de puerta de enlace |
+| --- | --- | --- |
+| Centro de Australia    | 20.36.105.0, 20.36.104.6, 20.36.104.7 | 20.36.105.32/29 |
+| Centro de Australia 2   | 20.36.113.0, 20.36.112.6 | 20.36.113.32/29 |
+| Este de Australia       | 13.75.149.87, 40.79.161.1, 13.70.112.9 | 13.70.112.32/29, 40.79.160.32/29, 40.79.168.32/29 |
+| Sudeste de Australia | 191.239.192.109, 13.73.109.251, 13.77.48.10, 13.77.49.32 | 13.77.49.32/29 |
+| Sur de Brasil         | 191.233.200.14, 191.234.144.16, 191.234.152.3 | 191.233.200.32/29, 191.234.144.32/29 |
+| Centro de Canadá       | 40.85.224.249, 52.246.152.0, 20.38.144.1 | 13.71.168.32/29, 20.38.144.32/29, 52.246.152.32/29 |
+| Este de Canadá          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 | 40.69.105.32/29|
+| Centro de EE. UU.           | 13.67.215.62, 52.182.137.15, 104.208.21.1, 13.89.169.20 | 104.208.21.192/29, 13.89.168.192/29, 52.182.136.192/29 |
+| Este de China           | 139.219.130.35 |  52.130.112.136/29 |
+| Este de China 2         | 40.73.82.1 | 52.130.120.88/29 | 
+| Norte de China          | 139.219.15.17      | 52.130.128.88/29 |
+| Norte de China 2        | 40.73.50.0         | 52.130.40.64/29 |
+| Este de Asia            | 52.175.33.150, 13.75.32.4, 13.75.32.14 | 13.75.32.192/29, 13.75.33.192/29 |
+| Este de EE. UU.              | 40.121.158.30, 40.79.153.12, 40.78.225.32 | 20.42.65.64/29, 20.42.73.0/29, 52.168.116.64/29 |
+| Este de EE. UU. 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3, 40.70.144.193 | 104.208.150.192/29, 40.70.144.192/29, 52.167.104.192/29 |
+| Centro de Francia       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 | 40.79.136.32/29, 40.79.144.32/29 |
+| Sur de Francia         | 40.79.177.0, 40.79.177.10, 40.79.177.12 | 40.79.176.40/29, 40.79.177.32/29 |
+| Centro-oeste de Alemania | 51.116.240.0, 51.116.248.0, 51.116.152.0 | 51.116.152.32/29, 51.116.240.32/29, 51.116.248.32/29 |
+| India central        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 | 104.211.86.32/29, 20.192.96.32/29 |
+| Sur de la India          | 104.211.224.146    | 40.78.192.32/29, 40.78.193.32/29 |
+| Oeste de la India           | 104.211.160.80, 104.211.144.4 | 104.211.144.32/29, 104.211.145.32/29 |
+| Japón Oriental           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5, 13.78.104.32 | 13.78.104.32/29, 40.79.184.32/29, 40.79.192.32/29 |
+| Japón Occidental           | 104.214.148.156, 40.74.100.192, 40.74.97.10 | 40.74.96.32/29 |
+| Centro de Corea del Sur        | 52.231.32.42, 52.231.17.22, 52.231.17.23, 20.44.24.32, 20.194.64.33 | 20.194.64.32/29,20.44.24.32/29, 52.231.16.32/29 |
+| Corea del Sur          | 52.231.200.86, 52.231.151.96 |  |
+| Centro-Norte de EE. UU     | 23.96.178.199, 23.98.55.75, 52.162.104.33, 52.162.105.9 | 52.162.105.192/29 |
+| Norte de Europa         | 40.113.93.91, 52.138.224.1, 13.74.104.113 | 13.69.233.136/29, 13.74.105.192/29, 52.138.229.72/29 |
+| Este de Noruega          | 51.120.96.0, 51.120.96.33 | 51.120.96.32/29 |
+| Oeste de Noruega          | 51.120.216.0       | 51.120.217.32/29 |
+| Norte de Sudáfrica   | 102.133.152.0, 102.133.120.2, 102.133.152.32 | 102.133.120.32/29, 102.133.152.32/29, 102.133.248.32/29|
+| Oeste de Sudáfrica    | 102.133.24.0       | 102.133.25.32/29 |
+| Centro-sur de EE. UU.     | 13.66.62.124, 104.214.16.32, 20.45.121.1, 20.49.88.1 | 20.45.121.32/29, 20.49.88.32/29, 20.49.89.32/29, 40.124.64.136/29 |
+| Sudeste de Asia      | 104.43.15.0, 40.78.232.3, 13.67.16.193 | 13.67.16.192/29, 23.98.80.192/29, 40.78.232.192/29|
+| Norte de Suiza    | 51.107.56.0, 51.107.57.0 | 51.107.56.32/29 |
+| Oeste de Suiza     | 51.107.152.0, 51.107.153.0 | 51.107.153.32/29 |
+| Centro de Emiratos Árabes Unidos          | 20.37.72.64        | 20.37.72.96/29, 20.37.73.96/29 |
+| Norte de Emiratos Árabes Unidos            | 65.52.248.0        | 40.120.72.32/29, 65.52.248.32/29 |
+| Sur de Reino Unido             | 51.140.184.11, 51.105.64.0, 51.140.144.36, 51.105.72.32 | 51.105.64.32/29, 51.105.72.32/29, 51.140.144.32/29 |
+| Oeste de Reino Unido              | 51.141.8.11, 51.140.208.96, 51.140.208.97 | 51.140.208.96/29, 51.140.209.32/29 |
+| Centro-Oeste de EE. UU.      | 13.78.145.25, 13.78.248.43, 13.71.193.32, 13.71.193.33 | 13.71.193.32/29 |
+| Oeste de Europa          | 40.68.37.158, 104.40.168.105, 52.236.184.163  | 104.40.169.32/29, 13.69.112.168/29, 52.236.184.32/29 |
+| Oeste de EE. UU.              | 104.42.238.205, 13.86.216.196   | 13.86.217.224/29 |
+| Oeste de EE. UU. 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  | 13.66.136.192/29, 40.78.240.192/29, 40.78.248.192/29 |
+|                      |                    |                    |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/16/2021
+ms.date: 06/03/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 56e855bafa70360711f3e30a7c4527091af7b34c
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 66af0fa248f3ead5755ed3fb27cd3bfd6bb19452
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107601232"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060901"
 ---
 # <a name="claims-mapping-policy-type"></a>Tipo de directiva de asignación de notificaciones
 
@@ -33,7 +33,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | Conjunto de notificaciones | Descripción |
 |---|---|
 | Conjunto de notificaciones principales | Están presentes en todos los tokens, independientemente de la directiva. Estas notificaciones se consideran también restringidas y no se pueden modificar. |
-| Conjunto de notificaciones básicas | Incluye las notificaciones que se emiten de forma predeterminada para los tokens (además del conjunto de notificaciones principales). Puede omitir o modificar las notificaciones básicas utilizando directivas de asignación de notificaciones. |
+| Conjunto de notificaciones básicas | Incluye las notificaciones que se emiten de forma predeterminada para los tokens (además del conjunto de notificaciones principales). Puede [omitir o modificar las notificaciones básicas](active-directory-claims-mapping.md#omit-the-basic-claims-from-tokens) utilizando directivas de asignación de notificaciones. |
 | Conjunto de notificaciones restringidas | No se pueden modificar con directivas. No se puede cambiar el origen de datos ni se aplica ninguna transformación al generar estas notificaciones. |
 
 ### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabla 1: Conjunto de notificaciones restringidas de JSON Web Token (JWT)
@@ -412,6 +412,6 @@ Las directivas de asignación de notificaciones no se aplican a los usuarios inv
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre cómo personalizar las notificaciones emitidas en tokens para una aplicación específica en su inquilino mediante PowerShell, vea [Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)](active-directory-claims-mapping.md).
+- Para información sobre cómo personalizar las notificaciones emitidas en tokens para una aplicación específica de su inquilino mediante PowerShell, consulte [Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino](active-directory-claims-mapping.md).
 - Para obtener información sobre cómo personalizar las notificaciones emitidas en el token SAML a través de Azure Portal, vea [Procedimientos para: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales](active-directory-saml-claims-customization.md).
 - Para más información sobre los atributos de extensión, consulte [Uso de atributos de extensión de esquema de directorio en las notificaciones](active-directory-schema-extensions.md).

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 03/25/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 53c6431f6f2d5ac6f5e7a6c28cb843d386c5206d
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 39f1245883c7d296de5b2bad77f1558be9b49910
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203080"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887427"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar a Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ En este artículo se resumen los detalles de la migración para lo siguiente:
 
 Azure Migrate ofrece una plataforma unificada para evaluar y migrar a servidores, infraestructura, aplicaciones y datos locales de Azure. En el caso de AKS, puede usar Azure Migrate para las tareas siguientes:
 
-* [Inclusión de aplicaciones ASP.NET en contenedores y migración a AKS](/azure/aks/tutorial-app-containerization-aspnet-kubernetes)
+* [Inclusión de aplicaciones ASP.NET en contenedores y migración a AKS](../migrate/tutorial-app-containerization-aspnet-kubernetes.md)
 * [Inclusión de aplicaciones web de Java en contenedores y migración a AKS](../migrate/tutorial-containerize-java-kubernetes.md)
 
 ## <a name="aks-with-standard-load-balancer-and-virtual-machine-scale-sets"></a>AKS con Standard Load Balancer y Virtual Machine Scale Sets
@@ -192,7 +192,7 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 Puede que quiera trasladar el clúster de AKS a [otra región compatible con AKS][region-availability]. Se recomienda crear un nuevo clúster en la otra región e implementar los recursos y las aplicaciones en el nuevo clúster. 
 
-Además, si tiene servicios como [Azure Dev Spaces][azure-dev-spaces] en ejecución en el clúster de AKS, deberá instalar y configurar esos servicios en el clúster en la nueva región.
+Además, si tiene servicios en ejecución en el clúster de AKS, deberá instalar y configurar esos servicios en el clúster en la nueva región.
 
 
 En este artículo se proporciona un resumen de los detalles de la migración para:
@@ -208,4 +208,3 @@ En este artículo se proporciona un resumen de los detalles de la migración par
 
 
 [region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-[azure-dev-spaces]: ../dev-spaces/index.yml

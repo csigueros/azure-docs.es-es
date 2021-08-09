@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 05/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: f2f20580bc8396f6d7336d50bbe7fb55c94725de
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 34ea18e67752ed28986a08c4132ca10fbedce3c6
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109712899"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652483"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory para conexiones del protocolo P2S OpenVPN
 
@@ -28,11 +28,11 @@ Compruebe que tiene un inquilino de Azure AD. Si no tiene ningún inquilino de 
 * Nombre organizativo
 * Nombre de dominio inicial
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="Nuevo inquilino Azure AD" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="Captura de pantalla de la página Crear directorio." border="false":::
 
 ## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. Crear usuario de inquilino Azure AD
 
-El inquilino de Azure AD necesita las siguientes cuentas: una cuenta de administrador global y una cuenta de usuario maestro. La cuenta de usuario principal se usa como cuenta de inserción maestra (cuenta de servicio). Al crear una cuenta de usuario de inquilino Azure AD, ajuste el rol de directorio para el tipo de usuario que desea crear.
+El inquilino de Azure AD necesita las siguientes cuentas: una cuenta de administrador global y una cuenta de usuario. La cuenta de usuario se usa como cuenta de inserción (cuenta de servicio). Al crear una cuenta de usuario de inquilino Azure AD, ajuste el rol de directorio para el tipo de usuario que desea crear.
 
 Siga los pasos descritos en [Incorporación o eliminación de usuarios mediante Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md) para crear al menos dos usuarios para el inquilino de Azure AD. Asegúrese de cambiar el **rol de directorio** para crear los tipos de cuenta:
 
@@ -43,7 +43,7 @@ Siga los pasos descritos en [Incorporación o eliminación de usuarios mediante 
 
 1. Busque el ID. de directorio del directorio que desea utilizar para la autenticación. Aparece en la sección de propiedades de la página Active Directory.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Captura de pantalla que muestra las propiedades del directorio" lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Captura de pantalla que muestra las propiedades del directorio." lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
 
 1. Copie el ID. del directorio.
 
@@ -81,7 +81,7 @@ Siga los pasos descritos en [Incorporación o eliminación de usuarios mediante 
 
 1. Seleccione la cuenta del **Administrador global** si se le solicita.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Selección de la cuenta" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Captura de pantalla que muestra la página Selección de la cuenta." border="false":::
 1. Seleccione **Aceptar** cuando se le solicite.
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="Captura de pantalla que muestra el mensaje de aceptación de los permisos solicitados para su organización con detalles y la opción Aceptar." border="false":::
@@ -108,7 +108,7 @@ Siga los pasos descritos en [Incorporación o eliminación de usuarios mediante 
    * **Emisor**: dirección URL del servicio de token seguro ```https://sts.windows.net/{AzureAD TenantID}/```
 
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="VPN de Azure" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="Captura de pantalla que muestra la configuración del tipo de túnel, el tipo de autenticación y la configuración de Azure Active Directory." border="false":::
 
    > [!NOTE]
    > Asegúrese de incluir la barra diagonal al final del valor `AadIssuerUri`. De lo contrario, se puede producir un error en la conexión.

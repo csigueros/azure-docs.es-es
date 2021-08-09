@@ -8,12 +8,13 @@ ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: aab67914b1317bc0cc443f333932ecef924176b6
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d813cc32d3b635e6da767e3f04386c0e35ea503c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293033"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949364"
 ---
 # <a name="migrate-to-azure-cloud-services-extended-support-using-powershell"></a>Migración a Azure Cloud Services (soporte extendido) mediante PowerShell
 
@@ -86,7 +87,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 
 Compruebe el estado del registro mediante lo siguiente:  
 ```powershell
-Get-AzProviderFeature -FeatureName CloudServices
+Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
 ```
 
 Asegúrese de que RegistrationState sea `Registered` para ambos antes de continuar.
@@ -119,6 +120,8 @@ Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 
 
 ## <a name="5-migrate-your-cloud-services"></a>5) Migrar Cloud Services 
+Antes de iniciar la migración, consulte cómo funcionan los [pasos de migración](./in-place-migration-overview.md#migration-steps) y lo que hace cada paso. 
+
 * [Migrar una instancia de Cloud Services no en una red virtual](#51-option-1---migrate-a-cloud-service-not-in-a-virtual-network)
 * [Migrar una instancia de Cloud Services en una red virtual](#51-option-2---migrate-a-cloud-service-in-a-virtual-network)
 
@@ -141,17 +144,27 @@ $deployment = Get-AzureDeployment -ServiceName $serviceName
 $deploymentName = $deployment.DeploymentName
 ```
 
-Primero, valide que puede migrar la instancia de Cloud Services con los comandos siguientes:
+Primero, valide que puede migrar el servicio en la nube con los comandos siguientes. El comando muestra los errores que bloqueen la migración. 
 
 ```powershell
 $validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
 $validate.ValidationMessages
  ```
 
-El comando siguiente muestra cualquier advertencia y error que bloquee la migración. Si la validación se realiza correctamente, podrá pasar al paso de preparación siguiente.
+Si la validación se realiza correctamente o solo tiene advertencias, podrá pasar al paso de preparación siguiente. 
 
 ```powershell
 Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+```
+
+Compruebe la configuración del servicio en la nube preparado (soporte extendido) mediante Azure PowerShell o Azure Portal. Si no está preparado para la migración y quiere volver al estado anterior, anule la migración.
+```powershell
+Move-AzureService -Abort -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+```
+Si está listo para completar la migración, confírmela.
+
+```powershell
+Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
 ```
 
 ### <a name="51-option-2---migrate-a-cloud-service-in-a-virtual-network"></a>5.1) Opción 2: Migrar una instancia de Cloud Services en una red virtual
@@ -179,7 +192,7 @@ El comando siguiente muestra cualquier advertencia y error que bloquee la migrac
 Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
 ```
 
-Compruebe la configuración de la instancia de Cloud Services preparada mediante Azure PowerShell o Azure Portal. Si no está preparado para la migración y quiere volver al estado anterior, utilice el comando siguiente:
+Compruebe la configuración del servicio en la nube preparado (soporte extendido) mediante Azure PowerShell o Azure Portal. Si no está preparado para la migración y quiere volver al estado anterior, utilice el comando siguiente:
 
 ```powershell
 Move-AzureVirtualNetwork -Abort -VirtualNetworkName $vnetName

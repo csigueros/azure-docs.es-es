@@ -8,16 +8,16 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/22/2021
-ms.openlocfilehash: fb43796c1d7ce689fb15baedcc363ccb7a41384c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: d77a0b53d14705d73b83d25ffe3355925355fdf1
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483628"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556629"
 ---
 # <a name="content-metadata-properties-used-in-azure-cognitive-search"></a>Propiedades de metadatos de contenido usadas en Azure Cognitive Search
 
-SharePoint Online y Azure Blob Storage pueden incluir diferentes tipos de contenido y muchos de estos tipos tienen propiedades de metadatos que pueden ser útiles para el índice. Del mismo modo que se pueden crear campos de búsqueda para las propiedades de estándar de los blobs, como **`metadata_storage_name`** , se puede crear para las propiedades de los metadatos que son específicas de un formato de documento.
+SharePoint Online y Azure Blob Storage pueden incluir diferentes tipos de contenido y muchos de estos tipos tienen propiedades de metadatos que pueden ser útiles para el índice. Del mismo modo que se pueden crear campos de búsqueda para las propiedades de estándar de los blobs, como **`metadata_storage_name`** , se puede crear para las propiedades de los metadatos que son específicas de un formato de documento.
 
 ## <a name="supported-document-formats"></a>Formatos de documento admitidos
 

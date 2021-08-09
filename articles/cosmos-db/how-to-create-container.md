@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 26e1fe78e54b0de1cf7c7a0ddc54c3d792d1deed
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 6aa233e82ca272b9b5b9e4a9bee4ef2b57f2de77
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071179"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070016"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Creación de un contenedor en la API de SQL de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,12 +34,12 @@ En este artículo se explican las distintas formas de crear un contenedor en la 
 1. Abra el panel **Data Explorer** y seleccione **Nuevo contenedor**. Después, proporcione los detalles siguientes:
 
    * Indique si va a crear una nueva base de datos o a usar una existente.
-   * Escriba un identificador de contenedor.
-   * Escriba la clave de partición.
-   * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
+   * Escriba un **identificador de contenedor**.
+   * Escriba un valor de **clave de partición** (por ejemplo, `/ItemID`).
+   * Seleccione un rendimiento de **Escalabilidad automática** o **Manual** y escriba el **rendimiento de contenedor** necesario (por ejemplo, 1000 RU/s). Escriba un rendimiento que quiera aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Captura de pantalla del panel de Data Explorer con la opción Contenedor nuevo resaltada":::
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Captura de pantalla de Data Explorer, con la Nueva colección resaltada":::
 
 ## <a name="create-a-container-using-azure-cli"></a><a id="cli-sql"></a> Creación de un contenedor mediante la CLI de Azure
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: a0644342c417cb06c257372e526fff55df62f9b9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 389460e79dbcc9c6ba9480540d7f361382ef5987
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095435"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112021094"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning?
 
@@ -86,28 +86,29 @@ Consulte la tabla siguiente para más información sobre las series admitidas y 
 
 | **Series de maquinas virtuales compatibles**  | **Restricciones** | **Categoría** | **Compatible con** |
 |------------|------------|------------|------------|
-| D | Ninguno. | Uso general | Clústeres de proceso e instancia |
-| DDSv4 | Ninguno. | Uso general | Clústeres de proceso e instancia |
-| Dv2 | Ninguno. | Uso general | Clústeres de proceso e instancia |
-| Dv3 | Ninguno.| Uso general | Clústeres de proceso e instancia |
-| DSv2 | Ninguno. | Uso general | Clústeres de proceso e instancia |
-| DSv3 | Ninguno.| Uso general | Clústeres de proceso e instancia |
-| EAv4 | Ninguno. | Memoria optimizada | Clústeres de proceso e instancia |
-| Ev3 | Ninguno. | Memoria optimizada | Clústeres de proceso e instancia |
-| FSv2 | Ninguno. | Proceso optimizado | Clústeres de proceso e instancia |
-| H | Ninguno. | Informática de alto rendimiento | Clústeres de proceso e instancia |
-| HB | Requiere aprobación. | Informática de alto rendimiento | Clústeres de proceso e instancia |
-| HBv2 | Requiere aprobación. |  Informática de alto rendimiento | Clústeres de proceso e instancia |
-| HCS | Requiere aprobación. |  Informática de alto rendimiento | Clústeres de proceso e instancia |
-| M | Requiere aprobación. | Memoria optimizada | Clústeres de proceso e instancia |
-| NC | Ninguno. |  GPU | Clústeres de proceso e instancia |
-| NC Promo | Ninguno. | GPU | Clústeres de proceso e instancia |
-| NCsv2 | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
-| NCsv3 | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
-| NDs | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
-| NDv2 | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
-| NV | Ninguno. | GPU | Clústeres de proceso e instancia |
-| NVv3 | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| [DDSv4](../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series) | Ninguno. | Uso general | Clústeres de proceso e instancia |
+| [Dv2](../virtual-machines/dv2-dsv2-series.md#dv2-series) | Ninguno. | Uso general | Clústeres de proceso e instancia |
+| [Dv3](../virtual-machines/dv3-dsv3-series.md#dv3-series) | Ninguno.| Uso general | Clústeres de proceso e instancia |
+| [DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) | Ninguno. | Uso general | Clústeres de proceso e instancia |
+| [DSv3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | Ninguno.| Uso general | Clústeres de proceso e instancia |
+| [EAv4](../virtual-machines/eav4-easv4-series.md) | Ninguno. | Memoria optimizada | Clústeres de proceso e instancia |
+| [Ev3](../virtual-machines/ev3-esv3-series.md) | Ninguno. | Memoria optimizada | Clústeres de proceso e instancia |
+| [FSv2](../virtual-machines/fsv2-series.md) | Ninguno. | Proceso optimizado | Clústeres de proceso e instancia |
+| [H](../virtual-machines/h-series.md) | Ninguno. | Informática de alto rendimiento | Clústeres de proceso e instancia |
+| [HB](../virtual-machines/hb-series.md) | Requiere aprobación. | Informática de alto rendimiento | Clústeres de proceso e instancia |
+| [HBv2](../virtual-machines/hbv2-series.md) | Requiere aprobación. |  Informática de alto rendimiento | Clústeres de proceso e instancia |
+| [HC](../virtual-machines/hc-series.md) | Requiere aprobación. |  Informática de alto rendimiento | Clústeres de proceso e instancia |
+| [M](../virtual-machines/m-series.md) | Requiere aprobación. | Memoria optimizada | Clústeres de proceso e instancia |
+| [NC](../virtual-machines/nc-series.md) | Ninguno. |  GPU | Clústeres de proceso e instancia |
+| [NC Promo](../virtual-machines/nc-series.md) | Ninguno. | GPU | Clústeres de proceso e instancia |
+| [NCv2](../virtual-machines/ncv2-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| [NCv3](../virtual-machines/ncv3-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| [ND](../virtual-machines/nd-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| [NDv2](../virtual-machines/ndv2-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| [NV](../virtual-machines/nv-series.md) | Ninguno. | GPU | Clústeres de proceso e instancia |
+| [NVv3](../virtual-machines/nvv3-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| [NCT4_v3](../virtual-machines/nct4-v3-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| [NDA100_v4](../virtual-machines/nda100-v4-series.md) | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
 
 
 Aunque Azure Machine Learning admite estas series de máquinas virtuales, puede que no estén disponibles en todas las regiones de Azure. Para comprobar si las series de máquinas virtuales están disponibles o no, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
@@ -117,6 +118,22 @@ Aunque Azure Machine Learning admite estas series de máquinas virtuales, puede 
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
 > * [SDK de Python](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
 >
+
+Si usa los destinos de proceso habilitados para GPU, es importante asegurarse de que se han instalado los controladores CUDA correctos en el entorno de entrenamiento. Use la tabla siguiente para determinar la versión correcta de CUDA que se usará:
+
+| **Arquitectura de GPU**  | **Serie de máquinas virtuales de Azure** | **Versiones de CUDA admitidas** |
+|------------|------------|------------|
+| Ampere | NDA100_v4 | Versión 11.0 y posteriores |
+| Turing | NCT4_v3 | 10.0+ |
+| Volta | NCv3, NDv2 | 9.0+ |
+| Pascal | NCv2, ND | 9.0+ |
+| Maxwell | NV, NVv3 | 9.0+ |
+| Kepler | NC, NC Promo| 9.0+ |
+
+Además de garantizar que la versión de CUDA y el hardware sean compatibles, también asegúrese de que la versión de CUDA sea compatible con la versión del marco de aprendizaje automático que utiliza: 
+
+- Para PyTorch, puede comprobar la compatibilidad [aquí](https://pytorch.org/get-started/previous-versions/). 
+- Para Tensorflow, puede comprobar la compatibilidad [aquí](https://www.tensorflow.org/install/source#gpu).
 
 ### <a name="compute-isolation"></a>Aislamiento de proceso
 

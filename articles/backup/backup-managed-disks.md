@@ -2,13 +2,13 @@
 title: Copia de seguridad de Azure Managed Disks
 description: Obtenga información sobre cómo realizar una copia de seguridad de Azure Managed Disks desde Azure Portal.
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: e234495eb483d6d0cc6ca556ca418138c61a99f5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/27/2021
+ms.openlocfilehash: c47499c371a9eccfd97224344a48c166d0e1f811
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110634"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653637"
 ---
 # <a name="back-up-azure-managed-disks"></a>Copia de seguridad de Azure Managed Disks
 
@@ -81,6 +81,13 @@ Un almacén de Backup es una entidad de almacenamiento de Azure que contiene los
 
 ## <a name="configure-backup"></a>Configuración de la copia de seguridad
 
+- La copia de seguridad de disco de Azure solo admite la copia de seguridad de nivel operativo; la copia de las copias de seguridad en el nivel de almacenamiento del almacén no está disponible actualmente. La configuración de redundancia de almacenamiento del almacén de copia de seguridad (LRS/GRS) no se aplica a las copias de seguridad almacenadas en el nivel operativo.
+Las instantáneas incrementales se almacenan en el almacenamiento de HDD estándar, con independencia del tipo de almacenamiento del disco principal. Para aumentar la confiabilidad, se almacenan instantáneas incrementales en [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md) de forma predeterminada en aquellas regiones que lo admiten.
+
+- La copia de seguridad de disco de Azure admite copias de seguridad y restauraciones entre suscripciones con el almacén de copia de seguridad en una suscripción y el disco de origen en otra. Sin embargo, no se admiten copias de seguridad y restauraciones entre regiones. Esto permite que el almacén de copia de seguridad y el disco del que se va a hacer copia de seguridad estén en la misma suscripción o en suscripciones diferentes. Sin embargo, el almacén de Backup y el disco del que se va a realizar la copia de seguridad deben estar en la misma región.
+
+- No se puede cambiar el grupo de recursos de instantáneas asignado a una instancia de copia de seguridad al configurar la copia de seguridad de un disco. 
+
 El almacén de Backup usa la identidad administrada para obtener acceso a otros recursos de Azure. Para configurar la copia de seguridad de los discos administrados, la identidad administrada del almacén de Backup requiere un conjunto de permisos en los discos de origen y los grupos de recursos donde se crean y administran las instantáneas.
 
 Cada recurso solo puede tener una identidad administrada asignada por el sistema, y cada una de ellas está asociada al ciclo de vida del recurso. Puede conceder permisos a la identidad administrada mediante el control de acceso basado en roles de Azure (Azure RBAC). Tenga en cuenta que una identidad administrada es una entidad de servicio de un tipo especial que solo se puede usar con recursos de Azure. Obtenga más información sobre las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).
@@ -112,7 +119,24 @@ Los siguientes requisitos previos son necesarios para configurar la copia de seg
 
    - No puede crear una instantánea incremental de un disco determinado fuera de la suscripción de ese disco. Por consiguiente, elija el grupo de recursos en la misma suscripción que el disco del que se va a realizar la copia de seguridad. Obtenga más información sobre las [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md#restrictions) de discos administrados.
 
-   Siga estos pasos para asignar un rol:
+   - No se puede cambiar el grupo de recursos de instantáneas asignado a una instancia de copia de seguridad al configurar la copia de seguridad de un disco.
+
+   - Durante una operación de copia de seguridad, el servicio Azure Backup crea una cuenta de almacenamiento en el grupo de recursos de instantáneas, donde se almacenan las instantáneas. Solo se crea una cuenta de almacenamiento por cada grupo de recursos de instantáneas. La cuenta se reutiliza en varias instancias de copia de seguridad de disco que usan el mismo grupo de recursos que el grupo de recursos de instantáneas.
+     
+     - Las instantáneas no se almacenan en la cuenta de almacenamiento. Las instantáneas incrementales del disco administrado son recursos de ARM que se crean en el grupo de recursos y no en una cuenta de almacenamiento. 
+     
+     - La cuenta de almacenamiento se usa para almacenar metadatos para cada punto de recuperación. El servicio Azure Backup crea un contenedor de blobs por cada instancia de copia de seguridad de disco. Para cada punto de recuperación, se creará un blob en bloques para almacenar los metadatos que describen el punto de recuperación (por ejemplo, la suscripción, el identificador de disco, los atributos de disco, etc.) que ocupa un espacio pequeño (en unos pocos KiB).
+     
+     - La cuenta de almacenamiento se crea con almacenamiento con redundancia de zona geográfica (GZRS) de RA si la región admite redundancia zonal. Si la región no admite redundancia zonal, la cuenta de almacenamiento se crea con almacenamiento con redundancia geográfica (GRS) de RA.<br>Si alguna directiva existente impide la creación de una cuenta de almacenamiento en la suscripción o el grupo de recursos con redundancia GRS, la cuenta de almacenamiento se crea con almacenamiento con redundancia local (LRS). La cuenta de almacenamiento que se crea es **De uso general v2**, donde los blobs en bloques se almacenan en el nivel de acceso frecuente del contenedor de blobs. 
+     
+     - El número de puntos de recuperación viene determinado por la directiva de copia de seguridad que se usa para configurar la copia de seguridad de la instancia de copia de seguridad del disco. Los blobs en bloques antiguos se eliminan de acuerdo con el proceso de recolección de elementos no utilizados, ya que se suprimen los puntos de recuperación más antiguos correspondientes.
+   
+   - No aplique directivas ni bloqueos de recursos en el grupo de recursos de instantáneas o en la cuenta de almacenamiento, creados por el servicio Azure Backup. El servicio crea y administra los recursos de este grupo de recursos de instantáneas que se asignan a una instancia de copia de seguridad al configurar la copia de seguridad de un disco. El servicio crea la cuenta de almacenamiento y los recursos que contiene, los cuales no se deben eliminar ni mover.
+
+     >[!NOTE]
+     >Si se elimina una cuenta de almacenamiento, las copias de seguridad no se harán correctamente ni tampoco la restauración en todos los puntos de recuperación existentes.
+
+Siga estos pasos para asignar un rol:
 
    1. Vaya al grupo de recursos. Por ejemplo, el grupo de recursos *SnapshotRG* se encuentra en la misma suscripción que el disco del que se va a realizar la copia de seguridad.
 

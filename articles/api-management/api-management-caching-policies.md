@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 03/08/2021
 ms.author: apimpm
-ms.openlocfilehash: 9888627bed0fbf90abc75c81564dacc0d1aac18e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 521c17efceab04d9f3622f7e0872b35d9b630cbd
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103233473"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110063287"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
@@ -112,8 +112,8 @@ Para obtener más información, consulte [Policy expressions](api-management-pol
 | caching-type               | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | No       | `prefer-external` |
 | downstream-caching-type        | Este atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   none: no se permite el almacenamiento en caché de bajada.<br />-   private: se permite el almacenamiento en caché de bajada privado.<br />-   public: se permite el almacenamiento en caché de bajada privado y compartido.                                                                                                          | No       | None              |
 | must-revalidate                | Cuando el almacenamiento en caché de bajada está habilitado, este atributo activa o desactiva la directiva de control de caché `must-revalidate` en las respuestas de puerta de enlace.                                                                                                                                                                                                                      | No       | true              |
-| vary-by-developer              | Establezca el valor en `true` para almacenar en caché las respuestas por cada cuenta de desarrollador que disponga de [clave de suscripción](./api-management-subscriptions.md) incluida en la solicitud.                                                                                                                                                                                                                                                                                                  | Sí      |         False          |
-| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por [grupo de usuarios](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Sí      |       False            |
+| vary-by-developer              | Establezca el valor en `true` para almacenar en caché las respuestas por cada cuenta de desarrollador que disponga de [clave de suscripción](./api-management-subscriptions.md) incluida en la solicitud.                                                                                                                                                                                                                                                                                                  | Sí      |         Falso          |
+| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por [grupo de usuarios](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Sí      |       Falso            |
 
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
@@ -232,7 +232,7 @@ Para más información y ver ejemplos de esta directiva, consulte [Custom cachin
 | caching-type | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | No       | `prefer-external` |
 | default-value    | Un valor que se asignará a la variable si la búsqueda de la clave de caché da lugar a un error. Si no se especifica este atributo, se asigna `null`.                                                                                                                                                                                                           | No       | `null`            |
 | key              | Valor de clave de caché para usar en la búsqueda.                                                                                                                                                                                                                                                                                                                       | Sí      | N/D               |
-| variable-name    | Nombre de la [variable de contexto](api-management-policy-expressions.md#ContextVariables) a la que se asignará el valor buscado si la búsqueda tiene éxito. Si se produce un error de búsqueda, se asignará a la variable el valor del atributo `default-value` o `null`, si se omite el atributo `default-value`.                                       | Sí      | N/D               |
+| variable-name    | Nombre de la [variable de contexto](api-management-policy-expressions.md#ContextVariables) a la que se asignará el valor buscado si la búsqueda tiene éxito. Si la búsqueda no tiene éxito, la variable no se establecerá.                                       | Sí      | N/D               |
 
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.

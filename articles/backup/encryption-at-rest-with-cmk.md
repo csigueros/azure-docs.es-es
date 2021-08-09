@@ -2,13 +2,14 @@
 title: Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 description: Obtenga información sobre el modo en que Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente.
 ms.topic: conceptual
-ms.date: 04/19/2021
-ms.openlocfilehash: bd51be06e707674f3e35b3478d7f99d096be912a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.date: 05/12/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 48268af7ec4874d0e5c9ad3bb79a95307aba15b7
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718780"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110672173"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
@@ -153,6 +154,9 @@ Ahora debe permitir que el almacén de Recovery Services tenga acceso al almacé
 1. A continuación, seleccione **Agregar** para agregar la nueva directiva de acceso.
 
 1. Seleccione **Guardar** para guardar los cambios realizados en la directiva de acceso de Azure Key Vault.
+
+>[!NOTE] 
+>También puede asignar un rol RBAC al almacén de Recovery Services que contiene los permisos mencionados anteriormente, como el rol _[Agente criptográfico de Key Vault](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations)_ .<br><br>Estos roles pueden contener permisos adicionales distintos de los descritos anteriormente.
 
 ## <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Habilitación de la eliminación temporal y la protección de purga para Azure Key Vault
 

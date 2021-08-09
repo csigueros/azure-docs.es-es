@@ -4,35 +4,37 @@ description: Aprenda a montar un recurso compartido de archivos de Azure mediant
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/19/2019
+ms.date: 05/05/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4ace5620bf98b06956c294a12b6b08881422e718
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7e02d85fe5385b8918fbfdb037382aeeef444267
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952344"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088361"
 ---
 # <a name="use-azure-files-with-linux"></a>Uso de Azure Files con Linux
-[Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el [cliente kernel de SMB](https://wiki.samba.org/index.php/LinuxCIFS). En este artículo se muestran dos maneras de montar un recurso compartido de archivos de Azure: a petición, con el comando `mount` y al inicio, mediante la creación de una entrada en `/etc/fstab`.
+[Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el [cliente kernel de SMB](https://wiki.samba.org/index.php/LinuxCIFS).
 
-El método recomendado para montar un recurso compartido de archivos de Azure en Linux es usar SMB 3.0. De forma predeterminada, Azure Files requiere cifrado en tránsito, que solo es compatible con SMB 3.0. Azure Files también admite SMB 2.1, que no admite el cifrado en tránsito, pero no puede montar recursos compartidos de archivos de Azure con SMB 2.1 desde otra región de Azure o de forma local por motivos de seguridad. A menos que la aplicación requiera específicamente SMB 2.1, hay pocas razones para usarlo, ya que las distribuciones de Linux más populares publicadas recientemente admiten SMB 3.0:  
+Para montar un recurso compartido de archivos de Azure en Linux se recomienda usar SMB 3.1.1. De forma predeterminada, Azure Files requiere cifrado en tránsito, que solo se admite SMB 3.0, y en las versiones posteriores. Azure Files también admite SMB 2.1, que no admite el cifrado en tránsito, pero no puede montar recursos compartidos de archivos de Azure con SMB 2.1 desde otra región de Azure o de forma local por motivos de seguridad. Salvo que la aplicación requiera específicamente SMB 2.1, use SMB 3.1.1.
 
-| Distribución de Linux | SMB 2.1 <br>(Puede montar en máquinas virtuales dentro de la misma región de Azure) | SMB 3.0 <br>(Puede montar desde el nivel local a entre regiones) |
-| --- | :---: | :---: |
-| Ubuntu | 14.04+ | 16.04 (o posterior) |
-| Red Hat Enterprise Linux (RHEL) | 7 (o posterior) | 7.5 (o posterior) |
-| CentOS | 7 (o posterior) |  7.5 (o posterior) |
-| Debian | 8 (o posterior) | 10+ |
-| openSUSE | 13.2 (o posterior) | 42.3+ |
-| SUSE Linux Enterprise Server | 12+ | 12 SP2+ |
+| Distribución | SMB 3.1.1 | SMB 3.0 |
+|-|-----------|---------|
+| Versión del kernel de Linux | <ul><li>Compatibilidad básica con 3.1.1: 4.17</li><li>Montaje predeterminado: 5.0</li><li>Cifrado AES-128-GCM: 5.3</li></ul> | <ul><li>Compatibilidad básica con 3.0: 3.12</li><li>Cifrado AES-128-CCM: 4.11</li></ul> |
+| [Ubuntu](https://wiki.ubuntu.com/Releases) | Cifrado AES-128-GCM: 18.04.5 LTS+ | Cifrado AES-128-CCM: 16.04.4 LTS+ |
+| [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/articles/3078) | <ul><li>Básico: 8.0 (o posterior)</li><li>Montaje predeterminado: 8.2 (o posterior)</li><li>Cifrado AES-128-GCM: 8.2 (o posterior)</li></ul> | 7.5 (o posterior) |
+| [Debian](https://www.debian.org/releases/) | Básico: 10 (o posterior) | Cifrado AES-128-CCM: 10 (o posterior) |
+| [SUSE Linux Enterprise Server](https://www.suse.com/support/kb/doc/?id=000019587) | Cifrado AES-128-GCM: 15 SP2 (o posterior) | Cifrado AES-128-GCM: 12 SP2 (o posterior) |
 
-Si usa una distribución de Linux que no aparece en la tabla anterior, puede comprobar si la distribución de Linux admite SMB 3.0 con cifrado comprobando la versión de kernel de Linux. SMB 3.0 con cifrado se ha agregado a la versión 4.11 de kernel de Linux. El comando `uname` devolverá la versión de kernel de Linux en uso:
+Si la distribución de Linux no aparece en la tabla anterior, puede comprobar la versión del kernel de Linux con el comando `uname`:
 
 ```bash
 uname -r
 ```
+
+> [!Note]  
+> Se agregó compatibilidad con SMB 2.1 a la versión 3.7 del kernel de Linux. Si usa una versión del kernel de Linux posterior a la 3.7, debe ser compatible con SMB 2.1.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 <a id="smb-client-reqs"></a>
@@ -40,36 +42,37 @@ uname -r
 * <a id="install-cifs-utils"></a>**Asegúrese de que el paquete cifs-utils está instalado.**  
     El paquete cifs-utils se puede instalar con el administrador de paquetes en la distribución de Linux de su elección. 
 
-    En distribuciones de **Ubuntu** y **Debian**, use el administrador de paquetes `apt`:
+    En **Ubuntu** y **Debian**, use el administrador de paquetes `apt`:
 
     ```bash
     sudo apt update
     sudo apt install cifs-utils
     ```
 
-    En **Fedora**, **Red Hat Enterprise Linux 8 +**, y **CentOS 8 +**, use el administrador de paquetes `dnf`:
+    En **Red Hat Enterprise Linux más de 8 (o versiones posteriores)** , use el administrador de paquetes `dnf`:
 
     ```bash
     sudo dnf install cifs-utils
     ```
 
-    En las versiones anteriores de **Red Hat Enterprise Linux** y **CentOS**, use el administrador de paquetes `yum`:
+    En las versiones anteriores de **Red Hat Enterprise Linux**, use el administrador de paquetes `yum`:
 
     ```bash
     sudo yum install cifs-utils 
     ```
 
-    En **openSUSE**, use el administrador de paquetes `zypper`:
+    En **SUSE Linux Enterprise Server**, use el administrador de paquetes `zypper`:
 
     ```bash
     sudo zypper install cifs-utils
     ```
 
-    En otras distribuciones, use el administrador de paquetes apropiado o [compile desde el origen](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
+    En otras distribuciones, use el administrador de paquetes apropiado o [compile desde el origen](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **La versión más reciente de la interfaz de la línea de comandos (CLI).** Para más información sobre cómo instalar la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) y seleccione el sistema operativo. Si prefiere usar el módulo de Azure PowerShell en PowerShell 6+, puede hacerlo. Sin embargo, las instrucciones siguientes son para la CLI de Azure.
+* **La versión más reciente de la interfaz de la línea de comandos (CLI).** Para más información sobre cómo instalar la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) y seleccione el sistema operativo. Si prefiere usar el módulo de Azure PowerShell en PowerShell 6+, puede hacerlo. Sin embargo, las instrucciones de este artículo son para la CLI de Azure.
 
 * **Asegurarse de que el puerto 445 está abierto**: SMB se comunica a través del puerto TCP 445, así que compruebe que el firewall no bloquea el puerto TCP 445 en la máquina cliente.  Reemplace `<your-resource-group>` y `<your-storage-account>` y luego ejecute el siguiente script:
+
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -91,162 +94,213 @@ uname -r
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
-    Si no puede abrir el puerto 445 en su red corporativa o si un ISP le impide hacerlo, puede utilizar una conexión VPN o ExpressRoute para solucionar el puerto 445. Para más información, consulte [Consideraciones de red para el acceso directo a los recursos compartidos de archivos de Azure](storage-files-networking-overview.md).
+    Si no puede abrir el puerto 445 en su red corporativa o si un ISP le impide hacerlo, puede utilizar una conexión VPN o ExpressRoute para solucionar el puerto 445. Para más información, consulte [Consideraciones de redes para el acceso directo a los recursos compartidos de archivos de Azure](storage-files-networking-overview.md).
 
-## <a name="mounting-azure-file-share"></a>Montando el recurso compartido de archivos de Azure
-Para usar un recurso compartido de archivos de Azure con la distribución de Linux, debe crear un directorio para que sirva como punto de montaje para el recurso compartido de archivos de Azure. El punto de montaje se puede crear en cualquier parte del sistema de Linux, pero es habitual crearlo en /mount. Después del punto de montaje, use el comando `mount` para tener acceso al recurso compartido de archivos de Azure.
+## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montaje del recurso compartido de archivos de Azure a petición con mount
+Al montar un recurso compartido de archivos en un sistema operativo Linux, el recurso compartido de archivos remoto se representa como una carpeta en el sistema de archivos local. Los recursos compartidos de archivos se pueden montar en cualquier lugar del sistema. En el ejemplo siguiente el montaje se realiza en la ruta de acceso `/mount`. Para cambiarla por otra que desee, modifique la variable `$mntRoot`.
 
-Si lo desea, puede montar el mismo recurso compartido de archivos de Azure en varios puntos de montaje.
+Reemplace `<resource-group-name>`, `<storage-account-name>` y `<file-share-name>` por la información correcta para su entorno:
 
-### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montaje del recurso compartido de archivos de Azure a petición con `mount`
-1. **Cree una carpeta para un punto de montaje**: Reemplace `<your-resource-group>`, `<your-storage-account>` y `<your-file-share>` por la información correcta para su entorno:
+```bash
+resourceGroupName="<resource-group-name>"
+storageAccountName="<storage-account-name>"
+fileShareName="<file-share-name>"
 
-    ```bash
-    resourceGroupName="<your-resource-group>"
-    storageAccountName="<your-storage-account>"
-    fileShareName="<your-file-share>"
+mntRoot="/mount"
+mntPath="$mntRoot/$storageAccountName/$fileShareName"
 
-    mntPath="/mount/$storageAccountName/$fileShareName"
+sudo mkdir -p $mntPath
+```
 
-    sudo mkdir -p $mntPath
-    ```
+A continuación, monte el recurso compartido de archivos mediante el comando `mount`. En el siguiente ejemplo, el comando `$smbPath` se rellena con el nombre de dominio completo para el punto de conexión del archivo de la cuenta de almacenamiento y `$storageAccountKey` se rellena con la clave de la cuenta de almacenamiento. 
 
-1. **Use el comando siguiente para montar el recurso compartido de archivos de Azure**. En el ejemplo siguiente, el valor predeterminado de los permisos de archivo y carpeta de Linux es 0755, que significa lectura, escritura y ejecución para el propietario (según el propietario de Linux de archivo o directorio), lectura y ejecución para los usuarios en el grupo de propietarios y lectura y ejecución para otros en el sistema. Puede usar las opciones de montaje `uid` y `gid` para establecer el identificador de usuario y el identificador de grupo para el montaje. También puede usar `dir_mode` y `file_mode` para establecer permisos personalizados según sea necesario. Para obtener más información sobre cómo establecer permisos, consulte [notación numérica de UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) en Wikipedia. 
+# <a name="smb-311"></a>[SMB 3.1.1](#tab/smb311)
+> [!Note]  
+> A partir de la versión 5.0 del kernel de Linux, SMB 3.1.1 es el protocolo negociado predeterminado. Si usa una versión del kernel de Linux anterior a la 5.0, especifique `vers=3.1.1` en la lista de opciones de montaje.  
 
-    ```bash
-    # This command assumes you have logged in with az login
-    httpEndpoint=$(az storage account show \
-        --resource-group $resourceGroupName \
-        --name $storageAccountName \
-        --query "primaryEndpoints.file" | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+```bash
+# This command assumes you have logged in with az login
+httpEndpoint=$(az storage account show \
+    --resource-group $resourceGroupName \
+    --name $storageAccountName \
+    --query "primaryEndpoints.file" | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
-    storageAccountKey=$(az storage account keys list \
-        --resource-group $resourceGroupName \
-        --account-name $storageAccountName \
-        --query "[0].value" | tr -d '"')
+storageAccountKey=$(az storage account keys list \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --query "[0].value" | tr -d '"')
 
-    sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
-    ```
+sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino
+```
 
-    > [!Note]  
-    > El comando de montaje anterior se monta con SMB 3.0. Si la distribución de Linux no admite SMB 3.0 con cifrado o si solo admite SMB 2.1, solo puede montar desde una máquina virtual de Azure dentro de la misma región que la cuenta de almacenamiento. Para montar el recurso compartido de archivos de Azure en una distribución de Linux que no admita SMB 3.0 con cifrado, necesitará [deshabilitar el cifrado en tránsito para la cuenta de almacenamiento](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+# <a name="smb-30"></a>[SMB 3.0](#tab/smb30)
+```bash
+# This command assumes you have logged in with az login
+httpEndpoint=$(az storage account show \
+    --resource-group $resourceGroupName \
+    --name $storageAccountName \
+    --query "primaryEndpoints.file" | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
-Cuando haya terminado de usar el recurso compartido de archivos de Azure, puede usar `sudo umount $mntPath` para desmontarlo.
+storageAccountKey=$(az storage account keys list \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --query "[0].value" | tr -d '"')
 
-### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Creación de un punto de montaje persistente para el recurso compartido de archivos de Azure con `/etc/fstab`
-1. **Cree una carpeta para un punto de montaje**: la carpeta para el punto de montaje se puede crear en cualquier parte del sistema de archivos, pero es habitual crearla en la carpeta /mount. Por ejemplo, con el siguiente comando se crea un directorio; reemplace `<your-resource-group>`, `<your-storage-account>` y `<your-file-share>` por la información de su entorno correspondiente:
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
 
-    ```bash
-    resourceGroupName="<your-resource-group>"
-    storageAccountName="<your-storage-account>"
-    fileShareName="<your-file-share>"
+# <a name="smb-21"></a>[SMB 2.1](#tab/smb21)
+```bash
+# This command assumes you have logged in with az login
+httpEndpoint=$(az storage account show \
+    --resource-group $resourceGroupName \
+    --name $storageAccountName \
+    --query "primaryEndpoints.file" | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
-    mntPath="/mount/$storageAccountName/$fileShareName"
+storageAccountKey=$(az storage account keys list \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --query "[0].value" | tr -d '"')
 
-    sudo mkdir -p $mntPath
-    ```
+sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,password=$storageAccountKey,serverino
+```
 
-1. **Cree un archivo de credenciales para almacenar el nombre de usuario (el nombre de cuenta de almacenamiento) y la contraseña (la clave de cuenta de almacenamiento) para el recurso compartido de archivos.** 
+---
 
-    ```bash
-    if [ ! -d "/etc/smbcredentials" ]; then
-        sudo mkdir "/etc/smbcredentials"
-    fi
+Puede usar `uid`/`gid` o `dir_mode` y `file_mode` en las opciones de montaje del comando `mount` para establecer permisos. Para obtener más información sobre cómo establecer permisos, consulte [notación numérica de UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) en Wikipedia.
 
-    storageAccountKey=$(az storage account keys list \
-        --resource-group $resourceGroupName \
-        --account-name $storageAccountName \
-        --query "[0].value" | tr -d '"')
-    
-    smbCredentialFile="/etc/smbcredentials/$storageAccountName.cred"
-    if [ ! -f $smbCredentialFile ]; then
-        echo "username=$storageAccountName" | sudo tee $smbCredentialFile > /dev/null
-        echo "password=$storageAccountKey" | sudo tee -a $smbCredentialFile > /dev/null
-    else 
-        echo "The credential file $smbCredentialFile already exists, and was not modified."
-    fi
-    ```
+Si lo desea, también puede montar el mismo recurso compartido de archivos de Azure en varios puntos de montaje. Cuando haya terminado de usar el recurso compartido de archivos de Azure, use `sudo umount $mntPath` para desmontarlo.
 
-1. **Cambie los permisos en el archivo de credenciales para que solo la raíz pueda leer o modificar el archivo de contraseña.** Puesto que la clave de la cuenta de almacenamiento es básicamente una contraseña de superadministrador para la cuenta de almacenamiento, el establecimiento de los permisos en el archivo de forma que solo la raíz pueda acceder a ella es importante para que los usuarios con privilegios reducidos no puedan recuperarla.   
+## <a name="automatically-mount-file-shares"></a>Montaje automático de recursos compartidos de archivos
+Al montar un recurso compartido de archivos en un sistema operativo Linux, el recurso compartido de archivos remoto se representa como una carpeta en el sistema de archivos local. Los recursos compartidos de archivos se pueden montar en cualquier lugar del sistema. En el ejemplo siguiente el montaje se realiza en la ruta de acceso `/mount`. Para cambiarla por otra que desee, modifique la variable `$mntRoot`.
 
-    ```bash
-    sudo chmod 600 $smbCredentialFile
-    ```
+```bash
+mntRoot="/mount"
+sudo mkdir -p $mntRoot
+```
 
-1. **Use el siguiente comando para anexar la siguiente línea a `/etc/fstab`** : En el ejemplo siguiente, el valor predeterminado de los permisos de archivo y carpeta de Linux es 0755, que significa lectura, escritura y ejecución para el propietario (según el propietario de Linux de archivo o directorio), lectura y ejecución para los usuarios en el grupo de propietarios y lectura y ejecución para otros en el sistema. Puede usar las opciones de montaje `uid` y `gid` para establecer el identificador de usuario y el identificador de grupo para el montaje. También puede usar `dir_mode` y `file_mode` para establecer permisos personalizados según sea necesario. Para obtener más información sobre cómo establecer permisos, consulte [notación numérica de UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) en Wikipedia.
+Para montar un recurso compartido de archivos de Azure en Linux, use el nombre de la cuenta de almacenamiento como nombre de usuario del recurso compartido de archivos y la clave de la cuenta de almacenamiento como contraseña. Dado que las credenciales de la cuenta de almacenamiento pueden cambiar con el tiempo, deben almacenarse por separado de la configuración de montaje. 
 
-    ```bash
-    # This command assumes you have logged in with az login
-    httpEndpoint=$(az storage account show \
-        --resource-group $resourceGroupName \
-        --name $storageAccountName \
-        --query "primaryEndpoints.file" | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+En el ejemplo siguiente se muestra cómo crear un archivo para almacenar las credenciales. No olvide reemplazar `<resource-group-name>` y `<storage-account-name>` por la información correcta para su entorno.
 
-    if [ -z "$(grep $smbPath\ $mntPath /etc/fstab)" ]; then
-        echo "$smbPath $mntPath cifs nofail,vers=3.0,credentials=$smbCredentialFile,serverino" | sudo tee -a /etc/fstab > /dev/null
-    else
-        echo "/etc/fstab was not modified to avoid conflicting entries as this Azure file share was already present. You may want to double check /etc/fstab to ensure the configuration is as desired."
-    fi
+```bash
+resourceGroupName="<resource-group-name>"
+storageAccountName="<storage-account-name>"
 
-    sudo mount -a
-    ```
-    
-    > [!Note]  
-    > El comando de montaje anterior se monta con SMB 3.0. Si la distribución de Linux no admite SMB 3.0 con cifrado o si solo admite SMB 2.1, solo puede montar desde una máquina virtual de Azure dentro de la misma región que la cuenta de almacenamiento. Para montar el recurso compartido de archivos de Azure en una distribución de Linux que no admita SMB 3.0 con cifrado, necesitará [deshabilitar el cifrado en tránsito para la cuenta de almacenamiento](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+# Create a folder to store the credentials for this storage account and
+# any other that you might set up.
+credentialRoot="/etc/smbcredentials"
+sudo mkdir -p "/etc/smbcredentials"
 
-### <a name="using-autofs-to-automatically-mount-the-azure-file-shares"></a>Uso de autofs para montar automáticamente los recursos compartidos de archivos de Azure
+# Get the storage account key for the indicated storage account.
+# You must be logged in with az login and your user identity must have 
+# permissions to list the storage account keys for this command to work.
+storageAccountKey=$(az storage account keys list \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --query "[0].value" | tr -d '"')
 
-1. **Asegúrese de que el paquete autofs está instalado**.  
+# Create the credential file for this individual storage account
+smbCredentialFile="$credentialRoot/$storageAccountName.cred"
+if [ ! -f $smbCredentialFile ]; then
+    echo "username=$storageAccountName" | sudo tee $smbCredentialFile > /dev/null
+    echo "password=$storageAccountKey" | sudo tee -a $smbCredentialFile > /dev/null
+else 
+    echo "The credential file $smbCredentialFile already exists, and was not modified."
+fi
 
-    El paquete autofs se puede instalar con el administrador de paquetes en la distribución de Linux de su elección. 
+# Change permissions on the credential file so only root can read or modify the password file.
+sudo chmod 600 $smbCredentialFile
+```
 
-    En distribuciones de **Ubuntu** y **Debian**, use el administrador de paquetes `apt`:
-    ```bash
-    sudo apt update
-    sudo apt install autofs
-    ```
-    En **Fedora**, **Red Hat Enterprise Linux 8 +**, y **CentOS 8 +**, use el administrador de paquetes `dnf`:
-    ```bash
-    sudo dnf install autofs
-    ```
-    En las versiones anteriores de **Red Hat Enterprise Linux** y **CentOS**, use el administrador de paquetes `yum`:
-    ```bash
-    sudo yum install autofs 
-    ```
-    En **openSUSE**, use el administrador de paquetes `zypper`:
-    ```bash
-    sudo zypper install autofs
-    ```
-2. **Cree un punto de montaje para los recursos compartidos**:
-   ```bash
-    sudo mkdir /fileshares
-    ```
-3. **Cree un archivo de configuración de autofs personalizado**.
-    ```bash
-    sudo vi /etc/auto.fileshares
-    ```
-4. **Agregue las siguientes entradas a /etc/auto.fileshares**.
-   ```bash
-   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
-   ```
-5. **Agregue la siguiente entrada a /etc/auto.master**.
-   ```bash
-   /fileshares /etc/auto.fileshares --timeout=60
-   ```
-6. **Reinicie autofs**.
-    ```bash
-    sudo systemctl restart autofs
-    ```
-7.  **Acceda a la carpeta designada para el recurso compartido**.
-    ```bash
-    cd /fileshares/$filesharename
-    ```
+Para montar automáticamente un recurso compartido de archivos, puede elegir entre usar un montaje estático a través de la utilidad `/etc/fstab` o un montaje dinámico a través de la utilidad `autofs`. 
+
+### <a name="static-mount-with-etcfstab"></a>Montaje estático con /etc/fstab
+Utilice el entorno anterior para crear una carpeta para su cuenta de almacenamiento o recurso compartido de archivos en la carpeta de montaje. Reemplace `<file-share-name>` por el nombre adecuado del recurso compartido de archivos de Azure.
+
+```bash
+fileShareName="<file-share-name>"
+
+mntPath="$mntRoot/$storageAccountName/$fileShareName"
+sudo mkdir -p $mntPath
+```
+
+Por último, cree un registro en el archivo `/etc/fstab` para el recurso compartido de archivos de Azure. En el comando siguiente, se usa el valor predeterminado de los permisos de archivo y carpeta de Linux, 0755, lo que significa lectura, escritura y ejecución para el propietario (según el propietario de Linux de archivo o directorio), lectura y ejecución para los usuarios en el grupo de propietarios y lectura y ejecución para otros en el sistema. Es posible que desee establecer los permisos `uid` y `gid`, o `dir_mode` y `file_mode` alternativos en el montaje según sea necesario. Para obtener más información sobre cómo establecer permisos, consulte [notación numérica de UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) en Wikipedia.
+
+```bash
+httpEndpoint=$(az storage account show \
+    --resource-group $resourceGroupName \
+    --name $storageAccountName \
+    --query "primaryEndpoints.file" | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+
+if [ -z "$(grep $smbPath\ $mntPath /etc/fstab)" ]; then
+    echo "$smbPath $mntPath cifs nofail,credentials=$smbCredentialFile,serverino" | sudo tee -a /etc/fstab > /dev/null
+else
+    echo "/etc/fstab was not modified to avoid conflicting entries as this Azure file share was already present. You may want to double check /etc/fstab to ensure the configuration is as desired."
+fi
+
+sudo mount -a
+```
+
+> [!Note]  
+> A partir de la versión 5.0 del kernel de Linux, SMB 3.1.1 es el protocolo negociado predeterminado. Puede especificar versiones alternativas del protocolo mediante la opción de montaje `vers` (las versiones de protocolo son `3.1.1`, `3.0` y `2.1`).
+
+### <a name="dynamically-mount-with-autofs"></a>Montaje dinámico con autofs
+Para montar dinámicamente un recurso compartido de archivos con la utilidad `autofs`, instálelo mediante el administrador de paquetes en la distribución de Linux que prefiera.  
+
+En las distribuciones de **Ubuntu** y **Debian**, use el administrador de paquetes `apt`:
+
+```bash
+sudo apt update
+sudo apt install autofs
+```
+
+En **Red Hat Enterprise Linux 8 (o versiones posteriores)** , use el administrador de paquetes `dnf`:
+```bash
+sudo dnf install autofs
+```
+
+En las versiones anteriores de **Red Hat Enterprise Linux**, use el administrador de paquetes `yum`:
+
+```bash
+sudo yum install autofs 
+```
+
+En **SUSE Linux Enterprise Server**, use el administrador de paquetes `zypper`:
+```bash
+sudo zypper install autofs
+```
+
+A continuación, actualice los archivos de configuración `autofs`. 
+
+```bash
+fileShareName="<file-share-name>"
+
+httpEndpoint=$(az storage account show \
+    --resource-group $resourceGroupName \
+    --name $storageAccountName \
+    --query "primaryEndpoints.file" | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+
+echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath" > /etc/auto.fileshares
+
+echo "/fileshares /etc/auto.fileshares --timeout=60" > /etc/auto.master
+```
+
+El último paso es reiniciar el servicio `autofs`.
+
+```bash
+sudo systemctl restart autofs
+```
+
 ## <a name="securing-linux"></a>Protección de Linux
-Para montar un recurso compartido de archivos de Azure en Linux, el puerto 445 debe estar accesible. Muchas organizaciones bloquean este puerto debido a los riesgos de seguridad inherentes a SMB 1. SMB 1, también conocido como CIFS (Sistema de archivos de Internet común), es un protocolo de sistema de archivos heredado que se incluye en muchas distribuciones de Linux. SMB 1 es un protocolo obsoleto, ineficaz y, lo más importante, no seguro. La buena noticia es que Azure Files no es compatible con SMB 1 y, a partir de la versión 4.18 del kernel de Linux, Linux hace posible deshabilitar SMB 1. Siempre [recomendamos encarecidamente](https://aka.ms/stopusingsmb1) deshabilitar SMB 1 en los clientes Linux antes de usar recursos compartidos de archivos SMB en producción.
+Para montar un recurso compartido de archivos de Azure con SMB se debe poder acceder al puerto 445. Muchas organizaciones bloquean este puerto debido a los riesgos de seguridad inherentes a SMB 1. SMB 1, también conocido como CIFS (Sistema de archivos de Internet común), es un protocolo de sistema de archivos heredado que se incluye en muchas distribuciones de Linux. SMB 1 es un protocolo obsoleto, ineficaz y, lo más importante, no seguro. La buena noticia es que Azure Files no es compatible con SMB 1 y, a partir de la versión 4.18 del kernel de Linux, Linux hace posible deshabilitar SMB 1. Siempre [recomendamos encarecidamente](https://aka.ms/stopusingsmb1) deshabilitar SMB 1 en los clientes Linux antes de usar recursos compartidos de archivos SMB en producción.
 
-A partir del kernel de Linux 4.18, el módulo de kernel de SMB, denominado `cifs` por motivos de herencia, expone un nuevo parámetro de módulo (a menudo conocido como *parm* en diversos documentos externos), denominado `disable_legacy_dialects`. Aunque se presentó en el kernel de Linux 4.18, algunos proveedores han trasladado este cambio a los kernels más antiguos que admiten. Para mayor comodidad, en la tabla siguiente se detalla la disponibilidad de este parámetro de módulo en distribuciones de Linux comunes.
+A partir del kernel de Linux 4.18, el módulo de kernel de SMB, denominado `cifs` por motivos de herencia, expone un nuevo parámetro de módulo (a menudo conocido como *parm* de diversos documentos externos), denominado `disable_legacy_dialects`. Aunque se presentó en el kernel de Linux 4.18, algunos proveedores han trasladado este cambio a los kernels más antiguos que admiten. Para mayor comodidad, en la tabla siguiente se detalla la disponibilidad de este parámetro de módulo en distribuciones de Linux comunes.
 
 | Distribución | Puede deshabilitar SMB 1 |
 |--------------|-------------------|

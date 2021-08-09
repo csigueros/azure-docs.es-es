@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2021
+ms.date: 05/11/2021
 ms.author: yelevin
-ms.openlocfilehash: 64c921f1ad401baaf12b1545bfc2bdda54ab3444
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: a706704365731d5f5ba157837269a90dbcb12e18
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109664391"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810307"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificación de amenazas avanzadas con el Análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel
 
 > [!IMPORTANT]
 >
 > - Las características de UEBA y de las páginas de entidad ahora están en **disponibilidad general** en **_todas_** las zonas geográficas y regiones de Azure Sentinel.
+>
+> - La **entidad de dirección IP** se encuentra actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>¿Qué es el Análisis de comportamiento de usuarios y entidades (UEBA)?
 
@@ -70,14 +72,17 @@ Consulte cómo se usa el análisis de comportamiento en [Microsoft Cloud App Sec
 
 Descubra más sobre las [entidades en Azure Sentinel](entities-in-azure-sentinel.md) y vea la lista completa de las [entidades e identificadores admitidos](entities-reference.md).
 
-Cuando se encuentra cualquier entidad (actualmente limitada a usuarios y hosts) en una búsqueda, una alerta o una investigación, puede seleccionar la entidad y llevarla a una **página de entidad**, una hoja de datos llena de información útil sobre esa entidad. Entre los tipos de información que encontrará en esta página se incluyen datos básicos sobre la entidad, una escala de tiempo de eventos importantes relacionados con esta entidad y conclusiones sobre el comportamiento de la entidad.
+Si encuentra una entidad de usuario o de host (las entidades de dirección IP están en versión preliminar) en una búsqueda de entidades, una alerta o una investigación, puede seleccionar la entidad y se le dirigirá a una **página de la entidad**, una hoja de datos llena de información útil acerca de la entidad. Entre los tipos de información que encontrará en esta página se incluyen datos básicos sobre la entidad, una escala de tiempo de eventos importantes relacionados con esta entidad y conclusiones sobre el comportamiento de la entidad.
  
 Las páginas de entidad constan de tres partes:
-- El panel de la izquierda contiene la información de identificación de la entidad, recopilada de los orígenes de datos, como Azure Active Directory, Azure Monitor, Azure Security Center y Microsoft Defender.
+- El panel de la izquierda contiene información de identificación de la entidad, recopilada de orígenes de datos como Azure Active Directory, Azure Monitor, Azure Defender, CEF/Syslog y Microsoft 365 Defender.
 
-- En el panel central se muestra una escala de tiempo gráfica y textual de eventos importantes relacionados con la entidad, como alertas, marcadores y actividades. Las actividades son agregaciones de eventos importantes desde Log Analytics. Los equipos de investigación de seguridad de Microsoft desarrollan las consultas que detectan esas actividades.
+- En el panel central se muestra una escala de tiempo gráfica y textual de eventos importantes relacionados con la entidad, como alertas, marcadores y actividades. Las actividades son agregaciones de eventos importantes desde Log Analytics. Las consultas que detectan esas actividades las desarrollan los equipos de investigación de seguridad de Microsoft y ahora puede [agregar sus propias consultas personalizadas para detectar las actividades](customize-entity-activities.md) que elija. 
 
 - En el panel derecho se muestran conclusiones de comportamiento sobre la entidad. Estas conclusiones ayudan a detectar rápidamente las anomalías y las amenazas de seguridad. Los equipos de investigación de seguridad de Microsoft desarrollan las conclusiones, que se basan en los modelos de detección de anomalías.
+
+> [!NOTE]
+> La **página de entidad de dirección IP** (ahora en versión preliminar) contiene **datos de geolocalización** proporcionados por el **servicio de inteligencia sobre amenazas de Microsoft**. Este servicio combina datos de geolocalización tanto de soluciones de Microsoft como de proveedores y asociados de terceros. Posteriormente, los datos están disponibles para su análisis e investigación en el contexto de un incidente de seguridad.
 
 ### <a name="the-timeline"></a>Escala de tiempo
 
@@ -93,8 +98,8 @@ En la escala de tiempo se incluyen los siguientes tipos de elementos:
 
 - Marcadores: marcadores que incluyen la entidad específica que se muestra en la página.
 
-- Actividades: agregación de eventos importantes relacionados con la entidad. 
- 
+- Actividades: agregación de eventos importantes relacionados con la entidad. Una amplia variedad de actividades se recopilan automáticamente y ahora puede [personalizar esta sección agregando las actividades](customize-entity-activities.md) que prefiera.
+
 ### <a name="entity-insights"></a>Conclusiones sobre la entidad
  
 Las conclusiones sobre la entidad son consultas definidas por los investigadores de seguridad de Microsoft para ayudar a los analistas a investigar de manera más eficiente y eficaz. Las conclusiones se presentan como parte de la página de entidad y proporcionan información de seguridad valiosa sobre los hosts y los usuarios, en forma de gráficos y datos tabulares. Disponer aquí de la información significa que no tiene que desplazarse a Log Analytics. Las conclusiones incluyen datos sobre inicios de sesión, adiciones a grupos, eventos anómalos, etc., así como algoritmos avanzados de Azure Machine Learning para detectar comportamientos anómalos. 
@@ -108,6 +113,7 @@ Las conclusiones se basan en los siguientes orígenes de datos:
 - BehaviorAnalytics (Azure Sentinel UEBA)
 - Heartbeat (agente de Azure Monitor)
 - CommonSecurityLog (Azure Sentinel)
+- ThreatIntelligenceIndicators (Azure Sentinel)
 
 ### <a name="how-to-use-entity-pages"></a>Cómo usar páginas de entidad
 
@@ -115,7 +121,7 @@ Las páginas de entidad están diseñadas para formar parte de varios escenarios
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Casos de uso de páginas de entidad":::
 
-Para más información sobre los datos que se muestran en la tabla **Análisis de comportamiento de entidades**, consulte [Referencia de características enriquecidas de UEBA de Azure Sentinel](ueba-enrichments.md).
+La información de la página de entidad se almacena en la tabla **BehaviorAnalytics**, que se describe en detalle en la [referencia de enriquecimientos UEBA de Azure Sentinel](ueba-enrichments.md).
 
 ## <a name="querying-behavior-analytics-data"></a>Consulta de datos de análisis de comportamiento
 

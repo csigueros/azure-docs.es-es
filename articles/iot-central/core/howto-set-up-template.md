@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 8d51297b353a72861f864e42bf87cad4f1a712b3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d2754200cb41114aafbe1bea2b511ed743280b88
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108747204"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061199"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
 
@@ -82,9 +82,11 @@ Para crear una plantilla de dispositivo en IoT Central:
 
 ## <a name="manage-a-device-template"></a>Administración de una plantilla de dispositivo
 
-Puede cambiar el nombre o eliminar una plantilla desde la página principal de la plantilla.
+Puede cambiar el nombre o eliminar una plantilla desde la página del editor de la plantilla.
 
-Después de agregar un modelo de dispositivo a la plantilla, puede publicarlo. No se puede conectar un dispositivo basado en esta plantilla para que los operadores puedan verlo en la página **Dispositivos** hasta que se haya publicado la plantilla.
+Después de definir la plantilla, puede publicarla. Hasta que se publique la plantilla, no podrá conectar un dispositivo a ella y no aparecerá en la página **Dispositivos**.
+
+Para más información sobre cómo modificar plantillas de dispositivo, consulte [Edición de una plantilla de dispositivo existente](howto-edit-device-template.md).
 
 ## <a name="create-a-capability-model"></a>Creación de un modelo de funcionalidad
 
@@ -171,6 +173,7 @@ En la tabla siguiente se muestran las opciones de configuración de una funciona
 | Display Name (Nombre para mostrar) | Nombre para mostrar del comando que se usa en las vistas y formularios. |
 | Nombre | El nombre del comando. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. Este campo debe ser alfanumérico. |
 | Capability Type (Tipo de funcionalidad) | Comando. |
+| Queue if offline (poner en cola si no hay conexión) | Si está habilitado, puede llamar al comando aunque el dispositivo esté sin conexión. Si no está habilitado, solo puede llamar al comando cuando el dispositivo esté en línea. |
 | Comentario | Cualquier comentario sobre la funcionalidad del comando. |
 | Descripción | Una descripción de la funcionalidad del comando: |
 | Solicitud | Si está habilitada, una definición del parámetro de solicitud que incluye lo siguiente: nombre, nombre para mostrar, esquema, unidad y unidad de visualización. |
@@ -195,9 +198,11 @@ Los mensajes de la nube al dispositivo:
 
 ## <a name="manage-a-component"></a>Administración de componentes
 
-Si no ha publicado el componente, podrá editar las funcionalidades que define este. Después de publicar el componente, si desea realizar cualquier cambio, deberá crear una nueva versión de la plantilla del dispositivo y [controlar la versión](howto-version-device-template.md) del componente. Los cambios que no requieren el control de versiones, como nombres para mostrar o unidades, se pueden realizar en la sección **Personalizar**.
+Los componentes se usan para ensamblar una plantilla de dispositivo desde otras interfaces. Por ejemplo, la plantilla de dispositivo para un controlador de temperatura puede incluir varios componentes de termostato. Los componentes se pueden editar directamente en la plantilla de dispositivo, o bien se pueden exportar e importar como archivos JSON. Los dispositivos pueden interactuar con las instancias de los componentes. Por ejemplo, un dispositivo con dos termostatos puede enviar datos de telemetría desde cada uno de ellos para separar los componentes de la aplicación de IoT Central.
 
-También puede exportar el componente como un archivo JSON si desea reutilizarlo en otro modelo de funcionalidad.
+## <a name="inheritance"></a>Herencia
+
+Cualquier interfaz se puede extender mediante la herencia. Use la herencia para agregar funcionalidades a las interfaces existentes. Las interfaces heredadas son transparentes para los dispositivos.
 
 ## <a name="add-cloud-properties"></a>Adición de propiedades de nube
 
@@ -214,13 +219,7 @@ En la tabla siguiente se muestran las opciones de configuración de una propieda
 
 ## <a name="add-customizations"></a>Adición de personalizaciones
 
-Use las personalizaciones cuando necesite modificar un componente importado o agregar características específicas de IoT Central a una funcionalidad. Y solo se pueden personalizar aquellos que no interrumpan la compatibilidad del componente. Por ejemplo, puede:
-
-- Personalizar el nombre para mostrar y las unidades de una funcionalidad.
-- Agregar un color predeterminado para usarlo cuando el valor aparezca en un gráfico.
-- Especificar los valores inicial, mínimo y máximo de una propiedad.
-
-No se puede personalizar el tipo o el nombre de la funcionalidad. Si hay cambios que no se pueden realizar en la sección **Customize** (Personalizar), deberá crear una versión de la plantilla de dispositivo y el componente para modificar la funcionalidad.
+Use las personalizaciones cuando necesite modificar un componente importado o agregar características específicas de IoT Central a una funcionalidad. Puede personalizar cualquier parte de las funcionalidades de una plantilla de dispositivo existente.
 
 ### <a name="generate-default-views"></a>Generación de vistas predeterminadas
 
@@ -274,7 +273,7 @@ Para agregar un formulario a una plantilla de dispositivo:
 
 Antes de poder conectar un dispositivo que implementa el modelo de dispositivo, debe publicar la plantilla del dispositivo.
 
-Después de publicar una plantilla de dispositivo, solo puede realizar cambios limitados en el modelo de dispositivo. Para modificar un componente, debe [crear y publicar una nueva versión](./howto-version-device-template.md).
+Para más información sobre cómo modificar una plantilla de dispositivo después de publicarla, consulte [Edición de una plantilla de dispositivo existente](howto-edit-device-template.md).
 
 Para publicar una plantilla de dispositivo, vaya a su plantilla de dispositivo y seleccione **Publicar**.
 
@@ -282,4 +281,4 @@ Después de publicar una plantilla de dispositivo, el operador puede ir a la pá
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Un próximo paso sugerido es leer sobre [control de versiones de plantilla de dispositivo](./howto-version-device-template.md).
+Como sugerencia, lea cómo [realizar cambios en una plantilla de dispositivo existente](howto-edit-device-template.md).

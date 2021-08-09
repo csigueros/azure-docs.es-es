@@ -2,13 +2,13 @@
 title: Azure Blob Storage como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Blob Storage con Azure Event Grid.
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: 909b70c65704d798bf0446732959f50b179c4bca
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.date: 05/12/2021
+ms.openlocfilehash: 37637a486bd80e9d0018495e6fd4713bab36e8ff
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073276"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541962"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Azure Blob Storage como origen de Event Grid
 
@@ -29,11 +29,9 @@ Estos eventos se desencadenan cuando un cliente crea, reemplaza o elimina un blo
 
  |Nombre del evento |Descripción|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Se desencadena cuando se crea o se sustituye un blob. <br>En concreto, este evento se desencadena cuando los clientes usan las operaciones `PutBlob`, `PutBlockList` o `CopyBlob` que están disponibles en la API REST de Blob.   |
+ |**Microsoft.Storage.BlobCreated** |Se desencadena cuando se crea o se sustituye un blob. <br>En concreto, este evento se desencadena cuando los clientes usan las operaciones `PutBlob`, `PutBlockList` o `CopyBlob`, que están disponibles en la API REST del blob **y** cuando el blob en bloques se confirma por completo. <br>Si los clientes usan la operación `CopyBlob` en cuentas que tienen habilitada la característica de **espacio de nombres jerárquico**, la operación `CopyBlob` funciona de forma algo distinta. En ese caso, el evento **Microsoft.Storage.BlobCreated** se desencadena cuando se **inicia** la operación `CopyBlob` y no cuando el blob en bloques se confirma por completo.   |
  |**Microsoft.Storage.BlobDeleted** |Se desencadena cuando se elimina un blob. <br>En concreto, este evento se desencadena cuando los clientes usan la operación `DeleteBlob` que está disponibles en la API REST de Blob. |
-
-> [!NOTE]
-> En el caso de **Azure Blob Storage**, si quiere asegurarse de que el evento **Microsoft.Storage.BlobCreated** se desencadena únicamente cuando un blob en bloques está completamente confirmado, filtre el evento para las llamadas de API REST `CopyBlob`, `PutBlob` y `PutBlockList`. Estas llamadas API desencadenan el evento **Microsoft.Storage.BlobCreated** únicamente después de que los datos se hayan confirmado en un blob en bloques. Para información sobre cómo crear un filtro, consulte [Filtrado de eventos para Event Grid](./how-to-filter-events.md).
+ |**Microsoft.Storage.BlobTierChanged** |Se desencadena cuando se cambia el nivel de acceso de blob. En concreto, cuando los clientes llaman a la operación `Set Blob Tier` que está disponible en la API REST de blob, este evento se desencadena una vez que se completa el cambio de nivel. |
 
 ### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Lista de los eventos para las API REST de Azure Data Lake Storage Gen 2
 
@@ -184,6 +182,33 @@ Si la cuenta de almacenamiento de blobs tiene un espacio de nombres jerárquico,
   "dataVersion": "2",
   "metadataVersion": "1"
 }]
+```
+
+### <a name="microsoftstorageblobtierchanged-event"></a>Evento Microsoft.Storage.BlobTierChanged
+
+```json
+{
+    "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+    "subject": "/blobServices/default/containers/testcontainer/blobs/Auto.jpg",
+    "eventType": "Microsoft.Storage.BlobTierChanged",
+    "id": "0fdefc06-b01e-0034-39f6-4016610696f6",
+    "data": {
+        "api": "SetBlobTier",
+        "clientRequestId": "68be434c-1a0d-432f-9cd7-1db90bff83d7",
+        "requestId": "0fdefc06-b01e-0034-39f6-401661000000",
+        "contentType": "image/jpeg",
+        "contentLength": 105891,
+        "blobType": "BlockBlob",
+        "url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
+        "sequencer": "000000000000000000000000000089A4000000000018d6ea",
+        "storageDiagnostics": {
+            "batchId": "3418f7a9-7006-0014-00f6-406dc6000000"
+        }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "eventTime": "2021-05-04T15:00:00.8350154Z"
+}
 ```
 
 ### <a name="microsoftstorageblobrenamed-event"></a>Evento Microsoft.Storage.BlobRenamed

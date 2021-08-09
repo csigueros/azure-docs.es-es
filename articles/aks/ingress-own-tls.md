@@ -5,12 +5,12 @@ description: Aprenda a instalar y configurar un controlador de entrada NGINX que
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: 0f10edc6683889489df719d92ff44c8c0fff2f66
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: 91c6c64d5aecf9bd4ce7b4b700ead03e23cd9b9f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108007437"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452351"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada HTTPS y uso de sus propios certificados TLS en Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,9 @@ También puede:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Este artículo usa [Helm 3][helm] para instalar el controlador de entrada NGINX. Asegúrese de que usa la versión más reciente de Helm y de que tiene acceso al repositorio de Helm *ingress-nginx*. Para instrucciones de actualización, consulte la [documentación de instalación de Helm][helm-install]. Para obtener más información sobre cómo configurar y usar Helm, consulte [Instalación de aplicaciones con Helm en Azure Kubernetes Service (AKS)][use-helm].
+En este artículo se usa [Helm 3][helm] para instalar el controlador de entrada NGINX en [una versión de Kubernetes compatible][versiones admitidas por AKS]. Asegúrese de usar la versión más reciente de Helm y de tener acceso al repositorio *ingress-nginx* de Helm. Es posible que los pasos descritos en este artículo no sean compatibles con versiones anteriores del gráfico de Helm, el controlador de entrada NGINX o Kubernetes.
+
+Para obtener más información sobre cómo configurar y usar Helm, consulte [Instalación de aplicaciones con Helm en Azure Kubernetes Service (AKS)][use-helm].
 
 En este artículo también se requiere que ejecute la versión 2.0.64 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 

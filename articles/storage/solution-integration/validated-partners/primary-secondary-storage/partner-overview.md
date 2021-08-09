@@ -4,16 +4,16 @@ titleSuffix: Azure Storage
 description: Asociados de Microsoft que crean soluciones de cliente de almacenamiento principal y secundario con Azure Storage
 author: beber-msft
 ms.author: beber
-ms.date: 04/12/2021
+ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 8efcc6b9837596175a8bcf9a0a7b159f0560cff0
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 378c7ea828d6e0ff1a08ad5e5888af5b634b94ab
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486096"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838216"
 ---
 # <a name="azure-storage-partners-for-primary-and-secondary-storage"></a>Asociados de Azure Storage para el almacenamiento principal y secundario
 
@@ -28,6 +28,7 @@ En este artículo se destacan las empresas asociadas de Microsoft que ofrecen un
 | ![Pure Storage](./media/pure-logo.png) |**Pure Storage**<br>Pure ofrece una experiencia de datos moderna que permite a las organizaciones llevar a cabo sus operaciones como un verdadero modelo automatizado de almacenamiento como servicio sin problemas en múltiples nubes.|[Página de asociado](https://www.purestorage.com/company/technology-partners/microsoft.html)<br>[Vídeo de la solución](https://azure.microsoft.com/resources/videos/pure-storage-overview)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/purestoragemarketplaceadmin.cbs_license_offer)|
 | ![Scality](./media/scality-logo.png) |**Scality**<br>La escalabilidad crea una plataforma de objetos y archivos definida por software diseñada para entornos locales, híbridos y de varias nubes. La integración de Scality con Azure Blob Storage permite a las empresas administrar y proteger sus datos entre los entornos locales y Azure, así como satisfacer la demanda de cargas de trabajo de archivos de alto rendimiento basadas en la nube. |[Página de asociado](https://www.scality.com/partners/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/scality.scalityconnecthourly?tab=Overview)|
 | ![Logotipo de la empresa Tiger Technology](./media/tiger-logo.png) |**Tiger Technology**<br>Tiger Technology ofrece soluciones de software de administración de datos seguras y de alto rendimiento. Además, permite que organizaciones de cualquier tamaño administren sus recursos digitales en un entorno local, en cualquier nube pública o a través de un modelo híbrido. <br><br> Tiger Bridge es un sistema de administración de datos y almacenamiento no patentado y basado en software. Combina el almacenamiento en el entorno local y en la nube de varios niveles en un único espacio y permite flujos de trabajo híbridos. Esta extensión del servidor de archivos transparente le permite beneficiarse de la escala y los servicios de Azure, a la vez que conserva las aplicaciones y los flujos de trabajo heredados. Tiger Bridge aborda una serie de retos de administración de datos, como la extensión del servidor de archivos, la recuperación ante desastres, la migración a la nube, la copia de seguridad y el archivado, la colaboración remota y la sincronización de varios sitios, así como la protección continua de datos. |[Página de asociado](https://www.tiger-technology.com/partners/microsoft-azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tiger-technology.tigerbridge_vm)|
+| ![Logotipo de la empresa XenData](./media/xendata-logo.png) |**XenData**<br>El software de XenData crea sistemas de almacenamiento de niveles múltiples que administran archivos y carpetas tanto en el almacenamiento local como en Azure Blob Storage. El software XenData Multi-Site Sync crea un sistema de archivos global para equipos distribuidos, lo que les permite compartir y sincronizar archivos en varias ubicaciones. Las soluciones en la nube de XenData están optimizadas para archivos de vídeo, lo que admite el streaming de vídeo y la restauración parcial de archivos. Se integran con muchos productos de software complementarios que se usan en el sector multimedia y de entretenimiento, y admiten una gran variedad de flujos de trabajo. Estos son otros sectores y aplicaciones que usan las soluciones de XenData: petróleo y gas, ingeniería y datos científicos, video vigilancia e imágenes médicas. |[Página de asociado](https://xendata.com/tech_partners_cloud/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/xendata-inc.sol-15118-gyy?tab=Overview)|
 
 ¿Es asociado de almacenamiento pero su solución aún no aparece en la lista? Envíenos su información [aquí](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUQjY4QlJYUzFHQ0ZBVDNYWERaUlNRVU5IMyQlQCN0PWcu).
 ## <a name="next-steps"></a>Pasos siguientes

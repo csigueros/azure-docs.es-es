@@ -7,22 +7,25 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: 2de9be37b8f5398bc6774e9b55ee96483b29b078
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/26/2021
+ms.openlocfilehash: 6289a142e98b347f3295b8961ee1518ce8499eb4
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759621"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110539498"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novedades de Azure Sentinel
 
 En este artículo se enumeran las características que se han agregado recientemente a Azure Sentinel y las nuevas características de servicios relacionados que proporcionan una experiencia de usuario mejorada en Azure Sentinel.
 
-Para más información sobre las características anteriores, consulte los [blogs de Tech Community](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
+Si busca elementos de más de 6 meses, puede encontrarlos en las [Archivo de novedades de Azure Sentinel](whats-new-archive.md). Para más información sobre las características anteriores, consulte los [blogs de Tech Community](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
-Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
+> [!IMPORTANT]
+> Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
+>
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 > [!TIP]
 > Nuestros equipos de búsqueda de amenazas en Microsoft aportan consultas, cuadernos de estrategias, libros y cuadernos a la [comunidad de Azure Sentinel](https://github.com/Azure/Azure-Sentinel), lo que incluye [consultas de búsqueda](https://github.com/Azure/Azure-Sentinel) concretas que sus equipos pueden adaptar y usar.
@@ -32,7 +35,115 @@ Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la
 
 ## <a name="may-2021"></a>Mayo de 2021
 
+- [Módulo de PowerShell para Azure Sentinel](#azure-sentinel-powershell-module)
+- [Mejoras en la agrupación de alertas](#alert-grouping-enhancements)
+- [Soluciones de Azure Sentinel (versión preliminar pública)](#azure-sentinel-solutions-public-preview)
+- [Supervisión continua de amenazas para la solución SAP (versión preliminar pública)](#continuous-threat-monitoring-for-sap-solution-public-preview)
+- [Integraciones de inteligencia sobre amenazas (versión preliminar pública)](#threat-intelligence-integrations-public-preview)
+- [Fusión a través de alertas programadas (versión preliminar pública)](#fusion-over-scheduled-alerts-public-preview)
+- [Anomalías de SOC-ML (versión preliminar pública)](#soc-ml-anomalies-public-preview)
+- [Página de entidad de IP (versión preliminar pública)](#ip-entity-page-public-preview)
+- [Personalización de actividades (versión preliminar pública)](#activity-customization-public-preview)
+- [Panel de búsqueda (versión preliminar pública)](#hunting-dashboard-public-preview)
+- [Equipos de incidentes: Colaboración en Microsoft Teams (versión preliminar pública)](#azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview)
 - [Libro Confianza cero (TIC3.0)](#zero-trust-tic30-workbook)
+
+
+### <a name="azure-sentinel-powershell-module"></a>Módulo de PowerShell para Azure Sentinel
+
+El módulo oficial de PowerShell para Azure Sentinel para automatizar las tareas operativas diarias se ha publicado con disponibilidad general.
+
+Puede descargarlo aquí: [Galería de PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/).
+
+Para más información, consulte la documentación de PowerShell: [Az.SecurityInsights](/powershell/module/az.securityinsights/).
+
+### <a name="alert-grouping-enhancements"></a>Mejoras en la agrupación de alertas
+
+Ahora puede configurar la regla de análisis para agrupar las alertas en un único incidente, no solo cuando coinciden con un tipo de entidad específico, sino también cuando coinciden con un nombre de alerta, gravedad u otros detalles personalizados específicos de una entidad configurada. 
+
+En la pestaña **Configuración de incidentes** del asistente para reglas de análisis, active la agrupación de alertas y, a continuación, seleccione la opción **Agrupar alertas en un solo incidente si los tipos de entidad seleccionados y los detalles coinciden**. 
+
+A continuación, seleccione el tipo de entidad y los detalles pertinentes que desea que coincidan:
+
+:::image type="content" source="media/whats-new/alert-grouping-details.png" alt-text="Agrupación de alertas por los detalles de entidad que coinciden.":::
+
+Para más información, consulte [Agrupación de alertas](tutorial-detect-threats-custom.md#alert-grouping).
+
+### <a name="azure-sentinel-solutions-public-preview"></a>Soluciones de Azure Sentinel (versión preliminar pública)
+
+Azure Sentinel ofrece ahora [soluciones](sentinel-solutions-catalog.md) de **contenido empaquetado** que incluyen combinaciones de uno o varios conectores de datos, libros, reglas de análisis, cuadernos de estrategias, consultas de búsqueda, analizadores, listas de reproducción y otros componentes para Azure Sentinel.
+
+Las soluciones proporcionan una mejor detectabilidad en el producto, una implementación de un solo paso y escenarios de producto completos. Para más información, consulte [Detección e implementación de soluciones de Azure Sentinel](sentinel-solutions-deploy.md).
+
+### <a name="continuous-threat-monitoring-for-sap-solution-public-preview"></a>Supervisión continua de amenazas para la solución SAP (versión preliminar pública)
+
+Las soluciones de Azure Sentinel incluyen ahora la **supervisión continua de amenazas para SAP** lo que le permite supervisar los sistemas SAP en busca de amenazas sofisticadas en el nivel empresarial y el de la aplicación.
+
+El conector de datos de SAP genera una gran cantidad de registros de 14 aplicaciones de todo el conjunto del sistema SAP y recopila registros de Advanced Business Application Programming (ABAP) mediante llamadas a NetWeaver RFC y datos de almacenamiento de archivos mediante la interfaz de control de OSSAP. El conector de datos de SAP se agrega a la capacidad de Azure Sentinel para supervisar la infraestructura subyacente de SAP.
+
+Para ingerir registros de SAP en Azure Sentinel, debe tener instalado el conector de datos de Azure Sentinel para SAP en el entorno de SAP. Una vez implementado el conector de datos de SAP, implemente el variado contenido de seguridad de la solución de SAP para obtener información fácilmente sobre el entorno de SAP de su organización y mejorar la funcionalidad de todas las operaciones de seguridad relacionadas.
+
+Para más información, consulte [Tutorial: Implementación de la solución Azure Sentinel para SAP (versión preliminar pública)](sap-deploy-solution.md)
+
+### <a name="threat-intelligence-integrations-public-preview"></a>Integraciones de inteligencia sobre amenazas (versión preliminar pública)
+
+Azure Sentinel proporciona varias maneras diferentes de [usar fuentes de inteligencia sobre amenazas](import-threat-intelligence.md) para mejorar la capacidad de los analistas de seguridad de detectar y priorizar las amenazas conocidas.
+
+Ahora puede usar uno de los muchos productos de la plataforma de inteligencia sobre amenazas integrada (TIP) que se acaban de publicar, conectarse a servidores TAXII para aprovechar cualquier origen de inteligencia sobre amenazas compatible con STIX y usar cualquier solución personalizada que pueda comunicarse directamente con la [API Security tiIndicators de Microsoft Graph](/graph/api/resources/tiindicator).
+
+También puede conectarse a orígenes de inteligencia sobre amenazas a partir de cuadernos de estrategias, con el fin de enriquecer los incidentes con información de TI que puede ayudar a dirigir acciones de investigación y respuesta.
+
+Para más información, consulte [Integración de inteligencia sobre amenazas en Azure Sentinel](threat-intelligence-integration.md).
+
+### <a name="fusion-over-scheduled-alerts-public-preview"></a>Fusión a través de alertas programadas (versión preliminar pública)
+
+El motor de correlación de aprendizaje automático de **Fusion** ahora puede detectar ataques de varias fases mediante las alertas que genera un conjunto de [reglas de análisis programadas](tutorial-detect-threats-custom.md) en sus correlaciones, además de las alertas importadas desde otros orígenes de datos.
+
+Para más información, consulte [Detección avanzada de ataques de varias fases en Azure Sentinel](fusion.md).
+
+### <a name="soc-ml-anomalies-public-preview"></a>Anomalías de SOC-ML (versión preliminar pública)
+
+Las anomalías basadas en aprendizaje automático de SOC-ML de Azure Sentinel pueden identificar comportamientos inusuales que, de lo contrario, podrían pasar desapercibidos.
+
+SOC-ML usa plantillas de reglas de análisis que pueden funcionar de forma inmediata. Aunque las anomalías no indican necesariamente un comportamiento malintencionado o incluso sospechoso por sí mismas, se pueden usar para mejorar la fidelidad de las detecciones, las investigaciones y la búsqueda de amenazas.
+
+Para más información, consulte [Uso de anomalías de SOC-ML para detectar amenazas en Azure Sentinel](soc-ml-anomalies.md).
+
+### <a name="ip-entity-page-public-preview"></a>Página de entidad de IP (versión preliminar pública)
+
+Azure Sentinel es compatible ahora con la entidad de dirección IP y ya puede ver la información sobre esta en la nueva página de la entidad.
+
+Al igual que las páginas de las entidades de usuario y host, la página de la entidad de dirección IP incluye información general sobre la dirección IP, una lista de las actividades de las que se ha encontrado que la dirección IP forma parte, etc., lo que le proporciona un almacén de información cada vez más completo para mejorar la investigación sobre los incidentes de seguridad.
+
+Para más información, consulte [Páginas de entidad](identify-threats-with-entity-behavior-analytics.md#entity-pages).
+
+### <a name="activity-customization-public-preview"></a>Personalización de actividades (versión preliminar pública)
+
+Hablando de páginas de entidad, ahora puede crear nuevas actividades personalizadas para las entidades, de las que se realizará un seguimiento y se mostrarán en sus respectivas páginas de entidad junto con las actividades listas para usar que ha visto allí hasta ahora.
+
+Para más información, consulte [Personalización de actividades en escalas de tiempo de páginas de entidad](customize-entity-activities.md).
+
+### <a name="hunting-dashboard-public-preview"></a>Panel de búsqueda (versión preliminar pública)
+
+La hoja **Búsqueda** se ha actualizado. El nuevo panel le permite ejecutar todas las consultas, o un subconjunto seleccionado, en un solo clic.
+
+Identifique dónde desea empezar la búsqueda. Para ello, debe examinar el recuento de resultados, los picos o el cambio en el recuento de resultados en un período de 24 horas. También puede ordenar y filtrar por favoritos, origen de datos, táctica y técnica MITRE ATT&CK, resultados o diferencias de resultados. Vea las consultas que aún no tienen los orígenes de datos necesarios conectados y obtenga recomendaciones necesarias para habilitar estas consultas.
+
+Para más información, consulte [Búsqueda de amenazas con Azure Sentinel](hunting.md).
+
+### <a name="azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview"></a>Equipo de incidentes de Azure Sentinel: Colaboración en Microsoft Teams (versión preliminar pública)
+
+Azure Sentinel admite ahora una integración directa con Microsoft Teams, lo que le permite colaborar sin problemas en toda la organización y con las partes interesadas externas.
+
+Directamente desde el incidente en Azure Sentinel, cree un nuevo *equipo de incidente* para usarlo para la comunicación central y la coordinación.
+
+Los equipos de incidentes son especialmente útiles cuando se usan como un puente de conferencia dedicado para incidentes continuos de alta gravedad. Las organizaciones que ya usan Microsoft Teams para la comunicación y la colaboración pueden usar la integración de Azure Sentinel para aportar datos de seguridad directamente a sus conversaciones y al trabajo diario.
+
+En Microsoft Teams, la pestaña de la **página Incidente** del nuevo equipo siempre tiene los datos más actualizados y recientes de Azure Sentinel, lo que garantiza que los equipos tengan a mano los datos más importantes.
+
+[ ![Página Incidente en Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.jpg) ](media/collaborate-in-microsoft-teams/incident-in-teams.jpg#lightbox)
+
+Para más información, consulte [Colaboración en Microsoft Teams (versión preliminar pública)](collaborate-in-microsoft-teams.md).
 
 ### <a name="zero-trust-tic30-workbook"></a>Libro Confianza cero (TIC3.0)
 
@@ -401,42 +512,6 @@ Azure Sentinel usa el agente de Log Analytics para enviar eventos al área de tr
 > 
 
 Para más información, consulte la [documentación de Log Analytics](../azure-monitor/agents/log-analytics-agent.md) y las [notas de la versión del agente de Log Analytics](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
-## <a name="november-2020"></a>Noviembre de 2020
-
-- [Supervise el estado de los cuadernos de estrategias en Azure Sentinel](#monitor-your-playbooks-health-in-azure-sentinel)
-- [Conector de Microsoft 365 Defender (versión preliminar pública)](#microsoft-365-defender-connector-public-preview)
-
-### <a name="monitor-your-playbooks-health-in-azure-sentinel"></a>Supervise el estado de los cuadernos de estrategias en Azure Sentinel
-
-Los cuadernos de estrategias de Azure Sentinel se basan en flujos de trabajo integrados en [Azure Log Apps](../logic-apps/index.yml), un servicio en la nube que le ayuda a programar, automatizar y organizar tareas, procesos empresariales y flujos de trabajo. Los cuadernos de estrategias se pueden invocar automáticamente al crear un incidente o al evaluar y usar incidentes. 
-
-Para proporcionar información sobre el estado, el rendimiento y el uso de los cuadernos de estrategias, se ha agregado un [libro](../azure-monitor/visualize/workbooks-overview.md) denominado **Supervisión del estado de los cuadernos de estrategias**. 
-
-El libro **Playbooks health monitoring** (Supervisión de estado de cuadernos de estrategias) se usa para supervisar el estado de los cuadernos de estrategias o buscar anomalías en la cantidad de ejecuciones correctas o con errores. 
-
-El libro **Playbooks health monitoring** (Supervisión de estado de cuadernos de estrategias) ya está disponible en la galería de plantillas de Azure Sentinel:
-
-:::image type="content" source="media/whats-new/playbook-monitoring-workbook.gif" alt-text="Libro Playbooks health monitoring (Supervisión de estado de cuadernos de estrategias) de ejemplo":::
-
-Para más información, consulte:
-
-- [Documentación de Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs)
-
-- [Documentación sobre Azure Monitor](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace)
-
-### <a name="microsoft-365-defender-connector-public-preview"></a>Conector de Microsoft 365 Defender (versión preliminar pública)
- 
-El conector de Microsoft 365 Defender para Azure Sentinel permite transmitir en secuencias registros de búsqueda avanzada (un tipo de datos de eventos sin procesar) desde Microsoft 365 Defender hasta Azure Sentinel. 
-
-Con la integración de [Microsoft Defender para punto de conexión (MDATP)](/windows/security/threat-protection/) en el paraguas de seguridad de [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection), ahora puede recopilar los eventos de búsqueda avanzada de Microsoft Defender para punto de conexión mediante el conector Microsoft 365 Defender y transmitirlos en secuencia directamente a nuevas tablas creadas específicamente en el área de trabajo de Azure Sentinel. 
-
-Las tablas de Azure Sentinel se basan en el mismo esquema que se usa en el portal de Microsoft 365 Defender y proporcionan acceso pleno al conjunto completo de registros de búsqueda avanzada. 
-
-Para más información, consulte [Conexión de datos de Microsoft 365 Defender con Azure Sentinel](connect-microsoft-365-defender.md).
-
-> [!NOTE]
-> Microsoft 365 Defender se conocía antes como Microsoft Threat Protection o MTP. Microsoft Defender para Endpoint se conocía anteriormente como Protección contra amenazas avanzada de Microsoft Defender o MDATP.
-> 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

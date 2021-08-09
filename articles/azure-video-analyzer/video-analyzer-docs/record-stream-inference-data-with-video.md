@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a usar Azure Video Analyzer para graba
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 05/12/2021
-ms.openlocfilehash: 7b1122c098fc30150699f6c878058d37f74a007f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 89aef5db89110ee7e12a313820f8f62d0b010faf
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465823"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755180"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutorial: Grabación y transmisión de metadatos de inferencia con vídeo
   
@@ -380,13 +380,9 @@ Para examinar el recurso de vídeo de Video Analyzer que se ha creado con la can
 1. Encontrará un vídeo con el nombre `sample-cvr-with-inference-metadata`. Este es el nombre elegido en el archivo de topología de la canalización.
 1. Seleccione el vídeo.
 1. En la página de detalles del vídeo, haga clic en el icono **Reproducir**
-
+1. Para ver los metadatos de inferencia como rectángulos de selección en el vídeo, haga clic en el icono del **rectángulo de selección** (rodeado con un círculo rojo)
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/video-playback.png" alt-text="Captura de pantalla de la reproducción de vídeo":::
-   
-1. Para ver los metadatos de inferencia como rectángulos de selección en el vídeo, haga clic en el icono del **rectángulo de selección**
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Icono del rectángulo de selección":::
 
 > [!NOTE]
 > Puesto que el origen del vídeo era un contenedor que simula una fuente de cámara, las marcas de tiempo del vídeo son relativas a cuándo activó y desactivó la canalización en directo.

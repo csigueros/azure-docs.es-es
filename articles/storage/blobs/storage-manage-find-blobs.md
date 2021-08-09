@@ -1,20 +1,20 @@
 ---
 title: Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs (versión preliminar)
 description: Aprenda a usar etiquetas de índice de blobs para categorizar, administrar y consultar objetos de blobs.
-author: twooley
-ms.author: twooley
-ms.date: 03/18/2021
+author: normesta
+ms.author: normesta
+ms.date: 05/17/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.custom: references_regions
-ms.openlocfilehash: 85aad5435add7ca32de4cf6fcb91944431ab5506
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: bd1738c0a5d63ad9eacaa1500a6ce10268a93b04
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685178"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110664885"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs (versión preliminar)
 
@@ -286,7 +286,7 @@ Los precios del índice de blobs se encuentran en versión preliminar pública y
 
 ## <a name="regional-availability-and-storage-account-support"></a>Disponibilidad región y compatibilidad para cuentas de almacenamiento
 
-Las etiquetas de índice de blobs solo están disponible en cuentas De uso general v2 (GPv2) con un espacio de nombres jerárquico (HNS) deshabilitado. No se admiten las cuentas De uso general (GPv1), pero puede actualizar cualquier cuenta GPv1 a una cuenta GPv2.
+Las etiquetas de índice de blobs solo están disponibles en cuentas de uso general v2 con el espacio de nombres jerárquico (HNS) deshabilitado. No se admiten cuentas de uso general v1, pero puede actualizar estas cuentas a una cuenta de uso general v2.
 
 Las etiquetas de índice no se admiten en las cuentas de Premium Storage. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
@@ -320,7 +320,7 @@ az provider register --namespace 'Microsoft.Storage'
 En esta sección se describen los problemas conocidos y las condiciones de la versión preliminar pública de las etiquetas de índice de blobs. Esta característica no debe usarse para cargas de trabajo de producción hasta que se lance la versión de disponibilidad general (GA), ya que el comportamiento puede cambiar.
 
 - En el caso de la versión preliminar, primero debe registrar la suscripción para poder usar el índice de blobs en la cuenta de almacenamiento en las regiones de versión preliminar.
-- Solo las cuentas GPv2 se admiten en la versión preliminar. Las cuentas de Blob, BlockBlobStorage y DataLake Gen2 habilitadas para HNS no son compatibles. No se admitirán las cuentas GPv1.
+- Solo se admiten cuentas de uso general v2 en versión preliminar. No se admiten blobs en bloques prémium, blobs heredados ni cuentas con un espacio de nombres jerárquico habilitado. No se admitirán cuentas de uso general v1.
 - La carga de blobs en páginas con etiquetas de índice no conserva las etiquetas. Establezca las etiquetas después de cargar un blob en páginas.
 - Cuando el filtrado se limita a un único contenedor, `@container` solo se puede pasar si todas las etiquetas de índice de la expresión de filtro son comprobaciones de igualdad (clave=valor).
 - Al usar el operador de intervalo con la condición `AND`, solo puede especificar el mismo nombre de clave de etiqueta de índice (`"Age" > '013' AND "Age" < '100'`).

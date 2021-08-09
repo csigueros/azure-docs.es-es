@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3985564d49ce8a5c62b15f9537364418c0a8f5da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83837ebc464c1168bd71cd616d0483459c8ae2cc
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97509927"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557151"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>Dar forma y exportar enriquecimientos
 
@@ -33,7 +33,7 @@ Hay tres tipos de [proyecciones](knowledge-store-projection-overview.md):
 + Objetos
 + Archivos
 
-Las proyecciones de tabla se almacenan en Azure Table Storage. Tanto las proyecciones de objeto como las de archivo se escriben en el almacenamiento de blobs, donde las proyecciones de objeto se guardan como archivos JSON, y pueden incluir contenido del documento de origen, así como las salidas o características enriquecidas de cualquier aptitud. La canalización de enriquecimiento también puede extraer archivos binarios, como las imágenes. Estos archivos binarios se proyectan como proyecciones de archivos. Cuando un objeto binario se proyecta como proyección de objeto, solo se guardan como blob JSON los metadatos asociados a él. 
+Las proyecciones de tabla se almacenan en Azure Table Storage. Tanto las proyecciones de objeto como las de archivo se escriben en el almacenamiento de blobs, donde las proyecciones de objeto se guardan como archivos JSON, y pueden incluir contenido del documento de origen, así como las salidas o características enriquecidas de cualquier aptitud. La canalización de enriquecimiento también puede extraer archivos binarios, como las imágenes. Estos archivos binarios se proyectan como proyecciones de archivos. Cuando un objeto binario se proyecta como proyección de objeto, solo se guardan como blob JSON los metadatos asociados a él. 
 
 Para comprender la relación entre el modelado de datos y las proyecciones, usaremos el siguiente conjunto de aptitudes como base para explorar diversas configuraciones. Este conjunto de aptitudes procesa contenido de texto e imágenes sin procesar. Las proyecciones se definirán a partir del contenido del documento y de los resultados de las aptitudes para los escenarios deseados.
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: 904074759d2b8f197a0df0377071e95203fabba9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7825942ce692e83f2305e4c9f9b1a31cdadaea71
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373181"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901614"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 
@@ -44,7 +44,7 @@ Azure Machine Learning puede implementar modelos de Machine Learning entrenados 
 
     Los intervalos IP autorizados solo funcionan con Standard Load Balancer.
 
-- Al **adjuntar** un clúster de AKS, debe estar en la misma suscripción de Azure que el área de trabajo de Azure Machine Learning.
+- > Para conectar un clúster de AKS desde una __suscripción de Azure diferente__, es necesario que se haya concedido a su cuenta de Azure AD el rol **Colaborador** en el clúster de AKS. Compruebe el acceso en [Azure Portal](https://ms.portal.azure.com/).
 
 - Si quiere usar un clúster de AKS privado (mediante Azure Private Link), primero debe crear el clúster y, a continuación, **adjuntarlo** al área de trabajo. Para obtener más información, consulte [Creación de un clúster privado de Azure Kubernetes Service](../aks/private-clusters.md).
 

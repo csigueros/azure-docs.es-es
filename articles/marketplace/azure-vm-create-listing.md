@@ -1,20 +1,20 @@
 ---
 title: Configuración de los detalles de la lista de ofertas de máquinas virtuales en Azure Marketplace
-description: Aprenda a configurar los detalles de la lista de ofertas de máquinas virtuales en Azure Marketplace.
+description: Configure los detalles de la lista de ofertas de máquinas virtuales en Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ce7b1302a290bb4a7fefa3077e0937c7544015a
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629604"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525433"
 ---
-# <a name="how-to-configure-virtual-machine-offer-listing-details"></a>Procedimientos para configurar los detalles las propiedades de la lista de ofertas de máquinas virtuales
+# <a name="configure-virtual-machine-offer-listing-details"></a>Configuración de los detalles las propiedades de la lista de ofertas de máquinas virtuales
 
 En la página **Descripción de la oferta** (seleccione en el menú de navegación izquierdo del Centro de partners), defina los detalles de la oferta, como el nombre, la descripción, los vínculos y los contactos.
 
@@ -80,8 +80,6 @@ Proporcione el **Nombre**, **Correo electrónico** y **Teléfono** de la persona
 ## <a name="marketplace-media"></a>Elementos multimedia del marketplace
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato PNG. Las imágenes borrosas harán que se rechace el envío.
-
-[!INCLUDE [logo tips](includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Si tiene problemas al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.

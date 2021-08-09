@@ -1,15 +1,16 @@
 ---
 title: Desarrollo y publicación de funciones de .NET 5 mediante Azure Functions
 description: Aprenda a crear y depurar funciones de C# mediante .NET 5.0 y, a continuación, implementar el proyecto local en el hospedaje sin servidor en Azure Functions.
-ms.date: 03/03/2021
+ms.date: 05/03/2021
 ms.topic: how-to
+recommendations: false
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: c76fde9a61ca60171ac094ef541e8c5841846aab
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 6521c02686da55142d9a9d9f1faf569d584ef593
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107866278"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111590019"
 ---
 # <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Desarrollo y publicación de funciones de .NET 5 mediante Azure Functions 
 
@@ -17,40 +18,31 @@ En este artículo se muestra cómo trabajar con funciones de C# mediante .NET 5
 
 Si no necesita admitir .NET 5.0 o ejecutar las funciones fuera de proceso, es posible que en su lugar quiera [crear una función de la biblioteca de clases C#](functions-create-your-first-function-visual-studio.md).
 
->[!NOTE]
->Actualmente no se admite el desarrollo de funciones de proceso aislado .NET en Azure Portal. Debe usar la publicación de la CLI de Azure o Visual Studio Code para crear una aplicación de funciones en Azure que admita la ejecución de aplicaciones .NET 5.0 fuera de proceso.   
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 + Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
+::: zone pivot="development-environment-vscode,development-environment-cli"  
 + [SDK de .NET 5.0](https://dotnet.microsoft.com/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2), versión 3.0.3381 u otra posterior.
 
 + La [CLI de Azure](/cli/azure/install-azure-cli), versión 2.20 u otra posterior.  
-::: zone pivot="development-environment-vscode"
+::: zone-end  
+::: zone pivot="development-environment-vscode"  
 + [Visual Studio Code](https://code.visualstudio.com/) en una de las [plataformas admitidas](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
 
 + La [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) para Visual Studio Code.  
 
 + La [extensión de Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Visual Studio Code, versión 1.3.0 u otra más reciente.
-::: zone-end
-::: zone pivot="development-environment-vs"
-+ [Visual Studio 2019](https://azure.microsoft.com/downloads/), con la carga de trabajo **Desarrollo de Azure**.  
-La publicación y las plantillas de proyecto de funciones aisladas .NET no están actualmente disponibles en Visual Studio.
-::: zone-end
+::: zone-end  
+::: zone pivot="development-environment-vs"  
++ [Visual Studio 2019](https://azure.microsoft.com/downloads/), versión 16.10 o posterior. La instalación debe incluir la carga de trabajo de **Desarrollo de Azure** o de **Desarrollo de ASP.NET y web**.  
+::: zone-end  
 
 ## <a name="create-a-local-function-project"></a>Creación de un proyecto de función local
 
 En Azure Functions, un proyecto de función es un contenedor para una o varias funciones individuales que responden a un desencadenador específico. Todas las funciones de un proyecto comparten las mismas configuraciones locales y de hospedaje. En esta sección, se crea un proyecto de función que contiene una sola función.
-
-::: zone pivot="development-environment-vs"
-
->[!NOTE]  
-> En este momento, no hay ninguna plantilla de proyecto de Visual Studio que admita la creación de proyectos de funciones aisladas .NET. En este artículo se muestra cómo usar Core Tools para crear el proyecto de C#, que se puede ejecutar localmente y depurar en Visual Studio.  
-
-::: zone-end
 
 ::: zone pivot="development-environment-vscode"  
 1. Seleccione el icono de Azure en la barra de actividades y después en el área **Azure: Functions**, seleccione el icono **Crear un proyecto**.
@@ -80,7 +72,7 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
 
 1. Con esta información, Visual Studio Code genera un proyecto de Azure Functions con un desencadenador HTTP. Los archivos del proyecto locales se pueden ver en Explorer. Para obtener más información sobre los archivos que se crean, consulte [Archivos del proyecto generados](functions-develop-vs-code.md#generated-project-files).
 ::: zone-end  
-::: zone pivot="development-environment-cli,development-environment-vs"  
+::: zone pivot="development-environment-cli"  
 
 1. Ejecute el comando `func init`, de la manera siguiente, para crear un proyecto de funciones en una carpeta llamada *LocalFunctionProj*:  
 
@@ -108,6 +100,62 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
     `func new` crea un archivo de código HttpExample.cs.
 ::: zone-end  
 
+::: zone pivot="development-environment-vs"
+
+1. En el menú de Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**.
+
+1. En **Crear un proyecto**, escriba *functions* en el cuadro de búsqueda, elija la plantilla **Azure Functions** y seleccione **Siguiente**.
+
+1. En **Configurar el nuevo proyecto**, escriba un **nombre de proyecto**  para el proyecto y, a continuación, seleccione **Crear**. El nombre de la aplicación de función debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones u otros caracteres no alfanuméricos.
+
+1. En la configuración de **Crear aplicación de Azure Functions**, use los valores de la tabla siguiente:
+
+    | Configuración      | Valor  | Descripción                      |
+    | ------------ |  ------- |----------------------------------------- |
+    | **Versión de .NET** | **.NET 5 (aislado)** | Este valor crea un proyecto de función que se ejecuta en .NET 5.0 en un proceso aislado.   |
+    | **Plantilla de función** | **desencadenador HTTP** | Este valor crea una función desencadenada por una solicitud HTTP. |
+    | **Cuenta de almacenamiento (AzureWebJobsStorage)**  | **Emulador de Storage** | Dado que una aplicación de funciones de Azure necesita una cuenta de almacenamiento, se asigna o se crea una cuando publica su proyecto en Azure. Un desencadenador HTTP no utiliza una cadena de conexión de cuenta de Azure Storage; todos los demás tipos de desencadenador requieren una cadena de conexión de cuenta de Azure Storage válida.  |
+    | **Nivel de autorización** | **Anónimo** | Cualquier cliente puede desencadenar una función creada sin tener que proporcionar una clave. Esta configuración de autorización facilita probar la función nueva. Para más información sobre las claves y la autorización, consulte [Claves de autorización](functions-bindings-http-webhook-trigger.md#authorization-keys) e [Introducción a los enlaces y desencadenadores HTTP de Azure Functions](functions-bindings-http-webhook.md). |
+    
+    
+    ![Configuración de un proyecto de Azure Functions](./media/dotnet-isolated-process-developer-howtos/functions-project-settings.png)
+
+    Asegúrese de establecer el **Nivel de autorización** en **Anónimo**. Al elegir el nivel predeterminado de **Función**, tiene que presentar la [tecla de función](functions-bindings-http-webhook-trigger.md#authorization-keys) en las solicitudes para acceder al punto de conexión de la función.
+
+1. Seleccione **Crear** para crear el proyecto de función y la función con desencadenador HTTP.
+
+Visual Studio crea un proyecto y una clase que contiene código reutilizable para el tipo de función de desencadenador HTTP. El código reutilizable envía un mensaje de bienvenida a Azure Functions. Respuesta HTTP. El atributo `HttpTrigger` especifica que la función es desencadenada por una solicitud HTTP. 
+
+## <a name="rename-the-function"></a>Cambio del nombre de la función
+
+El atributo del método `FunctionName` establece el nombre de la función que, de forma predeterminada, se genera como `Function1`. Como las herramientas no le permiten reemplazar el nombre de la función predeterminada al crear un proyecto, dedique un minuto a crear un nombre mejor para la clase, el archivo y los metadatos de la función.
+
+1. En el **Explorador de archivos**, haga clic con el botón derecho en el archivo Function1.cs y cambie su nombre a `HttpExample.cs`.
+
+1. En el código, cambie el nombre de la clase Function1 a `HttpExample`.
+
+1. En el método `HttpTrigger` denominado `Run`, cambie el nombre del atributo del método `FunctionName` a `HttpExample` y el valor pasado al método `GetLogger`.
+
+La definición de la función ahora debe parecerse al código siguiente:
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="9-15":::
+ 
+Ahora que ha cambiado el nombre de la función, puede probarla en el equipo local.
+
+## <a name="run-the-function-locally"></a>Ejecución local de la función
+
+Visual Studio se integra con Azure Functions Core Tools; de este modo puede probar las funciones localmente mediante el sistema en tiempo de ejecución completo de Azure Functions.  
+
+1. Para ejecutar la función, presione <kbd>F5</kbd> en Visual Studio. Es preciso habilitar una excepción de firewall para que las herramientas para controlen las solicitudes de HTTP. Los niveles de autorización nunca se aplican cuando se ejecuta una función localmente.
+
+1. Copie la dirección URL de la función de la salida del entorno de ejecución de Azure Functions y ejecute la solicitud. Cuando la función se ejecuta correctamente y los registros se escriben en la salida del entorno de ejecución, se muestra un mensaje de bienvenida a Functions. 
+
+1. Para detener la depuración, presione <kbd>Mayús</kbd>+<kbd>F5</kbd> en Visual Studio.
+
+Después de comprobar que la función se ejecuta correctamente en el equipo local es el momento de publicar el proyecto en Azure.
+
+::: zone-end
+
 ::: zone pivot="development-environment-vscode"  
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
@@ -117,62 +165,6 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
-::: zone-end
-
-::: zone pivot="development-environment-vs"
-
-## <a name="run-the-function-locally"></a>Ejecución local de la función
-
-En este momento, puede ejecutar el comando `func start` desde la raíz de la carpeta del proyecto para compilar y ejecutar el proyecto de funciones aisladas de C#. Actualmente, si quiere depurar el código de la función fuera de proceso en Visual Studio, debe asociar manualmente un depurador al proceso del entorno de ejecución de Functions en ejecución mediante los pasos siguientes:  
-
-1. Abra el archivo del proyecto (. csproj) en Visual Studio. Puede revisar y modificar el código del proyecto y establecer los puntos de interrupción deseados en el código. 
-
-1. En la carpeta raíz del proyecto, use el siguiente comando desde el terminal o desde un símbolo del sistema para iniciar el host en tiempo de ejecución:
-
-    ```console
-    func start --dotnet-isolated-debug
-    ```
-
-    La opción `--dotnet-isolated-debug` indica al proceso que espere a que se adjunte un depurador antes de continuar. Hacia el final de la salida, debería ver algo parecido a las líneas siguientes: 
-    
-    <pre>
-    ...
-    
-    Functions:
-
-        HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
-
-    For detailed output, run func with --verbose flag.
-    [2021-03-09T08:41:41.904Z] Azure Functions .NET Worker (PID: 81720) initialized in debug mode. Waiting for debugger to attach...
-    ...
-    
-    </pre> 
-
-    `PID: XXXXXX` indica el identificador de proceso (PID) del proceso de dotnet.exe que es el host de Functions en ejecución.
- 
-1. En la salida del tiempo de ejecución de Azure Functions, tome nota del identificador de proceso del proceso de host, al que adjuntará un depurador. Fíjese también en la dirección URL de la función local.
-
-1. En el menú **Depurar** de Visual Studio, seleccione **Asociar al proceso...** , busque el proceso que coincida con el identificador de proceso y seleccione **Asociar**. 
-    
-    :::image type="content" source="media/dotnet-isolated-process-developer-howtos/attach-to-process.png" alt-text="Asociar el depurador a los procesos de host de Functions":::    
-
-    Con el depurador asociado puede depurar el código de función de forma habitual.
-
-1. En la barra de direcciones del explorador, escriba la dirección URL de la función local, que tiene un aspecto similar al siguiente, y ejecute la solicitud. 
-
-    `http://localhost:7071/api/HttpExample`
-
-    Debería ver la salida de seguimiento de la solicitud escrita en el terminal en ejecución. La ejecución de código se detiene en los puntos de interrupción establecidos en el código de función.
-
-1. Cuando haya terminado, vaya al terminal y presione CTRL + C para detener el proceso de host.
- 
-Después de comprobar que la función se ejecuta correctamente en el equipo local es el momento de publicar el proyecto en Azure.
-
-> [!NOTE]  
-> La publicación de Visual Studio no está disponible actualmente para aplicaciones de proceso aislado de .NET. Una vez que haya terminado de desarrollar el proyecto en Visual Studio, debe usar la CLI de Azure para crear los recursos remotos de Azure. Después, puede volver a usar Azure Functions Core Tools desde la línea de comandos para publicar el proyecto en Azure.
-::: zone-end
-
-::: zone pivot="development-environment-cli,development-environment-vs" 
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Creación de recursos auxiliares de Azure para la función
 
 Antes de poder implementar el código de la función en Azure, debe crear tres recursos:
@@ -224,6 +216,28 @@ Utilice los comandos siguientes para crear los elementos.
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
 ::: zone-end
+
+:::zone pivot="development-environment-vs"
+
+## <a name="publish-the-project-to-azure"></a>Publicar el proyecto en Azure
+
+Para poder publicar el proyecto, debe tener una aplicación de funciones en la suscripción de Azure. La publicación de Visual Studio crea una aplicación de funciones la primera vez que se publica el proyecto.
+
+[!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
+
+## <a name="verify-your-function-in-azure"></a>Comprobación de la función en Azure
+
+1. En Cloud Explorer, se debe seleccionar la nueva aplicación de funciones. Si no es así, expanda su suscripción > **App Services** y seleccione la nueva aplicación de funciones.
+
+1. Haga clic con el botón derecho en la aplicación de funciones y elija **Abrir en explorador**. Se abre la raíz de su aplicación de funciones en el explorador web predeterminado y muestra la página que indica que su aplicación de funciones se está ejecutando. 
+
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="Aplicación de funciones en ejecución":::
+
+1. En la barra de direcciones del explorador, anexe la ruta de acceso `/api/HttpExample` a la dirección URL base y ejecute la solicitud.
+
+1. Vaya a esta dirección URL y verá la misma respuesta en el explorador que tenía al ejecutar de forma local.
+
+:::zone-end
 
 ::: zone pivot="development-environment-vscode"
 
@@ -299,19 +313,7 @@ Use los pasos siguientes para eliminar la aplicación de funciones y sus recurso
 [!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]  
 ::: zone-end  
 ::: zone pivot="development-environment-vs"   
-Use los pasos siguientes para eliminar la aplicación de funciones y sus recursos relacionados para evitar incurrir en costos adicionales.
-
-1. En Cloud Explorer, expanda su suscripción > **App Services**, haga clic con el botón derecho en su aplicación de funciones y elija **Abrir en el portal**. 
-
-1. En la página de la aplicación de funciones, seleccione la pestaña **Información general** y, después, seleccione el vínculo situado bajo **Grupo de recursos**.
-
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Seleccione el grupo de recursos que se va a eliminar de la página de la aplicación de funciones":::
-
-2. En la página **Grupo de recursos**, revise la lista de recursos incluidos y compruebe que son los que desea eliminar.
- 
-3. Seleccione **Eliminar grupo de recursos** y siga las instrucciones.
-
-   El proceso de eliminación tardará un par de minutos. Cuando termine, aparece una notificación durante unos segundos. También puede seleccionar el icono de campana en la parte superior de la página para ver la notificación.
+[!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes

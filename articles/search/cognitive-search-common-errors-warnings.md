@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 3ba0abe8510291351c10ba085ba7e42b8197d886
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af4958610f2be5aa31a6800203d06dd887191e15
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553245"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538312"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -228,7 +228,7 @@ Si quiere proporcionar un valor predeterminado en caso de una entrada omitida, p
 
 | Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
-| La entrada de aptitud tiene un tipo incorrecto | "La entrada de aptitud obligatoria no era del tipo esperado `String`. Nombre: `text`; origen: `/document/merged_content`".  "La entrada de aptitud obligatoria no tenía el formato esperado. Nombre: `text`; origen: `/document/merged_content`".  "No se puede iterar en el elemento `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`, que no es una matriz".  "No se puede seleccionar `0` en un elemento `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`, que no es una matriz". | Ciertas aptitudes esperan entradas de tipos determinados, por ejemplo, la [aptitud Opinión](cognitive-search-skill-sentiment.md) espera que `text` sea una cadena. Si la entrada especifica un valor que no es de cadena, la aptitud no se ejecuta y no genera ninguna salida. Asegúrese de que el conjunto de datos tiene valores de entrada con un tipo uniforme, o bien use una [aptitud API web personalizada](cognitive-search-custom-skill-web-api.md) para procesar previamente la entrada. Si va a iterar la aptitud en una matriz, revise que la entrada y el contexto de la aptitud tengan `*` en las posiciones correctas. Por lo general, tanto el contexto como el origen de entrada deben finalizar con `*` para las matrices. |
+| La entrada de aptitud tiene un tipo incorrecto | "La entrada de aptitud obligatoria no era del tipo esperado `String`. Nombre: `text`; origen: `/document/merged_content`".  "La entrada de aptitud obligatoria no tenía el formato esperado. Nombre: `text`; origen: `/document/merged_content`".  "No se puede iterar en el elemento `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`, que no es una matriz".  "No se puede seleccionar `0` en un elemento `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`, que no es una matriz". | Ciertas aptitudes esperan entradas de tipos determinados, por ejemplo, la [aptitud Opinión](cognitive-search-skill-sentiment-v3.md) espera que `text` sea una cadena. Si la entrada especifica un valor que no es de cadena, la aptitud no se ejecuta y no genera ninguna salida. Asegúrese de que el conjunto de datos tiene valores de entrada con un tipo uniforme, o bien use una [aptitud API web personalizada](cognitive-search-custom-skill-web-api.md) para procesar previamente la entrada. Si va a iterar la aptitud en una matriz, revise que la entrada y el contexto de la aptitud tengan `*` en las posiciones correctas. Por lo general, tanto el contexto como el origen de entrada deben finalizar con `*` para las matrices. |
 | Falta la entrada de aptitud | "Falta la entrada de aptitud obligatoria. Nombre: `text`; origen: `/document/merged_content`". "Falta el valor `/document/normalized_images/0/imageTags`".  "No se puede seleccionar `0` en una matriz `/document/pages` de longitud `0`". | Si todos los documentos reciben esta advertencia, lo más probable es que haya un error ortográfico en las rutas de acceso de las entradas, por lo que debe revisar nuevamente el uso de mayúsculas y minúsculas en el nombre de la propiedad, ver si faltan o sobran `*` en la ruta de acceso y asegurarse de que los documentos del origen de datos proporcionan las entradas obligatorias. |
 | La entrada de código de idioma de aptitud no es válida | La entrada de aptitud `languageCode` tiene los códigos de idioma siguientes `X,Y,Z`, uno de los cuales es al menos no válido. | Consulte más detalles [a continuación](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid). |
 
@@ -257,7 +257,7 @@ Si sabe que el conjunto de datos contiene varios idiomas y, por tanto, necesita 
 ```
 
 Estas son algunas referencias de los idiomas admitidos actualmente en cada una de las aptitudes que pueden producir este mensaje de error:
-* [Idiomas compatibles con Text Analytics](../cognitive-services/text-analytics/language-support.md) (para [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md) y [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
+* [Idiomas compatibles con Text Analytics](../cognitive-services/text-analytics/language-support.md) (para [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md), [EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md), [SentimentSkill](cognitive-search-skill-sentiment-v3.md) y [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
 * [Idiomas compatibles con Translator](../cognitive-services/translator/language-support.md) (para [Text TranslationSkill](cognitive-search-skill-text-translation.md))
 * Idiomas compatibles con [Text SplitSkill](cognitive-search-skill-textsplit.md): `da, de, en, es, fi, fr, it, ko, pt`
 

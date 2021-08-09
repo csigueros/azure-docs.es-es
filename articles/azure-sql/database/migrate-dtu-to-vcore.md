@@ -3,19 +3,19 @@ title: Migración de DTU a núcleo virtual
 description: Migre una base de datos de Azure SQL Database del modelo de DTU al modelo de núcleo virtual. La migración a un núcleo virtual es similar al proceso de actualización o degradación entre los niveles estándar y premium.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.topic: conceptual
 ms.custom: sqldbrb=1
-author: stevestein
-ms.author: sstein
-ms.reviewer: sashan, moslake
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma, moslake
 ms.date: 02/09/2021
-ms.openlocfilehash: 332a2273a377268a425619a0cdaa5f4780b46e73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0f2ffbb09929a919f90fdec50fe72173af78606
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361662"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411870"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migración de Azure SQL Database del modelo basado en DTU al modelo basado en núcleo virtual.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -109,12 +109,12 @@ Además del número de núcleos virtuales (CPU lógicas) y la generación de har
 - Si migra bases de datos con patrones de uso intermitentes o imprevisibles, tenga en cuenta el uso del nivel de proceso [Sin servidor](serverless-tier-overview.md). Tenga en cuenta que el número máximo de trabajos simultáneos (solicitudes) en la opción sin servidor es el 75 % del límite en el proceso aprovisionado para el mismo número de núcleos virtuales máximo configurado. Además, la memoria máxima disponible en la opción sin servidor expresada en GB es 3 veces el número máximo de núcleos virtuales configurados; por ejemplo, la memoria máxima será de 120 GB cuando se configura un máximo de 40 núcleos virtuales.   
 - En el modelo de núcleo virtual, el tamaño máximo admitido de la base de datos puede variar en función de la generación de hardware. En el caso de las bases de datos de gran tamaño, compruebe los tamaños máximos admitidos en el modelo de núcleo virtual para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).
 - En el caso de los grupos elásticos, los modelos de [DTU](resource-limits-dtu-elastic-pools.md) y [núcleo virtual](resource-limits-vcore-elastic-pools.md) presentan diferencias en el número máximo de bases de datos admitidas por grupo. Esto se debe tener en cuenta al migrar grupos elásticos con muchas bases de datos.
-- Es posible que algunas generaciones de hardware no estén disponibles en todas las regiones. Compruebe la disponibilidad en [Generaciones de hardware](service-tiers-vcore.md#hardware-generations).
+- Es posible que algunas generaciones de hardware no estén disponibles en todas las regiones. Compruebe la disponibilidad en [Generaciones de hardware para SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations) o [Generaciones de hardware para SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations).
 
 > [!IMPORTANT]
 > Las directrices de ajuste de tamaño de DTU a núcleo virtual se proporcionan para ayudarle en la estimación inicial del objetivo de servicio de base de datos de destino.
 >
-> La configuración óptima de la base de datos de destino depende de la carga de trabajo. Por tanto, para lograr la relación óptima entre precio y rendimiento después de la migración puede que se deba aprovechar la flexibilidad del modelo de núcleo virtual para ajustar el número de núcleos virtuales, la [generación de hardware](service-tiers-vcore.md#hardware-generations), los niveles de [servicio](service-tiers-vcore.md#service-tiers) y [proceso](service-tiers-vcore.md#compute-tiers), así como ajustar otros parámetros de configuración de base de datos, como el [grado máximo de paralelismo](/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+> La configuración óptima de la base de datos de destino depende de la carga de trabajo. Por tanto, para lograr la relación óptima entre precio y rendimiento después de la migración puede que se deba aprovechar la flexibilidad del modelo de núcleo virtual para ajustar el número de núcleos virtuales, la generación de hardware, los niveles de servicio y proceso, así como ajustar otros parámetros de configuración de base de datos, como el [grado máximo de paralelismo](/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
 > 
 
 ### <a name="dtu-to-vcore-migration-examples"></a>Ejemplos de migración de DTU a núcleo virtual

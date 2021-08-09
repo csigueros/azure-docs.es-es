@@ -11,16 +11,38 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 05d8e2e9555dbd24a812d626ce4be8900991230a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7fff1380697f1179207b470e803bf6994e32e1e2
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748698"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110782384"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos de la plataforma de identidad de Microsoft: Novedades
 
 Estas son las novedades de la documentación de la Plataforma de identidad de Microsoft. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses.
+
+## <a name="may-2021"></a>Mayo de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Desafíos de notificaciones, solicitudes de notificaciones y funcionalidades de cliente](claims-challenge.md)
+- [Instrucciones para desarrolladores sobre el contexto de autenticación del acceso condicional](developer-guide-conditional-access-authentication-context.md)
+- [Tokens de actualización de la plataforma de identidad de Microsoft](refresh-tokens.md)
+- [Plataforma de identidad de Microsoft y flujo de aserción de portador SAML de OAuth 2.0](v2-saml-bearer-assertion.md)
+- [Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de React mediante el flujo de código de autorización](tutorial-v2-react.md)
+- [Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de Angular mediante el uso del flujo de código de autenticación](tutorial-v2-angular-auth-code.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Instrucciones para desarrolladores sobre el contexto de autenticación del acceso condicional](developer-guide-conditional-access-authentication-context.md)
+- [Procedimiento: Incorporación de roles de aplicación a una aplicación y su recepción en el token](howto-add-app-roles-in-azure-ad-apps.md)
+- [Migración de una aplicación Node.js de ADAL a MSAL](msal-node-migration.md)
+- [Tokens de id. de la plataforma de identidad de Microsoft](id-tokens.md)
+- [Inicio rápido: Inicie sesión de los usuarios y llame a Microsoft Graph API desde una aplicación de Android](quickstart-v2-android.md)
+- [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md)
+- [Inicio rápido: Llamada a una instancia de ASP.NET Web API protegida por una plataforma de identidad de Microsoft](quickstart-v2-dotnet-native-aspnet.md)
+- [Tutorial: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de Android](tutorial-v2-android.md)
 
 ## <a name="april-2021"></a>Abril de 2021
 
@@ -71,24 +93,3 @@ Estas son las novedades de la documentación de la Plataforma de identidad de Mi
 - [Opciones de ayuda y soporte técnico para desarrolladores](developer-support-help-options.md)
 - [Aplicación web que inicia sesión de usuarios: Configuración del código](scenario-web-app-sign-user-app-configuration.md)
 - [Aplicación web que inicia sesión de usuarios: Inicio y cierre de sesión](scenario-web-app-sign-user-sign-in.md)
-
-## <a name="february-2021"></a>Febrero de 2021
-
-### <a name="new-articles"></a>Artículos nuevos
-
-- [Inicio rápido: Adquisición de un token de acceso y llamada a Microsoft Graph API desde una aplicación de escritorio de Electron](quickstart-v2-nodejs-desktop.md)
-- [Tutorial: Inicio de sesión por los usuarios y llamada a Microsoft Graph API en una aplicación de escritorio de Electron](tutorial-v2-nodejs-desktop.md)
-- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de Node.js mediante la identidad de la aplicación](quickstart-v2-nodejs-console.md)
-- [Tutorial: Llamada a Microsoft Graph API en una aplicación de consola de Node.js](tutorial-v2-nodejs-console.md)
-- [Tutorial: Inicio de sesión de los usuarios en una aplicación web de Node.js y Express](tutorial-v2-nodejs-webapp-msal.md)
-- [Compatibilidad con la autenticación sin contraseña con claves FIDO2 en aplicaciones desarrolladas por el usuario](support-fido2-authentication.md)
-
-### <a name="updated-articles"></a>Artículos actualizados
-
-- [Novedades en la autenticación](reference-breaking-changes.md)
-- [Use MSAL.NET para que los usuarios inicien sesión con identidades de redes sociales](msal-net-aad-b2c-considerations.md)
-- [Ejemplos de código de la Plataforma de identidad de Microsoft (punto de conexión v2.0)](sample-v2-code.md)
-- [Vídeos de la plataforma de identidad de Microsoft](identity-videos.md)
-- [Inicio rápido: Configuración de un inquilino](quickstart-create-new-tenant.md)
-- [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md)
-- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de Java mediante la identidad de la aplicación](quickstart-v2-java-daemon.md)

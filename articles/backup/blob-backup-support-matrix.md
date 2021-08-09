@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad para la copia de seguridad de blobs de Azure
 description: Proporciona un resumen de opciones y limitaciones de compatibilidad a la hora de realizar copias de seguridad en blobs de Azure.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/20/2021
 ms.custom: references_regions
-ms.openlocfilehash: eb923cb38a76e56c1ba60b3863b111aac83eeb7e
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 06e6d193ec929961dd4eeb192045a217aefa4ab2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517683"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475107"
 ---
 # <a name="support-matrix-for-azure-blobs-backup"></a>Matriz de compatibilidad para la copia de seguridad de blobs de Azure
 
@@ -17,7 +17,7 @@ En este artículo se resume la disponibilidad regional, los escenarios admitidos
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-La copia de seguridad operativa para blobs está disponible actualmente en las siguientes regiones: Centro de Australia, Este de Australia, Sur de Brasil, Centro de Canadá, Centro de la India, Centro de EE. UU., Asia Pacífico, Este de EE. UU., Este de EE. UU. 2, Centro-oeste de Alemania, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Sur de Corea del Sur, Norte de Europa, Centro-sur de EE. UU., Sudeste Asiático, Norte de Suiza, Norte de Emiratos Árabes, Sur de Reino Unido, Oeste de Reino Unido, Centro-oeste de EE. UU., Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2
+La copia de seguridad operativa de blobs está disponible actualmente en las siguientes regiones: Centro de Australia, Centro de Australia 2, Este de Australia, Sudeste de Australia, Sur de Brasil, Sudeste de Brasil, Centro de Canadá, Este de Canadá, Centro de la India, Centro de EE. UU., Este de Asia, Este de EE. UU., Este de EE. UU. 2, Centro de Francia, Norte de Alemania, Centro-oeste de Alemania, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Este de Noruega, Oeste de Noruega, Norte de Sudáfrica, Centro y Sur de EE. UU., Sudeste Asiático, Sur de la India, Norte de Suiza, Oeste de Suiza, Centro de Emiratos Árabes Unidos, Norte de Emiratos Árabes Unidos, Sur de Reino Unido, Oeste de Reino Unido, Centro-oeste de EE. UU., Oeste de Europa, Oeste de la India, Oeste de EE. UU., Oeste de EE. UU. 2.
 
 ## <a name="limitations"></a>Limitaciones
 

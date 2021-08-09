@@ -10,26 +10,26 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
-ms.custom: devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: f175e8d5c3dd19b212dfbdd04025d12f549667ed
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
+ms.openlocfilehash: 247b70e195bb17c8983d8012880f77de7bf5884b
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293303"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408738"
 ---
-# <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Conexión de grupos de Apache Spark (con tecnología de Azure Synapse Analytics) para la limpieza y transformación de datos (versión preliminar)
+# <a name="data-wrangling-with-apache-spark-pools-preview"></a>Limpieza y transformación de datos con grupos de Apache Spark (versión preliminar) 
 
-En este artículo, aprenderá a asociar un grupo de Apache Spark con tecnología de [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) al [área de trabajo de Azure Machine Learning](concept-workspace.md) para que pueda iniciarlo y realizar la reorganización de datos a escala. 
+En este artículo, aprenderá a realizar tareas de limpieza y transformación de datos de forma interactiva dentro de una sesión de Synapse dedicada, con tecnología de [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), en un cuaderno de Jupyter mediante el [SDK de Python de Azure Machine Learning](/python/api/overview/azure/ml/). 
 
-Este artículo contiene instrucciones para realizar tareas de limpieza y transformación de datos de forma interactiva en una sesión de Synapse dedicada en un cuaderno de Jupyter Notebook con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/). Si prefiere usar canalizaciones de Azure Machine Learning, consulte [Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)](how-to-use-synapsesparkstep.md).
+Si prefiere usar canalizaciones de Azure Machine Learning, consulte [Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)](how-to-use-synapsesparkstep.md).
 
-Si busca instrucciones sobre cómo usar Azure Synapse Analytics con un área de trabajo de Synapse, consulte la documentación de [introducción Azure Synapse Analytics](../synapse-analytics/get-started.md).
+Para instrucciones sobre cómo usar Azure Synapse Analytics con un área de trabajo de Synapse, consulte la documentación de [introducción Azure Synapse Analytics](../synapse-analytics/get-started.md).
 
 >[!IMPORTANT]
 > La integración de Azure Machine Learning y Azure Synapse Analytics se encuentra en versión preliminar. Las funciones que se presentan en este artículo emplean el paquete `azureml-synapse`, que contiene características en versión preliminar [experimentales](/python/api/overview/azure/ml/#stable-vs-experimental) que pueden cambiar en cualquier momento.
 
-## <a name="azure-machine-learning-and-azure-synapse-analytics-integration-preview"></a>Integración de Azure Machine Learning y Azure Synapse Analytics (versión preliminar)
+## <a name="azure-machine-learning-and-azure-synapse-analytics-integration"></a>Integración de Azure Machine Learning y Azure Synapse Analytics
 
 La integración de Azure Synapse Analytics en Azure Machine Learning (versión preliminar) le permite conectar un grupo de Apache Spark respaldado por Azure Synapse para la exploración y preparación interactivas de datos. Con esta integración, puede contar con una instancia de proceso dedicada para la limpieza y transformación de datos a gran escala, todo dentro del mismo cuaderno de Python que usa para entrenar los modelos de Machine Learning.
 
@@ -51,91 +51,15 @@ La integración de Azure Synapse Analytics en Azure Machine Learning (versión p
   pip install azureml-synapse
   ```
 
-* [Vinculación de áreas de trabajo de Azure Synapse Analytics y Azure Machine Learning (versión preliminar)](how-to-link-synapse-ml-workspaces.md)
+* Vincule el área de trabajo de Azure Machine Learning y el de Azure Synapse Analytics mediante el [SDK de Python de Azure Machine Learning](how-to-link-synapse-ml-workspaces.md#link-sdk) o a través de [Estudio de Azure Machine Learning](how-to-link-synapse-ml-workspaces.md#link-studio).
 
-## <a name="get-an-existing-linked-service"></a>Obtención de un servicio vinculado existente
-Para poder conectar una instancia de proceso dedicada para la limpieza y transformación de datos, debe tener un área de trabajo de ML vinculada a un área de trabajo de Azure Synapse Analytics, a lo que se hace referencia como un servicio vinculado. 
-
-Para recuperar y usar un servicio vinculado existente, se necesitan permisos de **usuario o colaborador** en el área de trabajo de Azure Synapse Analytics.
-
-Consulte todos los servicios vinculados asociados con el área de trabajo de Machine Learning. 
-
-```python
-from azureml.core import LinkedService
-
-LinkedService.list(ws)
-```
-
-En este ejemplo se recupera un servicio vinculado existente, `synapselink1`, del área de trabajo `ws` con el método [`get()`](/python/api/azureml-core/azureml.core.linkedservice#get-workspace--name-).
-```python
-from azureml.core import LinkedService
-
-linked_service = LinkedService.get(ws, 'synapselink1')
-```
- 
-## <a name="attach-synapse-spark-pool-as-a-compute"></a>Asociación de un grupo de Spark de Synapse como proceso
-
-Después de recuperar el servicio vinculado, conecte un grupo de Apache Spark de Synapse como recurso de proceso dedicado para las tareas de limpieza y transformación de datos. 
-
-Puede conectar grupos de Apache Spark mediante lo siguiente:
-* Azure Machine Learning Studio
-* [Plantillas de Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)
-* El SDK de Azure Machine Learning para Python 
-
-### <a name="attach-a-pool-via-the-studio"></a>Conexión de un grupo mediante el Estudio de Azure Machine Learning
-Siga estos pasos: 
-
-1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/).
-1. En la sección **Administrar** del panel izquierdo, seleccione **Servicios vinculados**.
-1. Seleccione el área de trabajo de Synapse.
-1. Seleccione **Grupos de Spark adjuntos** en la parte superior izquierda. 
-1. Seleccione **Adjuntar**. 
-1. Seleccione el grupo de Apache Spark en la lista y proporcione un nombre.  
-    1. Esta lista identifica los grupos de Spark de Synapse disponibles que se pueden asociar al proceso. 
-    1. Para crear un nuevo grupo de Spark de Synapse, consulte [Creación de un grupo de Apache Spark con Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
-1. Seleccione **Asociar selección**. 
-
-### <a name="attach-a-pool-with-the-python-sdk"></a>Conexión de un grupo mediante el SDK para Python
-
-También puede utilizar el **SDK de Python** para conectar un grupo de Apache Spark. 
-
-El código siguiente: 
-1. Configura el [`SynapseCompute`](/python/api/azureml-core/azureml.core.compute.synapsecompute) con:
-
-   1. El [`LinkedService`](/python/api/azureml-core/azureml.core.linkedservice), `linked_service` que creó o recuperó en el paso anterior. 
-   1. El tipo de destino de proceso que quiere asociar, `SynapseSpark`.
-   1. Nombre del grupo de Apache Spark. Debe coincidir con un grupo de Apache Spark existente que se encuentre en el área de trabajo de Azure Synapse Analytics.
-   
-1. Crea un [`ComputeTarget`](/python/api/azureml-core/azureml.core.computetarget) de aprendizaje automático pasando: 
-   1. El área de trabajo de Machine Learning que desea usar, `ws`.
-   1. Nombre con el que quiere hacer referencia al proceso en el área de trabajo de Azure Machine Learning. 
-   1. Valor attach_configuration que ha especificado al configurar el proceso de Synapse.
-       1. La llamada a ComputeTarget.attach() es asincrónica, por lo que el ejemplo crea un bloqueo hasta que se completa la llamada.
-
-```python
-from azureml.core.compute import SynapseCompute, ComputeTarget
-
-attach_config = SynapseCompute.attach_configuration(linked_service, #Linked synapse workspace alias
-                                                    type='SynapseSpark', #Type of assets to attach
-                                                    pool_name=synapse_spark_pool_name) #Name of Synapse spark pool 
-
-synapse_compute = ComputeTarget.attach(workspace= ws,                
-                                       name= synapse_compute_name, 
-                                       attach_configuration= attach_config
-                                      )
-
-synapse_compute.wait_for_completion()
-```
-
-Compruebe que el grupo de Apache Spark está conectado.
-
-```python
-ws.compute_targets['Synapse Spark pool alias']
-```
+* [Asocie un grupo de Spark de Synapse](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute) como destino de proceso.
 
 ## <a name="launch-synapse-spark-pool-for-data-wrangling-tasks"></a>Inicio del grupo de Spark de Synapse para tareas de limpieza y transformación de datos
 
-Para comenzar la preparación de datos con el grupo de Apache Spark, especifique el nombre del grupo de Apache Spark:
+Para comenzar la preparación de datos con el grupo de Apache Spark, especifique el nombre del proceso de Apache Spark asociado. Este nombre se puede encontrar a través de Estudio de Azure Machine Learning en la pestaña **Attached computes** (Procesos asociados). 
+
+![obtener el nombre de proceso asociado](media/how-to-data-prep-synapse-spark-pool/attached-compute.png)
 
 > [!IMPORTANT]
 > Para seguir usando el grupo de Apache Spark, debe indicar qué recurso de proceso se va a utilizar en las tareas de limpieza y transformación de datos, con `%synapse` para líneas de código únicas y `%%synapse` para varias líneas. 
@@ -321,7 +245,7 @@ input1 = train_ds.as_mount()
 
 ## <a name="use-a-scriptrunconfig-to-submit-an-experiment-run-to-a-synapse-spark-pool"></a>Uso de `ScriptRunConfig` para enviar una ejecución de experimento a un grupo de Synapse Spark
 
-Si está listo para automatizar y enviar a producción las tareas de limpieza y transformación de datos, puede enviar una ejecución de experimento al [grupo de Synapse Spark que asoció anteriormente](#attach-a-pool-with-the-python-sdk) con el objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).  
+Si está listo para automatizar y enviar a producción las tareas de limpieza y transformación de datos, puede enviar una ejecución de experimento a [un grupo de Spark de Synapse asociado](how-to-link-synapse-ml-workspaces.md#attach-a-pool-with-the-python-sdk) con el objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).  
 
 De forma similar, si tiene una canalización de Azure Machine Learning, puede usar [SynapseSparkStep para especificar el grupo de Spark de Synapse como destino de proceso para el paso de preparación de datos de la canalización](how-to-use-synapsesparkstep.md).
 
@@ -390,4 +314,4 @@ Consulte los cuadernos de ejemplo para ver más conceptos y demostraciones de la
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Entrenamiento de un modelo](how-to-set-up-training-targets.md).
-* [Entrenamiento de modelos con conjuntos de datos de Azure Machine Learning](how-to-train-with-datasets.md)
+* [Entrenamiento de modelos con conjuntos de datos de Azure Machine Learning](how-to-train-with-datasets.md).

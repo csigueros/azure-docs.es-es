@@ -3,12 +3,12 @@ title: Canalización de Azure Video Analyzer
 description: Una canalización de Azure Video Analyzer le permite definir dónde se deben capturar los datos de entrada, cómo se deben procesar y dónde se deben entregar los resultados. Una canalización consta de nodos que están conectados para lograr el flujo de datos deseado.
 ms.topic: conceptual
 ms.date: 05/13/2021
-ms.openlocfilehash: 9e3945624a52b64612c7edca2f3380b072f60bec
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: deed7eec980272dd3dd001219016eee139f22ad6
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388655"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591249"
 ---
 # <a name="pipeline"></a>Canalización
 
@@ -74,11 +74,11 @@ El nodo del procesador de detección de movimiento permite detectar movimiento e
 
 #### <a name="http-extension-processor"></a>Procesador de extensiones HTTP
 
-El nodo del procesador de extensiones HTTP permite ampliar la canalización al módulo de IoT Edge. Este nodo recibe fotogramas de vídeo descodificados como entrada y los retransmite a un punto de conexión REST HTTP expuesto por el módulo, donde puede analizar el fotograma con un modelo de inteligencia artificial y devolver los resultados de la inferencia. Obtenga más información sobre el [procesador aquí](pipeline-extension.md#http-extension-processor). Además, el nodo tiene un formateador de imagen integrado para escalar y codificar los fotogramas de vídeo antes de retransmitirlos al punto de conexión HTTP. El escalador tiene opciones para conservar, rellenar o ajustar la relación de aspecto de la imagen. El codificador de imágenes admite los formatos JPEG, PNG, BMP y RAW. Obtenga más información sobre el [procesador aquí](/pipeline-extension.md#grpc-extension-processor).
+El nodo del procesador de extensiones HTTP permite ampliar la canalización al módulo de IoT Edge. Este nodo recibe fotogramas de vídeo descodificados como entrada y los retransmite a un punto de conexión REST HTTP expuesto por el módulo, donde puede analizar el fotograma con un modelo de inteligencia artificial y devolver los resultados de la inferencia. Además, el nodo tiene un formateador de imagen integrado para escalar y codificar los fotogramas de vídeo antes de retransmitirlos al punto de conexión HTTP. El escalador tiene opciones para conservar, rellenar o ajustar la relación de aspecto de la imagen. El codificador de imágenes admite los formatos JPEG, PNG, BMP y RAW. Obtenga más información sobre el [procesador aquí](pipeline-extension.md#http-extension-processor).
 
 #### <a name="grpc-extension-processor"></a>Procesador de extensiones gRPC
 
-Este nodo procesador de extensiones gRPC toma los fotogramas de vídeo descodificados como entrada y los retransmite a un punto de conexión [gRPC](pipeline-extension.md#grpc-extension-processor) expuesto por el módulo. El nodo admite la transferencia de datos mediante [memoria compartida](https://en.wikipedia.org/wiki/Shared_memory) o la incrustación directa del fotograma en el cuerpo de los mensajes gRPC. Al igual que el proceso de la extensión HTTP, este nodo también tiene un formateador de imagen integrado para escalar y codificar los fotogramas de vídeo antes de retransmitirlos al punto de conexión gRPC. Obtenga más información sobre el [procesador aquí](/pipeline-extension.md#grpc-extension-processor).
+Este nodo procesador de extensiones gRPC toma los fotogramas de vídeo descodificados como entrada y los retransmite a un punto de conexión [gRPC](terminology.md#grpc) expuesto por el módulo. El nodo admite la transferencia de datos mediante [memoria compartida](https://en.wikipedia.org/wiki/Shared_memory) o la incrustación directa del fotograma en el cuerpo de los mensajes gRPC. Al igual que el proceso de la extensión HTTP, este nodo también tiene un formateador de imagen integrado para escalar y codificar los fotogramas de vídeo antes de retransmitirlos al punto de conexión gRPC. Obtenga más información sobre el [procesador aquí](pipeline-extension.md#grpc-extension-processor).
 
 #### <a name="cognitive-services-extension-processor"></a>Procesador de extensiones de Cognitive Services
 
@@ -86,7 +86,7 @@ El procesador de extensiones de Cognitive Services le permite ampliar la canaliz
 
 #### <a name="signal-gate-processor"></a>Procesador de la puerta de señales
 
-El nodo del procesador de la puerta de señales permite reenviar de manera condicional elementos multimedia de un nodo a otro. Un ejemplo de caso de uso consiste en insertar un nodo del procesador de la puerta de señales entre el nodo de origen RTSP y el nodo receptor del vídeo y, después, usar la salida de un nodo del procesador de detección de movimiento para desencadenar la puerta. Con este tipo de canalización, solo se graba el vídeo cuando se detecta movimiento. También puede usar la salida del nodo de extensiones HTTP o gRPC para desencadenar la puerta, en lugar del nodo del procesador de detección de movimiento, lo que permite la grabación de vídeo cuando se detecta algo interesante.
+El nodo del procesador de la puerta de señales permite reenviar de manera condicional elementos multimedia de un nodo a otro. El nodo de procesador de puerta de señal debe ir seguido inmediatamente de un receptor de vídeo o un receptor de archivos. Un ejemplo de caso de uso consiste en insertar un nodo del procesador de la puerta de señales entre el nodo de origen RTSP y el nodo receptor del vídeo y, después, usar la salida de un nodo del procesador de detección de movimiento para desencadenar la puerta. Con este tipo de canalización, solo se graba el vídeo cuando se detecta movimiento. También puede usar la salida del nodo de extensiones HTTP o gRPC para desencadenar la puerta, en lugar del nodo del procesador de detección de movimiento, lo que permite la grabación de vídeo cuando se detecta algo interesante.
 
 #### <a name="object-tracker-processor"></a>Procesador de seguimiento de objetos
 

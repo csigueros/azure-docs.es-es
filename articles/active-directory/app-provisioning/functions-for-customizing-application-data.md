@@ -2,8 +2,8 @@
 title: Referencia para la escritura de expresiones para la asignación de atributos en el aprovisionamiento de aplicaciones de Azure Active Directory
 description: Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory. Incluye una lista de referencias de funciones.
 services: active-directory
-author: mtillman
-manager: daveba
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 3c5d2023ebc26aca0e6d1a14f43a94d2d3e3dd87
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 3cd910cac906af54e039e38c9ccdd9d563cd9b8c
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109782962"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111570322"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Referencia para la escritura de expresiones para la asignación de atributos en Azure Active Directory
 
@@ -369,7 +369,7 @@ Devuelve True si el atributo no está presente o si es una cadena vacía.
 | **índice** |Obligatorio |Entero | Índice de un elemento en la cadena multivalor.|
 
 **Ejemplo:** 
-`Item([proxyAddresses], 1)` devuelve el segundo elemento en el atributo de varios valores.
+`Item([proxyAddresses], 1)` devuelve el primer elemento en el atributo multivalor. No se debe usar el índice 0. 
 
 ---
 ### <a name="join"></a>Join

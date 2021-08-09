@@ -7,12 +7,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 0a1eb593e9f9f15f88aefb2fe06706153a4b74a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44fc791fd10517ee52fc2e05ea292b889bd95e11
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361407"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496859"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar datos en Azure Data Factory
 
@@ -26,6 +26,7 @@ ms.locfileid: "100361407"
 > * [Azure Machine Learning Studio (clásico)](transform-data-using-machine-learning.md) 
 > * [Procedimiento almacenado](transform-data-using-stored-procedure.md)
 > * [U-SQL de análisis con Data Lake](transform-data-using-data-lake-analytics.md)
+> * [Cuaderno de Synapse](../synapse-analytics/synapse-notebook-activity.md)
 > * [Notebook de Databricks](transform-data-databricks-notebook.md)
 > * [Jar en Databricks](transform-data-databricks-jar.md)
 > * [Python en Databricks](transform-data-databricks-python.md)
@@ -79,6 +80,10 @@ Puede usar la actividad de procedimiento almacenado de SQL Server en una canaliz
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Actividad de U-SQL de Data Lake Analytics
 La actividad de U-SQL de Data Lake Analytics ejecuta un script de U-SQL en un clúster de Azure Data Lake Analytics. Vea el artículo [Actividad de U-SQL de Data Analytics](transform-data-using-data-lake-analytics.md) para más información. 
+
+### <a name="synapse-notebook-activity"></a>Actividad de cuaderno de Synapse 
+
+La actividad de cuaderno de Azure Synapse de una canalización de Synapse ejecuta un cuaderno de Synapse en el área de trabajo de Azure Synapse. Consulte [Transformación de datos mediante la ejecución de un cuaderno de Synapse](../synapse-analytics/synapse-notebook-activity.md).
 
 ### <a name="databricks-notebook-activity"></a>Actividad Notebook de Databricks
 

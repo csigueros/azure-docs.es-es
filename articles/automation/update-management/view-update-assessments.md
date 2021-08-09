@@ -3,14 +3,14 @@ title: Visualización de las valoraciones de actualizaciones de Azure Automation
 description: En este artículo se explica cómo ver las valoraciones de actualizaciones para las implementaciones de Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 09/17/2020
+ms.date: 06/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 39df5888a330a92ae043e34c3043da5b1f566345
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 270a48181e8eceb7b5e851f9bc69bb5a41428573
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92221811"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964453"
 ---
 # <a name="view-update-assessments-in-update-management"></a>Visualización de las evaluaciones de las actualizaciones en Update Management
 
@@ -46,6 +46,9 @@ En **Vínculo información**, seleccione el vínculo de una actualización para 
 
 [ ![Visualización del estado de la actualización](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
 
+> [!NOTE]
+> La información que se muestra sobre el estado de actualización de la definición de Windows Defender se basa en los últimos datos resumidos en el área de trabajo de Log Analytics, y es posible que no sean actuales. Consulte [Siempre se muestra que falta la actualización de Windows Defender](../troubleshoot/update-management.md#windows-defender-update-missing-status) para obtener más información sobre este comportamiento.
+ 
 Haga clic en cualquier otro lugar de la actualización para abrir el panel de búsqueda de registros. La consulta para la búsqueda de registros está predefinida para esa actualización específica. Puede modificar esta consulta o crear su propia consulta para ver información detallada.
 
 [ ![Visualización de resultados de consultas de registro](./media/view-update-assessments/logsearch-results.png)](./media/view-update-assessments/logsearch-results-expanded.png#lightbox)

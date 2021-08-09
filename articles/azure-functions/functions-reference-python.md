@@ -4,12 +4,12 @@ description: Aprenda a desarrollar funciones con Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0c87be334847974627299f8e21109fe201675f0c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1560e4a0a5c413ca225ffde0ab6d24e2958c8e75
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762180"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985408"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -18,7 +18,7 @@ Este artículo es una introducción al desarrollo de Azure Functions mediante Py
 Como desarrollador de Python, puede que también le interese uno de los siguientes artículos:
 
 | Introducción | Conceptos| Escenarios y ejemplos |
-| -- | -- | -- | 
+|--|--|--|
 | <ul><li>[Función de Python mediante Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Función de Python con el terminal o el símbolo del sistema](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guía del desarrollador](functions-reference.md)</li><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Consideraciones&nbsp;sobre el rendimiento](functions-best-practices.md)</li></ul> | <ul><li>[Clasificación de imágenes con PyTorch](machine-learning-pytorch.md)</li><li>[Ejemplo de Azure Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine Learning con TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Examen de los ejemplos de Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
@@ -140,7 +140,7 @@ from ..shared_code import my_first_helper_function #(deprecated beyond top-level
 
 ## <a name="triggers-and-inputs"></a>Desencadenadores y entradas
 
-Las entradas se dividen en dos categorías dentro de Azure Functions: una entrada del desencadenador y otra adicional. Aunque son diferentes en el archivo `function.json`, se usan igual en el código de Python.  Las cadenas de conexión o los secretos de los orígenes de entrada y el desencadenador se asignan a valores en el archivo `local.settings.json` al ejecutarse localmente y a la configuración de la aplicación al ejecutarse en Azure.
+Las entradas se dividen en dos categorías dentro de Azure Functions: entradas del desencadenador y otras entradas. Aunque son diferentes en el archivo `function.json`, se usan igual en el código de Python.  Las cadenas de conexión o los secretos de los orígenes de entrada y el desencadenador se asignan a valores en el archivo `local.settings.json` al ejecutarse localmente y a la configuración de la aplicación al ejecutarse en Azure.
 
 Por ejemplo, el siguiente código muestra la diferencia entre las dos:
 
@@ -241,7 +241,7 @@ def main(req: func.HttpRequest,
 
 ## <a name="logging"></a>Registro
 
-El acceso al registrador del entorno de ejecución de Azure Functions está disponible a través de un controlador [`logging`](https://docs.python.org/3/library/logging.html#module-logging) raíz en la aplicación de función. Este registrador está asociado a Application Insights y permite marcar las advertencias y los errores detectados durante la ejecución de la función.
+El acceso al registrador del entorno de ejecución de Azure Functions está disponible a través de un controlador [`logging`](https://docs.python.org/3/library/logging.html#module-logging) raíz en la aplicación de función. Este registrador está asociado a Application Insights y permite marcar las advertencias y los errores que se produjeron durante la ejecución de la función.
 
 En el ejemplo siguiente se registra un mensaje de información cuando la función se invoca con un desencadenador HTTP.
 
@@ -253,7 +253,7 @@ def main(req):
     logging.info('Python HTTP trigger function processed a request.')
 ```
 
-Hay métodos de registro adicionales disponibles que permiten escribir en la consola en otros niveles de seguimiento:
+Hay más métodos de registro disponibles que permiten escribir en la consola en otros niveles de seguimiento:
 
 | Método                 | Descripción                                |
 | ---------------------- | ------------------------------------------ |
@@ -302,7 +302,7 @@ Del mismo modo, puede establecer `status_code` y `headers` para el mensaje de re
 
 ## <a name="scaling-and-performance"></a>Escalado y rendimiento
 
-Para los procedimientos recomendados de escalado y rendimiento para las aplicaciones de función de Python, consulte el [artículo sobre el escalado y el rendimiento de Python](python-scale-performance-reference.md).
+Para los procedimientos recomendados de escalado y rendimiento para las aplicaciones de funciones de Python, consulte el [artículo sobre el escalado y el rendimiento de Python](python-scale-performance-reference.md).
 
 ## <a name="context"></a>Context
 
@@ -406,7 +406,7 @@ También puede usar Azure Pipelines para compilar las dependencias y publicarlas
 
 Cuando se usa la compilación remota, las dependencias restauradas en el servidor y las dependencias nativas coinciden con el entorno de producción. Esto da como resultado un paquete de implementación más pequeño para cargar. Use la compilación remota para desarrollar aplicaciones de Python en Windows. Si el proyecto tiene dependencias personalizadas, puede [usar la compilación remota con la dirección URL de índice adicional](#remote-build-with-extra-index-url).
 
-las dependencias se obtienen de forma remota en función del contenido del archivo requirements.txt. La [compilación remota](functions-deployment-technologies.md#remote-build) es el método de compilación recomendado. De forma predeterminada, Azure Functions Core Tools solicita una compilación remota cuando se usa el siguiente comando [func azure functionapp publish](functions-run-local.md#publish) para publicar el proyecto de Python en Azure.
+las dependencias se obtienen de forma remota en función del contenido del archivo requirements.txt. La [compilación remota](functions-deployment-technologies.md#remote-build) es el método de compilación recomendado. De forma predeterminada, Azure Functions Core Tools solicita una compilación remota cuando se usa el siguiente comando [`func azure functionapp publish`](functions-run-local.md#publish) para publicar el proyecto de Python en Azure.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -418,7 +418,7 @@ La [extensión de Azure Functions para Visual Studio Code](./create-first-funct
 
 ### <a name="local-build"></a>Compilación local
 
-las dependencias se obtienen de forma local en función del contenido del archivo requirements.txt. Puede impedir que se lleve a cabo una compilación remota usando el siguiente comando [func azure functionapp publish](functions-run-local.md#publish) para publicar con una compilación local.
+las dependencias se obtienen de forma local en función del contenido del archivo requirements.txt. Puede impedir que se lleve a cabo una compilación remota mediante el siguiente comando [`func azure functionapp publish`](functions-run-local.md#publish) para publicar con una compilación local.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -552,7 +552,7 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-Dentro del entorno virtual de Python, `.venv`, instale el marco de pruebas de Python que prefiera (por ejemplo, `pip install pytest`). Simplemente ejecute `pytest tests` para comprobar el resultado de la prueba.
+Dentro del entorno virtual de Python, `.venv`, instale el marco de pruebas de Python que prefiera (por ejemplo, `pip install pytest`). Después, ejecute `pytest tests` para comprobar el resultado de la prueba.
 
 ## <a name="temporary-files"></a>Archivos temporales
 
@@ -586,7 +586,7 @@ Hay algunas bibliotecas que se incluyen en Functions Runtime para Python.
 
 La biblioteca estándar de Python contiene una lista de módulos de Python integrados que se incluyen con cada distribución de Python. La mayoría de estas bibliotecas lo ayudan a acceder a la funcionalidad del sistema, como la E/S de archivos. En los sistemas Windows, estas bibliotecas se instalan con Python. En los sistemas basados en Unix, las proporcionan las colecciones de paquetes.
 
-Para ver todos los detalles de la lista de estas bibliotecas, visite los vínculos siguientes:
+Para ver todos los detalles de la lista de estas bibliotecas, consulte los vínculos siguientes:
 
 * [Biblioteca estándar de Python 3.6](https://docs.python.org/3.6/library/)
 * [Biblioteca estándar de Python 3.7](https://docs.python.org/3.7/library/)
@@ -599,6 +599,9 @@ El trabajo de Python en Functions requiere un conjunto específico de biblioteca
 
 > [!NOTE]
 > Si el archivo requirements.txt de la aplicación de funciones contiene una entrada `azure-functions-worker`, quítela. El trabajo de funciones se administra automáticamente mediante la plataforma de Azure Functions y se actualiza periódicamente con nuevas características y correcciones de errores. La instalación manual de una versión anterior del trabajo en el archivo requirements.txt puede producir problemas inesperados.
+
+> [!NOTE]
+>  Si el paquete contiene determinadas bibliotecas que pueden entrar en conflicto con las dependencias del trabajo (por ejemplo, protobuf, tensorflow, grpcio), configure `PYTHON_ISOLATE_WORKER_DEPENDENCIES` como `1` en la configuración de la aplicación para evitar que la aplicación haga referencia a las dependencias del trabajo.
 
 ### <a name="azure-functions-python-library"></a>Biblioteca de Python para Azure Functions
 
@@ -614,12 +617,112 @@ getattr(azure.functions, '__version__', '< 1.2.1')
 
 ### <a name="runtime-system-libraries"></a>Bibliotecas de sistema en tiempo de ejecución
 
-Para obtener una lista de las bibliotecas de sistema preinstaladas en las imágenes de Docker de trabajo de Python, siga estos vínculos:
+Para obtener una lista de las bibliotecas de sistema preinstaladas en las imágenes de Docker de trabajo de Python, consulte estos vínculos:
 
 |  Sistema en tiempo de ejecución de Functions  | Versión de Debian | Versiones de Python |
 |------------|------------|------------|
 | Versión 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
 | Versión 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
+
+## <a name="python-worker-extensions"></a>Extensiones de trabajo de Python  
+
+El proceso de trabajo de Python que se ejecuta en Azure Functions permite integrar bibliotecas de terceros en la aplicación de funciones. Estas bibliotecas de extensiones actúan como middleware que puede insertar operaciones específicas durante el ciclo de vida de la ejecución de la función. 
+
+Las extensiones se importan en el código de función de forma muy parecida a un módulo de biblioteca estándar de Python. Las extensiones se ejecutan en función de los ámbitos siguientes: 
+
+| Ámbito | Descripción |
+| --- | --- |
+| **En el nivel de la aplicación** | Cuando se importa en cualquier desencadenador de función, la extensión se aplica a cada ejecución de la función en la aplicación. |
+| **Nivel de función** | La ejecución se limita solo al desencadenador de función específico en el que se importa. |
+
+Revise la información de una extensión concreta para más información sobre el ámbito en el que se ejecuta la extensión. 
+
+Las extensiones implementan una interfaz de extensión de trabajo de Python que permite que el proceso de trabajo de Python llame al código de la extensión durante el ciclo de vida de ejecución de la función. Para más información, consulte [Creación de extensiones](#creating-extensions).
+
+### <a name="using-extensions"></a>Uso de extensiones 
+
+Puede usar una biblioteca de extensiones de trabajo de Python en las funciones de Python mediante estos pasos básicos:
+
+1. Agregue el paquete de extensión en el archivo requirements.txt del proyecto.
+1. Instale la biblioteca en la aplicación.
+1. Agregue la configuración de la aplicación `PYTHON_ENABLE_WORKER_EXTENSIONS`:
+    + Localmente: agregue `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"` en la sección `Values` del [archivo local.settings.json](functions-run-local.md?tabs=python#local-settings-file)
+    + Azure: agregue `PYTHON_ENABLE_WORKER_EXTENSIONS=1` a la [configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings).
+1. Importe el módulo de extensión en el desencadenador de función. 
+1. Configure la instancia de la extensión, si es necesario. Los requisitos de configuración deben incluirse en la documentación de la extensión. 
+
+> [!IMPORTANT]
+> Microsoft no admite ni garantiza las bibliotecas de extensiones de trabajo de Python de terceros. Debe asegurarse de que las extensiones que use en la aplicación de funciones sean de confianza y asumir todo el riesgo que supone usar una extensión malintencionada o mal escrita. 
+
+Los terceros deben proporcionar documentación específica sobre cómo instalar y usar su extensión específica en la aplicación de funciones. Para obtener un ejemplo básico de cómo usar una extensión, consulte [Uso de la extensión](develop-python-worker-extensions.md#consume-your-extension-locally). 
+
+Estos son ejemplos de uso de extensiones en una aplicación de funciones, por ámbito:
+
+# <a name="application-level"></a>[En el nivel de la aplicación](#tab/application-level)
+
+```python
+# <project_root>/requirements.txt
+application-level-extension==1.0.0
+```
+
+```python
+# <project_root>/Trigger/__init__.py
+
+from application_level_extension import AppExtension
+AppExtension.configure(key=value)
+
+def main(req, context):
+  # Use context.app_ext_attributes here
+```
+# <a name="function-level"></a>[Nivel de función](#tab/function-level)
+```python
+# <project_root>/requirements.txt
+function-level-extension==1.0.0
+```
+
+```python
+# <project_root>/Trigger/__init__.py
+
+from function_level_extension import FuncExtension
+func_ext_instance = FuncExtension(__file__)
+
+def main(req, context):
+  # Use func_ext_instance.attributes here
+```
+---
+
+### <a name="creating-extensions"></a>Creación de extensiones 
+
+Las extensiones las crean desarrolladores de bibliotecas de terceros que han creado funcionalidades que se pueden integrar en Azure Functions.  Un desarrollador de extensiones diseña, implementa y publica paquetes de Python que contienen lógica personalizada diseñada específicamente para ejecutarse en el contexto de la ejecución de funciones. Estas extensiones se pueden publicar en el registro de PyPI o en repositorios de GitHub.
+
+Para aprender a crear, empaquetar, publicar y usar un paquete de extensión de trabajo de Python, consulte [Desarrollo de extensiones de trabajo de Python para Azure Functions](develop-python-worker-extensions.md).
+
+#### <a name="application-level-extensions"></a>Extensiones en el nivel de aplicación
+
+Una extensión heredada de [`AppExtensionBase`](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/app_extension_base.py) se ejecuta en un ámbito de _aplicación_. 
+
+`AppExtensionBase` expone los siguientes métodos de clase abstracta para que los implemente:
+
+| Método | Descripción |
+| --- | --- |
+| **`init`** | Se le llama después de importar la extensión. |
+| **`configure`** | Se le llama desde el código de función cuando es necesario para configurar la extensión. |
+| **`post_function_load_app_level`** | Se le llama justo después de cargar la función. El nombre y el directorio de la función se pasan a la extensión. Tenga en cuenta que el directorio de la función es de solo lectura y cualquier intento de escribir en el archivo local de este directorio provocará un error. |
+| **`pre_invocation_app_level`** | Se le llama justo antes de que se desencadene la función. El contexto y los argumentos de invocación de la función se pasan a la extensión. Normalmente puede pasar otros atributos en el objeto de contexto para que el código de la función los utilice. |
+| **`post_invocation_app_level`** | Se le llama justo después de que se complete la ejecución de la función. El contexto de función, los argumentos de invocación de la función y el objeto devuelto por la invocación se pasan a la extensión. Esta implementación es un buen lugar para validar si la ejecución de los enlaces del ciclo de vida se ha ejecutado correctamente. |
+
+#### <a name="function-level-extensions"></a>Extensiones en el nivel de función
+
+Una extensión que se hereda de [FuncExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/func_extension_base.py) se ejecuta en un desencadenador de función específico. 
+
+`FuncExtensionBase` expone los siguientes métodos de clase abstracta para que los implemente:
+
+| Método | Descripción |
+| --- | --- |
+| **`__init__`** | Este método es el constructor de la extensión. Se le llama cuando se inicializa una instancia de extensión en una función específica. Al implementar este método abstracto, puede que desee aceptar un parámetro `filename` y pasarlo al método del elemento primario `super().__init__(filename)` para el registro adecuado de la extensión. |
+| **`post_function_load`** | Se le llama justo después de cargar la función. El nombre y el directorio de la función se pasan a la extensión. Tenga en cuenta que el directorio de la función es de solo lectura y cualquier intento de escribir en el archivo local de este directorio provocará un error. |
+| **`pre_invocation`** | Se le llama justo antes de que se desencadene la función. El contexto y los argumentos de invocación de la función se pasan a la extensión. Normalmente puede pasar otros atributos en el objeto de contexto para que el código de la función los utilice. |
+| **`post_invocation`** | Se le llama justo después de que se complete la ejecución de la función. El contexto de función, los argumentos de invocación de la función y el objeto devuelto por la invocación se pasan a la extensión. Esta implementación es un buen lugar para validar si la ejecución de los enlaces del ciclo de vida se ha ejecutado correctamente. |
 
 ## <a name="cross-origin-resource-sharing"></a>Uso compartido de recursos entre orígenes
 

@@ -3,12 +3,12 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre la forma en que Azure Policy usa el cliente de configuración de invitado para auditar la configuración dentro de las máquinas virtuales.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6ca5990306dd77e59298c7df6a64f463b36be93b
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 80de6651d59b26b596633b8ba775c774dcfea62e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804113"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970349"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -62,17 +62,18 @@ Cuando se produce una directiva del tipo [desencadenador evaluación](../how-to/
 
 ## <a name="supported-client-types"></a>Tipos de cliente admitidos
 
-Las definiciones de directivas de configuración de invitado son inclusivas de nuevas versiones. Las versiones anteriores de los sistemas operativos disponibles en Azure Marketplace se excluyen si el cliente de configuración de invitado no es compatible. En la tabla siguiente se muestra una lista de sistemas operativos compatibles en imágenes de Azure:
+Las definiciones de directivas de configuración de invitado son inclusivas de nuevas versiones. Las versiones anteriores de los sistemas operativos disponibles en Azure Marketplace se excluyen si el cliente de configuración de invitado no es compatible. En la tabla siguiente se muestra una lista de sistemas operativos compatibles en imágenes de Azure.
+El texto ".x" es simbólico y se usa para representar nuevas versiones secundarias de distribuciones de Linux.
 
 |Publicador|Nombre|Versiones|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 - 20.04|
-|Credativ|Debian|8 - 10|
+|Canonical|Ubuntu Server|14.04 - 20.x|
+|Credativ|Debian|8 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Cliente Windows|Windows 10|
-|OpenLogic|CentOS|7.3 -8|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 8|
-|SUSE|SLES|12 SP3-SP5, 15|
+|OpenLogic|CentOS|7.3 -8.x|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 8.x|
+|SUSE|SLES|12 SP3-SP5, 15.x|
 
 Las definiciones de directivas de configuración de invitado admiten imágenes de máquina virtual personalizadas, siempre y cuando se trate de uno de los sistemas operativos de la tabla anterior.
 
@@ -84,7 +85,7 @@ Las máquinas de Azure Arc se conectan mediante la infraestructura de red local 
 
 ### <a name="communicate-over-virtual-networks-in-azure"></a>Comunicación a través de redes virtuales en Azure
 
-Para comunicarse con el proveedor de recursos de la configuración de invitado en Azure, las máquinas requieren acceso de salida a los centros de datos Azure en el puerto **443**. Si una red en Azure no permite el tráfico saliente, las excepciones deben configurarse con las reglas del [grupo de seguridad de red](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). La [etiqueta de servicio](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" se puede usar para hacer referencia al servicio de configuración de invitado en lugar de mantener manualmente la [lista de intervalos IP](https://www.microsoft.com/en-us/download/details.aspx?id=56519) para los centros de datos de Azure.
+Para comunicarse con el proveedor de recursos de la configuración de invitado en Azure, las máquinas requieren acceso de salida a los centros de datos Azure en el puerto **443**. Si una red en Azure no permite el tráfico saliente, las excepciones deben configurarse con las reglas del [grupo de seguridad de red](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). La [etiqueta de servicio](../../../virtual-network/service-tags-overview.md) "AzureArcInfrastructure" se puede usar para hacer referencia al servicio de configuración de invitado en lugar de mantener manualmente la [lista de intervalos IP](https://www.microsoft.com/en-us/download/details.aspx?id=56519) para los centros de datos de Azure.
 
 ### <a name="communicate-over-private-link-in-azure"></a>Comunicación a través de un vínculo privado en Azure
 
@@ -161,7 +162,7 @@ Las definiciones de directivas de auditoría disponibles para la configuración 
 
 ## <a name="availability"></a>Disponibilidad
 
-Los clientes que diseñan una solución de alta disponibilidad deben tener en cuenta los requisitos de planeamiento de redundancia para las [máquinas virtuales](../../../virtual-machines/availability.md), ya que las asignaciones de invitados son extensiones de recursos de máquina en Azure. Si una región física deja de estar disponible en Azure, no es posible ver los informes históricos de una asignación de invitado hasta que se restaure la región.
+Los clientes que diseñan una solución de alta disponibilidad deben tener en cuenta los requisitos de planeamiento de redundancia para las [máquinas virtuales](../../../virtual-machines/availability.md), ya que las asignaciones de invitados son extensiones de recursos de máquina en Azure. Cuando los recursos de asignación de invitados se aprovisionan en una región de Azure [emparejada](../../../best-practices-availability-paired-regions.md), siempre y cuando haya al menos una región en el par disponible, los informes de asignación de invitados estarán disponibles. Si la región de Azure no está emparejada y deja de estar disponible, no será posible acceder a los informes de una asignación de invitado hasta que se restaure la región.
 
 Al considerar una arquitectura para aplicaciones de alta disponibilidad, especialmente cuando las máquinas virtuales se aprovisionan en [conjuntos de disponibilidad](../../../virtual-machines/availability.md#availability-sets) detrás de una solución de equilibrador de carga para proporcionar alta disponibilidad, se recomienda asignar las mismas definiciones de directiva con los mismos parámetros a todas las máquinas de la solución. Si es posible, una asignación de directiva única que abarca todas las máquinas ofrecería la menor sobrecarga administrativa.
 

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6be76878a9a07c5f4a1e2a9348bb7b09cb1b10eb
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: efe404511b725680697c5f6601b8cb13be13910b
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567594"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109808975"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Protección de un servicio vinculado con vínculos privados
 
@@ -31,7 +31,7 @@ En este artículo, aprenderá a proteger un servicio vinculado en Synapse con un
 
 En Azure Synapse Analytics, un servicio vinculado es donde se define la información de conexión a otros servicios. En esta sección, agregará Azure Synapse Analytics y Azure Data Lake Gen2 como servicios vinculados.
 
-1. Abra Azure Synapse Studio y vaya a la pestaña **Administrar**.
+1. Abra Synapse Studio y vaya a la pestaña **Administrar**.
 1. En **Conexiones externas**, seleccione **Servicios vinculados**.
 1. Para agregar un servicio vinculado, seleccione **Nuevo**.
 1. Seleccione el icono de Azure Data Lake Storage Gen2 de la lista y seleccione **Continuar**.

@@ -4,12 +4,12 @@ description: Supervise el rendimiento y diagnostique problemas en servicios de N
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9eba74bcf2b4b047b3ed881342db4f7b1011f928
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9709c52bde7ab866ba6b6b5c0526cef7f2ff6d87
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585750"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110079289"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
 
@@ -42,7 +42,7 @@ Antes de empezar, asegúrese de que tiene una suscripción de Azure o bien [obte
 Incluya el SDK en la aplicación para que pueda recopilar datos.
 
 > [!IMPORTANT]
-> Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La [cadena de conexión](./sdk-connection-string.md?tabs=nodejs) identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
+> Se recomiendan las [cadenas de conexión](./sdk-connection-string.md?tabs=nodejs) por encima de las claves de instrumentación. Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La cadena de conexión identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
 
 1. Copie la clave de instrumentación del recurso (también conocida como *ikey*) desde su recurso recién creado. Application Insights usa el valor de ikey para asignar datos a los recursos de Azure. Para que el SDK pueda usar el valor de ikey, se debe especificar en una variable de entorno o en el código.  
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 06/01/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d02b8cae22349412a83b35624479ef19de4697f6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93308779"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951746"
 ---
 # <a name="publisher-verification"></a>Verificación del editor
 
@@ -40,7 +40,7 @@ La verificación del publicador proporciona las ventajas siguientes:
 - **Adopción empresarial más fluida**: los administradores pueden configurar [directivas de consentimiento del usuario](../manage-apps/configure-user-consent.md) y que sea el estado de verificación del editor uno de los criterios principales de la directiva.
 
 > [!NOTE]
-> A partir de noviembre de 2020, los usuarios finales ya no podrán conceder consentimiento a la mayoría de las aplicaciones de varios inquilinos recién registradas sin publicadores comprobados. Esto será efectivo para las aplicaciones registradas después del 8 de noviembre de 2020. Use OAuth 2.0 para solicitar permisos más allá del inicio de sesión básico y la lectura del perfil de usuario, y solicite consentimiento a los usuarios de inquilinos que no sean aquellos en los que está registrada la aplicación. Se mostrará una advertencia en la pantalla de consentimiento que informa a los usuarios de que estas aplicaciones son peligrosas porque proceden de publicadores no comprobados.    
+> A partir de noviembre de 2020, los usuarios finales ya no podrán conceder consentimiento a la mayoría de las aplicaciones de varios inquilinos recién registradas sin publicadores comprobados si el [Consentimiento activo en función del riesgo](../manage-apps/configure-user-consent.md#risk-based-step-up-consent) está habilitado. Esto será efectivo para las aplicaciones registradas después del 8 de noviembre de 2020. Use OAuth 2.0 para solicitar permisos más allá del inicio de sesión básico y la lectura del perfil de usuario, y solicite consentimiento a los usuarios de inquilinos que no sean aquellos en los que está registrada la aplicación. Se mostrará una advertencia en la pantalla de consentimiento que informa a los usuarios de que estas aplicaciones son peligrosas porque proceden de publicadores no comprobados.    
 
 ## <a name="requirements"></a>Requisitos
 Hay algunos requisitos previos para la verificación del publicador, algunos de los cuales ya cumplirán muchos asociados de Microsoft. Son las siguientes: 

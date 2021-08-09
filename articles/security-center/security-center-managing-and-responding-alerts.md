@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 490f94c71611e07e765f5882cb4e3eec13033a6a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: df8b4534c6da446bd4ceeb18acf70036cd63f83c
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099342"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061189"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a alertas de seguridad en Azure Security Center
 
@@ -27,7 +27,7 @@ En este tema se muestra cómo ver y procesar las alertas de Security Center y c�
 Las detecciones avanzadas que desencadenan las alertas de seguridad solo están disponibles con Azure Defender. Hay una evaluación gratuita disponible. Para actualizar, consulte [Habilitación de Azure Defender](enable-azure-defender.md).
 
 ## <a name="what-are-security-alerts"></a>¿Qué son las alertas de seguridad?
-Security Center recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y las soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión, para detectar amenazas reales y reducir los falsos positivos. En Security Center, se muestra una lista de alertas de seguridad prioritarias, junto con la información que necesita para investigar rápidamente y recomendaciones para corregir un ataque.
+Security Center recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y las soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión, para detectar amenazas reales y reducir los falsos positivos. En Security Center, se muestra una lista de alertas de seguridad prioritarias, junto con la información que necesita para investigar rápidamente, y los pasos que debe seguir para corregir un ataque.
 
 Para más información sobre los distintos tipos de alertas, consulte [Alertas de seguridad: una guía de referencia](alerts-reference.md).
 

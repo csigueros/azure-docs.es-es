@@ -1,21 +1,22 @@
 ---
-title: 'Conexión a una red virtual desde un equipo: autenticación de certificados de Azure nativo y VPN de punto a sitio: PowerShell'
+title: 'Conexión a una red virtual desde un equipo: autenticación de certificados de Azure y VPN de punto a sitio: PowerShell'
 description: Obtenga información sobre cómo conectar de manera segura los clientes de Windows y macOS a la red virtual de Azure mediante P2S y certificados autofirmados o emitidos por una entidad de certificación.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 06/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: cf1cd8eb2d9723d435f277b9c029b15c843b9afd
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 98a8a16a4b9cdf40642e5339de63953b4175f78c
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226397"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558681"
 ---
-# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configure una conexión VPN de punto a sitio a una red virtual mediante la autenticación nativa de los certificados de Azure: PowerShell
+# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-azure-certificate-authentication-powershell"></a>Configure una conexión VPN de punto a sitio a una red virtual mediante la autenticación de certificados de Azure: PowerShell
 
 Este artículo le ayudará con la conexión segura de clientes que ejecutan Windows, Linux o macOS a una red virtual de Azure. Las conexiones VPN de punto a sitio son útiles cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia. También puede usar P2S en lugar de una VPN de sitio a sitio cuando son pocos los clientes que necesitan conectarse a una red virtual. Las conexiones de punto a sitio no requieren un dispositivo VPN ni una dirección IP de acceso público. P2S crea la conexión VPN sobre SSTP (Protocolo de túnel de sockets seguros) o IKEv2.
 
@@ -37,11 +38,11 @@ Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede act
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-## <a name="1-sign-in"></a><a name="signin"></a>1. Iniciar sesión
+## <a name="sign-in"></a><a name="signin"></a>Inicio de sesión
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
-## <a name="2-declare-variables"></a><a name="declare"></a>2. Declaración de variables
+## <a name="declare-variables"></a><a name="declare"></a>Declaración de variables
 
 Usamos variables en este artículo para que pueda cambiar fácilmente los valores que se aplican a su propio entorno sin tener que cambiar los ejemplos. Declare las variables que desea utilizar. Puede usar el ejemplo siguiente sustituyendo los valores por los suyos propios cuando sea necesario. Si cierra la sesión de PowerShell/Cloud Shell en cualquier momento durante el ejercicio, copie y pegue los valores de nuevo para volver a declarar las variables.
 
@@ -61,7 +62,7 @@ $GWIPconfName = "gwipconf"
 $DNS = "10.2.1.4"
 ```
 
-## <a name="3-configure-a-vnet"></a><a name="ConfigureVNet"></a>3. Configuración de una red virtual
+## <a name="create-a-vnet"></a><a name="ConfigureVNet"></a>Creación de una red virtual
 
 1. Cree un grupo de recursos.
 
@@ -106,12 +107,12 @@ $DNS = "10.2.1.4"
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## <a name="4-create-the-vpn-gateway"></a><a name="creategateway"></a>4. Creación de la puerta de enlace VPN
+## <a name="create-the-vpn-gateway"></a><a name="creategateway"></a>Creación de la puerta de enlace de VPN
 
 En este paso, configurará y creará la puerta de enlace de red virtual para la red virtual.
 
 * El valor de -GatewayType debe ser **Vpn** y el valor de -VpnType debe ser **RouteBased**.
-* -VpnClientProtocol se utiliza para especificar los tipos de túneles que desea habilitar. Las opciones de túnel son **OpenVPN, SSTP** y **IKEv2**. Puede habilitar una de ellas o cualquier combinación admitida. Si desea habilitar varios tipos, especifique los nombres separados por una coma. OpenVPN y SSTP no se pueden habilitar juntas. El cliente strongSwan de Linux y Android y el cliente VPN IKEv2 nativo de iOS y OSX solo utilizarán el túnel IKEv2 para conectarse. Los clientes Windows prueban primero el túnel IKEv2 y, si no se conecta, recurren a SSTP. Puede usar el cliente OpenVPN para conectarse al tipo de túnel OpenVPN.
+* -VpnClientProtocol se utiliza para especificar los tipos de túneles que desea habilitar. Las opciones de túnel son **OpenVPN, SSTP** y **IKEv2**. Puede habilitar una de ellas o cualquier combinación admitida. Si desea habilitar varios tipos, especifique los nombres separados por una coma. OpenVPN y SSTP no se pueden habilitar juntas. El cliente strongSwan de Linux y Android y el cliente VPN IKEv2 nativo de iOS y macOS solo usarán el túnel IKEv2 para conectarse. Los clientes Windows prueban primero el túnel IKEv2 y, si no se conecta, recurren a SSTP. Puede usar el cliente OpenVPN para conectarse al tipo de túnel OpenVPN.
 * La SKU "básica" de la puerta de enlace de red virtual no admite la autenticación de IKEv2, OpenVPN o RADIUS. Si planea que clientes Mac se conecten a su red virtual, no use la SKU de nivel Básico.
 * Una puerta de enlace de VPN puede tardar hasta 45 minutos en completarse, según la [SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md) que seleccione. Este ejemplo utiliza IKEv2.
 
@@ -129,7 +130,7 @@ En este paso, configurará y creará la puerta de enlace de red virtual para la 
    Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroup $RG
    ```
 
-## <a name="5-add-the-vpn-client-address-pool"></a><a name="addresspool"></a>5. Adición del grupo de direcciones de clientes de VPN
+## <a name="add-the-vpn-client-address-pool"></a><a name="addresspool"></a>Adición del grupo de direcciones de clientes VPN
 
 Cuando acabe de crear la puerta de enlace VPN, puede agregar el grupo de direcciones de cliente VPN. El grupo de direcciones del cliente de VPN es el intervalo del que los clientes de VPN reciben una dirección IP al conectarse. Use un intervalo de direcciones IP privadas que no se superponga a la ubicación local desde la que se va a conectar ni a la red virtual a la que desea conectarse.
 
@@ -140,7 +141,7 @@ $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPool $VPNClientAddressPool
 ```
 
-## <a name="6-generate-certificates"></a><a name="Certificates"></a>6. Generación de certificados
+## <a name="generate-certificates"></a><a name="Certificates"></a>Generación de certificados
 
 >[!IMPORTANT]
 > No se pueden generar certificados con Azure Cloud Shell. Debe usar uno de los métodos descritos en esta sección. Si desea usar PowerShell, debe instalarlo de forma local.
@@ -162,7 +163,7 @@ Si usa certificados autofirmados, se deben crear con parámetros específicos. P
 
 1. Después de crear el certificado de cliente, [expórtelo](vpn-gateway-certificates-point-to-site.md#clientexport). El certificado de cliente se distribuirá a los equipos cliente que se conectarán.
 
-## <a name="7-upload-the-root-certificate-public-key-information"></a><a name="upload"></a>7. Cargue la información de clave pública del certificado raíz
+## <a name="upload-root-certificate-public-key-information"></a><a name="upload"></a>Carga de la información de clave pública del certificado raíz
 
 Compruebe que ha terminado de crear la puerta de enlace VPN. Una vez terminado, puede cargar el archivo .cer (que contiene la información de clave pública) para un certificado raíz de confianza en Azure. Una vez que se ha cargado un archivo .cer, Azure puede usarlo para autenticar a los clientes que tienen instalado un certificado de cliente generado a partir del certificado raíz de confianza. Más adelante, puede cargar más archivos de certificado raíz de confianza, hasta un total de 20, si es necesario.
 
@@ -190,7 +191,7 @@ Compruebe que ha terminado de crear la puerta de enlace VPN. Una vez terminado, 
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG1" -PublicCertData $CertBase64
    ```
 
-## <a name="8-install-an-exported-client-certificate"></a><a name="clientcertificate"></a>8. Instalación de un certificado de cliente exportado
+## <a name="install-an-exported-client-certificate"></a><a name="clientcertificate"></a>Instalación de un certificado de cliente exportado
 
 Los siguientes pasos le ayudarán a completar la instalación en un cliente Windows. Para obtener más información, consulte [Instalación de un certificado de cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
@@ -198,9 +199,9 @@ Los siguientes pasos le ayudarán a completar la instalación en un cliente Wind
 
 Asegúrese de que se exportó el certificado de cliente como un .pfx junto con la cadena de certificados completa (que es el valor predeterminado). En caso contrario, la información del certificado raíz no está presente en el equipo cliente y el cliente no podrá realizar la autenticación correctamente.
 
-## <a name="9-configure-the-vpn-client"></a><a name="clientconfig"></a>9. Configuración del cliente VPN
+## <a name="configure-the-vpn-client"></a><a name="clientconfig"></a>Configuración del cliente VPN
 
-En esta sección, configurará el cliente nativo para que el equipo se conecte a la puerta de enlace de red virtual. Por ejemplo, al ir a la configuración de VPN en el equipo Windows, puede agregar conexiones VPN. Una conexión de punto a sitio requiere opciones de configuración específicas. Estos pasos le ayudarán a crear un paquete con la configuración específica que el cliente VPN nativo necesita para conectarse a la red virtual a través de una conexión de punto a sitio.
+Para conectarse a la puerta de enlace de red virtual con P2S, los equipos usan el cliente VPN, que se instala de forma nativa como parte del sistema operativo. Por ejemplo, al ir a la configuración de VPN en el equipo Windows, puede agregar conexiones VPN sin necesidad de instalar un cliente VPN independiente. Cada cliente VPN se configura mediante un paquete de configuración de cliente. El paquete de configuración de cliente contiene la configuración específica de la puerta de enlace de VPN que ha creado. 
 
 Puede usar los siguientes ejemplos rápidos para generar e instalar el paquete de configuración del cliente. Para obtener más información sobre el contenido del paquete y otras instrucciones sobre cómo generar e instalar archivos de configuración de cliente de VPN, consulte [Creación e instalación de archivos de configuración de cliente VPN](point-to-site-vpn-client-configuration-azure-cert.md).
 
@@ -229,7 +230,7 @@ $profile.VPNProfileSASUrl
 ### <a name="mac-vpn-client"></a>Cliente de VPN de Mac
 
 En el cuadro de diálogo Red, localice el perfil de cliente que desea utilizar y, después, haga clic en **Conectar**.
-Para obtener instrucciones detalladas al respecto, consulte [Instalación: Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac). Si tiene problemas para conectarse, compruebe que la puerta de enlace de red virtual no está usando una SKU de nivel Básico. La SKU de nivel Básico no es compatible con los clientes Mac.
+Para obtener instrucciones detalladas al respecto, consulte [Instalación: Mac (macOS)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac). Si tiene problemas para conectarse, compruebe que la puerta de enlace de red virtual no está usando una SKU de nivel Básico. La SKU de nivel Básico no es compatible con los clientes Mac.
 
   ![Conexión de Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

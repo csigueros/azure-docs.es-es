@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 06/02/2021
 ms.author: duau
-ms.openlocfilehash: dcba2e9de2b37e8c432f94781b3c4c369ad52395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5395204f75a0637daedabba6b933036b7144dae1
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97807948"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111571355"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager
 En este artículo se ofrece información general de lo que ocurre cuando mueve un circuito Azure ExpressRoute del modelo de implementación clásica al de Azure Resource Manager.
@@ -22,7 +22,7 @@ Se puede usar un solo circuito ExpressRoute para conectarse a redes virtuales im
 ![Un circuito ExpressRoute que se vincula a redes virtuales a través de ambos modelos de implementación](./media/expressroute-move/expressroute-move-1.png)
 
 ## <a name="expressroute-circuits-that-are-created-in-the-classic-deployment-model"></a>Circuitos ExpressRoute creados en el modelo de implementación clásica
-Los circuitos ExpressRoute creados en el modelo de implementación clásica deben migrar primero al modelo de implementación de Resource Manager. Solo entonces puede habilitar la conectividad a los modelos de implementación clásica y de Resource Manager. Mientras se traslada una conexión, no se producen pérdida de conectividad ni interrupciones. Todos los vínculos entre el circuito y la red virtual en el modelo de implementación clásica dentro de la misma suscripción y entre suscripciones se conservan.
+Los circuitos ExpressRoute creados en el modelo de implementación clásica deben migrar primero al modelo de implementación de Resource Manager. Solo entonces puede habilitar la conectividad a los modelos de implementación clásica y de Resource Manager. Mientras se traslada una conexión, no se pierde la conectividad ni se producen interrupciones. Todos los vínculos entre el circuito y la red virtual en el modelo de implementación clásica dentro de la misma suscripción y entre suscripciones se conservan.
 
 Una vez que haya finalizado la transición, el circuito ExpressRoute se comportará exactamente igual que un circuito ExpressRoute creado en el modelo de implementación de Resource Manager. Ahora podrá crear conexiones a redes virtuales en el modelo de implementación de Resource Manager.
 

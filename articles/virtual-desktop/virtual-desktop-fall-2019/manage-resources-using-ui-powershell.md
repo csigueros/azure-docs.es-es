@@ -1,23 +1,23 @@
 ---
-title: 'Implementación de una herramienta de administración para Windows Virtual Desktop (clásico) mediante la entidad de servicio: Azure'
-description: Cómo implementar la herramienta de administración de Windows Virtual Desktop (clásico) mediante PowerShell.
+title: 'Implementación de una herramienta de administración para Azure Virtual Desktop (clásico) mediante la entidad de servicio: Azure'
+description: Cómo implementar la herramienta de administración de Azure Virtual Desktop (clásico) mediante PowerShell.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 60eec4580e222123795db9554f56e74cb01c5257
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: fbd12216cbc81df7f4f9e187c8150f69744eb139
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444452"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744528"
 ---
-# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Implementación de una herramienta de administración de Windows Virtual Desktop (clásico) con PowerShell
+# <a name="deploy-a-azure-virtual-desktop-classic-management-tool-with-powershell"></a>Implementación de una herramienta de administración de Azure Virtual Desktop (clásico) con PowerShell
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager.
 
 En este artículo se describe cómo implementar la herramienta de administración mediante el uso de PowerShell.
 
@@ -41,7 +41,7 @@ Antes de implementar la herramienta de administración, necesitará que un usuar
 - Tener los permisos para crear recursos en la suscripción de Azure.
 - Tener los permisos para crear una aplicación de Azure AD. Siga los pasos que se describen en la sección [Permisos necesarios](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) para comprobar si el usuario tiene los permisos que necesita.
 
-Después de implementar y configurar la herramienta de administración, se recomienda pedir a un usuario que inicie la interfaz de usuario de administración para asegurarse de que todo funciona correctamente. El usuario que inicie la interfaz de usuario de administración deberá tener una asignación de roles que le permita ver o editar el inquilino de Windows Virtual Desktop.
+Después de implementar y configurar la herramienta de administración, se recomienda pedir a un usuario que inicie la interfaz de usuario de administración para asegurarse de que todo funciona correctamente. El usuario que inicie la interfaz de usuario de administración deberá tener una asignación de roles que le permita ver o editar el inquilino de Azure Virtual Desktop.
 
 ## <a name="set-up-powershell"></a>Configurar PowerShell
 
@@ -156,7 +156,7 @@ Ya puede empezar a usar la herramienta de administración.
 Ahora que ha configurado la herramienta de administración, puede iniciarla en cualquier momento y en cualquier lugar. Siga estos pasos para iniciar la herramienta:
 
 1. Abra la URL de la aplicación web en un explorador web. Si no recuerda la dirección URL, inicie sesión en Azure, busque el servicio de aplicaciones que ha implementado para la herramienta de administración y, después, seleccione la dirección URL.
-2. Inicie sesión con sus credenciales de Windows Virtual Desktop.
+2. Inicie sesión con sus credenciales de Azure Virtual Desktop.
 
    > [!NOTE]
    > Si no concedió su consentimiento de administrador al configurar la herramienta de administración, cada usuario que inicie sesión deberá proporcionar su propio consentimiento de usuario para poder usarla.
@@ -169,7 +169,7 @@ Ahora que ha configurado la herramienta de administración, puede iniciarla en c
 
 ## <a name="report-issues"></a>Informar de problemas
 
-Si experimenta algún problema con la herramienta de administración o con cualquier otra herramienta de Windows Virtual Desktop, siga las instrucciones que encontrará en el artículo sobre [plantillas de Azure Resource Manager para Servicios de Escritorio remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) para notificarlo en GitHub.
+Si experimenta algún problema con la herramienta de administración o con cualquier otra herramienta de Azure Virtual Desktop, siga las instrucciones que encontrará en el artículo sobre [plantillas de Azure Resource Manager para Servicios de Escritorio remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) para notificarlo en GitHub.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

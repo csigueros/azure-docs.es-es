@@ -4,17 +4,17 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a usar Azure RBAC para la autorización de Kubernetes con Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
+ms.date: 02/09/2021
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c708a577a1c2e4bb8f7ddff90f458afd0d9e566f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 57aae03e18f938ca89da5081a2076698ea3341f8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783006"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091583"
 ---
-# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Uso de Azure RBAC para la autorización de Kubernetes (versión preliminar)
+# <a name="use-azure-rbac-for-kubernetes-authorization"></a>Uso de la autorización de Azure RBAC para Kubernetes
 
 En la actualidad, ya puede aprovechar la autenticación integrada entre [Azure Active Directory (Azure AD) y AKS](managed-aad.md). Cuando está habilitada, esta integración permite a los clientes usar usuarios, grupos o entidades de servicio de Azure AD como asuntos en RBAC de Kubernetes, más información [aquí](azure-ad-rbac.md).
 Esta característica evita tener que administrar por separado las identidades de usuario y las credenciales de Kubernetes. Sin embargo, todavía tiene que configurar y administrar Azure RBAC y Kubernetes por separado. Para más información sobre la autenticación y la autorización con RBAC en AKS, haga clic [aquí](concepts-identity.md).
@@ -23,54 +23,16 @@ En este documento se describe un nuevo enfoque que permite la administración un
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-La capacidad de administrar RBAC para los recursos de Kubernetes de Azure le ofrece la opción de administrar RBAC para los recursos del clúster mediante mecanismos de Kubernetes nativos o de Azure. Cuando está habilitada, las entidades de seguridad de Azure AD se validarán exclusivamente con Azure RBAC, mientras que las cuentas de servicio y los usuarios de Kubernetes normales se validan exclusivamente mediante el RBAC de Kubernetes. Para más información sobre la autenticación y autorización con RBAC en AKS, haga clic [aquí](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
+La capacidad de administrar RBAC para los recursos de Kubernetes de Azure le ofrece la opción de administrar RBAC para los recursos del clúster mediante mecanismos de Kubernetes nativos o de Azure. Cuando está habilitada, las entidades de seguridad de Azure AD se validarán exclusivamente con Azure RBAC, mientras que las cuentas de servicio y los usuarios de Kubernetes normales se validan exclusivamente mediante el RBAC de Kubernetes. Para más información sobre la autenticación y autorización con RBAC en AKS, haga clic [aquí](concepts-identity.md#azure-rbac-for-kubernetes-authorization).
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+### <a name="prerequisites"></a>Requisitos previos
 
-### <a name="prerequisites"></a>Requisitos previos 
-- Asegúrese de que tiene la versión 2.9.0 de la CLI de Azure o una posterior.
-- Asegúrese de que tiene habilitada la `EnableAzureRBACPreview` marca de características.
-- Asegúrese de que tiene instalada la [extensión de la CLI][az-extension-add] `aks-preview` v 0.4.55 o superior.
+- Asegúrese de que tiene la versión 2.24.0 de la CLI de Azure o una posterior.
 - Asegúrese de que ha instalado [kubectl v 1.18.3 +][az-aks-install-cli].
-
-#### <a name="register-enableazurerbacpreview-preview-feature"></a>Registro de la característica en vista previa (GB) de `EnableAzureRBACPreview`
-
-A fin de crear un clúster de AKS que use Azure RBAC para la autorización de Kubernetes, debe habilitar la marca de característica `EnableAzureRBACPreview` en su suscripción.
-
-Registro de `EnableAzureRBACPreview` la marca de característica con el comando de [característica de registro az][az-feature-register], tal como se muestra en el siguiente ejemplo:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
-```
-
- Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
-```
-
-Cuando todo esté listo, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-#### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
-
-Para crear un clúster de AKS que use un Azure RBAC, necesita la versión 0.4.55 o superior de la extensión de la CLI *aks-preview*. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] o instale las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ### <a name="limitations"></a>Limitaciones
 
 - Requiere [integración administrada de Azure AD](managed-aad.md).
-- No se puede integrar Azure RBAC para la autorización de Kubernetes en clústeres existentes durante la versión preliminar, pero podrá usar la disponibilidad general (GA).
 - Use [kubectl v1.18.3+][az-aks-install-cli].
 - Si tiene CRDs y está realizando definiciones de roles personalizados, la única manera de abarcar CRDs hoy es proporcionar `Microsoft.ContainerService/managedClusters/*/read`. AKS trabaja para proporcionar permisos más granulares para CRDs. Para el resto de objetos, puede usar los grupos de API específicos, por ejemplo: `Microsoft.ContainerService/apps/deployments/read`.
 - Las nuevas asignaciones de roles pueden tardar hasta 5 minutos en propagarse y actualizarse mediante el servidor de autorización.
@@ -108,6 +70,17 @@ Una creación correcta de un clúster con la integración de Azure AD y Azure RB
   }
 ```
 
+## <a name="integrate-azure-rbac-into-an-existing-cluster"></a>Integración de Azure RBAC en un clúster existente
+
+> [!NOTE]
+> Para usar la autorización de Azure RBAC para Kubernetes, debe estar habilitada la integración de Azure Active Directory en el clúster. Para más información, consulte [Integración de Azure Active Directory][managed-aad].
+
+Para agregar la autorización de Azure RBAC para Kubernetes a un clúster de AKS existente, use el comando [az aks update][az-aks-update] con la marca `enable-azure-rbac`.
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myAKSCluster --enable-azure-rbac
+```
+
 ## <a name="create-role-assignments-for-users-to-access-cluster"></a>Crear asignaciones de roles para que los usuarios accedan al clúster.
 
 AKS proporciona los siguientes cuatro roles integrados:
@@ -137,7 +110,7 @@ donde `<AAD-ENTITY-ID>` podría ser un nombre de usuario (por ejemplo, user@cont
 También puede crear asignaciones de roles en el ámbito de un **espacio de nombres** específico dentro del clúster:
 
 ```azurecli-interactive
-az role assignment create --role "Azure Kubernetes Service RBAC Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
+az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
 ```
 
 En la actualidad, las asignaciones de roles cuyo ámbito son los espacios de nombres deben configurarse mediante CLI de Azure.
@@ -154,7 +127,7 @@ Copie el siguiente JSON en un archivo denominado `deploy-view.json`.
 
 ```json
 {
-    "Name": "AKS Deployment Viewer",
+    "Name": "AKS Deployment Reader",
     "Description": "Lets you view all deployments in cluster/namespace.",
     "Actions": [],
     "NotActions": [],
@@ -174,7 +147,6 @@ Reemplace `<YOUR SUBSCRIPTION ID>` por el id. de la suscripción, que puede obte
 az account show --query id -o tsv
 ```
 
-
 Ahora se puede crear la definición de roles al ejecutar el comando siguiente desde la carpeta donde se guardó `deploy-view.json`:
 
 ```azurecli-interactive
@@ -184,7 +156,7 @@ az role definition create --role-definition @deploy-view.json
 Ahora que tiene la definición de rol, puede asignarla a un usuario u otra identidad mediante la ejecución de:
 
 ```azurecli-interactive
-az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
+az role assignment create --role "AKS Deployment Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
 ```
 
 ## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Uso de Azure RBAC para la autorización de Kubernetes con `kubectl`.
@@ -195,7 +167,8 @@ az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-
 > ```azurecli-interactive
 > az aks install-cli
 > ```
-> Es posible que tenga que ejecutarlo con los privilegios de `sudo`. 
+>
+> Es posible que tenga que ejecutarlo con los privilegios de `sudo`.
 
 Ahora que ha asignado el rol y los permisos deseados. Puede empezar a llamar a la API de Kubernetes, por ejemplo, desde `kubectl`.
 
@@ -244,7 +217,6 @@ aks-nodepool1-93451573-vmss000001   Ready    agent   3h6m   v1.15.11
 aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
-
 ## <a name="clean-up"></a>Limpieza
 
 ### <a name="clean-role-assignment"></a>Limpieza de asignación de roles
@@ -252,6 +224,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```azurecli-interactive
 az role assignment list --scope $AKS_ID --query [].id -o tsv
 ```
+
 Copie el identificador o los identificadores de todas las asignaciones que ha realizado y, a continuación,.
 
 ```azurecli-interactive
@@ -261,7 +234,7 @@ az role assignment delete --ids <LIST OF ASSIGNMENT IDS>
 ### <a name="clean-up-role-definition"></a>Limpieza de la definición de roles.
 
 ```azurecli-interactive
-az role definition delete -n "AKS Deployment Viewer"
+az role definition delete -n "AKS Deployment Reader"
 ```
 
 ### <a name="delete-cluster-and-resource-group"></a>Eliminar clúster y grupo de recursos.
@@ -286,3 +259,5 @@ az group delete -n MyResourceGroup
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-update]: /cli/azure/aks#az_aks_update
+[managed-aad]: ./managed-aad.md

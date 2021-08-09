@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 04/21/2021
+ms.date: 05/17/2021
 ms.author: phjensen
-ms.openlocfilehash: 66272e59dd67375b1da119648cf461bd0c2baa9b
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 85f6c7d8ef0eced1e7cbb2259d4117bc1ae5ff89
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929604"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083735"
 ---
 # <a name="troubleshoot-azure-application-consistent-snapshot-tool"></a>Solución de problemas con la herramienta Azure Application Consistent Snapshot
 
-Este artículo ofrece contenido de solución de problemas para su uso con la herramienta Azure Application Consistent Snapshot que se puede usar con Azure NetApp Files.
+En este artículo se ofrece contenido de solución de problemas para usar la herramienta Azure Application Consistent Snapshot que se puede emplear con Azure NetApp Files y Azure (instancias grandes).
 
 A continuación se indican algunos problemas comunes que pueden surgir al ejecutar los comandos. Siga las instrucciones de resolución mencionadas para solucionar el problema. Si el problema persiste, abra una solicitud de servicio técnico desde Azure Portal y asigne la solicitud a la cola de instancias grandes de SAP HANA para que responda el equipo de Soporte técnico de Microsoft.
 
@@ -62,7 +62,9 @@ Cuando se valida la comunicación con Azure NetApp Files, se puede producir un e
 - (https://)management.azure.com:443
 - (https://)login.microsoftonline.com:443 
 
-## <a name="failed-communication-with-sap-hana"></a>Error de comunicación con SAP HANA
+## <a name="problems-with-sap-hana"></a>Problemas con SAP HANA
+
+### <a name="running-the-test-command-fails"></a>Se produce un error al ejecutar el comando de prueba.
 
 Al validar la comunicación con SAP HANA mediante la ejecución de una prueba con `azacsnap -c test --test hana`, se muestra el siguiente error:
 
@@ -99,7 +101,7 @@ Cannot get SAP HANA version, exiting with error: 127
     En este ejemplo, el comando `hdbsql` no está en el `$PATH` del usuario.
 
     ```bash
-    hdbsql -n 172.18.18.50 - i 00 -U SCADMIN "select version from sys.m_database"
+    hdbsql -n 172.18.18.50 - i 00 -U AZACSNAP "select version from sys.m_database"
     ```
 
     ```output
@@ -114,17 +116,45 @@ Cannot get SAP HANA version, exiting with error: 127
     ```
 
     ```bash
-    hdbsql -n 172.18.18.50 -i 00 -U SCADMIN "select version from sys.m_database"
+    hdbsql -n 172.18.18.50 -i 00 -U AZACSNAP "select version from sys.m_database"
     ```
 
     ```output
-    * -10104: Invalid value for KEY (SCADMIN)
+    * -10104: Invalid value for KEY (AZACSNAP)
     ```
 
     > [!NOTE]
     > Para la incorporación permanente al `$PATH` del usuario, actualice el archivo `$HOME/.profile` del usuario.
 
-## <a name="the-hdbuserstore-location"></a>Ubicación de `hdbuserstore`
+### <a name="insufficient-privilege"></a>Privilegio insuficiente
+
+Si al ejecutar `azacsnap` aparece un error de tipo `* 258: insufficient privilege`, compruebe que se hayan asignado los privilegios adecuados al usuario de base de datos "AZACSNAP" (suponiendo que este sea el usuario creado según la [guía de instalación](azacsnap-installation.md#enable-communication-with-sap-hana)).  Compruebe el privilegio actual del usuario con el siguiente comando:
+
+```bash
+hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges "' | grep -i -e GRANTEE -e azacsnap
+```
+
+```output
+GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE
+"AZACSNAP","USER","BACKUP ADMIN","TRUE","FALSE"
+"AZACSNAP","USER","CATALOG READ","TRUE","FALSE"
+"AZACSNAP","USER","CREATE ANY","TRUE","TRUE"
+```
+
+El error también puede proporcionar información adicional para ayudar a determinar los privilegios SAP HANA necesarios, como la salida de `Detailed info for this error can be found with guid '99X9999X99X9999X99X99XX999XXX999' SQLSTATE: HY000`.  En este caso, siga las instrucciones de SAP en [SAP Help Portal: GET_INSUFFICIENT_PRIVILEGE_ERROR_DETAILS](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.05/en-US/9a73c4c017744288b8d6f3b9bc0db043.html), que recomienda usar la siguiente consulta SQL para determinar los detalles sobre el privilegio necesario.
+
+```sql
+CALL SYS.GET_INSUFFICIENT_PRIVILEGE_ERROR_DETAILS ('99X9999X99X9999X99X99XX999XXX999', ?)
+```
+
+```output
+GUID,CREATE_TIME,CONNECTION_ID,SESSION_USER_NAME,CHECKED_USER_NAME,PRIVILEGE,IS_MISSING_ANALYTIC_PRIVILEGE,IS_MISSING_GRANT_OPTION,DATABASE_NAME,SCHEMA_NAME,OBJECT_NAME,OBJECT_TYPE
+"99X9999X99X9999X99X99XX999XXX999","2021-01-01 01:00:00.180000000",120212,"AZACSNAP","AZACSNAP","DATABASE ADMIN or DATABASE BACKUP ADMIN","FALSE","FALSE","","","",""
+```
+
+En el ejemplo anterior, al agregar el privilegio "DATABASE BACKUP ADMIN" al usuario AZACSNAP de SYSTEMDB se debería resolver el error de privilegios insuficientes.
+
+### <a name="the-hdbuserstore-location"></a>Ubicación de `hdbuserstore`
 
 Al configurar la comunicación con SAP HANA se usa el programa `hdbuserstore` para crear la configuración de comunicación segura.  El programa `hdbuserstore` suele encontrarse en `/usr/sap/<SID>/SYS/exe/hdb/` o en `/usr/sap/hdbclient`.  Normalmente, el instalador agrega la ubicación correcta al `$PATH` del usuario de `azacsnap`.
 

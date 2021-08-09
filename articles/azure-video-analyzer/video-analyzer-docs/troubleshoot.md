@@ -3,12 +3,12 @@ title: 'Solución de problemas de Azure Video Analyzer: Azure'
 description: En este artículo se tratan los pasos de solución de problemas de Azure Video Analyzer.
 ms.topic: how-to
 ms.date: 05/04/2021
-ms.openlocfilehash: f43d959d1f289b76d4a0b8071aba49c01abe3481
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cd54386702c24065cccad4f7ede43c313a44886c
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388715"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613670"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Solución de problemas de Azure Video Analyzer
 
@@ -26,6 +26,10 @@ Como parte de la implementación de Video Analyzer va a configurar recursos de A
 1. [Vea los mensajes que se envían a través del centro de IoT Edge](../../iot-edge/troubleshoot.md#view-the-messages-going-through-the-iot-edge-hub).
 1. [Reinicie los contenedores](../../iot-edge/troubleshoot.md#restart-containers).
 1. [Compruebe las reglas de configuración de los puertos y el firewall](../../iot-edge/troubleshoot.md#check-your-firewall-and-port-configuration-rules).
+
+### <a name="issues-when-using-arm-template"></a>Problemas al usar plantillas de ARM
+
+Si tiene problemas al usar la plantilla de ARM (el botón Implementar en Azure), siga los pasos de este [inicio rápido](get-started-detect-motion-emit-events-portal.md) para implementar manualmente los recursos necesarios. 
 
 ### <a name="pre-deployment-issues"></a>Problemas anteriores a la implementación
 

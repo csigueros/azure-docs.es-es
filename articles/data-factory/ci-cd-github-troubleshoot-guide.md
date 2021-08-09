@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 04/27/2021
-ms.openlocfilehash: e5745f195fe7620aeb7ffe009c13c52cd5f02e62
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 72f58258f427c5a9414bd7627d4d121c6a89c365
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228647"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060865"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solución de problemas de CI/CD, Azure DevOps y GitHub en ADF 
 
@@ -233,6 +233,27 @@ La siguiente sección no es válida porque la carpeta package.json no es válida
 ```
 Debe incluir DataFactory en customCommand, como *"run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/nombreDeSuFábrica".* Asegúrese de que el archivo YAML generado para la fase superior tenga los artefactos JSON necesarios.
 
+### <a name="git-repository-or-purview-connection-disconnected"></a>Repositorio de Git o conexión de Purview desconectados
+
+#### <a name="issue"></a>Incidencia
+Al implementar Data Factory, el repositorio de Git o la conexión purview se desconectan.
+
+#### <a name="cause"></a>Causa
+Si ha seleccionado **Inclusión en la plantilla de Resource Manager** para implementar parámetros globales, la fábrica se incluye en la plantilla de ARM. Como resultado, se eliminarán otras propiedades de la fábrica tras la implementación.
+
+#### <a name="resolution"></a>Solución
+Anule la selección de **Inclusión en la plantilla de Resource Manager** e implemente parámetros globales con PowerShell como se describe en Parámetros globales en CI/CD. 
+ 
+### <a name="extra--left--displayed-in-published-json-file"></a>Aparece un corchete izquierdo "[" adicional en el archivo JSON publicado
+
+#### <a name="issue"></a>Incidencia
+Al publicar ADF con DevOps, aparece otro "[". ADF agrega automáticamente un símbolo "[" izquierdo más en ARMTemplate en DevOps. 
+
+#### <a name="cause"></a>Causa
+Dado que "[" es un carácter reservado para ARM, se agrega un "[" adicional automáticamente para carácter "[" de escape.
+
+#### <a name="resolution"></a>Solución
+Este es el comportamiento normal durante el proceso de publicación de ADF para CI/CD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

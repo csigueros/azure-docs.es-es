@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: fe88933049ad39de57f879789e8c1b86ed7a54f5
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: cb3c503000e895344368f09dfdceac1156628bb9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107820296"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969981"
 ---
 # <a name="azure-key-vault-security"></a>Seguridad de Azure Key Vault
 
-Azure Key Vault protege las claves de cifrado y los secretos, como certificados, cadenas de conexión y contraseñas, en la nube. No obstante, cuando almacena datos confidenciales y críticos para la empresa, debe tomar medidas para maximizar la seguridad de los almacenes y de los datos almacenados en estos.
+Azure Key Vault protege las claves criptográficas, los certificados (y las claves privadas asociadas a estos) y los secretos (como cadenas de conexión y contraseñas) en la nube. No obstante, cuando almacena datos confidenciales y críticos para la empresa, debe tomar medidas para maximizar la seguridad de los almacenes y de los datos almacenados en estos.
 
 En este artículo se proporciona información general sobre las características de seguridad y los procedimientos recomendados en Azure Key Vault.
 
@@ -50,7 +50,7 @@ Cuando se crea un almacén de claves en una suscripción de Azure, se asocia aut
 
 Para todos los tipos de acceso, la aplicación se autentica con Azure AD. La aplicación utiliza cualquiera [método de autenticación compatible](../../active-directory/develop/authentication-vs-authorization.md) según el tipo de aplicación. La aplicación adquiere un token para un recurso del plano para conceder acceso. El recurso es un punto de conexión en el plano de administración o de datos, según el entorno de Azure. La aplicación usa el token y envía la solicitud de una API de REST a Key Vault. Para más información, revise [todo el flujo de autenticación](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
-Para conocer los detalles completos, consulte [Aspectos básicos de la autenticación de Key Vault](authentication-fundamentals.md).
+Para conocer los detalles completos, consulte [Aspectos básicos de la autenticación de Key Vault](/azure/key-vault/general/authentication.md).
 
 ## <a name="key-vault-authentication-options"></a>Opciones de autenticación de Key Vault
 
@@ -58,7 +58,7 @@ Cuando se crea un almacén de claves en una suscripción de Azure, se asocia aut
 
 - **Solo la aplicación**: La aplicación representa una entidad de servicio o una identidad administrada. Esta identidad es el escenario más común para aplicaciones que necesitan acceder periódicamente a certificados, claves o secretos del almacén de claves. Para que este escenario funcione, el elemento `objectId` de la aplicación debe especificarse en la directiva de acceso y el elemento `applicationId` _no_ debe especificarse o debe ser `null`.
 - **Solo el usuario**: el usuario accede al almacén de claves desde cualquier aplicación registrada en el inquilino. Los ejemplos de este tipo de acceso incluyen Azure PowerShell y Azure Portal. Para que este escenario funcione, el elemento `objectId` del usuario debe especificarse en la directiva de acceso y el elemento `applicationId` _no_ debe especificarse o debe ser `null`.
-- **Aplicación y usuario** (a veces denominado _identidad compuesta_): 4el usuario tiene que acceder al almacén de claves desde una aplicación específica _y_ la aplicación debe usar el flujo de autenticación en nombre de (OBO) para suplantar al usuario. Para que este escenario funcione, se deben especificar ambos objetos `applicationId` y `objectId` en la directiva de acceso. El elemento `applicationId` identifica la aplicación necesaria y el elemento `objectId` identifica al usuario. Esta opción no está disponible actualmente para Azure RBAC en el plano de datos (versión preliminar)
+- **Aplicación y usuario** (a veces denominado _identidad compuesta_): 4el usuario tiene que acceder al almacén de claves desde una aplicación específica _y_ la aplicación debe usar el flujo de autenticación en nombre de (OBO) para suplantar al usuario. Para que este escenario funcione, se deben especificar ambos objetos `applicationId` y `objectId` en la directiva de acceso. El elemento `applicationId` identifica la aplicación necesaria y el elemento `objectId` identifica al usuario. Actualmente, esta opción no está disponible para Azure RBAC en el plano de datos.
 
 Para todos los tipos de acceso, la aplicación se autentica con Azure AD. La aplicación utiliza cualquiera [método de autenticación compatible](../../active-directory/develop/authentication-vs-authorization.md) según el tipo de aplicación. La aplicación adquiere un token para un recurso del plano para conceder acceso. El recurso es un punto de conexión en el plano de administración o de datos, según el entorno de Azure. La aplicación usa el token y envía la solicitud de una API de REST a Key Vault. Para más información, revise [todo el flujo de autenticación](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 

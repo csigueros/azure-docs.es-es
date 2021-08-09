@@ -1,7 +1,7 @@
 ---
-title: Desafíos y solicitudes de notificaciones
+title: Desafíos de notificaciones, solicitudes de notificaciones y funcionalidades de cliente
 titleSuffix: Microsoft identity platform
-description: Explicación de los desafíos y solicitudes de notificaciones en la Plataforma de identidad de Microsoft.
+description: Explicación de desafíos de notificaciones, solicitudes de notificaciones y funcionalidades de cliente en la plataforma de identidad de Microsoft.
 services: active-directory
 author: knicholasa
 manager: martinco
@@ -12,30 +12,30 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: nichola
 ms.reviewer: kkrishna, kylemar
-ms.openlocfilehash: bf3b6db0bcb5478412837a2fa43f610dbf8690d6
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: abce87c8d5c5d88c9edd1303f0a585aa773d2ec8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109795619"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471387"
 ---
-# <a name="claims-challenges-and-claims-requests"></a>Desafíos y solicitudes de notificaciones
+# <a name="claims-challenges-claims-requests-and-client-capabilities"></a>Desafíos de notificaciones, solicitudes de notificaciones y funcionalidades de cliente
 
-Un **desafío de notificaciones** es una respuesta enviada desde una API que indica que un token de acceso enviado por una aplicación cliente no tiene notificaciones suficientes. Esto puede deberse a que el token no satisface las directivas de acceso condicional establecidas para esa API o a que el token de acceso se ha revocado.
+Un *desafío de notificaciones* es una respuesta enviada desde una API que indica que un token de acceso enviado por una aplicación cliente no tiene notificaciones suficientes. Esto puede deberse a que el token no satisface las directivas de acceso condicional establecidas para esa API o a que el token de acceso se ha revocado.
 
-La aplicación cliente realiza una **solicitud de notificaciones** para redirigir al usuario de vuelta al proveedor de identidades para recuperar un nuevo token con notificaciones que satisfagan los requisitos adicionales que no se hayan cumplido.
+La aplicación cliente realiza una *solicitud de notificaciones* para redirigir al usuario de vuelta al proveedor de identidades para recuperar un nuevo token con notificaciones que satisfagan los requisitos adicionales que no se hayan cumplido.
 
 Las aplicaciones que usan características de seguridad mejoradas, como [Evaluación continua de acceso (CAE)](../conditional-access/concept-continuous-access-evaluation.md) y el [contexto de autenticación de acceso condicional](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775), deben estar preparadas para controlar los desafíos de las notificaciones.
 
-La aplicación solo recibirá desafíos de notificaciones si declara que puede controlarlas mediante las **funcionalidades del cliente**.
-
-Para recibir información sobre si las aplicaciones cliente pueden controlar los desafíos de notificaciones, un implementador de API debe solicitar **xms_cc** como una notificación opcional en su manifiesto de aplicación.
+La aplicación recibirá desafíos de notificaciones de servicios populares, como [Microsoft Graph](/graph/overview) solo si declara sus [funcionalidades de cliente](#client-capabilities) en sus llamadas al servicio.
 
 ## <a name="claims-challenge-header-format"></a>Formato de encabezado de desafío de notificaciones
 
-El desafío de notificaciones es una directiva en el encabezado www-authenticate devuelto por una API cuando un token de acceso no está autorizado y se requiere un nuevo token de acceso. El desafío de notificaciones consta de varias partes: el código de estado HTTP de la respuesta y el encabezado www-authenticate, que a su vez tiene varias partes y debe contener una directiva de notificaciones.
+El desafío de notificaciones es una directiva como un encabezado `www-authenticate` devuelto por una API cuando un [token de acceso](access-tokens.md) que se le presenta no está autorizado y, en su lugar, se requiere un nuevo token de acceso con las funcionalidades correctas. El desafío de notificaciones consta de varias partes: el código de estado HTTP de la respuesta y el encabezado `www-authenticate`, que a su vez tiene varias partes y debe contener una directiva de notificaciones.
 
-``` https
+Este es un ejemplo:
+
+```https
 HTTP 401; Unauthorized
 
 www-authenticate =Bearer realm="", authorization_uri="https://login.microsoftonline.com/common/oauth2/authorize", error="insufficient_claims", claims="eyJhY2Nlc3NfdG9rZW4iOnsiYWNycyI6eyJlc3NlbnRpYWwiOnRydWUsInZhbHVlIjoiYzEifX19"
@@ -53,15 +53,15 @@ www-authenticate =Bearer realm="", authorization_uri="https://login.microsoftonl
 | `error` | Obligatorio | Tiene que ser "insufficient_claims" cuando se deba generar un desafío de notificaciones. | 
 | `claims` | Se requiere cuando el error es "insufficient_claims". | Cadena entre comillas que contiene una [solicitud de notificaciones](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter) codificada en base 64. La solicitud de notificaciones debe solicitarlas para "access_token" en el nivel superior del objeto JSON. El valor (notificaciones solicitadas) dependerá del contexto y se especificará más adelante en este documento. Por motivos de tamaño, las aplicaciones de usuario de confianza DEBEN minificar el objeto JSON antes de la codificación en base 64. El objeto JSON sin formato del ejemplo anterior es {"access_token":{"acrs":{"essential":true,"value":"cp1"}}}. |
 
-La respuesta 401 puede contener más de un encabezado www-authenticate. Todos los campos anteriores deben estar incluidos en el mismo encabezado www-authenticate. El encabezado www-authenticate con el desafío de notificaciones PUEDE contener otros campos. Los campos del encabezado están desordenados. Según RFC 7235, cada nombre de parámetro debe aparecer solo una vez por cada desafío del esquema de autenticación.
+La respuesta **401** puede contener más de un encabezado `www-authenticate`. Todos los campos de la tabla anterior deben estar incluidos en el mismo encabezado `www-authenticate`. El encabezado `www-authenticate` que contiene el desafío de notificaciones *puede* contener otros campos. Los campos del encabezado están desordenados. Según RFC 7235, cada nombre de parámetro debe aparecer solo una vez por cada desafío del esquema de autenticación.
 
 ## <a name="claims-request"></a>Solicitud de notificaciones
 
-Cuando una aplicación recibe un desafío de notificaciones que indica que el token de acceso anterior ya no se considera válido, la aplicación debe borrar el token de cualquier caché local o sesión de usuario. A continuación, debe redirigir al usuario que ha iniciado sesión de nuevo a Azure AD para recuperar un nuevo token mediante el [flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md) con un parámetro **claims** que cumplirá los requisitos adicionales que no se han satisfecho.
+Cuando una aplicación recibe un desafío de notificaciones, significa que el token de acceso anterior ya no se considera válido. En este escenario, la aplicación debe borrar el token de cualquier caché local o sesión de usuario. A continuación, debe redirigir al usuario que ha iniciado sesión de nuevo a Azure Active Directory (Azure AD) para recuperar un nuevo token mediante el [flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md) con un parámetro *claims* que cumplirá los requisitos adicionales que no se han satisfecho.
 
-Se incluye un ejemplo a continuación:
+Este es un ejemplo:
 
-``` https
+```https
 GET https://login.microsoftonline.com/14c2f153-90a7-4689-9db7-9543bf084dad/oauth2/v2.0/authorize
 ?client_id=2810aca2-a927-4d26-8bca-5b32c1ef5ea9
 &redirect_uri=https%3A%2F%contoso.com%3A44321%2Fsignin-oidc
@@ -70,7 +70,7 @@ GET https://login.microsoftonline.com/14c2f153-90a7-4689-9db7-9543bf084dad/oauth
 &response_mode=form_post
 &login_hint=kalyan%ccontoso.onmicrosoft.com
 &domain_hint=organizations
-claims=%7B%22access_token%22%3A%7B%22acrs%22%3A%7B%22essential%22%3Atrue%2C%22value%22%3A%22urn%3Amicrosoft%3Areq1%22%7D%7D%7D
+claims=%7B%22access_token%22%3A%7B%22acrs%22%3A%7B%22essential%22%3Atrue%2C%22value%22%3A%22c1%22%7D%7D%7D
 ```
 
 El desafío de notificaciones debe pasarse como parte de todas las llamadas al punto de conexión [/authorize](v2-oauth2-auth-code-flow.md#request-an-authorization-code) de Azure AD hasta que se recupere correctamente un token, después del cual ya no es necesario.
@@ -82,9 +82,11 @@ Para rellenar el parámetro de notificaciones, el desarrollador tiene que:
 
 Tras la finalización de este flujo, la aplicación recibirá un token de acceso que tiene las notificaciones adicionales que demuestran que el usuario cumple las condiciones requeridas.
 
-## <a name="client-capabilities"></a>Funcionalidades del cliente
+## <a name="client-capabilities"></a>Capacidades de cliente
 
-La aplicación solo recibirá desafíos de notificaciones si declara que puede controlarlas mediante las **funcionalidades del cliente**.
+Las funcionalidades de cliente ayudan a los proveedores de recursos, como una API web, a detectar si la aplicación cliente que realiza la llamada entiende el desafío de notificaciones y puede, a continuación, personalizar su respuesta en consecuencia. Esta funcionalidad puede ser útil cuando no todos los clientes de API son capaces de controlar los desafíos de notificaciones y algunas versiones anteriores todavía esperan una respuesta diferente.
+
+Algunas aplicaciones populares, como [Microsoft Graph](/graph/overview), envían desafíos de notificaciones solo si la aplicación cliente que realiza la llamada declara que es capaz de controlarlos mediante las *funcionalidades de cliente*.
 
 Para evitar el tráfico adicional o el impacto en la experiencia del usuario, Azure D no asume que la aplicación puede controlar las notificaciones desafiadas a menos que se opte explícitamente por ello. La aplicación no recibirá desafíos de notificaciones (y no podrá usar las características relacionadas, como los tokens CAE) a menos que declare que está preparada para controlarlas con la funcionalidad "cp1".
 

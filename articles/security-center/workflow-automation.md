@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 05/03/2021
 ms.author: memildin
-ms.openlocfilehash: bc9c12338610b81e23d5b850fe53aa3c5731a03a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6fbfb138f8c4605b12c5c4ff6cd0ac8c9b0c43dd
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770288"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537722"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatización de respuestas a desencadenadores de Security Center
 
@@ -143,7 +143,7 @@ Para implementar estas directivas:
 Para ver los esquemas de eventos sin procesar de las alertas de seguridad o los eventos de recomendaciones que se pasan a la instancia de aplicación lógica, consulte los [Esquemas de tipos de datos de automatización de flujo de trabajo](https://aka.ms/ASCAutomationSchemas). Puede resultar útil en los casos en que no se usan los conectores de aplicación lógica integrados de Security Center mencionados anteriormente, sino que alternativamente se usa el conector HTTP genérico de la aplicación lógica; puede usar el esquema JSON del evento para analizarlo manualmente como considere oportuno.
 
 
-## <a name="faq-for-workflow-automation"></a>Preguntas más frecuentes relacionadas con la automatización de flujos de trabajo
+## <a name="faq---workflow-automation"></a>Preguntas frecuentes: Automatización del flujo de trabajo
 
 ### <a name="does-workflow-automation-support-any-business-continuity-or-disaster-recovery-bcdr-scenarios"></a>¿La automatización de flujos de trabajo es compatible con los escenarios de continuidad empresarial o recuperación ante desastres (BCDR)?
 

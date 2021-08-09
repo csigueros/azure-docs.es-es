@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/20/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d586294f101c271f139867d0046576dc9a32f076
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: f741cb21f427734c49001b9c672ed3e61c43adbc
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861794"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613237"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Habilitación del inicio de sesión sin contraseña con la aplicación Microsoft Authenticator 
 
@@ -45,7 +45,7 @@ Para usar el inicio de sesión en el teléfono sin contraseña con la aplicació
 
 ## <a name="enable-passwordless-authentication-methods"></a>Habilitar métodos de autenticación sin contraseña
 
-Para usar la autenticación sin contraseña en Azure AD, primero debe habilitar la experiencia de registro combinada y, a continuación, habilitar el método sin contraseña para los usuarios.
+Para usar la autenticación sin contraseña en Azure AD, habilite primero la experiencia de registro combinado y, luego, el método sin contraseña para los usuarios.
 
 ### <a name="enable-the-combined-registration-experience"></a>Habilitar la experiencia de registro combinado
 
@@ -53,7 +53,7 @@ Las características de registro de los métodos de autenticación sin contrase�
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Habilitar métodos de autenticación de inicio de sesión en el teléfono sin contraseña
 
-Azure AD le permite elegir los métodos de autenticación que se pueden usar durante el proceso de inicio de sesión. A continuación, los usuarios se registran en los métodos que desean usar.
+Azure AD le permite elegir los métodos de autenticación que se pueden usar durante el proceso de inicio de sesión. A continuación, los usuarios se registran en los métodos que desean usar. La directiva del método de autenticación **Microsoft Authenticator** administra el método tradicional de inserción de la autenticación multifactor, así como el método de autenticación sin contraseña. 
 
 Siga estos pasos para habilitar el método de autenticación para el inicio de sesión en teléfono sin contraseña:
 
@@ -64,7 +64,7 @@ Siga estos pasos para habilitar el método de autenticación para el inicio de s
    1. **Destino**: Todos los usuarios o Seleccionar usuarios
 1. Cada grupo o usuario agregado está habilitado de manera predeterminada para usar Microsoft Authenticator en los modos de notificación push y sin contraseña (modo "Cualquiera"). Para cambiar esto, para cada fila:
    1. Vaya a **…**  > **Configurar**.
-   1. Para **Modo de autenticación**: Cualquiera, Sin contraseña o Inserción.
+   1. En **Modo de autenticación**, elija **Cualquiera** o **Sin contraseña**. Al elegir **Insertar** se impide el uso de la credencial de inicio de sesión telefónico sin contraseña. 
 1. Para aplicar la nueva directiva, seleccione **Guardar**.
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator"></a>Registro de usuarios y administración de Microsoft Authenticator

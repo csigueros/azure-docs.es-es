@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: fc3662d8198e6ab6ab215ac1e9e8eac585f4250b
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.date: 06/08/2021
+ms.openlocfilehash: c7cc9ba4cddb21dd68af4a4e3253361e1e3e62fd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801594"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754896"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta de Lucene en Azure Cognitive Search
 
@@ -122,14 +122,22 @@ Algunas herramientas y algunos idiomas imponen requisitos adicionales de caracte
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Búsqueda con caracteres comodín
 
-Puede usar la sintaxis generalmente reconocida para búsquedas con caracteres comodín únicas (`*`) o múltiples (`?`). Por ejemplo, una expresión de consulta de `search=alpha*` devuelve "alfanumérico" o "alfabético". Tenga en cuenta que el Analizador de consultas de Lucene admite el uso de estos símbolos con un único término y no una frase.
+Puede usar la sintaxis generalmente reconocida para búsquedas con caracteres comodín únicas (`*`) o múltiples (`?`). La sintaxis de Lucene completa admite la coincidencia de prefijos, infijos y sufijos. 
 
-La sintaxis de Lucene completa admite la coincidencia de prefijos, infijos y sufijos. Sin embargo, si solo necesita la coincidencia de prefijos, puede utilizar la sintaxis simple (la coincidencia de prefijos se admite en ambos).
+Tenga en cuenta que el Analizador de consultas de Lucene admite el uso de estos símbolos con un único término y no una frase.
 
-La coincidencia de sufijos, en la que `*` o `?` precede a la cadena (como en `search=/.*numeric./`) o la coincidencia de infijos requiere una sintaxis completa de Lucene, así como los delimitadores de barra diagonal `/` de la expresión regular. ¿No puede utilizar un símbolo * o ? como primer carácter de un término, o dentro de un término, sin `/`. 
+| Tipo de afijo | Descripción y ejemplos |
+|------------|--------------------------|
+| prefix | El fragmento del término viene antes que `*` o `?`.  Por ejemplo, una expresión de consulta de `search=alpha*` devuelve "alfanumérico" o "alfabético". La coincidencia de prefijos es compatible tanto con la sintaxis simple como con la completa. |
+| sufijo | El fragmento del término viene después de `*` o `?`, con una barra diagonal para delimitar la construcción. Por ejemplo, `search=/.*numeric./` devuelve "alfanumérica". |
+| infijo  | Los fragmentos del término incluyen `*` o `?`.  Por ejemplo, `search=/.non*al./` devuelve "no numérica" y "sin sentido". |
+
+Los operadores se pueden combinar para formar una sola expresión. Por ejemplo, `980?2*` coincide con "98072-1222" y "98052-1234", donde `?` coincide con un carácter único (obligatorio) y `*` coincide con los caracteres de una longitud arbitraria que aparecen a continuación.
+
+La coincidencia de sufijos e infijos requiere los delimitadores `/` de barra diagonal de expresiones regulares. Por lo general, al escribir código, no se pueden usar los símbolos  * o ? como primer carácter de un término, o dentro de un término, sin `/`. En determinadas herramientas, como Postman o Azure Portal, el escape está integrado y a menudo se puede ejecutar una consulta sin el delimitador.
 
 > [!NOTE]  
-> Como norma general, la coincidencia de patrones es lenta, por lo que es posible que desee explorar métodos alternativos, como la tokenización de n-gramas perimetrales que crea tokens para las secuencias de caracteres de un término. El índice será mayor, pero las consultas se podrían ejecutar más rápido, según la construcción del patrón y la longitud de las cadenas que se van a indexar.
+> Como norma general, la coincidencia de patrones es lenta, por lo que es posible que desee explorar métodos alternativos, como la tokenización de n-gramas perimetrales que crea tokens para las secuencias de caracteres de un término. Con la tokenización de n-gramas, el índice será mayor, pero las consultas se pueden ejecutar más rápidamente, en función de la construcción del patrón y la longitud de las cadenas que se van a indexar.
 >
 
 ### <a name="impact-of-an-analyzer-on-wildcard-queries"></a>Impacto de un analizador en las consultas con caracteres comodín
