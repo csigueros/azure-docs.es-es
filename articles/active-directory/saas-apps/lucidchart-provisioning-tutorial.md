@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Lucidchart para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
 description: Aprenda a aprovisionar y desaprovisionar automáticamente cuentas de usuario de Azure AD en Lucidchart.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2020
-ms.author: Zhchia
-ms.openlocfilehash: e7447a8d742caef7a2c2ff0211e7e8002307b9e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: ba9e629e0b46442546919a1ca31ed2ef7fd90fb1
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96178035"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763217"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configuración de Lucidchart para aprovisionar usuarios automáticamente
 

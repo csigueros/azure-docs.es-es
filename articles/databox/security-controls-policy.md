@@ -1,18 +1,18 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Data Box
 description: En este artículo, se muestran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Data Box. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 06/11/2021
+ms.date: 07/16/2021
 ms.topic: sample
 author: alkohli
 ms.author: alkohli
 ms.service: databox
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 7c8d695cfc86a641e27cd6ae413e4325f6f2e6ce
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 0beeb443e51f7c074d6c542a65178300c4adecc6
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030941"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403866"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-box"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Data Box
 

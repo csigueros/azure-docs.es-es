@@ -4,12 +4,12 @@ description: En este artículo se proporciona un tutorial para crear una aplicac
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 00eadbed23b702e77aefaf34b174bd1e6800c307
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: ec000babe57267e3f60cd36cb44ae2eb44c13d99
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877469"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417188"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Envío o recepción de eventos desde Azure Event Hubs mediante .NET Core (Microsoft.Azure.EventHubs)
 En este inicio rápido se explica cómo enviar eventos a un centro de eventos o recibirlos de este mediante la biblioteca de .NET Core **Microsoft.Azure.EventHubs**.
@@ -194,7 +194,7 @@ En esta sección se muestra cómo escribir una aplicación de consola de .NET Co
 > [!NOTE]
 > Puede descargar esta guía de inicio rápido como un ejemplo desde [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), reemplazar las cadenas `EventHubConnectionString` y `EventHubName`, `StorageAccountName`, `StorageAccountKey` y `StorageContainerName` con los valores del centro de eventos y ejecutarlo. También puede seguir los pasos de este tutorial para crear el suyo propio.
 
-[!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
+[!INCLUDE [event-hubs-create-storage](./includes/event-hubs-create-storage.md)]
 
 ### <a name="create-a-console-application"></a>Creación de una aplicación de consola
 

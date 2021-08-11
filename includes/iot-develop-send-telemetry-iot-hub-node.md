@@ -1,19 +1,23 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
+title: Archivo de inclusión
+description: Archivo de inclusión
 author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 05/05/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 501b1383bbc4fb3e20a675b3dca7186d0fe4548e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: d0f1a0bed557e27da113dcb6177c75198b47e6ad
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112039902"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712789"
 ---
+[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Vamos a utilizar la CLI de Azure para crear un centro de Azure IoT y un dispositivo. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura al centro y enviar datos de telemetría.
+
 ## <a name="prerequisites"></a>Prerrequisitos
 - Si no tiene una suscripción de Azure, [cree una gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de comenzar.
 - [Git](https://git-scm.com/downloads).
@@ -89,7 +93,7 @@ En esta sección, usará el SDK para Node.js para enviar mensajes desde el dispo
     node pnpTemperatureController.js
     ```
     > [!NOTE]
-    > En este ejemplo de código se usa Azure IoT Plug and Play, que le permite integrar dispositivos inteligentes en sus soluciones sin ninguna configuración manual.  De forma predeterminada, la mayoría de los ejemplos de esta documentación usan IoT Plug and Play. Para más información sobre las ventajas de IoT Plug and Play y los casos para su uso o no, consulte [¿Qué es IoT Plug and Play?](../articles/iot-pnp/overview-iot-plug-and-play.md)
+    > En este ejemplo de código se usa Azure IoT Plug and Play, que le permite integrar dispositivos inteligentes en sus soluciones sin ninguna configuración manual.  De forma predeterminada, la mayoría de los ejemplos de esta documentación usan IoT Plug and Play. Para más información sobre las ventajas de IoT Plug and Play y los casos para su uso o no, consulte [¿Qué es IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md)
 
 Dado que el código de Node.js envía un mensaje de telemetría simulada desde el dispositivo al centro de IoT, el mensaje aparece en la aplicación de la CLI que supervisa los eventos:
 

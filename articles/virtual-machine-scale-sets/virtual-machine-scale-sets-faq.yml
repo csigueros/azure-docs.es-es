@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/30/2020
   ms.reviewer: jushiman
   ms.custom: mimckitt
-  ms.openlocfilehash: 3fd3f0f7af11a2354a89fc86344bef44b0cffa07
-  ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+  ms.openlocfilehash: 38037844a12f268d6942e9e78b821f2ec7ba040e
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/24/2021
-  ms.locfileid: "112676455"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114456308"
 title: Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 summary: Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales en Azure.
 sections:
@@ -31,6 +31,8 @@ sections:
 
 
       * Archivos de Azure (unidades compartidas SMB)
+
+      * Discos compartidos de Azure
 
       * Unidad de sistema operativo
 

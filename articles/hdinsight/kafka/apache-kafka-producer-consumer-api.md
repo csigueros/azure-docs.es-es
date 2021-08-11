@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: e5a635a8837aadaf423c6f3a0925dbac4080e60f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35115f56690d4ea0f8a70bb5c3099735101a9a29
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945171"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287447"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Uso de Producer API y Consumer API de Apache Kafka
 
@@ -31,7 +31,7 @@ Para más información acerca de las API, consulte la documentación de Apache r
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Apache Kafka en un clúster de HDInsight. Para obtener información sobre cómo crear el clúster, consulte [Inicio con Apache Kafka en HDInsight](apache-kafka-get-started.md).
-* [Java Developer Kit (JDK) versión 8](/azure/developer/java/fundamentals/java-jdk-long-term-support), o un equivalente, como OpenJDK.
+* [Java Developer Kit (JDK) versión 8](/azure/developer/java/fundamentals/java-support-on-azure), o un equivalente, como OpenJDK.
 * [Apache Maven](https://maven.apache.org/download.cgi) correctamente [instalado](https://maven.apache.org/install.html) según Apache.  Maven es un sistema de compilación de proyectos de Java.
 * Un cliente SSH como Putty. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

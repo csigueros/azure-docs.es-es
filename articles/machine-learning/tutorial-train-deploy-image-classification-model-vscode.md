@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 05/25/2021
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 80090bf8743c78a66e38250dbfbb89beb70e66c2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 098f2d63f7bfd87aed8c7c88d1ec13be684983c1
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457586"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459359"
 ---
 # <a name="train-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Entrene un modelo de TensorFlow de clasificación de imágenes con la extensión Azure Machine Learning para Visual Studio Code (versión preliminar).
 
@@ -31,7 +31,7 @@ En este tutorial, ha aprendido las tareas siguientes:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Suscripción de Azure. Si no tiene una, regístrese para probar la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+- Suscripción de Azure. Si no tiene una, regístrese para probar la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/t.com/free/).
 - Instale [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), un editor de código ligero y multiplataforma.
 - Extensión Azure Machine Learning Studio para Visual Studio Code Para obtener instrucciones de instalación, consulte la [guía de configuración de la extensión Azure Machine Learning para Visual Studio Code](./how-to-setup-vs-code.md).
 - CLI 2.0 (versión preliminar). Para obtener instrucciones de instalación, consulte [Instalación, configuración y uso de la CLI 2.0 (versión preliminar)](how-to-configure-cli.md)

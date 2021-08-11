@@ -48,7 +48,7 @@ conceptualContent:
         - url: ../iot-hub/quickstart-send-telemetry-cli.md
           itemType: quickstart
           text: Envío de datos de telemetría desde un dispositivo
-        - url: ../iot-hub/quickstart-control-device-node.md
+        - url: ../iot-hub/quickstart-control-device.md
           itemType: quickstart
           text: Control de un dispositivo desde la nube
         - url: /azure-stack/operator/iot-hub-rp-overview
@@ -115,17 +115,17 @@ conceptualContent:
         text: Ver más
     - title: Integración de Smart Devices en su solución
       links:
-        - url: ../iot-pnp/overview-iot-plug-and-play.md
+        - url: ../iot-develop/overview-iot-plug-and-play.md
           itemType: overview
           text: ¿Qué es IoT Plug and Play?
-        - url: ../iot-pnp/quickstart-connect-device.md
-          itemType: quickstart
+        - url: ../iot-develop/tutorial-connect-device.md
+          itemType: tutorial
           text: Conexión de un dispositivo de ejemplo a IoT Hub
-        - url: ../iot-pnp/concepts-developer-guide-device.md
+        - url: ../iot-develop/concepts-developer-guide-device.md
           itemType: concept
           text: Guía del desarrollador
       footerLink:
-        url: ../iot-pnp/index.yml
+        url: ../iot-develop/index.yml
         text: Ver más
     - title: Actualización de los dispositivos IoT Hub
       links:

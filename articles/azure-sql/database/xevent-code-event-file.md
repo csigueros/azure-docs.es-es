@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 06/06/2020
-ms.openlocfilehash: 48f6c2f676f9e2b0efff63d4070a52e88e3dc68c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 869f2c8ca5f0cbfb422c1aaa65907a2ad941e86a
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672398"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112678149"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Código de destino del archivo de evento para eventos extendidos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -104,7 +104,6 @@ $policySasStartTime  = '2017-10-01';
 
 $storageAccountLocation = 'YOUR_STORAGE_ACCOUNT_LOCATION';
 $storageAccountName     = 'YOUR_STORAGE_ACCOUNT_NAME';
-$contextName            = 'YOUR_CONTEXT_NAME';
 $containerName          = 'YOUR_CONTAINER_NAME';
 $policySasToken         = ' ? ';
 

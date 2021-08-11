@@ -2,8 +2,8 @@
 title: 'Tutorial: Configuración de Comeet Recruiting Software para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar de forma automática el aprovisionamiento de cuentas de usuario de Comeet Recruiting Software.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae3b4687608c98dbb6d68002d95f4c68af223125
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96006719"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113764201"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configuración de Comeet Recruiting Software para el aprovisionamiento automático de usuarios
 

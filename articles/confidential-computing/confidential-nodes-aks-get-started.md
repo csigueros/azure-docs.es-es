@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/08/2021
 ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: b7dd9685be5e0928743eaf9a541c88de6a49a36c
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 950f6fa47de273534a4636796351dd3640628dda
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891256"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551243"
 ---
 # <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de AKS con nodos de computación confidencial mediante la CLI de Azure
 
@@ -25,8 +25,8 @@ Las características de los nodos de computación confidencial incluyen:
 
 - Nodos de trabajo Linux que admiten contenedores Linux.
 - Máquina virtual de generación 2 con nodos de máquina virtual con Ubuntu 18.04.
-- CPU compatible con Intel SGX para ayudar a ejecutar los contenedores en un enclave protegido por confidencialidad que aprovecha la memoria caché de páginas cifrada (EPC). Para más información, consulte [Preguntas frecuentes de computación confidencial de Azure](./faq.md).
-- Controlador Intel SGX DCAP preinstalado en los nodos de computación confidencial. Para más información, consulte [Preguntas frecuentes de computación confidencial de Azure](./faq.md).
+- CPU compatible con Intel SGX para ayudar a ejecutar los contenedores en un enclave protegido por confidencialidad que aprovecha la memoria caché de páginas cifrada (EPC). Para más información, consulte [Preguntas frecuentes de computación confidencial de Azure](./faq.yml).
+- Controlador Intel SGX DCAP preinstalado en los nodos de computación confidencial. Para más información, consulte [Preguntas frecuentes de computación confidencial de Azure](./faq.yml).
 
 > [!NOTE]
 > Las máquinas virtuales de la serie DCsv2 utilizan hardware especializado que está sujeto a precios más altos y disponibilidad de regiones. Para más información, consulte [Soluciones en máquinas virtuales de Azure](virtual-machine-solutions.md).

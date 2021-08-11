@@ -2,17 +2,17 @@
 title: Creación de una prueba de Internet Analyzer mediante el portal | Microsoft Docs
 description: En este artículo, aprenderá a crear su primera prueba de Internet Analyzer.
 services: internet-analyzer
-author: megan-beatty
+author: KumudD
 ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
-ms.author: mebeatty
-ms.openlocfilehash: 64bbed9b558d4c20889b28a5247e2113d20daa77
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: kumud
+ms.openlocfilehash: f19a72f40900ee1c876a8d6130a224be868d192e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "73509839"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114455095"
 ---
 # <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Creación de una prueba de Internet Analyzer mediante el portal (versión preliminar)
 

@@ -7,14 +7,14 @@ ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd74787c1e9ad158becf54f4b2b00bb71317e81d
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98014618"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221793"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code (versión preliminar)
+# <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code
 
 En este inicio rápido se muestra cómo crear y ejecutar un trabajo de Azure Stream Analytics mediante la extensión Azure Stream Analytics Tools for Visual Studio Code. El trabajo de ejemplo lee los datos de streaming desde el dispositivo de Azure IoT Hub. Va a definir un trabajo que calcula la temperatura media cuando se sobrepasan los 27 ° y escribe los eventos de salida resultantes en un nuevo archivo del almacenamiento de blobs.
 
@@ -63,7 +63,7 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
 
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
-   |Subscription  | \<Your subscription\> |  Seleccione la suscripción de Azure que quiera usar. |
+   |Suscripción  | \<Your subscription\> |  Seleccione la suscripción de Azure que quiera usar. |
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta. |
    |Region  |  \<Select the region that is closest to your users\> | Seleccione la ubicación geográfica donde puede hospedar el centro de IoT. Use la ubicación más cercana a los usuarios. |
    |Nombre de la instancia de IoT Hub  | MyASAIoTHub  |   Seleccione un nombre para el centro de IoT.   |

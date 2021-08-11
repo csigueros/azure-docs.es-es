@@ -1,18 +1,18 @@
 ---
 title: 'Inicio rápido: Integración con Azure Database for MySQL'
 description: Se explica cómo aprovisionar y preparar una instancia de Azure Database for MySQL y, luego, configurar Pet Clinic en Azure Spring Cloud para usarla como una base de datos persistente con un solo comando.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/13/2021
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: e4a9dc4d01cb2ea0aea42f00e6ece436194ce498
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 223a3ba0fdb11824cd7c45218dc72271054db428
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965009"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470684"
 ---
 # <a name="quickstart-integrate-azure-spring-cloud-with-azure-database-for-mysql"></a>Inicio rápido: Integración de Azure Spring Cloud con Azure Database for MySQL
 

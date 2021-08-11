@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-java
-ms.openlocfilehash: f49de67504c3d3fea39d4c12ab4b06790693ad68
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 761bbd26ac20b4fad6f6ccb444504e4f2cfd1bac
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351970"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113285753"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Inicio rápido: Realizar una búsqueda de noticias mediante Java y la API de REST Bing News Search
 
@@ -33,7 +33,7 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* El [kit de desarrollo de Java (JDK) 7 u 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* El [kit de desarrollo de Java (JDK) 7 u 8](/azure/developer/java/fundamentals/java-support-on-azure).
 * La [biblioteca Gson](https://github.com/google/gson).
 
 

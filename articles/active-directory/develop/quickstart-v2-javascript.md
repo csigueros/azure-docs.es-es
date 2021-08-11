@@ -3,21 +3,21 @@ title: 'Inicio rápido: Inicio de sesión de usuarios en aplicaciones de página
 titleSuffix: Microsoft identity platform
 description: En este inicio rápido, aprenderá cómo una aplicación de JavaScript puede llamar a una API que requiera tokens de acceso emitidos por la plataforma de identidad de Microsoft.
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: mtillman
+ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: ae6fdc989f70cee387c818a147e52408650cc783
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: c266fe52620cd91f1e09f06d7468181b0d584df3
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075446"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357650"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un SPA de JavaScript
 
@@ -25,7 +25,7 @@ En este inicio rápido descargará y ejecutará un código de ejemplo que muestr
 
 Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
@@ -56,7 +56,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > 1. Seleccione **Registrar**. En la página de **información general** de la aplicación, anote el valor del **Identificador de aplicación (cliente)** para su uso posterior.
 > 1. Para esta guía, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). En **Administrar**, seleccione **Autenticación**.
 > 1. En **Configuraciones de plataforma** > **Agregar una plataforma**. Seleccione **Web**.
-> 1. Establezca el valor de **URI de redireccionamiento** en `http://localhost:3000/`. 
+> 1. Establezca el valor de **URI de redireccionamiento** en `http://localhost:3000/`.
 > 1. Seleccione **Tokens de acceso** y **Tokens de id.** en **Implicit grant and hybrid flows** (Flujos de concesión implícita e híbridos).
 > 1. Seleccione **Configurar**.
 

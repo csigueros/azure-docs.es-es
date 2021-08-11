@@ -93,7 +93,7 @@ items:
           - name: Exploración de una aplicación de procesamiento de imágenes
             href: Tutorials/CSharpTutorial.md
           - name: Otros ejemplos
-            href: /samples/browse/?products=azure&terms=computer-vision
+            href: /samples/browse/?products=azure&terms=analyze-image
       - name: Guías paso a paso
         items:
           - name: Llamada a API Análisis de imágenes

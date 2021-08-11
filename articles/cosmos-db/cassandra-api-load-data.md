@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Carga de datos de ejemplo en una tabla de Cassandra API en Azure Cosmos DB mediante una aplicación Java'
 description: En este tutorial se explica cómo cargar datos de usuario de ejemplo en una tabla de Cassandra API en Azure Cosmos DB mediante una aplicación Java.
-author: kanshiG
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 05/20/2019
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
-ms.openlocfilehash: ad3dfc8c86d22e58377ebfbdb94b2beb004ded56
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cbc11cae00bcec3ba59b4d0f391458ce6e91f77a
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93092473"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113355724"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Tutorial: Carga de datos de ejemplo en una tabla de Cassandra API en Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

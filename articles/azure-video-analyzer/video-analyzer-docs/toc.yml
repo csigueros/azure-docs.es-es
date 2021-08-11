@@ -162,6 +162,6 @@
     - name: Regiones disponibles
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all'
     - name: Preguntas más frecuentes
-      href: faq-edge.md
+      href: faq-edge.yml
     - name: Cuotas y limitaciones
       href: quotas-limitations.md

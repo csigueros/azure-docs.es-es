@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 306294cc654e46dbe8af80b25cb9c709071fad20
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: a147d4ca7b947c6a1cdfeec1587e9ae6b2d27fa0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166333"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448914"
 ---
 # <a name="deploy-a-azure-cloud-services-extended-support-using-the-azure-portal"></a>Implementación de una instancia de Azure Cloud Services (soporte extendido) mediante Azure Portal
 En este artículo se explica cómo usar Azure Portal para crear una implementación de una instancia de Cloud Services (soporte extendido). 
@@ -63,6 +63,6 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
 7. Una vez completados todos los campos, vaya a la pestaña **Revisar y crear** para validar la configuración de implementación y crear la instancia de Cloud Services (soporte extendido).
 
 ## <a name="next-steps"></a>Pasos siguientes 
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).
 - Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
 - Visite el [repositorio de ejemplos de Cloud Services (soporte extendido)](https://github.com/Azure-Samples/cloud-services-extended-support)

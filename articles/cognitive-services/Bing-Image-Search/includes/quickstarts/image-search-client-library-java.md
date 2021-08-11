@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: f155868483a0b00ed5ecb6f02ad3ee5440e6e45a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a07d6c6b397f8461202ffebe081b2fde91b53547
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625501"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113289691"
 ---
 Use este inicio rápido para buscar su primera imagen mediante la biblioteca cliente de Bing Image Search, un contenedor de la API y que contiene las mismas características. Esta sencilla aplicación de Java envía una consulta de búsqueda de imagen, analiza la respuesta de JSON y muestra la dirección URL de la primera imagen devuelta.
 
@@ -22,7 +22,7 @@ El código fuente de este ejemplo está disponible en [GitHub](https://github.co
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-La última versión del [Kit de desarrollo de Java (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+La última versión del [Kit de desarrollo de Java (JDK)](/azure/developer/java/fundamentals/java-support-on-azure)
 
 Instale las dependencias de la biblioteca cliente de Bing Image Search con Maven, Gradle u otro sistema de administración de dependencias. El archivo POM de Maven requiere la declaración siguiente:
 

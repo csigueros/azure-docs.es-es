@@ -7,22 +7,22 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 5/21/2021
-ms.openlocfilehash: d095eddf150990ac5ab76f0753cae2bc44537c88
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ff038a585d1c11c318c3d3225ef6cc45a8865659
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471817"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113088555"
 ---
 # <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql"></a>Errores que se detectan normalmente durante la migración al servicio Azure Database for MySQL o después de esta.
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 Azure Database for MySQL es un servicio totalmente administrado que usa la tecnología de la versión de comunidad de MySQL. La experiencia de MySQL en un entorno de servicio administrado puede diferir de ejecutarlo en su propio entorno. En este artículo, verá algunos de los errores habituales que pueden encontrar los usuarios la primera vez que migran a Azure Database for MySQL, o que desarrollan en dicho servicio.
 
 ## <a name="common-connection-errors"></a>Errores de conexión comunes
 
-#### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
+### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
 
 El error anterior se produce después de un inicio de sesión correcto, pero antes de que se ejecute cualquier comando cuando se establece la sesión. El mensaje anterior indica que ha establecido un valor incorrecto del parámetro de servidor `init_connect`, que provoca un error en la inicialización de la sesión.
 
@@ -36,7 +36,7 @@ mysql> show databases; ERROR 2006 (HY000): MySQL server has gone away No connect
 
 El privilegio SUPER y el rol DBA no se admiten en el servicio. En consecuencia, pueden producirse algunos errores comunes que se enumeran a continuación:
 
-#### <a name="error-1419-you-do-not-have-the-super-privilege-and-binary-logging-is-enabled-you-might-want-to-use-the-less-safe-log_bin_trust_function_creators-variable"></a>ERROR 1419: You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) (No tiene el privilegio SUPER y el registro binario está habilitado [puede] usar la variable log_bin_trust_function_creators, pero es menos segura)
+### <a name="error-1419-you-do-not-have-the-super-privilege-and-binary-logging-is-enabled-you-might-want-to-use-the-less-safe-log_bin_trust_function_creators-variable"></a>ERROR 1419: You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) (No tiene el privilegio SUPER y el registro binario está habilitado [puede] usar la variable log_bin_trust_function_creators, pero es menos segura)
 
 El error anterior puede aparecer al crear una función, al desencadenar como se muestra a continuación o al importar un esquema. Las instrucciones del DDL como CREATE FUNCTION o CREATE TRIGGER se escriben en el registro binario, por lo que la réplica secundaria puede ejecutarlas. El subproceso de réplica de SQL tiene privilegios totales, lo que se puede aprovechar para elevar los privilegios. Para protegerse frente a este riesgo en los servidores que tienen habilitado el registro binario, el motor de MySQL requiere que los creadores de funciones almacenadas tengan el privilegio SUPER, además del privilegio CREATE ROUTINE habitual.
 
@@ -102,7 +102,7 @@ SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN; SET @@SESSION.SQL_LOG_BIN= 
 
 Cuando se crea un servidor de Azure Database for MySQL, el usuario final proporciona un inicio de sesión de administrador del servidor durante la operación. El inicio de sesión de administrador del servidor permite crear bases de datos, agregar nuevos usuarios y conceder permisos. Si se elimina el inicio de sesión de administrador del servidor, se revocan sus permisos o se cambia su contraseña, es posible que empiece a ver errores de conexión en la aplicación durante las conexiones. Estos son algunos de los errores comunes:
 
-#### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>ERROR 1045 (28000): Access denied for user 'username'@'IP address' (using password: SÍ) [Acceso denegado para el usuario "nombre de usuario"@"dirección IP" (usa contraseña: SÍ)].
+### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>ERROR 1045 (28000): Access denied for user 'username'@'IP address' (using password: SÍ) [Acceso denegado para el usuario "nombre de usuario"@"dirección IP" (usa contraseña: SÍ)].
 
 El error anterior se produce si:
 

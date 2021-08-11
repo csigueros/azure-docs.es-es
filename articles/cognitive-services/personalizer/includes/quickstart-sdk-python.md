@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: cognitive-services
 manager: nitinme
@@ -8,12 +8,12 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 08/25/2020
-ms.openlocfilehash: f5b59c7a61e02753e9bbe04e5c96fe5ab5a85a58
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6d1a1822064fa4f311de35cd11a58d547d868ade
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110486308"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535741"
 ---
 [Documentación de referencia](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [Paquete (PyPi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer)
 
@@ -28,6 +28,8 @@ ms.locfileid: "110486308"
 ## <a name="setting-up"></a>Instalación
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
+
+[!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
 
 ### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
 
@@ -56,7 +58,7 @@ endpoint = "<paste-your-personalizer-endpoint-here>"
 
 ## <a name="object-model"></a>Modelo de objetos
 
-El cliente de Personalizer es un objeto [PersonalizerClient](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.personalizer_client.personalizerclien) que se autentica en Azure mediante Microsoft.Rest.ServiceClientCredentials, que contiene la clave.
+El cliente de Personalizer es un objeto [PersonalizerClient](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.personalizer_client.personalizerclient) que se autentica en Azure mediante Microsoft.Rest.ServiceClientCredentials, que contiene la clave.
 
 Para solicitar el mejor elemento del contenido, cree un elemento [RankRequest](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankrequest) y, luego, páselo al método client.Rank. El método Rank devuelve un elemento RankResponse.
 

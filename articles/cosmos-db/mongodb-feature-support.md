@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 10/16/2019
-author: sivethe
-ms.author: sivethe
-ms.openlocfilehash: ce6b01a99c29020b0ede5a860da9d3d6f37e9f06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: gahl-levy
+ms.author: gahllevy
+ms.openlocfilehash: 5a508cb52f7240fcc18474f705f405a2090eb7a5
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104605756"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666256"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API de Azure Cosmos DB para MongoDB (versión 3.2): características y sintaxis que se admiten
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -82,8 +82,6 @@ La API de Azure Cosmos DB para MongoDB admite los siguientes comandos de base de
 <a name="aggregation-pipeline"></a>
 
 ## <a name="aggregation-pipelinea"></a>Canalización de agregación</a>
-
-Cosmos DB es compatible con la canalización de agregación para MongoDB 3.2 en la versión preliminar pública. Vea el [blog de Azure](https://azure.microsoft.com/blog/azure-cosmosdb-extends-support-for-mongodb-aggregation-pipeline-unique-indexes-and-more/) para obtener instrucciones sobre cómo incorporarse a la versión preliminar pública.
 
 ### <a name="aggregation-commands"></a>Comandos de agregación
 

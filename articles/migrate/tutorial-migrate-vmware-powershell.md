@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 05/11/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 22fea8695af7f7ee3915e6e0518d20312d59766c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 018b11d53cf201de41f0f6ff9bc4f1f5c7488d7a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688162"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765316"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migración de máquinas virtuales de VMware a Azure (sin agente): PowerShell
 
@@ -496,4 +496,4 @@ Write-Output $MigrateJob.State
     - Implemente [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
     - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Para supervisión y administración:
--  Considere la posibilidad de implementar [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para supervisar el gasto y el uso de recursos.
+-  Considere la posibilidad de implementar [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) para supervisar el gasto y el uso de recursos.
