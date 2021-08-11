@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: 87bfb857aa8963de20b392b924e03e36c3b3fffd
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: a89d689dd8c3e6341c270db1c56797a01e4d4170
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439393"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765448"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migración de máquinas como servidores físicos a Azure
 
@@ -363,7 +363,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
     - Implemente [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
     - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Para supervisión y administración:
-    - Considere la posibilidad de implementar [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para supervisar el gasto y el uso de recursos.
+    - Considere la posibilidad de implementar [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) para supervisar el gasto y el uso de recursos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

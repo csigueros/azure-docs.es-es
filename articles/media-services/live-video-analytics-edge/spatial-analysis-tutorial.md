@@ -3,12 +3,12 @@ title: 'Análisis de vídeo en directo con Computer Vision para análisis espaci
 description: En este tutorial se muestra cómo usar Azure Live Video Analytics junto con la característica de IA de análisis espacial de Computer Vision, parte de Azure Cognitive Services, para analizar una fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 549c1405e7deb3531da65ff4425befa2d29aaeef
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 824ff93e1411563b07bea9f30bbd2cf4ecad457c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373570"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456143"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-and-live-video-analytics-preview"></a>Análisis de vídeo en directo con Computer Vision para análisis espacial y Live Video Analytics (versión preliminar)
 
@@ -63,7 +63,7 @@ El nodo MediaGraphCognitiveServicesVisionExtension desempeña el rol de un proxy
 
 ## <a name="create-the-computer-vision-resource"></a>Creación del recurso de Computer Vision
 
-Es necesario crear un recurso de Azure de tipo Computer Vision en [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) o mediante la CLI de Azure. El recurso se puede crear una vez que se haya aprobado la solicitud de acceso al contenedor y se haya registrado su identificador de suscripción de Azure. Vaya a https://aka.ms/csgate para enviar el caso de uso y el identificador de suscripción de Azure.  El recurso de Azure se debe crear con la misma suscripción de Azure que se ha proporcionado en el formulario de solicitud de acceso.
+Es necesario crear un recurso de Azure de tipo Computer Vision en [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) o mediante la CLI de Azure.
 
 ### <a name="gathering-required-parameters"></a>Recopilación de los parámetros obligatorios
 

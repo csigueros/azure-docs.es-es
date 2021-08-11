@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: implementación de la primera aplicación de Azure Spring Cloud'
 description: En este inicio rápido, se implementa una aplicación de Spring Cloud en Azure Spring Cloud.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 292b0a16b208fa5234c374127fd9eec24f27b14e
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: fafffc6777883209383fd8d20fc9d3ebfa7ab7fb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988344"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470544"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Inicio rápido: implementación de la primera aplicación de Azure Spring Cloud
 

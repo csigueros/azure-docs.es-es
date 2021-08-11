@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de PureCloud by Genesys para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD para PureCloud by Genesys.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2020
-ms.author: Zhchia
-ms.openlocfilehash: b4643efd197734ff7f12fb7806e474e0419843ed
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: thwimmer
+ms.openlocfilehash: 24145b8aa4398b8020fad8ef9e269be3eb70c045
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078595"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766192"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutorial: Configuración de PureCloud by Genesis para el aprovisionamiento automático de usuarios
 

@@ -7,12 +7,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: b25d9846f3bb678c182fa22d824f7b4171d2d803
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: cf08f1baf2a2fb32e22cf07ae27c5122d6459294
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515638"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285341"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Inicio rápido: Configuración de Data Science Virtual Machine para Linux (Ubuntu)
 
@@ -145,6 +145,6 @@ A continuación, mostramos cómo puede continuar con las tareas de aprendizaje y
 
 * En el tutorial [Ciencia de datos con una instancia de Data Science Virtual Machine de Linux](linux-dsvm-walkthrough.md) se muestra cómo llevar a cabo varias tareas comunes de ciencia de datos con la instancia de DSVM de Linux aprovisionada aquí. 
 * Pruebe las herramientas descritas en este artículo para conocer las distintas herramientas de ciencia de datos de la instancia de DSVM. También puede ejecutar `dsvm-more-info` en el shell de la máquina virtual para obtener un introducción básica y referencias que le permitirán consultar más información sobre las herramientas instaladas en la máquina virtual.  
-* Aprenda a crear sistemáticamente soluciones analíticas mediante el [proceso de ciencia de los datos en equipos](../team-data-science-process/index.yml).
+* Aprenda a crear sistemáticamente soluciones analíticas mediante el [proceso de ciencia de los datos en equipos](/azure/architecture/data-science-process/overview).
 * Visite la [Azure AI Gallery](https://gallery.azure.ai/) para ver ejemplos de aprendizaje automático y análisis de datos donde se usan los servicios de Azure AI.
 * Consulte la [documentación de referencia](./reference-ubuntu-vm.md) adecuada para esta máquina virtual.

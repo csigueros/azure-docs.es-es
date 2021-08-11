@@ -9,12 +9,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurecli
 - mode-api
-ms.openlocfilehash: 4d805458d90c73de879a9b87d5b08c98a8f1a250
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 9686b99a7c13ef3103513efab759e6295ef052c3
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537300"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288903"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Inicio rápido: Compilación e inserción de imágenes de contenedor de Java en Azure Container Registry
 
@@ -24,7 +24,7 @@ En este inicio rápido se muestra cómo compilar una aplicación de Java en cont
 
 * Una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) o registrarse para obtener una [cuenta de Azure gratuita](https://azure.microsoft.com/pricing/free-trial).
 * La [Interfaz de la línea de comandos (CLI) de Azure](/cli/azure/overview).
-* Un kit de desarrollo de Java (JDK) admitido Para más información sobre los JDK disponibles para desarrollar en Azure, consulte <https://aka.ms/azure-jdks>.
+* Un kit de desarrollo de Java (JDK) admitido Para más información sobre los JDK disponibles para desarrollar en Azure, consulte [Compatibilidad con Java en Azure y Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * La herramienta de compilación [Maven](http://maven.apache.org) de Apache (versión 3 o posterior).
 * Un cliente [Git](https://git-scm.com).
 * Un cliente de [Docker](https://www.docker.com).
@@ -104,11 +104,11 @@ Por último, actualizará la configuración del proyecto y usará el símbolo de
 1. Inicie sesión en su instancia de Azure Container Registry desde la CLI de Azure con el siguiente comando. Asegúrese de reemplazar el marcador de posición por su propio nombre de registro.
 
    ```azurecli
-   az configure --defaults acr=<your registry name>
+   az config set defaults.acr=<your registry name>
    az acr login
    ```
 
-   El comando `az configure` establece el nombre del registro predeterminado que se usará con los comandos `az acr`.
+   El comando `az config` establece el nombre del registro predeterminado que se usará con los comandos `az acr`.
 
 1. Navegue hasta el directorio de proyecto completado de la aplicación Spring Boot (por ejemplo, "*C:\SpringBoot\gs-spring-boot-docker\complete*"o" */users/robert/SpringBoot/gs-spring-boot-docker/complete*") y abra el archivo *pom.xml* con un editor de texto.
 

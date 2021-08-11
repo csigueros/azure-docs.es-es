@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7c19c4963ad8c378e1282180800fd839e20edfdd
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a0952301da222282ff5f1e283a9326328da2715e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056341"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "114289590"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Uso de Azure Portal para crear un equilibrador de carga público para equilibrar la carga de máquinas virtuales
 
@@ -55,7 +55,7 @@ Cuando se crea una instancia pública de Load Balancer, también se debe crear u
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Subscription               | Seleccione su suscripción.    |    
+    | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear** y escriba **CreatePubLBQS-rg** en el cuadro de texto.|
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
     | Region         | Seleccione **(Europa) Oeste de Europa**.                                        |
@@ -279,6 +279,8 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
     | Zona de disponibilidad | **2** |**3**|
     | Grupo de seguridad de red | Seleccione el grupo **myNSG** existente.| Seleccione el grupo **myNSG** existente.|
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-outbound-rule-configuration"></a>Creación de la configuración de regla de salida
 Las reglas de salida del equilibrador de carga configuran SNAT saliente para las máquinas virtuales del grupo de back-end. 
 
@@ -343,7 +345,7 @@ Cuando se crea una instancia pública de Load Balancer, también se debe crear u
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Subscription               | Seleccione su suscripción.    |    
+    | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear** y escriba **CreatePubLBQS-rg** en el cuadro de texto.|
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
     | Region         | Seleccione **Oeste de Europa**.                                        |
@@ -564,6 +566,8 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
     | Nombre |  **myVM2** |**myVM3**|
     | Conjunto de disponibilidad| Seleccione **myAvailabilitySet**. | Seleccione **myAvailabilitySet**.|
     | Grupo de seguridad de red | Seleccione el grupo **myNSG** existente.| Seleccione el grupo **myNSG** existente.|
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ### <a name="add-virtual-machines-to-the-backend-pool"></a>Adición de máquinas virtuales al grupo de back-end
 

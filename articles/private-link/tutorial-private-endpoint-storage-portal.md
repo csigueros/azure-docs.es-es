@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: eefef0eb61df9aa0597206b537f3d58e8b8b3213
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65874a66fd6e3843f7d1a3dc1e7d088d392df645
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96484828"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "114285002"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Tutorial: Conexión a una cuenta de almacenamiento mediante un punto de conexión privado de Azure
 
@@ -132,6 +132,8 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
   
 6. Revise la configuración y, a continuación, seleccione **Crear**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-storage-account-with-a-private-endpoint"></a>Creación de una cuenta de almacenamiento con un punto de conexión privado
 
 En esta sección, creará una cuenta de almacenamiento y configurará el punto de conexión privado.
@@ -162,7 +164,7 @@ En esta sección, creará una cuenta de almacenamiento y configurará el punto d
 
     | Configuración | Value                                          |
     |-----------------------|----------------------------------|
-    | Subscription | Selección de su suscripción a Azure |
+    | Suscripción | Selección de su suscripción a Azure |
     | Grupo de recursos | Seleccione **myResourceGroup**. |
     | Location | Seleccione **Este de EE. UU**. |
     | Nombre | Escriba **myPrivateEndpoint**. |

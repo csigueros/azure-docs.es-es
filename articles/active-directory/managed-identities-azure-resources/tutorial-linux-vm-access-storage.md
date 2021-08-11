@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e927415e0a1d2ce7d52e602eddfffb0eae5387b5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 77b41a73ca092f36f38d35f525bc381e29848396
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076571"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037965"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Storage 
 
@@ -79,7 +79,7 @@ Los archivos requieren almacenamiento de blobs, por lo que es necesario crear un
 
 Puede usar la identidad Managed Identity de la máquina virtual para recuperar los datos en Azure Storage Blob. Las identidades administradas para recursos de Azure se pueden usar para autenticarse en recursos que admiten la autenticación de Azure AD.  Conceda acceso mediante la asignación del rol [storage-blob-data-reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) a la identidad administrada en el ámbito del grupo de recursos que contiene la cuenta de almacenamiento.
  
-Para obtener los pasos detallados, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Para acceder a los pasos detallados, vea [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 >[!NOTE]
 > Para obtener más información sobre los distintos roles que puede usar para conceder permisos de almacenamiento, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)

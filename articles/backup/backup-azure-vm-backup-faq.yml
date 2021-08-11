@@ -1,0 +1,224 @@
+### YamlMime:FAQ
+metadata:
+  title: 'Preguntas frecuentes: Copias de seguridad de máquinas virtuales de Azure'
+  description: En este artículo, descubra las respuestas a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
+  ms.topic: conceptual
+  ms.date: 06/02/2021
+  ms.openlocfilehash: 7c9743c71a505c586745117d48b3b23537db1d77
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114458015"
+title: Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
+summary: >
+  En este artículo se responde a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio [Azure Backup](./backup-overview.md).
+sections:
+- name: Copia de seguridad
+  questions:
+  - question: ¿Qué imágenes de máquina virtual se pueden habilitar para la copia de seguridad cuando se crean?
+    answer: >
+      Cuando se crea una máquina virtual, puede habilitar la copia de seguridad de máquinas virtuales que ejecutan [sistemas operativos admitidos](backup-support-matrix-iaas.md#supported-backup-actions).
+  - question: ¿Por qué la copia de seguridad inicial tarda tanto en completarse?
+    answer: >
+      La copia de seguridad inicial siempre es una copia de seguridad completa y el tiempo que tarde dependerá del tamaño de los datos y del momento de procesamiento de la copia de seguridad.
+
+
+      Para mejorar el rendimiento de la copia de seguridad, consulte [Procedimientos recomendados de copia de seguridad](./backup-azure-vms-introduction.md#best-practices); [Consideraciones de copia de seguridad](./backup-azure-vms-introduction.md#backup-and-restore-considerations) y [Rendimiento de copia de seguridad](./backup-azure-vms-introduction.md#backup-performance)
+
+
+      Aunque el tiempo total de copia de seguridad para copias de seguridad incrementales es menor que 24 horas, es posible que esto no sea el caso para la primera copia de seguridad.
+  - question: ¿Están los costos de la copia de seguridad incluidos en el costo de la máquina virtual?
+    answer: >
+      No. Los costos de la copia de seguridad son independientes de los costos de la máquina virtual. Más información sobre los [Precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+  - question: ¿Qué permisos son necesarios para habilitar la copia de seguridad de una máquina virtual?
+    answer: >
+      Si es un colaborador de la máquina virtual, puede habilitar la copia de seguridad de la máquina virtual. Si utiliza un rol personalizado, necesita los permisos siguientes para habilitar la copia de seguridad en la máquina virtual:
+
+
+      - Microsoft.RecoveryServices/Vaults/write
+
+      - Microsoft.RecoveryServices/Vaults/read
+
+      - Microsoft.RecoveryServices/locations/*
+
+      - Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+
+      - Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+
+      - Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+
+      - Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+
+      - Microsoft.RecoveryServices/Vaults/backupPolicies/read
+
+      - Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
+
+      Si el almacén de Recovery Services y la máquina virtual tienen distintos grupos de recursos, asegúrese de que tiene permisos de escritura en el grupo de recursos del almacén de Recovery Services.
+  - question: ¿Usa un trabajo de copia de seguridad a petición la misma programación de retención que las copias de seguridad programadas?
+    answer: No. Debe especificar el intervalo de retención para un trabajo de copia de seguridad a petición. De forma predeterminada, se conservará durante 30 días si se desencadena desde el portal.
+  - question: Recientemente habilité Azure Disk Encryption en algunas máquinas virtuales. ¿Seguirán funcionando mis copias de seguridad?
+    answer: >
+      Para acceder a Key Vault, debe conceder permisos para Azure Backup. Especifique los permisos en PowerShell como se indica en la sección **Habilitar copia de seguridad** de la documentación sobre [PowerShell de Azure Backup](backup-azure-vms-automation.md).
+  - question: Migré los discos de una máquina virtual a discos administrados. ¿Seguirán funcionando mis copias de seguridad?
+    answer: Sí, las copias de seguridad funcionan sin problemas. No hay necesidad de volver a configurar nada.
+  - question: ¿Por qué no aparece mi máquina virtual en el asistente para configuración de la copia de seguridad?
+    answer: El asistente solo muestra las máquinas virtuales que están en la misma región que el almacén y de las que no se está realizando copia de seguridad.
+  - question: Mi máquina virtual está apagada. ¿Funcionará un trabajo de copia de seguridad a petición o programado?
+    answer: Sí. Las copias de seguridad se ejecutan cuando una máquina está apagada. El punto de recuperación se marca como coherente frente a bloqueos.
+  - question: ¿Puedo cancelar un trabajo de copia de seguridad en curso?
+    answer: Sí. Puede cancelar el trabajo de copia de seguridad si se encuentra en el estado **Tomando instantánea**. No puede cancelar un trabajo si la transferencia de datos desde la instantánea está en curso.
+  - question: He habilitado un bloqueo en el grupo de recursos creado por el servicio Azure Backup (por ejemplo, `AzureBackupRG_<geo>_<number>`). ¿Seguirán funcionando mis copias de seguridad?
+    answer: >
+      Si bloquea el grupo de recursos creado por el servicio Azure Backup, las copias de seguridad comenzarán a producir errores porque hay un límite máximo de 18 puntos de restauración.
+
+
+      Quite el bloqueo y borre la colección de puntos de restauración de ese grupo de recursos para que las copias de seguridad futuras se realicen correctamente. [Siga estos pasos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para quitar la colección de puntos de restauración.
+  - question: Tengo un bloqueo en el nivel de grupo de recursos que contiene todos los recursos relacionados con mi máquina virtual. ¿Funcionará mi copia de seguridad?
+    answer: Azure Backup crea un grupo de recursos independiente con el formato `AzureBackupRG_<geo>_<number>` para almacenar los objetos ResourcePointCollections. Puesto que este grupo de recursos es propiedad del servicio, el bloqueo provocará un error en las copias de seguridad. Los bloqueos solo se pueden aplicar a grupos de recursos creados por el cliente.
+  - question: ¿Admite Azure Backup los discos administrados SSD estándar?
+    answer: >
+      Sí, Azure Backup admite [discos administrados SSD estándar](../virtual-machines/disks-types.md#standard-ssd).
+  - question: ¿Podemos realizar copias de seguridad de una máquina virtual con un disco habilitado para el Acelerador de escritura?
+    answer: Solo se pueden realizar instantáneas en discos de datos habilitados para el Acelerador de escritura y no en discos del sistema operativo. Por tanto, solo se pueden proteger los discos de datos que están habilitados para el Acelerador de escritura.
+  - question: Tengo una máquina virtual con discos habilitados para el Acelerador de escritura (WA) y SAP HANA instalada. ¿Cómo puedo realizar la copia de seguridad?
+    answer: >
+      Azure Backup puede hacer una copia de seguridad del disco de datos habilitado para el Acelerador de escritura. Sin embargo, la copia de seguridad no proporcionará coherencia de base de datos.
+
+
+      Azure Backup proporciona una solución de copia de seguridad de streaming para las bases de datos de SAP HANA con un RPO de 15 minutos. Tiene la certificación Backint de SAP, para proporcionar compatibilidad con copias de seguridad nativas aprovechando las API nativas de SAP HANA. Obtenga más información [sobre la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure](./sap-hana-db-about.md).
+  - question: ¿Cuál es el retraso máximo que puedo esperar en la hora de inicio de la copia de seguridad desde la hora de copia de seguridad programada que he configurado en mi directiva de copia de seguridad de máquina virtual?
+    answer: >
+      La copia de seguridad programada se desencadenará en las 2 horas siguientes a la hora de la copia de seguridad programada. Por ejemplo, si la hora de inicio de la copia de seguridad de 100 máquinas virtuales está programada a las 2:00 a.m., el trabajo de copia de seguridad de las 100 máquinas virtuales estará en curso como muy tarde a las 4:00 a.m. Si las copias de seguridad programadas han estado en pausa debido a una interrupción y se han reanudado o vuelto a intentar, la copia de seguridad puede comenzar fuera de esta ventana de dos horas programadas.
+  - question: ¿Cuál es el intervalo de retención mínimo permitido para un punto de copia de seguridad diaria?
+    answer: La directiva de copia de seguridad de máquina virtual de Azure admite un intervalo de retención mínimo desde siete días hasta 9999 días. Cualquier modificación de una directiva de copia de seguridad de máquina virtual existente con menos de siete días requerirá una actualización para cumplir el intervalo mínimo de retención de siete días.
+  - question: ¿Qué ocurre si cambio las mayúsculas y minúsculas del nombre de la máquina virtual o del grupo de recursos de la máquina virtual?
+    answer: Si cambia las mayúsculas y minúsculas de la máquina virtual o del grupo de recursos de la máquina virtual, no cambiarán las mayúsculas y minúsculas del nombre del elemento de copia de seguridad. Sin embargo, este es el comportamiento esperado de Azure Backup. El cambio de mayúsculas y minúsculas no aparecerá en el elemento de copia de seguridad, pero se actualizará en el back-end.
+  - question: ¿Puedo realizar copias de seguridad o restaurar discos selectivos conectados a una máquina virtual?
+    answer: >
+      Azure Backup admite ahora la copia de seguridad y restauración de discos selectivos mediante la solución de copia de seguridad de máquinas virtuales de Azure. Para obtener más información, consulte las [copias de seguridad y restauración de los discos selectivos para VM de Azure](selective-disk-backup-restore.md).
+  - question: ¿Se conservan las identidades administradas si se produce un cambio de inquilino durante la copia de seguridad?
+    answer: >
+      Si se producen [cambios en los inquilinos](/azure/devops/organizations/accounts/change-azure-ad-connection), es necesario deshabilitar y volver a habilitar las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) para que las copias de seguridad funcionen de nuevo.
+  - question: ¿Admite Azure Backup la copia de seguridad de archivos NFS montados desde el almacenamiento?
+    answer: Azure Backup no admite la copia de seguridad de archivos NFS que se montan desde el almacenamiento o desde cualquier otro servidor NFS a máquinas Linux o Windows. Solo realiza copias de seguridad de los discos que están conectados localmente a la máquina virtual.
+  - question: ¿Cuáles son las configuraciones de máquina virtual almacenadas en la copia de seguridad de la máquina virtual?
+    answer: Todas las configuraciones de máquina virtual necesarias para realizar las operaciones de restauración se almacenan en la copia de seguridad de la máquina virtual. Aquí se incluyen las copias de cifrado de las claves cifradas de la máquina virtual, a las que puede acceder durante la restauración. Las copias de cifrado solo se pueden descifrar mediante el almacén de claves. Los discos temporales y el estado de memoria no se capturan en la instantánea.
+  - question: ¿Se puede hacer una copia de seguridad de las etiquetas de una máquina virtual de Azure? Si es así, ¿de cuántas?
+    answer: Azure Backup puede realizar copias de seguridad de etiquetas y restaurarlas, excepto de las NIC y las IP. Azure Backup respeta las limitaciones de suscripción del grupo de recursos de Azure y restaura hasta 50 etiquetas.<br><br>Para información detallada, consulte [Límites de suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+- name: Restauración
+  questions:
+  - question: ¿Cómo decidir si es necesario restaurar solo los discos o una máquina virtual completa?
+    answer: >
+      Considere la restauración de máquinas virtuales como una opción de creación rápida para una máquina virtual de Azure. Esta opción cambia los nombres de los discos, los contenedores usados por esos discos, las direcciones IP públicas y los nombres de las interfaces de red. El cambio conserva recursos exclusivos cuando se crea una máquina virtual. La máquina virtual no se agrega a un conjunto de disponibilidad.
+
+
+      Puede usar la opción de restauración de disco si quiere:
+
+
+      - Personalizar la máquina virtual que se crea. Por ejemplo, cambiar el tamaño.
+
+      - Agregar opciones de configuración que no existían en el momento de la copia de seguridad.
+
+      - Controlar la convención de nomenclatura para los recursos que se crean.
+
+      - Agregar la máquina virtual a un conjunto de disponibilidad.
+
+      - Agregar cualquier otro valor que se deba configurar mediante PowerShell o una plantilla.
+  - question: ¿Puedo restaurar las copias de seguridad de discos de máquinas virtuales no administrados después de actualizar a discos administrados?
+    answer: Sí, puede usar las copias de seguridad tomadas antes de migrar los discos de no administrados a administrados.
+  - question: ¿Cómo restauro una máquina virtual a un punto de restauración anterior a la migración de la máquina virtual a discos administrados?
+    answer: >
+      El proceso de restauración sigue siendo el mismo. Si el punto de recuperación es de un momento dado en el que la máquina virtual tenía discos no administrados, puede [restaurar discos como no administrados](tutorial-restore-disk.md#unmanaged-disks-restore). Si la máquina virtual tuviera discos administrados, puede [restaurar discos como discos administrados](tutorial-restore-disk.md#managed-disk-restore). Luego puede [crear una máquina virtual a partir de esos discos](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+
+
+      [Más información](backup-azure-vms-automation.md#restore-an-azure-vm) sobre cómo hacer esto en PowerShell.
+  - question: Si se produce un error en la restauración al crear la máquina virtual, ¿qué ocurre con los discos incluidos en la restauración?
+    answer: En el caso de una restauración de máquina virtual administrada, incluso si se produce un error en la creación de la máquina virtual, se seguirán restaurando los discos.
+  - question: ¿Se puede restaurar una máquina virtual que se haya eliminado?
+    answer: Sí. Incluso si elimina la máquina virtual, puede ir al elemento de la copia de seguridad correspondiente en el almacén y realizar la restauración desde un punto de recuperación.
+  - question: ¿Cómo restauro una máquina virtual en los mismos conjuntos de disponibilidad?
+    answer: Para una máquina virtual de Azure con discos administrados, se puede habilitar la restauración en los conjuntos de disponibilidad proporcionando una opción en la plantilla mientras se restaura como discos administrados. Esta plantilla tiene el parámetro de entrada denominado **Conjuntos de disponibilidad**.
+  - question: ¿Cómo se consiguen rendimientos de restauración más rápidos?
+    answer: >
+      La capacidad [Restauración instantánea](backup-instant-restore-capability.md) ayuda con copias de seguridad y restauraciones de las instantáneas más rápidas.
+  - question: ¿Qué ocurre cuando se cambia la configuración de Key Vault para la máquina virtual cifrada?
+    answer: >
+      Después de cambiar la configuración de KeyVault para la máquina virtual cifrada, las copias de seguridad seguirán funcionando con el nuevo conjunto de detalles. Sin embargo, después de la restauración desde un punto de recuperación antes del cambio, tendrá que restaurar los secretos en un almacén de claves antes de poder crear la máquina virtual a partir de él. Para más información, consulte este [artículo](./backup-azure-restore-key-secret.md).
+
+
+      Las operaciones como la sustitución de claves o secretos no requieren este paso y se puede usar el mismo almacén de claves después de la restauración.
+  - question: ¿Puedo acceder a la máquina virtual una vez que se ha restaurado si tiene una relación rota con el controlador de dominio?
+    answer: >
+      Sí, puede acceder a la máquina virtual una vez restaurada aunque tenga una relación rota con el controlador de dominio. Para más información, consulte este [artículo](./backup-azure-arm-restore-vms.md#post-restore-steps).
+  - question: ¿Puedo cancelar un trabajo de restauración en curso?
+    answer: No, no puede cancelar el trabajo de restauración que está en curso.
+  - question: ¿Por qué la operación de restauración tarda tanto tiempo en completarse?
+    answer: El tiempo total de restauración depende de las operaciones de entrada/salida por segundo (IOPS) y el rendimiento de la cuenta de almacenamiento. El tiempo total de la restauración puede verse afectado si la cuenta de almacenamiento de destino se carga con otras operaciones de lectura y escritura de aplicación. Para mejorar la operación de restauración, seleccione una cuenta de almacenamiento que no tenga cargados otros datos de aplicación.
+  - question: ¿Cómo se controlan los conflictos del tipo de restauración "Crear nueva máquina virtual" con las directivas de gobernanza?
+    answer: >
+      Azure Backup usa discos "adjuntar" de los puntos de recuperación y no mira las referencias de imagen ni las galerías. Por lo tanto, en la directiva puede comprobar si "storageProfile.osDisk.createOption es Attach", y la condición de script será:
+
+
+      `if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
+- name: Administrar copias de seguridad de máquina virtual
+  questions:
+  - question: ¿Qué ocurre si se modifica una directiva de copia de seguridad?
+    answer: >
+      Se realiza la configuración de la máquina virtual con los valores de programación y retención de la directiva nueva o modificada.
+
+
+      - Si se amplía la retención, los puntos de recuperación existentes se marcarán para mantenerlos de acuerdo con la nueva directiva.
+
+      - Si se reduce la retención, se marcarán para eliminarse y, posteriormente, se eliminarán en el siguiente trabajo de limpieza.
+  - question: ¿Cómo se puede mover una máquina virtual de la que Azure Backup ha realizado una copia de seguridad a un grupo de recursos diferente?
+    answer: >
+      1. Detenga temporalmente la copia de seguridad y conserve los datos de esta.
+
+      2. Para mover máquinas virtuales configuradas con Azure Backup, siga los pasos a continuación:
+
+         1. Busque la ubicación de la máquina virtual.
+         2. Busque un grupo de recursos con el siguiente patrón de nomenclatura: `AzureBackupRG_<location of your VM>_1`. Por ejemplo, *AzureBackupRG_westus2_1*.
+         3. En Azure Portal, active **Mostrar tipos ocultos**.
+         4. Busque el recurso con el tipo **Microsoft.Compute/restorePointCollections** que tenga el patrón de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`.
+         5. Elimine este recurso. Esta operación elimina solo los puntos de recuperación instantáneos, no los datos de copia de seguridad que se encuentran en el almacén.
+         6. Una vez completada la operación de eliminación, puede mover la máquina virtual.
+
+      3. Traslade la máquina virtual al grupo de recursos de destino.
+
+      4. Reanude la copia de seguridad.
+
+
+      Puede restaurar la máquina virtual desde los puntos de restauración disponibles creados antes de la operación de traslado.
+  - question: ¿Qué ocurre después de trasladar una máquina virtual a un grupo de recursos distinto?
+    answer: >
+      Una vez que se mueve una máquina virtual a otro grupo de recursos, se trata de una máquina virtual nueva en lo que se refiere a Azure Backup.
+
+
+      Después de mover la máquina virtual a un grupo de recursos nuevo, puede volver a proteger la máquina virtual en el mismo almacén o en un almacén distinto. Como se trata de una nueva máquina virtual para Azure Backup, se le facturará por separado.
+
+
+      Los puntos de restauración de la máquina virtual anterior estarán disponibles por si necesita restaurarlos. Si no necesita estos datos de copia de seguridad, puede dejar de proteger la máquina virtual anterior con la eliminación de datos.
+  - question: ¿Hay un límite en el número de máquinas virtuales que se pueden asociar con la misma directiva de copia de seguridad?
+    answer: Sí, hay un límite de 100 máquinas virtuales que se pueden asociar a la misma directiva de copia de seguridad desde el portal. Para más de 100 máquinas virtuales, se recomienda crear varias directivas de copia de seguridad con la misma programación o con una programación diferente.<br><br>Hay un límite diario de 1000 para las protecciones generales de configuración o modificación en un almacén.
+  - question: ¿Cómo se puede ver la configuración de retención de las copias de seguridad?
+    answer: >
+      Actualmente, puede ver la configuración de retención en un nivel de elemento de copia de seguridad en función de la directiva de copia de seguridad que se asigna a la máquina virtual.
+
+
+      Una manera de ver la configuración de retención de las copias de seguridad consiste en ir al [panel](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) del elemento de copia de seguridad de la máquina virtual, en Azure Portal. Al seleccionar el vínculo a su directiva de copia de seguridad, podrá ver la duración de la retención de todos los puntos de retención diarios, semanales, mensuales y anuales asociados a la máquina virtual.
+
+
+      También puede usar el [Explorador de Backup](./monitor-azure-backup-with-backup-explorer.md) para ver la configuración de retención de todas las máquinas virtuales dentro de un único panel. Navegue hasta el Explorador de Backup desde cualquier almacén de Recovery Services, vaya a la pestaña **Elementos de copia de seguridad** y seleccione la vista avanzada para ver información de retención detallada de cada máquina virtual.
+  - question: Cuando la instantánea se mueve de una cuenta de almacenamiento a un almacén, ¿cómo se administra el cifrado en tránsito?
+    answer: La copia de seguridad de máquinas virtuales de Azure usa la [comunicación HTTPS con el cifrado en tránsito](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest). En la transferencia de datos se usa tejido de Azure (y no puntos de conexión públicos), que no necesita acceso a Internet para la copia de seguridad de máquinas virtuales.
+  - question: ¿Cómo puedo deshabilitar la opción de recuperación de archivos?
+    answer: >-
+      [Esta API](/rest/api/backup/item-level-recovery-connections/provision) aprovisiona un script para invocar una **conexión iSCSI** para la recuperación de archivos desde Azure Backup.
+
+      - Puede deshabilitar esta opción mediante **definiciones de roles personalizadas** excluyendo la acción de API.
+
+      - También puede usar los [puntos de conexión privados](private-endpoints.md) para restringir el acceso al servidor iSCSI desde dentro de la red privada.
+
+      - También puede deshabilitar esta opción en una organización mediante la característica [asignación de denegación](../role-based-access-control/deny-assignments.md).

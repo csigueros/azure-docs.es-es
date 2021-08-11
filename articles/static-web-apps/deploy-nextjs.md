@@ -2,18 +2,18 @@
 title: 'Tutorial: Implementación de sitios web de Next.js representados de forma estática en Azure Static Web Apps'
 description: Genere e implemente sitios dinámicos de Next.js con Azure Static Web Apps.
 services: static-web-apps
-author: christiannwamba
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.author: chnwamba
+ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: 940ea0b96d4e369ceb4ba21c0d31fad36501c24f
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: eb4a9c69ed29b1f13ab2769044c0067779a5e195
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814035"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112454139"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps"></a>Implementación de sitios web de Next.js representados de forma estática en Azure Static Web Apps
 
@@ -141,7 +141,7 @@ En los pasos siguientes se muestra cómo vincular la aplicación que acaba de in
 1. Seleccione **Crear**.
 1. En la pestaña _Datos básicos_, especifique los valores siguientes.
 
-    | Propiedad | Valor |
+    | Propiedad | Value |
     | --- | --- |
     | _Suscripción_ | El nombre de la suscripción de Azure. |
     | _Grupos de recursos_ | **my-nextjs-group**  |
@@ -154,7 +154,7 @@ En los pasos siguientes se muestra cómo vincular la aplicación que acaba de in
 
 1. Escriba los siguientes valores de GitHub.
 
-    | Propiedad | Valor |
+    | Propiedad | Value |
     | --- | --- |
     | _Organización_ | Seleccione la organización de GitHub que quiera. |
     | _Repositorio_ | Seleccione **nextjs-starter**. |

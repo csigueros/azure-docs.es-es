@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Visitly para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y desaprovisionar automáticamente cuentas de usuario en Visitly.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/30/2019
-ms.author: Zhchia
-ms.openlocfilehash: ff3f3ab65df2d801b7c962de7cce645e9fc00b30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 2870aa2ab4d3a35c0bbbeae3fd3c2565db8f3035
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358616"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766812"
 ---
 # <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Tutorial: Configuración de Visitly para el aprovisionamiento automático de usuarios
 

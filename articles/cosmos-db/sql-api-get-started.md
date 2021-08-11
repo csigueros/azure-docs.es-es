@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ece9ed5cb6eb6ea706db1ed615a64d001f2b17c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c317987d382ba5e52e99bbd2a775bf080a51b11f
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102423962"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112239436"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutorial: Compilación de una aplicación de consola .NET para administrar datos de la cuenta de API de SQL de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -50,15 +50,15 @@ Comencemos.
 
 * Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/).
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
+* [!INCLUDE [cosmos-db-emulator-vs](includes/cosmos-db-emulator-vs.md)]
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Paso 1: Creación de una cuenta de Azure Cosmos DB
 
 Vamos a crear una cuenta de Azure Cosmos DB. Si ya tiene una cuenta que desea usar, omita esta sección. Para usar el Emulador de Azure Cosmos DB, siga los pasos que se describen en [Emulador de Azure Cosmos DB](local-emulator.md) para configurarlo. Después, vaya al [paso 2: Configuración del proyecto de Visual Studio](#SetupVS).
 
-[!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [create-dbaccount-preview](includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="step-2-set-up-your-visual-studio-project"></a><a id="SetupVS"></a>Paso 2: Configuración del proyecto de Visual Studio
 

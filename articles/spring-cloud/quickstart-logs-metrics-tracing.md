@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento'
 description: Use el streaming de registro, el análisis de registros, las métricas y el seguimiento para supervisar aplicaciones de ejemplo de PetClinic en Azure Spring Cloud.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 04/23/2021
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9275eb9d5f3206a5acd41fa970c4acd1f4663a37
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 424954d18fc719748175c2ad9428bb621d577a70
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321580"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470788"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Inicio rápido: supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento
 
@@ -228,7 +228,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 En una guía de inicio rápido anterior, también estableció el nombre del grupo de recursos predeterminado. Si no desea continuar con la siguiente guía de inicio rápido, borre ese nombre predeterminado con el siguiente comando de la CLI:
 
 ```azurecli
-az configure --defaults group=
+az config set defaults.group=
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

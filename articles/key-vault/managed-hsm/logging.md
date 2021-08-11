@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 03/30/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 0d5749894fd277ff6a2f77e3db9721e6989d72ac
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 029913125104f1c4eaa6ed627feae6a4ec207bd9
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109244"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379229"
 ---
 # <a name="managed-hsm-logging"></a>Registro de Managed HSM 
 
@@ -35,7 +35,7 @@ Use este tutorial para empezar a trabajar con el registro de HSM administrado. D
 Para completar los pasos de este artículo, debe tener los siguientes elementos:
 
 * Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
-* La CLI de Azure, versión 2.12.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+* La CLI de Azure, versión 2.25.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 * Un HSM administrado en la suscripción. Consulte [Quickstart: Aprovisionamiento y activación de un HSM administrado mediante la CLI de Azure](quick-create-cli.md) para aprovisionar y activar un HSM administrado.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]

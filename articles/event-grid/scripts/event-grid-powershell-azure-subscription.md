@@ -3,13 +3,13 @@ title: 'Azure PowerShell: suscripción a Azure'
 description: En este artículo se proporciona un script de Azure PowerShell de ejemplo que muestra cómo suscribirse a los eventos de Azure Event Grid de una suscripción de Azure.
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 07/08/2020
-ms.openlocfilehash: 0aae1d64b789cedab6420ac1f323a2379bff17be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/22/2021
+ms.openlocfilehash: b14d1a07725b015b436f48dc03f0c21ce1e74226
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87460820"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467439"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Suscripción a eventos de una suscripción de Azure con PowerShell
 

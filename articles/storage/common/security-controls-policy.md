@@ -1,18 +1,18 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure Storage
 description: Enumera los controles de cumplimiento normativo de Azure Policy disponibles para Azure Storage. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 06/11/2021
+ms.date: 07/16/2021
 ms.topic: sample
 author: twooley
 ms.author: twooley
 ms.service: storage
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 094bfe33753a5410e89bb582a971728284885793
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: b01d6ca2e42bf063b2d20c3534e0abea76f613e3
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027731"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114401818"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-storage"></a>Controles de cumplimiento normativo de Azure Policy para Azure Storage
 

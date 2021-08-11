@@ -7,17 +7,15 @@ ms.author: askaur
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-web-ios
-ms.openlocfilehash: c49f2a51dda269c8addcd32c2c82564455bc9743
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+zone_pivot_groups: acs-web-ios-android
+ms.openlocfilehash: 09a4f044ee7084cec31c61c3a00a6e3a42d688f0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113104"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114442897"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>Inicio rápido: Incorporación de una aplicación de chat a una reunión de Teams
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 > [!IMPORTANT]
 > Para habilitar o deshabilitar la [interoperabilidad de los inquilinos de equipos](../../concepts/teams-interop.md), complete [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
@@ -30,6 +28,10 @@ Comience a usar Azure Communication Services mediante la conexión de la soluci�
 
 ::: zone pivot="platform-ios"
 [!INCLUDE [Teams interop with iOS SDK](./includes/meeting-interop-swift.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Teams interop with Android SDK](./includes/meeting-interop-android.md)]
 ::: zone-end
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

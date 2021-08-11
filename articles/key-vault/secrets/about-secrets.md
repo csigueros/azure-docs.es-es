@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 31ab388d01c9bd589a809bd1c71b455d6d8bf754
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 232a3293d6529955a768ed8d7700289ddbed5177
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984741"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136371"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Acerca de los secretos de Azure Key Vault
 
@@ -24,7 +24,7 @@ Desde la perspectiva del desarrollador, las API de Key Vault aceptan y devuelven
 
 Si se trata de información muy confidencial, los clientes deben considerar las capas adicionales de protección de datos. Un ejemplo es el cifrado de datos mediante una clave de protección independiente antes de su almacenamiento en Key Vault.  
 
-Key Vault también admite un campo contentType para secretos. Los clientes pueden especificar el tipo de contenido de un secreto para ayudar a interpretar los datos secretos cuando se recuperen. La longitud máxima de este campo es de 255 caracteres. No hay ningún valor predefinido. El uso sugerido es como sugerencia para interpretar los datos secretos. Por ejemplo, una implementación puede almacenar contraseñas y certificados como secretos y, a continuación, utilizar este campo para diferenciarlos. No hay ningún valor predefinido.  
+Key Vault también admite un campo contentType para secretos. Los clientes pueden especificar el tipo de contenido de un secreto para ayudar a interpretar los datos secretos cuando se recuperen. La longitud máxima de este campo es de 255 caracteres. El uso sugerido es como sugerencia para interpretar los datos secretos. Por ejemplo, una implementación puede almacenar contraseñas y certificados como secretos y, a continuación, utilizar este campo para diferenciarlos. No hay ningún valor predefinido.  
 
 ## <a name="encryption"></a>Cifrado
 

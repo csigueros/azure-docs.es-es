@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: a91d26139fae80b38383e7f65f7ae2f58358e6f6
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 16bb319086792808a912cbb6511897d2a3a12368
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795319"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457634"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Implementación de Cloud Services (soporte extendido) con Azure SDK
 
@@ -153,7 +153,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Cree una dirección IP pública y establezca la propiedad de la etiqueta DNS de esa dirección IP pública. Cloud Services (soporte extendido) solo admite direcciones IP públicas de la SKU [básica] (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) ). Las direcciones IP públicas de la SKU estándar no funcionan con Cloud Services.
+7. Cree una dirección IP pública y establezca la propiedad de la etiqueta DNS de esa dirección IP pública. Cloud Services (soporte extendido) solo admite direcciones IP públicas de la SKU [básica](/azure/virtual-network/public-ip-addresses#basic). Las direcciones IP públicas de la SKU estándar no funcionan con Cloud Services.
 Si usa una dirección IP estática, debe hacer referencia a ella como IP reservada del archivo de configuración de servicio (.cscfg).
 
     ```csharp
@@ -336,6 +336,6 @@ Si usa una dirección IP estática, debe hacer referencia a ella como IP reserva
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).
 - Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
 - Consulte [Repositorio de ejemplos de Cloud Services (soporte extendido)](https://github.com/Azure-Samples/cloud-services-extended-support).

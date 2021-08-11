@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fee783d0cf099c6f5545b6f3da47db615921e89f
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96184712"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287895"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Inicio rápido: Uso de Java y JDBC con Azure Database for PostgreSQL
 
@@ -25,7 +25,7 @@ JDBC es la API de Java estándar para conectarse a bases de datos relacionales t
 
 - Una cuenta de Azure. Si no tiene una, [obtenga la versión de evaluación gratuita](https://azure.microsoft.com/free/).
 - [Azure Cloud Shell](../cloud-shell/quickstart.md) o la [CLI de Azure](/cli/azure/install-azure-cli). Se recomienda Azure Cloud Shell, ya que se iniciará sesión automáticamente y tendrá acceso a todas las herramientas que necesite.
-- Un [kit de desarrollo de Java](/azure/developer/java/fundamentals/java-jdk-long-term-support) compatible, versión 8 (incluido en Azure Cloud Shell).
+- Un [kit de desarrollo de Java](/azure/developer/java/fundamentals/java-support-on-azure) compatible, versión 8 (incluido en Azure Cloud Shell).
 - La herramienta de compilación [Apache Maven](https://maven.apache.org/).
 
 ## <a name="prepare-the-working-environment"></a>Preparación del entorno de trabajo

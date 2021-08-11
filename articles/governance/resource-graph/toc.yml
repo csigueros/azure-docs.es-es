@@ -107,11 +107,11 @@
         - name: SDK de Azure para .NET (NuGet)
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/'
         - name: SDK de Azure para Go
-          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph'
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph'
         - name: SDK de Azure para Java
           href: /java/api/overview/azure/resourcegraph/management
         - name: SDK de Azure para Java (Maven)
-          href: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar'
+          href: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0/jar'
         - name: SDK de Azure para JavaScript
           href: /javascript/api/@azure/arm-resourcegraph
         - name: SDK de Azure para Python
@@ -121,7 +121,7 @@
         - name: REST
           href: /rest/api/azure-resourcegraph/
         - name: OpenAPI
-          href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
+          href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2021-03-01'
     - name: Plantillas de Resource Manager
       href: /azure/templates/microsoft.resourcegraph/allversions
     - name: Tipos de recursos y tablas de Resource Graph
@@ -132,8 +132,8 @@
       href: 'https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph'
     - name: Canal de YouTube de gobernanza
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Actualizaciones de Azure
+      href: 'https://azure.microsoft.com/updates/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: UserVoice

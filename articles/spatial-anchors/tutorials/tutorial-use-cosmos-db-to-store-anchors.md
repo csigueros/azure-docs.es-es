@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ff888cd98cc79f3e2d508b01f092102eaa038c86
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c7e25529803b99adb4ce3a375f041b989dda3fe3
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95494767"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "113225613"
 ---
 # <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Uso compartido de Azure Spatial Anchors entre sesiones y dispositivos con un back-end de Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Es importante destacar que, aunque en este tutorial se van a usar Unity y Azure 
 
 Agregue una base de datos de Azure Cosmos al grupo de recursos que creó anteriormente.
 
-[!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](../../cosmos-db/includes/cosmos-db-create-dbaccount-table.md)]
 
 Copie `Connection String`, ya que lo va a necesitar.
 

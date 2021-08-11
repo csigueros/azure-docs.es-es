@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: 9d843b2a75c5e5dff21c27f3c486c372408719d5
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 58986ee94998dde88f8113449b460a0208156463
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904128"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122032"
 ---
 # <a name="quickstart-connect-an-nxp-mimxrt1060-evk-evaluation-kit-to-iot-central"></a>Inicio rápido: Conexión de un kit de evaluación NXP MIMXRT1060-EVK a IoT Central
 
@@ -42,11 +42,11 @@ Deberá completar las siguientes tareas:
 
 ## <a name="prepare-the-development-environment"></a>Preparación del entorno de desarrollo
 
-Para configurar el entorno de desarrollo, primero tiene que clonar un repositorio de GitHub que contenga todos los recursos que necesita para el artículo de inicio rápido. Luego, instalará un conjunto de herramientas de programación.
+Para configurar el entorno de desarrollo, primero tiene que clonar un repositorio de GitHub que contenga todos los recursos que necesita para el inicio rápido. Luego, instalará un conjunto de herramientas de programación.
 
-### <a name="clone-the-repo-for-the-quickstart"></a>Clonación del repositorio para el artículo de inicio rápido
+### <a name="clone-the-repo-for-the-quickstart"></a>Clonación del repositorio para el inicio rápido
 
-Clone el siguiente repositorio para descargar todo el código de dispositivo de ejemplo, los scripts de instalación y las versiones sin conexión de la documentación. Si ya ha clonado anteriormente este repositorio en otro artículo de inicio rápido, no es necesario que lo haga de nuevo.
+Clone el siguiente repositorio para descargar todo el código de dispositivo de ejemplo, los scripts de instalación y las versiones sin conexión de la documentación. Si ya ha clonado anteriormente este repositorio en otro inicio rápido, no es necesario que lo haga de nuevo.
 
 Para clonar el repositorio, ejecute el siguiente comando:
 
@@ -56,7 +56,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### <a name="install-the-tools"></a>Instalar las herramientas
 
-El repositorio clonado contiene un script de instalación que instala y configura las herramientas necesarias. Si instaló estas herramientas en otro artículo de inicio rápido de dispositivo insertado, no es necesario volver a hacerlo.
+El repositorio clonado contiene un script de instalación que instala y configura las herramientas necesarias. Si ha instalado estas herramientas en otro inicio rápido de dispositivo insertado, no es necesario volver a hacerlo.
 
 > [!NOTE]
 > El script de instalación instala las siguientes herramientas:
@@ -70,7 +70,7 @@ Para instalar las herramientas:
 
     *getting-started\tools\get-toolchain.bat*
 
-1. Después de la instalación, abra una nueva ventana de consola para reconocer los cambios de configuración realizados con el script de instalación. Use esta consola para realizar el resto de las tareas de programación del artículo de inicio rápido. Puede usar la línea de comandos de Windows, PowerShell o Git Bash para Windows.
+1. Después de la instalación, abra una nueva ventana de consola para reconocer los cambios de configuración realizados con el script de instalación. Use esta consola para realizar el resto de las tareas de programación del inicio rápido. Puede usar la línea de comandos de Windows, PowerShell o Git Bash para Windows.
 1. Ejecute el código siguiente para confirmar la instalación de CMake versión 3.14 o posterior.
 
     ```shell
@@ -131,13 +131,13 @@ Puede usar la aplicación **Termite** para supervisar la comunicación y confirm
 
 1. Inicie **Termite**.
     > [!TIP]
-    > Si tiene problemas para que el dispositivo se inicialice o se conecte después de guardar la imagen, consulte [Solución de problemas](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+    > Si tiene problemas para que el dispositivo se inicialice o se conecte después de guardar la imagen, consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md).
 1. Haga clic en **Configuración**.
 1. En el cuadro de diálogo **Serial port settings** (Configuración de puerto serie), compruebe los siguientes valores y actualícelos si es necesario:
     * **Baud rate** (Velocidad en baudios): 115.200
     * **Puerto**: Puerto al que está conectado NXP EVK. Si hay varias opciones de puerto en la lista desplegable, busque ahí el puerto correcto que debe usar. Abra el **Administrador de dispositivos** de Windows y, en **Puertos**, identifique qué puerto debe usar.
 
-    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/termite-settings.png" alt-text="Captura de pantalla de la configuración del puerto serie en la aplicación Termite":::
+    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/termite-settings.png" alt-text="Captura de pantalla de la configuración del puerto en serie en la aplicación Termite":::
 
 1. Seleccione Aceptar.
 1. Presione el botón **Reset** (Restablecer) en el dispositivo. El botón está rotulado en el dispositivo y se encuentra cerca del conector micro USB.
@@ -226,13 +226,13 @@ En la página del dispositivo, seleccione la pestaña **Acerca de**.
 
 ## <a name="troubleshoot-and-debug"></a>Solución de problemas y depuración
 
-Si tiene problemas para compilar el código del dispositivo, guardar la imagen en el dispositivo o conectarse, consulte [Solución de problemas](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+Si tiene problemas para compilar el código del dispositivo, guardar la imagen en la memoria flash del dispositivo o conectarse, consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md).
 
 Para depurar la aplicación, consulte [Depuración con Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya no necesita los recursos de Azure que se han creado en este artículo de inicio rápido, puede eliminarlos desde el portal de IoT Central.
+Si ya no necesita los recursos de Azure que se han creado en este inicio rápido, puede eliminarlos desde el portal de IoT Central.
 
 Para quitar la aplicación de ejemplo entera de Azure IoT Central y todos sus dispositivos y recursos:
 1. Seleccione **Administración**  > **Su aplicación**.
@@ -242,7 +242,7 @@ Para quitar la aplicación de ejemplo entera de Azure IoT Central y todos sus di
 
 En este artículo de inicio rápido, ha compilado una imagen personalizada que contiene código de ejemplo de Azure RTOS y, después, ha guardado la imagen en el dispositivo NXP EVK. También ha usado el portal de IoT Central para crear recursos de Azure, conectar NXP EVK de manera segura a Azure, ver la telemetría y enviar mensajes.
 
-Como siguiente paso, explore los artículos a continuación para más información sobre el uso de los SDK de dispositivos IoT para conectar dispositivos a Azure IoT. 
+Como siguiente paso, explore los siguientes artículos para más información sobre el uso de los SDK de dispositivos IoT para conectar dispositivos a Azure IoT. 
 
 > [!div class="nextstepaction"]
 > [Conexión de un dispositivo simulado a IoT Central](quickstart-send-telemetry-central.md)

@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Flock para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario en Flock.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/30/2019
-ms.author: Zhchia
-ms.openlocfilehash: 01c3f6429d2a5c8443ac128d763033dc8c53cbc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 57942b7f682f5715239eb4d8a471008b9f475e65
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94359415"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767922"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Tutorial: Configuración de Flock para aprovisionar usuarios automáticamente
 

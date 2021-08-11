@@ -4,15 +4,16 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: nikuklic
-ms.openlocfilehash: 841fde9b7c68fcadb88a14e01c34f115ab0f84fb
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 2a257ea54ca3e083f9ddf1a8898dc2cf69d22391
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560379"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114594095"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
-## <a name="prerequisites"></a>Prerrequisitos
+
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Un recurso de Communication Services implementado. [Cree un recurso de Communication Services](../../../create-communication-resource.md).
@@ -37,17 +38,21 @@ Modifique el controlador de eventos `startCall` que se llevará a cabo cuando se
 
 ```swift
 func startCall() {
-    // Ask permissions
-    AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
-        if granted {
-            let startCallOptions = ACSStartCallOptions()
-            startCallOptions!.alternateCallerID = PhoneNumber(phoneNumber: "+12223334444")
-            self.call = self.callAgent!.startCall([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
-            self.callDelegate = CallDelegate(self)
-            self.call!.delegate = self.callDelegate
+        // Ask permissions
+        AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
+            if granted {
+                let startCallOptions = StartCallOptions()
+                startCallOptions.alternateCallerId = PhoneNumberIdentifier(phoneNumber: "<YOUR AZURE REGISTERED PHONE NUMBER>")
+                self.callAgent!.startCall(participants: [PhoneNumberIdentifier(phoneNumber: self.callee)], options: startCallOptions) { (call, error) in
+                    if (error == nil) {
+                        self.call = call
+                    } else {
+                        print("Failed to get call object")
+                    }
+                }
+            }
         }
     }
-}
 ```
 
 ## <a name="run-the-code"></a>Ejecución del código

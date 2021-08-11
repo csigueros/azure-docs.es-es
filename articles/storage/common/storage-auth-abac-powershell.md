@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: 8d634cf7cb5a500e8ff36222419600b6059c9a74
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: d6cb1980c93e5161f02b79b05f1128ba777027c6
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489433"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281960"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-azure-powershell-preview"></a>Tutorial: Adición de una condición de asignación de roles para restringir el acceso a blobs mediante Azure PowerShell (versión preliminar)
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para obtener información sobre los requisitos previos para agregar o editar condiciones de asignación de roles, consulte [Requisitos previos de las condiciones.](../../role-based-access-control/conditions-prerequisites.md)
+Para obtener información sobre los requisitos previos para agregar o editar condiciones de asignación de roles, consulte [Requisitos previos de las condiciones](../../role-based-access-control/conditions-prerequisites.md).
 
 ## <a name="condition"></a>Condición
 
@@ -110,8 +110,6 @@ Este es el aspecto de la condición en el código:
     $context = Get-AzSubscription -SubscriptionId $subscriptionId
     Set-AzContext $context
     ```
-
-1. Si aún no lo ha hecho, registre la suscripción para usar etiquetas de índice de blobs. Para más información, consulte [Registro de la suscripción (versión preliminar)](../blobs/storage-manage-find-blobs.md#register-your-subscription-preview).
 
 ## <a name="step-3-create-a-user"></a>Paso 3: Creación de un usuario
 

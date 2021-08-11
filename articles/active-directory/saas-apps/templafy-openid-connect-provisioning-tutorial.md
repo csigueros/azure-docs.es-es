@@ -2,8 +2,8 @@
 title: 'Tutorial: Configuración de Templafy OpenID Connect para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Templafy OpenID Connect.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.assetid: 8cbb387a-e3fb-4588-bb87-bf4f88144361
 ms.service: active-directory
@@ -11,13 +11,13 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
-ms.author: zhchia
-ms.openlocfilehash: 6b1894d832c3a74916418aa06885c2917267f4b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 56046874155cd54a380d31607331d76f9982c167
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101652596"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759110"
 ---
 # <a name="tutorial-configure-templafy-openid-connect-for-automatic-user-provisioning"></a>Tutorial: Configuración de Templafy OpenID Connect para el aprovisionamiento automático de usuarios
 
@@ -28,7 +28,7 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Templafy Op
 >
 > Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 

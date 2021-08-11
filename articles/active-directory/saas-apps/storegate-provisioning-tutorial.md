@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Storegate para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Storegate.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/15/2019
-ms.author: Zhchia
-ms.openlocfilehash: c984beff630ef90ea33a13e2fef1bca0189c2314
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: fbe15ecbb602859aba7d0bce930885f61e679898
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94357953"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759212"
 ---
 # <a name="tutorial-configure-storegate-for-automatic-user-provisioning"></a>Tutorial: Configuración de Storegate para el aprovisionamiento automático de usuarios
 

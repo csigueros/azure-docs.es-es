@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Airstack para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y desaprovisionar automáticamente las cuentas de usuario para Airstack.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/18/2019
-ms.author: Zhchia
-ms.openlocfilehash: c1bab9b40766fe22baa94497d71d3f8757e1c210
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: fb0a3a2256a79c82878e4a5e97e1054c8054af55
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96348813"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765185"
 ---
 # <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Airstack para el aprovisionamiento automático de usuarios
 

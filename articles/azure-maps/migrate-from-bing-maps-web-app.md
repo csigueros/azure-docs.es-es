@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 2b072107275fba1ff83ab3ddac63ed8bf7766356
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8726f6211ef792064e9e180a8c2e34383eeb6d53
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389117"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441579"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Tutorial: Migración de una aplicación web desde Mapas de Bing
 
@@ -33,7 +33,7 @@ Las aplicaciones web que usan Mapas de Bing suelen usar el SDK de JavaScript de 
 
 Si migra una aplicación web existente, compruebe si usa una biblioteca de control de mapa de código abierto, como Cesium, Leaflet y OpenLayers. Si es así y prefiere seguir usando esa biblioteca, puede conectarla a los servicios de mosaico de Azure Maps ([mosaicos de carretera](/rest/api/maps/render/getmaptile) \| [mosaicos de satélite](/rest/api/maps/render/getmapimagerytile)). Los vínculos siguientes proporcionan información detallada sobre el uso de Azure Maps en algunas bibliotecas de control de mapa de código abierto usadas habitualmente.
 
-* [Cesium](https://cesiumjs.org/): un control de mapa 3D para la Web. [Ejemplos de código](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Repositorio de complementos]()
+* [Cesium](https://www.cesium.com/): un control de mapa 3D para la Web. [Ejemplos de código](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Repositorio de complementos]()
 * [Leaflet](https://leafletjs.com/): un control de mapa 2D ligero para la Web. [Ejemplos de código](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| [Repositorio de complementos]()
 * [OpenLayers](https://openlayers.org/): un control de mapa 2D para la Web que admite proyecciones. [Ejemplos de código](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| [Repositorio de complementos]()
 
@@ -1255,7 +1255,7 @@ Tanto Mapas de Bing como Azure Maps admiten la superposición de imágenes georr
 
 **Antes: Mapas de Bing**
 
-Al crear una superposición de suelo en Mapas de Bing, debe especificar la dirección URL de la imagen que se va a superponer y un rectángulo de selección al que enlazar la imagen en el mapa. En este ejemplo se superpone una imagen de mapa de [Newark New Jersey de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) en el mapa.
+Al crear una superposición de suelo en Mapas de Bing, debe especificar la dirección URL de la imagen que se va a superponer y un rectángulo de selección al que enlazar la imagen en el mapa. En este ejemplo se superpone una imagen de mapa de Newark New Jersey de 1922 en el mapa.
 
 ```html
 <!DOCTYPE html>

@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 4df49521d59118f23c82cdc57d1b4b28477f05c5
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 16735c2d8e77c23156e23aade7a1d42bd7504e71
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439174"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765639"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Google Cloud Platform (GCP) a Azure
 
@@ -324,8 +324,8 @@ Realice una migración de prueba como se indica a continuación:
 
     ![Limpiar la migración](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
     > [!NOTE]
-    > Ahora puede registrar los servidores que ejecutan SQL Server con el proveedor de recursos de VM con SQL para aprovechar las ventajas de la aplicación automatizada de revisiones, la copia de seguridad automatizada y la administración simplificada de licencias mediante la extensión Agente de IaaS de SQL.
-    >- Seleccione **Manage** > **Replicating servers** > **Machine containing SQL server** >  **Compute and Network** (Administrar > Servidores de replicación > Máquina que contiene servidor SQL Server > Proceso y red) y seleccione **sí** para registrarse con el RP de máquina virtual con SQL.
+    > Ahora puede registrar los servidores que ejecutan SQL Server con el punto de retención de SQL VM para aprovechar las ventajas de la aplicación automatizada de revisiones, la copia de seguridad automatizada y la administración simplificada de licencias mediante la extensión Agente de IaaS de SQL.
+    >- Seleccione **Manage** > **Replicating servers** > **Machine containing SQL server** >  **Compute and Network** (Administrar > Servidores de replicación > Máquina que contiene servidor SQL Server > Proceso y red) y seleccione **yes** (Sí) para registrarse con el RP de máquina virtual de SQL.
     >- Seleccione Ventaja híbrida de Azure para SQL Server si tiene instancias de SQL Server que están incluidas en suscripciones activas de Software Assurance o SQL Server y quiere aplicar la ventaja a las máquinas que va a migrar.
 
 ## <a name="migrate-gcp-vms"></a>Migración de máquinas virtuales de GCP
@@ -368,7 +368,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
     - Implemente [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
     - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Para supervisión y administración:
-    - Considere la posibilidad de implementar [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para supervisar el gasto y el uso de recursos.
+    - Considere la posibilidad de implementar [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) para supervisar el gasto y el uso de recursos.
 
 
 

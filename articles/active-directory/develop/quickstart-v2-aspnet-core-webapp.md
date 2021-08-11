@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: bb58a86aad4e0298f12c917d475520ee44501c00
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 56b18d27f3048e0e26737294b861a28f7a2be6e5
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110494430"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652964"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core
 
@@ -99,7 +99,7 @@ En este inicio rápido, descargará y ejecutará un código de ejemplo que muest
 > 1. Abra el archivo *appsettings.json* y modifique el código siguiente:
 >
 >    ```json
->    "Domain": "Enter the domain of your tenant, e.g. contoso.onmicrosoft.com",
+>    "Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
 >    "ClientId": "Enter_the_Application_Id_here",
 >    "TenantId": "common",
 >    ```
@@ -138,21 +138,21 @@ En esta sección, se proporciona una introducción al código necesario para el 
 El middleware *Microsoft.AspNetCore.Authentication* usa una clase `Startup` que se ejecuta al iniciarse el proceso de hospedaje:
 
 ```csharp
-  public void ConfigureServices(IServiceCollection services)
-  {
-      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-          .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
 
-      services.AddControllersWithViews(options =>
-      {
-          var policy = new AuthorizationPolicyBuilder()
-              .RequireAuthenticatedUser()
-              .Build();
-          options.Filters.Add(new AuthorizeFilter(policy));
-      });
-      services.AddRazorPages()
-          .AddMicrosoftIdentityUI();
-  }
+    services.AddControllersWithViews(options =>
+    {
+        var policy = new AuthorizationPolicyBuilder()
+            .RequireAuthenticatedUser()
+            .Build();
+        options.Filters.Add(new AuthorizeFilter(policy));
+    });
+   services.AddRazorPages()
+        .AddMicrosoftIdentityUI();
+}
 ```
 
 El método `AddAuthentication()` configura el servicio para agregar la autenticación basada en cookies. Esta autenticación se usa en escenarios de explorador y para establecer el desafío en OpenID Connect.
@@ -173,14 +173,11 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-
     endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
     endpoints.MapRazorPages();
 });
-
-// endpoints.MapControllers(); // REQUIRED if MapControllerRoute() isn't called.
 ```
 
 ### <a name="attribute-for-protecting-a-controller-or-methods"></a>Atributo para proteger el controlador o los métodos
