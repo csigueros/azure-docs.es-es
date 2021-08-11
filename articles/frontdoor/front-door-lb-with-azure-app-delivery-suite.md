@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/06/2021
+ms.date: 05/16/2021
 ms.author: duau
-ms.openlocfilehash: 0a7e81c57552fdc24262522343a08fdabba71bfd
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 9910cadfcbb40bbb411c8d07bc73ad2205c085e5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552587"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070523"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure
 
@@ -74,7 +74,7 @@ Al elegir un equilibrador de carga global entre Traffic Manager y Azure Front Do
 ## <a name="building-with-azures-application-delivery-suite"></a>Creación con el conjunto de entrega de aplicaciones de Azure 
 Se recomienda que todos los sitios web, las API y los servicios sean geográficamente redundantes, de modo que puedan entregar el tráfico a sus usuarios desde la ubicación más cercana siempre que sea posible.  La combinación de varios servicios de equilibrio de carga permite crear redundancia geográfica y de zona para maximizar la confiabilidad y el rendimiento.
 
-En el diagrama siguiente se describe una arquitectura de ejemplo que usa una combinación de todos estos servicios para crear un servicio web global. El arquitecto usó Traffic Manager para enrutar el tráfico a los back-ends globales para la entrega de archivos y objetos. A la vez, usó Front Door para enrutar de forma global las rutas de dirección URL que coincidan con el patrón /store/* al servicio que han migrado a App Service. Por último, enrutó todas las demás solicitudes a instancias regionales de Application Gateway.
+En el diagrama siguiente se describe una arquitectura de ejemplo que usa una combinación de todos estos servicios para crear un servicio web global. En la arquitectura se usa Traffic Manager para enrutar el tráfico a los servidores back-end globales para la entrega de archivos y objetos, Front Door para enrutar globalmente las rutas de dirección URL que relacionan el patrón /store/* con su servicio que han migrado a App Service y todas las demás solicitudes se enrutan a instancias regionales de Application Gateway.
 
 En cada región del servicio IaaS, el desarrollador de aplicaciones decidió que las direcciones URL que coincidan con el patrón /images/* se atiendan desde un grupo dedicado de máquinas virtuales. Este grupo de máquinas virtuales es diferente del resto de la granja de servidores web.
 

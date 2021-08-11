@@ -1,0 +1,47 @@
+### YamlMime:FAQ
+metadata:
+  title: 'Centro de copias de seguridad: preguntas más frecuentes'
+  description: En este artículo se responde a las preguntas más frecuentes sobre el Centro de copias de seguridad.
+  ms.date: 01/12/2021
+  ms.topic: conceptual
+  ms.openlocfilehash: 34665180ab089151e3ab6cc0b818fac645b9842b
+  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 04/15/2021
+  ms.locfileid: "111907450"
+title: 'Centro de copias de seguridad: preguntas más frecuentes'
+summary: En este artículo se responde a las preguntas más frecuentes sobre el Centro de copias de seguridad.
+sections:
+- name: Administración
+  questions:
+  - question: ¿Se puede usar el Centro de copias de seguridad en los inquilinos?
+    answer: >
+      Sí, si usa [Azure Lighthouse](../lighthouse/overview.md) y tiene acceso delegado a las suscripciones en diferentes inquilinos, puede usar el Centro de copia de seguridad como panel único para administrar copias de seguridad en los inquilinos.
+  - question: ¿Se puede usar el Centro de copias de seguridad para administrar tanto almacenes de Recovery Services como almacenes de Backup?
+    answer: >
+      Sí, el Centro de copias de seguridad puede administrar tanto [almacenes de Recovery Services](./backup-azure-recovery-services-vault-overview.md) como [almacenes de Backup](backup-vault-overview.md).
+  - question: ¿Hay algún retraso antes de que se muestren los datos en el Centro de copias de seguridad?
+    answer: >
+      El objetivo del Centro de copias de seguridad es proporcionar información en tiempo real. Puede haber unos segundos de retraso entre el momento en el que aparece una entidad en una pantalla de almacén individual y el momento en el que aparece la misma entidad en el Centro de copia de seguridad.
+- name: Configuración
+  questions:
+  - question: ¿Es necesario configurar algo para ver los datos en el Centro de copias de seguridad?
+    answer: >
+      No. El Centro de copias de seguridad está listo para usarse. Sin embargo, para ver [Informes de Backup](./configure-reports.md) en el Centro de copias de seguridad, debe configurar informes para los almacenes.
+  - question: ¿Es necesario tener permisos especiales para usar el Centro de copias de seguridad?
+    answer: >
+      El Centro de copias de seguridad como tal no necesita nuevos permisos. Siempre y cuando tenga el nivel adecuado de acceso a RBAC de Azure para los recursos que administra, puede usar el Centro de copia de seguridad para estos recursos. Por ejemplo, para ver información sobre sus copias de seguridad, necesitará acceso de **Lector** a los almacenes. Para configurar la copia de seguridad y realizar otras acciones relacionadas con la copia de seguridad, necesitará los roles **Colaborador de copias de seguridad** u **Operador de copias de seguridad**. Obtenga información sobre los [roles de Azure para Azure Backup](./backup-rbac-rs-vault.md). Tenga en cuenta que si usa Informes de Backup en el Centro de copias de seguridad, deberá tener acceso de lectura a las áreas de trabajo de Log Analytics a las que los almacenes envían datos.
+- name: Precios
+  questions:
+  - question: ¿Es necesario pagar algo adicional para usar el Explorador de Backup?
+    answer: "Actualmente, no hay ningún costo adicional (aparte de los costos de la copia de seguridad) por usar el Centro de copias de seguridad. Sin embargo, si usa [Informes de Backup](./configure-reports.md) en el Centro de copia de seguridad, hay un [costo implicado](https://azure.microsoft.com/pricing/details/monitor/) en el uso de registros de Azure Monitor para Informes de Backup.   \n"
+additionalContent: >-
+  ## <a name="next-steps"></a>Pasos siguientes
+
+  Lea las otras preguntas más frecuentes:
+
+
+  - [Preguntas comunes sobre los almacenes de Recovery Services](./backup-azure-backup-faq.yml)
+
+  - [Preguntas comunes sobre las copias de seguridad de máquinas virtuales de Azure](./backup-azure-vm-backup-faq.yml)

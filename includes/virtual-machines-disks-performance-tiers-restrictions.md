@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/18/2021
+ms.date: 05/13/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7151c110fd50f7485aa0b130832aace4f3143ad9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5915d8628254f24343571c1adc254c548558415
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101751138"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077715"
 ---
 - Esta característica es compatible actualmente solo con SSD Premium.
 - Debe desasignar la máquina virtual o desconectar el disco de una máquina virtual en ejecución antes de que pueda cambiar el nivel del disco.
@@ -22,9 +22,13 @@ ms.locfileid: "101751138"
 
 ## <a name="change-performance-tier-without-downtime-preview"></a>Cambio del nivel de rendimiento sin que se produzca tiempo de inactividad (versión preliminar)
 
-Normalmente, habría que desasignar la máquina virtual o desconectar el disco para cambiar el nivel de rendimiento. Pero si habilita esta característica de la versión preliminar, no hay que desasignar la máquina virtual ni desconectar el disco para cambiar el nivel. Puede registrarse para la versión preliminar [en esta página](https://aka.ms/liveperftiersignup).
+Normalmente, habría que desasignar la máquina virtual o desconectar el disco para cambiar el nivel de rendimiento. Pero si habilita esta característica de la versión preliminar, no hay que desasignar la máquina virtual ni desconectar el disco para cambiar el nivel.
 
 La versión preliminar tiene las limitaciones siguientes:
-- Solo está disponible en la región EastUS2EUAP.
+- Solo está disponible en la región Centro-oeste de EE. UU.
 - Actualmente no está disponible para discos compartidos.
-- Se deben usar plantillas de Azure Resource Manager con la API `2020-12-01` para cambiar los niveles de rendimiento sin que se produzca tiempo de inactividad.
+- Debe usar uno de los métodos siguientes para cambiar el nivel sin tiempo de inactividad:
+    - Plantillas de Azure Resource Manager con la API `2020-12-01` para cambiar los niveles de rendimiento sin que se produzca tiempo de inactividad.
+    - Acceso a Azure Portal a través del vínculo siguiente: [https://aka.ms/diskPerfTiersPreview](https://aka.ms/diskPerfTiersPreview).
+    - La CLI de Azure más reciente.
+- Actualmente no está disponible con el módulo de Azure PowerShell.

@@ -1,18 +1,18 @@
 ---
 title: Cómo navegar por el catálogo de datos
-description: En este artículo se proporciona información general sobre cómo navegar por el catálogo de datos de Azure Purview en función del tipo de recurso.
-author: chanuengg
-ms.author: csugunan
+description: En este artículo se proporciona información general sobre cómo explorar el catálogo de datos de Azure Purview en función del tipo de recurso.
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: dd2fd4fbc9d8aecd9821d668dd02bd4b68659cf6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/21/2021
+ms.openlocfilehash: cf836be45374b881945a80f998d851c95c7a5abd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97695065"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474189"
 ---
 # <a name="browse-the-azure-purview-data-catalog"></a>Navegación por el catálogo de datos de Azure Purview
 
@@ -26,6 +26,9 @@ Por ejemplo, puede encontrar fácilmente un conjunto de datos llamado *DateDimen
 
 Se proporciona una experiencia de navegación nativa con un espacio de nombres jerárquico para cada uno de los orígenes de datos correspondientes.
 
+> [!NOTE]
+> Tras el examen correcto, puede haber un retraso hasta que los recursos recién examinados aparezcan en la experiencia de exploración. Este retraso puede ser de hasta unas horas.
+
 ## <a name="browse-the-data-catalog-by-asset-type"></a>Navegación por el catálogo de datos por tipo de recurso
 
 1. Puede seleccionar **Browse by asset type** (Examinar por tipo de recurso) en la página principal para examinar los recursos de datos.
@@ -35,6 +38,9 @@ Se proporciona una experiencia de navegación nativa con un espacio de nombres j
 1. En la página **Browse asset types** (Examinar tipos de recursos), los iconos se clasifican por orígenes de datos. Para explorar aún más los recursos de cada origen de datos, seleccione el icono correspondiente.
 
     :::image type="content" source="media/how-to-browse-catalog/browse-asset-types.jpg" alt-text="Página Browse asset types (Examinar tipos de recursos)" border="true":::
+
+> [!TIP]
+> Algunos iconos son agrupaciones de una colección de orígenes de datos. Por ejemplo, el icono de cuenta de Azure Storage contiene todas las cuentas de Azure Blob Storage y Azure Data Lake Storage Gen2. El icono de Azure SQL Server mostrará los recursos de Azure SQL Server que contienen instancias de Azure SQL Database y de grupo de SQL dedicado de Azure ingeridas en el catálogo. 
 
 1. En la página siguiente, se enumeran los activos de nivel superior en el tipo de datos elegido. Elija uno de los recursos para explorar aún más su contenido.
 

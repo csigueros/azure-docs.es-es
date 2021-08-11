@@ -10,12 +10,12 @@ ms.date: 05/11/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 503c146584ddf05f12ada3dfc103c86b28bd797a
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 39b1ebb4ca0a7daf5654c306382effa44d90c798
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790836"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109845769"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicación de objetos para blobs en bloques
 
@@ -80,13 +80,13 @@ Después de configurar la replicación de objetos, Azure Storage comprueba peri�
 
 Al configurar la replicación de objetos, se crea una directiva de replicación tanto en la cuenta de origen como en la de destino a través del proveedor de recursos de Azure Storage. La directiva de replicación se identifica mediante un id. de directiva. La directiva en las cuentas de origen y de destino debe tener el mismo id. de directiva para que tenga lugar la replicación.
 
-Una cuenta de origen se puede replicar en un máximo de dos cuentas de destino, con una directiva para cada cuenta de destino. De forma similar, una cuenta de destino puede tener como máximo dos cuentas de origen. Cada directiva de replicación puede tener hasta 10 reglas de replicación, lo que significa que pueden participar en cada directiva de replicación un máximo de 10 contenedores de origen y 10 contenedores de destino.
+Una cuenta de origen se puede replicar en un máximo de dos cuentas de destino, con una directiva para cada cuenta de destino. De forma similar, una cuenta puede actuar como cuenta de destino para un máximo de dos directivas de replicación.
 
 Las cuentas de origen y de destino pueden estar en la misma región o en regiones diferentes. También pueden residir en diferentes suscripciones y en distintos inquilinos de Azure Active Directory (Azure AD). Solo se puede crear una directiva de replicación para cada par de cuentas de origen/cuentas de destino.
 
 ### <a name="replication-rules"></a>Reglas de replicación
 
-Las reglas de replicación especifican el modo en que Azure Storage replicará los blobs de un contenedor de origen a un contenedor de destino. Puede especificar un máximo de 10 reglas de replicación para cada directiva de replicación. Cada regla de replicación define un único contenedor de origen y de destino, y cada contenedor de origen y de destino puede utilizarse en una sola regla.
+Las reglas de replicación especifican el modo en que Azure Storage replicará los blobs de un contenedor de origen a un contenedor de destino. Puede especificar un máximo de 10 reglas de replicación para cada directiva de replicación. Cada regla de replicación define un único contenedor de origen y de destino, y cada uno de estos contenedores solo se puede usar en una regla, lo que significa que en una única directiva de replicación no pueden participar más de 10 contenedores de origen y 10 contenedores de destino.
 
 Al crear una regla de replicación, de forma predeterminada solo se copian los blobs en bloques nuevos que se agreguen posteriormente al contenedor de origen. Puede especificar que se copien tanto los blob en bloques nuevos como los ya existentes, o bien puede definir un ámbito de copia personalizado que copie los blobs en bloques creados a partir de un momento determinado.
 

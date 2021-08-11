@@ -7,12 +7,12 @@ ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 563d8f3035eb889a2b9d25d563ef57373e4e3aff
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 8721b9d25ce8d512dae31352db343af6385dadda
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537181"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113005535"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Conexión de las cuentas de AWS a Azure Security Center
 
@@ -42,7 +42,7 @@ En la captura de pantalla siguiente puede ver que se muestran cuentas de AWS en 
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
 |Roles y permisos necesarios:|**Propietario** en la suscripción de Azure en cuestión<br>Un **colaborador** también puede conectar una cuenta de AWS si un propietario proporciona los detalles de la entidad de servicio.|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, Azure China)|
 |||
 
 
@@ -73,7 +73,7 @@ Hay dos maneras de permitir que Security Center se autentique en AWS:
 
 #### <a name="create-an-iam-role-for-security-center"></a>Creación de un rol IAM para Security Center
 1. En la consola de Amazon Web Services, en **Security, Identity & Compliance** (Seguridad, identidad y cumplimiento), seleccione **IAM**.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Servicios de AWS":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Servicios de AWS.":::
 
 1. Seleccione **Roles** (Roles) y **Create role** (Crear rol).
 1. Seleccione **Another AWS account** (Otra cuenta de AWS).
@@ -138,7 +138,7 @@ Para automatizar las tareas entre los recursos de AWS, se requiere el administra
     1. Confirme que la suscripción es correcta. Se trata de la suscripción que incluirá las recomendaciones del conector y de AWS Security Hub.
     1. En función de la opción de autenticación elegida en [Paso 2. Configuración de la autenticación para Security Center en AWS](#step-2-set-up-authentication-for-security-center-in-aws):
         - Seleccione **Assume Role** (Asumir rol) y pegue el ARN de [Creación de un rol IAM para Security Center](#create-an-iam-role-for-security-center).
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pegado del archivo ARN en el campo pertinente del Asistente para conexión de AWS en Azure Portal":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pegado del archivo ARN en el campo pertinente del asistente para conexión de AWS en Azure Portal.":::
 
             O BIEN
 

@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 05/11/2021
-  ms.openlocfilehash: 28f73f52b98edba523fd36203d6fef863c4e9d1a
-  ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+  ms.date: 07/02/2021
+  ms.openlocfilehash: 6e221829fae0423ccf9f13970cc6b71136bb10c2
+  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112021490"
+  ms.lasthandoff: 07/06/2021
+  ms.locfileid: "113301895"
 landingContent:
 - title: Acerca de Azure VMware Solution
   linkLists:
@@ -47,24 +47,24 @@ landingContent:
     - text: General
       url: ./faq.yml
     - text: Comunicación al cliente
-      url: /azure/azure-vmware/faq.yml#customer-communication
+      url: /azure/azure-vmware/faq#customer-communication
     - text: Instalación y configuración
-      url: /azure/azure-vmware/faq.yml#configuration-and-setup
+      url: /azure/azure-vmware/faq#configuration-and-setup
     - text: Software de VMware
-      url: /azure/azure-vmware/faq.yml#vmware-software
+      url: /azure/azure-vmware/faq#vmware-software
     - text: Compute
-      url: /azure/azure-vmware/faq.yml#compute
+      url: /azure/azure-vmware/faq#compute
     - text: Redes e interconectividad
-      url: /azure/azure-vmware/faq.yml#networking-and-interconnectivity
+      url: /azure/azure-vmware/faq#networking-and-interconnectivity
     - text: Storage
-      url: /azure/azure-vmware/faq.yml#storage
+      url: /azure/azure-vmware/faq#storage
     - text: Hosts, clústeres y nubes privadas
-      url: /azure/azure-vmware/faq.yml#hosts,-clusters,-and-private-clouds
+      url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
     - text: Administración de identidades
-      url: /azure/azure-vmware/faq.yml#identity-management
+      url: /azure/azure-vmware/faq#identity-management
     - text: Facturación y soporte técnico
-      url: /azure/azure-vmware/faq.yml#billing-and-support
-- title: Introducción
+      url: /azure/azure-vmware/faq#billing-and-support
+- title: Primeros pasos
   linkLists:
   - linkListType: deploy
     links:
@@ -128,6 +128,8 @@ landingContent:
       url: configure-site-to-site-vpn-gateway.md
     - text: Configurar los clústeres de conmutación por error de Windows Server
       url: configure-windows-server-failover-cluster.md
+    - text: Conexión de varias nubes privadas en la misma región
+      url: connect-multiple-private-clouds-same-region.md
 - title: Integración nativa de Azure
   linkLists:
   - linkListType: how-to-guide
@@ -144,16 +146,14 @@ landingContent:
       url: deploy-traffic-manager-balance-workloads.md
     - text: Configuración de alertas y trabajo con métricas
       url: configure-alerts-for-azure-vmware-solution.md
-- title: Copia de seguridad y restauración con Azure Backup Server
+- title: Copia de seguridad con Azure Backup Server
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Copias de seguridad de máquinas virtuales de VMware
-      url: ../backup/backup-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-    - text: Restauración de máquinas virtuales de VMware
-      url: ../backup/restore-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-    - text: Supervisión de las cargas de trabajo de Azure Backup
-      url: ../backup/backup-azure-monitoring-built-in-monitor.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - text: Configuración Backup Server
+      url: set-up-backup-server-for-azure-vmware-solution.md
+    - text: Copia de seguridad de las máquinas virtuales de una nube privada con Backup Server
+      url: backup-azure-vmware-solution-virtual-machines.md
 - title: Soluciones de VMware
   linkLists:
   - linkListType: how-to-guide
@@ -166,6 +166,8 @@ landingContent:
       url: deploy-vm-content-library.md
     - text: Implementación de la recuperación ante desastres mediante VMware HCX
       url: deploy-disaster-recovery-using-vmware-hcx.md
+    - text: Actualización del dispositivo VMware HCX
+      url: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
 - title: Ecosistema de VMware
   linkLists:
   - linkListType: reference

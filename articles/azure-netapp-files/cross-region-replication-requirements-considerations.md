@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 06/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 5509b9fc63b97338ebc87a1cbef20a176c06f4dd
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: b94374d8eaa0efac50989a388686f96d9bae0622
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795049"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537140"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos y consideraciones del uso de la replicación entre regiones 
 
@@ -39,7 +39,7 @@ Tenga en cuenta los siguientes requisitos y consideraciones [sobre el uso de la 
 * En este momento no se admite la configuración de la replicación de volúmenes para los volúmenes de origen creados a partir de una instantánea.
 * Después de configurar la replicación entre regiones, el proceso de replicación crea *instantáneas de SnapMirror* para proporcionar referencias entre el volumen de origen y el volumen de destino. Las instantáneas de SnapMirror se recorren de forma cíclica automáticamente cuando se crea una nueva para cada transferencia incremental. No se pueden eliminar las instantáneas de SnapMirror hasta que se elimine la relación de replicación y el volumen. 
 * Puede eliminar instantáneas manuales en el volumen de origen de una relación de replicación cuando la relación de replicación esté activa o interrumpida, y también después de que se elimine la relación de replicación. No se pueden eliminar instantáneas manuales del volumen de destino hasta que se interrumpa la relación de replicación.
-* No se puede revertir a una instantánea que se hizo antes de que se creara el volumen de destino de replicación.
+* No se puede revertir un volumen de origen o destino de la replicación entre regiones a una instantánea. La funcionalidad de reversión de instantáneas está atenuada para los volúmenes en una relación de replicación. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de replicación de volumen](cross-region-replication-create-peering.md)

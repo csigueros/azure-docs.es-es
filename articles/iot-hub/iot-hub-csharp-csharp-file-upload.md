@@ -10,22 +10,18 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 43cafb8c5efe0581fe7c4136aa41980b3d817be2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df460ba4163b414ad954dce73125a6376f4cad6f
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99981415"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004590"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este tutorial se basa en el código del tutorial [Envío de mensajes desde la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) para mostrarle cómo usar las funcionalidades de carga de archivos de IoT Hub. En él se muestra cómo realizar las siguientes acciones:
-
-* Proporcionar un dispositivo de forma segura con un identificador URI de blob de Azure para cargar un archivo.
-
-* Usar las notificaciones de carga de archivo de IoT Hub para desencadenar el procesamiento del archivo en el back-end de aplicación.
+Este tutorial le muestra el uso de las funcionalidades de carga de archivos de IoT Hub mediante el ejemplo de carga de archivos de .NET. 
 
 En el inicio rápido [Envío de telemetría de un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md) y el tutorial de [Envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) se muestra cómo usar la funcionalidad básica de mensajería del dispositivo a la nube y de la nube al dispositivo de IoT Hub. En el tutorial [Configuración del enrutamiento de mensajes con IoT Hub](tutorial-routing.md) se describe una forma de almacenar de manera confiable los mensajes enviados del dispositivo a la nube en Microsoft Azure Blob Storage. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta IoT Hub. Por ejemplo:
 
@@ -37,13 +33,7 @@ En el inicio rápido [Envío de telemetría de un dispositivo a IoT Hub](quickst
 
 * Cierto tipo de datos procesados previamente
 
-Dichos archivos se suelen procesar por lotes en la nube mediante herramientas como [Azure Data Factory](../data-factory/introduction.md) o la pila [Hadoop](../hdinsight/index.yml). Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
-
-Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET:
-
-* **SimulatedDevice**. Esta aplicación carga un archivo en el almacenamiento mediante un identificador URI de SAS proporcionado por el centro de IoT. Es una versión modificada de la aplicación creada en el tutorial [Envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md).
-
-* **ReadFileUploadNotification**. Esta aplicación recibe notificaciones de carga de archivos de IoT Hub.
+Dichos archivos se suelen procesar por lotes en la nube mediante herramientas como [Azure Data Factory](../data-factory/introduction.md) o la pila [Hadoop](../hdinsight/index.yml). Sin embargo, cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub. En este tutorial se muestra cómo realizar las siguientes acciones.
 
 > [!NOTE]
 > IoT Hub admite muchas plataformas de dispositivos y lenguajes (entre los que se incluyen C, Java, Python y JavaScript), mediante los SDK de dispositivo IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure](https://azure.microsoft.com/develop/iot) para obtener instrucciones paso a paso sobre cómo conectar el dispositivo a Azure IoT Hub.
@@ -52,140 +42,63 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Visual Studio
+* Visual Studio Code
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
 
-* Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y saber cómo solucionar este problema, consulte [Conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Descargue los ejemplos en C# de Azure IoT de [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) y extraiga el archivo ZIP.
+
+* Abra la carpeta *FileUploadSample* en Visual Studio Code y abra el archivo *FileUploadSample.cs*.
+
+* Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Crear un centro de IoT
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## <a name="upload-a-file-from-a-device-app"></a>Carga de un archivo desde una aplicación de dispositivo
-
-En esta sección, modificará la aplicación de dispositivo que creó en [Envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) para recibir mensajes de la nube al dispositivo de IoT Hub.
-
-1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto **SimulatedDevice** y seleccione **Agregar** > **Elemento existente**. Encuentre un archivo de imagen e inclúyalo en su proyecto. En este tutorial se supone que la imagen se llama `image.jpg`.
-
-1. Haga clic con el botón derecho en la imagen y seleccione **Propiedades**. Asegúrese de que **Copiar en el directorio de salida** está establecido en **Copiar siempre**.
-
-    ![Muestra dónde se actualiza la propiedad de imagen para Copiar en el directorio de salida](./media/iot-hub-csharp-csharp-file-upload/image-properties.png)
-
-1. En el archivo **Program.cs** , agregue las siguientes instrucciones al principio del archivo:
-
-    ```csharp
-    using System.IO;
-    ```
-
-1. Agregue el método siguiente a la clase **Program** :
-
-    ```csharp
-    private static async Task SendToBlobAsync(string fileName)
-    {
-        Console.WriteLine("Uploading file: {0}", fileName);
-        var watch = System.Diagnostics.Stopwatch.StartNew();
-
-        await deviceClient.GetFileUploadSasUriAsync(new FileUploadSasUriRequest { BlobName = fileName });
-        var blob = new CloudBlockBlob(sas.GetBlobUri());
-        await blob.UploadFromFileAsync(fileName);
-        await deviceClient.CompleteFileUploadAsync(new FileUploadCompletionNotification { CorrelationId = sas.CorrelationId, IsSuccess = true });
-
-        watch.Stop();
-        Console.WriteLine("Time to upload file: {0}ms\n", watch.ElapsedMilliseconds);
-    }
-    ```
-
-    El método `UploadToBlobAsync` toma el nombre de archivo y el origen de streaming del archivo que se va a cargar y administra la carga en el almacenamiento. La aplicación de consola muestra el tiempo que se tarda en cargar el archivo.
-
-1. Agregue la siguiente línea en el método **Main**, justo antes de `Console.ReadLine()`:
-
-    ```csharp
-    await SendToBlobAsync("image.jpg");
-    ```
-
-> [!NOTE]
-> Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo [Control de errores transitorios](/azure/architecture/best-practices/transient-faults).
-
 ## <a name="get-the-iot-hub-connection-string"></a>Obtención de la cadena de conexión de IoT Hub
-
-En este artículo, creará un servicio de back-end para recibir mensajes de notificación de carga de archivos desde la instancia de IoT Hub que creó en [Envío de telemetría de un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md). Para recibir mensajes de notificación de carga de archivos, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="receive-a-file-upload-notification"></a>Recepción de una notificación de carga de archivos
+## <a name="examine-the-application"></a>Examen de la aplicación
 
-En esta sección, se escribe una aplicación de consola de .NET que recibe mensajes de notificación de carga de archivos de IoT Hub.
+Vaya a la carpeta *FileUploadSample* en la descarga de ejemplos de .NET. Abra la carpeta en Visual Studio Code. La carpeta contiene un archivo denominado *parameters.cs*. Si abre ese archivo, verá que el parámetro *p* es necesario y contiene la cadena de conexión. El parámetro *t* se puede especificar si desea cambiar el protocolo de transporte. El protocolo predeterminado es mqtt. El archivo *program.cs* contiene la función *main*. El archivo *FileUploadSample.cs* contiene la lógica de ejemplo principal. *TestPayload.txt* es el archivo que se va a cargar en el contenedor de blobs.
 
-1. En la solución actual de Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**. En **Crear un proyecto**, seleccione **Aplicación de consola (.NET Framework)** y seleccione **Siguiente**.
+## <a name="run-the-application"></a>Ejecución de la aplicación
 
-1. Denomine al proyecto *ReadFileUploadNotification*. En **Solución**, seleccione **Agregar a solución**. Seleccione **Crear** para crear el proyecto.
+Ahora está preparado para ejecutar la aplicación.
 
-    ![Configuración del proyecto ReadFileUploadNotification en Visual Studio](./media/iot-hub-csharp-csharp-file-upload/read-file-upload-project-configure.png)
-
-1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ReadFileUploadNotification** y, luego, haga clic en **Administrar paquetes NuGet...** .
-
-1. En **Administrador de paquetes NuGet**, seleccione **Examinar**. Busque y seleccione **Microsoft.Azure.Devices.Client** y, después, **Instalar**.
-
-    Este paso descarga, instala y agrega una referencia al [paquete NuGet del SDK de servicios IoT de Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices/) en el proyecto **ReadFileUploadNotification**.
-
-1. En el archivo **Program.cs** de este proyecto, agregue la siguiente instrucción al principio del archivo:
-
-    ```csharp
-    using Microsoft.Azure.Devices;
+1. En Visual Studio Code, abra una ventana de terminal.
+1. Escriba los comandos siguientes:
+    ```cmd/sh
+    dotnet restore
+    dotnet run --p "{Your connection string}"
     ```
 
-1. Agregue los campos siguientes a la clase **Program** . Reemplace el valor de marcador de posición `{iot hub connection string}` por la cadena de conexión de IoT Hub que copió anteriormente en [Obtener la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
+La salida debe ser similar a la siguiente:
 
-    ```csharp
-    static ServiceClient serviceClient;
-    static string connectionString = "{iot hub connection string}";
-    ```
+```cmd/sh
+  Uploading file TestPayload.txt
+  Getting SAS URI from IoT Hub to use when uploading the file...
+  Successfully got SAS URI (https://contosostorage.blob.core.windows.net/contosocontainer/MyDevice%2FTestPayload.txt?sv=2018-03-28&sr=b&sig=x0G1Baf%2BAjR%2BTg3nW34zDNKs07p6dLzkxvZ3ZSmjIhw%3D&se=2021-05-04T16%3A40%3A52Z&sp=rw) from IoT Hub
+  Uploading file TestPayload.txt using the Azure Storage SDK and the retrieved SAS URI for authentication
+  Successfully uploaded the file to Azure Storage
+  Notified IoT Hub that the file upload succeeded and that the SAS URI can be freed.
+  Time to upload file: 00:00:01.5077954.
+  Done.
+```
 
-1. Agregue el método siguiente a la clase **Program** :
+## <a name="verify-the-file-upload"></a>Comprobación de la carga de archivos
 
-    ```csharp
-    private async static void ReceiveFileUploadNotificationAsync()
-    {
-        var notificationReceiver = serviceClient.GetFileNotificationReceiver();
+Realice los pasos siguientes para comprobar que *TestPayload.txt* se ha cargado en el contenedor:
 
-        Console.WriteLine("\nReceiving file upload notification from service");
-        while (true)
-        {
-            var fileUploadNotification = await notificationReceiver.ReceiveAsync();
-            if (fileUploadNotification == null) continue;
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Received file upload notification: {0}", 
-              string.Join(", ", fileUploadNotification.BlobName));
-            Console.ResetColor();
-
-            await notificationReceiver.CompleteAsync(fileUploadNotification);
-        }
-    }
-    ```
-
-    Tenga en cuenta que este patrón de recepción es el mismo que se usa para recibir mensajes de nube a dispositivo desde la aplicación de dispositivo.
-
-1. Por último, agregue las líneas siguientes al método **Main** :
-
-    ```csharp
-    Console.WriteLine("Receive file upload notifications\n");
-    serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
-    ReceiveFileUploadNotificationAsync();
-    Console.WriteLine("Press Enter to exit\n");
-    Console.ReadLine();
-    ```
-
-## <a name="run-the-applications"></a>Ejecución de las aplicaciones
-
-Ahora está preparado para ejecutar las aplicaciones.
-
-1. En el Explorador de soluciones, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**.
-
-1. En **Propiedades comunes** > **Proyecto de inicio**, seleccione **Varios proyectos de inicio** y seleccione la acción **Inicio** para **ReadFileUploadNotification** y **SimulatedDevice**. Seleccione **Aceptar** para guardar los cambios.
-
-1. Presione **F5**. Deberían iniciarse las dos aplicaciones. Debería ver que se ha completado la carga en una aplicación de consola y que la otra aplicación de consola ha recibido el mensaje de notificación de carga. Puede usar [Azure Portal](https://portal.azure.com/) o el Explorador de servidores de Visual Studio para comprobar que el archivo cargado está en la cuenta de Azure Storage.
-
-    ![Captura de pantalla que muestra la pantalla de salida](./media/iot-hub-csharp-csharp-file-upload/run-apps1.png)
+1. En el panel izquierdo de la cuenta de almacenamiento, en **Almacenamiento de datos**, seleccione **Contenedores**.
+1. Seleccione el contenedor en el que ha cargado *TestPayload.txt*.
+1. Seleccione la carpeta que nombró tras el dispositivo.
+1. Seleccione *TestPayload.txt*.
+1. Descargue el archivo para ver su contenido localmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

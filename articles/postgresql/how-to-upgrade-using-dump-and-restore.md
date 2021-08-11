@@ -1,21 +1,24 @@
 ---
-title: 'Actualización mediante volcado y restauración en Azure Database for PostgreSQL: servidor único'
-description: 'Se describen los métodos de actualización sin conexión que usan bases de datos de volcado y restauración para la migración a una versión posterior de Azure Database for PostgreSQL: servidor único.'
+title: 'Actualización mediante volcado y restauración: Azure Database for PostgreSQL'
+description: Se describen los métodos de actualización sin conexión que usan bases de datos de volcado y restauración para la migración a una versión superior de Azure Database for PostgreSQL.
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/10/2020
-ms.openlocfilehash: 42bbe1c9f4056ae0dae0ccd59b452db90a7c63c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/02/2021
+ms.openlocfilehash: d528d75bd26bf17ca0da20447848d315e2dc9057
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96493668"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111406884"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Actualización de una base de datos de PostgreSQL mediante volcado y restauración
 
-Puede actualizar el servidor de PostgreSQL implementado en Azure Database for PostgreSQL: servidor único; para ello, migre las bases de datos a una versión principal posterior del servidor mediante los métodos siguientes.
+>[!NOTE]
+> Los conceptos que se explican en esta documentación son aplicables a Azure Database for PostgreSQL: servidor único y a Azure Database for PostgreSQL: servidor flexible (versión preliminar). 
+
+Puede actualizar el servidor de PostgreSQL implementado en Azure Database for PostgreSQL mediante la migración de las bases de datos a una versión principal superior del servidor mediante los métodos siguientes.
 * Método **sin conexión** mediante [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) y [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) de PostgreSQL que implica tiempo de inactividad para migrar los datos. En este documento se aborda este método de actualización/migración.
 * Método **en línea** que usa [Database Migration Service](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). Este método ofrece una migración con tiempo de inactividad reducido y mantiene sincronizada la base de datos de destino con el origen. Además, permite elegir el momento del traslado. No obstante, existen algunos requisitos previos y restricciones que se deben abordar para usar DMS. Para más información, consulte la [documentación de DMS](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md). 
 
@@ -41,8 +44,8 @@ En esta guía se proporcionan algunas metodologías de migración sin conexión 
  
 Para seguir esta guía, necesitará lo siguiente:
 
-- Un **origen** de base de datos PostgreSQL que ejecuta la versión 9.5, la 9.6 o la 10 que desee actualizar.
-- Un servidor de bases de datos PostgreSQL de **destino** con la versión principal del [servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md). 
+- Un servidor de bases de datos PostgreSQL de **origen** que ejecuta una versión inferior del motor que quiere actualizar.
+- Un servidor de bases de datos PostgreSQL de **destino** con la versión principal deseada del [servidor de Azure Database for PostgreSQL: servidor único](quickstart-create-server-database-portal.md) o [Azure Database for PostgreSQL: servidor flexible](./flexible-server/quickstart-create-server-portal.md). 
 - Un sistema cliente de PostgreSQL para ejecutar los comandos de volcado y restauración.
   - Puede ser un cliente Linux o Windows con PostgreSQL instalado y con las utilidades de línea de comandos [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) y [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) instaladas. 
   - También puede usar [Azure Cloud Shell](https://shell.azure.com) o hacer clic en la opción Azure Cloud Shell de la barra de menús de la parte superior derecha de [Azure Portal](https://portal.azure.com). Tendrá que iniciar sesión en su cuenta con `az login` antes de ejecutar los comandos de volcado y restauración.
@@ -71,6 +74,9 @@ En esta guía se usan los siguientes servidores de origen y de destino, y esto s
  | Servidor de destino (versión 11) | pg-11.postgres.database.azure.com |
  | Base de datos de destino | bench5gb |
  | Nombre de usuario de destino | pg@pg-11 |
+
+>[!NOTE]
+> El servidor flexible admite PostgreSQL versión 11 en adelante. Además, el nombre de usuario del servidor flexible no requiere @<servername>.
 
 ## <a name="upgrade-your-databases-using-offline-migration-methods"></a>Actualización de las bases de datos mediante métodos de migración sin conexión
 Puede optar por utilizar uno de los métodos descritos en esta sección para las actualizaciones. Puede usar las siguientes sugerencias mientras realiza las tareas.
@@ -164,5 +170,5 @@ Puede considerar este método si tiene pocas tablas de mayor tamaño en la base 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Una vez que esté satisfecho con la función de base de datos de destino, puede quitar el servidor de bases de datos anterior. 
-- Si quiere usar el mismo punto de conexión de base de datos que el servidor de origen, puede crear una réplica de lectura con el nombre de servidor de base de datos anterior después de eliminar el servidor de base de datos de origen anterior. Una vez alcanzado el estado estable, puede detener la réplica, lo que promoverá el servidor de réplica para que sea un servidor independiente. Consulte [Replicación](./concepts-read-replicas.md) para obtener más detalles.
+- En el caso de Azure Database for PostgreSQL: servidor único solo. Si quiere usar el mismo punto de conexión de base de datos que el servidor de origen, puede crear una réplica de lectura con el nombre de servidor de base de datos anterior después de eliminar el servidor de base de datos de origen anterior. Una vez alcanzado el estado de replicación estable, puede detener la réplica, lo que promoverá el servidor de réplicas para que sea un servidor independiente. Consulte [Replicación](./concepts-read-replicas.md) para obtener más detalles.
 - No olvide probar y validar estos comandos en un entorno de prueba antes de usarlos en producción.

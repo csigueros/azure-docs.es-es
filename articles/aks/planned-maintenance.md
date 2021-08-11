@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: f1e0822e77d8466b1b9796041fbdba53c3f9c91f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f984eaa49539890b8ae4d5132f9a03594e2f19f8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782916"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073799"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Uso del mantenimiento planeado a fin de programar ventanas de mantenimiento para el clúster de Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -210,6 +210,10 @@ Para eliminar una ventana de configuración de mantenimiento determinada en el c
 ```azurecli-interactive
 az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCluster --name default
 ```
+
+## <a name="using-planned-maintenance-with-cluster-auto-upgrade"></a>Uso del mantenimiento planeado con la actualización automática del clúster
+
+El mantenimiento planeado detectará si usa la actualización automática del clúster y programará las actualizaciones durante la ventana de mantenimiento automáticamente. Para obtener más información sobre la actualización automática del clúster, consulte [Actualización de un clúster de Azure Kubernetes Service (AKS)][aks-upgrade].
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: bed0c00b8cb5718456302dff06e98ff2f7f2b4e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01f923828f0b83280d033b9bc6e5c7b6bbebae35
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100102196"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784081"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Cómo administrar asignaciones de roles de Synapse RBAC en Synapse Studio
 
@@ -23,7 +23,7 @@ En este artículo se muestra cómo agregar y eliminar asignaciones de roles de S
 
 >[!Note]
 >- Para administrar las asignaciones de roles de Synapse RBAC, debe tener el rol de administrador de Synapse en el área de trabajo o en un ámbito de nivel inferior que incluya los objetos que desea administrar. Si es administrador de Synapse en el área de trabajo, puede conceder acceso a todos los objetos en el área de trabajo. 
->- Los **usuarios invitados** de un inquilino de AD distinto no pueden ver ni administrar las asignaciones de roles, aunque se les asigne el rol de administrador de Synapse.
+>- Los **usuarios invitados** de un inquilino de AD distinto también pueden ver y administrar las asignaciones de roles, después de que se les asigne el rol de administrador de Synapse.
 >- Para ayudarle a recuperar el acceso a un área de trabajo en caso de que no haya ningún administrador de Synapse asignado o a su disposición, los usuarios con permisos para administrar las asignaciones de roles de **Azure RBAC** en el área de trabajo también pueden administrar las asignaciones de roles de **Synapse RBAC**, lo que permite agregar administradores de Synapse u otras asignaciones de roles de Synapse.
 >- El acceso a los grupos de SQL se administra mediante permisos de SQL.  A excepción de los roles de administrador de Synapse y administrador de Synapse SQL, los roles de Synapse RBAC no conceden acceso a los grupos de SQL.
 

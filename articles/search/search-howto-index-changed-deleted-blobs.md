@@ -1,23 +1,23 @@
 ---
 title: Blobs cambiados y eliminados
 titleSuffix: Azure Cognitive Search
-description: Después de la creación inicial del índice de búsqueda que importa desde Azure Blob Storage, la posterior indexación puede elegir los blobs que se cambian o eliminan. En este artículo se explican los detalles.
+description: Después de la generación inicial del índice de búsqueda que importa desde Azure Blob Storage, la indexación posterior puede elegir solo los blobs que se cambien o eliminen. En este artículo se explican los detalles.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 79d5583f8c9e562a0d21a91c210aa6259472661d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d06a63c91c25f97e9d1a10b6b72a33b2fc7d859d
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383541"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558969"
 ---
 # <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Detección de cambios y eliminaciones en la indexación de blobs (Azure Cognitive Search)
 
-Después de crear un índice de búsqueda inicial, es posible que desee que los trabajos posteriores del indexador solo recojan documentos nuevos y modificados. En el caso del contenido de búsqueda cuyo origen sea Azure Blob Storage, la detección de cambios se produce automáticamente cuando se usa una programación para desencadenar la indexación. De forma predeterminada, el servicio reindexa solo los blobs modificados, tal como lo determina la marca de tiempo `LastModified` del blob. A diferencia de otros orígenes de datos compatibles con indexadores de búsqueda, los blobs siempre tienen una marca de tiempo, lo que elimina la necesidad de configurar manualmente una directiva de detección de cambios.
+Después de crear un índice de búsqueda inicial, es posible que desee que los trabajos posteriores del indexador solo recojan documentos nuevos y modificados. En el caso del contenido de búsqueda cuyo origen sea Azure Blob Storage o Azure Data Lake Storage Gen2, la detección de cambios se produce automáticamente cuando se usa una programación para desencadenar la indexación. De forma predeterminada, el servicio reindexa solo los blobs modificados, tal como lo determina la marca de tiempo `LastModified` del blob. A diferencia de otros orígenes de datos compatibles con indexadores de búsqueda, los blobs siempre tienen una marca de tiempo, lo que elimina la necesidad de configurar manualmente una directiva de detección de cambios.
 
 Aunque la detección de cambios es una obviedad, la detección de eliminaciones no lo es. Si desea detectar documentos eliminados, asegúrese de usar un enfoque de "eliminación temporal". Si elimina los blobs directamente, los documentos correspondientes no se quitarán del índice de búsqueda.
 
@@ -26,9 +26,12 @@ Hay dos maneras de implementar el enfoque de eliminación temporal:
 + Eliminación temporal de blobs nativos (versión preliminar), que se describe a continuación.
 + [Eliminación temporal con metadatos personalizados](#soft-delete-using-custom-metadata)
 
+> [!NOTE] 
+> Azure Data Lake Storage Gen2 permite cambiar el nombre de los directorios. Cuando se cambia el nombre de un directorio, no se actualizan las marcas de tiempo de los blobs de ese directorio. Como resultado, el indexador no indexa de nuevo esos blobs. Si necesita que los blobs de un directorio se vuelvan a indexar después de cambiar el nombre de un directorio, ya que tienen nuevas direcciones URL, deberá actualizar la marca de tiempo `LastModified` de todos los blobs del directorio, de modo que el indexador sepa volver a indexarlos durante una futura ejecución. Los directorios virtuales de Azure Blob Storage no se pueden cambiar, por lo que no tienen este problema.
+
 ## <a name="native-blob-soft-delete-preview"></a>Eliminación temporal de blobs nativos (versión preliminar)
 
-Para este enfoque de detección de eliminación, Cognitive Search depende de la característica de [eliminación temporal de blobs nativos](../storage/blobs/soft-delete-blob-overview.md) de Azure Blob Storage para determinar si los blobs han pasado a un estado de eliminación temporal. Cuando se detectan blobs en este estado, un indexador de búsqueda usa esta información para quitar el documento correspondiente del índice.
+Para este enfoque de detección de eliminación, Cognitive Search depende de la característica de [eliminación temporal de blobs nativos](../storage/blobs/soft-delete-blob-overview.md) de Azure Blob Storage para determinar si los blobs han pasado a un estado de eliminación temporal. Cuando se detectan blobs en este estado, un indexador de búsqueda usa esta información para quitar el documento correspondiente del índice.
 
 > [!IMPORTANT]
 > La compatibilidad con la eliminación temporal de blobs nativos está en versión preliminar. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API de REST, versión 2020-06-30-Preview](./search-api-preview.md) se proporciona esta característica. Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
@@ -36,7 +39,7 @@ Para este enfoque de detección de eliminación, Cognitive Search depende de la 
 ### <a name="prerequisites"></a>Requisitos previos
 
 + [Habilitación de la eliminación temporal para blobs](../storage/blobs/soft-delete-blob-enable.md).
-+ Los blobs deben estar en un contenedor de Azure Blob Storage. No se admite la directiva de eliminación temporal de blobs nativos de Cognitive Search para los blobs de Azure Data Lake Storage Gen2.
++ Los blobs deben estar en un contenedor de Azure Blob Storage. No se admite la directiva de eliminación temporal de blobs nativos de Cognitive Search para los blobs de Azure Data Lake Storage Gen2.
 + Las claves de documento de los documentos del índice se deben asignar a una propiedad de blob o a metadatos de blob.
 + Debe usar la API REST en versión preliminar (`api-version=2020-06-30-Preview`) para configurar la compatibilidad con la eliminación temporal.
 
@@ -97,7 +100,7 @@ Hay pasos que se deben seguir tanto en Blob Storage como en Cognitive Search, pe
     }
     ```
 
-1. Una vez que el indexador ha procesado el blob y eliminado el documento del índice, puede eliminar el blob de Azure Blob Storage.
+1. Una vez que el indexador ha procesado el blob y ha eliminado el documento del índice, puede eliminar el blob de Azure Blob Storage.
 
 ### <a name="reindexing-undeleted-blobs-using-custom-metadata"></a>Reindexación de blobs recuperados (mediante metadatos personalizados)
 

@@ -3,12 +3,12 @@ title: Configuración de la red para clústeres administrados de Service Fabric
 description: Aprenda a configurar el clúster administrado de Service Fabric para las reglas de grupos de seguridad de red, el acceso a puertos RDP, las reglas de equilibrio de carga, etc.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 67bcdccbd3a54fc0e05b2516aaf5633ddddb1f00
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5164a7e3aeb1e82700bd5c5bc4d44e55de64421b
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060983"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895620"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Configuración de la red para clústeres administrados de Service Fabric
 
@@ -118,6 +118,28 @@ Si la propiedad allowRDPAccess está establecida en true, se agregará la siguie
 }
 ```
 
+Los clústeres administrados de Service Fabric crean automáticamente reglas NAT de entrada para cada instancia de un tipo de nodo. Para buscar las asignaciones de puertos para llegar a instancias específicas (nodos de clúster), siga estos pasos:
+
+Use Azure Portal para buscar el clúster administrado creado por las reglas NAT de entrada para Protocolo de Escritorio remoto (RDP).
+
+1. Vaya al grupo de recursos de clúster administrado dentro de la suscripción cuyo nombre tiene el siguiente formato: SFC_{cluster-id}
+
+2. Seleccione el equilibrador de carga para el clúster con el siguiente formato: LB-{cluster-name}
+
+3. En la página de su equilibrador de carga, seleccione Reglas NAT de entrada. Revise las reglas NAT de entrada para confirmar la asignación de puerto front-end de entrada a puerto de destino para un nodo. 
+
+   La siguiente captura de pantalla muestra las reglas NAT de entrada para tres tipos de nodos:
+
+   ![Reglas NAT de entrada][Inbound-NAT-Rules]
+
+   De forma predeterminada, para los clústeres de Windows, el puerto de front-end está en el intervalo de 50000 y superiores, y el puerto de destino es el puerto 3389, que se asigna al servicio RDP en el nodo de destino.
+
+4. Conéctese de forma remota al nodo específico (instancia del conjunto de escalado). Puede usar el nombre de usuario y la contraseña que estableció cuando creó el clúster u otras credenciales que haya configurado.
+
+La siguiente captura de pantalla muestra cómo usar Conexión a Escritorio remoto para conectarse al nodo de aplicaciones (instancia 0) en un clúster Windows:
+
+![Conexión del Escritorio remoto][sfmc-rdp-connect]
+
 ## <a name="clientconnection-and-httpgatewayconnection-ports"></a>Puertos ClientConnection y HttpGatewayConnection
 
 ### <a name="nsg-rule-sfmc_allowservicefabricgatewaytosfrp"></a>Regla de grupo de seguridad de red: SFMC_AllowServiceFabricGatewayToSFRP
@@ -151,7 +173,7 @@ Se agrega una regla de grupo de seguridad de red predeterminada para permitir qu
 
 ### <a name="nsg-rule-sfmc_allowservicefabricgatewayports"></a>Regla de grupo de seguridad de red: SFMC_AllowServiceFabricGatewayPorts
 
-Se trata de una regla de grupo de seguridad de red opcional para permitir el acceso a clientConnectionPort y httpGatewayPort desde Internet. Esta regla permite a los clientes tener acceso a SFX, conectarse al clúster mediante PowerShell y usar puntos de conexión de API del clúster de Service Fabric desde fuera.
+Esta regla opcional permite a los clientes acceder a SFX, conectarse al clúster mediante PowerShell y usar puntos de conexión de API de clúster de Service Fabric desde Internet abriendo los puertos LB para clientConnectionPort y httpGatewayPort.
 
 >[!NOTE]
 >Esta regla no se agregará si hay una regla personalizada con los mismos valores de acceso, dirección y protocolo para el mismo puerto. Puede invalidar esta regla con reglas de grupo de seguridad de red personalizadas.
@@ -180,7 +202,7 @@ Se trata de una regla de grupo de seguridad de red opcional para permitir el acc
 
 ## <a name="load-balancer-ports"></a>Puertos del equilibrador de carga
 
-Los clústeres administrados de Service Fabric crean una regla de grupo de seguridad de red en el intervalo de prioridad predeterminado de todos los puertos del equilibrador de carga (LB) configurados en la sección "loadBalancingRules" en las propiedades de *ManagedCluster*. Esta regla abre los puertos del equilibrador de carga para el tráfico entrante desde Internet.
+Los clústeres administrados de Service Fabric crean una regla de grupo de seguridad de red en el intervalo de prioridad predeterminado de todos los puertos del equilibrador de carga (LB) configurados en la sección "loadBalancingRules" en las propiedades de *ManagedCluster*. Esta regla abre los puertos del equilibrador de carga para el tráfico entrante desde Internet.  
 
 >[!NOTE]
 >Esta regla se agrega en el intervalo de prioridad opcional y se puede invalidar mediante la adición de reglas de grupo de seguridad de red personalizadas.
@@ -270,3 +292,8 @@ Los clústeres administrados de Service Fabric crean automáticamente sondeos de
 [Opciones de configuración del clúster administrado de Service Fabric](how-to-managed-cluster-configuration.md)
 
 [Información general de los clústeres administrados de Service Fabric](overview-managed-cluster.md)
+
+<!--Image references-->
+[Inbound-NAT-Rules]: ./media/how-to-managed-cluster-networking/inbound-nat-rules.png
+[sfmc-rdp-connect]: ./media/how-to-managed-cluster-networking/sfmc-rdp-connect.png
+

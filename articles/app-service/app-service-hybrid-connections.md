@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/05/2021
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: b8425ef0e8d2bdf5caf64bfb2e0c977c63b5a6e1
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: c8b0377207dc811358db14285a7e287cd7c72525
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109628482"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412608"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service
 
@@ -205,6 +205,8 @@ El estado "Conectado" significa que hay al menos una instancia de HCM configurad
 
 * ¿Tiene el host acceso de salida a Azure en el puerto 443? Puede probar desde el host de HCM mediante el comando *Test-NetConnection Destination -P Port* de PowerShell. 
 * ¿Es posible que su HCM esté en mal estado? Pruebe a reiniciar el servicio local "Servicio de Administrador de conexiones híbridas de Azure".
+
+* ¿Tiene instalado software en conflicto? El Administrador de conexiones híbridas no puede coexistir con el Administrador de conexiones híbridas de Biztalk o Service Bus para Windows Server. Por lo tanto, al instalar HCM, las versiones de estos paquetes deben quitarse primero.
 
 Si el estado indica **Conectado**, pero la aplicación no puede comunicarse con su punto de conexión, entonces:
 

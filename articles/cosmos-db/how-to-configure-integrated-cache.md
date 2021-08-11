@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: tisande
-ms.openlocfilehash: f857d9945cc52aa192838d58066a7fcc005a622d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: ddfdd4897a0cd194465828bba4bea0c002a4e434
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386607"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797680"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Cómo configurar la caché integrada de Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,6 +65,27 @@ Debe ajustar la coherencia de la solicitud para que tenga un estado de evento. S
 
 > [!NOTE]
 > Si usa el SDK de Python, **debe** establecer explícitamente el nivel de coherencia de cada solicitud. Tenga en cuenta que la configuración predeterminada del nivel de cuenta no se aplicará automáticamente.
+
+## <a name="adjust-maxintegratedcachestaleness"></a>Ajuste de MaxIntegratedCacheStaleness
+
+Configure `MaxIntegratedCacheStaleness`, que es el tiempo máximo en el que está dispuesto a tolerar datos obsoletos almacenados en caché. Se recomienda establecer `MaxIntegratedCacheStaleness` en el máximo posible, ya que aumentará la probabilidad de que las lecturas y consultas de punto repetidas puedan ser aciertos de caché. Si establece `MaxIntegratedCacheStaleness` en 0, la solicitud de lectura **nunca** usará la caché integrada, independientemente  del nivel de coherencia. Cuando no está configurado, el valor predeterminado de `MaxIntegratedCacheStaleness` es 5 minutos.
+
+**.NET**
+
+```csharp
+FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefinition("SELECT * FROM c"), requestOptions: new QueryRequestOptions
+        {
+            ConsistencyLevel = ConsistencyLevel.Eventual,
+            DedicatedGatewayRequestOptions = new DedicatedGatewayRequestOptions 
+            { 
+                MaxIntegratedCacheStaleness = TimeSpan.FromMinutes(30) 
+            }
+        }
+);
+```
+
+> [!NOTE]
+> Actualmente, solo puede ajustar MaxIntegratedCacheStaleness mediante los SDK de versión preliminar de .NET y Java más recientes.
 
 ## <a name="verify-cache-hits"></a>Comprobación de los resultados de la caché
 

@@ -5,12 +5,12 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 83633b6f107aee995c19e1cda94f4f93a96e84e2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 587dddfde930bb64aa21f2e24c26d815e60ab9b0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076787"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791696"
 ---
 # <a name="troubleshoot-common-issues-with-startstop-vms-preview"></a>Solución de problemas comunes con Start/Stop VMs (versión preliminar)
 
@@ -32,7 +32,7 @@ En función de qué aplicación lógica haya habilitado para admitir el escenari
 
 Puede revisar los detalles de las operaciones realizadas en las máquinas virtuales que se escriben en la tabla **requestsstoretable** de la cuenta de Azure Storage que se usa para Start/Stop VMs v2 (versión preliminar). Realice los pasos siguientes para ver esos registros.
 
-1. Vaya a la cuenta de almacenamiento en Azure Portal y, en la cuenta, seleccione **Explorador de Storage (versión preliminar) en el panel izquierdo.
+1. Vaya a la cuenta de almacenamiento en Azure Portal y, en la cuenta, seleccione **Explorador de Storage (versión preliminar)** en el panel izquierdo.
 1. Seleccione **TABLAS** y, después, **requeststoretable**.
 1. Cada registro de la tabla representa la acción de inicio y detención realizada en una máquina virtual de Azure basada en el ámbito de destino definido en el escenario de la aplicación lógica. Puede filtrar los resultados por cualquiera de las propiedades del registro (por ejemplo, TIMESTAMP, ACTION o TARGETTOPLEVELRESOURCENAME).
 

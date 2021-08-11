@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4c23859a44f45fc294631dd33da0ab9cad1dd61
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92152126"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191237"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones
 
@@ -194,11 +194,11 @@ Para filtrar los mensajes antes de que ser envíen los datos de telemetría, pue
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitaciones de los eventos de dispositivo conectado y dispositivo desconectado
 
-Para recibir los eventos de estado de conexión del dispositivo, un dispositivo tiene que hacer una operación "D2C Send Telemetry" O "C2D Receive Message" con IoT Hub. De todas formas, debe tener en cuenta que si un dispositivo usa el protocolo AMQP para conectarse con IoT Hub, se recomienda que realice una operación "C2D Receive Message"; de lo contrario, las notificaciones de estado de conexión se pueden retrasar unos minutos. Si el dispositivo usa el protocolo MQTT, IoT Hub mantendrá el vínculo C2D abierto. Con AMQP, puede abrir el vínculo C2D mediante la llamada a Receive Async API en el SDK de C# de IoT Hub, o al [cliente del dispositivo de AMQP](iot-hub-amqp-support.md#device-client).
+Para recibir eventos de estado de conexión de dispositivo, el dispositivo debe llamar a una operación de *envío de telemetría de dispositivo a nube* o de *recepción de mensajes de nube a dispositivo* con IoT Hub. Sin embargo, si un dispositivo usa el protocolo AMQP para conectarse con IoT Hub, se recomienda que el dispositivo llame a la operación de *recepción de mensajes de nube a dispositivo*; de lo contrario, sus notificaciones de estado de conexión pueden retrasarse unos minutos. Si el dispositivo se conecta con el protocolo MQTT, IoT Hub mantiene abierto el vínculo de nube a dispositivo. Para abrir el vínculo de nube a dispositivo para AMQP, llame a [Receive Async API](/rest/api/iothub/device/receivedeviceboundnotification).
 
-Si está enviando telemetría, el vínculo D2C está abierto. 
+El vínculo de dispositivo a nube permanece abierto siempre que el dispositivo envíe datos de telemetría.
 
-Si la conexión del dispositivo es intermitente, lo que significa que el dispositivo se conecta y desconecta con frecuencia, no se le enviarán todos y cada uno de los estados de conexión, sino que se publicará el estado de conexión de ese momento, que se toma de una serie de instantáneas periódicas, mientras la conexión siga siendo intermitente. Si se recibe el mismo evento de estado de conexión con diferentes números de secuencia, o eventos de estado de conexión distintos, quiere decir que se ha producido un cambio en el estado de conexión del dispositivo.
+Si el estado de conexión del dispositivo cambia continuamente, lo que significa que el dispositivo se conecta y desconecta con frecuencia, IoT Hub no envía todos los estados de conexión, sino que publica el estado de conexión actual tomado en una instantánea periódica de 60 segundos hasta que se queda fijo. Si se recibe el mismo evento de estado de conexión con diferentes números de secuencia, o eventos de estado de conexión distintos, quiere decir que se ha producido un cambio en el estado de conexión del dispositivo.
 
 ## <a name="tips-for-consuming-events"></a>Sugerencias para consumir eventos
 

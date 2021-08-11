@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: d83cc4045f09ed0f704a0d61c6b303406835eb44
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 860085cc447b241f622c2be89038bca0014a883e
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052303"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110493417"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Introducción a Log Analytics en Azure Monitor
 Log Analytics es una herramienta de Azure Portal que se usa para editar y ejecutar consultas de registros con los datos de los registros de Azure Monitor. Puede escribir una consulta sencilla que devuelva un conjunto de registros y, a continuación, utilizar las características de Log Analytics para ordenarlos, filtrarlos y analizarlos. O bien, puede escribir una consulta más avanzada para realizar análisis estadísticos y visualizar los resultados en un gráfico para identificar una tendencia determinada. Tanto si trabaja con los resultados de las consultas de forma interactiva como si los usa con otras características de Azure Monitor, como las alertas de consultas de registros o los libros, Log Analytics es la herramienta que va a usar para escribir y probarlos. 
@@ -26,7 +26,9 @@ Abra Log Analytics desde **Registros** en el menú **Azure Monitor** de Azure Po
 
 [![Inicio de Log Analytics](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
 
-Al iniciar Log Analytics, lo primero que verá es un cuadro de diálogo con [consultas de ejemplo](../logs/example-queries.md). Están clasificadas por solución y puede examinar o buscar consultas que coincidan con sus requisitos particulares. Es posible que pueda encontrar una que haga exactamente lo que necesita o bien puede cargar una en el editor y modificarla según sea necesario. Examinar las consultas de ejemplo es realmente una excelente manera de aprender a escribir sus propias consultas. Por supuesto, si desea empezar con un script vacío y escribirlo usted mismo, puede cerrar las consultas de ejemplo. Basta con hacer clic en **Consultas** en la parte superior de la pantalla si desea volver a tenerlas.
+Al iniciar Log Analytics, lo primero que verá es un cuadro de diálogo con [consultas de ejemplo](../logs/queries.md). Están clasificadas por solución y puede examinar o buscar consultas que coincidan con sus requisitos particulares. Es posible que pueda encontrar una que haga exactamente lo que necesita o bien puede cargar una en el editor y modificarla según sea necesario. Examinar las consultas de ejemplo es realmente una excelente manera de aprender a escribir sus propias consultas. 
+
+Por supuesto, si desea empezar con un script vacío y escribirlo usted mismo, puede cerrar las consultas de ejemplo. Basta con hacer clic en **Consultas** en la parte superior de la pantalla si desea volver a tenerlas.
 
 ## <a name="log-analytics-interface"></a>Interfaz de Log Analytics
 En la imagen siguiente se identifican los distintos componentes de Log Analytics.

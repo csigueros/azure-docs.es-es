@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 44ab9e4ff83fec2ddfbd1cb44f503298d12789d1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f1df5c945c5216e82837672ad8aeaa669fc4fb20
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766306"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786454"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos en directo y salidas en directo en Media Services
 
@@ -47,7 +47,7 @@ Un [evento en directo](/rest/api/media/liveevents) se puede establecer en una co
 
 Cuando se utiliza el **evento en directo** de tránsito, se confía en el codificador en directo local para generar una secuencia de vídeo con varias velocidades de bits y enviarla como fuente de contribución al evento en directo (mediante el protocolo RTMP o MP4 fragmentado). El evento en directo lleva a cabo las secuencias de vídeo entrantes sin ningún otro procesamiento. Este tipo de evento en directo de tránsito está optimizado para eventos en directo de larga duración o para el streaming en directo lineal 24x365. Al crear este tipo de evento en directo, especifique None (LiveEventEncodingType.None).
 
-Puede enviar la fuente de contribución a resoluciones de hasta 4K y a una velocidad de fotogramas de 60 fotogramas/segundo, con códecs de vídeo H.264/AVC o H.265/HEVC y códecs de audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Para obtener más información, vea [Comparación de tipos de objetos LiveEvent](live-event-types-comparison-reference.md).
+Puede enviar la fuente de contribución a resoluciones de hasta 4K y a una velocidad de fotogramas de 60 fotogramas/segundo, con códecs de vídeo H.264/AVC o H.265/HEVC (solo ingesta Smooth) y códecs de audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Para obtener más información, vea [Comparación de tipos de objetos LiveEvent](live-event-types-comparison-reference.md).
 
 > [!NOTE]
 > El uso de un método de paso a través es la forma más económica de streaming en vivo cuando está realizando varios eventos en un largo período y ya ha invertido en codificadores locales. Consulte los detalles de los [precios](https://azure.microsoft.com/pricing/details/media-services/).

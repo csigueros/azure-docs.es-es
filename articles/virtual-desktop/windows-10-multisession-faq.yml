@@ -7,12 +7,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: helohr
   manager: femila
-  ms.openlocfilehash: f0d85ccf34c8c05a88b5cba891ba6fd35869d080
-  ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+  ms.openlocfilehash: a8fe71b3f89121d752f99f59755064aa6b64d4b4
+  ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/23/2021
-  ms.locfileid: "112538899"
+  ms.lasthandoff: 06/09/2021
+  ms.locfileid: "111907940"
 title: Preguntas frecuentes sobre la sesión múltiple de Windows 10 Enterprise
 summary: En este artículo se responden preguntas frecuentes y se explican procedimientos recomendados para la sesión múltiple de Windows 10 Enterprise.
 sections:
@@ -48,9 +48,9 @@ sections:
   - question: ¿Dónde se puede encontrar la imagen de la sesión múltiple de Windows 10 Enterprise?
     answer: La sesión múltiple de Windows 10 Enterprise se encuentra en la galería de Azure. Para encontrarla, vaya a Azure Portal y busque la versión Windows 10 Enterprise para escritorios virtuales. En el caso de una imagen integrada con aplicaciones de Microsoft 365 para empresas, vaya al Azure Portal y busque **Microsoft Windows 10 + Aplicaciones de Microsoft 365 para empresas**.
   - question: ¿Qué imagen de sesión múltiple de Windows 10 Enterprise debo usar?
-    answer: La galería de Azure tiene varias versiones, entre las que se incluyen la sesión múltiple de Windows 10 Enterprise, versión 1909, y la sesión múltiple de Windows 10 Enterprise, versión 1903. Se recomienda usar la versión más reciente para un mejor rendimiento y fiabilidad.
+    answer: La galería de Azure tiene varias versiones, entre las que se incluyen la sesión múltiple de Windows 10 Enterprise, versión 1809, y la sesión múltiple de Windows 10 Enterprise, versión 1903. Se recomienda usar la versión más reciente para un mejor rendimiento y fiabilidad.
   - question: ¿Qué versiones de sesión múltiple de Windows 10 Enterprise se admiten?
-    answer: Se admiten la versión 1909 y versiones posteriores de la sesión múltiple de Windows 10 Enterprise, y están disponibles en la galería de Azure. Estas versiones siguen la misma directiva de ciclo de vida de compatibilidad que Windows 10 Enterprise, lo que significa que la versión de marzo es compatible durante 18 meses y la versión de septiembre, durante 30 meses.
+    answer: Se admiten la versión 1809 y versiones posteriores de la sesión múltiple de Windows 10 Enterprise, y están disponibles en la galería de Azure. Estas versiones siguen la misma directiva de ciclo de vida de compatibilidad que Windows 10 Enterprise, lo que significa que la versión de marzo es compatible durante 18 meses y la versión de septiembre, durante 30 meses.
   - question: ¿Qué solución de administración de perfiles debo usar para la sesión múltiple de Windows 10 Enterprise?
     answer: >
       Se recomienda usar contenedores de perfiles de FSLogix al configurar Windows 10 Enterprise en entornos no persistentes u otros escenarios que requieran un perfil almacenado centralmente. FSLogix garantiza que el perfil de usuario esté disponible y actualizado para cada sesión de usuario. También se recomienda usar el contenedor de perfiles de FSLogix para almacenar un perfil de usuario en cualquier recurso compartido de SMB con los permisos adecuados, pero puede almacenar perfiles de usuario en el almacenamiento de blobs en páginas de Azure, si es necesario. Los usuarios de Azure Virtual Desktop pueden usar FSLogix sin costo adicional.  FSLogix está preinstalado en todas las imágenes de sesiones múltiples de Windows 10 Enterprise, pero el administrador de TI sigue siendo responsable de configurar el contenedor de perfiles de FSLogix.

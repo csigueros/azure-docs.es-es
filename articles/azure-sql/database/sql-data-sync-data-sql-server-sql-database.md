@@ -3,20 +3,20 @@ title: ¿Qué es SQL Data Sync para Azure?
 description: En este tema se introduce SQL Data Sync para Azure, que permite sincronizar datos entre varias bases de datos locales y en la nube.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MaraSteiu
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 08/20/2019
-ms.openlocfilehash: 7746e05583057b3ed313a55699cae711c560f061
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: c3a2be7a00c6718dd33b573faec4a619cbf5a1bb
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803951"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074852"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -153,6 +153,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 - No se admite el traslado de servidores entre diferentes suscripciones. 
 - Si dos claves principales solo son diferentes en el uso de mayúsculas (por ejemplo, Foo y foo), Data Sync no admitirá este escenario.
 - El truncamiento de tablas no es una operación admitida por Data Sync (no se realiza un seguimiento de los cambios).
+- No se admiten bases de datos de hiperescala. 
 
 #### <a name="unsupported-data-types"></a>Tipos de datos no admitidos
 

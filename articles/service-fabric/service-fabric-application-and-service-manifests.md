@@ -3,12 +3,12 @@ title: Descripción de los servicios y las aplicaciones de Azure Service Fabric
 description: Describe cómo se utilizan los manifiestos para describir los servicios y las aplicaciones de Service Fabric.
 ms.topic: conceptual
 ms.date: 8/12/2019
-ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22a04f94dfcd1ee4592e281ebd75efb0a8d0133a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86248227"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476550"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifiestos de servicio y de aplicación de Service Fabric
 En este artículo se describe cómo se definen y tienen versiones los servicios y las aplicaciones de Service Fabric mediante los archivos ApplicationManifest.xml y ServiceManifest.xml.  Para obtener más ejemplos, consulte los [ejemplos de aplicaciones y manifiesto de servicio](service-fabric-manifest-examples.md).  El esquema XML para estos archivos de manifiesto se documenta en la [documentación del esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -182,6 +182,7 @@ For more information about other features supported by application manifests, re
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Empaquete una aplicación](service-fabric-package-apps.md) y prepárela para la implementación.
+- [Use StartupServices.xml en una aplicación](service-fabric-startupservices-model.md).
 - [Implementar y quitar aplicaciones](service-fabric-deploy-remove-applications.md).
 - [Configure parameters and environment variables for different application instances](service-fabric-manage-multiple-environment-app-configuration.md) (Administración de los parámetros y las variables de entorno para varias instancias de aplicación).
 - [Configuración de directivas de seguridad para la aplicación](service-fabric-application-runas-security.md).

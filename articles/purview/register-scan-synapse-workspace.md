@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 3/31/2021
-ms.openlocfilehash: a7f8a572198dd097d412348efdc508682ace1d5b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 612a577b7db319c8ca65e8a178e4400a507d2da2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773744"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470153"
 ---
 # <a name="register-and-scan-azure-synapse-workspaces"></a>Registro y examen de áreas de trabajo de Azure Synapse
 
@@ -28,93 +28,12 @@ Los exámenes de áreas de trabajo de Azure Synapse permiten capturar metadatos 
 - Tenga en cuenta que debe ser administrador de los orígenes de datos de Azure Purview.
 - Configure la autenticación como se explica en las secciones siguientes.
 
-### <a name="setting-up-authentication-for-enumerating-dedicated-sql-database-resources-under-a-synapse-workspace"></a>Configuración de la autenticación para enumerar recursos de bases de datos SQL dedicadas en un área de trabajo de Synapse
-
-1. En Azure Portal, vaya al **grupo de recursos** o a la **suscripción** donde se encuentre el área de trabajo de Synapse.  
-1. Seleccione  **Control de acceso (IAM)**   en el menú de navegación izquierdo. 
-1. Debe ser propietario o administrador de acceso de usuarios para agregar un rol al grupo de recursos o a la suscripción. Seleccione el botón *+Agregar*. 
-1. Establezca el rol **Lector** y escriba el nombre de la cuenta de Azure Purview (que representa su MSI) en el cuadro de entrada Select (Seleccionar). Haga clic en *Save* (Guardar) para finalizar la asignación de roles.
-1. Siga los pasos 2 a 4 anteriores para agregar también el rol **Lector de datos de blobs** para el MSI de Azure Purview en el grupo de recursos o la suscripción donde se encuentra el área de trabajo de Synapse.
-
-### <a name="setting-up-authentication-for-enumerating-serverless-sql-database-resources-under-a-synapse-workspace"></a>Configuración de la autenticación para enumerar recursos de bases de datos SQL sin servidor en un área de trabajo de Synapse
+## <a name="steps-to-register-and-scan-a-synapse-workspace"></a>Pasos para registrar y examinar un área de trabajo de Synapse
 
 > [!NOTE]
-> Debe ser **administrador de Synapse** en el área de trabajo para ejecutar estos comandos. Obtenga más información sobre los permisos de Synapse [aquí](../synapse-analytics/security/how-to-set-up-access-control.md).
+> Estos pasos **deben** seguirse en el orden exacto especificado junto con la aplicación de los permisos exactos especificados en cada paso, si procede, para examinar correctamente el área de trabajo.
 
-1. Vaya al área de trabajo de Synapse.
-1. Vaya a la sección **Datos** y a una de las bases de datos SQL sin servidor.
-1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
-1. Agregue el MSI de la cuenta de Azure Purview (representado mediante el nombre de la cuenta) como **sysadmin** en las bases de datos SQL sin servidor, ejecutando el siguiente comando en el script de SQL:
-    ```sql
-    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
-    ALTER SERVER ROLE sysadmin ADD MEMBER [PurviewAccountName];
-    ```
-
-### <a name="setting-up-authentication-to-scan-resources-under-a-synapse-workspace"></a>Configuración de la autenticación para examinar recursos en un área de trabajo de Synapse
-
-Hay tres maneras de configurar la autenticación de un origen de Azure Synapse:
-
-- Identidad administrada
-- Entidad de servicio
- 
-#### <a name="using-managed-identity-for-dedicated-sql-databases"></a>Uso de una identidad administrada para bases de datos SQL dedicadas
-
-1. Vaya al **área de trabajo de Synapse**.
-1. Vaya a la sección **Datos** y a una de las bases de datos SQL sin servidor.
-1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
-1. Agregue el MSI de la cuenta de Azure Purview (representado mediante el nombre de la cuenta) como **db_datareader** en la base de datos SQL dedicada, ejecutando el siguiente comando en el script de SQL:
-
-    ```sql
-    CREATE USER [PurviewAccountName] FROM EXTERNAL PROVIDER
-    GO
-    
-    EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
-    GO
-    ```
-#### <a name="using-managed-identity-for-serverless-sql-databases"></a>Uso de una identidad administrada para bases de datos SQL sin servidor
-
-1. Vaya al **área de trabajo de Synapse**.
-1. Vaya a la sección **Datos** y a una de las bases de datos SQL sin servidor.
-1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
-1. Agregue el MSI de la cuenta de Azure Purview (representado mediante el nombre de la cuenta) como **sysadmin** en las bases de datos SQL sin servidor, ejecutando el siguiente comando en el script de SQL:
-    ```sql
-    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
-    ALTER SERVER ROLE sysadmin ADD MEMBER [PurviewAccountName];
-    ```
-
-#### <a name="using-service-principal-for-dedicated-sql-databases"></a>Uso de una entidad de servicio para bases de datos SQL dedicadas
-
-> [!NOTE]
-> Primero debe configurar una nueva **credencial** del tipo de entidad de servicio siguiendo las instrucciones que se indican [aquí](manage-credentials.md).
-
-1. Vaya al **área de trabajo de Synapse**.
-1. Vaya a la sección **Datos** y a una de las bases de datos SQL sin servidor.
-1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
-1. Agregue el **identificador de la entidad de servicio** como **db_datareader** en la base de datos SQL dedicada ejecutando el siguiente comando en el script de SQL:
-
-    ```sql
-    CREATE USER [ServicePrincipalID] FROM EXTERNAL PROVIDER
-    GO
-    
-    EXEC sp_addrolemember 'db_datareader', [ServicePrincipalID]
-    GO
-    ```
-
-#### <a name="using-service-principal-for-serverless-sql-databases"></a>Uso de una entidad de servicio para bases de datos SQL sin servidor
-
-1. Vaya al **área de trabajo de Synapse**.
-1. Vaya a la sección **Datos** y a una de las bases de datos SQL sin servidor.
-1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
-1. Agregue el MSI de la cuenta de Azure Purview (representado mediante el nombre de la cuenta) como **sysadmin** en las bases de datos SQL sin servidor, ejecutando el siguiente comando en el script de SQL:
-    ```sql
-    CREATE LOGIN [ServicePrincipalID] FROM EXTERNAL PROVIDER;
-    ALTER SERVER ROLE sysadmin ADD MEMBER [ServicePrincipalID];
-    ```
-
-> [!NOTE]
-> Debe configurar la autenticación en cada base de datos SQL dedicada que esté contenida en el área de trabajo de Synapse que tenga intención de registrar y examinar. Los permisos mencionados anteriormente con relación a la base de datos SQL sin servidor se aplican a todas las contenidas en el área de trabajo, es decir, solo tendrá que ejecutarlo una vez.
-    
-## <a name="register-an-azure-synapse-source"></a>Registro de un origen de Azure Synapse
+### <a name="step-1-register-your-source-only-a-contributor-on-the-synapse-workspace-who-is-also-a-data-source-admin-in-purview-can-carry-out-this-step"></a>**PASO 1**: Registro del origen (solo un colaborador en el área de trabajo de Synapse que también sea administrador de origen de datos en Purview puede llevar a cabo este paso)
 
 Para registrar un nuevo origen de Azure Synapse en el catálogo de datos, haga lo siguiente:
 
@@ -136,7 +55,113 @@ En la pantalla **Registrar orígenes (Azure Synapse Analytics)** , haga lo sigui
 
     :::image type="content" source="media/register-scan-synapse-workspace/register-synapse-source-details.png" alt-text="Rellenado de los detalles del origen de Azure Synapse":::
 
-## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+
+### <a name="step-2-applying-permissions-to-enumerate-the-contents-of-the-workspace"></a>**PASO 2**: Aplicación de permisos para enumerar el contenido del área de trabajo
+
+#### <a name="setting-up-authentication-for-enumerating-dedicated-sql-database-resources-under-a-synapse-workspace"></a>Configuración de la autenticación para enumerar recursos de bases de datos SQL dedicadas en un área de trabajo de Synapse
+
+1. En Azure Portal, vaya al **grupo de recursos** o a la **suscripción** donde se encuentre el área de trabajo de Synapse.  
+1. Seleccione  **Control de acceso (IAM)**   en el menú de navegación izquierdo. 
+1. Debe ser propietario o administrador de acceso de usuario para agregar un rol al **grupo de recursos** o la **suscripción**. Seleccione el botón *+Agregar*. 
+1. Establezca el rol **Lector** y escriba el nombre de la cuenta de Azure Purview (que representa su MSI) en el cuadro de entrada Select (Seleccionar). Haga clic en *Save* (Guardar) para finalizar la asignación de roles.
+
+#### <a name="setting-up-authentication-for-enumerating-serverless-sql-database-resources-under-a-synapse-workspace"></a>Configuración de la autenticación para enumerar recursos de bases de datos SQL sin servidor en un área de trabajo de Synapse
+
+> [!NOTE]
+> Debe ser **administrador de Synapse** en el área de trabajo para ejecutar estos comandos. Obtenga más información sobre los permisos de Synapse [aquí](../synapse-analytics/security/how-to-set-up-access-control.md).
+
+1. Vaya al área de trabajo de Synapse.
+1. Vaya a la sección **Datos** y a una de las bases de datos SQL sin servidor.
+1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
+1. Agregue el MSI de la cuenta de Azure Purview (representado mediante el nombre de la cuenta) como **db_datareader** en las bases de datos SQL sin servidor, ejecutando el siguiente comando en el script de SQL:
+    ```sql
+    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
+    CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
+    ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
+    ```
+
+1. En Azure Portal, vaya al **grupo de recursos** o a la **suscripción** donde se encuentre el área de trabajo de Synapse.
+1. Seleccione  **Control de acceso (IAM)**   en el menú de navegación izquierdo. 
+1. Debe ser **propietario** o **administrador de acceso de usuarios** para agregar un rol al grupo de recursos o a la suscripción. Seleccione el botón *+Agregar*. 
+1. Establezca el rol **Lector de datos de Storage Blob** y escriba el nombre de la cuenta de Azure Purview (que representa su MSI) en el cuadro Seleccionar entrada. Haga clic en *Save* (Guardar) para finalizar la asignación de roles.
+
+### <a name="step-3-applying-permissions-to-scan-the-contents-of-the-workspace"></a>**PASO 3**: Aplicación de permisos para examinar el contenido del área de trabajo
+
+Hay dos maneras de configurar la autenticación de un origen de Azure Synapse:
+
+- Identidad administrada
+- Entidad de servicio
+
+> [!NOTE]
+> Debe configurar la autenticación en cada base de datos SQL dedicada que esté contenida en el área de trabajo de Synapse que tenga intención de registrar y examinar. Los permisos que se mencionan a continuación con relación a la base de datos SQL sin servidor se aplican a todas las contenidas en el área de trabajo, es decir, solo tendrá que ejecutarla una vez.
+
+#### <a name="using-managed-identity-for-dedicated-sql-databases"></a>Uso de una identidad administrada para bases de datos SQL dedicadas
+
+1. Vaya al **área de trabajo de Synapse**.
+1. Vaya a la sección **Datos** y a una de las bases de datos SQL dedicadas.
+1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
+1. Agregue el MSI de la cuenta de Azure Purview (representado mediante el nombre de la cuenta) como **db_datareader** en la base de datos SQL dedicada, ejecutando el siguiente comando en el script de SQL:
+
+    ```sql
+    CREATE USER [PurviewAccountName] FROM EXTERNAL PROVIDER
+    GO
+    
+    EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
+    GO
+    ```
+#### <a name="using-managed-identity-for-serverless-sql-databases"></a>Uso de una identidad administrada para bases de datos SQL sin servidor
+
+1. Vaya al **área de trabajo de Synapse**.
+1. Vaya a la sección **Datos** y a una de las bases de datos SQL sin servidor.
+1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
+1. Agregue el MSI de la cuenta de Azure Purview (representado mediante el nombre de la cuenta) como **db_datareader** en las bases de datos SQL sin servidor, ejecutando el siguiente comando en el script de SQL:
+    ```sql
+    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
+    CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
+    ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
+    ```
+
+#### <a name="using-service-principal-for-dedicated-sql-databases"></a>Uso de una entidad de servicio para bases de datos SQL dedicadas
+
+> [!NOTE]
+> Primero debe configurar una nueva **credencial** del tipo de entidad de servicio siguiendo las instrucciones que se indican [aquí](manage-credentials.md).
+
+1. Vaya al **área de trabajo de Synapse**.
+1. Vaya a la sección **Datos** y a una de las bases de datos SQL dedicadas.
+1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
+1. Agregue el **identificador de la entidad de servicio** como **db_datareader** en la base de datos SQL dedicada ejecutando el siguiente comando en el script de SQL:
+
+    ```sql
+    CREATE USER [ServicePrincipalID] FROM EXTERNAL PROVIDER
+    GO
+    
+    EXEC sp_addrolemember 'db_datareader', [ServicePrincipalID]
+    GO
+    ```
+
+#### <a name="using-service-principal-for-serverless-sql-databases"></a>Uso de una entidad de servicio para bases de datos SQL sin servidor
+
+1. Vaya al **área de trabajo de Synapse**.
+1. Vaya a la sección **Datos** y a una de las bases de datos SQL sin servidor.
+1. Haga clic en el icono de puntos suspensivos e inicie un nuevo script de SQL.
+1. Agregue el MSI de la cuenta de Azure Purview (representado mediante el nombre de la cuenta) como **db_datareader** en las bases de datos SQL sin servidor, ejecutando el siguiente comando en el script de SQL:
+    ```sql
+    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
+    CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
+    ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
+    ```
+
+### <a name="step-4-setting-up-synapse-workspace-firewall-access"></a>**PASO 4**: Configuración del acceso al firewall del área de trabajo de Synapse
+
+1. En Azure Portal, vaya al área de trabajo de Synapse. 
+
+3. Seleccione Firewalls en el panel de navegación izquierdo.
+
+4. En **Permitir que los servicios y recursos de Azure accedan a esta área de trabajo**, haga clic en **Activado**.
+
+5. Haga clic en Guardar.
+
+### <a name="step-5-setting-up-a-scan-on-the-workspace"></a>**PASO 5**: Configuración de un examen en el área de trabajo
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
@@ -161,7 +186,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 1. Revise el examen y seleccione Save (Guardar) para completar la configuración.   
 
-## <a name="viewing-your-scans-and-scan-runs"></a>Visualización de los exámenes y las ejecuciones de exámenes
+#### <a name="viewing-your-scans-and-scan-runs"></a>Visualización de los exámenes y las ejecuciones de exámenes
 
 1. Para ver los detalles del origen, haga clic en **View details** (Ver detalles) en el icono de la sección de orígenes. 
 
@@ -176,7 +201,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 1. Vea un resumen de las ejecuciones de exámenes recientes con errores en la parte inferior de la página de detalles del origen. También puede hacer clic para ver detalles más precisos relacionados con estas ejecuciones.
 
-## <a name="manage-your-scans---edit-delete-or-cancel"></a>Administración de exámenes: editar, eliminar o cancelar
+#### <a name="manage-your-scans---edit-delete-or-cancel"></a>Administración de exámenes: editar, eliminar o cancelar
 Para administrar o eliminar un examen, haga lo siguiente:
 
 - Vaya al centro de administración. Seleccione Data sources (Orígenes de datos) en la sección Sources and scanning (Orígenes y examen) y, a continuación, seleccione el origen de datos deseado.

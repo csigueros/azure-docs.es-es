@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 05/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2441832ce13c98410cbd0d087ec4302ff7fa6428
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 0482146a7070083c795a60a4b01fdede7e1b3bf1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205906"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067391"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Acerca de las puertas de enlace de red virtual con redundancia de zona en Azure Availability Zones
 
@@ -39,7 +39,7 @@ Para implementar puertas de enlace en una zona específica, puede usar puertas d
 
 ## <a name="gateway-skus"></a><a name="gwskus"></a>SKU de puerta de enlace
 
-Las puertas de enlace zonales y con redundancia de zona están disponibles como nuevas SKU de puerta de enlace. Hemos agregado nuevas SKU de puerta de enlace de red virtual en las regiones de Azure AZ. Estas SKU son similares a las SKU correspondientes existentes para ExpressRoute y VPN Gateway, salvo que son específicas para puertas de enlace zonales y con redundancia de zona. Puede identificar estas SKU mediante "AZ" en el nombre de la SKU.
+Las puertas de enlace zonales y con redundancia de zona están disponibles como SKU de puerta de enlace. Hemos agregado nuevas SKU de puerta de enlace de red virtual en las regiones de Azure AZ. Estas SKU son similares a las SKU correspondientes existentes para ExpressRoute y VPN Gateway, salvo que son específicas para puertas de enlace zonales y con redundancia de zona. Puede identificar estas SKU mediante "AZ" en el nombre de la SKU.
 
 Para obtener información sobre las SKU de puerta de enlace, consulte [SKU de puerta de enlace de VPN](vpn-gateway-about-vpngateways.md#gwsku) y [SKU de puerta de enlace de ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
@@ -64,17 +64,17 @@ Cuando se crea una dirección IP pública con la SKU de IP pública **Básica**,
 
 ## <a name="faq"></a><a name="faq"></a>P+F
 
-### <a name="what-will-change-when-i-deploy-these-new-skus"></a>¿Qué cambiará cuando proceda a implementar estas SKU nuevas?
+### <a name="what-will-change-when-i-deploy-these-skus"></a>¿Qué cambiará cuando implemente estas SKU?
 
 Desde su perspectiva, puede implementar puertas de enlace con redundancia de zona. Esto significa que todas las instancias de las puertas de enlace se implementarán en distintas zonas de disponibilidad de Azure, y cada zona de disponibilidad es un dominio de error y actualización diferente. Por ello, las puertas de enlace son más confiables, disponibles y resistentes a los errores de la zona.
 
 ### <a name="can-i-use-the-azure-portal"></a>¿Puedo usar Azure Portal?
 
-Sí, puede usar Azure Portal para implementar las nuevas SKU. Sin embargo, verá estas nuevas SKU solo en las regiones de Azure que tengan Azure Availability Zones.
+Sí, puede usar Azure Portal para implementar estos SKU. Sin embargo, estos nuevos SKU solo se verán en las regiones de Azure que tengan Azure Availability Zones.
 
-### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>¿Qué regiones están disponibles para usar las nuevas SKU?
+### <a name="what-regions-are-available-for-me-to-use-these-skus"></a>¿Qué regiones están disponibles para usar estos SKU?
 
-Las nuevas SKU están disponibles en las regiones de Azure que tienen Azure Availability Zones: las regiones Centro de EE. UU., Centro de Francia, Norte de Europa, Oeste de Europa, Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Sudeste de Asia, Este de Japón y Sur de Reino Unido. En el futuro, las puertas de enlace con redundancia de zona estarán disponibles en otras regiones públicas de Azure.
+Estos SKU están disponible en las regiones de Azure que tienen Azure Availability Zones. Para más información, consulte la sección [Regiones de Azure con Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>¿Puedo convertir/migrar/actualizar mis puertas de enlace de red virtual existentes en puertas de enlace zonales o con redundancia de zona?
 

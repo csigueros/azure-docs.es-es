@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: afbd0c7fbbe6565a2f8e80c394d8ac608d1aa27a
-  ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+  ms.openlocfilehash: f9f6a834239e46c2c0934dd145f8a1193f6a50b2
+  ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/09/2021
-  ms.locfileid: "111907942"
+  ms.lasthandoff: 07/18/2021
+  ms.locfileid: "114404419"
 title: Preguntas más frecuentes sobre Application Gateway
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -127,7 +127,7 @@ sections:
   - question: ¿Puedo implementar algo más en la subred de la puerta de enlace de aplicaciones?
     answer: No. Pero se pueden implementar otras instancias de Application Gateway en la subred.
   - question: ¿Puedo cambiar la red virtual o la subred de una instancia existente de Application Gateway?
-    answer: "Solo puede mover una instancia de Application Gateway entre subredes dentro de la misma red virtual. También es importante tener en cuenta que la instancia de Application Gateway debe estar en estado *Detenido* para realizar esta acción. Esta operación solo se puede realizar mediante Azure PowerShell y la CLI de Azure con los siguientes comandos:\n\n**Azure PowerShell**\n\n```azurepowershell-interactive\n$VNet = Get-AzVirtualNetwork -Name \"<VNetName>\" -ResourceGroupName \"<ResourceGroup>\"\n$Subnet = Get-AzVirtualNetworkSubnetConfig -Name \"<NewSubnetName>\" -VirtualNetwork $VNet\n$AppGw = Get-AzApplicationGateway -Name \"<ApplicationGatewayName>\" -ResourceGroupName \"<ResourceGroup>\"\nStop-AzApplicationGateway -ApplicationGateway $AppGw\n$AppGw = Set-AzApplicationGatewayIPConfiguration -ApplicationGateway $AppGw -Name \"<IPConfigurationName>\" -Subnet $Subnet\nSet-AzApplicationGateway -ApplicationGateway $AppGw\n```\nPara más información, consulte [Set-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration).\n\n**CLI de Azure**\n\n```azurecli-interactive\naz network application-gateway stop -g <ResourceGroup> -n <ApplicationGatewayName>\naz network application-gateway update -g <ResourceGroup> -n <ApplicationGatewayName> --set gatewayIpConfigurations[0].subnet.id=<subnetID>\n``` \n"
+    answer: "Solo puede mover una instancia de Application Gateway entre subredes dentro de la misma red virtual. Se admite en la versión V1 con front-end público y privado, y en la versión V2 solo con front-end público. También es importante tener en cuenta que la instancia de Application Gateway debe estar en estado *Detenido* para realizar esta acción. Tenga en cuenta que al detener o iniciar la versión V1 se cambiará la dirección IP pública. Esta operación solo se puede realizar mediante Azure PowerShell y la CLI de Azure con los siguientes comandos:\n\n**Azure PowerShell**\n\n```azurepowershell-interactive\n$VNet = Get-AzVirtualNetwork -Name \"<VNetName>\" -ResourceGroupName \"<ResourceGroup>\"\n$Subnet = Get-AzVirtualNetworkSubnetConfig -Name \"<NewSubnetName>\" -VirtualNetwork $VNet\n$AppGw = Get-AzApplicationGateway -Name \"<ApplicationGatewayName>\" -ResourceGroupName \"<ResourceGroup>\"\nStop-AzApplicationGateway -ApplicationGateway $AppGw\n$AppGw = Set-AzApplicationGatewayIPConfiguration -ApplicationGateway $AppGw -Name $AppGw.GatewayIPConfigurations.Name -Subnet $Subnet\n#If you have a private frontend IP configuration, uncomment and run the next line:\n#$AppGw = Set-AzApplicationGatewayFrontendIPConfig -Name $AppGw.FrontendIPConfigurations.Name[1] -Subnet $Subnet -ApplicationGateway $AppGw\nSet-AzApplicationGateway -ApplicationGateway $AppGw\n```\nPara más información, consulte [Set-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration).\n\n**CLI de Azure**\n\n```azurecli-interactive\naz network application-gateway stop -g <ResourceGroup> -n <ApplicationGatewayName>\naz network application-gateway update -g <ResourceGroup> -n <ApplicationGatewayName> --set gatewayIpConfigurations[0].subnet.id=<subnetID>\n``` \n"
   - question: ¿Se admiten grupos de seguridad de red en la subred de Application Gateway?
     answer: >
       Consulte [Grupos de seguridad de red en la subred de Application Gateway](./configuration-infrastructure.md#network-security-groups).

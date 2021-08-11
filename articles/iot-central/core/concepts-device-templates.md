@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: ecd99a21c4d92eeddaa84661424980f6d40d1ae2
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ab209cd3fb598c0c9ad4df359578d956aca7077b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760884"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088739"
 ---
 # <a name="what-are-device-templates"></a>¿Qué son las plantillas de dispositivo?
 
@@ -33,7 +33,9 @@ En una plantilla de dispositivo se incluyen las secciones siguientes:
 
 ## <a name="device-models"></a>Modelos de dispositivos
 
-Un modelo de dispositivo define cómo interactúa un dispositivo con la aplicación de IoT Central. El desarrollador de dispositivos debe asegurarse de que el dispositivo implementa los comportamientos definidos en el modelo de dispositivo para que IoT Central pueda supervisar y administrar el dispositivo. Un modelo de dispositivo se compone de una o varias _interfaces_, y cada interfaz puede definir una colección de tipos de _telemetría_, _propiedades del dispositivo_ y _comandos_. Un desarrollador de soluciones puede importar un archivo JSON, que defina el modelo de dispositivo, a una plantilla de dispositivo, o usar la interfaz de usuario web en IoT Central para crear o editar un modelo de dispositivo. Los cambios en un modelo de dispositivo realizados mediante la interfaz de usuario web requieren la [cambio de versión de la plantilla de dispositivo](./howto-version-device-template.md).
+Un modelo de dispositivo define cómo interactúa un dispositivo con la aplicación de IoT Central. El desarrollador de dispositivos debe asegurarse de que el dispositivo implementa los comportamientos definidos en el modelo de dispositivo para que IoT Central pueda supervisar y administrar el dispositivo. Un modelo de dispositivo se compone de una o varias _interfaces_, y cada interfaz puede definir una colección de tipos de _telemetría_, _propiedades del dispositivo_ y _comandos_. Un desarrollador de soluciones puede importar un archivo JSON, que defina el modelo de dispositivo, a una plantilla de dispositivo, o usar la interfaz de usuario web en IoT Central para crear o editar un modelo de dispositivo.
+
+Para más información sobre cómo editar un modelo de dispositivo, consulte [Edición de una plantilla de dispositivo existente](howto-edit-device-template.md).
 
 Un desarrollador de soluciones también puede exportar un archivo JSON que contenga el modelo de dispositivo. Un desarrollador de dispositivos puede usar este documento JSON para comprender cómo debe comunicarse el dispositivo con la aplicación de IoT Central.
 

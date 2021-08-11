@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 0dea30723a3ebe1598d6304ac3c98bfe1b55b466
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bcd0992347033fa355db1f952e775a5077fecabe
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563020"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554558"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Control de las actualizaciones con el control de mantenimiento y Azure Portal
 
@@ -24,28 +24,34 @@ El control de mantenimiento permite decidir cuándo se aplican las actualizacion
 1. Inicie sesión en Azure Portal.
 
 1. Busque **Configuraciones de mantenimiento**.
-
-   ![Captura de pantalla en la que se muestra cómo abrir Configuraciones de mantenimiento](media/virtual-machines-maintenance-control-portal/maintenance-configurations-search.png)
+    
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-search-bar.png" alt-text="Captura de pantalla en la que se muestra cómo abrir Configuraciones de mantenimiento":::
 
 1. Haga clic en **Agregar**.
 
-   ![Captura de pantalla en la que se muestra cómo agregar una configuración de mantenimiento](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add.png)
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-add-2.png" alt-text="Captura de pantalla en la que se muestra cómo agregar una configuración de mantenimiento":::
 
-1. Elija una suscripción y un grupo de recursos, especifique un nombre para la configuración y elija una región. Haga clic en **Next**.
+1. En la pestaña Aspectos básicos, elija una suscripción y un grupo de recursos, escriba un nombre para la configuración, elija una región y seleccione *Host* para el ámbito. Haga clic en **Next**.
+    
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics-tab.png" alt-text="Captura de pantalla en la que se muestran los elementos básicos de las configuraciones de mantenimiento":::
 
-   ![Captura de pantalla en la que se muestran los elementos básicos de las configuraciones de mantenimiento](media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics.png)
+1. En la pestaña Programar, declare una ventana programada cuando Azure vaya a aplicar las actualizaciones en los recursos. Establezca una fecha de inicio, una ventana de mantenimiento y una periodicidad. Una vez que cree una ventana programada, ya no tendrá que aplicar las actualizaciones manualmente. Haga clic en **Next**. 
+
+    > [!IMPORTANT]
+    > La **duración** de la ventana de mantenimiento debe ser de *2 horas* o más. La **periodicidad** de mantenimiento debe establecerse para repetirse al menos una vez cada 35 días. 
+
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-schedule-tab.png" alt-text="Captura de pantalla en la que se muestra la programación de la configuración de mantenimiento":::
+
+1. En la pestaña Asignación, asigne recursos ahora u omita este paso y asigne recursos más tarde, después de la implementación de la configuración de mantenimiento. Haga clic en **Next**.
 
 1. Agregue las etiquetas y los valores. Haga clic en **Next**.
-
-   ![Captura de pantalla en la que se muestra cómo agregar etiquetas a una configuración de mantenimiento](media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags.png)
+    
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags-tab.png" alt-text="Captura de pantalla en la que se muestra cómo agregar etiquetas a una configuración de mantenimiento":::
 
 1. Revise el resumen. Haga clic en **Crear**.
 
-   ![Captura de pantalla en la que se muestra cómo crear una configuración de mantenimiento](media/virtual-machines-maintenance-control-portal/maintenance-configurations-create.png)
-
 1. Cuando termine la implementación, haga clic en **Ir al recurso**.
 
-   ![Captura de pantalla en la que se muestra que la implementación de la configuración de mantenimiento ha finalizado](media/virtual-machines-maintenance-control-portal/maintenance-configurations-deployment-complete.png)
 
 ## <a name="assign-the-configuration"></a>Asignación de la configuración
 

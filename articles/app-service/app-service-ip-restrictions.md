@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 541af6d0051d06de5721b22616fbf1e2867b71d6
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 27bb3f163dc8f1a2f50e39ca5bbb5708419cb171
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833371"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073907"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configuración de las restricciones de acceso de Azure App Service
 
@@ -145,11 +145,11 @@ Como parte de cualquier regla, puede agregar filtros de encabezados HTTP adicion
 * X-Azure-FDID
 * X-FD-HealthProbe
 
-Para cada nombre de encabezado, puede agregar hasta 8 valores separados por comas. Los filtros de encabezados http se evalúan después de la propia regla y deben cumplirse las dos condiciones para que se aplique la regla.
+Para cada nombre de encabezado, puede agregar hasta ocho valores separados por comas. Los filtros de encabezados http se evalúan después de la propia regla y deben cumplirse las dos condiciones para que se aplique la regla.
 
 ### <a name="multi-source-rules"></a>Reglas de varios orígenes
 
-Las reglas de varios orígenes permiten combinar hasta 8 intervalos IP u 8 etiquetas de servicio en una sola regla. Puede utilizarlo si tiene más de 512 intervalos IP o si desea crear reglas lógicas en las que varios intervalos IP se combinen con un solo filtro de encabezado http.
+Las reglas de varios orígenes permiten combinar hasta ocho intervalos IP u ocho etiquetas de servicio en una sola regla. Puede utilizarlo si tiene más de 512 intervalos IP o si desea crear reglas lógicas en las que varios intervalos IP se combinen con un solo filtro de encabezado http.
 
 Las reglas de varios orígenes se definen de la misma manera que se definen las reglas de un solo origen, pero con cada intervalo separado por una coma.
 
@@ -200,6 +200,9 @@ Puede agregar restricciones de acceso mediante programación si realiza alguna d
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
+   > [!NOTE]
+   > Para trabajar con etiquetas de servicio, encabezados HTTP o reglas de varios orígenes en la CLI de Azure se requiere, como mínimo, la versión 2.23.0. Para comprobar la versión del módulo instalado, escriba: ```az version```
+
 * Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule). Por ejemplo:
 
 
@@ -208,7 +211,7 @@ Puede agregar restricciones de acceso mediante programación si realiza alguna d
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > Para trabajar con etiquetas de servicio, encabezados HTTP o reglas de varios orígenes se requiere al menos la versión 5.7.0. Para comprobar la versión del módulo instalado, escriba: **Get-InstalledModule -Name Az**
+   > Para trabajar con etiquetas de servicio, encabezados HTTP o reglas de varios orígenes en Azure PowerShell se requiere, como mínimo, la versión 5.7.0. Para comprobar la versión del módulo instalado, escriba: ```Get-InstalledModule -Name Az```
 
 También puede establecer los valores manualmente mediante una de las siguientes acciones:
 

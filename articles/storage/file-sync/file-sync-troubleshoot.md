@@ -7,12 +7,13 @@ ms.topic: troubleshooting
 ms.date: 4/20/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b88d63f86c863b5f1c050e293912cb6628d50b00
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 633926710e4f6b92e2cd19aaf852135c07929966
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140036"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677136"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -36,9 +37,9 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 
 Si la instalación produce error, revise el archivo installer.log para determinar la causa.
 
-<a id="agent-installation-gpo"></a>**Se produjo un error en la instalación del agente: el Asistente para la instalación del agente de sincronización del almacenamiento finalizó prematuramente debido a un error.**
+<a id="agent-installation-gpo"></a>**Se produjo un error en la instalación del agente: el asistente para instalación del agente de sincronización del almacenamiento finalizó prematuramente debido a un error**
 
-En el registro de instalación del agente, se registra el siguiente error:
+En el registro de instalación del agente, se registra el error siguiente:
 
 ```
 CAQuietExec64:  + CategoryInfo          : SecurityError: (:) , PSSecurityException
@@ -46,9 +47,9 @@ CAQuietExec64:  + FullyQualifiedErrorId : UnauthorizedAccess
 CAQuietExec64:  Error 0x80070001: Command line returned an error.
 ```
 
-Este problema se produce si la [directiva de ejecución de PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) se configura mediante la directiva de grupo y si la configuración de la directiva es "Permitir solo scripts firmados". Todos los scripts incluidos en el agente de Azure File Sync están firmados. Se produce un error en la instalación del agente de Azure File Sync porque el instalador está realizando la ejecución del script mediante la configuración de directiva para omitir la ejecución.
+Este problema se produce si la [directiva de ejecución de PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) se configura mediante la directiva de grupo y si la configuración de la directiva es "Permitir solo scripts firmados". Todos los scripts incluidos en el agente de Azure File Sync están firmados. Se produce un error en la instalación del agente de Azure File Sync porque el instalador realiza la ejecución del script mediante la configuración de la directiva para omitir la ejecución.
 
-Para resolver este problema, deshabilite temporalmente la configuración de directiva de grupo [Activar la ejecución de scripts](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) en el servidor. Una vez completada la instalación del agente, se puede volver a habilitar la configuración de directiva de grupo.
+Para resolver este problema, deshabilite temporalmente la configuración de la directiva de grupo [Activar la ejecución de scripts](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) en el servidor. Una vez completada la instalación del agente, la configuración de la directiva de grupo puede volver a habilitarse.
 
 <a id="agent-installation-on-DC"></a>**Se produce un error al instalar el agente en el controlador de dominio de Active Directory**  
 Si intenta instalar el agente de sincronización en un controlador de dominio de Active Directory donde el propietario del rol PDC está en un sistema operativo Windows Server 2008 R2 o inferior, puede tener un problema por el que el agente de sincronización no se pueda instalar.
@@ -343,7 +344,7 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Solución de errores de sincronización de archivo o directorio
 **Registro de ItemResults: errores de sincronización por elemento**  
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | No se puede acceder al archivo en niveles en el servidor. Este problema se produce si no se ha recuperado el archivo en niveles antes de eliminar un punto de conexión de servidor. | Para resolver este problema, consulte [No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | El cambio de archivo o de directorio no se puede sincronizar todavía porque una carpeta dependiente aún no se ha sincronizado. Este elemento se sincronizará después de sincronizar los cambios dependientes. | No es necesaria ninguna acción. Si el error persiste durante varios días, use el script de PowerShell FileSyncErrorsReport.ps1 para determinar por qué la carpeta dependiente todavía no se ha sincronizado. |
@@ -358,6 +359,7 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 | 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | Se omitió el archivo o directorio, pero se sincronizará durante la siguiente sesión de sincronización. Si se notifica este error al descargar el elemento, es más que probable que el nombre del archivo o directorio no sea válido. | No es necesario realizar ninguna acción si se notifica este error al cargar el archivo. Si se notifica el error al descargar el archivo, cambie el nombre del archivo o directorio en cuestión. Consulte [Tratamiento de caracteres no admitidos](?tabs=portal1%252cazure-portal#handling-unsupported-characters) para más información. |
 | 0x800700B7 | -2147024713 | ERROR_ALREADY_EXISTS | La creación de un archivo o directorio no se puede sincronizar porque el elemento ya existe en el destino y la sincronización no tiene constancia del cambio. | No es necesaria ninguna acción. La sincronización dejará de registrar este error una vez que la detección de cambios se ejecute en el destino y la sincronización tenga constancia de este nuevo elemento. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | El archivo no se puede sincronizar porque se ha alcanzado el límite de recursos compartidos de archivos de Azure. | Para resolver este problema, consulte la sección [Se ha alcanzado el límite de almacenamiento del recurso compartido de archivos de Azure](?tabs=portal1%252cazure-portal#-2134351810) en la Guía de solución de problemas. |
+| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | El archivo está cifrado mediante una solución no compatible (como el Sistema de cifrado de archivos de NTFS). | Descifre el archivo y use una solución de cifrado compatible. Para ver una lista de soluciones de soporte técnico, consulte la sección [Cifrado](file-sync-planning.md#encryption) en la guía de planeamiento. |
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | El archivo se encuentra en una carpeta de replicación de solo lectura de DFS-R. | El archivo se encuentra en una carpeta de replicación de solo lectura de DFS-R. Azure Files Sync no admite puntos de conexión de servidor en carpetas de replicación de solo lectura de DFS-R. Vea la [guía de planeamiento](file-sync-planning.md#distributed-file-system-dfs) para más información. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | El archivo tiene un estado pendiente de eliminación. | No es necesaria ninguna acción. El archivo se eliminará una vez que se cierren todos los identificadores de archivos abiertos. |
 | 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | El archivo no se puede sincronizar porque el firewall y la configuración de red virtual de la cuenta de almacenamiento están habilitados y el servidor no tiene acceso a la cuenta de almacenamiento. | Agregue la dirección IP del servidor o la red virtual siguiendo los pasos descritos en la sección [Configuración de los ajustes de red virtual y del firewall](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings) en la guía de implementación. |
@@ -379,11 +381,11 @@ La siguiente tabla contiene todos los caracteres Unicode que Azure File Sync aú
 |---------------|-----------------|
 | 0x00000000 - 0x0000001F (caracteres de control) | 32 |
 | 0x0000FDD0 - 0x0000FDDD (formularios de presentación en árabe a) | 14 |
-| <ul><li>0x00000022 (comillas)</li><li>0x0000002A (asterisco)</li><li>0x0000002F (barra diagonal)</li><li>0x0000003A (dos puntos)</li><li>0x0000003C (menor que)</li><li>0x0000003E (mayor que)</li><li>0x0000003F (signo de interrogación)</li><li>0x0000005C (barra diagonal inversa)</li><li>0x0000007C (barra o canalización)</li></ul> | 9 |
-| <ul><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x0010FFFE - 0x0010FFFF = 2 (noncharacter)</li></ul> | 8 |
+| <ul><li>0x00000022 (comillas)</li><li>0x0000002A (asterisco)</li><li>0x0000002F (barra diagonal)</li><li>0x0000003A (dos puntos)</li><li>0x0000003C (menor que)</li><li>0x0000003E (mayor que)</li><li>0x0000003F (signo de interrogación)</li><li>0x0000005C (barra diagonal inversa)</li><li>0x0000007C (canalización o barra)</li></ul> | 9 |
+| <ul><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x0010FFFE - 0x0010FFFF = 2 (no carácter)</li></ul> | 8 |
 | <ul><li>0x0000009D ( cosc operating system command)</li><li>0x00000090 (dcs device control string)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (high octet preset)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverse line feed)</li></ul> | 6 |
 | 0x0000FFF0, 0x0000FFFD, 0x0000FFFE, 0x0000FFFF (especiales) | 4 |
-| Archivos o directorios que terminan con un punto. | 1 |
+| Archivos o directorios que terminan con un punto | 1 |
 
 ### <a name="common-sync-errors"></a>Errores de sincronización comunes
 <a id="-2147023673"></a>**Se canceló la sesión de sincronización.**  
@@ -1125,7 +1127,7 @@ Si no se pueden apilar archivos en Azure Files:
 
 ### <a name="tiering-errors-and-remediation"></a>Establecimiento en capas de errores y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | El archivo se pudo organizar en niveles debido a que la carga inicial está en curso. | No es necesaria ninguna acción. El archivo se almacenarán en capas una vez que se complete la carga inicial. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | No se pudo establecer en capas el archivo porque está en uso. | No es necesaria ninguna acción. El archivo se establecerá en capas cuando ya no esté en uso. |
@@ -1168,7 +1170,7 @@ Si no se pueden recuperar archivos:
 
 ### <a name="recall-errors-and-remediation"></a>Errores de coincidencia y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070079 | -2147942521 | ERROR_SEM_TIMEOUT | El archivo no se recuperó debido a un tiempo de expiración de E/S. Este problema puede aparecer por varias razones: las restricciones de recursos del servidor, una conectividad de red deficiente o un problema de Azure Storage (por ejemplo, la limitación). | No es necesaria ninguna acción. Si el error persiste durante varias horas, abra una incidencia de soporte técnico. |
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | El archivo no se recuperó debido a una incidencia en la red.  | Si el error no desaparece, compruebe la conectividad de red con el recurso compartido de archivos de Azure. |

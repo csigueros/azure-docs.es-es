@@ -4,12 +4,12 @@ description: Instale las herramientas, el SDK y el motor en tiempo de ejecución
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6fe551f8371322af8d955b5233e6d9d05741f3d9
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 71fd869ad68164faf883fe148a47c2da4fd133b0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868130"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088436"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configuración de su entorno de desarrollo en Mac OS X
 > [!div class="op_single_selector"]
@@ -20,15 +20,15 @@ ms.locfileid: "107868130"
 Puede crear aplicaciones de Azure Service Fabric para que se ejecuten en clústeres de Linux con Mac OS X. En este documento se describe cómo configurar su Mac para desarrollo.
 
 ## <a name="prerequisites"></a>Prerrequisitos
-Azure Service Fabric no se ejecuta de forma nativa en Mac OS X. Para ejecutar un clúster local de Service Fabric, se proporciona una imagen preconfigurada del contenedor de Docker. Antes de comenzar, necesita:
+Azure Service Fabric no se ejecuta de forma nativa en Mac OS X. Para ejecutar un clúster local de Service Fabric, se proporciona una imagen preconfigurada del contenedor de Docker. Antes de comenzar, necesitará lo siguiente:
 
-* Al menos 4 GB de RAM.
-* Versión más reciente de [Docker](https://www.docker.com/).
+* Cumplir los requisitos del sistema para instalar [Docker Desktop en Mac](https://docs.docker.com/docker-for-mac/install/)
+
+* Para más información, consulte [Instalar y ejecutar Docker Desktop en Mac](https://docs.docker.com/docker-for-mac/install/#install-and-run-docker-desktop-on-mac).
 
 >[!TIP]
 >
->Para instalar Docker en el equipo Mac, siga los pasos mencionados en la [documentación de Docker](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install). Después de instalar, [compruebe la instalación](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine).
->
+>Para instalar Docker en el equipo Mac, siga los pasos mencionados en la [documentación de Docker](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install). Después de la instalación, puede usar Docker Desktop para establecer las preferencias, incluidos los [límites de recursos](https://docs.docker.com/docker-for-mac) y el [uso del disco](https://docs.docker.com/docker-for-mac/space/).
 
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>Creación de un contenedor local e instalación de Service Fabric
 Para configurar un contenedor local de Docker y hacer que un clúster de Service Fabric se ejecute en él, realice los pasos siguientes:

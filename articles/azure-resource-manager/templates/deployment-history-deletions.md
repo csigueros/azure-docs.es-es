@@ -2,14 +2,14 @@
 title: Eliminaciones del historial de implementación
 description: Describe cómo Azure Resource Manager elimina automáticamente las implementaciones del historial de implementaciones. Las implementaciones se eliminan cuando el historial está próximo a superar el límite de 800.
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 06/04/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: e2920eb1daa626b6a817b2fe3b388e8c531f12e4
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: eaffae3ea5e901719969632cb1f889c8914978a0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751625"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963362"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminaciones automáticas del historial de implementaciones
 
@@ -17,23 +17,21 @@ Cada vez que se implementa una plantilla, la información sobre la implementaci�
 
 Azure Resource Manager elimina automáticamente las implementaciones del historial a medida que se acerca al límite. La eliminación automática es un cambio respecto al comportamiento anterior. Anteriormente, tenía que eliminar manualmente las implementaciones del historial de implementaciones para evitar un error. Este cambio se implementó el 6 de agosto de 2020.
 
-**Las eliminaciones automáticas son compatibles con las implementaciones de grupo de recursos. Actualmente, las implementaciones del historial de implementaciones de [suscripciones](deploy-to-subscription.md), [grupos de administración](deploy-to-management-group.md) e [inquilinos](deploy-to-tenant.md) no se eliminan automáticamente.**
+**Las eliminaciones automáticas son compatibles con las implementaciones de grupo de recursos y suscripción. Actualmente, las implementaciones del historial de implementaciones de [grupo de administración](deploy-to-management-group.md) e [inquilino](deploy-to-tenant.md) no se eliminan automáticamente**.
 
 > [!NOTE]
 > La eliminación de una implementación del historial no afecta a ninguno de los recursos implementados.
 
 ## <a name="when-deployments-are-deleted"></a>Cuando las implementaciones se eliminan
 
-Las implementaciones se eliminan del historial cuando se alcanzan 775 o más. Azure Resource Manager elimina las implementaciones hasta que el historial baja hasta 750. Las implementaciones más antiguas siempre se eliminan primero.
+Las implementaciones se eliminan del historial cuando se alcanzan 700 o más. Azure Resource Manager elimina las implementaciones hasta que el historial baja hasta 600. Las implementaciones más antiguas siempre se eliminan primero.
 
-:::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Eliminaciones del historial de implementaciones":::
+:::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.png" alt-text="Diagrama de eliminación del historial de implementación.":::
 
-> [!NOTE]
-> El número de partida (775) y el número final (750) están sujetos a cambios.
->
+> [!IMPORTANT]
 > Si el grupo de recursos ya está en el límite de 800, se producirá un error en la siguiente implementación. El proceso de eliminación automática se inicia inmediatamente. Puede volver a probar la implementación después de una breve espera.
 
-Además de las implementaciones, también se desencadenan eliminaciones al ejecutar la [operación what-if](template-deploy-what-if.md) o validar una implementación.
+Además de las implementaciones, también se desencadenan eliminaciones al ejecutar la [operación what-if](./deploy-what-if.md) o validar una implementación.
 
 Cuando asigna a una implementación el mismo nombre que el de una existente en el historial, se restablece su lugar en el historial. La implementación se mueve a la posición más reciente en el historial. El lugar de una implementación también se restablece cuando se [revierte a esa implementación](rollback-on-error.md) después de un error.
 

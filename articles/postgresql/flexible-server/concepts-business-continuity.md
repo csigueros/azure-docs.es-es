@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 341d3c6f0a2d84c2b7b725959db9f7e5dd80d3ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbc47fa19cccb8d5ce6af38fdff3f0e772f5039f
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92542971"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537693"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL: servidor flexible
 
@@ -35,7 +35,7 @@ En la siguiente tabla se muestran las características que ofrece un servidor fl
 | **Característica** | **Descripción** | **Consideraciones** |
 | ---------- | ----------- | ------------ |
 | **Copias de seguridad automáticas** | Un servidor flexible realiza automáticamente copias de seguridad diarias de los archivos de la base de datos y copias de seguridad de los registros de transacciones de forma continuada. Las copias de seguridad se pueden conservar desde 7 hasta 35 días. Es posible restaurar el servidor de bases de datos a un momento dado dentro del período de retención de la copia de seguridad. El RTO depende del tamaño de los datos que se van a restaurar más el tiempo necesario para realizar la recuperación del registro. Puede tardar desde unos minutos hasta 12 horas. Para obtener más información, vea [Conceptos: copia de seguridad y restauración](./concepts-backup-restore.md). |Los datos de copia de seguridad permanecen en la región. |
-| **Alta disponibilidad con redundancia de zona** | Un servidor flexible se puede implementar con configuración de alta disponibilidad (HA) redundante de zona. De este modo, los servidores principal y en espera se implementarán en dos zonas de disponibilidad diferentes dentro de una región. Esta configuración de alta disponibilidad protege sus bases de datos frente a errores de nivel de zona y además ayuda a reducir el tiempo de inactividad de la aplicación durante eventos de tiempo de inactividad planeados y no planeados. Los datos del servidor principal se replican de modo sincrónico en la réplica en espera. En caso de que se produzca una interrupción en el servidor principal, el servidor se conmuta por error automáticamente a la réplica en espera. Se espera que el RTO en la mayoría de los casos dure entre 60 y 120 s. Se espera que el RPO sea cero (sin pérdida de datos). Para obtener más información, consulte [Conceptos: alta disponibilidad](./concepts-high-availability.md). | Compatible con los niveles de proceso de uso general y optimizado para memoria. Disponible únicamente en regiones con varias zonas disponibles. |
+| **Alta disponibilidad con redundancia de zona** | Un servidor flexible se puede implementar con configuración de alta disponibilidad (HA) redundante de zona. De este modo, los servidores principal y en espera se implementarán en dos zonas de disponibilidad diferentes dentro de una región. Esta configuración de alta disponibilidad protege sus bases de datos frente a errores de nivel de zona y además ayuda a reducir el tiempo de inactividad de la aplicación durante eventos de tiempo de inactividad planeados y no planeados. Los datos del servidor principal se replican de modo sincrónico en la réplica en espera. En caso de que se produzca una interrupción en el servidor principal, el servidor se conmuta por error automáticamente a la réplica en espera. Se espera que el RTO en la mayoría de los casos dure menos de 120 s. Se espera que el RPO sea cero (sin pérdida de datos). Para obtener más información, consulte [Conceptos: alta disponibilidad](./concepts-high-availability.md). | Compatible con los niveles de proceso de uso general y optimizado para memoria. Disponible únicamente en regiones con varias zonas disponibles. |
 | **Discos administrados premium** | Los archivos de la base de datos se guardan en un almacenamiento premium administrado de alta disponibilidad y muy duradero. Esto proporciona redundancia de datos con tres copias de réplicas almacenadas en una zona de disponibilidad con capacidades automáticas de recuperación de datos. Para obtener más información, consulte la [documentación de Managed Disks](../../virtual-machines/managed-disks-overview.md). | Datos almacenados en una zona de disponibilidad. |
 | **Copia de seguridad con redundancia de zona** | Las copias de seguridad de un servidor flexible se almacenan de forma automática y segura en un almacenamiento con redundancia de zona dentro de una región. Durante un error de nivel de zona en el que se ha aprovisionado el servidor, y si el servidor no está configurado con redundancia de zona, puede restaurar sin problemas la base de datos con el punto de restauración más reciente en otra zona. Para obtener más información, consulte [Conceptos: copias de seguridad y restauración](./concepts-backup-restore.md).| Aplicable únicamente a regiones con varias zonas disponibles.|
 

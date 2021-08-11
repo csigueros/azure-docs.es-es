@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: 1214cfaa0d534edc47cdcadd98ab0a3ead4d2f46
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 856cef0da55b12e808565d25ffe2ac92db4762eb
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985641"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238121"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-arm-template"></a>Inicio rápido: Creación de una respuesta automática a una alerta de seguridad concreta mediante una plantilla de Resource Manager
 
@@ -23,7 +23,7 @@ En este inicio rápido se describe cómo usar una plantilla de Azure Resource Ma
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
+[![Implementación en Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -62,7 +62,7 @@ Para ver otras plantillas de inicio rápido de Security Center, consulte estas p
 
 - **Portal**:
 
-  [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
+  [![Implementación en Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
   Para más información acerca de esta opción de implementación, consulte [Uso de un botón de implementación para implementar plantillas desde el repositorio de GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
@@ -73,7 +73,7 @@ Use Azure Portal para comprobar que la automatización de flujos de trabajo se h
 1. En [Azure Portal](https://portal.azure.com), abra **Security Center**.
 1. En la barra de menús superior, seleccione el icono de filtro y, después, seleccione la suscripción específica en la que ha implementado la nueva automatización de flujos de trabajo.
 1. En la barra lateral de Security Center, abra la **automatización de flujos de trabajo** y busque la nueva automatización.
-    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Lista de automatizaciones configuradas" lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Lista de automatizaciones configuradas." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > Si tiene muchas automatizaciones de flujos de trabajo en la suscripción, use la opción de **filtrar por nombre**.
 
@@ -84,7 +84,7 @@ Cuando ya no la necesite, elimine la automatización de flujos de trabajo median
 1. En [Azure Portal](https://portal.azure.com), abra **Security Center**.
 1. En la barra de menús superior, seleccione el icono de filtro y, después, seleccione la suscripción específica en la que ha implementado la nueva automatización de flujos de trabajo.
 1. En la barra lateral de Security Center, abra la **automatización de flujos de trabajo** y busque la automatización que se va a eliminar.
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Pasos para quitar una automatización de flujo de trabajo" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Pasos para quitar una automatización de flujo de trabajo." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Active la casilla correspondiente al elemento que se va a eliminar.
 1. En la barra de herramientas, seleccione **Eliminar**.
 

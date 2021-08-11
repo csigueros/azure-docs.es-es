@@ -3,15 +3,15 @@ title: Parametrización de servicios vinculados en Azure Data Factory
 description: Aprenda a parametrizar los servicios vinculados en Azure Data Factory y a pasar valores dinámicos en tiempo de ejecución.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 06/01/2021
 author: chez-charlie
 ms.author: chez
-ms.openlocfilehash: 48e8c9ff5111b6b67e835676e3bc56e4536248a0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 277f3d9e9d82edf9e93d41808a351528a94f85d7
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091493"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793701"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrización de servicios vinculados en Azure Data Factory
 
@@ -22,7 +22,7 @@ Ahora puede parametrizar un servicio vinculado y pasar valores dinámicos en tie
 Puede usar la interfaz de usuario de Data Factory en Azure Portal o una interfaz de programación para parametrizar los servicios vinculados.
 
 > [!TIP]
-> Se recomienda no parametrizar las contraseñas ni los secretos. Almacene en cambio todas las cadenas de conexión en Azure Key Vault y parametrice el *nombre del secreto*.
+> Se recomienda no parametrizar las contraseñas ni los secretos. Almacene todos los secretos en Azure Key Vault en su lugar y parametrice el *nombre del secreto*.
 
 > [!Note]
 > Hay un error abierto para usar "-" en los nombres de parámetro; se recomienda usar nombres sin "-" hasta que se resuelva el error.
@@ -33,8 +33,9 @@ Si desea una demostración y una introducción de siete minutos de esta caracter
 
 ## <a name="supported-linked-service-types"></a>Tipos de servicios vinculados admitidos
 
-Puede parametrizar cualquier tipo de servicio vinculado.
-Al crear un servicio vinculado en la interfaz de usuario, Data Factory proporciona una experiencia de parametrización integrada para los siguientes tipos de servicios vinculados. En la hoja de creación y edición del servicio vinculado, puede buscar las opciones de los nuevos parámetros y agregar contenido dinámico.
+Todos los tipos de servicio vinculados se admiten para la parametrización.
+
+**Compatible de forma nativa en la interfaz de usuario de ADF:** al crear un servicio vinculado en la interfaz de usuario, Data Factory proporciona una experiencia de parametrización integrada para los siguientes tipos de servicios vinculados. En la hoja de creación y edición del servicio vinculado, puede buscar las opciones de los nuevos parámetros y agregar contenido dinámico. Consulte la [experiencia  de la interfaz de usuario de Data Factory](#data-factory-ui).
 
 - Amazon Redshift
 - Amazon S3
@@ -56,7 +57,7 @@ Al crear un servicio vinculado en la interfaz de usuario, Data Factory proporcio
 - Oracle Cloud Storage
 - SQL Server
 
-Para otros tipos de servicios vinculados que no están en la lista anterior, puede parametrizar el servicio vinculado mediante la edición del código JSON en la interfaz de usuario:
+**Creación avanzada:** para otros tipos de servicios vinculados que no están en la lista anterior, puede parametrizar el servicio vinculado mediante la edición del código JSON en la interfaz de usuario:
 
 - En la hoja de creación y edición del servicio vinculado -> expanda "Advanced" (Avanzado) -> active la casilla "Specify dynamic contents in JSON format" (Especificar contenido dinámico en formato JSON) -> especifique la carga JSON del servicio vinculado. 
 - O bien, después de crear un servicio vinculado sin parametrización, en [Management hub](author-visually.md#management-hub) (Centro de administración) -> Linked services (Servicios vinculados) -> busque el servicio vinculado específico -> haga clic en "código" (botón "{}") para editar el código JSON. 

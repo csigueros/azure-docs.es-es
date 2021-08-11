@@ -4,17 +4,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: d555322c0fd4067a4232e53387d811de7b50a8f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 745ff6fddb3b175b4b046be71668f0c85ddd1c63
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417755"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854525"
 ---
 El control del audio comprimido se implementa mediante [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licencia, los binarios de GStreamer no se compilan ni se vinculan con el SDK de Voz. Los desarrolladores deben instalar varias dependencias y complementos.
 
 > [!NOTE]
-> Consulte la lista de [distribuciones y arquitecturas de destino de Linux admitidas](~/articles/cognitive-services/speech-service/speech-sdk.md).
+> Para obtener información sobre una configuración general obligatoria en Linux, consulte los [requisitos del sistema y las instrucciones de configuración](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
 # <a name="ubuntudebian"></a>[Ubuntu/Debian](#tab/debian)
 
@@ -38,8 +38,6 @@ gstreamer1-plugins-ugly-free
 
 > [!NOTE]
 > - En RHEL/CentOS 7 y RHEL/CentOS 8, en el caso de usar el formato comprimido "ANY", es necesario instalar más complementos de GStreamer si el complemento de formato de transmisión por secuencias de medios no está en los complementos instalados anteriormente. 
-> - En RHEL/CentOS 7, siga las instrucciones sobre [cómo configurar RHEL/CentOS 7 para el SDK de voz](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-> - En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 
 ---

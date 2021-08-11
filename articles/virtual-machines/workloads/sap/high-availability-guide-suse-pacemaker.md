@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2021
+ms.date: 05/13/2021
 ms.author: radeltch
-ms.openlocfilehash: e0ebc527f1eb0aa3ed014957633b89c407952364
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c762f0e04a7079fff72962cafe44b06acfcf0eaf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743208"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100043"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -660,7 +660,7 @@ sudo crm configure property stonith-timeout=900
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuración de Pacemaker para los eventos programados de Azure
 
-Azure ofrece [eventos programados](../../linux/scheduled-events.md). Se proporcionan eventos programados a través del servicio de metadatos y permiten que la aplicación tenga tiempo para preparar eventos como el apagado de una máquina virtual, la reimplementación de VM, etc. El agente de recursos **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervisa los eventos programados de Azure. Si se detectan eventos, el agente intentará detener todos los recursos de la VM afectada y los moverá a otro nodo del clúster. Para ello, deben configurarse otros recursos de Pacemaker. 
+Azure ofrece [eventos programados](../../linux/scheduled-events.md). Se proporcionan eventos programados a través del servicio de metadatos y permiten que la aplicación tenga tiempo para preparar eventos como el apagado de una máquina virtual, la reimplementación de VM, etc. El agente de recursos **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervisa los eventos programados de Azure. Si se detectan eventos y el agente de recursos determina que hay otro nodo de clúster disponible, el agente azure-events colocará el nodo de clúster de destino en modo de espera, con el fin de forzar al clúster a migrar recursos fuera de la máquina virtual con [eventos programados de Azure](../../linux/scheduled-events.md) pendientes. Para ello, deben configurarse otros recursos de Pacemaker. 
 
 1. **[A]** Asegúrese de que el paquete del agente de **azure-events** ya está instalado y actualizado. 
 
