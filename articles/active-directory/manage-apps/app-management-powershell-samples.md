@@ -2,25 +2,26 @@
 title: Ejemplos de PowerShell para la administración de aplicaciones de Azure Active Directory
 description: Estos ejemplos de PowerShell se usan para las aplicaciones que administra en el inquilino de Azure Active Directory. Puede usar estos scripts de ejemplo para buscar información de expiración sobre secretos y certificados.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 02/18/2021
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: mifarca
-ms.openlocfilehash: 6fac606877a36a5b571096342289cc0369cd50e4
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: c0e6969b0d6814e74e99a6ad893284bc407b269d
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077435"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113568431"
 ---
 # <a name="azure-active-directory-powershell-examples-for-application-management"></a>Ejemplos de PowerShell de Azure Active Directory para la administración de aplicaciones
 
 La tabla siguiente incluye vínculos a ejemplos de scripts de PowerShell para la administración de aplicaciones de Azure AD. Estos ejemplos requieren uno de estos módulos:
+
 - [AzureAD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2).
 - [Azure AD V2 PowerShell para Graph (versión preliminar)](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), a menos que se indique otra cosa.
 

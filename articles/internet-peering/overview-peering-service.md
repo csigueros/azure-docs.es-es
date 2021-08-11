@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: overview
 ms.date: 5/22/2020
 ms.author: derekol
-ms.openlocfilehash: 717a8c87c6a1c22d3f75cd4e3054bfdf0c4b5f9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42e9df30731e40b44142bbacac8bbc7d10588345
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95023452"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687954"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Emparejamiento de Internet frente a Peering Service
 
@@ -49,7 +49,7 @@ En la ilustración anterior, cada sucursal de una empresa global se conecta a la
 * El asociado puede usar el emparejamiento existente para admitir Peering Service si cumple los requisitos.
 
 ## <a name="faq"></a>Preguntas más frecuentes
-Para ver las preguntas más frecuentes, consulte [Preguntas más frecuentes sobre Peering Service](service-faqs.md).
+Para ver las preguntas más frecuentes, consulte [Preguntas más frecuentes sobre Peering Service](service-faqs.yml).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

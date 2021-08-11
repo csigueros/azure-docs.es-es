@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 07/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64fd91d3f033c0a04c4936f11d096aa640942a1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 56fd9449e3954f7fe7cf3ab43a62df05869e2112
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743892"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729603"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>¿Qué son External Identities de Azure Active Directory?
 
@@ -44,7 +44,7 @@ En la tabla siguiente se proporciona una comparación detallada de los escenario
 | **Inicio de sesión único (SSO)**      | se admite SSO en todas las aplicaciones conectadas a Azure AD. Por ejemplo, puede proporcionar acceso a Microsoft 365, o bien a aplicaciones locales y a otras aplicaciones SaaS como Salesforce o Workday.    | Se admite el inicio de sesión único para aplicaciones propiedad de los clientes dentro de los inquilinos de Azure AD B2C. No se admite el inicio de sesión único en Microsoft 365 ni en otras aplicaciones SaaS de Microsoft.    |
 | **Directiva de seguridad y cumplimiento**        | los administra la organización anfitriona o que realiza la invitación (por ejemplo, con [directivas de acceso condicional](conditional-access.md)). | Las administra la organización mediante el acceso condicional y Identity Protection.        |
 | **Personalización de marca**  | se utiliza la marca de la organización anfitriona o que realiza la invitación.    | Personalización de marca totalmente personalizable por aplicación u organización.   |
-| **Modelo de facturación** | Los [precios de las identidades externas](https://azure.microsoft.com/en-us/pricing/details/active-directory/external-identities/) se basan en los usuarios activos mensuales (MAU). <br>(Consulte también: [Detalles de la configuración B2B](external-identities-pricing.md)) | Los [precios de las identidades externas](https://azure.microsoft.com/en-us/pricing/details/active-directory/external-identities/) se basan en los usuarios activos mensuales (MAU). <br>(Consulte también: [Detalles de la configuración B2C](../../active-directory-b2c/billing.md)) |
+| **Modelo de facturación** | Los [precios de las identidades externas](https://azure.microsoft.com/pricing/details/active-directory/external-identities/) se basan en los usuarios activos mensuales (MAU). <br>(Consulte también: [Detalles de la configuración B2B](external-identities-pricing.md)) | Los [precios de las identidades externas](https://azure.microsoft.com/pricing/details/active-directory/external-identities/) se basan en los usuarios activos mensuales (MAU). <br>(Consulte también: [Detalles de la configuración B2C](../../active-directory-b2c/billing.md)) |
 | **Más información** | [Entrada de blog](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentación](what-is-b2b.md)                   | [página de producto](https://azure.microsoft.com/services/active-directory-b2c/), [documentación](../../active-directory-b2c/index.yml)       |
 
 Proteja y administre los clientes y asociados más allá de los límites organizacionales con Azure AD External Identities.

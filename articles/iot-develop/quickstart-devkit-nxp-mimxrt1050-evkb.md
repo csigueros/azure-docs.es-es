@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: 69879548be28ec02df8ba958243a97ee1925e3ae
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 7dcba5490d3f341e68b07aa798e9ca0ffa1666e7
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904162"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122101"
 ---
 # <a name="quickstart-connect-an-nxp-mimxrt1050-evkb-evaluation-kit-to-iot-central"></a>Inicio rápido: Conexión de un kit de evaluación NXP MIMXRT1050-EVKB a IoT Central
 
@@ -56,7 +56,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### <a name="install-the-tools"></a>Instalar las herramientas
 
-El repositorio clonado contiene un script de instalación que instala y configura las herramientas necesarias. Si instaló estas herramientas en otro inicio rápido de dispositivo insertado, no es necesario volver a hacerlo.
+El repositorio clonado contiene un script de instalación que instala y configura las herramientas necesarias. Si ha instalado estas herramientas en otro inicio rápido de dispositivo insertado, no es necesario volver a hacerlo.
 
 > [!NOTE]
 > El script de instalación instala las siguientes herramientas:
@@ -131,13 +131,13 @@ Puede usar la aplicación **Termite** para supervisar la comunicación y confirm
 
 1. Inicie **Termite**.
     > [!TIP]
-    > Si tiene problemas para que el dispositivo se inicialice o se conecte después de guardar la imagen, consulte [Solución de problemas](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+    > Si tiene problemas para que el dispositivo se inicialice o se conecte después de guardar la imagen, consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md).
 1. Haga clic en **Configuración**.
 1. En el cuadro de diálogo **Serial port settings** (Configuración de puerto serie), compruebe los siguientes valores y actualícelos si es necesario:
     * **Baud rate** (Velocidad en baudios): 115.200
     * **Puerto**: Puerto al que está conectado NXP EVK. Si hay varias opciones de puerto en la lista desplegable, busque ahí el puerto correcto que debe usar. Abra el **Administrador de dispositivos** de Windows y, en **Puertos**, identifique qué puerto debe usar.
 
-    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1050-evkb/termite-settings.png" alt-text="Captura de pantalla de la configuración del puerto serie en la aplicación Termite":::
+    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1050-evkb/termite-settings.png" alt-text="Captura de pantalla de la configuración del puerto en serie en la aplicación Termite":::
 
 1. Seleccione Aceptar.
 1. Presione el botón **Reset** (Restablecer) en el dispositivo. El botón está rotulado en el dispositivo y se encuentra cerca del conector micro USB.
@@ -226,7 +226,7 @@ En la página del dispositivo, seleccione la pestaña **Acerca de**.
 
 ## <a name="troubleshoot-and-debug"></a>Solución de problemas y depuración
 
-Si tiene problemas para compilar el código del dispositivo, para guardar la imagen en la memoria flash del dispositivo o para conectarse, consulte [Solución de problemas](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+Si tiene problemas para compilar el código del dispositivo, guardar la imagen en la memoria flash del dispositivo o conectarse, consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md).
 
 Para depurar la aplicación, consulte [Depuración con Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 

@@ -3,14 +3,14 @@ title: Análisis de vídeo en directo mediante la extensión OpenVINO™ Model S
 description: En este tutorial, usará un servidor de modelos de IA con modelos preentrenados proporcionado por Intel para analizar la fuente de vídeo en directo desde una cámara IP (simulada).
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 06/01/2021
 titleSuffix: Azure
-ms.openlocfilehash: d9c7beeb75d8a8785f58b1d0b9b3a93dfc6e53f1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a36de6ac835b3ed9f4188b6f8d2bf3b5178be087
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384293"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604701"
 ---
 # <a name="tutorial-analyze-live-video-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Análisis de vídeo en directo mediante la extensión OpenVINO™ Model Server – AI de Intel 
 
@@ -18,8 +18,7 @@ En este tutorial se muestra cómo usar la [extensión OpenVINO™ Model Server �
 
 En este tutorial se usa una máquina virtual de Azure como dispositivo IoT Edge y se emplea una secuencia de vídeo en directo simulada. Se basa en un ejemplo de código escrito en C#.
 
-> [!NOTE]
-> En este tutorial se requiere el uso de una máquina x86-64 como dispositivo perimetral.
+[!INCLUDE [use-x86-64](./includes/common-includes/use-x86-64.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -60,8 +59,8 @@ El nodo del procesador de extensión HTTP desempeña el rol de un proxy. Selecci
 En este tutorial, aprenderá lo siguiente:
 
 1. Configure un entorno de desarrollo.
-1. Implementar los módulos perimetrales necesarios.
-1. Crear e implementar la canalización en directo.
+1. Implementará los módulos perimetrales necesarios.
+1. Creará e implementará la canalización en directo.
 1. Interpretará los resultados.
 1. Limpieza de recursos.
 
@@ -137,10 +136,10 @@ Si abre la topología de la canalización (`pipelineTopologyUrl`) de este tutori
             }
          ```
 
-     * Una llamada a `livePipelineActivate` que inicia la canalización y el flujo de vídeo.
+     * Una llamada a `livePipelineActivate` que activa la canalización y el flujo de vídeo.
 1. La salida de la ventana **TERMINAL** se pone en pausa tras el mensaje `Press Enter to continue`. No seleccione Entrar todavía. Desplácese hacia arriba para ver las cargas de la respuesta JSON para los métodos directos que ha invocado.
 1. Cambie a la ventana **SALIDA** de Visual Studio Code. Verá los mensajes que el módulo de Video Analyzer está enviando al centro de IoT. En la siguiente sección de este inicio rápido se analizan estos mensajes.
-1. La canalización en directo continúa ejecutándose y se imprimen los resultados. El simulador RTSP sigue recorriendo el vídeo de origen. Para detener la canalización en directo, vuelva a la ventana **TERMINAL** y seleccione Entrar. 
+1. Prosigue la canalización en directo y se imprimen los resultados. El simulador RTSP sigue recorriendo el vídeo de origen. Para detener la canalización en directo, vuelva a la ventana **TERMINAL** y seleccione Entrar. 
 
     La siguiente serie de llamadas limpia los recursos:
       * Una llamada a `livePipelineDeactivate` desactiva la canalización.

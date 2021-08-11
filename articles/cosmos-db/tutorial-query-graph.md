@@ -1,20 +1,20 @@
 ---
 title: ¿Cómo consultar datos del gráfico en Azure Cosmos DB?
 description: Obtenga información sobre cómo consultar datos de gráficos desde Azure Cosmos DB mediante consultas de Gremlin.
-author: christopheranderson
-ms.author: chrande
+author: manishmsfte
+ms.author: mansha
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 545ffd303d2039a3c54088220c1fa74e742c750f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2da9aceee53985219c4f43b11ec91e8e2d70f6a0
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93360775"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113354229"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Tutorial: Consulta de Gremlin API de Azure Cosmos DB mediante Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: dbb49d990581c6b38d0eff32b01dd9b115e6794c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f65f9ea1778aba1ff60cdb4cc4b4eba3fa7562cf
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057826"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113758145"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Inicio rápido: Prueba de una solución basada en la nube para administrar los dispositivos IoT industriales
 
@@ -98,7 +98,7 @@ Puede hacer clic en un gráfico para analizar los datos más a fondo.
 
 ### <a name="factory-locations"></a>Ubicaciones de factoría
 
-Un panel **Ubicaciones de factoría** que muestra el estado, la ubicación y la configuración actual de producción de la solución. La primera vez que se ejecuta el acelerador de soluciones, el panel muestra un conjunto simulado de fábricas. Cada simulación de una línea de producción consta de tres servidores OPC UA reales que ejecutan tareas simuladas y comparten datos. Para más información sobre OPC UA, consulte las [preguntas frecuentes sobre Connected Factory](iot-accelerators-faq-cf.md):
+Un panel **Ubicaciones de factoría** que muestra el estado, la ubicación y la configuración actual de producción de la solución. La primera vez que se ejecuta el acelerador de soluciones, el panel muestra un conjunto simulado de fábricas. Cada simulación de una línea de producción consta de tres servidores OPC UA reales que ejecutan tareas simuladas y comparten datos. Para más información sobre OPC UA, consulte las [preguntas frecuentes sobre Connected Factory](iot-accelerators-faq-cf.yml):
 
 [![Ubicaciones de factoría](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
@@ -116,7 +116,7 @@ Puede navegar por la jerarquía de soluciones y ver los valores de OEE y KPI en 
 
 ### <a name="map"></a>Asignación
 
-Si su suscripción tiene acceso a la [API de Bing Maps](iot-accelerators-faq-cf.md), el mapa *Fábricas* muestra la ubicación geográfica y el estado de todas las fábricas incluidas en la solución. Haga clic en las ubicaciones que se muestran en el mapa para profundizar en los detalles de ubicación.
+Si su suscripción tiene acceso a la [API de Bing Maps](iot-accelerators-faq-cf.yml), el mapa *Fábricas* muestra la ubicación geográfica y el estado de todas las fábricas incluidas en la solución. Haga clic en las ubicaciones que se muestran en el mapa para profundizar en los detalles de ubicación.
 
 [![Asignación](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 

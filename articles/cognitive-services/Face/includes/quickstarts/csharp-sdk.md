@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 3387e5d1fd64771b8be012b421da4b32007155f0
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: ee861896020f41dd841f538f546242a65992b8d3
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109858119"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113364831"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -25,7 +25,7 @@ Use la biblioteca cliente de Face para .NET para:
 * [Creación de un elemento PersonGroup](#create-a-persongroup)
 * [Identificación de una cara](#identify-a-face)
 
-[Documentación de referencia](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.1) | [Ejemplos](/samples/browse/?products=azure&term=face)
+[Documentación de referencia](/dotnet/api/overview/azure/cognitiveservices/face-readme) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.1) | [Ejemplos](/samples/browse/?products=azure&term=face)
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -249,7 +249,7 @@
               displayName: 'scale server, reset password'
         - name: Reinicio del servidor
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
@@ -257,7 +257,7 @@
               href: howto-restart-server-powershell.md
         - name: Reglas de firewall
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: CLI de Azure
@@ -312,7 +312,7 @@
           displayName: 'application development, TLS'
         - name: Configuración de parámetros del servidor
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI
@@ -323,7 +323,7 @@
               displayName: 'application development, server parameters'
         - name: Almacenamiento de crecimiento automático
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
             - name: Azure CLI
@@ -334,7 +334,7 @@
               displayName: 'business continuity, scale , storage'
         - name: Registros de acceso
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
             - name: Azure CLI
@@ -459,6 +459,10 @@
         - name: Redes
           href: flexible-server/concepts-networking.md
           displayName: 'virtual networks, vnet, IP address, public access'
+        - name: Reglas de firewall
+          href: flexible-server/concepts-firewall-rules.md
+        - name: Seguridad
+          href: flexible-server/concepts-security.md
         - name: Límites
           href: flexible-server/concepts-limits.md
         - name: Extensiones
@@ -504,7 +508,7 @@
       items:
         - name: Administración de un servicio
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: flexible-server/how-to-manage-server-portal.md
             - name: Azure CLI
               href: flexible-server/how-to-manage-server-cli.md
@@ -536,7 +540,7 @@
                   href: flexible-server/how-to-connect-scram.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: CLI de Azure
@@ -554,7 +558,7 @@
               href: flexible-server/how-to-restart-server-cli.md
         - name: Restauración de un servidor
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: flexible-server/how-to-restore-server-portal.md
             - name: CLI de Azure
               href: flexible-server/how-to-restore-server-cli.md
@@ -645,6 +649,8 @@
               href: concepts-hyperscale-high-availability.md
         - name: Replicación
           href: concepts-hyperscale-read-replicas.md
+        - name: Agrupación de conexiones
+          href: concepts-hyperscale-connection-pool.md
         - name: Supervisión y ajuste
           items:
             - name: Supervisión y ajuste

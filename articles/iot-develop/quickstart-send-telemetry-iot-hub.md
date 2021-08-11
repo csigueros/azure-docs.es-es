@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.date: 05/04/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: dc59905351da364ed23b5cbc59b972feb0497a9e
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 04d7883088a4f8f9c12e384b3dcc3b4c0dfa6edf
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112294938"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730809"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-hub"></a>Inicio rápido: Envío de datos de telemetría de un dispositivo a IoT Hub
 
 **Se aplica a**: [desarrolladores de aplicaciones para dispositivos](about-iot-develop.md#device-application-development)
-
-En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Vamos a utilizar la CLI de Azure para crear un centro de Azure IoT y un dispositivo. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura al centro y enviar datos de telemetría.
 
 :::zone pivot="programming-language-ansi-c"
 
@@ -88,7 +86,7 @@ En este inicio rápido ha aprendido un flujo de trabajo básico de una aplicaci�
 A continuación, puede explorar los siguientes artículos para más información sobre la creación de soluciones de dispositivo con Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Control de un dispositivo conectado a IoT Hub](../iot-hub/quickstart-control-device-dotnet.md)
+> [Control de un dispositivo conectado a IoT Hub](../iot-hub/quickstart-control-device.md)
 > [!div class="nextstepaction"]
 > [Envío de datos de telemetría a IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]

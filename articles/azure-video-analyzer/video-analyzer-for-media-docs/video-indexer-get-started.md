@@ -1,19 +1,20 @@
 ---
 title: 'Registro en Azure Video Analyzer for Media (anteriormente Video Indexer) y carga de su primer vídeo: Azure'
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Obtenga información sobre cómo registrarse y cargar su primer vídeo mediante el portal de Azure Video Analyzer for Media (anteriormente Video Indexer).
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: quickstart
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/25/2021
 ms.author: juliako
-ms.openlocfilehash: 0f446af68f9bc314ecaefe06966ff2801e67f0be
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8ecbf87bb7cd571b017e339bddcb384bae39bbef
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386829"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112118768"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Inicio rápido: Suscripción y carga del primer vídeo
 

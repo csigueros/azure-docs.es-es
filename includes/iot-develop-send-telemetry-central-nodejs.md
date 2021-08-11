@@ -1,19 +1,23 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
+title: Archivo de inclusión
+description: Archivo de inclusión
 author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 6499ca664e56ef6484a5d83d78fee5e3b6c0e800
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4bb64b6ee52bbf70a13bc1e654322f2f49bd0dee
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776875"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712928"
 ---
+[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+
+En este inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
+
 ## <a name="prerequisites"></a>Requisitos previos
 - [Node.js](https://nodejs.org/), versión 6 o posterior. Para comprobar la versión, ejecute `node --version` en la aplicación de consola.
 - [Git](https://git-scm.com/downloads).

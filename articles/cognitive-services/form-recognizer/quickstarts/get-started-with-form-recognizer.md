@@ -11,12 +11,12 @@ ms.date: 05/14/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: procesamiento de documentos
-ms.openlocfilehash: b30dbd58e0a9c440f51386052529850d9ce9adc4
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 7696a7e1d62aae556d93fa5bccc23376d1ba9a25
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111894081"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461936"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -61,7 +61,7 @@ Extraiga texto, tablas, marcas de selección e información de la estructura de 
 
     :::image type="content" source="../media/label-tool/layout-2.jpg" alt-text="Configuración de conexión para la herramienta Form Recognizer de diseño.":::
 
-5. Seleccione la dirección URL de origen, pegue la dirección URL siguiente del documento https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg de ejemplo, haga clic en el botón Capturar.
+5. Seleccione la dirección URL de origen, pegue la dirección URL siguiente del documento `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg` de ejemplo, haga clic en el botón Capturar.
 
 1. Haga clic en "Run Layout" (Ejecutar diseño). La herramienta de etiquetado de ejemplo de Form Recognizer llamará a la API de análisis de diseño y analizará el documento.
 
@@ -88,7 +88,7 @@ Extraiga texto, tablas y pares clave-valor de las facturas, recibos de ventas, d
 4. Elija el archivo que quiere analizar entre las opciones siguientes:
 
     * La dirección URL de una imagen de un recibo. Puede usar una [factura de ejemplo](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) para este inicio rápido.
-    * Una dirección URL para la imagen de un recibo. Puede usar un [documento de identificación de ejemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-us-driver-license-wa.jpg) para este inicio rápido.
+    * Una dirección URL para la imagen de un recibo. Puede usar un [documento de identificación de ejemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg) para este inicio rápido.
     * Una dirección URL para la imagen de un recibo. Puede usar la [imagen de un recibo de ejemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) para este inicio rápido.
     * La dirección URL de una imagen de una tarjeta de presentación. Puede usar la [imagen de una tarjeta de presentación de ejemplo](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg) para este inicio rápido.
 

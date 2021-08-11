@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: cef39b940f0d61fc60ea10156acfd781289157de
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 7e65e9c34ed114f846021d1c5c417825d4859ac3
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591978"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913444"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: Extracción de detalles de imágenes con Bing Image Search API y C#
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Hay varios [puntos de conexión](./image-search-endpoint.md) disponibles mediante Bing Image Search API. El punto de conexión `/details` acepta una solicitud POST con una imagen y puede devolver una variedad de detalles sobre la imagen. Esta aplicación de C# envía una imagen mediante esta API y muestra los detalles devueltos por Bing, que son objetos JSON, como los siguientes:
@@ -119,4 +119,4 @@ Si hay personas o lugares identificables en la imagen, esta solicitud devolverá
 
 ## <a name="see-also"></a>Consulte también
 
-* [Referencia de Bing Image Search API](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referencia de Bing Image Search API](/rest/api/cognitiveservices/bing-images-api-v7-reference)

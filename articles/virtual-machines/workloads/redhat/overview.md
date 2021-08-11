@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: bd8f2e5b825f88d1b0e04ed231b85296ac47e998
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4403a45e4bb4383977b68725518317cdf8acbdbc
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676044"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112467408"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Cargas de trabajo de Red Hat en Azure
 
@@ -36,7 +36,7 @@ Puede que desee usar las imágenes de pago por uso si no desea preocuparse por e
 ### <a name="red-hat-gold-images"></a>Imágenes de Red Hat Gold
 
 Azure también ofrece imágenes de Red Hat Gold (`rhel-byos`). Estas imágenes pueden ser útiles para los clientes que tienen suscripciones de Red Hat existentes y desean usarlas en Azure. Debe habilitar las suscripciones de Red Hat existentes para Red Hat Cloud Access para poder usarlas en Azure. El acceso a estas imágenes se concede automáticamente cuando las suscripciones de Red Hat están habilitadas para el acceso a la nube y cumplen los requisitos de idoneidad. El uso de estas imágenes permite a un cliente evitar la facturación doble en la que se podría incurrir al usar las imágenes de Pago por uso.
-* Obtenga información sobre cómo [habilitar las suscripciones de Red Hat para el acceso a la nube con Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access).
+* Obtenga información sobre cómo [habilitar las suscripciones de Red Hat para el acceso a la nube con Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/red-hat-cloud-access-program-overview_cloud-access#ref_ca-unit-conversion_cloud-access).
 * Obtenga información sobre cómo [buscar imágenes de Red Hat Gold en Azure Portal, la CLI de Azure o el cmdlet de PowerShell](./byos.md).
 
 > [!NOTE]

@@ -11,16 +11,14 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 843db24707b8c826fe48e9d50aa7ec5bc135399f
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 27fde7dab5c5f16f941fd223e1e08a58948133ea
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107863612"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731897"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Inicio rápido: Enviar telemetría desde un dispositivo a IoT Hub y supervisarlo con la CLI de Azure
-
-[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub es un servicio de Azure que le permite ingerir grandes volúmenes de datos de telemetría desde los dispositivos IoT en la nube para su almacenamiento o procesamiento. En esta guía de inicio rápido, usará la CLI de Azure para crear un IoT Hub y un dispositivo simulado, enviar telemetría de dispositivo al centro y enviar un mensaje de nube a dispositivo. También puede usar el Azure Portal para visualizar las métricas del dispositivo. Se trata de un flujo de trabajo básico para desarrolladores que usan la CLI para interactuar con una aplicación IoT Hub.
 
@@ -200,5 +198,7 @@ En esta guía de inicio rápido, ha usado la CLI de Azure para crear una instanc
 
 Si es un desarrollador de dispositivos, el siguiente paso sugerido es ver el inicio rápido de telemetría que usa el SDK de dispositivo IoT de Azure para C. Si lo desea, consulte uno de los artículos de inicio rápido de telemetría de Azure IoT Hub disponibles en su lenguaje o SDK preferidos.
 
+Para aprender a controlar el dispositivo simulado desde una aplicación back-end, vaya al siguiente inicio rápido.
+
 > [!div class="nextstepaction"]
-> [Inicio rápido: Envío de telemetría desde un dispositivo a IoT Hub (C)](quickstart-send-telemetry-c.md)
+> [Inicio rápido: Control de un dispositivo conectado a IoT Hub](quickstart-control-device.md)

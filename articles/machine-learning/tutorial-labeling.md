@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 53521233e4e0b130eb6416f230aba5d01d974b03
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2dcd31493bf8ebc7c5096bfe7fda3e2b3f1641be
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141746"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459557"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes con varias clases 
 
@@ -37,7 +37,7 @@ En este tutorial, se usarán imágenes de gatos y perros.  Puesto que cada image
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree).
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 

@@ -3,13 +3,13 @@ title: Exposición de un servicio WCF REST local a los clientes mediante Azure R
 description: En este tutorial se describe la exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay.
 ms.topic: tutorial
 ms.custom: devx-track-dotnet
-ms.date: 06/23/2020
-ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: bfdcd59320d965f933fdf367ed60ec80dbfa7122
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101710794"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669761"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay
 
@@ -45,7 +45,7 @@ Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 El primer paso consiste en crear un espacio de nombres y obtener una clave de [firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del servicio de retransmisión. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona las credenciales para que Azure autentique el acceso a una aplicación.
 
-[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
+[!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>Definición de un contrato de servicio de WCF
 

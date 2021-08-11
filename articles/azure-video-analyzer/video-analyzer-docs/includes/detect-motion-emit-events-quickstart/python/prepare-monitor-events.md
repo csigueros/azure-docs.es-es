@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 05/03/2021
 ms.author: faneerde
-ms.openlocfilehash: e3d480842451b6bb9544765df1eded9f94c29070
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e98039dfe4c8c44be2fc375956339956a495da4f
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388569"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113559488"
 ---
 Va a utilizar el módulo de Azure Video Analyzer para detectar el movimiento en la secuencia de vídeo en directo entrante y enviar eventos a IoT Hub. Para ver estos eventos, siga estos pasos:
 
@@ -19,5 +19,4 @@ Va a utilizar el módulo de Azure Video Analyzer para detectar el movimiento en 
 
 ![Inicio de la supervisión de un punto de conexión de eventos integrado](../../../media/vscode-common-screenshots/start-monitoring.png)
 
-> [!NOTE]
-> Es posible que se le pida que proporcione información del punto de conexión integrado del centro de IoT. Para obtener esa información, en Azure Portal, vaya a su centro de IoT y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este: <br/>`Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
+[!INCLUDE [provide-builtin-endpoint](../../common-includes/provide-builtin-endpoint.md)]

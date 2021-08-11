@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: 4c1c6303727e503bcf5596edcc7b7a6aa5dcdb2c
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: d36f400e18566abf0631b5bec24fbfe6801fd299
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904161"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112575143"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>Inicio rápido: Conexión de un kit de desarrollo MXCHIP AZ3166 a IoT Central
 
@@ -35,7 +35,7 @@ Deberá completar las siguientes tareas:
 * [Git](https://git-scm.com/downloads) para clonar el repositorio
 * Hardware
 
-    * El [kit de desarrollo de IoT para MXCHIP AZ3166](https://aka.ms/iot-devkit) (MXCHIP DevKit)
+    * El [kit de desarrollo de IoT para MXCHIP AZ3166](https://www.seeedstudio.com/AZ3166-IOT-Developer-Kit.html) (MXCHIP DevKit)
     * Conexión Wi-Fi a 2,4 GHz
     * Conector USB 2.0 A macho a cable macho micro USB
 
@@ -55,7 +55,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### <a name="install-the-tools"></a>Instalar las herramientas
 
-El repositorio clonado contiene un script de instalación que instala y configura las herramientas necesarias. Si instaló estas herramientas en otro inicio rápido de dispositivo insertado, no es necesario volver a hacerlo.
+El repositorio clonado contiene un script de instalación que instala y configura las herramientas necesarias. Si ha instalado estas herramientas en otro inicio rápido de dispositivo insertado, no es necesario volver a hacerlo.
 
 > [!NOTE]
 > El script de instalación instala las siguientes herramientas:
@@ -137,13 +137,13 @@ Puede usar la aplicación **Termite** para supervisar la comunicación y confirm
 
 1. Inicie **Termite**.
     > [!TIP]
-    > Si no puede conectar Termite al kit de desarrollo, instale el [controlador ST-LINK](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) e inténtelo de nuevo. Consulte [Solución de problemas](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md) para ver otros pasos.
+    > Si no puede conectar Termite al kit de desarrollo, instale el [controlador ST-LINK](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) e inténtelo de nuevo. Consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md) para ver otros pasos.
 1. Haga clic en **Configuración**.
 1. En el cuadro de diálogo **Serial port settings** (Configuración de puerto serie), compruebe los siguientes valores y actualícelos si es necesario:
     * **Baud rate** (Velocidad en baudios): 115.200
     * **Port** (Puerto): el puerto al que está conectado MXCHIP DevKit. Si hay varias opciones de puerto en la lista desplegable, busque ahí el puerto correcto que debe usar. Abra el **Administrador de dispositivos** de Windows y, en **Puertos**, identifique qué puerto debe usar.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/termite-settings.png" alt-text="Captura de pantalla de la configuración del puerto serie en la aplicación Termite":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/termite-settings.png" alt-text="Captura de pantalla de la configuración del puerto en serie en la aplicación Termite":::
 
 1. Seleccione Aceptar.
 1. Presione el botón **Reset** (Restablecer) en el dispositivo. El botón está rotulado en el dispositivo y se encuentra cerca del conector micro USB.
@@ -236,7 +236,7 @@ En la página del dispositivo, seleccione la pestaña **Acerca de**.
 
 ## <a name="troubleshoot-and-debug"></a>Solución de problemas y depuración
 
-Si tiene problemas para compilar el código del dispositivo, para guardar la imagen en la memoria flash del dispositivo o para conectarse, consulte [Solución de problemas](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+Si tiene problemas para compilar el código del dispositivo, guardar la imagen en la memoria flash del dispositivo o conectarse, consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md).
 
 Para depurar la aplicación, consulte [Depuración con Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 

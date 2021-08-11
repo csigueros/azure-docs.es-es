@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 528cab915a1ac3918146e428e9ae6b3c401324c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3daecacbf06f0b0a0f74f60d07e292fa74732a5
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010364"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112239872"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desarrollar una aplicación web ASP.NET Core MVC con Azure Cosmos DB mediante el SDK de .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -50,9 +50,9 @@ Antes de seguir las instrucciones del presente artículo, asegúrese de tener lo
 
 * Una cuenta de Azure activa. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
-* Visual Studio 2019. [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
+* Visual Studio 2019. [!INCLUDE [cosmos-db-emulator-vs](includes/cosmos-db-emulator-vs.md)]  
 
 Todas las capturas de pantallas de este artículo son de Microsoft Visual Studio Community 2019. Si usa una versión diferente, es posible que las pantallas y las opciones no coincidan exactamente. La solución funcionará si cumple los requisitos previos.
 
@@ -60,9 +60,9 @@ Todas las capturas de pantallas de este artículo son de Microsoft Visual Studi
 
 Para comenzar, crearemos una cuenta de Azure Cosmos. Si ya tiene una cuenta de SQL API de Azure Cosmos DB o si usa el emulador de Azure Cosmos DB, vaya a [Paso 2: Creación de una aplicación ASP.NET MVC](#create-a-new-mvc-application).
 
-[!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
+[!INCLUDE [keys](includes/cosmos-db-keys.md)]
 
 En la siguiente sección, creará una aplicación de ASP.NET Core MVC.
 

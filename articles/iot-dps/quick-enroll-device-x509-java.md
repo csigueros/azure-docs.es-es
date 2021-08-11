@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 8591220eb80d9c60ed7873be546007449ab46f89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc2fbd6473886b5b9c5eb5ed5112c988fba60433
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96463042"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288543"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning mediante Java
 
@@ -26,7 +26,7 @@ Este inicio rápido va a usar Java para inscribir mediante programación un grup
 
 - Haber leído [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). En este inicio rápido se instala el [SDK de servicio de Java](https://azure.github.io/azure-iot-sdk-java/master/service/) siguiente. Funciona tanto en Windows como en Linux. En este inicio rápido se usa Windows.
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure). En este inicio rápido se instala el [SDK de servicio de Java](https://azure.github.io/azure-iot-sdk-java/master/service/) siguiente. Funciona tanto en Windows como en Linux. En este inicio rápido se usa Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 

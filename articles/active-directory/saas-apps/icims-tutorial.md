@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 3ede24767f0355d9b8dcf6cd70d76e7af65aed74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e99bb8a65bc8da38a2b823bbf379ed4ee6fbb8f7
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651540"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689779"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-icims"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ICIMS
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar ICIMS con Azure Active Directory (Azure
 * Permitir que los usuarios inicien sesión automáticamente en ICIMS con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -79,7 +79,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     b. En el cuadro de texto **Identificador**, escriba la dirección URL: `icims.com`
 
-    c. En el cuadro de texto **URL de respuesta**, escriba la dirección URL: `https://.icims.com/`
+    c. En el cuadro de texto **URL de respuesta**, escriba la dirección URL: `https://*.icims.com/*`
 
     > [!NOTE]
     > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de ICIMS](https://www.icims.com/contact-us) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

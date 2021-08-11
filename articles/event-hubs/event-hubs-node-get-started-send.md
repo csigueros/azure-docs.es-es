@@ -4,12 +4,12 @@ description: Este artículo es un tutorial para crear una aplicación de JavaScr
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 8bf0b284a4434b15ae818693276cd04712496116
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 20308c54b7013015b92b013dc74768361660145e
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003201"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296836"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs"></a>Envío o recepción de eventos en Event Hubs mediante JavaScript (azure/event-hubs)
 En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro de eventos mediante el paquete de JavaScript **azure/event-hubs**. 
@@ -96,7 +96,7 @@ En esta sección se crea una aplicación de JavaScript que envía eventos a un c
     [![Comprobación de que el centro de eventos ha recibido los mensajes](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
-    > Para ver todo el código fuente, incluidos los comentarios informativos adicionales, vaya a la [página sendEvents.js de GitHub](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/samples/javascript/sendEvents.js).
+    > Para ver todo el código fuente, incluidos los comentarios informativos adicionales, vaya a la [página sendEvents.js de GitHub](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/event-hubs/samples/v5/javascript/sendEvents.js).
 
 Felicidades. Ha enviado eventos a un centro de eventos.
 
@@ -193,5 +193,5 @@ Felicidades. Ya ha recibido eventos procedentes del centro de eventos. El progra
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte estos ejemplos de código en GitHub:
 
-- [Ejemplos de JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
-- [Ejemplos de TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)
+- [Ejemplos de JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/javascript)
+- [Ejemplos de TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/typescript)

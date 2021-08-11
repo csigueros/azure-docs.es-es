@@ -6,12 +6,12 @@ ms.author: spelluru
 ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a7b03727c574dcee1cd56144a521f36de6dc48c6
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: c7687fb4338005003cd06dc8940d36496dea1b06
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861380"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414456"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante Azure Portal y temas y suscripciones
 
@@ -42,9 +42,9 @@ Para completar este tutorial, asegúrese de que tiene instalados los siguientes 
 
 Cada [suscripción a un tema](service-bus-messaging-overview.md#topics) puede recibir una copia de cada mensaje. Los temas son completamente compatibles desde el punto de vista semántico y del protocolo con las colas de Service Bus. Los temas de Service Bus admiten una amplia variedad de reglas de selección con condiciones de filtro, con acciones opcionales que establecerán o modificarán las propiedades del mensaje. Cada vez que coincide una regla, esta genera un mensaje. Para más información acerca de reglas, filtros y acciones, siga este [vínculo](topic-filters.md).
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
-[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](./includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
 

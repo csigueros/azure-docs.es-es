@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: 580cd2c72374a1c54664c8bef5c9d11c79336e88
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 63a9c808814e9ad5f1110c8a5c1834319ce495f2
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949678"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112293732"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>Ejemplos de plantilla de Azure Resource Manager para una red virtual
 
@@ -31,8 +31,8 @@ Para la sintaxis y las propiedades de JSON que se usan en una plantilla, consult
 | Tarea | Descripción |
 |----|----|
 |[Creación de una red virtual con dos subredes](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-two-subnets/)| Crea una red virtual con dos subredes.|
-|[Enrutamiento del tráfico por una aplicación virtual de red](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| Crea una red virtual con tres subredes. Implementa una máquina virtual en cada una de las subredes. Crea una tabla de rutas que contiene las rutas para dirigir el tráfico de una subred a otra a través de la máquina virtual de la tercera subred. Asocia la tabla de rutas a una de las subredes.|
+|[Enrutamiento del tráfico por una aplicación virtual de red](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/userdefined-routes-appliance)| Crea una red virtual con tres subredes. Implementa una máquina virtual en cada una de las subredes. Crea una tabla de rutas que contiene las rutas para dirigir el tráfico de una subred a otra a través de la máquina virtual de la tercera subred. Asocia la tabla de rutas a una de las subredes.|
 |[Creación de un punto de conexión de servicio de red virtual para Azure Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-2subnets-service-endpoints-storage-integration)|Crea una nueva red virtual con dos subredes y una interfaz de red en cada subred. Habilita un punto de conexión de servicio en Azure Storage para una de las subredes y protege una nueva cuenta de almacenamiento en dicha subred.|
-|[Conexión de dos redes virtuales](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-to-vnet-peering)| Crea dos redes virtuales y un emparejamiento de redes virtuales entre ellas.|
+|[Conexión de dos redes virtuales](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-to-vnet-peering)| Crea dos redes virtuales y un emparejamiento de redes virtuales entre ellas.|
 |[Creación de una máquina virtual con varias direcciones IP](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-multiple-ipconfig)| Crea una máquina virtual Windows o Linux con varias direcciones IP.|
 |[Configuración de una red virtual de doble pila de IPv4 + IPv6](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/ipv6-in-vnet)|Implementa la red virtual de doble pila (IPv4 + IPv6) con dos máquinas virtuales y una instancia de Azure Basic Load Balancer con las direcciones IP públicas IPv4 e IPv6. |

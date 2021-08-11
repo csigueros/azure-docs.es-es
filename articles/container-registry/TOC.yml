@@ -35,6 +35,10 @@
               href: container-registry-tutorial-deploy-app.md
             - name: 3 - Actualización de la aplicación web
               href: container-registry-tutorial-deploy-update.md
+    - name: Ejemplos
+      items:
+        - name: Consultas de Azure Resource Graph
+          href: ./resource-graph-samples.md
     - name: Conceptos
       expanded: false
       items:
@@ -175,7 +179,7 @@
               href: container-registry-check-health.md
               displayName: 'check, health'
             - name: Preguntas más frecuentes
-              href: container-registry-faq.md
+              href: container-registry-faq.yml
 - name: Tareas
   expanded: true
   items:

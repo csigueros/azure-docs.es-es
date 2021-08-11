@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: aahi
-ms.openlocfilehash: d648acb3ff9a1f7c2076a4b7c1fcf9755a9ea05d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f8913bc75688184d30711e4ee33b5d3601557ee7
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465200"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303677"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migración a los contenedores OCR de Read v3.x
 
@@ -83,5 +83,5 @@ Establezca el temporizador con `Queue:Azure:QueueVisibilityTimeoutInMilliseconds
 * Revise [Configure containers](computer-vision-resource-container-config.md) (Configuración de contenedores) para ver las opciones de configuración.
 * Revise la [Introducción a OCR](overview-ocr.md) para más información sobre el reconocimiento de texto manuscrito e impreso.
 * Consulte [Read API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para más información sobre los métodos que admite el contenedor.
-* Consulte [Preguntas más frecuentes (P+F)](FAQ.md) para resolver problemas relacionados con la funcionalidad de Computer Vision.
+* Consulte [Preguntas más frecuentes (P+F)](FAQ.yml) para resolver problemas relacionados con la funcionalidad de Computer Vision.
 * Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)

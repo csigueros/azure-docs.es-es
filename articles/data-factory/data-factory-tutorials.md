@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 03/16/2021
-ms.openlocfilehash: 8fccd508d5d6dbe380b21a85faa3889e99b9942f
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 8ad3cabbc97d869fa5e8a9e8ad7f5b0b5888949e
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579521"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112542281"
 ---
 # <a name="azure-data-factory-tutorials"></a>Tutoriales de Azure Data Factory
 
@@ -62,6 +62,8 @@ A continuación se muestra una lista de los tutoriales que ayudan a explicar y r
 [Flujos de datos dentro de una red virtual administrada](tutorial-data-flow-private.md)
 
 [Procedimientos recomendados para los datos de Data Lake en ADLS Gen2](tutorial-data-flow-write-to-lake.md)
+
+[Nombres de columnas establecidos dinámicamente](data-flow-tutorials.md)
 
 ## <a name="external-data-services"></a>Servicios de datos externos
 

@@ -1216,6 +1216,18 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+- id: iot-hub-set1
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
 - id: facility-ontology-schema
   title: Facility Ontology para Creator
   prompt: Elección de una versión de Facility Ontology
@@ -1241,7 +1253,7 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-azp
-    title: Portal de Azure
+    title: Azure portal
   - id: identity-mi-methods-azcli
     title: Azure CLI
   - id: identity-mi-methods-powershell
@@ -1255,15 +1267,15 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-sub-azp
-    title: Portal de Azure
+    title: Azure portal
   - id: identity-mi-methods-sub-azcli
     title: Azure CLI
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
 metadata:
-  ms.openlocfilehash: d6ef125a7b5cd8a3122e9a965eda0f71f99c0d69
-  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+  ms.openlocfilehash: 1e0342c1c36d88218ca7ad9daccb7a9e1ea7e9fa
+  ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/10/2021
-  ms.locfileid: "113594668"
+  ms.lasthandoff: 07/28/2021
+  ms.locfileid: "114730999"

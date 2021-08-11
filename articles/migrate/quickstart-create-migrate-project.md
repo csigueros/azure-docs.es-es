@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 095f929bcda569b918f69741f31b5286a2652942
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 29bd42bedb9c7aa70769236d95339a510ae9dfe9
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108069914"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487496"
 ---
 # <a name="quickstart-create-an-azure-migrate-project-using-an-arm-template"></a>Inicio rápido: Creación de un proyecto de Azure Migrate mediante una plantilla de ARM
 
@@ -26,7 +26,7 @@ Esta plantilla crea un proyecto de Azure Migrate que se usará más adelante par
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-migrate-project-create%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.migrate%2Fmigrate-project-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -34,9 +34,9 @@ Si no tiene una suscripción activa a Azure, puede crear una [cuenta gratuita](h
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/en-us/resources/templates/101-migrate-project-create/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/migrate-project-create/).
 
-:::code language="json" source="~/quickstart-templates/101-migrate-project-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.migrate/migrate-project-create/azuredeploy.json":::
 
 
 
@@ -46,7 +46,7 @@ Para implementar la plantilla, se requieren los valores de **Suscripción**, **G
 
 1. Para iniciar sesión en Azure y abrir la plantilla, seleccione la imagen **Implementar en Azure**.
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-migrate-project-create%2Fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.migrate%2Fmigrate-project-create%2Fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores:
 

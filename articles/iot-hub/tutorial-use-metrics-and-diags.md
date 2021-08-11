@@ -12,18 +12,18 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 96a9f7c50f3e30d86497c7a612ddda248db3f703
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: beab67a209c177c91a1c4fcfa44934234b6dbc06
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865700"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294816"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros con un centro de IoT
 
 Puede usar Azure Monitor para recopilar métricas y registros del centro de IoT que pueden ayudarle a supervisar el funcionamiento de la solución y a solucionar problemas cuando se produzcan. En este artículo, verá cómo crear gráficos basados en métricas, cómo crear alertas que se desencadenen en función de las métricas, cómo enviar operaciones y errores de IoT Hub a registros de Azure Monitor y cómo comprobar los errores de los registros.
 
-En este tutorial se usa el ejemplo de Azure del [inicio rápido sobre el envío de telemetría de .NET](quickstart-send-telemetry-dotnet.md) para enviar mensajes a IoT Hub. Siempre puede usar un dispositivo u otro ejemplo para enviar mensajes, pero es posible que tenga que modificar algunos pasos en consecuencia.
+En este tutorial se usa el ejemplo de Azure del [inicio rápido sobre el envío de telemetría de .NET](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) para enviar mensajes a IoT Hub. Siempre puede usar un dispositivo u otro ejemplo para enviar mensajes, pero es posible que tenga que modificar algunos pasos en consecuencia.
 
 Antes de comenzar este tutorial, puede ser de ayuda estar familiarizado con algunos conceptos de Azure Monitor. Para más información, consulte [Supervisión de IoT Hub](monitor-iot-hub.md). Para más información sobre las métricas y los registros de recursos que emite IoT Hub, consulte [Supervisión de la referencia a datos](monitor-iot-hub-reference.md).
 

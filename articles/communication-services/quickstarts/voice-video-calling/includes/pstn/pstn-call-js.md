@@ -4,17 +4,17 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: nikuklic
-ms.openlocfilehash: ab5741e12bea83893f871487f92a5495b1dd08c9
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 7506f2c42066cb26532f815f2b77b240caea1993
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560391"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535975"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
 
-> [!NOTE]
-> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling)
+## <a name="sample-code"></a>Código de ejemplo
+Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -22,7 +22,6 @@ ms.locfileid: "111560391"
 - Un recurso de Communication Services implementado. [Cree un recurso de Communication Services](../../../create-communication-resource.md).
 - Un número de teléfono adquirido en el recurso de Communication Services. [Obtención de un número de teléfono](../../../telephony-sms/get-phone-number.md).
 - `User Access Token` para habilitar el cliente de llamada. Para más información sobre [cómo obtener un `User Access Token`](../../../access-tokens.md)
-
 
 [!INCLUDE [Calling with JavaScript](../get-started/get-started-javascript-setup.md)]
 
@@ -125,7 +124,6 @@ La propiedad `forEveryone` finaliza la llamada para todos los participantes.
 ## <a name="run-the-code"></a>Ejecución del código
 
 Utilice `webpack-dev-server` para compilar y ejecutar la aplicación. Ejecute el siguiente comando para agrupar el host de aplicación en un servidor web local:
-
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map

@@ -2,19 +2,17 @@
 title: 'Tutorial: Consulta desde Power Apps'
 titleSuffix: Azure Cognitive Search
 description: Instrucciones paso a paso sobre cómo compilar una aplicación de Power Apps que se conecta a un índice de Azure Cognitive Search, envía consultas y representa los resultados.
-author: luiscabrer
-manager: eladz
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: e8c16f02cf6b77fa54d2a19abac48e9914aa99bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9bf5ec0f1cac61a65ef0a24ae3f7825c2a950c2
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008572"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729557"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Consulta de un índice de Cognitive Search desde Power Apps
 
@@ -265,4 +263,4 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 Power Apps permite el desarrollo rápido de aplicaciones personalizadas. Ahora que sabe cómo conectarse a un índice de búsqueda, aprenda más sobre cómo crear una experiencia de visualización enriquecida en una aplicación personalizada de Power Apps.
 
 > [!div class="nextstepaction"]
-> [Catálogo de aprendizaje de Power Apps](/powerapps/learning-catalog/get-started)
+> [Catálogo de aprendizaje de Power Apps](/powerapps/learning-catalog/bdm#get-started)

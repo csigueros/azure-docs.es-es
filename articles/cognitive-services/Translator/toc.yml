@@ -122,6 +122,8 @@
           href: document-translation/reference/get-translation-status.md
         - name: Cancelación de la traducción
           href: document-translation/reference/cancel-translation.md
+    - name: Preguntas más frecuentes
+      href: document-translation/faq.md
 - name: Custom Translator
   items:
     - name: ¿Qué es Custom Translator?
@@ -142,7 +144,7 @@
           href: custom-translator/how-to-view-document-details.md
         - name: Entrenamiento de un modelo
           href: custom-translator/how-to-train-model.md
-        - name: Visualización de detalles de un modelo
+        - name: Ver detalles de los modelos
           href: custom-translator/how-to-view-model-details.md
         - name: Ver resultados de pruebas del sistema
           href: custom-translator/how-to-view-system-test-results.md

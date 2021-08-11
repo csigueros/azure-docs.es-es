@@ -2,18 +2,18 @@
 title: 'Tutorial: Consulta de datos de una cuenta de Cassandra API en Azure Cosmos DB'
 description: En este tutorial se explica cómo consultar datos de usuario de una cuenta de Cassandra API de Azure Cosmos DB mediante una aplicación Java.
 ms.service: cosmos-db
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 693984ceaef1a71ebfbe4122c18a45a563c9c101
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dcb5a20558442ccf73d4a0b77a2b8516b36815b8
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93100446"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113355706"
 ---
 # <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Consulta de datos de una cuenta de Cassandra API en Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
