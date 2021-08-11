@@ -3,14 +3,14 @@ title: Análisis de vídeo en directo con su propio modelo (HTTP)
 description: En este inicio rápido se describe cómo analizar vídeo en directo con su propio modelo (HTTP) con Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 04/01/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: 1b83fd1e58d719054e2788f641d37b6340bdc0ff
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a587191a0e5fd80174b3d288d1a9a1d8fd1d2e82
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371895"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605221"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---http"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo - HTTP
 
@@ -73,7 +73,13 @@ Abra una aplicación como [VLC Media Player](https://www.videolan.org/vlc/). Sel
 
 ## <a name="run-the-sample-program"></a>Ejecución del programa de ejemplo
 
-1. Para iniciar una sesión de depuración, seleccione la tecla F5. Verá mensajes impresos en la ventana TERMINAL.
+1. ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end
 1. El código de operations.json comienza con llamadas a los métodos directos `pipelineTopologyList` y `livePipelineList`. Si ha limpiado los recursos tras haber completado los inicios rápidos anteriores, este proceso devolverá listas vacías y, después, se pausará. Para continuar, seleccione la tecla Entrar.
 
    ```

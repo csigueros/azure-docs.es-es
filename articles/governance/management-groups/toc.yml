@@ -66,8 +66,8 @@
       href: /azure/templates/microsoft.management/managementgroups
 - name: Recursos
   items:
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Actualizaciones de Azure
+      href: 'https://azure.microsoft.com/updates/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: UserVoice

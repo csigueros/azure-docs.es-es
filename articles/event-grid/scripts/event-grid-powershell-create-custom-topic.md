@@ -3,20 +3,17 @@ title: 'Ejemplo de script de Azure PowerShell: creación de un tema personalizad
 description: En este artículo se proporciona un script de Azure PowerShell de ejemplo que muestra cómo crear un tema personalizado de Azure Event Grid.
 services: event-grid
 documentationcenter: na
-author: spelluru
-ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2020
-ms.author: tomfitz
-ms.openlocfilehash: 915b8e13adaa440063f5db62b72fa39e1035d576
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/22/2021
+ms.openlocfilehash: c95f4dc48f1b6da72cad0418468ef06929ac6866
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87460786"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467317"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>Creación de un tema personalizado de Event Grid con PowerShell
 

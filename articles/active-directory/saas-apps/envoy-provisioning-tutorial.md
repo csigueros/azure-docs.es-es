@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Envoy para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD para Envoy.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/3/2019
-ms.author: Zhchia
-ms.openlocfilehash: b18ec2531b26574357f56c11558f2afd84467495
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 06/28/2021
+ms.author: thwimmer
+ms.openlocfilehash: f33f9e04781344cd0bb926cecd81f31a2b645bba
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437696"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763950"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Tutorial: Configuración de Envoy para el aprovisionamiento automático de usuarios
 
@@ -52,19 +52,19 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 1. Inicie sesión en la [consola de administración de Envoy](https://dashboard.envoy.com/login). Haga clic en **Integrations** (Integraciones).
 
-    ![Integraciones de Envoy](media/envoy-provisioning-tutorial/envoy01.png)
+    ![Integraciones de Envoy](media/envoy-provisioning-tutorial/envoy-01.png)
 
 2. Haga clic en **Install** (Instalar) para la **integración de Microsoft Azure SCIM**.
 
-    ![Instalar de Envoy](media/envoy-provisioning-tutorial/envoy02.png)
+    ![Instalar de Envoy](media/envoy-provisioning-tutorial/integrations.png)
 
 3. Haga clic en **Save** (Guardar) para **sincronizar todos los usuarios**. 
 
-    ![Guardar de Envoy](media/envoy-provisioning-tutorial/envoy03.png)
+    ![Guardar de Envoy](media/envoy-provisioning-tutorial/microsoft-azure.png)
 
 4. Copie el **TOKEN DE PORTADOR DE OAUTH**. Este valor se escribirá en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Envoy en Azure Portal.
     
-    ![OAUTH en Envoy](media/envoy-provisioning-tutorial/envoy04.png)
+    ![OAUTH en Envoy](media/envoy-provisioning-tutorial/token.png)
 
 ## <a name="step-3-add-envoy-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Envoy desde la galería de aplicaciones de Azure AD
 

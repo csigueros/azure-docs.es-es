@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Priority Matrix para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y desaprovisionar automáticamente las cuentas de usuario para Priority Matrix.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/08/2019
-ms.author: Zhchia
-ms.openlocfilehash: e79f21300325c6b451dd564bf2c69830f003f55c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: faa893f02f83259e7f13be64aa076d20a0342006
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94357868"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766354"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Tutorial: Configuración de Priority Matrix para el aprovisionamiento automático de usuarios
 

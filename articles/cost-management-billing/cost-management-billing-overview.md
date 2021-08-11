@@ -4,17 +4,17 @@ description: Use las características de Azure Cost Management y facturación pa
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2021
+ms.date: 07/13/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9fe658a1755ce3731f220ec656845da1f861fa9b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8eb040183f1a207410c5e093009878845a61f261
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050549"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768490"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>¿Qué es Azure Cost Management y facturación?
 
@@ -75,10 +75,6 @@ Las recomendaciones le muestran cómo optimizar y mejorar la eficiencia mediante
 
 Si usa los sistemas externos para acceder o revisar los datos de administración de costos, puede exportar los datos fácilmente desde Azure. Y puede establecer una exportación programada diariamente en formato CSV y almacenar los archivos de datos en el almacenamiento de Azure. A continuación, puede tener acceso a los datos desde el sistema externo.
 
-### <a name="cloudyn-deprecation"></a>Desuso de Cloudyn
-
-Cloudyn es un servicio de Azure relacionado con Cost Management que pasará a estar en desuso a finales de 2020. Las características de Cloudyn existentes se están integrando directamente en Azure Portal siempre que es posible. En este momento no se incorporan nuevos clientes, pero se mantendrá el soporte técnico para el producto hasta que esté completamente en desuso.
- 
 ### <a name="additional-azure-tools"></a>Herramientas de Azure adicionales
 
 Azure tiene otras herramientas que no forman parte del conjunto de características de Azure Cost Management y facturación. Sin embargo, tienen un rol importante en el proceso de administración de costos. Para aprender más sobre dichas herramientas, consulte los siguientes vínculos.

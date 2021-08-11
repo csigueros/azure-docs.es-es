@@ -6,17 +6,17 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: a958e42f3afab3dccd2a989c9d824a37ed9d9a6c
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: fdc8c60f2c2cae7368a2e35317de2cfb8274a060
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536818"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414960"
 ---
 # <a name="event-grid-on-kubernetes-with-azure-arc-preview---overview"></a>Event Grid en Kubernetes con Azure Arc (versión preliminar): introducción
 En este artículo se proporciona información general sobre Event Grid en Kubernetes, los casos de uso, las características que ofrece y en qué se diferencia de Azure Event Grid.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="what-is-event-grid"></a>¿Qué es Event Grid?
 Event Grid es un agente de eventos que se usa para integrar cargas de trabajo que usan arquitecturas controladas por eventos. Una arquitectura controlada por eventos usa eventos para comunicar los hechos en los cambios de estado del sistema y es un enfoque de integración común en arquitecturas desacopladas como las que usan microservicios. Event Grid ofrece un modelo de publicación y suscripción, que también se describe como un modelo de comunicación de inserción-inserción, en el que se envían (insertan) eventos a los suscriptores y esos suscriptores no son necesariamente conscientes del publicador que envía los eventos. Este modelo contrasta con los modelos de inserción-extracción clásicos, como los usados por Azure Service Bus o Azure Event Hubs, en los que los clientes extraen mensajes de los agentes de mensajes y, como consecuencia, hay un acoplamiento más fuerte entre los agentes de mensajes y los clientes de consumo.

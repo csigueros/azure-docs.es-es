@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: La primera consulta en Java'
 description: En este inicio rápido, dará los pasos necesarios para habilitar los paquetes de Maven de Resource Graph para Java y ejecutará la primera consulta.
-ms.date: 03/30/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom: devx-track-java
-ms.openlocfilehash: 04e32a3e147ed68248f7fead488a1f630ffcdb4d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1d6d3dfb309b359e4b999d06671db7dc541d5f32
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751758"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459988"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-java"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con Java
 
@@ -26,7 +26,7 @@ Cuando finalice, habrá agregado los paquetes de Maven a la instalación de Java
   > [!NOTE]
   > La CLI de Azure es necesaria para que el SDK de Azure para Java pueda usar la **autenticación basada en la CLI** en los ejemplos siguientes. Para ver más opciones de autenticación, consulte [Biblioteca cliente de identidad de Azure para Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity).
 
-- El [kit para desarrolladores de Java](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+- El [kit para desarrolladores de Java](/azure/developer/java/fundamentals/java-support-on-azure).
   8.
 
 - [Apache Maven](https://maven.apache.org/), versión 3.6 o posterior.
@@ -52,7 +52,7 @@ Para habilitar Java para consultar Azure Resource Graph, cree y configure una ap
     <dependency>
         <groupId>com.azure.resourcemanager</groupId>
         <artifactId>azure-resourcemanager-resourcegraph</artifactId>
-        <version>1.0.0-beta.1</version>
+        <version>1.0.0</version>
     </dependency>
    ```
 

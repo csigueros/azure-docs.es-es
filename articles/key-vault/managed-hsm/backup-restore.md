@@ -2,19 +2,19 @@
 title: Copia de seguridad completa/restauración y restauración selectiva para Azure HSM administrado
 description: En este documento se explica cómo realizar operaciones de copia de seguridad completa/restauración y restauración selectiva.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.author: ambapat
-ms.openlocfilehash: e926dcd4b05d137c7927bdfe5221923d25d4670c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: mbaldwin
+ms.openlocfilehash: d9307f1310a2690ef68909a143195c76f8c2b9a4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100093495"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471323"
 ---
 # <a name="full-backup-and-restore"></a>Copia de seguridad completa y restauración
 

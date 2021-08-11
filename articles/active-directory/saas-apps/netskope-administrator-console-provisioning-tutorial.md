@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Netskope User Authentication para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar cuentas de usuario en Netskope User Authentication, así como cancelar el aprovisionamiento automáticamente.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.author: Zhchia
-ms.openlocfilehash: 46766a7439185714648572f3f1b9d51ef96abba6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 25f665c0750650c395713e1c7f1a8ad3240b7615
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94357483"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769165"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>Tutorial: Configuración de Netskope User Authentication para el aprovisionamiento automático de usuarios
 

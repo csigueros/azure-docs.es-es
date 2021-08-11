@@ -6,15 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/10/2021
+ms.date: 07/22/2021
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d5c9874324a11f9416806c22a3153c1ee4e8d442
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: dc06c5646f85fda4b4100805be4a9566d0917e2a
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111981967"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652999"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
@@ -28,6 +28,9 @@ En En este tutorial se describe cómo se puede solicitar Azure Data Box. En este
 > * Realizar un pedido de Data Box
 > * Seguimiento del pedido
 > * Cancelar el pedido
+
+> [!NOTE]
+> Para obtener respuestas a las preguntas más frecuentes sobre pedidos y envíos de Data Box, consulte las [preguntas más frecuentes de Data Box](data-box-faq.yml).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -240,7 +243,7 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
 
 6. En **Pedido**, vaya a la pestaña **Datos básicos**. Escriba o seleccione la siguiente información y seleccione **Siguiente: destino de los datos>** .
 
-    |Configuración  |Valor  |
+    |Configuración  |Value  |
     |---------|---------|
     |Suscripción      | La suscripción se rellena automáticamente según la selección anterior.|
     |Resource group    | Grupo de recursos especificado anteriormente. |

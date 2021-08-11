@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
-ms.openlocfilehash: 5a1548cdf1d05a1f9d42f5c64b7fdc18f514518e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f9f02c0daf3af99faf61d33997bc59fe124297d5
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939196"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287429"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutorial: Uso de Streams API de Apache Kafka en Azure HDInsight
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 
 * Complete los pasos que se indican en el documento [Producer API y Consumer API de Apache Kafka](apache-kafka-producer-consumer-api.md). Los pasos de este documento utilizan la aplicación y los temas de ejemplo que creó en este tutorial.
 
-* [Java Developer Kit (JDK) versión 8](/azure/developer/java/fundamentals/java-jdk-long-term-support), o un equivalente, como OpenJDK.
+* [Java Developer Kit (JDK) versión 8](/azure/developer/java/fundamentals/java-support-on-azure), o un equivalente, como OpenJDK.
 
 * [Apache Maven](https://maven.apache.org/download.cgi) correctamente [instalado](https://maven.apache.org/install.html) según Apache.  Maven es un sistema de compilación de proyectos de Java.
 

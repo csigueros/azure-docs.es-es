@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e867901fb90e4e6d6c3a6b8fa7ca6cd28a5e7178
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: da6923d77c866d7123599dc9f242dd18f45964eb
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755940"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033846"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configuración de alertas de servicio
 
@@ -53,4 +53,4 @@ Para configurar las alertas de servicio:
 En este tutorial, aprendió a configurar y usar Azure Service Health para supervisar los problemas del servicio y los avisos de estado de Azure Virtual Desktop. Para información sobre el inicio de sesión en Azure Virtual Desktop, continúe con los procedimientos de conexión a Azure Virtual Desktop.
 
 > [!div class="nextstepaction"]
-> [Conexión al cliente de Escritorio remoto en Windows 7 y Windows 10](./connect-windows-7-10.md)
+> [Conexión al cliente de Escritorio remoto en Windows 7 y Windows 10](./user-documentation/connect-windows-7-10.md)

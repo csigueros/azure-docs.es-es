@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 2ed458ee0267a65bb7551940fc522509dc310311
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddb95d30fb2aec85da2c6eb0da76d41f96e72725
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94966622"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288660"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Inicio rápido: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Java para el servicio Azure IoT Hub Device Provisioning
 
@@ -27,13 +27,13 @@ En este inicio rápido se crea un dispositivo simulado X.509 en un equipo Window
 - Estar familiarizado con los conceptos de [aprovisionamiento](about-iot-dps.md#provisioning-process).
 - Finalización de [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure).
 - [Maven](https://maven.apache.org/install.html).
 - [Git](https://git-scm.com/download/).
 
 ## <a name="prepare-the-environment"></a>Preparación del entorno 
 
-1. Asegúrese de que tiene [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) instalado en su máquina.
+1. Asegúrese de que tiene [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) instalado en su máquina.
 
 2. Descargue e instale [Maven](https://maven.apache.org/install.html).
 

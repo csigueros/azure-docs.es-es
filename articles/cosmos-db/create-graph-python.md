@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: Table API con Python: Azure Cosmos DB'
 description: Esta guía de inicio rápido muestra cómo usar Gremlin API de Azure Cosmos DB para crear una aplicación de consola con Azure Portal y Python
-author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/29/2021
-ms.author: chrande
+author: manishmsfte
+ms.author: mansha
 ms.custom: devx-track-python
-ms.openlocfilehash: 479b65deec8ef7a7c313be2844495e4ed29d4d7d
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 08c8025bbb98fc9061df8ff4bc5c8abbc8fdd0eb
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "113225505"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113355076"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Inicio rápido: Creación de una base de datos de grafos en Azure Cosmos DB mediante Python y Azure Portal
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "113225505"
 
 En este inicio rápido, se crea y administra una cuenta de Azure Cosmos DB para Gremlin (Graph) API desde Azure Portal y se agregan datos mediante una aplicación en Python clonada desde GitHub. Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). O bien, [pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure.
 - [Python 3.6 y posteriores](https://www.python.org/downloads/), incluido el instalador del paquete [pip](https://pip.pypa.io/en/stable/installing/).
 - [Controlador de Python para Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python).

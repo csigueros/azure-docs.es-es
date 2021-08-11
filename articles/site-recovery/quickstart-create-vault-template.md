@@ -4,12 +4,12 @@ description: En este inicio rápido, aprenderá a crear un almacén de Azure Rec
 ms.date: 04/28/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
-ms.openlocfilehash: 8d7d62c05586032bc73c41ef671862a4aa211334
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: a4905742f2c8f3d325cbe32f35e06d9aab27222d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903180"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450298"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Inicio rápido: Creación de un almacén de Recovery Services mediante una plantilla de Resource Manager
 
@@ -34,7 +34,7 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 En la plantilla se definen dos recursos de Azure:
 
 - [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/vaults): crea el almacén.
-- [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs): configura la redundancia de copia de seguridad del almacén.
+- [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backup-resource-storage-configs): configura la redundancia de copia de seguridad del almacén.
 
 La plantilla incluye parámetros opcionales para la configuración de las copias de seguridad del almacén. Los valores de redundancia del almacenamiento son: almacenamiento con redundancia local (LRS) o almacenamiento con redundancia geográfica (GRS). Para más información, consulte el apartado[Establecimiento de la redundancia de almacenamiento](../backup/backup-create-rs-vault.md#set-storage-redundancy).
 

@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Mixpanel para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a aprovisionar y desaprovisionar automáticamente las cuentas de usuario de Azure AD para Mixpanel.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.author: Zhchia
-ms.openlocfilehash: ab261d4ca04fed04c8a3e1046c0a4c563767ad4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 5709278aac482c100c4080ebe4555b7d374b2c67
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182009"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766839"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Tutorial: Configuración de Mixpanel para el aprovisionamiento automático de usuarios
 

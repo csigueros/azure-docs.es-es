@@ -10,12 +10,12 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 00d5fa43245fb25b8ee99a0523d680bef891b71e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 409936f98dab0fa975c1314a84096b7b46df7613
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387009"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459413"
 ---
 # <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-jupyter-notebook-part-1-of-2"></a>Tutorial: Integración de Power BI: creación del modelo predictivo con un cuaderno de Jupyter Notebook (parte 1 de 2)
 
@@ -40,7 +40,7 @@ Sin embargo, podría usar una de las otras opciones:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Suscripción a Azure. Si aún no tiene una suscripción, puede usar una [evaluación gratuita](https://aka.ms/AMLFree). 
+- Suscripción a Azure. Si aún no tiene una suscripción, puede usar una [evaluación gratuita](https://azure.microsoft.com/free/). 
 - Un área de trabajo de Azure Machine Learning. Si aún no tiene un área de trabajo, consulte [Creación y administración de áreas de trabajo de Azure Machine Learning](./how-to-manage-workspace.md#create-a-workspace).
 - Conocimiento introductorio del lenguaje Python y los flujos de trabajo de aprendizaje automático.
 

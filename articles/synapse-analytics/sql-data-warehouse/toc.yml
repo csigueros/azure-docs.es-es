@@ -38,6 +38,8 @@
         - name: Plantilla ARM
           displayName: Resource Manager
           href: quickstart-arm-template.md
+        - name: Soluciones de socios
+          href: sql-data-warehouse-partner-browse-partners.md
     - name: Cargar datos
       items:
         - name: Instrucción COPY

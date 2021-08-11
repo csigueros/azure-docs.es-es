@@ -4,17 +4,17 @@ description: Describe cómo almacenar datos capturados de Event Hubs en Azure Sy
 ms.topic: tutorial
 ms.date: 12/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 094cf874c072e0e59a04447d26070d8ac1a0deef
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 2887cdc1b4666daf73a21a76907f80d50d345d82
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073492"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414260"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir macrodatos a un almacenamiento de datos
 Azure [Event Grid](overview.md) es un servicio inteligente de enrutamiento de eventos que permite responder a las notificaciones o eventos procedentes de aplicaciones y servicios. Por ejemplo, puede desencadenar una función de Azure para procesar datos de Event Hubs que se capturan en Blob Storage o Data Lake Storage. En este [ejemplo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo), se muestra cómo usar Event Grid y Azure Functions para migrar datos capturados de Event Hubs desde Blob Storage a Azure Synapse Analytics, específicamente un grupo de SQL dedicado.
 
-[!INCLUDE [event-grid-event-hubs-functions-synapse-analytics.md](../../includes/event-grid-event-hubs-functions-synapse-analytics.md)]
+[!INCLUDE [event-grid-event-hubs-functions-synapse-analytics.md](./includes/event-grid-event-hubs-functions-synapse-analytics.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

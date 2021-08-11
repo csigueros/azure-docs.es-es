@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f6b6e53440556fb7b9c0d7a774aa1b6786609461
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d323fd5a3faf5811e88fd924ab767ec20568b917
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668065"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113435477"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Tutorial: Creación de imágenes de máquina virtual Windows con Azure PowerShell
 
@@ -93,7 +93,7 @@ $gallery = New-AzGallery `
 
 Las definiciones de imagen crean una agrupación lógica de imágenes. Estas se usan para administrar la información sobre las versiones de la imagen que se crean dentro de ellas. Los nombres de las definiciones de imagen pueden estar formados por letras mayúsculas o minúsculas, números, puntos y guiones. Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](../shared-image-galleries.md#image-definitions).
 
-Cree la definición de imagen mediante [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). En este ejemplo, la imagen de la galería se denomina *myGalleryImage* y se crea para una imagen especializada. 
+Cree la definición de imagen mediante [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimagedefinition). En este ejemplo, la imagen de la galería se denomina *myGalleryImage* y se crea para una imagen especializada. 
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `

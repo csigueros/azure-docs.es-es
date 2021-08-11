@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 0843e5d3a5e91cb4acdf18ad6bdf6f4f0c214f72
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: e4f2aa51b3cee5d63c543ce94eddf7d132f72ded
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378302"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371776"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>Tutorial: Uso de OpenSSL para crear certificados de prueba
 
@@ -165,7 +165,7 @@ RANDFILE                 = $home/private/random
 new_certs_dir            = $home/certs
 unique_subject           = no
 copy_extensions          = copy 
-default_days           
+default_days             = 365
 default_crl_days         = 90 
 default_md               = sha256
 policy                   = policy_c_o_match
@@ -213,7 +213,7 @@ subjectKeyIdentifier     = hash
 Cree un nuevo número de serie en el archivo `rootca/db/serial` del certificado de la entidad de certificación subordinada.
 
 ```bash
-  openssl rand -hex 16 > db/serial
+  openssl rand -hex 16 > ../rootca/db/serial
 ```
 
 >[!IMPORTANT]

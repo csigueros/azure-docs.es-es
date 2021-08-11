@@ -89,4 +89,4 @@
     - name: Preguntas frecuentes acerca del emparejamiento de Internet
       href: faqs.md
     - name: Preguntas frecuentes sobre Peering Service
-      href: service-faqs.md
+      href: service-faqs.yml

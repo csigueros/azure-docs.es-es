@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 06ba8675b0d393b85ef5748df6d0250257324808
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 66f2091087ed3602e929b584f7a311f4ebb05f88
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113108610"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292522"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Solución de problemas en Azure Communication Services
 
@@ -181,7 +181,7 @@ El SDK de llamadas de Azure Communication Services usa los siguientes códigos d
 
 | Código de error | Descripción | Acción que realizar |
 | -------- | ---------------| ---------------|
-| 403 | Prohibido o error de autenticación. | Asegúrese de que el token de Communication Services es válido y no ha expirado. Si usa la interoperabilidad de Teams, asegúrese de que el inquilino de Teams se ha agregado a la lista de permitidos de acceso de versión preliminar. Para habilitar o deshabilitar la [interoperabilidad de los inquilinos de equipos](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop), complete [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).|
+| 403 | Prohibido o error de autenticación. | Asegúrese de que el token de Communication Services es válido y no ha expirado. Si usa la interoperabilidad de Teams, asegúrese de que el inquilino de Teams se ha agregado a la lista de permitidos de acceso de versión preliminar. Para habilitar o deshabilitar la [interoperabilidad de los inquilinos de equipos](./teams-interop.md), complete [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).|
 | 404 | Llamada no encontrada. | Asegúrese de que el número al que llama (o la llamada a la que se une) existe. |
 | 408 | Se agotó el tiempo de espera del controlador de llamadas. | Se agotó el tiempo de espera del controlador de llamadas mientras esperaba los mensajes de protocolo de los puntos de conexión de usuario. Asegúrese de que los clientes están conectados y disponibles. |
 | 410 | Error de infraestructura de medios o de pila de medios locales. | Asegúrese de que usa el SDK más reciente en un entorno compatible. |

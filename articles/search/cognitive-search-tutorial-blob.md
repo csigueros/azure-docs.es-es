@@ -2,18 +2,17 @@
 title: 'Tutorial: REST y AI a través de blobs de Azure'
 titleSuffix: Azure Cognitive Search
 description: Recorra un ejemplo de extracción de texto y procesamiento de lenguaje natural en el contenido de Blob Storage con las API REST de Azure Cognitive Search y Postman.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: 878bdc1224134f7b9de684635cde77d057b221a7
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: cc1be51c506123ae18d0006be693b100f2e5af1b
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555999"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727141"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Uso de REST y AI para generar contenido en el que se pueden realizar búsquedas desde blobs de Azure
 
@@ -113,7 +112,7 @@ Sin embargo, en este ejercicio puede omitir el aprovisionamiento de recursos, po
 
 El tercer componente es Azure Cognitive Search, que se puede [crear en el portal](search-create-service-portal.md). Puede usar el nivel Gratis para completar este tutorial. 
 
-Al igual que con Azure Blob Storage, dedique un momento a tomar nota de la clave de acceso. Además, cuando empiece a estructurar las solicitudes, deberá proporcionar el punto de conexión y la clave de la API de administración que se usan para autenticar cada solicitud.
+Al igual que con Azure Blob Storage, dedique un momento a recopilar la clave de acceso. Además, cuando empiece a estructurar las solicitudes, deberá proporcionar el punto de conexión y la clave de la API de administración que se usan para autenticar cada solicitud.
 
 ### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Copia de una clave de API de administración y una dirección URL para Azure Cognitive Search
 
@@ -200,7 +199,7 @@ Un [objeto conjunto de aptitudes](/rest/api/searchservice/create-skillset) es un
       "skills":
       [
         {
-          "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+          "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
           "categories": [ "Person", "Organization", "Location" ],
           "defaultLanguageCode": "en",
           "inputs": [

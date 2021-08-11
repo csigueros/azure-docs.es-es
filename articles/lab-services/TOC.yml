@@ -6,7 +6,7 @@
       href: lab-services-overview.md
 - name: Guías de inicio rápido
   items:
-    - name: Primeros pasos
+    - name: Introducción
       href: get-started-manage-labs.md
 - name: Tutoriales
   items:
@@ -195,7 +195,7 @@
     - name: Módulo Az.LabServices de PowerShell (versión preliminar)
       href: reference-powershell-module.md
     - name: Azure CLI
-      href: /cli/azure/hack
+      href: 'https://github.com/Azure/azure-cli-extensions/tree/main/src/hack'
 - name: Recursos
   items:
     - name: Blog de Azure Lab Services

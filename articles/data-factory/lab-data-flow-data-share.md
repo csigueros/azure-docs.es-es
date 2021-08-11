@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/16/2021
-ms.openlocfilehash: 392b1a1650ab40951704d003f2a5e5337cf3c0f5
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.date: 06/04/2021
+ms.openlocfilehash: 0f295a2c628a7ca931287463a75ad441bc40ee24
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566715"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214964"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integración de datos mediante Azure Data Factory y Azure Data Share
 
@@ -60,7 +60,7 @@ En Azure Data Factory, los servicios vinculados definen la información de conex
     ![Portal 3](media/lab-data-flow-data-share/portal3.png)
 1. Se le redirigirá a la página principal de la experiencia del usuario de ADF. Esta página contiene inicios rápidos, vídeos de instrucciones y vínculos a tutoriales para aprender los conceptos de factoría de datos. Para iniciar la creación, haga clic en el icono de lápiz en la barra lateral izquierda.
 
-    ![Configuración en el portal](media/lab-data-flow-data-share/configure1.png)
+    ![Configuración en el portal](./media/doc-common-process/get-started-page-author-button.png)
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado de Azure SQL Database
 

@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15872acea0ebb6b2f1e54c9d9d91a6f11d621fd5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b2a4a5d8591eb4c35ccf9c0957d2a26e1ff23c53
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966123"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730341"
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 
@@ -45,7 +45,7 @@ Los servicios para la empresa de Microsoft Online, como Microsoft 365 o Micros
 Para mejorar la implementación de Azure AD, también puede agregar funcionalidades de pago mediante la actualización a las licencias Azure Active Directory Premium P1 o Premium P2. Las licencias de pago de Azure AD se crean sobre el directorio gratuito existente y proporcionan autoservicio, supervisión mejorada, informes de seguridad y un acceso seguro a sus usuarios móviles.
 
 >[!Note]
->Para ver las opciones de precios de estas licencias, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+>Para ver las opciones de precios de estas licencias, consulte [Precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 >
 >Azure Active Directory Premium P1 y Premium P2 no se admiten actualmente en China. Para más información acerca de los precios de Azure AD, póngase en contacto con el [foro de Azure Active Directory](https://azure.microsoft.com/support/community/?product=active-directory).
 
