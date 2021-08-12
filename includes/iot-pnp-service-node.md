@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 7ab17f0d34ba7682778120e11aab562e106b5df7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd296000f95ee6a2bb73567a0de46472a7c05492
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95487830"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403626"
 ---
 IoT Plug and Play simplifica IoT, ya que permite interactuar con las funcionalidades de un dispositivo sin tener que conocer la implementación subyacente del mismo. En este inicio rápido se muestra cómo usar Node.js para conectarse y controlar un dispositivo IoT Plug and Play que esté conectado a una solución.
 
@@ -59,7 +59,7 @@ En este inicio rápido, se usa un dispositivo termostato de ejemplo, que se ha e
 
 ## <a name="run-the-sample-solution"></a>Ejecución de la solución de ejemplo
 
-En el artículo sobre la [configuración del entorno para los inicios rápidos y tutoriales de IoT Plug and Play](../articles/iot-pnp/set-up-environment.md) se crearon dos variables de entorno para configurar el ejemplo para conectarse a su instancia de IoT Hub y al dispositivo:
+En el artículo sobre la [configuración del entorno para los inicios rápidos y tutoriales de IoT Plug and Play](../articles/iot-develop/set-up-environment.md) se crearon dos variables de entorno para configurar el ejemplo para conectarse a su instancia de IoT Hub y al dispositivo:
 
 * **IOTHUB_CONNECTION_STRING**: la cadena de conexión de IoT Hub que anotó anteriormente.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
@@ -156,7 +156,7 @@ En este inicio rápido, se usa una solución de IoT de ejemplo en Node.js para i
 En este escenario, la salida es `Model Id: dtmi:com:example:Thermostat;1`.
 
 > [!NOTE]
-> En estos ejemplos de servicio se usa la clase **Registry** del **cliente del servicio IoT Hub**. Para más información sobre las API, incluida la API de gemelos digitales, consulte la [guía para desarrolladores de servicios](../articles/iot-pnp/concepts-developer-guide-service.md).
+> En estos ejemplos de servicio se usa la clase **Registry** del **cliente del servicio IoT Hub**. Para más información sobre las API, incluida la API de gemelos digitales, consulte la [guía para desarrolladores de servicios](../articles/iot-develop/concepts-developer-guide-service.md).
 
 ### <a name="update-a-writable-property"></a>Actualización de una propiedad editable
 

@@ -2,25 +2,25 @@
 title: Qué es la administración de aplicaciones en Azure Active Directory
 description: Información general sobre el uso de Azure Active Directory (AD) como sistema de administración de identidades y acceso (IAM) para aplicaciones locales y en la nube.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 01/22/2021
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: ''
-ms.openlocfilehash: 31bfbe1405e1180f8909333da8947d72d68dd7db
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e483efc2beae5ddf76c135aaa785b32732aa2f62
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079362"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113566415"
 ---
 # <a name="what-is-application-management"></a>¿Qué es la administración de aplicaciones?
 
-Azure AD es un sistema de administración de identidades y acceso (IAM). Proporciona un lugar centralizado para almacenar la información de las identidades digitales. Puede configurar las aplicaciones de software para que usen Azure AD como el lugar donde se almacena la información del usuario. 
+Azure AD es un sistema de administración de identidades y acceso (IAM). Proporciona un lugar centralizado para almacenar la información de las identidades digitales. Puede configurar las aplicaciones de software para que usen Azure AD como el lugar donde se almacena la información del usuario.
 
 Azure AD debe estar configurada para poder integrarse con una aplicación. En otras palabras, debe saber qué aplicaciones lo usan para las identidades. Hacer que Azure AD conozca estas aplicaciones y cómo debe controlarlas, se conoce como administración de aplicaciones.
 
@@ -29,6 +29,7 @@ Las aplicaciones se administran en la página **Aplicaciones empresariales**, qu
 ![Opción Aplicaciones empresariales de la sección Administrar del portal de Azure AD.](media/what-is-application-management/enterprise-applications-in-nav.png)
 
 ## <a name="what-is-an-identity-and-access-management-iam-system"></a>¿Qué es un sistema de administración de identidades y acceso (IAM)?
+
 Una aplicación es un fragmento de software que se usa para algún propósito. La mayoría de las aplicaciones requieren que los usuarios inicien sesión.
 
 Un sistema de identidades centralizado proporciona un único lugar para almacenar la información de los usuario que, después, todas las aplicaciones pueden usar. Estos sistemas se conocen como sistemas de administración de identidades y acceso (IAM). Azure Active Directory es el sistema de IAM para la nube de Microsoft.
@@ -45,18 +46,18 @@ Las organizaciones suelen tener cientos de aplicaciones de las que los usuarios 
 
 ## <a name="how-does-azure-ad-work-with-apps"></a>¿Cómo funciona Azure AD con las aplicaciones?
 
-Azure AD se encuentra en el centro y proporciona administración de identidades tanto para las aplicaciones en la nube como para las locales. 
+Azure AD se encuentra en el centro y proporciona administración de identidades tanto para las aplicaciones en la nube como para las locales.
 
 ![Diagrama que muestra las aplicaciones federadas mediante Azure AD](media/what-is-application-management/app-management-overview.png)
 
 >[!TIP]
->Para reducir los costos administrativos, [automatice el aprovisionamiento de usuarios](../app-provisioning/user-provisioning.md), con el fin de que los usuarios se pueden agregar automáticamente a Azure AD al agregarlos al sistema de recursos humanos de la empresa. 
+>Para reducir los costos administrativos, [automatice el aprovisionamiento de usuarios](../app-provisioning/user-provisioning.md), con el fin de que los usuarios se pueden agregar automáticamente a Azure AD al agregarlos al sistema de recursos humanos de la empresa.
 
 ## <a name="what-types-of-applications-can-i-integrate-with-azure-ad"></a>¿Qué tipos de aplicaciones puedo integrar con Azure AD?
 
-Puede usar Azure AD como sistema de identidades de casi todas las aplicaciones. Muchas aplicaciones ya están configuradas previamente y pueden configurarse con un esfuerzo mínimo. Estas aplicaciones preconfiguradas se publican en la [Galería de aplicaciones de Azure AD](/azure/active-directory/saas-apps/). 
+Puede usar Azure AD como sistema de identidades de casi todas las aplicaciones. Muchas aplicaciones ya están configuradas previamente y pueden configurarse con un esfuerzo mínimo. Estas aplicaciones preconfiguradas se publican en la [Galería de aplicaciones de Azure AD](/azure/active-directory/saas-apps/).
 
-La mayoría de las aplicaciones se pueden configurar manualmente para el inicio de sesión único si no están ya en la galería. Azure AD proporciona varias opciones de inicio de sesión único. Algunas de los más populares son SSO basado en SAML y SSO basado en OIDC. Para más información sobre la integración de aplicaciones para habilitar el inicio de sesión único, consulte las [opciones de inicio de sesión único](sso-options.md). 
+La mayoría de las aplicaciones se pueden configurar manualmente para el inicio de sesión único si no están ya en la galería. Azure AD proporciona varias opciones de inicio de sesión único. Algunas de los más populares son SSO basado en SAML y SSO basado en OIDC. Para más información sobre la integración de aplicaciones para habilitar el inicio de sesión único, consulte las [opciones de inicio de sesión único](sso-options.md).
 
 ¿Su organización usa aplicaciones locales? Puede integrarlas mediante Proxy de aplicaciones. Para más información, consulte [Acceso remoto a aplicaciones locales mediante Azure Active Directory Application Proxy](../app-proxy/application-proxy.md).
 
@@ -65,7 +66,7 @@ La mayoría de las aplicaciones se pueden configurar manualmente para el inicio 
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>Administración de riesgos con directivas de acceso condicional
 
-El acoplamiento del inicio de sesión único (SSO) de Azure AD con [acceso condicional](../conditional-access/concept-conditional-access-cloud-apps.md) ofrece niveles altos de seguridad para acceder a las aplicaciones. Las directivas de acceso condicional proporcionan un control pormenorizado de las aplicaciones en función de las condiciones establecidas. 
+El acoplamiento del inicio de sesión único (SSO) de Azure AD con [acceso condicional](../conditional-access/concept-conditional-access-cloud-apps.md) ofrece niveles altos de seguridad para acceder a las aplicaciones. Las directivas de acceso condicional proporcionan un control pormenorizado de las aplicaciones en función de las condiciones establecidas.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Mejora de la seguridad con el inicio de sesión único
 

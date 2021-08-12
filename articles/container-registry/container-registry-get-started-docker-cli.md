@@ -2,14 +2,14 @@
 title: Inserción y extracción de imagen de contenedor
 description: Inserte y extraiga imágenes de Docker en un registro de contenedor privado de Azure mediante la CLI de Docker.
 ms.topic: article
-ms.date: 01/23/2019
-ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 48f5f1707881ac8461e12212be631d3b80c16ca7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/12/2021
+ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurepowershell
+ms.openlocfilehash: 0fd44ae001bd7f120b6c903a4109dd0e6268e19e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783834"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062963"
 ---
 # <a name="push-your-first-image-to-your-azure-container-registry-using-the-docker-cli"></a>Inserción de la primera imagen en el registro de contenedor de Azure mediante la CLI de Docker
 
@@ -19,17 +19,32 @@ En los pasos siguientes, se descarga una [imagen de Nginx](https://store.docker.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* **Registro de contenedor de Azure**: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md).
+* **Registro de contenedor de Azure**: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md), la [CLI de Azure](container-registry-get-started-azure-cli.md) o [Azure PowerShell](container-registry-get-started-powershell.md).
 * **CLI de Docker**: también debe tener instalado Docker localmente. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [macOS][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
 ## <a name="log-in-to-a-registry"></a>Inicio de sesión en un registro
 
-Hay [varias maneras de autenticar](container-registry-authentication.md) en el registro de contenedor privado. Es el método recomendado cuando se trabaja en una línea de comandos con el comando de la CLI de Azure [az acr login](/cli/azure/acr#az_acr_login). Por ejemplo, para iniciar sesión en un registro denominado *MiRegistro*, inicie sesión en la CLI de Azure y, a continuación, autentíquese en el registro:
+Hay [varias maneras de autenticar](container-registry-authentication.md) en el registro de contenedor privado.
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Es el método recomendado cuando se trabaja en una línea de comandos con el comando de la CLI de Azure [az acr login](/cli/azure/acr#az_acr_login). Por ejemplo, para iniciar sesión en un registro denominado *MiRegistro*, inicie sesión en la CLI de Azure y, a continuación, autentíquese en el registro:
 
 ```azurecli
 az login
 az acr login --name myregistry
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+El método recomendado cuando se trabaja en PowerShell es con el cmdlet [Connect-AzContainerRegistry](/powershell/module/az.containerregistry/connect-azcontainerregistry) de Azure PowerShell. Por ejemplo, para iniciar sesión en un registro denominado *myregistry*, inicie sesión en Azure y, después, autentíquese en el registro:
+
+```azurepowershell
+Connect-AzAccount
+Connect-AzContainerRegistry -Name myregistry
+```
+
+---
 
 También puede iniciar sesión con [docker login](https://docs.docker.com/engine/reference/commandline/login/). Por ejemplo, puede que haya [asignado una entidad de servicio](container-registry-authentication.md#service-principal) al registro para ver un escenario de automatización. Cuando ejecute el siguiente comando, proporcione de forma interactiva el identificador de aplicación (nombre de usuario) y la contraseña de la entidad de servicio cuando se le solicite. Para consultar procedimientos recomendados para administrar credenciales de inicio de sesión, vea la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/):
 
@@ -114,11 +129,31 @@ Si ya no necesita la imagen Nginx, puede eliminarla localmente con el comando [d
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Para quitar imágenes del registro de contenedor de Azure, puede usar el comando de la CLI de Azure [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete). Por ejemplo, el siguiente comando elimina el manifiesto al que se hace referencia mediante la etiqueta `samples/nginx:latest`, todos los datos de la capa únicos y todas las demás etiquetas que hacen referencia al manifiesto.
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+El módulo [Az.ContainerRegistry](/powershell/module/az.containerregistry) de Azure PowerShell contiene varios comandos para quitar imágenes de una instancia de contenedor. [Remove-AzContainerRegistryRepository](/powershell/module/az.containerregistry/remove-azcontainerregistryrepository) quita todas las imágenes de un espacio de nombres determinado, como `samples:nginx`, mientras que [Remove-AzContainerRegistryManifest](/powershell/module/az.containerregistry/remove-azcontainerregistrymanifest) quita una etiqueta o un manifiesto concretos.
+
+En el ejemplo siguiente, se usa el cmdlet `Remove-AzContainerRegistryRepository` para quitar todas las imágenes del espacio de nombres `samples:nginx`.
+
+```azurepowershell
+Remove-AzContainerRegistryRepository -RegistryName myregistry -Name samples/nginx
+```
+
+En el siguiente ejemplo, se usa el cmdlet `Remove-AzContainerRegistryManifest` para eliminar el manifiesto al que se hace referencia mediante la etiqueta `samples/nginx:latest`, todos los datos de la capa únicos y todas las demás etiquetas que hacen referencia al manifiesto.
+
+```azurepowershell
+Remove-AzContainerRegistryManifest -RegistryName myregistry -RepositoryName samples/nginx -Tag latest
+```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

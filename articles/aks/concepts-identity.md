@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: b10d31cf069bc4f28a1597ec12160fa6ed98b8ce
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 77b35d776b8fcd71f26278a6fda8a102113bd570
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789562"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109844977"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opciones de acceso e identidad en Azure Kubernetes Service (AKS)
 
@@ -185,7 +185,7 @@ Hay dos niveles de acceso necesarios para operar completamente un clúster de AK
   * Extraiga `kubeconfig`.
 * Acceso al API de Kubernetes. Este acceso se controla mediante:
   * [RBAC de Kubernetes](#kubernetes-rbac) (tradicionalmente).
-  * [Integración de RBAC de Azure con AKS para la autorización de Kubernetes](#azure-rbac-for-kubernetes-authorization-preview).
+  * [Integración de RBAC de Azure con AKS para la autorización de Kubernetes](#azure-rbac-for-kubernetes-authorization).
 
 ### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC para autorizar el acceso al recurso de AKS
 
@@ -195,7 +195,7 @@ Como alternativa, puede dar a su usuario el rol de [colaborador](../role-based-a
 
 [Use Azure RBAC para definir el acceso al archivo de configuración de Kubernetes en AKS](control-kubeconfig-access.md).
 
-### <a name="azure-rbac-for-kubernetes-authorization-preview"></a>Azure RBAC para la autorización de Kubernetes (versión preliminar)
+### <a name="azure-rbac-for-kubernetes-authorization"></a>Autorización de Azure RBAC para Kubernetes
 
 Con la integración de Azure RBAC, AKS utilizará un servidor de webhooks de autorización de Kubernetes, lo que le permitirá administrar los permisos y asignaciones de los recursos del clúster de Kubernetes integrados en Azure AD utilizando la definición y la asignación de roles de Azure.
 

@@ -9,12 +9,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 04/29/2021
-ms.openlocfilehash: 52a431cae26d1d45534abd55f9de5357b31ecbea
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8e8920d2a2ebbf326c9d5d0aba100ad5352ca6c4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749472"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071207"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de datos admitidas en Data Science Virtual Machine
 
@@ -34,6 +34,10 @@ Las siguientes son las herramientas de la plataforma de datos compatibles con DS
 
 > [!NOTE]
 > SQL Server Developer Edition solo puede utilizarse para fines de desarrollo y prueba. Se necesita una licencia o una de las máquinas virtuales de SQL Server para ejecutarlo en producción.
+
+> [!NOTE]
+> El soporte técnico para Machine Learning Server independiente finalizó el 1 de julio de 2021. Como consecuencia, después del 30 de junio se eliminó de las imágenes de DSVM. Las implementaciones existentes seguirán teniendo acceso al software, pero debido a que se ha alcanzado la fecha de finalización del soporte técnico, no habrá soporte técnico para él después del 1 de julio de 2021.
+
 
 ### <a name="windows"></a>Windows
 
@@ -62,7 +66,7 @@ Además, DSVM incluye controladores ODBC y JDBC para comunicarse con SQL Server
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Para usar SQL Server Developer Edition en una DSVM de Ubuntu, primero debe instalarla. En [Inicio rápido: Instalación de SQL Server y creación de una base de datos en Ubuntu](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu) puede ver cómo hacerlo.
+Para usar SQL Server Developer Edition en una DSVM de Ubuntu, primero debe instalarla. En [Inicio rápido: Instalación de SQL Server y creación de una base de datos en Ubuntu](/sql/linux/quickstart-install-connect-ubuntu) puede ver cómo hacerlo.
 
 
 

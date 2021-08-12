@@ -1,6 +1,6 @@
 ---
-title: Restablecimiento y reactivación de un dispositivo Azure Stack Edge Pro | Microsoft Docs
-description: Aprenda cómo borrar los datos del dispositivo Azure Stack Edge Pro para luego reactivarlo.
+title: Establecimiento y reactivación del dispositivo Azure Stack Edge
+description: Aprenda cómo borrar los datos del dispositivo Azure Stack Edge para luego reactivarlo.
 services: databox
 author: v-dalc
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 8f744e85c97d3c7e79028ae95b4d90626af41787
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4afe7235cb4122e4c4fe7e26fff4b34504663892
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773097"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460605"
 ---
-# <a name="reset-and-reactivate-your-azure-stack-edge-pro-device"></a>Restablecimiento y reactivación de un dispositivo Azure Stack Edge Pro
+# <a name="reset-and-reactivate-your-azure-stack-edge-device"></a>Restablecimiento y reactivación del dispositivo Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-En este artículo se describe cómo restablecer, volver a configurar y reactivar un dispositivo Azure Stack Edge Pro si tiene problemas con el dispositivo o necesita empezar de nuevo por algún otro motivo.
+En este artículo se describe cómo restablecer, volver a configurar y reactivar un dispositivo Azure Stack Edge si tiene problemas con el dispositivo o necesita empezar de nuevo por algún otro motivo.
 
 Después de restablecer el dispositivo para quitar los datos, debe reactivarlo como un nuevo recurso. Al restablecer un dispositivo, se quita la configuración del dispositivo, por lo que tendrá que volver a configurarlo a través de la interfaz de usuario web local.
 
@@ -65,4 +65,4 @@ Para volver a activar el dispositivo existente, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [conectar un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-connect.md).
+- Aprenda a [conectar un dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-connect.md).

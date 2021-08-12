@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: a8da9960e363e72bd6c108a9d72cfed4cc7769cf
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: f0b7aa98ce9adc49db7739dff00f7784b71c9384
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488724"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066743"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
@@ -39,7 +39,7 @@ Este conector de Amazon S3 es compatible con las actividades siguientes:
 Concretamente, este conector de Amazon S3 admite la copia de archivos tal cual, o el análisis de los mismos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md). También puede optar por [conservar los metadatos de archivo durante la copia](#preserve-metadata-during-copy). El conector usa [AWS Signature versión 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) para autenticar las solicitudes a S3.
 
 >[!TIP]
->Puede usar este conector de Amazon S3 para copiar datos desde *cualquier proveedor de almacenamiento compatible con S3*, como [Google Cloud Storage](connector-google-cloud-storage.md). Especifique la dirección URL del servicio correspondiente en la configuración del servicio vinculado.
+>Si desea copiar datos de *cualquier proveedor de almacenamiento compatible con S3*, consulte el artículo sobre el [almacenamiento compatible con Amazon S3](connector-amazon-s3-compatible-storage.md).
 
 ## <a name="required-permissions"></a>Permisos necesarios
 
@@ -66,12 +66,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Amazon S
 | accessKeyId | Id. de la clave de acceso secreta. |Sí |
 | secretAccessKey | La propia clave de acceso secreta. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. |Sí |
 | SessionToken | Se aplica cuando se usa la autenticación con [credenciales de seguridad temporales](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html). Obtenga información sobre cómo [solicitar credenciales de seguridad temporales](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) de AWS.<br>Tenga en cuenta que la credencial temporal de AWS expira al cabo de entre 15 minutos y 36 horas en función de la configuración. Asegúrese de que la credencial es válidas cuando se ejecuta la actividad, especialmente en el caso de la carga de trabajo operativa; por ejemplo, puede actualizarla periódicamente y almacenarla en Azure Key Vault.<br>Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. |No |
-| serviceUrl | Especifique el punto de conexión personalizado S3 si va a copiar datos desde un proveedor de almacenamiento compatible con S3 distinto al servicio Amazon S3 oficial. Por ejemplo, para copiar datos de Google Cloud Storage, especifique `https://storage.googleapis.com`. | No |
-| forcePathStyle | Indica si se va a usar el [acceso de estilo ruta de acceso](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#path-style-access) de S3 en lugar del acceso de estilo hospedado virtual. Los valores permitidos son **false** (valor predeterminado) y **true**.<br>Si se va a conectar a un proveedor de almacenamiento compatible con S3 que no sea el servicio oficial S3 de Amazon, y ese almacén de datos requiere acceso de estilo ruta de acceso (por ejemplo, [Oracle Cloud Storage](https://docs.oracle.com/iaas/Content/Object/Tasks/s3compatibleapi.htm)), establezca esta propiedad en true. Consulte la documentación de cada almacén de datos para saber si el acceso de estilo ruta de acceso es o no necesario. |No |
+| serviceUrl | Especifique el punto de conexión S3 personalizado `https://<service url>`. | No |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos está en una red privada). Si no se especifica esta propiedad, el servicio usa el valor predeterminado de Azure Integration Runtime. |No |
 
->[!TIP]
->Especifique la dirección URL personalizada del servicio S3 si va a copiar datos desde un almacenamiento compatible con S3 que sea distinto del servicio Amazon S3 oficial.
 
 **Ejemplo: uso de la autenticación mediante clave de acceso**
 

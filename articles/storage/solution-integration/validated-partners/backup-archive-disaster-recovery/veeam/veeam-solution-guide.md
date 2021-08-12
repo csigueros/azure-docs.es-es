@@ -4,23 +4,23 @@ titleSuffix: Azure Storage
 description: Proporciona información general de los factores que se deben tener en cuenta y los pasos que deben seguirse para usar Azure como destino de almacenamiento y ubicación de recuperación para Veeam Backup & Replication.
 author: karauten
 ms.author: karauten
-ms.date: 03/15/2021
+ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 0b8bc0defd3314fcff691a049323201732644ff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 334ae28c160a01032d5403e06f40846e8b9d9ed5
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589912"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839192"
 ---
 # <a name="backup-to-azure-with-veeam"></a>Copia de seguridad en Azure con Veeam
 
 Este artículo le ayuda a integrar una infraestructura de Veeam en Azure Blob Storage. Incluye requisitos previos, consideraciones, implementación y una guía de operaciones. En este artículo se aborda el uso de Azure como destino de copia de seguridad fuera del sitio y como sitio de recuperación en caso de desastre, lo que impide el funcionamiento normal en el sitio principal.
 
 > [!NOTE]
-> Veeam también ofrece una solución de objetivo de tiempo de recuperación (RTO) inferior, replicación de Veeam. Esta solución le permite tener una máquina virtual en espera que puede ayudarle a recuperarse más rápidamente en caso de que se produzca un desastre en un entorno de producción de Azure. Veeam también tiene herramientas dedicadas para realizar copias de seguridad de recursos de Azure y Office 365. Estas funcionalidades están fuera del ámbito de este documento.
+> Veeam también ofrece una solución de objetivo de tiempo de recuperación (RTO) inferior, Veeam Backup & Replication, que admite las cargas de trabajo de Azure VMware Solution. Esta solución le permite tener una máquina virtual en espera que puede ayudarle a recuperarse más rápidamente en caso de que se produzca un desastre en un entorno de producción de Azure. Veeam también ofrece restauración directa a Microsoft Azure y otras herramientas dedicadas para hacer copias de seguridad de recursos de Azure y Office 365. Estas funcionalidades están fuera del ámbito de este documento.
 
 ## <a name="reference-architecture"></a>Arquitectura de referencia
 
@@ -39,7 +39,10 @@ La implementación de Veeam existente se puede integrar fácilmente en Azure med
 | Blob de Azure | v10a | v10a | N/D | 10a<sup>*</sup> |
 | Azure Files | v10a | v10a | N/D | 10a<sup>*</sup> |
 
-<sup>*</sup>Veeam Backup & Replication solo admite la API REST para Azure Data Box. Por lo tanto, no admite Azure Data Box Disk.
+Veeam también ha ofrecido compatibilidad con las características anteriores de Azure en las versiones anteriores de su producto, por lo que se recomienda encarecidamente aprovechar la versión más reciente del producto para disfrutar de una experiencia óptima.
+
+<sup>*</sup>Veeam Backup & Replication solo admite la API REST para Azure Data Box. Por lo tanto, no admite Azure Data Box Disk. Consulte [aquí](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=110) los detalles del soporte técnico de Data Box.
+
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -114,17 +117,17 @@ El pago por uso puede ser intimidatorio para los clientes que no están familiar
 |Factor de coste  |Coste mensual  |
 |---------|---------|
 |100 TB de datos de copia de seguridad en el almacenamiento esporádico     |1556,48 USD         |
-|2 TB de datos nuevos escritos al día x 30 días     |72 USD en transacciones          |
-|Total mensual estimado     |1628,48 USD         |
+|2 TB de datos nuevos escritos al día x 30 días     |42 USD en transacciones          |
+|Total mensual estimado     |1598,48 USD         |
 |---------|---------|
-|Restauración única de 5 TB en un entorno local a través de la red pública de Internet   | 527.26 USD         |
+|Restauración única de 5 TB en un entorno local a través de la red pública de Internet   | 527,26 USD         |
 
 > [!Note]
-> Esta estimación se ha generado en la calculadora de precios de Azure con los precios de pago por uso de la región Este de EE. UU. y se basa en el valor predeterminado de Veeam de tamaño de fragmento de 256 KB para las transferencias WAN. Es posible que este ejemplo no sea aplicable a sus requisitos.
+> Esta estimación se ha generado en la calculadora de precios de Azure con los precios de pago por uso de la región Este de EE. UU. y se basa en el valor predeterminado de Veeam de tamaño de fragmento de 512 KB para las transferencias WAN. Es posible que este ejemplo no sea aplicable a sus requisitos.
 
 ## <a name="implementation-guidance"></a>Guía de implementación
 
-En esta sección se proporciona una breve guía sobre cómo agregar Azure Storage a una implementación local de Veeam. Para obtener instrucciones detalladas y consideraciones para el plan, consulte la [Guía de copia de seguridad de Veeam Cloud Connect](https://helpcenter.veeam.com/docs/backup/cloud/cloud_backup.html?ver=100).
+En esta sección se proporciona una breve guía sobre cómo agregar Azure Storage a una implementación local de Veeam. Para obtener instrucciones detalladas y consideraciones sobre planeamiento, se recomienda examinar la siguiente guía de Veeam para conocer su [nivel de capacidad](https://helpcenter.veeam.com/docs/backup/vsphere/capacity_tier.html?ver=110).
 
 1. Abra Azure Portal y busque **Cuentas de almacenamiento**. También puede hacer clic en el icono de servicio predeterminado.
 
@@ -136,11 +139,9 @@ En esta sección se proporciona una breve guía sobre cómo agregar Azure Storag
 
     ![Muestra la configuración de la cuenta de Storage en el portal.](../media/account-create-1.png)
 
-3. No cambie las opciones de redes predeterminadas para ahora y pase a **Protección de datos**. En este caso, puede habilitar la opción "Eliminación temporal", que le permite recuperar un archivo de copia de seguridad eliminado accidentalmente dentro del período de retención definido y, además, ofrece protección contra la eliminación accidental o malintencionada.
+3. Por el momento, no cambie las opciones predeterminadas de protección de datos y de redes. **No** habilite la eliminación temporal de las cuentas de almacenamiento que almacenan los niveles de capacidad de Veeam.
 
-    ![Muestra la configuración de la protección de datos en el portal.](../media/account-create-2.png)
-
-4. A continuación, le recomendamos usar la configuración predeterminada de la pantalla **Opciones avanzadas** para los casos de uso de copias de seguridad en Azure.
+ 4. A continuación, le recomendamos usar la configuración predeterminada de la pantalla **Opciones avanzadas** para los casos de uso de copias de seguridad en Azure.
 
     ![Muestra la pestaña Opciones avanzadas en el portal.](../media/account-create-3.png)
 

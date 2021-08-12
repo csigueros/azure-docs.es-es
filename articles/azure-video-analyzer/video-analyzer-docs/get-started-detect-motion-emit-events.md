@@ -3,13 +3,13 @@ title: 'Introducción a Azure Video Analyzer: Azure'
 description: Este inicio rápido le guiará por los pasos necesarios para empezar a usar Azure Video Analyzer. Usa una máquina virtual de Azure como un dispositivo IoT Edge y una secuencia de vídeo en directo simulada.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 04/21/2021
-ms.openlocfilehash: 3606442101c8e20173ed3cd18c583fce02a45da1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 335890f4bb939123290e5dfe9cccbf9f9aef1242
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388453"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605183"
 ---
 # <a name="quickstart-get-started-with-azure-video-analyzer"></a>Inicio rápido: Introducción a Azure Video Analyzer
 
@@ -24,14 +24,12 @@ Después de completar los pasos de la configuración, podrá ejecutar la secuenc
 
 * Una cuenta de Azure que tenga una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), en caso de que aún no lo haya hecho.
 
-    > [!NOTE]    
-    > Necesitará una suscripción de Azure en la que tenga acceso a los roles [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) y [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator). Si no tiene los permisos adecuados, póngase en contacto con el administrador de la cuenta para que se los conceda.  
+    [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * [Visual Studio Code](https://code.visualstudio.com/) con las siguientes extensiones:
 
     * [Herramientas de Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-> [!TIP] 
-> Al instalar la extensión de Azure IoT Tools, es posible que se le pida que instale Docker. Si lo desea, ignore esta petición.
+[!INCLUDE [install-docker-prompt](./includes/common-includes/install-docker-prompt.md)]
 
 ## <a name="set-up-azure-resources"></a>Configuración de los recursos de Azure
 
@@ -40,7 +38,7 @@ Después de completar los pasos de la configuración, podrá ejecutar la secuenc
 El proceso de implementación tardará unos **20 minutos**. Al finalizar, tendrá determinados recursos de Azure implementados en la suscripción de Azure, entre los que se incluyen:
 1. **Cuenta de Video Analyzer**: este [servicio en la nube](overview.md) se usa para registrar el módulo perimetral Video Analyzer y para reproducir vídeo grabado y análisis de vídeo.
 1. **Cuenta de almacenamiento**: para almacenar vídeo grabado y análisis de vídeo.
-1. **Identidad administrada**: esta es la [identidad administrada] asignada por el usuario../../active-directory/managed-identities-azure-resources/overview.md) que se usa para administrar el acceso a la cuenta de almacenamiento anterior.
+1. **Identidad administrada**: es la [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) asignada por el usuario que se usa para administrar el acceso a la cuenta de almacenamiento anterior.
 1. **Máquina virtual**: esta es una máquina virtual que actuará como su dispositivo perimetral simulado.
 1. **IoT Hub**: funciona como un centro de mensajes común para la comunicación bidireccional entre la aplicación de IoT, los módulos de IoT Edge y los dispositivos que administra.
 
@@ -89,11 +87,7 @@ Cuando use o ejecute este inicio rápido, los eventos se enviarán a IoT Hub. Pa
 1. Expanda el nodo **Devices** (Dispositivos).
 1. Haga clic con el botón derecho en `avasample-iot-edge-device` y seleccione **Iniciar la supervisión del punto de conexión de eventos integrado**.
 
-    > [!NOTE]
-    > Es posible que se le pida que proporcione información del punto de conexión integrado del centro de IoT. Para obtener esa información, en Azure Portal, vaya a su centro de IoT y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este:  
-        ```
-        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-        ```
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 ## <a name="use-direct-method-calls"></a>Uso de llamadas de método directo
 

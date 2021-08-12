@@ -1,19 +1,19 @@
 ---
 title: Información del grupo de recursos de Azure Monitor | Microsoft Docs
-description: Comprenda el estado y el rendimiento de sus aplicaciones y servicios distribuidos en el nivel Grupo de recursos con Azure Monitor
+description: Conozca el estado y rendimiento de sus aplicaciones y servicios distribuidos en el nivel Grupo de recursos con la característica Información del grupo de recursos de Azure Monitor.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bfe197befc781548dc41ff389f2d9558af7a8aae
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 466d63f8615d8115c7dcbfacdca2d004cf19621e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567409"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073817"
 ---
-# <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Supervisar los grupos de recursos con Azure Monitor (versión preliminar)
+# <a name="monitor-azure-monitor-resource-group-insights-preview"></a>Supervisión de Información del grupo de recursos de Azure Monitor (versión preliminar)
 
 Las aplicaciones modernas son a menudo complejas y están altamente distribuidas, ya que cuentan con muchas partes discretas trabajando juntas para ofrecer un servicio dado. Gracias a esta complejidad, Azure Monitor proporciona información detallada de supervisión para los grupos de recursos. Esto hace que sea más fácil clasificar y diagnosticar cualquier problema que encuentren sus recursos individuales, a la vez que se ofrece un contexto en cuanto al estado y el rendimiento del grupo de recursos &mdash;y su aplicación&mdash; como un todo.
 
@@ -108,10 +108,10 @@ En este caso, si selecciona Edición verá que este conjunto de visualizaciones 
 
 ### <a name="enabling-access-to-alerts"></a>Habilitación del acceso a las alertas
 
-Para ver las alertas en Azure Monitor para grupos de recursos, un usuario con un rol de propietario o colaborador en esta suscripción debe abrir Azure Monitor para grupos de recursos para cualquier grupo de recursos de la suscripción. Esto permitirá a cualquier usuario con acceso de lectura ver alertas en Azure Monitor para grupos de recursos en todos los grupos de recursos de la suscripción. Si tiene un rol de propietario o colaborador, dedique unos minutos a actualizar esta página.
+Para ver alertas en Información del grupo de recursos, es preciso tanto tener los roles de Propietario o colaborador en esta suscripción como abrir Información del grupo de recursos a todos los grupos de recursos de la suscripción. Esto permitirá a cualquier usuario con acceso de lectura ver en Información del grupo de recursos alertas de todos los grupos de recursos de la suscripción. Si tiene un rol de propietario o colaborador, dedique unos minutos a actualizar esta página.
 
-Azure Monitor para grupos de recursos se basa en el sistema de administración de alertas de Azure Monitor para recuperar el estado de alerta. La administración de alertas no se configura de forma predeterminada para todos los grupos de recursos y las suscripciones, y solo puede habilitarla un usuario con un rol de propietario o colaborador. Se puede habilitar de dos maneras:
-* Abriendo Azure Monitor para grupos de recursos con cualquier grupo de recursos de la suscripción.
+Información del grupo de recursos se basa en el sistema de administración de alertas de Azure Monitor para recuperar el estado de alerta. La administración de alertas no se configura de forma predeterminada para todos los grupos de recursos y las suscripciones, y solo puede habilitarla un usuario con un rol de propietario o colaborador. Se puede habilitar de dos maneras:
+* Abra Información del grupo de recursos para todos los grupos de recursos de la suscripción.
 * O bien, yendo a la suscripción, haciendo clic en **Proveedores de recursos** y luego en **Register for Alerts.Management** (Registrarse con Alerts.Management).
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -6,12 +6,12 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: d0420b92fc94e0a1a9c8a4057f419a57a9909223
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c0d24c667d2c7c46f65d8c6f3bf6e6e3b52fd00
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100545163"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669656"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Tutorial: Crear y publicar un producto  
 
@@ -163,7 +163,7 @@ az apim product api delete --resource-group apim-hello-word-resource-group \
 ---
 
 > [!TIP]
-> Puede crear o actualizar la suscripción del usuario a un producto con claves de suscripción personalizadas mediante la [API REST](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) o un comando de PowerShell.
+> Puede crear o actualizar la suscripción del usuario a un producto con claves de suscripción personalizadas mediante la [API REST](/rest/api/apimanagement/2020-12-01/subscription/create-or-update) o un comando de PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

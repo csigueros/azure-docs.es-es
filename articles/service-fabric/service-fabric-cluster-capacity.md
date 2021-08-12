@@ -4,12 +4,12 @@ description: Tipos de nodos, durabilidad, confiabilidad y otros aspectos que se 
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 9268dfef15d8302eb31cc1b649c7fd713aab6721
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0b04bc99abc2f9864ed22078f809702390d9f547
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732591"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695446"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 
@@ -53,9 +53,9 @@ El número de tipos de nodos iniciales depende del propósito de su clúster y d
 
 * ***¿El clúster abarcará Availability Zones?***
 
-    Service Fabric admite clústeres que abarcan [Availability Zones](../availability-zones/az-overview.md) con la implementación de tipos de nodo anclados a zonas específicas, lo que garantiza una alta disponibilidad de las aplicaciones. Availability Zones requiere planeación de tipo de nodo adicional y requisitos mínimos. Para más información, consulte [Topología recomendada para el tipo de nodo principal de clústeres de Service Fabric que se distribuyen en Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
+    Service Fabric admite clústeres que abarcan [Availability Zones](../availability-zones/az-overview.md) con la implementación de tipos de nodo anclados a zonas específicas, lo que garantiza una alta disponibilidad de las aplicaciones. Availability Zones requiere planeación de tipo de nodo adicional y requisitos mínimos. Para más información, consulte [Topología recomendada para distribuir un tipo de nodo principal entre Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-spanning-a-primary-node-type-across-availability-zones).
 
-A la hora de determinar el número y las propiedades de los tipos de nodo para la creación inicial del clúster, tenga en cuenta que siempre se pueden agregar, modificar o quitar tipos de nodo (no principales) una vez implementado el clúster. [Los tipos de nodo principal también se pueden modificar](service-fabric-scale-up-primary-node-type.md) en clústeres en ejecución (aunque tales operaciones requieren una gran cantidad de planeación y precaución en entornos de producción).
+A la hora de determinar el número y las propiedades de los tipos de nodo para la creación inicial del clúster, tenga en cuenta que siempre se pueden agregar, modificar o quitar tipos de nodo (no principales) una vez implementado el clúster. Los [tipos de nodo principal también se pueden escalar o reducir verticalmente](service-fabric-scale-up-primary-node-type.md) en clústeres en ejecución, aunque, para ello, deberá crear un tipo de nodo, mover la carga de trabajo y, luego, quitar el tipo de nodo principal original.
 
 Una consideración más detallada para las propiedades de tipo de nodo es el nivel de durabilidad, que determina los privilegios que tienen las máquinas virtuales de un tipo de nodo dentro de la infraestructura de Azure. Use el tamaño de las máquinas virtuales que elija para el clúster y el recuento de instancias que asigna para los tipos de nodo individuales para ayudar a determinar el nivel de durabilidad adecuado para cada uno de los tipos de nodo, tal y como se describe enseguida.
 

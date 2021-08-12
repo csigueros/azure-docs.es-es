@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 756258db1c6e91002bf3a7c2bd0f71f921ce655d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.openlocfilehash: f5feda40d775964aec52c8f5b12b54e6329b0048
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769938"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110664851"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtro de datos mediante la aceleración de consultas de Azure Data Lake Storage
 
@@ -34,11 +34,11 @@ La aceleración de consultas permite tanto a las aplicaciones como a los marcos 
 
   No es aplicable
 
-  ### <a name="net"></a>[.NET](#tab/dotnet)
+  ### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
   El [SDK de .NET](https://dotnet.microsoft.com/download) 
 
-  ### <a name="java"></a>[Java](#tab/java)
+  ### <a name="java-v12-sdk"></a>[SDK para Java v12](#tab/java)
 
   - [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior
 
@@ -47,11 +47,11 @@ La aceleración de consultas permite tanto a las aplicaciones como a los marcos 
     > [!NOTE] 
     > En este artículo se considera que ha creado un proyecto de Java mediante Apache Maven. Para obtener un ejemplo de cómo crear un proyecto con Apache Maven, consulte [Instalación](storage-quickstart-blobs-java.md#setting-up).
   
-  ### <a name="python"></a>[Python](#tab/python)
+  ### <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
   [Python](https://www.python.org/downloads/)3.8 o superior.
 
-  ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+  ### <a name="nodejs-v12-sdk"></a>[SDK para Node.js v12](#tab/nodejs)
 
   No hay requisitos previos adicionales necesarios para usar el SDK de Node.js.
 
@@ -170,7 +170,7 @@ Para actualizar desde una versión anterior de Az, ejecute el siguiente comando:
 Update-Module -Name Az
 ```
 
-#### <a name="net"></a>[.NET](#tab/dotnet)
+#### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 1. Abra un símbolo del sistema y cambie el directorio (`cd`) a la carpeta del proyecto, por ejemplo:
 
@@ -190,7 +190,7 @@ Update-Module -Name Az
    dotnet add package CsvHelper
    ```
 
-#### <a name="java"></a>[Java](#tab/java)
+#### <a name="java-v12-sdk"></a>[SDK para Java v12](#tab/java)
 
 1. Abra el archivo *pom.xml* del proyecto en un editor de texto. Agregue los siguientes elementos de dependencia al grupo de dependencias. 
 
@@ -213,7 +213,7 @@ Update-Module -Name Az
     </dependency>
    ```
 
-#### <a name="python"></a>[Python](#tab/python)
+#### <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 Instale la biblioteca de cliente de Azure Data Lake Storage para Python con [PIP](https://pypi.org/project/pip/).
 
@@ -221,7 +221,7 @@ Instale la biblioteca de cliente de Azure Data Lake Storage para Python con [
 pip install azure-storage-blob==12.4.0
 ```
 
-#### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+#### <a name="nodejs-v12-sdk"></a>[SDK para Node.js v12](#tab/nodejs)
 
 Instale la biblioteca cliente de Data Lake para JavaScript; para ello, abra una ventana de terminal y, a continuación, escriba el siguiente comando.
 
@@ -238,7 +238,7 @@ Instale la biblioteca cliente de Data Lake para JavaScript; para ello, abra una 
 
 No es aplicable
 
-#### <a name="net"></a>[.NET](#tab/dotnet)
+#### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Agregue estas instrucciones `using` al inicio del archivo de código.
 
@@ -263,7 +263,7 @@ using System.IO;
 using System.Globalization;
 ```
 
-#### <a name="java"></a>[Java](#tab/java)
+#### <a name="java-v12-sdk"></a>[SDK para Java v12](#tab/java)
 
 Agregue estas instrucciones `import` al inicio del archivo de código.
 
@@ -277,7 +277,7 @@ import java.util.function.Consumer;
 import org.apache.commons.csv.*;
 ```
 
-#### <a name="python"></a>[Python](#tab/python)
+#### <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 Agregue estas instrucciones import al inicio del archivo de código.
 
@@ -286,7 +286,7 @@ import sys, csv
 from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, DelimitedTextDialect, BlobQueryError
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs-v12-sdk"></a>[SDK para Node.js v12](#tab/nodejs)
 
 Incluya el módulo `storage-blob` colocando esta instrucción al principio del archivo del código. 
 
@@ -326,7 +326,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ```
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 El método asincrónico `BlobQuickQueryClient.QueryAsync` envía la consulta a la API de aceleración de consultas y, a continuación, vuelve a transmitir los resultados a la aplicación como un objeto [Stream](/dotnet/api/system.io.stream).
 
@@ -373,7 +373,7 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
 
 ```
 
-### <a name="java"></a>[Java](#tab/java)
+### <a name="java-v12-sdk"></a>[SDK para Java v12](#tab/java)
 
 El método `BlobQuickQueryClient.openInputStream()` envía la consulta a la API de aceleración de consultas y, a continuación, vuelve a transmitir los resultados a la aplicación como un objeto `InputStream` que se puede leer como cualquier otro objeto InputStream.
 
@@ -420,7 +420,7 @@ static void DumpQueryCsv(BlobClient blobClient, String query, Boolean headers) {
 }
 ```
 
-### <a name="python"></a>[Python](#tab/python)
+### <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 ```python
 def query_hemingway(blob: BlobClient):
@@ -435,7 +435,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
         print("*".join(row))
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs-v12-sdk"></a>[SDK para Node.js v12](#tab/nodejs)
 
 En este ejemplo se envía la consulta a la API de aceleración de consultas y luego se hace streaming de los resultados. El objeto `blob` que se pasa a la función auxiliar `queryHemingway` es del tipo [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient). Para obtener más información acerca de cómo obtener un objeto [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient), consulte [Inicio rápido: Administración de blobs con el SDK de JavaScript v12 en Node.js](storage-quickstart-blobs-nodejs.md).
 
@@ -480,6 +480,9 @@ async function dumpQueryCsv(blob, query, headers)
 
 Puede limitar los resultados a un subconjunto de columnas. De este modo, solo recuperará las columnas necesarias para realizar un cálculo determinado. Esto mejora el rendimiento de la aplicación y reduce los costos porque se transfieren menos datos a través de la red. 
 
+> [!NOTE]
+> El número máximo de columnas a las que se pueden ampliar los resultados es 49. Si necesita que los resultados contengan más de 49 columnas, use un carácter comodín (`*`) para la expresión SELECT (por ejemplo: `SELECT *`). 
+
 Este código solo recupera la columna `BibNum` para todos los libros del conjunto de datos. También utiliza la información de la fila de encabezado del archivo de origen para hacer referencia a las columnas de la consulta.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -498,7 +501,7 @@ Get-QueryCsv $ctx $container $blob "SELECT BibNum FROM BlobStorage" $true
 
 ```
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 ```cs
 static async Task QueryBibNum(BlockBlobClient blob)
@@ -508,7 +511,7 @@ static async Task QueryBibNum(BlockBlobClient blob)
 }
 ```
 
-### <a name="java"></a>[Java](#tab/java)
+### <a name="java-v12-sdk"></a>[SDK para Java v12](#tab/java)
 
 ```java
 static void QueryBibNum(BlobClient blobClient)
@@ -518,7 +521,7 @@ static void QueryBibNum(BlobClient blobClient)
 }
 ```
 
-### <a name="python"></a>[Python](#tab/python)
+### <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 ```python
 def query_bibnum(blob: BlobClient):
@@ -526,7 +529,7 @@ def query_bibnum(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs-v12-sdk"></a>[SDK para Node.js v12](#tab/nodejs)
 
 ```javascript
 async function queryBibNum(blob)
@@ -560,7 +563,7 @@ $query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType
 
 ```
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 ```cs
 static async Task QueryDvds(BlockBlobClient blob)
@@ -573,7 +576,7 @@ static async Task QueryDvds(BlockBlobClient blob)
 }
 ```
 
-### <a name="java"></a>[Java](#tab/java)
+### <a name="java-v12-sdk"></a>[SDK para Java v12](#tab/java)
 
 ```java
 static void QueryDvds(BlobClient blobClient)
@@ -586,7 +589,7 @@ static void QueryDvds(BlobClient blobClient)
 }
 ```
 
-### <a name="python"></a>[Python](#tab/python)
+### <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 ```python
 def query_dvds(blob: BlobClient):
@@ -597,7 +600,7 @@ def query_dvds(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs-v12-sdk"></a>[SDK para Node.js v12](#tab/nodejs)
 
 ```javascript
 async function queryDvds(blob)

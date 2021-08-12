@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/30/2019
+ms.date: 5/19/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b84c38b28b51f867160272883465242fc81ff2bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9cde3940f09d3612ebe6411804fe4780e5bcfc18
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100588056"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469204"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Uso de los libros de Azure Monitor en informes de Azure Active Directory
 
@@ -36,13 +36,13 @@ Quiere:
 
 - ¿Necesita comprender el impacto de las directivas de acceso condicional en el inquilino?
 
-- ¿Desea tener la posibilidad de revisar las consultas del registro de inicio de sesión? El libro informa del número de usuarios a los que se ha concedido o denegado el acceso, así como de cuántos usuarios han omitido las directivas de acceso condicional al acceder a los recursos.
+- ¿Quiere tener la posibilidad de revisar las consultas de registro de inicio de sesión con un libro que informa del número de usuarios a los que se ha concedido o denegado el acceso, así como de cuántos usuarios han omitido las directivas de acceso condicional al acceder a los recursos?
 
-- ¿Está interesado en desarrollar una comprensión más profunda? El libro proporciona detalles por condición, para que el impacto de una directiva se pueda contextualizar por condición, incluidas la plataforma del dispositivo, el estado del dispositivo, la aplicación cliente, el riesgo de inicio de sesión, la ubicación y la aplicación.
+- ¿Le interesa desarrollar una comprensión más profunda del acceso condicional, con detalles en un libro por condición para que el impacto de una directiva se pueda contextualizar por condición, incluidos la plataforma del dispositivo, el estado del dispositivo, la aplicación cliente, el riesgo de inicio de sesión, la ubicación y la aplicación?
 
-- Obtenga información más detallada sobre las consultas del registro de inicio de sesión, el libro informa del número de usuarios a los que se ha concedido o denegado el acceso, así como de cuántos usuarios han omitido las directivas de acceso condicional al acceder a los recursos.
+- ¿Quiere archivar e informar sobre más de un año de [actividad histórica de asignación de paquetes de acceso y roles de aplicación?](../governance/entitlement-management-logs-and-reporting.md)
 
-- Para ayudarle a resolver estas cuestiones, Azure Active Directory proporciona libros para la supervisión. Los [libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados.
+Para ayudarle a resolver estas cuestiones, Azure Active Directory proporciona libros para la supervisión. Los [libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados.
 
 
 
@@ -298,4 +298,5 @@ Para ayudarle a solucionar problemas de inicios de sesión, Azure Monitor propor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de informes interactivos con los libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md).
+* [Creación de informes interactivos con los libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md).
+* [Creación de consultas personalizadas de Azure Monitor mediante Azure PowerShell](../governance/entitlement-management-logs-and-reporting.md)

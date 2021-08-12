@@ -10,12 +10,12 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 6dc99d58f15653e9d3f991622de3bb3388690459
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 4d760f5017c20ac88d3329bb79937c971d4fba75
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814812"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459431"
 ---
 # <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-automated-machine-learning-part-1-of-2"></a>Tutorial: Integración de Power BI: creación del modelo predictivo mediante el aprendizaje automático automatizado (parte 1 de 2)
 
@@ -39,7 +39,7 @@ Sin embargo, podría usar una de las otras opciones:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Suscripción a Azure. Si aún no tiene una suscripción, puede usar una [evaluación gratuita](https://aka.ms/AMLFree). 
+- Suscripción a Azure. Si aún no tiene una suscripción, puede usar una [evaluación gratuita](https://azure.microsoft.com/free/). 
 - Un área de trabajo de Azure Machine Learning. Si aún no tiene un área de trabajo, consulte [Creación y administración de áreas de trabajo de Azure Machine Learning](./how-to-manage-workspace.md#create-a-workspace).
 
 ## <a name="create-a-compute-cluster"></a>Creación de un clúster de proceso

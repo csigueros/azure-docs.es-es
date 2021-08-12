@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 4cfbfe3e3e3ba620d8292767012c9bb866d8a878
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 302d7edff9f4ed815dd4e0fd09675ae59777e27a
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94968101"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288579"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Tutorial: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos y servicios Java y las inscripciones de grupos para el servicio Azure IoT Hub Device Provisioning
 
@@ -25,7 +25,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-1. Asegúrese de que tiene [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) instalado en su máquina.
+1. Asegúrese de que tiene [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) instalado en su máquina.
 
 1. Descargue e instale [Maven](https://maven.apache.org/install.html).
 

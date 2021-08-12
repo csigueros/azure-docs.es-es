@@ -1,19 +1,19 @@
 ---
 title: Instalación de un servidor de destino maestro para la conmutación por recuperación de máquinas virtuales Linux con Azure Site Recovery
 description: Aprenda a configurar un servidor de destino maestro de Linux para la conmutación por recuperación a un sitio local durante la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery.
-author: mayurigupta13
 services: site-recovery
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.author: mayg
-ms.openlocfilehash: 1404b2dd035b7fd4b06c5f959fd9ba45f6be9c75
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: b8264221db1fcfee8d47ac0d8f159d6b7a6140fe
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164982"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577093"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -335,7 +335,16 @@ Debe instalar las herramientas de VMware o de open-vm-tools en el destino maestr
 
 ### <a name="upgrade-the-master-target-server"></a>Actualización del servidor de destino maestro
 
-Ejecute al programa de instalación. Detecta automáticamente que el agente está instalado en el destino maestro. Para actualizar, seleccione **Y**.  Una vez finalizada la instalación, compruebe la versión del destino maestro instalado mediante el siguiente comando:
+Al ejecutar el instalador, se detectará automáticamente que el agente está instalado en el destino maestro. Para completar la actualización, haga lo siguiente:
+1. Copie tar.gz del servidor de configuración al destino maestro de Linux.
+2. Ejecute este comando para validar la versión que está ejecutando: cat /usr/local/.vx_version.
+3. Extraiga tar: tar -xvf latestlinuxmobsvc.tar.gz.
+4. Conceda permisos para ejecutar cambios: chmod 755 ./install.
+5. Ejecute el script de actualización: sudo ./install.
+6. El instalador debe detectar que el agente está instalado en el destino maestro. Para actualizar, seleccione **Y**.
+7. Compruebe que el agente ejecuta la nueva versión: cat /usr/local/.vx_version.
+
+Una vez finalizada la instalación, compruebe la versión del destino maestro instalado mediante el siguiente comando:
 
 `cat /usr/local/.vx_version`
 

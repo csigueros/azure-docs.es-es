@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: abecddb6f5469cb4ef463e65d6c74149bf34dca9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b6ad04afce5fb4ead5575d47333525c0f5f8a13
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590225"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075205"
 ---
 # <a name="connect-your-domain-name-server"></a>Conectar con el servidor de nombres de dominio
 
 > [!IMPORTANT]
 > El conector de datos de DNS en Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!CAUTION]
+> La habilitación de la solución DNS puede provocar un uso elevado de CPU en la máquina de destino. Como se indicó anteriormente, este conector no se recomienda para su uso en una configuración de producción. Estamos trabajando para conseguir una versión estable de este conector de disponibilidad general.
 
 Puede conectar a Azure Sentinel cualquier servidor de nombres de dominio (DNS) que se ejecute en Windows. Para ello, hay que instalar un agente en el equipo DNS. Si se usan registros de DNS, se puede obtener información relacionada con la seguridad, el rendimiento y las operaciones de la infraestructura de DNS de la organización, ya que recopilan, analizan y correlacionan registros de auditoría y análisis, además de otros datos relacionados de los servidores DNS.
 

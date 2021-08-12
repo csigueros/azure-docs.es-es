@@ -1,6 +1,6 @@
 ---
-title: Notas de la versión de Azure Stack Edge Pro con FPGA 2101 | Microsoft Docs
-description: Aquí se describen las incidencias críticas pendientes y las resoluciones de Azure Stack Edge, versión 2101.
+title: Notas de la versión de Azure Stack Edge Pro con FPGA 2101 | Microsoft Docs
+description: Se describen las incidencias críticas pendientes, y sus soluciones, de la versión 2101 de Azure Stack Edge Pro con FPGA.
 services: databox
 author: v-dalc
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 5c95da8d6ee88786ff983b4963c1cb96394886cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c8882706bdbb6719dbc2550df350096a4970fd8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727556"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461228"
 ---
 # <a name="azure-stack-edge-pro-with-fpga-2101-release-notes"></a>Notas de la versión de Azure Stack Edge Pro con FPGA 2101
 
-En las notas de la versión siguientes se identifican las incidencias críticas pendientes e incidencias resueltas de la versión 2101 de Azure Stack Edge Pro con una matriz de puertas programables (FPGA) integrada.
+En las siguientes notas de la versión se identifican las incidencias críticas pendientes y las incidencias resueltas de la versión 2101 de Azure Stack Edge Pro con una matriz de puertas programables (FPGA) integrada.
 
 Las notas de la versión se actualizan continuamente. A medida que se descubran incidencias críticas que requieran una solución alternativa, se irán agregando. Antes de implementar el dispositivo Azure Stack Edge, revise detenidamente la información de las notas de la versión.  
 

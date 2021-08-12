@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 05/13/2021
 ms.author: rolyon
-ms.openlocfilehash: 93eb1afb061182105766ce4d7c864601883ec0cc
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: df1b585fb0f84dafe26c954386f487e3ceff2bc7
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109490055"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847335"
 ---
 # <a name="faq-for-azure-role-assignment-conditions-preview"></a>Preguntas frecuentes sobre las condiciones de asignación de roles de Azure (versión preliminar)
 
@@ -38,9 +38,9 @@ Si agrega tres o más expresiones para una acción de destino, debe definir la a
   
 Azure Portal no permite editar ni ver una condición en el ámbito del grupo de administración. La columna **Condition** no se muestra para el ámbito del grupo de administración. Azure PowerShell y la CLI de Azure permiten agregar condiciones en el ámbito del grupo de administración.
 
-**¿Se admiten condiciones mediante Azure AD Privileged Identity Management (PIM) para recursos de Azure en versión preliminar?**
+**¿Se admiten condiciones mediante Privileged Identity Management (PIM) para recursos de Azure en versión preliminar?**
 
-No.
+Sí. Para más información, consulte [Asignación de roles de recursos de Azure en Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 **¿Se admiten condiciones para los administradores clásicos?**
 

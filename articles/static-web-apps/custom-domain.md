@@ -1,127 +1,297 @@
 ---
 title: Configuración de un dominio personalizado en Azure Static Web Apps
-description: Aprenda a asignar un dominio personalizado a Azure Static Web Apps
+description: Aprenda a asignar un dominio personalizdo con un certificado SSL/TLS gratis a Azure Static Web Apps
 services: static-web-apps
 author: burkeholland
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/12/2021
 ms.author: buhollan
-ms.openlocfilehash: 578860883a108bba4b4bcd8cd04e8c08f484d474
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd8df4e162b33aef8a0e929da818e8b961953d9b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92173691"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066128"
 ---
-# <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configuración de un dominio personalizado en Azure Static Web Apps (versión preliminar)
+# <a name="set-up-a-custom-domain-with-free-certificate-in-azure-static-web-apps"></a>Configuración de un dominio personalizado con un certificado gratis en Azure Static Web Apps
 
 De forma predeterminada, Azure Static Web Apps proporciona un nombre de dominio generado automáticamente. En este artículo se muestra cómo asignar un nombre de dominio personalizado a una aplicación de Azure Static Web Apps.
+
+## <a name="free-ssltls-certificate"></a>Certificado SSL/TLS gratis
+
+Azure Static Web Apps proporciona automáticamente un certificado SSL/TLS gratis para el nombre de dominio generado automáticamente y todos los dominios personalizados que puede agregar.
+
+## <a name="walkthrough-video"></a>Tutorial en vídeo
+
+> [!VIDEO https://channel9.msdn.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un nombre de dominio adquirido
 - Acceso a las propiedades de configuración de DNS para el dominio
 
-Al configurar los nombres de dominio, los registros "A" se usan para asignar dominios raíz (por ejemplo, `example.com`) a una dirección IP. Los dominios raíz se deben asignar directamente a una dirección IP, ya que la especificación DNS no permite la asignación de un dominio a otro.
-
 ## <a name="dns-configuration-options"></a>Opciones de configuración de DNS
 
 Hay algunos tipos diferentes de configuraciones de DNS disponibles para una aplicación.
 
-| Si desea | Entonces |
-|--|--|
-| Asistencia de `www.example.com` o `blog.example.net` | [Asignar un registro CNAME](#map-a-cname-record) |
-| Se ha agregado compatibilidad con `example.com`. | [Configure un dominio raíz](#configure-a-root-domain) |
-| Apuntar todos los subdominios a `www.example.com` | [Asigne un dominio comodín](#map-a-wildcard-domain) |
+| Escenario                                                                                 | Ejemplo                                | Método de validación de dominio | Tipo de registros DNS |
+| ---------------------------------------------------------------------------------------- | -------------------------------------- | ------------------------ | --------------- |
+| [Adición de un dominio raíz o vértice](#add-domain-using-txt-record-validation)                        | `mydomain.com`, `example.co.uk`        | TXT                      | ALIAS           |
+| [Adición de un subdominio](#add-domain-using-cname-record-validation)                             | `www.mydomain.com`, `foo.mydomain.com` | CNAME                    | CNAME           |
+| [Transferencia de un subdominio que está actualmente en uso](#add-domain-using-txt-record-validation) | `www.mydomain.com`, `foo.mydomain.com` | TXT                      | CNAME           |
 
-## <a name="map-a-cname-record"></a>Asignar un registro CNAME
+## <a name="add-domain-using-cname-record-validation"></a>Adición de dominio mediante la validación de registros CNAME
 
-Un registro CNAME asigna un dominio a otro. Puede usar un registro CNAME para asignar `www.example.com`, `blog.example.com` u otro subdominio al dominio generado automáticamente que proporciona Azure Static Web Apps.
+La validación de registros CNAME es la forma recomendada de agregar un dominio personalizado; sin embargo, solo funciona con subdominios. Si desea agregar un dominio raíz (`mydomain.com`), vaya directamente a la sección sobre la [incorporación de un dominio mediante la validación de registros TXT](#add-domain-using-txt-record-validation) y, después, la [creación de un registro ALIAS](#create-an-alias-record).
 
-1. Abra [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
+> [!IMPORTANT]
+> Si el subdominio está asociado actualmente a un sitio activo y no está preparado para transferirlo a una aplicación web estática, use la [validación de registros TXT](#add-domain-using-txt-record-validation).
 
-1. Busque y seleccione **Static Web Apps**.
+### <a name="enter-your-subdomain"></a>Especificación de un subdominio
 
-1. En la página _Static Web App_, seleccione el nombre de la aplicación.
+1. Abra la aplicación web estática en [Azure Portal](https://portal.azure.com).
 
-1. Haga clic en **Dominios personalizados** en el menú.
+1. Seleccione **Dominios personalizados** en el menú.
 
-1. Haga clic en el botón **Agregar**.
+1. Seleccione el botón **Agregar**.
 
-1. En la ventana _Dominios personalizados_, copie la dirección URL en el campo **Valor**.
+1. En el campo _Nombre de dominio_, escriba el subdominio. Asegúrese de escribirlo sin protocolos. Por ejemplo, `www.mydomain.com`.
 
-### <a name="configure-dns-provider"></a>Configuración del proveedor de DNS
+   :::image type="content" source="media/custom-domain/add-subdomain.png" alt-text="Pantalla Agregar dominio que muestra el subdominio personalizado en el cuadro de entrada":::
+
+1. Seleccione el botón **Siguiente** para ir al paso _Validar y configurar_.
+
+### <a name="configure-cname-with-your-domain-provider"></a>Configuración del registro CNAME con su proveedor de dominio
+
+Deberá configurar un registro CNAME con el proveedor de dominio. Se recomienda Azure DNS, pero estos pasos funcionarán con cualquier proveedor de dominio.
+
+# <a name="azure-dns"></a>[DNS de Azure](#tab/azure-dns)
+
+1. Asegúrese de que **CNAME** está seleccionado en la lista desplegable _Tipo de registro de nombre de host_.
+
+1. Copie el valor del campo _Valor_ en el Portapapeles, para lo que debe seleccionar el icono de **copia**.
+
+   :::image type="content" source="media/custom-domain/copy-cname.png" alt-text="Validar y agregar una pantalla que muestra CNAME seleccionado y el contorno del icono de copia":::
+
+1. En una pestaña o ventana del explorador independientes, abra la zona de Azure DNS en Azure Portal.
+
+1. Seleccione el botón **+ Conjunto de registros**.
+
+1. Cree un conjunto de registros **CNAME** con los siguientes valores.
+
+   | Configuración          | Valor                                     |
+   | ---------------- | ----------------------------------------- |
+   | Nombre             | Su subdominio, como `www`             |
+   | Tipo             | CNAME                                     |
+   | Conjunto de registros de alias | No                                        |
+   | TTL              | Deje el valor predeterminado                    |
+   | Unidad de TTL         | Deje el valor predeterminado                    |
+   | Alias            | Pegue el nombre de dominio del Portapapeles |
+
+1. Seleccione **Aceptar**.
+
+   :::image type="content" source="media/custom-domain/azure-dns-cname.png" alt-text="Pantalla Conjunto de registros de Azure DNS con los campos de nombre, tipo y alias resaltados":::
+
+[!INCLUDE [validate CNAME](../../includes/static-web-apps-validate-cname.md)]
+
+# <a name="other-dns"></a>[Otro DNS](#tab/other-dns)
+
+1. Asegúrese de que **CNAME** está seleccionado en la lista desplegable _Tipo de registro de nombre de host_.
+
+1. Copie el valor del campo _Valor_ en el Portapapeles, para lo que debe seleccionar el icono de **copia**.
+
+   :::image type="content" source="media/custom-domain/copy-cname.png" alt-text="Validar y agregar una pantalla que muestra CNAME seleccionado y el contorno del icono de copia":::
+
+1. En una pestaña o ventana del explorador independientes, inicie sesión en el sitio web de su proveedor de dominio.
+
+1. Busque la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, así que consulte la documentación del proveedor. Busque áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración del servidor del nombres**.
+
+1. A menudo, se puede encontrar la página de registros DNS al ver la información de la cuenta y al buscar un vínculo, como **Mis dominios**. Vaya a dicha página y, después, busque un vínculo que se llame algo similar a **Zone file**, **DNS Records** o **Advanced configuration**.
+
+   La captura de pantalla siguiente es un ejemplo de página de registros DNS:
+
+   :::image type="content" source="media/custom-domain/example-record-ui.png" alt-text="Configuración del proveedor de DNS de ejemplo":::
+
+1. Cree un registro **CNAME** con los siguientes valores.
+
+   | Configuración             | Valor                                     |
+   | ------------------- | ----------------------------------------- |
+   | Tipo                | CNAME                                     |
+   | Host                | Su subdominio, como `www`             |
+   | Valor               | Pegue el nombre de dominio del Portapapeles |
+   | TTL (si corresponde) | Deje el valor predeterminado                    |
+
+1. Guarde los cambios en el proveedor de DNS.
+
+[!INCLUDE [validate CNAME](../../includes/static-web-apps-validate-cname.md)]
+
+---
+
+## <a name="add-domain-using-txt-record-validation"></a>Incorporación de un dominio mediante la validación de registros TXT
+
+Azure usa un registro TXT para validar que un usuario posee un dominio. Esto resulta útil cuando se desea realizar una de las siguientes operaciones...
+
+1. Se desea configurar un dominio raíz (es decir, `mydomain.com`). Es preciso validar que es el propietario del dominio para poder crear un registro ALIAS que configure el dominio raíz.
+
+1. Quiere transferir un subdominio sin tiempo de inactividad. El método de validación de registros TXT permite validar que es el propietario del dominio y que las aplicaciones web estáticas pasan por el proceso de emisión de un certificado para ese dominio. Luego, puede cambiar el dominio para que apunte a la aplicación web estática en cualquier momento con un registro CNAME.
+
+#### <a name="enter-your-domain"></a>Especificación de un dominio
+
+1. Abra la aplicación web estática en [Azure Portal](https://portal.azure.com).
+
+1. Seleccione **Dominios personalizados** en el menú.
+
+1. Seleccione el botón **Agregar**.
+
+1. En el campo _Nombre de dominio_, escriba el dominio raíz (es decir, `mydomain.com`) o el subdominio (es decir, `www.mydomain.com`).
+
+   :::image type="content" source="media/custom-domain/add-domain.png" alt-text="Pantalla Agregar dominio que muestra el dominio personalizado en el cuadro de entrada":::
+
+1. Haga clic en el botón **Siguiente** para ir al paso _Validar y configurar_.
+
+#### <a name="configure-txt-record-with-your-domain-provider"></a>Configuración de un registro TXT con el proveedor de dominio
+
+Deberá configurar un registro TXT con el proveedor de dominio. Se recomienda Azure DNS, pero estos pasos funcionarán con cualquier proveedor de dominio.
+
+# <a name="azure-dns"></a>[DNS de Azure](#tab/azure-dns)
+
+1. Asegúrese de que en la lista desplegable "Tipo de registro de nombre de host" se ha seleccionado "TXT".
+
+1. Seleccione el botón **Generar código**.
+
+   :::image type="content" source="media/custom-domain/generate-code.png" alt-text="Agregar pantalla personalizada con el botón Generar código resaltado":::
+
+   Esta acción genera un código único, que puede tardar hasta un minuto en procesarse.
+
+1. Seleccione el icono del Portapapeles junto al código para copiar el valor en el Portapapeles.
+
+   :::image type="content" source="media/custom-domain/copy-code.png" alt-text="Pantalla Agregar dominio personalizado con el botón Copiar código resaltado":::
+
+1. En una pestaña o ventana del explorador independientes, abra la zona de Azure DNS en Azure Portal.
+
+1. Seleccione el botón **+ Conjunto de registros**.
+
+1. Cree un conjunto de registros **TXT** con los siguientes valores.
+
+   | Configuración  | Valor                                       |
+   | -------- | ------------------------------------------- |
+   | Nombre     | `@` para un dominio raíz o especifique el subdominio |
+   | Tipo     | TXT                                         |
+   | TTL      | Deje el valor predeterminado                      |
+   | Unidad de TTL | Deje el valor predeterminado                      |
+   | Valor    | Pegar el código desde el Portapapeles          |
+
+1. Seleccione **Aceptar**.
+
+   :::image type="content" source="media/custom-domain/azure-dns-txt.png" alt-text="Pantalla Conjunto de registros de Azure DNS con los campos de nombre, tipo y valor resaltados":::
+
+[!INCLUDE [validate TXT record](../../includes/static-web-apps-validate-txt.md)]
+
+# <a name="other-dns"></a>[Otro DNS](#tab/other-dns)
+
+1. Asegúrese de que en la lista desplegable "Tipo de registro de nombre de host" se ha seleccionado "TXT".
+
+1. Seleccione el botón **Generar código**.
+
+   :::image type="content" source="media/custom-domain/generate-code.png" alt-text="Agregar pantalla personalizada con el botón Generar código resaltado":::
+
+   Esta acción genera un código único, que puede tardar hasta un minuto en procesarse.
+
+1. Seleccione el icono del Portapapeles junto al código para copiar el valor en el Portapapeles.
+
+   :::image type="content" source="media/custom-domain/copy-code.png" alt-text="Pantalla Agregar dominio personalizado con el botón Copiar código resaltado":::
+
+1. En una pestaña o ventana del explorador independientes, inicie sesión en el sitio web de su proveedor de dominio.
+
+1. Busque la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, así que consulte la documentación del proveedor. Busque áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración del servidor del nombres**.
+
+   > [!NOTE]
+   > A menudo, se puede encontrar la página de registros DNS al ver la información de la cuenta y al buscar un vínculo, como **Mis dominios**. Vaya a dicha página y, después, busque un vínculo que se llame algo similar a **Zone file**, **DNS Records** o **Advanced configuration**.
+
+1. Cree un registro **TXT** con los siguientes valores.
+
+   | Configuración             | Valor                                       |
+   | ------------------- | ------------------------------------------- |
+   | Tipo                | TXT                                         |
+   | administrador de flujos de trabajo                | `@` para un dominio raíz o especifique el subdominio |
+   | Valor               | Pegar el código desde el Portapapeles          |
+   | TTL (si corresponde) | Deje el valor predeterminado                      |
+
+> [!NOTE]
+> Algunos proveedores de DNS cambiarán el "@" al dominio raíz (es decir, mydomain.com) automáticamente. Esto es lo esperado y el proceso de validación seguirá funcionando.
+
+[!INCLUDE [create repository from template](../../includes/static-web-apps-validate-txt.md)]
+
+---
+
+## <a name="create-an-alias-record"></a>Creación de un registro ALIAS
+
+Los registros ALIAS asignan un dominio a otro. Se usan específicamente para dominios raíz (es decir, `mydomain.com`). En esta sección, creará un registro ALIAS que asigna un dominio raíz a la dirección URL generada automáticamente de la aplicación web estática.
+
+# <a name="azure-dns"></a>[DNS de Azure](#tab/azure-dns)
+
+> [!IMPORTANT]
+> La zona de Azure DNS debe estar en la misma suscripción que la aplicación web estática.
+
+1. Abra la zona de Azure DNS del dominio en Azure Portal.
+
+1. Seleccione el botón **+ Conjunto de registros**.
+
+1. Cree un conjunto de registros **D** con los siguientes valores.
+
+   | Configuración          | Valor                              |
+   | ---------------- | ---------------------------------- |
+   | Nombre             | @                                  |
+   | Tipo             | D: registro Alias para dirección IPv4   |
+   | Conjunto de registros de alias | Sí                                |
+   | Tipo de alias       | Recurso de Azure                     |
+   | Suscripción     | \<Your Subscription>               |
+   | Recurso de Azure   | \<Your Static Web App>             |
+   | TTL              | Deje el valor predeterminado             |
+   | Unidad de TTL         | Deje el valor predeterminado             |
+
+1. Seleccione **Aceptar**.
+
+   :::image type="content" source="media/custom-domain/azure-dns-alias.png" alt-text="Pantalla Conjunto de registros de Azure DNS con los campos de nombre, tipo, alias y recurso resaltados":::
+
+Ahora que el dominio raíz está configurado, el proveedor de DNS puede tardar varias horas en propagar los cambios en todo el mundo.
+
+# <a name="other-dns"></a>[Otro DNS](#tab/other-dns)
+
+> [!IMPORTANT]
+> El proveedor de dominios debe admitir registros [ALIAS](../dns/dns-alias.md) o ANAME, o bien el acoplamiento de CNAME.
+
+1. Abra la aplicación web estática en [Azure Portal](https://portal.azure.com).
+
+1. Seleccione **Dominio personalizados** en el menú.
+
+1. Copie la dirección URL generada automáticamente de la aplicación web estática de la pantalla de dominio personalizado.
+
+   :::image type="content" source="media/custom-domain/auto-generated.png" alt-text="Página de información general de una aplicación web estática con el icono de copia de dirección URL resaltado":::
 
 1. Inicie sesión en el sitio web de su proveedor de dominios.
 
-2. Busque la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, así que consulte la documentación del proveedor. Busque áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración del servidor del nombres**.
+1. Busque la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, así que consulte la documentación del proveedor. Busque áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración del servidor del nombres**.
 
-3. A menudo, se puede encontrar la página de registros DNS al ver la información de la cuenta y al buscar un vínculo, como **Mis dominios**. Vaya a dicha página y, después, busque un vínculo que se llame algo similar a **Zone file**, **DNS Records** o **Advanced configuration**.
+   > [!NOTE]
+   > A menudo, se puede encontrar la página de registros DNS al ver la información de la cuenta y al buscar un vínculo, como **Mis dominios**. Vaya a dicha página y, después, busque un vínculo que se llame algo similar a **Zone file**, **DNS Records** o **Advanced configuration**.
 
-    La captura de pantalla siguiente es un ejemplo de página de registros DNS:
+1. Cree un registro **ALIAS** con los siguientes valores...
 
-    :::image type="content" source="media/custom-domain/example-record-ui.png" alt-text="Configuración del proveedor de DNS de ejemplo":::
+   | Configuración             | Valor                                                          |
+   | ------------------- | -------------------------------------------------------------- |
+   | Tipo                | ALIAS o ANAME (use CNAME SI ALIAS no está disponible)                    |
+   | Host                | @                                                              |
+   | Value               | Pegue el nombre de dominio del Portapapeles                      |
+   | TTL (si corresponde) | Deje el valor predeterminado                                         |
 
-4. Cree un nuevo registro **CNAME** con los siguientes valores:
+> [!IMPORTANT]
+> Si el proveedor de dominios no ofrece un tipo de registro ALIAS o ANAME, use un tipo CNAME. Muchos proveedores ofrecen la misma funcionalidad que el tipo de registro ALIAS a través del tipo de registro CNAME y una característica denominada "Acoplamiento de CNAME".
 
-    | Configuración             | Valor                     |
-    | ------------------- | ------------------------- |
-    | Tipo                | CNAME                     |
-    | Host                | www                       |
-    | Value               | Pegado desde el Portapapeles |
-    | TTL (si corresponde) | Deje el valor predeterminado    |
+Ahora que el dominio raíz está configurado, el proveedor de DNS puede tardar varias horas en propagar los cambios en todo el mundo.
 
-5. Guarde los cambios en el proveedor de DNS.
-
-### <a name="validate-cname"></a>Validación de CNAME
-
-1. Vuelva a la ventana _Dominios personalizados_ en Azure Portal.
-
-1. Escriba el dominio, incluida la parte `www` en la sección _Validar dominio personalizado_.
-
-1. Haga clic en el botón **Validar**.
-
-Ahora que el dominio personalizado está configurado, el proveedor de DNS puede tardar varias horas en propagar los cambios en todo el mundo. Para comprobar el estado de la propagación, puede ir a [dnspropagation.net](https://dnspropagation.net). Escriba el dominio personalizado, incluido `www`, seleccione CNAME en la lista desplegable y seleccione **Start**.
-
-Si se han rellenado los cambios de DNS, el sitio web devuelve la dirección URL generada automáticamente de la aplicación de Static Web Apps (por ejemplo, _nombre-aleatorio-123456789c.azurestaticapps.net_).
-
-## <a name="configure-a-root-domain"></a>Configuración de un dominio raíz
-
-Los dominios raíz son el dominio menos cualquier subdominio, incluido `www`. Por ejemplo, el dominio raíz de `www.example.com` es `example.com`. Esto también se conoce como dominio "APEX".
-
-Si bien la compatibilidad con el dominio raíz no está disponible durante la versión preliminar, puede ver la entrada de blog sobre la [configuración de dominios raíz en Azure Static Web Apps](https://burkeholland.github.io/posts/static-app-root-domain) para obtener más información sobre cómo configurar la compatibilidad con dominios raíz con una aplicación de Static Web Apps.
-
-## <a name="map-a-wildcard-domain"></a>Asignar un dominio con caracteres comodín
-
-A veces, desea que todo el tráfico que se envía a un subdominio se enrute a otro dominio. Un ejemplo común es asignar todo el tráfico del subdominio a `www.example.com`. De este modo, incluso si alguien escribe `w.example.com` en lugar de `www.example.com`, la solicitud se envía a `www.example.com`.
-
-### <a name="configure-dns-provider"></a>Configuración del proveedor de DNS
-
-1. Inicie sesión en el sitio web de su proveedor de dominios.
-
-2. Busque la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, así que consulte la documentación del proveedor. Busque áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración del servidor del nombres**.
-
-3. A menudo, se puede encontrar la página de registros DNS al ver la información de la cuenta y al buscar un vínculo, como **Mis dominios**. Vaya a dicha página y, después, busque un vínculo que se llame algo similar a **Zone file**, **DNS Records** o **Advanced configuration**.
-
-    La captura de pantalla siguiente es un ejemplo de página de registros DNS:
-
-    :::image type="content" source="media/custom-domain/example-record-ui.png" alt-text="Configuración del proveedor de DNS de ejemplo":::
-
-4. Cree un nuevo registro **CNAME** con los siguientes valores, y reemplace `www.example.com` por el nombre de dominio personalizado.
-
-    | Configuración | Valor                  |
-    | ------- | ---------------------- |
-    | Tipo    | CNAME                  |
-    | Host    | \*                     |
-    | Value   | www.example.com        |
-    | TTL     | Deje el valor predeterminado |
-
-5. Guarde los cambios en el proveedor de DNS.
-
-Ahora que el dominio comodín está configurado, los cambios pueden tardar varias horas en propagarse por todo el mundo. Para comprobar el estado de la propagación, puede ir a [dnspropagation.net](https://dnspropagation.net). Escriba el dominio personalizado con un subdominio (excepto `www`), seleccione CNAME en la lista desplegable y seleccione **Start**.
-
-Si se han rellenado los cambios de DNS, el sitio web devolverá el dominio personalizado configurado para la aplicación de Static Web Apps (por ejemplo, `www.example.com`).
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

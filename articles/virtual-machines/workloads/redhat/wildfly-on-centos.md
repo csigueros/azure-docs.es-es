@@ -11,12 +11,12 @@ ms.subservice: redhat
 ms.custom:
 - mode-api
 ms.collection: linux
-ms.openlocfilehash: 7c80634e78a8c37551a57fc8597831898646ef8e
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 1f7bc4bcefe7535e531fcd8288a6dce0e93696e0
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900942"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486128"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>Inicio rápido: WildFly en CentOS 8
 
@@ -104,12 +104,12 @@ Para el entorno de producción, consulte las plantillas de Resource Manager de i
 
 Máquina virtual RHEL independiente con aplicación de ejemplo:
 
-*  <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-standalone-rhel" target="_blank"> JBoss EAP en RHEL (máquina virtual independiente)</a>
+*  <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-standalone-rhel" target="_blank"> JBoss EAP en RHEL (máquina virtual independiente)</a>
 
 Máquinas virtuales RHEL en clúster con aplicación de ejemplo:
 
-* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-clustered-multivm-rhel" target="_blank"> JBoss EAP en RHEL (máquinas virtuales en clúster)</a>
+* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-clustered-multivm-rhel" target="_blank"> JBoss EAP en RHEL (máquinas virtuales en clúster)</a>
 
 Conjunto de escalado de máquinas virtuales RHEL en clúster con aplicación de ejemplo:
 
-* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-clustered-vmss-rhel" target="_blank"> JBoss EAP en RHEL (conjunto de escalado de máquinas virtuales en clúster)</a>
+* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-clustered-vmss-rhel" target="_blank"> JBoss EAP en RHEL (conjunto de escalado de máquinas virtuales en clúster)</a>

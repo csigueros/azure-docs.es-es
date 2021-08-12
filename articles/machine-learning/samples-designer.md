@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: 4d594115139321c8a4ad2b3aa6b065474bd426fa
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: a99595405872ff1b341dfc9277583417564ef6b7
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556178"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465086"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Conjuntos de datos y canalizaciones de ejemplo en el diseñador de Azure Machine Learning
 
@@ -23,7 +23,7 @@ Use los ejemplos integrados en el diseñador de Azure Machine Learning para empe
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree)
+* Suscripción a Azure. Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/)
 * Un área de trabajo de Azure Machine Learning 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]

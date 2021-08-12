@@ -171,7 +171,7 @@
       items:
         - name: Implementación en dispositivos individuales
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: how-to-deploy-modules-portal.md
             - name: Azure CLI
               href: how-to-deploy-modules-cli.md
@@ -179,7 +179,7 @@
               href: how-to-deploy-modules-vscode.md
         - name: Implementación a escala
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: how-to-deploy-at-scale.md
             - name: Azure CLI
               href: how-to-deploy-cli-at-scale.md
@@ -292,7 +292,7 @@
         - name: Aceleradores de soluciones de IoT
           href: ../iot-accelerators/index.yml
         - name: IoT Plug and Play
-          href: ../iot-pnp/index.yml
+          href: ../iot-develop/index.yml
         - name: Azure Maps
           href: ../azure-maps/index.yml
         - name: Time Series Insights

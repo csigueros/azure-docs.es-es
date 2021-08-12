@@ -5,13 +5,14 @@ ms.service: data-factory
 ms.topic: conceptual
 author: minhe-msft
 ms.author: hemin
-ms.date: 03/15/2021
-ms.openlocfilehash: 3598ede0cab3c001854d0ba46501692935397923
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 05/12/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b699b7929709fd9ae9e206d6a50291f02aca2a18
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905401"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675249"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parámetros globales en Azure Data Factory
 
@@ -46,17 +47,18 @@ Hay dos maneras de integrar los parámetros globales en la solución de integrac
 * Incluir los parámetros globales en la plantilla de Resource Manager
 * Implementar los parámetros globales mediante un script de PowerShell
 
-Para la mayoría de los casos de uso, se recomienda incluir parámetros globales en la plantilla de ARM. Esto se integrará de forma nativa con la solución descrita en la [documentación sobre CI/CD](continuous-integration-deployment.md). Los parámetros globales se agregarán como un parámetro de plantilla de ARM de forma predeterminada, ya que a menudo cambian de un entorno a otro. Puede habilitar la inclusión de parámetros globales en la plantilla de ARM desde el **centro de administración**.
-
-> [!NOTE]
-> La configuración de **inclusión en la plantilla de ARM** solo está disponible en el modo git. Actualmente está deshabilitada en el modo activo o el modo de Data Factory. 
-
-> [!WARNING]
->No se puede usar "-" en el nombre del parámetro. Recibirá un código de error "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=La expresión >'pipeline().globalParameters.myparam-dbtest-url' no es válida: .....}". Sin embargo, puede usar "_" en el nombre del parámetro.
+Para casos de uso generales, se recomienda incluir parámetros globales en la plantilla de ARM. Esto se integra de forma nativa con la solución descrita en [el documento de CI/CD](continuous-integration-deployment.md). En el caso de la publicación automática y la conexión de Purview, se requiere el método de **script de PowerShell**. Puede encontrar más información sobre el método de script de PowerShell más adelante. Los parámetros globales se agregarán como un parámetro de plantilla de ARM de forma predeterminada, ya que a menudo cambian de un entorno a otro. Puede habilitar la inclusión de parámetros globales en la plantilla de ARM desde el **centro de administración**.
 
 ![Inclusión en la plantilla de Resource Manager](media/author-global-parameters/include-arm-template.png)
 
-El hecho de agregar parámetros globales a la plantilla de Resource Manager, agrega una configuración de nivel de fábrica que invalidará otras opciones de configuración de nivel de fábrica como, por ejemplo, una clave administrada por el cliente o una configuración de Git en otros entornos. Si tiene esta configuración habilitada en un entorno con privilegios elevados como UAT o PROD, es mejor implementar parámetros globales mediante un script de PowerShell en los pasos que se indican a continuación.
+> [!NOTE]
+> La configuración de **inclusión en la plantilla de ARM** solo está disponible en el modo git. Actualmente está deshabilitada en el modo activo o el modo de Data Factory. En el caso de la publicación automática o la conexión de Purview, no use el método Incluir parámetros globales; use el método de script de PowerShell. 
+
+> [!WARNING]
+>No se puede usar "-" en el nombre del parámetro. Recibirá un código de error "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=La expresión >'pipeline().globalParameters.myparam-dbtest-url' no es válida: .....}". Sin embargo, puede usar "_" en el nombre del parámetro. 
+
+El hecho de agregar parámetros globales a la plantilla de Resource Manager, agrega una configuración de nivel de fábrica que invalidará otras opciones de configuración de nivel de fábrica como, por ejemplo, una clave administrada por el cliente o una configuración de Git en otros entornos. Si tiene esta configuración habilitada en un entorno con privilegios elevados como UAT o PROD, es mejor implementar parámetros globales mediante un script de PowerShell en los pasos que se indican a continuación. 
+
 
 ### <a name="deploying-using-powershell"></a>Implementación con PowerShell
 

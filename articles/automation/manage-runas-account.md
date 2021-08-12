@@ -3,19 +3,25 @@ title: Administración de una cuenta de ejecución de Azure Automation
 description: En este artículo se describe cómo administrar una cuenta de ejecución de Azure Automation con PowerShell o desde Azure Portal.
 services: automation
 ms.subservice: ''
-ms.date: 04/29/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9ba7ae8218b730408361b6787517b72f2fb5c33b
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: d2d615df07e89e1fc2d4e63066d320002718d200
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278639"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059687"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Administración de una cuenta de ejecución de Azure Automation
 
-Las cuentas de ejecución de Azure Automation proporcionan autenticación para administrar recursos en el modelo de implementación clásico de Azure o Azure Resource Manager mediante runbooks de Automation y otras características de Automation. En este artículo se proporcionan instrucciones sobre cómo administrar una cuenta de ejecución o de ejecución clásica.
+Las cuentas de ejecución de Azure Automation proporcionan autenticación para administrar recursos en el modelo de implementación clásico de Azure o Azure Resource Manager mediante runbooks de Automation y otras características de Automation. 
+
+En este artículo se explica cómo administrar una cuenta de ejecución o una cuenta de ejecución clásica, lo que incluye:
+
+   * Cómo renovar un certificado autofirmado
+   * Cómo renovar un certificado de una entidad de certificación (CA) empresarial o de terceros
+   * Administración de permisos de la cuenta de ejecución
 
 Para obtener más información acerca de la autenticación de cuentas de Azure Automation e instrucciones relacionadas con los escenarios de automatización de procesos, consulte [Introducción a la autenticación de cuentas de Automation](automation-security-overview.md).
 
@@ -29,7 +35,7 @@ Cuando se renueva el certificado autofirmado, el certificado válido actual se c
 >Si cree que se ha puesto en peligro la cuenta de ejecución, puede eliminarla y volver a crearla.
 
 >[!NOTE]
->Si ha configurado la cuenta de ejecución para usar un certificado emitido por la entidad de certificación (CA) de la empresa o de terceros y usa esta opción para renovar un certificado autofirmado, el certificado de empresa se reemplaza por uno autofirmado.
+>Si ha configurado la cuenta de ejecución para usar un certificado emitido por la entidad de certificación (CA) empresarial o de terceros y usa esta opción para renovar un certificado autofirmado, el certificado de empresa se reemplaza por uno autofirmado. Para renovar el certificado en este caso, consulte [Renovación de un certificado de empresa o de terceros](#renew-an-enterprise-or-third-party-certificate).
 
 Realice los pasos siguientes para renovar el certificado autofirmado.
 
@@ -46,6 +52,31 @@ Realice los pasos siguientes para renovar el certificado autofirmado.
     :::image type="content" source="media/manage-runas-account/automation-account-renew-runas-certificate.png" alt-text="Renueve el certificado para la cuenta de ejecución.":::
 
 1. Mientras se está renovando el certificado, puede seguir el progreso desde el menú, en **Notificaciones**.
+
+## <a name="renew-an-enterprise-or-third-party-certificate"></a>Renovación de un certificado de empresa o de terceros
+
+Cada certificado tiene una fecha de expiración integrada. Si el certificado que asignó a la cuenta de ejecución lo emitió una entidad de certificación (CA), debe realizar un conjunto diferente de pasos para configurar la cuenta de ejecución con el nuevo certificado antes de que expire. Se puede renovar en cualquier momento antes de que expire.
+
+1. Importe el certificado renovado siguiendo los pasos que se indican en [Creación de un certificado](./shared-resources/certificates.md#create-a-new-certificate). Automation requiere que el certificado tenga la siguiente configuración:
+
+   * Especifique el **proveedor de servicios criptográficos AES y RSA mejorado de Microsoft**.
+   * Marcado como exportable
+   * Configurado para usar el algoritmo SHA256
+   * Guardado en el formato `*.pfx` o `*.cer`. 
+
+   Después de importar el certificado, anote o copie el valor de **huella digital** del certificado. Este valor se usa para actualizar las propiedades de conexión de ejecución con el nuevo certificado. 
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+
+1. Busque y seleccione **Cuentas de Automation**.
+
+1. En la página Cuentas de Automation, seleccione su cuenta de Automation en la lista.
+
+1. En el panel izquierdo, seleccione **Conexiones**.
+
+1. En la página **Conexiones**, seleccione **AzureRunAsConnection** y actualice la **huella digital del certificado** con la nueva.
+
+1. Seleccione **Guardar** para confirmar los cambios.
 
 ## <a name="grant-run-as-account-permissions-in-other-subscriptions"></a>Concesión de permisos de cuenta de ejecución en otras suscripciones
 

@@ -68,6 +68,10 @@
       href: tutorial-security-policy.md
     - name: Investigación del estado de los recursos
       href: investigate-resource-health.md
+- name: Ejemplos
+  items:
+    - name: Consultas de Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Conceptos
   items:
     - name: Conceptos de administración de la posición de seguridad en la nube

@@ -5,12 +5,12 @@ description: Obtenga más información acerca de los procedimientos recomendados
 services: container-service
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: e51689d33711f127f775c63c9d7fc8ad4c901604
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 3b6295c1f1ae424c77c32876e32609a7d492e07d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105177"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461645"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el aislamiento de clústeres en Azure Kubernetes Service (AKS)
 
@@ -72,7 +72,7 @@ La separación lógica de clústeres normalmente proporciona una mayor densidad 
 
 Actualmente, los entornos de Kubernetes no están completamente seguros ante el uso de varios inquilinos hostiles. En un entorno multiinquilino, varios inquilinos trabajan en una infraestructura compartida común. Si no se puede confiar en todos los inquilinos, necesitará de planeamiento adicional para evitar que dichos inquilinos afecten a la seguridad y el servicio de otros.
 
-Las características de seguridad adicionales, como las *directivas de seguridad de pods* o Kubernetes RBAC para nodos, bloquean eficazmente las vulnerabilidades de seguridad. Para una verdadera seguridad al ejecutar cargas de trabajo multiinquilino hostiles, debe confiar solo en un hipervisor. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. 
+Características de seguridad adicionales, como Kubernetes RBAC para nodos, bloquean eficazmente las vulnerabilidades de seguridad. Para una verdadera seguridad al ejecutar cargas de trabajo multiinquilino hostiles, debe confiar solo en un hipervisor. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. 
 
 En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados.
 

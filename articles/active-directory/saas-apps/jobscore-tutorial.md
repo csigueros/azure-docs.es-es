@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 275f87163e75c3ded7260229d40a61185877a7d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 932e4db2c7a91c1c6ec6133068741f07d3652c35
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92459443"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112460781"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>Tutorial: Integración de Azure Active Directory con JobScore
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con JobScore, siga estos
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de JobScore](common/sp-signonurl.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://hire.jobscore.com/auth/adfs/<company name>`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://hire.jobscore.com/auth/adfs/<company id>`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de JobScore](mailto:support@jobscore.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

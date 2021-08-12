@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: ed6106a8967c177428abf7727b43f8fba33d580d
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 38227e47154e280fc34624b4f92a4f75261b7004
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904002"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121948"
 ---
 # <a name="quickstart-connect-a-renesas-rx65n-cloud-kit-to-iot-central"></a>Inicio rápido: Conexión de un kit de nube Renesas RX65N a IoT Central
 
@@ -55,7 +55,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### <a name="install-the-tools"></a>Instalar las herramientas
 
-El repositorio clonado contiene un script de instalación que instala y configura las herramientas necesarias. Si instaló estas herramientas en otro inicio rápido de dispositivo insertado, no es necesario volver a hacerlo.
+El repositorio clonado contiene un script de instalación que instala y configura las herramientas necesarias. Si ha instalado estas herramientas en otro inicio rápido de dispositivo insertado, no es necesario volver a hacerlo.
 
 > [!NOTE]
 > El script de instalación instala las siguientes herramientas:
@@ -74,7 +74,7 @@ Para instalar las herramientas:
    *%USERPROFILE%\AppData\Roaming\GCC for Renesas RX 8.3.0.202004-GNURX-ELF\rx-elf\rx-elf\bin*
 
 1. Después de la instalación, abra una nueva ventana de consola para reconocer los cambios de configuración realizados con el script de instalación. Use esta consola para realizar el resto de las tareas de programación del inicio rápido. Puede usar la línea de comandos de Windows, PowerShell o Git Bash para Windows.
-1. Ejecute los comandos siguientes para confirmar que la versión 3.14 o posterior de CMake está instalada y que la ruta de acceso del compilador RX está configurada correctamente.
+1. Ejecute los comandos siguientes para confirmar que la versión 3.14 o posterior de CMake esté instalada y que la ruta de acceso del compilador RX esté correctamente configurada.
 
     ```shell
     cmake --version
@@ -167,13 +167,13 @@ Para conectar Renesas RX65N a Azure, modificará un archivo de configuración de
 
 6. Seleccione el botón *Browse...* (Examinar...) y busque el archivo *rx65n_azure_iot.hex* creado en la sección anterior.
 
-7. Presione *Start* (Iniciar) para empezar el almacenamiento en la memoria flash. Este proceso tarda aproximadamente 10 segundos.
+7. Presione *Start* (Iniciar) para empezar el almacenamiento en la memoria flash. Este proceso tarda aproximadamente 10 segundos.
 
 ### <a name="confirm-device-connection-details"></a>Confirmación de los detalles de conexión del dispositivo
 
 Puede usar la aplicación **Termite** para supervisar la comunicación y confirmar que el dispositivo está configurado correctamente.
 > [!TIP]
-> Si tiene problemas para que el dispositivo se inicialice o se conecte después de guardar la imagen, consulte [Solución de problemas](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+> Si tiene problemas para que el dispositivo se inicialice o se conecte después de guardar la imagen, consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md).
 
 1. Inicie **Termite**.
 1. Haga clic en **Configuración**.
@@ -272,7 +272,7 @@ En la página del dispositivo, seleccione la pestaña **Acerca de**.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-Si tiene problemas para compilar el código del dispositivo, guardar la imagen en la memoria flash del dispositivo o conectarse, consulte [Solución de problemas](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+Si tiene problemas para compilar el código del dispositivo, guardar la imagen en la memoria flash del dispositivo o conectarse, consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

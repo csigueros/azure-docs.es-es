@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7bbe19de666fb167297de89e85bf302186a9145e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 49b01e8322647a35ba24ccc9a7708b2a8754553f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024887"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477747"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob"></a>Creación de una SAS de servicio para un contenedor o blob
 
@@ -28,13 +28,13 @@ En este artículo se muestra cómo usar la clave de cuenta de almacenamiento par
 
 En el ejemplo de código siguiente se crea una SAS para un contenedor. Si se proporciona el nombre de una directiva de acceso almacenada existente, esa directiva se asocia con la SAS. Si no se proporciona ninguna directiva de acceso almacenada, el código crea una SAS ad hoc en el contenedor.
 
-### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Una SAS de servicio se firma con la clave de acceso de la cuenta. Use la clase [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) para crear la credencial que se usa para firmar la SAS. A continuación, cree un nuevo objeto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) y llame al elemento [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obtener la cadena de token de SAS.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForContainer":::
 
-### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+### <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 Para crear una SAS de servicio para un contenedor, llame al método [CloudBlobContainer.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature).
 
@@ -83,7 +83,7 @@ private static string GetContainerSasUri(CloudBlobContainer container,
 }
 ```
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 Una SAS de servicio se firma con la clave de acceso de la cuenta. Use la clase [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) para crear la credencial que se usa para firmar la SAS. A continuación, llame a la función [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) y proporcione los parámetros necesarios para obtener la cadena de tokens de SAS.
 
@@ -95,13 +95,13 @@ Una SAS de servicio se firma con la clave de acceso de la cuenta. Use la clase [
 
 El ejemplo de código siguiente crea una SAS en un blob. Si se proporciona el nombre de una directiva de acceso almacenada existente, esa directiva se asocia con la SAS. Si no se proporciona ninguna directiva de acceso almacenada, el código crea una SAS ad hoc en el blob.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
 Una SAS de servicio se firma con la clave de acceso de la cuenta. Use la clase [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) para crear la credencial que se usa para firmar la SAS. A continuación, cree un nuevo objeto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) y llame al elemento [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obtener la cadena de token de SAS.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForBlob":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnetv11)
 
 Para crear una SAS de servicio para un blob, llame al método [CloudBlob.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature).
 
@@ -155,7 +155,7 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 }
 ```
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 Para crear una SAS de servicio para un blob, llame al método [CloudBlob.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature).
 

@@ -1,6 +1,6 @@
 ---
-title: Incorporación de una audiencia preliminar a la oferta de SaaS en el marketplace comercial de Microsoft
-description: Incorporación de una audiencia preliminar a la oferta de software como servicio (SaaS) en el Centro de partners de Microsoft.
+title: Adición de una audiencia preliminar a una oferta de SaaS en Azure Marketplace
+description: Agregue una audiencia preliminar a una oferta de software como servicio (SaaS) en Azure Marketplace.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 041df9b77e85f09d2cf680773edc995c6288acaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe42b5c7d9953a3e8bc15c4dbd351d3d2beb4d33
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96746427"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614411"
 ---
-# <a name="how-to-add-a-preview-audience-for-your-saas-offer"></a>Incorporación de una audiencia preliminar a la oferta de SaaS
+# <a name="add-a-preview-audience-for-a-saas-offer"></a>Adición de una audiencia preliminar a una oferta de SaaS
 
 Cuando se crea una oferta de software como servicio (SaaS) en el Centro de partners, es necesario definir una audiencia preliminar que pueda revisar la descripción de la oferta antes de publicarla. En este artículo se explica cómo configurar una audiencia preliminar.
 
@@ -51,4 +51,4 @@ En la pestaña **Vista previa de la audiencia**, puede definir una audiencia lim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Incorporación de detalles técnicos a la oferta de SaaS](create-new-saas-offer-technical.md)
+- [Adición de detalles técnicos de una oferta de SaaS](create-new-saas-offer-technical.md)

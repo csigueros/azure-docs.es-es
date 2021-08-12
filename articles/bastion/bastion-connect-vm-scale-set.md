@@ -1,18 +1,18 @@
 ---
-title: Conexión a un conjunto de escalado de máquinas virtuales Windows con Azure Bastion | Microsoft Docs
-description: En este artículo aprenderá a conectarse a un conjunto de escalado de máquinas virtuales de Azure mediante Azure Bastion.
+title: Conexión a un conjunto de escalado de máquinas virtuales de Windows mediante Azure Bastion
+description: Aprenda a conectarse a un conjunto de escalado de máquinas virtuales de Azure mediante Azure Bastion.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: charwen
-ms.openlocfilehash: 001d2ff6789ec4cfcc391171f0859b67ab1ee0a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 361bb52ffd9762a49a549fe3fc5ac5cd652416ca
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92077786"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534161"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Conexión a un conjunto de escalado de máquinas virtuales mediante Azure Bastion
 

@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 12/02/2020
+ms.date: 05/19/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c653f3e8583ef3aadff26cb2b7a3266555d313a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba10cad9db1431d9456120be5e7762ebb24953be
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96547821"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536298"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Creación masiva de usuarios en Azure Active Directory
 
@@ -36,6 +36,8 @@ Descargue y rellene la plantilla CSV de carga masiva para facilitar la creación
 
 > [!WARNING]
 > Si agrega solo una entrada en la plantilla CSV, debe conservar la fila 3 y agregar la entrada nueva a la fila 4.
+>
+> Asegúrese de agregar la extensión de archivo ".csv" y de eliminar los espacios iniciales antes de userPrincipalName, passwordProfile y accountEnabled.
 
 ### <a name="csv-template-structure"></a>Estructura de la plantilla CSV
 

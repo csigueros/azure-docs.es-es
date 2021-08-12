@@ -2,13 +2,13 @@
 title: Cuentas de Batch y de Azure Storage
 description: Obtenga información sobre las cuentas de Azure Batch y cómo se usan desde el punto de vista del desarrollo.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: 3dd071a55e8605b8b5b1cf72c517c9304878e101
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896755"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452055"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>Cuentas de Batch y de Azure Storage
 
@@ -27,7 +27,7 @@ Puede crear una cuenta de Batch mediante [Azure Portal](batch-account-create-por
 
 ## <a name="azure-storage-accounts"></a>Cuentas de Azure Storage
 
-La mayoría de las soluciones de Batch usan Azure Storage para almacenar los archivos de recursos y los archivos de salida. Por ejemplo, las tareas de Batch (incluidas las tareas estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) especifican normalmente archivos de recursos que residen en cuentas de almacenamiento. Las cuentas de almacenamiento también almacenan los datos que se procesan y los datos de salida que se generan.
+La mayoría de las soluciones de Batch usan Azure Storage para almacenar los [archivos de recursos](resource-files.md) y los archivos de salida. Por ejemplo, las tareas de Batch (incluidas las tareas estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) especifican normalmente archivos de recursos que residen en cuentas de almacenamiento. Las cuentas de almacenamiento también almacenan los datos que se procesan y los datos de salida que se generan.
 
 Batch admite los siguientes tipos de cuentas de almacenamiento de Azure:
 
@@ -38,6 +38,8 @@ Batch admite los siguientes tipos de cuentas de almacenamiento de Azure:
 Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../storage/common/storage-account-overview.md).
 
 Puede asociar una cuenta de almacenamiento con su cuenta de Batch cuando crea la cuenta de Batch o en otro momento. Al elegir una cuenta de almacenamiento, tenga en cuenta los requisitos de costo y rendimiento. Por ejemplo, las opciones de cuenta GPv2 y de Blob Storage admiten mayores [límites de capacidad y escalabilidad](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) si se compara con GPv1. (Póngase en contacto con el servicio de soporte técnico de Azure para solicitar un aumento en el límite de almacenamiento). Estas opciones de cuenta pueden mejorar el rendimiento de las soluciones de Batch que contienen un gran número de tareas en paralelo que se leen o escriben en la cuenta de almacenamiento.
+
+Cuando una cuenta de almacenamiento está vinculada a una cuenta de Batch, se considera la cuenta de *almacenamiento automático*. Se requiere una cuenta de almacenamiento automático si tiene previsto usar la funcionalidad de [paquetes de aplicación](batch-application-packages.md), ya que se usa para almacenar los archivos .zip del paquete de aplicación. También se puede usar para los archivos [de recursos de tarea](resource-files.md#storage-container-name-autostorage); dado que la cuenta de almacenamiento automático ya está vinculada a la cuenta de Batch, esto evita la necesidad de que las direcciones URL de firma de acceso compartido (SAS) accedan a los archivos de recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

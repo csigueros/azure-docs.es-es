@@ -8,17 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 09/30/2020
-ms.openlocfilehash: 49954224fbdb2d100a809ea5c1d975e1b2e46f56
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 05/25/2021
+ms.openlocfilehash: 8cabf22e909b5e3e891c0265f952ec6476732ca6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372936"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462703"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuración interactiva con Visual Studio Code
-
-
 
 Aprenda a depurar de manera interactiva experimentos, canalizaciones e implementaciones de Azure Machine Learning con Visual Studio Code (VS Code) y [depugpy](https://github.com/microsoft/debugpy/).
 
@@ -29,21 +27,26 @@ Use la extensión de Azure Machine Learning para validar, ejecutar y depurar los
 ### <a name="prerequisites"></a>Requisitos previos
 
 * Extensión de Azure Machine Learning para VS Code (versión preliminar) Para más información, consulte [Configuración de la extensión de Azure Machine Learning para VS Code](how-to-setup-vs-code.md).
+
+    > [!IMPORTANT]
+    > La extensión Azure Machine Learning para VS Code usa la CLI 2.0 de forma predeterminada. En las instrucciones de esta guía se usa la CLI 1.0. Para cambiar a la experiencia de la CLI 1.0, defina la opción `azureML.CLI Compatibility Mode` en Visual Studio Code como `1.0`. Para más información sobre cómo modificar la configuración en Visual Studio, consulte la [documentación de la configuración de usuario y área de trabajo](https://code.visualstudio.com/docs/getstarted/settings).
+
 * [Docker](https://www.docker.com/get-started)
   * Docker Desktop para Mac y Windows
   * Motor de Docker para Linux.
+
+    > [!NOTE]
+    > En Windows, asegúrese de [configurar Docker para usar contenedores de Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+
+    > [!TIP]
+    > En Windows, aunque no es necesario, se recomienda encarecidamente [usar Docker con el subsistema de Windows para Linux (WSL) 2](/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
+
 * [Python 3](https://www.python.org/downloads/)
 
-> [!NOTE]
-> En Windows, asegúrese de [configurar Docker para usar contenedores de Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
-
-> [!TIP]
-> En Windows, aunque no es necesario, se recomienda encarecidamente [usar Docker con el subsistema de Windows para Linux (WSL) 2](/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
+### <a name="debug-experiment-locally"></a>Depuración del experimento de manera local
 
 > [!IMPORTANT]
 > Antes de ejecutar el experimento de manera local, asegúrese de que Docker se está ejecutando.
-
-### <a name="debug-experiment-locally"></a>Depuración del experimento de manera local
 
 1. En VS Code, abra la vista de la extensión de Azure Machine Learning.
 1. Expanda el nodo de suscripción que contiene el área de trabajo. Si aún no tiene una, puede [crear un área de trabajo de Azure Machine Learning](how-to-manage-resources-vscode.md#create-a-workspace) mediante la extensión.

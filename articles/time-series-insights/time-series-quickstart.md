@@ -3,19 +3,20 @@ title: 'Inicio rápido: Explorador de Azure Time Series Insights: Azure Time Ser
 description: Más información sobre cómo empezar a trabajar con el explorador de Azure Time Series Insights. Visualice grandes volúmenes de datos de IoT y conozca las características clave de su entorno.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: narmeens
+ms.author: narsam
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/30/2020
-ms.openlocfilehash: dd5ed52187a7cd23142b59e20c91c6d125946a72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf8e8cac032ab303f39a414afdaba2b4cd730844
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91613788"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369009"
 ---
 # <a name="quickstart-explore-azure-time-series-insights-gen1"></a>Inicio rápido: Exploración de Azure Time Series Insights Gen1
 

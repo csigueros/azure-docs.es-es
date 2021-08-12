@@ -3,13 +3,13 @@ title: 'Tutorial: Tutorial de REST mediante Azure Relay'
 description: 'Tutorial: Creación de una aplicación host de Azure Relay que expone una interfaz basada en REST.'
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.date: 06/23/2020
-ms.openlocfilehash: 0620f55650d0e4da0cd7a616649df952f3017455
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: ed9068b6105d30d789b848a99325db389b42fec4
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88922334"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669743"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Tutorial: Tutorial de REST de Azure WCF Relay
 

@@ -6,12 +6,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 98f53ec1b6506a6d47146377e837576254f445e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3097023c4b9d19379f44529615a10c100e794700
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601073"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838682"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-solution"></a>Conexión de Azure a las herramientas de ITSM mediante el la solución Administración de servicios de TI
 
@@ -88,7 +88,7 @@ Los grupos de acciones proporcionan una manera modular y reutilizable de desenca
 > [!NOTE]
 > Después de crear la conexión de ITSM, debe esperar 30 minutos para que finalice el proceso de sincronización.
 
-## <a name="define-a-template"></a>Definición de una plantilla
+### <a name="define-a-template"></a>Definición de una plantilla
 
 Algunos tipos de elemento de trabajo pueden utilizar plantillas que se definen en la herramienta de ITSM. Con el uso de plantillas, puede definir los campos que se rellenarán automáticamente en función de los valores fijos de un grupo de acciones. Puede definir qué plantilla le gustaría usar como parte de la definición de un grupo de acciones. Puede encontrar información en los documentos de ServiceNow sobre cómo crear plantillas (aquí)[https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html ].
 
@@ -114,9 +114,7 @@ Para crear un grupo de acciones:
 
 7. Seleccione un tipo de **Elemento de trabajo**.
 
-8. Si desea rellenar los campos predeterminados con valores fijos, seleccione **Usar la plantilla personalizada**. De lo contrario, elija una [plantilla](#define-a-template) existente en la lista **Plantilla** y escriba los valores fijos en los campos de la plantilla.
-
-9. En la última sección de la interfaz para crear un grupo de acciones de ITSM, puede definir cuántos elementos de trabajo se crearán para cada alerta.
+8. En la última sección de la interfaz para crear un grupo de acciones de ITSM, puede definir cuántos elementos de trabajo se crearán para cada alerta.
 
    > [!NOTE]
    > Esta sección solo es pertinente para las alertas de búsqueda de registros. Para todos los demás tipos de alerta, se creará un elemento de trabajo por cada alerta.
@@ -143,6 +141,10 @@ Para crear un grupo de acciones:
      * Si selecciona **Crear elementos de trabajo individuales para cada entrada de registro (no se rellena el campo de elemento de configuración. Puede dar como resultado un gran número de elementos de trabajo).** , se creará un elemento de trabajo por cada fila de los resultados de búsqueda de la consulta de alerta de búsqueda de registros. La propiedad description de la carga útil del elemento de trabajo contendrá la fila de los resultados de la búsqueda.
       
      * Si selecciona **Crear elementos de trabajo individuales para cada elemento de configuración**, cada elemento de configuración en cada alerta creará un elemento de trabajo. Cada elemento de configuración puede tener más de un elemento de trabajo en el sistema de ITSM. Esta opción es la misma que la selección de la casilla que aparece después de seleccionar **Incidente** como tipo de elemento de trabajo.
+9. Como parte de la definición de la acción, puede definir campos predefinidos que contendrán valores constantes como parte de la carga. En función del tipo de elemento de trabajo, hay tres opciones que se pueden usar como parte de la carga:
+    * **Ninguno**: use una carga normal en ServiceNow sin campos ni valores predefinidos adicionales.
+    * **Use default fields** (Usar campos predeterminados): se usa un conjunto de campos y valores que se enviarán automáticamente como parte de la carga a ServiceNow. Esos campos no son flexibles y los valores se definen en las listas de ServiceNow.
+    * **Use saved templates from ServiceNow** (Usar plantillas guardadas de ServiceNow): usar un conjunto predefinido de campos y valores que se definió como parte de una definición de plantilla en ServiceNow. Si ya ha definido la plantilla en ServiceNow, puede usarla desde la lista **Plantilla**; de lo contrario, puede definirla en ServiceNow para más [detalles](#define-a-template).
 
 10. Seleccione **Aceptar**.
 

@@ -1,6 +1,6 @@
 ---
-title: Acceso, encendido y modo de conectividad en el dispositivo Azure Stack Edge Pro | Microsoft Docs
-description: En este artículo se explica cómo administrar el acceso, el encendido y el modo de conectividad del dispositivo Azure Stack Edge Pro que ayuda a transferir datos a Azure
+title: Acceso, encendido y modo de conectividad en el dispositivo Azure Stack Edge Pro con FPGA
+description: En este artículo se explica cómo administrar el acceso, el encendido y el modo de conectividad del dispositivo Azure Stack Edge Pro con FPGA que ayuda a transferir datos a Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,17 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 240d3872536e6974d7f65eed22dace6816844e9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a07bf9490332ee829182900b2626dfdf99f00dda
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200205"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703822"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Administración del acceso, el encendido y el modo de conectividad de Azure Stack Edge Pro
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-fpga"></a>Administración del acceso, el encendido y el modo de conectividad de Azure Stack Edge Pro con FPGA
 
-En este artículo se explica cómo administrar el acceso, el encendido y el modo de conectividad de Azure Stack Edge Pro. Estas operaciones se realizan mediante la interfaz de usuario web local o en Azure Portal.
+En este artículo se explica cómo administrar el acceso, el encendido y el modo de conectividad de Azure Stack Edge Pro con FPGA. Estas operaciones se realizan mediante la interfaz de usuario web local o en Azure Portal.
 
 En este artículo aprenderá a:
 
@@ -29,7 +30,7 @@ En este artículo aprenderá a:
 
 ## <a name="manage-device-access"></a>Administración del acceso al dispositivo
 
-El acceso al dispositivo de Azure Stack Edge Pro se controla mediante una contraseña del dispositivo. Puede cambiar la contraseña mediante la interfaz de usuario web local. También puede restablecer la contraseña del dispositivo en Azure Portal.
+El acceso al dispositivo Azure Stack Edge Pro con FPGA se controla por medio de una contraseña del dispositivo. Puede cambiar la contraseña mediante la interfaz de usuario web local. También puede restablecer la contraseña del dispositivo en Azure Portal.
 
 ### <a name="change-device-password"></a>Cambiar la contraseña del dispositivo
 
@@ -61,12 +62,12 @@ Para crear el recurso de Azure Stack Edge/Data Box Gateway, IoT Hub y Azure Stor
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Administración de permisos para Microsoft Graph API
 
-Cuando genere la clave de activación para el dispositivo de Azure Stack Edge Pro o realice cualquier operación que requiera credenciales, necesitará permisos para Graph API de Azure Active Directory. Las operaciones que podrían necesitar credenciales son:
+Cuando genere la clave de activación para el dispositivo Azure Stack Edge Pro con FPGA o realice cualquier operación que requiera credenciales, necesitará permisos para Graph API de Azure Active Directory. Las operaciones que podrían necesitar credenciales son:
 
 -  Crear un recurso compartido con una cuenta de almacenamiento asociada.
 -  Crear un usuario que puede tener acceso a los recursos compartidos en el dispositivo.
 
-Debe tener acceso de `User` en el inquilino de Active Directory, ya que necesita la capacidad de `Read all directory objects`. No puede ser un usuario invitado, ya que estos no tienen permisos para `Read all directory objects`. Si es un invitado, se producirán errores en operaciones como la generación de una clave de activación, la creación de un recurso compartido en el dispositivo de Azure Stack Edge Pro, la creación de un usuario, la configuración de un rol de proceso perimetral o el restablecimiento de la contraseña del dispositivo.
+Debe tener acceso de `User` en el inquilino de Active Directory, ya que necesita la capacidad de `Read all directory objects`. No puede ser un usuario invitado, ya que estos no tienen permisos para `Read all directory objects`. Si es un invitado, se producirán errores en operaciones como la generación de una clave de activación, la creación de un recurso compartido en el dispositivo Azure Stack Edge Pro con FPGA, la creación de un usuario, la configuración de un rol de proceso perimetral o el restablecimiento de la contraseña del dispositivo.
 
 Para más información sobre cómo proporcionar a los usuarios acceso a Microsoft Graph API, consulte [Referencia de permisos de Microsoft Graph](/graph/permissions-reference).
 
@@ -89,7 +90,7 @@ Para obtener una lista de los proveedores de recursos registrados en la suscripc
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Es necesario que `Microsoft.DataBoxEdge` esté registrado en el dispositivo de Azure Stack Edge Pro. Para registrar `Microsoft.DataBoxEdge`, el administrador de suscripciones debe ejecutar el siguiente comando:
+Para un dispositivo Azure Stack Edge Pro con FPGA, debe registrarse `Microsoft.DataBoxEdge`. Para registrar `Microsoft.DataBoxEdge`, el administrador de suscripciones debe ejecutar el siguiente comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

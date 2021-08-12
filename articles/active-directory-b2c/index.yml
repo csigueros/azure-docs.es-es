@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: 024c9b54fbbf0a14f8d8ca15862c102d1936bdaa
-  ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+  ms.openlocfilehash: 268d211e2b37b510ceb2d89f4aba62628643ecbb
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/28/2021
-  ms.locfileid: "110613359"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114445340"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -68,11 +68,11 @@ landingContent:
     - text: 'Inicio rápido: Aplicación web'
       url: quickstart-web-app-dotnet.md
     - text: Aplicación nativa o móvil
-      url: code-samples.md#mobile-and-desktop-apps
+      url: integrate-with-app-code-samples.md#mobile-and-desktop-apps
     - text: Aplicación de página única
-      url: code-samples.md#single-page-apps
+      url: integrate-with-app-code-samples.md#single-page-apps
     - text: Aplicación web
-      url: code-samples.md#web-apps-and-apis
+      url: integrate-with-app-code-samples.md#web-apps-and-apis
 - title: 'Autorización: Llamada a API y protección de las mismas'
   linkLists:
   - linkListType: how-to-guide
@@ -82,7 +82,7 @@ landingContent:
     - text: Registro de API y protección de la misma
       url: tutorial-web-api-dotnet.md
     - text: 'Ejemplos: Web Apps y API'
-      url: code-samples.md#web-apps-and-apis
+      url: integrate-with-app-code-samples.md#web-apps-and-apis
     - text: Integración con puerta de enlace de API
       url: secure-api-management.md?tabs=app-reg-ga
 - title: Seguridad, privacidad y cumplimiento

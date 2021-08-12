@@ -3,14 +3,14 @@ title: Análisis de vídeo en directo con su propio modelo gRPC
 description: En este inicio rápido se describe cómo analizar vídeo en directo con su propio modelo gRPC con Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: a9b086f4b2d856e3e534ac2603f61dfbfef31db0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cb901ca96cde0d0a113b07429338464e24720650
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371880"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601690"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---grpc"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo gRPC
 
@@ -76,7 +76,13 @@ En este inicio rápido, usará Live Video Analyzer para detectar objetos, como v
 
 ## <a name="run-the-sample-program"></a>Ejecución del programa de ejemplo
 
-1. Para iniciar una sesión de depuración, seleccione la tecla F5. Verá mensajes impresos en la ventana TERMINAL.
+1. ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end
 1. El código **operations.json** comienza con llamadas a los métodos directos pipelineTopologyList y livePipelineList. Si ha limpiado los recursos tras haber completado los inicios rápidos anteriores, este proceso devolverá listas vacías y, después, se pausará. Para continuar, seleccione la tecla Entrar.
 
    ```
