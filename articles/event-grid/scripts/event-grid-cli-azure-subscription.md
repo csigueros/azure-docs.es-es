@@ -3,14 +3,14 @@ title: 'Ejemplo de script de la CLI de Azure: suscripción a una suscripción de
 description: En este artículo se proporciona un script de la CLI de Azure de ejemplo que muestra cómo suscribirse a los eventos de Azure Event Grid con la CLI de Azure.
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/08/2020
+ms.date: 07/22/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7456f9c0da4963c1d3772169faf4963b8af6562d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: e6b0fac888b621511f06e15def4d19d22921ad39
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871428"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463827"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Suscripción a eventos de una suscripción de Azure con la CLI de Azure
 

@@ -6,20 +6,20 @@ author: peiliu
 manager: vravikumar
 services: azure-communication-services
 ms.author: peiliu
-ms.date: 06/01/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 8c9468510e68f29816e52e74cb9a311e3834f107
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: cddff62f911339e7b2ddb76535acda09e1793137
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111593135"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292382"
 ---
 # <a name="quickstart-using-azure-opentelemetry-exporter-to-export-sdk-telemetry-data-to-application-insights"></a>Inicio rápido: Uso de Azure OpenTelemetry Exporter para exportar datos de telemetría del SDK a Application Insights
 
-Azure OpenTelemetry Exporter es un SDK dentro de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). Permite exportar datos de seguimiento mediante OpenTelemetry y enviar los datos a [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). OpenTelemetry ofrece una manera estandarizada para que las aplicaciones y los marcos recopilen información de telemetría.
+Azure OpenTelemetry Exporter es un SDK dentro de [Azure Monitor](../../azure-monitor/index.yml). Permite exportar datos de seguimiento mediante OpenTelemetry y enviar los datos a [Application Insights](../../azure-monitor/app/app-insights-overview.md). OpenTelemetry ofrece una manera estandarizada para que las aplicaciones y los marcos recopilen información de telemetría.
 
 Azure Application Insights es una característica de Azure Monitor que se usa para supervisar aplicaciones en directo. Muestra los datos de la aplicación sobre la aplicación en un recurso de Microsoft Azure. El modelo de telemetría está normalizado para que sea posible crear una supervisión de independiente del lenguaje y de la plataforma.
 
@@ -71,4 +71,4 @@ En este inicio rápido ha aprendido a:
 
 Puede que también le interese:
 
-- [Más información sobre el análisis de datos en Application Insights](https://docs.microsoft.com/powerapps/maker/canvas-apps/application-insights)
+- [Más información sobre el análisis de datos en Application Insights](/powerapps/maker/canvas-apps/application-insights)

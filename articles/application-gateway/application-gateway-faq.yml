@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: f9f6a834239e46c2c0934dd145f8a1193f6a50b2
-  ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+  ms.openlocfilehash: 7bef7a0cbc81f4d72a28d74feb5a526789c0ff59
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/18/2021
-  ms.locfileid: "114404419"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114469721"
 title: Preguntas más frecuentes sobre Application Gateway
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -242,7 +242,7 @@ sections:
       Puede ver y analizar los registros de acceso de varias maneras. Use registros de Azure Monitor, Excel, Power BI, etc.
 
 
-      También puede usar una plantilla de Resource Manager que instala y ejecuta el popular analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP, como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores y códigos de estado HTTP. Para más información, en GitHub, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager](https://aka.ms/appgwgoaccessreadme).
+      También puede usar una plantilla de Resource Manager que instala y ejecuta el popular analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP, como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores y códigos de estado HTTP. Para más información, en GitHub, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
   - question: ¿Qué puede provocar que el estado del back-end devuelva un valor desconocido?
     answer: >
       Por lo general, se ve un estado desconocido cuando el acceso al back-end está bloqueado por un grupo de seguridad de red (NSG), un DNS personalizado o un enrutamiento definido por el usuario (UDR) en la subred de Application Gateway. Para más información, consulte [Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
