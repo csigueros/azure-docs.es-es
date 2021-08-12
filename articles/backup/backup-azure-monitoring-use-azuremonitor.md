@@ -4,12 +4,12 @@ description: Supervise las cargas de trabajo de Azure Backup y cree alertas pers
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 1800771bfff0afbcec8440383536734246ea8f5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e1466d3f7f8130cfe8b12ad23f2bf1f9dd61b54
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580744"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565525"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -156,10 +156,13 @@ Los datos de diagnóstico del almacén se bombean al área de trabajo de Log Ana
 
 - En todas las soluciones, las alertas integradas del servicio de copia de seguridad se insertan en cuanto se crean. Así pues, suelen aparecer en el área de trabajo de Log Analytics tras haber transcurrido de 20 a 30 minutos.
 - En todas las soluciones, los trabajos de copia de seguridad a petición y los trabajos de restauración se insertan en cuanto *finalizan*.
-- En todas las soluciones salvo la copia de seguridad SQL, los trabajos de copia de seguridad programados se insertan en cuanto *finalizan*.
-- En el caso de la copia de seguridad de SQL, como pueden realizarse copias de seguridad de registros cada 15 minutos, de todos los trabajos de copia de seguridad programados completados, incluidos los registros, la información se une en lotes y se inserta cada 6 horas.
+- En todas las soluciones, salvo la copia de seguridad de SQL y SAP HANA, los trabajos de copia de seguridad programados se insertan en cuanto *finalizan*.
+- En el caso de la copia de seguridad de SAP HANA y SQL, como pueden realizarse copias de seguridad de registros cada 15 minutos, de todos los trabajos de copia de seguridad programados completados, incluidos los registros, la información se une en lotes y se envían los cambios cada seis horas.
 - En todas las soluciones, el resto de la información, como el elemento de copia de seguridad, la directiva, los puntos de recuperación, el almacenamiento, etc. se inserta al menos *una vez al día.*
 - Un cambio en la configuración de copia de seguridad (como por ejemplo un cambio de directiva o la edición de la directiva) desencadena la inserción de toda la información de copia de seguridad relacionada.
+
+> [!NOTE]
+> El mismo retraso se aplica a otros destinos para los datos de diagnóstico, como Event Hubs y las cuentas de almacenamiento.
 
 ## <a name="using-the-recovery-services-vaults-activity-logs"></a>Uso de los registros de actividad del almacén de Recovery Services
 

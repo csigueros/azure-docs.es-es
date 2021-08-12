@@ -9,33 +9,41 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 101f1452f547f195288e2d22bc516880100c7735
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: ba7c3459d5df540304b0595ac6aacf039c558d6c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107496833"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094661"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adición y administración de usuarios en las unidades administrativas en Azure Active Directory
 
 En Azure Active Directory (Azure AD), puede agregar usuarios a una unidad administrativa para tener un ámbito de control administrativo más pormenorizado.
 
-Para prepararse para el uso de PowerShell y Microsoft Graph para la administración de unidades administrativas, consulte [Introducción](admin-units-manage.md#get-started).
+## <a name="prerequisites"></a>Requisitos previos
+
+- Una licencia de Azure AD Premium P1 o P2 para cada administrador de la unidad administrativa
+- Licencias de Azure AD Free para los miembros de la unidad administrativa
+- Administrador global o administrador de roles con privilegios
+- Módulo AzureAD al usar PowerShell
+- Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
+
+Para más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
 
 ## <a name="add-users-to-an-administrative-unit"></a>Adición de usuarios a una unidad administrativa
 
-### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Puede asignar usuarios a unidades administrativas de forma individual o en masa.
 
 - Asignar usuarios individuales a partir de un perfil de usuario:
 
-   1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com) con permisos de Administrador de roles con privilegios.
+   1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com).
 
    1. Seleccione **Usuarios** y, luego, elija el usuario que se va a asignar a una unidad administrativa para abrir el perfil de usuario.
    
@@ -47,7 +55,7 @@ Puede asignar usuarios a unidades administrativas de forma individual o en masa.
 
 - Asignar usuarios individuales a partir de una unidad administrativa:
 
-   1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com) con permisos de Administrador de roles con privilegios.
+   1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com).
    1. Seleccione **Unidades administrativas** y, luego, elija la unidad administrativa a la que se va a asignar el usuario.
    1. Seleccione **Todos los usuarios**, elija **Agregar miembro** y, luego, en el panel **Agregar miembro**, seleccione uno o más usuarios que quiera asignar a la unidad administrativa.
 
@@ -55,7 +63,7 @@ Puede asignar usuarios a unidades administrativas de forma individual o en masa.
 
 - Asignar usuarios en una operación en masa:
 
-   1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com) con permisos de Administrador de roles con privilegios.
+   1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com).
 
    1. Seleccione **Unidades administrativas**.
 
@@ -65,7 +73,7 @@ Puede asignar usuarios a unidades administrativas de forma individual o en masa.
 
       ![Captura de pantalla del panel "Usuarios" para asignar usuarios a una unidad administrativa en una operación en masa.](./media/admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
-### <a name="use-powershell"></a>Uso de PowerShell
+### <a name="powershell"></a>PowerShell
 
 En PowerShell, use el cmdlet `Add-AzureADAdministrativeUnitMember` en el ejemplo siguiente para agregar el usuario a la unidad administrativa. Se toman como argumentos el identificador de objeto de la unidad administrativa a la que quiere agregar el usuario y el identificador de objeto del usuario que quiere agregar. Cambie la sección resaltada según sea necesario para su entorno específico.
 
@@ -76,7 +84,7 @@ Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -RefObjectId $userObj
 ```
 
 
-### <a name="use-microsoft-graph"></a>Uso de Microsoft Graph
+### <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Reemplace el marcador de posición por la información de prueba y ejecute el siguiente comando:
 
@@ -104,7 +112,7 @@ Ejemplo
 
 ## <a name="view-a-list-of-administrative-units-for-a-user"></a>Visualización de una lista de unidades administrativas de un usuario
 
-### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 En Azure Portal, puede abrir el perfil de un usuario mediante los pasos siguientes:
 
@@ -116,7 +124,7 @@ En Azure Portal, puede abrir el perfil de un usuario mediante los pasos siguient
 
    ![Captura de pantalla de las unidades administrativas a las que se ha asignado un usuario.](./media/admin-units-add-manage-users/list-user-admin-units.png)
 
-### <a name="use-powershell"></a>Uso de PowerShell
+### <a name="powershell"></a>PowerShell
 
 Ejecute el siguiente comando:
 
@@ -127,7 +135,7 @@ Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember 
 > [!NOTE]
 > De forma predeterminada, `Get-AzureADAdministrativeUnitMember` devuelve solo 100 miembros de una unidad administrativa. Para recuperar más miembros, puede agregar `"-All $true"`.
 
-### <a name="use-microsoft-graph"></a>Uso de Microsoft Graph
+### <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Reemplace el marcador de posición por la información de prueba y ejecute el siguiente comando:
 
@@ -137,7 +145,7 @@ https://graph.microsoft.com/v1.0/users/{user-id}/memberOf/$/Microsoft.Graph.Admi
 
 ## <a name="remove-a-single-user-from-an-administrative-unit"></a>Eliminación de un solo usuario de una unidad administrativa
 
-### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Hay dos maneras de quitar un usuario de una unidad administrativa: 
 
@@ -153,15 +161,15 @@ Hay dos maneras de quitar un usuario de una unidad administrativa:
   
      ![Captura de pantalla que muestra cómo quitar un usuario en el nivel de unidad administrativa.](./media/admin-units-add-manage-users/admin-units-remove-user.png)
 
-### <a name="use-powershell"></a>Uso de PowerShell
+### <a name="powershell"></a>PowerShell
 
-Ejecute el siguiente comando:
+Ejecute el comando siguiente:
 
 ```powershell
 Remove-AzureADMSAdministrativeUnitMember -Id $adminUnitId -MemberId $memberUserObjId
 ```
 
-### <a name="use-microsoft-graph"></a>Uso de Microsoft Graph
+### <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Reemplace los marcadores de posición por la información de prueba y ejecute el siguiente comando:
 

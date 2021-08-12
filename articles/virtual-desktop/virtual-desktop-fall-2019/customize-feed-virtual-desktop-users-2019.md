@@ -1,26 +1,26 @@
 ---
-title: Personalización de fuente para usuarios de Windows Virtual Desktop (clásico) - Azure
-description: Personalización de la fuente para los usuarios de Windows Virtual Desktop (clásico) con cmdlets de PowerShell.
+title: 'Personalización de fuente para usuarios de Azure Virtual Desktop (clásico): Azure'
+description: Personalización de la fuente para los usuarios de Azure Virtual Desktop (clásico) con cmdlets de PowerShell.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5653ba4b1bcaab9e7b82dae3fe0842cbc7fb86b9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 7a28185d16f0bc7787eccc76a9f4a0a98d5c6a38
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445115"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754158"
 ---
-# <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Personalización de fuente para usuarios de Windows Virtual Desktop (clásico)
+# <a name="customize-feed-for-azure-virtual-desktop-classic-users"></a>Personalización de fuente para usuarios de Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../customize-feed-for-virtual-desktop-users.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../customize-feed-for-virtual-desktop-users.md).
 
 Puede personalizar la fuente para que RemoteApp y los recursos de escritorio remoto se muestren de manera reconocible para los usuarios.
 
-En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
+En primer lugar y, si aún no lo ha hecho, descargue e importe el [módulo de PowerShell para Azure Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -72,7 +72,7 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha personalizado la fuente para los usuarios, puede iniciar sesión en un cliente de Windows Virtual Desktop para probarlo. Para ello, continúe para conectarse a los procedimientos para conectarse a Windows Virtual Desktop:
+Ahora que ha personalizado la fuente para los usuarios, puede iniciar sesión en un cliente de Azure Virtual Desktop para probarlo. Para ello, continúe con los procedimientos para conectarse a Azure Virtual Desktop:
 
  * [Conexión desde Windows 10 o Windows 7](connect-windows-7-10-2019.md)
  * [Conexión desde un explorador web](connect-web-2019.md)

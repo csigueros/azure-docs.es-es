@@ -3,12 +3,12 @@ title: Uso de extensiones con grupos de Batch
 description: Las extensiones son pequeñas aplicaciones que facilitan la configuración e instalación posteriores al aprovisionamiento en nodos de ejecución de Batch.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 1bf9847af57347c143ee3d790d89988ba7cd48e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 406de8ea1c781ac742e7ca3fff8f84f03727a031
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100416743"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476112"
 ---
 # <a name="use-extensions-with-batch-pools"></a>Uso de extensiones con grupos de Batch
 
@@ -20,14 +20,14 @@ Puede comprobar el estado activo de las extensiones que usa y recuperar la infor
 
 - Los grupos con extensiones deben usar la [configuración de la máquina virtual](nodes-and-pools.md#virtual-machine-configuration).
 - El tipo de extensión CustomScript está reservado para el servicio Azure Batch y no se puede invalidar.
+- Es posible que algunas extensiones necesiten una identidad administrada de nivel de grupo accesible en el contexto de un nodo de ejecución para funcionar correctamente. Consulte [Configuración de identidades administradas en grupos de Batch](managed-identity-pools.md), si procede, para las extensiones.
 
 ### <a name="supported-extensions"></a>Extensiones admitidas
 
-Actualmente, se pueden instalar las extensiones siguientes al crear un grupo de Batch. 
+Actualmente se pueden instalar las extensiones siguientes al crear un grupo de Batch.
 
 - La extensión de Azure Key Vault para [Linux](../virtual-machines/extensions/key-vault-linux.md) y [Windows](../virtual-machines/extensions/key-vault-windows.md).
 - La extensión de Log Analytics y de supervisión para [Linux](../virtual-machines/extensions/oms-linux.md) y [Windows](../virtual-machines/extensions/oms-windows.md).
-- Módulo de administración de seguridad de Azure
 
 Puede solicitar compatibilidad para publicadores o tipos de extensión adicionales abriendo una solicitud de soporte técnico.
 

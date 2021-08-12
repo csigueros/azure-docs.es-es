@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/01/2021
+ms.date: 05/28/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 623799b894846034dcf3f58a4bd6e53c56d526df
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99225215"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690490"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de facturación para Azure Active Directory B2C
 
@@ -27,22 +27,23 @@ Los precios de Azure Active Directory B2C (Azure AD B2C) se basan en los us
 
 ## <a name="what-do-i-need-to-do"></a>¿Qué tengo que hacer?
 
-Para aprovechar las ventajas de la facturación MAU, el inquilino de Azure AD B2C debe estar vinculado a una suscripción de Azure. Es posible que también necesite cambiar el inquilino de Azure AD B2C a otro plan de tarifa si quiere usar las características de Azure AD B2C Premium P2, como el acceso condicional basado en riesgos.
+Para aprovechar las ventajas de la facturación MAU, el inquilino de Azure AD B2C debe estar vinculado a una suscripción de Azure. Es posible que también necesite cambiar el inquilino de Azure AD B2C a otro plan de tarifa si quiere usar las características de Azure AD B2C Premium P2, como el acceso condicional basado en riesgo.
 
 |Si el inquilino es:  |Necesita:  |
 |---------|---------|
 | Un inquilino de Azure AD B2C que ya se factura por MAU     | No haga nada. Cuando los usuarios se autentiquen en el inquilino de Azure AD B2C, se le facturará automáticamente mediante el modelo de facturación basado en MAU.        |
 | Un inquilino de Azure AD B2C no vinculado aún a una suscripción     |  [Vincule el inquilino de Azure AD B2C a una suscripción](#link-an-azure-ad-b2c-tenant-to-a-subscription) para activar la facturación MAU.     |
 | Un inquilino de Azure AD B2C vinculado a una suscripción antes del 1 de noviembre de 2019    | [Cambie a la facturación MAU (recomendado)](#switch-to-mau-billing-pre-november-2019-azure-ad-b2c-tenants) o permanezca en el modelo de facturación por autenticación.     |
-| Un inquilino de Azure AD B2C y quiere usar las características Premium (como el acceso condicional basado en riesgos)    | [Cambie a un plan de tarifa de Azure AD](#change-your-azure-ad-pricing-tier) que admita las características que quiera usar.        |
+| Un inquilino de Azure AD B2C y usted quieren usar las características prémium (como el acceso condicional basado en riesgo).    | [Cambie a un plan de tarifa de Azure AD](#change-your-azure-ad-pricing-tier) que admita las características que quiera usar.        |
 |  |  |
 
 ## <a name="about-the-monthly-active-users-mau-billing-model"></a>Acerca del modelo de facturación de usuarios activos mensuales (MAU)
 
 La facturación MAU entró en vigor para los inquilinos de Azure AD B2C el **1 de noviembre de 2019**. Los inquilinos de Azure AD B2C creados y vinculados a una suscripción en esa fecha, o con posterioridad, se han facturado por MAU. Si tiene un inquilino de Azure AD B2C que no se ha vinculado a una suscripción, deberá hacerlo ahora. Si tiene un inquilino de Azure AD B2C que estaba vinculado a una suscripción antes del 1 de noviembre de 2019, se recomienda que actualice al modelo de facturación de usuarios activos mensuales (MAU), o puede permanecer en el modelo de facturación por autenticación.
   
-El inquilino de Azure AD B2C también debe estar vinculado al plan de tarifa de Azure adecuado en función de las características que quiera usar. Para las características Premium, se requieren los [precios Premium P1 o P2](https://azure.microsoft.com/pricing/details/active-directory-b2c/) de Azure AD B2C. Es posible que tenga que actualizar el plan de tarifa a medida que use nuevas características. Por ejemplo, en el caso del acceso condicional, deberá seleccionar el plan de tarifa Azure AD B2C Premium P2 para su inquilino.
-
+El inquilino de Azure AD B2C también debe estar vinculado al plan de tarifa de Azure adecuado en función de las características que quiera usar. Para las características Premium, se requieren los [precios Premium P1 o P2](https://azure.microsoft.com/pricing/details/active-directory-b2c/) de Azure AD B2C. Es posible que tenga que actualizar el plan de tarifa a medida que use nuevas características. Por ejemplo, en el caso de las directivas de acceso condicional basadas en riesgo, deberá seleccionar el plan de tarifa Azure AD B2C Premium P2 para su inquilino.
+> [!NOTE]
+>  Los primeros 50 000 MAU al mes son gratuitos para las características Premium P1 y Premium P2. Para determinar el número total de MAU, combinamos los MAU de todos los inquilinos (tanto de Azure AD como de Azure AD B2C) que están vinculados a la misma suscripción.
 ## <a name="link-an-azure-ad-b2c-tenant-to-a-subscription"></a>Vincular un inquilino de Azure AD B2C a una suscripción
 
 Los cargos por el uso de Azure Active Directory B2C (o Azure AD B2C) se facturan a una suscripción de Azure. Debe vincular explícitamente un inquilino de Azure AD B2C a una suscripción de Azure mediante la creación de un *recurso* de Azure AD B2C en la suscripción de Azure de destino. Se pueden crear varios recursos de Azure AD B2C en una sola suscripción de Azure, junto con otros recursos de Azure, como máquinas virtuales, cuentas de almacenamiento y Logic Apps. Para ver todos los recursos de la suscripción, vaya al inquilino de Azure Active Directory (Azure AD) al que está asociada la suscripción.
@@ -74,7 +75,7 @@ Después de completar estos pasos para un inquilino de Azure AD B2C, la suscri
 
 ## <a name="change-your-azure-ad-pricing-tier"></a>Cambio del plan de tarifa de Azure AD
 
-El inquilino debe vincularse al plan de tarifa de Azure adecuado en función de las características que quiera usar con el inquilino de Azure AD B2C. Las características Premium requieren Azure AD B2C Premium P1 o P2, como se describe en [Precios de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/). En algunos casos, deberá actualizar el plan de tarifa a medida que use nuevas características. Por ejemplo, si quiere usar la protección de identidades, el acceso condicional basado en riesgos y las futuras capacidades de Premium P2 con Azure AD B2C, deberá seleccionar el plan de tarifa Azure AD B2C Premium P2 para su inquilino.
+El inquilino debe vincularse al plan de tarifa de Azure adecuado en función de las características que quiera usar con el inquilino de Azure AD B2C. Las características Premium requieren Azure AD B2C Premium P1 o P2, como se describe en [Precios de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/). En algunos casos, deberá actualizar el plan de tarifa a medida que use nuevas características. Por ejemplo, si quiere usar Identity Protection, directivas de acceso condicional basadas en riesgo y cualquier funcionalidad Premium P2 futura con Azure AD B2C, deberá seleccionar el plan de tarifa Azure AD B2C Premium P2 para su inquilino.
 
 Para cambiar el plan de tarifa, siga estos pasos.
 

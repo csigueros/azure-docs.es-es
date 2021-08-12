@@ -1,17 +1,17 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
 ms.date: 09/30/2020
 ms.author: dacoulte
-ms.openlocfilehash: f3f706789e14cb20214bf17fd91f6ec1e503848f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4792245dff3784d1aa72120c6be1412bf6659c35
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91605768"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113027461"
 ---
 Hay un número máximo de cada tipo de objeto de Azure Policy. Para las definiciones, una entrada de _Scope_ significa el [grupo de administración](../articles/governance/management-groups/overview.md) o la suscripción.
 En el caso de las asignaciones y exenciones, una entrada de _Scope_ significa el [grupo de administración](../articles/governance/management-groups/overview.md), la suscripción, el grupo de recursos o el recurso individual.
@@ -25,7 +25,7 @@ En el caso de las asignaciones y exenciones, una entrada de _Scope_ significa el
 | Ámbito | Exenciones | 1000 |
 | Definición de directiva | Parámetros | 20 |
 | Definición de iniciativa | Directivas | 1000 |
-| Definición de iniciativa | Parámetros | 100 |
+| Definición de iniciativa | Parámetros | 250 |
 | Asignaciones de iniciativas o directivas | Exclusiones (notScopes) | 400 |
 | Regla de directiva | Condicionales anidados | 512 |
 | Tarea de corrección | Recursos | 500 |

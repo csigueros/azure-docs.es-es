@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/12/2021
 ms.author: alkohli
-ms.openlocfilehash: d20ade0fdf6262c08a4ae961d17b1ec8a9ba39f2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 68dc83e9954875b5f9b5adab37d7ddd212534eaa
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065810"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359792"
 ---
 # <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferencia de datos a través de cuentas de almacenamiento de Azure Stack Edge Pro con GPU 
 
@@ -95,7 +95,7 @@ myasetiered1       myasetiered1      DBELocal StandardLRS Storage            11/
 
 Para obtener la clave de acceso, ejecute el siguiente cmdlet:
 
-`Get-AzureRmStorageAccountAccessKey`
+`Get-AzureRmStorageAccountKey`
 
 A continuación se muestra una salida de ejemplo:
 
@@ -136,7 +136,7 @@ En las secciones siguientes se describen todos estos pasos.
 
 Para acceder al almacenamiento de blobs a través de HTTPS, el dispositivo necesita un certificado SSL. También cargará este certificado en el dispositivo de Azure Stack Edge Pro como archivo *.pfx* con una clave privada asociada. Para obtener más información sobre cómo crear (solo con fines de prueba y desarrollo) y cargar estos certificados en el dispositivo de Azure Stack Edge Pro, vaya a:
 
-- [Creación del certificado de punto de conexión de blob](azure-stack-edge-gpu-manage-certificates.md#create-certificates-optional).
+- [Creación del certificado de punto de conexión de blob](azure-stack-edge-gpu-create-certificates-powershell.md#create-certificates).
 - [Carga del certificado de punto de conexión de blob](azure-stack-edge-gpu-manage-certificates.md#upload-certificates).
 - [Importación de certificados en el cliente que accede al dispositivo](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 

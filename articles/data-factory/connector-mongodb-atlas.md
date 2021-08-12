@@ -1,28 +1,28 @@
 ---
-title: Copia de datos de MongoDB Atlas
-description: Obtenga información sobre cómo copiar datos desde MongoDB Atlas en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
+title: Copia de datos con MongoDB Atlas como origen o destino
+description: Obtenga información sobre cómo copiar datos desde MongoDB Atlas a almacenes de datos receptores compatibles, o bien desde almacenes de datos de origen compatibles a MongoDB Atlas, a través de una actividad de copia de una canalización de Azure Data Factory.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 09/28/2020
-ms.openlocfilehash: 517f32a526ed6695c7890a330359f52667367979
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 06/01/2021
+ms.openlocfilehash: 07e3d801f1f8d6cfebd6c31daf00d92ccc7b8444
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487680"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747498"
 ---
-# <a name="copy-data-from-mongodb-atlas-using-azure-data-factory"></a>Copia de datos desde MongoDB Atlas mediante Azure Data Factory
+# <a name="copy-data-from-or-to-mongodb-atlas-using-azure-data-factory"></a>Copia de datos con MongoDB Atlas como origen o destino mediante Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos de MongoDB Atlas. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos de MongoDB Atlas y hacia esa base de datos. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Puede copiar datos desde la base de datos de MongoDB Atlas en cualquier almacén de datos receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
+Puede copiar datos desde una base de datos de MongoDB Atlas a cualquier almacén de datos receptor compatible, o viceversa. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 En concreto, este conector de MongoDB Atlas admite hasta la **versión 4.2**.
 
@@ -96,7 +96,7 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que admite el origen de MongoDB Atlas.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que admite el origen y receptor de MongoDB Atlas.
 
 ### <a name="mongodb-atlas-as-source"></a>MongoDB Atlas como origen
 
@@ -153,13 +153,66 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
 ]
 ```
 
-## <a name="export-json-documents-as-is"></a>Exportación de documentos JSON tal cual
+### <a name="mongodb-atlas-as-sink"></a>MongoDB Atlas como receptor
 
-Puede usar este conector de MongoDB Atlas para exportar documentos JSON tal cual desde una colección de MongoDB a varios almacenes basados en archivos o a Azure Cosmos DB. Para lograr esa copia independiente del esquema, omita la sección “structure” (estructura, también denominada *schema*) en el conjunto de datos y la asignación de esquemas en la actividad de copia.
+La sección **sink** de la actividad de copia admite las siguientes propiedades:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| type | La propiedad **type** del receptor de la actividad de copia se debe establecer en **MongoDbAtlasSink**. |Sí |
+| writeBehavior |Describe cómo escribir datos en MongoDB Atlas. Valores permitidos: **insert** y **upsert**.<br/><br/>El comportamiento de **upsert** consiste en reemplazar el documento si ya existe un documento con el mismo `_id`; en caso contrario, inserta el documento.<br /><br />**Nota**: Data Factory genera automáticamente un `_id` para un documento si no se especifica un `_id` en el documento original o mediante la asignación de columnas. Esto significa que debe asegurarse de que, para que **upsert** funcione según lo esperado, el documento tenga un identificador. |No<br />(el valor predeterminado es **insert**) |
+| writeBatchSize | La propiedad **writeBatchSize** controla el tamaño de los documentos que se escribirán en cada lote. Puede intentar aumentar el valor de **writeBatchSize** para mejorar el rendimiento y reducir el valor si el documento tiene un tamaño grande. |No<br />(el valor predeterminado es **10 000**) |
+| writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera. El valor permitido es TimeSpan. | No<br/>(El valor predeterminado es **00:30:00** [30 minutos]). |
+
+>[!TIP]
+>Para importar documentos JSON tal cual, vea la sección [Importar o exportar documentos JSON](#import-and-export-json-documents); para copiar de datos con formato tabular, vea [Asignación de esquemas](#schema-mapping).
+
+**Ejemplo**
+
+```json
+"activities":[
+    {
+        "name": "CopyToMongoDBAtlas",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Document DB output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "MongoDbAtlasSink",
+                "writeBehavior": "upsert"
+            }
+        }
+    }
+]
+```
+
+## <a name="import-and-export-json-documents"></a>Importación y exportación de documentos JSON
+
+Puede usar este conector de MongoDB Atlas para hacer fácilmente lo siguiente:
+
+* Copiar documentos entre dos colecciones de MongoDB Atlas tal cual.
+* Importar documentos JSON desde varios orígenes a MongoDB Atlas, incluidos Azure Cosmos DB, Azure Blob Storage, Azure Data Lake Store y otros almacenes basados en archivos compatibles con Azure Data Factory.
+* Exportar documentos JSON de una colección de MongoDB Atlas a varios almacenes basados en archivos.
+
+Para lograr esa copia independiente del esquema, omita la sección “structure” (estructura, también denominada *schema*) en el conjunto de datos y la asignación de esquemas en la actividad de copia.
+
 
 ## <a name="schema-mapping"></a>Asignación de esquemas
 
-Para copiar datos desde MongoDB Atlas en un receptor tabular, consulte [Asignación de esquemas](copy-activity-schema-and-type-mapping.md#schema-mapping).
+Para copiar datos desde MongoDB Atlas en un receptor tabular o invertido, consulte la [asignación de esquemas](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

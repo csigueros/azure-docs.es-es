@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 90f86a198ad36c2961f77336092d863953ee45ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ed157dad020c69f3243db591ddf494853d793eb
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673897"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087389"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure mediante Azure Backup
 
@@ -60,7 +60,7 @@ Para preparar el entorno, realice estos pasos:
 
 ### <a name="prepare-the-database"></a>Preparación de la base de datos
 
-En este paso se presupone que tiene una instancia de Oracle (*test*) que se ejecuta en una máquina virtual denominada *vmoracle19c*.
+En este paso se presupone que tiene una instancia de Oracle denominada `test` que se ejecuta en una máquina virtual denominada `vmoracle19c`.
 
 1. Cambie al usuario *oracle*:
  
@@ -68,7 +68,7 @@ En este paso se presupone que tiene una instancia de Oracle (*test*) que se ejec
     sudo su - oracle
     ```
     
-2. Antes de conectarse, tiene que definir la variable de entorno ORACLE_SID:
+1. Antes de conectarse, tiene que definir la variable de entorno ORACLE_SID:
     
     ```bash
     export ORACLE_SID=test;
@@ -80,7 +80,7 @@ En este paso se presupone que tiene una instancia de Oracle (*test*) que se ejec
     echo "export ORACLE_SID=test" >> ~oracle/.bashrc
     ```
     
-3. Inicie el cliente de escucha de Oracle si aún no se está ejecutando:
+1. Inicie el cliente de escucha de Oracle si aún no se está ejecutando:
 
     ```output
     $ lsnrctl start
@@ -120,81 +120,132 @@ En este paso se presupone que tiene una instancia de Oracle (*test*) que se ejec
     The command completed successfully
     ```
 
-4.  Cree la ubicación del área de recuperación rápida (FRA):
+1.  Cree la ubicación del área de recuperación rápida (FRA) de la base de datos. FRA es una ubicación de almacenamiento centralizada para los archivos de copia de seguridad y recuperación:
 
     ```bash
     mkdir /u02/fast_recovery_area
     ```
 
-5.  Conéctese a la base de datos:
+1. Creación de un recurso compartido de archivos de Azure Files para los archivos de registro de la fase de puesta al día archivados de Oracle
+
+   Estos archivos desempeñan un rol fundamental en la recuperación de la base de datos, ya que almacenan las transacciones confirmadas necesarias para su puesta al día a partir de una instantánea de base de datos tomada en el pasado. En modo archivelog, la base de datos archiva el contenido de los archivos de registro de la fase de puesta al día en línea cuando se llenan y cambian. Junto con una copia de seguridad, son necesarios para lograr la restauración a un momento dado cuando se ha perdido la base de datos.  
+   
+   Oracle proporciona la funcionalidad de archivar archivos de registro de la fase de puesta al día en diferentes ubicaciones y el procedimiento recomendado del sector aconseja que al menos uno de esos destinos esté en el almacenamiento remoto, por lo que es independiente del almacenamiento del host y está protegido con instantáneas independientes. Azure Files es una excelente opción para esos requisitos.
+
+   Un recurso compartido de archivos de Azure Files es el almacenamiento que se puede conectar a una máquina virtual Linux o Windows como componente normal del sistema de archivos, mediante los protocolos SMB o NFS (versión preliminar). Para configurar un recurso compartido de archivos de Azure Files en Linux mediante el protocolo SMB 3.0 (se recomienda) para su uso como almacenamiento de registro de archivo, consulte la [guía de procedimientos Uso de Azure Files con Linux](../../../storage/files/storage-how-to-use-files-linux.md). 
+   
+   Una vez que recurso compartido de Azure Files se ha configurado y montado en la máquina virtual Linux, por ejemplo, en un directorio de punto de montaje denominado `/backup`, se puede agregar como un destino de archivo de registro de archivo adicional en la base de datos como se muestra a continuación:
+
+   En primer lugar, compruebe el nombre del identificador de seguridad de Oracle.
+   ```bash
+   echo $ORACLE_SID
+   test
+   ```
+
+   Cree un subdirectorio con el mismo nombre que el identificador de seguridad de la base de datos. En este ejemplo, el nombre del punto de montaje es `/backup` y el identificador de seguridad devuelto por el comando anterior es `test`, por lo que crearemos el subdirectorio `/backup/test` y cambiaremos la propiedad al usuario de Oracle. Sustituya **/backup/SID** por el nombre del punto de montaje y el identificador de seguridad de la base de datos. Tenga en cuenta que si tiene varias bases de datos en la máquina virtual, debe crear un subgrupo para cada una y cambiar la propiedad:
+
+   ```bash
+   sudo mkdir /backup/test
+   sudo chown oracle:oinstall /backup/test
+   ```
+
+1.  Conéctese a la base de datos:
 
     ```bash
-    SQL> sqlplus / as sysdba
+    sqlplus / as sysdba
     ```
+    Tenga en cuenta que si tiene varias bases de datos instaladas en la máquina virtual, deberá ejecutar los pasos del 6 al 15 en cada base de datos:
 
-6.  Inicie la base de datos, si no se está ejecutando todavía:
-
+1.  Inicie la base de datos, si no se está ejecutando aún. 
+   
     ```bash
     SQL> startup
     ```
+   
+1. Establezca el primer destino de registro de archivo de la base de datos en el directorio fileshare que creó en el paso 5:
 
-7.  Establezca las variables de entorno de las bases de datos para el área de recuperación rápida:
+   ```bash
+   sqlplus / as sysdba
+   SQL> alter system set log_archive_dest_1='LOCATION=/backup/test';
+   SQL> 
+   ```
+
+
+1.  Establezca las variables de entorno de las bases de datos para el área de recuperación rápida:
 
     ```bash
     SQL> alter system set db_recovery_file_dest_size=4096M scope=both;
     SQL> alter system set db_recovery_file_dest='/u02/fast_recovery_area' scope=both;
     ```
-    
-8.  Asegúrese de que la base de datos está en modo de registro de archivo para habilitar las copias de seguridad en línea.
 
-    Compruebe primero el estado del archivo de registro:
 
-    ```bash
-    SQL> SELECT log_mode FROM v$database;
+1. Defina el objetivo de punto de recuperación (RPO) de la base de datos.
 
-    LOG_MODE
-    ------------
-    NOARCHIVELOG
+    Para lograr un RPO coherente, se debe tener en cuenta la frecuencia con la que se archivarán los archivos de registro de la fase de puesta al día en línea. La frecuencia de generación del archivo de registro se controla mediante:
+    - El tamaño de los archivos de registro de la fase de puesta al día en línea. Cuando un archivo de registro en línea se llena, se cambia y se archiva. Cuanto mayor sea el archivo de registro en línea, más tiempo tarda en rellenarse, lo que reduce la frecuencia de generación de archivos.
+    - La configuración del parámetro ARCHIVE_LAG_TARGET controla el número máximo de segundos permitidos antes de que el archivo de registro en línea actual se deba cambiar y archivar. 
+
+    Para minimizar la frecuencia de conmutación y archivado, junto con la operación del punto de comprobación que lo acompaña, los archivos de registro de fase de puesta al día en línea de Oracle suelen tener un tamaño bastante grande (1024 MB, 4096 MB, 8192 MB, etc.). En un entorno de base de datos ocupado, es probable que los registros cambien y se archiven cada pocos segundos o minutos, pero en una base de datos menos activa pueden pasar horas o días antes de que se archiven las transacciones más recientes, lo que reduciría considerablemente la frecuencia de archivado. Por consiguiente, se recomienda configurar ARCHIVE_LAG_TARGET para garantizar un RPO coherente. Un valor de 5 minutos (300 segundos) es un valor razonable para ARCHIVE_LAG_TARGET, lo que garantiza que cualquier operación de recuperación de la base de datos se pueda recuperar en un plazo de 5 minutos, o menos, del momento del error.
+
+    Para configurar ARCHIVE_LAG_TARGET:
+
+    ```bash 
+    sqlplus / as sysdba
+    SQL> alter system set archive_lag_target=300 scope=both;
     ```
 
-    Si está en modo NOARCHIVELOG, ejecute los siguientes comandos:
+    Para conocer mejor cómo se implementan bases de datos de Oracle de alta disponibilidad en Azure con un objetivo de punto de recuperación cero, consulte [Arquitecturas de referencia para Oracle Database](./oracle-reference-architecture.md).
 
-    ```bash
-    SQL> SHUTDOWN IMMEDIATE;
-    SQL> STARTUP MOUNT;
-    SQL> ALTER DATABASE ARCHIVELOG;
-    SQL> ALTER DATABASE OPEN;
-    SQL> ALTER SYSTEM SWITCH LOGFILE;
-    ```
+1.  Asegúrese de que la base de datos está en modo de registro de archivo para habilitar las copias de seguridad en línea.
 
-9.  Cree una tabla para probar las operaciones de copia de seguridad y restauración:
+     Compruebe primero el estado del archivo de registro:
 
-    ```bash
-    SQL> create user scott identified by tiger quota 100M on users;
-    SQL> grant create session, create table to scott;
-    connect scott/tiger
-    SQL> create table scott_table(col1 number, col2 varchar2(50));
-    SQL> insert into scott_table VALUES(1,'Line 1');
-    SQL> commit;
-    SQL> quit
-    ```
+     ```bash
+     SQL> SELECT log_mode FROM v$database;
 
-10. Configure RMAN para que realice copias de seguridad en el área de recuperación rápida que se encuentra en el disco de la máquina virtual:
+     LOG_MODE
+     ------------
+     NOARCHIVELOG
+     ```
+
+     Si está en modo NOARCHIVELOG, ejecute los siguientes comandos:
+
+     ```bash
+     SQL> SHUTDOWN IMMEDIATE;
+     SQL> STARTUP MOUNT;
+     SQL> ALTER DATABASE ARCHIVELOG;
+     SQL> ALTER DATABASE OPEN;
+     SQL> ALTER SYSTEM SWITCH LOGFILE;
+     ```
+
+1.  Cree una tabla para probar las operaciones de copia de seguridad y restauración:
+
+     ```bash
+     SQL> create user scott identified by tiger quota 100M on users;
+     SQL> grant create session, create table to scott;
+     SQL> connect scott/tiger
+     SQL> create table scott_table(col1 number, col2 varchar2(50));
+     SQL> insert into scott_table VALUES(1,'Line 1');
+     SQL> commit;
+     SQL> quit
+     ```
+
+1. Configure RMAN para que realice copias de seguridad de las bases de datos en el área de recuperación rápida del disco de la máquina virtual. Tenga en cuenta que la configuración del archivo de control de instantáneas no acepta la sustitución del nombre de la base de datos %d, por lo que debe incluir explícitamente el identificador de seguridad de la base de datos en el nombre de archivo para que varias bases de datos puedan realizar copias de seguridad en la misma ubicación. Sustituya `<ORACLE_SID>` por el nombre de su base de datos:
 
     ```bash
     $ rman target /
-    RMAN> configure snapshot controlfile name to '/u02/fast_recovery_area/snapcf_ev.f';
+    RMAN> configure snapshot controlfile name to '/u02/fast_recovery_area/snapcf_<ORACLE_SID>.f';
     RMAN> configure channel 1 device type disk format '/u02/fast_recovery_area/%d/Full_%d_%U_%T_%s';
     RMAN> configure channel 2 device type disk format '/u02/fast_recovery_area/%d/Full_%d_%U_%T_%s'; 
     ```
 
-11. Confirme los detalles de las modificaciones de la configuración:
+1. Confirme los detalles de las modificaciones de la configuración:
 
     ```bash
     RMAN> show all;
     ```    
 
-12.  Ahora, ejecute la copia de seguridad. El comando siguiente tomará una copia de seguridad completa de la base de datos, incluidos los archivos de registro de archivo, como conjunto de copias de seguridad en formato comprimido:
+1.  Ahora, ejecute la copia de seguridad. El comando siguiente tomará una copia de seguridad completa de la base de datos, incluidos los archivos de registro de archivo, como conjunto de copias de seguridad en formato comprimido:
 
      ```bash
      RMAN> backup as compressed backupset database plus archivelog;
@@ -206,7 +257,7 @@ El servicio Azure Backup proporciona soluciones sencillas, seguras y rentables t
 
 El servicio Azure Backup proporciona un [marco](../../../backup/backup-azure-linux-app-consistent.md) para lograr la coherencia de la aplicación durante las copias de seguridad de las máquinas virtuales Windows y Linux para diversas aplicaciones, como Oracle, MySQL, Mongo DB y PostgreSQL. Esto implica invocar un script previo (para poner en modo inactivo las aplicaciones) antes de tomar una instantánea de los discos y llamar un script posterior (comandos para liberar las aplicaciones) una vez completada la instantánea, de modo que las aplicaciones vuelven al modo normal. Aunque que los scripts previos y posteriores de ejemplo se proporcionan en GitHub, la creación y mantenimiento de los mismos es su responsabilidad.
 
-Azure Backup ahora proporciona un marco de scripts previos y posteriores mejorado (**actualmente en versión preliminar**), de modo que el servicio Azure Backup proporcionará scripts previos y posteriores empaquetados para aplicaciones específicas. Los usuarios de Azure Backup solo tienen que asignar un nombre a la aplicación y, a continuación, la copia de seguridad de la máquina virtual de Azure invocará automáticamente los scripts previos/posteriores correspondientes. El equipo de Azure Backup dará mantenimiento a los scripts previos y posteriores empaquetados, por lo que los usuarios podrán estar seguros de la compatibilidad, propiedad y validez de estos scripts. Actualmente, las aplicaciones compatibles con el marco mejorado son *Oracle* y *MySQL*.
+Azure Backup ahora proporciona un marco de scripts previos y posteriores mejorado (**actualmente en versión preliminar**), en el que el servicio Azure Backup proporcionará scripts previos y posteriores empaquetados para determinadas aplicaciones. Los usuarios de Azure Backup solo tienen que asignar un nombre a la aplicación y, a continuación, la copia de seguridad de la máquina virtual de Azure invocará automáticamente los scripts previos/posteriores correspondientes. El equipo de Azure Backup dará mantenimiento a los scripts previos y posteriores empaquetados, por lo que los usuarios podrán estar seguros de la compatibilidad, propiedad y validez de estos scripts. Actualmente, las aplicaciones compatibles con el marco mejorado son *Oracle* y *MySQL*.
 
 En esta sección, usará el marco mejorado de Azure Backup para tomar instantáneas coherentes con la aplicación de la máquina virtual en ejecución y la base de datos de Oracle. La base de datos se pondrá en modo de copia de seguridad, lo que permitirá que se produzca una copia de seguridad en línea coherente con las transacciones mientras Azure Backup toma una instantánea de los discos de máquina virtual. La instantánea será una copia completa del almacenamiento y no una instantánea incremental o de copia por escritura, por lo que es un medio eficaz para restaurar la base de datos. La ventaja de usar instantáneas de Azure Backup coherentes con la aplicación es que son muy rápidas de tomar independientemente del tamaño de la base de datos, y una instantánea se puede usar para las operaciones de restauración tan pronto como se toma, sin tener que esperar a que se transfiera al almacén de Recovery Services.
 
@@ -218,34 +269,62 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
 
 ### <a name="prepare-the-environment-for-an-application-consistent-backup"></a>Preparación del entorno para una copia de seguridad coherente con la aplicación
 
-1. Cambie al usuario *root*:
+> [!IMPORTANT] 
+> La base de datos de Oracle emplea la separación de roles de trabajo para proporcionar separación de las tareas con privilegios mínimos. Para lograrlo, se asocian de grupos de sistemas operativos independientes con roles administrativos de base de datos independientes. A continuación, a los usuarios del sistema operativo se les pueden conceder distintos privilegios en la base de datos en función de su pertenencia a grupos del sistema operativo. 
+>
+> El rol de base de datos `SYSBACKUP` (el nombre genérico es OSBACKUPDBA) se usa para proporcionar privilegios limitados para realizar operaciones de copia de seguridad en la base de datos y es necesario para Azure Backup.
+>
+> Durante la instalación de Oracle, el nombre del grupo del sistema operativo recomendado para asociarlo con el rol SYSBACKUP es `backupdba`, pero se puede usar cualquier nombre, por lo que primero es preciso determinar el nombre del grupo del sistema operativo que representa el rol SYSBACKUP de Oracle.
 
+1. Cambie al usuario *oracle*:
    ```bash
-   sudo su -
+   sudo su - oracle
    ```
 
-1. Cree un nuevo usuario de copia de seguridad:
-
+1. Establezca el entorno de Oracle:
    ```bash
-   useradd -G backupdba azbackup
-   ```
-   
-2. Configure el entorno del usuario de copia de seguridad:
-
-   ```bash
-   echo "export ORACLE_SID=test" >> ~azbackup/.bashrc
-   echo export ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1 >> ~azbackup/.bashrc
-   echo export PATH='$ORACLE_HOME'/bin:'$PATH' >> ~azbackup/.bashrc
-   ```
-   
-3. Configure la autenticación externa para el nuevo usuario de copia de seguridad. El usuario de copia de seguridad debe tener acceso a la base de datos mediante la autenticación externa, para que no reciba un desafío de contraseña.
-
-   En primer lugar, cambie de vuelta al usuario *oracle*:
-
-   ```bash
-   su - oracle
+   export ORACLE_SID=test
+   export ORAENV_ASK=NO
+   . oraenv
    ```
 
+1. Determine el nombre del grupo del sistema operativo que representa el rol SYSBACKUP de Oracle:
+   ```bash
+   grep "define SS_BKP" $ORACLE_HOME/rdbms/lib/config.c
+   ```
+   El resultado será similar al siguiente: 
+   ```output
+   #define SS_BKP_GRP "backupdba"
+   ```
+
+   En la salida, el valor entre comillas dobles, en este ejemplo `backupdba`, es el nombre del grupo del sistema operativo Linux en el que se autentica externamente el rol SYSBACKUP de Oracle. Anote este valor.
+
+1. Ejecute el siguiente comando para comprobar si el grupo del sistema operativo existe. Sustituya \<group name\> por el valor devuelto por el comando anterior (sin comillas):
+   ```bash
+   grep <group name> /etc/group
+   ```
+   La salida será similar a la siguiente, en nuestro ejemplo se usa `backupdba`: 
+   ```output
+   backupdba:x:54324:oracle
+   ```
+
+   > [!IMPORTANT] 
+   > Si la salida no coincide con el valor del grupo del sistema operativo Oracle recuperado en el paso 3, deberá crear el grupo de sistema operativo que representa el rol SYSBACKUP de Oracle. Sustituya `<group name>` por el nombre del grupo recuperado en el paso 3:
+   >   ```bash
+   >   sudo groupadd <group name>
+   >   ```
+
+1. Cree el usuario de copia de seguridad `azbackup`, que pertenece al grupo del sistema operativo que ha comprobado o creado en los pasos anteriores. Sustituya \<group name\> por el nombre del grupo comprobado:
+
+   ```bash
+   sudo useradd -G <group name> azbackup
+   ```
+
+1. Configure la autenticación externa para el nuevo usuario de copia de seguridad. 
+
+   El usuario de copia de seguridad `azbackup` debe poder acceder a la base de datos mediante la autenticación externa, para no necesitar contraseña. Para ello, debe crear un usuario de base de datos que se autentique externamente mediante `azbackup`. La base de datos usa un prefijo para el nombre de usuario que necesita encontrar.
+   Siga los pasos que se indican a continuación en todas las bases de datos instaladas en la máquina virtual:
+ 
    Inicie sesión en la base de datos con sqlplus y compruebe la configuración predeterminada de la autenticación externa:
    
    ```bash
@@ -254,7 +333,7 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
    SQL> show parameter remote_os_authent
    ```
    
-   El resultado debe ser similar a este ejemplo: 
+   La salida debe ser similar a la de este ejemplo, en el que se muestra `ops$` como prefijo del nombre de usuario de la base de datos: 
 
    ```output
    NAME                                 TYPE        VALUE
@@ -263,7 +342,7 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
    remote_os_authent                    boolean     FALSE
    ```
 
-   Ahora, cree un usuario de base de datos *azbackup* autenticado externamente y concédale el privilegio sysbackup:
+   Cree el usuario de base de datos ***ops$azbackup*** para la autenticación externa al usuario `azbackup` y conceda privilegios sysbackup:
    
    ```bash
    SQL> CREATE USER ops$azbackup IDENTIFIED EXTERNALLY;
@@ -271,13 +350,13 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
    ```
 
    > [!IMPORTANT] 
-   > Si recibe el error `ORA-46953: The password file is not in the 12.2 format.` al ejecutar la instrucción `GRANT`, siga estos pasos para migrar el archivo orapwd al formato 12.2:
+   > Si recibe el error `ORA-46953: The password file is not in the 12.2 format.` al ejecutar la instrucción `GRANT`, siga estos pasos para migrar el archivo orapwd al formato 12.2. Tenga en cuenta que tendrá que realizar esta operación en todas las bases de datos de Oracle de la máquina  virtual:
    >
    > 1. Salga de sqlplus.
    > 1. Mueva el archivo de contraseña con el formato antiguo a un nuevo nombre.
    > 1. Migre el archivo de contraseña.
    > 1. Quite el archivo antiguo.
-   > 1. Ejecute el siguiente comando:
+   > 1. Ejecute los comandos siguientes:
    >
    >    ```bash
    >    mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
@@ -288,7 +367,7 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
    > 1. Vuelva a ejecutar la operación `GRANT` en sqlplus.
    >
    
-4. Cree un procedimiento almacenado para registrar los mensajes de la copia de seguridad en el registro de alertas de la base de datos:
+1. Cree un procedimiento almacenado para registrar los mensajes de la copia de seguridad en el registro de alertas de la base de datos:
 
    ```bash
    sqlplus / as sysdba
@@ -306,32 +385,45 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
    SQL> SHOW ERRORS
    SQL> QUIT
    ```
-   
+
 ### <a name="set-up-application-consistent-backups"></a>Configuración de las copias de seguridad coherentes con la aplicación  
 
-1. Cambie al usuario *root*:
-
+1. Primero cambie al usuario raíz:
    ```bash
    sudo su -
    ```
 
-2. Busque la carpeta "etc/azure". Si no está presente, cree el directorio de trabajo de copia de seguridad coherente con la aplicación:
+1. Busque la carpeta "/etc/azure". Si no está presente, cree el directorio de trabajo de copia de seguridad coherente con la aplicación:
 
    ```bash
    if [ ! -d "/etc/azure" ]; then
-      sudo mkdir /etc/azure
+      mkdir /etc/azure
    fi
    ```
 
-3. Busque "workload.conf" dentro de la carpeta. Si no está presente, cree un archivo en el directorio */etc/azure* denominado *workload.conf* con el siguiente contenido, que debe comenzar por `[workload]`. Si el archivo ya está presente, simplemente edite los campos de forma que coincida con el contenido siguiente. En caso contrario, el siguiente comando creará el archivo y rellenará el contenido:
+1. Busque "workload.conf" dentro de la carpeta. Si no está presente, cree un archivo en el directorio */etc/azure* denominado *workload.conf* con el siguiente contenido, que debe comenzar por `[workload]`. Si el archivo ya está presente, simplemente edite los campos de forma que coincida con el contenido siguiente. En caso contrario, el siguiente comando creará el archivo y rellenará el contenido:
 
    ```bash
    echo "[workload]
    workload_name = oracle
-   command_path = /u01/app/oracle/product/19.0.0/dbhome_1/bin/
+   configuration_path = /etc/oratab
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
    ```
+
+   > [!IMPORTANT]
+   > Este es el formato que usa workload.conf:
+   > * Azure Backup utiliza el parámetro **workload_name** para determinar el tipo de carga de trabajo de la base de datos. En este caso, si se selecciona Oracle, se permite que Azure Backup ejecute los comandos de coherencia previos y posteriores correctos para las bases de datos de Oracle.
+   > * El parámetro **timeout** indica el tiempo máximo, en segundos, que tendrá cada base de datos para completar las instantáneas de almacenamiento.
+   > * El parámetro **linux_user** indica la cuenta de usuario de Linux que Azure Backup usará para ejecutar operaciones de inactividad de la base de datos. Este usuario, `azbackup`, lo creó anteriormente.
+   > * El parámetro **configuration_path** indica el nombre de la ruta de acceso absoluta de un archivo de texto de la máquina virtual, en la que cada línea enumera una instancia de base de datos que se ejecuta en la máquina virtual. Suele ser el archivo `/etc/oratab`, que lo genera Oracle durante la instalación de la base de datos, pero puede ser cualquier archivo con el nombre que elija; sin embargo, debe seguir estas reglas de formato:
+   >   * Un archivo de texto con cada campo delimitado por el carácter de dos puntos, `:`
+   >   * El primer campo de cada línea es el nombre de ORACLE_SID
+   >   * El segundo campo de cada línea es el nombre de la ruta de acceso absoluta para ORACLE_HOME para ORACLE_SID
+   >   * Todo el texto que aparezca después de estos dos primeros campos se omitirá.
+   >   * Si la línea comienza con un carácter de libra o almohadilla (`#`), se omitirá toda la línea como comentario.
+   >   * Si el primer campo tiene el valor `+ASM`, que indica una instancia de Administración automática de almacenamiento, se omite. 
+
 
 ### <a name="trigger-an-application-consistent-backup-of-the-vm"></a>Desencadenamiento de una copia de seguridad coherente con la aplicación de la máquina virtual
 
@@ -339,27 +431,27 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
 
 1.  En Azure Portal, vaya a su grupo de recursos **rg-oracle** y haga clic en la máquina virtual **vmoracle19c**.
 
-2.  En la hoja **Copia de seguridad**, cree un nuevo **almacén de Recovery Services** en el grupo de recursos **rg-oracle** con el nombre **myVault**.
+1.  En la hoja **Copia de seguridad**, cree un nuevo **almacén de Recovery Services** en el grupo de recursos **rg-oracle** con el nombre **myVault**.
     En **Elegir directiva de copia de seguridad**, use **(nuevo) DailyPolicy**. Si quiere cambiar la frecuencia de la copia de seguridad o el período de retención, seleccione **Crear una nueva directiva** en su lugar.
 
     ![Página para agregar almacenes de Recovery Services](./media/oracle-backup-recovery/recovery-service-01.png)
 
-3.  Para continuar, haga clic en **Habilitar copia de seguridad**.
+1.  Para continuar, haga clic en **Habilitar copia de seguridad**.
 
     > [!IMPORTANT]
     > Tras hacer clic en **Enable backup** (Habilitar copia de seguridad), el proceso no se inicia hasta que expira el tiempo programado. Para configurar la copia de seguridad inmediata, complete el paso siguiente.
 
-4. En la página del grupo de recursos, haga clic en el almacén de Recovery Services recién creado, **myVault**. Sugerencia: Es posible que deba actualizar la página para que aparezca.
+1. En la página del grupo de recursos, haga clic en el almacén de Recovery Services recién creado, **myVault**. Sugerencia: Es posible que deba actualizar la página para que aparezca.
 
-5.  En la hoja **myVault - elementos de copia de seguridad**, en **Recuento de elementos de copia de seguridad**, seleccione el número de elementos de copia de seguridad.
+1.  En la hoja **myVault - elementos de copia de seguridad**, en **Recuento de elementos de copia de seguridad**, seleccione el número de elementos de copia de seguridad.
 
     ![Página de detalles del almacén myVault de Recovery Services](./media/oracle-backup-recovery/recovery-service-02.png)
 
-6.  En la hoja **Elementos de copia de seguridad (Azure Virtual Machine)** , en el lado derecho de la página, haga clic en el botón de puntos suspensivos ( **...** ) y después en **Realizar copia de seguridad ahora**.
+1.  En la hoja **Elementos de copia de seguridad (Azure Virtual Machine)** , en el lado derecho de la página, haga clic en el botón de puntos suspensivos ( **...** ) y después en **Realizar copia de seguridad ahora**.
 
     ![Comando Realizar copia de seguridad ahora de los almacenes de Recovery Services](./media/oracle-backup-recovery/recovery-service-03.png)
 
-7.  Acepte el valor predeterminado de Conservar la copia de seguridad hasta y haga clic en el botón **Aceptar**. Espere a que finalice el proceso de copia de seguridad. 
+1.  Acepte el valor predeterminado de Conservar la copia de seguridad hasta y haga clic en el botón **Aceptar**. Espere a que finalice el proceso de copia de seguridad. 
 
     Para ver el estado del trabajo de copia de seguridad, haga clic en **Trabajos de copia de seguridad**.
 
@@ -371,7 +463,7 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
     
     Tenga en cuenta que, aunque solo se necesitan unos segundos para ejecutar la instantánea, puede tardar algún tiempo en transferirse al almacén y el trabajo de copia de seguridad no se completará hasta que finaliza la transferencia.
 
-8. Para una copia de seguridad coherente con la aplicación, resuelva los errores en el archivo de registro. El archivo de registro se encuentra en /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/extension.log.
+1. Para una copia de seguridad coherente con la aplicación, resuelva los errores en el archivo de registro. El archivo de registro se encuentra en /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/extension.log.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -381,7 +473,7 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
    az backup vault create --location eastus --name myVault --resource-group rg-oracle
    ```
 
-2. Habilite la protección de copias de seguridad de la máquina virtual:
+1. Habilite la protección de copias de seguridad de la máquina virtual:
 
    ```azurecli
    az backup protection enable-for-vm \
@@ -391,7 +483,7 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
       --policy-name DefaultPolicy
    ```
 
-3. Desencadene una copia de seguridad para que se ejecute ahora en lugar de esperar a que la copia de seguridad se desencadene según la programación predeterminada (5 A. M. UTC): 
+1. Desencadene una copia de seguridad para que se ejecute ahora en lugar de esperar a que la copia de seguridad se desencadene según la programación predeterminada (5 A. M. UTC): 
 
    ```azurecli
    az backup protection backup-now \
@@ -419,7 +511,12 @@ Para recuperar la base de datos, complete estos pasos:
 
 Más adelante en este artículo obtendrá información sobre cómo probar el proceso de recuperación. Para poder probarlo, tiene que eliminar los archivos de la base de datos.
 
-1.  Cierre la instancia de Oracle:
+1.  Vuelva al usuario de Oracle:
+    ```bash
+    su - oracle
+    ```
+
+1. Cierre la instancia de Oracle:
 
     ```bash
     sqlplus / as sysdba
@@ -427,14 +524,11 @@ Más adelante en este artículo obtendrá información sobre cómo probar el pro
     ORACLE instance shut down.
     ```
 
-2.  Quite los archivos de datos y las copias de seguridad:
+1.  Quite los archivos de datos y los archivos de control de la base de datos para simular un error:
 
     ```bash
-    sudo su - oracle
     cd /u02/oradata/TEST
-    rm -f *.dbf
-    cd /u02/fast_recovery_area
-    rm -f *
+    rm -f *.dbf *.ctl
     ```
 
 ### <a name="generate-a-restore-script-from-the-recovery-services-vault"></a>Genere un script de restauración desde el almacén de Recovery Services.
@@ -445,19 +539,19 @@ Más adelante en este artículo obtendrá información sobre cómo probar el pro
 
     ![Elementos de copia de seguridad del almacén myVault de Recovery Services](./media/oracle-backup-recovery/recovery-service-06.png)
 
-2. En la hoja **Información general**, seleccione **Elementos de copia de seguridad** y seleccione **Máquina virtual de Azure**, que debe tener un número de elementos de copia de seguridad distinto de cero.
+1. En la hoja **Información general**, seleccione **Elementos de copia de seguridad** y seleccione **Máquina virtual de Azure**, que debe tener un número de elementos de copia de seguridad distinto de cero.
 
     ![Número de elementos de copia de seguridad de máquinas virtuales de Azure en los almacenes de Recovery Services](./media/oracle-backup-recovery/recovery-service-07.png)
 
-3. En la página Elementos de copia de seguridad (Azure Virtual Machines), se muestra la máquina virtual **vmoracle19c**. Haga clic en los puntos suspensivos de la derecha para abrir el menú y seleccione **Recuperación de archivos**.
+1. En la página Elementos de copia de seguridad (Azure Virtual Machines), se muestra la máquina virtual **vmoracle19c**. Haga clic en los puntos suspensivos de la derecha para abrir el menú y seleccione **Recuperación de archivos**.
 
     ![Captura de pantalla de la página de recuperación de archivos de los almacenes de Recovery Services](./media/oracle-backup-recovery/recovery-service-08.png)
 
-4. En el panel **Recuperación de archivos (versión preliminar)** , haga clic en **Descargar script**. Después, guarde el archivo de descarga (.py) en una carpeta en el equipo cliente. Se genera una contraseña para ejecutar el script. Copie la contraseña en un archivo para uso posterior. 
+1. En el panel **Recuperación de archivos (versión preliminar)** , haga clic en **Descargar script**. Después, guarde el archivo de descarga (.py) en una carpeta en el equipo cliente. Se genera una contraseña para ejecutar el script. Copie la contraseña en un archivo para uso posterior. 
 
     ![Operaciones de guardado del archivo de script descargado](./media/oracle-backup-recovery/recovery-service-09.png)
 
-5. Copie el archivo .py en la máquina virtual.
+1. Copie el archivo .py en la máquina virtual.
 
     En el ejemplo siguiente se muestra cómo usar un comando de copia de seguridad (scp) para mover el archivo a la máquina virtual. También puede copiar el contenido en el portapapeles y pegarlo en un nuevo archivo que se haya configurado en la máquina virtual.
 
@@ -471,7 +565,7 @@ Más adelante en este artículo obtendrá información sobre cómo probar el pro
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para enumerar los puntos de recuperación de la máquina virtual, use az backup recovery point list. En este ejemplo, se selecciona el punto de recuperación más reciente de la máquina virtual denominada myVM que está protegida en myRecoveryServicesVault:
+Para enumerar los puntos de recuperación de la máquina virtual, use az backup recovery point list. En este ejemplo, seleccionamos el punto de recuperación más reciente para la máquina virtual denominada vmoracle19c, que está protegida en el almacén de Recovery Services denominado myVault:
 
 ```azurecli
    az backup recoverypoint list \
@@ -484,7 +578,7 @@ Para enumerar los puntos de recuperación de la máquina virtual, use az backup 
       --output tsv
 ```
 
-Para obtener el script que conecta el punto de recuperación a la máquina virtual o lo monta en esta, use az backup restore files mount-rp. En el ejemplo siguiente se obtiene el script de la máquina virtual denominada myVM que está protegida en myRecoveryServicesVault.
+Para obtener el script que conecta el punto de recuperación a la máquina virtual o lo monta en esta, use az backup restore files mount-rp. En el siguiente ejemplo se obtiene el script para la máquina virtual denominada vmoracle19c, que está protegida en el almacén de Recovery Services denominado myVault.
 
 Reemplace myRecoveryPointName por el nombre del punto de recuperación que obtuvo en el comando anterior:
 
@@ -518,13 +612,15 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
 
 ### <a name="mount-the-restore-point"></a>Montaje del punto de restauración
 
+1. Cambie al usuario root:
+   ```bash
+   sudo su -
+   ``````
 1. Cree un punto de montaje de restauración y copie el script en él.
 
     En el ejemplo siguiente, cree un directorio */restore* para el montaje de la instantánea, mueva el archivo al directorio y cambie el archivo para que sea propiedad del usuario raíz y sea ejecutable.
 
     ```bash 
-    ssh azureuser@<publicIpAddress>
-    sudo su -
     mkdir /restore
     chmod 777 /restore
     cd /restore
@@ -582,7 +678,7 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
     Please enter 'q/Q' to exit...
     ```
 
-2. Se confirmará el acceso a los volúmenes montados.
+1. Se confirmará el acceso a los volúmenes montados.
 
     Para salir, escriba **q** y busque los volúmenes montados. Para crear una lista de los volúmenes agregados, en un símbolo del sistema, escriba **df -h**.
     
@@ -606,36 +702,123 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
 
 ### <a name="perform-recovery"></a>Realizar la recuperación
 
-1. Vuelva a copiar los archivos de copia de seguridad que faltan en el área de recuperación rápida:
+1. Restaure los archivos de base de datos que faltaban a su ubicación:
 
     ```bash
-    cd /restore/vmoracle19c-2020XXXXXXXXXX/Volume1/fast_recovery_area/TEST
-    cp * /u02/fast_recovery_area/TEST
-    cd /u02/fast_recovery_area/TEST
+    cd /restore/vmoracle19c-2020XXXXXXXXXX/Volume1/oradata/TEST
+    cp * /u02/oradata/TEST
+    cd /u02/oradata/TEST
     chown -R oracle:oinstall *
     ```
+1. Vuelva al usuario de Oracle
+   ```bash
+   sudo su - oracle
+   ```
+1. Inicie la instancia de base de datos y monte el archivo de control que se va a leer:
+   ```bash
+   sqlplus / as sysdba
+   SQL> startup mount
+   SQL> quit
+   ```
 
-2. Los siguientes comandos usan RMAN para restaurar los archivos de datos que faltan y recuperar la base de datos:
+1. Conéctese a la base de datos con sysbackup:
+   ```bash
+   sqlplus / as sysbackup
+   ```
+1. Inicie la recuperación automática de la base de datos:
 
-    ```bash
-    sudo su - oracle
-    rman target /
-    RMAN> startup mount;
-    RMAN> restore database;
-    RMAN> recover database;
-    RMAN> alter database open;
-    ```
-    
-3. Compruebe que el contenido de la base de datos se haya recuperado completamente:
+   ```bash
+   SQL> recover automatic database until cancel using backup controlfile;
+   ```
+   > [!IMPORTANT]
+   > Tenga en cuenta que es importante especificar la sintaxis USING BACKUP CONTROLFILE para informar al comando RECOVER AUTOMATIC DATABASE de que la recuperación no debe detenerse en el número de cambio del sistema (SCN) de Oracle registrado en el archivo de control de la base de datos restaurada. El archivo de control de la base de datos restaurada era una instantánea, junto con el resto de la base de datos, y el SCN almacenado en él es desde el momento de la instantánea. Puede haber transacciones registradas después de este momento y queremos realizar la recuperación al momento dado de la última transacción confirmada en la base de datos.
+
+   Cuando la recuperación se complete correctamente, verá el mensaje `Media recovery complete`. Sin embargo, al usar la cláusula BACKUP CONTROLFILE, el comando de recuperación omitirá los archivos de registro en línea y es posible que haya cambios en el registro de la fase de puesta al día en línea actual necesario para completar la recuperación a un momento dado. En esta situación, es posible que vea mensajes similares a estos:
+
+   ```output
+   SQL> recover automatic database until cancel using backup controlfile;
+   ORA-00279: change 2172930 generated at 04/08/2021 12:27:06 needed for thread 1
+   ORA-00289: suggestion :
+   /u02/fast_recovery_area/TEST/archivelog/2021_04_08/o1_mf_1_13_%u_.arc
+   ORA-00280: change 2172930 for thread 1 is in sequence #13
+   ORA-00278: log file
+   '/u02/fast_recovery_area/TEST/archivelog/2021_04_08/o1_mf_1_13_%u_.arc' no
+   longer needed for this recovery
+   ORA-00308: cannot open archived log
+   '/u02/fast_recovery_area/TEST/archivelog/2021_04_08/o1_mf_1_13_%u_.arc'
+   ORA-27037: unable to obtain file status
+   Linux-x86_64 Error: 2: No such file or directory
+   Additional information: 7
+
+   Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
+   ```
+   
+   > [!IMPORTANT]
+   > Tenga en cuenta que si el registro de la fase de puesta al día en línea actual se ha perdido o está dañado y no se puede usar, puede cancelar la recuperación en este momento. 
+
+   Para corregirlo, puede identificar cuál es el registro en línea actual que no se ha archivado y especificar el nombre de archivo completo en el símbolo del sistema.
+
+
+   Abra una conexión SSH nueva 
+   ```bash
+   ssh azureuser@<IP Address>
+   ```
+   Cambie al usuario de Oracle y establezca el identificador de seguridad de Oracle
+   ```bash
+   sudo su - oracle
+   export ORACLE_SID=test
+   ```
+   
+   Conéctese a la base de datos y ejecute la siguiente consulta para buscar el archivo de registro en línea 
+   ```bash
+   sqlplus / as sysdba
+   SQL> column member format a45
+   SQL> set linesize 500  
+   SQL> select l.SEQUENCE#, to_char(l.FIRST_CHANGE#,'999999999999999') as CHK_CHANGE, l.group#, l.archived, l.status, f.member
+   from v$log l, v$logfile f
+   where l.group# = f.group#;
+   ```
+
+   El resultado será similar al siguiente. 
+   ```output
+   SEQUENCE#  CHK_CHANGE           GROUP# ARC STATUS            MEMBER
+   ---------- ---------------- ---------- --- ---------------- ---------------------------------------------
+           13          2172929          1 NO  CURRENT          /u02/oradata/TEST/redo01.log
+           12          2151934          3 YES INACTIVE         /u02/oradata/TEST/redo03.log
+           11          2071784          2 YES INACTIVE         /u02/oradata/TEST/redo02.log
+   ```
+   Copie la ruta de acceso del archivo de registro y el nombre de archivo del registro en línea CURRENT; en este ejemplo, es `/u02/oradata/TEST/redo01.log`. Vuelva a la sesión de SSH que ejecuta el comando recover, especifique la información del archivo de registro y presione Retorno:
+
+   ```bash
+   Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
+   /u02/oradata/TEST/redo01.log
+   ```
+
+   Debería ver que se aplica el archivo de registro y se completa la recuperación. Escriba CANCEL para salir del comando de recuperación:
+   ```output
+   Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
+   /u02/oradata/TEST/redo01.log
+   Log applied.
+   Media recovery complete.
+   ```
+
+1. Abra la base de datos
+   ```bash
+   SQL> alter database open resetlogs;
+   ```
+   > [!IMPORTANT]
+   > La opción RESETLOGS es necesaria cuando el comando RECOVER usa la opción USING BACKUP CONTROLFILE. RESETLOGS crea una encarnación de la base de datos mediante el restablecimiento del historial de la fase de puesta al día, ya que no hay forma de determinar la cantidad de encarnación previa de la base de datos que se omitió en la recuperación.
+   
+1. Compruebe que el contenido de la base de datos se haya recuperado completamente:
 
     ```bash
     RMAN> SELECT * FROM scott.scott_table;
     ```
 
-4. Desmonte el punto de restauración.
+1. Desmonte el punto de restauración.
 
    ```bash
-   umount /restore/vmoracle19c-20210107110037/Volume*
+   sudo umount /restore/vmoracle19c-20210107110037/Volume*
    ```
 
     En la hoja **Recuperación de archivos (versión preliminar)** de Azure Portal, haga clic en **Desmontar discos**.
@@ -674,7 +857,7 @@ Para restaurar toda la máquina virtual, complete estos pasos:
     az vm deallocate --resource-group rg-oracle --name vmoracle19c
     ```
 
-2. Elimine la máquina virtual. Cuando se le solicite, escriba "y" (sí):
+1. Elimine la máquina virtual. Cuando se le solicite, escriba "y" (sí):
 
     ```azurecli
     az vm delete --resource-group rg-oracle --name vmoracle19c
@@ -699,29 +882,29 @@ Para restaurar toda la máquina virtual, complete estos pasos:
    
    1. Haga clic en Revisar y crear y, a continuación, en Crear.
 
-2. En Azure Portal, busque el almacén *myVault* de Recovery Services y haga clic en él.
+1. En Azure Portal, busque el almacén *myVault* de Recovery Services y haga clic en él.
 
     ![Elementos de copia de seguridad del almacén myVault de Recovery Services](./media/oracle-backup-recovery/recovery-service-06.png)
     
-3.  En la hoja **Información general**, seleccione **Elementos de copia de seguridad** y seleccione **Máquina virtual de Azure**, que debe tener un número de elementos de copia de seguridad distinto de cero.
+1.  En la hoja **Información general**, seleccione **Elementos de copia de seguridad** y seleccione **Máquina virtual de Azure**, que debe tener un número de elementos de copia de seguridad distinto de cero.
 
     ![Número de elementos de copia de seguridad de máquinas virtuales de Azure en los almacenes de Recovery Services](./media/oracle-backup-recovery/recovery-service-07.png)
 
-4.  En la página Elementos de copia de seguridad (Azure Virtual Machines), se muestra la máquina virtual **vmoracle19c**. Haga clic en el nombre de la máquina virtual.
+1.  En la página Elementos de copia de seguridad (Azure Virtual Machines), se muestra la máquina virtual **vmoracle19c**. Haga clic en el nombre de la máquina virtual.
 
     ![Página de la máquina virtual de recuperación](./media/oracle-backup-recovery/recover-vm-02.png)
 
-5.  En la hoja **vmoracle19c**, elija un punto de restauración que tenga un tipo de coherencia **Coherente con la aplicación** y haga clic en el botón de puntos suspensivos ( **...** ) de la derecha para abrir el menú.  En el menú, haga clic en **Restaurar VM**.
+1.  En la hoja **vmoracle19c**, elija un punto de restauración que tenga un tipo de coherencia **Coherente con la aplicación** y haga clic en el botón de puntos suspensivos ( **...** ) de la derecha para abrir el menú.  En el menú, haga clic en **Restaurar VM**.
 
     ![Comando Restaurar máquina virtual](./media/oracle-backup-recovery/recover-vm-03.png)
 
-6.  En la hoja **Restaurar máquina virtual**, elija **Crear nuevo** y **Crear nueva máquina virtual**. Escriba el nombre de la máquina virtual **vmoracle19c** y elija la red virtual **vmoracle19cVNET**. La subred se rellenará automáticamente en función de la red virtual que seleccione. El proceso de restauración de VM requiere una cuenta de almacenamiento de Azure en el mismo grupo de recursos y región. Puede elegir la cuenta de almacenamiento **orarestore** que configuró antes.
+1.  En la hoja **Restaurar máquina virtual**, elija **Crear nuevo** y **Crear nueva máquina virtual**. Escriba el nombre de la máquina virtual **vmoracle19c** y elija la red virtual **vmoracle19cVNET**. La subred se rellenará automáticamente en función de la red virtual que seleccione. El proceso de restauración de VM requiere una cuenta de almacenamiento de Azure en el mismo grupo de recursos y región. Puede elegir la cuenta de almacenamiento **orarestore** que configuró antes.
 
     ![Valores de configuración de la restauración](./media/oracle-backup-recovery/recover-vm-04.png)
 
-7.  Para restaurar la máquina virtual, haga clic en el botón **Restaurar**.
+1.  Para restaurar la máquina virtual, haga clic en el botón **Restaurar**.
 
-8.  Para ver el estado del proceso de restauración, haga clic en **Trabajos** y después en **Trabajos de copia de seguridad**.
+1.  Para ver el estado del proceso de restauración, haga clic en **Trabajos** y después en **Trabajos de copia de seguridad**.
 
     ![Comando de estado de los trabajos de copia de seguridad](./media/oracle-backup-recovery/recover-vm-05.png)
 
@@ -739,7 +922,7 @@ Para configurar la cuenta de almacenamiento y el recurso compartido de archivos,
    az storage account create -n orarestore -g rg-oracle -l eastus --sku Standard_LRS
    ```
 
-2. Recupere la lista de puntos de recuperación disponibles. 
+1. Recupere la lista de puntos de recuperación disponibles. 
 
    ```azurecli
    az backup recoverypoint list \
@@ -752,7 +935,7 @@ Para configurar la cuenta de almacenamiento y el recurso compartido de archivos,
       --output tsv
    ```
 
-3. Restaure el punto de recuperación en la cuenta de almacenamiento. Sustituya `<myRecoveryPointName>` por un punto de recuperación de la lista que se generó en el paso anterior:
+1. Restaure el punto de recuperación en la cuenta de almacenamiento. Sustituya `<myRecoveryPointName>` por un punto de recuperación de la lista que se generó en el paso anterior:
 
    ```azurecli
    az backup restore restore-disks \
@@ -765,7 +948,7 @@ Para configurar la cuenta de almacenamiento y el recurso compartido de archivos,
       --target-resource-group rg-oracle
    ```
 
-4. Recupere los detalles del trabajo de restauración. El siguiente comando obtiene más detalles sobre el trabajo restaurado desencadenado, incluido su nombre, que se necesita para recuperar el URI de la plantilla. 
+1. Recupere los detalles del trabajo de restauración. El siguiente comando obtiene más detalles sobre el trabajo restaurado desencadenado, incluido su nombre, que se necesita para recuperar el URI de la plantilla. 
 
    ```azurecli
    az backup job list \
@@ -784,7 +967,7 @@ Para configurar la cuenta de almacenamiento y el recurso compartido de archivos,
    502bc7ae-d429-4f0f-b78e-51d41b7582fc  ConfigureBackup  Completed  vmoracle19c  2021-01-07T09:43:55.298755+00:00  0:00:30.839674
    ```
 
-5. Recupere los detalles del URI que se usará para volver a crear la máquina virtual. Sustituya el nombre del trabajo de restauración del paso anterior por `<RestoreJobName>`.
+1. Recupere los detalles del URI que se usará para volver a crear la máquina virtual. Sustituya el nombre del trabajo de restauración del paso anterior por `<RestoreJobName>`.
 
     ```azurecli
       az backup job show \
@@ -856,19 +1039,19 @@ Una vez restaurada la máquina virtual, debe reasignar la dirección IP original
 
     ![Lista de direcciones IP públicas](./media/oracle-backup-recovery/create-ip-01.png)
 
-2.  Parada de la máquina virtual
+1.  Parada de la máquina virtual
 
     ![Creación de la dirección IP](./media/oracle-backup-recovery/create-ip-02.png)
 
-3.  Vaya a **Redes**.
+1.  Vaya a **Redes**.
 
     ![Asociación de la dirección IP](./media/oracle-backup-recovery/create-ip-03.png)
 
-4.  Haga clic en **Asociar interfaz de red**, elija el adaptador de red original **vmoracle19cVMNic, al que sigue asociada la dirección IP pública original y haga clic en **Aceptar**.
+1.  Haga clic en **Asociar interfaz de red**, elija el adaptador de red original **vmoracle19cVMNic, al que sigue asociada la dirección IP pública original y haga clic en **Aceptar**.
 
     ![Selección del tipo de recurso y los valores de NIC](./media/oracle-backup-recovery/create-ip-04.png)
 
-5.  Ahora debe desasociar el adaptador de red que se creó con la operación de restauración de la máquina virtual, ya que está configurado como interfaz principal. Haga clic en **Desasociar interfaz de red** y elija el nuevo adaptador de red similar a **vmoracle19c-NIC-XXXXXXXXXXXX** y, a continuación, haga clic en **Aceptar**.
+1.  Ahora debe desasociar el adaptador de red que se creó con la operación de restauración de la máquina virtual, ya que está configurado como interfaz principal. Haga clic en **Desasociar interfaz de red** y elija el nuevo adaptador de red similar a **vmoracle19c-NIC-XXXXXXXXXXXX** y, a continuación, haga clic en **Aceptar**.
 
     ![Captura de pantalla que muestra dónde se selecciona Desasociar interfaz de red.](./media/oracle-backup-recovery/create-ip-05.png)
     
@@ -876,7 +1059,7 @@ Una vez restaurada la máquina virtual, debe reasignar la dirección IP original
     
     ![Valor de la dirección IP](./media/oracle-backup-recovery/create-ip-06.png)
     
-6.  Vuelva a **Información general** y haga clic en **Iniciar**. 
+1.  Vuelva a **Información general** y haga clic en **Iniciar**. 
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -886,7 +1069,7 @@ Una vez restaurada la máquina virtual, debe reasignar la dirección IP original
    az vm deallocate --resource-group rg-oracle --name vmoracle19c
    ```
 
-2. Enumere el adaptador de red actual de la máquina virtual generado en la restauración.
+1. Enumere el adaptador de red actual de la máquina virtual generado en la restauración.
 
    ```azurecli
    az vm nic list --resource-group rg-oracle --vm-name vmoracle19c
@@ -902,19 +1085,18 @@ Una vez restaurada la máquina virtual, debe reasignar la dirección IP original
    }
    ```
 
-3. Asocie el adaptador de red original, que debe tener un nombre con el formato `<VMName>VMNic`; en este caso, `vmoracle19cVMNic`. La dirección IP pública original sigue conectada a este adaptador de red y se restaurará en la máquina virtual cuando se vuelva a asociar el adaptador de red. 
+1. Asocie el adaptador de red original, que debe tener un nombre con el formato `<VMName>VMNic`; en este caso, `vmoracle19cVMNic`. La dirección IP pública original sigue conectada a este adaptador de red y se restaurará en la máquina virtual cuando se vuelva a asociar el adaptador de red. 
 
    ```azurecli
    az vm nic add --nics vmoracle19cVMNic --resource-group rg-oracle --vm-name vmoracle19c
    ```
 
-4. Desasociación de adaptador de red generado por la restauración
+1. Desasociación de adaptador de red generado por la restauración
 
    ```azurecli
    az vm nic remove --nics vmoracle19cRestoredNICc2e8a8a4fc3f47259719d5523cd32dcf --resource-group rg-oracle --vm-name vmoracle19c
    ```
-
-5. Inicie la máquina virtual:
+1. Inicie la máquina virtual:
 
    ```azurecli
    az vm start --resource-group rg-oracle --name vmoracle19c
@@ -924,10 +1106,10 @@ Una vez restaurada la máquina virtual, debe reasignar la dirección IP original
 
 ### <a name="connect-to-the-vm"></a>Conexión a la máquina virtual
 
-Para conectarse a la máquina virtual, use el script siguiente:
+Para conectarse a la máquina virtual:
 
 ```azurecli
-ssh <publicIpAddress>
+ssh azureuser@<publicIpAddress>
 ```
 
 ### <a name="start-the-database-to-mount-stage-and-perform-recovery"></a>Inicio de la base de datos para la fase de montaje y realización de la recuperación
@@ -951,13 +1133,38 @@ ssh <publicIpAddress>
 
 La creación y recuperación de la copia de seguridad de la base de datos de Oracle Database 19c en una máquina virtual Linux de Azure han terminado.
 
+En la documentación de Oracle se puede encontrar más información sobre los comandos y conceptos de Oracle, que incluye:
+
+   * [Realización de copias de seguridad administradas por el usuario de Oracle de toda la base de datos](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/user-managed-database-backups.html#GUID-65C5E03A-E906-47EB-92AF-6DC273DBD0A8)
+   * [Realización de la recuperación completa de una base de datos administrada por el usuario](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/user-managed-flashback-dbpitr.html#GUID-66D07694-533F-4E3A-BA83-DD461B68DB56)
+   * [Comando STARTUP de Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqpug/STARTUP.html#GUID-275013B7-CAE2-4619-9A0F-40DB71B61FE8)
+   * [Comando RECOVER de Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/user-managed-flashback-dbpitr.html#GUID-54B59888-8683-4CD9-B144-B0BB68887572)
+   * [Comando ALTER DATABASE de Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-DATABASE.html#GUID-8069872F-E680-4511-ADD8-A4E30AF67986)
+   * [Parámetro LOG_ARCHIVE_DEST_n de Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/LOG_ARCHIVE_DEST_n.html#GUID-10BD97BF-6295-4E85-A1A3-854E15E05A44)
+   * [Parámetro ARCHIVE_LAG_TARGET de Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ARCHIVE_LAG_TARGET.html#GUID-405D335F-5549-4E02-AFB9-434A24465F0B)
+
+
 ## <a name="delete-the-vm"></a>Eliminación de la máquina virtual
 
-Cuando ya no necesite la máquina virtual, puede usar el comando siguiente para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados:
+Cuando deje de necesitar la máquina virtual, puede usar los siguientes comandos para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados:
 
-```azurecli
-az group delete --name rg-oracle
-```
+1. Deshabilitación de la eliminación temporal de copias de seguridad en el almacén
+
+    ```azurecli
+    az backup vault backup-properties set --name myVault --resource-group rg-oracle --soft-delete-feature-state disable
+    ```
+
+1. Detención de la protección de la máquina virtual y eliminación de copias de seguridad
+
+    ```azurecli
+    az backup protection disable --resource-group rg-oracle --vault-name myVault --container-name vmoracle19c --item-name vmoracle19c --delete-backup-data true --yes
+    ```
+
+1. Eliminación del grupo de recursos, incluidos todos los recursos
+
+    ```azurecli
+    az group delete --name rg-oracle
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

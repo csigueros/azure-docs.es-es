@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 4caf43cb972b44dd1482b9e6e467e41cae294708
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daf169a84268a24fd1cc50cd67386d359f9d726a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93100106"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097885"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Aprovisionamiento del rendimiento estándar (manual) de un contenedor de Azure Cosmos - API de SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,9 +31,9 @@ Si va a usar otra API, vea los artículos [MongoDB API](how-to-provision-through
 1. Abra el panel **Data Explorer** y seleccione **Nuevo contenedor**. Después, proporcione los detalles siguientes:
 
    * Indique si va a crear una nueva base de datos o a usar una existente.
-   * Escriba un identificador de contenedor.
-   * Escriba un valor de la clave de partición (por ejemplo, `/ItemID`).
-   * Escriba un rendimiento que quiera aprovisionar (por ejemplo, 1000 RU).
+   * Escriba un valor en **Container Id** (Id. de contenedor).
+   * Escriba un valor en **Partition key** (Clave de partición) (por ejemplo, `/ItemID`).
+   * Seleccione un rendimiento de **Autoscale** (Escalabilidad automática) o **Manual** y especifique el valor de **Container throughput** (Rendimiento de contenedor) (por ejemplo, 1000 RU/s). Escriba un rendimiento que quiera aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
     :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Captura de pantalla de Data Explorer, con la Nueva colección resaltada":::

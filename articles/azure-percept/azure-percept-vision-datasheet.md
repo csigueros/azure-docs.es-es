@@ -6,12 +6,12 @@ ms.author: mimcco
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: d60c7f72c6b32f01fcf93b45ed6507e57ad97af3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3621b40bdce131e7677731daabedc80a6b0ef0c0
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742398"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451199"
 ---
 # <a name="azure-percept-vision-datasheet"></a>Ficha técnica de Azure Percept Vision
 
@@ -26,14 +26,14 @@ Las especificaciones que se enumeran a continuación son para el dispositivo Azu
 |Software y servicios compatibles |[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [OpenVINO](https://docs.openvinotoolkit.org/latest/index.html) <br> Azure Device Update |
 |Aceleración de IA                 |Unidad de procesamiento de visión (VPU) Intel Movidius Myriad X (MA2085) con ISP de cámara Intel integrado, 0,7 TOPS |
 |Sensores e indicadores visuales   |Sensor de cámara IMX219 de Sony con lente 6P<br>Resolución: 8 MP a 30 FPS, distancia: de 50 cm a infinito<br>Campo de visión: 120 grados diagonal, Color: amplio rango dinámico, obturador gradual de foco fijo|
-|Compatibilidad con cámara                  |RGB <br> Pueden funcionar dos cámaras simultáneamente |
+|Compatibilidad con cámara                  |RGB |
 |Controlador criptográfico de seguridad      |Microcontrolador ST STM32L462CE      |
 |Componente de control de versiones/identificador       |64 kb EEPROM |
 |Memoria                          |LPDDR4 de 2 GB     |
 |Potencia                           |3,5 W     |
 |Puertos                           |1 tipo C USB 3.0 <br> 2 MIPI de 4 carriles (hasta 1,5 Gbps por carril)     |
 |Interfaces de control              |2 I2C <br> 2 SPI <br> 6 PWM (GPIO: 2 de reloj, 2 de sincronización de fotogramas, 2 sin usar) <br> 2 GPIO de reserva |
-|Certificación                   |FCC <br> IC <br> RoHS <br> COBERTURA <br> UL   |
+|Certificación                   |CE <br> ACMA <br> FCC <br> IC <br> VCCI <br> NRTL <br> CB  |
 |Temperatura de funcionamiento           |0 a 27 °C (conjunto de módulo de sistema Azure Percept Vision con carcasa) <br> -10 a 70 °C (chip del módulo de sistema de visión) |
 |Temperatura táctil               |<= 48 °C |
 |Humedad relativa               |8 % a 90 %    |

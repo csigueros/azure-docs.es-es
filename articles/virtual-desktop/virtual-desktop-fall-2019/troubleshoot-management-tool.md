@@ -1,24 +1,24 @@
 ---
-title: 'Herramienta de administración de Windows Virtual Desktop (clásico): Azure'
-description: Solución de problemas con la herramienta de administración de Windows Virtual Desktop (clásico).
+title: 'Herramienta de administración de Azure Virtual Desktop (clásico): Azure'
+description: Solución de problemas con la herramienta de administración de Azure Virtual Desktop (clásico).
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 430ab72a3eb0cd41d707ff0eb5d10d8b97162d53
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f567a42d5363f24178594a5e98678e6794eb224e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444248"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753996"
 ---
-# <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Solución de problemas de la herramienta Windows Virtual Desktop (clásico)
+# <a name="troubleshoot-the-azure-virtual-desktop-classic-management-tool"></a>Solución de problemas de la herramienta Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager.
 
-En este artículo se describen los problemas que pueden producirse durante la implementación de la herramienta de Windows Virtual Desktop y cómo corregirlos.
+En este artículo se describen los problemas que pueden producirse durante la implementación de la herramienta de Azure Virtual Desktop y cómo corregirlos.
 
 ## <a name="error-management-tool-services-configured-but-automated-setup-fails"></a>Error: Se configuran los servicios de la herramienta de administración, pero la instalación automatizada produce un error
 
@@ -37,7 +37,7 @@ Para solucionar este error:
 
 1. Asegúrese de que el usuario que ha creado con el nombre principal de usuario de Azure Active Directory tenga el nivel de suscripción de "colaborador".
 2. Inicie sesión en <portal.azure.com> con la cuenta de UPN para comprobar la configuración de la cuenta y asegúrese de que la autenticación multifactor no esté activada. Si está activada, desactívela.
-3. Visite la página de consentimiento de Windows Virtual Desktop y asegúrese de que las aplicaciones cliente y servidor tienen el consentimiento.
+3. Visite la página de consentimiento de Azure Virtual Desktop y asegúrese de que las aplicaciones cliente y servidor tienen el consentimiento.
 4. Si el problema continúa, revise el tutorial [Implementación de una herramienta de administración](manage-resources-using-ui.md) y vuelva a implementar la herramienta.
 
 ## <a name="error-job-with-specified-id-already-exists"></a>Error: El trabajo con el identificador especificado ya existe
@@ -59,5 +59,5 @@ Para solucionarlo, implemente la herramienta de administración en otra región.
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre los seguimientos de escalación en [Información general sobre solución de problemas, comentarios y soporte técnico](troubleshoot-set-up-overview-2019.md).
-- Aprenda a notificar problemas con las herramientas de Windows Virtual Desktop en [Plantillas de ARM para Servicios de Escritorio remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md).
+- Aprenda a notificar problemas con las herramientas de Azure Virtual Desktop en [Plantillas de ARM para Servicios de Escritorio remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md).
 - Para aprender a implementar la herramienta de administración, consulte [Implementación de una herramienta de administración](manage-resources-using-ui.md).

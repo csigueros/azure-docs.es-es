@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: cb0cf3d84db507d3200f0285e95c2142e3288fbd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 45b9fa1fb96f45b5b24d7a0b823b11f89a471bd4
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784078"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752322"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Copia de seguridad y restauración en el grupo de SQL dedicado de Azure Synapse
 
@@ -26,7 +26,7 @@ Obtenga información sobre cómo usar la copia de seguridad y la restauración e
 
 Una *instantánea de almacenamiento de datos* crea un punto de restauración que se puede aprovechar para recuperar o copiar el almacenamiento de datos en un estado anterior.  Dado que el grupo de SQL dedicado es un sistema distribuido, una instantánea de almacenamiento de datos consta de muchos archivos que se almacenan en Azure Storage. Las instantáneas capturan los cambios incrementales de los datos almacenados en el almacenamiento de datos.
 
-Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de datos que se crea a partir de un punto de restauración de un almacenamiento de datos existente o eliminado. La restauración del almacenamiento de datos es una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad empresarial, ya que vuelve a crear los datos tras daños o eliminaciones accidentales. El almacenamiento de datos es también un mecanismo eficaz para crear copias del almacenamiento de datos con fines de prueba o desarrollo. Las tasas de restauración del grupo de SQL dedicado pueden variar según el tamaño de la base de datos y la ubicación del almacenamiento de datos de origen y de destino.
+Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de datos que se crea a partir de un punto de restauración de un almacenamiento de datos existente o eliminado. La restauración del almacenamiento de datos es una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad empresarial, ya que vuelve a crear los datos tras daños o eliminaciones accidentales. La instantánea del almacenamiento de datos es también un mecanismo eficaz para crear copias del almacenamiento de datos con fines de prueba o desarrollo. Las tasas de restauración del grupo de SQL dedicado pueden variar según el tamaño de la base de datos y la ubicación del almacenamiento de datos de origen y de destino.
 
 ## <a name="automatic-restore-points"></a>Puntos de restauración automáticos
 
@@ -78,7 +78,7 @@ Si no necesita copias de seguridad geográficas para su grupo de SQL dedicado, p
 
 ## <a name="data-residency"></a>Residencia de datos 
 
-Si el centro de datos emparejado se encuentra fuera de sus límites geográficos, puede asegurarse de que los datos permanecen dentro de sus límites geográficos deshabilitando el almacenamiento con redundancia geográfica. Esto puede hacerse al aprovisionar el grupo de SQL dedicado (anteriormente SQL DW) a través de la opción de almacenamiento con redundancia geográfica cuando se crea o restaura un grupo de SQL dedicado (anteriormente SQL DW). 
+Si el centro de datos emparejado se encuentra fuera de su país, puede asegurarse de que los datos permanecen dentro de su región mediante el aprovisionamiento de la base de datos en almacenamiento con redundancia local (LRS). Si la base de datos ya se ha aprovisionado en RA-GRS (almacenamiento con redundancia geográfica de solo lectura, el valor predeterminado actual), puede optar por no realizar copias de seguridad geográficas, pero la base de datos seguirá residiendo en el almacenamiento que se replique en un par regional. Para asegurarse de que los datos del cliente permanecen dentro de su región, puede aprovisionar o restaurar el grupo de SQL dedicado en un almacenamiento con redundancia local. Para obtener más información sobre cómo aprovisionar o restaurar en el almacenamiento con redundancia local, vea [Guía paso a paso para configurar la residencia de una sola región para un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics](single-region-residency.md)
 
 Para confirmar que el centro de datos emparejado se encuentra en un país diferente, consulte [Regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 

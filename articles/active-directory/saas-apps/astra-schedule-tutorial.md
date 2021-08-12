@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 45906fd6199f870b8a5f5fc4087d6dd063e42905
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: f0cf672f98cc01911e8a4a73368ebf7a3a19a419
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110656270"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457328"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-astra-schedule"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Astra Schedule
 
@@ -84,7 +84,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.aaiscloud.com/<CUSTOMER_INSTANCE>`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico para clientes de Astra Schedule](mailto:cloudoperations@aais.com). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico para clientes de Astra Schedule](https://help.adastra.live). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 

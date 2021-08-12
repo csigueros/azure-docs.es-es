@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 37ac6369790ed526fd923819558863ae84432aed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c87e436fe7fada8b1e16c18a5fad36c4ef3c872a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358123"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110096407"
 ---
 # <a name="policies-in-azure-api-management"></a>Directivas de Azure API Management
 
@@ -76,7 +76,7 @@ Vea [ejemplos de directivas](./policy-reference.md) para obtener más código de
 
 ### <a name="apply-policies-specified-at-different-scopes"></a>Aplicación de las directivas especificadas en distintos ámbitos
 
-Si tiene una directiva de nivel global y una directiva configurada para una API, cuando se use esa API en concreto, se aplicarán ambas directivas. Administración de API tiene en cuenta el orden determinista de declaraciones de directiva combinadas mediante el elemento base. 
+Si tiene una directiva de nivel global y una directiva configurada para una API, cuando se use esa API en concreto, se aplicarán ambas directivas. API Management permite el orden determinista de las instrucciones de directiva combinadas mediante el elemento `base`. 
 
 ```xml
 <policies>

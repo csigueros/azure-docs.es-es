@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a903622f698107f7f1a593946f083fca1573d53e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8957db7112363e4245e6610890ed6e4644c4a9dd
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99834347"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586480"
 ---
 # <a name="what-are-the-iot-central-government-solutions"></a>¿Cuáles son las soluciones gubernamentales de IoT Central?
 
@@ -27,7 +27,7 @@ La aplicación Water Quality Monitoring es una plantilla de aplicación de IoT C
 ![Plantilla de la aplicación Water Quality Monitoring](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
 
 La plantilla de la aplicación consta de:
-* Paneles de operadores de ejemplo
+* Paneles de ejemplo
 * Plantillas de dispositivos de supervisión de la calidad del agua de ejemplo
 * Dispositivos de supervisión de la calidad del agua simulados
 * Reglas y trabajos preconfigurados
@@ -45,7 +45,7 @@ La aplicación Water Consumption Monitoring es una plantilla de aplicación de I
   ![Plantilla de la aplicación Water Consumption Monitoring](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
 
 La plantilla de la aplicación Water Consumption Monitoring consta de varios elementos preconfigurados:
-* Paneles de operadores de ejemplo
+* Paneles de ejemplo
 * Plantillas de dispositivos de supervisión de la calidad del agua de ejemplo
 * Dispositivos de supervisión de la calidad del agua simulados
 * Reglas y trabajos preconfigurados
@@ -61,7 +61,7 @@ La aplicación Connected Waste Management es una plantilla de aplicación de IoT
 
 
 La plantilla de la aplicación Connected Waste Management consta de los siguientes elementos preconfigurados:
-* Paneles de operadores de ejemplo
+* Paneles de ejemplo
 * Plantillas de dispositivos de cubo de basura conectados
 * Dispositivos de cubo de basura conectados
 * Reglas y trabajos preconfigurados

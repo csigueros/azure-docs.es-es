@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad de Azure Disk Backup
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para el servicio Azure Disk Backup.
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 05/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 88ec26837cc8f69c1e84c77ea6b57ce16e462e0a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8b6ea48a326ec42aaf33af61b0ec1a6a07bae8fe
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612864"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750936"
 ---
 # <a name="azure-disk-backup-support-matrix"></a>Matriz de compatibilidad de Azure Disk Backup
 
@@ -17,9 +17,7 @@ Puede usar [Azure Backup](./backup-overview.md) para proteger los discos de Azur
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Azure Disk Backup está disponible en las regiones siguientes: Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Centro de Canadá, Sur de Brasil, Norte de Sudáfrica, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Norte de Europa, Norte de Suiza, Oeste de Suiza, Centro-oeste de Alemania, Centro de Francia, Este de Noruega, Norte de Emiratos Árabes Unidos, Centro de Australia, Centro de Australia 2, Este de Australia, Centro de Corea del Sur, Sur de Corea del Sur, Este de Japón, Este de Asia, Sudeste de Asia, Centro de la India. 
-
-Se anunciarán más regiones cuando estén disponibles.
+Azure Disk Backup está disponible en todas las regiones de nube pública, excepto Sur de Francia, Oeste de Sudáfrica y actualmente no está disponible en regiones de nube soberana. Estas regiones se anunciarán cuando estén disponibles.
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -62,6 +60,15 @@ Se anunciarán más regiones cuando estén disponibles.
 - La compatibilidad de las instancias de [Private Link](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) con discos administrados permite restringir la exportación e importación de los discos administrados, con el fin de que solo se produzca dentro de una red virtual de Azure. Azure Disk Backup admite la copia de seguridad de discos que tienen habilitados los puntos de conexión privados. Esto no incluye los datos de la copia de seguridad ni las instantáneas que sean accesibles a través del punto de conexión privado.
 
 - Puede eliminar una instancia de copia de seguridad, lo que detendrá la copia de seguridad y también eliminará todos los datos de copia de seguridad. Actualmente, no se puede deshabilitar una copia de seguridad, ya que no se admite la opción para **detener la copia de seguridad y retener los datos de copia de seguridad**.
+
+- Estos son los límites de Azure Disk Backup:
+    
+    | Configuración | Límite máximo |
+    | --- | --- |
+    | Número de directivas de Backup por almacén de Backup | 5000 |
+    | Número de directivas de Backup por almacén de Backup | 5000 |
+    | Número de copias de seguridad a petición permitidas al día por instancia de Backup | 10 |
+    | Número de restauraciones permitidas al día por instancia de Backup | 10 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,17 +6,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: fd0b3ada5fec283562cee9727e3f805a7d34c532
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 09b4e6ebe14f5650be5bc92302acc51b1c6e99a5
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479056"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985767"
 ---
 # <a name="configure-azure-private-link-for-azure-cosmos-db-analytical-store"></a>Configuración de Azure Private Link para el almacén analítico de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 En este artículo, aprenderá a configurar puntos de conexión privados administrados para el almacén analítico de Azure Cosmos DB. Si va a usar el almacén transaccional, consulte el artículo [Puntos de conexión privados para el almacén transaccional](how-to-configure-private-endpoints.md). Con los [puntos de conexión privados administrados](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md), puede restringir el acceso de red del almacén analítico de Azure Cosmos DB a la red virtual administrada asociada con el área de trabajo de Azure Synapse. Los puntos de conexión privados administrados establecen un vínculo privado al almacén analítico.
+
+> [!NOTE]
+> Si usa Zonas DNS privadas para Cosmos DB y desea crear un punto de conexión privado administrado de Synapse para el subrecurso del almacén analítico, primero debe crear una zona DNS para el almacén analítico (`privatelink.analytics.cosmos.azure.com`) vinculado a la red virtual de Cosmos DB.
 
 ## <a name="enable-a-private-endpoint-for-the-analytical-store"></a>Habilitación de un punto de conexión privado para el almacén analítico
 

@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: ce0fab219f49427892f5ffe47c595edb26fea010
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 3e5e46e15a7885eb5e3f4828cb8298355a116fd8
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796019"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300496"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-the-azure-portal-preview"></a>Tutorial: Adición de una condición de asignación de roles para restringir el acceso a blobs mediante Azure Portal (versión preliminar)
 
@@ -71,8 +71,6 @@ Este es el aspecto de la condición en el código:
 1. Cree un usuario o busque uno existente. En este tutorial se usa Chandra como ejemplo.
 
 ## <a name="step-2-set-up-storage"></a>Paso 2: Configuración del almacenamiento
-
-1. Si aún no lo ha hecho, registre la suscripción para usar etiquetas de índice de blobs. Para más información, consulte [Registro de la suscripción (versión preliminar)](../blobs/storage-manage-find-blobs.md#register-your-subscription-preview).
 
 1. Cree una cuenta de almacenamiento que sea compatible con la característica de etiquetas de índice de blobs, que actualmente se encuentra en versión preliminar pública. Para más información, consulte [Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs (versión preliminar)](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 

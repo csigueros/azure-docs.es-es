@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 9337d1c2767923e6dc7c6b267e0c180b460a116e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.openlocfilehash: 3c58814943d844ec1e644412eef926745e2df620
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359428"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572401"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configuración de uno o varios agentes de escucha de grupo de disponibilidad AlwaysOn: Resource Manager
 
@@ -239,10 +239,6 @@ Cuando utilice un equilibrador de carga interno, tenga en cuenta las siguientes 
 
 * Cree un punto de conexión de servicio cuando use un equilibrador de carga estándar con Azure Storage para el testigo en la nube. Para más información, consulte [Concesión de acceso desde una red virtual](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
-## <a name="for-more-information"></a>Para obtener más información
-
-Para más información, consulte [Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure](availability-group-manually-configure-tutorial.md).
-
 ## <a name="powershell-cmdlets"></a>Cmdlets de PowerShell
 
 Use los siguientes cmdlets de PowerShell para crear un equilibrador de carga interno para Azure Virtual Machines.
@@ -253,3 +249,13 @@ Use los siguientes cmdlets de PowerShell para crear un equilibrador de carga int
 * [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerBackendAddressPoolConfig) crea una configuración de grupo de direcciones de back-end para un equilibrador de carga. 
 * [New-AzLoadBalancerProbeConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerProbeConfig) crea una configuración de sondeo para un equilibrador de carga.
 * [Remove-AzLoadBalancer](/powershell/module/Azurerm.Network/Remove-AzureRmLoadBalancer) quita un equilibrador de carga de un grupo de recursos de Azure.
+
+## <a name="next-steps"></a>Pasos siguientes 
+
+
+Para obtener más información, consulte:
+
+- [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
+- [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)

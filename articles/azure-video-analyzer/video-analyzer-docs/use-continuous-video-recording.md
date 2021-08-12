@@ -2,13 +2,13 @@
 title: 'Tutorial: Grabación continua de vídeo y reproducción: Azure Video Analyzer'
 description: En este tutorial aprenderá a usar Azure Video Analyzer para grabar vídeo de forma continua en la nube y reproducir esa grabación.
 ms.topic: tutorial
-ms.date: 04/01/2021
-ms.openlocfilehash: d62b9f413f0613d8152d3b0106fd398f89d3b95c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 2f3fc2421a2341974aa7ea7bdafeaf0123ea983e
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384320"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602920"
 ---
 # <a name="tutorial-continuous-video-recording-and-playback"></a>Tutorial: Grabación continua de vídeo y reproducción
 
@@ -63,8 +63,8 @@ En este tutorial, usará un módulo perimetral creado con [Live555 Media Server]
 En este tutorial, aprenderá lo siguiente:
 
 1. Configure un entorno de desarrollo.
-1. Implementar los módulos perimetrales necesarios.
-1. Crear e implementar la canalización en directo.
+1. Implementará los módulos perimetrales necesarios.
+1. Creará e implementará la canalización en directo.
 1. Interpretará los resultados.
 1. Limpieza de recursos.
 
@@ -80,7 +80,7 @@ En Visual Studio Code, vaya a la carpeta src/cloud-to-device-console-app. Aquí
 * **operations.json**: en este archivo se enumeran las distintas operaciones que se ejecutarán.
 * **Program.cs**: código del programa de ejemplo, el cual:
     * Carga la configuración de la aplicación.
-    * Invoca métodos directos expuestos por el módulo perimetral de Video Analyzer. Puede usar el módulo para analizar secuencias de vídeo en directo mediante la invocación de sus [métodos directos](direct-methods.md).
+    * Invoca los métodos directos expuestos por el módulo perimetral de Video Analyzer. Puede usar el módulo para analizar secuencias de vídeo en directo mediante la invocación de sus [métodos directos](direct-methods.md).
     * Se pone en pausa para que pueda examinar la salida del programa en la ventana **TERMINAL** y los eventos generados por el módulo en la ventana **SALIDA**.
     * Invoca los métodos directos para limpiar los recursos.
 
@@ -90,7 +90,7 @@ En Visual Studio Code, vaya a la carpeta src/cloud-to-device-console-app. Aquí
 1. En el nodo **pipelineTopologySet**, modifique lo siguiente:
 
     `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json" `
-1. Luego, en los nodos **livePipelineSet** y **pipelineTopologyDelete**, compruebe que el valor de **topologyName** coincide con el valor de la propiedad **name** de la topología de la canalización anterior:
+1. Luego, en los nodos **livePipelineSet** y **pipelineTopologyDelete**, compruebe que el valor de **topologyName** coincide con el valor de la propiedad **name** de la topología de canalización anterior:
 
     `"topologyName" : "CVRToVideoSink"`  
 1. Abra la [topología de la canalización](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json) en un explorador y vea que videoName está codificado de forma rígida como `sample-cvr-video`. Para los fines de este tutorial, este valor es aceptable. En producción, tendría que asegurarse de que cada cámara RTSP única se graba en un recurso de vídeo con un nombre único.
@@ -148,7 +148,7 @@ En Visual Studio Code, vaya a la carpeta src/cloud-to-device-console-app. Aquí
 
 
    Estos mensajes se describen en la sección siguiente.
-1. La canalización en directo continúa en ejecución y graba el vídeo. El simulador RTSP sigue recorriendo el vídeo de origen. Para detener la grabación, vuelva a la ventana **TERMINAL** y seleccione **Entrar**. Se realiza la siguiente serie de llamadas para la limpieza de recursos:
+1. La canalización en directo continúa para ejecutar y grabar el vídeo. El simulador RTSP sigue recorriendo el vídeo de origen. Para detener la grabación, vuelva a la ventana **TERMINAL** y seleccione **Entrar**. Se realiza la siguiente serie de llamadas para la limpieza de recursos:
 
    * Una llamada a `livePipelineDeactivate` para desactivar la canalización en directo.
    * Una llamada a `livePipelineDelete` para eliminar la canalización en directo.
@@ -185,7 +185,7 @@ Cuando se activa la canalización en directo, el nodo de origen RTSP intenta con
 ```
 
 * El mensaje es un evento de diagnóstico (**Microsoft.VideoAnalyzers.Diagnostics.MediaSessionEstablished**). Indica que el nodo de origen RTSP (el sujeto) ha establecido una conexión con el simulador RTSP y ha comenzado a recibir una fuente en directo (simulada).
-* La sección subject de applicationProperties hace referencia al nodo de la topología de la canalización desde la que se generó el mensaje. En este caso, el mensaje se origina en el nodo de origen RTSP.
+* La sección subject de applicationProperties hace referencia al nodo de la topología de canalización desde la que se generó el mensaje. En este caso, el mensaje se origina en el nodo de origen RTSP.
 * La sección eventType de applicationProperties indica que se trata de un evento de diagnóstico.
 * La sección eventTime indica la hora a la que se produjo el evento.
 * La sección body contiene datos sobre el evento de diagnóstico que, en este caso, es el detalle de [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol).
@@ -246,7 +246,7 @@ La sección body contiene información sobre la ubicación de salida. En este ca
 
 ### <a name="recordingstopped-event"></a>Evento RecordingStopped
 
-Al desactivar la canalización en directo, el nodo receptor de vídeo deja de grabar los elementos multimedia y emite este evento de tipo **Microsoft.Media.Graph.Operational.RecordingStopped**:
+Al desactivar la canalización en directo, el nodo receptor de vídeo deja de grabar los elementos multimedia. y emite este evento de tipo **Microsoft.Media.Graph.Operational.RecordingStopped**:
 
 ```
 [IoTHubMonitor] [11:33:31 PM] Message received from [avasample-iot-edge-device/avaedge]:
@@ -282,12 +282,11 @@ Para examinar el recurso de vídeo de Video Analyzer que se ha creado con la can
 1. Seleccione el vídeo.
 1. Se abrirá la página de detalles del vídeo y la reproducción se iniciará automáticamente.
 
-> [!NOTE]
-> Puesto que el origen de vídeo era un contenedor que simula una fuente de cámara, las marcas de tiempo del vídeo son relativas a cuándo se activó y desactivó la canalización en directo.
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si va a probar los otros tutoriales, debe mantener los recursos creados. En caso contrario, vaya a Azure Portal, vaya a los grupos de recursos, seleccione el grupo de recursos en el que ejecutó este tutorial y elimine el grupo de recursos.
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

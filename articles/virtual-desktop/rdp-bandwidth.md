@@ -1,23 +1,23 @@
 ---
-title: Requisitos de ancho de banda del protocolo de escritorio remoto de Windows Virtual Desktop (Azure)
+title: 'Requisitos de ancho de banda del protocolo de Escritorio remoto de Azure Virtual Desktop: Azure'
 titleSuffix: Azure
-description: Descripción de los requisitos de ancho de banda de RDP para Windows Virtual Desktop.
+description: Descripción de los requisitos de ancho de banda de RDP para Azure Virtual Desktop.
 author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 6fe12c985f5d9a519380d1d9b5a7d6c2820630c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1b43a76e417505d4894396503ca93fc87f508d4c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932342"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753168"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Requisitos de ancho de banda del protocolo de escritorio remoto (RDP)
 
 Protocolo de escritorio remoto (RDP) es una tecnología sofisticada que usa varias técnicas para perfeccionar la entrega de gráficos remotos del servidor al dispositivo cliente. En función del caso de uso, la disponibilidad de los recursos informáticos y el ancho de banda de red, el RDP ajusta dinámicamente varios parámetros para ofrecer la mejor experiencia de usuario.
 
-El protocolo de escritorio remoto multiplexa varios canales virtuales dinámicos (DVC) en un solo canal de datos enviado a través de diferentes transportes de red. Existen canales virtuales dinámicos independientes para gráficos remotos, entrada, redireccionamiento de dispositivos, impresión, etc. Los asociados de Windows Virtual Desktop también pueden usar sus extensiones que emplean interfaces de DVC.
+El protocolo de escritorio remoto multiplexa varios canales virtuales dinámicos (DVC) en un solo canal de datos enviado a través de diferentes transportes de red. Existen canales virtuales dinámicos independientes para gráficos remotos, entrada, redireccionamiento de dispositivos, impresión, etc. Los asociados de Azure Virtual Desktop también pueden usar sus extensiones que emplean interfaces de DVC.
 
 La cantidad de datos enviados a través del RDP depende de la actividad del usuario. Por ejemplo, un usuario puede trabajar con contenido textual básico durante la mayor parte de la sesión y consumir un ancho de banda mínimo, pero generar una copia impresa de un documento de 200 páginas en la impresora local. Este trabajo de impresión usará una significativa cantidad de ancho de banda de red.
 
@@ -147,6 +147,6 @@ New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre los requisitos de ancho de banda de Windows Virtual Desktop, consulte la [descripción de los requisitos del protocolo de escritorio remoto (RDP) para Windows Virtual Desktop](rdp-bandwidth.md).
-* Para más información sobre la conectividad de red de Windows Virtual Desktop, consulte la [descripción de la conectividad de red de Windows Virtual Desktop](network-connectivity.md).
-* Para empezar a trabajar con calidad de servicio (QoS) para Windows Virtual Desktop, consulte [Implementación de calidad de servicio (QoS) para Windows Virtual Desktop](rdp-quality-of-service-qos.md).
+* Para más información sobre los requisitos de ancho de banda de Azure Virtual Desktop, consulte la [descripción de los requisitos del protocolo de Escritorio remoto (RDP) para Azure Virtual Desktop](rdp-bandwidth.md).
+* Para más información sobre la conectividad de red de Azure Virtual Desktop, consulte la [descripción de la conectividad de red de Azure Virtual Desktop](network-connectivity.md).
+* Para empezar a trabajar con calidad de servicio (QoS) para Azure Virtual Desktop, consulte [Implementación de calidad de servicio (QoS) para Azure Virtual Desktop](rdp-quality-of-service-qos.md).

@@ -5,14 +5,14 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 6/09/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 52fa6f05db5452a2e7b8ec4f93d65525873c8c7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 383f9653de208bd00710f7a85788b60193986442
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020577"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967556"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desarrollo de funciones definidas por el usuario de .NET Standard para trabajos de Azure Stream Analytics (versión preliminar)
 
@@ -26,7 +26,7 @@ La función definida por el usuario de .NET para trabajos en la nube está dispo
 * Este de EE. UU. 2
 * Oeste de Europa
 
-Si está interesado en usar esta característica en cualquier otra región, puede [solicitar acceso](https://aka.ms/ccodereqregion).
+Si está interesado en usar esta característica en cualquier otra región, puede [solicitar acceso](https://aka.ms/ccodereqregion).  Sin embargo, no existe esta restricción de región al usar [clústeres de Stream Analytics](./cluster-overview.md).
 
 ## <a name="package-path"></a>Ruta de acceso de paquete
 
@@ -266,6 +266,8 @@ Actualmente, la versión preliminar de UDF tiene las siguientes limitaciones:
 * Las UDF de .NET Standard solo pueden crearse en Visual Studio Code o Visual Studio y publicarse en Azure. Las versiones de solo lectura de las UDF de .NET Standard pueden verse en **Funciones** en Azure Portal. No se admite la creación de funciones de .NET Standard en Azure Portal.
 
 * El editor de consultas de Azure Portal muestra un error cuando se usan UDF de .NET Standard en el portal. 
+
+* Llamar a puntos de conexión de REST externos, por ejemplo, mediante la realización de una búsqueda inversa de direcciones IP o una extracción de datos de referencia de un origen externo
 
 * Dado que el código personalizado comparte el contexto con el motor de Azure Stream Analytics, el código personalizado no puede hacer referencia a todo lo que tiene un espacio de nombres o dll_name en conflicto con el código de Azure Stream Analytics. Por ejemplo, no puede hacer referencia a *Newtonsoft Json*.
 

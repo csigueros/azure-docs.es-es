@@ -8,12 +8,12 @@ ms.date: 04/27/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 43a519cfd08ff96e2e53a07223f6cda31e98df50
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 6984230044dc70e6e5e05c7ae0dcb4789065c436
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108280940"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955366"
 ---
 # <a name="migrate-data-to-azure-with-datadobi-dobimigrate"></a>Migración de datos a Azure con Datadobi DobiMigrate
 
@@ -41,8 +41,8 @@ Microsoft ofrece un marco para empezar a trabajar con Azure. [Cloud Adoption Fra
 
 Al considerar las migraciones de datos de archivo a Azure, varios aspectos son importantes. Antes de continuar, consulte estos recursos para más información:
 
-- [Introducción a la migración del almacenamiento](/azure/storage/common/storage-migration-overview)
-- Características admitidas más recientes en DobiMigrate en la [matriz de comparación de herramientas de migración](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison).
+- [Introducción a la migración del almacenamiento](../../../common/storage-migration-overview.md)
+- Características admitidas más recientes en DobiMigrate en la [matriz de comparación de herramientas de migración](./migration-tools-comparison.md).
 
 Recuerde que necesitará suficiente capacidad de red para respaldar las migraciones sin que las aplicaciones de producción se vean afectadas. En esta sección se describen las herramientas y técnicas disponibles para evaluar las necesidades de la red.
 
@@ -80,7 +80,7 @@ En esta sección se proporciona una breve guía sobre cómo agregar recursos com
    2. Especifique un nombre único para la cuenta de almacenamiento.
    3. Elija la región.
    4. Seleccione rendimiento **Estándar** o **Prémium**, en función de sus necesidades. Si selecciona **Prémium**, elija **Recursos compartidos de archivos** en **Premium account type** (Tipo de cuenta prémium).
-   5. Elija el valor de **[Redundancia](/azure/storage/common/storage-redundancy)** que satisfaga los sus requisitos de protección de datos.
+   5. Elija el valor de **[Redundancia](../../../common/storage-redundancy.md)** que satisfaga los sus requisitos de protección de datos.
    
    :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-account-create-1.png" alt-text="Se muestra la configuración de la cuenta de almacenamiento en el portal.":::
 
@@ -104,17 +104,17 @@ En esta sección se proporciona una breve guía sobre cómo agregar recursos com
 
 8. (_Opcional_) Puede agregar capas de seguridad adicionales a la implementación.
  
-   1. Configure el acceso basado en roles para limitar quién puede hacer cambios en la cuenta de Storage. Para obtener más información, consulte [Roles integrados en las operaciones de administración](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations).
+   1. Configure el acceso basado en roles para limitar quién puede hacer cambios en la cuenta de Storage. Para obtener más información, consulte [Roles integrados en las operaciones de administración](../../../common/authorization-resource-provider.md#built-in-roles-for-management-operations).
  
-   2.  Restrinja el acceso a la cuenta a segmentos de red específicos con la [configuración del firewall de almacenamiento](/azure/storage/common/storage-network-security). Configure las opciones del firewall para evitar el acceso desde fuera de la red corporativa.
+   2.  Restrinja el acceso a la cuenta a segmentos de red específicos con la [configuración del firewall de almacenamiento](../../../common/storage-network-security.md). Configure las opciones del firewall para evitar el acceso desde fuera de la red corporativa.
 
        :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-storage-firewall.png" alt-text="Muestra la configuración del firewall de Storage en el portal.":::
 
-   3.  [Bloquee la eliminación](/azure/azure-resource-manager/management/lock-resources) de la cuenta para evitar eliminar accidentalmente la cuenta de Storage.
+   3.  [Bloquee la eliminación](../../../../azure-resource-manager/management/lock-resources.md) de la cuenta para evitar eliminar accidentalmente la cuenta de Storage.
 
        :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-resource-lock.png" alt-text="Muestra el bloqueo de eliminación de la cuenta en el portal.":::
 
-   4.  Configure [procedimientos recomendados de seguridad](/azure/storage/blobs/security-recommendations) adicionales.
+   4.  Configure [procedimientos recomendados de seguridad](../../../blobs/security-recommendations.md) adicionales.
 
 9.  En DobiMigrate, vaya a Configuration -> File Servers (Configuración > Servidores de archivos). Haga clic en **Add** (Agregar) para agregar Microsoft Azure Files como tipo de servidor de archivos:
 
@@ -138,6 +138,24 @@ En esta sección se proporciona una breve guía sobre cómo agregar recursos com
 
 13. Haga clic en **Finalizar** para completar la configuración de Azure Files. A continuación, puede iniciar una nueva tarea de migración.
 
+### <a name="start-a-new-migration"></a>Inicio de una nueva migración
+
+DobiMigrate puede configurar una nueva migración agregando manualmente rutas de migración o mediante la importación en bloque. La importación en bloque agrega varias migraciones con opciones de migración comunes.
+
+Para iniciar una nueva migración:
+
+1. Haga clic en el botón **Nueva migración** en el panel.
+   
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-new-migration.png" alt-text="Inicie un nuevo trabajo de migración":::.
+
+1. Seleccione el origen y las rutas de acceso que se van a migrar.
+
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-select-source.png" alt-text="Seleccione el origen y las rutas de acceso que se van a migrar.":::
+
+1. Seleccione el **Destino**.
+2. Compruebe los protocolos y confirme las opciones de migración.
+3. Haga clic en **Finalizar** para completar el proceso de migración.
+
 ## <a name="support"></a>Soporte técnico 
 
 Cuando necesite ayuda con la migración a una solución de Azure, debe abrir un caso tanto con Datadobi como con Azure.
@@ -156,10 +174,11 @@ Datadobi ha facilitado la implementación de su solución en Azure para proteger
 
 - [Migración de datos de archivos a Azure con DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=overview)
 
+## <a name="next-steps"></a>Pasos siguientes
 
-## <a name="additional-resources"></a>Recursos adicionales
+Para más información, consulte nuestras guías:
 
-- [Información general sobre la migración del almacenamiento](/azure/storage/common/storage-migration-overview)
+- [Información general sobre la migración del almacenamiento](../../../common/storage-migration-overview.md)
 - [Manual del usuario de DobiMigrate](https://downloads.datadobi.com/NAS/olh/latest/dobimigrate.html)
 - [Guía de requisitos previos de DobiMigrate](https://downloads.datadobi.com/NAS/guides/latest/prerequisites.html)
 - [Guía de instalación de DobiMigrate](https://downloads.datadobi.com/NAS/guides/latest/installguide.html)

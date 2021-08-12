@@ -1,30 +1,30 @@
 ---
-title: Supervisión de Key Vault con Azure Monitor para Key Vault | Microsoft Docs
-description: En este artículo se describe Azure Monitor para Key Vault.
+title: Supervisión de Key Vault con información de Key Vault | Microsoft Docs
+description: En este artículo se describe la información de Key Vault.
 services: azure-monitor
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 91aed191e3bb165d6690759426a596df39f8c10f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 953d6300b8ac19ddfcfe3b37a1cfde50480e19a4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582304"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095129"
 ---
-# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Supervisión del servicio Key Vault con Azure Monitor para Key Vault
-Azure Monitor para Key Vault proporciona supervisión general de los almacenes de claves, ya que ofrece una vista unificada de las solicitudes, el rendimiento, los errores y la latencia de la instancia de Key Vault.
-Este artículo ayuda a entender cómo se incorpora y se personaliza la experiencia de Azure Monitor para Key Vault.
+# <a name="monitoring-your-key-vault-service-with-key-vault-insights"></a>Supervisión de un servicio de Key Vault con información de Key Vault
+La información de Key Vault proporciona una supervisión completa de los almacenes de claves y ofrece una vista unificada del rendimiento, los errores, la latencia y las solicitudes de Key Vault.
+Este artículo le ayudará a entender cómo se incorpora y se personaliza la experiencia de la información de Key Vault.
 
-## <a name="introduction-to-azure-monitor-for-key-vault"></a>Introducción a Azure Monitor para Key Vault
+## <a name="introduction-to-key-vault-insights"></a>Introduction a la información de Key Vault
 
 Antes de saltar a la experiencia, debe entender cómo se presenta y se visualiza la información.
 -    **Perspectiva a gran escala**, mostrando una vista de instantánea del rendimiento en función de las solicitudes, el desglose de errores y una visión general de las operaciones y la latencia.
 -   **Análisis en profundidad** de un almacén de claves determinado para realizar un análisis detallado.
 -    **Personalizable**, que le permite cambiar las métricas que desea ver y modificar, o establecer umbrales en consonancia con sus límites y guardar su propio libro. Los gráficos del libro se pueden anclar a los paneles de Azure.
 
-Azure Monitor para Key Vault combina los registros y las métricas para proporcionar una solución de supervisión global. Todos los usuarios pueden acceder a los datos de supervisión basados en métricas; sin embargo, la inclusión de visualizaciones basadas en registros puede requerir que los usuarios [habiliten el registro de su instancia de Azure Key Vault](../../key-vault/general/logging.md).
+La información de Key Vault combina registros y métricas para proporcionar una solución de supervisión global. Todos los usuarios pueden acceder a los datos de supervisión basados en métricas; sin embargo, la inclusión de visualizaciones basadas en registros puede requerir que los usuarios [habiliten el registro de su instancia de Azure Key Vault](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Vista desde Azure Monitor
 
@@ -64,7 +64,7 @@ Para comprender mejor lo que representan cada uno de los códigos de estado, se 
 
 ## <a name="view-from-a-key-vault-resource"></a>Vista de un recurso de Key Vault
 
-Para acceder a Azure Monitor para Key Vault directamente desde un almacén de claves:
+Para acceder a la información de Key Vault directamente desde un almacén de claves:
 
 1. En Azure Portal, seleccione Almacenes de claves.
 
@@ -105,7 +105,7 @@ Los libros de información general o errores de varias suscripciones y almacenes
 
 ![Captura de pantalla del icono de chincheta seleccionado](./media/key-vaults-insights-overview/pin.png)
 
-## <a name="customize-azure-monitor-for-key-vault"></a>Personalización de Azure Monitor para Key Vault
+## <a name="customize-key-vault-insights"></a>Personalización de la información de Key Vault
 
 En esta sección se resaltan los escenarios comunes para editar el libro y personalizarlo de acuerdo con sus necesidades de análisis de datos:
 *  Definir el ámbito del libro para seleccionar siempre una suscripción o unos almacenes de claves determinados
@@ -135,11 +135,11 @@ Puede configurar los libros Información general o Errores de varias suscripcion
 
 Para obtener instrucciones generales para la solución de problemas, consulte el [artículo dedicado de solución de problemas](troubleshoot-workbooks.md) de conclusiones basadas en libros.
 
-Esta sección ayuda con el diagnóstico y la solución de problemas de algunos de los problemas comunes que se pueden detectar al usar Azure Monitor para Key Vault. Utilice la siguiente lista para buscar la información relacionada con el problema específico.
+Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse al usar información de Key Vault. Utilice la siguiente lista para buscar la información relacionada con el problema específico.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Resolución de problemas de rendimiento o errores
 
-Para solucionar cualquier problema relacionado con el almacén de claves que detecte en Azure Monitor para Key Vault, vea la [documentación de Azure Key Vault](../../key-vault/index.yml).
+Para ayudarle a solucionar cualquier problema relacionado con el almacén de claves que detecte en la información de Key Vault, consulte la [documentación de Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>¿Por qué solo puedo ver doscientos almacenes de claves?
 

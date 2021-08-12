@@ -4,20 +4,22 @@ titleSuffix: An Azure Communication Services quickstart
 description: En este inicio rápido, aprenderá a agregar funcionalidades de llamada a la aplicación con Azure Communication Services.
 author: mikben
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: d0abb3cae3c1bf8521460ae5bcbb31c84f0f50af
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: e902e88596c24b991da1b17b85b18a96546d5773
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560835"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107812"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>Inicio rápido: adición de la llamada de voz a su aplicación
 
 Para empezar a usar Azure Communication Services, utilice el SDK de llamadas de Communication Services para agregar llamadas de voz y vídeo a la aplicación.
+
+[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 

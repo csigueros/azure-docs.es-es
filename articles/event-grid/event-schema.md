@@ -1,18 +1,18 @@
 ---
 title: Esquema de eventos de Azure Event Grid
-description: En este artículo se describen las propiedades y el esquema que están presentes para todos los eventos. Los eventos constan de un conjunto de cinco propiedades de cadena y un objeto de datos obligatorios.
+description: En este artículo se describen las propiedades y el esquema que están presentes para todos los eventos. Los eventos constan de un conjunto de cuatro propiedades de cadena.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 5ff7b41a45cf467074e18a50be398b2a3c9866a4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6354401902a841322e58dc7989f10279efee6c2c
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732166"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854925"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de Azure Event Grid
 
-En este artículo se describen las propiedades y el esquema que están presentes para todos los eventos. Los eventos constan de un conjunto de cinco propiedades de cadena y un objeto de datos obligatorios. Las propiedades son comunes a todos los eventos de cualquier anunciante. El objeto de datos tiene propiedades específicas de cada publicador. Para los temas de sistema, estas propiedades son específicas del proveedor de recursos, como Azure Storage o Azure Event Hubs.
+En este artículo se describen las propiedades y el esquema que están presentes para todos los eventos. Los eventos constan de un conjunto de cuatro propiedades de cadena. Las propiedades son comunes a todos los eventos de cualquier anunciante. El objeto de datos tiene propiedades específicas de cada publicador. Para los temas de sistema, estas propiedades son específicas del proveedor de recursos, como Azure Storage o Azure Event Hubs.
 
 Los orígenes de eventos envían eventos a Azure Event Grid en una matriz que puede tener varios objetos de evento. Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento de la matriz tiene 1 MB, como máximo. Si un evento o la matriz superan los límites de tamaño, recibirá la respuesta **413 Payload Too Large** (Carga útil demasiado grande). No obstante, las operaciones se cobran en incrementos de 64 KB. Por lo tanto, los eventos de más de 64 KB incurrirán en cargos de operaciones como si fueran varios eventos. Por ejemplo, un evento que tenga 130 KB incurrirá en operaciones como si fueran tres eventos independientes.
 
@@ -75,7 +75,7 @@ Por ejemplo, el esquema publicado para un evento de Azure Blob Storage es:
 
 Todos los eventos tienen los mismos datos de nivel superior, que son los siguientes:
 
-| Propiedad | Tipo | Obligatorio | Descripción |
+| Propiedad | Tipo | Requerido | Descripción |
 | -------- | ---- | -------- | ----------- |
 | topic | string | No, pero si se incluye, debe coincidir exactamente con el identificador de Azure Resource Manager del tema Event Grid. Si no se incluye, Event Grid se marcará en el evento. | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | string | Sí | Ruta al asunto del evento definida por el anunciante. |

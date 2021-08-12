@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: a6ce5446bd6470ef7a829925646d486801b28ebc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44d1345a8c02c2cde5d0bc34d1b509af321c42c0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670011"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952284"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure mediante Azure Storage
 
@@ -125,7 +125,7 @@ En este artículo se muestra el uso de Azure Storage como un medio para hacer u
 10. Establezca las variables de entorno de la base de datos para el área de recuperación rápida:
 
     ```bash
-    SQL>  system set db_recovery_file_dest_size=4096M scope=both;
+    SQL> alter system set db_recovery_file_dest_size=4096M scope=both;
     SQL> alter system set db_recovery_file_dest='/u02/fast_recovery_area' scope=both;
     ```
     
@@ -173,7 +173,7 @@ Siga estos pasos para hacer una copia de seguridad en Azure Files:
 
 ### <a name="set-up-azure-file-storage"></a>Configuración de Azure File Storage
 
-En este paso, hará una copia de seguridad de la base de datos de Oracle mediante Oracle Recovery Manager (RMAN) en Azure File Storage. Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. Se pueden acceder mediante el protocolo de Bloque de mensajes del servidor (SMB) o el protocolo Network File System (NFS). En este paso se describe cómo crear un recurso compartido de archivos que usa el protocolo SMB para su montaje en la máquina virtual. Para información sobre el montaje con NFS, consulte [Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
+En este paso, hará una copia de seguridad de la base de datos de Oracle mediante Oracle Recovery Manager (RMAN) en el almacenamiento de Azure Files. Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. Se pueden acceder mediante el protocolo de Bloque de mensajes del servidor (SMB) o el protocolo Network File System (NFS). En este paso se describe cómo crear un recurso compartido de archivos que usa el protocolo SMB para su montaje en la máquina virtual. Para información sobre el montaje con NFS, consulte [Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
 
 Al montar la instancia de Azure Files, usaremos `cache=none` para deshabilitar el almacenamiento en caché de los datos del recurso compartido. Y para asegurarse de que los archivos creados en el recurso compartido son propiedad del usuario de Oracle, establezca también las opciones `uid=oracle` y `gid=oinstall`. 
 
@@ -368,14 +368,14 @@ Aunque el uso de RMAN y Azure File Storage para hacer la copia de seguridad de l
     ORACLE instance shut down.
     ```
 
-2.  Quite los archivos de datos y las copias de seguridad:
+2.  Quite los archivos de datos de la base de datos:
 
     ```bash
     cd /u02/oradata/TEST
     rm -f *.dbf
     ```
 
-3. Los comandos siguientes usan RMAN para restaurar los archivos de datos que faltan y recuperar la base de datos:
+3. Los siguientes comandos usan RMAN para restaurar los archivos de datos que faltan y recuperar la base de datos:
 
     ```bash
     rman target /

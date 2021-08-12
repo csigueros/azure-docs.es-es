@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 4ebc363f29ed8956d10e91f41be1d257cbcc492f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8897e6da3b3d70f9b7d0434dade86e4f2ceb9c50
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98703893"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094431"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de compatibilidad para la migración de servidores físicos
 
@@ -48,7 +48,7 @@ En la tabla se resume la compatibilidad de los servidores físicos que desea mig
 **Arranque UEFI** | Compatible. Las máquinas basadas en UEFI se migrarán a máquinas virtuales de segunda generación de Azure.  <br/><br/> El disco del sistema operativo debe tener hasta cuatro particiones y los volúmenes deben formatearse con NTFS.
 **UEFI: arranque seguro**         | No se admiten para la migración.
 **Disco de destino** | Las máquinas solo se pueden migrar a discos administrados (HDD Estándar, SSD estándar, SSD Premium) en Azure.
-**Tamaño del disco** | Disco de sistema operativo de 2 TB y 32 TB para los discos de datos.
+**Tamaño del disco** | Disco de sistema operativo de hasta 2 TB para la máquina virtual de generación 1; disco de sistema operativo de hasta 4 TB para la máquina virtual de generación 2; 32 TB para discos de datos.
 **Límites del disco** |  Hasta 63 discos por máquina.
 **Discos/volúmenes cifrados** |  Las máquinas con volúmenes o discos cifrados no se admiten para la migración.
 **Clúster de discos compartido** | No compatible.

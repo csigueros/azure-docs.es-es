@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo montar un sistema de archivos virt
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 03/26/2021
-ms.openlocfilehash: dcd56a12d8728b83cdcb7cea4c16c4aedd4251a7
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 460501e30b5afd2eb7a1f67b1162b9820830454a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105755"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968154"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montaje de un sistema de archivos virtual en un grupo de Batch
 
@@ -76,7 +76,7 @@ new PoolAddParameter
 }
 ```
 
-### <a name="azure-blob-file-system"></a>Sistema de archivos de Azure Blob
+### <a name="azure-blob-container"></a>Contenedor de blobs de Azure
 
 Otra opción consiste en usar Azure Blob Storage a través de [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). El montaje de un sistema de archivos de blob requiere `AccountKey` o `SasKey` para la cuenta de almacenamiento. Para obtener información sobre cómo obtener estas claves, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md) o [Concesión de acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../storage/common/storage-sas-overview.md). Para obtener más información y sugerencias sobre el uso de blobfuse, consulte blobfuse.
 
@@ -97,7 +97,7 @@ new PoolAddParameter
                 AccountName = "StorageAccountName",
                 ContainerName = "containerName",
                 AccountKey = "StorageAccountKey",
-                SasKey = "",
+                SasKey = "SasKey",
                 RelativeMountPath = "RelativeMountPath",
                 BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 "
             },
@@ -108,7 +108,7 @@ new PoolAddParameter
 
 ### <a name="network-file-system"></a>Network File System
 
-Los sistemas de Network File System (NFS) se pueden montar en nodos de grupo, lo que permite Azure Batch pueda tener acceso a los sistemas de archivos tradicionales. Puede tratarse de un solo servidor NFS implementado en la nube o un servidor NFS local al que se tiene acceso a través de una red virtual. Como alternativa, puede usar la solución de caché en memoria distribuida de [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) para tareas de informática de alto rendimiento (HPC) con uso intensivo de datos.
+Los sistemas de Network File System (NFS) se pueden montar en nodos de grupo, lo que permite Azure Batch pueda tener acceso a los sistemas de archivos tradicionales. Puede tratarse de un solo servidor NFS implementado en la nube o un servidor NFS local al que se tiene acceso a través de una red virtual. Los montajes de NFS admiten una solución de caché en memoria distribuida de [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) para tareas de informática de alto rendimiento (HPC) de uso intensivo de datos, así como otras interfaces compatibles con NFS estándar como, por ejemplo, [NFS para Blob de Azure](../storage/blobs/network-file-system-protocol-support.md) y [NFS para Azure Files](../storage/files/storage-files-how-to-mount-nfs-shares.md).
 
 ```csharp
 new PoolAddParameter
@@ -122,7 +122,7 @@ new PoolAddParameter
             {
                 Source = "source",
                 RelativeMountPath = "RelativeMountPath",
-                MountOptions = "options ver=1.0"
+                MountOptions = "options ver=3.0"
             },
         }
     }
@@ -131,7 +131,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Sistema de archivos de Internet común
 
-El montaje de [sistemas de archivos de Internet común (CIFS)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) en nodos de grupo es otra manera de proporcionar acceso a los sistemas de archivos tradicionales. CIFS es un protocolo de uso compartido de archivos que proporciona un mecanismo abierto y multiplataforma para solicitar servicios y archivos de servidor de red. CIFS se basa en la versión mejorada del protocolo de [bloque de mensajes del servidor (SMB)](/windows-server/storage/file-server/file-server-smb-overview) para el uso compartido de archivos de Internet e intranet y se usa para montar sistemas de archivos externos en nodos de Windows.
+El montaje de [sistemas de archivos de Internet común (CIFS)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) en nodos de grupo es otra manera de proporcionar acceso a los sistemas de archivos tradicionales. CIFS es un protocolo de uso compartido de archivos que proporciona un mecanismo abierto y multiplataforma para solicitar servicios y archivos de servidor de red. CIFS se basa en la versión mejorada del protocolo [Bloque de mensajes del servidor (SMB)](/windows-server/storage/file-server/file-server-smb-overview) para el uso compartido de archivos de Internet e intranet.
 
 ```csharp
 new PoolAddParameter
@@ -160,36 +160,28 @@ Si se produce un error en una configuración de montaje, se producirá un error 
 
 Para obtener los archivos de registro para la depuración, use [OutputFiles](batch-task-output-files.md) para cargar los archivos `*.log`. Los archivos `*.log` contienen información sobre el montaje del sistema de archivos en la ubicación `AZ_BATCH_NODE_MOUNTS_DIR`. Los archivos de registro de montaje tienen el formato `<type>-<mountDirOrDrive>.log` para cada montaje. Por ejemplo, un montaje `cifs` en un directorio de montaje denominado `test` tendrá un archivo de registro de montaje denominado `cifs-test.log`.
 
-## <a name="supported-skus"></a>SKU compatibles
+## <a name="support-matrix"></a>Matriz de compatibilidad
 
-| Publicador | Oferta | SKU | Recurso compartido de Azure Files | Blobfuse | Montaje de NFS | Montaje de CIFS |
-|---|---|---|---|---|---|---|
-| proceso por lotes | rendering-centos73 | rendering | :heavy_check_mark: <br>Nota: Compatible con CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Nota: Compatible con CentOS 7.4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>Nota: Admite almacenamiento A_8 o 9</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS-HPC | 7.4, 7.3, 7.1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
-| Windows | Windows Server | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
+Azure Batch admite los siguientes tipos de sistemas de archivos virtuales para los agentes de nodo generados para sus respectivos publicador y oferta.
+
+| Tipo de SO | Recurso compartido de Azure Files | Contenedor de blobs de Azure | Montaje de NFS | Montaje de CIFS |
+|---|---|---|---|---|
+| Linux | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Windows | :heavy_check_mark: | :x: | :x: | :x: |
 
 ## <a name="networking-requirements"></a>Requisitos de red
 
 Al usar montajes de archivos virtuales con [grupos de Azure Batch en una red virtual](batch-virtual-network.md), tenga en cuenta los siguientes requisitos y asegúrese de que no se bloquee el tráfico necesario.
 
-- **Azure Files**:
+- **Recursos compartidos de archivos de Azure**:
   - Requiere que el puerto TCP 445 esté abierto para el tráfico hacia y desde la etiqueta de servicio "storage". Para más información, consulte [Uso de un recurso compartido de archivos de Azure con Windows](../storage/files/storage-how-to-use-files-windows.md#prerequisites).
-- **Blobfuse**:
+- **Contenedores de blobs de Azure**:
   - Requiere que el puerto TCP 443 esté abierto para el tráfico hacia y desde la etiqueta de servicio "storage".
   - Las máquinas virtuales deben tener acceso a https://packages.microsoft.com para descargar los paquetes blobfuse y gpg. En función de la configuración, es posible que también necesite tener acceso a otras direcciones URL para descargar paquetes adicionales.
 - **Network File System (NFS)** :
   - Requiere acceso al puerto 2049 (de manera predeterminada, la configuración puede tener otros requisitos).
   - Las máquinas virtuales deben tener acceso al administrador de paquetes adecuado para descargar los paquetes nfs-common (para Debian o Ubuntu) o nfs-utils (para CentOS). Esta dirección URL puede variar en función de la versión del sistema operativo. En función de la configuración, es posible que también necesite tener acceso a otras direcciones URL para descargar paquetes adicionales.
+  - El montaje de Blob de Azure o Azure Files a través de NFS puede precisar de requisitos de red adicionales como, por ejemplo, nodos de proceso que compartan la misma subred designada de una red virtual como cuenta de almacenamiento.
 - **Sistema de archivos de Internet común (CIFS)** :
   - Requiere acceso al puerto TCP 445.
   - Las máquinas virtuales deben tener acceso a los administradores de paquetes adecuados para poder descargar el paquete cifs-utils. Esta dirección URL puede variar en función de la versión del sistema operativo.

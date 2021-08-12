@@ -1,25 +1,25 @@
 ---
-title: 'Configuración de GPU para Windows Virtual Desktop (clásico): Azure'
-description: Cómo habilitar la representación y codificación de aceleración por GPU en Windows Virtual Desktop (clásico).
+title: 'Configuración de GPU para Azure Virtual Desktop (clásico): Azure'
+description: Cómo habilitar la representación y codificación de aceleración por GPU en Azure Virtual Desktop (clásico).
 author: gundarev
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: fa7b80b021e00d25dea4f96432ae922c15474058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ae012b1c8084c0f5f518a7e7006d7e5df9cdf4c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95023061"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750072"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Configuración de la aceleración de la unidad de procesamiento de gráficos (GPU) para Windows Virtual Desktop (clásico)
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-azure-virtual-desktop-classic"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../configure-vm-gpu.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../configure-vm-gpu.md).
 
-Windows Virtual Desktop admite la representación y codificación de la aceleración por GPU para mejorar el rendimiento y la escalabilidad de las aplicaciones. La aceleración de la GPU es especialmente importante para las aplicaciones que contienen muchos gráficos.
+Azure Virtual Desktop admite la representación y codificación de la aceleración por GPU para mejorar el rendimiento y la escalabilidad de las aplicaciones. La aceleración de la GPU es especialmente importante para las aplicaciones que contienen muchos gráficos.
 
-Siga las instrucciones de este artículo para crear una máquina virtual de Azure optimizada para GPU, agregarla al grupo host y configurarla para usar la aceleración de GPU para la representación y la codificación. En este artículo se da por supuesto que ya tiene configurado un inquilino de Windows Virtual Desktop.
+Siga las instrucciones de este artículo para crear una máquina virtual de Azure optimizada para GPU, agregarla al grupo host y configurarla para usar la aceleración de GPU para la representación y la codificación. En este artículo se da por supuesto que ya tiene configurado un inquilino de Azure Virtual Desktop.
 
 ## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Selección de un tamaño de máquina virtual de Azure optimizada para GPU
 
@@ -29,18 +29,18 @@ Azure ofrece varios [tamaños de máquinas virtuales optimizadas para GPU](../..
 
 Cree un nuevo grupo host con una máquina virtual del tamaño que ha seleccionado. Para obtener instrucciones, consulte: [Tutorial: Creación de un grupo host con Azure Marketplace](../create-host-pools-azure-marketplace.md).
 
-Windows Virtual Desktop admite la representación y la codificación de la aceleración de GPU en los siguientes sistemas operativos:
+Azure Virtual Desktop admite la representación y la codificación de la aceleración de GPU en los siguientes sistemas operativos:
 
 * Windows 10, versión 1511 o posterior
 * Windows Server 2016 o posterior
 
-También debe configurar un grupo de aplicaciones o usar el grupo de aplicaciones de escritorio predeterminado (denominado "Grupo de aplicaciones de escritorio") que se crea automáticamente cuando se crea un nuevo grupo host. Para obtener instrucciones, consulte: [Tutorial: Administración de grupos de aplicaciones para Windows Virtual Desktop](../manage-app-groups.md).
+También debe configurar un grupo de aplicaciones o usar el grupo de aplicaciones de escritorio predeterminado (denominado "Grupo de aplicaciones de escritorio") que se crea automáticamente cuando se crea un nuevo grupo host. Para instrucciones, consulte [Tutorial: Administración de grupos de aplicaciones en Azure Virtual Desktop](../manage-app-groups.md).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Instalación de los controladores de gráficos admitidos en la máquina virtual
 
-Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure en Windows Virtual Desktop, es preciso instalar los controladores de gráficos adecuados. Siga las instrucciones que se indican en [Sistemas operativos y controladores compatibles](../../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) para instalar los controladores del proveedor de gráficos adecuado, ya sea manualmente o mediante una extensión de máquina virtual de Azure.
+Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure en Azure Virtual Desktop, es preciso instalar los controladores de gráficos adecuados. Siga las instrucciones que se indican en [Sistemas operativos y controladores compatibles](../../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) para instalar los controladores del proveedor de gráficos adecuado, ya sea manualmente o mediante una extensión de máquina virtual de Azure.
 
-Solo se admiten los controladores distribuidos por Azure para Windows Virtual Desktop. Además, para las máquinas virtuales de Azure con GPU de NVIDIA, solo se admiten [controladores de NVIDIA GRID](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers) para Windows Virtual Desktop.
+Solo se admiten los controladores distribuidos por Azure para Azure Virtual Desktop. Además, para las máquinas virtuales de Azure con GPU de NVIDIA, solo se admiten [controladores de NVIDIA GRID](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers) para Azure Virtual Desktop.
 
 Tras instalar los controladores, es necesario reiniciar la máquina virtual. Utilice los pasos de comprobación en las instrucciones anteriores para confirmar que los controladores de gráficos se han instalado correctamente.
 
@@ -82,7 +82,7 @@ Para comprobar que las aplicaciones usan la GPU para la representación, lleve a
 
 Para comprobar que Escritorio remoto utiliza la codificación de aceleración por GPU:
 
-1. Conéctese al escritorio de la máquina virtual mediante el cliente de Windows Virtual Desktop.
+1. Conéctese al escritorio de la máquina virtual mediante el cliente de Azure Virtual Desktop.
 2. Inicie el Visor de eventos y vaya hasta el siguiente nodo: **Registros de aplicaciones y servicios** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operativo**
 3. Para determinar si se utiliza la codificación de aceleración por GPU, busque el id. de evento 170. Si ve "Codificador de hardware AVC habilitado: 1", significa que se usa la codificación por GPU.
 4. Para determinar si se usa el modo de AVC 444, busque el id. de evento 162. Si ve "AVC disponible: 1 perfil inicial: 2048", significa que se usa AVC 444.

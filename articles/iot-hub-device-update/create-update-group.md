@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: a0894047db1ed7687a1a0f5f87fc4020ddf7c694
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c9f1294f1d2f80689cdb417ad16357cc5fbcece
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101678849"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089333"
 ---
 # <a name="create-device-groups-in-device-update-for-iot-hub"></a>Creación de grupos de dispositivos en Device Update para IoT Hub
 Device Update para IoT Hub permite implementar una actualización en un grupo de dispositivos IoT.
@@ -21,6 +21,7 @@ Device Update para IoT Hub permite implementar una actualización en un grupo de
 * [Acceso a una instancia de IoT Hub con Device Update para IoT Hub habilitado](create-device-update-account.md). Se recomienda usar un nivel S1 (estándar), o superior, para su instancia de IoT Hub. 
 * Un dispositivo IoT (o simulador) aprovisionado para Device Update en IoT Hub.
 * [Al menos una actualización se importó correctamente para el dispositivo aprovisionado.](import-update.md)
+* Instale e inicie el agente de Device Update en el dispositivo IoT como una [identidad de nivel de dispositivo o de módulo](device-update-agent-provisioning.md).
 
 ## <a name="add-a-tag-to-your-devices"></a>Adición de una etiqueta a los dispositivos  
 
@@ -44,20 +45,20 @@ Puede actualizar el dispositivo gemelo con la etiqueta adecuada mediante Registr
 
 ### <a name="using-jobs"></a>Uso de trabajos
 
-Es posible programar un trabajo en varios dispositivos para agregar o actualizar una etiqueta de Device Update siguiendo [estos](../iot-hub/iot-hub-devguide-jobs.md) ejemplos. [Más información](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
+Es posible programar un trabajo en varios dispositivos para agregar o actualizar una etiqueta de Device Update siguiendo [estos](../iot-hub/iot-hub-devguide-jobs.md) ejemplos. El dispositivo gemelo o el módulo gemelo se pueden actualizar (si el agente de Device Update se configura como una identidad de módulo) mediante Jobs. [Obtenga más información](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
 
   > [!NOTE] 
-  > Esta acción entra en conflicto con la cuota de mensajes de IoT Hub actual y se recomienda cambiar solo 50 000 etiquetas del dispositivo gemelo como máximo a la vez. De lo contrario, es posible que tenga que comprar más unidades de IoT Hub si supera la cuota diaria de mensajes de IoT Hub. Los detalles se pueden encontrar en [Cuotas y limitación](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
+  > Esta acción entra en conflicto con la cuota de mensajes de IoT Hub actual y se recomienda cambiar solo 50 000 etiquetas del dispositivo o módulo gemelo como máximo a la vez. De lo contrario, es posible que tenga que comprar más unidades de IoT Hub si supera la cuota diaria de mensajes de IoT Hub. Los detalles se pueden encontrar en [Cuotas y limitación](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
 
 ### <a name="direct-twin-updates"></a>Actualizaciones directas de gemelos
 
-También se pueden agregar o actualizar etiquetas en el dispositivo gemelo directamente.
+Las etiquetas también se pueden agregar o actualizar directamente en el dispositivo gemelo o en el módulo gemelo.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a su instancia de IoT Hub.
 
-2. En "Dispositivos IoT" o "IoT Edge" en el panel de navegación izquierdo, busque el dispositivo IoT y navegue hasta Dispositivo gemelo.
+2. En "Dispositivos IoT" o en "IoT Edge", en el panel de navegación izquierdo, busque el dispositivo IoT y vaya al dispositivo gemelo o al módulo de actualización de dispositivos y, después, a su módulo gemelo (estará disponible si el agente de Device Update está configurado como una identidad de módulo).
 
-3. En Dispositivo gemelo, elimine cualquier valor de etiqueta de Device Update existente. Para ello, establézcalo en NULL.
+3. En el dispositivo gemelo o en el módulo gemelo, elimine todos los valores de etiqueta de Device Update existentes, para lo que debe establecerlos en NULL.
 
 4. Agregue un nuevo valor de etiqueta de Device Update, como se muestra a continuación. [Ejemplo de documento JSON de dispositivo gemelo con etiquetas.](../iot-hub/iot-hub-devguide-device-twins.md#device-twins)
 

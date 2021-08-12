@@ -5,14 +5,14 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 05/30/2021
 ms.custom: seodec18
-ms.openlocfilehash: cb9d8edd24dcc8809f2b207a4db80653b0e140e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91ba1280262a7d13afa71d5dc0e2b7eb0e545ecc
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98014043"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787720"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamiento de la salida de blobs personalizada en Azure Stream Analytics
 
@@ -62,13 +62,15 @@ Tenga en cuenta que cada registro en el blob tiene una columna **client_id** que
    * cluster1/{fecha}/{unCampoDeLosDatos}  
    * cluster1/{hora}/{unCampoDeLosDatos}  
    * cluster1/{unCampoDeLosDatos}  
-   * cluster1/{fecha}/{hora}/{unCampoDeLosDatos} 
+   * cluster1/{fecha}/{hora}/{unCampoDeLosDatos}
+
+2. Si los clientes quieren usar más de un campo de entrada, pueden crear una clave compuesta en la consulta para la partición de ruta de acceso personalizada en la salida del blob mediante **CONCAT**. Por ejemplo: **seleccione concat (col1, col2) como compositeColumn en blobOutput desde la entrada**. A continuación, pueden especificar **compositeColumn** como ruta de acceso personalizada en el almacenamiento de blobs.
    
-2. Las claves de partición no distinguen mayúsculas de minúsculas, por lo que los valores como "Juan" y "juan" son equivalentes. Además, no pueden usarse expresiones como clave de partición. Por ejemplo, **{columnaA + columnaB}** no funciona.  
+3. Las claves de partición no distinguen mayúsculas de minúsculas, por lo que los valores como "Juan" y "juan" son equivalentes. Además, no pueden usarse expresiones como clave de partición. Por ejemplo, **{columnaA + columnaB}** no funciona.  
 
-3. Cuando un flujo de entrada consta de registros con una cardinalidad de clave de partición menor que 8000, los registros se anexarán a los blobs existentes y solo se crearán blobs nuevos cuando sea necesario. Si la cardinalidad es mayor que 8000, no garantizamos que se escribirá en los blobs existentes ni que no se crearán blobs nuevos para un número arbitrario de registros con la misma clave de partición.
+4. Cuando un flujo de entrada consta de registros con una cardinalidad de clave de partición menor que 8000, los registros se anexarán a los blobs existentes y solo se crearán blobs nuevos cuando sea necesario. Si la cardinalidad es mayor que 8000, no garantizamos que se escribirá en los blobs existentes ni que no se crearán blobs nuevos para un número arbitrario de registros con la misma clave de partición.
 
-4. Si el resultado del blob está [configurado como inmutable](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics creará un blob cada vez que se envíen los datos.
+5. Si el resultado del blob está [configurado como inmutable](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics creará un blob cada vez que se envíen los datos.
 
 ## <a name="custom-datetime-path-patterns"></a>Patrones personalizados de ruta de acceso de fecha y hora
 

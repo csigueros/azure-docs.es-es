@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 37b411792ea1a3e21e0f26df0c7905eb8d46310e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d2b0e096c1432b8130ca43a91d277aec93d630f
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97897712"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191269"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparación del enrutamiento de mensajes y Event Grid para IoT Hub
 
@@ -32,7 +32,7 @@ Aunque tanto el enrutamiento de mensajes como Event Grid habilitan la configurac
 
 | Característica | Enrutamiento de mensajes de IoT Hub | Integración de IoT Hub con Event Grid |
 | ------- | --------------- | ---------- |
-| **Eventos y mensajes de dispositivo** | Sí, se puede usar el enrutamiento de mensajes con los datos de telemetría, los cambios de los dispositivos gemelos, los eventos de ciclo de vida del dispositivo y los eventos de cambio de gemelo digital. | Sí, Event Grid se puede usar para los datos de telemetría y eventos del dispositivo como la creación/eliminación/conexión/desconexión de dispositivos. Sin embargo, no se puede usar con eventos de cambio de dispositivos gemelos y eventos de cambio de gemelos digitales. |
+| **Eventos y mensajes de dispositivo** | Sí, se puede usar el enrutamiento de mensajes con los datos de telemetría, los cambios de los dispositivos gemelos, los eventos de ciclo de vida del dispositivo, los eventos de cambio de gemelo digital y los eventos de estado de conexión de dispositivo. | Sí, Event Grid se puede usar para los datos de telemetría y eventos del dispositivo como la creación/eliminación/conexión/desconexión de dispositivos. Sin embargo, no se puede usar con eventos de cambio de dispositivos gemelos y eventos de cambio de gemelos digitales. |
 | **Ordenación** | Sí, se mantiene el orden de los eventos.  | No, no se garantiza el orden de los eventos. | 
 | **Filtros** | Filtrado enriquecido de las propiedades de aplicación de mensajes, propiedades del sistema de mensajes, cuerpo del mensaje, etiquetas de dispositivos gemelos y propiedades de dispositivos gemelos. El filtrado no se aplica a los eventos de cambios de gemelos digitales. Para obtener ejemplos, consulte la [sintaxis de consulta de enrutamiento de mensajes](iot-hub-devguide-routing-query-syntax.md). | Filtrado basado en el tipo de evento, el tipo de asunto y los atributos de cada evento. Para ver ejemplos, consulte [Filtrado de eventos en suscripciones de Event Grid](../event-grid/event-filtering.md). Al suscribirse a eventos de telemetría, puede aplicar filtros adicionales sobre los datos para filtrar por las propiedades del mensaje, el cuerpo del mensaje y el dispositivo gemelo en IoT Hub, antes de publicarlos en Event Grid. Consulte [cómo filtrar eventos](../iot-hub/iot-hub-event-grid.md#filter-events). |
 | **Extremos** | <ul><li>Event Hubs</li> <li>Azure Blob Storage</li> <li>Cola de Service Bus</li> <li>Temas de Service Bus</li></ul><br>Los SKU de IoT Hub de pago (S1, S2 y S3) están limitados a 10 puntos de conexión personalizados. Se pueden crear 100 rutas por instancia de IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Temas personalizados</li> <li>Queue Storage</li> <li>Power Automate</li> <li>Servicios de terceros mediante webhooks</li></ul><br>Se admiten 500 puntos de conexión por IoT Hub. Para obtener la lista más actualizada de los puntos de conexión, consulte [Controladores de eventos de Event Grid](../event-grid/overview.md#event-handlers). |

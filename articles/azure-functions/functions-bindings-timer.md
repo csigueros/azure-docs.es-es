@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47d8acd26d1cfa9c41c2cc8770f7c7f81a3e2930
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104595998"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592113"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions
 
@@ -322,7 +322,7 @@ Estos son algunos ejemplos de expresiones NCRONTAB que puede usar para el desenc
 | `0 30 9 * Jan Mon` | A las 9:30 a. m. todos los lunes en enero |
 
 > [!NOTE]
-> La expresión NCRONTAB requiere el formato de **seis campos**. La posición del sexto campo es un valor para los segundos que se coloca al principio de la expresión. No se admiten expresiones Cron de cinco campos en Azure.
+> La expresión NCRONTAB admite el formato de **cinco campos** y **seis campos**. La posición del sexto campo es un valor para los segundos que se coloca al principio de la expresión.
 
 ### <a name="ncrontab-time-zones"></a>Zonas horarias de NCRONTAB
 

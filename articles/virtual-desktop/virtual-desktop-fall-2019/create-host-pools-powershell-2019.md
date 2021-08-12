@@ -1,36 +1,36 @@
 ---
-title: 'Creación de un grupo de hosts de Windows Virtual Desktop (clásico) con PowerShell: Azure'
-description: Creación de un grupo de hosts en Windows Virtual Desktop (clásico) con cmdlets de PowerShell.
+title: 'Creación de un grupo de hosts de Azure Virtual Desktop (clásico) con PowerShell: Azure'
+description: Creación de un grupo de hosts en Azure Virtual Desktop (clásico) con cmdlets de PowerShell.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 9835a736dfd1c2ccec41eb27472f76d53b07696e
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: eabf679d02c0e542176bf1f6e37f1ccc674d8eb0
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754396"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749892"
 ---
-# <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>Creación de un grupo de hosts en Windows Virtual Desktop (clásico) con PowerShell
+# <a name="create-a-host-pool-in-azure-virtual-desktop-classic-with-powershell"></a>Creación de un grupo de hosts en Azure Virtual Desktop (clásico) con PowerShell
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../create-host-pools-powershell.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../create-host-pools-powershell.md).
 
-Los grupos hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Windows Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
+Los grupos de hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Azure Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Uso del cliente de PowerShell para crear un grupo hosts
 
-En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell.
+En primer lugar y, si aún no lo ha hecho, descargue e importe el [módulo de PowerShell para Azure Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell.
 
-Ejecute el siguiente cmdlet para iniciar sesión en el entorno de Windows Virtual Desktop.
+Ejecute el siguiente cmdlet para iniciar sesión en el entorno de Azure Virtual Desktop.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-A continuación, ejecute este cmdlet para crear un nuevo grupo de hosts en el inquilino de Windows Virtual Desktop.
+A continuación, ejecute este cmdlet para crear un nuevo grupo de hosts en el inquilino de Azure Virtual Desktop:
 
 ```powershell
 New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
@@ -50,7 +50,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 El cmdlet **Add-RdsAppGroupUser** no admite la adición de grupos de seguridad y solo agrega un usuario a la vez al grupo de aplicaciones. Si quiere agregar varios usuarios al grupo de aplicaciones, vuelva a ejecutar el cmdlet con los nombres principales de usuario adecuados.
 
-Ejecute el siguiente cmdlet para exportar el token de registro a una variable, que usará más adelante en el [Registro de máquinas virtuales en el grupo de hosts de Windows Virtual Desktop](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+Ejecute el siguiente cmdlet para exportar el token de registro a una variable, que usará más adelante en el [Registro de máquinas virtuales en el grupo de hosts de Azure Virtual Desktop](#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
@@ -58,7 +58,7 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 
 ## <a name="create-virtual-machines-for-the-host-pool"></a>Creación de máquinas virtuales para el grupo de hosts
 
-Ahora puede crear una máquina virtual de Azure que puede unirse al grupo de hosts de Windows Virtual Desktop.
+Ahora puede crear una máquina virtual de Azure que puede unirse al grupo de hosts de Azure Virtual Desktop.
 
 Puede crear una máquina virtual de varias maneras:
 
@@ -67,16 +67,16 @@ Puede crear una máquina virtual de varias maneras:
 - [Crear una máquina virtual desde una imagen no administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 >[!NOTE]
->Si va a implementar una máquina virtual en la que Windows 7 es el sistema operativo del host, el proceso de creación e implementación será un poco diferente. Para más información, consulte [Implementación de una máquina virtual Windows 7 en Windows Virtual Desktop](deploy-windows-7-virtual-machine.md).
+>Si va a implementar una máquina virtual en la que Windows 7 es el sistema operativo del host, el proceso de creación e implementación será un poco diferente. Para más información, consulte [Implementación de una máquina virtual Windows 7 en Azure Virtual Desktop](deploy-windows-7-virtual-machine.md).
 
 Una vez que haya creado las máquinas virtuales de host de sesión, [aplique una licencia de Windows a una máquina virtual de host de sesión](../apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) para ejecutar las máquinas virtuales Windows o Windows Server sin pagar por otra licencia.
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Preparación de las máquinas virtuales para las instalaciones de agentes de Windows Virtual Desktop
+## <a name="prepare-the-virtual-machines-for-azure-virtual-desktop-agent-installations"></a>Preparación de las máquinas virtuales para las instalaciones de agentes de Azure Virtual Desktop
 
-Deberá hacer lo siguiente para preparar las máquinas virtuales antes de poder instalar los agentes de Windows Virtual Desktop y registrar las máquinas virtuales en el grupo de hosts de Windows Virtual Desktop:
+Deberá hacer lo siguiente para preparar las máquinas virtuales antes de poder instalar los agentes de Azure Virtual Desktop y registrar las máquinas virtuales en el grupo de hosts de Azure Virtual Desktop:
 
-- Debe unir la máquina al dominio. Esto permite que los usuarios entrantes de Windows Virtual Desktop se asignen desde sus cuentas de Azure Active Directory a su cuenta de Active Directory, así como tener acceso correctamente a la máquina virtual.
-- Debe instalar el rol de host de sesión de Escritorio remoto (RDSH) si la máquina virtual está ejecutando un sistema operativo de Windows Server. El rol de RDSH permite que los agentes de Windows Virtual Desktop se instalen correctamente.
+- Debe unir la máquina al dominio. Esto permite que los usuarios entrantes de Azure Virtual Desktop se asignen desde sus cuentas de Azure Active Directory a su cuenta de Active Directory, así como tener acceso correctamente a la máquina virtual.
+- Debe instalar el rol de host de sesión de Escritorio remoto (RDSH) si la máquina virtual está ejecutando un sistema operativo de Windows Server. El rol de RDSH permite que los agentes de Azure Virtual Desktop se instalen correctamente.
 
 Para realizar correctamente una unión a un dominio, realice los siguientes pasos en cada máquina virtual:
 
@@ -89,28 +89,28 @@ Para realizar correctamente una unión a un dominio, realice los siguientes paso
     >[!NOTE]
     > Si va a unir sus máquinas virtuales a un entorno de Azure Active Directory Domain Services (Azure AD DS), asegúrese de que su usuario de unión a un dominio también es miembro del [grupo de administradores del controlador de dominio de AAD](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registro de las máquinas virtuales en el grupo de hosts de Windows Virtual Desktop
+## <a name="register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool"></a>Registro de las máquinas virtuales en el grupo de hosts de Azure Virtual Desktop
 
-El registro de las máquinas virtuales en un grupo de hosts de Windows Virtual Desktop es tan sencillo como instalar los agentes de Windows Virtual Desktop.
+El registro de las máquinas virtuales en un grupo de hosts de Azure Virtual Desktop es tan sencillo como instalar los agentes de Azure Virtual Desktop.
 
-Para registrar los agentes de Windows Virtual Desktop, realice los siguientes pasos en cada máquina virtual:
+Para registrar los agentes de Azure Virtual Desktop, realice los siguientes pasos en cada máquina virtual:
 
 1. [Conéctese a la máquina virtual](../../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con las credenciales que proporcionó al crear la máquina virtual.
-2. Descargue e instale el agente de Windows Virtual Desktop.
-   - Descargue el [agente de Windows Virtual Desktop](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
+2. Descargue e instale el agente de Azure Virtual Desktop.
+   - Descargue el [agente de Azure Virtual Desktop](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
    - Haga clic con el botón derecho en el instalador descargado, seleccione **Propiedades**, seleccione **Desbloquear** y, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema confíe en el instalador.
    - Ejecute al programa de instalación. Cuando el instalador le solicite el token de registro, escriba el valor obtenido del cmdlet **Export-RdsRegistrationInfo**.
-3. Descargue e instale el cargador de arranque del agente de Windows Virtual Desktop.
-   - Descargue el [cargador de arranque del agente de Windows Virtual Desktop](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
+3. Descargue e instale el cargador de arranque del agente de Azure Virtual Desktop.
+   - Descargue el [cargador de arranque del agente de Azure Virtual Desktop](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Haga clic con el botón derecho en el instalador descargado, seleccione **Propiedades**, seleccione **Desbloquear** y, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema confíe en el instalador.
    - Ejecute al programa de instalación.
 
 >[!IMPORTANT]
->Para ayudar a proteger su entorno de Windows Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Windows Virtual Desktop no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host. Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar [acceso de máquina virtual Just-in-Time](../../security-center/security-center-just-in-time.md).
+>Para ayudar a proteger su entorno de Azure Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Azure Virtual Desktop no requiere un puerto de entrada 3389 abierto para que los usuarios accedan a máquinas virtuales del grupo de hosts. Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar [acceso de máquina virtual Just-in-Time](../../security-center/security-center-just-in-time.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha creado un grupo de hosts, puede rellenarlo con RemoteApp. Para obtener más información sobre cómo administrar las aplicaciones de Windows Virtual Desktop, consulte el tutorial Administración de grupos de aplicaciones.
+Ahora que ha creado un grupo de hosts, puede rellenarlo con RemoteApp. Para obtener más información sobre cómo administrar las aplicaciones de Azure Virtual Desktop, consulte el tutorial Administración de grupos de aplicaciones.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Administración de grupos de aplicaciones](../manage-app-groups.md)

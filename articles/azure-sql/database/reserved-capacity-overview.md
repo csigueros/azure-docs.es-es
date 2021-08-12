@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Aprenda a comprar capacidad reservada de Azure SQL Database e Instancia administrada de SQL para ahorrar en los costos de proceso.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 10/13/2020
-ms.openlocfilehash: cacd43502a01352c24f8fcfd85b12aac781dccbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e4f1ba5d15921f30319b001474351d637a0e338
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98602522"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413760"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Ahorro de costos para los recursos con capacidad reservada: Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -88,6 +88,9 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 ## <a name="next-steps"></a>Pasos siguientes
 
 El descuento por la reserva de núcleos virtuales se aplica automáticamente al número de bases de datos o instancias administradas que coincidan con el ámbito y los atributos de la reserva de capacidad. Puede actualizar el ámbito de la reserva de capacidad mediante [Azure Portal](https://portal.azure.com), PowerShell, la CLI de Azure o la API.
+
+- Para obtener información sobre los niveles de servicio de Azure SQL Database para el modelo de núcleo virtual, consulte [Introducción al modelo de núcleo virtual: Azure SQL Database](service-tiers-sql-database-vcore.md).
+- Para obtener información sobre los niveles de servicio de Azure SQL Managed Instance para el modelo de núcleo virtual, consulte [Introducción al modelo de núcleo virtual: Azure SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md).
 
 Para saber cómo administrar la reserva de capacidad, consulte el artículo sobre la [administración de capacidad reservada](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 

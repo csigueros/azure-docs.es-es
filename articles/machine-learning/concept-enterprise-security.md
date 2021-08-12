@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: aashishb
+ms.author: jmartens
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/20/2020
-ms.openlocfilehash: a079504872eaf3840416a99e784c4d33a6828b0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/02/2021
+ms.openlocfilehash: 27bd8124c0b78d1fecd1f7027104c3b5c9b8a8a1
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94992036"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541511"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Seguridad de empresa y gobernanza para Azure Machine Learning
 
@@ -39,7 +39,7 @@ Este es el proceso de autenticación de Azure Machine Learning mediante la auten
 
 [![Autenticación en Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
-Cada área de trabajo lleva asociada una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) asignada por el sistema con el mismo nombre que el área de trabajo. Esta identidad administrada se usa para acceder de manera segura a los recursos que usa el área de trabajo. Tiene los siguientes permisos de Azure RBAC sobre los recursos conectados:
+Cada área de trabajo lleva asociada una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) asignada por el sistema con el mismo nombre que el área de trabajo. Esta identidad administrada se usa para acceder de manera segura a los recursos que usa el área de trabajo. Tiene los permisos de Azure RBAC siguientes sobre los recursos asociados:
 
 | Recurso | Permisos |
 | ----- | ----- |
@@ -48,13 +48,23 @@ Cada área de trabajo lleva asociada una [identidad administrada](../active-dire
 | Almacén de claves | Acceso a todas las claves, secretos, certificados |
 | Azure Container Registry | Colaborador |
 | El grupo de recursos que contiene el área de trabajo | Colaborador |
-| El grupo de recursos que contiene el almacén de claves (si es diferente al que contiene el área de trabajo) | Colaborador |
+
+La identidad administrada asignada por el sistema se usa para la autenticación interna de servicio a servicio entre Azure Machine Learning y otros recursos de Azure. Los usuarios no pueden acceder al token de identidad y no lo pueden usar para acceder a estos recursos. Los usuarios solo pueden acceder a los recursos a través de las [API de control o de plano de datos de Azure Machine Learning](how-to-assign-roles.md), si tienen permisos RBAC suficientes.
+
+La identidad administrada debe tener permisos de colaborador en el grupo de recursos que contiene el área de trabajo para aprovisionar los recursos asociados e [implementar Azure Container Instances para los puntos de conexión de servicio Web](how-to-deploy-azure-container-instance.md).
 
 No se recomienda que los administradores revoquen el acceso de la identidad administrada a los recursos mencionados en la tabla anterior. Puede restaurar el acceso mediante la [operación de resincronización de claves](how-to-change-storage-access-key.md).
 
-Además, Azure Machine Learning crea una aplicación adicional (el nombre empieza por `aml-` o `Microsoft-AzureML-Support-App-`) con acceso de nivel de colaborador en la suscripción para cada región del área de trabajo. Por ejemplo, si tiene un área de trabajo en la región Este de EE. UU. y otra en la región Norte de Europa en la misma suscripción, verá dos de estas aplicaciones. Estas aplicaciones permiten que Azure Machine Learning le ayude a administrar los recursos de proceso.
+> [!NOTE]
+> Si las áreas de trabajo de Azure Machine Learning tienen destinos de proceso (clúster de proceso, instancia de proceso, Azure Kubernetes Service, etc.) que se crearon __antes del 14 de mayo de 2021__, también puede tener una cuenta adicional de Azure Active Directory. El nombre de la cuenta comienza por `Microsoft-AzureML-Support-App-` y tiene acceso de nivel de colaborador a la suscripción para cada región del área de trabajo.
+> 
+> Si el área de trabajo no tiene asociada ninguna instancia de Azure Kubernetes Service (AKS), puede eliminar esta cuenta de Azure AD de forma segura. 
+> 
+> Si el área de trabajo tiene asociados clústeres de AKS _que se crearon antes del 14 de mayo de 2021_, __no elimine esta cuenta de Azure AD__. En este escenario, primero debe eliminar el clúster de AKS y volver a crearlo para poder eliminar la cuenta de Azure AD.
 
-También puede configurar sus propias identidades administradas para usarlas con Azure Virtual Machines y el clúster de proceso de Azure Machine Learning. Con una máquina virtual, la identidad administrada se puede usar para acceder al área de trabajo desde el SDK, en lugar de la cuenta de Azure AD del usuario individual. Con un clúster de proceso, la identidad administrada se usa para acceder a recursos como los almacenes de datos seguros a los que el usuario que ejecuta el trabajo de entrenamiento podría no tener acceso. Para obtener más información, consulte [Autenticación de un área de trabajo de Azure Machine Learning](how-to-setup-authentication.md).
+Puede aprovisionar el área de trabajo para usar una identidad administrada asignada por el usuario y conceder roles adicionales a la identidad administrada, por ejemplo, para acceder a su propia instancia de Azure Container Registry para imágenes base de Docker. Para obtener más información, consulte [Uso de identidades administradas para el control de acceso](how-to-use-managed-identities.md).
+
+También puede configurar identidades administradas para usarlas con el clúster de proceso de Azure Machine Learning. Esta identidad administrada es independiente de la identidad administrada del área de trabajo. Con un clúster de proceso, la identidad administrada se usa para acceder a recursos como los almacenes de datos seguros a los que el usuario que ejecuta el trabajo de entrenamiento podría no tener acceso. Para obtener más información, consulte [Acceso a datos basado en identidad para los servicios de almacenamiento de Azure](how-to-identity-based-data-access.md).
 
 > [!TIP]
 > Hay algunas excepciones al uso de Azure AD y Azure RBAC en Azure Machine Learning:

@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial de Azure Advisor para Windows Virtual Desktop: Azure'
-description: Cómo resolver recomendaciones de Azure Advisor para Windows Virtual Desktop.
+title: 'Tutorial de Azure Advisor para Azure Virtual Desktop: Azure'
+description: Cómo resolver recomendaciones de Azure Advisor para Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 666f882dec6c00b9fe5421485afded1fbd57d961
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b8bc514f495a46e76ad882720c918824aab0aaac
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448311"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745488"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Cómo resolver recomendaciones de Azure Advisor
 
-En este artículo se describe cómo puede resolver las recomendaciones que aparecen en Azure Advisor para Windows Virtual Desktop.
+En este artículo se describe cómo puede resolver las recomendaciones que aparecen en Azure Advisor para Azure Virtual Desktop.
 
 ## <a name="no-validation-environment-enabled"></a>"No se habilitó ningún entorno de validación"
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo puede resolver las recomendaciones que apare
 
 Esta recomendación aparece en Excelencia operativa. En la recomendación también se debería mostrar un mensaje de advertencia similar al siguiente:
 
-"No tiene un entorno de validación habilitado en esta suscripción. Al crear los grupos de hosts, ha seleccionado **No** para el entorno de validación en la pestaña Propiedades. Para garantizar la continuidad empresarial a través de las implementaciones del servicio Windows Virtual Desktop, asegúrese de que tiene al menos un grupo host con un entorno de validación en el que puede probar posibles problemas".
+"No tiene un entorno de validación habilitado en esta suscripción. Al crear los grupos de hosts, seleccionó **No** para el "entorno de validación" en la pestaña Propiedades. Para garantizar la continuidad empresarial a través de las implementaciones del servicio Azure Virtual Desktop, asegúrese de que tiene al menos un grupo de hosts con un entorno de validación en el que puede probar posibles problemas".
 
 Puede descartar este mensaje de advertencia habilitando un entorno de validación en uno de los grupos host.
 
@@ -75,4 +75,4 @@ Para solucionar esta recomendación, asegúrese de desbloquear todas las direcci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si buscas guías más detalladas sobre cómo resolver problemas comunes, consulta [Información general, comentarios y soporte técnico para la solución de problemas de Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+Si buscas guías más detalladas sobre cómo resolver problemas comunes, consulta [Información general, comentarios y soporte técnico para la solución de problemas de Azure Virtual Desktop](troubleshoot-set-up-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: 'Configuración del plan de recuperación ante desastres de Windows Virtual Desktop: Azure'
-description: Procedimiento para configurar un plan de continuidad empresarial y recuperación ante desastres para su implementación de Windows Virtual Desktop.
+title: 'Configuración del plan de recuperación ante desastres de Azure Virtual Desktop: Azure'
+description: Procedimiento para configurar un plan de continuidad empresarial y recuperación ante desastres para su implementación de Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 18089bc00e9d02087acb149511fbc2c55077c153
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 91795dbe4e648f12e9a088a5aeffb68bffb46a65
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446934"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757902"
 ---
 # <a name="set-up-a-business-continuity-and-disaster-recovery-plan"></a>Configuración de un plan de continuidad empresarial y recuperación ante desastres
 
 Para mantener la seguridad de los datos de su organización, es posible que tenga que adoptar una estrategia de continuidad empresarial y recuperación ante desastres (BCDR). Una estrategia de BCDR adecuada mantiene las aplicaciones y cargas de trabajo en ejecución durante las interrupciones del servicio o de Azure, sean planeadas o no.
 
-Windows Virtual Desktop ofrece BCDR para que el servicio Windows Virtual Desktop conserve los metadatos de los clientes durante las interrupciones. Cuando se produce una interrupción en una región, los componentes de la infraestructura del servicio realizarán una conmutación por error en la ubicación secundaria y seguirán funcionando de forma habitual. Seguirá siendo posible acceder a los metadatos relacionados con el servicio, y los usuarios podrán conectarse a los hosts disponibles. Las conexiones de los usuarios finales permanecerán en línea siempre que los hosts o el entorno de los inquilinos sigan siendo accesibles.
+Azure Virtual Desktop ofrece BCDR para que el servicio Azure Virtual Desktop conserve los metadatos de los clientes durante las interrupciones. Cuando se produce una interrupción en una región, los componentes de la infraestructura del servicio realizarán una conmutación por error en la ubicación secundaria y seguirán funcionando de forma habitual. Seguirá siendo posible acceder a los metadatos relacionados con el servicio, y los usuarios podrán conectarse a los hosts disponibles. Las conexiones de los usuarios finales permanecerán en línea siempre que los hosts o el entorno de los inquilinos sigan siendo accesibles.
 
 Para asegurarse de que los usuarios puedan seguir conectándose durante una interrupción de la región, debe replicar sus máquinas virtuales (VM) en otra ubicación. Durante las interrupciones, el sitio primario realiza una conmutación por error en las máquinas virtuales replicadas en la ubicación secundaria. Los usuarios podrán seguir accediendo a las aplicaciones desde la ubicación secundaria sin interrupciones. Además de la replicación de las máquinas virtuales, tendrá que mantener las identidades de los usuarios accesibles en la ubicación secundaria. Si utiliza contenedores de perfiles, también tendrá que replicarlos. Por último, asegúrese de que las aplicaciones empresariales que se basan en los datos de la ubicación principal puedan realizar una conmutación por error con el resto de los datos.
 
@@ -40,17 +40,17 @@ En primer lugar, debe replicar las máquinas virtuales en la ubicación secundar
 
 Se recomienda usar [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para administrar la replicación de máquinas virtuales en otras ubicaciones de Azure, tal y como se describe en [Arquitectura de recuperación ante desastres de Azure a Azure](../site-recovery/azure-to-azure-architecture.md). Se recomienda especialmente usar Azure Site Recovery para los grupos de hosts personales, ya que Azure Site Recovery admite [SKU que se basen en el servidor y en el cliente](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
-Si usa Azure Site Recovery, no tendrá que registrar estas máquinas virtuales manualmente. El agente de Windows Virtual Desktop de la máquina virtual secundaria usará automáticamente el token de seguridad más reciente para conectarse a la instancia de servicio más cercana. La máquina virtual (host de sesión) de la ubicación secundaria se convierte automáticamente en parte del grupo de hosts. El usuario final tendrá que volver a conectarse durante el proceso, pero, aparte de eso, no hay ninguna otra operación manual.
+Si usa Azure Site Recovery, no tendrá que registrar estas máquinas virtuales manualmente. El agente de Azure Virtual Desktop de la máquina virtual secundaria usará automáticamente el token de seguridad más reciente para conectarse a la instancia de servicio más cercana. La máquina virtual (host de sesión) de la ubicación secundaria se convierte automáticamente en parte del grupo de hosts. El usuario final tendrá que volver a conectarse durante el proceso, pero, aparte de eso, no hay ninguna otra operación manual.
 
 Si hay conexiones de usuarios existentes durante la interrupción, para que el administrador pueda iniciar la conmutación por error en la región secundaria, habrá que finalizar las conexiones de los usuarios en la región actual.
 
-Para desconectar usuarios de Windows Virtual Desktop (clásico), ejecute este cmdlet:
+Para desconectar usuarios de Azure Virtual Desktop (clásico), ejecute este cmdlet:
 
 ```powershell
 Invoke-RdsUserSessionLogoff
 ```
 
-Para desconectar usuarios de la versión de Windows Virtual Desktop integrada en Azure, ejecute este cmdlet:
+Para desconectar usuarios de la versión de Azure Virtual Desktop integrada en Azure, ejecute este cmdlet:
 
 ```powershell
 Remove-AzWvdUserSession
@@ -84,7 +84,7 @@ Si utiliza contenedores de perfiles, el paso siguiente consiste en configurar la
    - Azure NetApp Files
    - Caché en la nube para la replicación
 
-Para obtener más información, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop](store-fslogix-profile.md).
+Para obtener más información, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Azure Virtual Desktop](store-fslogix-profile.md).
 
 Si va a configurar la recuperación ante desastres para los perfiles, estas son las opciones:
 

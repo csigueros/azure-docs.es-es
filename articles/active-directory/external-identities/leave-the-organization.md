@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc07e038ef382a44c4672b2d63c49d8f5a961cda
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 239778455f049822bd92a92c811fcacad270ae3e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486342"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076517"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Salir de una organización como usuario invitado
 
@@ -29,19 +29,17 @@ Es posible que un usuario invitado de Azure Active Directory (Azure AD) B2B deci
 
 Para salir de una organización, siga estos pasos.
 
-1. Siga uno de estos pasos para ir a la página Perfil del Panel de acceso:
-   
-   - En [Azure Portal](https://portal.azure.com), haga clic en su nombre en la esquina superior derecha y seleccione **Ver cuenta**.
-   - Abra el [Panel de acceso](https://myapps.microsoft.com), haga clic en su nombre en la parte superior derecha y, al lado de **Organizaciones**, seleccione **Ver cuenta**.
- 
- 
-2. Seleccione **Administrar organizaciones**.
-  ![Captura de pantalla que muestra la configuración de usuario en el panel de acceso](media/leave-the-organization/manage-organizations.png) 
-  
-3. En **Organizaciones**, busque la organización que quiere abandonar y seleccione **Salir de la organización**.
+1. Siga estos pasos para ir a la página **Mi cuenta**:
+- Si usa una cuenta profesional o educativa, vaya a https://myaccount.microsoft.com e inicie sesión.
+- Si usa una cuenta personal, vaya a https://myapps.microsoft.com e inicie sesión y, luego, haga clic en el icono de la cuenta en la esquina superior derecha y seleccione **Ver cuenta**.
+   > [!NOTE]
+   > Cuando se usa una cuenta personal, otra opción es ir directamente a la página Mi cuenta agregando el nombre de inquilino o el identificador de inquilino a la dirección URL, por ejemplo: `https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com` o `https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789`.
+
+2. En **Organizaciones**, busque la organización que quiere abandonar y seleccione **Salir de la organización**.
 
    ![Captura de pantalla que muestra la opción Salir de la organización en la interfaz de usuario](media/leave-the-organization/leave-org.png)
-4. Cuando se le pida que confirme, seleccione **Salir**.
+3. Cuando se le pida que confirme, seleccione **Salir**.
+
 > [!NOTE]
    > No puede abandonar la organización principal.
 
