@@ -8,46 +8,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f0fb81a4daa57b473e8b2b4b937426eafbf903d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60517714e0aa19a2cf465c22c6511b0c89648942
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014543"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792449"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Asignación de roles personalizados con ámbito de recurso mediante PowerShell en Azure Active Directory
 
 En este artículo se describe cómo crear una asignación de roles en un ámbito de toda la organización en Azure Active Directory (Azure AD). La asignación de un rol en un ámbito de toda la organización concede acceso a toda la organización de Azure AD. Para crear una asignación de roles con un ámbito de un solo recurso de Azure AD, consulte [Cómo crear un rol personalizado y asignarlo en un ámbito de recurso](custom-create.md). Este artículo se usa el módulo [Azure Active Directory PowerShell, versión 2](/powershell/module/azuread/#directory_roles).
 
-Para más información sobre los roles de administración de Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory](permissions-reference.md).
+Para más información sobre los roles de Azure AD, consulte [Roles integrados en Azure AD](permissions-reference.md).
 
-## <a name="required-permissions"></a>Permisos necesarios
+## <a name="prerequisites"></a>Requisitos previos
 
-Conéctese a la organización de Azure AD con una cuenta de administrador global para asignar o eliminar roles.
+- Una licencia de Azure AD Premium P1 o P2
+- Administrador global o administrador de roles con privilegios
+- Módulo de AzureADPreview al usar PowerShell
 
-## <a name="prepare-powershell"></a>Preparación para PowerShell
-
-Instale el módulo de Azure AD PowerShell desde la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureADPreview). Después, importe el módulo de versión preliminar de Azure AD PowerShell con el comando siguiente:
-
-``` PowerShell
-Import-Module -Name AzureADPreview
-```
-
-Para comprobar que el módulo está listo para su uso, haga coincidir la versión devuelta por el siguiente comando con la que aparece aquí:
-
-``` PowerShell
-Get-Module -Name AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    AzureADPreview               {Add-AzureADMSAdministrati...}
-```
-
-Ahora puede empezar a usar los cmdlets del módulo. Para una descripción completa de los cmdlets del módulo de Azure AD, consulte la documentación de referencia en línea sobre el [módulo de versión preliminar de Azure AD](https://www.powershellgallery.com/packages/AzureADPreview).
+Para obtener más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
 
 ## <a name="assign-a-directory-role-to-a-user-or-service-principal-with-resource-scope"></a>Asignación de un rol de directorio a un usuario o entidad de servicio con ámbito de recurso
 

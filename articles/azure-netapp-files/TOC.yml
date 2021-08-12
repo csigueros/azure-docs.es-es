@@ -35,12 +35,20 @@
           href: performance-oracle-single-volumes.md
         - name: Referencia de rendimiento para Azure NetApp Files
           items:
+            - name: Procedimientos recomendados de E/S directa de Linux
+              href: performance-linux-direct-io.md
+            - name: Procedimientos recomendados de caché del sistema de archivos de Linux
+              href: performance-linux-filesystem-cache.md
             - name: Procedimientos recomendados de opciones de montaje de NFS de Linux
               href: performance-linux-mount-options.md
             - name: Procedimientos recomendados de simultaneidad de Linux
               href: performance-linux-concurrency-session-slots.md
+            - name: Procedimientos recomendados de lectura anticipada de NFS de Linux
+              href: performance-linux-nfs-read-ahead.md
             - name: Procedimientos recomendados de rendimiento de SMB
               href: azure-netapp-files-smb-performance.md
+            - name: Procedimientos recomendados de SKU de máquinas virtuales de Azure
+              href: performance-virtual-machine-sku.md
     - name: Modelo de costo de Azure NetApp Files
       href: azure-netapp-files-cost-model.md
     - name: Descripción de la cuota de volumen
@@ -211,5 +219,7 @@
       href: 'https://azure.microsoft.com/support/legal/sla/netapp/'
     - name: Vídeos
       href: azure-netapp-files-videos.md
+    - name: 'Comparación del acceso con NFS a Azure Blob Storage, Azure Files y Azure NetApp Files'
+      href: ../storage/common/nfs-comparison.md?toc=%2fazure%2fazure-netapp-files%2ftoc.json
     - name: Comparación entre Azure NetApp Files y Azure Files
       href: ../storage/files/storage-files-netapp-comparison.md

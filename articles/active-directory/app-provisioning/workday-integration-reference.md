@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 06/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
-ms.openlocfilehash: 66ff44c2ed1cdfe8b1381e4cbfb68fe03831bc79
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: a67026238c0a3cf469cb7d6bc3112eb269cf5a13
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784600"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785903"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Integración del aprovisionamiento de Azure Active Directory con Workday
 
@@ -409,7 +409,7 @@ En la tabla siguiente se proporcionan instrucciones sobre la configuración de l
 
 Estos son algunos ejemplos sobre cómo puede ampliar la integración con Workday para que cumpla requisitos específicos. 
 
-**Ejemplo 1**
+### <a name="example-1-retrieving-cost-center-and-pay-group-information"></a>Ejemplo 1: Recuperación de la información del centro de coste y del grupo de pago
 
 Supongamos que desea recuperar los siguientes conjuntos de datos de Workday y usarlos en las reglas de aprovisionamiento:
 
@@ -438,19 +438,31 @@ Los conjuntos de datos anteriores no se incluyen de forma predeterminada. Para r
      >| CostCenterCode | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/@wd:Descriptor='Cost Center']/wd:Organization_Code/text() |
      >| PayGroup | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/@wd:Descriptor='Pay Group']/wd:Organization_Name/text() |
 
-**Ejemplo 2**
+### <a name="example-2-retrieving-qualification-and-skills-data"></a>Ejemplo 2: Recuperación de los datos de cualificación y aptitudes
 
 Supongamos que desea recuperar las certificaciones asociadas a un usuario. Esta información está disponible como parte del conjunto *Datos de cualificación*. Para obtener este conjunto de datos como parte de la respuesta de *Get_Workers*, utilice el siguiente código de XPATH: 
 
 `wd:Worker/wd:Worker_Data/wd:Qualification_Data/wd:Certification/wd:Certification_Data/wd:Issuer/text()`
 
-**Ejemplo 3**
+### <a name="example-3-retrieving-provisioning-group-assignments"></a>Ejemplo 3: Recuperación de asignaciones de grupos de aprovisionamiento
 
-Supongamos que desea recuperar los *grupos de aprovisionamiento* asignados a un trabajador. Esta información está disponible como parte del conjunto de *datos de aprovisionamiento de cuentas*. Para obtener este conjunto de datos como parte de la respuesta de *Get_Workers*, utilice el siguiente código de XPATH: 
+Supongamos que desea recuperar los *grupos de aprovisionamiento* asignados a un trabajador. Esta información está disponible como parte del conjunto de *datos de aprovisionamiento de cuentas*. Para obtener estos datos como parte de la respuesta de *Get_Workers*, use el siguiente código de XPATH: 
 
 `wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text()`
 
 ## <a name="handling-different-hr-scenarios"></a>Administración de distintos escenarios de recursos humanos
+
+### <a name="support-for-worker-conversions"></a>Compatibilidad con conversiones de trabajador
+
+Cuando un trabajador se convierte de empleado a trabajador eventual o de trabajador eventual a empleado, el conector de Workday detecta automáticamente este cambio y vincula la cuenta de AD al perfil del trabajador activo para que todos los atributos de AD estén sincronizados con el perfil de trabajador activo. No se requiere ningún cambio de configuración para habilitar esta funcionalidad. A continuación, se presenta la descripción del comportamiento de aprovisionamiento cuando se produce una conversión. 
+
+* Supongamos que John Smith entra como trabajador eventual en enero. Como no hay ninguna cuenta de AD asociada al *WorkerID* (atributo de coincidencia) de John, el servicio de aprovisionamiento crea una nueva cuenta de AD para el usuario y vincula el *WID (WorkdayID)* de trabajador eventual de John a su cuenta de AD.
+* Tres meses después, John se convierte en un empleado a tiempo completo. En Workday, se crea un nuevo perfil de trabajador para John. Aunque el *WorkerID* de John en Workday sigue igual, John ahora tiene dos *WID* en Workday, uno asociado al perfil de trabajador eventual y otro asociado al perfil de trabajador empleado. 
+* Durante la sincronización incremental, cuando el servicio de aprovisionamiento detecta dos perfiles de trabajador para el mismo WorkerID, transfiere automáticamente la propiedad de la cuenta de AD al perfil de trabajador activo. En este caso, desvincula el perfil de trabajador eventual de la cuenta de AD y establece un nuevo vínculo entre el perfil de trabajador empleado activo de John y su cuenta de AD. 
+
+>[!NOTE]
+>Durante la sincronización completa inicial, puede observar un comportamiento en el que los valores de atributo asociados al flujo del perfil de trabajador inactivo anterior fluyen a la cuenta de AD de los trabajadores convertidos. Esto es temporal y, a medida que progresa la sincronización completa, los valores de atributo del perfil de trabajador activo lo sobrescribirán. Una vez completada la sincronización completa y que el trabajo de aprovisionamiento alcance el estado estable, siempre seleccionará el perfil de trabajo activo durante la sincronización incremental. 
+
 
 ### <a name="retrieving-international-job-assignments-and-secondary-job-details"></a>Recuperación de asignaciones de trabajos internacionales y detalles de trabajos secundarios
 

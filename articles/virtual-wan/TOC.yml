@@ -41,7 +41,7 @@
           href: virtual-wan-locations-partners.md
         - name: Directrices de automatización para asociados
           href: virtual-wan-configure-automation-providers.md
-    - name: Architecture
+    - name: Arquitectura
       items:
         - name: Migración a Virtual WAN
           href: migrate-from-hub-spoke-topology.md
@@ -75,10 +75,6 @@
           href: scenario-route-between-vnets-firewall.md
         - name: Application Gateway y grupos de back-end
           href: scenario-secured-hub-app-gateway.md
-    - name: Supervisión
-      items:
-        - name: Acerca de Azure Monitor Insights para Virtual WAN
-          href: azure-monitor-insights.md
     - name: De sitio a sitio
       items:
         - name: Acerca de las directivas IPsec S2S
@@ -185,10 +181,12 @@
           href: howto-private-link.md
         - name: 'Administración del acceso a los recursos: Spoke VNet P2S'
           href: manage-secure-access-resources-spoke-p2s.md
-    - name: Supervisión
+    - name: Supervisión del estado
       items:
-        - name: Registros y métricas
-          href: logs-metrics.md
+        - name: Supervisión de Virtual WAN
+          href: monitor-virtual-wan.md
+        - name: Azure Monitor Insights para Virtual WAN
+          href: azure-monitor-insights.md
 - name: Referencia
   items:
     - name: Azure PowerShell

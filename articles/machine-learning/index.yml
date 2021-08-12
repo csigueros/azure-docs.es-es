@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentación de Azure Machine Learning
-summary: Aprenda a entrenar e implementar modelos, y a administrar el ciclo de vida del aprendizaje automático con Azure Machine Learning. Tutoriales, ejemplos de código, referencias de API y otros elementos que muestran cómo hacerlo.
+summary: Aprenda a entrenar e implementar modelos y a administrar el ciclo de vida del aprendizaje automático con Azure Machine Learning. Tutoriales, ejemplos de código, referencias de API, etc.
 metadata:
   title: Documentación de Azure Machine Learning
-  description: Aprenda a entrenar e implementar modelos, y a administrar el ciclo de vida del aprendizaje automático con Azure Machine Learning. Tutoriales, ejemplos de código, referencias de API y otros elementos que muestran cómo hacerlo.
+  description: Aprenda a entrenar e implementar modelos y a administrar el ciclo de vida del aprendizaje automático con Azure Machine Learning. Tutoriales, ejemplos de código, referencias de API, etc.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,55 +11,81 @@ metadata:
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 06/11/2021
+  ms.date: 07/09/21
   ms.custom: jordan-changes
-  ms.openlocfilehash: 8ca3c770daa74b2f9f8f8dfd2edd0e22b6659538
-  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+  ms.openlocfilehash: a6c9062be083260dd7a492363cb0dd79b2f37cdf
+  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112030078"
+  ms.lasthandoff: 07/10/2021
+  ms.locfileid: "113595910"
 landingContent:
-- title: 'Introducción: Entrenamiento de modelos'
+- title: Primeros pasos
   linkLists:
-  - linkListType: tutorial
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Machine Learning?
+      url: overview-what-is-azure-ml.md
+  - linkListType: quickstart
     links:
     - text: Configuración de recursos
       url: quickstart-create-resources.md
+  - linkListType: tutorial
+    links:
     - text: Entrenamiento con el SDK de Python
       url: tutorial-1st-experiment-hello-world.md
     - text: Entrenamiento con la CLI v2 (versión preliminar)
       url: how-to-train-cli.md
-- title: Otras opciones de entrenamiento de modelos
+- title: Entrenamiento de modelos
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Optimización de modelos con barridos de hiperparámetros
+    - text: Ajuste de hiperparámetros para el entrenamiento de un modelo
       url: how-to-tune-hyperparameters.md
-    - text: Creación de canalizaciones de Machine Learning con varios pasos
+    - text: Compilación de canalizaciones a partir de componentes reutilizables
       url: how-to-create-machine-learning-pipelines.md
+  - linkListType: tutorial
+    links:
     - text: Entrenamiento con AutoML
       url: tutorial-first-experiment-automated-ml.md
-    - text: Entrenamiento con el diseñador
-      url: tutorial-designer-automobile-price-train-score.md
+    - text: Ejecución de código de entrenamiento en la nube (versión preliminar de la CLI v2)
+      url: how-to-train-cli.md
 - title: Implementación de modelos
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Implementación de un modelo
       url: how-to-deploy-and-where.md
-    - text: Puntuación en línea administrada (versión preliminar)
+    - text: Puntuación en tiempo real con puntos de conexión administrados (versión preliminar)
       url: how-to-deploy-managed-online-endpoints.md
-    - text: Puntuación por lotes administrada (versión preliminar)
+    - text: Puntuación por lotes con puntos de conexión administrados (versión preliminar)
       url: how-to-use-batch-endpoint.md
-- title: Automatización del ciclo de vida de Machine Learning
+- title: Administración del ciclo de vida de ML (MLOps)
   linkLists:
+  - linkListType: concept
+    links:
+    - text: Administración, linaje y supervisión de modelos
+      url: concept-model-management-and-deployment.md
   - linkListType: how-to-guide
     links:
-    - text: Seguimiento de experimentos de Machine Learning
+    - text: Seguimiento, supervisión y análisis de ejecuciones de entrenamiento
       url: how-to-track-monitor-analyze-runs.md
-    - text: Administración del ciclo de vida de Machine Learning (MLOps)
-      url: concept-model-management-and-deployment.md
+    - text: DevOps para una canalización de ingesta de datos
+      url: how-to-cicd-data-ingestion.md
+- title: Seguridad para proyectos de Machine Learning
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Seguridad y gobernanza para empresas
+      url: concept-enterprise-security.md
+  - linkListType: tutorial
+    links:
+    - text: Creación de una área de trabajo segura
+      url: tutorial-create-secure-workspace.md
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión a orígenes de datos
+      url: how-to-access-data.md
 - title: Documentos de referencia
   linkLists:
   - linkListType: reference
@@ -68,13 +94,21 @@ landingContent:
       url: /python/api/overview/azure/ml/
     - text: API DE REST
       url: /rest/api/azureml/
-    - text: CLI de Machine Learning
+    - text: CLI de Machine Learning v2
       url: /cli/azure/ml
-- title: Búsqueda de Studio (clásico)
+- title: Recursos
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Ejemplos de código del SDK de Python
+      url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
+    - text: Ejemplos de código de la CLI v2 (versión preliminar)
+      url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
+- title: Búsqueda de ML Studio (clásico)
   linkLists:
   - linkListType: overview
     links:
-    - text: Aterrizaje de Studio (clásico)
+    - text: Documentación de ML Studio (clásico)
       url: classic/index.yml
-    - text: Qué es Studio (clásico) frente a Studio
+    - text: Azure Machine Learning frente a Studio (clásico)
       url: overview-what-is-machine-learning-studio.md

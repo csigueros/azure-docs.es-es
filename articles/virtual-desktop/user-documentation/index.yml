@@ -1,0 +1,61 @@
+### YamlMime:Landing
+title: Documentación de Azure Virtual Desktop para usuarios
+summary: La conexión a Azure Virtual Desktop resulta fácil.
+metadata:
+  title: Documentación del usuario de Azure Virtual Desktop
+  description: Con Azure Virtual Desktop, puede usar Windows 10 Enterprise en la nube.
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  author: Heidilohr
+  ms.author: helohr
+  ms.date: 06/15/2021
+  ms.openlocfilehash: 09025c9bd7d12791f61496463e02cc8866fa9d37
+  ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/29/2021
+  ms.locfileid: "113034163"
+landingContent:
+- title: Conexión con el cliente de Escritorio de Windows
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión con el cliente de Escritorio de Windows
+      url: connect-windows-7-10.md
+- title: Conexión con el cliente de Microsoft Store
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión con el cliente de Microsoft Store
+      url: connect-microsoft-store.md
+- title: Conexión con el cliente web
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión con el cliente web
+      url: connect-web.md
+- title: Conexión con el cliente macOS
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión con el cliente macOS
+      url: connect-macos.md
+- title: Conexión con el cliente iOS
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión con el cliente iOS
+      url: connect-ios.md
+- title: Conexión con el cliente de Android
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión con el cliente Android
+      url: connect-android.md
+- title: Conexión con clientes Linux o ligeros
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión con clientes Linux o ligeros
+      url: linux-overview.md
