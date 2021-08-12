@@ -4,12 +4,12 @@ description: Traiga sus propias claves (BYOK) para cifrar el sistema operativo y
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: c5c555d7eb5142f5f41f65b24f754c65450a2713
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6007294476321e1155219aae0664732ee4f921e0
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776198"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476252"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traiga sus propias claves (BYOK) con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. 
 
 ## <a name="limitations"></a>Limitaciones
 * La compatibilidad con el cifrado de discos de datos se limita a los clústeres de AKS que ejecuten Kubernetes versión 1.17 y posteriores.
-* El cifrado del sistema operativo y del disco de datos con claves administradas por el cliente solo se puede habilitar cuando se crea un clúster de AKS.
+* El cifrado del disco del sistema operativo con claves administradas por el cliente solo se puede habilitar cuando se crea un clúster de AKS.
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Debe habilitar la protección contra el purgado y la eliminación temporal para *Azure Key Vault* al usar Key Vault para cifrar los discos administrados.

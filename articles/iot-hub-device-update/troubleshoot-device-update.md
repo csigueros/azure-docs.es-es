@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/17/2021
 ms.topic: troubleshooting
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 3c1f60b214397b1f97e0157b5beca32d504102d6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f5ea8cfe1df2ae89bb67675c9bf235d62dca4bf5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030637"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082079"
 ---
 # <a name="device-update-for-iot-hub-troubleshooting-guide"></a>Guía para la solución de problemas de Device Update para Azure IoT Hub
 
@@ -66,6 +66,9 @@ _Puede haberlo provocado un error del servicio o la experiencia del usuario, o b
 
 ### <a name="q-i-started-a-deployment-but-it-isnt-reaching-an-end-state"></a>P: he iniciado una implementación pero no llega a un estado final.
 _Puede deberse a un problema de rendimiento del servicio, un error del servicio o un problema del cliente. Vuelva a intentar realizar la implementación dentro de 10 minutos. Si aparece el mismo problema, extraiga los registros del dispositivo y consulte la sección Errores de dispositivo de esta guía para la solución de problemas. Si el problema vuelve a aparecer, siga las instrucciones de la sección de [contacto con el soporte técnico de Microsoft](#contact) para presentar una solicitud de soporte técnico a Microsoft._
+
+### <a name="q-i-migrated-from-a-device-level-agent-to-adding-the-agent-as-a-module-identity-on-the-device-and-my-update-shows-as-in-progress-even-though-it-has-been-applied-to-the-device"></a>P: he realizado la migración desde un agente de nivel de dispositivo para agregar el agente como una identidad de módulo en el dispositivo y mi actualización se muestra "en curso" aunque se haya aplicado al dispositivo.
+_Es posible que se deba a que no se ha eliminado el agente anterior que se comunicaba a través del dispositivo gemelo. Al aprovisionar el agente de Device Update como un módulo (consulte los [procedimientos](device-update-agent-provisioning.md)) todas las comunicaciones entre el dispositivo y el servicio Azure Device Update se realizarán a través del módulo gemelo, por lo que no olvide etiquetar el módulo gemelo del dispositivo al crear [grupos](device-update-groups.md) y todas las [comunicaciones](device-update-plug-and-play.md) deben realizarse a través del módulo gemelo.
 
 ## <a name="downloading-updates-onto-devices"></a><a name="download"></a> Descarga de actualizaciones en dispositivos
 

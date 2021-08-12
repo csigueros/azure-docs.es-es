@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 631fdba451f69e44a675d396a42e1cddaea50a3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/30/2021
+ms.openlocfilehash: 67919f89167fbdb09bfed8e67dfda5fb49bb9bb0
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98013964"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592401"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Salida de Azure SQL Database desde Azure Stream Analytics
 
@@ -47,6 +47,10 @@ La creación de particiones debe estar habilitada y se basa en la cláusula PART
 ## <a name="output-batch-size"></a>Tamaño de lote de salida
 
 Puede configurar el tamaño máximo del mensaje mediante **Número máximo de lotes**. El valor máximo predeterminado es 10 000 y el mínimo predeterminado es 100 filas por inserción masiva única. Para más información, consulte los [límites de SQL de Azure](../azure-sql/database/resource-limits-logical-server.md). Inicialmente, todos los lotes se insertan de forma masiva con el número máximo de lotes. El lote se divide por la mitad (hasta alcanzar el número mínimo de lotes) según los errores con posibilidad de reintento de SQL.
+
+## <a name="limitation"></a>Limitación
+
+No se admite el certificado SSL autofirmado al intentar conectar trabajos de ASA a SQL en la máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

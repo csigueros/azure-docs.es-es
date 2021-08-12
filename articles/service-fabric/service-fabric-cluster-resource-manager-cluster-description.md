@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb012c1f0cb60e590cb38fc9e362e400439b24b3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92911773"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479810"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descripción de un clúster de Service Fabric con Cluster Resource Manager
 
@@ -349,7 +349,7 @@ Service Fabric espera que haya casos en que se deban ejecutar cargas de trabajo 
 * se debe ejecutar una carga de trabajo en un hardware específico por motivos de rendimiento, escala o aislamiento de seguridad.
 * Una carga de trabajo debe estar aislada de otras por una directiva o a causa del consumo de recursos.
 
-Para admitir estos tipos de configuraciones, Service Fabric incluye etiquetas que se pueden aplicar a los nodos. Estas etiquetas se denominan *propiedades del nodo*. Las *restricciones de ubicación* son las instrucciones adjuntas a los servicios individuales que se seleccionan para una o más propiedades de nodo. Las restricciones de posición definen dónde deben ejecutarse los servicios. El conjunto de restricciones es extensible. Puede funcionar cualquier par clave/valor.
+Para admitir estos tipos de configuraciones, Service Fabric incluye etiquetas que se pueden aplicar a los nodos. Estas etiquetas se denominan *propiedades del nodo*. Las *restricciones de ubicación* son las instrucciones adjuntas a los servicios individuales que se seleccionan para una o más propiedades de nodo. Las restricciones de posición definen dónde deben ejecutarse los servicios. El conjunto de restricciones es extensible. Puede funcionar cualquier par clave/valor. A partir de Service Fabric 8.1, las propiedades del nodo se pueden actualizar de forma dinámica, sin interrupciones en las cargas de trabajo en ejecución.
 
 ![Diferentes cargas de trabajo por diseño de clúster][Image5]
 
@@ -473,7 +473,7 @@ Al igual que para las restricciones de ubicación y las propiedades de nodo, la 
 
 ## <a name="capacity"></a>Capacity
 
-Si desactivó todo el *equilibrio* de recursos, la utilidad Cluster Resource Manager de Service Fabric aún podría asegurarse de que ningún nodo terminara superando su capacidad. Es posible administrar saturaciones de capacidad, a no ser que el clúster esté demasiado lleno o la carga de trabajo sea mayor que cualquier nodo. La capacidad es otra *restricción* que utiliza Cluster Resource Manager para entender cuánto de un recurso tiene un nodo. También se realiza un seguimiento de la capacidad restante en el clúster.
+Si desactivó todo el *equilibrio* de recursos, la utilidad Cluster Resource Manager de Service Fabric aún podría asegurarse de que ningún nodo terminara superando su capacidad. Es posible administrar saturaciones de capacidad, a no ser que el clúster esté demasiado lleno o la carga de trabajo sea mayor que cualquier nodo. La capacidad es otra *restricción* que utiliza Cluster Resource Manager para entender cuánto de un recurso tiene un nodo. También se realiza un seguimiento de la capacidad restante en el clúster. A partir Service Fabric 8.1, las capacidades de nodo se pueden actualizar de forma dinámica, sin interrupciones en las cargas de trabajo en ejecución.
 
 Tanto la capacidad como el consumo en el nivel de servicio se expresan con métricas. Por ejemplo, la métrica podría ser "ClientConnections", y un nodo puede tener una capacidad "ClientConnections" de 32,768. Otros nodos pueden tener otros límites. Algún servicio que se ejecuta en ese nodo puede decir que está actualmente consumiendo 32,256 de la métrica "ClientConnections".
 

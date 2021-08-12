@@ -3,14 +3,14 @@ title: 'CLI de Azure: suscripción a grupos de recursos y filtros por recurso'
 description: En este artículo se proporciona un script de la CLI de Azure de ejemplo que muestra cómo suscribirse a los eventos de Azure Event Grid de un recurso y un filtro de un recurso.
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/08/2020
+ms.date: 07/22/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2662795e5ebc43e37eab7cab3dfc03582f072f8b
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: c9e44744f8f356a4e4c2d68f8ea20121407218eb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871440"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463803"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>Suscripción a eventos de un grupo de recursos y filtrado de los eventos de un recurso con la CLI de Azure
 

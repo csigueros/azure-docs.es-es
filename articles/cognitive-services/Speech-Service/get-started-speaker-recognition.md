@@ -3,22 +3,22 @@ title: 'Inicio rápido de Speaker Recognition: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar Speaker Recognition del SDK de voz para responder a la pregunta "¿quién habla?". En este inicio rápido, obtendrá información sobre los patrones de diseño que se usan con más frecuencia para trabajar con la identificación y verificación del hablante, que usan la biometría de voz para identificar voces únicas.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/02/2020
-ms.author: trbye
+ms.author: nitinme
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-five
 keywords: speaker recognition, reconocimiento del hablante, biometría de voz
-ms.openlocfilehash: 57c7ad220ada89e5848cf49b7fb68547bc7ad1cb
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 85c7800bae08ebac11779ad049f2897e0a480b7d
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015509"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711546"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Introducción a Speaker Recognition
 

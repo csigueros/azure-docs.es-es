@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/26/2020
+ms.date: 06/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 9852752799fd010ebb069637f55008d9c4f68bf8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9663ee95b8ae9b109016e409855ef171c368793
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98732147"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690869"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con FortiGate SSL VPN
 
@@ -76,7 +76,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la página **Configuración del inicio de sesión único con SAML**, escriba los valores siguientes:
 
-    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL que siga el patrón `https://<FQDN>/remote/login`.
+    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL que siga el patrón `https://<FQDN>/remote/saml/login`.
 
     b. En el cuadro **Identificador**, escriba una dirección URL que siga el patrón `https://<FQDN>/remote/saml/metadata`.
 
@@ -203,6 +203,7 @@ Para completar estos pasos, necesitará los valores que anotó anteriormente:
    ```console
     config user saml
     edit azure
+    set cert <FortiGate VPN Server Certificate Name>
     set entity-id <Entity ID>
     set single-sign-on-url <Reply URL>
     set single-logout-url <Logout URL>

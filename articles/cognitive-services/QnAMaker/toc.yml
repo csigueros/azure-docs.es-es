@@ -4,6 +4,10 @@
   items:
     - name: ¿Qué es QnA Maker?
       href: Overview/overview.md
+    - name: Compatibilidad con idiomas
+      href: Overview/language-support.md
+    - name: Precios y límites
+      href: 'https://aka.ms/qnamaker-pricing'
     - name: Novedades
       href: whats-new.md
     - name: Respuesta personalizada a preguntas (versión preliminar)
@@ -16,41 +20,20 @@
           href: Quickstarts/create-publish-knowledge-base.md
         - name: Bibliotecas cliente o API REST
           href: Quickstarts/quickstart-sdk.md
-- name: Tutoriales
+- name: Ejemplos
+  href: /samples/browse/?products=azure&term=face&terms=qna-maker
+- name: Uso responsable de la inteligencia artificial
   items:
-    - name: Creación de un bot de preguntas frecuentes con Azure Bot Service
-      href: Tutorials/create-faq-bot-with-azure-bot-service.md
-    - name: Personalización del bot
+    - name: Notas de transparencia
       items:
-        - name: Incorporación de varios dominios al bot de preguntas frecuentes
-          href: Tutorials/create-faq-bot-for-multiple-domains.md
-    - name: Integración con Power Virtual Agent
-      href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
-- name: Conceptos
-  items:
-    - name: Planificación de una base de conocimiento
-      href: Concepts/plan.md
-    - name: Planificación de recursos de QnA Maker
-      href: Concepts/azure-resources.md
-    - name: Orígenes de datos y contenido
-      href: Concepts/data-sources-and-content.md
-    - name: Control de acceso basado en roles de Azure (RBAC de Azure)
-      href: Concepts/role-based-access-control.md
-    - name: Respuestas precisas
-      href: reference-precise-answering.md
-    - name: Activación del aprendizaje activo
-      href: How-To/use-active-learning.md
-    - name: Proceso del clasificador
-      displayName: 'DefaultAnswer, Default answer'
-      href: Concepts/query-knowledge-base.md
-    - name: Ciclo de vida del desarrollo
-      href: Concepts/development-lifecycle-knowledge-base.md
-      displayName: 'version control, test, index, publish, monitor usage, create'
-    - name: Procedimientos recomendados
-      href: Concepts/best-practices.md
-      displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
-    - name: Uso de QnA Maker y LUIS
-      href: choose-natural-language-processing-service.md
+        - name: Casos de uso de QnA Maker
+          href: /legal/cognitive-services/qnamaker/transparency-note-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+        - name: Características y limitaciones
+          href: /legal/cognitive-services/qnamaker/characteristics-and-limitations-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+    - name: Integración y uso responsable
+      href: /legal/cognitive-services/qnamaker/guidance-integration-responsible-use-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+    - name: 'Datos, privacidad y seguridad'
+      href: /legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
 - name: Guías paso a paso
   items:
     - name: Administración de recursos de QnA Maker
@@ -111,51 +94,59 @@
           href: encrypt-data-at-rest.md
         - name: "Uso de Autenticación de Azure\_AD"
           href: ../authentication.md?context=/azure/cognitive-services/qnamaker/context/context
-- name: Uso responsable de la inteligencia artificial
+- name: Conceptos
   items:
-    - name: Notas de transparencia
+    - name: Planificación de una base de conocimiento
+      href: Concepts/plan.md
+    - name: Planificación de recursos de QnA Maker
+      href: Concepts/azure-resources.md
+    - name: Orígenes de datos y contenido
+      href: Concepts/data-sources-and-content.md
+    - name: Control de acceso basado en roles de Azure (RBAC de Azure)
+      href: Concepts/role-based-access-control.md
+    - name: Respuestas precisas
+      href: reference-precise-answering.md
+    - name: Activación del aprendizaje activo
+      href: How-To/use-active-learning.md
+    - name: Proceso del clasificador
+      displayName: 'DefaultAnswer, Default answer'
+      href: Concepts/query-knowledge-base.md
+    - name: Ciclo de vida del desarrollo
+      href: Concepts/development-lifecycle-knowledge-base.md
+      displayName: 'version control, test, index, publish, monitor usage, create'
+    - name: Procedimientos recomendados
+      href: Concepts/best-practices.md
+      displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
+    - name: Uso de QnA Maker y LUIS
+      href: choose-natural-language-processing-service.md
+- name: Tutoriales
+  items:
+    - name: Creación de un bot de preguntas frecuentes con Azure Bot Service
+      href: Tutorials/create-faq-bot-with-azure-bot-service.md
+    - name: Integración con Power Virtual Agent
+      href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+    - name: Personalización del bot de preguntas frecuentes
       items:
-        - name: Casos de uso de QnA Maker
-          href: /legal/cognitive-services/qnamaker/transparency-note-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
-        - name: Características y limitaciones
-          href: /legal/cognitive-services/qnamaker/characteristics-and-limitations-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
-    - name: Integración y uso responsable
-      href: /legal/cognitive-services/qnamaker/guidance-integration-responsible-use-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
-    - name: 'Datos, privacidad y seguridad'
-      href: /legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+        - name: Creación de conversaciones guiadas con avisos de turno múltiple
+          href: Tutorials/guided-conversations.md
+        - name: Incorporación de varios dominios al bot
+          href: Tutorials/create-faq-bot-for-multiple-domains.md
+        - name: Mejora de las knowledge bases con aprendizaje activo
+          href: Tutorials/active-learning.md
+        - name: Incorporación de knowledge bases en varios idiomas
+          href: Tutorials/multiple-languages.md
+        - name: Incorporación de sinónimos para mejorar la relevancia
+          href: Tutorials/adding-synonyms.md
 - name: Referencia
   items:
-    - name: Compatibilidad con idiomas
-      href: Overview/language-support.md
-    - name: Límites
-      href: limits.md
-    - name: Puntuación de confianza
-      href: Concepts/confidence-score.md
-    - name: Solucionar problemas
-      href: troubleshooting.md
-    - name: Adición de archivos protegidos de SharePoint
-      href: How-To/add-sharepoint-datasources.md
-      displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
-    - name: Configuración del servicio
-      href: reference-app-service.md
-    - name: Instrucciones de formato de contenido
-      href: reference-document-format-guidelines.md
-    - name: Formato de presentación
-      href: reference-markdown-format.md
-    - name: Vínculos privados
-      href: reference-private-endpoint.md
-    - name: Formato de pruebas de Batch
-      href: reference-tsv-format-batch-testing.md
-    - name: Cifrado
-      href: encrypt-data-at-rest.md
-    - name: Referencia de API de REST
+    - name: API DE REST
       items:
         - name: "QnA Maker\_4.0"
           href: /rest/api/cognitiveservices/qnamaker4.0/alterations
         - name: "QnA Maker\_5.0 versión preliminar\_1"
-          href: /rest/api/cognitiveservices-qnamaker/qnamakerv5.0-preview.1/alterations
+          href: /rest/api/cognitiveservices-qnamaker/qnamaker5.0preview1/alterations
         - name: "QnA Maker\_5.0 versión preliminar\_2"
-          href: /rest/api/cognitiveservices-qnamaker/qnamakerv5.0-preview2/alterations
+          href: /rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/alterations
     - name: SDK
       items:
         - name: C#
@@ -196,6 +187,27 @@
           items:
             - name: Gem
               href: 'https://rubygems.org/gems/azure_cognitiveservices_qnamaker'
+    - name: Límites
+      href: limits.md
+    - name: Puntuación de confianza
+      href: Concepts/confidence-score.md
+    - name: Solucionar problemas
+      href: troubleshooting.md
+    - name: Adición de archivos protegidos de SharePoint
+      href: How-To/add-sharepoint-datasources.md
+      displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
+    - name: Configuración del servicio
+      href: reference-app-service.md
+    - name: Instrucciones de formato de contenido
+      href: reference-document-format-guidelines.md
+    - name: Formato de presentación
+      href: reference-markdown-format.md
+    - name: Vínculos privados
+      href: reference-private-endpoint.md
+    - name: Formato de pruebas de Batch
+      href: reference-tsv-format-batch-testing.md
+    - name: Cifrado
+      href: encrypt-data-at-rest.md
 - name: Recursos
   items:
     - name: Adecuado para empresas
@@ -208,11 +220,11 @@
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Precios y límites
-      href: 'https://aka.ms/qnamaker-pricing'
     - name: Search
       href: /search/index?search=QnAMaker
     - name: Blog
       href: 'https://blog.botframework.com/category/QnAMaker/'
+    - name: Privacidad y cookies
+      href: 'https://privacy.microsoft.com/privacystatement'
 - name: Portal de QnA Maker
   href: 'https://www.qnamaker.ai'

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 608f9bb63082be132769964a14142996eb9b3564
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 437b6621687597e56c63b9afb146c67657650e71
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755574"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569285"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparación de máquinas virtuales para una FCI (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -138,8 +138,10 @@ Elija una de las siguientes guías para configurar el entorno de FCI que sea ade
 - [Configuración de una FCI con un recurso compartido Premium](failover-cluster-instance-premium-file-share-manually-configure.md)
 - [Configuración de una FCI con espacios de almacenamiento directo](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 
-Para más información, consulte la información general de [FCI con SQL Server en VM de Azure](failover-cluster-instance-overview.md) y las [configuraciones de HADR admitidas](hadr-cluster-best-practices.md). 
 
-Para información adicional, consulte: 
-- [Tecnologías de clúster de Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Instancias del clúster de conmutación por error de SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+Para obtener más información, consulte:
+
+- [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md)
+- [Información general de las instancias de clúster de conmutación por error](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)

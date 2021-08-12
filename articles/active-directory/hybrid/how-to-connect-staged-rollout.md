@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8460e428239a652d2accb3d1818b0a709dc16c3e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f3474d14b84e41fdf808b5a5b5c612b3a872f2c6
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758727"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753510"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migración a la autenticación en la nube mediante un lanzamiento almacenado preconfigurado
 
@@ -92,6 +92,10 @@ Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
 - Adquisición de token de actualización principal de Unión híbrida a Windows 10 o Unión a Azure AD para versiones de Windows 10 anteriores a la 1903. Este escenario revertirá al punto de conexión de WS-Trust del servidor de federación, incluso si el usuario que inicia sesión está en el ámbito del lanzamiento preconfigurado.
 
 - Adquisición de token de actualización principal de Unión híbrida a Windows 10 o Unión a Azure AD para todas las versiones, cuando el UPN local del usuario no se puede enrutar. Este escenario revertirá al punto de conexión de WS-Trust durante el modo de implementación por fases, pero dejará de funcionar cuando se complete la migración por fases y el inicio de sesión de usuario ya no dependa del servidor de federación.
+
+- Si tiene una configuración de VDI no persistente con Windows 10 versión 1903 o posterior, debe permanecer en un dominio federado. No se admite el traslado a un dominio administrado en VDI no persistente. Para más información, consulte [Identidad de dispositivo y virtualización del escritorio](../devices/howto-device-identity-virtual-desktop-infrastructure.md).
+
+- Si tiene una relación de confianza de certificado híbrido de Windows Hello para empresas con certificados emitidos a través del servidor de federación que actúa como Autoridad de registro o usuarios de tarjeta inteligente, el escenario no es compatible con un lanzamiento preconfigurado. 
 
   >[!NOTE]
   >Sigue siendo necesario realizar el traslado final de la autenticación federada a la nube mediante Azure AD Connect o PowerShell. El lanzamiento preconfigurado no cambia de dominio federado a administrado.  Para más información sobre la migración de dominios, consulte [Migración de la federación a la sincronización de hash de contraseña](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) y [Migración de la federación a la autenticación de paso a través](plan-migrate-adfs-pass-through-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso).

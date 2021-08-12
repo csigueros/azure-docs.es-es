@@ -6,17 +6,17 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ab6ca63e76e22fe82cf806da77258e427112d9f1
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: c12cb6c344554f4d18af28dd563b7c96358ea2ee
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320158"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095168"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solución Azure Key Vault Analytics en Azure Monitor
 
 > [!NOTE]
-> Esta solución está en desuso. [Ahora se recomienda el uso de Azure Monitor para Key Vault](./key-vault-insights-overview.md).
+> Esta solución está en desuso. [Ahora se recomienda utilizar información detallada de Key Vault](./key-vault-insights-overview.md).
 
 ![Símbolo de Key Vault](media/azure-key-vault/key-vault-analytics-symbol.png)
 

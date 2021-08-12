@@ -8,14 +8,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
-ms.reviewer: mathoma
+ms.reviewer: chadam
 ms.date: 03/19/2021
-ms.openlocfilehash: 77aec881cdf934888356dd276cad7d0698d56ad1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 4c6e1f052dd23621e269b59fb573216f68e49cfb
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136241"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784408"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-virtual-machines"></a>Guía de migración de SQL Server a SQL Server en Azure Virtual Machines
 
@@ -119,7 +119,7 @@ Para realizar una migración estándar con las características de copia de segu
 1. Pause o detenga las aplicaciones que usan las bases de datos destinadas a la migración.
 1. Asegúrese de que las bases de datos de usuario están inactivas con el [modo de usuario único](/sql/relational-databases/databases/set-a-database-to-single-user-mode).
 1. Realice una copia de seguridad completa de la base de datos en una ubicación local.
-1. Copie los archivos de copia de seguridad locales en la máquina virtual mediante el escritorio remoto, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) o la [utilidad de la línea de comandos AZCopy](../../../storage/common/storage-use-azcopy-v10.md). (Se recomiendan copias de seguridad de más de 2 TB).
+1. Copie los archivos de copia de seguridad locales en la máquina virtual mediante el escritorio remoto, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) o la [utilidad de la línea de comandos AzCopy](../../../storage/common/storage-use-azcopy-v10.md). (Se recomiendan copias de seguridad de más de 2 TB).
 1. Restaure las copias de seguridad de base de datos completas en la instancia de SQL Server en Azure Virtual Machines.
 
 ### <a name="log-shipping-minimize-downtime"></a>Trasvase de registros (minimización del tiempo de inactividad)
@@ -129,7 +129,7 @@ Para realizar una migración con un tiempo de inactividad mínimo mediante las c
 1. Configure la conectividad a la instancia de SQL Server en Azure Virtual Machines, en función de sus requisitos. Para más información, consulte [Conexión a una máquina virtual de SQL Server en Azure (Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Asegúrese de que las bases de datos de usuario locales que se van a migrar están en un modelo de recuperación completo u optimizado para cargas masivas de registros.
 1. Realice una copia de seguridad completa de la base de datos en una ubicación local y modifique cualquier trabajo de copia de seguridad de base de datos completa existente a fin de que use la palabra clave [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) para conservar la cadena de registros.
-1. Copie los archivos de copia de seguridad locales en la máquina virtual mediante el escritorio remoto, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) o la [utilidad de la línea de comandos AZCopy](../../../storage/common/storage-use-azcopy-v10.md). (Se recomiendan copias de seguridad de más de 1 TB).
+1. Copie los archivos de copia de seguridad locales en la máquina virtual mediante el escritorio remoto, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) o la [utilidad de la línea de comandos AzCopy](../../../storage/common/storage-use-azcopy-v10.md). (Se recomiendan copias de seguridad de más de 1 TB).
 1. Restaure las copias de seguridad de base de datos completas en la instancia de SQL Server en Azure Virtual Machines.
 1. Configure el [trasvase de registros](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) entre la base de datos local y la instancia de SQL Server en Azure Virtual Machines. Asegúrese de no reinicializar las bases de datos, pues esta tarea ya se completó en los pasos anteriores.
 1. Realice la transición al servidor de destino.

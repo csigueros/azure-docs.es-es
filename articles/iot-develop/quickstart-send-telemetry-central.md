@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.date: 04/27/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 52bd27122bee20377975bb7ce87f23aeb892dedf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 376d26a591fb2cbe0d33fb9bdc261bcb535203e5
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952786"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114713024"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-central"></a>Inicio rápido: Envío de datos de telemetría desde un dispositivo a Azure IoT Central
 
 **Se aplica a**: [desarrolladores de aplicaciones para dispositivos](about-iot-develop.md#device-application-development)
-
-En este inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
 
 :::zone pivot="programming-language-ansi-c"
 

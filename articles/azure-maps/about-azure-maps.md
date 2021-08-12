@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 9b93ac2973fdf45c5ec395cf30490a820848bad9
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 970223c0514651ddcdf373aa6638abf17b06d01c
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027174"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669113"
 ---
 # <a name="what-is-azure-maps"></a>¿Qué es Azure Maps?
 
@@ -77,7 +77,7 @@ Para más información, consulte la [documentación del servicio Mobility](/rest
 
 ### <a name="render-service"></a>Render Service
 
-El [servicio Render V2 (versión preliminar)](/rest/api/maps/renderv2) presenta una nueva versión de [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview). Ahora, la API Get Map Tile V2 permite a los clientes solicitar mosaicos de carretera de Azure Maps, mosaicos meteorológicos o los mosaicos de mapa creados con Azure Maps Creator. Se recomienda usar la nueva API Get Map Tile V2.  
+El [servicio Render V2 (versión preliminar)](/rest/api/maps/renderv2) presenta una nueva versión de [Get Map Tile V2 API](/rest/api/maps/render-v2/get-map-tile). Ahora, la API Get Map Tile V2 permite a los clientes solicitar mosaicos de carretera de Azure Maps, mosaicos meteorológicos o los mosaicos de mapa creados con Azure Maps Creator. Se recomienda usar la nueva API Get Map Tile V2.  
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Ejemplo de un mapa del servicio Render V2":::
 
@@ -175,7 +175,7 @@ El servicio Weather ofrece distintas API que los desarrolladores pueden usar par
 
 Los desarrolladores pueden usar la [API Get Weather Along Route](/rest/api/maps/weather/getweatheralongroute) para recuperar información meteorológica a lo largo de una ruta determinada. Además, el servicio admite la generación de notificaciones meteorológicas para puntos de trayecto afectados por las inclemencias del tiempo, como inundaciones o lluvia intensa.
 
-La [API Get Map Tile V2](/rest/api/maps/renderv2/getmaptilepreview) permite solicitar los mosaicos de radar y satélite anteriores, actuales y futuros.
+La [API Get Map Tile V2](/rest/api/maps/render-v2/get-map-tile) permite solicitar los mosaicos de radar y satélite anteriores, actuales y futuros.
 
 ![Ejemplo de mapa con mosaicos de radar meteorológicos en tiempo real](media/about-azure-maps/intro_weather.png)
 

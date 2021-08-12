@@ -1,13 +1,10 @@
 ---
-title: 'Inicio rápido: control de un dispositivo desde Azure IoT (Node.js)'
-description: En este inicio rápido, ejecuta dos aplicaciones Node.js de muestra. Una aplicación es una aplicación back-end que puede controlar dispositivos conectados al centro de manera remota. La otra aplicación simula un dispositivo conectado al centro que se puede controlar de manera remota.
-author: wesmc7777
-manager: philmea
-ms.author: wesmc
+author: philmea
+ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
-ms.topic: quickstart
+ms.topic: include
 ms.custom:
 - mvc
 - seo-javascript-september2019
@@ -17,18 +14,14 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 26a17febf1804a0acc94fd4f484aae34e44af132
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 3ffcfdb156f222cf1eb7134b271550eac4c9fcb3
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114295328"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114732295"
 ---
-# <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Inicio rápido: Uso de Node.js para controlar un dispositivo conectado a una instancia de Azure IoT Hub
-
-[!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
-
-En este inicio rápido, se usa un método directo para controlar un dispositivo simulado conectado a Azure IoT Hub. IoT Hub es un servicio de Azure que permite administrar dispositivos IoT desde la nube e ingerir grandes volúmenes de datos de telemetría desde los dispositivos en la nube para su almacenamiento o procesamiento. Puede usar métodos directos para cambiar el comportamiento de un dispositivo conectado a IoT Hub de manera remota. En este inicio rápido se usan dos aplicaciones de Node.js: una aplicación de un dispositivo simulado que responde a métodos directos llamados desde una aplicación de back-end y una aplicación de back-end que llama a los métodos directos en el dispositivo simulado.
+En este inicio rápido se usan dos aplicaciones de Node.js: una aplicación de un dispositivo simulado que responde a métodos directos llamados desde una aplicación de back-end y una aplicación de back-end que llama a los métodos directos en el dispositivo simulado.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -44,21 +37,21 @@ En este inicio rápido, se usa un método directo para controlar un dispositivo 
 
 * [Un proyecto de Node.js de ejemplo](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip).
 
-* El puerto 8883 abierto en el firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* El puerto 8883 abierto en el firewall. En el dispositivo de ejemplo de este inicio rápido se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-Si ha completado el anterior [Quickstart: Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) (Inicio rápido: enviar datos de telemetría desde un dispositivo a IoT Hub), puede omitir este paso.
+Si ha completado el anterior [Quickstart: Send telemetry from a device to an IoT hub](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) (Inicio rápido: enviar datos de telemetría desde un dispositivo a IoT Hub), puede omitir este paso.
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 
-Si ha completado el anterior [Quickstart: Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) (Inicio rápido: enviar datos de telemetría desde un dispositivo a IoT Hub), puede omitir este paso.
+Si ha completado el anterior [Quickstart: Send telemetry from a device to an IoT hub](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) (Inicio rápido: enviar datos de telemetría desde un dispositivo a IoT Hub), puede omitir este paso.
 
 Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta guía de inicio rápido, usará Azure Cloud Shell para registrar un dispositivo simulado.
 
@@ -151,16 +144,3 @@ La aplicación back-end se conecta a un punto de conexión de servicio en IoT Hu
     Después de ejecutar la aplicación back-end, verá un mensaje en la ventana de consola que ejecuta el dispositivo simulado y cambiará la velocidad a la que envía mensajes:
 
     ![Salida cuando hay un cambio en el cliente simulado](./media/quickstart-control-device-node/simulated-device-message-change.png)
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
-
-## <a name="next-steps"></a>Pasos siguientes
-
-En esta guía de inicio rápido, ha llamado a un método directo en un dispositivo desde una aplicación de back-end y ha respondido a la llamada de método directo en una aplicación de dispositivo simulado.
-
-Para obtener información sobre cómo redirigir mensajes del dispositivo a la nube a diferentes destinos en la nube, continúe con el siguiente tutorial.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Enrutar datos de telemetría a distintos puntos de conexión para procesamiento](tutorial-routing.md)
