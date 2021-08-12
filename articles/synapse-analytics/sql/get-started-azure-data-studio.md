@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1529e45bd7f799a727a29c8c2e26f7ed77c4e2a0
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 1b0974c673d48fcd35dad3dd35b83ebe6e33c9a5
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565600"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540409"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Conexión a Synapse SQL con Azure Data Studio
 
@@ -22,7 +22,7 @@ ms.locfileid: "107565600"
 >
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> * [Visual Studio](../sql/get-started-visual-studio.md)
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
@@ -92,7 +92,7 @@ Explore otras formas de conectarse a Synapse SQL:
 
 - [SSMS](get-started-ssms.md)
 - [Power BI](get-started-power-bi-professional.md)
-- [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Visual Studio](..//sql/get-started-visual-studio.md)
 - [sqlcmd](get-started-connect-sqlcmd.md)
 
 Para más información, visite [Uso de Azure Data Studio para conectarse y consultar datos mediante un grupo de SQL dedicado en Azure Synapse Analytics](/sql/azure-data-studio/quickstart-sql-dw).

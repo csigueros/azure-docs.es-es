@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 94568eb5d64f07133ebb9992cdae59400830dd5e
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: b6dce9f84ff78a7caaf5f5f7ef702053640cee7a
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226895"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112519108"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Aprovisionamiento del dispositivo en una instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
 
@@ -71,8 +71,6 @@ Después de la inscripción, el servicio de aprovisionamiento espera a que cualq
 El dispositivo IoT puede ser un dispositivo real o un dispositivo simulado. Como el dispositivo IoT se ha inscrito con una instancia de Device Provisioning Service, este puede iniciarse ahora y llamar al servicio de aprovisionamiento para que lo reconozca mediante el mecanismo de atestación. Una vez que el servicio de aprovisionamiento ha reconocido el dispositivo, este se asignará a un centro de IoT. 
 
 Se incluyen ejemplos de dispositivos simulados, mediante atestación TPM y X.509, para C, Java, C#, Node.js y Python. Por ejemplo, un dispositivo simulado con TPM y el [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c) seguiría el proceso descrito en la sección [Simulate first boot sequence for a device](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device) (Simulación de la primera secuencia de inicio de un dispositivo). El mismo dispositivo con la atestación de certificado X.509 haría referencia a esta sección de la [secuencia de inicio](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device).
-
-Consulte la [Guía de procedimientos de MXChip Iot DevKit](how-to-connect-mxchip-iot-devkit.md) como ejemplo para un dispositivo real.
 
 Inicie el dispositivo para permitir que la aplicación cliente de este inicie el registro con el servicio Device Provisioning.  
 

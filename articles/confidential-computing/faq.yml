@@ -1,0 +1,62 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes de computación confidencial de Azure
+  description: Respuestas a las preguntas frecuentes sobre la computación confidencial de Azure.
+  author: JBCook
+  ms.topic: troubleshooting
+  ms.workload: infrastructure
+  ms.service: virtual-machines
+  ms.subservice: confidential-computing
+  ms.date: 4/17/2020
+  ms.author: jencook
+  ms.openlocfilehash: 2bf03950fcb3e9061af6c9af112ec4ef853cdaba
+  ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/09/2021
+  ms.locfileid: "113553108"
+title: Preguntas frecuentes de computación confidencial de Azure
+summary: >
+  En este artículo se proporcionan respuestas a algunas de las preguntas más comunes sobre la ejecución de [cargas de trabajo de computación confidencial en máquinas virtuales de Azure](overview.md).
+
+
+  Si su problema con Azure no se trata en este artículo, visite los foros de Azure en [MSDN y Stack Overflow](https://azure.microsoft.com/support/forums/). Puede publicar su problema en ellos o [@AzureSupport en Twitter](https://twitter.com/AzureSupport). También puede enviar una solicitud de soporte técnico de Azure. Para enviar una solicitud de soporte técnico, en la [página de soporte técnico de Azure](https://azure.microsoft.com/support/options/), seleccione Obtener soporte técnico.
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Cómo puedo implementar VM de la serie DCsv2 en Azure?
+    answer: "Estas son algunas formas de implementar una máquina virtual DCsv2:\n   - Uso de una [plantilla de Azure Resource Manager](../virtual-machines/windows/template-description.md)\n   - En [Azure Portal](https://portal.azure.com/#create/hub)\n   - En la plantilla de solución de Marketplace [Azure Confidential Computing (Virtual Machine)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview). La plantilla de solución de Marketplace le ayudará a restringir un cliente a los escenarios admitidos (regiones, imágenes, disponibilidad, cifrado de disco). \n"
+  - question: >
+      ¿Funcionarán todas las imágenes de sistema operativo con la computación confidencial de Azure?
+    answer: >
+      No. Las máquinas virtuales solo se pueden implementar en máquinas operativas de segunda generación con Ubuntu Server 18.04, Ubuntu Server 20.04, Windows Server 2019 Datacenter y Windows Server 2016 Datacenter. Obtenga más información sobre las máquinas virtuales de generación 2 en [Linux](../virtual-machines/generation-2.md) y [Windows](../virtual-machines/generation-2.md)
+  - question: >
+      Las máquinas virtuales de DCsv2 aparecen atenuadas en el portal y no puedo seleccionar ninguna.
+    answer: "En función de la burbuja de información que se encuentra junto a la máquina virtual, hay que realizar diferentes acciones:\n   -    **UnsupportedGeneration**: cambie la generación de la imagen de máquina virtual a \"Gen2\".\n   -    **NotAvailableForSubscription**: la región todavía no está disponible para su suscripción. Seleccione una región disponible.\n   -    **InsufficientQuota**: [cree una solicitud de soporte técnico para aumentar la cuota](../azure-portal/supportability/per-vm-quota-requests.md). Las suscripciones de evaluación gratuita no tienen cuota de máquinas virtuales de computación confidencial. \n"
+  - question: >
+      Las máquinas virtuales de DCsv2 no aparecen cuando intento buscarlas en el selector de tamaño del portal.
+    answer: "Asegúrese de haber seleccionado una [región disponible](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Asegúrese también de seleccionar \"Borrar todos los filtros\" en el selector de tamaño. \n"
+  - question: >
+      ¿Puedo habilitar las redes aceleradas con la computación confidencial de Azure?
+    answer: No. Las redes aceleradas no se admiten en máquinas virtuales de las series DC o DCsv2. Las redes aceleradas no se pueden habilitar para ninguna implementación de máquina virtual de computación confidencial o implementación de clúster de Azure Kubernetes Service que se ejecute en computación confidencial.
+  - question: >
+      ¿Puedo usar Azure Dedicated Host con estas máquinas?
+    answer: "Sí. Azure Dedicated Host admite máquinas virtuales de la serie DCsv2. Azure Dedicated Host proporciona un servidor físico de un solo inquilino en el que puede ejecutar las máquinas virtuales. Los usuarios suelen usar Azure Dedicated Host para abordar los requisitos de cumplimiento en torno a la seguridad física, la integridad de los datos y la supervisión. \n"
+  - question: >
+      Recibo un error de implementación de plantilla de Azure Resource Manager: "No se pudo completar la operación porque se superó la cuota de Núcleos de familia DCsv2 estándar aprobada"
+    answer: "[cree una solicitud de soporte técnico para aumentar la cuota](../azure-portal/supportability/per-vm-quota-requests.md). Las suscripciones de evaluación gratuita no tienen cuota de máquinas virtuales de computación confidencial. \n"
+  - question: >
+      ¿Cuál es la diferencia entre las máquinas virtuales de la serie DCsv2 y la serie DC?
+    answer: >
+      Las VM de la serie DC se ejecutan en procesadores Intel de 6 núcleos anteriores con Intel SGX y tienen menos memoria total, menos memoria caché de páginas de enclave (EPC), y solo están disponibles en dos regiones (Este de EE. UU. y Europa Occidental en tamaños Standard_DC2s y Standard_DC4s). No hay planes para que estas VM estén disponibles con carácter general y no se recomiendan para su uso en producción. Para implementar estas VM, use la instancia de Marketplace [Confidential Compute DC-Series VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview).
+  - question: >
+      ¿Las máquinas virtuales de DCsv2 están disponibles globalmente?
+    answer: "No. En este momento, estas máquinas virtuales solo están disponibles en regiones seleccionadas. Active la [página de productos por regiones](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para ver las últimas regiones disponibles. \n"
+  - question: >
+      ¿La tecnología Hyper-Threading está desactivada en estas máquinas?
+    answer: >
+      Hyper-Threading está deshabilitada en todos los clústeres de procesos confidenciales de Azure.
+  - question: >
+      Cómo instalar el SDK Open Enclave en las máquinas virtuales DCsv2?
+    answer: "Para obtener instrucciones sobre cómo instalar el SDK OE en una máquina en Azure o local, siga las instrucciones del [SDK Open Enclave en GitHub](https://github.com/openenclave/openenclave).\n     \nTambién puede consultar el SDK Open Enclave en GitHub para obtener instrucciones de instalación específicas del sistema operativo:\n   - [Instalación del SDK de OE en Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)\n   - [Instalación del SDK de OE en Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)\n"

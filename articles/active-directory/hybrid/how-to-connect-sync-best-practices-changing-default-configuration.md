@@ -16,12 +16,12 @@ ms.date: 08/29/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70e91ff8fa3666a2dfc5aaad07be7927852b08bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afe4db68b5a5d508aaf9760f4da0a8fd15890e15
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85357705"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614870"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect Sync: procedimientos recomendados de cambio de la configuración predeterminada
 El propósito de este tema es describir los cambios admitidos y no admitidos en la sincronización de Azure AD Connect.
@@ -31,7 +31,9 @@ La configuración creada por Azure AD Connect funciona "tal cual" para la mayor�
 ## <a name="changes-to-the-service-account"></a>Cambios en la cuenta de servicio
 Azure AD Connect Sync se está ejecutando con una cuenta de servicio creada por el asistente para la instalación. Esta cuenta de servicio contiene las claves de cifrado para la base de datos usada en la sincronización. Se crea con una contraseña de 127 caracteres, que se configura para que no caduque.
 
-* **No se admite** cambiar o restablecer la contraseña de la cuenta de servicio. Si lo hace, se destruyen las claves de cifrado y el servicio no puede tener acceso a la base de datos ni iniciarse.
+> [!WARNING]
+> Si cambia o restablece la contraseña de la cuenta de servicio de ADSync, el servicio de sincronización no podrá iniciarse correctamente hasta que haya abandonado la clave de cifrado y reinicializado la contraseña de la cuenta de servicio de ADSync.
+> Para ello, vea [Cambio de la contraseña de la cuenta de servicio de ADSync](how-to-connect-sync-change-serviceacct-pass.md).
 
 ## <a name="changes-to-the-scheduler"></a>Cambios realizados en el programador
 A partir de las versiones de compilación 1.1 (febrero de 2016) puede configurar el [Programador](how-to-connect-sync-feature-scheduler.md) para que tenga un ciclo de sincronización diferente al del valor predeterminado de 30 minutos.

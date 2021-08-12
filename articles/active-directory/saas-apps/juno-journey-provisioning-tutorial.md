@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Juno Journey para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD a Juno Journey.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
-ms.author: Zhchia
-ms.openlocfilehash: 0efb451997b0ed842e6757a7e6b30dd88b33f4aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 58466aabebb7a69a2c17a9ac4be9afc30ccd00af
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96177912"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767488"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Tutorial: Configuración de Juno Journey para el aprovisionamiento automático de usuarios
 

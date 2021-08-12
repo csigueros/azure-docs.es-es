@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 1c4760362e7c2b3965638b3213910b5b8cd6f079
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 248d39e80aea50811050d327782b528db85d4fb4
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516185"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111813598"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge-preview"></a>Publicación y suscripción con Azure IoT Edge (versión preliminar)
 
@@ -31,12 +31,22 @@ Puede usar el agente MQTT de Azure IoT Edge para publicar y suscribirse a mensaj
 - Una cuenta de Azure con una suscripción válida.
 - La [CLI de Azure](/cli/azure/) con la extensión de la CLI `azure-iot` instalada. Para obtener más información, consulte los [pasos de instalación de la extensión de Azure IoT para la CLI de Azure](/cli/azure/azure-cli-reference-for-iot).
 - **IoT Hub** de SKU F1, S1, S2 o S3.
-- Un **dispositivo IoT Edge con la versión 1.2 o superior**. Dado que el agente MQTT de IoT Edge se encuentra actualmente en versión preliminar pública, establezca las siguientes variables de entorno en true en el contenedor edgeHub para habilitar el agente MQTT:
+- Tener un **dispositivo IoT Edge con la versión 1.2 o superior, incluidos los módulos edgeAgent y edgeHub versión 1.2 o superior implementada, con la característica Agente MQTT activada y el puerto 1883 de edgeHub enlazado al host** para habilitar conexiones que no son TLS. Si desea implementar IoT Edge 1.2 de manera automática en una máquina virtual de Azure, siga [los pasos que se describen en este artículo](how-to-install-iot-edge-ubuntuvm.md). Dado que el agente MQTT de IoT Edge se encuentra actualmente en versión preliminar pública, también debe establecer las variables de entorno siguientes en true en el módulo edgeHub para habilitar el agente MQTT:
 
-   | Nombre | Value |
+   | Nombre | Valor |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
+
+   Para crear rápidamente una implementación de IoT Edge que cumpla con estos criterios junto con una directiva de autorización abierta en`test_topic`, puede usar este [manifiesto de implementación de ejemplo](#appendix---sample-deployment-manifest) en el apéndice:
+
+   - Guarde el archivo de implementación en la carpeta de trabajo
+
+   - Aplique esta implementación en el dispositivo IoT Edge con el comando de la CLI de Azure siguiente. Para más información sobre este comando, consulte [Implementación de módulos de Azure IoT Edge con la CLI de Azure](how-to-deploy-modules-cli.md).
+
+    ```azurecli
+    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [deployment file path]
+    ```
 
 - **Clientes de Mosquitto** instalados en el dispositivo IoT Edge. En este artículo se usan los clientes de Mosquitto populares [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) y [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Se podrían usar otros clientes MQTT en su lugar. Para instalar los clientes de Mosquitto en un dispositivo Ubuntu, ejecute el siguiente comando:
 
@@ -98,7 +108,7 @@ Una vez que un cliente MQTT se autentica en el centro de IoT Edge, debe estar au
 
 Cada instrucción de la directiva de autorización consta de la combinación de `identities`, los efectos `allow` o `deny`, `operations` y `resources`:
 
-- `identities` describir el asunto de la directiva. Debe asignarse al `client identifier` enviado por los clientes en su paquete CONNECT.
+- `identities` describir el asunto de la directiva. Debe asignarse al `username` que los clientes envían en el paquete CONNECT y debe tener el formato `<iot_hub_name>.azure-devices.net/<device_name>` o `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>`.
 - Los efectos `allow` o `deny` definen si se permiten o deniegan las operaciones.
 - `operations` define las acciones que se van a autorizar. `mqtt:connect`, `mqtt:publish` y `mqtt:subscribe` son las tres acciones admitidas hoy en día.
 - `resources` define el objeto de la directiva. Puede tratarse de un tema o un patrón de tema definido con [caracteres comodín de MQTT](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107).
@@ -120,7 +130,7 @@ A continuación se muestra un ejemplo de una directiva de autorización que expl
             "authorizations":[
                {
                   "identities":[
-                     "rogue_client"
+                     "<iot_hub_name>.azure-devices.net/rogue_client"
                   ],
                   "deny":[
                      {
@@ -144,7 +154,7 @@ A continuación se muestra un ejemplo de una directiva de autorización que expl
                },
                {
                   "identities":[
-                     "sensor_1"
+                     "<iot_hub_name>.azure-devices.net/sensor_1"
                   ],
                   "allow":[
                      {
@@ -171,7 +181,7 @@ Hay un par de cosas que hay que tener en cuenta al escribir la directiva de auto
 - Las instrucciones de autorización se evalúan en el orden en que aparecen en la definición JSON. Se inicia examinando `identities` y, a continuación, seleccione las primeras instrucciones allow o deny que coincidan con la solicitud. En caso de conflictos entre las instrucciones allow y deny, gana la instrucción deny.
 - Se pueden usar varias variables (por ejemplo, sustituciones) en la directiva de autorización:
 
-  - `{{iot:identity}}` representa la identidad del cliente conectado actualmente. Por ejemplo, una identidad de dispositivo como `myDevice` o una identidad de módulo como `myEdgeDevice/SampleModule`.
+  - `{{iot:identity}}` representa la identidad del cliente conectado actualmente. Por ejemplo, una identidad de dispositivo como `<iot_hub_name>.azure-devices.net/myDevice` o una identidad de módulo como `<iot_hub_name>.azure-devices.net/myEdgeDevice/SampleModule`.
   - `{{iot:device_id}}` representa la identidad del dispositivo conectado actualmente. Por ejemplo, una identidad de dispositivo como `myDevice` o la identidad del dispositivo donde se ejecuta un módulo, como `myEdgeDevice`.
   - `{{iot:module_id}}` representa la identidad del módulo conectado actualmente. Esta variable está en blanco para los dispositivos conectados o una identidad de módulo como `SampleModule`.
   - `{{iot:this_device_id}}` representa la identidad del dispositivo IoT Edge que ejecuta la directiva de autorización. Por ejemplo, `myIoTEdgeDevice`.
@@ -219,14 +229,22 @@ En este artículo, usará un cliente denominado **sub_client** que se suscribe a
 
 Cree dos dispositivos IoT en IoT Hub y obtenga sus contraseñas. Use la CLI de Azure desde el terminal para lo siguiente:
 
-1. Cree dos dispositivos IoT en IoT Hub y establézcalos como primarios del dispositivo IoT Edge:
+1. Cree dos dispositivos IoT en IoT Hub:
 
    ```azurecli-interactive
-   az iot hub device-identity create --device-id  sub_client --hub-name <iot_hub_name> --pd <edge_device_id>
-   az iot hub device-identity create --device-id  pub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+   az iot hub device-identity create --device-id  sub_client --hub-name <iot_hub_name>
+   az iot hub device-identity create --device-id  pub_client --hub-name <iot_hub_name>
    ```
 
-2. Para obtener sus contraseñas, genere un token de SAS:
+2. Establezca el elemento primario como el dispositivo IoT Edge:
+
+   ```azurecli-interactive
+   az iot hub device-identity parent set --device-id  sub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+   az iot hub device-identity parent set --device-id  pub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+   ```
+
+
+3. Para obtener sus contraseñas, genere un token de SAS:
 
    - Para un dispositivo:
 
@@ -244,7 +262,7 @@ Cree dos dispositivos IoT en IoT Hub y obtenga sus contraseñas. Use la CLI de A
 
      donde 3600 es la duración del token de SAS en segundos (por ejemplo, 3600 = 1 hora).
 
-3. Copie el token de SAS, que es el valor correspondiente a la clave "sas" de la salida. A continuación se muestra un ejemplo de salida del comando de la CLI de Azure anterior:
+4. Copie el token de SAS, que es el valor correspondiente a la clave "sas" de la salida. A continuación se muestra un ejemplo de salida del comando de la CLI de Azure anterior:
 
    ```output
    {
@@ -334,7 +352,7 @@ mosquitto_sub \
 
 donde `<edge_device_address>` = `localhost` en este ejemplo, ya que el cliente se ejecuta en el mismo dispositivo que IoT Edge.
 
-Tenga en cuenta que en este primer ejemplo se usa el puerto 1883 (MQTT), por ejemplo, sin TLS. En la sección siguiente se muestra otro ejemplo con el puerto 8883 (MQTTS), por ejemplo, con TLS habilitado.
+Tenga en cuenta que en este primer ejemplo se usa el puerto 1883 (MQTT), por ejemplo, sin TLS. Para que esto funcione, el puerto 1883 de edgeHub se debe enlazar al host a través de sus opciones de creación. Se proporciona un ejemplo en la sección de requisitos previos. En la sección siguiente se muestra otro ejemplo con el puerto 8883 (MQTTS), por ejemplo, con TLS habilitado.
 
 El cliente MQTT **sub_client** se ha iniciado y está esperando los mensajes entrantes en `test_topic`.
 
@@ -362,7 +380,11 @@ Al ejecutar el comando, el cliente MQTT **sub_client** recibe el mensaje "hello"
 
 Para habilitar TLS, el puerto debe cambiarse de 1883 (MQTT) a 8883 (MQTTS), y los clientes deben tener el certificado raíz del agente MQTT para poder validar la cadena de certificados enviada por el agente MQTT. Para ello, siga los pasos indicados en la sección [Conexión segura (TLS)](#secure-connection-tls).
 
-Dado que los clientes se ejecutan en el mismo dispositivo que el agente MQTT en el ejemplo anterior, se aplican los mismos pasos para habilitar TLS simplemente cambiando el número de puerto de 1883 (MQTT) a 8883 (MQTTS).
+Dado que los clientes se ejecutan en el mismo dispositivo que el agente MQTT del ejemplo anterior, se aplican los mismos pasos para habilitar TLS con estos pasos:
+
+- Cambie el número de puerto de 1883 (MQTT) a 8883 (MQTTS).
+- Pase el certificado raíz de entidad de certificación a los clientes mosquitto_pub y mosquitto_sub con un parámetro similar a`--cafile /certs/certs/azure-iot-test-only.root.ca.cert.pem`.
+- Pase el nombre de host real configurado en IoT Edge en lugar de `localhost` a través del parámetro del nombre de host que se pasó a los clientes mosquitto_pub y mosquitto_sub para habilitar la validación de la cadena de certificados.
 
 ## <a name="publish-and-subscribe-on-iot-hub-topics"></a>Publicación y suscripción en temas de IoT Hub
 
@@ -449,3 +471,104 @@ Otras notas sobre el puente MQTT del centro de IoT Edge:
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Información del centro de IoT Edge](iot-edge-runtime.md#iot-edge-hub)
+
+## <a name="appendix---sample-deployment-manifest"></a>Apéndice: Manifiesto de implementación de ejemplo
+
+A continuación se muestra el manifiesto de implementación completo que puede usar para habilitar el agente MQTT en IoT Edge. Implementa la versión 1.2 de IoT Edge con la característica Agente de MQTT habilitada, el puerto 1883 de edgeHub habilitado y una directiva de autorización abierta en `test_topic`.
+
+```json
+{
+   "modulesContent":{
+      "$edgeAgent":{
+         "properties.desired":{
+            "schemaVersion":"1.1",
+            "runtime":{
+               "type":"docker",
+               "settings":{
+                  "minDockerVersion":"v1.25",
+                  "loggingOptions":"",
+                  "registryCredentials":{
+                     
+                  }
+               }
+            },
+            "systemModules":{
+               "edgeAgent":{
+                  "type":"docker",
+                  "settings":{
+                     "image":"mcr.microsoft.com/azureiotedge-agent:1.2",
+                     "createOptions":"{}"
+                  }
+               },
+               "edgeHub":{
+                  "type":"docker",
+                  "status":"running",
+                  "restartPolicy":"always",
+                  "settings":{
+                     "image":"mcr.microsoft.com/azureiotedge-hub:1.2",
+                     "createOptions":"{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"1883/tcp\":[{\"HostPort\":\"1883\"}]}}}"
+                  },
+                  "env":{
+                     "experimentalFeatures__mqttBrokerEnabled":{
+                        "value":"true"
+                     },
+                     "experimentalFeatures__enabled":{
+                        "value":"true"
+                     },
+                     "RuntimeLogLevel":{
+                        "value":"debug"
+                     }
+                  }
+               }
+            },
+            "modules":{
+               
+            }
+         }
+      },
+      "$edgeHub":{
+         "properties.desired":{
+            "schemaVersion":"1.2",
+            "routes":{
+               "Upstream":"FROM /messages/* INTO $upstream"
+            },
+            "storeAndForwardConfiguration":{
+               "timeToLiveSecs":7200
+            },
+            "mqttBroker":{
+               "authorizations":[
+                  {
+                     "identities":[
+                        "{{iot:identity}}"
+                     ],
+                     "allow":[
+                        {
+                           "operations":[
+                              "mqtt:connect"
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "identities":[
+                        "{{iot:identity}}"
+                     ],
+                     "allow":[
+                        {
+                           "operations":[
+                              "mqtt:publish",
+                              "mqtt:subscribe"
+                           ],
+                           "resources":[
+                              "test_topic"
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   }
+}
+```

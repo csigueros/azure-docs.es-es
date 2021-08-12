@@ -1,6 +1,6 @@
 - name: API de Azure para FHIR
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca de la API de Azure para FHIR
       href: overview.md
@@ -166,6 +166,8 @@
       items:
         - name: Controles de seguridad de Azure Policy
           href: ./security-controls-policy.md
+        - name: Escalabilidad automática para Azure API para FHIR
+          href: autoscale-azure-api-fhir.md
 - name: Recursos
   items:
     - name: Preguntas más frecuentes

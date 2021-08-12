@@ -3,13 +3,13 @@ title: Crear un panel en el Azure Portal
 description: En este artículo se describe cómo crear y personalizar un panel en Azure Portal.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 05/06/2021
-ms.openlocfilehash: 668aead7b448cd462fab80003e498e956a6484d2
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.date: 05/12/2021
+ms.openlocfilehash: 0de3e30d2a27d131c13b2df94b1462b6e89b48e3
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794947"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846198"
 ---
 # <a name="create-a-dashboard-in-the-azure-portal"></a>Crear un panel en el Azure Portal
 
@@ -88,6 +88,14 @@ Muchas páginas de recursos incluyen una imagen de chincheta en el encabezado de
 Si selecciona esta imagen, puede anclar el icono a un panel privado o compartido existente. También puede crear un panel que incluya esta imagen de chincheta seleccionando **Crear nuevo**.
 
 :::image type="content" source="media/azure-portal-dashboards/dashboard-pin-pane.png" alt-text="Captura de pantalla de las opciones para anclar al panel.":::
+
+### <a name="copy-a-tile-to-a-new-dashboard"></a>Copia de un icono en un nuevo panel
+
+Si desea reutilizar un icono en otro panel, puede copiarlo de un panel a otro. Para ello, seleccione el menú contextual en la esquina superior derecha y, a continuación, **seleccione Copiar**.
+
+:::image type="content" source="media/azure-portal-dashboards/copy-dashboard.png" alt-text="Captura de pantalla donde se muestra cómo copiar un icono en Azure Portal.":::
+
+A continuación, puede seleccionar si desea copiar el icono en un panel privado o compartido existente, o bien crear una copia del icono en el panel en el que ya está trabajando. También puede crear un nuevo panel que incluirá una copia del icono seleccionando **Crear nuevo**.
 
 ### <a name="resize-or-rearrange-tiles"></a>Reorganizar los iconos o cambiar su tamaño
 

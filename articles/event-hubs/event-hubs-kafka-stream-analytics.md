@@ -3,12 +3,12 @@ title: 'Azure Event Hubs: Procesamiento de eventos de Apache Kafka'
 description: 'Tutorial: En este artículo se muestra cómo procesar los eventos de Kafka que se introducen a través de Event Hubs mediante Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 05/10/2021
-ms.openlocfilehash: 449301effbbb8fb92a873bd90d95da4653bfd8a2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0a14a4f8a4e82faebe232ac072ebe61e2db427b7
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373605"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286380"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics 
 En este artículo se muestra cómo transmitir en secuencias datos a Event Hubs y cómo procesarlos con Azure Stream Analytics. Estos pasos son los siguientes: 
@@ -25,7 +25,7 @@ No es necesario cambiar a los clientes de protocolo ni ejecutar sus propios clú
 Para completar esta guía de inicio rápido, asegúrese de cumplir los siguientes requisitos previos:
 
 * Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
-* [Kit de desarrollo de Java (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* [Kit de desarrollo de Java (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Descargue](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) un archivo binario de Maven.
 * [Git](https://www.git-scm.com/)
 * Una **cuenta de Azure Storage**. Si no tiene, [cree una](../storage/common/storage-account-create.md) antes de continuar. El trabajo de Stream Analytics en este tutorial almacena los datos de salida en Azure Blob Storage. 

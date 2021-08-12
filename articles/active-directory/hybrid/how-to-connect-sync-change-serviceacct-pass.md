@@ -17,12 +17,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8778e50dcb881647696c6e901bf1058b9d6ac43
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 736b43fc860cfe4405b8def97b511d18bb77c599
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720345"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853395"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Cambiar la contraseña de la cuenta de servicio de ADSync
 Si cambia la contraseña de la cuenta de servicio de ADSync, el servicio de sincronización no podrá iniciarse correctamente hasta que haya abandonado la clave de cifrado y reinicializado la contraseña de la cuenta de servicio de ADSync. 
@@ -109,11 +109,14 @@ Cuando las contraseñas existentes almacenadas en la base de datos ya no se pued
 #### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>Reinicializar la contraseña de la cuenta de servicio de ADSync
 No se puede especificar directamente la contraseña de la cuenta del servicio Azure AD en el servicio de sincronización. En su lugar, tendrá que usar el cmdlet **Add-ADSyncAADServiceAccount** para reinicializar la cuenta del servicio Azure AD. El cmdlet restablece la contraseña de la cuenta y la pone a disposición de servicio de sincronización:
 
-1. Inicie una nueva sesión de PowerShell en el servidor de Azure AD Connect.
-2. Ejecute el cmdlet `Add-ADSyncAADServiceAccount`.
-3. En el cuadro de diálogo emergente, especifique las credenciales de administrador global de Azure AD para el inquilino de Azure AD.
-![Utilidad de clave de cifrado de sincronización de Azure AD Connect](./media/how-to-connect-sync-change-serviceacct-pass/key7.png)
-4. Si se realiza correctamente, verá el símbolo del sistema de PowerShell.
+1. Inicie sesión en el servidor de sincronización de Azure AD Connect y abra PowerShell.
+2. Para proporcionar las credenciales de administrador global de Azure AD, ejecute `$credential = Get-Credential`.
+3. Ejecute el cmdlet `Add-ADSyncAADServiceAccount -AADCredential $credential`.
+ 
+   Si el cmdlet se ejecuta correctamente, aparece el símbolo del sistema de PowerShell. 
+   
+El cmdlet restablecerá la contraseña de la cuenta de servicio y la actualizará en Azure AD y en el motor de sincronización.
+
 
 #### <a name="start-the-synchronization-service"></a>Iniciar el servicio de sincronización
 Ahora que el servicio de sincronización tiene acceso a la clave de cifrado y a todas las contraseñas que necesita, puede reiniciar el servicio en el Administrador de control de servicios de Windows:
