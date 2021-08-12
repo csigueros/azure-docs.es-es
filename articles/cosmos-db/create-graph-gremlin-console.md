@@ -1,18 +1,18 @@
 ---
 title: 'Consulta con Gremlin API de Azure Cosmos DB mediante la consola de TinkerPop Gremlin: Tutorial'
 description: Guía de inicio rápido de Azure Cosmos DB para crear vértices, bordes y consultas con Gremlin API de Azure Cosmos DB.
-author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: chrande
-ms.openlocfilehash: f9e6b8df0acc552970d52cc8fa66d3577577ab77
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+author: manishmsfte
+ms.author: mansha
+ms.openlocfilehash: 0b93b2bf166b1a0d1c1b1c4b6c74e2b05bb2660f
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "113225739"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113355170"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Inicio rápido: Creación, consulta y recorrido de una base de datos de grafos de Azure Cosmos DB en la consola de Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -34,7 +34,7 @@ En este inicio rápido se muestra cómo crear una cuenta de [Gremlin API](graph-
 
 La consola de Gremlin se basa en Groovy/Java y se ejecuta en Linux, Mac y Windows. Puede descargarla desde el [sitio de Apache TinkerPop](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita tener una suscripción de Azure para crear una cuenta de Azure Cosmos DB para este inicio rápido.
 

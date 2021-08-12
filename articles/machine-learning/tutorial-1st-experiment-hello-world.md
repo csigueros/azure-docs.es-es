@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
 ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: ccc28c5a20fd31d3200f6473210150587fd5b4ad
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 40fdfcec5e74c7b86807f5cd1577d12ed4904632
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028638"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765737"
 ---
 # <a name="tutorial-get-started-with-a-python-script-in-azure-machine-learning-part-1-of-3"></a>Tutorial: Introducción a un script de Python en Azure Machine Learning (parte 1 de 3)
 
@@ -77,9 +77,6 @@ Seleccione **Guardar y ejecutar script en el terminal** para ejecutar el script.
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/save-run-in-terminal.png" alt-text="Captura de pantalla que muestra cómo guardar y ejecutar el script en la herramienta de terminal en la barra de herramientas":::
 
 Verá la salida del script en la ventana de terminal que se abre. Cierre la pestaña y seleccione **Finalizar** para cerrar la sesión.
-
-> [!div class="nextstepaction"]
-> [He ejecutado el script localmente](?success=run-local#control-script) [He tenido un problema](https://www.research.net/r/7C2NTH7?issue=run-local)
 
 ## <a name="create-a-control-script"></a><a name="control-script"></a> Creación de un script de control
 
@@ -149,8 +146,6 @@ Esta es una descripción de cómo funciona el script de control:
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [He creado el script de control](?success=create-control-script#submit) [He tenido un problema](https://www.research.net/r/7C2NTH7?issue=create-control-script)
 
 ## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Envío y ejecución del código en la nube
 
@@ -161,8 +156,6 @@ En el terminal, es posible que se le pida que inicie sesión para autenticarse. 
 > [!TIP]
 > Si acaba de crear el clúster de proceso, es posible que vea el error "UserError: Required Docker image not found..." (Error de usuario: No se encontró la imagen de Docker requerida..."). Espere unos 5 minutos e inténtelo de nuevo.  Es posible que el clúster de proceso necesite más tiempo antes de que esté listo para crear nodos.
 
-> [!div class="nextstepaction"]
-> [He enviado código en la nube](?success=submit-to-cloud#monitor) [He tenido un problema](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
 
 ## <a name="monitor-your-code-in-the-cloud-in-the-studio"></a><a name="monitor"></a>Supervisión del código en la nube en Studio
 
@@ -204,8 +197,6 @@ En la línea 8, verá el resultado "Hola mundo" .
 
 El archivo de `70_driver_log.txt` contiene la salida estándar de una ejecución. Este archivo puede ser útil al depurar ejecuciones remotas en la nube.
 
-> [!div class="nextstepaction"]
-> [He visto el registro en Studio](?success=monitor-in-studio#next-steps) [He tenido un problema](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

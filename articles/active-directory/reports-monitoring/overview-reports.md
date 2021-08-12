@@ -17,12 +17,12 @@ ms.date: 09/30/2020
 ms.author: markvi
 ms.reviewer: sarbar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9a51c10a4f390e5627bccf35ab5dc74689e9c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b67e8f7ae06f9cb3becb849df41210cb6e7791d0
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91566829"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113731727"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>¿Qué son los informes de Azure Active Directory?
 
@@ -87,7 +87,7 @@ Los [informes de registros de auditoría](concept-audit-logs.md) le proporcionan
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>¿Qué licencia de Azure AD se necesita para acceder al informe de registros de auditoría?  
 
-El informe de registros de auditoría está disponible para aquellas características para las que dispone de licencia. Si tiene una licencia para una característica determinada, también tiene acceso a la información del registro de auditoría de dicha característica. Para ver una comparación detallada de las características según los [diferentes tipos de licencias](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses), consulte la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Para más información, consulte [Características y funcionalidades de Azure Active Directory](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
+El informe de registros de auditoría está disponible para aquellas características para las que dispone de licencia. Si tiene una licencia para una característica determinada, también tiene acceso a la información del registro de auditoría de dicha característica. Para ver una comparación detallada de las características según los [diferentes tipos de licencias](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses), consulte la [página de precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). Para más información, consulte [Características y funcionalidades de Azure Active Directory](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
 
 ### <a name="sign-ins-report"></a>Informe de inicios de sesión
 

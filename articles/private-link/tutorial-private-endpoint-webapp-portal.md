@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
-ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67c4b96ebb9e578e6a617b37e5a05084e72c4f56
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896980"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "114285071"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Tutorial: Conexión a una aplicación web mediante un punto de conexión privado de Azure
 
@@ -102,7 +102,7 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Valor                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -123,7 +123,7 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
@@ -136,6 +136,8 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
   
 6. Revise la configuración y, a continuación, seleccione **Crear**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-web-app"></a>Crear una aplicación web
 
 En esta sección, creará una aplicación web.
@@ -144,7 +146,7 @@ En esta sección, creará una aplicación web.
 
 2. En la pestaña **Básico** de **Crear aplicación web**, escriba o seleccione la información siguiente:
 
-    | Configuración | Valor                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -177,7 +179,7 @@ En esta sección, creará una aplicación web.
 
 5. En la pantalla **Agregar punto de conexión privado**, escriba o seleccione la siguiente información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **mywebappendpoint**. |
     | Subscription | Seleccione su suscripción. |

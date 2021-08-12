@@ -29,7 +29,7 @@
   items:
     - name: Diagrama de encadenamiento de funciones
       href: durable-functions-sequence.md
-    - name: Distribución ramificada de entrada o salida
+    - name: Distribución ramificada de salida y de entrada
       href: durable-functions-cloud-backup.md
     - name: 'Monitores (C#, JavaScript)'
       href: durable-functions-monitor.md

@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/31/2020
+ms.date: 07/23/2021
 ms.author: inhenkel
-ms.openlocfilehash: e7c35e079a6f4bf6c40992debace60e10631a8ba
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 9b45671496f114eaf708aad92def220a3b81349e
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962057"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690219"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: .NET
 
@@ -35,9 +35,10 @@ Al final del tutorial, podrá transmitir un vídeo en streaming.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Si no tiene Visual Studio instalado, puede obtener [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Cree una cuenta de Media Services](./account-create-how-to.md).<br/>Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos.
-- Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Deberá usarlas para acceder a la API.
+- Instale [Visual Studio Code para Windows, macOS o Linux](https://code.visualstudio.com/) o [Visual Studio 2019 para Windows o Mac](https://visualstudio.microsoft.com/).
+- Instale el [SDK para .NET 5.0](https://dotnet.microsoft.com/download).
+- [Cree una cuenta de Media Services](./account-create-how-to.md). Asegúrese de copiar los detalles de **acceso a la API** en formato JSON o de almacenar los valores necesarios para conectarse a la cuenta de Media Services en el formato de archivo *.env* que se usa en este ejemplo.
+- Siga los pasos que se indican en [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Las necesitará para acceder a la API de este ejemplo, o bien deberá especificarlas en el formato de archivo *.env*.
 
 ## <a name="download-and-configure-the-sample"></a>Descarga y configuración del ejemplo
 
@@ -49,7 +50,7 @@ Clone un repositorio GitHub que contenga el ejemplo de .NET de streaming en la m
 
 El ejemplo se encuentra en la carpeta [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
 
-Abra [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) en el proyecto que ha descargado. Sustituya los valores por las credenciales que obtuvo de [acceder a las API](./access-api-howto.md).
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 Este ejemplo realiza las acciones siguientes:
 

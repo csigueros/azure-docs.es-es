@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: juliako
-ms.openlocfilehash: be49e1b80742fc49a60122de822626ab4c09a1db
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: dfedba441cc4df8436f32d3985182c16ef2cbb5e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371963"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465702"
 ---
 Como parte de los requisitos previos, ha descargado el código de ejemplo en una carpeta. Siga estos pasos para examinar y editar los archivos de ejemplo.
 
@@ -27,8 +27,8 @@ La plantilla de implementación hace referencia al manifiesto de implementación
         * Invoca los métodos directos para limpiar los recursos.
 1. Edite el archivo **operations.json**:
 
-    * Cambio del vínculo a la topología de la canalización<br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/httpExtension/topology.json"`
-    * En livePipelineSet, edite el nombre de la topología de la canalización para que coincida con el valor del vínculo anterior:<br/>`"pipelineTopologyName" : "InferencingWithHttpExtension"`
-    * En PipelineTopologyDelete, edite el nombre:<br/>`"name": "InferencingWithHttpExtension"`
+    * Cambio del vínculo a la topología de la canalización<br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-with-httpExtension/topology.json"`
+    * En livePipelineSet, edite el nombre de la topología de la canalización para que coincida con el valor del vínculo anterior:<br/>`"pipelineTopologyName" : "EVROnMotionPlusHttpExtension"`
+    * En PipelineTopologyDelete, edite el nombre:<br/>`"name": "EVROnMotionPlusHttpExtension"`
 
 

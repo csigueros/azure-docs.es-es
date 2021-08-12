@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: bf60f512416007137e71119fa7474b1393099ebf
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: cffd8e0347f501e82ca6e62d5c120b232869cbc0
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718888"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653328"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Un paseo por la interfaz de usuario de Azure IoT Central
 
@@ -22,7 +22,7 @@ Este artículo presenta la interfaz de usuario de Azure IoT Central. Puede usar 
 
 ## <a name="iot-central-homepage"></a>Página principal de IoT Central
 
-La [página de inicio de IoT Central](https://aka.ms/iotcentral-get-started) es el lugar donde puede obtener más información sobre las noticias y características más recientes disponibles en IoT Central, crear nuevas aplicaciones y ver e iniciar las aplicaciones existentes.
+La [página de inicio de IoT Central](https://apps.azureiotcentral.com/) es el lugar donde puede obtener más información sobre las noticias y características más recientes disponibles en IoT Central, crear nuevas aplicaciones y ver e iniciar las aplicaciones existentes.
 
 :::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="Página principal de IoT Central":::
 
@@ -36,7 +36,7 @@ Para más información, consulte la guía de inicio rápido [Creación de una ap
 
 ### <a name="launch-your-application"></a>Iniciar la aplicación
 
-Para iniciar la aplicación de IoT Central, vaya a la dirección URL que eligió durante la creación de la aplicación. También puede ver una lista de todas las aplicaciones a las que tiene acceso en el [administrador de aplicaciones de IoT Central](https://aka.ms/iotcentral-apps).
+Para iniciar la aplicación de IoT Central, vaya a la dirección URL que eligió durante la creación de la aplicación. También puede ver una lista de todas las aplicaciones a las que tiene acceso en el [administrador de aplicaciones de IoT Central](https://apps.azureiotcentral.com/myapps).
 
 :::image type="content" source="media/overview-iot-central-tour/app-manager.png" alt-text="Administrador de aplicaciones IoT Central":::
 
@@ -84,7 +84,7 @@ El menú superior aparece en todas las páginas:
 
 * Para buscar dispositivos, escriba un valor en **Buscar**.
 * Para cambiar el idioma o el tema de la interfaz de usuario, elija el icono **Configuración**. Más información sobre [administración de las preferencias de la aplicación](howto-manage-preferences.md)
-* Para obtener ayuda y soporte técnico, elija el menú desplegable **Ayuda** para obtener una lista de recursos. Puede [obtener información sobre la aplicación](./howto-get-app-info.md) en el vínculo **About your app** (Acerca de su aplicación). En una aplicación del plan de precios gratuito, los recursos de soporte técnico incluyen acceso al [chat en directo](howto-show-hide-chat.md).
+* Para obtener ayuda y soporte técnico, elija el menú desplegable **Ayuda** para obtener una lista de recursos. Puede [obtener información sobre la aplicación](howto-faq.yml#how-do-i-get-information-about-my-application-) en el vínculo **About your app** (Acerca de su aplicación). En una aplicación del plan de precios gratuito, los recursos de soporte técnico incluyen acceso al [chat en directo](howto-show-hide-chat.md).
 * Para cerrar la sesión de la aplicación, elija el icono **Cuenta**.
 
 Puede elegir entre un tema claro o un tema oscuro para la interfaz de usuario:
@@ -98,9 +98,9 @@ Puede elegir entre un tema claro o un tema oscuro para la interfaz de usuario:
 
 :::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Captura de pantalla del panel de IoT Central.":::
 
-* **Panel** es la primera página que verá cuando inicie sesión en la aplicación de IoT Central. Puede crear y personalizar varios paneles de aplicaciones. Más información sobre [agregar iconos al panel](howto-add-tiles-to-your-dashboard.md)
+* **Panel** es la primera página que verá cuando inicie sesión en la aplicación de IoT Central. Puede crear y personalizar varios paneles de aplicaciones. Más información sobre [agregar iconos al panel](howto-manage-dashboards.md)
 
-* También se pueden crear paneles personales para supervisar lo que le interese. Para más información, consulte el artículo [Creación de paneles personales de Azure IoT Central](howto-create-personal-dashboards.md).
+* También se pueden crear paneles personales para supervisar lo que le interese. Para más información, consulte el artículo [Creación de paneles personales de Azure IoT Central](howto-manage-dashboards.md).
 
 ### <a name="devices"></a>Dispositivos
 
@@ -110,8 +110,6 @@ Esta página muestra los dispositivos que hay en la aplicación de IoT Central a
 
 * Una plantilla de dispositivo define un tipo de dispositivo que se puede conectar a la aplicación.
 * Un dispositivo representa un dispositivo real o simulado en la aplicación.
-
-Para más información, consulte la guía de inicio rápido [Supervisar los dispositivos](./quick-monitor-devices.md). 
 
 ### <a name="device-groups"></a>Grupos de dispositivos
 
@@ -134,7 +132,7 @@ Análisis ofrece funcionalidades enriquecidas para analizar tendencias históric
 
 :::image type="content" source="Media/overview-iot-central-tour/jobs.png" alt-text="Página de trabajos":::
 
-Esta página le permite ver y crear trabajos que se pueden usar para operaciones de administración de dispositivos masivas en los dispositivos. Puede actualizar las propiedades del dispositivo, la configuración y ejecutar comandos en grupos de dispositivos. Para obtener más información, consulte el artículo [Run a job](howto-run-a-job.md) (Ejecución de un trabajo).
+Esta página le permite ver y crear trabajos que se pueden usar para operaciones de administración de dispositivos masivas en los dispositivos. Puede actualizar las propiedades del dispositivo, la configuración y ejecutar comandos en grupos de dispositivos. Para obtener más información, consulte el artículo [Run a job](howto-manage-devices-in-bulk.md) (Ejecución de un trabajo).
 
 ### <a name="device-templates"></a>Plantillas de dispositivo
 

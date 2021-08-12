@@ -44,7 +44,7 @@
     - name: Aprobar
       items:
         - name: Roles de Azure AD
-          href: pim-how-to-activate-role.md
+          href: azure-ad-pim-approval-workflow.md
         - name: Roles de Azure
           href: pim-resource-roles-approval-workflow.md
         - name: Grupos de acceso con privilegios

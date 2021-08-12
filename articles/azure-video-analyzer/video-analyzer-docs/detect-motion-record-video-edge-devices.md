@@ -2,14 +2,14 @@
 title: Detección de movimiento y grabación de vídeo en dispositivos perimetrales - Azure
 description: Use Azure Video Analyzer para analizar la fuente de vídeo en directo desde una cámara IP (simulada). Muestra cómo detectar si existe algún movimiento y, en caso afirmativo, graba un clip de vídeo MP4 en el sistema de archivos local del dispositivo perimetral. El inicio rápido usa una máquina virtual de Azure como dispositivo IoT Edge y emplea también una secuencia de vídeo en directo simulada.
 ms.topic: quickstart
-ms.date: 04/01/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: 38886673f57c4142dc1fd8cd5bd397a375aca4db
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e79a2aa9027309838fd0a0fcc79096e27651e7be
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388523"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601632"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en dispositivos perimetrales
 
@@ -68,7 +68,13 @@ Realice los pasos que se indican a continuación para usar Video Analyzer para d
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
 
-1. Para iniciar una sesión de depuración, seleccione la tecla F5. La ventana **TERMINAL** muestra algunos mensajes.
+1.  ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end
 1. El código de _operations.json_ llama a los métodos directos `pipelineTopologyList` y `livePipelineList`. Si ha limpiado los recursos después de los inicios rápidos anteriores, este proceso devolverá listas vacías y, a continuación, se pausará. Presione la tecla Entrar.
 
    ```

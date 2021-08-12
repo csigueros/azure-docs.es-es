@@ -1,21 +1,21 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: azure-communication-services
 author: ddematheu2
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: 84bb00b6ef5d0bf68a55b7eba70ccb8eb697a571
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 287c7c2cdc709f4026ddd4dfa744119568b7950c
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313559"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201257"
 ---
 El **ejemplo de elementos principales de llamada de grupo para iOS** de Azure Communication Services muestra cómo usar Calling SDK de Communication Services para iOS para crear una experiencia de llamada de grupo que incluya voz y vídeo. En este inicio rápido de ejemplo, aprenderá a configurar y ejecutar el ejemplo. Se proporciona información general del ejemplo con fines de contextualización.
 
@@ -52,7 +52,7 @@ A continuación encontrará más información sobre los requisitos previos y los
 
 - Una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Mac con [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), junto con un certificado de desarrollador válido instalado en el Llavero.
-- Un recurso de Azure Communication Services. Para obtener más información, consulte [Creación de un recurso de Azure Communication Services](../../quickstarts/create-communication-resource.md).
+- Un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](../../quickstarts/create-communication-resource.md).
 - Una función de Azure que ejecuta el [punto de conexión de autenticación](../../tutorials/trusted-service-tutorial.md) para capturar tokens de acceso.
 
 ## <a name="running-sample-locally"></a>Ejecución local del ejemplo

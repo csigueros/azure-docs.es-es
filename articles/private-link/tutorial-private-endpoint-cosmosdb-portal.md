@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 3a7e75641f6bb84b490231fcd06e04c3cbad06d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7c9caf5bbfd842c635b0cb887540457f15c081f
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99063473"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "114297044"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Tutorial: Conexión a una cuenta de Azure Cosmos mediante un punto de conexión privado de Azure
 
@@ -131,6 +131,8 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
   
 6. Revise la configuración y, a continuación, seleccione **Crear**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-a-cosmos-db-account-with-a-private-endpoint"></a>Creación de una cuenta de Cosmos DB con un punto de conexión privado
 
 En esta sección creará una cuenta de Cosmos DB y configurará el punto de conexión privado.
@@ -171,7 +173,7 @@ En esta sección creará una cuenta de Cosmos DB y configurará el punto de con
 
     | Configuración | Value                                          |
     |-----------------------|----------------------------------|
-    | Subscription | Selección de su suscripción a Azure |
+    | Suscripción | Selección de su suscripción a Azure |
     | Grupo de recursos | Seleccione **myResourceGroup**. |
     | Location | Seleccione **Este de EE. UU**. |
     | Nombre | Escriba **myPrivateEndpoint**. |

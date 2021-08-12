@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 6bd6901214ce4511a22c98b9811a36a6e1d4e71e
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: dc194a21099f7aaf6fe5af4102b1ae6bc1a4690b
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161778"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037803"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Análisis de datos en una cuenta de almacenamiento
 
@@ -35,7 +35,7 @@ Ejecute el siguiente código en una nueva celda de código de un cuaderno. Crea 
 ```py
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df = df.repartition(1) # This ensure we'll get a single file during write()
+df = df.repartition(1) # This ensures we'll get a single file during write()
 df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
 df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```

@@ -25,7 +25,7 @@
     - name: Página del producto Network Function Manager
       href: 'https://go.microsoft.com/fwlink/?linkid=2166098'
     - name: Documentación privada sobre Multi-Access Edge Computing (MEC) de Azure
-      href: 'https://go.microsoft.com/fwlink/?linkid=2165316'
+      href: ../private-multi-access-edge-compute-mec/index.yml
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blog

@@ -6,20 +6,18 @@ ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: eb0f596a2da9b501f57ca1b2795bffa338e3234c
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: f394448f0b488f468ce09c13d036585db032bda9
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560840"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535987"
 ---
 En este inicio rápido, verá cómo iniciar una llamada con Calling SDK de Azure Communication Services para JavaScript.
 
-> [!NOTE]
-> En este documento se usa la versión 1.1.0-beta.1 de Calling SDK.
+## <a name="sample-code"></a>Código de ejemplo
 
-> [!NOTE]
-> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling)
+Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -27,7 +25,6 @@ En este inicio rápido, verá cómo iniciar una llamada con Calling SDK de Azure
 - Versiones de [Node.js](https://nodejs.org/), Active LTS y Maintenance LTS (se recomiendan 8.11.1 y 10.14.1).
 - Recurso activo de Communication Services. [Creación de un recurso de Communication Services](../../../create-communication-resource.md).
 - Token de acceso de usuario para crear una instancia del cliente de llamada. Aprenda cómo [crear y administrar token de acceso de usuarios](../../../access-tokens.md).
-
 
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
@@ -98,10 +95,11 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 | CallAgent                        | CallAgent se usa para iniciar y administrar llamadas.                                                                                            |
 | AzureCommunicationTokenCredential | La clase AzureCommunicationTokenCredential implementa la interfaz CommunicationTokenCredential, que se usa para crear una instancia de CallAgent. |
 
-
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Debe especificar un token de acceso de usuario válido para el recurso en el campo de texto y hacer clic en "Enviar". Consulte la documentación relativa al [token de acceso de usuario](../../../access-tokens.md) si aún no tiene ningún token disponible. Con el `CallClient`, inicialice una instancia de `CallAgent` con un `CommunicationTokenCredential` que nos permita realizar y recibir llamadas. Agregue el código siguiente a **client.js**:
+Debe especificar un token de acceso de usuario válido para el recurso en el campo de texto y hacer clic en "Enviar". Consulte la documentación relativa al [token de acceso de usuario](../../../access-tokens.md) si aún no tiene ningún token disponible. Con el `CallClient`, inicialice una instancia de `CallAgent` con un `CommunicationTokenCredential` que nos permita realizar y recibir llamadas. 
+
+Agregue el código siguiente a **client.js**:
 
 ```javascript
 submitToken.addEventListener("click", async () => {
@@ -167,7 +165,3 @@ Abra el explorador web y vaya a http://localhost:8080/. Verá lo siguiente:
 :::image type="content" source="../../media/javascript/calling-javascript-app-2.png" alt-text="Captura de pantalla de la aplicación JavaScript completada.":::
 
 Para hacer una llamada de VOIP saliente, proporcione un token de acceso de usuario y un identificador de usuario válidos en los campos de texto correspondientes y haga clic en el botón **Iniciar llamada**. La llamada a `8:echo123` le conecta a un bot de eco; esto es excelente como introducción y para comprobar que los dispositivos de audio funcionan.
-
-## <a name="sample-code"></a>Código de ejemplo
-
-Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
