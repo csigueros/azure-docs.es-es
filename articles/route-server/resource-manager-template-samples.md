@@ -7,12 +7,12 @@ ms.author: duau
 ms.service: route-server
 ms.topic: sample
 ms.date: 04/09/2021
-ms.openlocfilehash: 1b5141bea71e44b746801841526d96a01fa064fc
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ce236c971dc7b471ead94d5dbb4e8b9d76037eef
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107315130"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437601"
 ---
 # <a name="azure-resource-manager-templates-for-azure-route-server"></a>Plantillas de Azure Resource Manager para Azure Route Server
 
@@ -20,4 +20,4 @@ En la tabla siguiente, se incluyen vínculos a plantillas de Azure Resource Mana
 
 | Title | Descripción |
 | ------ | ----------- |
-| [Route Server y Quagga](https://github.com/Azure/azure-quickstart-templates/tree/master/101-route-server-quagga) | Implemente una instancia de Azure Route Server y Quagga (NVA) en una red virtual. |
+| [Route Server y Quagga](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/route-server-quagga) | Implemente una instancia de Azure Route Server y Quagga (NVA) en una red virtual. |

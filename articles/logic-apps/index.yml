@@ -10,12 +10,12 @@ metadata:
   author: ecfan
   ms.author: estfan; logicappspm
   ms.date: 03/24/2021
-  ms.openlocfilehash: 536cb1aac1d2fa309f4530d150ade8f9eb5dc9d2
-  ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+  ms.openlocfilehash: 89a61d7ed018ebfd72a64661da1bad9671a39c53
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/17/2021
-  ms.locfileid: "112321727"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114456688"
 landingContent:
 - title: Acerca de Azure Logic Apps
   linkLists:
@@ -108,7 +108,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: 'Sample: Conexión a la cuenta de integración e implementación con Azure DevOps'
-      url: /samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/
+      url: https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/storage-account-connections
   - linkListType: architecture
     links:
     - text: Integración empresarial básica
@@ -143,10 +143,8 @@ landingContent:
     links:
     - text: Creación e implementación con plantillas de Resource Manager
       url: /learn/modules/create-deploy-logic-apps-using-arm-templates/
-    - text: 'Sample: Conexión a Azure Storage e implementación con Azure DevOps'
-      url: /samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
-    - text: 'Sample: Conexión a Azure Service Bus e implementación con Azure DevOps'
-      url: /samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
+    - text: 'Ejemplo: Organización de Azure Pipelines mediante Azure Logic Apps'
+      url: https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration
 - title: Más información
   linkLists:
   - linkListType: reference

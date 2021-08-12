@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de Webroot Security Awareness Training para el 
 description: Obtenga información sobre cómo aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD a Webroot Security Awareness Training.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 455f4396-930e-4db5-a167-d3ea6a860a17
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: Zhchia
-ms.openlocfilehash: f015718c59178b8094f535280edadd641d22a806
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 6f866fed1c313b60384062265dcb6f30013958a1
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98741934"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762442"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutorial: Configuración de Webroot Security Awareness Training para el aprovisionamiento automático de usuarios
 

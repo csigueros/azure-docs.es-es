@@ -1,13 +1,23 @@
 - name: Información general
   href: overview.md
-- name: Imágenes de Red Hat Enterprise Linux
+- name: Imágenes de Red Hat Enterprise Linux en Azure
   items:
-    - name: Introducción a las imágenes de Red Hat Enterprise Linux
-      href: redhat-images.md
-    - name: Lista de imágenes de Red Hat Enterprise Linux
+    - name: Actualización local de RHEL
+      href: redhat-in-place-upgrade.md
+    - name: Ofertas de imagen BYOS RHEL
+      href: byos.md
+    - name: Compatibilidad con ciclo de vida extendido de RHEL
+      href: redhat-extended-lifecycle-support.md
+    - name: Lista de imágenes de RHEL
       href: redhat-imagelist.md
-- name: Inicios rápidos de Red Hat Java
+    - name: Introducción a las imágenes de RHEL
+      href: redhat-images.md
+    - name: RHUI en Azure
+      href: redhat-rhui.md
+- name: Red Hat Enterprise Java en Azure
   items:
+    - name: JBoss EAP en Azure
+      href: /azure/developer/java/ee/jboss-on-azure
     - name: JBoss EAP + RHEL en máquinas virtuales
       href: jboss-eap-on-rhel.md
     - name: Imagen de Marketplace de JBoss EAP
@@ -17,14 +27,6 @@
     - name: Migración de JBoss EAP a máquinas virtuales de Azure
       href: jboss-eap-on-azure-migration.md
     - name: Migración de JBoss EAP a App Service
-      href: /azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
+      href: ./overview.md
     - name: WildFly + CentOS en VM
       href: wildfly-on-centos.md
-- name: Infraestructura de actualización de Red Hat en Azure
-  href: redhat-rhui.md
-- name: Oferta de imágenes de BYOS de Red Hat Enterprise Linux
-  href: byos.md
-- name: Ampliación del soporte técnico del ciclo de vida de Red Hat Enterprise Linux
-  href: redhat-extended-lifecycle-support.md
-- name: Actualización local de imágenes de Red Hat Enterprise en Azure
-  href: redhat-in-place-upgrade.md

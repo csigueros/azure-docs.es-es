@@ -1,21 +1,21 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: azure-communication-services
 author: ddematheu2
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: 2a573a4df8abcdc2b32204faadbaa0df8c3dac15
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: cc6264e00cb627815f4008f147266357c625b72a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313576"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201010"
 ---
 El **ejemplo de elementos principales de llamada de grupo para Android** de Azure Communication Services muestra cómo usar el SDK de llamadas de Communication Services para Android para crear una experiencia de llamada de grupo que incluya voz y vídeo. En este inicio rápido de ejemplo, aprenderá a configurar y ejecutar el ejemplo. Se proporciona información general del ejemplo con fines de contextualización.
 
@@ -52,7 +52,7 @@ A continuación encontrará más información sobre los requisitos previos y los
 
 - Una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio) en ejecución en el equipo.
-- Un recurso de Azure Communication Services. Para obtener más información, consulte [Creación de un recurso de Azure Communication Services](../../quickstarts/create-communication-resource.md).
+- Un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](../../quickstarts/create-communication-resource.md).
 - Una función de Azure que ejecuta el [punto de conexión de autenticación](../../tutorials/trusted-service-tutorial.md) para capturar tokens de acceso.
 
 ## <a name="running-sample-locally"></a>Ejecución local del ejemplo

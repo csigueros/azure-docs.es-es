@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de Cofense Recipient Sync para el aprovisionami
 description: Aprenda a aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD en Cofense Recipient Sync.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 84fe20ef-0de0-4f7c-9b42-6385f3d834db
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
-ms.author: Zhchia
-ms.openlocfilehash: 70766fd93f0a70ecf6b5ee54dbdba3571f783878
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: a2e3ebb1c1062e989e159a69bd08042c269d91f2
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646051"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113764081"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cofense Recipient Sync para el aprovisionamiento automático de usuarios
 

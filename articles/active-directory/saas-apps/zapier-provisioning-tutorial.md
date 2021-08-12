@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Zapier para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD para Zapier.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.author: Zhchia
-ms.openlocfilehash: d2c1704182a2a59f8e3f79c2d4e671167ce661d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: e742e323932304da3fd25ad45087c2910490b839
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183080"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760543"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zapier para el aprovisionamiento automático de usuarios
 

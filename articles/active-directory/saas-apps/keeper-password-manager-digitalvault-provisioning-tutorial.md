@@ -2,8 +2,8 @@
 title: 'Tutorial: Configuración de Keeper Password Manager & Digital Vault para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Keeper Password Manager & Digital Vault.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 2670dc0cb56805a2afa966bee1d2aa52b6c8e46a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18d7505eb38ef499e8f0b2651aa3f46345cdb67d
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358990"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767609"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Tutorial: Configurar Keeper Password Manager & Digital Vault para el aprovisionamiento de usuario automático
 

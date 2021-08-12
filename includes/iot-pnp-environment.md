@@ -1,17 +1,17 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 09/08/2020
-ms.openlocfilehash: 2e53c9d7c7328ef631bd1ba3d678f31dd12e1f28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f5db7e65eacca5579e64b52fc8c2182782b5966
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91574043"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114400159"
 ---
-En [Configuración del entorno](../articles/iot-pnp/set-up-environment.md), creó cuatro variables de entorno para configurar el ejemplo de modo que usara Device Provisioning Service (DPS) para conectarse a IoT Hub:
+En [Configuración del entorno](../articles/iot-develop/set-up-environment.md), creó cuatro variables de entorno para configurar el ejemplo de modo que usara Device Provisioning Service (DPS) para conectarse a IoT Hub:
 
 * **IOTHUB_DEVICE_SECURITY_TYPE** con el valor `DPS`
 * **IOTHUB_DEVICE_DPS_ID_SCOPE** con el ámbito del id. de DPS.

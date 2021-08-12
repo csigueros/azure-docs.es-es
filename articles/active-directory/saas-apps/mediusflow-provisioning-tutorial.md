@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de MediusFlow para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a aprovisionar y desaprovisionar automáticamente las cuentas de usuario de Azure AD en MediusFlow.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
-ms.author: Zhchia
-ms.openlocfilehash: a49258208f7a5945ac71c8f17db56fccfdcd6515
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: ef4ffd0417cc1566282466e28ee82f1d27f3db3c
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98662007"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768690"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configuración de MediusFlow para el aprovisionamiento automático de usuarios
 
@@ -31,7 +31,7 @@ En este tutorial se describen los pasos que debe realizar en MediusFlow y Azure�
 > * Aprovisionamiento de grupos y pertenencias a grupos en MediusFlow
 > * Inicio de sesión único en MediusFlow (recomendado)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 

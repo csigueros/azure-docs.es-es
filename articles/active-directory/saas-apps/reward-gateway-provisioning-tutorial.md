@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Reward Gateway para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y desaprovisionar automáticamente las cuentas de usuario para Reward Gateway.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 2d51903aff6f3fd1cd53d85a980f1b5dc2a893e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 7d46c0115f5e9ef3432a188c1f1ffba89c0b04af
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94354332"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766216"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>Tutorial: Configuración de Reward Gateway para el aprovisionamiento automático de usuarios
 
@@ -27,7 +27,7 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Reward Gate
 >
 > Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 

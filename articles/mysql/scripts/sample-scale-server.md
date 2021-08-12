@@ -8,29 +8,35 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: e7dea1cb99ea8ce941b16739bdbd258843877e89
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a0150128328eb94dd1ddbdfde6bbaf7e24c90627
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791665"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113084628"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Supervisión y escalado de un servidor de Azure Database for MySQL (Base de datos de Azure para MySQL) mediante la CLI de Azure
+
+[[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
 Este script de la CLI de ejemplo escala el proceso y el almacenamiento de un servidor individual de Azure Database for MySQL después de consultar las métricas. La capacidad de procesamiento se puede ampliar o reducir. El almacenamiento solo se puede ampliar.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE[azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 - En este artículo se necesita la versión 2.0 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente. 
 
 ## <a name="sample-script"></a>Script de ejemplo
+
 Actualice el script con el identificador de su suscripción.
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh "Create and scale Azure Database for MySQL.")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
+
 Use el comando siguiente para quitar el grupo de recursos y todos los recursos asociados a él después de ejecutarse el script de ejemplo. 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/delete-mysql.sh  "Delete the resource group.")]
 
 ## <a name="script-explanation"></a>Explicación del script
+
 Este script usa los comandos que se describen en la tabla siguiente:
 
 | **Comando** | **Notas** |
@@ -42,6 +48,7 @@ Este script usa los comandos que se describen en la tabla siguiente:
 | [az group delete](/cli/azure/group#az_group_delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Más información sobre el [proceso y el almacenamiento de Azure Database for MySQL](../concepts-pricing-tiers.md)
 - Pruebe otros scripts adicionales: [Ejemplos de la CLI de Azure para Azure Database for MySQL](../sample-scripts-azure-cli.md)
 - Más información sobre la [CLI de Azure](/cli/azure)

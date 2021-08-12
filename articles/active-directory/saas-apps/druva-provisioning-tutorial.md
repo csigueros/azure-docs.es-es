@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Druva para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario en Druva.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 2ef564ae61aab10e1d100ccaf2547248e4a6a8e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 1781fbca793e855c0755e1e5b8db292c8846284b
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96352174"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768076"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutorial: Configuración de Druva para aprovisionar usuarios automáticamente
 

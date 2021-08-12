@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: a061f3afbfb3a114ec22bcfba123aa326b6ac3fd
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a0e6a02aed59cbe968abb0df5c3fb612c8f2d3b0
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067103"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551693"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source"></a>Registro y examen de un origen de SAP S/4HANA
 
@@ -27,9 +27,9 @@ El origen de SAP S/4HANA admite un **examen completo** para extraer metadatos de
 1.  Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717).
     Para obtener más información, consulte [Creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
 
-2.  Asegúrese de que el [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) esté instalado en la máquina virtual donde está instalado el entorno de ejecución de integración autohospedado.
+2.  Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado en la máquina virtual donde también lo está el entorno de ejecución de integración autohospedado.
 
-3.  Asegúrese de que \"Visual C++ Redistributable 2012 Update 4\" está instalado en la máquina del entorno de ejecución de integración autohospedado. Si aún no está instalado, descárguelo [aquí](https://www.microsoft.com/download/details.aspx?id=30679).
+3.  Asegúrese de que \"Visual C++ Redistributable 2012 Update 4\" está instalado en la máquina del entorno de ejecución de integración autohospedado. Si aún no lo está, descárguelo desde [aquí](https://www.microsoft.com/download/details.aspx?id=30679).
 
 4.  Descargue el [conector de SAP para Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) de 64 bits del sitio web de SAP e instálelo en la máquina del entorno de ejecución de integración autohospedado. Al instalarlo, asegúrese de seleccionar la opción **Install Assemblies to GAC** (Instalar ensamblados en GAC) en la ventana **Optional setup steps** (Pasos de configuración opcionales).
 
@@ -103,6 +103,8 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
     e.  **JCo library path** (Ruta de acceso de la biblioteca de JCo): especifique la ruta de acceso a la carpeta donde se encuentran las bibliotecas de JCo.
 
     f.  **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de SAP S/4HANA que se va a examinar.
+    > [!Note] 
+    > Como regla general, especifique 1 GB de memoria por cada 1000 tablas.
 
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="Examen de SAP S/4HANA" border="true":::
 

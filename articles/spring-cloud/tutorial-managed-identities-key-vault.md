@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Identidad administrada para conectar Key Vault'
 description: Configuración de una identidad administrada para conectar Key Vault a una aplicación de Azure Spring Cloud
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 8ac5a199df831ef954e870543d2be80f3c7abe2c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 08428a7b5101125780204c2cfc6b584010fba9e3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138326"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470158"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Uso de una identidad administrada para conectar Key Vault a una aplicación de Azure Spring Cloud
 

@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/10/2021
+ms.date: 07/14/2021
 ms.author: duau
-ms.openlocfilehash: 7f2a5faebb56cfb12a62a8bdae4e6b7e56e88b57
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 97a96d439773d7332fda3fe545d950dfe0077ad1
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004716"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765428"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door
 
@@ -181,7 +181,7 @@ webmaster@&lt;su-nombre-de-dominio.com&gt;
 hostmaster@&lt;su-nombre-de-dominio.com&gt;  
 postmaster@&lt;su-nombre-de-dominio.com&gt;  
 
-Debería recibir un correo electrónico en unos minutos, de forma similar al ejemplo siguiente, solicitando que apruebe la solicitud. Si utiliza un filtro de correo no deseado, agregue admin@digicert.com a la lista de permitidos. Si no recibe un correo electrónico en 24 horas, póngase en contacto con el equipo de soporte técnico de Microsoft.
+Debería recibir un correo electrónico en unos minutos, de forma similar al ejemplo siguiente, solicitando que apruebe la solicitud. Si utiliza un filtro de correo no deseado, agregue no-reply@digitalcertvalidation.com a la lista de permitidos. Si no recibe un correo electrónico en 24 horas, póngase en contacto con el equipo de soporte técnico de Microsoft.
 
 Al seleccionar el vínculo de aprobación, se le conducirá al siguiente formulario de aprobación en línea: Siga las instrucciones que aparecen en el formulario; tiene dos opciones de comprobación:
 

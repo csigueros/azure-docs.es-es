@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe1db967dac8a76119733f930e54a38160395932
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 15c8f3de2b47b8ab3163508a1526684213fd626e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549845"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438299"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuales Linux en Azure
 
@@ -48,7 +48,7 @@ En esta tabla se muestran algunas de las formas en que puede obtener una lista d
 
 | Método | Descripción |
 | --- | --- |
-| Azure Portal |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
+| Azure portal |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
 | Azure PowerShell |Use el comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | API DE REST |Use la operación para [mostrar la lista de ubicaciones](/rest/api/resources/subscriptions). |
 | Azure CLI |Use la operación[az account list-locations](/cli/azure/account). |
@@ -80,7 +80,7 @@ En Microsoft trabajamos estrechamente con los asociados para garantizar que las 
 * Linux en Azure: [distribuciones aprobadas](endorsed-distros.md)
 * SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=suse)
 * Red Hat - [Azure Marketplace - Red Hat Enterprise Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Red%20Hat%20Enterprise%20Linux)
-* Canonical - [Azure Marketplace - Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer)
+* Canonical - [Azure Marketplace - Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&filters=partners&search=canonical)
 * Debian - [Azure Marketplace - Debian](https://azuremarketplace.microsoft.com/marketplace/apps?search=Debian&page=1)
 * FreeBSD - [Azure Marketplace - FreeBSD](https://azuremarketplace.microsoft.com/marketplace/apps?search=freebsd&page=1)
 * Flatcar - [Azure Marketplace - Flatcar Container Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Flatcar&page=1)

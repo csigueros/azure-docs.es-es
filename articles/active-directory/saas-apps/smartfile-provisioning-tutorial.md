@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de SmartFile para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de SmartFile.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 03c7efd390d4714680ed2ccd54d297b8137aaafc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 0cd0dcf0bece7c145bdfddbad7b069c7d7d43f19
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96348677"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759493"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Tutorial: Configuración de SmartFile para el aprovisionamiento automático de usuarios
 

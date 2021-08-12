@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/28/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: b38b5303f21cb31115a2279648c8d631e31aa8bf
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f0f2e63a32c30c807f865a46154123643809de74
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459321"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114442852"
 ---
 # <a name="tutorial-create-logical-data-warehouse-with-serverless-sql-pool"></a>Tutorial: Creación de un almacenamiento de datos lógico con un grupo de SQL sin servidor
 
@@ -41,7 +41,7 @@ Como primer paso, debe configurar el origen de datos y especificar el formato de
 
 Los orígenes de datos representan información de la cadena de conexión que describe dónde se colocan los datos y cómo autenticarse en el origen de datos.
 
-En el ejemplo siguiente se muestra un ejemplo de definición de origen de datos que hace referencia al [conjunto de datos público de Azure del Centro europeo para la prevención y el control de enfermedades (ECDC) sobre la COVID 19](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/):
+En el ejemplo siguiente se muestra un ejemplo de definición de origen de datos que hace referencia al [conjunto de datos público de Azure del Centro europeo para la prevención y el control de enfermedades (ECDC) sobre la COVID 19](/azure/open-datasets/dataset-ecdc-covid-cases):
 
 ```sql
 CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
@@ -246,4 +246,3 @@ Este control de acceso de seguridad basada en roles puede simplificar la adminis
 
 - Para aprender a conectar un grupo de SQL sin servidor a Power BI Desktop y crear informes, consulte el artículo [Conexión de un grupo de SQL sin servidor a Power BI Desktop y creación de informes](tutorial-connect-power-bi-desktop.md).
 - Para más información sobre el uso de tablas externas en los grupos de SQL sin servidor, consulte [Uso de tablas externas con Synapse SQL](develop-tables-external-tables.md?tabs=sql-pool).
-

@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Brivo Onair Identity Connector para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y desaprovisionar cuentas de usuario a Brivo Onair Identity Connector.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/01/2019
-ms.author: Zhchia
-ms.openlocfilehash: 4f230a70ae87c7c0ec9db347e7cf975c0252bb18
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.author: thwimmer
+ms.openlocfilehash: c44b359c520c8b5ccb7274a9c5c1b154586b3e76
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95998096"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113764524"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Tutorial: Configuración de Brivo Onair Identity Connector para el aprovisionamiento de usuarios automático
 
@@ -27,7 +27,7 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Brivo Onair
 >
 > Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 

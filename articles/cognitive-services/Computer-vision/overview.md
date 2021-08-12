@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 06/21/2021
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: 875ef961148668a83e94c116622b5e461d2413fa
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: c78f12d484cb1c0e4cda80867af67bc8af7f6c55
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286141"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460250"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
@@ -30,7 +30,7 @@ El servicio Computer Vision de Azure proporciona acceso a algoritmos avanzados q
 
 | Servicio|Descripción|
 |---|---|
-|[Reconocimiento óptico de caracteres (OCR)](overview-ocr.md)|El servicio de reconocimiento óptico de caracteres (OCR) extrae el texto de las imágenes. Puede usar la nueva Read API para extraer el texto impreso y manuscrito de imágenes y documentos. Usa modelos basados en aprendizaje profundo y funciona con texto en diversas superficies y fondos. Entre estos se incluyen documentos de la empresa, facturas, recibos, pósteres, tarjetas de presentación, cartas y pizarras. Las API de OCR admiten la extracción de texto impreso en [varios idiomas](./language-support.md). Siga nuestro [inicio rápido con OCR](quickstarts-sdk/client-library.md) para comenzar.|
+| [Reconocimiento óptico de caracteres (OCR)](overview-ocr.md)|El servicio de reconocimiento óptico de caracteres (OCR) extrae el texto de las imágenes. Puede usar la nueva Read API para extraer el texto impreso y manuscrito de imágenes y documentos. Usa modelos basados en aprendizaje profundo y funciona con texto en diversas superficies y fondos. Entre estos se incluyen documentos de la empresa, facturas, recibos, pósteres, tarjetas de presentación, cartas y pizarras. Las API de OCR admiten la extracción de texto impreso en [varios idiomas](./language-support.md). Siga nuestro [inicio rápido con OCR](quickstarts-sdk/client-library.md) para comenzar.|
 |[Análisis de imágenes](overview-image-analysis.md)| El servicio Image Analysis extrae muchas características visuales de las imágenes, como objetos, caras, contenido para adultos y descripciones de texto generadas automáticamente. Siga los [artículos de inicio rápido de Image Analysis](quickstarts-sdk/image-analysis-client-library.md) para comenzar.|
 | [Análisis espacial](intro-to-spatial-analysis-public-preview.md)| El servicio de análisis espacial analiza la presencia y el movimiento de personas en una fuente de vídeo y genera eventos a los que pueden responder otros sistemas. Instale el [contenedor de análisis espacial](spatial-analysis-container.md) para comenzar.|
 

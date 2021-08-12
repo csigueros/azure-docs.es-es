@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: juliako
-ms.openlocfilehash: 66b9e6656b7bebd488c6e710f91254ee985d06b8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fc2978bb78f25cae8bf42af255bbc3186082fc72
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110486319"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444572"
 ---
 Como parte de los requisitos previos, ha descargado el código de ejemplo en una carpeta. Siga estos pasos para examinar y editar los archivos de ejemplo.
 
@@ -28,7 +28,7 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
         * Invoca los métodos directos para limpiar los recursos.
 1. Edite el archivo **operations.json**:
 
-    * Cambie el vínculo a la canalización: <br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-file-sink/topology.json" `
+    * Cambie el vínculo a la canalización: <br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-file-sink/topology.json" `
     * En livePipelineSet, edite el nombre de la topología de la canalización para que coincida con el valor del vínculo anterior: <br/>`"topologyName" : "EVRToFilesOnMotionDetection" `
     * En PipelineTopologyDelete, edite el nombre: <br/>`"name": "EVRToFilesOnMotionDetection" `
 
