@@ -11,18 +11,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 06/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 553b4527796db3e5d0f430afd6c5e614626187e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d000b9db658c76b5d7cdb586599f04d9078dde5d
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988881"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812164"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Protección de API mediante la autenticación de certificados de cliente en API Management
 
-API Management proporciona la capacidad de proteger el acceso a las API (es decir, de cliente a API Management) mediante certificados de cliente. Puede validar el certificado entrante y comprobar las propiedades del certificado con los valores deseados mediante expresiones de directiva.
+API Management proporciona la capacidad de proteger el acceso a las API (es decir, de cliente a API Management) mediante certificados de cliente. Puede validar los certificados presentados por el cliente que se conecta y comprobar las propiedades del certificado con los valores deseados mediante expresiones de directiva.
 
 Para información acerca de cómo proteger el acceso al servicio de back-end de una API mediante certificados de cliente (por ejemplo, de API Management para back-end), consulte [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management](./api-management-howto-mutual-certificates.md)
 
@@ -36,7 +36,22 @@ Para información acerca de cómo proteger el acceso al servicio de back-end de 
 
 ![Solicitar certificado de cliente](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 
-## <a name="checking-the-issuer-and-subject"></a>Comprobación del emisor y el asunto
+## <a name="policy-to-validate-client-certificates"></a>Directiva para validar certificados de cliente
+
+Use la directiva [validate-client-certificate](api-management-access-restriction-policies.md#validate-client-certificate) para validar uno o varios atributos de un certificado de cliente que se usan para acceder a las API hospedadas en la instancia de API Management.
+
+Configure la directiva para validar uno o varios atributos, incluidos el emisor de certificado, el asunto, la huella digital, si el certificado se valida con la lista de revocación en línea y otros.
+
+Para obtener más información, consulte [Directivas de restricción de acceso de API Management](api-management-access-restriction-policies.md).
+
+## <a name="certificate-validation-with-context-variables"></a>Validación de certificados con variables de contexto
+
+También puede crear expresiones de directiva con la [variable `context`](api-management-policy-expressions.md#ContextVariables) para comprobar los certificados de cliente. En los ejemplos de las secciones siguientes se muestran expresiones que usan la propiedad `context.Request.Certificate` y otras propiedades `context`.
+
+> [!IMPORTANT]
+> A partir de mayo de 2021, la propiedad `context.Request.Certificate` solo solicita el certificado cuando [`hostnameConfiguration`](/rest/api/apimanagement/2019-12-01/apimanagementservice/createorupdate#hostnameconfiguration) de la instancia de API Management establece la propiedad `negotiateClientCertificate` en True. De manera predeterminada, `negotiateClientCertificate` se establece en False.
+
+### <a name="checking-the-issuer-and-subject"></a>Comprobación del emisor y el asunto
 
 Es posible configurar las directivas siguientes para comprobar el emisor y el firmante de un certificado de cliente:
 
@@ -54,7 +69,7 @@ Es posible configurar las directivas siguientes para comprobar el emisor y el fi
 > Para deshabilitar la comprobación de la lista de revocación de certificados, use `context.Request.Certificate.VerifyNoRevocation()` en lugar de `context.Request.Certificate.Verify()`.
 > Si el certificado de cliente es un certificado autofirmado, los certificados CA raíz (o intermedios) deben [cargarse](api-management-howto-ca-certificates.md) en API Management para que `context.Request.Certificate.Verify()` y `context.Request.Certificate.VerifyNoRevocation()` funcionen.
 
-## <a name="checking-the-thumbprint"></a>Comprobación de la huella digital
+### <a name="checking-the-thumbprint"></a>Comprobación de la huella digital
 
 Es posible configurar las directivas siguientes para comprobar la huella digital de un certificado de cliente:
 
@@ -72,7 +87,7 @@ Es posible configurar las directivas siguientes para comprobar la huella digital
 > Para deshabilitar la comprobación de la lista de revocación de certificados, use `context.Request.Certificate.VerifyNoRevocation()` en lugar de `context.Request.Certificate.Verify()`.
 > Si el certificado de cliente es un certificado autofirmado, los certificados CA raíz (o intermedios) deben [cargarse](api-management-howto-ca-certificates.md) en API Management para que `context.Request.Certificate.Verify()` y `context.Request.Certificate.VerifyNoRevocation()` funcionen.
 
-## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Comprobación de una huella digital en relación con certificados cargados en API Management
+### <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Comprobación de una huella digital en relación con certificados cargados en API Management
 
 En el ejemplo siguiente se muestra cómo comprobar la huella digital de un certificado de cliente en relación con los certificados cargados en API Management:
 
@@ -94,19 +109,6 @@ En el ejemplo siguiente se muestra cómo comprobar la huella digital de un certi
 > [!TIP]
 > El problema de interbloqueo de certificados de cliente descrito en este [artículo](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) puede manifestarse de varias maneras, por ejemplo, las solicitudes se inmovilizan, las solicitudes resultan en un código de estado `403 Forbidden` después de agotar el tiempo, `context.Request.Certificate` es `null`. Este problema afecta normalmente a las solicitudes `POST` y `PUT` con la longitud del contenido de aproximadamente 60 KB o más.
 > Para evitar que este problema se produzca, active "Negociar certificado de cliente" para los nombres de host deseados en la hoja "Dominios personalizados", tal como se muestra en la primera imagen de este documento. Esta característica no está disponible en el nivel Consumo.
-
-## <a name="certificate-validation-in-self-hosted-gateway"></a>Validación de certificados en una puerta de enlace autohospedada
-
-La imagen de [puerta de enlace autohospedada](self-hosted-gateway-overview.md) predeterminada de la API Management no admite la validación de certificados de servidor y de cliente mediante [certificados raíz de CA](api-management-howto-ca-certificates.md) cargados en una instancia de API Management. Los clientes que presentan un certificado personalizado en la puerta de enlace autohospedada pueden experimentar respuestas lentas, ya que el tiempo de espera de la validación de la lista de revocación de certificados (CRL) puede tardar mucho en agotarse en la puerta de enlace. 
-
-Como solución alternativa al usar la puerta de enlace, puede configurar la dirección IP de PKI para que apunte a la dirección localhost (127.0.0.1) en lugar de a la instancia de API Management. Como resultado, la validación de CRL genera un error rápidamente cuando la puerta de enlace intenta validar el certificado de cliente. Para configurar la puerta de enlace, agregue una entrada DNS para que la instancia de API Management se resuelva en el host local en el archivo `/etc/hosts` del contenedor. Puede agregar esta entrada durante la implementación de la puerta de enlace:
- 
-* En el caso de la implementación de Docker, agregue el parámetro `--add-host <hostname>:127.0.0.1` al comando `docker run`. Para obtener más información, consulte [Adición de entradas al archivo hosts del contenedor](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host).
- 
-* En el caso de la implementación de Kubernetes: agregue una especificación de `hostAliases` al archivo de configuración `myGateway.yaml`. Para obtener más información, consulte [Adición de entradas al Pod /etc/hosts con alias de host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/).
-
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

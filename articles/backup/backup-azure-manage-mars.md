@@ -3,13 +3,13 @@ title: Administración y supervisión de copias de seguridad del agente de MARS
 description: Aprenda a administrar y supervisar las copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 04/29/2021
-ms.openlocfilehash: 5e495a5a5750ce2a2375000d208d9856ce68d803
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.date: 06/08/2021
+ms.openlocfilehash: c7a696c4059ebc7cc28a34a299060039ac1c0c62
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516693"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902958"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -201,6 +201,34 @@ Se recomienda la siguiente configuración para el software antivirus con el fin 
 
 >[!NOTE]
 >Aunque la exclusión de estas rutas de acceso será suficiente para la mayoría de los programas antivirus, puede que algunas sigan pudiendo interferir con las operaciones del agente de MARS. Si ve errores inesperados, desinstale temporalmente el software antivirus y supervise si el problema desaparece. Si se resuelve el problema, póngase en contacto con el proveedor del software antivirus para obtener ayuda con la configuración adecuada de su producto.
+
+## <a name="monitor-using-backup-reports"></a>Supervisión mediante Informes de Backup
+
+Azure Backup proporciona una solución de informes que usa registros de Azure Monitor y libros de Azure. Para empezar, debe tener [Informes de Backup configurado](configure-reports.md) para el almacén. Una vez configurado, los datos comienzan a fluir al área de trabajo y se pueden consultar mediante los informes de copia de seguridad.
+
+Para supervisar el uso de datos de copia de seguridad y la renovación diaria, siga estos pasos:
+
+1. Vaya al panel **Información general** del almacén y haga clic en **Informes de Backup**.
+
+1. En la hoja **Informe de Backup**, en la sección **Información general**, seleccione el área de trabajo de Log Analytics configurada. 
+
+1. Establezca el filtro de informe **Solución de Backup** en **Agente de Azure Backup** para ver solo las copias de seguridad del agente de MARS. 
+
+   Establezca **Nombre de suscripción**, **Ubicación del almacén** y **Nombre del almacén** según corresponda.
+ 
+    ![Establezca el filtro de informe Solución de Backup.](./media/backup-azure-manage-mars/set-report-filter-backup-solution.png)
+
+1. Para ver el uso por entidad facturada, vaya a la pestaña **Uso**. 
+
+   Se muestran el total de instancias protegidas facturadas y los datos de uso del almacenamiento. También puede ver la información de tendencia.
+ 
+    ![Ver el uso por entidad facturada.](./media/backup-azure-manage-mars/view-usage-by-billed-entity.png)
+
+1. Para ver el promedio de datos de copia de seguridad agregados por los trabajos de copia de seguridad para cada volumen del servidor protegido, vaya a la pestaña **Trabajos**. 
+ 
+    ![Ver el promedio de datos de copia de seguridad.](./media/backup-azure-manage-mars/view-average-backup-data.png)
+
+Obtenga más información sobre [otras pestañas de informes](configure-reports.md) y sobre cómo recibir dichos [informes por correo electrónico](backup-reports-email.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

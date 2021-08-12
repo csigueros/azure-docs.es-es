@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bf5c4c39ea8f5705cc9788fdcf2cddd01dcb4087
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7d637a98a0f250936fa8c9024ae1302d3aaa536
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034714"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572376"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configuración de un cliente de escucha de DNN para un grupo de disponibilidad
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,6 +51,7 @@ Antes de completar los pasos de este artículo, ya debe tener:
 - Configurado el [grupo de disponibilidad Always On](availability-group-overview.md). 
 - Instaló la versión más reciente de [Azure PowerShell](/powershell/azure/install-az-ps). 
 - Identificó el puerto único que usará con el cliente de escucha de DNN. El puerto usado con un cliente de escucha de DNN debe ser único en todas las réplicas del grupo de disponibilidad o de la instancia de clúster de conmutación por error.  Ninguna otra conexión puede compartir el mismo puerto.
+- El cliente que se conecta al agente de escucha de DNN debe admitir el parámetro `MultiSubnetFailover=True` en la cadena de conexión. 
 
 
 
@@ -182,4 +183,12 @@ Los clientes de escucha de DNN están diseñados para escuchar en todas las dire
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de las características HADR de SQL Server en Azure, consulte [Grupos de disponibilidad](availability-group-overview.md) e [Instancia de clúster de conmutación por error](failover-cluster-instance-overview.md). También puede consultar los [procedimientos recomendados](hadr-cluster-best-practices.md) para configurar el entorno para una alta disponibilidad y recuperación ante desastres. 
+Una vez que se haya implementado el grupo de disponibilidad, puede optimizar la [configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md). 
+
+
+Para obtener más información, consulte:
+
+- [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
+- [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+

@@ -3,12 +3,12 @@ title: Autenticación con una entidad de servicio
 description: Proporcione acceso a las imágenes de su registro de contenedor privado mediante una entidad de servicio de Azure Active Directory.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: a32538e5fc5354427bafc5098634becdcedd1239
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 7d64f63de3227394d1f69b2049f0a58dda35e6e6
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285542"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440725"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticación de Azure Container Registry con entidades de servicio
 
@@ -30,8 +30,10 @@ Por ejemplo, configure su aplicación web para usar una entidad de servicio que 
 
 Debe usar una entidad de servicio para proporcionar acceso al registro en **escenarios de equipos sin periféricos**. Es decir, para cualquier aplicación, servicio o script que deba insertar o extraer imágenes de contenedor de forma automática o desatendida. Por ejemplo:
 
-  * *Extracción*: se implementan los contenedores desde un Registro en sistemas de orquestación como son Kubernetes, DC/OS y Docker Swarm. También puede incorporar los cambios desde registros de contenedor a servicios de Azure relacionados, como son [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml) y otros.
+  * *Extracción*: se implementan los contenedores desde un Registro en sistemas de orquestación como son Kubernetes, DC/OS y Docker Swarm. También puede incorporar los cambios desde Registros de contenedor a servicios de Azure relacionados, como son [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml) y otros.
 
+    > [!TIP]
+    > Se recomienda usar una entidad de servicio en varios [escenarios de Kubernetes](authenticate-kubernetes-options.md) para extraer imágenes de un registro de contenedor de Azure. Con Azure Kubernetes Service (AKS), también puede usar un mecanismo automatizado para autenticarse con un registro de destino mediante la habilitación de la [identidad administrada](../aks/cluster-container-registry-integration.md) del clúster. 
   * *Inserción*: se crean imágenes de contenedor y se insertan en un Registro con soluciones de integración e implementación continuas, por ejemplo, Azure Pipelines o Jenkins.
 
 Para obtener acceso individual a un registro, como, por ejemplo, al extraer manualmente una imagen de contenedor en la estación de trabajo de desarrollo, se recomienda usar su propia [identidad de Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) para acceder al registro (por ejemplo, con [az acr login][az-acr-login]).
@@ -55,7 +57,7 @@ Cuando disponga de una entidad de servicio con acceso a su registro de contenedo
 Cada valor tiene el formato `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
-> Puede volver a generar la contraseña de una entidad de servicio mediante el comando [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset).
+> Puede volver a generar la contraseña de una entidad de servicio mediante el comando [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset).
 >
 
 ### <a name="use-credentials-with-azure-services"></a>Uso de credenciales con los servicios de Azure
@@ -95,6 +97,19 @@ az acr login --name myregistry
 
 La CLI usa el token creado cuando se ejecutó `az login` para autenticar su sesión con el registro.
 
+## <a name="create-service-principal-for-cross-tenant-scenarios"></a>Creación de una entidad de servicio para escenarios entre inquilinos
+
+También se puede usar una entidad de servicio en escenarios de Azure que requieren la extracción de imágenes de un registro de contenedor de Azure Active Directory (inquilino) a un servicio o aplicación de otro. Por ejemplo, una organización podría ejecutar una aplicación en el inquilino A que necesita extraer una imagen de un registro de contenedor compartido en el inquilino B.
+
+Para crear una entidad de servicio que pueda autenticarse con un registro de contenedor en un escenario entre inquilinos:
+
+*  Cree una [aplicación multiinquilino](../active-directory/develop/single-and-multi-tenant-apps.md) (entidad de servicio) en el inquilino A 
+* Aprovisione la aplicación en el inquilino B
+* Conceda permisos de la entidad de servicio para extraer del registro en el inquilino B
+* Actualice el servicio o la aplicación en el inquilino A para autenticarse con la nueva entidad de servicio
+
+Para ver pasos de ejemplo, consulte [Extracción de imágenes de un registro de contenedor a un clúster de AKS en un inquilino de AD diferente](authenticate-aks-cross-tenant.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Información general sobre la autenticación](container-registry-authentication.md) para ver otros escenarios de autenticación con Azure Container Registry.
@@ -106,6 +121,6 @@ La CLI usa el token creado cuando se ejecutó `az login` para autenticar su sesi
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-login]: /cli/azure/reference-index#az_login
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset

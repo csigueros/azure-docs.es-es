@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 06/02/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: guptashi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23832d9f1205105f1f9711cdf3260b74ee4a9bb1
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4d5c1a1493a7ea2aac0945dae14fc4c547ad86c9
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952274"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409926"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>¿Qué es la puntuación segura de identidad en Azure Active Directory?
 
@@ -57,6 +57,11 @@ Cada 48 horas, Azure examina la configuración de seguridad y compara los valore
 Cada recomendación se mide según la configuración de Azure AD. Si usa productos de terceros para habilitar una recomendación del procedimiento recomendado, puede indicar esta configuración en las opciones de una acción de mejora. También tiene la opción de establecer que se ignoren las recomendaciones si no se aplican a su entorno. Las recomendaciones ignoradas no contribuyen al cálculo de la puntuación.
 
 ![Ignore la acción o márquela como cubierta por terceros](./media/identity-secure-score/identity-secure-score-ignore-or-third-party-reccomendations.png)
+
+- **Dirección de destino**: reconoce que la acción de mejora es necesaria y pretende abordarla en algún momento en el futuro. Este estado también se aplica a las acciones que se detectan como parcialmente, pero que no se completan por completo.
+- **Planeado:** existen planes concretos para completar la acción de mejora.
+- **Riesgo aceptado:** la seguridad siempre debe estar equilibrada con la facilidad de uso y no todas las recomendaciones funcionarán para su entorno. En ese caso, puede optar por aceptar el riesgo, o el riesgo restante, y no promulgar la acción de mejora. No se le dará ningún punto, pero la acción ya no estará visible en la lista de acciones de mejora. Puede ver esta acción en el historial o deshacerla en cualquier momento.
+- **Resuelto a través de terceros** y **Resuelto a través de mitigación alternativa**: la acción de mejora ya se ha abordado mediante una aplicación o software de terceros, o una herramienta interna. Obtendrá los puntos que valga la acción, por lo que la puntuación refleja mejor su postura general de seguridad. Si una herramienta interna o de terceros ya no cubre el control, puede elegir otro estado. Tenga en cuenta que Microsoft no tendrá visibilidad sobre la integridad de la implementación si la acción de mejora está marcada como cualquiera de estos estados.
 
 ## <a name="how-does-it-help-me"></a>¿Cómo me ayuda?
 

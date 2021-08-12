@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 7094bf07453c06831fecfa2056480bf498b26a72
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 16b6675a7b9796405376540b87efbaaa2a991890
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041627"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081125"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>Solución de problemas en Conector de Administración de servicios de TI
 
@@ -99,7 +99,10 @@ En las secciones siguientes se identifican los síntomas comunes, las causas pos
 
 **Causa**: Puede haber varios motivos para este síntoma:
 
-* Las plantillas no se muestran como parte de la definición de la acción.
+* Las plantillas no se muestran como parte de la lista desplegable de definiciones de acción y aparece un mensaje de error que dice que no se puede recuperar la configuración de la plantilla, que consulte los registros del conector para más información.
+* Los valores no se muestran en las listas desplegables de los campos predeterminados como parte de la definición de acción y aparece un mensaje de error que dice que no se encontraron valores para los campos siguientes: <field names>.
 * No se crean incidentes o eventos en ServiceNow.
 
-**Solución**: [sincronice el conector](itsmc-resync-servicenow.md).
+**Solución:** 
+* [Sincronice el conector](itsmc-resync-servicenow.md).
+* Consulte el [panel](itsmc-dashboard.md) y revise los errores en la sección de estado del conector. Luego, revise los [errores comunes y sus soluciones](itsmc-dashboard-errors.md).

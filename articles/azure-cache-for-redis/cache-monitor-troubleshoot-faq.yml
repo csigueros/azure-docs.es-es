@@ -1,0 +1,59 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre la supervisión y solución de problemas de Azure Cache for Redis
+  description: Conozca las respuestas a preguntas comunes que le ayudarán a supervisar y solucionar problemas de Azure Cache for Redis.
+  author: yegu-ms
+  ms.author: yegu
+  ms.service: cache
+  ms.topic: conceptual
+  ms.date: 08/06/2020
+  ms.openlocfilehash: d762625dc83a4ca77089c5929859f61e1f89c31a
+  ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/01/2021
+  ms.locfileid: "113137402"
+title: Preguntas frecuentes sobre la supervisión y solución de problemas de Azure Cache for Redis
+summary: En este artículo se proporcionan respuestas a preguntas habituales sobre cómo administrar y solucionar los problemas de Azure Cache for Redis.
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Cómo se puede supervisar el estado y el rendimiento de la memoria caché?
+    answer: >
+      Se pueden supervisar las instancias de Microsoft Azure Cache for Redis en [Azure Portal](https://portal.azure.com). Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Para más información, consulte [How to monitor Azure Cache for Redis](cache-how-to-monitor.md) (Supervisión de Azure Cache for Redis).
+
+
+      El **menú de recursos** de Azure Cache for Redis también contiene varias herramientas para supervisar las cachés y solucionar sus problemas.
+
+
+      * En **Diagnosticar y solucionar problemas** se proporciona información sobre los problemas comunes y las estrategias para resolverlos.
+
+      * **estado de los recursos** supervisa el recurso e indica si se ejecuta del modo previsto. Para obtener más información sobre el servicio Estado de los recursos de Azure, consulte [Información general sobre Estado de los recursos de Azure](../service-health/resource-health-overview.md).
+
+      * **Nueva solicitud de soporte** para abrir una solicitud de soporte técnico para su memoria caché.
+
+
+      Estas herramientas permiten supervisar el estado de las instancias de Azure Cache for Redis. Las herramientas también le ayudan a administrar las aplicaciones de almacenamiento en caché. Para más información, vea la sección "Support & troubleshooting settings" (Configuración de soporte técnico y solución de problemas) de [How to configure Azure Cache for Redis](cache-configure.md) (Configuración de Azure Cache for Redis).
+  - question: >
+      ¿Por qué estoy viendo los tiempos de expiración?
+    answer: >
+      Los tiempos de expiración se producen en el cliente que usa para comunicarse con Redis. Cuando se envía un comando al servidor Redis, el comando se pone en cola. El servidor Redis finalmente toma el comando y lo ejecuta. Sin embargo, el cliente puede agotar el tiempo de espera durante este proceso. Si es así, se produce una excepción en el lado que realiza la llamada. Para más información sobre la solución de problemas de tiempo de espera, consulte [Solución de problemas del lado cliente](cache-troubleshoot-client.md) y [Excepciones de tiempo de espera de StackExchange.Redis](cache-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
+  - question: >
+      ¿Por qué se desconectó el cliente desde la memoria caché?
+    answer: >
+      A continuación se indican algunas razones habituales por las que se desconecta la memoria caché.
+
+
+      * Causas de cliente
+        * Se volvió a implementar la aplicación cliente.
+        * La aplicación cliente ha realizado una operación de escalado.
+          * Cloud Services o Web Apps pueden provocar una desconexión de caché durante el escalado automático.
+        * Cambia el nivel de red del cliente.
+        * Se produjeron errores transitorios en el cliente o en los nodos de red entre el cliente y el servidor.
+        * Se han alcanzado los límites de umbral de ancho de banda.
+        * Las operaciones de la CPU tardaron demasiado tiempo en completarse.
+      * Causas de servidor
+        * En la oferta de almacenamiento en caché estándar, el servicio Azure Cache for Redis inició una conmutación por error desde el nodo principal al nodo de réplica.
+        * Azure estaba actualizando la instancia en la que se implementó la memoria caché durante una actualización del servidor Redis o el mantenimiento general de la máquina virtual.
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n   Para más información sobre la supervisión y la solución de problemas de las instancias de Azure Cache for Redis, consulte [Supervisión de Azure Cache for Redis](cache-how-to-monitor.md) y las diferentes guías de solución de problemas.\n        \n   Más información sobre otras [preguntas frecuentes sobre Azure Cache for Redis](cache-faq.yml)."

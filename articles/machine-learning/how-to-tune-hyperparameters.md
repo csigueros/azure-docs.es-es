@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 4154d73cbf7a82c78dcc8ea30f11b8d984dd6af0
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 40c94b367f827d727e1d255f677e26b5b17fd95b
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896682"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440941"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Ajuste de hiperparámetros de un modelo con Azure Machine Learning
 
@@ -430,7 +430,7 @@ Puede visualizar todas las ejecuciones de ajuste de hiperparámetros en [Estudio
 
     :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Gráfico de métricas del ajuste de hiperparámetros":::
 
-- **Gráfico de coordenadas paralelas**: esta visualización muestra la correlación entre el rendimiento de la métrica principal y los valores de los hiperparámetros individuales. El gráfico es interactivo a través del movimiento de los ejes (haga clic y arrastre por la etiqueta del eje) y mediante el resalte de los valores en un solo eje (haga clic y arrastre verticalmente a lo largo de un solo eje para resaltar un intervalo de valores deseados).
+- **Gráfico de coordenadas paralelas**: esta visualización muestra la correlación entre el rendimiento de la métrica principal y los valores de los hiperparámetros individuales. El gráfico es interactivo a través del movimiento de los ejes (haga clic y arrastre por la etiqueta del eje) y mediante el resalte de los valores en un solo eje (haga clic y arrastre verticalmente a lo largo de un solo eje para resaltar un intervalo de valores deseados). El gráfico de coordenadas paralelas incluye un eje en la parte superior derecha del gráfico que traza el mejor valor de métrica correspondiente a los hiperparámetros establecidos para esa instancia de ejecución. Este eje se proporciona para proyectar la leyenda de degradado del gráfico en los datos de forma más legible.
 
     :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Gráfico de coordenadas paralelas de ajuste de hiperparámetros":::
 

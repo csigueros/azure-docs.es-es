@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 249d2e266c0f72336091133a52426602491b3c68
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95544758"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900744"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de comprobación de escalabilidad y rendimiento para Blob Storage
 
@@ -66,7 +66,7 @@ Para más información acerca de los objetivos de escalabilidad de Queue service
 Si se está aproximando al número máximo de cuentas de almacenamiento permitidas para una combinación determinada de región y suscripción, evalúe su caso y determine si se aplica alguna de las condiciones siguientes:
 
 - ¿Usa cuentas de almacenamiento para almacenar discos no administrados y agregar esos discos a las máquinas virtuales (VM)? En este caso, Microsoft recomienda usar discos administrados. Los discos administrados se escalan automáticamente y sin necesidad de crear y administrar cuentas de almacenamiento individuales. Para más información, consulte [Introducción a los discos administrados de Azure](../../virtual-machines/managed-disks-overview.md).
-- ¿Usa una cuenta de almacenamiento por cliente, con el fin de aislar los datos? En este caso, Microsoft recomienda usar un contenedor de blobs para cada cliente, en lugar de una cuenta de almacenamiento completa. Azure Storage ahora le permite asignar roles de Azure para cada contenedor. Para más información, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-portal.md).
+- ¿Usa una cuenta de almacenamiento por cliente, con el fin de aislar los datos? En este caso, Microsoft recomienda usar un contenedor de blobs para cada cliente, en lugar de una cuenta de almacenamiento completa. Azure Storage ahora le permite asignar roles de Azure para cada contenedor. Para más información, vea [Asignación de un rol de Azure para el acceso a datos de blob](assign-azure-role-data-access.md).
 - ¿Usa varias cuentas de almacenamiento como particiones para aumentar las operaciones de entrada, salida e IOPS (operaciones de E/S por segundo) o la capacidad? En este escenario, Microsoft recomienda aprovechar las ventajas del aumento de los límites de las cuentas de almacenamiento para reducir el número de cuentas de almacenamiento necesarias para la carga de trabajo, siempre que sea posible. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para solicitar el aumento de los límites de la cuenta de almacenamiento. Para más información, consulte [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Anuncio de cuentas de almacenamiento más grandes y con mayor escala).
 
 ### <a name="capacity-and-transaction-targets"></a>Objetivos de capacidad y transacción
@@ -257,7 +257,7 @@ Para obtener más información acerca de Azure CDN, consulte [Azure CDN](../../c
 
 ## <a name="use-metadata"></a>Uso de metadatos
 
-Blob service admite solicitudes HEAD que pueden incluir propiedades o metadatos del blob. Por ejemplo, si la aplicación necesita datos Exif (formato de archivo intercambiable) de una foto, podría recuperar la foto y extraerlos. Para ahorrar ancho de banda y mejorar el rendimiento, la aplicación puede almacenar los datos Exif en los metadatos del blob cuando cargue la foto. Luego, puede recuperar los datos Exif de los metadatos con solo una solicitud HEAD. La recuperación de solo los metadatos y no del contenido completo del blob ahorra un ancho de banda considerable y reduce el tiempo de procesamiento necesario para extraer los datos Exif. Tenga en cuenta que se pueden almacenar 8 KiB de metadatos por blob.  
+Blob service admite solicitudes HEAD que pueden incluir propiedades o metadatos del blob. Por ejemplo, si la aplicación necesita datos Exif (formato de imagen intercambiable) de una foto, podría recuperar la foto y extraerlos. Para ahorrar ancho de banda y mejorar el rendimiento, la aplicación puede almacenar los datos Exif en los metadatos del blob cuando cargue la foto. Luego, puede recuperar los datos Exif de los metadatos con solo una solicitud HEAD. La recuperación de solo los metadatos y no del contenido completo del blob ahorra un ancho de banda considerable y reduce el tiempo de procesamiento necesario para extraer los datos Exif. Tenga en cuenta que se pueden almacenar 8 KiB de metadatos por blob.  
 
 ## <a name="upload-blobs-quickly"></a>Carga rápida de blobs
 

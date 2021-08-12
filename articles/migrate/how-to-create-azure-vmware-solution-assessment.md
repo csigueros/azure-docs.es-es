@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 72372e6365a2535e449681549a515c3f8594f2f1
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: f7014f8a403614740bdbc05abab4e7024f83c196
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786607"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111570527"
 ---
-# <a name="create-an-azure-vmware-solution-avs-assessment"></a>Creación de una valoración de Azure VMware Solution (AVS)
+# <a name="create-an-azure-vmware-solution-assessment"></a>Creación de una evaluación de Azure VMware Solution
 
-En este artículo se describe cómo crear una valoración de Azure VMware Solution (AVS) para servidores locales de entornos VMware con Azure Migrate: Detección y evaluación.
+En este artículo se describe cómo crear una valoración de Azure VMware Solution para servidores locales de entornos VMware con Azure Migrate: Detección y evaluación.
 
 [Azure Migrate](migrate-services-overview.md) le ayuda a migrar a Azure. Azure Migrate proporciona un centro principal para realizar el seguimiento de la detección, valoración y migración de infraestructuras, aplicaciones y datos locales a Azure. El centro proporciona herramientas de Azure para la valoración y migración, así como ofertas de proveedores de software independientes (ISV) externos.
 
