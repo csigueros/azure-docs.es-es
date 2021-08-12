@@ -2,8 +2,8 @@
 title: 'Tutorial: Configuración de Zscaler One para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Zscaler One.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: f6725045064b74079e00ca5bbe1d560f3b19f3ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74f04491d1fd27fbe99aea8c84a8feb5d9280f2e
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97937137"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760466"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler One para el aprovisionamiento automático de usuarios
 

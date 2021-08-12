@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dea88bf93000422ce1d832be4a0f60474ff27938
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9664d7976dfc53c8a0217c519a35f622f04efcc6
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629791"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115891"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Guía de inicio rápido: Creación y administración de recursos compartidos de archivos de Azure con el Explorador de Azure Storage
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) mediante el Explorador de Azure Storage. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo SMB estándar del sector y permiten el uso compartido entre varias máquinas, aplicaciones e instancias. 
@@ -20,6 +20,13 @@ En esta guía se describen los conceptos básicos sobre cómo trabajar con [recu
 El Explorador de Azure Storage es una herramienta de cliente conocida que está disponible para Windows, macOS y Linux. Puede usar el Explorador de Storage para administrar recursos compartidos de archivos de Azure y otros recursos de almacenamiento.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="prerequisites"></a>Requisitos previos
 Esta guía de inicio rápido requiere que esté instalado el Explorador de Storage. Para su descarga e instalación, vaya a [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
@@ -66,7 +73,7 @@ Al agregar un directorio se proporciona una estructura jerárquica para administ
 
 El directorio *myDirectory* se muestra en la pestaña del recurso compartido de archivos *myshare*.
 
-### <a name="upload-a-file"></a>Carga de un archivo 
+### <a name="upload-a-file"></a>Cargar un archivo 
 Puede cargar un archivo desde la máquina local hasta el nuevo directorio del recurso compartido de archivos. Puede cargar una carpeta completa o un único archivo.
 
 1. En el menú superior, seleccione **Upload** (Cargar). Esta operación le da la opción de cargar un archivo o una carpeta.

@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Aprovisionamiento del servicio Azure Spring Cloud'
 description: Describe la creación de una instancia del servicio Azure Spring Cloud para la implementación de aplicaciones.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 779f1bead820af99b7f0bba859518eaa5d0ea2fc
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 243f176fd906ecfe33c38bebc7e7745a7dc15e1e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286658"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470598"
 ---
 # <a name="quickstart-provision-an-azure-spring-cloud-service"></a>Inicio rápido: Aprovisionamiento de un servicio de Azure Spring Cloud
 
@@ -78,11 +78,11 @@ az extension add --name spring-cloud
 1. Establezca el nombre del grupo de recursos y el nombre de la instancia de servicio predeterminados para no tener que especificar estos valores repetidamente en los comandos siguientes.
 
    ```azurecli
-   az configure --defaults group=<resource group name>
+   az config set defaults.group=<resource group name>
    ```
 
    ```azurecli
-   az configure --defaults spring-cloud=<service instance name>
+   az config set defaults.spring-cloud=<service instance name>
    ```
 ::: zone-end
 
@@ -160,7 +160,7 @@ En el siguiente procedimiento se usa la extensión de la CLI de Azure para aprov
 1. Establezca los nombres predeterminados del grupo de recursos y del servicio Azure Spring Cloud con el siguiente comando:
 
     ```azurecli
-    az configure --defaults group=<resource group name> spring-cloud=<service name>
+    az config set defaults.group=<resource group name> defaults.spring-cloud=<service name>
     ```
 ---
 ::: zone-end

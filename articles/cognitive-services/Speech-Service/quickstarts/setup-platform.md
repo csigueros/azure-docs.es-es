@@ -3,21 +3,21 @@ title: 'Inicio rápido: Configuración del entorno de desarrollo'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido aprenderá a instalar el SDK de Voz para la combinación de plataforma y lenguaje de programación que prefiera.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/15/2020
-ms.author: trbye
+ms.author: nitinme
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-speech-services-one-nomore
-ms.openlocfilehash: 27bca1145e378d2b4a0d124849441ba9ad9be832
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: dc428bb7d1892675be7dda6d84c65304cc713dd2
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906448"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708550"
 ---
 # <a name="quickstart-setup-development-environment"></a>Inicio rápido: Configuración del entorno de desarrollo
 

@@ -230,7 +230,7 @@ productDirectory:
       imageSrc: ./media/index/metrics-advisor.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/metrics-advisor/index.yml
+      url: applied-ai-services/metrics-advisor/index.yml
     - title: Personalizer
       summary: Servicio de IA que proporciona una experiencia de usuario personalizada
       imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
@@ -552,11 +552,11 @@ productDirectory:
       url: app-service/index.yml
     - title: Azure Virtual Desktop
       summary: La mejor experiencia de escritorio virtual que se ofrece en Azure
-      imageSrc: 'https://static.docs.com/ui/media/product/azure/windows-virtual-desktop.svg'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/virtual-desktop.svg'
       azureCategories:
         - featured
         - compute
-        - windows-virtual-desktop
+        - azure-virtual-desktop
       url: virtual-desktop/index.yml
     - title: Máquinas virtuales Windows
       summary: Aprovisione máquinas virtuales Windows en cuestión de segundos
@@ -571,7 +571,7 @@ productDirectory:
       azureCategories:
         - containers
         - developer-tools
-      url: dev-spaces/index.yml
+      url: /previous-versions/azure/dev-spaces/
     - title: Red Hat OpenShift en Azure
       summary: Servicio de OpenShift totalmente administrado que funciona de forma conjunta con Red Hat
       imageSrc: 'https://static.docs.com/ui/media/product/azure/openshift.svg'

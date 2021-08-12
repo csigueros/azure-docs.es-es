@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: fcb8090427530271600a6699fafa5c488c426784
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f034d5e4edd1e99605f3620cdf99084ae8c4ea86
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680868"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437218"
 ---
 # <a name="tutorial-migrate-a-web-app-from-google-maps"></a>Tutorial: Migración de una aplicación web desde Google Maps
 
@@ -40,7 +40,7 @@ También aprenderá lo siguiente:
 
 Si migra una aplicación web existente, compruebe si usa una biblioteca de control de mapa de código abierto. Ejemplos de bibliotecas de control de mapa de código abierto: Cesium, Leaflet y OpenLayers. Puede realizar la migración aunque la aplicación use una biblioteca de control de mapas de código abierto y no desee usar el SDK web de Azure Maps. En este caso, conecte la aplicación a los servicios de mosaico de Azure Maps ([mosaicos de carreteras](/rest/api/maps/render/getmaptile) \| [mosaicos de satélite](/rest/api/maps/render/getmapimagerytile)). Los puntos siguientes detallan cómo usar Azure Maps en algunas bibliotecas de control de mapa de código abierto usadas habitualmente.
 
-* Cesium: un control de mapa 3D para la Web. [Código de ejemplo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentación](https://cesiumjs.org/)
+* Cesium: un control de mapa 3D para la Web. [Código de ejemplo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentación](https://www.cesium.com/)
 * Leaflet: control de mapa 2D ligero para la Web. [Código de ejemplo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentación](https://leafletjs.com/)
 * OpenLayers: un control de mapa 2D para la Web que admite proyecciones. [Código de ejemplo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Documentación](https://openlayers.org/)
 
@@ -253,9 +253,9 @@ Este es un ejemplo de Google Maps con el idioma establecido en "fr-FR".
 
 ![Localización de Google Maps](media/migrate-google-maps-web-app/google-maps-localization.png)
 
-#### <a name="after-azure-maps"></a>Después: Azure Maps
+#### <a name="after-azure-maps&quot;></a>Después: Azure Maps
 
-Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa. La primera opción es agregar esta información al espacio de nombres de *atlas* global. Como resultado, todas las instancias de control de mapa de la aplicación tendrán como valor predeterminado esta configuración. El código siguiente establece el idioma en francés ("fr-FR") y la vista regional en "auto":
+Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa. La primera opción es agregar esta información al espacio de nombres de *atlas* global. Como resultado, todas las instancias de control de mapa de la aplicación tendrán como valor predeterminado esta configuración. El código siguiente establece el idioma en francés (&quot;fr-FR") y la vista regional en "auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -1318,12 +1318,12 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 
 ![Capa de mosaicos de Google Maps](media/migrate-google-maps-web-app/google-maps-tile-layer.png)
 
-#### <a name="after-azure-maps"></a>Después: Azure Maps
+#### <a name="after-azure-maps&quot;></a>Después: Azure Maps
 
 Agregue una capa de mosaicos al mapa igual que haría con cualquier otra capa. Use una dirección URL con formato que tenga marcadores de X, Y y zoom: `{x}`, `{y}`, `{z}`, para indicar a la capa dónde puede acceder a los mosaicos. Las capas de mosaicos de Azure Maps también admiten los marcadores de posición `{quadkey}`, `{bbox-epsg-3857}` y `{subdomain}`.
 
 > [!TIP]
-> En Azure Maps las capas se pueden representar fácilmente bajo otras capas, incluidas las capas base del mapa. A menudo es conveniente representar las capas de mosaicos debajo de las etiquetas del mapa para que resulten fáciles de leer. El método `map.layers.add` toma un segundo parámetro que es el identificador de la capa en la que se va a insertar la siguiente capa nueva. Para insertar una capa de mosaico debajo de las etiquetas de mapa, use este código: `map.layers.add(myTileLayer, "labels");`
+> En Azure Maps las capas se pueden representar fácilmente bajo otras capas, incluidas las capas base del mapa. A menudo es conveniente representar las capas de mosaicos debajo de las etiquetas del mapa para que resulten fáciles de leer. El método `map.layers.add` toma un segundo parámetro que es el identificador de la capa en la que se va a insertar la siguiente capa nueva. Para insertar una capa de mosaico debajo de las etiquetas de mapa, use este código: `map.layers.add(myTileLayer, &quot;labels");`
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
@@ -1390,7 +1390,7 @@ Tanto Azure Maps como Google Maps admiten la superposición de imágenes georref
 
 #### <a name="before-google-maps"></a>Antes: Google Maps
 
-Especifique la dirección URL de la imagen que quiere superponer y un rectángulo delimitador para enlazar la imagen en el mapa. En este ejemplo se superpone una imagen de mapa de [Newark New Jersey de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) en el mapa.
+Especifique la dirección URL de la imagen que quiere superponer y un rectángulo delimitador para enlazar la imagen en el mapa. En este ejemplo se superpone una imagen de mapa de Newark New Jersey de 1922 en el mapa.
 
 ```html
 <!DOCTYPE html>

@@ -14,10 +14,10 @@ audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
 ms.openlocfilehash: b33565f319de77385c966f742fa52391f4869eed
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77211285"
 ---
 # <a name="quickstart-set-up-your-azure-kinect-dk"></a>Inicio rápido: Configuración de Azure Kinect DK
@@ -79,7 +79,7 @@ Ya ha terminado la configuración de Azure Kinect DK. Ahora puede empezar a des
 
 Si tiene algún problema, consulte [Solución de problemas](troubleshooting.md).
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 - [Información del hardware de Azure Kinect DK](hardware-specification.md)
 - [Actualización del firmware del dispositivo](update-device-firmware.md)
@@ -89,4 +89,4 @@ Si tiene algún problema, consulte [Solución de problemas](troubleshooting.md).
 
 Después de que Azure Kinect DK esté listo y en funcionamiento, también puede aprender lo siguiente:
 > [!div class="nextstepaction"]
-> [Grabación de flujos de sensor en un archivo](record-sensor-streams-file.md)
+> [Grabación de transmisiones de sensores en un archivo](record-sensor-streams-file.md)

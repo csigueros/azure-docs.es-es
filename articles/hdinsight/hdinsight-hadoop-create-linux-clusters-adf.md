@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: seoapr2020, devx-track-azurepowershell
 ms.date: 04/24/2020
-ms.openlocfilehash: 3cf8b53cdabbd9360c3e57e5e633327dd4e8a4ad
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: f652c83a6f218fae34ae75cbc70c12a3c85e5da9
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698493"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282608"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Creación de clústeres de Apache Hadoop a petición en HDInsight mediante Azure Data Factory
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 En este tutorial, aprenderá a crear un clúster de [Apache Hadoop](../hdinsight/hdinsight-overview.md#cluster-types-in-hdinsight) a petición en Azure HDInsight mediante Azure Data Factory. A continuación, puede usar canalizaciones en Azure Data Factory para ejecutar trabajos de Hive y eliminar el clúster. Al final de este tutorial, aprenderá a aplicar `operationalize` la ejecución de un trabajo de macrodatos donde la creación del clúster, la ejecución del trabajo y la eliminación del clúster tienen lugar según una programación.
 
@@ -189,7 +189,7 @@ En este artículo, se configura la actividad de Hive para crear un clúster Hado
 
 3. Escriba o seleccione los siguientes valores del icono **Nueva factoría de datos**:
 
-    |Propiedad  |Valor  |
+    |Propiedad  |Value  |
     |---------|---------|
     |Nombre | Escriba un nombre para la factoría de datos. Este nombre debe ser único globalmente.|
     |Versión | Déjela en **V2**. |
@@ -231,7 +231,7 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
 4. Proporcione los siguientes valores del servicio vinculado de almacenamiento:
 
-    |Propiedad |Valor |
+    |Propiedad |Value |
     |---|---|
     |Nombre |Escriba `HDIStorageLinkedService`.|
     |Suscripción de Azure |Seleccione la suscripción en la lista desplegable.|
@@ -253,7 +253,7 @@ En esta sección, puede crear dos servicios vinculados dentro de su factoría de
 
 4. En la ventana **Nuevo servicio vinculado**, escriba los siguientes valores y deje el resto como valor predeterminado:
 
-    | Propiedad | Valor |
+    | Propiedad | Value |
     | --- | --- |
     | Nombre | Escriba `HDInsightLinkedService`.|
     | Tipo | Seleccione **HDInsight a petición**. |

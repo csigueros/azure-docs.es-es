@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 04/22/2021
 ms.author: jukullam
 ms.custom: github-actions-azure
-ms.openlocfilehash: 5f27a0cbfedd9b5021be2aa54ab5fb021b48d0b2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f8048dab26451fea85b52caa3ffdc27d7e0a677a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110103297"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894153"
 ---
 # <a name="tutorial-use-github-actions-to-deploy-to-app-service-for-containers-and-connect-to-a-database"></a>Tutorial: uso de Acciones de GitHub para implementar en App Service para Containers y conectarse a una base de datos
 
-En este tutorial le guiaremos a través de la configuración de un flujo de trabajo de Acciones de GitHub para implementar una aplicación ASP.NET Core en contenedores con un back-end de [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). Cuando haya terminado, tendrá una aplicación ASP.NET en ejecución en Azure y conectada a SQL Database. En primer lugar, deberá crear los recursos de Azure con una [plantilla de ARM](/azure/azure-resource-manager/templates/overview) del flujo de trabajo de Acciones de GitHub.
+En este tutorial le guiaremos a través de la configuración de un flujo de trabajo de Acciones de GitHub para implementar una aplicación ASP.NET Core en contenedores con un back-end de [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). Cuando haya terminado, tendrá una aplicación ASP.NET en ejecución en Azure y conectada a SQL Database. En primer lugar, deberá crear los recursos de Azure con una [plantilla de ARM](../azure-resource-manager/templates/overview.md) del flujo de trabajo de Acciones de GitHub.
 
 En este tutorial, aprenderá a:
 
@@ -85,7 +85,7 @@ Cree un nuevo secreto en el repositorio para `SQL_SERVER_ADMIN_PASSWORD`. Este s
 
 ## <a name="create-azure-resources"></a>Creación de recursos de Azure
 
-El flujo de trabajo de creación de recursos de Azure ejecuta una [plantilla de ARM](/azure/azure-resource-manager/templates/overview) para implementar recursos en Azure. El flujo de trabajo:
+El flujo de trabajo de creación de recursos de Azure ejecuta una [plantilla de ARM](../azure-resource-manager/templates/overview.md) para implementar recursos en Azure. El flujo de trabajo:
 
 - Restaura el código fuente con la [acción de restauración](https://github.com/marketplace/actions/checkout).
 - Inicia sesión en Azure con la [acción de inicio de sesión de Azure](https://github.com/marketplace/actions/azure-login) y recopila información del entorno y los recursos de Azure.
@@ -119,7 +119,7 @@ Para ejecutar el flujo de trabajo de creación de recursos de Azure:
 
 ## <a name="build-push-and-deploy-your-image"></a>Compilación, inserción e implementación de la imagen
 
-El flujo de trabajo de compilación, inserción e implementación crea un contenedor con los últimos cambios de la aplicación, envía el contenedor a [Azure Container Registry](/azure/container-registry/) y actualiza el espacio de ensayo de la aplicación web para que apunte al último contenedor insertado. El flujo de trabajo contiene un trabajo de compilación e implementación:
+El flujo de trabajo de compilación, inserción e implementación crea un contenedor con los últimos cambios de la aplicación, envía el contenedor a [Azure Container Registry](../container-registry/index.yml) y actualiza el espacio de ensayo de la aplicación web para que apunte al último contenedor insertado. El flujo de trabajo contiene un trabajo de compilación e implementación:
 
 - El trabajo de compilación restaura el código fuente con la [acción de restauración](https://github.com/marketplace/actions/checkout). A continuación, el trabajo usa la [acción de inicio de sesión de Docker](https://github.com/marketplace/actions/docker-login) y un script personalizado para autenticarse con Azure Container Registry, compilar una imagen de contenedor e implementarla en Azure Container Registry.
 - El trabajo de implementación inicia sesión en Azure con la [acción de inicio de sesión de Azure](https://github.com/marketplace/actions/azure-login) y recopila información del entorno y los recursos de Azure. A continuación, el trabajo actualiza la configuración de la aplicación web con la [acción de configuración de Azure App Service](https://github.com/marketplace/actions/azure-app-service-settings) y se implementa en un espacio de ensayo de App Service con la [acción de Azure Web Deploy](https://github.com/marketplace/actions/azure-webapp). Por último, el trabajo ejecuta un script personalizado para actualizar la base de datos de SQL y cambia el espacio de ensayo a producción.

@@ -12,8 +12,6 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Visualización de sus aplicaciones
-      href: view-applications-portal.md
     - name: Adición de una aplicación
       href: add-application-portal.md
     - name: Configuración de una aplicación
@@ -24,6 +22,8 @@
       href: add-application-portal-setup-sso.md
     - name: Configuración del inicio de sesión único basado en OIDC
       href: add-application-portal-setup-oidc-sso.md
+    - name: Visualización de sus aplicaciones
+      href: view-applications-portal.md
     - name: Eliminar una aplicación
       href: delete-application-portal.md
 - name: Tutoriales

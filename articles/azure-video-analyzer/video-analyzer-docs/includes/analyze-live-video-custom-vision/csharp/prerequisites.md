@@ -4,25 +4,21 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/30/2021
 ms.author: juliako
-ms.openlocfilehash: d4a2c269c2dfe66dd0d3271b3eef8fc8de32e4a5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 168d85d3c70564a5d18fda38785b0d4338105fe1
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384126"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113735280"
 ---
 Los requisitos previos de este tutorial son los siguientes:
 
 
 * Una cuenta de Azure que incluya una suscripción activa. [Cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) gratuita, en caso de que aún no lo haya hecho.
 
-    > [!NOTE]    
-    > Necesitará una suscripción a Azure en la que tenga acceso a los roles [Colaborador](../../../../../role-based-access-control/built-in-roles.md#contributor) y [Administrador de acceso de usuario](../../../../../role-based-access-control/built-in-roles.md#user-access-administrator). Si no tiene los permisos adecuados, póngase en contacto con el administrador de la cuenta para que se los conceda.
+    [!INCLUDE [azure-subscription-permissions](../../common-includes/azure-subscription-permissions.md)]
 * [Visual Studio Code](https://code.visualstudio.com/) con las siguientes extensiones:
-    * [Herramientas de Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-    
-    > [!TIP]
-    > Al instalar Azure IoT Tools, es posible que se le pida que instale Docker. Si lo desea, ignore esta petición.    
+    * [Herramientas de Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)    
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [SDK de .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1). 
 

@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Miro para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario en Miro.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
-ms.author: Zhchia
-ms.openlocfilehash: d3dee76ada7a9ed48813928937f8f8da8be4add1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 888d685e31217beb7b7753ab0a756d3693af8d80
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96348048"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766910"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Tutorial: Configuración de Miro para el aprovisionamiento automático de usuarios
 
