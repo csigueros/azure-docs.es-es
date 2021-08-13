@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 9cf4caf77d14dd1296276ca48827c170ef265e9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4761550c3d08b66fc949c9b6e2950dc08278eea8
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718070"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592239"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métricas con umbrales dinámicos en Azure Monitor
 
@@ -22,7 +22,7 @@ Agradecemos sus comentarios, así que puede enviarlos a <azurealertsfeedback@mic
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>¿Por qué y cuándo se recomienda el uso de un tipo de condición dinámica?
 
-1. **Alertas escalables**: las reglas de alertas de umbral dinámico pueden crear umbrales a medida para cientos de series de métricas a la vez con la misma facilidad de definición que si se tratara de una regla de alertas para una sola métrica. Le proporcionan menos alertas para crear y administrar. Puede usar Azure Portal o la API de Azure Resource Manager para crearlas. El enfoque escalable es especialmente útil cuando se trabaja con dimensiones de métricas o cuando se aplican a varios recursos como, por ejemplo, a todos los recursos de la suscripción.  [Obtenga más información acerca de cómo configurar alertas de métricas con umbrales dinámicos mediante plantillas](./alerts-metric-create-templates.md).
+1. **Alertas escalables**: las reglas de alertas de umbral dinámico pueden crear umbrales a medida para cientos de series de métricas a la vez con la misma facilidad de definición que si se tratara de una regla de alertas para una sola métrica. Le proporcionan menos alertas para crear y administrar. Puede usar Azure Portal o la API de Azure Resource Manager para crearlas. El enfoque escalable es especialmente útil cuando se trabaja con dimensiones de métricas o cuando se aplican a varios recursos como, por ejemplo, a todos los recursos de la suscripción. [Obtenga más información acerca de cómo configurar alertas de métricas con umbrales dinámicos mediante plantillas](./alerts-metric-create-templates.md).
 
 1. **Reconocimiento de patrones de métricas inteligentes**: mediante la tecnología Machine Learning podemos detectar automáticamente patrones de métricas y adaptarlos a los cambios que se producen en las métricas con el tiempo, lo que a menudo puede incluir estacionalidad (cada hora, cada día o cada semana). La adaptación al comportamiento de las métricas con el paso del tiempo y la generación de alertas en función de las desviaciones de su patrón permite que no sea imprescindible conocer el umbral "correcto" de cada métrica. El algoritmo de Machine Learning que se usa en umbrales dinámicos está diseñado para evitar umbrales con ruido (poca precisión) o amplios (poco recuerdo) que no tengan un patrón esperado.
 

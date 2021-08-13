@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 7e225f3f58e6e24d21c3100fd182934f9caae40b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 775cb6f7cfc19b0009fc92cc5afbd3ac383b3ea3
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108210220"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663865"
 ---
 # <a name="virtual-machines-on-your-azure-stack-edge-pro-gpu-device"></a>Máquinas virtuales del dispositivo Azure Stack Edge Pro con GPU
 
@@ -78,7 +78,7 @@ Dispone de extensiones de script personalizado para las máquinas virtuales del 
 
 Para más información, consulte [Implementación de la extensión de script personalizado en máquinas virtuales que se ejecutan en el dispositivo](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md).
 
-También puede usar extensiones de GPU en la máquina virtual cuando quiera instalar controladores de GPU al aprovisionar las máquinas virtuales con este procesador. Para más información, consulte [Creación de máquinas virtuales de GPU](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) e [Instalación de extensiones de GPU](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension).
+También puede usar extensiones de GPU en la máquina virtual si quiere instalar controladores de GPU al aprovisionar las máquinas virtuales con este procesador. Para más información, consulte [Creación de máquinas virtuales de GPU](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) e [Instalación de extensiones de GPU](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
 
 ## <a name="create-a-vm"></a>Crear una VM
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: eb1549b94ac2b1e1d1b37183e12d063a0f84f73c
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 93dbdb8384a37e2f104f1ab99caf1ab6d8464c06
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110793016"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461925"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Tutorial: Creación de un grafo de Azure Digital Twins mediante la CLI de Azure
 
@@ -52,7 +52,7 @@ Para obtener los archivos en la máquina, use los vínculos de navegación anter
 
 Para trabajar con Azure Digital Twins en este artículo, antes es preciso **configurar una instancia de Azure Digital Twins** y los permisos necesarios para usarla. Si ya tiene una instancia de Azure Digital Twins configurada del trabajo anterior, puede usarla.
 
-En caso contrario, siga las instrucciones de [Procedimiento de configuración de una instancia y de autenticación](how-to-set-up-instance-cli.md). Las instrucciones también contienen pasos para comprobar que ha completado cada paso correctamente y está listo para pasar a usar la nueva instancia.
+De lo contrario, siga las instrucciones que se indican en [Configuración de una instancia y autenticación](how-to-set-up-instance-cli.md). Las instrucciones también contienen pasos para comprobar que ha completado cada paso correctamente y está listo para pasar a usar la nueva instancia.
 
 Después de configurar la instancia de Azure Digital Twins, tome nota de los siguientes valores que necesitará para conectarse a la instancia más adelante:
 * El **_nombre de host_** de la instancia.
@@ -320,4 +320,4 @@ En este tutorial ha empezado a usar Azure Digital Twins mediante la creación de
 
 Continúe con el siguiente tutorial para combinar Azure Digital Twins con otros servicios de Azure con el fin de completar un escenario integral basado en datos:
 > [!div class="nextstepaction"]
-> [Tutorial: Conexión de una solución de un extremo a otro](tutorial-end-to-end.md)
+> [Conexión de una solución de un extremo a otro](tutorial-end-to-end.md)

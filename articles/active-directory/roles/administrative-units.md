@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7071d180efe9f7da088f30106c879fd10ed9051
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f0cdaefcc92a1a690ae3e3e222053976c3aa3178
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087119"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730809"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unidades administrativas en Azure Active Directory
 
@@ -40,7 +40,7 @@ Un administrador central podría:
 
 ## <a name="license-requirements"></a>Requisitos de licencia
 
-El uso de unidades administrativas requiere una licencia de Azure AD Premium P1 para cada administrador de unidad administrativa y licencias de Azure AD Free para los miembros de las unidades administrativas. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis y Prémium](https://azure.microsoft.com/pricing/details/active-directory/).
+El uso de unidades administrativas requiere una licencia de Azure AD Premium P1 para cada administrador de unidad administrativa y licencias de Azure AD Free para los miembros de las unidades administrativas. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis y Prémium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## <a name="manage-administrative-units"></a>Administración de unidades administrativas
 

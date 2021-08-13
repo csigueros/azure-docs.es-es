@@ -86,7 +86,7 @@
         - name: Inscripción al compromiso de consumo de Azure
           href: azure-consumption-commitment-enrollment.md
         - name: Soluciones preferidas
-          href: /marketplace/appsource-overview#microsoft-preferred-solutions
+          href: preferred-solution.md
         - name: Soluciones integradas
           href: integrated-solutions-for-publishers.md
     - name: Activación de Marketplace Rewards
@@ -311,13 +311,15 @@
                   href: iot-edge-plan-technical-configuration.md
     - name: Ofertas de servicio administrado
       items:
-        - name: Planeamiento de una oferta de servicio administrado
+        - name: Planeación de la oferta
           href: plan-managed-service-offer.md
-        - name: Creación de una oferta de servicio administrado
+        - name: Crear la oferta
           href: create-managed-service-offer.md
-        - name: Configuración de una lista de servicios administrados
+        - name: Propiedades
+          href: create-managed-service-offer-properties.md
+        - name: Descripción de la oferta
           href: create-managed-service-offer-listing.md
-        - name: Adición de un público en la versión preliminar
+        - name: Público preliminar
           href: create-managed-service-offer-preview.md
         - name: Creación de planes
           href: create-managed-service-offer-plans.md

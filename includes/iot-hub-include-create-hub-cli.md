@@ -1,17 +1,17 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
-ms.openlocfilehash: 45a9a0821dec98637ade4940bee915483d5e9aa1
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 324e1d3c9d86f8c17581665507ebe52b946bd006
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112040520"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114407553"
 ---
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 En esta sección, usará la CLI de Azure para crear un centro de IoT y un grupo de recursos.  Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Un centro de IoT funciona como centro de mensajes unificado para la comunicación bidireccional entre la aplicación de IoT y los dispositivos.
@@ -22,7 +22,7 @@ Para crear un centro de IoT y un grupo de recursos:
     - Si usa Cloud Shell, seleccione el botón **Probar** en los comandos de la CLI para iniciar Cloud Shell en una ventana dividida del explorador. O bien, puede abrir [Cloud Shell](https://shell.azure.com/bash) en una pestaña del explorador independiente.
     - Si usa la CLI de Azure localmente, inicie la aplicación de consola de la CLI e inicie sesión en la CLI de Azure.
 
-1. Ejecute [az extension add](/cli/azure/extension?view=azure-cli-latest#az_extension_add) para instalar o actualizar la extensión *azure-iot* a la versión actual.
+1. Ejecute [az extension add](/cli/azure/extension#az_extension_add) para instalar o actualizar la extensión *azure-iot* a la versión actual.
 
     ```azurecli-interactive
     az extension add --upgrade --name azure-iot
@@ -44,7 +44,7 @@ Para crear un centro de IoT y un grupo de recursos:
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
     ```
     > [!TIP]
-    > Después de crear un centro de IoT, en el resto de este inicio rápido puede seguir usando comandos de la CLI para interactuar con el centro. También puede usar Azure IoT Explorer en lugar de los comandos de la CLI. IoT Explorer es una aplicación de GUI que le permite conectarse a un dispositivo IoT Hub existente y agregar, administrar y supervisar dispositivos. Para obtener más información, consulte [Instalación y uso del explorador de Azure IoT](../articles/iot-pnp/howto-use-iot-explorer.md).
+    > Después de crear un centro de IoT, en el resto de este inicio rápido puede seguir usando comandos de la CLI para interactuar con el centro. También puede usar Azure IoT Explorer en lugar de los comandos de la CLI. IoT Explorer es una aplicación de GUI que le permite conectarse a un dispositivo IoT Hub existente y agregar, administrar y supervisar dispositivos. Para obtener más información, consulte [Instalación y uso del explorador de Azure IoT](../articles/iot-fundamentals/howto-use-iot-explorer.md).
 
 ## <a name="create-a-simulated-device"></a>Cree un dispositivo simulado:
 En esta sección, creará un dispositivo IoT simulado que está conectado a su centro de IoT. 

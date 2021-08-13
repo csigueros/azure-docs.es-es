@@ -5,12 +5,12 @@ author: RiyazPishori
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.openlocfilehash: 1fd204086d9cc039c4e6cafe8dc4c1ebc69e71e7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 571c10dc44922f98c28e1f536a9eb965733bf30d
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750192"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112422559"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Introducción a Azure FarmBeats (versión preliminar)
 
@@ -33,7 +33,7 @@ Con la versión preliminar de Azure FarmBeats puede:
 ## <a name="datahub"></a>Centro de datos
 
 Azure FarmBeats Datahub es una capa de API, lo que permite la agregación, normalización y contextualización de varios conjuntos de datos agrícolas entre proveedores. Azure FarmBeats se puede usar para obtener:
-- Los **datos de los sensores** de dos proveedores de sensores: [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), [Pessl Instruments](https://metos.at/)
+- Los **datos de los sensores** de dos proveedores de sensores: [Davis Instruments](https://www.davisinstruments.com/products/enviromonitor-gateway-us-lte), [Teralytic](https://teralytic.com/), [Pessl Instruments](https://metos.at/)
 - **Imágenes de satélite** de la misión del satélite [Sentinel-2](https://sentinel.esa.int/web/sentinel/home) de la Agencia Espacial Europea
 - **Imágenes de dron** de tres proveedores de imágenes de dron: [senseFly](https://www.sensefly.com/), [SlantRange](https://slantrange.com/) y [DJI](https://dji.com/)
 
