@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 5f789baf7467af863c59a44ab9a256c9f6d7fd15
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 84da4c02ec4631e9d9f33ac745c3721894cc5f29
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075276"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469537"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integración de Azure Active Directory con LearnUpon
 
@@ -83,7 +83,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.learnupon.com/saml/consumer`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de LearnUpon](https://www.learnupon.com/features/support/) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de LearnUpon](https://www.learnupon.com/contact/) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, ubique la **huella digital**. Se agregará a su configuración de SAML de LearnUpon.
 
@@ -159,7 +159,7 @@ En esta sección, va a permitir que B.Simon acceda a LearnUpon utilizando el ini
 
 ### <a name="create-learnupon-test-user"></a>Creación de un usuario de prueba de LearnUpon
 
-En esta sección, se crea un usuario llamado Britta Simon en LearnUpon. LearnUpon admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en LearnUpon, se crea otro después de la autenticación. Si necesita crear un usuario manualmente, es preciso que se ponga contacto con el [equipo de soporte técnico de LearnUpon](https://www.learnupon.com/features/support/).
+En esta sección, se crea un usuario llamado Britta Simon en LearnUpon. LearnUpon admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en LearnUpon, se crea otro después de la autenticación. Si necesita crear un usuario manualmente, es preciso que se ponga contacto con el [equipo de soporte técnico de LearnUpon](https://www.learnupon.com/contact/).
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

@@ -3,14 +3,14 @@ title: 'Ejemplo de script de la CLI de Azure: suscripción a temas personalizado
 description: En este artículo se proporciona un script de la CLI de Azure de ejemplo que muestra cómo suscribirse a los eventos de Azure Event Grid de un tema personalizado.
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/08/2020
+ms.date: 07/22/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eaec3521c90a0fb6425f5b68425ef608ae6db3c5
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: f192abd9c484b85a4b1f96f272e380da2e4df1d3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871316"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114474097"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>Suscripción a eventos de un tema personalizado con la CLI de Azure
 

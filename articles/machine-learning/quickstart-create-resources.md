@@ -10,13 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 06/10/2021
 adobe-target: true
-ms.custom: contperf-fy21q4
-ms.openlocfilehash: d12b9229fdf4b8cfe32a9db375b9c0943ce53507
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: 0d4c85ec1075e3925fa5657783ffce618faaa6ea
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033462"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760146"
 ---
 # <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Creación de los recursos de área de trabajo necesarios para empezar a trabajar con Azure Machine Learning
 
@@ -37,10 +37,6 @@ Si aún no tiene un área de trabajo, créela ahora:
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
-> [!div class="nextstepaction"]
-> [He creado un área de trabajo](?success=create-workspace#instance) [He tenido un problema](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
-
-
 ## <a name="create-compute-instance"></a><a name="instance"></a>Creación de una instancia de proceso
 
 Azure Machine Learning se puede instalar en el propio equipo.  Pero en este inicio rápido, creará un recurso de proceso en línea que ya tiene un entorno de desarrollo instalado y listo para usarse.  Esta máquina en línea, una *instancia de proceso,* la usará para que el entorno de desarrollo escriba y ejecute código en scripts de Python y cuadernos de Jupyter Notebook.
@@ -54,9 +50,6 @@ Cree una *instancia de proceso* para usar este entorno de desarrollo en el resto
 1. Especifique un nombre y seleccione **Crear**.
  
 En unos dos minutos, verá que el valor de **Estado** de la instancia de proceso cambia de *Creando* a *En ejecución*.  Ya está listo para empezar.  
-
-> [!div class="nextstepaction"]
-> [He creado una instancia de proceso](?success=create-instance#cluster) [He tenido un problema](https://www.research.net/r/7C8Z3DN?issue=create-instance)
 
 ## <a name="create-compute-clusters"></a><a name="cluster"></a>Creación de clústeres de proceso
 
@@ -77,9 +70,6 @@ En menos de un minuto, el valor del campo **Estado** del clúster cambiará de *
 
 > [!NOTE]
 > Cuando se cree el clúster, no tendrá ningún nodo aprovisionado. El clúster *no* genera costos hasta que envíe un trabajo. Este clúster se reducirá verticalmente cuando haya estado inactivo durante 2400 segundos (40 minutos).  Esto le dará el tiempo necesario para usarlo en algunos tutoriales, si así lo desea, sin tener esperar a que se vuelva a escalar verticalmente.
-
-> [!div class="nextstepaction"]
-> [He creado un clúster de proceso](?success=create-compute-cluster#clean-up) [He tenido un problema](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="quick-tour-of-the-studio"></a><a name="studio"></a> Un recorrido rápido por Studio
 

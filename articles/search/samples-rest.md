@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: a7ab48759ac775c1195dedb4143d895bdcdec937
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a903b63ad1da2dbb029fdbeba1106d3090ba3ef
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98956447"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554829"
 ---
 # <a name="rest-code-samples-for-azure-cognitive-search"></a>Ejemplos de código de REST para Azure Cognitive Search
 
@@ -38,10 +38,10 @@ Los ejemplos de código del equipo de Cognitive Search muestran características
 | [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) | Código fuente de [Tutorial: Creación de un analizador personalizado para números de teléfono](tutorial-create-custom-analyzer.md). En este artículo se explica cómo usar analizadores para conservar patrones y caracteres especiales en el contenido que permite búsquedas.|
 | [knowledge-store](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) | Código fuente para [Creación de un almacén de conocimiento mediante REST y Postman](knowledge-store-create-rest.md). En este artículo se explican los pasos necesarios para rellenar un almacén de conocimiento usado para flujos de trabajo de minería de conocimiento. |
 | [projections](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) | Código fuente para [Dar forma y exportar enriquecimientos](knowledge-store-projections-examples.md). En este artículo se explica cómo especificar las estructuras de datos físicas en un almacén de conocimiento.|
-| [index-encrypted-blobs](https://github.com/Azure-Samples/azure-search-postman-samples/commit/f5ebb141f1ff98f571ab84ac59dcd6fd06a46718) | Código fuente para [Indexación de blobs cifrados mediante indexadores de blobs y conjuntos de aptitudes en Azure Cognitive Search](search-howto-index-encrypted-blobs.md). En este artículo se muestra cómo indexar documentos en Azure Blob Storage que se han cifrado previamente mediante Azure Key Vault. |
+| [index-encrypted-blobs](https://github.com/Azure-Samples/azure-search-postman-samples/commit/f5ebb141f1ff98f571ab84ac59dcd6fd06a46718) | Código fuente para [Indexación de blobs cifrados mediante indexadores de blobs y conjuntos de aptitudes en Azure Cognitive Search](search-howto-index-encrypted-blobs.md). En este artículo se muestra cómo indexar documentos en Azure Blob Storage que se han cifrado previamente mediante Azure Key Vault. |
 
 > [!Tip]
-> Pruebe el [Explorador de ejemplos](/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en Github, filtrados por producto, servicio y lenguaje.
+> Pruebe el [Explorador de ejemplos](/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en GitHub, filtrados por producto, servicio y lenguaje.
 
 ## <a name="other-samples"></a>Otros ejemplos
 

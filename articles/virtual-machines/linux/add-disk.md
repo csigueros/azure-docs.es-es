@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 05/12/2021
 ms.author: cynthn
-ms.openlocfilehash: adf6198cf12011c77fcf3f93d4b595ea433ddefd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb207b5ece190a4398c7b9ef15472db409ac4d71
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580392"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087803"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adición de un disco a una máquina virtual de Linux
 
@@ -71,7 +71,7 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-Aquí, `sdc` es el disco que queremos, porque es de 50 GB. Si no está seguro de qué disco se trata según el tamaño, puede ir a la página de la máquina virtual en el portal, seleccionar **Discos** y comprobar el número LUN del disco en **Discos de datos**. 
+Aquí, `sdc` es el disco que queremos, porque es de 50 GB. Si agrega varios discos y no está seguro de qué disco se trata según el tamaño, puede ir a la página de la máquina virtual en el portal, seleccionar **Discos** y comprobar el número LUN del disco en **Discos de datos**. Compare el número LUN del portal con el último número de la parte **HTCL** de la salida, que es el LUN.
 
 
 ### <a name="format-the-disk"></a>Formato del disco
@@ -151,16 +151,18 @@ En este ejemplo, usamos el editor nano, así que cuando haya terminado de editar
 > La consola serie de máquina virtual de Azure puede usarse para el acceso de consola a la máquina virtual si al modificar fstab se ha producido un error de arranque. Puede encontrar más información en la [documentación de la consola serie](/troubleshoot/azure/virtual-machines/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Compatibilidad de TRIM/UNMAP con Linux en Azure
+
 Algunos kernels de Linux admiten operaciones TRIM/UNMAP para descartar bloques no usados del disco. Esta característica es especialmente útil en el almacenamiento estándar para informar a Azure de que las páginas eliminadas ya no son válidas y se pueden descartar. Además, le permitirá ahorrar dinero si crea archivos de gran tamaño y luego los elimina.
 
 Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual Linux. Como es habitual, consulte la documentación de distribución para ver el enfoque recomendado:
 
-* Use la opción de montaje `discard` en */etc/fstab*, por ejemplo:
+- Use la opción de montaje `discard` en */etc/fstab*, por ejemplo:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
     ```
-* En algunos casos, la opción `discard` podría tener afectar al rendimiento. Como alternativa, puede ejecutar el comando `fstrim` manualmente desde la línea de comandos o agregarlo a su crontab para ejecutar con regularidad:
+
+- En algunos casos, la opción `discard` podría tener afectar al rendimiento. Como alternativa, puede ejecutar el comando `fstrim` manualmente desde la línea de comandos o agregarlo a su crontab para ejecutar con regularidad:
 
     **Ubuntu**
 

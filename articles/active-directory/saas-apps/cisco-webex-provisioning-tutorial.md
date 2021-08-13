@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Cisco Webex para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y desaprovisionar automáticamente las cuentas de usuario para Cisco Webex.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
-ms.author: zhchia
-ms.openlocfilehash: bc05e83ac6c7f0f7c5e9a571c1fa7397af858f44
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 311b147648c8a7eccda889769a60ea8fa15fa1ad
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180111"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113764392"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cisco Webex para el aprovisionamiento automático de usuarios
 
@@ -27,7 +27,7 @@ El objetivo de este tutorial es mostrar los pasos que se deben realizar en Cisco
 >
 > Este conector está actualmente en versión preliminar. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 

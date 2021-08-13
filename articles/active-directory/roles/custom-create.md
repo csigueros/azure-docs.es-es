@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e0e1543f18c18c7fdf97c39f35ba38ded658392
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bef0dc016b2b216d51a4844c469d14a24e11068b
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103007824"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111437773"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Creación y asignación de un rol personalizado en Azure Active Directory
 
@@ -26,11 +26,20 @@ En este artículo se describe cómo crear roles personalizados en Azure Active�
 
 Los roles personalizados se pueden crear en la pestaña [Roles y administradores](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) en la página de información general sobre Azure AD.
 
+## <a name="prerequisites"></a>Prerrequisitos
+
+- Una licencia de Azure AD Premium P1 o P2
+- Administrador global o administrador de roles con privilegios
+- Módulo de AzureADPreview al usar PowerShell
+- Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
+
+Para más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
+
 ## <a name="create-a-role-in-the-azure-portal"></a>Creación de un rol en Azure Portal
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Creación de un rol personalizado para conceder acceso para administrar los registros de aplicaciones
 
-1. Inicie sesión en el[centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
 1. Seleccione **Azure Active Directory** > **Roles y administradores** > **Nuevo rol personalizado**.
 
    ![Creación o edición de roles en la página Roles y administradores](./media/custom-create/new-custom-role.png)
@@ -50,27 +59,6 @@ Los roles personalizados se pueden crear en la pestaña [Roles y administradores
 El rol personalizado se mostrará en la lista de los roles disponibles para asignar.
 
 ## <a name="create-a-role-using-powershell"></a>Creación de un rol con PowerShell
-
-### <a name="prepare-powershell"></a>Preparación para PowerShell
-
-En primer lugar, debe [descargar el módulo de Azure AD PowerShell en versión preliminar](https://www.powershellgallery.com/packages/AzureADPreview).
-
-Para instalar el módulo de Azure AD PowerShell, use los siguientes comandos:
-
-``` PowerShell
-Install-Module -Name AzureADPreview 
-Import-Module -Name AzureADPreview 
-```
-
-Para comprobar que el módulo esté listo para usar, ejecute el siguiente comando:
-
-``` PowerShell
-Get-Module -Name AzureADPreview 
-
-  ModuleType Version      Name                         ExportedCommands 
-  ---------- ---------    ----                         ---------------- 
-  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...} 
-```
 
 ### <a name="connect-to-azure"></a>Conexión con Azure
 
@@ -102,7 +90,7 @@ $rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="assign-the-custom-role-using-azure-ad-powershell"></a>Asignación del rol personalizado mediante Azure AD PowerShell
+### <a name="assign-the-custom-role-using-powershell"></a>Asignación del rol personalizado con PowerShell
 
 Asigne el rol mediante el siguiente script de PowerShell:
 
@@ -119,7 +107,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-## <a name="create-a-role-with-graph-api"></a>Creación de un rol con Graph API
+## <a name="create-a-role-with-the-microsoft-graph-api"></a>Creación de un rol con Microsoft Graph API
 
 1. Cree la definición de roles.
 
@@ -175,9 +163,9 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
 ## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Asignación de un rol personalizado con ámbito de un recurso
 
-Al igual que los roles integrados, los roles personalizados se asignan de forma predeterminada en el ámbito predeterminado de toda la organización para conceder permisos de acceso a todos los registros de aplicaciones de la organización. Pero a diferencia de los roles integrados, los roles personalizados también se pueden asignar en el ámbito de un único recurso de Azure AD. Esto le permite entregar al usuario el permiso para actualizar las credenciales y las propiedades básicas de una aplicación única sin la necesidad de crear un segundo rol personalizado.
+Al igual que los roles integrados, los roles personalizados se asignan de forma predeterminada en el ámbito predeterminado de toda la organización para conceder permisos de acceso a todos los registros de aplicaciones de la organización. Además, los roles personalizados y algunos roles integrados pertinentes (según el tipo de recurso de Azure AD) también se pueden asignar en el ámbito de un único recurso de Azure AD. Esto le permite entregar al usuario el permiso para actualizar las credenciales y las propiedades básicas de una aplicación única sin la necesidad de crear un segundo rol personalizado.
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con los permisos Desarrollador de aplicaciones en la organización de Azure AD.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con los permisos Desarrollador de aplicaciones.
 1. Seleccione **App registrations** (Registros de aplicaciones).
 1. Seleccione el registro de aplicaciones al que se concede acceso para administrar. Es posible que tenga que seleccionar **Todas las aplicaciones** para ver la lista completa de los registros de aplicaciones de la organización de Azure AD.
 
@@ -191,5 +179,5 @@ Al igual que los roles integrados, los roles personalizados se asignan de forma 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - No dude en compartir con nosotros en el [foro de roles administrativos de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-- Para obtener más información sobre los roles y la asignación de roles de administrador, consulte el artículo [Assign administrator roles](permissions-reference.md) (Asignación de roles de administrador).
+- Para más información acerca de los permisos de roles, consulte [Roles integrados en Azure AD](permissions-reference.md).
 - Para conocer los permisos predeterminados de usuario, vea una [comparación de los permisos predeterminados de usuario miembro e invitado](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).

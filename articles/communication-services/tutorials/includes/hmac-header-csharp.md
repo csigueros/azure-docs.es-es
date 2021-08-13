@@ -5,15 +5,15 @@ author: alexandra142
 manager: soricos
 services: azure-communication-services
 ms.author: apistrak
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 34c7df2b0e61536c0b5f0bc1e4a97d58d0d9c6a4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 19a031c58219f7369a2969599b13337de238e4c6
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103490522"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107418"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,14 +28,14 @@ Antes de comenzar, compruebe lo siguiente:
 La autenticación de clave de acceso usa una clave secreta compartida para generar una firma HMAC para cada solicitud HTTP. Esta firma se genera con el algoritmo SHA256 y se envía en el encabezado `Authorization` mediante el esquema `HMAC-SHA256`. Por ejemplo:
 
 ```
-Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
+Authorization: "HMAC-SHA256 SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
 ```
 
 `hmac-sha256-signature` consta de:
 
 - Verbo HTTP (por ejemplo, `GET` o `PUT`)
 - Ruta de acceso de la solicitud HTTP
-- Date
+- x-ms-date
 - administrador de flujos de trabajo
 - x-ms-content-sha256
 
@@ -167,7 +167,7 @@ var stringToSign = $"POST\n{requestUri.PathAndQuery}\n{date};{requestUri.Authori
 //Compute the signature.
 var signature = ComputeSignature(stringToSign);
 //Concatenate the string, which will be used in the authorization header.
-var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature={signature}";
+var authorizationHeader = $"HMAC-SHA256 SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature={signature}";
 ```
 
 ## <a name="add-headers-to-requestmessage"></a>Incorporación de encabezados a requestMessage
@@ -178,7 +178,7 @@ Use el código siguiente para agregar los encabezados necesarios a `requestMessa
 //Add a content hash header.
 requestMessage.Headers.Add("x-ms-content-sha256", contentHash);
 //Add a date header.
-requestMessage.Headers.Add("Date", date);
+requestMessage.Headers.Add("x-ms-date", date);
 //Add an authorization header.
 requestMessage.Headers.Add("Authorization", authorizationHeader);
 ```

@@ -8,12 +8,12 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9aec838aa762cd018a96b2f17e80cc04ea95795d
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 9c721e25bfc36dda63b3e3d7a08ef3c1bc5c236c
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107738997"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117897"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Guía de inicio rápido: Creación y administración de recursos compartidos de archivos de Azure mediante la CLI de Azure
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) mediante la CLI de Azure. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo estándar del sector Bloque de mensajes del servidor (SMB), el protocolo Network File System (NFS) (versión preliminar) y permiten el uso compartido de archivos entre varias máquinas, aplicaciones e instancias. 
@@ -25,6 +25,13 @@ En esta guía se describen los conceptos básicos sobre cómo trabajar con [recu
 - En este artículo se necesita la versión 2.0.4 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 - De forma predeterminada, los comandos de la CLI de Azure devuelven formato JSON (notación de objetos JavaScript). JSON es el método estándar para enviar y recibir mensajes desde las API REST. Para facilitar el trabajo con las respuestas JSON, algunos de los ejemplos de este artículo usan el parámetro *query* en los comandos de la CLI de Azure. Este parámetro utiliza el [lenguaje de consulta JMESPath](http://jmespath.org/) para el análisis de datos JSON. Para aprender más acerca de cómo usar los resultados de los comandos de la CLI de Azure mediante el lenguaje de consulta JMESPath, siga las indicaciones del [tutorial de JMESPath](http://jmespath.org/tutorial.html).
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Si aún no tiene un grupo de recursos de Azure, puede utilizar el comando [az group create](/cli/azure/group) para crear uno nuevo. 

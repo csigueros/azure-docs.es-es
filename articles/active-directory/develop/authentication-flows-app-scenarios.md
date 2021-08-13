@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: ffa52805a5e2680d534b2b24a210465cb3fc7cac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ebed470f7998025a3b8dc8f733442fd25183ae3
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100557853"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554650"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flujos de autenticación y escenarios de aplicaciones
 
@@ -243,7 +243,7 @@ Los escenarios que implican la adquisición de tokens también se asignan a fluj
   <tr>
    <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Código del dispositivo</a></td>
-   <td>Cuentas profesionales o educativas, cuentas personales y Azure AD B2C</td>
+   <td>Cuentas profesionales o educativas, cuentas personales, pero no Azure AD B2C</td>
  </tr>
 
  <tr>

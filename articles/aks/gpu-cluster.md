@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5e36465c307443c8e6f135c5937bddbbb079b60e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 95400d75442ba0d61b0d24aef6e67bbea397a240
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783168"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790460"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Uso de GPU para cargas de trabajo de cálculo intensivo en Azure Kubernetes Service (AKS)
 
@@ -400,6 +400,12 @@ Para ejecutar trabajos de Apache Spark, consulte [Ejecución de trabajos de Apac
 
 Para obtener más información acerca de la ejecución de cargas de trabajo de aprendizaje automático (ML) en Kubernetes, vea [Kubeflow Labs][kubeflow-labs].
 
+Para más información sobre el uso de Azure Kubernetes Service con Azure Machine Learning, consulte los artículos siguientes:
+
+* [Implementación de un modelo en Azure Kubernetes Service][azureml-aks].
+* [Implementación de un modelo de aprendizaje profundo para la inferencia con GPU][azureml-gpu].
+* [Servicio de alto rendimiento con Triton Inference Server][azureml-triton].
+
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -419,3 +425,6 @@ Para obtener más información acerca de la ejecución de cargas de trabajo de a
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[azureml-aks]: ../machine-learning/how-to-deploy-azure-kubernetes-service.md
+[azureml-gpu]: ../machine-learning/how-to-deploy-inferencing-gpus.md
+[azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md

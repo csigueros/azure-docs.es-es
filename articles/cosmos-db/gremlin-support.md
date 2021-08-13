@@ -1,18 +1,18 @@
 ---
 title: Admisión y compatibilidad de Gremlin de Azure Cosmos DB con las características de TinkerPop
 description: Más información acerca del lenguaje de Gremlin de Apache TinkerPop. Aprenda sobre las características y los pasos disponibles en Azure Cosmos DB y las diferencias de compatibilidad del motor de grafos de TinkerPop.
-author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 11/11/2020
-ms.author: sngun
-ms.openlocfilehash: 036338e90a3e7b466924d419400c0dcc692dec5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/06/2021
+author: manishmsfte
+ms.author: mansha
+ms.openlocfilehash: a2e868fa6054681f37d699bdc469db9ded0b8ee9
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97630758"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356372"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Compatibilidad de los grafos de Gremlin de Azure Cosmos DB con las características de TinkerPop
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -102,6 +102,12 @@ A continuación, se describen las propiedades que usa el formato JSON para los v
 | `_partition` | Clave de partición del vértice. Se una para la [creación de particiones de grafos](graph-partitioning.md). |
 | `outE` | Esta propiedad contiene una lista de las aristas de un vértice. Almacenar la información de proximidad con los vértices permite ejecutar recorridos rápidamente. Las aristas se agrupan en función de sus etiquetas. |
 
+Cada propiedad puede almacenar varios valores dentro de una matriz.
+
+| Propiedad | Descripción |
+| --- | --- |
+| `value` | El valor de la propiedad. |
+
 La arista contiene la siguiente información para ayudar a la navegación a otras partes del grafo.
 
 | Propiedad | Descripción |
@@ -109,13 +115,7 @@ La arista contiene la siguiente información para ayudar a la navegación a otra
 | `id` | Identificador de la arista. Debe ser único (en combinación con el valor de `_partition`, si corresponde). |
 | `label` | Etiqueta de la arista. Esta propiedad es opcional y se usa para describir el tipo de relación. |
 | `inV` | Esta propiedad contiene una lista de vértices para una línea. Almacenar la información de proximidad con la línea permite ejecutar recorridos rápidamente. Los vértices se agrupan en función de sus etiquetas. |
-| `properties` | Contenedor de propiedades definidas por el usuario asociadas con la arista. Cada propiedad puede tener varios valores. |
-
-Cada propiedad puede almacenar varios valores dentro de una matriz. 
-
-| Propiedad | Descripción |
-| --- | --- |
-| `value` | El valor de la propiedad.
+| `properties` | Contenedor de propiedades definidas por el usuario asociadas con la arista. |
 
 ## <a name="gremlin-steps"></a>Pasos de Gremlin
 

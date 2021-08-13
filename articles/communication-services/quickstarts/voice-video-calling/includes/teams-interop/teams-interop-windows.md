@@ -6,12 +6,12 @@ ms.author: aurighet
 ms.date: 05/13/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: b26c9ff7a2a7ec2f6898ed1434184e9a016c20d3
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 42735d13eb4a251a702bd486e21f56981e63326f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560631"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535970"
 ---
 En este artículo de inicio rápido aprenderá a unirse a una reunión de Teams mediante Calling SDK de Azure Communication Services para Windows.
 
@@ -19,7 +19,6 @@ En este artículo de inicio rápido aprenderá a unirse a una reunión de Teams 
 
 - Una [aplicación de Windows de llamadas de Communication Services](../../getting-started-with-calling.md) operativa.
 - Una [implementación de Teams](/deployoffice/teams-install).
-
 
 ## <a name="add-the-teams-ui-controls-and-enable-the-teams-ui-controls"></a>Incorporación y habilitación de los controles de la interfaz de usuario de Teams
 

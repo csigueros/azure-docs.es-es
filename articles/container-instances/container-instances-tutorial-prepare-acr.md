@@ -4,12 +4,12 @@ description: 'Tutorial de Azure Container Instances, parte 2 de 3: Preparación 
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 36c2e6cda728a85ccab080bbbb6f1a0b74824f2d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 513db28ebe4ed87429fffe2faa75c2859b988efe
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786988"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220892"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: Creación de una instancia de Azure Container Registry e inserción de una imagen de contenedor
 
@@ -132,7 +132,6 @@ az acr repository show-tags --name <acrName> --repository aci-tutorial-app --out
 Debería ver un resultado similar al siguiente:
 
 ```console
-az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
 Result
 --------
 v1

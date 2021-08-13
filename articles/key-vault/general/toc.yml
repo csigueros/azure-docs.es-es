@@ -39,6 +39,8 @@
   items:
     - name: Códigos de ejemplo de Key Vault
       href: /samples/browse/?expanded=azure&products=azure-key-vault
+    - name: Consultas de Azure Resource Graph
+      href: ../resource-graph-samples.md
 - name: Conceptos
   items:
     - name: Conceptos básicos

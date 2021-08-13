@@ -3,14 +3,14 @@ title: Creación de una cuenta de ejecución de Azure Automation
 description: En este artículo se describe cómo crear una cuenta de ejecución de Azure Automation con PowerShell o desde Azure Portal.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/29/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 368bbfd0bc4dd0a3c8c2792487db52e8585c2ea1
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 7ed16e9bbd1071e4831e814e617d69dc4a638510
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277631"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078265"
 ---
 # <a name="how-to-create-an-azure-automation-run-as-account"></a>Creación de una cuenta de ejecución de Azure Automation
 
@@ -46,6 +46,13 @@ En la lista siguiente se proporcionan los requisitos para crear una cuenta de ej
 * Azure PowerShell 6.2.4 o posterior. Para más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/install-az-ps).
 * Una cuenta de Automation, a la que se hace referencia como el valor de los parámetros `AutomationAccountName` y `ApplicationDisplayName`.
 * Permisos equivalentes a los que se muestran en [Permisos para configurar cuentas de ejecución](automation-security-overview.md#permissions).
+
+Si planea usar un certificado de una entidad de certificación de su empresa o de terceros, Automation requiere que el certificado tenga la siguiente configuración:
+
+   * Especifique **Proveedor de servicios criptográficos RSA y AES mejorado**.
+   * Marcado como exportable.
+   * Configurado para usar el algoritmo SHA256.
+   * Guardado en los formatos `*.pfx` o `*.cer`.
 
 Para obtener los valores de `AutomationAccountName`, `SubscriptionId` y `ResourceGroupName`, que son los parámetros necesarios para el script de PowerShell, complete los pasos siguientes.
 

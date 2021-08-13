@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: c1de8ebbd9ad381628cfeb19413baa295b42b3db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4b2bf97b684ff83b2a4071ca676d30ffb28b87e
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91739840"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721763"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Cree dos aplicaciones web conectadas de forma segura con Punto de conexión privado e Integración con red virtual
 
@@ -38,8 +38,15 @@ Vaya a la [documentación de Azure](/azure/developer/terraform/) para aprender a
 Para usar este archivo, debe cambiar la propiedad Name de los recursos frontwebapp y backwebapp (el nombre de webapp debe ser un nombre DNS único en todo el mundo). 
 
 ```hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+  }
+}
 provider "azurerm" {
-  version = "~>2.0"
   features {}
 }
 

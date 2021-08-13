@@ -1,18 +1,18 @@
 ---
 title: 'Procedimiento: Inicio de la aplicación Spring Cloud desde el código fuente'
 description: En este inicio rápido, aprenderá a iniciar una aplicación Azure Spring Cloud directamente desde el código fuente
-author: MikeDodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/03/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 8497e095d4caf6213bbb838b2033845ee65e3834
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: aca3e1231e2883bb077cb9fb8c2c353b607aa37e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134922"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473583"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>Procedimiento para iniciar la aplicación Spring Cloud desde el código fuente
 
@@ -78,8 +78,8 @@ La instancia de servicio tardará aproximadamente cinco minutos en implementarse
 Establezca el nombre del grupo de recursos y el nombre de instancia de Azure Spring Cloud predeterminados con los siguientes comandos:
 
 ```azurecli
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 ```
 
 ## <a name="create-the-azure-spring-cloud-application"></a>Creación de una aplicación Azure Spring Cloud

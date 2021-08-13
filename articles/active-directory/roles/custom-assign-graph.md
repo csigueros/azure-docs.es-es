@@ -8,25 +8,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67e77c2dd08386279beeb06ff9081fa2669afa73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2913665d2cc834bd3b88f23ce81b46ca7a7dfbbe
+ms.sourcegitcommit: 5c136a01bddfccb2cc9f7e7e7741e2cf2651ddbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102487841"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111352756"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Asignación de roles de administrador personalizados mediante Microsoft Graph API en Azure Active Directory 
 
 Puede automatizar la asignación de roles a las cuentas de usuario con Microsoft Graph API. En este artículo se tratan las operaciones POST, GET y DELETE en roleAssignments.
 
-## <a name="required-permissions"></a>Permisos necesarios
+## <a name="prerequisites"></a>Requisitos previos
 
-Conéctese a la organización de Azure AD con una cuenta de administrador global o de administrador de roles con privilegios para asignar o quitar roles.
+- Una licencia de Azure AD Premium P1 o P2
+- Administrador global o administrador de roles con privilegios
+- Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
+
+Para obtener más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
 
 ## <a name="post-operations-on-roleassignment"></a>Operaciones POST en RoleAssignment
 
@@ -305,5 +309,5 @@ Impedimos que los usuarios eliminen su propio rol de administrador global para e
 ## <a name="next-steps"></a>Pasos siguientes
 
 * No dude en hacernos llegar sus comentarios en el [foro de roles administrativos de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Para obtener más información sobre los roles y la asignación de roles de administrador, consulte el artículo [Asignación de roles de administrador](permissions-reference.md).
+* Para más información acerca de los permisos de roles, consulte [Roles integrados en Azure AD](permissions-reference.md).
 * Para conocer los permisos predeterminados de usuario, consulte [Comparación de los permisos predeterminados de usuario miembro e invitado](../fundamentals/users-default-permissions.md).

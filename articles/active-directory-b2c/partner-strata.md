@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 49def79c467aa8f2b3fda9688dc77fcb003a34a5
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: a58042c7098116a2800453dcca46cae62011dfac
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256572"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111570491"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Tutorial para ampliar Azure AD B2C para proteger Strata
 
@@ -49,7 +49,7 @@ La integración Maverics de Strata incluye los siguientes componentes:
 
 - **Azure AD B2C**: el servidor de autorización responsable de verificar las credenciales del usuario. Los usuarios autenticados pueden acceder a aplicaciones locales mediante una cuenta local almacenada en el directorio de Azure AD B2C.
 
-- **Un proveedor de identidades empresarial o de redes sociales externo**: podría ser cualquier proveedor de OpenID Connect, Facebook, Google o GitHub. Consulte la información sobre el uso de [proveedores de identidades externos](./technical-overview.md#external-identity-providers) con Azure AD B2C.  
+- **Un proveedor de identidades empresarial o de redes sociales externo**: podría ser cualquier proveedor de OpenID Connect, Facebook, Google o GitHub. Para obtener más información, consulte cómo [agregar un proveedor de identidades](./add-identity-provider.md).  
 
 - **Maverics Identity Orchestrator de Strata**: el servicio que organiza el inicio de sesión del usuario y pasa de manera transparente la identidad a las aplicaciones a través de encabezados HTTP.
 

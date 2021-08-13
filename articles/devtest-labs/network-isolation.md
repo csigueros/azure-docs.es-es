@@ -3,12 +3,12 @@ title: Aislamiento de red en Azure DevTest Labs
 description: Obtenga información sobre el aislamiento de red en Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: 28bfa048a8a6666deb58a8ecfff38779c91d95b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7a46d242d16cf1c84495fbd2f2f10911cf4f1e9
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96352939"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111809525"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Aislamiento de red en DevTest Labs
 
@@ -75,6 +75,10 @@ Con esto, Azure Storage permitirá conexiones entrantes de la red virtual agrega
 También puede elegir automatizar estos pasos para configurar esta opción para varios laboratorios. 
 
 [Más información sobre la administración de reglas de acceso de red predeterminadas para Azure Storage mediante PowerShell y la CLI](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
+
+## <a name="network-isolation-for-an-existing-lab"></a>Aislamiento de red para un laboratorio existente
+
+Como propietario del laboratorio, puede elegir aislar la red de un laboratorio existente. [Este script de ejemplo](https://github.com/Azure/azure-devtestlab/blob/master/Tools/ConvertDtlLabToIsolatedNetwork/Convert-DtlLabToIsolatedNetwork.ps1) muestra cómo convertir un laboratorio existente y los recursos de laboratorio asociados en un modo aislado de red. 
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>Elementos que hay que recordar al usar un laboratorio en un modo aislado de red
 

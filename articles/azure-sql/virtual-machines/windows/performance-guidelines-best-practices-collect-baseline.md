@@ -8,6 +8,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -15,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b1909d5fd5e3c02f104c73acb515740cb6ff65f6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 46dff70c8d1064f05d89af9340b5b07e7adc747e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572263"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079902"
 ---
 # <a name="collect-baseline-performance-best-practices-for-sql-server-on-azure-vm"></a>Recopilación de la línea de base: procedimientos recomendados de rendimiento de SQL Server en la VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -63,7 +64,7 @@ Asegúrese de que conoce los requisitos tanto de rendimiento como de IOPS de la 
 Realice un seguimiento de la memoria externa usada por el sistema operativo, así como la memoria que usa internamente SQL Server. La identificación de la presión de cualquier componente ayudará a cambiar el tamaño de las máquinas virtuales e identificar las oportunidades de ajuste. 
 
 Los siguientes contadores de PerfMon pueden ayudar a validar el estado de la memoria de una máquina virtual de SQL Server: 
-* [\Memoria\MB disponibles](/azure/monitoring/infrastructure-health/vmhealth-windows/winserver-memory-availmbytes)
+* \Memoria\MB disponibles
 * [\SQLServer:Memory Manager\Target Server Memory (KB)](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
 * [\SQLServer:Memory Manager\Total Server Memory (KB)](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
 * [\SQLServer:Buffer Manager\Lazy writes/sec](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
@@ -91,8 +92,10 @@ Para obtener más información, vea los demás artículos de esta serie:
 - [Lista de comprobación rápida](performance-guidelines-best-practices-checklist.md)
 - [Tamaño de VM](performance-guidelines-best-practices-vm-size.md)
 - [Storage](performance-guidelines-best-practices-storage.md)
+- [Seguridad](security-considerations-best-practices.md)
+- [Configuración de HADR](hadr-cluster-best-practices.md)
 
 
 Para ver los procedimientos recomendados de seguridad, consulte [Consideraciones de seguridad para SQL Server en Azure Virtual Machines](security-considerations-best-practices.md).
 
-Revise otros artículos sobre la máquina virtual de SQL Server en [Introducción a SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.md).
+Revise otros artículos sobre la máquina virtual de SQL Server en [Introducción a SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.yml).

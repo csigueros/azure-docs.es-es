@@ -1,0 +1,99 @@
+### YamlMime:FAQ
+metadata:
+  title: "Preguntas frecuentes sobre el grupo de SQL dedicado (anteriormente SQL\_DW)"
+  description: "En este artículo se muestran las preguntas más frecuentes sobre el grupo de SQL dedicado (anteriormente SQL\_DW) en Azure Synapse Analytics de clientes y desarrolladores."
+  services: synapse-analytics
+  author: mlee3gsd
+  manager: craigg
+  ms.service: synapse-analytics
+  ms.topic: conceptual
+  ms.subservice: sql-dw
+  ms.date: 11/04/2019
+  ms.author: martinle
+  ms.reviewer: igorstan
+title: "Preguntas frecuentes sobre el grupo de SQL dedicado (anteriormente SQL\_DW) en Azure Synapse Analytics"
+summary: ''
+sections:
+  - name: General
+    questions:
+      - question: |
+          ¿Qué es Azure Synapse?
+        answer: |
+          Azure Synapse es un servicio de análisis que engloba el almacenamiento de datos y el análisis de macrodatos. Azure Synapse reúne estos dos mundos con una experiencia unificada para ingerir, preparar, administrar y servir datos para las necesidades de inteligencia empresarial y aprendizaje automático. Para más información, consulte [¿Qué es Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)
+      - question: |
+          ¿Qué ha pasado con Azure SQL Data Warehouse?
+        answer: "Azure Synapse es Azure SQL Data Warehouse evolucionado. Hemos llevado el mismo almacenamiento de datos líder del sector a un nuevo nivel de rendimiento y funcionalidades. Puede seguir ejecutando las cargas de trabajo de almacenamiento de datos existentes en producción con el grupo de SQL dedicado (anteriormente SQL\_DW) en Azure Synapse. Para más información, consulte [¿Qué es Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)\n"
+      - question: "¿Qué es el grupo de SQL dedicado (anteriormente SQL\_DW) en Azure Synapse Analytics?\n"
+        answer: "Un grupo de SQL dedicado (anteriormente SQL\_DW) hace referencia a las características de almacenamiento de datos empresariales que están disponibles con carácter general en Azure Synapse. Para más información, consulte [¿Qué es Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)\n"
+      - question: |
+          ¿Cómo puedo empezar a usar Azure Synapse?
+        answer: |
+          Puede empezar a trabajar con una [cuenta gratuita de Azure](https://azure.microsoft.com/free/sql-data-warehouse/) o [ponerse en contacto con Ventas para más información](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html).
+      - question: |
+          ¿Qué ofrece Azure Synapse en cuanto a la seguridad de datos?
+        answer: |
+          Azure Synapse ofrece varias soluciones para proteger datos, como TDE y auditorías. Para obtener más información, consulte [Seguridad](sql-data-warehouse-overview-manage-security.md).
+      - question: |
+          ¿Dónde puedo averiguar sobre los estándares empresariales o legales que cumple Azure Synapse?
+        answer: |
+          Visite la página [Cumplimiento normativo](https://www.microsoft.com/trustcenter/compliance/complianceofferings) para consultar diversas ofertas de cumplimiento por producto, como SOC e ISO. En primer lugar, elija por título Cumplimiento. Luego, expanda Azure en la sección de servicios en la nube de Microsoft del lado derecho de la página para ver qué servicios son compatibles con Azure Synapse.
+      - question: |
+          ¿Puedo conectar Power BI?
+        answer: |
+          Sí. Aunque Power BI admite la consulta directa con Azure Synapse, no se ha diseñado para administrar muchos usuarios ni datos en tiempo real. Para optimizar aún más el rendimiento de Power BI, considere la posibilidad de usar Power BI en Azure Analysis Services o la infraestructura como servicio de Analysis Services.
+      - question: "¿Cuáles son los límites de capacidad de un grupo de SQL dedicado (anteriormente SQL\_DW)?\n"
+        answer: |
+          Consulte nuestra página de [límites de capacidad](sql-data-warehouse-service-capacity-limits.md) actuales.
+      - question: |
+          ¿Por qué tardan tanto tiempo en completarse las operaciones de escalado, pausar y reanudación?
+        answer: |
+          Varios factores pueden influir en el tiempo que tardan en completarse las operaciones de administración de procesos. Un caso habitual de operaciones de larga duración es la reversión de transacciones. Cuando se inicia una operación de escalado o pausa, se bloquean todas las sesiones entrantes y se purgan las consultas. Para dejar el sistema en un estado estable, las transacciones se deben revertir antes de que pueda comenzar una operación. Cuanto mayor sea su número y el tamaño del registro de las transacciones, más tiempo estará detenida la operación al restaurar el sistema a un estado estable.
+  - name: Asistencia técnica de usuario
+    questions:
+      - question: |
+          Tengo una solicitud de característica, ¿dónde puede enviarla?
+        answer: |
+          Si tiene una solicitud de característica, envíala a nuestra página [UserVoice](https://feedback.azure.com/forums/307516-sql-data-warehouse).
+      - question: |
+          ¿Cómo puedo hacer una determinada acción?
+        answer: |
+          Para obtener ayuda con las tareas de desarrollo con Azure Synapse, puede hacer preguntas en nuestra página [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw).
+      - question: |
+          ¿Cómo puedo enviar una vale de asistencia técnica?
+        answer: |
+          Los [Vales de asistencia técnica](sql-data-warehouse-get-started-create-support-ticket.md) puede presentarse a través de Azure Portal.
+  - name: Compatibilidad con características o lenguajes de SQL
+    questions:
+      - question: |
+          ¿Qué tipos de datos se admiten?
+        answer: |
+          Consulte [Tipos de datos](sql-data-warehouse-tables-data-types.md).
+      - question: |
+          ¿Qué características de tablas se admiten?
+        answer: |
+          Se admiten muchas características. Las características que no se admiten se pueden encontrar en la [tabla de características no admitidas](sql-data-warehouse-tables-data-types.md).
+  - name: Administración y herramientas
+    questions:
+      - question: "¿Admite el grupo de SQL dedicado (anteriormente SQL\_DW) las API de REST?\n"
+        answer: "Sí. La mayoría de las funciones de REST que se pueden usar con SQL Database también están disponibles en un grupo de SQL dedicado (anteriormente SQL\_DW). Puede encontrar información sobre las API en las páginas de documentación de REST o las [bases de datos](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).\n"
+  - name: Carga
+    questions:
+      - question: |
+          ¿Qué controladores de cliente se admiten?
+        answer: "La compatibilidad de los controladores con un grupo de SQL dedicado (anteriormente SQL\_DW) puede encontrarse en la página [Cadenas de conexión](sql-data-warehouse-connection-strings.md).\n"
+      - question: |
+          ¿Qué formatos de archivo admite PolyBase?
+        answer: |
+          Orc, RC, Parquet y texto delimitado sin formato.
+      - question: |
+          ¿A qué orígenes de datos puedo conectarme mediante PolyBase?
+        answer: |
+          [Azure Data Lake Storage](sql-data-warehouse-load-from-azure-data-lake-store.md) y [Azure Storage Blobs](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md).
+      - question: |
+          ¿Se puede usar el cálculo de aplicación al conectarse a instancias de Azure Storage Blob o ADLS?
+        answer: |
+          No, PolyBase interactúa solo con los componentes de almacenamiento.
+      - question: |
+          ¿Puedo conectarlo a HDI?
+        answer: "HDI puede usar ADLS o WASB como capa HDFS. Si tiene uno de los dos como capa HDFS, puede cargar los datos en un grupo de SQL dedicado (anteriormente SQL\_DW). Sin embargo, no se puede generar el cálculo de aplicación en la instancia HDI.\n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nPara obtener más información sobre el grupo de SQL dedicado (anteriormente SQL\_DW) en Azure Synapse, consulte nuestra página [Información general](sql-data-warehouse-overview-what-is.md).\n"

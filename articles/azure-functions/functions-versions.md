@@ -3,13 +3,13 @@ title: Introducción a las versiones de tiempo de ejecución de Azure Functions
 description: Azure Functions admite varias versiones del runtime. Conozca las diferencias entre ellas y cómo elegir la más adecuada en su caso.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 12/09/2019
-ms.openlocfilehash: b37cf33a96452f9f3e86f853d3d87fd3b4b3879c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 05/19/2021
+ms.openlocfilehash: b3d148bbf6aadaa9ed48d234fdd22d68412f3ec5
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102431863"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789644"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
@@ -96,7 +96,7 @@ Las principales diferencias entre las versiones en las que se ejecutan las funci
 
 ## <a name="migrating-from-1x-to-later-versions"></a>Migración desde la versión 1.x a versiones posteriores
 
-Puede migrar una aplicación existente escrita para usar la versión 1.x del entorno en tiempo de ejecución para que utilice en su lugar una versión más reciente. La mayoría de los cambios que debe realizar están relacionados con cambios en el entorno en tiempo de ejecución del lenguaje, como los cambios en la API de C# entre .NET Framework 4.7 y .NET Core. Deberá asegurarse de que el código y las bibliotecas son compatibles con la versión del entorno de ejecución del lenguaje que utilice. Finalmente, asegúrese de anotar los cambios en el desencadenador, los enlaces y las características que se resaltan a continuación. Para obtener los mejores resultados de migración, debe crear una nueva aplicación de funciones en una nueva versión y portar el código de función de la versión 1.x existente a la nueva aplicación.  
+Puede migrar una aplicación existente escrita para usar la versión 1.x del entorno en tiempo de ejecución para que utilice en su lugar una versión más reciente. La mayoría de los cambios que debe realizar están relacionados con cambios en el entorno en tiempo de ejecución del lenguaje, como cambios en la API de C# entre .NET Framework 4.8 y .NET Core. Deberá asegurarse de que el código y las bibliotecas son compatibles con la versión del entorno de ejecución del lenguaje que utilice. Finalmente, asegúrese de anotar los cambios en el desencadenador, los enlaces y las características que se resaltan a continuación. Para obtener los mejores resultados de migración, debe crear una nueva aplicación de funciones en una nueva versión y portar el código de función de la versión 1.x existente a la nueva aplicación.  
 
 Aunque es posible realizar una actualización "en contexto" actualizando manualmente la configuración de la aplicación, al pasar de 1.x a una versión posterior, se incluyen algunos cambios importantes. Por ejemplo, en C# se modifica el objeto de depuración de `TraceWriter` a `ILogger`. Al crear un nuevo proyecto con la versión 3.x, empieza por las funciones actualizadas en función de las plantillas más recientes de la versión 3.x.
 

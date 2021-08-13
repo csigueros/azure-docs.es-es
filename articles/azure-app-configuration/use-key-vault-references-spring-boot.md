@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: alkemper
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 7c5534ab836968bc4e72a54db1ddb9667d366558
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 956aa33f8152c8e07ebc8d04a91242eba88362cf
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768856"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441451"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Uso de referencias de Key Vault en una aplicación de Java Spring
 
@@ -152,16 +152,14 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
     export AZURE_TENANT_ID ='tenantId'
     ```
 
-
 > [!NOTE]
 > Estas credenciales de Key Vault se usan solo dentro de la aplicación.  La aplicación se autentica directamente con Key Vault mediante estas credenciales sin que intervenga el servicio App Configuration.  Key Vault proporciona autenticación para la aplicación y el servicio App Configuration sin compartir ni exponer las claves.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Actualización del código para usar una referencia de Key Vault
 
-1. Cree una variable de entorno denominada **APP_CONFIGURATION_ENDPOINT**. Establezca su valor en el punto de conexión del almacén de App Configuration. Puede encontrar el punto de conexión en la hoja **Claves de acceso** de Azure Portal. Reinicie el símbolo del sistema para permitir que el cambio surta efecto. 
+1. Cree una variable de entorno denominada **APP_CONFIGURATION_ENDPOINT**. Establezca su valor en el punto de conexión del almacén de App Configuration. Puede encontrar el punto de conexión en la hoja **Claves de acceso** de Azure Portal. Reinicie el símbolo del sistema para permitir que el cambio surta efecto.
 
-
-1. Abra *bootstrap.properties* en la carpeta *resources*. Actualice este archivo para usar el valor de **APP_CONFIGURATION_ENDPOINT**. Elimine cualquier referencia a una cadena de conexión de este archivo. 
+1. Abra *bootstrap.properties* en la carpeta *resources*. Actualice este archivo para usar el valor de **APP_CONFIGURATION_ENDPOINT**. Elimine cualquier referencia a una cadena de conexión de este archivo.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
@@ -197,8 +195,8 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
     import com.azure.core.credential.TokenCredential;
     import com.azure.identity.EnvironmentCredentialBuilder;
-    import com.microsoft.azure.spring.cloud.config.AppConfigurationCredentialProvider;
-    import com.microsoft.azure.spring.cloud.config.KeyVaultCredentialProvider;
+    import com.azure.spring.cloud.config.AppConfigurationCredentialProvider;
+    import com.azure.spring.cloud.config.KeyVaultCredentialProvider;
 
     public class AzureCredentials implements AppConfigurationCredentialProvider, KeyVaultCredentialProvider{
 

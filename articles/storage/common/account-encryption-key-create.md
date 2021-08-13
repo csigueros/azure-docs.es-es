@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 06/09/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4c86811ee72d2713fced6320a17d1ccde1866d99
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: cf646fe61e3fa00407cf2ff3f47f872167c00aa9
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769956"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903905"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creación de una cuenta que admita las claves administradas por el cliente para tablas y colas
 
@@ -28,10 +28,23 @@ En este artículo se describe cómo crear una cuenta de almacenamiento que se ba
 
 Debe configurar una nueva cuenta de almacenamiento para usar la clave de cifrado de la cuenta para las colas y tablas en el momento de crear la cuenta de almacenamiento. El ámbito de la clave de cifrado no se puede cambiar una vez creada la cuenta.
 
-La cuenta de almacenamiento debe ser de tipo de uso general v2. Puede crear la cuenta de almacenamiento y configurarla para que se base en la clave de cifrado de la cuenta mediante la CLI de Azure o una plantilla de Azure Resource Manager.
+La cuenta de almacenamiento debe ser de tipo de uso general v2. Puede crear la cuenta de almacenamiento y configurarla para que se base en la clave de cifrado de la cuenta mediante Azure Portal, PowerShell, la CLI de Azure o una plantilla de Azure Resource Manager.
+
+Para obtener más información sobre la creación de una cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-account-create.md).
 
 > [!NOTE]
 > Solo puede configurar Queue Storage y Table Storage para cifrar datos con la clave de cifrado de la cuenta cuando se crea la cuenta de almacenamiento. Blob Storage y Azure Files siempre usan la clave de cifrado de la cuenta para cifrar los datos.
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+Para crear una cuenta de almacenamiento que se base en la clave de cifrado de la cuenta con Azure Portal, siga estos pasos:
+
+1. En el menú izquierdo del portal, seleccione **Cuentas de almacenamiento** para mostrar una lista de las cuentas de almacenamiento.
+1. En la página **Cuentas de almacenamiento**, seleccione **Nuevo**.
+1. Rellene los campos de la pestaña **Elementos básicos**.
+1. En la pestaña Avanzadas, busque la sección **Tablas y colas** y seleccione **Enable support for customer-managed keys** (Habilitar la compatibilidad con claves administradas por el cliente).
+
+    :::image type="content" source="media/account-encryption-key-create/enable-cmk-tables-queues.png" alt-text="Captura de pantalla que muestra cómo habilitar claves administradas por el cliente para colas y tablas al crear una cuenta nueva":::.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -115,15 +128,25 @@ En el ejemplo de JSON siguiente se crea una cuenta de almacenamiento de uso gene
 
 ---
 
-Después de crear una cuenta que se base en la clave de cifrado de cuenta, puede configurar las claves administradas por el cliente que se almacenan en Azure Key Vault o en el modelo de seguridad de hardware administrado de Key Vault (HSM) (versión preliminar). Para obtener información sobre cómo almacenar las claves administradas por el cliente en un almacén de claves, consulte [Configuración del cifrado con claves que administra el cliente en Azure Key Vault](customer-managed-keys-configure-key-vault.md). Para obtener información sobre cómo almacenar las claves administradas por el cliente en un HSM administrado, consulte [Configuración del cifrado con claves que administra el cliente en HSM administrado de Azure Key Vault (versión preliminar)](customer-managed-keys-configure-key-vault-hsm.md).
+Después de crear una cuenta que se base en la clave de cifrado de cuenta, puede configurar las claves administradas por el cliente que se almacenan en Azure Key Vault o en el modelo de seguridad de hardware administrado de Key Vault (HSM). Para obtener información sobre cómo almacenar las claves administradas por el cliente en un almacén de claves, consulte [Configuración del cifrado con claves que administra el cliente en Azure Key Vault](customer-managed-keys-configure-key-vault.md). Para obtener información sobre cómo almacenar las claves administradas por el cliente en un HSM administrado, consulte [Configuración del cifrado con claves que administra el cliente en HSM administrado de Azure Key Vault](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## <a name="verify-the-account-encryption-key"></a>Verificación de la clave de cifrado de la cuenta
 
-Para verificar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta, llame al comando [az storage account](/cli/azure/storage/account#az_storage_account_show) de la CLI de Azure. Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `keyType` de cada servicio dentro de la propiedad de cifrado y verifique que esté establecido en `Account`.
+Después de crear la cuenta, puede comprobar que la cuenta de almacenamiento use una clave de cifrado que tenga como ámbito la cuenta; para ello, use Azure Portal, PowerShell o la CLI de Azure.
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+Para comprobar que un servicio de una cuenta de almacenamiento usa una clave de cifrado que está en el ámbito de la cuenta con Azure Portal, siga estos pasos:
+
+1. Vaya a la nueva cuenta de almacenamiento en Azure Portal.
+1. En la sección **Seguridad y redes**, seleccione **Cifrado.**
+1. Si la cuenta de almacenamiento se creó para tener como base la clave de cifrado de la cuenta, verá en la pestaña **Cifrado** que las claves administradas por el cliente se pueden habilitar para los cuatro servicios de Azure Storage: blobs, archivos, tablas y colas.
+
+    :::image type="content" source="media/account-encryption-key-create/verify-cmk-tables-queues.png" alt-text="Captura de pantalla que muestra cómo comprobar que la cuenta de almacenamiento se basa en la clave de cifrado de la cuenta":::.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para comprobar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta, llame al comando [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount). Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `KeyType` en cada servicio dentro de la propiedad `Encryption` y compruebe que esté establecida en `Account`.
+Para comprobar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta con PowerShell, llame al comando [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount). Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `KeyType` en cada servicio dentro de la propiedad `Encryption` y compruebe que esté establecida en `Account`.
 
 ```powershell
 $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -134,7 +157,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para comprobar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta, llame al comando [az storage account show](/cli/azure/storage/account#az_storage_account_show). Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `keyType` de cada servicio dentro de la propiedad de cifrado y verifique que esté establecido en `Account`.
+Para comprobar que un servicio de una cuenta de almacenamiento usa la clave de cifrado de la cuenta con la CLI de Azure, llame al comando [az storage account show](/cli/azure/storage/account#az_storage_account_show). Este comando devuelve un conjunto de propiedades de la cuenta de almacenamiento y sus valores. Busque el campo `keyType` de cada servicio dentro de la propiedad de cifrado y verifique que esté establecido en `Account`.
 
 ```azurecli
 az storage account show /
@@ -148,6 +171,8 @@ N/D
 
 ---
 
+Después de comprobar que la cuenta de almacenamiento usa una clave de cifrado que está en el ámbito de la cuenta, puede habilitar las claves administradas por el cliente para esta. Los cuatro servicios de Azure Storage&mdash;blobs, archivos, tablas y colas&mdash;usarán la clave administrada por el cliente para el cifrado.
+
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
 Una cuenta de almacenamiento que se crea para usar una clave de cifrado en el ámbito de la cuenta se factura por la capacidad de almacenamiento de tablas y las transacciones a una tarifa distinta a la de una cuenta que usa la clave de ámbito de servicio predeterminada. Para más información, consulte [Precios de Azure Table Storage](https://azure.microsoft.com/pricing/details/storage/tables/).
@@ -155,5 +180,6 @@ Una cuenta de almacenamiento que se crea para usar una clave de cifrado en el á
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md)
-- [Claves que administra el cliente para el cifrado de Azure Storage](customer-managed-keys-overview.md)
-- [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md)
+- [Claves administradas por el cliente para el cifrado de Azure Storage](customer-managed-keys-overview.md)
+- [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](customer-managed-keys-configure-key-vault.md)
+- [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault](customer-managed-keys-configure-key-vault-hsm.md).

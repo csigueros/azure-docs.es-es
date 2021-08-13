@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8bb227bdc4bbcdf986c2ed64e1f89e1dfa289b83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a18c9e0dc8f7d6f78985b626fa36c84fe15876c
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554979"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "114292863"
 ---
 # <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Tutorial: Conexión a un servidor SQL de Azure mediante un punto de conexión privado de Azure: Azure Portal
 
@@ -131,6 +131,8 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
   
 6. Revise la configuración y, a continuación, seleccione **Crear**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-an-azure-sql-server-and-private-endpoint"></a><a name ="create-a-private-endpoint"></a>Creación de un servidor SQL de Azure y un punto de conexión privado
 
 En esta sección, va a crear un servidor de SQL en Azure. 
@@ -142,7 +144,7 @@ En esta sección, va a crear un servidor de SQL en Azure.
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **CreateSQLEndpointTutorial**. Ha creado este grupo de recursos en la sección anterior.|
     | **Detalles de la base de datos** |  |
     | Nombre de la base de datos  | Escriba **mysqldatabase**. Si el nombre ya existe, cree uno único. |
@@ -174,7 +176,7 @@ En esta sección, va a crear un servidor de SQL en Azure.
 
     | Configuración | Value |
     | ------- | ----- |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **CreateSQLEndpointTutorial**. |
     | Location | Seleccione **Este de EE. UU**. |
     | Nombre | Escriba **myPrivateSQLendpoint**. |

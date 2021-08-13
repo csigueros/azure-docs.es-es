@@ -179,8 +179,6 @@
               href: storage-files-migration-nas-cloud-databox.md
         - name: Establecimiento de implementación híbrida como destino
           items:
-            - name: Migración de datos en masa a Azure File Sync con Azure Data Box
-              href: ../file-sync/file-sync-offline-data-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Migración desde Linux a un servidor de archivos híbridos con Azure File Sync
               href: storage-files-migration-linux-hybrid.md
             - name: Migración desde un NAS local a un servidor de archivos híbridos con Azure File Sync

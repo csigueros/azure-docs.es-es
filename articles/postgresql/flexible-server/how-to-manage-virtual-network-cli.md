@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 0a4bf648551be723007b0d8856fe0857896aad94
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/25/2021
+ms.openlocfilehash: f00a1c8f8901d16a0aefa376f145fd2a4cbf2cf5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778398"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952408"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Creación y administración de redes virtuales en Azure Database for PostgreSQL: Servidor flexible mediante la CLI de Azure
 
@@ -72,11 +72,17 @@ Consulte la documentación de referencia de la CLI de Azure <!--FIXME --> para o
     > [!Note]
     > La red virtual y la subred deben estar en la misma región y suscripción que el servidor flexible.
 
+    > [!IMPORTANT]
+    > Los nombres que incluyan `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet` y `GatewaySubnet` son nombres reservados en Azure. No los use como nombre de la subred.
+
 - Cree un servidor flexible mediante una nueva red virtual y subred con prefijo de dirección no predeterminado.
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
     ```
 Consulte en la [documentación de referencia](/cli/azure/postgres/flexible-server) de la CLI de Azure la lista completa de parámetros configurables de la CLI.
+
+>[!Important]
+> Si recibe un error `The parameter PrivateDnsZoneArguments is required, and must be provided by customer`, puede que esté ejecutando una versión anterior de la CLI de Azure. [Actualice la CLI de Azure](/cli/azure/update-azure-cli) y vuelva a intentar la operación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información acerca de las [redes en Azure Database for PostgreSQL: Servidor flexible](./concepts-networking.md).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: cbb84a4934eed4d258cf07772753315785f98019
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32fbdae5719e2f8e379b39076f8557b3db0d61ca
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99218169"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020032"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Ejemplos de código de .NET (C#) de Azure Cognitive Search
 
@@ -47,6 +47,7 @@ Los ejemplos de código del equipo de Cognitive Search muestran características
 | Ejemplos | Artículo  |
 |---------|-------------|
 | [quickstart](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Código fuente de [Inicio rápido: Creación de un índice de búsqueda](search-get-started-dotnet.md). En este artículo se habla del flujo de trabajo básico para crear, cargar y consultar un índice de búsqueda con datos de ejemplo. |
+| [search-website](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website) | Código fuente de [Tutorial: Incorporación de la funcionalidad de búsqueda a las aplicaciones web](tutorial-csharp-overview.md). Muestra una aplicación de búsqueda de un extremo a otro que incluye un cliente enriquecido más componentes para hospedar la aplicación y controlar las solicitudes de búsqueda.|
 | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | Código fuente de [Uso de la biblioteca cliente de .NET](search-howto-dotnet-sdk.md). En este artículo se recorre el flujo de trabajo básico, pero con más detalle y se analiza el uso de la API.  |
 | [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | Código fuente de [Ejemplo: Incorporación de sinónimos en C#](search-synonyms-tutorial-sdk.md). Las listas de sinónimos se usan para la expansión de consultas, lo que proporciona términos coincidentes que son ajenos a un índice. |
 | [DotNetToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) | Código fuente de [Tutorial: Indexación de datos Azure SQL mediante el SDK de .NET](search-indexer-tutorial.md). En este artículo se muestra cómo configurar un indexador de Azure SQL que tiene una programación, asignaciones de campos y parámetros.  |
@@ -57,7 +58,7 @@ Los ejemplos de código del equipo de Cognitive Search muestran características
 | [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/tutorial-ai-enrichment)  | Código fuente de [Tutorial: Contenido de blobs de Azure con capacidad de búsqueda y generado mediante inteligencia artificial con el SDK de .NET](cognitive-search-tutorial-blob-dotnet.md).  |
 
 > [!Tip]
-> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=csharp&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en Github, filtrados por producto, servicio y lenguaje.
+> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=csharp&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en GitHub, filtrados por producto, servicio y lenguaje.
 
 ## <a name="other-samples"></a>Otros ejemplos
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 7483a097b188b9f96221a13964992c7b02332258
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 240b721d71ef53ad6f43f076f1d5db0e29b556a4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107892028"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970926"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Depuración local de funciones de Azure desencadenadas por Event Grid
 
@@ -19,7 +19,7 @@ En este artículo se muestra cómo depurar una función local que controla un ev
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Cree o use una aplicación de función existente.
-- Cree o use una cuenta de almacenamiento existente.
+- Cree o use una cuenta de almacenamiento existente. La suscripción de notificación de Event Grid se puede establecer en cuentas de Azure Storage para `BlobStorage`, `StorageV2` o [Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 - Descargue [ngrok](https://ngrok.com/) para permitir que Azure llame a su función local.
 
 ## <a name="create-a-new-function"></a>Creación de una función

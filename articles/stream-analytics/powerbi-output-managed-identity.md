@@ -5,13 +5,13 @@ ms.service: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
 ms.topic: how-to
-ms.date: 3/10/2020
-ms.openlocfilehash: 7c1ddbbbd8198cf769e89cfa824de370184a992c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/30/2021
+ms.openlocfilehash: f0dfc7c77ce0eeedc6a85760627988e3eddc838e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589691"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784925"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI
 
@@ -209,6 +209,13 @@ Cuerpo de la solicitud
     "principalType": "App"
 }
 ```
+
+### <a name="use-a-service-principal-to-grant-permission-for-an-asa-jobs-managed-identity"></a>Uso de una entidad de servicio para conceder permiso para la identidad administrada de un trabajo de ASA
+
+En el caso de las implementaciones automatizadas, no es posible usar un inicio de sesión interactivo para proporcionar a un trabajo de ASA acceso un área de trabajo de Power BI. Esto se puede hacer mediante una entidad de servicio para conceder permiso para la identidad administrada de un trabajo de ASA. Esto es posible mediante PowerShell:
+
+Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<id-inquilino>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<id-aplicación>" Add-PowerBIWorkspaceUser -WorkspaceId <id-grupo> -PrincipalId <id-entidad-seguridad> -PrincipalType App -AccessRight Contributor
+
 
 ## <a name="remove-managed-identity"></a>Eliminación de una identidad administrada
 

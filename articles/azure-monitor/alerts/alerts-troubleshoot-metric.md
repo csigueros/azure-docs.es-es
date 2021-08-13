@@ -4,13 +4,13 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 04/12/2021
-ms.openlocfilehash: fc9af94b07add5728201baaa8fa6992728a60a8c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/03/2021
+ms.openlocfilehash: cbbecb49acf556dc7a8ce6285d4b1b3581c39b3d
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786016"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412907"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -62,7 +62,10 @@ Si cree que no se debería haber desencadenado una alerta de métricas y lo hizo
     - El valor **Agregación** seleccionado en el gráfico de métricas es igual que el de **Tipo de agregación** en la regla de alerta.
     - El valor **Granularidad de tiempo** es el mismo que el de **Granularidad de agregación (período)** en la regla de alerta (y no está establecido en "Automático").
 
-5. Si la regla se desencadena mientras ya hay alertas desencadenadas que supervisan los mismos criterios (que no se han resuelto), compruebe si la regla de alerta se ha configurado con la propiedad *autoMitigate* establecida en **false** (esta propiedad solo se puede configurar mediante REST, PowerShell o la CLI, por lo que compruebe el script usado para implementar la regla de alerta). En tal caso, la regla de alerta no resolverá automáticamente las alertas desencadenadas y no será necesario resolver una alerta desencadenada antes de volver a desencadenarla.
+5. Si la alerta se activó cuando ya hay alertas activadas que supervisan los mismos criterios (que no están resueltos), compruebe si la regla de alertas se ha configurado para que no resuelva automáticamente las alertas. Esta configuración hace que la regla de alertas deje de tener estado, lo que significa que la regla de alertas no resuelve automáticamente las alertas activadas y no requiere que se resuelva una alerta activada antes de volver a activarse en la misma serie temporal.
+    Puede comprobar si la regla de alertas está configurada para no resolverse automáticamente de una de las maneras siguientes:
+    - Editando la regla de alertas en Azure Portal y revisando si la casilla "Automatically resolve alerts" (Resolver alertas automáticamente) está desactivada (disponible en la sección "Detalles de la regla de alertas").
+    - Revisando el script usado para implementar la regla de alertas, o recuperando la definición de la regla de alertas, y comprobando si la propiedad *autoMitigate* está establecida en **false**.
 
 
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>No se puede encontrar la métrica de la que se deben generar alertas (métricas de máquinas virtuales invitadas)
@@ -107,7 +110,9 @@ Al eliminar un recurso de Azure, las reglas de alertas de métricas asociadas no
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>Generación de alertas de métricas cada vez que se cumple mi condición
 
-Las alertas de métricas tienen estado de forma predeterminada y, por lo tanto, no se desencadenan alertas adicionales si ya hay una alerta desencadenada en una serie temporal determinada. Si quiere quitar el estado de una regla de alerta de métrica específica y recibir una alerta para cada evaluación en la que se cumpla la condición de alerta, cree la regla de alerta mediante programación (por ejemplo, mediante [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate) y la [CLI](/cli/azure/monitor/metrics/alert)) y establezca la propiedad *autoMitigate* en "False".
+Las alertas de métricas tienen estado de forma predeterminada y, por lo tanto, no se desencadenan alertas adicionales si ya hay una alerta desencadenada en una serie temporal determinada. Si desea hacer que una regla de alertas de métrica específica deje de tener estado y recibir alertas sobre cada evaluación en la que se cumple la condición de alerta, siga una de estas opciones:
+- Si va a crear la regla de alertas mediante programación (por ejemplo, a través de [Resource Manager](./alerts-metric-create-templates.md), [PowerShell,](/powershell/module/az.monitor/) [REST](/rest/api/monitor/metricalerts/createorupdate) o la [CLI),](/cli/azure/monitor/metrics/alert)establezca la propiedad *autoMitigate* en "False".
+- Si va a crear la regla de alertas a través de Azure Portal, desactive la opción "Automatically resolve alerts" (Resolver alertas automáticamente) (disponible en la sección "Detalles de la regla de alertas").
 
 > [!NOTE] 
 > La creación de una regla de alerta de métricas sin estado evita que se resuelvan las alertas desencadenadas, por lo que, aunque después no se cumpla más la condición, las alertas desencadenadas permanecerán en un estado desencadenado hasta el período de retención de 30 días.
@@ -239,6 +244,7 @@ Tenga en cuenta las siguientes restricciones para los nombres de las reglas de a
 - Los nombres de las reglas de alertas de métricas deben ser únicos dentro de un grupo de recursos
 - Los nombres de las reglas de alertas de métricas no pueden contener los siguientes caracteres: * # & +: < > ? @ % { } \ / 
 - Los nombres de las reglas de alertas de métricas no pueden terminar con un espacio o un punto.
+- El nombre del grupo de recursos combinado y el nombre de la regla de alertas no pueden tener más de 252 caracteres.
 
 > [!NOTE] 
 > Si el nombre de la regla de alerta contiene caracteres que no sean alfabéticos o numéricos (por ejemplo, espacios, signos de puntuación o símbolos), estos caracteres se pueden codificar mediante URL cuando los recuperan determinados clientes.

@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Su primera consulta de Go'
 description: En este inicio rápido, dará los pasos necesarios para habilitar el paquete de Resource Graph para Go y ejecutará la primera consulta.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: 42e2ee9b5fc5c34fab2785d32b8b2de55dee0d71
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c6e647682ef7e76c809d93071d483d1b697efedb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751794"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459952"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con Go
 
@@ -41,7 +41,7 @@ Para que Go pueda consultar Azure Resource Graph, se debe agregar el paquete. Es
 
    ```bash
    # Add the Resource Graph package for Go
-   go get -u github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
+   go get -u github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph
 
    # Add the Azure auth package for Go
    go get -u github.com/Azure/go-autorest/autorest/azure/auth
@@ -61,7 +61,7 @@ Una vez agregados los paquetes de Go al entorno de su elección, es el momento d
       "os"
       "context"
       "strconv"
-      arg "github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph"
+      arg "github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph"
       "github.com/Azure/go-autorest/autorest/azure/auth"
    )
 

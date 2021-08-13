@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: db3b62e7ce07c1e10bc5030c37cb8957d281ea05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/29/2021
+ms.openlocfilehash: 585a2cf1a3dcbc1c45ae40b728b28ece505efee3
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517304"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110788372"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL con un único servidor
 
@@ -34,13 +34,16 @@ En el caso de los servidores que admiten un almacenamiento máximo de 4 TB, las
 
 En un subconjunto de [regiones de Azure](./concepts-pricing-tiers.md#storage), todos los servidores recién aprovisionados admiten un almacenamiento de hasta 16 TB. Las copias de seguridad de estos servidores con gran capacidad de almacenamiento se basan en instantáneas. La primera copia de seguridad de instantáneas completa, se programa inmediatamente después de la creación del servidor. Esa primera copia se conserva como la copia de seguridad base del servidor. Las copias de seguridad de instantáneas posteriores son solo copias de seguridad diferenciales. Las copias de seguridad de instantáneas diferenciales no se realizan según una programación fija. En un día, se realizan tres copias de seguridad de instantáneas diferenciales. Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos. 
 
+> [!NOTE]
+> Las copias de seguridad automáticas se realizan para [servidores de réplica](./concepts-read-replicas.md) configurados con hasta 4 TB de almacenamiento.
+
 ### <a name="backup-retention"></a>Retención de copias de seguridad
 
 Las copias de seguridad se conservan según el valor del período de retención de copia de seguridad en el servidor. Puede seleccionar un período de retención de 7 a 35 días. El período de retención predeterminado es de 7 días. Puede establecer el período de retención durante la creación del servidor o en otro momento actualizando la configuración de copia de seguridad con [Azure Portal](./howto-restore-server-portal.md#set-backup-configuration) o la [CLI de Azure](./howto-restore-server-cli.md#set-backup-configuration). 
 
 El período de retención de copia de seguridad rige durante cuánto tiempo se puede realizar una restauración a un momento dado, porque se basa en las copias de seguridad disponibles. El período de retención de copia de seguridad también se puede tratar como un período de recuperación desde una perspectiva de restauración. Todas las copias de seguridad que se necesitan para realizar una restauración a un momento dado dentro del período de retención de copia de seguridad, se conservan en el almacenamiento de copia de seguridad. Por ejemplo, si el período de retención de la copia de seguridad se establece en 7 días, el período de recuperación comprendería los últimos 7 días. En este escenario, se conservan todas las copias de seguridad necesarias para restaurar el servidor en los últimos 7 días. Con un período de retención de copia de seguridad de siete días:
 - Los servidores con un almacenamiento de hasta 4 TB conservarán hasta 2 copias de seguridad completas de la base de datos, todas las copias de seguridad diferenciales y las copias de seguridad del registro de transacciones realizadas desde la primera copia de seguridad completa de la base de datos.
--   Los servidores con un almacenamiento de hasta 16 TB conservarán la instantánea de base de datos completa, todas las instantáneas diferenciales y las copias de seguridad del registro de transacciones de los últimos 8 días.
+- Los servidores con un almacenamiento de hasta 16 TB conservarán la instantánea de base de datos completa, todas las instantáneas diferenciales y las copias de seguridad del registro de transacciones de los últimos 8 días.
 
 ### <a name="backup-redundancy-options"></a>Opciones de redundancia de copia de seguridad
 

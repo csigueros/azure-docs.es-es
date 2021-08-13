@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: a7337175241834cef862b4af07c7bcf7c8b845d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ba0052aec7e0938443560f5f0868431907c1b27
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103777"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580861"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
 
@@ -163,10 +163,7 @@ Para ejecutar la aplicación web en un entorno de desarrollo integrado, seleccio
 
 Si desea implementar el ejemplo web en Tomcat, realice un par de cambios en el código fuente.
 
-1. Abra *ms-identity-java-webapp/pom.xml*.
-    - En `<name>msal-web-sample</name>`, agregue `<packaging>war</packaging>`.
-
-2. Abra *ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication*.
+1. Abra *ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication*.
 
     - Elimine todo el código fuente y reemplácelo por este:
 
@@ -192,7 +189,7 @@ Si desea implementar el ejemplo web en Tomcat, realice un par de cambios en el c
        }
       ```
 
-3.   El puerto HTTP predeterminado de Tomcat es el 8080, pero se necesita una conexión HTTPS en el puerto 8443. Para configurar este valor:
+2.   El puerto HTTP predeterminado de Tomcat es el 8080, pero se necesita una conexión HTTPS en el puerto 8443. Para configurar este valor:
         - Vaya a *tomcat/conf/server.xml*.
         - Busque la etiqueta `<connector>` y reemplace el conector existente por este:
 
@@ -205,13 +202,13 @@ Si desea implementar el ejemplo web en Tomcat, realice un par de cambios en el c
                    clientAuth="false" sslProtocol="TLS"/>
           ```
 
-4. Abra una ventana de símbolo del sistema. Vaya a la carpeta raíz de este ejemplo (donde se encuentra el archivo pom.xml) y ejecute `mvn package` para compilar el proyecto.
+3. Abra una ventana de símbolo del sistema. Vaya a la carpeta raíz de este ejemplo (donde se encuentra el archivo pom.xml) y ejecute `mvn package` para compilar el proyecto.
     - Este comando generará el archivo *msal-web-sample-0.1.0.war* en el directorio */targets*.
     - Cambie el nombre de este archivo a *msal4jsample.war*.
     - Implemente el archivo .WAR mediante Tomcat, o cualquier otra solución de contenedor de J2EE.
         - Para implementar el archivo msal4jsample.war, cópielo en el directorio */webapps* de la instalación de Tomcat e inicie el servidor de Tomcat.
 
-5. Una vez implementado el archivo, vaya a https://localhost:8443/msal4jsample mediante un explorador.
+4. Una vez implementado el archivo, vaya a https://localhost:8443/msal4jsample mediante un explorador.
 
 
 > [!IMPORTANT]

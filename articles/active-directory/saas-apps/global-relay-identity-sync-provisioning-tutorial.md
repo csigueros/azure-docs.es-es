@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de Global Relay Identity Sync para el aprovisio
 description: Obtenga información sobre cómo aprovisionar y desaprovisionar automáticamente las cuentas de usuario de Azure AD para Global Relay Identity Sync.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 0c4a3bf0-d0a6-4eab-909b-6cf9f9234e4c
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2020
-ms.author: Zhchia
-ms.openlocfilehash: d003a512ebde626b8726dfccc58110e53f1cd467
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: f8aec55ac9c17880956b571b6d9d354d6578e467
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180921"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767781"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Tutorial: Configuración de Global Relay Identity Sync para el aprovisionamiento automático de usuarios
 

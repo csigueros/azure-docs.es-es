@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: 62ef47e7d8f98241009c1c1f3d8c111113be432c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/29/2021
+ms.openlocfilehash: 635a90b70c044e1f8c49518c42b49c521dbb317e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99220775"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110781894"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
@@ -34,7 +34,10 @@ La característica está pensada para escenarios donde el retraso es aceptable y
 > [!NOTE]
 > Con la mayoría de las cargas de trabajo, las réplicas de lectura ofrecen actualizaciones casi en tiempo real desde el servidor principal. Sin embargo, con cargas de trabajo principales continuas con numerosas operaciones de escritura, el retraso en la replicación puede seguir creciendo y que no se pueda alcanzar nunca al servidor principal. Como consecuencia, también puede aumentar el uso de almacenamiento en el servidor principal, ya que los archivos WAL no se eliminan hasta que se reciben en la réplica. Si esta situación persiste, la opción para devolver la réplica a un buen estado con respecto al retraso es eliminar y volver a crear la réplica de lectura después de que se completen las cargas de trabajo con numerosas operaciones de escritura.
 > Las réplicas de lectura asincrónicas no son adecuadas para esas cargas de trabajo con tantas operaciones de escritura. Al evaluar las réplicas de lectura de la aplicación, supervise el retraso en la réplica durante un ciclo completo de carga de trabajo de la aplicación en sus horas punta y fuera de las horas punta para determinar el posible retraso y el RTO/RPO esperado en diversos puntos del ciclo de carga de trabajo.
-> 
+
+> [!NOTE]
+> Las copias de seguridad automáticas se realizan para servidores de réplica configurados con hasta 4 TB de almacenamiento.
+
 ## <a name="cross-region-replication"></a>Replicación entre regiones
 Puede crear una réplica de lectura en una región distinta del servidor principal. La replicación entre regiones puede ser útil para escenarios como el planeamiento de la recuperación ante desastres o la incorporación de datos más cerca de los usuarios.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 06/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 747fa3005930414832878757664f4787157302d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fd3ef3ed0ad072bb0e9284892fa5455660d1c40
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645830"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963613"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios
 
@@ -51,19 +51,16 @@ De manera predeterminada, todos los usuarios, incluidos los invitados, pueden in
 
    - **Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)** (El acceso de los usuarios invitados está restringido a las propiedades y pertenencias de sus propios objetos de directorio [opción más restrictiva]): con esta configuración, los invitados solo pueden tener acceso a sus propios perfiles. No se permite a los invitados ver perfiles, grupos o pertenencias a grupos de otros usuarios.
 
-
 5. En **Configuración de la invitación de usuarios**, elija la configuración adecuada:
 
     ![Configuración de la invitación de usuarios](./media/delegate-invitations/guest-invite-settings.png)
 
-   - **Los administradores y los usuarios del rol de invitador de usuarios invitados pueden invitar**: Para permitir que los administradores y usuarios del rol "Invitador de usuarios invitados" inviten a otros usuarios, establezca esta directiva en **Sí**.
-
-   - **Los miembros pueden invitar**: Para permitir que los miembros que no son administradores del directorio inviten a otros usuarios, establezca esta directiva en **Sí**.
-
-   - **Los invitados pueden invitar**: Para permitir que los invitados puedan invitar a otros usuarios, establezca esta directiva en **Sí**.
-
-   > [!NOTE]
-   > Si **Los miembros pueden invitar** está establecido en **No** y **Los administradores y los usuarios del rol de invitador de personas pueden invitar** está establecido en **Sí**, los usuarios del rol **Invitador de usuarios invitados** todavía podrán invitar a usuarios invitados.
+   - **Cualquier persona de la organización puede invitar a usuarios, incluidos los invitados y los usuarios que no son administradores (esta es la opción más inclusiva)** : para permitir que los invitados de la organización inviten a otros invitados, incluidos aquellos que no son miembros de una organización, seleccione este botón de radio.
+   - **Los usuarios miembros y los usuarios asignados a roles de administrador específicos pueden invitar a usuarios, incluidos aquellos con permisos de miembro**: para permitir que los usuarios miembros y los usuarios que tienen roles de administrador específicos inviten a invitados, seleccione este botón de radio.
+   - **Solo los usuarios asignados a roles de administrador específicos pueden invitar a otros usuarios**: para permitir que solo los usuarios con roles de administrador inviten a invitados, seleccione este botón de radio. Los roles de administrador incluyen [Administrador global](../roles/permissions-reference.md#global-administrator), [Administrador de usuarios](../roles/permissions-reference.md#user-administrator) e [Invitador de usuarios invitados](../roles/permissions-reference.md#guest-inviter).
+   - **Nadie de la organización puede invitar a usuarios, ni siquiera los administradores (esta es la opción más restrictiva)** : para denegar a todos los usuarios de la organización la invitación de invitados, seleccione este botón de radio.
+     > [!NOTE]
+     > Si **Los miembros pueden invitar** está establecido en **No** y **Los administradores y los usuarios del rol de invitador de personas pueden invitar** está establecido en **Sí**, los usuarios del rol **Invitador de usuarios invitados** todavía podrán invitar a usuarios invitados.
 
 6. En **Email one-time passcode for guests** (Código de acceso de un solo uso por correo electrónico para invitados), elija la configuración adecuada. Para más información, consulte [Autenticación con código de acceso de un solo uso por correo electrónico](one-time-passcode.md):
 
@@ -101,5 +98,4 @@ Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 
 - [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 - [Incorporación de usuarios de colaboración B2B sin invitación](add-user-without-invite.md)
-- [Incorporación de usuarios de colaboración B2B a un rol](add-guest-to-role.md)
-
+- [Incorporación de usuarios de colaboración B2B a un rol](./add-users-administrator.md)

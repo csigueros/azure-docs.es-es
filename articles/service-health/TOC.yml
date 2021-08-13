@@ -13,6 +13,10 @@
         - name: Plantilla ARM
           displayName: Resource Manager
           href: alerts-activity-log-service-notifications-arm.md
+- name: Ejemplos
+  items:
+    - name: Consultas de Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Conceptos
   items:
     - name: Página de estado de Azure

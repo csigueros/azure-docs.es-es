@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: hadr
-ms.custom: na
+ms.custom: na, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 9a6b2673694d7290d964302de2a91795c3d9bd3c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4ca8e2285cafee5cabfe884f5214ffacaec95721
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769604"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569172"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creación de una FCI con Espacios de almacenamiento directo (SQL Server en Azure VM)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ En este artículo se explica cómo crear una instancia de clúster de conmutaci�
 Para más información, consulte la información general de [FCI con SQL Server en VM de Azure](failover-cluster-instance-overview.md) y los [procedimientos recomendados de clúster](hadr-cluster-best-practices.md). 
 
 > [!NOTE]
-> Ahora es posible migrar mediante lift-and-shift la solución de instancia de clúster de conmutación por error a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. Consulte [Migración de una instancia de clúster de conmutación por error](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) para más información. 
+> Ahora es posible migrar mediante lift and shift la solución de instancia de clúster de conmutación por error a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. Consulte [Migración de una instancia de clúster de conmutación por error](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) para más información. 
 
 
 ## <a name="overview"></a>Información general 
@@ -87,37 +87,6 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
 
 Para más información acerca de los pasos siguientes, consulte las instrucciones de la sección "Paso 3: Configuración de Espacios de almacenamiento directo" en [Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
-
-## <a name="validate-the-cluster"></a>Validación del clúster
-
-Valide el clúster en la interfaz de usuario o con PowerShell.
-
-Para validar el clúster con la interfaz de usuario, realice los pasos siguientes en una de las máquinas virtuales:
-
-1. En **Administrador del servidor**, seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error**.
-1. En **Administrador de clústeres de conmutación por error**, seleccione **Acción** y, a continuación, seleccione **Validar configuración**.
-1. Seleccione **Next** (Siguiente).
-1. En **Seleccionar servidores o un clúster**, escriba el nombre de ambas máquinas virtuales.
-1. En **Opciones de pruebas**, seleccione **Ejecutar solo las pruebas que seleccione**. 
-1. Seleccione **Next** (Siguiente).
-1. En **Selección de pruebas**, seleccione todas las pruebas excepto **Almacenamiento**, como se muestra aquí:
-
-   ![Seleccionar pruebas de validación de clústeres](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
-
-1. Seleccione **Next** (Siguiente).
-1. En **Confirmación**, seleccione **Siguiente**.
-
-    El Asistente para **validar una configuración** ejecuta las pruebas de validación.
-
-Para validar el clúster con PowerShell, ejecute el siguiente script en una sesión de PowerShell de administrador de una de las máquinas virtuales:
-
-   ```powershell
-   Test-Cluster –Node ("<node1>&quot;,&quot;<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
-   ```
-
-Después de validar el clúster, cree el clúster de conmutación por error.
-
-
 ## <a name="create-failover-cluster"></a>Creación de un clúster de conmutación por error
 
 Para crear el clúster de conmutación por error, necesita:
@@ -150,7 +119,37 @@ Para más información, consulte [Clúster de conmutación por error: objeto de 
 
 ## <a name="configure-quorum"></a>Configuración de un cuórum
 
-Configure la solución de cuórum que mejor se adapte a sus necesidades empresariales. Puede configurar un [testigo de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), un [testigo en la nube](/windows-server/failover-clustering/deploy-cloud-witness) o un [testigo del recurso compartido de archivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). Para más información, consulte [Cuórum con VM con SQL Server](hadr-cluster-best-practices.md#quorum). 
+Aunque el testigo de disco es la opción de cuórum más resistente, no se admite para las instancias de clúster de conmutación por error configuradas con Espacios de almacenamiento directo. Por lo tanto, la opción de testigo en la nube es la solución de cuórum recomendada para este tipo de configuración del clúster de SQL Server en máquinas virtuales de Azure. En caso contrario, configure un testigo de recurso compartido de archivos. 
+
+Si tiene un número par de votos en el clúster, configure la [solución de cuórum](hadr-cluster-quorum-configure-how-to.md) que mejor se adapte a sus necesidades empresariales. Para más información, consulte [Cuórum con VM con SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
+
+## <a name="validate-the-cluster"></a>Validación del clúster
+
+Valide el clúster en la interfaz de usuario o con PowerShell.
+
+Para validar el clúster con la interfaz de usuario, realice los pasos siguientes en una de las máquinas virtuales:
+
+1. En **Administrador del servidor**, seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error**.
+1. En **Administrador de clústeres de conmutación por error**, seleccione **Acción** y, a continuación, seleccione **Validar configuración**.
+1. Seleccione **Next** (Siguiente).
+1. En **Seleccionar servidores o un clúster**, escriba el nombre de ambas máquinas virtuales.
+1. En **Opciones de pruebas**, seleccione **Ejecutar solo las pruebas que seleccione**. 
+1. Seleccione **Next** (Siguiente).
+1. En **Selección de pruebas**, seleccione todas las pruebas excepto **Almacenamiento**, como se muestra aquí:
+
+   ![Seleccionar pruebas de validación de clústeres](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
+
+1. Seleccione **Next** (Siguiente).
+1. En **Confirmación**, seleccione **Siguiente**.
+
+    El Asistente para **validar una configuración** ejecuta las pruebas de validación.
+
+Para validar el clúster con PowerShell, ejecute el siguiente script en una sesión de PowerShell de administrador de una de las máquinas virtuales:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>&quot;,&quot;<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+   ```
+
 
 ## <a name="add-storage"></a>Agregue almacenamiento
 
@@ -237,15 +236,14 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configuración de la conectividad 
 
-Para enrutar el tráfico de forma adecuada al nodo principal actual, configure la opción de conectividad apropiada para su entorno. Puede crear una instancia de [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o bien, si usa SQL Server 2019 CU2 (o posterior) y Windows Server 2016 (o posterior), puede usar en su lugar la característica [Nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
-
-Para más información sobre las opciones de conectividad de clústeres, consulte [Enrutamiento de conexiones de HADR a SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md#connectivity). 
+Puede configurar un nombre de red virtual o un nombre de red distribuida para una instancia de clúster de conmutación por error. [Revise las diferencias entre los dos](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) y, a continuación, implemente un [nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [nombre de red virtual](failover-cluster-instance-vnn-azure-load-balancer-configure.md) para la instancia de clúster de conmutación por error.  
 
 ## <a name="limitations"></a>Limitaciones
 
 - Azure Virtual Machines admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2019 con almacenamiento en volúmenes compartidos en clúster (CSV) y un [equilibrador de carga estándar](../../../load-balancer/load-balancer-overview.md).
 - Los discos que se han conectado como discos con formato NTFS solo se pueden usar con Espacios de almacenamiento directo si la opción de elegibilidad del disco está deshabilitada o desactivada, cuando se agrega el almacenamiento al clúster. 
 - Solo se admite el registro con la extensión Agente de IaaS de SQL en [modo de administración ligero](sql-server-iaas-agent-extension-automate-management.md#management-modes).
+- Las instancias de clúster de conmutación por error que usan Espacios de almacenamiento directo como almacenamiento compartido no admiten el uso de un testigo de disco para el cuórum del clúster. Use un testigo en la nube en su lugar. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -253,8 +251,9 @@ Si aún no lo ha hecho, configure la conectividad a su FCI con un [nombre de red
 
 Si Espacios de almacenamiento directo no es la solución de almacenamiento de FCI adecuada en su caso, considere la posibilidad de crear su FCI mediante [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) o [recursos compartidos de archivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md) en su lugar. 
 
-Para más información, consulte la introducción a [FCI con SQL Server en VM de Azure](failover-cluster-instance-overview.md) y [procedimientos recomendados de configuración de clúster](hadr-cluster-best-practices.md). 
+Para obtener más información, consulte:
 
-Para más información, consulte: 
-- [Tecnologías de clúster de Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Instancias del clúster de conmutación por error de SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md)
+- [Información general de las instancias de clúster de conmutación por error](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)

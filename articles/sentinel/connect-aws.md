@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 3d24fa1ea046a860feb40d09a6d0a57c79371450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9346cc79943676f4dc3fe99f111002b8e7bee9d6
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99807604"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110586533"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Conectar Azure Sentinel con AWS CloudTrail
 
@@ -27,6 +27,7 @@ Utilice el conector de AWS para transmitir los eventos de administración de AWS
 
 > [!NOTE]
 > AWS CloudTrail tiene [limitaciones integradas](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) en su LookupEvents API. No permite más de dos transacciones por segundo (TPS) por cuenta y ninguna consulta puede devolver más de 50 registros. En consecuencia, si un único inquilino genera constantemente más de 100 registros por segundo en una región, se producirán trabajos pendientes y retrasos en la ingesta de datos.
+> Actualmente, solo puede conectar AWS Commercial CloudTrail a Azure Sentinel y no a AWS GovCloud CloudTrail.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -10,18 +10,18 @@ ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: 45fa5cf4c76577cb5e8ba9bf482f4aab7301e3c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d32058fed80db335086c6ec508441817002feca9
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100391497"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900762"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de blob
 
 Azure Storage proporciona extensiones para PowerShell que le permiten iniciar sesión y ejecutar comandos de scripting con credenciales de Azure Active Directory (Azure AD). Al iniciar sesión en PowerShell con credenciales de Azure AD, se devuelve un token de acceso OAuth 2.0. PowerShell usa automáticamente ese token para autorizar las operaciones de datos posteriores en Blob Storage. Para las operaciones admitidas, ya no necesita pasar una clave de cuenta o token SAS con el comando.
 
-Puede asignar permisos en los datos de blob a una entidad de seguridad de Azure AD mediante el control de acceso basado en roles de Azure (Azure RBAC). Para más información sobre los roles de Azure en Azure Storage, consulte [cómo administrar los derechos de acceso a los datos de Azure Storage mediante Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
+Puede asignar permisos en los datos de blob a una entidad de seguridad de Azure AD mediante el control de acceso basado en roles de Azure (Azure RBAC). Para más información sobre los roles de Azure en Azure Storage, vea [Asignación de roles de Azure para el acceso a datos de blobs](assign-azure-role-data-access.md).
 
 ## <a name="supported-operations"></a>Operaciones compatibles
 
@@ -71,7 +71,7 @@ En el ejemplo siguiente se muestra cómo crear un contenedor en una nueva cuenta
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-portal.md).
+1. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, consulte [Asignación de roles de Azure para el acceso a datos de blobs](assign-azure-role-data-access.md).
 
     > [!IMPORTANT]
     > La propagación de las asignaciones de roles de Azure puede tardar unos minutos.
@@ -85,5 +85,5 @@ En el ejemplo siguiente se muestra cómo crear un contenedor en una nueva cuenta
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Uso de PowerShell para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-powershell.md)
+- [Asignación de un rol de Azure el acceso a datos de blob](assign-azure-role-data-access.md).
 - [Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure](../common/storage-auth-aad-msi.md)
