@@ -3,15 +3,15 @@ title: 'Administración de grupos de aplicaciones de Azure Virtual Desktop: Azur
 description: Cómo administrar grupos de aplicaciones de Azure Virtual Desktop con Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 3c28654f70599a67060a94b8bb93397fc51c527e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 80a066aab79e3ca6ca541a82fe6b7fe023653a81
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753348"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448797"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Administración de grupos de aplicaciones con Azure Portal
 
@@ -19,6 +19,9 @@ ms.locfileid: "111753348"
 >Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
 El grupo de aplicaciones predeterminado creado para un nuevo grupo de hosts de Azure Virtual Desktop también publica el escritorio completo. Además, puede crear uno o varios grupos de aplicaciones de RemoteApp para el grupo host. Siga este tutorial para crear un grupo de aplicaciones de RemoteApp y publicar aplicaciones individuales de menú Inicio.
+
+>[!NOTE]
+>Puede asociar dinámicamente aplicaciones MISX a sesiones de usuario o agregar los paquetes de aplicaciones a una imagen de máquina virtual (VM) personalizada para publicar las aplicaciones de la organización. Obtenga más información en [Hospedaje de aplicaciones personalizadas con Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 
 En este tutorial, aprenderá a:
 
@@ -34,6 +37,8 @@ Si ya ha creado un grupo de hosts y máquinas virtuales de host de sesión media
    
     >[!NOTE]
     > Si va a iniciar sesión en el portal de US Gov, vaya a [https://portal.azure.us/](https://portal.azure.us/) en su lugar.
+    >
+    >Si va a acceder al portal de Azure China, vaya a [https://portal.azure.cn/](https://portal.azure.cn/).
 
 2.  Busque y seleccione **Azure Virtual Desktop**.
 

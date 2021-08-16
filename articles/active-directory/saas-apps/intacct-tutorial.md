@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 5a216e39ca32b16de405c7924d08da52c6eae4c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 652126519dc5f9b30c9ff94a28b3e6ee78e95f64
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736987"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463718"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutorial: Integración de Sage Intacct con Azure Active Directory
 
@@ -75,9 +75,14 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    En el cuadro de texto **URL de respuesta**, escriba una dirección URL: `https://www.intacct.com/ia/acct/sso_response.phtml`
+    En el cuadro de texto **URL de respuesta**, agregue las siguientes direcciones URL:  
+    `https://www.intacct.com/ia/acct/sso_response.phtml` (Seleccione como valor predeterminado).  
+    `https://www.p-02.intacct.com/ia/acct/sso_response.phtml`  
+    `https://www.p-03.intacct.com/ia/acct/sso_response.phtml`  
+    `https://www.p-04.intacct.com/ia/acct/sso_response.phtml`  
+    `https://www.p-05.intacct.com/ia/acct/sso_response.phtml`  
 
-1. La aplicación Sage Intacct espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
+1. La aplicación Sage Intacct espera las aserciones de SAML en un formato determinado, que requiere que se agreguen asignaciones de atributos personalizadas a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
     ![imagen](common/edit-attribute.png)
 

@@ -4,17 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 8f8849d61a814903d1b5bb9d971196af3f87ca28
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: be7eee7c8de5cae201660b4d165ca51bb40b3c19
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560716"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114339839"
 ---
 Introducción al uso de Azure Communication Services con la biblioteca cliente de llamada de Communication Services para agregar llamadas de vídeo cara a cara a la aplicación Aprenderá a iniciar videollamadas y a responder a ellas con Calling SDK de Azure Communication Services para Android.
 
-> [!NOTE]
-> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/videoCallingQuickstart)
+## <a name="sample-code"></a>Código de ejemplo
+
+Si quiere ir directamente al final, puede descargar la aplicación de ejemplo desde [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/videoCallingQuickstart).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -228,6 +229,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -298,6 +300,8 @@ public class MainActivity extends AppCompatActivity {
         startVideo.setOnClickListener(l -> turnOnLocalVideo());
         Button stopVideo = findViewById(R.id.hide_preview);
         stopVideo.setOnClickListener(l -> turnOffLocalVideo());
+        
+        setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
     }
 
     /**
@@ -385,7 +389,9 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Creación de un agente a partir del token de acceso de usuario
 
-Con el token de usuario, se puede crear una instancia del agente de llamadas autenticado. Por lo general, este token se generará a partir de un servicio con autenticación específica de la aplicación. Para obtener más información sobre los tokens de acceso de usuario, consulte la guía [Tokens de acceso de usuario](../../../access-tokens.md). En el inicio rápido, reemplace `<User_Access_Token>` por un token de acceso de usuario generado para el recurso de Azure Communication Service.
+Va a necesitar un token de usuario para crear un agente de llamada autenticado. Por lo general, este token se generará a partir de un servicio con autenticación específica de la aplicación. Para obtener más información sobre los tokens de acceso de usuario, consulte la guía [Tokens de acceso de usuario](../../../access-tokens.md). 
+
+En el inicio rápido, reemplace `<User_Access_Token>` por un token de acceso de usuario generado para el recurso de Azure Communication Service.
 
 ```java
 /**
@@ -641,7 +647,3 @@ private void hangUp() {
 ## <a name="run-the-code"></a>Ejecución del código
 
 Ahora se puede iniciar la aplicación con el botón `Run 'App'` de la barra de herramientas de Android Studio. 
-
-## <a name="sample-code"></a>Código de ejemplo
-
-Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/videoCallingQuickstart).

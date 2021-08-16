@@ -1,0 +1,44 @@
+### YamlMime:Landing
+title: Streaming de aplicaciones remotas de Azure Virtual Desktop
+summary: Con el streaming de aplicaciones remotas de Azure Virtual Desktop, puede entregar aplicaciones a usuarios dentro y fuera de su organización. En estos tutoriales y guías encontrará más información al respecto.
+metadata:
+  title: Streaming de aplicaciones remotas de Azure Virtual Desktop
+  description: Uso del streaming de aplicaciones remotas de Azure Virtual Desktop para entregar aplicaciones a clientes dentro y fuera de su organización.
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  manager: femila
+  author: Heidilohr
+  ms.author: helohr
+  ms.date: 07/14/2021
+  ms.openlocfilehash: 2968fc3db34ed1db1e551daad3b3dfb3e2d036d9
+  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/14/2021
+  ms.locfileid: "113798648"
+landingContent:
+- title: Streaming de aplicaciones remotas con Azure Virtual Desktop
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Virtual Desktop y cómo puede ayudarme a hacer streaming de aplicaciones a mis usuarios?
+      url: overview.md
+- title: Introducción a Azure Virtual Desktop
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 1. Creación de un grupo de hosts con Azure Portal
+      url: ../create-host-pools-azure-marketplace.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - text: 2. Administración de grupos de aplicaciones
+      url: ../manage-app-groups.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - text: 3. Creación de un grupo host para validar las actualizaciones del servicio
+      url: ../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - text: 4. Configuración de alertas de servicio
+      url: ../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- title: Consulte más información sobre Azure Virtual Desktop
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: La documentación principal de Azure Virtual Desktop, donde encontrará información más detallada sobre el servicio.
+      url: ../overview.md

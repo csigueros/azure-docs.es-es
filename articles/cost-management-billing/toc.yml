@@ -4,6 +4,8 @@
   items:
     - name: ¿Qué es Administración de costos y facturación?
       href: cost-management-billing-overview.md
+    - name: Novedades
+      href: 'https://azure.microsoft.com/blog/tag/cost-management/'
 - name: Guías de inicio rápido
   items:
     - name: Inicio del análisis de costos
@@ -112,6 +114,8 @@
           href: understand/mca-understand-your-invoice.md
         - name: Términos de la hoja de precios del contrato de cliente de Microsoft
           href: manage/mca-understand-pricesheet.md
+        - name: Preguntas frecuentes sobre el Contrato de cliente de Microsoft
+          href: understand/mca-faq.md
         - name: Términos de facturación de Microsoft Partner Agreement
           href: understand/mpa-invoice-terms.md
         - name: Cambio en una cuenta de facturación de pago por uso
@@ -454,20 +458,3 @@
           href: manage/review-enterprise-billing.md
         - name: Examen del uso de la suscripción
           href: manage/review-subscription-billing.md
-- name: Cloudyn
-  items:
-    - name: Información general
-    - name: Guías de inicio rápido
-    - name: Tutoriales
-    - name: Conceptos
-    - name: Guías paso a paso
-    - name: Recursos
-      items:
-        - name: Azure Roadmap
-          href: 'https://azure.microsoft.com/roadmap/'
-        - name: Precios de Cloudyn
-          href: 'https://azure.microsoft.com/pricing/details/cost-management'
-        - name: Disponibilidad regional de Cloudyn
-          href: 'https://azure.microsoft.com/regions/services/'
-        - name: Contacto con el soporte técnico de Cloudyn
-          href: ./costs/open-support-request.md

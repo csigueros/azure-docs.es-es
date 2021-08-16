@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 09/06/2019
-  ms.openlocfilehash: 7410753ed4ddd0ef2b53a73c41e0f46b32080d49
-  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.date: 07/22/2021
+  ms.openlocfilehash: 129084ed979eb887703ad98103c32deefe07b73b
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104598480"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114451180"
 landingContent:
 - title: Acerca de Event Grid
   linkLists:
@@ -35,6 +35,56 @@ landingContent:
       url: event-handlers.md
     - text: Filtros de eventos
       url: event-filtering.md
+- title: Conceptos avanzados
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Seguridad y autenticación
+      url: security-authentication.md
+    - text: Entrega y nuevo intento
+      url: delivery-and-retry.md
+    - text: Dominios de eventos
+      url: event-domains.md
+    - text: Recuperación geográfica ante desastres
+      url: geo-disaster-recovery.md
+  - linkListType: architecture
+    links:
+    - text: Arquitectura de referencia para colas y eventos
+      url: /azure/architecture/reference-architectures/enterprise-integration/queues-events
+- title: Personalizaciones
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Enrutamiento de eventos personalizados al punto de conexión web
+      url: custom-event-quickstart-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de un tema personalizado
+      url: scripts/event-grid-cli-create-custom-topic.md
+    - text: Suscripción a un tema personalizado
+      url: scripts/event-grid-cli-subscribe-custom-topic.md
+    - text: Publicación en un tema personalizado
+      url: post-to-custom-topic.md
+    - text: Asignación de campos personalizados a esquemas de Event Grid
+      url: input-mappings.md
+- title: Event Grid en Kubernetes
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Event Grid en Kubernetes?
+      url: ./kubernetes/overview.md
+    - text: Características
+      url: ./kubernetes/features.md
+    - text: conceptos
+      url: ./kubernetes/concepts.md
+  - linkListType: quickstart
+    links:
+    - text: Enrutamiento de eventos en la nube a webhooks
+      url: ./kubernetes/create-topic-subscription.md
+  - linkListType: how-to-guide
+    links:
+    - text: Instalación de la extensión de Event Grid
+      url: ./kubernetes/install-k8s-extension.md
 - title: Escenarios
   linkLists:
   - linkListType: quickstart
@@ -69,35 +119,3 @@ landingContent:
       url: ..//media-services/latest/monitoring/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - text: Enrutamiento a Conexiones híbridas
       url: custom-event-to-hybrid-connection.md
-- title: Conceptos avanzados
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Seguridad y autenticación
-      url: security-authentication.md
-    - text: Entrega y nuevo intento
-      url: delivery-and-retry.md
-    - text: Dominios de eventos
-      url: event-domains.md
-    - text: Recuperación geográfica ante desastres
-      url: geo-disaster-recovery.md
-  - linkListType: architecture
-    links:
-    - text: Arquitectura de referencia para colas y eventos
-      url: /azure/architecture/reference-architectures/enterprise-integration/queues-events
-- title: Personalizaciones
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Enrutamiento de eventos personalizados al punto de conexión web
-      url: custom-event-quickstart-portal.md
-  - linkListType: how-to-guide
-    links:
-    - text: Creación de un tema personalizado
-      url: scripts/event-grid-cli-create-custom-topic.md
-    - text: Suscripción a un tema personalizado
-      url: scripts/event-grid-cli-subscribe-custom-topic.md
-    - text: Publicación en un tema personalizado
-      url: post-to-custom-topic.md
-    - text: Asignación de campos personalizados a esquemas de Event Grid
-      url: input-mappings.md

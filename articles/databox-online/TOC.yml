@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: Guías de inicio rápido
       items:
-        - name: Primeros pasos
+        - name: Introducción
           href: azure-stack-edge-gpu-quickstart.md
     - name: Tutoriales
       items:
@@ -372,7 +372,9 @@
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Notas de la versión compartidas
       items:
-        - name: '2105: actual'
+        - name: 2106 - Actual
+          href: azure-stack-edge-gpu-2106-release-notes.md
+        - name: 2105
           href: azure-stack-edge-gpu-2105-release-notes.md
         - name: 2103
           href: azure-stack-edge-gpu-2103-release-notes.md

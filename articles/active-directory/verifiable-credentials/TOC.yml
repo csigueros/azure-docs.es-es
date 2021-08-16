@@ -24,6 +24,14 @@
 - name: Guías paso a paso
   expanded: true
   items:
+    - name: Planeamiento y diseño
+      items:
+        - name: Introducción al planeamiento de la arquitectura
+          href: introduction-to-verifiable-credentials-architecture.md
+        - name: Planeamiento de una solución de emisión
+          href: plan-issuance-solution.md
+        - name: Planeamiento de una solución de verificación
+          href: plan-verification-solution.md
     - name: Personalización de credenciales
       href: credential-design.md
     - name: Administración de la revocación de credenciales

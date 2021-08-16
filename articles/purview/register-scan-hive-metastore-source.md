@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 5/17/2021
-ms.openlocfilehash: f03ffa548109747db30b6b40be87656829b32779
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c289ab60973c0e907deb97c0e8520f8b608099eb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110105391"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467088"
 ---
 # <a name="register-and-scan-hive-metastore-database"></a>Registro y examen de la base de datos de metastore de Hive
 
@@ -60,9 +60,9 @@ En la pantalla Registrar orígenes (metastore de Hive), haga lo siguiente:
 
 1.  Escriba un **Name** (Nombre) con el que se muestre el origen de datos en el catálogo.
 
-2.  Escriba la dirección **URL del clúster de Hive**. La dirección URL del clúster se puede obtener de la dirección URL de Ambari o de la dirección URL del área de trabajo de Databricks. Por ejemplo, hive.azurehdinsight.net.
+2.  Escriba la dirección **URL del clúster de Hive**. La dirección URL del clúster se puede obtener de la dirección URL de Ambari o de la dirección URL del área de trabajo de Databricks. Por ejemplo, hive.azurehdinsight.net o adb-19255636414785.5.azuredatabricks.net
 
-3.  Especifique la **dirección URL del servidor del metastore de Hive**. Por ejemplo, sqlserver://hive.database.windows.net.
+3.  Especifique la **dirección URL del servidor del metastore de Hive**. Por ejemplo, sqlserver://hive.database.windows.net o jdbc:spark://adb-19255636414785.5.azuredatabricks.net:443
 
 4.  Seleccione una colección o cree una nueva (opcional).
 
@@ -85,42 +85,81 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 5.  Especifique los detalles siguientes:
 
-    a.  **Name** (Nombre): el nombre del examen.
+    1. **Name** (Nombre): el nombre del examen.
 
-    b.  **Connect via integration runtime** (Conectar mediante el entorno de ejecución de integración): seleccione el entorno de ejecución de integración autohospedado configurado.
+    1. **Connect via integration runtime** (Conectar mediante el entorno de ejecución de integración): seleccione el entorno de ejecución de integración autohospedado configurado.
 
-    c.  **Credential** (Credencial): seleccione la credencial para conectarse al origen de datos. Asegúrese de que:
+    1. **Credential** (Credencial): seleccione la credencial para conectarse al origen de datos. Asegúrese de que:
 
-    -   Selecciona la autenticación básica al crear una credencial.
-    -   Proporcione el nombre de usuario de Metastore en el campo de entrada Nombre de usuario.
-    -   Almacene la contraseña de Metastore en la clave secreta.
+       - Selecciona la autenticación básica al crear una credencial.
+       - Proporcione el nombre de usuario de Metastore en el campo de entrada Nombre de usuario.
+       - Almacene la contraseña de Metastore en la clave secreta.
 
-    Para obtener más información sobre credenciales, vea el vínculo que se indica [aquí](manage-credentials.md).
+       Para obtener más información sobre credenciales, vea el vínculo que se indica [aquí](manage-credentials.md). 
 
-    d. **Ubicación del controlador JDBC de Metastore**: especifique la ruta de acceso a la ubicación del controlador JDBC en la VM donde se ejecuta el entorno de ejecución de integración autohospedado. Debe ser la ruta de acceso a la ubicación válida de la carpeta JAR.
+       **Uso de Databricks**: vaya al clúster de Databricks -> Aplicaciones -> Iniciar terminal web. Ejecute el cmdlet **cat /databricks/hive/conf/hive-site.xml**
 
-    > [!Note]
-    > Todas las cuentas de la máquina virtual deben poder acceder al controlador. No lo instale en una cuenta de usuario.
+       Se puede acceder al nombre de usuario y la contraseña desde las dos propiedades, como se muestra a continuación.
 
-    e.  **Clase de controlador JDBC de Metastore**: proporcione el nombre de la clase del controlador de conexión. Por ejemplo, \com.microsoft.sqlserver.jdbc.SQLServerDriver
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="databricks-username-password-details" border="true":::
 
-    f.  **Dirección URL de JDBC de Metastore**: proporcione el valor de la dirección URL de conexión y defina la conexión a la dirección URL del servidor de base de datos de Metastore. Por ejemplo, jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300
+    1. **Ubicación del controlador JDBC de Metastore**: especifique la ruta de acceso a la ubicación del controlador JDBC en la VM donde se ejecuta el entorno de ejecución de integración autohospedado. Debe ser la ruta de acceso a la ubicación válida de la carpeta JAR.
 
-    g.  **Nombre de la base de datos de Metastore**: proporcione el nombre de la base de datos de Metastore de Hive.
+       Si va a examinar Databricks, vea la sección siguiente sobre Databricks.
 
-    h.  **Esquema**: especifique la lista de esquemas de Hive que se importarán. Por ejemplo, schema1; schema2. Si esa lista está vacía, se importan todos los esquemas del usuario. De forma predeterminada, se ignoran todos los esquemas del sistema (por ejemplo, SysAdmin) y los objetos. Si la lista está vacía, se importan todos los esquemas disponibles.
-    Los patrones de nombres de esquemas aceptables que usan la sintaxis de expresiones SQL LIKE incluyen el uso de %, por ejemplo, A%; %B; %C%; D
+       > [!Note]
+       > Todas las cuentas de la máquina virtual deben poder acceder al controlador. No lo instale en una cuenta de usuario.
 
-    -   empieza por A o    
-    -   termina en B o    
-    -   contiene C o    
-    -   igual a D
+    1. **Clase de controlador JDBC de Metastore**: proporcione el nombre de la clase del controlador de conexión. Por ejemplo, \com.microsoft.sqlserver.jdbc.SQLServerDriver.
+    
+       **Uso de Databricks**: vaya al clúster de Databricks -> Aplicaciones -> Iniciar terminal web. Ejecute el cmdlet **cat /databricks/hive/conf/hive-site.xml**
+    
+       Se puede acceder a la clase de controlador desde la propiedad, como se muestra a continuación.
+    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-driver-class-name.png" alt-text="databricks-driver-class-details" border="true":::
 
-    No se acepta el empleo de NOT ni de caracteres especiales.
+    1. **Dirección URL de JDBC de Metastore**: proporcione el valor de la dirección URL de conexión y defina la conexión a la dirección URL del servidor de base de datos de Metastore. Por ejemplo,     `jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300`.
 
-    i.  **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Esto depende del tamaño del origen de la base de datos de Metastore de Hive que se va a examinar.
+       **Uso de Databricks**: vaya al clúster de Databricks -> Aplicaciones -> Iniciar terminal web. Ejecute el cmdlet **cat /databricks/hive/conf/hive-site.xml**
+    
+       Se puede acceder a la dirección URL de JDBC desde la propiedad Dirección URL de conexión, como se muestra a continuación.
+       
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
+    
+       > [!NOTE]
+       > Al copiar la dirección URL de *hive-site.xml*, asegúrese de quitar `amp;` de la cadena para que no se produzca un error en el examen.
 
-    :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="examinar el origen de Hive" border="true":::
+       A esta dirección URL anéxele la ruta de acceso a la ubicación donde está colocado el certificado SSL en la máquina virtual. El certificado SSL se puede descargar desde [aquí](../mysql/howto-configure-ssl.md).
+
+       La dirección URL de JDBC del metastore es:
+    
+       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem`
+
+    1. **Nombre de la base de datos del metastore**: proporcione el nombre de la base de datos del metastore de Hive.
+    
+       Si va a examinar Databricks, vea la sección siguiente sobre Databricks.
+
+       **Uso de Databricks**: vaya al clúster de Databricks -> Aplicaciones -> Iniciar terminal web. Ejecute el cmdlet **cat /databricks/hive/conf/hive-site.xml**
+
+       Se puede acceder al nombre de la base de datos desde la propiedad Dirección URL de JDBC, como se muestra a continuación. Por ejemplo: organization1829255636414785
+       
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-data-base-name.png" alt-text="databricks-database-name-details" border="true":::
+
+    1. **Esquema**: especifique la lista de esquemas de Hive que se importarán. Por ejemplo, schema1; schema2. 
+    
+        Si esa lista está vacía, se importan todos los esquemas del usuario. De forma predeterminada, se ignoran todos los esquemas del sistema (por ejemplo, SysAdmin) y los objetos. 
+
+        Si la lista está vacía, se importan todos los esquemas disponibles. Los patrones de nombres de esquemas aceptables que usan la sintaxis de expresiones SQL LIKE incluyen el uso de %, por ejemplo, A%; %B; %C%; D
+
+        - empieza por A o    
+        - termina en B o    
+        - contiene C o    
+        - igual a D
+
+        No se acepta el empleo de NOT ni de caracteres especiales.
+
+     1. **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Esto depende del tamaño del origen de la base de datos de Metastore de Hive que se va a examinar.
+
+        :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="examinar el origen de Hive" border="true":::
 
 6.  Haga clic en **Continuar**.
 

@@ -12,12 +12,12 @@ metadata:
   author: yelevin
   ms.author: yelevin
   ms.date: 06/25/2020
-  ms.openlocfilehash: 8d2271fefa6d7044a216a3566290f34be964ddb2
-  ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+  ms.openlocfilehash: 672912ae04ce98e121a9d1509f50a613fbea86b0
+  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/08/2021
-  ms.locfileid: "102449652"
+  ms.lasthandoff: 07/14/2021
+  ms.locfileid: "113765686"
 landingContent:
 - title: Acerca de Azure Sentinel
   linkLists:
@@ -25,6 +25,10 @@ landingContent:
     links:
     - text: ¿Qué es Azure Sentinel?
       url: overview.md
+    - text: Recursos útiles
+      url: resources.md
+  - linkListType: whats-new
+    links:
     - text: Novedades de Azure Sentinel
       url: whats-new.md
 - title: Introducción
@@ -33,53 +37,107 @@ landingContent:
     links:
     - text: Incorporación de Azure Sentinel
       url: quickstart-onboard.md
-    - text: Obtención de visibilidad sobre las alertas
-      url: quickstart-get-visibility.md
   - linkListType: how-to-guide
     links:
     - text: Conexión de datos a Azure Sentinel
       url: connect-data-sources.md
-- title: Conexión de más orígenes de datos
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Conexión de Azure Active Directory
-      url: connect-azure-active-directory.md
-    - text: Conexión de Azure Information Protection
-      url: connect-azure-information-protection.md
-    - text: Conexión de AWS
-      url: connect-aws.md
-    - text: Conexión con Palo Alto Networks
-      url: connect-paloalto.md
-    - text: Conexión de información sobre amenazas
-      url: connect-threat-intelligence.md
-- title: Trabajo con varios inquilinos
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Habilitación de la compatibilidad con varios inquilinos en Azure Sentinel
-      url: multiple-tenants-service-providers.md
-- title: Sepa lo que ocurre en su entorno
-  linkLists:
   - linkListType: tutorial
     links:
-    - text: Supervisión de los datos
-      url: tutorial-monitor-your-data.md
     - text: Investigación de incidentes
       url: tutorial-investigate-cases.md
+  - linkListType: learn
+    links:
+    - text: Creación de consultas KQL para Azure Sentinel
+      url: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+- title: Recopilación de datos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Normalización y análisis de datos
+      url: normalization.md
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión a Microsoft 365 Defender
+      url: connect-microsoft-365-defender.md
+    - text: Creación de un conector personalizado
+      url: create-custom-connector.md
+    - text: Supervisión del estado del conector
+      url: monitor-data-connector-health.md
+    - text: Integración en Azure Data Explorer
+      url: store-logs-in-azure-data-explorer.md
   - linkListType: reference
     links:
-    - text: Libros de Azure Sentinel que se usan comúnmente
-      url: top-workbooks.md
-- title: Detectar amenazas
+    - text: Referencia del esquema del origen de datos
+      url: data-source-schema-reference.md
+    - text: Asignación de campos del registro de CEF
+      url: cef-name-mapping.md
+    - text: Esquema de normalización de la red
+      url: normalization-schema.md
+- title: Información sobre amenazas
   linkLists:
+  - linkListType: concept
+    links:
+    - text: Descripción de la inteligencia sobre amenazas en Azure Sentinel
+      url: understand-threat-intelligence.md
+    - text: Integraciones de la inteligencia sobre amenazas
+      url: threat-intelligence-integration.md
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión de plataformas de inteligencia sobre amenazas con Azure Sentinel
+      url: connect-threat-intelligence-tip.md
+    - text: Conexión de Azure Sentinel a fuentes STIX/TAXII
+      url: connect-threat-intelligence-taxii.md
+    - text: Uso de indicadores de amenazas
+      url: work-with-threat-indicators.md
+- title: Detección de amenazas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Análisis de comportamiento de usuarios y entidades (UEBA)
+      url: identify-threats-with-entity-behavior-analytics.md
+    - text: Anomalías de SOC-ML
+      url: soc-ml-anomalies.md
   - linkListType: tutorial
     links:
     - text: Uso de análisis integrados para detectar amenazas
       url: tutorial-detect-threats-built-in.md
     - text: Creación de reglas de detección personalizadas
       url: tutorial-detect-threats-custom.md
-- title: Prevención automática de amenazas
+  - linkListType: reference
+    links:
+    - text: Referencia de entidades
+      url: entities-reference.md
+    - text: Enriquecimientos con UEBA
+      url: ueba-enrichments.md
+- title: Búsqueda de amenazas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Búsqueda de amenazas
+      url: hunting.md
+  - linkListType: how-to-guide
+    links:
+    - text: Búsqueda con Jupyter Notebooks
+      url: notebooks.md
+    - text: Búsqueda con marcadores
+      url: bookmarks.md
+    - text: Búsqueda con Live Stream
+      url: livestream.md
+- title: Investigar
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Supervisión de los datos
+      url: tutorial-monitor-your-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Investigación con UEBA
+      url: investigate-with-ueba.md
+  - linkListType: reference
+    links:
+    - text: Libros de Azure Sentinel que se usan comúnmente
+      url: top-workbooks.md
+- title: Respuesta
   linkLists:
   - linkListType: tutorial
     links:
@@ -87,11 +145,19 @@ landingContent:
       url: tutorial-respond-threats-playbook.md
     - text: Uso de cuadernos de Jupyter Notebook para buscar amenazas de seguridad
       url: notebooks.md
-- title: Sea proactivo en relación a la detección de amenazas
+  - linkListType: concept
+    links:
+    - text: Regalas de automatización
+      url: automate-incident-handling-with-automation-rules.md
+    - text: Playbooks
+      url: automate-responses-with-playbooks.md
+- title: Trabajo con varios inquilinos
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Conexión de información sobre amenazas
-      url: connect-threat-intelligence.md
-    - text: Búsqueda de amenazas
-      url: hunting.md
+    - text: Administración de varios inquilinos
+      url: multiple-tenants-service-providers.md
+    - text: Trabajo con incidentes en varias áreas de trabajo
+      url: multiple-workspace-view.md
+    - text: Administración de la propiedad intelectual
+      url: mssp-protect-intellectual-property.md

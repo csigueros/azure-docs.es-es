@@ -140,7 +140,7 @@
       tocHref: /azure/azure-arc/
       topicHref: /azure/azure-arc/
       items:
-        - name: Kubernetes habilitado para Azure Arc
+        - name: Kubernetes habilitado para Arc
           tocHref: /azure/azure-arc/kubernetes/
           topicHref: /azure/azure-arc/kubernetes/
         - name: Servidores habilitados para Arc
@@ -193,9 +193,6 @@
     - name: Azure Remote Rendering
       tocHref: /azure/remote-rendering/
       topicHref: /azure/remote-rendering/
-    - name: Conocimiento de objetos de Azure
-      tocHref: /azure/object-understanding/
-      topicHref: /azure/object-understanding/
     - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
@@ -240,6 +237,9 @@
         - name: Azure Percept
           tocHref: /azure/azure-percept/
           topicHref: /azure/azure-percept/
+        - name: Desarrollo de dispositivos
+          tocHref: /azure/iot-develop/
+          topicHref: /azure/iot-develop/
         - name: Device Update para IoT Hub
           tocHref: /azure/iot-hub-device-update/
           topicHref: /azure/iot-hub-device-update/
@@ -252,9 +252,6 @@
         - name: IoT Edge
           tocHref: /azure/iot-edge/
           topicHref: /azure/iot-edge/
-        - name: IoT Plug and Play
-          tocHref: /azure/iot-pnp/
-          topicHref: /azure/iot-pnp/
         - name: Azure Digital Twins
           tocHref: /azure/digital-twins/
           topicHref: /azure/digital-twins/

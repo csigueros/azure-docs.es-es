@@ -8,108 +8,149 @@ metadata:
   ms.subservice: app-mgmt
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 09/28/2020
-  author: davidmu1
-  manager: CelesteDG
-  ms.author: davidmu
-  ms.openlocfilehash: dcf1452d69ffcbb7c0c4cf37ecd3e7a4ee403aeb
-  ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+  ms.date: 07/08/2021
+  author: CelesteDG
+  ms.author: CelesteDG
+  ms.openlocfilehash: d777edbaaa3931d42eb0468d522d55356859b625
+  ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/08/2021
-  ms.locfileid: "113508192"
+  ms.lasthandoff: 07/13/2021
+  ms.locfileid: "113651749"
 landingContent:
-- title: Acerca de la administración de aplicaciones
+- title: Aspectos básicos
   linkLists:
   - linkListType: overview
     links:
     - text: ¿Qué es la administración de aplicaciones?
       url: what-is-application-management.md
+  - linkListType: concept
+    links:
+    - text: ¿Qué tipo de aplicaciones admite Azure AD?
+      url: ../develop/v2-app-types.md
     - text: ¿Qué es el inicio de sesión único?
       url: what-is-single-sign-on.md
-- title: Primeros pasos
+- title: Desarrollo de una aplicación
   linkLists:
-  - linkListType: quickstart
+  - linkListType: concept
     links:
-    - text: Visualización de sus aplicaciones
-      url: view-applications-portal.md
-    - text: Adición de una aplicación
-      url: add-application-portal.md
-- title: Agregar y configurar aplicaciones
+    - text: Conceptos de autenticación y autorización
+      url: ../develop/authentication-vs-authorization.md
+  - linkListType: how-to-guide
+    links:
+    - text: Compilación de una aplicación mediante identidades o cuentas sociales de Microsoft
+      url: ../develop/v2-overview.md
+- title: Integración de una aplicación con el inquilino
   linkLists:
-  - linkListType: learn
+  - linkListType: how-to-guide
     links:
-    - text: Adición de una aplicación
+    - text: Introducción a la integración de aplicaciones
+      url: plan-an-application-integration.md
+    - text: Adición de una aplicación en la nube integrada previamente
       url: add-application-portal.md
-    - text: Configuración de una aplicación
+    - text: Registro de la aplicación
+      url: ../develop/quickstart-register-app.md
+    - text: Migración de aplicaciones de AD FS a Azure AD
+      url: migrate-adfs-apps-to-azure.md
+- title: Configuración de una aplicación
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de las propiedades de una aplicación
       url: add-application-portal-configure.md
-- title: Administrar aplicaciones
+    - text: Asignación de usuarios y grupos
+      url: assign-user-or-group-access-portal.md
+    - text: Configurar inicio de sesión único
+      url: plan-sso-deployment.md
+    - text: Aprovisionamiento de una aplicación
+      url: ../governance/what-is-provisioning.md
+    - text: Configuración de Aplicaciones
+      url: my-apps-deployment-plan.md
+- title: Protección de una aplicación
   linkLists:
-  - linkListType: learn
+  - linkListType: how-to-guide
     links:
-    - text: Procedimientos recomendados
-      url: application-management-fundamentals.md
-    - text: Escenarios frecuentes
-      url: common-scenarios.md
-- title: Descripción del inicio de sesión único
+    - text: Configuración del acceso condicional
+      url: ../conditional-access/concept-conditional-access-cloud-apps.md
+    - text: Configuración de Multi-Factor Authentication
+      url: ../authentication/howto-mfa-getstarted.md
+    - text: Administración de certificados
+      url: manage-certificates-for-federated-single-sign-on.md
+    - text: Configuración de restricciones de inquilino
+      url: tenant-restrictions.md
+    - text: Configuración del cifrado de tokens
+      url: howto-saml-token-encryption.md
+    - text: Uso de Cloud App Security
+      url: cloud-app-security.md
+    - text: Actuación en una aplicación sospechosa y con demasiados privilegios
+      url: manage-application-permissions.md
+- title: Administración del acceso a aplicaciones
   linkLists:
-  - linkListType: architecture
+  - linkListType: overview
     links:
-    - text: Conceptos relativos al inicio de sesión único
-      url: what-is-single-sign-on.md
-    - text: Opciones de inicio de sesión único
-      url: sso-options.md
-- title: Consentimiento de la aplicación
-  linkLists:
-  - linkListType: learn
+    - text: Gobernanza de identidades
+      url: ../governance/identity-governance-overview.md
+  - linkListType: how-to-guide
     links:
+    - text: Asignación de roles
+      url: ../develop/howto-add-app-roles-in-azure-ad-apps.md
     - text: Configuración del consentimiento del usuario
       url: configure-user-consent.md
     - text: Configuración del consentimiento del administrador
       url: configure-admin-consent-workflow.md
-- title: Migración de aplicaciones
+    - text: Configuración de la clasificación de los permisos
+      url: configure-permission-classifications.md
+    - text: Administración de derechos
+      url: ../governance/entitlement-management-scenarios.md
+- title: Mantenimiento de una aplicación
   linkLists:
-  - linkListType: learn
+  - linkListType: how-to-guide
     links:
-    - text: Recursos de migración
-      url: migration-resources.md
-    - text: Migración de una aplicación de AD FS a Azure
-      url: migrate-adfs-apps-to-azure.md
-- title: Uso de aplicaciones locales
+    - text: Visualización, búsquedas, clasificación y filtrado de la lista de aplicaciones de un inquilino
+      url: view-applications-portal.md
+    - text: Solución de errores de inicio de sesión
+      url: ../reports-monitoring/howto-troubleshoot-sign-in-errors.md
+    - text: Deshabilitación del inicio de sesión de usuario de una aplicación
+      url: disable-user-sign-in-portal.md
+    - text: Eliminación del acceso de un usuario a una aplicación
+      url: methods-for-removing-user-access.md
+    - text: Eliminar una aplicación
+      url: delete-application-portal.md
+- title: Supervisión de una aplicación
   linkLists:
-  - linkListType: learn
+  - linkListType: concept
     links:
-    - text: ¿Qué es Application Proxy?
-      url: ../app-proxy/what-is-application-proxy.md
-    - text: Implementación de App Proxy
+    - text: Registros de inicio de sesión
+      url: ../reports-monitoring/concept-sign-ins.md
+    - text: Informes de uso y con conclusiones cognitivas
+      url: ../reports-monitoring/concept-usage-insights-report.md
+    - text: Registros de auditoría
+      url: ../reports-monitoring/concept-audit-logs.md
+    - text: Registros de aprovisionamiento
+      url: ../reports-monitoring/concept-provisioning-logs.md
+  - linkListType: how-to-guide
+    links:
+    - text: Descarga de registros
+      url: ../reports-monitoring/howto-download-logs.md
+    - text: Búsqueda de informe de actividad
+      url: ../reports-monitoring/howto-find-activity-reports.md
+    - text: Configuración de revisiones de acceso
+      url: ../governance/deploy-access-reviews.md
+- title: Acceso remoto a aplicaciones locales
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Proxy de aplicación
+      url: ../app-proxy/application-proxy.md
+  - linkListType: how-to-guide
+    links:
+    - text: Implementación de Application Proxy
       url: ../app-proxy/application-proxy-deployment-plan.md
-- title: Protección de las aplicaciones
-  linkLists:
-  - linkListType: learn
-    links:
-    - text: Administración del acceso a aplicaciones
-      url: what-is-access-management.md
-    - text: Administración de restricciones de inquilino
-      url: tenant-restrictions.md
-- title: Configuración de Aplicaciones
-  linkLists:
-  - linkListType: learn
-    links:
-    - text: Planeamiento de una implementación de Aplicaciones
-      url: my-apps-deployment-plan.md
-    - text: Creación de recopilaciones
-      url: access-panel-collections.md
-- title: Desarrollo de nuevas aplicaciones
-  linkLists:
-  - linkListType: learn
-    links:
-    - text: Instrucciones para desarrolladores
-      url: ../develop/v2-howto-app-gallery-listing.md
-    - text: Descripción de la plataforma
-      url: ../develop/v2-overview.md
-- title: Novedades de la documentación
-  linkLists:
-  - linkListType: whats-new
-    links:
-    - text: Novedades de la documentación
-      url: whats-new-docs.md
+    - text: Configuración de conectores
+      url: ../app-proxy/application-proxy-connectors.md
+    - text: Configurar inicio de sesión único
+      url: ../app-proxy/application-proxy-config-sso-how-to.md
+    - text: Publicación de aplicación cliente nativas
+      url: ../app-proxy/application-proxy-configure-native-client-application.md
+    - text: Publicación de aplicaciones para notificaciones
+      url: ../app-proxy/application-proxy-configure-for-claims-aware-applications.md

@@ -15,10 +15,10 @@ audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
 ms.openlocfilehash: f851579712a9549c88f1ca652aea4f31457da132
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77201905"
 ---
 # <a name="reset-azure-kinect-dk"></a>Restablecimiento de Azure Kinect DK
@@ -45,7 +45,7 @@ Asegúrese siempre de tener instalado el firmware más reciente en el dispositiv
 
 - [Acerca de Azure Kinect DK](about-azure-kinect-dk.md)
 - [Configuración de Azure Kinect DK](set-up-azure-kinect-dk.md)
-- [Especificaciones de hardware de Azure Kinect DK: Entorno operativo](hardware-specification.md#operating-environment)
+- [Especificaciones de hardware de Azure Kinect DK: entorno operativo](hardware-specification.md#operating-environment)
 - [Herramienta de firmware de Azure Kinect](azure-kinect-firmware-tool.md)
 - [Azure Kinect Viewer](azure-kinect-viewer.md)
 - [Sincronización entre varios dispositivos de Azure Kinect DK](multi-camera-sync.md)

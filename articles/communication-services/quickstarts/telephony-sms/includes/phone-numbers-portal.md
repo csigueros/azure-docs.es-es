@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 82e475c97aa2c68a33a48b04fe3e45fb13728b88
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fc175bdad79bbb01bd0686dcdbf314d8d6ee47fb
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629406"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114200953"
 ---
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -77,7 +77,7 @@ Finalmente, haga clic en **Place order** (Realizar pedido) situado en la parte i
 
 ## <a name="find-your-phone-numbers-on-the-azure-portal"></a>Busque los números de teléfono en Azure Portal
 
-En [Azure Portal](https://portal.azure.com), navegue hasta el recurso de comunicación de Azure:
+En [Azure Portal](https://portal.azure.com), vaya al recurso de Azure Communication Services:
 
 :::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Captura de pantalla que muestra la página principal de un recurso de Communication Services.":::
 

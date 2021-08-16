@@ -1,0 +1,42 @@
+### YamlMime:Landing
+title: Documentación sobre Azure Australia
+summary: Microsoft Azure Australia es una plataforma en la nube que cuenta con la certificación del centro Australian Cyber Security Centre (ACSC) y está incluido en la lista de servicios en la nube certificados (CCSL).
+metadata:
+  title: Documentación sobre Azure Australia
+  description: Microsoft Azure Australia es una plataforma en la nube que cuenta con la certificación del centro Australian Cyber Security Centre (ACSC) y está incluido en la lista de servicios en la nube certificados (CCSL).
+  ms.service: azure-australia
+  ms.topic: landing-page
+  author: emilyre
+  ms.author: v-emread
+  ms.date: 03/11/2020
+  ms.openlocfilehash: 126cccc48f14b6e1ab260b8ec2648f0678754728
+  ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 03/13/2020
+  ms.locfileid: "116985505"
+landingContent:
+- title: Acerca de Azure Australia
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Australia?
+      url: australia-overview.md
+- title: Seguridad
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Seguridad de los datos
+      url: secure-your-data.md
+    - text: Configuración de Azure VPN Gateway
+      url: vpn-gateway.md
+    - text: Azure Key Vault
+      url: azure-key-vault.md
+- title: Puertas de enlace
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Registro, auditoría y visibilidad de puertas de enlace
+      url: gateway-log-audit-visibility.md
+    - text: Administración remota segura de una puerta de enlace
+      url: gateway-secure-remote-administration.md

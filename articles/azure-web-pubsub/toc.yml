@@ -28,6 +28,12 @@
       items:
         - name: Protección de la clave de acceso
           href: howto-secure-rotate-access-key.md
+        - name: Uso de puntos de conexión privados de Azure
+          href: howto-secure-private-endpoints.md
+        - name: Administración del control de acceso a la red
+          href: howto-secure-network-access-control.md
+        - name: Protección del tráfico saliente a través de puntos de conexión privados compartidos
+          href: howto-secure-shared-private-endpoints.md
     - name: Solucionar problemas
       items:
         - name: Recopilación de un seguimiento de red

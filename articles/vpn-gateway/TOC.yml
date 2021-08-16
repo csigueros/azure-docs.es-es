@@ -81,7 +81,7 @@
       items:
         - name: Creación de una puerta de enlace VPN basada en ruta
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: tutorial-create-gateway-portal.md
             - name: Azure PowerShell
               href: create-routebased-vpn-gateway-powershell.md
@@ -93,7 +93,7 @@
           href: reset-gateway.md
         - name: Eliminación de una instancia de VPN Gateway
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: vpn-gateway-delete-vnet-gateway-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-delete-vnet-gateway-powershell.md
@@ -103,7 +103,7 @@
       items:
         - name: Configuración de conexiones S2S
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: tutorial-site-to-site-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-create-site-to-site-rm-powershell.md
@@ -123,7 +123,7 @@
       items:
         - name: Configuración de conexiones de red virtual a red virtual
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-vnet-vnet-rm-ps.md
@@ -131,7 +131,7 @@
               href: vpn-gateway-howto-vnet-vnet-cli.md
         - name: Configuración de una conexión de red virtual a red virtual entre distintos modelos de implementación
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: vpn-gateway-connect-different-deployment-models-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-connect-different-deployment-models-powershell.md
@@ -141,7 +141,7 @@
           items:
             - name: Configuración de una VPN de punto a sitio
               items:
-                - name: Portal de Azure
+                - name: Azure portal
                   href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
                 - name: Azure PowerShell
                   href: vpn-gateway-howto-point-to-site-rm-ps.md
@@ -231,7 +231,7 @@
       href: nat-howto.md
     - name: Modificación de una puerta de enlace de red local
       items:
-        - name: Portal de Azure
+        - name: Azure portal
           href: vpn-gateway-modify-local-network-gateway-portal.md
         - name: Azure PowerShell
           href: vpn-gateway-modify-local-network-gateway.md
@@ -245,6 +245,22 @@
           href: vpn-gateway-download-vpndevicescript.md
         - name: 'Sample: Dispositivo Cisco ASA (IKEv2/sin BGP)'
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+    - name: Configuración de directivas de IPsec/IKE en las conexiones
+      items:
+        - name: Azure Portal
+          href: ipsec-ike-policy-howto.md
+        - name: PowerShell
+          href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+    - name: Configuración de puertas de enlace activo-activo
+      items:
+        - name: Azure portal
+          href: active-active-portal.md
+        - name: PowerShell
+          href: vpn-gateway-activeactive-rm-powershell.md
+    - name: Configuración de puertas de enlace con redundancia de zona
+      href: create-zone-redundant-vnet-gateway.md
+    - name: Configuración de captura de paquetes
+      href: packet-capture.md
     - name: Supervisión del estado
       items:
         - name: Supervisión de VPN Gateway
@@ -253,22 +269,6 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: Configuración de alertas basadas en registros de recursos
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
-    - name: Configuración de captura de paquetes
-      href: packet-capture.md
-    - name: Puertas de enlace con redundancia de zona
-      items:
-        - name: Creación de una puerta de enlace con redundancia de zona
-          href: create-zone-redundant-vnet-gateway.md
-    - name: Configuración de directivas de IPsec/IKE en las conexiones
-      items:
-        - name: Azure Portal
-          href: ipsec-ike-policy-howto.md
-        - name: PowerShell
-          href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-    - name: Configuración de conexiones activas-activas
-      items:
-        - name: PowerShell
-          href: vpn-gateway-activeactive-rm-powershell.md
     - name: Solución de problemas
       href: vpn-gateway-troubleshoot.md
       items:

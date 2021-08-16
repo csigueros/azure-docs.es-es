@@ -411,10 +411,14 @@
       items:
         - name: Kit de herramientas de prueba
           href: test-toolkit.md
-        - name: Casos de prueba
-          href: test-cases.md
+        - name: Casos de prueba de plantillas
+          href: template-test-cases.md
+        - name: Casos de prueba de archivos de parámetros
+          href: parameter-file-test-cases.md
         - name: Casos de prueba de CreateUiDefinition
           href: createuidefinition-test-cases.md
+        - name: Casos de prueba de todos los archivos
+          href: all-files-test-cases.md
     - name: Especificaciones de plantilla
       items:
         - name: Creación e implementación de especificaciones de plantillas

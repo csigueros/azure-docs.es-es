@@ -76,11 +76,7 @@
             - name: Ejemplo de script de instalación
               href: how-to-set-up-instance-scripted.md
         - name: Habilitación del acceso privado con Private Link
-          items:
-            - name: Portal
-              href: how-to-enable-private-link-portal.md
-            - name: CLI
-              href: how-to-enable-private-link-cli.md
+          href: how-to-enable-private-link.md
         - name: Escritura de código de autenticación de aplicación
           href: how-to-authenticate-client.md
         - name: Crear un registro de aplicación
@@ -105,7 +101,7 @@
           href: how-to-use-azure-digital-twins-explorer.md
         - name: Administración de Digital Twins
           href: how-to-manage-twin.md
-        - name: Administración del grafo de gemelos con relaciones
+        - name: Administración del grafo de gemelos y las relaciones
           href: how-to-manage-graph.md
         - name: Configuración de una función de Azure para procesar datos
           href: how-to-create-azure-function.md
@@ -130,11 +126,7 @@
     - name: Conexión de salida
       items:
         - name: Administración de puntos de conexión y rutas
-          items:
-            - name: Portal
-              href: how-to-manage-routes-portal.md
-            - name: API y CLI
-              href: how-to-manage-routes-apis-cli.md
+          href: how-to-manage-routes.md
         - name: Enrutamiento de eventos con una identidad administrada
           href: how-to-route-with-managed-identity.md
         - name: Integración con Azure Maps

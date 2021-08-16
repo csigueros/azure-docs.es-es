@@ -35,22 +35,74 @@
           href: quickstart-devkit-stm-b-l475e.md
 - name: Tutoriales
   items:
+    - name: Compilación de una solución de dispositivo con IoT Hub
+      items:
+        - name: Configurar el entorno
+          href: set-up-environment.md
+        - name: Conexión de un dispositivo a IoT Hub
+          href: tutorial-connect-device.md
+        - name: Interacción con un dispositivo desde su solución
+          href: tutorial-service.md
     - name: Conexión segura de dispositivos de IoT a la nube
       href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
+    - name: Conexión de un dispositivo de múltiples componentes
+      href: tutorial-multiple-components.md
+    - name: Uso de MQTT para conectar un dispositivo
+      href: tutorial-use-mqtt.md
+    - name: Conexión del módulo de un dispositivo
+      href: tutorial-migrate-device-to-module.md
+    - name: 'Versión preliminar: conexión y análisis de datos con Time Series Insights Gen2'
+      href: tutorial-configure-tsi.md
 - name: Conceptos
   items:
     - name: Opciones de conexión para desarrolladores de dispositivos
       href: concepts-overview-connection-options.md
     - name: Introducción a los tipos de dispositivos
       href: concepts-iot-device-types.md
-- name: Procedimientos
+    - name: Certificación de dispositivos
+      href: ../certification/program-requirements-pnp.md
+    - name: Modelos de dispositivos
+      items:
+        - name: Guía de modelado
+          href: concepts-modeling-guide.md
+        - name: Uso de modelos en una solución
+          href: concepts-model-discovery.md
+        - name: Repositorio de modelos
+          href: concepts-model-repository.md
+        - name: Analizador de modelos
+          href: concepts-model-parser.md
+    - name: IoT Plug and Play
+      items:
+        - name: ¿Qué es IoT Plug and Play?
+          href: overview-iot-plug-and-play.md
+        - name: Arquitectura
+          href: concepts-architecture.md
+        - name: Convenciones de IoT Plug and Play
+          href: concepts-convention.md
+        - name: Guía para desarrolladores de dispositivos
+          href: concepts-developer-guide-device.md
+        - name: Guía para desarrolladores de servicios
+          href: concepts-developer-guide-service.md
+        - name: Gemelos digitales
+          href: concepts-digital-twin.md
+        - name: Puente de IoT Plug and Play
+          href: concepts-iot-pnp-bridge.md
+- name: Procedimiento
   items:
+    - name: Instalación y uso de IoT Explorer
+      href: ../iot-fundamentals/howto-use-iot-explorer.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+    - name: Administración de Digital Twins
+      href: howto-manage-digital-twin.md
+    - name: Conversión de un dispositivo a IoT Plug and Play
+      href: howto-convert-to-pnp.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas de inicios rápidos insertados
           href: troubleshoot-embedded-device-quickstarts.md
 - name: Referencia
   items:
+    - name: Bibliotecas y SDK
+      href: libraries-sdks.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
@@ -61,6 +113,8 @@
       href: 'https://azure.github.io/azure-sdk-for-c/'
     - name: Middleware de Azure RTOS (dispositivo)
       href: /azure/rtos/threadx
+    - name: API REST de Digital Twins
+      href: /rest/api/iothub/service/digitaltwin
     - name: .NET (dispositivo)
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (servicio)
@@ -97,6 +151,10 @@
   items:
     - name: Opciones de ayuda y soporte técnico
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+    - name: Glosario de IoT
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+    - name: Ejemplos de código
+      href: /samples/browse/?expanded=azure&products=azure-iot-pnp
     - name: Ejemplos de Azure IoT
       items:
         - name: C# (.NET)

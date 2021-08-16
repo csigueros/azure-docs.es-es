@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: c36c2fd86252f41af0e722445dca78d870c255e2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9a1c0494d14c6bc5dad43e73fbf9a55cc8985445
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969888"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290024"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutorial: Implementación de CI/CD con GitOps mediante clústeres de Kubernetes habilitados para Azure Arc
 
@@ -180,7 +180,8 @@ Para evitar tener que establecer un secreto de extracción de imágenes para cad
 | AZURE_VOTE_IMAGE_REPO | Ruta de acceso completa al repositorio de la aplicación de votaciones de Azure, por ejemplo, azurearctest.azurecr.io/azvote |
 | ENVIRONMENT_NAME | Desarrollo |
 | MANIFESTS_BRANCH | `master` |
-| MANIFESTS_REPO | Cadena de conexión de Git para el repositorio de GitOps |
+| MANIFESTS_FOLDER | `azure-vote-manifests` |
+| MANIFESTS_REPO | `azure-cicd-demo-gitops` |
 | ORGANIZATION_NAME | Nombre de la organización de Azure DevOps |
 | PROJECT_NAME | Nombre del proyecto de GitOps en Azure DevOps |
 | REPO_URL | Dirección URL completa del repositorio de GitOps |

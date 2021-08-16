@@ -68,6 +68,8 @@ items:
         href: concept-insights.md
       - name: Exploradores compatibles
         href: supported-browsers.md
+      - name: Normalización de recursos
+        href: concept-asset-normalization.md
       - name: Preguntas más frecuentes
         href: frequently-asked-questions.md
   - name: Guías paso a paso
@@ -89,18 +91,27 @@ items:
             items:
               - name: Administración de orígenes de datos
                 href: manage-data-sources.md
-              - name: Introducción a los conectores de Purview
+              - name: Conectores de Azure Purview
                 href: purview-connector-overview.md
               - name: Azure Multiple Source
                 href: register-scan-azure-multiple-sources.md
-              - name: Azure Synapse Analytics (área de trabajo)
+              - name: Áreas de trabajo de Azure Synapse Analytics
                 href: register-scan-synapse-workspace.md
               - name: Azure Blob Storage
                 href: register-scan-azure-blob-storage-source.md
-                displayName: Register and scan azure blob storage
-              - name: Azure Cosmos DB
+                displayName: Register and scan Azure Blob Storage
+              - name: Azure Files
+                href: register-scan-azure-files-storage-source.md
+                displayName: Register and scan Azure Files
+              - name: "Azure Cosmos\_DB"
                 href: register-scan-azure-cosmos-database.md
                 displayName: Register and scan Azure Cosmos DB
+              - name: Azure Database for MySQL
+                href: register-scan-azure-mysql-database.md
+                displayName: Register and scan an Azure database for MySQL
+              - name: Azure Database for PostgreSQL
+                href: register-scan-azure-postgresql.md
+                displayName: Register and scan an Azure database for PostgreSQL
               - name: Explorador de datos de Azure
                 href: register-scan-azure-data-explorer.md
                 displayName: Register and scan Azure Data Explorer Kusto
@@ -118,8 +129,14 @@ items:
                 displayName: Register and scan Azure SQL DB Managed Instance
               - name: "Grupo de SQL dedicado de Azure (antes denominado SQL\_DW)"
                 href: register-scan-azure-synapse-analytics.md
+              - name: Erwin
+                href: register-scan-erwin-source.md
+              - name: Google BigQuery
+                href: register-scan-google-bigquery-source.md
               - name: Base de datos de tienda de metadatos de Hive
                 href: register-scan-hive-metastore-source.md
+              - name: Looker
+                href: register-scan-looker-source.md
               - name: SQL Server local
                 href: register-scan-on-premises-sql-server.md
               - name: Oracle
@@ -170,6 +187,8 @@ items:
             href: how-to-lineage-powerbi.md
           - name: Linaje de Spark
             href: how-to-lineage-spark-atlas-connector.md
+          - name: "Linaje de SQL\_Server Integration Services"
+            href: how-to-lineage-sql-server-integration-services.md
       - name: Supervisión
         items:
           - name: Supervisión con Azure Monitor

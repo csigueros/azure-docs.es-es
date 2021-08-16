@@ -509,7 +509,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Portal de Azure
+                - name: Azure portal
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -744,6 +744,8 @@
           href: database/arm-templates-content-guide.md?tabs=single-database
         - name: Ejemplos de código
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
+        - name: Consultas de Azure Resource Graph
+          href: database/resource-graph-samples.md
 - name: Instancia administrada de SQL (SQL MI)
   items:
     - name: Documentación
@@ -1067,8 +1069,8 @@
               href: managed-instance/management-endpoint-verify-built-in-firewall.md
         - name: Migrar
           items:
-            - name: Migración a Instancia administrada de SQL
-              href: managed-instance/migrate-to-instance-from-sql-server.md
+            - name: "Guía para la migración de SQL\_Server a Azure SQL Managed Instance"
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
             - name: Migración de bases de datos mediante Log Replay Service
               href: managed-instance/log-replay-service-migrate.md
             - name: Migración de certificado de TDE
@@ -1185,12 +1187,12 @@
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: Migración del almacenamiento a UltraSSD
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: Instalación de la extensión Agente de IaaS de SQL
+                - name: Extensión Agente de IaaS de SQL
                   displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: Registro automático
                       href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
-                    - name: Máquina virtual única
+                    - name: Registro de una máquina virtual única
                       href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
                     - name: Registro en bloque de varias máquinas virtuales
                       href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
@@ -1226,7 +1228,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Prerrequisitos
+                            - name: Requisitos previos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

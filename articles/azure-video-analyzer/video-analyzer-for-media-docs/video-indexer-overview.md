@@ -1,19 +1,20 @@
 ---
 title: ¿Qué es Azure Video Analyzer for Media (anteriormente Video Indexer)?
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: En este artículo se proporciona información general sobre el servicio Azure Video Analyzer for Media (anteriormente Video Indexer).
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
-ms.topic: article
-ms.date: 02/05/2021
+ms.topic: overview
+ms.subservice: azure-video-analyzer-media
+ms.date: 07/15/2021
 ms.author: juliako
-ms.openlocfilehash: acaed6bedcbfeb4ccafd61f0a907f1ccfb7e8bcb
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 79c6dc98bd214594b938cf74ce9176a64867fe3e
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388682"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711849"
 ---
 # <a name="what-is-video-analyzer-for-media"></a>¿Qué es Video Analyzer for Media?
 
@@ -69,7 +70,7 @@ En la siguiente lista se muestra la información que se puede recuperar de los v
 * **Créditos de rodaje**: identifica el principio y el final de los créditos al final de las series de televisión y las películas.
 * **Detección de personajes animados** (versión preliminar): detección, agrupación y reconocimiento de personajes en contenido animado a través de la integración con la [visión personalizada de Cognitive Services](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Para más información, consulte [Detección de personajes animados](animated-characters-recognition.md).
 * **Detección del tipo de toma editorial**: etiquetado de capturas basado en su tipo (como plano general, plano medio, primer plano, primerísimo primer plano, dos capturas, varias personas, exterior e interior, etc.). Para más información, consulte [Detección del tipo de toma editorial](scenes-shots-keyframes.md#editorial-shot-type-detection).
-* **Seguimiento de personas observadas**: detecta personas observadas en vídeos y proporciona información, como la ubicación de la persona en el fotograma de vídeo (mediante rectángulos delimitadores), la marca de tiempo exacta (inicio y fin) y la confianza cuando aparece una persona. Para más información, vea [Seguimiento de las personas observadas en un vídeo](observed-people-tracing.md).
+* **Seguimiento de personas observadas**: detecta personas observadas en vídeos y proporciona información, como la ubicación de la persona en el fotograma de vídeo (mediante rectángulos delimitadores) y la marca de tiempo exacta (inicio y fin), y la confianza cuando aparece una persona. Para más información, vea [Seguimiento de las personas observadas en un vídeo](observed-people-tracing.md).
 
 ### <a name="audio-insights"></a>Información de audio
 

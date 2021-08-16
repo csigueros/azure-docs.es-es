@@ -50,7 +50,7 @@
         - name: Visualización y administración de proveedores de servicios
           displayName: 'customer, update, visibility, control'
           href: ./how-to/view-manage-service-providers.md
-        - name: Visualización de la actividad del proveedor de servicios
+        - name: Supervisión de la actividad del proveedor de servicios
           displayName: 'monitor, log, customer, visibility, transparency, control'
           href: ./how-to/view-service-provider-activity.md
     - name: Administración de la incorporación y la delegación
@@ -127,8 +127,8 @@
   items:
     - name: Preguntas y respuestas de Microsoft para Azure Lighthouse
       href: /answers/topics/azure-lighthouse.html
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Actualizaciones de Azure
+      href: 'https://azure.microsoft.com/updates/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilidad regional

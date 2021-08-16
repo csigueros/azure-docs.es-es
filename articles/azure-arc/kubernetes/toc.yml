@@ -16,6 +16,10 @@
       href: tutorial-use-gitops-connected-cluster.md
     - name: Implementación de CI/CD con GitOps
       href: tutorial-gitops-ci-cd.md
+- name: Ejemplos
+  items:
+    - name: Consultas de Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Conceptos
   items:
     - name: Arquitectura de agente

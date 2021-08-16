@@ -1,0 +1,46 @@
+### YamlMime:Landing
+title: Documentación de Azure Alemania
+summary: Azure Alemania es una instancia aislada físicamente de Microsoft Azure que usa servicios de seguridad y cumplimiento de primer nivel que son críticos para las regulaciones de privacidad de datos alemanas. Desde agosto de 2018, no hemos aceptado nuevos clientes ni hemos implementado nuevas características y servicios en las ubicaciones originales de Microsoft Cloud Alemania. En función de la evolución de las necesidades de los clientes, recientemente hemos lanzamos dos nuevas regiones de centros de datos en Alemania, que ofrecen residencia de datos de clientes, conectividad completa a la red en la nube global de Microsoft y precios competitivos en el mercado.
+metadata:
+  title: Documentación de Azure Alemania
+  description: Azure Alemania es una instancia aislada físicamente de Microsoft Azure que usa servicios de seguridad y cumplimiento de primera clase que son críticos para las regulaciones de la privacidad de datos alemanas.
+  ms.service: germany
+  ms.topic: landing-page
+  author: rolyon
+  ms.author: rolyon
+  ms.date: 03/05/2020
+  ms.openlocfilehash: 9f8caa2172f57a47d918135d47d404c378e29c6d
+  ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 03/26/2020
+  ms.locfileid: "116985495"
+landingContent:
+- title: Acerca de Azure Alemania
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Alemania?
+      url: germany-welcome.md
+  - linkListType: concept
+    links:
+    - text: Servicios disponibles
+      url: germany-services.md
+- title: Introducción
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Guía del desarrollador
+      url: germany-developer-guide.md
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión mediante Azure Portal
+      url: germany-get-started-connect-with-portal.md
+- title: Administración y migración
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Administración y conexión a una suscripción
+      url: germany-manage-subscriptions.md
+    - text: Guía de migración
+      url: germany-migration-main.md

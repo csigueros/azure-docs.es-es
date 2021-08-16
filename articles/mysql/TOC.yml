@@ -101,7 +101,7 @@
               displayName: firewall
         - name: Configuración de parámetros del servidor
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -424,11 +424,13 @@
               href: flexible-server/connect-java.md
             - name: .NET
               href: flexible-server/connect-csharp.md
+            - name: Conexión a un servidor en una red virtual
+              href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: Conexión mediante TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -497,7 +499,7 @@
           items:
             - name: Administración de un servicio
               items:
-                - name: Portal de Azure
+                - name: Azure portal
                   href: flexible-server/how-to-manage-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-manage-server-cli.md
@@ -509,7 +511,7 @@
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
             - name: Reinicio del servidor
               items:
-                - name: Portal de Azure
+                - name: Azure portal
                   href: flexible-server/how-to-restart-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
@@ -568,7 +570,7 @@
           items:
             - name: Restauración de un servidor
               items:
-                - name: Portal de Azure
+                - name: Azure portal
                   href: flexible-server/how-to-restore-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restore-server-cli.md

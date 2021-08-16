@@ -102,7 +102,7 @@
     - name: Conceptos de servicios Weather
       href: weather-services-concepts.md
     - name: Preguntas frecuentes de servicios Weather
-      href: weather-services-faq.md
+      href: weather-services-faq.yml
 - name: Guías paso a paso
   items:
     - name: Administración de cuentas de Maps
@@ -202,6 +202,8 @@
               href: map-add-drawing-toolbar.md
             - name: Obtención de datos de forma
               href: map-get-shape-data.md
+            - name: Adición de una cuadrícula de ajuste
+              href: map-add-snap-grid.md
             - name: Reaccionar a eventos de dibujo
               href: drawing-tools-events.md
             - name: Tipos de interacción y métodos abreviados de teclado
@@ -274,6 +276,8 @@
           href: how-to-add-tile-layer-android-map.md
         - name: Mostrar datos del tráfico
           href: how-to-show-traffic-android.md
+        - name: Punto de datos del clúster
+          href: clustering-point-data-android-sdk.md
         - name: Uso de expresiones controladas por datos
           href: data-driven-style-expressions-android-sdk.md
         - name: Reacción a eventos
@@ -296,6 +300,8 @@
           href: power-bi-visual-show-real-time-traffic.md
         - name: Administración del acceso
           href: power-bi-visual-manage-access.md
+        - name: Uso de Azure Maps en Power Apps
+          href: /powerapps/maker/canvas-apps/geospatial-component-map
     - name: Proporcionar comentarios sobre datos
       href: how-to-use-feedback-tool.md
 - name: Referencia
@@ -393,7 +399,7 @@
         - name: Aceleradores de soluciones de IoT
           href: ../iot-accelerators/index.yml
         - name: IoT Plug and Play
-          href: ../iot-pnp/index.yml
+          href: ../iot-develop/index.yml
         - name: Azure Maps
           href: ./index.yml
         - name: Time Series Insights

@@ -26,6 +26,8 @@
       items:
         - name: Desarrollo con Helm
           href: quickstart-helm.md
+    - name: Suscripción a eventos de AKS con Event Grid (versión preliminar)
+      href: quickstart-event-grid.md
 - name: Tutoriales
   items:
     - name: 'Paso 1: Preparación de la aplicación para AKS'
@@ -59,7 +61,7 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Storage
+    - name: Almacenamiento
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md

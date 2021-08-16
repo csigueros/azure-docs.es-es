@@ -12,19 +12,21 @@ metadata:
   ms.author: jburchel
   ms.date: 06/14/2021
   ms.custom: contperf-fy21q4
-  ms.openlocfilehash: 2cf3843234051d51b681ca8ccb4f0ce88613bd9f
-  ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+  ms.openlocfilehash: 1b0408d7b8d2a9bf766c4e32e418370ad2b458cc
+  ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/16/2021
-  ms.locfileid: "112239607"
+  ms.lasthandoff: 07/15/2021
+  ms.locfileid: "114221587"
 landingContent:
 - title: Acerca de Azure Data Factory
   linkLists:
   - linkListType: overview
     links:
-    - text: ¿Qué es Azure Data Factory?
+    - text: Introducción a Azure Data Factory
       url: ./introduction.md
+    - text: Novedades en Azure Data Factory
+      url: ./whats-new.md
   - linkListType: reference
     links:
     - text: Notas del producto

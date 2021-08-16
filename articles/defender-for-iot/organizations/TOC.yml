@@ -1,4 +1,4 @@
-- name: Azure Defender para IoT para organizaciones
+- name: Qué es Azure Defender para IoT para organizaciones de usuarios finales
   items: null
 - name: Información general
   displayName: 'IoT, OT, getting started'
@@ -19,6 +19,11 @@
     - name: Introducción a Azure Defender para IoT
       displayName: 'getting started, registration, onboarding, activation, threat intelligence'
       href: getting-started.md
+- name: Tutorial
+  expanded: false
+  items:
+    - name: Integración de ServiceNow
+      href: tutorial-servicenow.md
 - name: Conceptos
   items:
     - name: Conceptos clave
@@ -61,7 +66,7 @@
     - name: Administración de usuarios y del acceso de los usuarios
       items:
         - name: Creación y administración de usuarios
-          displayName: 'Active Directory, roles, permissions'
+          displayName: 'Active Directory, roles, permissions, password'
           href: how-to-create-and-manage-users.md
         - name: Definición del control de acceso de usuarios globales
           href: how-to-define-global-user-access-control.md
@@ -154,7 +159,7 @@
     - name: Seguimiento de la actividad del sensor
       displayName: 'timeline, time line, time-line, event'
       href: how-to-track-sensor-activity.md
-    - name: Configuración de Azure Sentinel con Defender para IoT para organizaciones
+    - name: Configuración de Azure Sentinel con Defender para IoT para organizaciones de usuarios finales
       displayName: Sentinel
       href: how-to-configure-with-sentinel.md
     - name: Solución de problemas del sensor y de la consola de administración local
@@ -177,6 +182,8 @@
           href: integration-servicenow.md
         - name: Integración de Splunk
           href: integration-splunk.md
+        - name: Integración de Qradar
+          href: integration-qradar.md
 - name: Referencia
   items:
     - name: Uso de las API de Defender para IoT
@@ -194,19 +201,27 @@
       href: resources-frequently-asked-questions.md
     - name: Glosario de Defender para IoT
       href: references-defender-for-iot-glossary.md
-- name: Recurso
+- name: Recursos
   items:
-    - name: Creación de las aptitudes de seguridad con Microsoft Learn
-      href: /learn/browse/?term=securityS&terms=securityS
-    - name: Documentación de Azure Security Center
-      href: ../../security-center/
-    - name: Documentación de Azure Security Center
-      href: ../../security/index.yml
-    - name: 'Blog sobre seguridad, privacidad y cumplimiento de Azure IoT'
-      href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'
+    - name: Lista de comprobación previa a la implementación
+      displayNAme: pre-deployment
+      href: resources-sensor-deployment-checklist.md
+    - name: Sesiones de entrenamiento de Tech Community
+      displayName: 'training, videos'
+      href: resources-training-sessions.md
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'
+    - name: Recursos de seguridad
+      items:
+        - name: Creación de las aptitudes de seguridad con Microsoft Learn
+          href: /learn/browse/?term=securityS&terms=securityS
+        - name: Documentación de Azure Security Center
+          href: ../../security-center/
+        - name: Documentación de Azure Security Center
+          href: ../../security/index.yml
+        - name: 'Blog sobre seguridad, privacidad y cumplimiento de Azure IoT'
+          href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'

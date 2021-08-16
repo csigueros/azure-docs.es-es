@@ -1,14 +1,14 @@
 ---
 title: Índice de ejemplos de Azure Policy
 description: Índice de elementos integrados en Azure Policy. Etiquetas de categorías, Cumplimiento de normativas, Key Vault, Kubernetes, Configuración de invitados, etc.
-ms.date: 05/04/2021
+ms.date: 07/16/2021
 ms.topic: sample
-ms.openlocfilehash: cee8810655016669e289053abdcfe9e52771b513
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3156c992ba0914fc5f244515b0027438567310a5
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743550"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114387583"
 ---
 # <a name="azure-policy-samples"></a>Ejemplos de Azure Policy
 
@@ -47,6 +47,7 @@ A continuación se muestran las integraciones del [cumplimiento normativo](../co
 - [IRS 1075, septiembre de 2016](./irs-1075-sept2016.md)
 - [ISO 27001:2013](./iso-27001.md)
 - [ISM restringido en Nueva Zelanda](./new-zealand-ism.md)
+- [NIST SP 800-53 R5](./nist-sp-800-53-r5.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 - [UK OFFICIAL y UK NHS](./ukofficial-uknhs.md)

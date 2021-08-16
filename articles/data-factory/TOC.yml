@@ -6,6 +6,8 @@
   items:
     - name: Introducción a Data Factory
       href: introduction.md
+    - name: Novedades en Azure Data Factory
+      href: whats-new.md
     - name: Comparar la versión actual con la versión 1
       href: compare-versions.md
       displayName: timeout
@@ -285,7 +287,7 @@
           href: connector-azure-databricks-delta-lake.md
         - name: Azure File Storage
           href: connector-azure-file-storage.md
-        - name: "Azure\_SQL\_Database"
+        - name: Azure SQL Database
           href: connector-azure-sql-database.md
           displayName: upsert
         - name: Instancia administrada de Azure SQL
@@ -759,7 +761,7 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Configuración de la recuperación ante desastres para una instancia de Integration Runtime para la integración de SSIS en Azure
           href: configure-bcdr-azure-ssis-integration-runtime.md
-        - name: Limpieza de los registros de SSISDB con trabajos de Elastic Database
+        - name: Limpieza automática de registros de SSISDB
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
         - name: "Uso de Instancia administrada de Azure\_SQL con Azure-SSIS IR"
           href: how-to-use-sql-managed-instance-with-ir.md

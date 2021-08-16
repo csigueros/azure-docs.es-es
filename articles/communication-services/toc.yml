@@ -17,10 +17,12 @@ items:
         items:
           - name: Creación y administración de tokens de acceso
             href: quickstarts/access-tokens.md
-          - name: Uso de identidades administradas
-            href: quickstarts/managed-identity.md
-          - name: Configuración de identidades administradas desde la CLI
-        href: quickstarts/managed-identity-from-cli.md
+          - name: Autenticación mediante Azure Active Directory
+            href: quickstarts/identity/service-principal.md
+          - name: "Autenticación con Azure\_AD (CLI de Azure)"
+            href: quickstarts/identity/service-principal-from-cli.md
+          - name: Creación rápida de identidades para pruebas
+            href: quickstarts/identity/quick-create-identity.md
       - name: Chat
         items:
           - name: Incorporación del chat a una aplicación
@@ -29,7 +31,7 @@ items:
             href: quickstarts/chat/meeting-interop.md
       - name: Telefonía y SMS
         items:
-          - name: Obtención de un número de teléfono
+          - name: Obtención y administración de números de teléfono
             href: quickstarts/telephony-sms/get-phone-number.md
           - name: Portabilidad de un número de teléfono a Azure
             href: quickstarts/telephony-sms/port-phone-number.md
@@ -51,7 +53,7 @@ items:
             href: quickstarts/voice-video-calling/calling-client-samples.md
           - name: Una su aplicación cliente de llamadas a una reunión de Teams.
             href: quickstarts/voice-video-calling/get-started-teams-interop.md
-          - name: Unión de un servicio a una llamada
+          - name: Uso de las API de automatización de llamadas
             href: quickstarts/voice-video-calling/call-automation-api-sample.md
           - name: Registro de llamadas
             href: quickstarts/voice-video-calling/call-recording-sample.md
@@ -76,7 +78,7 @@ items:
         href: tutorials/building-app-start.md
       - name: "Firma de una solicitud HTTP con una firma HMAC mediante\_C#"
         href: tutorials/hmac-header-tutorial.md
-      - name: Firma y realización de solicitudes a la API de SMS de ACS con Postman
+      - name: Firma y realización de solicitudes a la API de SMS con Postman
         href: tutorials/postman-tutorial.md
   - name: Conceptos
     expanded: false

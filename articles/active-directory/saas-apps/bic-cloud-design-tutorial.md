@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 7a706eb120f45fcd08febd0bda9aaaa54a82135a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1f8e47235cff2e23e45dcba535caf92ca6da0e4
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98728213"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199585"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bic-cloud-design"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BIC Cloud Design
 
@@ -40,9 +40,9 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* BIC Cloud Design admite el inicio de sesión único iniciado por **SP**.
+* BIC Cloud Design admite el SSO iniciado por **SP**.
 
-## <a name="adding-bic-cloud-design-from-the-gallery"></a>Incorporación de BIC Cloud Design desde la galería
+## <a name="add-bic-cloud-design-from-the-gallery"></a>Incorporación de BIC Cloud Design desde la galería
 
 Para configurar la integración de BIC Cloud Design en Azure AD, es preciso agregar BIC Cloud Design desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -53,7 +53,6 @@ Para configurar la integración de BIC Cloud Design en Azure AD, es preciso agr
 1. En la sección **Agregar desde la galería**, escriba **BIC Cloud Design** en el cuadro de búsqueda.
 1. Seleccione **BIC Cloud Design** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-bic-cloud-design"></a>Configuración y prueba del inicio de sesión único de Azure AD para BIC Cloud Design
 
 Configure y pruebe el inicio de sesión único de Azure AD con BIC Cloud Design mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de BIC Cloud Design.
@@ -61,10 +60,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con BIC Cloud Design
 Para configurar y probar el inicio de sesión único de Azure AD con BIC Cloud Design, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en BIC Cloud Design](#configure-bic-cloud-design-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba de BIC Cloud Design](#create-bic-cloud-design-test-user)** , para tener un homólogo de B.Simon en BIC Cloud Design que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de BIC Cloud Design](#create-bic-cloud-design-test-user)** , para tener un homólogo de B.Simon en BIC Cloud Design que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -89,17 +88,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     c. Una vez que se haya cargado correctamente el archivo de metadatos, el valor de **Identificador** se rellena automáticamente en la sección Configuración básica de SAML.
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de BIC Cloud Design](common/sp-identifier.png)
-
     En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 
-    ```https
-    https://<customer-specific-name/tenant>.biccloud.com
-    https://<customer-specific-name/tenant>.biccloud.de
-    ```
-
+    | URL de inicio de sesión |
+    |-----|
+    | `https://<CUSTOMER_SPECIFIC_NAME/TENANT>.biccloud.com` |
+    | `https://<CUSTOMER_SPECIFIC_NAME/TENANT>.biccloud.de` |
+    
     > [!Note]
-    > Si el valor **Identificador** no se rellena automáticamente, hágalo manualmente según sus necesidades. El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico del cliente de BIC Cloud Design](mailto:bicsupport@gbtec.de) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Si el valor **Identificador** no se rellena automáticamente, hágalo manualmente según sus requisitos. El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico del cliente de BIC Cloud Design](mailto:bicsupport@gbtec.de) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. La aplicación BIC Cloud Design espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
@@ -160,7 +157,6 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 * Vaya directamente a la dirección URL de inicio de sesión de BIC Cloud Design e inicie el flujo de inicio de sesión desde allí.
 
 * Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de BIC Cloud Design en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
-  ms.date: 01/11/2021
-  ms.openlocfilehash: 14587a7e9748c7df799ef798ff03ee2380b76cdc
-  ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+  ms.date: 07/15/2021
+  ms.openlocfilehash: 30ed5a71526f3e8b6d1649614e25a55fc93019da
+  ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113112066"
+  ms.lasthandoff: 07/18/2021
+  ms.locfileid: "114400220"
 landingContent:
 - title: Acerca del desarrollo de dispositivos IoT
   linkLists:
@@ -25,8 +25,8 @@ landingContent:
       url: about-iot-develop.md
     - text: Revisión de tipos de dispositivo IoT
       url: concepts-iot-device-types.md
-    - text: ¿Qué SDK debo usar?
-      url: about-iot-sdks.md
+    - text: ¿Qué es IoT Plug and Play?
+      url: overview-iot-plug-and-play.md
 - title: Introducción al desarrollo de aplicaciones para dispositivos
   linkLists:
   - linkListType: quickstart
@@ -45,13 +45,27 @@ landingContent:
       url: quickstart-devkit-mxchip-az3166-iot-hub.md
     - text: Conexión de un microchip ATSAME54-XPro a Azure IoT
       url: quickstart-devkit-microchip-atsame54-xpro.md
-    - text: Conexión de NXP MIMXRT1050-EVKB a Azure IoT
-      url: quickstart-devkit-nxp-mimxrt1050-evkb.md
-    - text: Conexión de NXP MIMXRT1060-EVK a Azure IoT
-      url: quickstart-devkit-nxp-mimxrt1060-evk.md
-    - text: Conexión de Renesas RX65N-2MB a Azure IoT
-      url: quickstart-devkit-renesas-rx65n-2mb.md
-    - text: Conexión de un kit de nube Renesas RX65N a Azure IoT
-      url: quickstart-devkit-renesas-rx65n-cloud-kit.md
     - text: Conexión de STMicroelectronics B-L475E/L4S5I-IOT01A a Azure IoT
       url: quickstart-devkit-stm-b-l475e.md
+- title: Compilación de soluciones de dispositivos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Conexión de un dispositivo de ejemplo a IoT Hub
+      url: tutorial-connect-device.md
+    - text: Conexión segura de dispositivos de IoT a la nube
+      url: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
+- title: Marco de desarrollo de dispositivos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Introducción a los tipos de dispositivos
+      url: concepts-iot-device-types.md
+    - text: Guía del desarrollador
+      url: concepts-developer-guide-device.md
+    - text: Guía de modelado
+      url: concepts-modeling-guide.md
+    - text: Convenciones de IoT Plug and Play
+      url: concepts-convention.md
+    - text: Puente de IoT Plug and Play
+      url: concepts-iot-pnp-bridge.md

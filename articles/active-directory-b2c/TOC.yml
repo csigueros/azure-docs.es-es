@@ -48,7 +48,11 @@
     - name: Limpieza y eliminación del inquilino
       href: tutorial-delete-tenant.md
 - name: Ejemplos
-  href: code-samples.md
+  items:
+    - name: "Integración de Azure\_AD B2C con aplicaciones"
+      href: integrate-with-app-code-samples.md
+    - name: Uso de conectores de API para modificar los flujos de usuario
+      href: api-connector-samples.md
 - name: Conceptos
   items:
     - name: Comparación entre soluciones para External Identities
@@ -285,6 +289,8 @@
               href: multi-factor-authentication.md
             - name: Integración de asociados
               items:
+                - name: BlokSec
+                  href: partner-bloksec.md
                 - name: HYPR
                   href: partner-hypr.md
                 - name: Keyless
@@ -392,6 +398,8 @@
           href: custom-domain.md
         - name: Asociados del firewall de aplicaciones web
           items:
+            - name: Akamai
+              href: partner-akamai.md
             - name: Cloudflare
               href: partner-cloudflare.md
         - name: Configuración de dominios de API web

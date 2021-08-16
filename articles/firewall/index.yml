@@ -11,12 +11,12 @@ metadata:
   ms.author: victorh
   ms.date: 05/03/2021
   ms.custom: e2e-hybrid
-  ms.openlocfilehash: cec6930c8ef68717cfa0685a0b3b4bb585229864
-  ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+  ms.openlocfilehash: 23490ec827aa1a004153bcf2e6af46b81835083c
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/07/2021
-  ms.locfileid: "113438609"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114469300"
 landingContent:
 - title: Más información sobre Azure Firewall
   linkLists:
@@ -38,19 +38,19 @@ landingContent:
     links:
     - text: Novedades
       url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
-- title: Aprenda sobre la versión preliminar de Azure Firewall Premium
+- title: Información sobre Azure Firewall Prémium
   linkLists:
   - linkListType: overview
     links:
-    - text: Características de la versión preliminar de Azure Firewall Prémium
+    - text: Características de Azure Firewall Prémium
       url: premium-features.md
   - linkListType: concept
     links:
-    - text: Certificados de la versión preliminar de Azure Firewall Prémium
+    - text: Certificados de Azure Firewall Prémium
       url: premium-certificates.md
   - linkListType: how-to-guide
     links:
-    - text: Implementación y configuración de la versión preliminar de Azure Firewall Prémium
+    - text: Implementación y configuración de Azure Firewall Prémium
       url: premium-deploy.md
 - title: Implementación de Azure Firewall
   linkLists:

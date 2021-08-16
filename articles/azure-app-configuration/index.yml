@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: e840dfb19b868b0e809778a2fb0aa67741f90309
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.openlocfilehash: 389cb3b57c183fa45b8de44b3bdfef3916931b16
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108748158"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114445700"
 landingContent:
 - title: Acerca de Azure App Configuration
   linkLists:
@@ -82,8 +82,10 @@ landingContent:
       url: enable-dynamic-configuration-azure-functions-csharp.md
     - text: Uso de la configuración dinámica en Spring Boot
       url: enable-dynamic-configuration-java-spring-app.md
-    - text: Integración de la configuración dinámica mediante el modelo de inserción
+    - text: Integración de la configuración dinámica mediante el modelo de inserción en .NET Core
       url: enable-dynamic-configuration-dotnet-core-push-refresh.md
+    - text: Integración de la configuración dinámica mediante el modelo de inserción en Java Spring
+      url: enable-dynamic-configuration-java-spring-push-refresh.md
   - linkListType: tutorial
     links:
     - text: Inserción de datos mediante Azure Pipelines

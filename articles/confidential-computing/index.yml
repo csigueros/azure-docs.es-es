@@ -10,12 +10,12 @@ metadata:
   author: JBCook
   ms.author: jencook
   ms.date: 09/22/2020
-  ms.openlocfilehash: e7d63965f45b513e89016525d888549da81791cc
-  ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+  ms.openlocfilehash: 72fce1fd106ac6388445c3f35be6f4f0469a188e
+  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/09/2021
-  ms.locfileid: "113551387"
+  ms.lasthandoff: 07/14/2021
+  ms.locfileid: "113768409"
 landingContent:
 - title: Acerca de la computación confidencial de Azure
   linkLists:
@@ -101,6 +101,8 @@ landingContent:
       url: ../attestation/overview.md
     - text: Runtime de ONNX de inferencia confidencial
       url: https://aka.ms/confidentialinference
+    - text: Always Encrypted con enclaves seguros en Azure SQL Database
+      url: ../azure-sql/database/always-encrypted-with-secure-enclaves-landing.yml
 - title: Compilación con la computación confidencial
   linkLists:
   - linkListType: tutorial

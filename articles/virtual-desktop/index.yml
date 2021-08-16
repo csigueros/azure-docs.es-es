@@ -11,12 +11,12 @@ metadata:
   author: Heidilohr
   ms.author: helohr
   ms.date: 03/06/2020
-  ms.openlocfilehash: 89123da71dc47d3fb302ab6c82e26baf3df94357
-  ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+  ms.openlocfilehash: da50b99cfb5cef8d8ced702e5f5e9a56912e9d59
+  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/09/2021
-  ms.locfileid: "111757632"
+  ms.lasthandoff: 07/14/2021
+  ms.locfileid: "113758813"
 landingContent:
 - title: Acerca de Azure Virtual Desktop
   linkLists:
@@ -52,17 +52,25 @@ landingContent:
       url: ./virtual-desktop-fall-2019/create-validation-host-pool-2019.md
     - text: Configuración de alertas de servicio
       url: ./virtual-desktop-fall-2019/set-up-service-alerts-2019.md
-- title: Conexión a Azure Virtual Desktop
+- title: Azure Virtual Desktop para usuarios
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Cliente de escritorio de Windows
-      url: connect-windows-7-10.md
-    - text: Cliente web
-      url: connect-web.md
-    - text: Cliente de Android
-      url: connect-android.md
-    - text: Cliente de macOS
-      url: connect-macos.md
-    - text: Cliente de iOS
-      url: connect-ios.md
+    - text: Conexión con Windows Desktop
+      url: ./user-documentation/connect-windows-7-10.md
+    - text: Conexión con el cliente web
+      url: ./user-documentation/connect-web.md
+    - text: Conexión con Android
+      url: ./user-documentation/connect-android.md
+    - text: Conexión con macOS
+      url: ./user-documentation/connect-macos.md
+    - text: Conexión con iOS
+      url: ./user-documentation/connect-ios.md
+    - text: Conexión con clientes Linux o ligeros
+      url: ./user-documentation/linux-overview.md
+- title: Streaming de aplicaciones remotas con Azure Virtual Desktop
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Streaming de aplicaciones a los clientes
+      url: ./remote-app-streaming/overview.md

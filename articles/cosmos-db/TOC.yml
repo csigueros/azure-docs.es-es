@@ -142,7 +142,7 @@
       items:
         - name: Recursos de Cosmos DB
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -745,6 +745,14 @@
               href: migrate-dotnet-v3.md
             - name: "Migración al SDK de .NET\_V2"
               href: migrate-dotnet-v2.md
+        - name: Conectores
+          items:
+            - name: Kafka Connect
+              href: kafka-connector.md
+            - name: 'Kafka Connect: origen'
+              href: kafka-connector-source.md
+            - name: 'Kafka Connect: receptor'
+              href: kafka-connector-sink.md
         - name: Solución de problemas
           items:
             - name: Errores comunes
@@ -867,6 +875,10 @@
               href: certificate-based-authentication.md
             - name: Use Always Encrypted
               href: how-to-always-encrypted.md
+        - name: Desarrollo del lado del cliente
+          items:
+            - name: Estado de sesión y proveedor de caché
+              href: session-state-and-caching-provider.md
         - name: Integración con otros servicios de Azure
           items:
             - name: Solución de comercio electrónico de fuente de cambios
@@ -1017,7 +1029,7 @@
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge-cassandra.md
         - name: Almacenamiento y administración de datos de Spring
-          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: configure-spring-data-apache-cassandra-with-cosmos-db.md
         - name: Solución de problemas comunes
           href: cassandra-troubleshoot.md
         - name: Supervisión mediante registros de diagnóstico
@@ -1371,6 +1383,10 @@
           href: /rest/api/storageservices/table-service-rest-api
         - name: Azure CLI
           href: /cli/azure/azure-cli-reference-for-cosmos-db
+- name: Ejemplos
+  items:
+    - name: Consultas de Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Guías paso a paso
   items:
     - name: Nivel gratis

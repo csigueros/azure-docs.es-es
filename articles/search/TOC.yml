@@ -190,7 +190,7 @@
           items:
             - name: Claves administradas por el cliente
               href: search-security-manage-encryption-keys.md
-            - name: Información de cifrado
+            - name: Búsqueda de objetos cifrados
               href: search-security-get-encryption-keys.md
         - name: Seguridad de entrada
           items:
@@ -302,7 +302,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: Azure Cosmos DB
+            - name: "Azure Cosmos\_DB"
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md

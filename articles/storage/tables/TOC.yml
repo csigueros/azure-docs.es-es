@@ -41,10 +41,28 @@
     - name: PowerShell
       href: ./table-storage-how-to-use-powershell.md
       maintainContext: true
+    - name: Consultas de Azure Resource Graph
+      href: ../common/resource-graph-samples.md
+      maintainContext: true
 - name: Conceptos
   items:
     - name: Cuentas de almacenamiento
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Autorización
+      href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      items:
+        - name: Autenticación y autorización con Azure AD
+          href: authorize-access-azure-active-directory.md
+        - name: Autorización con clave compartida
+          items:
+            - name: Visualización y administración de claves de cuentas
+              href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Configurar cadenas de conexión
+              href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Uso de la API REST de Azure Storage
+              href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Autorización con SAS
+          href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Seguridad
       items:
         - name: Cifrado en reposo de Azure Storage
@@ -93,19 +111,21 @@
       href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Obtención de las propiedades de configuración de una cuenta
       href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Uso del emulador de almacenamiento
+    - name: Uso del emulador de Storage (en desuso)
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       maintainContext: true
+    - name: Autorización del acceso a datos de la tabla
+      items:
+        - name: Administración de derechos de acceso con Azure RBAC
+          href: assign-azure-role-data-access.md
+        - name: Visualización y administración de claves de cuentas
+          href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Configurar cadenas de conexión
+          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Uso de la API REST de Azure Storage
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Protección de datos de tabla
       items:
-        - name: Autorización del acceso a datos de la tabla
-          items:
-            - name: Visualización y administración de claves de cuentas
-              href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-            - name: Configurar cadenas de conexión
-              href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-            - name: Uso de la API REST de Azure Storage
-              href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Administración del cifrado de servicio Azure Storage
           items:
             - name: Creación de una cuenta que admita las claves administradas por el cliente
