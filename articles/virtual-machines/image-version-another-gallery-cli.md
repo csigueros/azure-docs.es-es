@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e2cd885d886a0f13783e61a04c7243efdf12967e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bc4af87ca560c19af47a877d05a34a33c74a67bb
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784990"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111437935"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copia de una imagen de otra galería mediante la CLI de Azure
 
@@ -161,6 +161,6 @@ az sig image-version create \
 
 Cree una máquina virtual a partir de una versión de imagen [generalizada](vm-generalized-image-version-cli.md) o [especializada](vm-specialized-image-version-cli.md).
 
-Pruebe también [Azure Image Builder (versión preliminar)](./image-builder-overview.md), que puede ayudarle a automatizar la creación de versiones de la imagen; incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](./linux/image-builder-gallery-update-image-version.md). 
+Pruebe también [Azure Image Builder](./image-builder-overview.md), que puede ayudarle a automatizar la creación de versiones de la imagen; incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](./linux/image-builder-gallery-update-image-version.md). 
 
-Para obtener información sobre cómo proporcionar información del plan de compra, consulte [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](marketplace-images.md).
+Para saber cómo proporcionar información del plan de compra, consulte [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](marketplace-images.md).

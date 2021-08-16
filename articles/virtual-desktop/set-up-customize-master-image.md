@@ -1,24 +1,24 @@
 ---
 title: Preparación y personalización de una imagen de disco duro virtual maestro - Azure
-description: Cómo preparar, personalizar y cargar una imagen maestra de Windows Virtual Desktop en Azure.
+description: Cómo preparar, personalizar y cargar una imagen maestra de Azure Virtual Desktop en Azure.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 654b5b293397af9737813d759a7c784d90629942
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 576a791ee8c252a8bc1fa73cd98174e6958cf606
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445812"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751440"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
-En este artículo se explica cómo preparar una imagen de disco duro virtual (VHD) maestro para cargarla en Azure, así como el modo de crear máquinas virtuales e instalar software en ellos. Estas instrucciones son específicas de una configuración de Windows Virtual Desktop concreta que se puede usar con los procesos existentes de su organización.
+En este artículo se explica cómo preparar una imagen de disco duro virtual (VHD) maestro para cargarla en Azure, así como el modo de crear máquinas virtuales e instalar software en ellos. Estas instrucciones son específicas de una configuración de Azure Virtual Desktop concreta que se puede usar con los procesos existentes de su organización.
 
 >[!IMPORTANT]
->Se recomienda usar una imagen de la galería de imágenes de Azure. Sin embargo, si tiene que usar una imagen personalizada, asegúrese de no tener aún instalado el agente de Windows Virtual Desktop en la máquina virtual. El uso de una imagen personalizada con el agente de Windows Virtual Desktop puede causar problemas con la imagen, como el bloqueo del registro o impedir las conexiones de sesión de usuario.  
+>Se recomienda usar una imagen de la galería de imágenes de Azure. Sin embargo, si tiene que usar una imagen personalizada, asegúrese de no tener aún instalado el agente de Azure Virtual Desktop en la máquina virtual. El uso de una imagen personalizada con el agente de Azure Virtual Desktop puede causar problemas con la imagen, como el bloqueo del registro o impedir las conexiones de sesión de usuario.  
 
 ## <a name="create-a-vm"></a>Crear una VM
 
@@ -128,7 +128,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 ### <a name="disable-storage-sense"></a>Deshabilitar el sensor de almacenamiento
 
-Se recomienda deshabilitar el sensor de almacenamiento en el host de sesión de Windows Virtual Desktop que usa Windows 10 Enterprise o la sesión múltiple de Windows 10 Enterprise. El sensor de almacenamiento se puede deshabilitar en la sección **Almacenamiento** del menú Configuración, como se muestra en la siguiente captura de pantalla:
+Se recomienda deshabilitar el sensor de almacenamiento en el host de sesión de Azure Virtual Desktop que usa Windows 10 Enterprise o la sesión múltiple de Windows 10 Enterprise. El sensor de almacenamiento se puede deshabilitar en la sección **Almacenamiento** del menú Configuración, como se muestra en la siguiente captura de pantalla:
 
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla del menú Almacenamiento dentro de Configuración. La opción "Sensor de almacenamiento" está desactivada.](media/storagesense.png)
@@ -215,6 +215,6 @@ Ahora que tiene una imagen, puede crear o actualizar los grupos de hosts. Para o
 - [Tutorial: Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Creación de un grupo host con PowerShell](create-host-pools-powershell.md)
 - [Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos](create-host-pools-user-profile.md)
-- [Configuración del método de equilibrio de carga de Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+- [Configuración del método de equilibrio de carga de Azure Virtual Desktop](configure-host-pool-load-balancing.md)
 
 Si ha encontrado un problema de conectividad después de preparar o personalizar la imagen de VHD, consulte la [guía de solución de problemas](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) para obtener ayuda.

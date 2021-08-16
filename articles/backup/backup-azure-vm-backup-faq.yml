@@ -4,12 +4,12 @@ metadata:
   description: En este artículo, descubra las respuestas a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
   ms.topic: conceptual
   ms.date: 06/02/2021
-  ms.openlocfilehash: 7c9743c71a505c586745117d48b3b23537db1d77
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: fc7d9ff7770cdd60ac1a30ccbcb2758b67ec2a35
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114458015"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111968651"
 title: Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 summary: >
   En este artículo se responde a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio [Azure Backup](./backup-overview.md).
@@ -215,7 +215,7 @@ sections:
     answer: La copia de seguridad de máquinas virtuales de Azure usa la [comunicación HTTPS con el cifrado en tránsito](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest). En la transferencia de datos se usa tejido de Azure (y no puntos de conexión públicos), que no necesita acceso a Internet para la copia de seguridad de máquinas virtuales.
   - question: ¿Cómo puedo deshabilitar la opción de recuperación de archivos?
     answer: >-
-      [Esta API](/rest/api/backup/item-level-recovery-connections/provision) aprovisiona un script para invocar una **conexión iSCSI** para la recuperación de archivos desde Azure Backup.
+      [Esta API](/rest/api/backup/itemlevelrecoveryconnections/provision) aprovisiona un script para invocar una **conexión iSCSI** para la recuperación de archivos desde Azure Backup.
 
       - Puede deshabilitar esta opción mediante **definiciones de roles personalizadas** excluyendo la acción de API.
 

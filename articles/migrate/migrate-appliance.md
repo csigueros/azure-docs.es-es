@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: d7fc04e65e2b79d43c48acd5a8c621f28d5c0403
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 7a660b6da0d391e7e2671302432c937b5142f4b0
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714675"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747732"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -42,9 +42,6 @@ Para implementar el dispositivo se pueden usar un par de métodos:
 
 En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate para VMware.
 
-> [!Note]
-> La detección y evaluación de las instancias y bases de datos de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y desea probar esta característica, asegúrese de que ha completado estos [**requisitos previos**](how-to-discover-sql-existing-project.md) en el portal.
-
 **Requisito** | **VMware**
 --- | ---
 **Permisos** | Para acceder al administrador de configuración del dispositivo de manera local o remota, debe tener una cuenta de usuario local o de dominio con privilegios administrativos en el servidor del dispositivo.
@@ -56,7 +53,7 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 **Comprobación de OVA** | [Compruebe](tutorial-discover-vmware.md#verify-security) la plantilla OVA descargada del proyecto comprobando los valores hash.
 **Script de PowerShell** | Consulte este [artículo](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) sobre cómo implementar un dispositivo mediante el script del instalador de PowerShell.<br/><br/> 
 **Requisitos de hardware y de red** |  El dispositivo debe ejecutarse en un servidor con Windows Server 2016, 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si implementa el dispositivo mediante la plantilla OVA, necesitará suficientes recursos en vCenter Server para crear un servidor que cumpla los requisitos de hardware.<br/><br/> Si ejecuta el dispositivo en un servidor existente, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware.<br/>_(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._
-**Requisitos de VMware** | Si implementa el dispositivo como servidor en vCenter Server, debe implementarse en una instancia de vCenter Server que ejecute la versión 5.5, 6.0, 6.5 o 6.7 y un host ESXi que ejecute la versión 5.5 o posterior.<br/><br/> 
+**Requisitos de VMware** | Si implementa el dispositivo como servidor en vCenter Server, debe implementarse en una instancia de vCenter Server que ejecute la versión 5.5, 6.0, 6.5, 6.7 o 7.0 y un host ESXi que ejecute la versión 5.5 o posterior.<br/><br/> 
 **VDDK (migración sin agentes)** | Si quiere utilizar el dispositivo para la migración sin agente de servidores, VMware vSphere VDDK debe estar instalado en el servidor del dispositivo.
 
 ## <a name="appliance---hyper-v"></a>Dispositivo: Hyper-V
@@ -144,28 +141,8 @@ management.azure.com | Cree aplicaciones de Azure AD para que el dispositivo se
 aka.ms/* (opcional) | Permita el acceso a los vínculos aka; se usa para descargar e instalar las actualizaciones más recientes de los servicios del dispositivo.
 download.microsoft.com/download | Permita descargas del centro de descargas de Microsoft.
 *.servicebus.windows.net | **Se usa para la migración sin agentes de VMware.**<br/><br/> Comunicación entre el dispositivo y el servicio Azure Migrate.
-*.vault.azure.net | **Se usa para la migración sin agentes de VMware.**<br/><br/>  Asegúrese de que los servidores que se van a replicar tengan acceso a esto.
 *.hypervrecoverymanager.windowsazure.com | **Se usa para la migración sin agentes de VMware.**<br/><br/> Conéctese a las direcciones URL del servicio Azure Migrate.
-*.blob.core.windows.net |  **Se usa para la migración sin agentes de VMware.**<br/><br/>Cargue los datos al almacenamiento para la migración.
-
-### <a name="government-cloud-urls-for-private-link-connectivity"></a>Direcciones URL de nube gubernamental para la conectividad de vínculo privado   
-
-El dispositivo necesita acceso a las siguientes direcciones URL (directamente o a través de proxy) a través del acceso de vínculo privado y superior. 
-
-**URL** | **Detalles**  
---- | --- |
-*.portal.azure.us  | Acceda a Azure Portal.
-graph.windows.net | Inicie sesión en la suscripción de Azure.
-login.microsoftonline.us  | Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Migrate.
-management.usgovcloudapi.net | Cree aplicaciones de Azure AD para que el dispositivo se comunique con el servicio Azure Migrate.
-*.services.visualstudio.com (opcional) | Cargue los registros del dispositivo que se usan para la supervisión interna.
-aka.ms/* (opcional) | Permita el acceso a los vínculos aka; se usa para descargar e instalar las actualizaciones más recientes de los servicios del dispositivo.
-download.microsoft.com/download | Permita descargas del centro de descargas de Microsoft.
-*.servicebus.usgovcloudapi.net  | **Se usa para la migración sin agentes de VMware.**<br/><br/> Comunicación entre el dispositivo y el servicio Azure Migrate. 
-*.vault.usgovcloudapi.net | **Se usa para la migración sin agentes de VMware.**<br/><br/> Administre secretos en Azure Key Vault.
-*.hypervrecoverymanager.windowsazure.us | **Se usa para la migración sin agentes de VMware.**<br/><br/> Conéctese a las direcciones URL del servicio Azure Migrate.
-*.blob.core.usgovcloudapi.net  |  **Se usa para la migración sin agentes de VMware.**<br/><br/>Cargue los datos al almacenamiento para la migración.
-*.applicationinsights.us (opcional) | Cargue los registros del dispositivo que se usan para la supervisión interna.  
+*.blob.core.windows.net |  **Se usa para la migración sin agentes de VMware.**<br/><br/>Cargue los datos al almacenamiento para la migración. <br/>Esto es opcional y no es necesario si las cuentas de almacenamiento (tanto la cuenta de almacenamiento en caché como la cuenta de almacenamiento de puerta de enlace) tienen asociado un punto de conexión privado.
 
 ## <a name="collected-data---vmware"></a>Datos recopilados: VMware
 
@@ -304,9 +281,6 @@ Architecture | uname
 ### <a name="sql-server-instances-and-databases-data"></a>Instancias y bases de datos de SQL Server
 
 El dispositivo recopila datos en las instancias y bases de datos de SQL Server.
-
-> [!Note]
-> La detección y evaluación de las instancias y bases de datos de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y desea probar esta característica, asegúrese de que ha completado estos [**requisitos previos**](how-to-discover-sql-existing-project.md) en el portal.
 
 #### <a name="sql-database-metadata"></a>Metadatos de base de datos SQL
 
@@ -505,13 +479,13 @@ Esta es la lista completa de metadatos del servidor de Linux que el dispositivo 
 **Data** | **Comandos**
 --- | ---
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
-Número de núcleos del procesador |  /proc/cpuinfo \| awk "/^processor/{print $3}" \| wc -l
+Número de núcleos del procesador |  cat/proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 Memoria asignada | cat /proc/meminfo \| grep MemTotal \| awk "{printf "%.0f", $2/1024}"
 Número de serie del BIOS | lshw \| grep "serial:" \| head -n1 \| awk "{print $2}" <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}'
 GUID del BIOS | cat /sys/class/dmi/id/product_uuid
 Tipo de arranque | [ -d /sys/firmware/efi ] && echo EFI \|\| echo BIOS
 Versión o nombre del SO | Obtenemos acceso a estos archivos para el nombre y la versión del SO:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
-Arquitectura del SO | Uname -m
+Arquitectura del SO | uname -m
 Número de discos | fdisk -l \| egrep "Disk.*bytes" \| awk "{print $2}" \| cut -f1 -d ":"
 Disco de arranque | df /boot \| sed -n 2p \| awk "{print $1}"
 Tamaño del disco | fdisk -l \| egrep "Disk.*bytes" \| egrep $disk: \| awk "{print $5}"

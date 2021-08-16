@@ -1,22 +1,22 @@
 ---
 title: 'Expansión del grupo de hosts existente con nuevos hosts de sesión: Azure'
-description: Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop.
+description: Procedimiento para expandir un grupo de hosts existente con nuevos hosts de sesión en Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 9c73d7434a002a5efc7d058095eb9743a7f3ebf8
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 446052190df59f6dc53ac6a39cd4bc120752fa41
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446832"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757740"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
+>Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
 
 A medida que aumenta el uso en el grupo de hosts, puede que necesite expandir el grupo de hosts existente con nuevos hosts de sesión para controlar la nueva carga.
 
@@ -41,7 +41,7 @@ Para expandir el grupo de hosts mediante la incorporación de máquinas virtuale
 
 1. Inicie sesión en Azure Portal.
 
-2. Busque y seleccione **Windows Virtual Desktop**.
+2. Busque y seleccione **Azure Virtual Desktop**.
 
 3. En el menú situado a la izquierda de la pantalla, seleccione **Grupos de hosts**, después, seleccione el nombre del grupo de hosts al que desea agregar las máquinas virtuales.
 
@@ -71,7 +71,7 @@ Para expandir el grupo de hosts mediante la incorporación de máquinas virtuale
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha expandido el grupo de hosts existente, puede iniciar sesión en un cliente de Windows Virtual Desktop para realizar pruebas en él como parte de una sesión de usuario. Puede conectarse a una sesión con cualquiera de los siguientes clientes:
+Ahora que ha expandido el grupo de hosts existente, puede iniciar sesión en un cliente de Azure Virtual Desktop para realizar pruebas en él como parte de una sesión de usuario. Puede conectarse a una sesión con cualquiera de los siguientes clientes:
 
 - [Conexión con el cliente de Escritorio de Windows](./connect-windows-7-10.md)
 - [Conexión con el cliente web](./connect-web.md)

@@ -1,0 +1,141 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre Azure Media Services
+  description: Obtenga respuestas a preguntas frecuentes sobre Azure Media Services.
+  ms.custom: contperf-fy21q4
+  ms.openlocfilehash: e7689af4dd7824fdc764d56269c1bb6394594ef9
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111949170"
+title: Preguntas frecuentes sobre Azure Media Services
+summary: En este artículo se responden las preguntas más frecuentes sobre Azure Media.
+sections:
+- name: Solución de problemas
+  questions:
+  - question: ¿Dónde puedo encontrar información sobre solución de problemas de Media Services?
+    answer: >
+      Es posible que otra persona haya tenido el mismo problema.  En la [Recopilación de preguntas para solucionar problemas](./questions-collection.md), encontrará una lista de preguntas de este tipo. Estas preguntas se actualizan periódicamente en función de las incidencias de soporte técnico más frecuentes. Si no encuentra la respuesta a su pregunta, cree una incidencia de soporte técnico.
+  - question: ¿Cómo averiguo el significado de este código de error?
+    answer: >
+      Hemos documentado los códigos de error en las siguientes referencias: [códigos de error de punto de conexión de streaming](./stream-streaming-endpoint-error-codes-reference.md), [códigos de error de eventos en directo](./live-event-error-codes-reference.md), [códigos de error de trabajo](./job-error-codes-reference.md).  Si no encuentra la respuesta a su pregunta, cree una incidencia de soporte técnico.
+  - question: ¿Cómo restablezco las credenciales de mi cuenta?
+    answer: >
+      Puede [restablecer las credenciales de su cuenta](./account-reset-account-credentials.md) con la CLI.
+- name: General
+  questions:
+  - question: ¿Qué es Azure Media Services?
+    answer: >
+      Azure Media Services es una plataforma basada en la nube que le permite compilar soluciones que consiguen un streaming de vídeo con calidad de difusión, mejoran la accesibilidad y la distribución, analizan el contenido, etc. Media Services ayuda a desarrolladores de aplicaciones, centros de llamadas, agencias gubernamentales o empresas de ocio a crear aplicaciones que ofrecen experiencias multimedia de alta calidad a grandes audiencias en los navegadores y dispositivos móviles más usados en la actualidad. Para comenzar con Azure Media Services, consulte [Información general sobre Azure Media Services v3](media-services-overview.md)
+- name: Referencias
+  questions:
+  - question: ¿Dónde puedo encontrar las API y SDK de Media Services?
+    answer: >
+      Aquí tiene una lista:
+
+      - [Especificación OpenAPI (Swagger)](https://aka.ms/ams-v3-rest-sdk)
+
+      - [CLI de Azure](/cli/azure/install-azure-cli)
+
+      - [.NET](https://aka.ms/ams-v3-dotnet-sdk)
+
+      - [Java](https://aka.ms/ams-v3-java-sdk)
+
+      - [Python](https://aka.ms/ams-v3-python-sdk)
+
+      - [Node.js](https://aka.ms/ams-v3-nodejs-sdk)
+
+      - [Go](https://aka.ms/ams-v3-go-sdk)
+
+      - [Ruby](https://aka.ms/ams-v3-ruby-sdk)
+  - question: ¿Dónde puedo encontrar muestras de Media Services?
+    answer: >
+      Consulte el artículo [Muestras de Media Services v3](samples-overview.md) para obtener una lista de muestras.
+  - question: ¿Cuánto cuesta Media Services?
+    answer: >
+      Consulte la [Guía de precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/)
+  - question: ¿Qué cuotas y límites hay para Media Services?
+    answer: >
+      Consulte [Cuotas y límites de Media Services](limits-quotas-constraints-reference.md)
+- name: Uso de Media Services
+  questions:
+  - question: ¿Qué es un recurso de Media Services?
+    answer: >
+      Un recurso de Media Services es un contenedor de cuenta de Azure Storage que se usa para cada archivo de vídeo que se carga.  Tiene un identificador único que se usa con transformaciones y otras operaciones.  Consulte [Recursos en Media Services v3](assets-concept.md).
+  - question: ¿Cómo se crea un recurso de Media Services?
+    answer: >
+      Cada vez que quiera cargar un archivo multimedia y utilizarlo para alguna tarea, como codificación o streaming, cree un recurso para almacenar el archivo multimedia y otros archivos asociados a ese archivo multimedia. Los recursos se crean automáticamente si usa Azure Portal. Si no usa el portal para cargar archivos, primero debe crear un recurso.  Consulte [Creación de un recurso](asset-create-asset-how-to.md) para obtener información sobre cómo crear uno.
+  - question: ¿En qué consiste una transformación de Media Services?
+    answer: >
+      Una transformación contiene las instrucciones para codificar o analizar archivos multimedia. Imagínese que se trata de una receta. Puede aplicar más de una instrucción de codificación para un archivo multimedia.  Un trabajo lo usa para transformar archivos. Para obtener más información sobre las transformaciones, consulte las transformaciones en [Transformaciones y trabajos en Media Services](transform-jobs-concept.md#transforms).
+  - question: ¿Cómo se crea una transformación de Media Services?
+    answer: >
+      Puede crear una transformación mediante REST, la CLI o los SDK disponibles para Media Services.  Consulte [Cómo crear una transformación](transform-create-transform-how-to.md) para usar REST o la CLI.  Para usar el SDK, consulte las [muestras de Media Services](https://github.com/Azure-Samples?q=media-services&type=&language=&sort=) disponibles en el repositorio de muestras de Azure.
+  - question: ¿Qué es un trabajo de Media Services?
+    answer: >
+      Un trabajo es la solicitud que realiza para empezar a usar una transformación para codificar o analizar archivos.  Se le dice que transforme un archivo contenido en un recurso de entrada.  También se le dice que cree un recurso de salida o que use un recurso de salida que ya existe.  Una vez completado el trabajo, los archivos transformados (codificados, analizados) estarán en el recurso de salida, así como en otros archivos asociados a esos archivos. Para obtener más información sobre trabajos, consulte [Transformaciones y trabajos en Media Services](transform-jobs-concept.md#jobs).
+  - question: ¿Cómo se crea un trabajo de Media Services?
+    answer: >
+      Puede crear un trabajo en Azure Portal, con la [CLI](job-create-cli-how-to.md), REST o cualquiera de los SDK. Consulte las [muestras de Media Services](https://github.com/Azure-Samples?q=media-services&type=&language=&sort=) del idioma que prefiera.
+  - question: ¿Qué es la codificación?
+    answer: >
+      El término codificación en Media Services se aplica al proceso de convertir archivos que contienen vídeo o audio digital de un formato estándar a otro, con el objetivo de (a) reducir el tamaño de los archivos o (b) producir un formato que sea compatible con un amplia gama de dispositivos y aplicaciones. Este proceso también se conoce como compresión de vídeo o transcodificación. Consulte [Codificación de vídeo y audio con Media Services](./encode-concept.md)
+  - question: ¿Cuáles son los formatos de codificación disponibles con Media Services?
+    answer: >
+      Los formatos de codificación comunes están disponibles con el codificador estándar de Media Services. Para obtener una lista de todos los formatos, consulte [Códecs y formatos de codificador estándar](encode-media-encoder-standard-formats-reference.md).
+  - question: ¿Puedo usar Media Services para crear una escalera de velocidad de bits generada automáticamente?
+    answer: >
+      Sí.  Encontrará más información en la página [Codificación con una escalera de velocidad de bits generada automáticamente](./encode-autogen-bitrate-ladder.md).
+  - question: ¿Puedo analizar un archivo de audio o vídeo?
+    answer: >
+      Sí, puede. Azure Media Services v3 le permite extraer información detallada de los archivos de audio y vídeo con Video Indexer. Los valores preestablecidos del analizador de Media Services v3 se pueden usar para extraer dicha información. Si desea información más detallada, use Video Indexer directamente. Para saber cuándo usar los valores preestablecidos de Video Indexer, en lugar de los del de Media Services, consulte el [documento en que se realiza una comparación de ambos](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
+  - question: ¿Qué es un evento en directo de Media Services?
+    answer: >
+      Un evento en directo de Media Services es el proceso de ingerir fuentes de vídeo en directo y difundirlas a través de un protocolo RTMPS o Smooth Streaming. Para obtener más información sobre eventos en directo de Media Services, consulte [Eventos y salidas en directo en Media Services](live-event-outputs-concept.md)
+  - question: ¿Cómo se crea un evento en directo de Media Services?
+    answer: >
+      El primer paso es elegir un codificador local.  Hemos proporcionado ejemplos para crear un evento en directo con [Wirecast](live-event-wirecast-quickstart.md) y [OBS](live-event-obs-quickstart.md). Si prefiere comenzar con una introducción a los eventos en directo de Media Services, consulte [Tipos de eventos en directo](stream-live-streaming-concept.md#live-event-types).
+  - question: ¿Cómo realizar la transcripción en directo con un evento en directo de Media Services?
+    answer: >
+      Azure Media Services ofrece vídeo, audio y texto en diferentes protocolos. Cuando publica el streaming en vivo mediante MPEG-DASH o HLS/CMAF, el servicio proporcionará junto con el vídeo y el audio, el texto transcrito en formato IMSC1.1 compatible con TTML. Para más información sobre la transcripción en directo, consulte [Transcripción en directo](live-event-live-transcription-how-to.md)
+  - question: ¿En qué consiste un punto de conexión de streaming de Media Services?
+    answer: >
+      En Media Services, un punto de conexión de streaming representa un empaquetado dinámico (just-in-time) y el servicio de origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción de cliente, mediante uno de los protocolos de streaming de multimedia (HLS o DASH). Además, el punto de conexión de streaming proporciona cifrado dinámico (Just-In-Time) para los sistemas de DRM líderes del sector.  Para obtener más información sobre los puntos de conexión de streaming, consulte [Puntos de conexión de streaming (origen) en Azure Media Services](stream-streaming-endpoint-concept.md)
+  - question: ¿Qué es un localizador de streaming de Media Services?
+    answer: >
+      Para que los vídeos estén disponibles y que los clientes los puedan reproducir, debe crear un localizador de streaming y, después, compilar direcciones URL de streaming. Los localizadores de streaming también se usan para aplicar directivas de streaming que contienen reglas sobre cómo se consumen los archivos multimedia.
+  - question: ¿Cómo crear un localizador de streaming de Media Services?
+    answer: >
+      Para compilar una dirección URL de streaming, primero debe crear un localizador de streaming. Después, debe concatenar el nombre de host del punto de conexión de streaming y la ruta de acceso del localizador de streaming.  Consulte [Creación de un localizador de streaming y compilación de direcciones URL](create-streaming-locator-build-url.md).
+  - question: ¿En qué consiste una directiva de streaming?
+    answer: >
+      Las directivas de streaming permiten definir los protocolos de streaming y las opciones de cifrado de los localizadores de streaming. Media Services v3 incluye algunas directivas de streaming predefinidas. Consulte [Directivas de streaming](./stream-streaming-policy-concept.md) para obtener más información.
+  - question: ¿Cómo crear una directiva de streaming de Media Services?
+    answer: >
+      Consulte [Directivas de streaming](./stream-streaming-policy-concept.md) para obtener una lista de directivas predefinidas que puede usar para empezar.
+  - question: ¿Cómo entrego mi contenido multimedia con cifrado dinámico?
+    answer: >
+      El cifrado dinámico protege su contenido multimedia desde el momento en que este deja el equipo hasta el almacenamiento, el procesamiento y la entrega. Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con el Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Consulte [Protección del contenido mediante el cifrado dinámico de Media Services](./drm-content-protection-concept.md).
+  - question: ¿Cómo superviso mis recursos de Media Services?
+    answer: >
+      Use Azure Monitor para realizar un seguimiento de lo que sucede con sus recursos de Media Services.  Para obtener más información, consulte [Supervisar Media Services](./monitoring/monitor-media-services.md). Entre las guías de procedimientos encontramos [Supervisión de las métricas de Media Services](./monitoring/media-services-metrics-howto.md) y [Supervisión de registros de diagnóstico de Media Services](./monitoring/media-services-diagnostic-logs-howto.md).
+  - question: ¿Cómo superviso mi evento en directo de Media Services?
+    answer: >
+      Use [Azure Event Grid](./monitoring/reacting-to-media-services-events.md) para supervisar el evento en directo sin un servicio de sondeo. Entre las guías de procedimientos encontramos [Creación y supervisión de eventos de Media Services con Event Grid mediante Azure Portal](./monitoring/monitor-events-portal-how-to.md) y [Creación y supervisión de eventos de Media Services con Event Grid mediante la CLI de Azure](./monitoring/job-state-events-cli-how-to.md).
+  - question: ¿Qué reproductores de vídeo puedo usar con Media Services?
+    answer: >
+      Media Services funciona con Azure Media Player, Shaka y Video.js. Consulte la [documentación de Azure Media Player](../azure-media-player/azure-media-player-overview.md), [Cómo usar el reproductor de Shaka con Azure Media Services](./player-shaka-player-how-to.md) o [Cómo usar el reproductor Video.js con Azure Media Services](./player-media-players-concept.md).
+  - question: ¿Media Services admite alta disponibilidad?
+    answer: >
+      Para más información sobre Media Services y alta disponibilidad, consulte [Alta disponibilidad con Media Services y vídeo bajo demanda (VOD)](./architecture-high-availability-encoding-concept.md).
+  - question: ¿Dónde puedo encontrar arquitecturas de Media Services de muestra?
+    answer: >
+      Fácil. Lea [arquitecturas de Media Services](./architecture-concept.md) o visite el Centro de arquitectura de Azure.
+  - question: ¿Cómo migrar de Media Services v2 a Media Services v3?
+    answer: >
+      Hemos creado una [guía completa para la migración de v2 a v3](./migrate-v-2-v-3-migration-introduction.md).  Estamos muy interesados en conocer su experiencia y necesidades acerca de la migración, por lo que no dude en enviar comentarios a través de una incidencia de GitHub o una incidencia de soporte técnico.
+  - question: ¿Cómo usar una identidad administrada para cifrar datos para Media Services?
+    answer: "Consulte el [tutorial de Uso de una clave Key Vault para cifrar datos en una cuenta de Media Services](security-encrypt-data-managed-identity-cli-tutorial.md) para usar la CLI y emparejar Media Services con Key Vault para cifrar los datos.  \n"
+  - question: ¿Cómo usar una identidad administrada para proporcionar a Media Services acceso a una cuenta de almacenamiento restringida?
+    answer: Si quiere acceder a una cuenta de almacenamiento cuando está configurada para bloquear las solicitudes de direcciones IP desconocidas, siga los pasos en [Acceso a almacenamiento con una identidad administrada de Media Services](security-access-storage-managed-identity-cli-tutorial.md).

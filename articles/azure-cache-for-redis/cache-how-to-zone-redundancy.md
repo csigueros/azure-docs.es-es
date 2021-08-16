@@ -6,19 +6,22 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: c355939191e6da9a9408edde02deac97d69c9bbf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b61e1e0b185355c06d10648f267895e819162318
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084437"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969704"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis"></a>Habilitación de la redundancia de zona para Azure Cache for Redis
 En este artículo, aprenderá a configurar una instancia de Azure Cache con redundancia de zona mediante Azure Portal.
 
-Los niveles Estándar, Premium y Enterprise de Azure Cache for Redis hospedan cada caché en dos máquinas virtuales dedicadas para proporcionar redundancia integrada. Aunque estas máquinas virtuales se encuentran en distintos [dominios de error y actualización de Azure](../virtual-machines/availability.md) y tienen alta disponibilidad, son susceptibles a tener errores en el nivel del centro de datos. Azure Cache for Redis también admite la redundancia de zona en los niveles Premium y Enterprise. Una instancia de caché con redundancia de zona se ejecuta en máquinas virtuales distribuidas en [varias zonas de disponibilidad](../availability-zones/az-overview.md). Proporciona mayor resistencia y disponibilidad.
+Los niveles Estándar, Premium y Enterprise de Azure Cache for Redis hospedan cada caché en dos máquinas virtuales dedicadas para proporcionar redundancia integrada. Aunque estas máquinas virtuales se encuentran en distintos [dominios de error y actualización de Azure](../virtual-machines/availability.md) y tienen alta disponibilidad, son susceptibles a tener errores en el nivel del centro de datos. Azure Cache for Redis también admite la redundancia de zona en los niveles Premium y Enterprise. Una instancia de caché con redundancia de zona se ejecuta en máquinas virtuales distribuidas en varias [instancias de Availability Zones](../availability-zones/az-overview.md). Proporciona mayor resistencia y disponibilidad.
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!NOTE]
+> La transferencia de datos entre Azure Availability Zones se cobrará según las [tarifas de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/) estándar.
+
+## <a name="prerequisites"></a>Prerrequisitos
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 
 ## <a name="create-a-cache"></a>Creación de una caché
@@ -51,7 +54,7 @@ Para crear una instancia de caché, siga estos pasos:
 1. Deje las demás opciones con los valores predeterminados. 
 
     > [!NOTE]
-    > Actualmente, la compatibilidad con la redundancia de zona solo funciona con instancias de caché sin clúster e instancias de caché replicadas sin redundancia geográfica. Además, no admite vínculos privados, escalado, persistencia de datos ni importación o exportación.
+    > La redundancia de zona no admite la persistencia de AOF ni funciona actualmente con la replicación geográfica.
     >
 
 1. Haga clic en **Crear**. 
@@ -61,6 +64,29 @@ Para crear una instancia de caché, siga estos pasos:
     > [!NOTE]
     > Las zonas de disponibilidad no se pueden cambiar una vez creada la instancia de caché.
     >
+
+## <a name="zone-redundancy-faq"></a>Preguntas más frecuentes sobre la redundancia de zona
+
+- [¿Por qué no puedo habilitar la redundancia de zona al crear una caché Premium?](#why-cant-i-enable-zone-redundancy-when-creating-a-premium-cache)
+- [¿Por qué no puedo seleccionar las tres zonas durante la creación de la caché?](#why-cant-i-select-all-three-zones-during-cache-create)
+- [¿Puedo actualizar mi caché Premium existente para usar la redundancia de zona?](#can-i-update-my-existing-premium-cache-to-use-zone-redundancy)
+- [¿Cuánto cuesta replicar mis datos entre instancias de Azure Availability Zones?](#how-much-does-it-cost-to-replicate-my-data-across-azure-availability-zones)
+
+### <a name="why-cant-i-enable-zone-redundancy-when-creating-a-premium-cache"></a>¿Por qué no puedo habilitar la redundancia de zona al crear una caché Premium?
+
+La redundancia de zona solo está disponible en las regiones de Azure que tienen Availability Zones. Consulte [Regiones de Azure con Availability Zones](../availability-zones/az-region.md#azure-services-supporting-availability-zones) para obtener la lista más reciente.
+
+### <a name="why-cant-i-select-all-three-zones-during-cache-create"></a>¿Por qué no puedo seleccionar las tres zonas durante la creación de la caché?
+
+Una caché Premium tiene un nodo principal y uno de réplica de forma predeterminada. Para configurar la redundancia de zona para más de dos instancias de Availability Zones, debe agregar [más réplicas](cache-how-to-multi-replicas.md) a la memoria caché que va a crear.
+
+### <a name="can-i-update-my-existing-premium-cache-to-use-zone-redundancy"></a>¿Puedo actualizar mi caché Premium existente para usar la redundancia de zona?
+
+No, en la actualidad no se admite.
+
+### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-availability-zones"></a>¿Cuánto cuesta replicar mis datos entre instancias de Azure Availability Zones?
+
+Al usar la redundancia de zona, configurada con varias instancias de Availability Zones, los datos se replican desde el nodo de caché principal de una zona a los otros nodos de otras zonas. El cargo por transferencia de datos es el costo de salida de red de los datos que se mueven a través de las instancias de Availability Zones seleccionadas. Para más información, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre las características de Azure Cache for Redis.

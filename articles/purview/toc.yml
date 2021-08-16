@@ -68,8 +68,6 @@ items:
         href: concept-insights.md
       - name: Exploradores compatibles
         href: supported-browsers.md
-      - name: Normalización de recursos
-        href: concept-asset-normalization.md
       - name: Preguntas más frecuentes
         href: frequently-asked-questions.md
   - name: Guías paso a paso
@@ -103,15 +101,9 @@ items:
               - name: Azure Files
                 href: register-scan-azure-files-storage-source.md
                 displayName: Register and scan Azure Files
-              - name: "Azure Cosmos\_DB"
+              - name: Azure Cosmos DB
                 href: register-scan-azure-cosmos-database.md
                 displayName: Register and scan Azure Cosmos DB
-              - name: Azure Database for MySQL
-                href: register-scan-azure-mysql-database.md
-                displayName: Register and scan an Azure database for MySQL
-              - name: Azure Database for PostgreSQL
-                href: register-scan-azure-postgresql.md
-                displayName: Register and scan an Azure database for PostgreSQL
               - name: Explorador de datos de Azure
                 href: register-scan-azure-data-explorer.md
                 displayName: Register and scan Azure Data Explorer Kusto
@@ -129,14 +121,8 @@ items:
                 displayName: Register and scan Azure SQL DB Managed Instance
               - name: "Grupo de SQL dedicado de Azure (antes denominado SQL\_DW)"
                 href: register-scan-azure-synapse-analytics.md
-              - name: Erwin
-                href: register-scan-erwin-source.md
-              - name: Google BigQuery
-                href: register-scan-google-bigquery-source.md
               - name: Base de datos de tienda de metadatos de Hive
                 href: register-scan-hive-metastore-source.md
-              - name: Looker
-                href: register-scan-looker-source.md
               - name: SQL Server local
                 href: register-scan-on-premises-sql-server.md
               - name: Oracle

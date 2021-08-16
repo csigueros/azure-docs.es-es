@@ -7,12 +7,13 @@ ms.subservice: extensions
 author: mgreenegit
 ms.author: migreene
 ms.date: 04/15/2021
-ms.openlocfilehash: 2fda3cc2cf9adc3a734780209a0c9cc06a04e7cf
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d189cf54edfaca13b801e786254eec9fc5aa96f6
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368549"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662837"
 ---
 # <a name="overview-of-the-azure-policy-guest-configuration-extension"></a>Información general sobre la extensión Guest Configuration de Azure Policy
 
@@ -45,12 +46,15 @@ Para obtener más información sobre las redes privadas, consulte los artículos
 
 ## <a name="how-can-i-install-the-extension"></a>¿Cómo puedo instalar la extensión?
 
-Para implementar la última versión de la extensión a escala, incluidos los requisitos de identidad, asigne la directiva de Azure Policy destinada a [implementar los requisitos previos para habilitar las directivas de configuración de invitado en máquinas virtuales](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json).
-En el caso de las máquinas individuales, la extensión puede implementarse mediante la CLI de Azure, PowerShell, las plantillas de Resource Manager o herramientas de terceros.
-
 El nombre de instancia de la extensión debe establecerse en "AzurePolicyforWindows" o "AzurePolicyforLinux", ya que las directivas a las que se hace referencia anteriormente requieren estas cadenas específicas.
 
 De forma predeterminada, todas las implementaciones se actualizan a la última versión. El valor predeterminado de la propiedad _autoUpgradeMinorVersion_ es "true", a menos que se especifique lo contrario. No es necesario preocuparse por actualizar el código cuando se publiquen nuevas versiones de la extensión.
+
+### <a name="azure-policy"></a>Azure Policy
+
+Para implementar la versión más reciente de la extensión a gran escala, incluidos los requisitos de identidad, [asigne](../../governance/policy/assign-policy-portal.md) la instancia de Azure Policy:
+
+[Implemente los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json).
 
 ### <a name="azure-cli"></a>Azure CLI
 

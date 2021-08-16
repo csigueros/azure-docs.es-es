@@ -1,20 +1,20 @@
 ---
 title: Reventa de una oferta a través de proveedores de soluciones en la nube (CSP) en Azure Marketplace
-description: Aprenda a revender su oferta a través de proveedores de soluciones en la nube (CSP) en Azure Marketplace.
+description: Revenda una oferta a través de proveedores de soluciones en la nube (CSP) en Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 11/05/2020
-ms.openlocfilehash: 4f243ca5be0878cde3b28f5b7a7c3eea0cf9b8d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd02ae6a9c58979c9d4747e67948df69748f3f1a
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94631328"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525073"
 ---
-# <a name="how-to-resell-your-offer-through-csp"></a>Reventa de una oferta a través de CSP
+# <a name="resell-your-offer-through-csp"></a>Reventa de una oferta a través de CSP
 
 ## <a name="resell-through-csp"></a>Reventa a través de un CSP
 

@@ -1,35 +1,36 @@
 ---
-title: 'Tipo de asignación de escritorio personal de Windows Virtual Desktop: Azure'
-description: Procedimiento para configurar la asignación automática o directa para un grupo de host de escritorio personal de Windows Virtual Desktop.
+title: 'Tipo de asignación de escritorio personal de Azure Virtual Desktop: Azure'
+description: Cómo configurar la asignación automática o directa para un grupo de hosts de escritorio personal de Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 11fbbe4d816c9f50afc879d74991976a467a9013
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 39e4b23b4f007c790dcfe495661628a53a9293d8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448141"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111743898"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configuración del tipo de asignación de grupo de host de escritorio personal
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos para Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
+>Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
 
-Puede configurar el tipo de asignación del grupo de host de escritorio personal para ajustar el entorno de Windows Virtual Desktop para que se adapte mejor a sus necesidades. En este tema, se mostrará cómo configurar la asignación automática o directa para los usuarios.
+Puede configurar el tipo de asignación del grupo de hosts de escritorio personal a fin de ajustar el entorno de Azure Virtual Desktop para que se adapte mejor a sus necesidades. En este tema, se mostrará cómo configurar la asignación automática o directa para los usuarios.
 
 >[!NOTE]
 > Las instrucciones de este artículo solo se aplican a los grupos de host de escritorio personal, no a los grupos de host agrupados, ya que los usuarios de grupos de host agrupados no se asignan a hosts de sesión específicos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se da por supuesto que ya ha descargado e instalado el módulo de PowerShell para Windows Virtual Desktop. Si no lo ha hecho, siga las instrucciones que se indican en [Configuración del módulo de PowerShell](powershell-module.md).
+En este artículo se da por supuesto que ya ha descargado e instalado el módulo de PowerShell para Azure Virtual Desktop. Si no lo ha hecho, siga las instrucciones que se indican en [Configuración del módulo de PowerShell](powershell-module.md).
 
 ## <a name="configure-automatic-assignment"></a>Configuración de la asignación automática
 
-La asignación automática es el tipo de asignación predeterminado para los nuevos grupos de host de escritorio personal creados en el entorno de Windows Virtual Desktop. La asignación automática de usuarios no requiere un host de sesión específico.
+La asignación automática es el tipo de asignación predeterminado para los nuevos grupos de hosts de escritorio personal creados en el entorno de Azure Virtual Desktop. La asignación automática de usuarios no requiere un host de sesión específico.
 
 Para asignar usuarios de forma automática, asígnelos primero al grupo de host de escritorio personal para que puedan ver el escritorio en su fuente. Cuando un usuario asignado inicia el escritorio en su fuente, notificará un host de sesión disponible si todavía no se ha conectado al grupo de host, que completa el proceso de asignación.
 
@@ -70,9 +71,9 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 Para asignar directamente un usuario a un host de sesión en Azure Portal:
 
 1. Inicie sesión en Azure Portal en <https://portal.azure.com>.
-2. Escriba **Windows Virtual Desktop** en la barra de búsqueda.
-3. En **Servicios**, seleccione **Windows Virtual Desktop**.
-4. En la página Windows Virtual Desktop, vaya al menú a la izquierda de la ventana y seleccione **Grupos de hosts**.
+2. Escriba **Azure Virtual Desktop** en la barra de búsqueda.
+3. En **Servicios**, seleccione **Azure Virtual Desktop**.
+4. En la página Azure Virtual Desktop, vaya al menú a la izquierda de la ventana y seleccione **Grupos de hosts**.
 5. Seleccione el nombre del grupo de hosts que quiera actualizar.
 6. Luego, vaya al menú del lado izquierdo de la ventana y seleccione **Grupos de aplicaciones**.
 7. Seleccione el nombre del grupo de aplicaciones de escritorio que desee editar y, a continuación, seleccione **Asignaciones** en el menú del lado izquierdo de la ventana.
@@ -84,7 +85,7 @@ Para asignar directamente un usuario a un host de sesión en Azure Portal:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha configurado el tipo de asignación de escritorio personal, puede iniciar sesión en un cliente de Windows Virtual Desktop para probarlo como parte de una sesión de usuario. En las dos guías paso a paso siguientes se indica cómo conectarse a una sesión mediante el cliente que elija:
+Ahora que ha configurado el tipo de asignación de escritorio personal, puede iniciar sesión en un cliente de Azure Virtual Desktop para probarlo como parte de una sesión de usuario. Estos dos procedimientos siguientes le indicarán cómo conectarse a una sesión mediante el cliente que elija:
 
 - [Conexión con el cliente de Escritorio de Windows](connect-windows-7-10.md)
 - [Conexión con el cliente web](connect-web.md)

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4310c724707548cd55df5591504736d8f3c3857
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 48aa91d4ba68b1a69e46019ced7c5bbb69d9029f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460058"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786797"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Información general de seguridad para Azure Cognitive Search
 
@@ -146,15 +146,7 @@ Las claves administradas por el cliente requieren un servicio facturable adicion
 
 ### <a name="double-encryption"></a>Cifrado doble
 
-En Azure Cognitive Search, el cifrado doble es una extensión de CMK. Se entiende que se trata de un cifrado doble (una vez mediante CMK y otra mediante claves administradas por el servicio) y de ámbito general, que engloba el almacenamiento a largo plazo que se escribe en un disco de datos y el almacenamiento a corto plazo escrito en discos temporales. La diferencia entre CMK antes del 1 de agosto de 2020 y después, y lo que convierte a CMK en una característica de cifrado doble en Azure Cognitive Search, es el cifrado adicional de datos en reposo en discos temporales.
-
-El cifrado doble está disponible actualmente en los nuevos servicios creados en estas regiones después del 1 de agosto:
-
-+ Oeste de EE. UU. 2
-+ Este de EE. UU.
-+ Centro-sur de EE. UU.
-+ US Gov - Virginia
-+ US Gov: Arizona
+En Azure Cognitive Search, el cifrado doble es una extensión de CMK. Se entiende que se trata de un cifrado doble (una vez mediante CMK y otra mediante claves administradas por el servicio) y de ámbito general, que engloba el almacenamiento a largo plazo que se escribe en un disco de datos y el almacenamiento a corto plazo escrito en discos temporales. El cifrado doble se implementa en los servicios creados después de fechas específicas. Para más información, consulte [Cifrado doble](search-security-manage-encryption-keys.md#double-encryption).
 
 ## <a name="security-management"></a>Administración de la seguridad
 

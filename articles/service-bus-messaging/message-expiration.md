@@ -3,12 +3,12 @@ title: Expiración de mensajes de Azure Service Bus
 description: En este artículo se explica la expiración y período de vida de los mensajes de Azure Service Bus. Después de una fecha límite de este tipo, ya no se entrega el mensaje.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 5d60d84bdc0d437d97c369296a414d55beda4167
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: d41cb7a5e04753989c0e65e8afb8d74a11cd1af2
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952327"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614887"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiración de mensajes (período de vida)
 La carga de un mensaje, o un comando o una consulta que transmite un mensaje a un receptor, casi siempre está sujeta a alguna forma de fecha límite de expiración de nivel de aplicación. Después de esta fecha límite, el contenido ya no se entrega o la operación solicitada ya no se ejecuta.
@@ -27,9 +27,9 @@ Un valor de TTL extremadamente bajo del orden de milisegundos o segundos puede h
 Todos los mensajes enviados a una cola o un tema están sujetos a una expiración predeterminada que se establece en el nivel de entidad. También se puede establecer en el portal durante la creación y ajustarse más adelante. La expiración predeterminada se usa con todos los mensajes enviados a la entidad donde time-to-live no se establece explícitamente. La expiración predeterminada también funciona como un límite superior para el valor time-to-live. Los mensajes que tienen una expiración de time-to-live más larga respecto al valor predeterminado se ajustan de forma silenciosa al valor time-to-live del mensaje antes de ponerse en cola.
 
 > [!NOTE]
-> El valor de time-to-live predeterminado para un mensaje asincrónico es el valor más alto posible para un entero de 64 bits firmado, si no se especifica lo contrario.
+> El valor de período de vida predeterminado para un mensaje asincrónico es el valor más alto posible para un entero de 64 bits firmado, si no se especifica lo contrario.
 >
-> Para las entidades de mensajería (colas y temas), el tiempo de expiración predeterminado también es el valor más alto posible para un entero de 64 bits firmado para los niveles estándar y prémium de Service Bus. En el nivel **básico**, el tiempo de expiración predeterminado (también máximo) es de **14 días**.
+> En el caso de las entidades de mensajería (colas y temas), el tiempo de expiración predeterminado también es el valor más alto posible para un entero de 64 bits firmado para los niveles estándar y prémium de Service Bus. En el nivel **básico**, el tiempo de expiración predeterminado (también máximo) es de **14 días**.
 
 De forma opcional, los mensajes expirados se pueden mover a una [cola de mensajes con problemas de entrega](service-bus-dead-letter-queues.md). Puede configurar esta opción mediante programación o en Azure Portal. Si la opción se deja deshabilitada, se quitan los mensajes que han expirado. Los mensajes expirados movidos a la cola de mensajes con problemas de entrega se pueden distinguir de otros mensajes con problemas de entrega mediante la evaluación de la propiedad [dead-letter reason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) que el agente almacena en la sección de propiedades del usuario. 
 

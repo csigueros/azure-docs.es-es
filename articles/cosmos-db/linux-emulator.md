@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
-ms.date: 05/25/2021
-ms.openlocfilehash: fe14c28d817d9c0a2e832d331af9130c935affb8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/04/2021
+ms.openlocfilehash: 6e3fd0c2dafd9d174b79206cb5482450fee74f8e
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386439"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984055"
 ---
 # <a name="run-the-emulator-on-docker-for-linux-preview"></a>Ejecución del emulador en Docker para Linux (versión preliminar)
 
@@ -67,27 +67,13 @@ Para empezar, visite el Docker Hub e instale [Docker Desktop para macOS](https:/
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
     ```
-    Como alternativa, el punto de conexión anterior, que descarga el certificado autofirmado del emulador, también se puede usar para la señalización cuando el punto de conexión del emulador está listo para recibir solicitudes de otra aplicación.
 
-1. Copie el archivo CRT en la carpeta que contiene los certificados personalizados de la distribución de Linux. Normalmente, en las distribuciones de Debian, se encuentra en `/usr/local/share/ca-certificates/`.
-
-   ```bash
-   cp YourCTR.crt /usr/local/share/ca-certificates/
-   ```
-
-1. Actualice los certificados TLS/SSL, que actualizarán la carpeta `/etc/ssl/certs/`.
-
-   ```bash
-   update-ca-certificates
-   ```
-
-En el caso de las aplicaciones basadas en Java, el certificado debe importarse en el [almacén de confianza de Java.](local-emulator-export-ssl-certificates.md)
 
 ## <a name="consume-the-endpoint-via-ui"></a><a id="consume-endpoint-ui"></a>Consumo del punto de conexión a través de la interfaz de usuario
 
 El emulador usa un certificado autofirmado para proteger la conectividad a su punto de conexión y debe ser de confianza manual. Siga estos pasos para consumir el punto de conexión a través de la interfaz de usuario mediante el explorador web deseado:
 
-1. Asegúrese de descargar el certificado autofirmado del emulador.
+1. Asegúrese de haber descargado el certificado autofirmado del emulador.
 
    ```bash
    curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
@@ -100,6 +86,8 @@ El emulador usa un certificado autofirmado para proteger la conectividad a su pu
 1. Después de cargar el archivo *emulatorcert.crt* en Llaveros, haga doble clic en el nombre de **localhost** y cambie la configuración de confianza a **Confiar siempre**.
 
 1. Ahora puede ir a `https://localhost:8081/_explorer/index.html` o `https://{your_local_ip}:8081/_explorer/index.html` y recuperar la cadena de conexión del emulador.
+
+Opcionalmente, puede deshabilitar la validación SSL en la aplicación. Esto solo se recomienda con fines de desarrollo, y no debe realizarse cuando se ejecuta en un entorno de producción.
 
 ## <a name="run-the-linux-emulator-on-linux-os"></a><a id="run-on-linux"></a>Ejecución del emulador de Linux en el sistema operativo Linux
 
@@ -189,9 +177,35 @@ En esta sección se proporcionan sugerencias para solucionar errores al usar el 
 
 - Asegúrese de que el certificado autofirmado del emulador se ha agregado correctamente a [Llaveros](#consume-endpoint-ui).
 
-- Asegúrese de que el certificado autofirmado del emulador se ha importado correctamente en la ubicación esperada:
-  - .NET: consulte la [sección Certificados](#run-on-linux).
-  - Java: consulte la [sección Almacén de certificados de Java](#run-on-linux).
+- En el caso de las aplicaciones de Java, asegúrese de haber importado el certificado en la [sección Almacén de certificados de Java](#run-on-linux).
+
+- En el caso de las aplicaciones .NET, puede deshabilitar la validación SSL:
+
+# <a name="net-standard-21"></a>[.NET Standard 2.1+](#tab/ssl-netstd21)
+
+Con cualquier aplicación que se ejecute en un marco compatible con .NET Standard 2.1 o posterior, se puede aprovechar `CosmosClientOptions.HttpClientFactory`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# <a name="net-standard-20"></a>[.NET Standard 2.0](#tab/ssl-netstd20)
+
+Con cualquier aplicación que se ejecute en un marco compatible con .NET Standard 2.0, se puede aprovechar `CosmosClientOptions.HttpClientFactory`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+---
+
+#### <a name="my-nodejs-app-is-reporting-a-self-signed-certificate-error"></a>Mi aplicación Node.js informa de un error de certificado autofirmado
+
+Si intenta conectarse al emulador a través de una dirección que no sea `localhost`, como la dirección IP de los contenedores, Node.js producirá un error sobre el certificado autofirmado, incluso si este se ha instalado.
+
+Se puede deshabilitar la verificación de TLS si se establece la variable de entorno `NODE_TLS_REJECT_UNAUTHORIZED` en `0`:
+
+```bash
+NODE_TLS_REJECT_UNAUTHORIZED=0
+```
+
+Esta marca solo se recomienda para el desarrollo local, ya que deshabilita TLS para Node.js. Encontrará más información en la [documentación deNode.js](https://nodejs.org/api/cli.html#cli_node_tls_reject_unauthorized_value) y en la [documentación de los certificados del emulador de Cosmos DB](local-emulator-export-ssl-certificates.md#how-to-use-the-certificate-in-nodejs).
 
 #### <a name="the-docker-container-failed-to-start"></a>No se pudo iniciar el contenedor de Docker
 

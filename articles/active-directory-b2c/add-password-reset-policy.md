@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 05/24/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2865138aeca012d30692e708a61e459492f03ccc
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 81bdc8550f57a7c1c4992825cd231a9bb3cad4ce
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750706"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457482"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña en Azure Active Directory B2C
 
@@ -28,8 +28,13 @@ ms.locfileid: "109750706"
 
 El [recorrido de registro e inicio de sesión](add-sign-up-and-sign-in-policy.md) permite a los usuarios restablecer su propia contraseña mediante el vínculo **¿Olvidó la contraseña?** El flujo de restablecimiento de contraseña consta de los siguientes pasos:
 
-1. En la página de registro e inicio de sesión, el usuario hace clic en el vínculo **¿Olvidó la contraseña?** Azure AD B2C inicia el flujo de restablecimiento de contraseña. 
-2. El usuario proporciona y comprueba su dirección de correo electrónico con un código de acceso de un solo uso programado.
+1. En la página de registro e inicio de sesión, el usuario hace clic en el vínculo **¿Olvidó la contraseña?** Azure AD B2C inicia el flujo de restablecimiento de contraseña.
+2. El usuario proporciona su dirección de correo electrónico y selecciona **Enviar código de verificación**. Azure AD B2C enviará al usuario un código de verificación.
+
+* El usuario debe abrir el buzón de correo electrónico y copiar el código de verificación. A continuación, el usuario debe escribir el código de verificación en la página de restablecimiento de contraseña de Azure AD B2C y seleccionar **Comprobar código**.
+
+> [!NOTE]
+> Una vez comprobado el correo electrónico, el usuario todavía puede seleccionar **Cambiar correo electrónico**, escribir el otro correo electrónico y repetir la comprobación del correo electrónico desde el principio.
 3. A continuación, el usuario puede escribir una nueva contraseña.
 
 ![Flujo de restablecimiento de contraseña](./media/add-password-reset-policy/password-reset-flow.png)

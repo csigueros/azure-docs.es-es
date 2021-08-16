@@ -3,12 +3,12 @@ title: Dominios de eventos de Azure Event Grid
 description: En este artículo se describe cómo usar dominios de eventos para administrar el flujo de eventos personalizados a sus diversas organizaciones empresariales, clientes o aplicaciones.
 ms.topic: conceptual
 ms.date: 04/13/2021
-ms.openlocfilehash: 32c06ac55f667ec9807c7952127c2cf0f0384024
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 78a785d3f1ee0431b11e8c14c3e48f4a156b5fd4
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374716"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537791"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Dominios de eventos para administrar temas de Event Grid
 
@@ -45,7 +45,7 @@ Para información sobre estos roles, consulte [Roles integrados para Event Grid]
 Suscribirse a eventos de un tema dentro de un dominio de eventos es lo mismo que [crear una suscripción a eventos en un tema personalizado](./custom-event-quickstart.md) o suscribirse a un evento desde un servicio de Azure.
 
 > [!IMPORTANT]
-> El tema de dominio se considera un recurso **autoadministrado** en Event Grid. Puede crear una suscripción de eventos en el ámbito del tema de dominio sin crear dicho tema. En este caso, Event Grid crea el tema de dominio en su nombre de forma automática. Por supuesto, aún puede optar por crear el tema de dominio manualmente. Este comportamiento le ayuda a tener que preocuparse por un recurso menos al tratar con un gran número de temas de dominio. Cuando se elimina la última suscripción a un tema de dominio, dicho tema también se elimina, sin tener en cuenta si se creó de forma manual o automática. 
+> El tema de dominio se considera un recurso **autoadministrado** en Event Grid. Puede crear una suscripción de eventos en el [ámbito de dominio](#domain-scope-subscriptions) sin crear el tema de dominio. En este caso, Event Grid crea el tema de dominio en su nombre de forma automática. Por supuesto, aún puede optar por crear el tema de dominio manualmente. Este comportamiento le ayuda a tener que preocuparse por un recurso menos al tratar con un gran número de temas de dominio. Cuando se elimina la última suscripción a un tema de dominio, dicho tema también se elimina, sin tener en cuenta si se creó de forma manual o automática. 
 
 ### <a name="domain-scope-subscriptions"></a>Suscripciones del ámbito de dominio
 

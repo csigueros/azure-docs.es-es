@@ -3,16 +3,16 @@ title: Exención de una recomendación de Azure Security Center de un recurso, u
 description: Obtenga información sobre cómo crear reglas para excluir las recomendaciones de seguridad de las suscripciones o los grupos de administración y evitar que afecten a la puntuación de seguridad.
 author: memildin
 ms.author: memildin
-ms.date: 04/21/2021
+ms.date: 05/12/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: f125b94725ba9d34aa0962ed38b16fb474dc5b2b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 01be1037b38e2991a2266c37dfd3ca026ca874ff
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140252"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846435"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exención de recursos y recomendaciones de la puntuación de seguridad 
 
@@ -175,6 +175,9 @@ Más información en las siguientes páginas:
 
 ## <a name="faq---exemption-rules"></a>Preguntas frecuentes: reglas de exención
 
+- [¿Qué ocurre cuando una recomendación está en varias iniciativas de directivas?](#what-happens-when-one-recommendation-is-in-multiple-policy-initiatives)
+- [¿Hay recomendaciones que no admitan la exención?](#are-there-any-recommendations-that-dont-support-exemption)
+
 ### <a name="what-happens-when-one-recommendation-is-in-multiple-policy-initiatives"></a>¿Qué ocurre cuando una recomendación está en varias iniciativas de directivas?
 
 A veces, se muestra una recomendación de seguridad en más de una iniciativa de directiva. Si tiene varias instancias de la misma recomendación asignadas a la misma suscripción y crea una exención para la recomendación, afectará a todas las iniciativas para las que tenga permiso de edición. 
@@ -190,6 +193,24 @@ Si intenta crear una exención para esta recomendación, verá uno de los dos me
 - Si no tiene permisos suficientes en ambas iniciativas, verá este mensaje en su lugar:
 
     *Tiene permisos limitados para aplicar la exención en todas las iniciativas de directiva. Las exenciones se crearán solo en las iniciativas con permisos suficientes.*
+
+### <a name="are-there-any-recommendations-that-dont-support-exemption"></a>¿Hay recomendaciones que no admitan la exención?
+
+Estas recomendaciones no admiten la exención:
+
+- Debe aplicar los límites de CPU y memoria de los contenedores.
+- Deben evitarse los contenedores con privilegios.
+- Las imágenes de contenedor solo deben implementarse desde registros de confianza
+- Los contenedores solo deben escuchar en los puertos permitidos.
+- Los servicios solo deben escuchar en los puertos permitidos.
+- Deben aplicarse funcionalidades de Linux con privilegios mínimos para el contenedor
+- El sistema de archivos raíz inmutable (de solo lectura) debe aplicarse para los contenedores.
+- Debe evitar los contenedores con elevación de privilegios.
+- Debe evitar la ejecución de contenedores como usuario raíz.
+- El uso de puertos y redes de hosts debe estar restringido.
+- Deben evitarse los contenedores que comparten espacios de nombres de host confidenciales.
+- El uso de montajes de volúmenes HostPath de pod debe restringirse a una lista conocida, con el fin de restringir el acceso a los nodos de los contenedores en peligro
+- La opción de reemplazar o deshabilitar el perfil de AppArmor de los contenedores debe estar restringida.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

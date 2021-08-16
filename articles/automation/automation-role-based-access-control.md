@@ -4,15 +4,15 @@ description: En este artículo se explica cómo usar el control de acceso basado
 keywords: automatización de rbac, control de acceso basado en roles, rbac de azure
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 07/21/2020
+ms.date: 05/17/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0727d3342c73d9aa4d15e84aacb82bd8fea01d65
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 943fa65f114e46c80c8c1ef576f784f9117c9f79
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833587"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083807"
 ---
 # <a name="manage-role-permissions-and-security"></a>Administración de seguridad y permisos de roles
 
@@ -221,7 +221,7 @@ En las secciones siguientes se describen los permisos mínimos necesarios para h
 |**Acción**  |**Permiso**  |**Ámbito mínimo**  |
 |---------|---------|---------|
 |Escribir nueva implementación      | Microsoft.Resources/deployments/*          |Subscription          |
-|Escribir nuevo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
+|Escribir nuevo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Suscripción          |
 |Crear nueva área de trabajo predeterminada      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
 |Crear nueva cuenta      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |Vincular área de trabajo y cuenta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Área de trabajo</br>Cuenta de Automation
@@ -243,7 +243,7 @@ En las secciones siguientes se describen los permisos mínimos necesarios para h
 |**Acción**  |**Permiso** |**Ámbito mínimo**  |
 |---------|---------|---------|
 |Crear una nueva implementación     | Microsoft.Resources/deployments/*        | Subscription         |
-|Crear un grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
+|Crear un grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Suscripción        |
 |Hoja AutomationOnboarding: crear nueva área de trabajo     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |Hoja AutomationOnboarding: leer área de trabajo vinculada     | Microsoft.Automation/automationAccounts/read        | Cuenta de Automation       |
 |Hoja AutomationOnboarding: leer solución     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solución        |
@@ -262,14 +262,19 @@ En las secciones siguientes se describen los permisos mínimos necesarios para h
 
 La administración de actualizaciones cubre varios servicios para proporcionar su servicio. La siguiente tabla muestra los permisos necesarios para administrar las implementaciones de administración de actualizaciones:
 
-|**Recurso**  |**Rol**  |**Ámbito**  |
+|**Recurso** |**Rol** |**Ámbito** |
 |---------|---------|---------|
-|Cuenta de Automation     | Colaborador de Log Analytics       | Cuenta de Automation        |
-|Cuenta de Automation    | Colaborador de la máquina virtual        | Grupo de recursos para la cuenta        |
-|Área de trabajo de Log Analytics     | Colaborador de Log Analytics| Área de trabajo de Log Analytics        |
-|Área de trabajo de Log Analytics |Lector de Log Analytics| Subscription|
-|Solución     |Colaborador de Log Analytics         | Solución|
-|Máquina virtual     | Colaborador de la máquina virtual        | Máquina virtual        |
+|Cuenta de Automation |Colaborador de Log Analytics |Cuenta de Automation |
+|Cuenta de Automation |Colaborador de la máquina virtual  |Grupo de recursos para la cuenta  |
+|Colaborador de Log Analytics en el área de trabajo de Log Analytics|Área de trabajo de Log Analytics |
+|Área de trabajo de Log Analytics |Lector de Log Analytics|Subscription|
+|Solución |Colaborador de Log Analytics |Solución|
+|Máquina virtual |Colaborador de la máquina virtual |Máquina virtual |
+|**Acciones en la máquina virtual** | | |
+|Ver el historial de ejecución de la programación de actualizaciones ([se ejecuta la máquina de configuración de actualizaciones de software](/rest/api/automation/softwareupdateconfigurationmachineruns)) |Lector |Cuenta de Automation |
+|**Acciones en la máquina virtual** |**Permiso** | |
+|Crear programación de actualizaciones ([configuraciones de actualizaciones de software](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.Compute/virtualMachines/write |Para grupos de recursos y listas de máquinas virtuales estáticas |
+|Crear programación de actualizaciones ([configuraciones de actualizaciones de software](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.OperationalInsights/workspaces/analytics/query/action |Para el identificador de recurso del área de trabajo cuando se usa una lista dinámica que no es de Azure.|
 
 ## <a name="configure-azure-rbac-for-your-automation-account"></a>Configuración de RBAC de Azure para la cuenta de Automation
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 9ae996d344604ebdaf4e166f6c0536eb6acb169b
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: a691c242cbe91ea4a3e76bd0b1a93f11a6dd7c8b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656618"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750591"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Registro y examen de Azure Blob Storage
 
@@ -110,8 +110,8 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 
 Para registrar una nueva cuenta de blob en el catálogo de datos, haga lo siguiente:
 
-1. Vaya a la cuenta de Purview.
-1. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+1. Vaya a Purview Studio desde su cuenta de Purview en el portal.
+1. Seleccione **Registrar orígenes** en la página principal de Purview Studio.
 1. Seleccione **Registrar**.
 1. En **Registrar orígenes**, seleccione **Azure Blob Storage**.
 1. Seleccione **Continuar**
@@ -126,7 +126,35 @@ En la pantalla **Registrar orígenes (Azure Blob Storage)** , haga lo siguiente:
 
 :::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+
+Para crear y ejecutar un nuevo examen, siga estos pasos:
+
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+
+1. Seleccione el origen de datos de Azure Blob que ha registrado.
+
+1. Seleccione **New scan** (Nuevo examen).
+
+1. Seleccione la credencial para conectarse al origen de datos. 
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/set-up-scan-blob.png" alt-text="Configurar examen":::
+
+1. Elija los elementos adecuados de la lista para limitar el ámbito del examen a carpetas o subcarpetas específicas.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/blob-scope-your-scan.png" alt-text="Ámbito del examen":::
+
+1. A continuación, seleccione un conjunto de reglas de examen. Puede elegir entre los valores predeterminados del sistema, los conjuntos de reglas personalizadas existentes o la creación de un conjunto de reglas en línea.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/blob-scan-rule-set.png" alt-text="Conjunto de reglas de examen":::
+
+1. Elija el desencadenador del examen. Puede configurar una programación o ejecutar el examen una vez.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/trigger-scan.png" alt-text="trigger":::
+
+1. Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

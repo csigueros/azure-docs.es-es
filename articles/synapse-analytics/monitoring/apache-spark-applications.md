@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: ea08c82ed5772be7e3a6094f5477c4450975c1fa
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: d86e8a6e16fdaa48678ae1af89eb236f6e00b01b
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775900"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005185"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Uso de Synapse Studio para supervisar sus aplicaciones de Apache Spark
 
@@ -28,6 +28,8 @@ En este tutorial se describen las tareas siguientes:
 * Visualización de la aplicación de Apache Spark completada
 * Visualización de la aplicación de Apache Spark cancelada
 * Depuración de la aplicación de Apache Spark con errores
+* Visualización de los datos de entrada y salida de una aplicación Apache Spark
+* Comparación de aplicaciones de Apache Spark
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -49,47 +51,66 @@ Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark app
 
 1. Compruebe los valores de **Tareas completadas**, **Estado** y **Duración total**.
 
-2. Actualice la consulta del registro.
+2. **Actualice** el trabajo.
 
-3. Haga clic en **Servidor de historial de Spark** para abrir el vínculo del servidor de historial de Apache Spark.
+3. Haga clic en **Compare applications** (Comparar aplicaciones) para usar la característica de comparación. Para más información sobre esta característica, consulte [**Comparación de aplicaciones de Apache Spark**](#compare-apache-spark-applications).
 
-4. Compruebe la información de **Resumen**.
+4. Haga clic en **Servidor de historial de Spark** para abrir la página Servidor de historial.
 
-5. Compruebe los **Registros**. Puede seleccionar diferentes tipos de registros en la lista desplegable, y puede descargar la información de registro haciendo clic en **Download logs** (Descargar registros) y activar la casilla **Filter errors and warnings** (Filtrar errores y advertencias) para filtrar los errores y las advertencias que necesita.
+5. Compruebe la información de **Resumen**.
 
-6. Puede ver la información general del trabajo en el gráfico generado. De forma predeterminada, el gráfico muestra todos los trabajos. Puede filtrar esta vista por **Id. de trabajo**.
+6. Compruebe los diagnósticos de la pestaña **Diagnostic** (Diagnóstico).
 
-7. De forma predeterminada, está seleccionada la opción para mostrar **Progreso**. Puede comprobar el flujo de datos seleccionando **Progress**/**Read**/**Written**/**Duration** (Progreso > Leídos > Escritos > Duración) en la lista desplegable **Display** (Mostrar).
+7. Compruebe los **Registros**. Puede ver el registro completo de los registros de **Livy** **Prelaunch** y **Driver** mediante la selección de diferentes opciones en la lista desplegable. Y puede recuperar directamente la información de registro necesaria mediante la búsqueda de palabras clave. Haga clic en **Descargar registro** para descargar la información de registro en el entorno local y active la casilla **Filter errors and warnings** (Filtrar errores y advertencias) para filtrar los errores y advertencias que necesita.
 
-8. Para reproducir el trabajo, haga clic en botón **Playback** (Reproducir). Puede hacer clic en el botón **Stop** (Detener) en cualquier momento para detener la operación.
+8. Puede ver la información general del trabajo en el gráfico generado. De forma predeterminada, el gráfico muestra todos los trabajos. Puede filtrar esta vista por **Id. de trabajo**.
 
-9. Use la barra de desplazamiento o desplácese con el mouse para acercar y alejar el gráfico de trabajos; puede seleccionar **Zoom to Fit** (Zoom para ajustar) para ajustarlo a la pantalla.
+9. De forma predeterminada, está seleccionada la opción para mostrar **Progreso**. Puede comprobar el flujo de datos seleccionando **Progress**/**Read**/**Written**/**Duration** (Progreso > Leídos > Escritos > Duración) en la lista desplegable **View** (Ver).
 
-10. El nodo de gráfico de trabajo muestra la siguiente información de cada fase:
+10. Para reproducir el trabajo, haga clic en el botón **Playback** (Reproducir). Puede hacer clic en el botón **Stop** (Detener) en cualquier momento para detener la operación.
 
-    * Id.
+11. Use la barra de desplazamiento para acercar y alejar el grafo de trabajos; puede seleccionar **Zoom to Fit** (Zoom para ajustar) para ajustarlo a la pantalla.
 
-    * Nombre o descripción.
+    [![Ver el trabajo completado](./media/how-to-monitor-spark-applications/view-completed-job.png)](./media/how-to-monitor-spark-applications/view-completed-job.png#lightbox)
 
-    * Número de tarea total.
 
-    * Datos leídos: la suma del tamaño de entrada y el tamaño de lectura aleatorio.
+12. El nodo de gráfico de trabajo muestra la siguiente información de cada fase:
 
-    * Datos escritos: suma del tamaño de salida y el tamaño de escrituras aleatorio.
+    - Id. del trabajo
+    - Número de tarea
+    - Tiempo de duración
+    - Recuento de filas
+    - Datos leídos: suma del tamaño de entrada y el tamaño de lectura aleatorio
+    - Datos escritos: suma del tamaño de salida y el tamaño de escrituras aleatorio.
+    - Número de fase
 
-    * Tiempo de ejecución: el tiempo entre la hora de inicio del primer intento y la hora de finalización del último intento.
+       ![nodo de grafo de trabajos](./media/how-to-monitor-spark-applications/job-graph-node.png)
 
-    * Recuento de filas: la suma de los registros de entrada, los registros de salida, los registros de lectura aleatoria y los registros de escritura aleatoria.
-
-    * Progreso.
-
-     ![Ver el trabajo completado](./media/how-to-monitor-spark-applications/view-completed-job.png)
+13. Mantenga el mouse sobre un trabajo y los detalles del trabajo se mostrarán en la información sobre herramientas:
     
-11. Haga clic en **View details** (Ver detalles) en el gráfico y se mostrarán los detalles de la fase.
+    - Icono del estado del trabajo: si el estado del trabajo es correcto, aparecerá un "√" verde. Si el trabajo detecta un problema, aparecerá un signo "!" en amarillo.
+    - Id. del trabajo.
+    - Elemento general:
+      - Progreso
+      - Tiempo de duración
+      - Número total de tareas
+    - Elemento de datos:
+      - Número total de filas
+      - Tamaño de lectura
+      - Tamaño de escritura
+    - Elemento de distorsión
+      - Asimetría de datos
+      - Desfase horario
+    - Número de fase
 
-    ![Detalles de la fase](./media/how-to-monitor-spark-applications/details-for-stage.png)
+      ![mantener el puntero sobre un trabajo](./media/how-to-monitor-spark-applications/hover-a-job.png)
 
+14. Haga clic en **Número de fase** para expandir todas las fases contenidas en el trabajo. Haga clic en **Contraer** junto al identificador de trabajo para contraer todas las fases del trabajo.
 
+15. Haga clic en **View details** (Ver detalles) en un grafo de fase y se mostrarán los detalles de la fase.
+
+    [![expandir todas las fases](./media/how-to-monitor-spark-applications/expand-all-the-stages.png)](./media/how-to-monitor-spark-applications/expand-all-the-stages.png#lightbox)
+    
 ## <a name="monitor-running-apache-spark-application"></a>Supervisión de la aplicación de Apache Spark en ejecución
 
 Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark applications** (Aplicaciones de Apache Spark). Para ver los detalles sobre las aplicaciones de Apache Spark en ejecución, seleccione la aplicación de Apache Spark de envío y consulte los detalles. Si la aplicación de Apache Spark todavía está en ejecución, puede supervisar el progreso.
@@ -100,19 +121,13 @@ Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark app
 
 2. Haga clic en **Cancel** (Cancelar) para cancelar la aplicación de Apache Spark.
 
-3. Haga clic en **Refresh** (Actualizar) para actualizar la consulta del registro.
+3. **Actualice** el trabajo.
 
 4. Haga clic en el botón **Spark UI** (IU de Spark) para ir a la página del trabajo de Spark.
 
-5. Vea el gráfico. Puede ver la información general del trabajo en el gráfico generado. Consulte los pasos 6, 7, 8, 9 y 10 de [Visualización de la aplicación de Apache Spark completada](#view-completed-apache-spark-application).
+5. Para **Grafo de trabajo**, **Resumen**, **Diagnóstico**, **Registros**. Puede ver la información general del trabajo en el gráfico generado. Consulte los pasos 5 al 15 de [Visualización de la aplicación Apache Spark completada](#view-completed-apache-spark-application). 
 
-6. Compruebe la información de **Resumen**.
-
-7. Compruebe los diagnósticos de la pestaña **Diagnostic** (Diagnóstico).
-
-8. En esta pestaña, compruebe los **registros**. Puede seleccionar diferentes tipos de registros en la lista desplegable, y puede descargar la información de registro haciendo clic en **Download logs** (Descargar registros) y activar la casilla **Filter errors and warnings** (Filtrar errores y advertencias) para filtrar los errores y las advertencias que necesita.
-
-    ![Ver el trabajo en ejecución](./media/how-to-monitor-spark-applications/view-running-job.png)
+    [![Ver el trabajo en ejecución](./media/how-to-monitor-spark-applications/view-running-job.png)](./media/how-to-monitor-spark-applications/view-running-job.png#lightbox)
 
 ## <a name="view-canceled-apache-spark-application"></a>Visualización de la aplicación de Apache Spark cancelada
 
@@ -122,19 +137,15 @@ Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark app
 
 1. Compruebe los valores de **Tareas completadas**, **Estado** y **Duración total**.
 
-2. Actualice la consulta del registro.
+2. **Actualice** el trabajo.
 
-3. Haga clic en Haga clic en **Servidor de historial de Spark** para abrir el vínculo del servidor de historial de Apache.
+3. Haga clic en **Compare applications** (Comparar aplicaciones) para usar la característica de comparación. Para más información sobre esta característica, consulte [**Comparación de aplicaciones de Apache Spark**](#compare-apache-spark-applications).
 
-4. Vea el gráfico. Puede ver la información general del trabajo en el gráfico generado. Consulte los pasos 6, 7, 8, 9 y 10 de [Visualización de la aplicación de Apache Spark completada](#view-completed-apache-spark-application).
+4. Haga clic en Haga clic en **Servidor de historial de Spark** para abrir el vínculo del servidor de historial de Apache.
 
-5. Compruebe la información de **Resumen**.
+5. Vea el gráfico. Puede ver la información general del trabajo en el gráfico generado. Consulte los pasos 5 al 15 de [Visualización de la aplicación Apache Spark completada](#view-completed-apache-spark-application).
 
-6. Compruebe los **Registros**. Puede seleccionar diferentes tipos de registros en la lista desplegable y puede descargar la información de registro haciendo clic en **Download logs** (Descargar registros) y activar la casilla **Filter errors and warnings** (Filtrar errores y advertencias) para filtrar los errores y las advertencias que necesita.
-
-7. Haga clic en **View details** (Ver detalles) en el gráfico y se mostrarán los detalles de la fase.
-
-   ![Ver el trabajo cancelado](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
+  [![Ver el trabajo cancelado](./media/how-to-monitor-spark-applications/view-cancelled-job.png)](./media/how-to-monitor-spark-applications/view-cancelled-job.png#lightbox)
 
 ## <a name="debug-failed-apache-spark-application"></a>Depuración de la aplicación de Apache Spark con errores
 
@@ -144,17 +155,50 @@ Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark app
 
 1. Compruebe los valores de **Tareas completadas**, **Estado** y **Duración total**.
 
-2. Actualice la consulta del registro.
+2. **Actualice** el trabajo.
 
-3. Haga clic en **Servidor de historial de Spark** para abrir el vínculo del servidor de historial de Apache Spark.
+3. Haga clic en **Compare applications** (Comparar aplicaciones) para usar la característica de comparación. Para más información sobre esta característica, consulte [**Comparación de aplicaciones de Apache Spark**](#compare-apache-spark-applications).
 
-4. Vea el gráfico. Puede ver la información general del trabajo en el gráfico generado. Consulte los pasos 6, 7, 8, 9 y 10 de [Visualización de la aplicación de Apache Spark completada](#view-completed-apache-spark-application)
+4. Haga clic en Haga clic en **Servidor de historial de Spark** para abrir el vínculo del servidor de historial de Apache.
 
-5. Compruebe la información de **Resumen**.
+5. Vea el gráfico. Puede ver la información general del trabajo en el gráfico generado. Consulte los pasos 5 al 15 de [Visualización de la aplicación Apache Spark completada](#view-completed-apache-spark-application).
 
-6. Compruebe la información del error.
+   [![Información del trabajo con errores](./media/how-to-monitor-spark-applications/failed-job-info.png)](./media/how-to-monitor-spark-applications/failed-job-info.png#lightbox)
 
-   ![Información del trabajo con errores](./media/how-to-monitor-spark-applications/failed-job-info.png)
+
+## <a name="view-input-dataoutput-data-for-apache-spark-application"></a>Visualización de los datos de entrada y salida de una aplicación Apache Spark
+
+Seleccione una aplicación Apache Spark y haga clic en la **pestaña Datos de entrada/Datos de salida** para ver las fechas de entrada y salida de la aplicación Apache Spark. Esta función puede ayudarle mejor a depurar el trabajo de Spark. Y el origen de datos admite tres métodos de almacenamiento: gen1, gen2 y blob.
+    
+**Pestaña Datos de entrada**
+     
+1. Haga clic en el botón **Copiar entrada** para pegar el archivo de entrada en el entorno local.
+
+2. Haga clic en el botón **Exportar a CSV** para exportar el archivo de entrada en formato CSV.
+
+3. Puede buscar archivos por palabras clave de entrada en el **cuadro de búsqueda** (las palabras clave incluyen el nombre de archivo, el formato de lectura y la ruta de acceso).
+
+4. Puede ordenar los archivos de entrada haciendo clic en **Nombre**, **Formato de lectura** y **ruta de acceso**.
+
+5. Mantenga el puntero sobre un archivo de entrada y aparecerá el icono del botón **Descargar/Copiar ruta de acceso/Más**.
+
+   ![pestaña de entrada](./media/how-to-monitor-spark-applications/input-tab.png)
+
+6. Haga clic en el botón **Más** y aparecerá el menú contextual con las opciones **Copiar ruta de acceso/Mostrar en el explorador/Propiedades**.
+      
+    ![entrada más](./media/how-to-monitor-spark-applications/input-more.png)
+
+   * Copiar ruta de acceso: puede copiar **Ruta de acceso completa** y **Ruta de acceso relativa**.
+   * Mostrar en el explorador: puede saltar a la cuenta de almacenamiento vinculada (Datos -> Vinculada).
+   * Propiedades: muestra las propiedades básicas del archivo (nombre de archivo, ruta de acceso de archivo, formato de lectura, tamaño y fecha de modificación).
+
+     ![imagen de propiedades](./media/how-to-monitor-spark-applications/properties.png)
+
+**Pestaña Datos de salida**
+
+   Tiene las mismas características que la entrada.
+
+   ![output-image](./media/how-to-monitor-spark-applications/output.png)
 
 ## <a name="compare-apache-spark-applications"></a>Comparación de aplicaciones de Apache Spark
 
@@ -184,7 +228,7 @@ Haga clic en el botón **Compare applications** (Comparar aplicaciones) y elija 
 
 ### <a name="compare-by-compare-in-notebook"></a>Comparación mediante el cuaderno
 
-Haga clic en el botón **Compare in Notebook** (Comparar en el cuaderno) de la página **Compare applications** (Comparar aplicaciones) para abrir el cuaderno. El nombre predeterminado del archivo .ipynb es **Recurrent Application Analytics** (Análisis de la aplicación recurrente).
+Haga clic en el botón **Compare in Notebook** (Comparar en el cuaderno) de la página **Compare applications** (Comparar aplicaciones) para abrir el cuaderno. El nombre predeterminado del archivo *.ipynb* es **Recurrent Application Analytics** (Análisis de la aplicación recurrente).
 
 ![comparar en el cuaderno](./media/how-to-monitor-spark-applications/compare-in-notebook.png)
 

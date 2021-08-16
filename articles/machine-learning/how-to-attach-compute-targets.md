@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 00fbf0fe3340dc0c14f8cd55098c1e20990a3207
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9388a6e01885e4a3a0c5aa95c254910c96a4e36a
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368030"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902364"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configuración de destinos de proceso para el entrenamiento y la implementación de modelos
 
@@ -26,11 +26,13 @@ En este artículo, aprenderá a configurar el área de trabajo para usar estos r
 
 * Equipo local
 * Máquinas virtuales remotas
+* Grupos de Apache Spark (con tecnología de Azure Synapse Analytics)
 * HDInsight de Azure
 * Azure Batch
 * Azure Databricks
 * Análisis con Azure Data Lake
 * Azure Container Instances
+
 
 Para usar destinos de proceso administrados por Azure Machine Learning, consulte:
 
@@ -128,6 +130,10 @@ Azure Machine Learning también admite la asociación de una máquina virtual de
 >
 > Azure Machine Learning no eliminará la máquina virtual. Debe eliminar manualmente la máquina virtual mediante el Azure Portal, la CLI o el SDK para la máquina virtual de Azure.
 
+## <a name="apache-spark-pools"></a><a id="synapse"></a>Grupos de Apache Spark
+
+La integración de Azure Synapse Analytics en Azure Machine Learning (versión preliminar) le permite conectar un grupo de Apache Spark respaldado por Azure Synapse para la exploración y preparación interactivas de datos. Con esta integración, puede contar con una instancia de proceso dedicada para la limpieza y transformación de datos a gran escala. Para más información, vea [Conexión de grupos de Apache Spark con tecnología de Azure Synapse Analytics](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute).
+
 ## <a name="azure-hdinsight"></a><a id="hdinsight"></a>Azure HDInsight 
 
 Azure HDInsight es una plataforma popular para el análisis de macrodatos. La plataforma proporciona Apache Spark, que se puede usar para entrenar el modelo.
@@ -221,11 +227,14 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 > [!WARNING]
 > No cree varios datos adjuntos simultáneos en la misma instancia de Azure Batch desde su área de trabajo. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
 
-### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
+## <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
 Azure Databricks es un entorno basado en Apache Spark de la nube de Azure. Se puede usar como destino de proceso con una canalización de Azure Machine Learning.
 
-> [!IMPORTANT} Azure Machine Learning no puede crear un destino de proceso de Azure Databricks. En su lugar, debe crear un área de trabajo de Azure Databricks y, a continuación, adjuntarla al área de trabajo de Azure Machine Learning. Para crear un recurso de área de trabajo, consulte el documento [Ejecución de un trabajo de Spark en Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
+> [!IMPORTANT]
+> Azure Machine Learning no puede crear un destino de proceso de Azure Databricks. En su lugar, debe crear un área de trabajo de Azure Databricks y, a continuación, adjuntarla al área de trabajo de Azure Machine Learning. Para crear un recurso de área de trabajo, consulte el documento [Ejecución de un trabajo de Spark en Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
+> 
+> Para conectar un área de trabajo de Azure Databricks desde una __suscripción de Azure diferente__, a su cuenta de Azure AD se le debe haber concedido el rol **Colaborador** en el área de trabajo de Azure Databricks. Compruebe el acceso en [Azure Portal](https://ms.portal.azure.com/).
 
 Para adjuntar Azure Databricks como destino de proceso, proporcione la información siguiente:
 
@@ -233,7 +242,7 @@ Para adjuntar Azure Databricks como destino de proceso, proporcione la informaci
 * __Nombre de área de trabajo de Databricks__: el nombre del área de trabajo de Azure Databricks.
 * __Token de acceso de Databricks__: el token de acceso usado para autenticarse en Azure Databricks. Para generar un token de acceso, consulte el documento [Autenticación](/azure/databricks/dev-tools/api/latest/authentication).
 
-En el código siguiente se muestra cómo adjuntar Azure Databricks como un destino de proceso con el SDK de Azure Machine Learning (__el área de trabajo de Databricks debe estar presente en la misma suscripción que el área de trabajo de AML__):
+El código siguiente muestra cómo asociar Azure Databricks como destino de proceso con el SDK de Azure Machine Learning:
 
 ```python
 import os
@@ -277,7 +286,7 @@ Para consultar un ejemplo más detallado, vea un [cuaderno de ejemplo](https://a
 > [!WARNING]
 > No cree varios datos adjuntos simultáneos en la misma instancia de Azure Databricks desde su área de trabajo. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
 
-### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
+## <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics es una plataforma de análisis de macrodatos de la nube de Azure. Se puede usar como destino de proceso con una canalización de Azure Machine Learning.
 

@@ -4,17 +4,17 @@ description: Los ámbitos de cifrado ofrecen la posibilidad de administrar el ci
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 05/10/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a583af2811facf1cf8037fa0dd3fb9982fba60c4
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: d089ef587e209810fe0400871aba9a55cb9c0ed3
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685682"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372663"
 ---
 # <a name="encryption-scopes-for-blob-storage"></a>Ámbitos de cifrado para Blob Storage
 
@@ -35,6 +35,8 @@ Las operaciones de lectura en un blob que pertenece a un ámbito de cifrado se p
 Cuando se define un ámbito de cifrado, se especifica si el ámbito está protegido con una clave administrada por Microsoft o con una clave administrada por el cliente almacenada en Azure Key Vault. Distintos ámbitos de cifrado de una misma cuenta de almacenamiento pueden usar claves administradas por Microsoft o por el cliente. También puede cambiar el tipo de clave que se usa para proteger un ámbito de cifrado de clave administrada por el cliente a clave administrada por Microsoft, o viceversa, en cualquier momento. Para más información sobre las claves administradas por el cliente, consulte [Claves administradas por el cliente para el cifrado de Azure Storage](../common/customer-managed-keys-overview.md). Para obtener más información sobre las claves administradas por Microsoft, vea [Información sobre la administración de claves de cifrado](../common/storage-service-encryption.md#about-encryption-key-management).
 
 Si define un ámbito de cifrado con una clave administrada por el cliente, puede optar por actualizar la versión de la clave de forma automática o manual. Si elige actualizar automáticamente la versión de la clave, Azure Storage comprobará el almacén de claves o el HSM administrado diariamente para obtener una nueva versión de la clave administrada por el cliente y actualizará automáticamente la clave a la versión más reciente. Para obtener más información sobre cómo actualizar la versión de una clave administrada por el cliente, consulte [Actualización de la versión de la clave](../common/customer-managed-keys-overview.md#update-the-key-version).
+
+Azure Policy proporciona una directiva integrada para exigir que los ámbitos de cifrado usen claves administradas por el cliente. Para más información, consulte la sección **Almacenamiento** en [Definiciones de directivas integradas de Azure Policy](../../governance/policy/samples/built-in-policies.md#storage).
 
 Una cuenta de almacenamiento puede tener hasta 10 000 ámbitos de cifrado que están protegidos con claves administradas por el cliente para las que la versión de la clave se actualiza automáticamente. Si la cuenta de almacenamiento ya tiene 10 000 ámbitos de cifrado que están protegidos con claves administradas por el cliente que actualizan automáticamente, la versión de la clave debe actualizarse manualmente para cualquier ámbito de cifrado adicional que esté protegido con claves administradas por el cliente.  
 
@@ -79,6 +81,8 @@ Tenga en cuenta que las claves administradas por el cliente están protegidas po
 
 > [!IMPORTANT]
 > No es posible eliminar un ámbito de cifrado.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

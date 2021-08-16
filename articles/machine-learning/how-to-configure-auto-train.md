@@ -1,29 +1,28 @@
 ---
-title: Creación de experimentos de ML automatizados
+title: Configuración de AutoML con Python
 titleSuffix: Azure Machine Learning
-description: Aprenda a definir orígenes de datos, procesos y valores de configuración para los experimentos de aprendizaje automático automatizado.
+description: Aprenda a configurar una ejecución de entrenamiento de AutoML con el SDK de Python para Azure Machine Learning mediante el modelo de ML automatizado de Azure Machine Learning.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/29/2020
+ms.date: 06/11/2021
 ms.topic: how-to
-ms.custom: devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: a198e49e540d728a65021cf5b45436fc1654cb25
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
+ms.openlocfilehash: dff2e9c0c1de1b92f0d00d5dc50aeb7dadca348f
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905223"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030906"
 ---
-# <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
+# <a name="set-up-automl-training-with-python"></a>Configuración del entrenamiento de AutoML con Python
 
+En esta guía, aprenda a configurar una ejecución de entrenamiento de AutoML con el [SDK de Python para Azure Machine Learning](/python/api/overview/azure/ml/intro) mediante el modelo de ML automatizado de Azure Machine Learning. El aprendizaje automático automatizado elige un algoritmo e hiperparámetros, y genera un modelo listo para la implementación. Hay varias opciones que puede usar para configurar estos tipos de experimentos.
 
-En esta guía, aprenderá a definir diversos valores de configuración de los experimentos de aprendizaje automático automatizado con el [SDK de Azure Machine Learning](/python/api/overview/azure/ml/intro). El aprendizaje automático automatizado elige un algoritmo e hiperparámetros, y genera un modelo listo para la implementación. Se pueden usar varias opciones para configurar experimentos de aprendizaje automático automatizado.
-
-Para un ejemplo completo de un experimento de aprendizaje automático automatizado, consulte [Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático](tutorial-auto-train-models.md).
+Para obtener un ejemplo completo, consulte [Tutorial: AutoML: entrenamiento del modelo de regresión](tutorial-auto-train-models.md).
 
 Opciones de configuración disponibles en el aprendizaje automático automatizado:
 
@@ -31,11 +30,11 @@ Opciones de configuración disponibles en el aprendizaje automático automatizad
 * Origen de datos, formatos y datos de captura
 * Elección el destino del proceso: local o remoto
 * Configuración de experimentos de aprendizaje automático automatizado
-* Ejecución de un experimento de aprendizaje automático automatizado
+* Ejecutar un experimento de ML automatizado
 * Explorar las métricas del modelo
 * Registrar e implementar el modelo
 
-Si prefiere una experiencia sin código, también puede [crear experimentos de aprendizaje automático automatizados en Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
+Si prefiere una experiencia sin código, también puede [configurar el entrenamiento de AutoML sin código en Estudio de Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -126,7 +125,7 @@ A continuación, determine dónde se va a entrenar el modelo. Un experimento de 
 
 ## <a name="configure-your-experiment-settings"></a>Establecer la configuración de experimento
 
-Se pueden usar varias opciones para configurar el experimento de aprendizaje automático automatizado. Estos parámetros se establecen al crear una instancia un objeto `AutoMLConfig`. Consulte la [clase AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) para obtener una lista completa de parámetros.
+Hay varias opciones que puede usar para configurar su experimento de ML automatizados. Estos parámetros se establecen al crear una instancia un objeto `AutoMLConfig`. Consulte la [clase AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) para obtener una lista completa de parámetros.
 
 Estos son algunos ejemplos:
 
@@ -154,7 +153,7 @@ Estos son algunos ejemplos:
    ```
 
 
-1. Las tareas de previsión requieren una configuración adicional; vea el artículo [Entrenamiento automático de un modelo de previsión de series temporales](how-to-auto-train-forecast.md) para obtener más detalles. 
+1. Las tareas de previsión requieren una configuración adicional; consulte el artículo [Configuración de AutoML para la previsión de series temporales](how-to-auto-train-forecast.md) para obtener más detalles. 
 
     ```python
     time_series_settings = {
@@ -184,7 +183,7 @@ Los tres valores de parámetro `task` diferentes determinan la lista de algoritm
 En la tabla siguiente se resumen los modelos admitidos por tipo de tarea. 
 
 > [!NOTE]
-> Si planea exportar los modelos creados mediante ML a un [modelo de ONNX](concept-onnx.md), solo los algoritmos que se indican con un * se pueden convertir al formato ONNX. Más información sobre la [conversión de modelos a ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Tenga en cuenta también que, en este momento, ONNX solo admite tareas de clasificación y regresión. 
+> Si planea exportar los modelos creados mediante ML automatizado a un [modelo de ONNX](concept-onnx.md), solo los algoritmos que se indican con un * se pueden convertir al formato ONNX. Más información sobre la [conversión de modelos a ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Tenga en cuenta también que, en este momento, ONNX solo admite tareas de clasificación y regresión. 
 
 clasificación | Regresión | Previsión de series temporales
 |-- |-- |--
@@ -498,7 +497,7 @@ print_model(model_from_aml)
 
 ## <a name="monitor-automated-machine-learning-runs"></a><a name="monitor"></a> Supervisión de ejecuciones de aprendizaje automático automatizado
 
-En el caso de las ejecuciones automatizadas de aprendizaje automático, para acceder a los gráficos de una ejecución anterior, sustituya `<<experiment_name>>` con el nombre del experimento correspondiente.
+En el caso de las ejecuciones de aprendizaje automático automatizado, para acceder a los gráficos de una ejecución anterior, sustituya `<<experiment_name>>` con el nombre del experimento correspondiente:
 
 ```python
 from azureml.widgets import RunDetails
@@ -543,7 +542,7 @@ Para más información sobre cómo crear una configuración de implementación e
 
 La interpretabilidad del modelo permite comprender por qué los modelos hacen predicciones y los valores de importancia de las características subyacentes. El SDK incluye varios paquetes para habilitar las características de interpretabilidad del modelo, tanto en el momento del entrenamiento como en el de inferencia, para los modelos implementados y locales.
 
-Vea el [procedimiento](how-to-machine-learning-interpretability-automl.md) de los ejemplos de código sobre cómo habilitar características de interpretabilidad específicamente dentro de experimentos de aprendizaje automático automatizados.
+Vea el [procedimiento](how-to-machine-learning-interpretability-automl.md) de los ejemplos de código sobre cómo habilitar características de interpretabilidad específicamente dentro de experimentos de aprendizaje automático automatizado.
 
 Para información general sobre cómo se pueden habilitar las explicaciones del modelo y la importancia de las características en otras áreas del SDK fuera del aprendizaje automático automatizado, consulte el artículo de [conceptos](how-to-machine-learning-interpretability.md) sobre la interpretabilidad.
 

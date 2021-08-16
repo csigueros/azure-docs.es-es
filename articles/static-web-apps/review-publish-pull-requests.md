@@ -7,14 +7,14 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 1cb5f2f9ac941001efb18301f4a54bd0092920ba
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d061eed42280fffa1ff7f53e43adb7b85a94ae0d
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172747"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813225"
 ---
-# <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Revisión de las solicitudes de incorporación de cambios en entornos de pre-producción en Azure Static Web Apps (versión preliminar)
+# <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps"></a>Revisión de las solicitudes de incorporación de cambios en entornos de pre-producción en Azure Static Web Apps
 
 En este artículo se muestra cómo usar los entornos de preproducción para revisar los cambios en las aplicaciones implementadas con [Azure Static Web Apps](overview.md).
 
@@ -33,7 +33,7 @@ El uso de entornos de preproducción ofrece muchas ventajas. Por ejemplo, puede:
 - Realizar comprobaciones de integridad antes de la implementación en producción.
 
 > [!NOTE]
-> Durante la versión preliminar, se permite un [máximo de tres entornos de ensayo](quotas.md) a la vez.
+> Se permiten [hasta tres entornos de ensayos](quotas.md) a la vez.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

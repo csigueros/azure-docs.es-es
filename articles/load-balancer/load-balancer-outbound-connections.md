@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 05/05/2021
 ms.author: allensu
-ms.openlocfilehash: 08064d4d9b08a35fe59673478faa001a13d50d0f
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: f0c8d42538cd437d4817f75552133efca96b8d6e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804491"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451828"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>Uso de la Traducción de direcciones de red de origen (SNAT) para conexiones salientes
 
@@ -46,13 +46,14 @@ Con las reglas de salida, tiene un control declarativo completo sobre la conecti
 
 Para obtener más información sobre las reglas de salida, consulte [Reglas de salida](outbound-rules.md).
 
-
+>[!Important]
+> Cuando un grupo de back-end se configure mediante una dirección IP, se comportará como un equilibrador de carga básico con la salida predeterminada habilitada. Para proteger de forma predeterminada la configuración y las aplicaciones con necesidades de salida exigentes, configure el grupo de back-end mediante NIC.
 
 ## <a name="associating-a-vnet-nat-to-the-subnet"></a>Asociación de Virtual Network NAT a la subred
 
 Virtual Network NAT simplifica la conectividad de Internet solo de salida de las redes virtuales. Cuando se configura en una subred, todas las conexiones salientes usan las direcciones IP públicas estáticas que se hayan especificado. La conectividad saliente es posible sin que el equilibrador de carga ni las direcciones IP públicas estén conectados directamente a máquinas virtuales. La NAT está totalmente administrada y es muy resistente.
 
-El uso de Virtual Network NAT es el mejor método para la conectividad de salida, ya que es altamente escalable, confiable y no tiene los problemas relativos al agotamiento de puertos SNAT.
+El uso de Virtual Network NAT es el mejor método para la conectividad de salida, ya que es altamente escalable, confiable y no tiene los mismos problemas relativos al agotamiento de puertos SNAT.
 
 Para obtener más información sobre Azure Virtual Network NAT, consulte [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-overview.md)
 
@@ -60,7 +61,7 @@ Para obtener más información sobre Azure Virtual Network NAT, consulte [¿Qué
 
  | Asociaciones | Método | Protocolos IP |
  | ---------- | ------ | ------------ |
- | Equilibrador de carga público o independiente | [SNAT (traducción de direcciones de red de origen)](#snat) </br> no se usa. | TCP (protocolo de control de transmisión) </br> UDP (protocolo de datagramas de usuario) </br> ICMP (protocolo de mensajes de control de Internet) </br> ESP (carga de seguridad encapsuladora) |
+ | IP pública en la NIC de la VM | [SNAT (traducción de direcciones de red de origen)](#snat) </br> no se usa. | TCP (protocolo de control de transmisión) </br> UDP (protocolo de datagramas de usuario) </br> ICMP (protocolo de mensajes de control de Internet) </br> ESP (carga de seguridad encapsuladora) |
 
  Todo el tráfico volverá al cliente solicitante desde la dirección IP pública de la máquina virtual (IP de nivel de instancia).
  

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 06/10/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 115587cc567aed42153fcd0b4af404392853d8c7
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3f185f24c824008a6488ab2e9401dd05439daafb
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127342"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984975"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -30,7 +30,7 @@ A la hora de decidir qué opción de redundancia es la más adecuada para su esc
 
 Los datos de una cuenta de Azure Storage siempre se replican tres veces en la región primaria. Azure Storage ofrece dos métodos para replicar los datos en la región primaria:
 
-- El **almacenamiento con redundancia local (LRS)** copia los datos de forma sincrónica tres veces dentro de una única ubicación física en la región primaria. LRS es la opción de replicación menos costosa, pero no se recomienda para las aplicaciones que requieren de alta disponibilidad.
+- El **almacenamiento con redundancia local (LRS)** copia los datos de forma sincrónica tres veces dentro de una única ubicación física en la región primaria. LRS es la opción de replicación menos costosa, pero no se recomienda para las aplicaciones que requieren de alta disponibilidad o durabilidad.
 - El **almacenamiento con redundancia de zona (ZRS)** copia los datos de forma sincrónica en tres zonas de disponibilidad de Azure en la región primaria. En el caso de las aplicaciones que requieren de alta disponibilidad, Microsoft recomienda usar ZRS en la región primaria, además de replicación en una región secundaria.
 
 > [!NOTE]
@@ -61,7 +61,7 @@ Con ZRS, los datos son accesibles para las operaciones de escritura y lectura in
 
 Las solicitudes de escritura a una cuenta de almacenamiento que usa ZRS se producen de forma sincrónica. Las operaciones de escritura se devuelven correctamente solo después de que los datos se escriben en todas las réplicas de las tres zonas de disponibilidad.
 
-Microsoft recomienda el uso de ZRS en la región primaria para las situaciones que requieren coherencia, durabilidad y alta disponibilidad. También se recomienda ZRS para restringir la replicación de datos a dentro de un país o región para cumplir los requisitos de gobernanza de datos.
+Microsoft recomienda usar ZRS en la región primaria para escenarios que requieren de alta disponibilidad. También se recomienda ZRS para restringir la replicación de datos a dentro de un país o región para cumplir los requisitos de gobernanza de datos.
 
 En el diagrama siguiente se muestra cómo los datos se replican en las zonas de disponibilidad de la región primaria con ZRS:
 
@@ -74,8 +74,8 @@ En la tabla siguiente se muestran los tipos de cuentas de almacenamiento que adm
 | Tipo de cuenta de almacenamiento | Regiones admitidas | Servicios admitidos |
 |--|--|--|
 | Uso general v2<sup>1</sup> | (África) Norte de Sudáfrica<br /> (Asia Pacífico) Sudeste de Asia<br /> (Asia Pacífico) Este de Australia<br /> (Asia Pacífico) Este de Japón<br /> (Canadá) Centro de Canadá<br /> (Europa) Norte de Europa<br /> (Europa) Oeste de Europa<br /> (Europa) Centro de Francia<br /> (Europa) Centro-oeste de Alemania<br /> (Europa) Sur de Reino Unido<br /> (Sudamérica) Sur de Brasil<br /> (EE. UU.) Centro de EE. UU.<br /> (EE. UU.) Este de EE. UU.<br /> (EE. UU.) Este de EE. UU. 2<br /> (EE. UU.) Centro y Sur de EE. UU.<br /> (EE. UU.) Oeste de EE. UU. 2 | Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
-| BlockBlobStorage<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Centro de Francia <br /> Japón Oriental<br /> Sur de Reino Unido 2 <br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2| Solo blobs en bloques Premium |
-| FileStorage | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Centro de Francia <br /> Japón Oriental<br /> Sur de Reino Unido 2 <br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2 | Solo recursos compartidos de archivos Premium |
+| Blobs en bloques prémium<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Centro de Francia <br /> Japón Oriental<br /> Sur de Reino Unido 2 <br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2| Solo blobs en bloques Premium |
+| Recursos compartidos de archivos Prémium | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Centro de Francia <br /> Japón Oriental<br /> Sur de Reino Unido 2 <br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2 | Solo recursos compartidos de archivos Premium |
 
 <sup>1</sup> El nivel de archivo no se admite actualmente en las cuentas de ZRS.<br />
 <sup>2</sup> Las cuentas de almacenamiento que contienen discos administrados de Azure para máquinas virtuales siempre usan almacenamiento con redundancia local. Los discos no administrados de Azure también deben usar almacenamiento con redundancia local. Es posible crear una cuenta de almacenamiento para discos no administrados de Azure que use almacenamiento con redundancia geográfica, pero no se recomienda debido a los posibles problemas de coherencia en la replicación geográfica asincrónica. Ni los discos administrados ni los no administrados admiten ZRS o GZRS. Para más información sobre los discos administrados, consulte [Precios de Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -84,7 +84,7 @@ Para obtener información sobre qué regiones admiten ZRS, consulte **Soporte t�
 
 ## <a name="redundancy-in-a-secondary-region"></a>Redundancia en una región secundaria
 
-En el caso de las aplicaciones que requieren de alta disponibilidad, puede optar por copiar los datos de la cuenta de almacenamiento en una región secundaria que esté a cientos de kilómetros de distancia de la región primaria. Si la cuenta de almacenamiento se copia a una región secundaria, sus datos se mantienen incluso ante un apagón regional completo o un desastre del cual la región primaria no se puede recuperar.
+En el caso de las aplicaciones que requieren de alta durabilidad, puede optar por copiar los datos de la cuenta de almacenamiento en una región secundaria que esté a cientos de kilómetros de distancia de la región primaria. Si la cuenta de almacenamiento se copia a una región secundaria, sus datos se mantienen incluso ante un apagón regional completo o un desastre del cual la región primaria no se puede recuperar.
 
 Al crear una cuenta de almacenamiento, seleccione la región principal de la cuenta. La región secundaria emparejada se determina según la región primaria y no es posible cambiarla. Para obtener más información sobre las regiones compatibles con Azure, consulte [Regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).
 
@@ -128,7 +128,6 @@ Solo las cuentas de almacenamiento de uso general v2 son compatibles con GZRS y
 GZRS y RA-GZRS se admiten en las siguientes regiones:
 
 - (África) Norte de Sudáfrica
-- (Asia Pacífico) Este de Asia
 - (Asia Pacífico) Sudeste de Asia
 - (Asia Pacífico) Este de Australia
 - (Asia Pacífico) Centro de la India
@@ -144,7 +143,6 @@ GZRS y RA-GZRS se admiten en las siguientes regiones:
 - (EE. UU.) Centro de EE. UU.
 - (EE. UU.) Este de EE. UU.
 - (EE. UU.) Este de EE. UU. 2
-- (EE. UU.) Centro-norte de EE. UU.
 - (EE. UU.) Centro y Sur de EE. UU.
 - (EE. UU.) Oeste de EE. UU. 2
 
@@ -161,7 +159,7 @@ El almacenamiento con redundancia geográfica (con GRS o GZRS) replica los datos
 
 Si la cuenta de almacenamiento está configurada para usar el acceso de lectura a la región secundaria, puede diseñar sus aplicaciones para que fácilmente pasen a leer datos de la región secundaria si la región primaria deja de estar disponible por cualquier motivo. 
 
-La región secundaria siempre está disponible para el acceso de lectura después de habilitar RA-GRS o RA-GRS, por lo que puede probar la aplicación de antemano para asegurarse de que leerá desde la región secundaria si se produce una interrupción. Para más información sobre cómo diseñar aplicaciones para alta disponibilidad, consulte [Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad](geo-redundant-design.md).
+La región secundaria siempre está disponible para el acceso de lectura después de habilitar RA-GRS o RA-GRS, por lo que puede probar la aplicación de antemano para asegurarse de que leerá desde la región secundaria si se produce una interrupción. Para obtener más información sobre cómo diseñar aplicaciones para aprovechar las ventajas de la redundancia geográfica, consulte [Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad](geo-redundant-design.md).
 
 Cuando está habilitado el acceso de lectura a la región secundaria, la aplicación se puede leer desde el punto de conexión secundario y desde el punto de conexión primario. El punto de conexión secundario anexa el sufijo *–secondary* al nombre de la cuenta. Por ejemplo, si el punto de conexión primario de Blob Storage es `myaccount.blob.core.windows.net`, el punto de conexión secundario es `myaccount-secondary.blob.core.windows.net`. Las claves de acceso de la cuenta son iguales para los puntos de conexión primario y secundario.
 
@@ -215,7 +213,7 @@ En la tabla siguiente se muestran las opciones de redundancia que admite cada ti
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Uso general v2<br /> Uso general v1<br /> BlockBlobStorage<br /> BlobStorage<br /> FileStorage | Uso general v2<br /> BlockBlobStorage<br /> FileStorage | Uso general v2<br /> Uso general v1<br /> BlobStorage | Uso general v2 |
+| Uso general v2<br /> Uso general v1<br /> Blobs en bloques Premium<br /> Blob heredado<br /> Recursos compartidos de archivos Prémium | Uso general v2<br /> Blobs en bloques Premium<br /> Recursos compartidos de archivos Prémium | Uso general v2<br /> Uso general v1<br /> Blob heredado | Uso general v2 |
 
 Todos los datos de todas las cuentas de almacenamiento se copian según la opción de redundancia de la cuenta de almacenamiento. Se copian los objetos, incluidos los blobs en bloques, blobs en anexos, blobs en páginas, colas, tablas y archivos. Se copian los datos de todos los niveles de servicio, incluido el nivel de archivo. Para más información sobre los niveles de blobs, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md).
 

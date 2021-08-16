@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 06/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 4f8803dc3cf8234bfbdf3cf9281ec8388727749b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: fb2f36e1b51ed5fbb7c3f2c002760d07f3723645
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785050"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590487"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory
 
@@ -182,7 +182,7 @@ Se recomienda la siguiente configuración de producción:
 |:-|:-|
 |Número de agentes de aprovisionamiento de Azure AD Connect que se van a implementar|Dos (para la alta disponibilidad y la conmutación por error)
 |Número de aplicaciones de conectores de aprovisionamiento que se van a configurar|Una aplicación por dominio secundario|
-|Host de servidor para el agente de aprovisionamiento de Azure AD Connect|Windows 2012 R2+ con campo visual a los controladores de dominio de Active Directory ubicados geográficamente</br>Puede coexistir con el servicio de Azure AD Connect|
+|Host de servidor para el agente de aprovisionamiento de Azure AD Connect|Windows Server 2016 con campo visual a los controladores de dominio de Active Directory ubicados geográficamente</br>Puede coexistir con el servicio de Azure AD Connect|
 
 ![Flujo a los agentes locales](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
 
@@ -196,24 +196,133 @@ Se recomienda la siguiente configuración de producción:
 |:-|:-|
 |Número de agentes de aprovisionamiento de Azure AD Connect que se van a implementar localmente|Dos por bosque de Active Directory no contiguo|
 |Número de aplicaciones de conectores de aprovisionamiento que se van a configurar|Una aplicación por dominio secundario|
-|Host de servidor para el agente de aprovisionamiento de Azure AD Connect|Windows 2012 R2+ con campo visual a los controladores de dominio de Active Directory ubicados geográficamente</br>Puede coexistir con el servicio de Azure AD Connect|
+|Host de servidor para el agente de aprovisionamiento de Azure AD Connect|Windows Server 2016 con campo visual a los controladores de dominio de Active Directory ubicados geográficamente</br>Puede coexistir con el servicio de Azure AD Connect|
 
 ![Bosque único de Active Directory no contiguo del inquilino de la aplicación de RR. HH. en la nube](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
 
 ### <a name="azure-ad-connect-provisioning-agent-requirements"></a>Requisitos del agente de aprovisionamiento de Azure AD Connect
 
-Para la solución de aprovisionamiento de usuarios de la aplicación de RR. HH. en la nube en Active Directory es necesario implementar uno o varios agentes de aprovisionamiento de Azure AD Connect en servidores que ejecutan Windows 2012 R2 o versiones posteriores. Los servidores deben tener un mínimo de 4 GB de RAM y un entorno de ejecución .NET 4.7.1+. Asegúrese de que el servidor host tiene acceso de red al dominio de Active Directory de destino.
+Para la solución de aprovisionamiento de usuarios de la aplicación de RR. HH. en la nube en Active Directory es necesario implementar uno o varios agentes de aprovisionamiento de Azure AD Connect en servidores que ejecutan Windows Server 2016 o versiones posteriores. Los servidores deben tener un mínimo de 4 GB de RAM y un entorno de ejecución .NET 4.7.1+. Asegúrese de que el servidor host tiene acceso de red al dominio de Active Directory de destino.
 
 Para preparar el entorno local, el asistente para la configuración del agente de aprovisionamiento de Azure AD Connect registra el agente en el inquilino de Azure AD, [abre los puertos](../app-proxy/application-proxy-add-on-premises-application.md#open-ports), [permite el acceso a las direcciones URL](../app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls) y admite la [configuración de proxy HTTPS saliente](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 
-El agente de aprovisionamiento usa una cuenta de servicio para comunicarse con los dominios de Active Directory. Antes de instalar el agente, cree una cuenta de servicio en Usuarios y equipos de Active Directory que cumpla los siguientes requisitos:
-
-- Una contraseña que no expire
-- Permisos de control delegado para leer, crear, eliminar y administrar cuentas de usuario
+El agente de aprovisionamiento configura una [cuenta de servicio administrada global (GMSA)](../cloud-sync/how-to-prerequisites.md#group-managed-service-accounts) para comunicarse con los dominios de Active Directory. Si desea usar una cuenta de servicio que no sea de GMSA para el aprovisionamiento, puede omitir la [configuración de GMSA](../cloud-sync/how-to-manage-registry-options.md#skip-gmsa-configuration) y especificar la cuenta de servicio durante la configuración. 
 
 Puede seleccionar los controladores de dominio que deben controlar las solicitudes de aprovisionamiento. Si tiene varios controladores de dominio distribuidos geográficamente, instale al agente de aprovisionamiento en el mismo sitio que los controladores de dominio preferidos. Este posicionamiento mejora la confiabilidad y el rendimiento de la solución integral.
 
 Para lograr una alta disponibilidad, puede implementar más de un agente de aprovisionamiento de Azure AD Connect. Registre el agente para controlar el mismo conjunto de dominios locales de Active Directory.
+
+## <a name="design-hr-provisioning-app-deployment-topology"></a>Diseño de la topología de implementación de aplicaciones de aprovisionamiento de RR. HH.
+
+En función del número de dominios de Active Directory implicados en la configuración de aprovisionamiento de usuarios entrantes, puede considerar una de las siguientes topologías de implementación. Cada diagrama de topología usa un escenario de implementación de ejemplo para resaltar los aspectos de configuración. Use el ejemplo que más se parezca a su requisito de implementación para determinar la configuración que satisfaga sus necesidades. 
+
+### <a name="deployment-topology-1-single-app-to-provision-all-users-from-cloud-hr-to-single-on-premises-active-directory-domain"></a>Topología de implementación 1: aplicación única para aprovisionar todos los usuarios desde RR. HH. en la nube a un dominio único de Active Directory local
+
+Esta es la topología de implementación más común. Use esta topología si necesita aprovisionar todos los usuarios desde RR. HH. en la nube en un dominio único de AD y se aplican las mismas reglas de aprovisionamiento a todos los usuarios. 
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png" alt-text="Captura de pantalla de una aplicación única para aprovisionar usuarios desde RR. HH. en la nube a un dominio único de AD" lightbox="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png":::
+
+**Aspectos destacados de la configuración**
+* Configure dos nodos de agente de aprovisionamiento para alta disponibilidad y conmutación por error. 
+* Use el [asistente para configuración del agente de aprovisionamiento](../cloud-sync/how-to-install.md#install-the-agent) para registrar el dominio de AD con el inquilino de Azure AD. 
+* Al configurar la aplicación de aprovisionamiento, seleccione el dominio de AD en la lista desplegable de dominios registrados. 
+* Si usa filtros de ámbito, configure la [marca de omisión de la eliminación de los usuarios fuera de ámbito](skip-out-of-scope-deletions.md) para evitar desactivaciones accidentales de cuentas. 
+
+### <a name="deployment-topology-2-separate-apps-to-provision-distinct-user-sets-from-cloud-hr-to-single-on-premises-active-directory-domain"></a>Topología de implementación 2: aplicaciones independientes para aprovisionar distintos conjuntos de usuarios desde RR. HH. en la nube a un dominio único de Active Directory local
+
+Esta topología admite requisitos empresariales en los que la lógica de asignación y aprovisionamiento de atributos difiere en función del tipo de usuario (empleado o contratista), la ubicación del usuario o la unidad de negocio del usuario. También puede usar esta topología para delegar la administración y el mantenimiento del aprovisionamiento de usuarios entrantes en función de la división o el país.
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png" alt-text="Captura de pantalla de aplicaciones independientes para aprovisionar usuarios desde RR. HH. en la nube a un dominio único de AD" lightbox="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png":::
+
+**Aspectos destacados de la configuración**
+* Configure dos nodos de agente de aprovisionamiento para alta disponibilidad y conmutación por error. 
+* Cree una aplicación de aprovisionamiento de HR2AD para cada conjunto de usuarios distinto que quiera aprovisionar. 
+* Use [filtros de ámbito](define-conditional-rules-for-provisioning-user-accounts.md) en la aplicación de aprovisionamiento para definir los usuarios que cada aplicación va a procesar. 
+* Para controlar el escenario en el que las referencias de administradores deben resolverse en distintos conjuntos de usuarios (por ejemplo, contratistas que informan a los administradores que son empleados), puede crear una aplicación de aprovisionamiento de HR2AD independiente para actualizar solo el atributo de *administrador*. Establezca el ámbito de esta aplicación en todos los usuarios. 
+* Configure la [marca de omisión de la eliminación de los usuarios fuera de ámbito](skip-out-of-scope-deletions.md) para evitar desactivaciones accidentales de cuentas. 
+
+> [!NOTE] 
+> Si no tiene un dominio de AD de prueba y usa un contenedor de unidades organizativas TEST en AD, puede usar esta topología para crear dos aplicaciones independientes: *HR2AD (Prod)* y *HR2AD (Test)* . Use la aplicación *HR2AD (Test)* para probar los cambios de asignación de atributos antes de promoverla a la aplicación *HR2AD (Prod)* .  
+
+### <a name="deployment-topology-3-separate-apps-to-provision-distinct-user-sets-from-cloud-hr-to-multiple-on-premises-active-directory-domains-no-cross-domain-visibility"></a>Topología de implementación 3: aplicaciones independientes para aprovisionar distintos conjuntos de usuarios desde RR. HH. en la nube a varios dominios de Active Directory local (sin visibilidad entre dominios)
+
+Use esta topología para administrar varios dominios de AD secundarios e independientes que pertenecen al mismo bosque, si los administradores siempre existen en el mismo dominio que el usuario y las reglas de generación de identificadores exclusivos para atributos como *userPrincipalName*, *samAccountName* y *mail* no requieren una búsqueda en todo el bosque. También ofrece la flexibilidad de delegar la administración de cada trabajo de aprovisionamiento por límite de dominio. 
+
+Por ejemplo: en el diagrama siguiente, las aplicaciones de aprovisionamiento se configuran para cada región geográfica: Norteamérica (NA), Europa, Oriente Medio y África (EMEA) y Asia Pacífico (APAC). En función de la ubicación, los usuarios se aprovisionan en el dominio de AD correspondiente. La administración delegada de la aplicación de aprovisionamiento es posible para que los *administradores de EMEA* puedan administrar de forma independiente la configuración de aprovisionamiento de los usuarios que pertenecen a la región de EMEA.  
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png" alt-text="Captura de pantalla de aplicaciones independientes para aprovisionar usuarios desde RR. HH. en la nube a varios dominios de AD" lightbox="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png":::
+
+**Aspectos destacados de la configuración**
+* Configure dos nodos de agente de aprovisionamiento para alta disponibilidad y conmutación por error. 
+* Use el [asistente para configuración del agente de aprovisionamiento](../cloud-sync/how-to-install.md#install-the-agent) para registrar todos los dominios secundarios de AD con el inquilino de Azure AD. 
+* Cree una aplicación de aprovisionamiento de HR2AD independiente para cada dominio de destino. 
+* Al configurar la aplicación de aprovisionamiento, seleccione el dominio secundario de AD correspondiente en la lista desplegable de dominios de AD disponibles. 
+* Use [filtros de ámbito](define-conditional-rules-for-provisioning-user-accounts.md) en la aplicación de aprovisionamiento para definir los usuarios que cada aplicación va a procesar. 
+* Configure la [marca de omisión de la eliminación de los usuarios fuera de ámbito](skip-out-of-scope-deletions.md) para evitar desactivaciones accidentales de cuentas. 
+
+
+### <a name="deployment-topology-4-separate-apps-to-provision-distinct-user-sets-from-cloud-hr-to-multiple-on-premises-active-directory-domains-with-cross-domain-visibility"></a>Topología de implementación 4: aplicaciones independientes para aprovisionar distintos conjuntos de usuarios desde RR. HH. en la nube a varios dominios de Active Directory local (con visibilidad entre dominios)
+
+Use esta topología para administrar varios dominios de AD secundarios e independientes que pertenecen al mismo bosque, si el administrador de un usuario puede existir en un dominio diferente y las reglas de generación de identificadores exclusivos para atributos como *userPrincipalName*, *samAccountName* y *mail* requieren una búsqueda en todo el bosque. 
+
+Por ejemplo: en el diagrama siguiente, las aplicaciones de aprovisionamiento se configuran para cada región geográfica: Norteamérica (NA), Europa, Oriente Medio y África (EMEA) y Asia Pacífico (APAC). En función de la ubicación, los usuarios se aprovisionan en el dominio de AD correspondiente. Las referencias de administrador entre dominios y la búsqueda en todo el bosque se controlan habilitando la búsqueda de referencias en el agente de aprovisionamiento. 
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png" alt-text="Captura de pantalla de aplicaciones independientes para aprovisionar usuarios desde RR. HH. en la nube a varios dominios de AD con compatibilidad entre dominios" lightbox="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png":::
+
+**Aspectos destacados de la configuración**
+* Configure dos nodos de agente de aprovisionamiento para alta disponibilidad y conmutación por error. 
+* Configure la [búsqueda de referencias](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) en el agente de aprovisionamiento. 
+* Use el [asistente para configuración del agente de aprovisionamiento](../cloud-sync/how-to-install.md#install-the-agent) para registrar el dominio primario de AD y todos los dominios secundarios de AD con el inquilino de Azure AD. 
+* Cree una aplicación de aprovisionamiento de HR2AD independiente para cada dominio de destino. 
+* Al configurar cada aplicación de aprovisionamiento, seleccione el dominio primario de AD en la lista desplegable de dominios de AD disponibles. Esto garantiza la búsqueda en todo el bosque al generar valores únicos para atributos como *userPrincipalName*, *samAccountName* y *mail*.
+* Use *parentDistinguishedName* con la asignación de expresiones para crear dinámicamente el usuario en el dominio secundario correcto y el [contenedor de unidades organizativas](#configure-active-directory-ou-container-assignment). 
+* Use [filtros de ámbito](define-conditional-rules-for-provisioning-user-accounts.md) en la aplicación de aprovisionamiento para definir los usuarios que cada aplicación va a procesar. 
+* Para resolver las referencias de administradores entre dominios, cree una aplicación de aprovisionamiento de HR2AD independiente para actualizar solo el atributo de *administrador*. Establezca el ámbito de esta aplicación en todos los usuarios. 
+* Configure la [marca de omisión de la eliminación de los usuarios fuera de ámbito](skip-out-of-scope-deletions.md) para evitar desactivaciones accidentales de cuentas. 
+
+### <a name="deployment-topology-5-single-app-to-provision-all-users-from-cloud-hr-to-multiple-on-premises-active-directory-domains-with-cross-domain-visibility"></a>Topología de implementación 5: aplicación única para aprovisionar todos los usuarios desde RR. HH. en la nube a varios dominios de Active Directory local (con visibilidad entre dominios)
+
+Use esta topología si desea usar una única aplicación de aprovisionamiento para administrar los usuarios que pertenecen a todos los dominios de AD primarios y secundarios. Esta topología se recomienda si las reglas de aprovisionamiento son coherentes en todos los dominios y no hay ningún requisito para la administración delegada de trabajos de aprovisionamiento. Esta topología admite la resolución de referencias de administradores entre dominios y permite realizar una comprobación de unidad en todo el bosque. 
+
+Por ejemplo: en el diagrama siguiente, una única aplicación de aprovisionamiento administra los usuarios presentes en tres dominios secundarios diferentes agrupados por región: Norteamérica (NA), Europa, Oriente Medio y África (EMEA) y Asia Pacífico (APAC). La asignación de atributos de *parentDistinguishedName* se usa para crear dinámicamente un usuario en el dominio secundario adecuado. Las referencias de administrador entre dominios y la búsqueda en todo el bosque se controlan habilitando la búsqueda de referencias en el agente de aprovisionamiento. 
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png" alt-text="Captura de pantalla de una aplicación única para aprovisionar usuarios desde RR. HH. en la nube a varios dominios de AD con compatibilidad entre dominios" lightbox="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png":::
+
+**Aspectos destacados de la configuración**
+* Configure dos nodos de agente de aprovisionamiento para alta disponibilidad y conmutación por error. 
+* Configure la [búsqueda de referencias](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) en el agente de aprovisionamiento. 
+* Use el [asistente para configuración del agente de aprovisionamiento](../cloud-sync/how-to-install.md#install-the-agent) para registrar el dominio primario de AD y todos los dominios secundarios de AD con el inquilino de Azure AD. 
+* Cree una única aplicación de aprovisionamiento de HR2AD para todo el bosque. 
+* Al configurar la aplicación de aprovisionamiento, seleccione el dominio primario de AD en la lista desplegable de dominios de AD disponibles. Esto garantiza la búsqueda en todo el bosque al generar valores únicos para atributos como *userPrincipalName*, *samAccountName* y *mail*.
+* Use *parentDistinguishedName* con la asignación de expresiones para crear dinámicamente el usuario en el dominio secundario correcto y el [contenedor de unidades organizativas](#configure-active-directory-ou-container-assignment). 
+* Si usa filtros de ámbito, configure la [marca de omisión de la eliminación de los usuarios fuera de ámbito](skip-out-of-scope-deletions.md) para evitar desactivaciones accidentales de cuentas. 
+
+### <a name="deployment-topology-6-separate-apps-to-provision-distinct-users-from-cloud-hr-to-disconnected-on-premises-active-directory-forests"></a>Topología de implementación 6: aplicaciones independientes para aprovisionar distintos usuarios desde RR. HH. en la nube a bosques de Active Directory local desconectados
+
+Use esta topología si la infraestructura de TI tiene bosques de AD desconectados o independientes y necesita aprovisionar usuarios a bosques diferentes en función de la afiliación empresarial. Por ejemplo: los usuarios que trabajan para la subsidiaria *Contoso* deben aprovisionarse en el dominio *contoso.com*, mientras que los usuarios que trabajan para la subsidiaria *Fabrikam* deben aprovisionarse en el dominio *fabrikam.com*. 
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-6-separate-apps-with-disconnected-ad-forests.png" alt-text="Captura de pantalla de aplicaciones independientes para aprovisionar usuarios desde RR. HH. en la nube a bosques de AD desconectados" lightbox="media/plan-cloud-hr-provision/topology-6-separate-apps-with-disconnected-ad-forests.png":::
+
+**Aspectos destacados de la configuración**
+* Configure dos conjuntos diferentes de agentes de aprovisionamiento para alta disponibilidad y conmutación por error, uno para cada bosque. 
+* Cree dos aplicaciones de aprovisionamiento diferentes, una para cada bosque. 
+* Si necesita resolver referencias entre dominios dentro del bosque, habilite la [búsqueda de referencias](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) en el agente de aprovisionamiento. 
+* Cree una aplicación de aprovisionamiento de HR2AD independiente para cada bosque desconectado. 
+* Al configurar cada aplicación de aprovisionamiento, seleccione el dominio primario de AD adecuado en la lista desplegable de nombres de dominios de AD disponibles. 
+* Configure la [marca de omisión de la eliminación de los usuarios fuera de ámbito](skip-out-of-scope-deletions.md) para evitar desactivaciones accidentales de cuentas. 
+
+### <a name="deployment-topology-7-separate-apps-to-provision-distinct-users-from-multiple-cloud-hr-to-disconnected-on-premises-active-directory-forests"></a>Topología de implementación 7: aplicaciones independientes para aprovisionar distintos usuarios desde varios RR. HH. en la nube a bosques de Active Directory local desconectados
+
+En organizaciones grandes, no es raro tener varios sistemas de RR. HH. Durante los escenarios de M&A (fusiones y adquisiciones) empresariales, puede encontrarse con la necesidad de conectar Active Directory local a varios orígenes de RR. HH. Se recomienda la topología siguiente si tiene varios orígenes de RR. HH. y desea canalizar los datos de identidad de estos orígenes de RR. HH. a los mismos o diferentes dominios de Active Directory local.  
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png" alt-text="Captura de pantalla de aplicaciones independientes para aprovisionar usuarios desde varios RR. HH. en la nube a bosques de AD desconectados" lightbox="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png":::
+
+**Aspectos destacados de la configuración**
+* Configure dos conjuntos diferentes de agentes de aprovisionamiento para alta disponibilidad y conmutación por error, uno para cada bosque. 
+* Si necesita resolver referencias entre dominios dentro del bosque, habilite la [búsqueda de referencias](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) en el agente de aprovisionamiento. 
+* Cree una aplicación de aprovisionamiento de HR2AD independiente para cada combinación de sistema de RR. HH. y Active Directory local.
+* Al configurar cada aplicación de aprovisionamiento, seleccione el dominio primario de AD adecuado en la lista desplegable de nombres de dominios de AD disponibles. 
+* Configure la [marca de omisión de la eliminación de los usuarios fuera de ámbito](skip-out-of-scope-deletions.md) para evitar desactivaciones accidentales de cuentas. 
 
 ## <a name="plan-scoping-filters-and-attribute-mapping"></a>Planeamiento de los filtros de ámbito y la asignación de atributos
 
@@ -295,7 +404,7 @@ Al iniciar el proceso de incorporaciones, es posible que tenga que generar valor
 La función de Azure AD [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) evalúa cada regla y, después, comprueba la unicidad del valor generado en el sistema de destino. Si quiere consultar un ejemplo, vea [Generación de un valor único para el atributo userPrincipalName (UPN)](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute).
 
 > [!NOTE]
-> Actualmente, esta función solo se admite en el aprovisionamiento de usuarios de Workday en Active Directory y no se puede usar con otras aplicaciones de aprovisionamiento.
+> Actualmente, esta función solo se admite en el aprovisionamiento de usuarios de Workday en Active Directory y en el de SAP SuccessFactors en Active Directory. y no se puede usar con otras aplicaciones de aprovisionamiento.
 
 ### <a name="configure-active-directory-ou-container-assignment"></a>Configuración de la asignación de contenedores de unidades organizativas de Active Directory
 
@@ -315,7 +424,7 @@ Con esta expresión, si el valor de Municipio es Dallas, Austin, Seattle o Londr
 
 Al iniciar el proceso de incorporaciones, debe establecer y proporcionar una contraseña temporal a las nuevas cuentas de usuario. Con el aprovisionamiento de usuarios de RR. HH. en la nube en Azure AD, puede implementar la función de [autoservicio de restablecimiento de contraseña](../authentication/tutorial-enable-sspr.md) (SSPR) de Azure AD para el usuario desde el primer día.
 
-SSPR es un medio sencillo con el que los administradores de TI pueden permitir que los usuarios restablezcan sus contraseñas o desbloqueen sus cuentas. Puede aprovisionar el atributo **Número de móvil** desde la aplicación de RR. HH. en la nube en Active Directory y sincronizarlo con Azure AD. Una vez que el atributo **Número de móvil** esté en Azure AD, puede habilitar la SSPR en la cuenta del usuario. El primer día, el nuevo usuario puede usar el número de móvil registrado y verificado para autenticarse.
+SSPR es un medio sencillo con el que los administradores de TI pueden permitir que los usuarios restablezcan sus contraseñas o desbloqueen sus cuentas. Puede aprovisionar el atributo **Número de móvil** desde la aplicación de RR. HH. en la nube en Active Directory y sincronizarlo con Azure AD. Una vez que el atributo **Número de móvil** esté en Azure AD, puede habilitar la SSPR en la cuenta del usuario. El primer día, el nuevo usuario puede usar el número de móvil registrado y verificado para autenticarse. Consulte la [documentación de SSPR](../authentication/howto-sspr-authenticationdata.md) para más información sobre cómo rellenar previamente la información de contacto de autenticación. 
 
 ## <a name="plan-for-initial-cycle"></a>Planeamiento del ciclo inicial
 

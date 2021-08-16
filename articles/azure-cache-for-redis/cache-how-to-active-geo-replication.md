@@ -6,18 +6,21 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 3fe3131263d3cf1984eae1692854d8d6bcd2746a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1c3bcfea0e703de28c79048380f8389fa93014b3
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109495"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585346"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Configuración de la replicación geográfica activa para las instancias de Azure Cache for Redis Enterprise (versión preliminar)
 
 En este artículo, aprenderá a configurar una instancia de Azure Cache con replicación geográfica activa mediante Azure Portal.
 
-La replicación geográfica activa agrupa dos o más instancias de Azure Cache for Redis Enterprise en una sola caché que abarca varias regiones de Azure. Todas las instancias actúan como instancia principal local. Una aplicación decide qué instancias se van a utilizar para las solicitudes de lectura y escritura.
+La replicación geográfica activa agrupa dos instancias de Azure Cache for Redis Enterprise en una sola caché que abarca varias regiones de Azure. Ambas instancias actúan como las principales locales. Una aplicación decide qué instancias se van a utilizar para las solicitudes de lectura y escritura.
+
+> [!NOTE]
+> La transferencia de datos entre regiones de Azure se cobrará según las [tarifas de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/) estándar.
 
 ## <a name="create-or-join-an-active-geo-replication-group"></a>Creación de un grupo de replicación geográfica activa o unión con él
 

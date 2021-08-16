@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 637f09c5ee52928631b965dfa6caea9368b44991
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 908d9492a6eb699c999fe93b92697dc511dca082
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550766"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110189289"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -33,7 +33,10 @@ La lista completa de características de Application Insights disponibles para l
 
 ## <a name="application-insights-integration"></a>Integración de Application Insights
 
-Normalmente crea una instancia de Application Insights al crear la aplicación de funciones. En este caso, la clave de instrumentación necesaria para la integración ya se establece como una configuración de aplicación denominada *APPINSIGHTS_INSTRUMENTATIONKEY*. Si, por alguna razón, la aplicación de funciones no tiene establecida la clave de instrumentación, deberá [habilitar la integración de Application Insights](configure-monitoring.md#enable-application-insights-integration).  
+Normalmente crea una instancia de Application Insights al crear la aplicación de funciones. En este caso, la clave de instrumentación necesaria para la integración ya se establece como una configuración de aplicación denominada `APPINSIGHTS_INSTRUMENTATIONKEY`. Si, por alguna razón, la aplicación de funciones no tiene establecida la clave de instrumentación, deberá [habilitar la integración de Application Insights](configure-monitoring.md#enable-application-insights-integration).  
+
+> [!IMPORTANT]
+> Las nubes soberanas, como Azure Government, requieren el uso de la cadena de conexión de Application Insights (`APPLICATIONINSIGHTS_CONNECTION_STRING`) en lugar de la clave de instrumentación. Para más información, consulte la [referencia de APPLICATIONINSIGHTS_CONNECTION_STRING](functions-app-settings.md#applicationinsights_connection_string).
 
 ## <a name="collecting-telemetry-data"></a>Recopilación de datos de telemetría
 

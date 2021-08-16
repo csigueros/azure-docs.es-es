@@ -1,20 +1,20 @@
 ---
 title: Adición de una audiencia de versión preliminar para una oferta de máquina virtual en Azure Marketplace
-description: Obtenga información sobre cómo agregar una audiencia de versión preliminar a una oferta de máquina virtual en Azure Marketplace.
+description: Incorpore una audiencia de versión preliminar para una oferta de máquina virtual en Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 854d0fa9b34d495f03a0c3c6203ceb227e4712d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ca53a950aeaaf888dead6c1e134f63fe7cea04c
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629519"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111524965"
 ---
-# <a name="how-to-add-a-preview-audience-for-a-virtual-machine-offer"></a>Adición de una audiencia de versión preliminar para una oferta de máquina virtual
+# <a name="add-a-preview-audience-for-a-virtual-machine-offer"></a>Incorporación de una audiencia de versión preliminar para una oferta de máquina virtual
 
 En la página **Versión preliminar** (selecciónela en el menú de navegación de la izquierda del Centro de partners), seleccione una **audiencia de versión preliminar** limitada para validar la oferta antes de publicarla y ponerla a disposición de una audiencia más amplia del marketplace comercial.
 

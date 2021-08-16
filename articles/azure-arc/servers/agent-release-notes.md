@@ -2,13 +2,13 @@
 title: Novedades del agente de servidores habilitados para Azure Arc
 description: En este artículo se incluyen las notas de la versión del agente de servidores habilitados para Azure Arc. Muchos de los problemas resumidos incluyen vínculos para obtener detalles adicionales.
 ms.topic: conceptual
-ms.date: 04/27/2021
-ms.openlocfilehash: c223b5dd75ac82706a2b35268813391899170f73
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.date: 05/24/2021
+ms.openlocfilehash: 35822fb47add5c355ad9461b09e8e910f0a5a1fd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071548"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480380"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Novedades del agente de servidores habilitados para Azure Arc
 
@@ -17,6 +17,19 @@ El agente de Connected Machine de los servidores habilitados para Azure Arc se m
 - Versiones más recientes
 - Problemas conocidos
 - Corrección de errores
+
+## <a name="may-2021"></a>Mayo de 2021
+
+Version 1.6
+
+### <a name="new-features"></a>Nuevas características
+
+- Se ha agregado compatibilidad con SUSE Enterprise Linux 12
+- Se ha actualizado el agente de configuración de invitado a la versión 1.26.12.0 para incluir lo siguiente:
+
+   - Las directivas se ejecutan en un proceso independiente.
+   - Compatibilidad adicional con la firma de V2 para la validación de extensiones.
+   - Actualización secundaria para el registro de datos.
 
 ## <a name="april-2021"></a>Abril de 2021
 
@@ -49,7 +62,7 @@ Versión: 1.3
 
 ### <a name="new-feature"></a>Nueva característica
 
-Se ha agregado soporte técnico para Windows Server 2008 R2
+Se ha agregado compatibilidad con Windows Server 2008 R2 SP1.
 
 ### <a name="fixed"></a>Fijo
 

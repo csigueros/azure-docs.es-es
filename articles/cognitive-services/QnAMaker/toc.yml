@@ -21,7 +21,7 @@
         - name: Bibliotecas cliente o API REST
           href: Quickstarts/quickstart-sdk.md
 - name: Ejemplos
-  href: /samples/browse/?products=azure&term=face&terms=qna-maker
+  href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face&terms=qna-maker'
 - name: Uso responsable de la inteligencia artificial
   items:
     - name: Notas de transparencia

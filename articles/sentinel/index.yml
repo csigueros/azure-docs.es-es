@@ -12,12 +12,12 @@ metadata:
   author: yelevin
   ms.author: yelevin
   ms.date: 06/25/2020
-  ms.openlocfilehash: 672912ae04ce98e121a9d1509f50a613fbea86b0
-  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+  ms.openlocfilehash: 53ebfd52d2e55aa8f30f7638cd9998e83c257439
+  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/14/2021
-  ms.locfileid: "113765686"
+  ms.lasthandoff: 06/16/2021
+  ms.locfileid: "112199437"
 landingContent:
 - title: Acerca de Azure Sentinel
   linkLists:
@@ -61,6 +61,8 @@ landingContent:
       url: connect-microsoft-365-defender.md
     - text: Creación de un conector personalizado
       url: create-custom-connector.md
+    - text: Conexión de información sobre amenazas
+      url: connect-threat-intelligence.md
     - text: Supervisión del estado del conector
       url: monitor-data-connector-health.md
     - text: Integración en Azure Data Explorer
@@ -77,18 +79,24 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Descripción de la inteligencia sobre amenazas en Azure Sentinel
-      url: understand-threat-intelligence.md
+    - text: Importación de inteligencia sobre amenazas en Azure Sentinel
+      url: import-threat-intelligence.md
     - text: Integraciones de la inteligencia sobre amenazas
       url: threat-intelligence-integration.md
+  - linkListType: tutorial
+    links:
+    - text: Uso de análisis integrados para detectar amenazas
+      url: tutorial-detect-threats-built-in.md
+    - text: Creación de reglas de detección personalizadas
+      url: tutorial-detect-threats-custom.md
   - linkListType: how-to-guide
     links:
-    - text: Conexión de plataformas de inteligencia sobre amenazas con Azure Sentinel
-      url: connect-threat-intelligence-tip.md
-    - text: Conexión de Azure Sentinel a fuentes STIX/TAXII
-      url: connect-threat-intelligence-taxii.md
-    - text: Uso de indicadores de amenazas
-      url: work-with-threat-indicators.md
+    - text: Conexión de información sobre amenazas
+      url: connect-threat-intelligence.md
+  - linkListType: reference
+    links:
+    - text: Referencia de entidades
+      url: entities-reference.md
 - title: Detección de amenazas
   linkLists:
   - linkListType: concept
@@ -97,16 +105,8 @@ landingContent:
       url: identify-threats-with-entity-behavior-analytics.md
     - text: Anomalías de SOC-ML
       url: soc-ml-anomalies.md
-  - linkListType: tutorial
-    links:
-    - text: Uso de análisis integrados para detectar amenazas
-      url: tutorial-detect-threats-built-in.md
-    - text: Creación de reglas de detección personalizadas
-      url: tutorial-detect-threats-custom.md
   - linkListType: reference
     links:
-    - text: Referencia de entidades
-      url: entities-reference.md
     - text: Enriquecimientos con UEBA
       url: ueba-enrichments.md
 - title: Búsqueda de amenazas

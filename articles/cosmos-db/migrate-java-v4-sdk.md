@@ -7,20 +7,24 @@ ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 06/13/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 92a9abec36bd75c594c67843286bf8fa067d7dba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ecda17bd4eb11069ad1e25323c304f8730a5631
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101658544"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112063439"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migración de la aplicación para usar el SDK de Azure Cosmos DB para Java v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]  
 > Para más información acerca de este SKD, consulte las [notas de la versión](sql-api-sdk-java-v4.md) del SDK de Azure Cosmos DB para Java v4, el [repositorio de Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), las [sugerencias de rendimiento](performance-tips-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4 y la [guía de solución de problemas](troubleshoot-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4.
+>
+
+> [!IMPORTANT]  
+> Como la versión 4 del SDK de Java de Azure Cosmos DB tiene un rendimiento mejorado de hasta un 20 %, el modo directo basado en TCP, así como compatibilidad con las características más recientes del servicio back-end, se recomienda actualizar a la versión 4 en la siguiente oportunidad. Siga leyendo a continuación para obtener más información.
 >
 
 Este artículo explica cómo actualizar la aplicación de Java existente mediante el uso del SDK de Java más antiguo de Azure Cosmos DB a la versión más reciente del SDK de Java 4.0 de Azure Cosmos DB para la API Core (SQL). SDK de Azure Cosmos DB para Java v4 se corresponde con el paquete `com.azure.cosmos`. Puede usar las instrucciones de este documento si va a migrar la aplicación desde cualquiera de los siguientes SDK de Azure Cosmos DB para Java: 
@@ -33,12 +37,12 @@ Este artículo explica cómo actualizar la aplicación de Java existente mediant
 
 En la tabla siguiente se enumeran diferentes SDK de Azure Cosmos DB para Java, el nombre del paquete y la información de la versión:
 
-| SDK de Java| Fecha de la versión | API agrupadas   | Jar de Maven  | Nombre del paquete de Java  |Referencia de API   | Notas de la versión  |
-|-------|------|-----------|-----------|--------------|-------------|---------------------------|
-| Asincrónico 2.x.x  | Junio de 2018    | Asincrónico (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de la versión](sql-api-sdk-async-java.md) |
-| Sincrónico 2.x.x     | Septiembre de 2018    | Sync   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de la versión](sql-api-sdk-java.md)  |
-| 3.x.x    | Julio de 2019    | Asincrónico (reactor)/Sincrónico  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
-| 4.0   | Junio de 2020   | Asincrónico (reactor)/Sincrónico  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
+| SDK de Java| Fecha de la versión | API agrupadas   | Jar de Maven  | Nombre del paquete de Java  |Referencia de API   | Notas de la versión  | Fecha de retirada |
+|-------|------|-----------|-----------|--------------|-------------|---------------------------|--------|
+| Asincrónico 2.x.x  | Junio de 2018    | Asincrónico (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de la versión](sql-api-sdk-async-java.md) | 30 de agosto de 2024 |
+| Sincrónico 2.x.x     | Septiembre de 2018    | Sync   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de la versión](sql-api-sdk-java.md)  | 29 de febrero de 2024 |
+| 3.x.x    | Julio de 2019    | Asincrónico (reactor)/Sincrónico  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - | 30 de agosto de 2024 |
+| 4.0   | Junio de 2020   | Asincrónico (reactor)/Sincrónico  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  | - |
 
 ## <a name="sdk-level-implementation-changes"></a>Cambios de implementación de nivel de SDK
 

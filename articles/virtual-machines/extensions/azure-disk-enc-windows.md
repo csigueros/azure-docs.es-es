@@ -8,18 +8,18 @@ author: ejarvi
 ms.author: ejarvi
 ms.collection: windows
 ms.date: 03/19/2020
-ms.openlocfilehash: 10268f8041f21f74e8ebcfaee41d207a53618260
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62ad5ca5d3b150aef5a83eaa4d5231e7bb5a6a62
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566250"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100187"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
 ## <a name="overview"></a>Información general
 
-Azure Disk Encryption aprovecha BitLocker para ofrecer cifrado de disco completo en las máquinas virtuales de Azure que ejecutan Windows.  Esta solución se integra con Azure Key Vault para administrar los secretos y las claves de cifrado de los discos de la suscripción de Key Vault. 
+Azure Disk Encryption aprovecha BitLocker para ofrecer cifrado de disco completo en las máquinas virtuales de Azure que ejecutan Windows.  Esta solución se integra con Azure Key Vault para administrar los secretos y las claves de cifrado de los discos de la suscripción de Key Vault.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,7 +33,7 @@ Para una lista completa de los requisitos previos, consulte [Azure Disk Encrypti
 
 Hay dos versiones del esquema de extensión para Azure Disk Encryption (ADE):
 - v2.2: un esquema recomendado más reciente que no usa las propiedades de Azure Active Directory (AAD).
-- v1.1: un esquema anterior que requiere las propiedades de Azure Active Directory (AAD). 
+- v1.1: un esquema anterior que requiere las propiedades de Azure Active Directory (AAD).
 
 Para seleccionar un esquema de destino, la propiedad `typeHandlerVersion` debe establecerse en la versión del esquema que desee usar.
 
@@ -67,7 +67,7 @@ El esquema v2.2 se recomienda para todas las máquinas virtuales nuevas y no req
 ```
 
 
-### <a name="schema-v11-with-aad"></a>Esquema v1.1: con AAD 
+### <a name="schema-v11-with-aad"></a>Esquema v1.1: con AAD
 
 El esquema 1.1 requiere `aadClientID` y `aadClientSecret` o `AADClientCertificate`, y no se recomienda para las nuevas máquinas virtuales.
 
@@ -82,7 +82,7 @@ Usar `aadClientSecret`:
   "properties": {
     "protectedSettings": {
       "AADClientSecret": "[aadClientSecret]"
-    },    
+    },
     "publisher": "Microsoft.Azure.Security",
     "type": "AzureDiskEncryption",
     "typeHandlerVersion": "1.1",
@@ -112,7 +112,7 @@ Usar `AADClientCertificate`:
   "properties": {
     "protectedSettings": {
       "AADClientCertificate": "[aadClientCertificate]"
-    },    
+    },
     "publisher": "Microsoft.Azure.Security",
     "type": "AzureDiskEncryption",
     "typeHandlerVersion": "1.1",
@@ -140,10 +140,10 @@ Usar `AADClientCertificate`:
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryption | string |
 | typeHandlerVersion | 2.2, 1.1 | string |
-| (esquema 1.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (esquema 1.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid |
 | (esquema 1.1) AADClientSecret | password | string |
 | (esquema 1.1) AADClientCertificate | thumbprint | string |
-| EncryptionOperation | EnableEncryption | string | 
+| EncryptionOperation | EnableEncryption | string |
 | (opcional: RSA-OAEP predeterminado) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyVaultURL | url | string |
 | KeyVaultResourceId | url | string |
@@ -154,12 +154,12 @@ Usar `AADClientCertificate`:
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
-Para un ejemplo de una implementación de plantilla basada en un esquema de la versión 2.2, consulte la plantilla de inicio rápido de Azure [201-encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
+Para ver un ejemplo de una implementación de plantilla basada en la versión 2.2 del esquema, consulte la plantilla de inicio rápido de Azure [encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm-without-aad).
 
 Para un ejemplo de una implementación de plantilla basada en un esquema de la versión 1.1, consulte la plantilla de inicio rápido de Azure [201-encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
 
 >[!NOTE]
-> Además, si el parámetro `VolumeType` está establecido en Todos, los discos de datos se cifrarán solo si tienen el formato correcto. 
+> Además, si el parámetro `VolumeType` está establecido en Todos, los discos de datos se cifrarán solo si tienen el formato correcto.
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
@@ -169,7 +169,7 @@ Para solucionar el problema, consulte [Guía de solución de problemas de Azure 
 
 ### <a name="support"></a>Soporte técnico
 
-Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/community/). 
+Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/community/).
 
 Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya a [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione Obtener soporte técnico. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
 

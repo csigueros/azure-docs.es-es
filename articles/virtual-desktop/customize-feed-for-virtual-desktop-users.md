@@ -1,28 +1,29 @@
 ---
-title: Personalización de fuente para usuarios de Windows Virtual Desktop - Azure
-description: Personalización de la fuente para los usuarios de Windows Virtual Desktop con cmdlets de PowerShell.
+title: 'Personalización de la fuente para usuarios de Azure Virtual Desktop: Azure'
+description: Personalización de la fuente para los usuarios de Azure Virtual Desktop con cmdlets de PowerShell.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/14/2019
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: a2d5a870ee8953a4388e58d21cf941f23434382b
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 24174d7ac9fa33cb1fb3ca6e325537dde346b3c3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447121"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752016"
 ---
-# <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Personalización de la fuente para usuarios de Windows Virtual Desktop
+# <a name="customize-the-feed-for-azure-virtual-desktop-users"></a>Personalización de la fuente para usuarios de Azure Virtual Desktop
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos para Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
+>Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
 
 Puede personalizar la fuente para que RemoteApp y los recursos de escritorio remoto se muestren de manera reconocible para los usuarios.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-En este artículo se da por supuesto que ya ha descargado e instalado el módulo de PowerShell para Windows Virtual Desktop. Si no lo ha hecho, siga las instrucciones que se indican en [Configuración del módulo de PowerShell](powershell-module.md).
+En este artículo se da por supuesto que ya ha descargado e instalado el módulo de PowerShell para Azure Virtual Desktop. Si no lo ha hecho, siga las instrucciones que se indican en [Configuración del módulo de PowerShell](powershell-module.md).
 
 ## <a name="customize-the-display-name-for-a-remoteapp"></a>Personalizar el nombre para mostrar de RemoteApp
 
@@ -103,11 +104,11 @@ Para cambiar el nombre para mostrar de un escritorio remoto publicado, establezc
 
 1. Inicie sesión en Azure Portal en <https://portal.azure.com>.
 
-2. Busque **Windows Virtual Desktop**.
+2. Busque **Azure Virtual Desktop**.
 
-3. En Servicios, seleccione **Windows Virtual Desktop**.
+3. En Servicios, seleccione **Azure Virtual Desktop**.
 
-4. En la página Windows Virtual Desktop, seleccione **Grupos de aplicaciones** en el lado izquierdo de la pantalla y, a continuación, seleccione el nombre del grupo de aplicaciones que desea editar (por ejemplo, si desea editar el nombre para mostrar del grupo de aplicaciones de escritorio, seleccione el grupo de aplicaciones denominado **Escritorio**.)
+4. En la página Azure Virtual Desktop, seleccione **Grupos de aplicaciones** en el lado izquierdo de la pantalla y, a continuación, seleccione el nombre del grupo de aplicaciones que desea editar. (por ejemplo, si desea editar el nombre para mostrar del grupo de aplicaciones de escritorio, seleccione el grupo de aplicaciones denominado **Escritorio**.)
 
 5. Seleccione **Aplicaciones** en el menú del lado izquierdo de la pantalla.
 
@@ -117,7 +118,7 @@ Para cambiar el nombre para mostrar de un escritorio remoto publicado, establezc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha personalizado la fuente para los usuarios, puede iniciar sesión en un cliente de Windows Virtual Desktop para probarlo. Para ello, continúe para conectarse a los procedimientos para conectarse a Windows Virtual Desktop:
+Ahora que ha personalizado la fuente para los usuarios, puede iniciar sesión en un cliente de Azure Virtual Desktop para probarlo. Para ello, continúe con los procedimientos para conectarse a Azure Virtual Desktop:
 
  * [Conexión con Windows 10 o Windows 7](connect-windows-7-10.md)
  * [Conexión con el cliente web](connect-web.md)

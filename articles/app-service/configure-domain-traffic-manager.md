@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2910ea3f896ba3920126737965ca9c9dbabcfeb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2862919f89f6b14d4b3d3287e1b967bba8ccefe9
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709111"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670624"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configuración de un nombre de dominio personalizado en Azure App Service con la integración de Traffic Manager
 
@@ -77,7 +77,7 @@ Una vez que haya terminado de agregar o modificar registros DNS en su proveedor 
 
 Como Traffic Manager solo admite la asignación de dominios personalizados con registros CNAME, y dado que los estándares DNS no admiten registros CNAME para asignar dominios raíz (por ejemplo, **contoso.com**), Traffic Manager no admite la asignación a dominios raíz. Para solucionar este problema, use una dirección URL redirigida desde el nivel de la aplicación. En ASP.NET Core, por ejemplo, puede usar [Reescritura de direcciones URL](/aspnet/core/fundamentals/url-rewriting). A continuación, use Traffic Manager para equilibrar la carga del subdominio (**www.contoso.com**). Con otro enfoque, puede [crear un registro de alias para el vértice de nombre de dominio para hacer referencia a un perfil de Azure Traffic Manager](../dns/tutorial-alias-tm.md). Un ejemplo es contoso.com. En lugar de un servicio de redirección, puede configurar Azure DNS para hacer referencia a un perfil de Traffic Manager directamente desde la zona. 
 
-En escenarios de alta disponibilidad, puede implementar una configuración de DNS de equilibrio de carga sin Traffic Manager creando varios *registros A* que apunten del dominio raíz a cada dirección IP de la copia de la aplicación. A continuación, [asigne el mismo dominio raíz a todas las copias de la aplicación](app-service-web-tutorial-custom-domain.md#map-an-a-record). Dado que el mismo nombre de dominio no se puede asignar a dos aplicaciones diferentes en la misma región, este programa de instalación solo funciona cuando las copias de la aplicación se encuentran en regiones diferentes.
+En escenarios de alta disponibilidad, puede implementar una configuración de DNS de equilibrio de carga sin Traffic Manager creando varios *registros A* que apunten del dominio raíz a cada dirección IP de la copia de la aplicación. A continuación, [asigne el mismo dominio raíz a todas las copias de la aplicación](app-service-web-tutorial-custom-domain.md#4-create-the-dns-records). Dado que el mismo nombre de dominio no se puede asignar a dos aplicaciones diferentes en la misma región, este programa de instalación solo funciona cuando las copias de la aplicación se encuentran en regiones diferentes.
 
 ## <a name="enable-custom-domain"></a>Habilitación del dominio personalizado
 Una vez que se hayan propagado los registros de su nombre de dominio, use el explorador para comprobar que el nombre de dominio personalizado se resuelve en la aplicación App Service.
@@ -87,7 +87,7 @@ Una vez que se hayan propagado los registros de su nombre de dominio, use el exp
 > 
 > 
 
-1. Una vez que la resolución de dominio se realice correctamente, vuelva a la página de la aplicación en [Azure Portal](https://portal.azure.com).
+1. Una vez que la resolución de dominios se realice correctamente, vuelva a la página de la aplicación en [Azure Portal](https://portal.azure.com).
 2. En el panel de navegación izquierdo, seleccione **Dominios personalizados** > **Agregar nombre de host**.
 4. Escriba el nombre de dominio personalizado que asignó anteriormente y seleccione **Validar**.
 5. Asegúrese de que en **Tipo de registro de nombre de host** está seleccionado **CNAME (www\.example.com o cualquier subdominio)** .

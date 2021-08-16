@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 455a9b2061dcf92297c99e9d8fa8cee677ca3891
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 27bd310b48be2c20c5014ba9e2f93a98751baae0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483144"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086489"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory 
 
@@ -171,6 +171,8 @@ En el diagrama siguiente se muestra la configuración de la ubicación de Data F
 ![Ubicación de Integration Runtime](media/concepts-integration-runtime/integration-runtime-location.png)
 
 ## <a name="determining-which-ir-to-use"></a>Determinar qué instancias de Integration Runtime usar
+Si una actividad de factoría de datos se asocia a más de un tipo de entorno de ejecución de integración, se resolverá en uno de ellos. El entorno de ejecución de integración autohospedado tiene prioridad sobre el entorno de ejecución de integración de una red virtual administrada por Azure Data Factory. Y este último tiene prioridad sobre el entorno de ejecución de integración público de Azure.
+Por ejemplo, se usa una actividad de copia para copiar datos del origen al receptor. El entorno de ejecución de integración público de Azure está asociado con el servicio vinculado del origen y un entorno de ejecución de integración de Azure de una red virtual administrada por Azure Data Factory se asocia con el servicio vinculado del receptor; el resultado es que el servicio vinculado de origen y receptor usa la red virtual administrada por Azure Data Factory. Sin embargo, si un entorno de ejecución de integración autohospedado asocia el servicio vinculado del origen, el servicio vinculado de origen y el servicio vinculado receptor usan el entorno de ejecución de integración autohospedado.
 
 ### <a name="copy-activity"></a>Actividad de copia
 

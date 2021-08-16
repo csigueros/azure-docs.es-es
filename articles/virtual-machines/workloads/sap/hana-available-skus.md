@@ -1,6 +1,6 @@
 ---
 title: SKU para SAP HANA en Azure (instancias grandes) | Microsoft Docs
-description: SKU para SAP HANA en Azure (instancias grandes).
+description: Conozca las SKU disponibles para SAP HANA en Azure (instancias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -8,20 +8,23 @@ manager: juergent
 editor: ''
 keywords: HLI, HANA, SKUs, S896, S224, S448, S672, Optane, SAP
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 4/16/2021
-ms.author: juergent
+ms.date: 5/13/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017, references_regions
-ms.openlocfilehash: 3ecbbe4d477f3e6c3c6606528c51b934b6cf534a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: b9079b242710bee831ebdc0381118da1d0ad80e5
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718744"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577640"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>SKU disponibles para instancias grandes de HANA
+
+## <a name="baremetal-infrastructure-availability-by-region"></a>Disponibilidad de BareMetal Infrastructure por región
 
 El servicio BareMetal Infrastructure (certificado para cargas de trabajo de SAP HANA) basado en Rev 4.2* está disponible en las siguientes regiones:
 - Oeste de Europa
@@ -32,19 +35,19 @@ El servicio BareMetal Infrastructure (certificado para cargas de trabajo de SAP 
 - Centro-sur de EE. UU.
 - Oeste de EE. UU. 2 con compatibilidad con zonas de disponibilidad
 
-El servicio BareMetal Infrastructure (certificado para cargas de trabajo de SAP HANA) basado en Rev 3* tiene disponibilidad limitada en las siguientes regiones:
+El servicio BareMetal Infrastructure (certificado para cargas de trabajo SAP HANA) basado en Rev 3* tiene disponibilidad limitada en las siguientes regiones:
 - Oeste de EE. UU.
 - Este de EE. UU. 
 - Este de Australia 
 - Sudeste de Australia
 - Japón Oriental
 
+## <a name="list-of-available-azure-large-instances"></a>Lista de instancias grandes de Azure disponibles
 
-A continuación encontrará una lista de las instancias de Azure Large disponibles.
+Esta es una lista de instancias grandes de Azure disponibles (también conocidas como instancias de BareMetal Infrastructure).
 
 > [!IMPORTANT]
 > Tenga en cuenta la primera columna que representa el estado de la certificación de HANA para cada uno de los tipos de instancias grandes de la lista. La columna se debe correlacionar con el [directorio de hardware de SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) para los SKU de Azure que empiezan por la letra **S**.
-
 
 
 | Certificación de SAP HANA | Modelo | Memoria total | Memoria DRAM | Memoria Optane | Storage | Disponibilidad |
@@ -86,22 +89,23 @@ A continuación encontrará una lista de las instancias de Azure Large disponibl
 
 - Núcleos de CPU = suma de núcleos de CPU sin Hyper-Threading de la suma de procesadores de la unidad del servidor.
 - Subprocesos de CPU = suma de suprocesos de proceso proporcionado por núcleos de CPU con Hyper-Threading de la suma de procesadores de la unidad del servidor. La mayoría de las unidades se configuran de forma predeterminada para usar la tecnología Hyper-Threading.
-- Según las recomendaciones del proveedor, S768m, S768xm y S960m no están configuradas para ejecutar SAP HANA con la tecnología Hyper-Threading.
+- Según las recomendaciones de proveedores, S768m, S768xm y S960m no están configurados para usar Hyper-Threading para ejecutar SAP HANA.
 
 
 > [!IMPORTANT]
-> Las SKU siguientes, aunque todavía se admiten, ya no se pueden adquirir: S72, S72m, S144, S144m, S192 y S192m 
+> Las SKU siguientes, aunque todavía se admiten, ya no se pueden adquirir: S72, S72m, S144, S144m, S192 y S192m.
 
-Las configuraciones específicas que se elijan dependen de la carga de trabajo, los recursos de CPU y la memoria que desee. La carga de trabajo de OLTP puede usar las SKU que estén optimizadas para la carga de trabajo OLAP. 
+Las configuraciones específicas elegidas dependen de la carga de trabajo, los recursos de CPU y la memoria deseada. La carga de trabajo de OLTP puede usar las SKU que estén optimizadas para la carga de trabajo OLAP. 
 
 Dos clases diferentes de hardware dividen las SKU en:
 
 - Las series S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, S224m, S224oo, S224om, S224ooo y S224oom se conocen como SKU de la "Clase tipo I".
 - Todas las demás SKU se conocen como "Clase tipo II" de SKU.
-- Si está interesado en las SKU que todavía no aparecen en el directorio de hardware de SAP, póngase en contacto con su equipo de cuenta de Microsoft para más información. 
+- Si está interesado en SKU que todavía no aparecen en el directorio de hardware de SAP, póngase en contacto con su equipo de cuentas Microsoft para que le proporcione más información. 
 
+## <a name="tenant-considerations"></a>Consideraciones sobre inquilinos
 
-Una demarcación completa de HANA (instancias grandes) no está asignada exclusivamente para que la use un único cliente. Esto se aplica también a los bastidores de recursos de procesos y almacenamiento conectados mediante un tejido de red implementado en Azure. La infraestructura de HANA (instancias grandes), como Azure, implementa &quot;inquilinos&quot; de clientes diferentes que están aislados entre sí en los tres niveles siguientes:
+Un stamp de HANA (instancias grandes) no está asignado exclusivamente para su uso por parte de un solo cliente. Esto se aplica también a los bastidores de recursos de proceso y almacenamiento conectados mediante un tejido de red implementado en Azure. En la infraestructura de HANA (instancias grandes), al igual que en Azure, se implementan "inquilinos" de clientes diferentes que están aislados entre sí en los tres niveles siguientes:
 
 - **Network** (Red): aislamiento a través de redes virtuales dentro de la demarcación de HANA (instancias grandes).
 - **Almacenamiento**: aislamiento a través de máquinas virtuales de almacenamiento que tienen volúmenes de almacenamiento asignados y aíslan los volúmenes de almacenamiento entre inquilinos.
@@ -111,6 +115,8 @@ Las implementaciones de unidades de HANA (instancias grandes) entre varios inqui
 
 Se asigna un inquilino implementado en la demarcación de instancias grandes a una suscripción de Azure con fines de facturación. Para una red, se puede acceder desde redes virtuales de otras suscripciones de Azure dentro de la misma inscripción de Azure. Si implementa con otra suscripción de Azure en la misma región de Azure, también puede elegir pedir un inquilino de instancia grande de HANA independiente.
 
+## <a name="sap-hana-on-hana-large-instances-vs-on-vms"></a>SAP HANA en HANA (instancias grandes) frente a SAP HANA en máquinas virtuales
+
 Existen diferencias notables entre ejecutar SAP HANA en HANA (instancias grandes) y ejecutar SAP HANA en máquinas virtuales implementadas en Azure:
 
 - No hay ningún nivel de virtualización para SAP HANA en Azure (Instancias grandes). El rendimiento proviene del hardware de reconstrucción completa subyacente.
@@ -118,4 +124,7 @@ Existen diferencias notables entre ejecutar SAP HANA en HANA (instancias grandes
 - A diferencia de Azure, donde los tipos de procesador de host se seleccionan para lograr una relación precio/rendimiento óptima, los tipos de procesador elegidos para SAP HANA en Azure (instancias grandes) son los de mayor rendimiento en la línea de procesadores Intel E7v3 y E7v4.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Consulte [Dimensionamiento de HLI](hana-sizing.md).
+Aprenda sobre el dimensionamiento de HANA (instancias grandes).
+
+> [!div class="nextstepaction"]
+> [Dimensionamiento de HLI](hana-sizing.md)

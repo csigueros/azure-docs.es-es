@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 01470dac716ea26b36fb8bb13eac312cc8387ae1
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 51194dbcdfd967a40da96842cf58d373fd28f96f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187269"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468294"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configuración de dominios personalizados con Azure AD Application Proxy
 
@@ -55,6 +55,9 @@ Al seleccionar un dominio personalizado para una dirección URL externa, en una 
 ## <a name="set-up-and-use-custom-domains"></a>Configuración y uso de dominios personalizados
 
 Para configurar una aplicación local para que use un dominio personalizado, necesita un dominio personalizado de Azure Active Directory comprobado, un certificado PFX para dicho dominio y una aplicación local para configurar. 
+
+> [!IMPORTANT]
+> Usted es responsable de mantener los registros DNS que redirigen los dominios personalizados al dominio *msappproxy.net*. Si decide eliminar posteriormente la aplicación o el inquilino, asegúrese de eliminar también los registros DNS asociados para Application Proxy a fin de evitar el uso indebido de registros DNS pendientes. 
 
 ### <a name="create-and-verify-a-custom-domain"></a>Creación y comprobación de un dominio personalizado
 

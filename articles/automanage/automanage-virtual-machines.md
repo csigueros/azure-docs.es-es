@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 970c0a2705bc9a559eb531c8b44780053343a712
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 00ee1b6e9772100cbc4abf9c79260a231bbd27af
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209722"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755148"
 ---
 # <a name="preview-azure-automanage-for-virtual-machines"></a>Versión preliminar: Azure Automanage para máquinas virtuales
 
@@ -32,6 +32,8 @@ Azure Automanage para máquinas virtuales es un servicio que elimina la necesida
 Después de incorporar las máquinas virtuales a Azure Automanage, se usa la configuración recomendada en todos los servicios de procedimientos recomendados. Los procedimientos recomendados son diferentes para cada uno de los servicios. Por ejemplo, en Azure Backup el procedimiento recomendado es realizar una copia de seguridad de la máquina virtual una vez al día y tener un período de retención de seis meses.
 
 Azure Automanage también supervisa automáticamente las desviaciones y las corrige cuando se detectan. Esto significa que, si la máquina virtual se incorpora a Azure Automanage, no solo se configurará según los procedimientos recomendados de Azure, sino que se supervisará para garantizar que sigue cumpliendo esos procedimientos recomendados durante todo su ciclo de vida. Si la máquina virtual se desvía de esos procedimientos (por ejemplo, si se retira un servicio), se corregirá y se la devolverá al estado deseado.
+
+Automanage no almacena ni procesa los datos de clientes fuera de la geografía en la que se encuentran las máquinas virtuales. En la región Sudeste Asiático, Automanage no almacena ni procesa datos fuera de esa región.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

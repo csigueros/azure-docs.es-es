@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce0916d4107fdcf97875d1c6a428bbfa75164a65
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255380"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068513"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Protección de las cuentas de usuario frente a ataques con el bloqueo inteligente de Azure Active Directory
 
@@ -24,7 +24,7 @@ El bloqueo inteligente ayuda a bloquear a los actores malintencionados que inten
 
 ## <a name="how-smart-lockout-works"></a>Cómo funciona el bloqueo inteligente
 
-De forma predeterminada, el bloqueo inteligente impide los intentos de inicio de sesión en la cuenta durante un minuto, después de realizar diez intentos incorrectos. La cuenta se bloquea de nuevo después de cada intento de inicio de sesión incorrecto, durante un minuto en el primero y más tiempo en los intentos posteriores. Para minimizar las formas en las que un atacante podría evitar este comportamiento, no divulgamos la velocidad a la que crece el período de bloqueo en los intentos de inicio de sesión incorrectos adicionales.
+De forma predeterminada, el bloqueo inteligente bloquea los intentos de inicio de sesión en la cuenta durante un minuto tras 10 intentos fallidos en el caso de los inquilinos de Azure Public y 3 en el caso de los de Azure US Government La cuenta se bloquea de nuevo después de cada intento de inicio de sesión incorrecto, durante un minuto en el primero y más tiempo en los intentos posteriores. Para minimizar las formas en las que un atacante podría evitar este comportamiento, no divulgamos la velocidad a la que crece el período de bloqueo en los intentos de inicio de sesión incorrectos adicionales.
 
 El bloqueo inteligente realiza un seguimiento de los últimos tres códigos hash de contraseña incorrecta para evitar que aumente el contador de bloqueo con la misma contraseña. Si alguien escribe la misma contraseña incorrecta varias veces, este comportamiento no hará que la cuenta se bloquee.
 
@@ -73,7 +73,7 @@ Para comprobar o modificar los valores de bloqueo inteligente para su organizaci
 1. Busque y seleccione *Azure Active Directory*, a continuación, seleccione **Seguridad** > **Métodos de autenticación** > **Protección por contraseña**.
 1. Establezca la opción **Umbral de bloqueo** en función del número de inicios de sesión con error permitidos en una cuenta antes de su primer bloqueo.
 
-    El valor predeterminado es 10.
+    El valor predeterminado es 10 en el caso de los inquilinos de Azure Public y 3 en el de los de Azure US Government.
 
 1. En **Lockout duration in seconds** (Duración de bloqueo en segundos), establezca la longitud en segundos de cada bloqueo.
 

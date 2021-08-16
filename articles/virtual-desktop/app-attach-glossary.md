@@ -1,5 +1,5 @@
 ---
-title: 'Glosario de conexión de aplicaciones en formato MSIX para Windows Virtual Desktop: Azure'
+title: 'Glosario de conexión de aplicaciones en formato MSIX para Azure Virtual Desktop: Azure'
 description: Un glosario de la conexión de aplicaciones en formato MSIX con términos y conceptos.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: cd038a0632823e4833e75596378f9b25c386d9d0
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 66f3cc71c27ff80991f3cded1957f90e622f447f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330537"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745680"
 ---
 # <a name="msix-app-attach-glossary"></a>Glosario sobre la conexión de aplicaciones en formato MSIX
 
@@ -65,15 +65,15 @@ Para expandir un paquete de MSIX:
 
 Para cargar un paquete de MSIX, es necesario cargar el VHD(x) o [CIM](#cim) que contenga un paquete MSIX expandido en el recurso compartido MSIX.
 
-En el Windows Virtual Desktop, las cargas se producen una vez por cada recurso compartido de MSIX. Una vez que se carga un paquete, todos los grupos host de la misma suscripción pueden hacer referencia a él.
+En Azure Virtual Desktop, las cargas se producen una vez por cada recurso compartido de MSIX. Una vez que se carga un paquete, todos los grupos host de la misma suscripción pueden hacer referencia a él.
 
 ## <a name="add-an-msix-package"></a>Agregar un paquete de MSIX
 
-En Windows Virtual Desktop, al agregar un paquete de MSIX este se vincula a un grupo de hosts.
+En Azure Virtual Desktop, al agregar un paquete de MSIX este se vincula a un grupo de hosts.
 
 ## <a name="publish-an-msix-package"></a>Publique un paquete MSIX 
 
-En el Windows Virtual Desktop, se debe asignar un paquete MSIX publicado a un usuario o grupo de usuarios de Dominio de Active Directory (AD DS) o Azure Active Directory (Azure AD).
+En Azure Virtual Desktop, se debe asignar un paquete MSIX publicado a un usuario o grupo de usuarios de Azure Directory Domain Service (AD DS) o Azure Active Directory (Azure AD).
 
 ## <a name="staging"></a>Ensayo
 
@@ -90,11 +90,11 @@ Hay dos tipos de registro: normal y retrasado.
 
 ### <a name="regular-registration"></a>Registro normal
 
-En el registro normal, cada aplicación asignada a un usuario se registra por completo. El registro se produce durante el tiempo que el usuario inicia sesión en la sesión, lo que puede afectar al tiempo que tardan en comenzar a usar Windows Virtual Desktop.
+En el registro normal, cada aplicación asignada a un usuario se registra por completo. El registro se produce durante el tiempo que el usuario inicia sesión en la sesión, lo que puede afectar al tiempo que tardan en comenzar a usar Azure Virtual Desktop.
 
 ### <a name="delayed-registration"></a>Registro con retraso
 
-En el registro retrasado, cada aplicación asignada a un usuario solo se registra parcialmente. El registro parcial significa que el icono del menú Inicio y las conexiones de archivo de doble clic están registradas. El registro se produce durante el tiempo que el usuario inicia sesión, lo que puede afectar al tiempo que tardan en comenzar a usar Windows Virtual Desktop. El registro se completa solo cuando el usuario ejecuta la aplicación en el paquete MSIX.
+En el registro retrasado, cada aplicación asignada a un usuario solo se registra parcialmente. El registro parcial significa que el icono del menú Inicio y las conexiones de archivo de doble clic están registradas. El registro se produce durante el tiempo que el usuario inicia sesión, lo que puede afectar al tiempo que tardan en comenzar a usar Azure Virtual Desktop. El registro se completa solo cuando el usuario ejecuta la aplicación en el paquete MSIX.
 
 El registro retrasado es actualmente la configuración predeterminada para la conexión de aplicaciones en formato MSIX.
 

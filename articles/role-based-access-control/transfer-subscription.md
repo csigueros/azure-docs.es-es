@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 366692113872856852fd933ca32ab51ca608de14
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: a12f3ca25df2d4473361e0a1ef596384813dc6a8
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291287"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854745"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
@@ -94,7 +94,7 @@ Para completar estos pasos, necesitará lo siguiente:
 
 - [Bash en Azure Cloud Shell](../cloud-shell/overview.md) o [CLI de Azure](/cli/azure)
 - Administrador de cuenta de la suscripción que quiere transferir en el directorio de origen
-- Rol de [propietario](built-in-roles.md#owner) en el directorio de destino
+- Una cuenta de usuario en el directorio de origen y de destino para el usuario que realiza el cambio de directorio
 
 ## <a name="step-1-prepare-for-the-transfer"></a>Paso 1: Preparación de la transferencia
 
@@ -252,7 +252,7 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
 1. Use [az account show](/cli/azure/account#az_account_show) para obtener el identificador de la suscripción.
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//')
     ```
 
 1. Use la extensión [az graph](/cli/azure/graph) para mostrar otros recursos de Azure con dependencias de directorio de Azure AD conocidas.

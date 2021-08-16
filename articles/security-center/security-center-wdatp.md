@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 06/10/2021
 ms.author: memildin
-ms.openlocfilehash: 58a616953afd15bd4098eaf7ec96838137d110c5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: df7d3d880161895b6cc883a15f7adf2def839a53
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764790"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062269"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión
 
@@ -35,7 +35,7 @@ Microsoft Defender para punto de conexión es una solución integral de segurida
 
 | Aspecto                          | Detalles                                                                                                                                                                                                                                                                                                       |
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Estado de la versión:                  | Disponible con carácter general                                                                                                                                                                                                                                                                                      |
+| Estado de la versión:                  | Disponibilidad general (GA)                                                                                                                                                                                                                                                                                      |
 | Precios:                        | Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).                                                                                                                                                                                                                                             |
 | Plataformas compatibles:            |  • Máquinas de Azure que ejecutan Windows.<br> • Máquinas de Azure Arc que ejecutan Windows.|
 | Versiones compatibles de Windows para la detección:  |  • Windows Server 2019, 2016, 2012 R2 y 2008 R2 SP1<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)<br> • [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (antes Enterprise for Virtual Desktops (EVD)|
@@ -89,7 +89,7 @@ Compruebe que el equipo cumple los requisitos necesarios para Defender para punt
 
 ### <a name="enable-the-integration"></a>Habilitación de la integración
 1. En el menú de Security Center, seleccione **Precios y configuración**, y seleccione la suscripción que quiere cambiar.
-1. Seleccione **Detección de amenazas**.
+1. Seleccione **Integraciones**.
 1. Seleccione **Permitir que Microsoft Defender for Endpoint acceda a mis datos** y luego **Guardar**.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Habilitar la integración entre Azure Security Center y la solución EDR de Microsoft, Microsoft Defender para punto de conexión":::
@@ -126,11 +126,25 @@ Para generar una alerta de prueba benigna de Microsoft Defender para punto de co
     > [!TIP]
     > La alerta se desencadena con gravedad **Información**.
 
-## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Preguntas más frecuentes sobre la instancia de Microsoft Defender para punto de conexión integrada en Security Center
+## <a name="faq---security-centers-integration-with-microsoft-defender-for-endpoint"></a>Preguntas más frecuentes: integración con Microsoft Defender para punto de conexión de Security Center
 
+- [¿Qué es esta extensión "MDE.Windows" que se ejecuta en mi máquina?](#whats-this-mdewindows-extension-running-on-my-machine)
 - [¿Cuáles son los requisitos de licencia de Microsoft Defender para punto de conexión?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
 - [Si tengo una licencia de Microsoft Defender para punto de conexión, ¿puedo obtener un descuento en Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [¿Cómo puedo cambiar una herramienta de EDR de terceros?](#how-do-i-switch-from-a-third-party-edr-tool)
+
+### <a name="whats-this-mdewindows-extension-running-on-my-machine"></a>¿Qué es esta extensión "MDE.Windows" que se ejecuta en mi máquina?
+
+En el pasado, el agente de Log Analytics aprovisionaba Microsoft Defender para punto de conexión. Cuando [ampliamos la compatibilidad para incluir Windows Server 2019](release-notes.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga), también agregamos una extensión para realizar la incorporación automática. 
+
+Security Center implementa automáticamente la extensión MDE.Windows a máquinas que ejecutan:
+
+- Windows Server 2019 
+- Windows 10 Virtual Desktop (WVD)
+- Otras versiones de Windows Server si Security Center no reconoce la versión del sistema operativo (por ejemplo, cuando se usa una imagen de máquina virtual personalizada). En este caso, el agente de Log Analytics sigue aprovisionando Microsoft Defender para punto de conexión.
+
+> [!TIP]
+> Si elimina la extensión MDE.Windows, no quitará Microsoft Defender para punto de conexión. en "retirar", consulte [Retirada de los servidores de Windows](/microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide).
 
 ### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>¿Cuáles son los requisitos de licencia de Microsoft Defender para punto de conexión?
 Defender para punto de conexión se incluye sin costo adicional en los **servidores de Azure Defender**. Como alternativa, se puede adquirir por separado para 50 máquinas o más.
@@ -138,7 +152,9 @@ Defender para punto de conexión se incluye sin costo adicional en los **servido
 ### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Si tengo una licencia de Microsoft Defender para punto de conexión, ¿puedo obtener un descuento en Azure Defender?
 Si ya tiene una licencia de Microsoft Defender para punto de conexión, no tendrá que pagar esa parte de la licencia de Azure Defender.
 
-Para confirmar su descuento, póngase en contacto con el equipo de soporte técnico de Security Center y especifique el identificador de área de trabajo, la región y la información de licencia pertinentes de cada licencia.
+Para solicitar el descuento, póngase en contacto con el equipo de soporte técnico de Security Center y proporcione la información pertinente de identificador de área de trabajo, región y número de licencias de Microsoft Defender para punto de conexión aplicadas a las máquinas del área de trabajo dada.
+
+El descuento será efectivo a partir de la fecha de aprobación y no tendrá lugar con carácter retroactivo.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>¿Cómo puedo cambiar una herramienta de EDR de terceros?
 Las instrucciones completas para cambiarse de una solución de punto de conexión que no es de Microsoft están disponibles en la documentación de Microsoft Defender para punto de conexión: [Información general sobre la migración](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).

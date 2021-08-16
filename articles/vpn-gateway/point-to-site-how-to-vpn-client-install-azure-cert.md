@@ -6,22 +6,26 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 06/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: faa2d1924b0953bbf8da660ac7702c959fe7b272
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: d4ab1009b38d250a39455a9e8a470cd7f1156793
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292241"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527122"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Instalación de un certificado de cliente para conexiones de punto a sitio con autenticación de certificados
 
-Todos los clientes que se conectan a una red virtual mediante la autenticación de certificados de Azure de conexiones de punto a sitio requieren un certificado de cliente. Este artículo le ayuda a instalar un certificado de cliente que se usa para la autenticación cuando se conecta a una red virtual mediante una conexión de punto a sitio.
+Cuando se configura una puerta de enlace de VPN P2S para requerir autenticación de certificado, cada cliente debe tener un certificado de cliente instalado localmente. Puede generar un certificado de cliente a partir de un certificado raíz autofirmado o a partir de un certificado raíz que se ha generado mediante una solución de una entidad de certificación empresarial. 
 
-## <a name="acquire-a-client-certificate"></a><a name="generate"></a>Adquisición de un certificado de cliente
+Cuando se genera un certificado de cliente, el certificado normalmente se instala automáticamente en el equipo cliente desde el que se generó. Si desea conectarse a la red virtual desde otro equipo cliente, debe instalar un certificado de cliente en el equipo desde el que se va a conectar. Esto se suma a la configuración del cliente VPN en ese equipo.
 
-Independientemente del sistema operativo cliente al que quiera conectarse, debe tener siempre un certificado de cliente. Puede generar un certificado de cliente desde un certificado raíz que se ha generado mediante una solución de una entidad de certificación empresarial o desde un certificado raíz autofirmado. Vea las instrucciones de [PowerShell](vpn-gateway-certificates-point-to-site.md), [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) o [Linux](vpn-gateway-certificates-point-to-site-linux.md) para saber los pasos para generar un certificado de cliente. 
+Puede usar varios métodos para generar y exportar certificados autofirmados. Para más información, vea los siguientes artículos:
+
+* [PowerShell](vpn-gateway-certificates-point-to-site.md)
+* [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
+* [Linux](vpn-gateway-certificates-point-to-site-linux.md) 
 
 ## <a name="windows"></a><a name="installwin"></a>Windows
 

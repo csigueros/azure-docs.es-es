@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: ae0d9696d869b2a260de643482a9f86c34bcc824
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be5face0a93dc360493e22fd3d2c6d9743c4f5ff
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575470"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072460"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introducción a la auditoría de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -144,7 +144,10 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
      1. Haga clic en **Aceptar** en el cuadro de diálogo **Crear auditoría**.
      
-     1. <a id="createspec"></a>Después de configurar el contenedor de blobs como destino para los registros de auditoría, cree y habilite una especificación de auditoría de servidor o de base de datos como lo haría para SQL Server:
+        > [!NOTE]
+        > Si se usa la interfaz de usuario de SQL Server Management Studio para crear una auditoría, se creará automáticamente una credencial para el contenedor con una clave SAS. 
+     
+     1.  <a id="createspec"></a>Después de configurar el contenedor de blobs como destino para los registros de auditoría, cree y habilite una especificación de auditoría de servidor o de base de datos como lo haría para SQL Server:
 
    - [Guía de T-SQL de creación de la especificación de auditoría de servidor](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Guía de T-SQL de creación de la especificación de auditoría](/sql/t-sql/statements/create-database-audit-specification-transact-sql)

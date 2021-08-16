@@ -4,12 +4,12 @@ description: Muestra cómo aplicar etiquetas para organizar los recursos de Azur
 ms.topic: conceptual
 ms.date: 05/05/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0106ae6bda21544629616f2268ccc111c1946b47
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b5278408ac1adf1e12adf8f7facebd26e6d96d6d
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480312"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111813914"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -850,7 +850,11 @@ Se aplican las siguientes limitaciones a las etiquetas:
    >
    > * Azure Front Door no admite el uso de `#` en el nombre de la etiqueta.
    >
-   > * Azure Automation y Azure CDN solo admiten 15 etiquetas en los recursos.
+   > * Los siguientes recursos de Azure solo admiten 15 etiquetas:
+   >     * Azure Automation 
+   >     * Azure CDN
+   >     * Azure DNS (zona y registros A)
+   >     * Azure DNS privado (zona, registros A y vínculo de red virtual)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

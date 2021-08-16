@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 389d3507c3406743e14324c7b4667e045cfdb3b5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7b60913753580027d050770bc9d4909b5686bb46
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048041"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888453"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendaciones de seguridad para Blob Storage
 
@@ -70,7 +70,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 
 | Recomendación | Comentarios | Security Center |
 |-|----|--|
-| Hacer un seguimiento de cómo se autorizan las solicitudes | Habilite el registro de Azure Storage para realizar un seguimiento de cómo se autorizó cada solicitud realizada en Azure Storage. Los registros indican si una solicitud se realizó de forma anónima o mediante un token OAuth 2.0, una clave compartida o una firma de acceso compartido (SAS). Para más información, consulte [Supervisión de Azure Blob Storage](monitor-blob-storage.md) o [Registro de Azure Storage Analytics con supervisión clásica](../common/storage-analytics-logging.md). | - |
+| Hacer un seguimiento de cómo se autorizan las solicitudes | Habilite el registro de Azure Storage para realizar un seguimiento de cómo se autorizó cada solicitud realizada en Azure Storage. Los registros indican si una solicitud se realizó de forma anónima o mediante un token OAuth 2.0, una clave compartida o una firma de acceso compartido (SAS). Para más información, consulte [Supervisión de Azure Blob Storage con Azure Monitor](monitor-blob-storage.md) o [Registro de análisis de Azure Storage con supervisión clásica](../common/storage-analytics-logging.md). | - |
 | Configuración de alertas en Azure Monitor | Configure alertas de registro para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Para obtener más información, consulte [Alertas de registro en Azure Monitor](../../azure-monitor/alerts/alerts-unified-log.md). | - |
 
 ## <a name="next-steps"></a>Pasos siguientes

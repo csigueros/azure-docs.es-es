@@ -1,5 +1,5 @@
 ---
-title: Creación de una imagen de máquina virtual y usar una identidad administrada asignada por el usuario para acceder a archivos en Azure Storage (versión preliminar)
+title: Creación de una imagen de máquina virtual y usar una identidad administrada asignada por el usuario para acceder a archivos en Azure Storage
 description: Cree una imagen de máquina virtual mediante el generador de imágenes de Azure que pueda acceder a archivos almacenados en Azure Storage con la identidad administrada asignada por el usuario.
 author: cynthn
 ms.author: cynthn
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 9bcb7a94cdf1d5478db32a22ba6e612a90c53ed9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94bde3351f74c3388e137cc738f2b970654416bd
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695386"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439609"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Creación de una imagen y usar una identidad administrada asignada por el usuario para acceder a archivos en Azure Storage 
 
@@ -24,12 +24,8 @@ En este artículo se muestra cómo crear una imagen personalizada mediante Azure
 En el ejemplo siguiente, creará dos grupos de recursos: uno se utilizará para la imagen personalizada y el otro hospedará una cuenta de Azure Storage, que contiene un archivo de script. Esto simula un escenario real, en que puede tener los artefactos de compilación o los archivos de imagen en diferentes cuentas de almacenamiento, al margen del generador de imágenes. Creará una identidad asignada por el usuario y, a continuación, concederá permisos de lectura en el archivo de script, pero no establecerá ningún acceso público a ese archivo. Después, usará el personalizador de shell para descargar y ejecutar ese script desde la cuenta de almacenamiento.
 
 
-> [!IMPORTANT]
-> Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="register-the-features"></a>Registro de las características
-Para usar el generador de imágenes de Azure durante la versión preliminar, tendrá que registrar la nueva característica.
+Para usar Azure Image Builder, debe registrar la característica.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview

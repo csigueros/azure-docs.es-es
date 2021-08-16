@@ -179,70 +179,57 @@
           href: logic-apps-gateway-connection.md
     - name: Desarrollo para escenarios de B2B
       items:
-        - name: Artefactos y cuenta de integración
-          items:
-            - name: Creación de una cuenta de integración
-              href: logic-apps-enterprise-integration-create-integration-account.md
-            - name: Asociados comerciales
-              href: logic-apps-enterprise-integration-partners.md
-            - name: Contratos
-              href: logic-apps-enterprise-integration-agreements.md
-            - name: Esquemas para validación XML
-              href: logic-apps-enterprise-integration-schemas.md
-            - name: Mapas para transformación XML
-              href: logic-apps-enterprise-integration-maps.md
-            - name: Certificados
-              href: logic-apps-enterprise-integration-certificates.md
-            - name: Metadatos de artefacto
-              href: logic-apps-enterprise-integration-metadata.md
+        - name: Creación de una cuenta de integración
+          href: logic-apps-enterprise-integration-create-integration-account.md
+          displayName: 'Azure CLI, az logic integration-account create, integration-account'
+        - name: Asociados comerciales
+          href: logic-apps-enterprise-integration-partners.md
+        - name: Contratos
+          href: logic-apps-enterprise-integration-agreements.md
+        - name: Esquemas para validación XML
+          href: logic-apps-enterprise-integration-schemas.md
+        - name: Mapas para transformación XML
+          href: logic-apps-enterprise-integration-maps.md
+        - name: Certificados
+          href: logic-apps-enterprise-integration-certificates.md
+        - name: Metadatos de artefacto
+          href: logic-apps-enterprise-integration-metadata.md
         - name: Recepción y envío de mensajes B2B
           href: logic-apps-enterprise-integration-b2b.md
-        - name: Mensajería de AS2
+        - name: Intercambio de mensajes AS2
+          href: logic-apps-enterprise-integration-as2.md
+        - name: Configuración de mensajes AS2
+          href: logic-apps-enterprise-integration-as2-message-settings.md
+        - name: Intercambio de mensajes EDIFACT
+          href: logic-apps-enterprise-integration-edifact.md
           items:
-            - name: Intercambio de mensajes AS2
-              href: logic-apps-enterprise-integration-as2.md
-            - name: Configuración de mensajes AS2
-              href: logic-apps-enterprise-integration-as2-message-settings.md
-        - name: Mensajería de EDIFACT
-          items:
-            - name: Intercambio de mensajes EDIFACT
-              href: logic-apps-enterprise-integration-edifact.md
             - name: Codificación de EDIFACT
               href: logic-apps-enterprise-integration-edifact-encode.md
             - name: Descodificación de EDIFACT
               href: logic-apps-enterprise-integration-edifact-decode.md
             - name: Control de archivos EDIFACT con el segmento UNH2.5
               href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-        - name: Mensajería de RosettaNet
+        - name: Intercambio de mensajes de RosettaNet
+          href: logic-apps-enterprise-integration-rosettanet.md
+        - name: Intercambio de mensajes X12
+          href: logic-apps-enterprise-integration-x12.md
           items:
-            - name: Intercambio de mensajes de RosettaNet
-              href: logic-apps-enterprise-integration-rosettanet.md
-        - name: Mensajería de X12
-          items:
-            - name: Intercambio de mensajes X12
-              href: logic-apps-enterprise-integration-x12.md
             - name: Codificación de X12
               href: logic-apps-enterprise-integration-x12-encode.md
             - name: Descodificación de X12
               href: logic-apps-enterprise-integration-x12-decode.md
-            - name: Confirmación de X12 TA1
-              href: logic-apps-enterprise-integration-x12-ta1-acknowledgment.md
-            - name: Confirmación de X12 997
-              href: logic-apps-enterprise-integration-x12-997-acknowledgment.md
         - name: Procesamiento por lotes y envío de mensajes EDI
           href: logic-apps-scenario-edi-send-batch-messages.md
         - name: Procesamiento de archivos planos
           href: logic-apps-enterprise-integration-flatfile.md
-        - name: Transformaciones de XML y JSON
-          items:
-            - name: Transformación de XML
-              href: logic-apps-enterprise-integration-transform.md
-            - name: Procesamiento de XML
-              href: logic-apps-enterprise-integration-xml.md
-            - name: Validación de XML
-              href: logic-apps-enterprise-integration-xml-validation.md
-            - name: Transformación de JSON
-              href: logic-apps-enterprise-integration-liquid-transform.md
+        - name: Transformación de XML
+          href: logic-apps-enterprise-integration-transform.md
+        - name: Procesamiento de XML
+          href: logic-apps-enterprise-integration-xml.md
+        - name: Validación de XML
+          href: logic-apps-enterprise-integration-xml-validation.md
+        - name: Transformación de JSON
+          href: logic-apps-enterprise-integration-liquid-transform.md
         - name: Solución de problemas B2B
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
         - name: Creación de un plan de recuperación ante desastres
@@ -265,7 +252,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure Service Bus
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: Azure SQL Database
+        - name: "Azure\_SQL\_Database"
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md
@@ -406,16 +393,14 @@
           href: logic-apps-data-operations-code-samples.md
         - name: Supervisión de redes sociales
           href: logic-apps-scenario-social-serverless.md
-        - name: 'Creación de una aplicación sin servidor: Visual Studio'
-          href: create-serverless-apps-visual-studio.md
+        - name: 'Compilación de una aplicación sin servidor: Visual Studio'
+          href: logic-apps-serverless-get-started-vs.md
         - name: Adición de control de errores y excepciones
           href: logic-apps-scenario-error-and-exception-handling.md
         - name: Procesamiento B2B
           href: logic-apps-enterprise-integration-b2b.md
 - name: Referencia
   items:
-    - name: Modelos de facturación y precios
-      href: logic-apps-pricing.md
     - name: Patrones de arquitectura
       items:
         - name: Integración empresarial básica
@@ -426,6 +411,8 @@
       href: /connectors/
     - name: Límites y configuración del servicio
       href: logic-apps-limits-and-config.md
+    - name: Modelo de precios y medición de uso
+      href: logic-apps-pricing.md
     - name: Azure CLI
       href: /cli/azure/logic
     - name: Azure PowerShell
@@ -462,7 +449,7 @@
       href: 'https://aka.ms/logicappsroadmap/'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Precios de Azure Logic Apps
+    - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/logic-apps/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'

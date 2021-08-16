@@ -11,12 +11,12 @@ metadata:
   author: Heidilohr
   ms.author: helohr
   ms.date: 03/06/2020
-  ms.openlocfilehash: da50b99cfb5cef8d8ced702e5f5e9a56912e9d59
-  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+  ms.openlocfilehash: 98e0983c84e543dd67301f057cb3f50e8f66d441
+  ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/14/2021
-  ms.locfileid: "113758813"
+  ms.lasthandoff: 06/29/2021
+  ms.locfileid: "113033360"
 landingContent:
 - title: Acerca de Azure Virtual Desktop
   linkLists:
@@ -68,9 +68,3 @@ landingContent:
       url: ./user-documentation/connect-ios.md
     - text: Conexión con clientes Linux o ligeros
       url: ./user-documentation/linux-overview.md
-- title: Streaming de aplicaciones remotas con Azure Virtual Desktop
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Streaming de aplicaciones a los clientes
-      url: ./remote-app-streaming/overview.md
