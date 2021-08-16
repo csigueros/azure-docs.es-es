@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 4307838df56fb2dc1cdf6ee4044b8ce8de164227
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39699417d0d3ba7ab1da26624270c80367ce273c
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92518609"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601763"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nuclino"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Nuclino
 
@@ -26,9 +26,7 @@ En este tutorial aprenderá a integrar Nuclino con Azure Active Directory (Azu
 * Permitir que los usuarios inicien sesión automáticamente en Nuclino con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -39,25 +37,25 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Nuclino admite el inicio de sesión único iniciado por **SP e IDP**
-* Nuclino admite el aprovisionamiento de usuarios **Just-In-Time**
+* Nuclino admite el inicio de sesión único iniciado por **SP e IDP**.
+* Nuclino admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-nuclino-from-the-gallery"></a>Incorporación de Nuclino desde la galería
+## <a name="add-nuclino-from-the-gallery"></a>Adición de Nuclino desde la galería
 
 Para configurar la integración de Nuclino en Azure AD, deberá agregar Nuclino desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Nuclino** en el cuadro de búsqueda.
 1. Seleccione **Nuclino** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-nuclino"></a>Configuración y prueba del inicio de sesión único de Azure AD para Nuclino
+## <a name="configure-and-test-azure-ad-sso-for-nuclino"></a>Configuración y prueba del inicio de sesión único de Azure AD para Nuclino
 
 Configure y pruebe el inicio de sesión único de Azure AD con Nuclino mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Nuclino.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Nuclino, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Nuclino, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -70,13 +68,13 @@ Para configurar y probar el inicio de sesión único de Azure AD con Nuclino, e
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Nuclino**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Nuclino**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
 
@@ -130,13 +128,7 @@ En esta sección va a permitir que B.Simon acceda a Nuclino mediante el inicio d
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Nuclino**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
@@ -155,19 +147,19 @@ En esta sección va a permitir que B.Simon acceda a Nuclino mediante el inicio d
 
 4. Haga clic en el **ICONO**.
 
-    ![Captura de pantalla que muestra el icono de menú seleccionado junto a "Azure A D S S O" (Inicio de sesión único de Azure A D).](./media/nuclino-tutorial/configure1.png)
+    ![Captura de pantalla que muestra el icono de menú seleccionado junto a "Azure A D S S O" (Inicio de sesión único de Azure A D).](./media/nuclino-tutorial/menu.png)
 
 5. Haga clic en **Inicio de sesión único de Azure AD** y seleccione **Configuración del equipo** en la lista desplegable.
 
-    ![Captura de pantalla que muestra la lista desplegable "Azure A D S S O" (Inicio de sesión único de Azure A D) con la opción "Team settings" (Configuración del equipo) seleccionada.](./media/nuclino-tutorial/configure2.png)
+    ![Captura de pantalla que muestra la lista desplegable "Azure A D S S O" (Inicio de sesión único de Azure A D) con la opción "Team settings" (Configuración del equipo) seleccionada.](./media/nuclino-tutorial/team-settings.png)
 
 6. Seleccione **Autenticación** en el panel de navegación izquierdo.
 
-    ![Captura de pantalla que muestra la opción "Authentication" (Autenticación) seleccionada.](./media/nuclino-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la opción "Authentication" (Autenticación) seleccionada.](./media/nuclino-tutorial/authentication.png)
 
 7. En la sección **Autenticación**, realice los pasos siguientes:
 
-    ![Configuración de Nuclino](./media/nuclino-tutorial/configure4.png)
+    ![Configuración de Nuclino](./media/nuclino-tutorial/configuration.png)
 
     a. Seleccione **Inicio de sesión único (SSO) basado en SAML**.
 
@@ -192,16 +184,20 @@ En esta sección se crea un usuario llamado B.Simon en Nuclino. Nuclino admite e
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de Nuclino en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Nuclino para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Nuclino, donde podrá iniciar el flujo de inicio de sesión.  
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Vaya directamente a la dirección URL de inicio de sesión de Nuclino e inicie el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Nuclino para la que ha configurado el inicio de sesión único. 
 
-- [Pruebe Nuclino con Azure AD](https://aad.portal.azure.com/)
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Nuclino en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Nuclino para la que configuró el SSO. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez configurado Nuclino, puede aplicar el control de sesión, que protege tanto la filtración como la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

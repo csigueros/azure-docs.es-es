@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-python-uiex
-ms.openlocfilehash: b006f006c9fb45c9a7d80e815f95bec812e5ec3f
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: f08a035b9d095035fb108140af7c010bc9f049ea
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831841"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112573965"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Python en Azure desde la línea de comandos
 
@@ -191,6 +191,18 @@ Utilice los comandos siguientes para crear los elementos. Se admiten las CLI de 
     El cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) inicia sesión en la cuenta de Azure.
 
     ---
+    
+1. Al usar la CLI de Azure, puede activar la opción `param-persist` que realiza un seguimiento automático de los nombres de los recursos creados. Para más información, consulte [Parámetro persistente de la CLI de Azure](/cli/azure/param-persist-howto).  
+
+    # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+    ```azurecli
+    az config param-persist on
+    ```
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    
+    Esta característica no está disponible en Azure PowerShell.
+    
+    ---
 
 1. Cree un grupo de recursos llamado `AzureFunctionsQuickstart-rg` en la región `westeurope`. 
 
@@ -220,7 +232,7 @@ Utilice los comandos siguientes para crear los elementos. Se admiten las CLI de 
     # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
     ```azurecli
-    az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
+    az storage account create --name <STORAGE_NAME> --sku Standard_LRS
     ```
 
     El comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) crea la cuenta de almacenamiento. 
@@ -244,7 +256,7 @@ Utilice los comandos siguientes para crear los elementos. Se admiten las CLI de 
     # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
         
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME> --os-type linux
+    az functionapp create --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --os-type linux
     ```
     
     El comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) crea la aplicación de funciones en Azure. Si usa Python 3.7 o 3.6, cambie `--runtime-version` a `3.7` o `3.6`, respectivamente.
@@ -259,7 +271,7 @@ Utilice los comandos siguientes para crear los elementos. Se admiten las CLI de 
 
     ---
     
-    En el ejemplo anterior, reemplace `<STORAGE_NAME>` por el nombre de la cuenta que usó en el paso anterior y reemplace `<APP_NAME>` por un nombre único global que le resulte adecuado.  `<APP_NAME>` también es el dominio DNS predeterminado de la aplicación de función. 
+    En el ejemplo anterior, reemplace `<APP_NAME>` por un nombre único global que sea adecuado.  `<APP_NAME>` también es el dominio DNS predeterminado de la aplicación de función. 
     
     Este comando crea una aplicación de funciones que se ejecuta en el entorno de ejecución del lenguaje especificado en el [plan de consumo de Azure Functions](consumption-plan.md), que es gratuito para la cantidad de uso que se realiza aquí. El comando también aprovisiona una instancia asociada de Azure Application Insights en el mismo grupo de recursos con la que puede supervisar la aplicación de funciones y ver registros. Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md). La instancia no incurrirá en ningún costo hasta que se active.
 

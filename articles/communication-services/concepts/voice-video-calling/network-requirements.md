@@ -6,23 +6,19 @@ author: nmurav
 manager: jken
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 3/23/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 2fa9cbba571fa5603607c5efea7f49a5822726e9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3a4f842f096f6f8c283934b67808bb33b20f8fc1
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089423"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360206"
 ---
-# <a name="ensure-high-quality-media-in-azure-communication-services"></a>Garantía de multimedia de alta calidad en Azure Communication Services
+# <a name="network-recommendations"></a>Recomendaciones de red
 
-En este documento se proporciona información general sobre los factores y procedimientos recomendados que se deben tener en cuenta al crear experiencias de comunicación multimedia de alta calidad con Azure Communication Services.
-
-## <a name="factors-that-affect-media-quality-and-reliability"></a>Factores que afectan a la calidad y confiabilidad de los elementos multimedia
-
-Hay muchos factores que contribuyen a la calidad de los elementos multimedia en tiempo real (audio, vídeo y uso compartido de aplicaciones) de Azure Communication Services, entre los que se incluyen la calidad de la red, el ancho de banda, el firewall, el host y la configuración de los dispositivos.
+En este documento se resume cómo afecta el entorno de red a la calidad de las llamadas de voz y vídeo. Hay muchos factores que contribuyen a la calidad de los elementos multimedia en tiempo real (audio, vídeo y uso compartido de aplicaciones) de Azure Communication Services, entre los que se incluyen la calidad de la red, el ancho de banda, el firewall, el host y la configuración de los dispositivos.
 
 
 ### <a name="network-quality"></a>Calidad de la red
@@ -63,7 +59,7 @@ A continuación, se muestran los requisitos de ancho de banda para los SDK de Wi
 
 Las conexiones de Azure Communication Services requieren conectividad a Internet en puertos y direcciones IP específicos, con el fin de ofrecer experiencias multimedia de alta calidad. Azure Communication Services también funciona aunque no haya acceso a estos puertos y direcciones IP. Sin embargo, la experiencia óptima se obtiene cuando los puertos e intervalos IP recomendados están abiertos.
 
-| Categoría | Intervalos IP o nombre de dominio completo | Puertos | 
+| Category | Intervalos IP o nombre de dominio completo | Puertos | 
 | :-- | :-- | :-- |
 | Tráfico multimedia | [Intervalo de direcciones IP de la nube pública de Azure](https://www.microsoft.com/download/confirmation.aspx?id=56519) | UDP 3478 a 3481, puertos TCP 443 |
 | Señalización, telemetría, registro| *.skype.com, *.microsoft.com, *.azure.net, *.azureedge.net, *.office.com y *.trouter.io | TCP 443, 80 |

@@ -1,31 +1,33 @@
 ---
-title: Acceso a SQL Server local desde una red virtual administrada por Data Factory mediante un punto de conexión privado
-description: En este tutorial se proporcionan los pasos para usar Azure Portal para configurar el servicio Private Link y acceder a SQL Server local desde una red virtual administrada mediante un punto de conexión privado.
+title: Acceso a SQL Server local desde una VNet administrada por Data Factory mediante un punto de conexión privado
+description: En este tutorial se proporcionan los pasos para usar Azure Portal para configurar el servicio Private Link y acceder a SQL Server local desde una VNet administrada mediante un punto de conexión privado.
 author: lrtoyou1223
 ms.author: lle
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: c389eab986fa317174db08a3e33d54d595c50c4c
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: bb29c7712bdbe629ff3aa8704c0c4654404f0da3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657518"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971846"
 ---
-# <a name="tutorial-how-to-access-on-premises-sql-server-from-data-factory-managed-vnet-using-private-endpoint"></a>Tutorial: Acceso a SQL Server local desde una red virtual administrada por Data Factory mediante un punto de conexión privado
+# <a name="tutorial-how-to-access-on-premises-sql-server-from-data-factory-managed-vnet-using-private-endpoint"></a>Tutorial: Acceso a SQL Server local desde una VNet administrada por Data Factory mediante un punto de conexión privado
 
-En este tutorial se proporcionan los pasos para usar Azure Portal para configurar el servicio Private Link y acceder a SQL Server local desde una red virtual administrada mediante un punto de conexión privado.
+En este tutorial se proporcionan los pasos para usar Azure Portal para configurar el servicio Private Link y acceder a SQL Server local desde una VNet administrada mediante un punto de conexión privado.
+
+> [!NOTE]
+> La solución presentada en este artículo describe la conectividad de SQL Server, pero puede usar un enfoque similar para conectarse y consultar otros [conectores locales](connector-overview.md) disponibles que se admiten en Azure Data Factory.
 
 :::image type="content" source="./media/tutorial-managed-virtual-network/sql-server-access-model.png" alt-text="Captura de pantalla que muestra el modelo de acceso de SQL Server." lightbox="./media/tutorial-managed-virtual-network/sql-server-access-model-expanded.png":::
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* **Virtual Network**. Si no tiene una red virtual, cree una según se describe en [Inicio rápido: Creación de una red virtual mediante Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
-* **De la red virtual a la red local**. Cree una conexión entre la red virtual y la red local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=/azure/virtual-network/toc.json) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/tutorial-site-to-site-portal?toc=/azure/virtual-network/toc.json).
-* **Data Factory con una red virtual administrada habilitada**. Si no tiene una instancia de Data Factory o la red virtual administrada no está habilitada, cree una según se describe en [Copia de datos de forma segura desde Azure Blob Storage a SQL Database mediante puntos de conexión privados](https://docs.microsoft.com/azure/data-factory/tutorial-copy-data-portal-private).
+* **Virtual Network**. Si no tiene una red virtual, cree una según se describe en [Inicio rápido: Creación de una red virtual mediante Azure Portal](../virtual-network/quick-create-portal.md).
+* **De la red virtual a la red local**. Cree una conexión entre la red virtual y la red local mediante [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=/azure/virtual-network/toc.json) o [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/virtual-network/toc.json).
+* **Data Factory con una VNet administrada habilitada**. Si no tiene una instancia de Data Factory o la red VNet administrada no está habilitada, cree una según se describe en el artículo [Creación de una instancia de Data Factory con una red virtual administrada](tutorial-copy-data-portal-private.md).
 
 ## <a name="create-subnets-for-resources"></a>Creación de subredes para los recursos
 
@@ -212,8 +214,10 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
 2. Ejecute el script con las siguientes opciones:<br/>
     **sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433**<br/>
     <FQDN/IP> es la dirección IP de la instancia de SQL Server de destino.<br/>
-    >[!Note] 
-    >El FQDN no funciona para SQL Server local a menos que agregue un registro en la zona DNS de Azure.
+    
+    > [!Note] 
+    > El FQDN no funciona para SQL Server local a menos que agregue un registro en la zona de Azure DNS.
+    
 3. Ejecute el comando siguiente y compruebe las tablas IP en las máquinas virtuales del servidor backend. Puede ver un registro en las tablas IP con la dirección IP de destino.<br/>
     **sudo iptables -t nat -v -L PREROUTING -n --line-number**
 
@@ -266,7 +270,7 @@ Vaya a la máquina virtual del servidor backend y confirme mediante telnet que l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Avance al siguiente tutorial para obtener información sobre cómo acceder a Microsoft Azure SQL Managed Instance desde una red virtual administrada por Data Factory mediante un punto de conexión privado:
+Avance al siguiente tutorial para obtener información sobre cómo acceder a Microsoft Azure SQL Managed Instance desde una VNet administrada por Data Factory mediante un punto de conexión privado:
 
 > [!div class="nextstepaction"]
-> [Acceso a SQL Managed Instance desde una red virtual administrada por Data Factory mediante un punto de conexión privado](tutorial-managed-virtual-network-sql-managed-instance.md)
+> [Acceso a SQL Managed Instance desde una VNet administrada por Data Factory](tutorial-managed-virtual-network-sql-managed-instance.md)
