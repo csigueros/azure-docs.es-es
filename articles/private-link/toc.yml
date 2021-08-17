@@ -59,7 +59,9 @@
           href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: Instrucciones
   items:
-    - name: Deshabilitar las directivas de red de un punto de conexión privado
+    - name: Exportación de registros DNS de puntos de conexión privados
+      href: private-endpoint-export-dns.md
+    - name: Deshabilitar las directivas de red de puntos de conexión privados
       href: disable-private-endpoint-network-policy.md
     - name: Deshabilitar las directivas de red de un servicio Private Link
       href: disable-private-link-service-network-policy.md

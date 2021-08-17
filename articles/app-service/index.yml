@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 08/06/2020
-  ms.openlocfilehash: a1d7e11716478fd061104667f9adeb2511b4721e
-  ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+  ms.openlocfilehash: d0168c8e3c2d7563bfff77b4188d3f95676131d5
+  ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/25/2021
-  ms.locfileid: "112895308"
+  ms.lasthandoff: 07/23/2021
+  ms.locfileid: "114652035"
 landingContent:
 - title: Acerca de App Service
   linkLists:
@@ -20,9 +20,11 @@ landingContent:
     links:
     - text: ¿Qué es App Service?
       url: overview.md
+    - text: ¿Qué es un plan de App Service?
+      url: overview-hosting-plans.md
     - text: Entornos de App Service
       url: environment/intro.md
-    - text: Comparación entre opciones de hospedaje
+    - text: Comparación de las opciones de hospedaje de Azure para aplicaciones web
       url: /azure/architecture/guide/technology-choices/compute-decision-tree
   - linkListType: whats-new
     links:
@@ -105,7 +107,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Administración de planes de App Service
-      url: overview-hosting-plans.md
+      url: app-service-plan-manage.md
   - linkListType: tutorial
     links:
     - text: Protección del acceso a un recurso con identidades administradas

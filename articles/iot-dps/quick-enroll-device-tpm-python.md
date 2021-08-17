@@ -1,26 +1,26 @@
 ---
-title: 'Inicio rápido: Inscripción de un dispositivo de TPM a Azure Device Provisioning Service mediante Python'
-description: 'Inicio rápido: Inscripción de un dispositivo de TPM en Azure IoT Hub Device Provisioning Service (DPS) mediante el SDK del servicio de aprovisionamiento para Python. En esta guía de inicio rápido se utilizan inscripciones individuales.'
+title: 'Inicio rápido: Creación de inscripciones de Device Provisioning Service (DPS) con Python'
+description: 'Inicio rápido: Creación de Device Provisioning Service (DPS) mediante el SDK del servicio de aprovisionamiento de Python. En esta guía de inicio rápido se utilizan inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 06/21/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 96bd1e85de45ac36515580025dfc392e931643f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af0aa78c9aa6697f0394ef155177e3ff1dfe462b
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91323770"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457848"
 ---
-# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Inicio rápido: Inscripción de un dispositivo de TPM al servicio IoT Hub Device Provisioning con el SDK del servicio de aprovisionamiento de Python
+# <a name="quickstart-create-dps-enrollments-using-python-service-sdk"></a>Inicio rápido: Creación de inscripciones de DPS mediante el SDK del servicio de Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-En este inicio rápido se muestra cómo crear una inscripción individual para un dispositivo de TPM mediante programación en el servicio Azure IoT Hub Device Provisioning con el SDK del servicio de aprovisionamiento de Python y la ayuda de una aplicación de Python de ejemplo.
+En este inicio rápido va a crear mediante programación una inscripción de dispositivo individual en Azure IoT Hub Device Provisioning Service (DPS). Se va a usar el SDK del servicio de aprovisionamiento de Python para crear la inscripción. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -49,34 +49,92 @@ En este inicio rápido se muestra cómo crear una inscripción individual para u
         pip install azure-iothub-provisioningserviceclient
         ```
 
-1. Necesitará la clave de aprobación para el dispositivo. Si siguió la guía de inicio rápido [Creación y aprovisionamiento de un dispositivo simulado](quick-create-simulated-device.md) para crear un dispositivo de TPM simulado, use la clave que se creó para dicho dispositivo. En caso contrario, puede usar la siguiente clave de aprobación proporcionada con el SDK:
+1. En este tema se muestran las inscripciones de clave simétrica y TPM en las pestañas siguientes. 
+ 
+    # <a name="symmetric-key"></a>[Clave simétrica](#tab/symmetrickey)
+    
+    En las inscripciones de dispositivos de clave simétrica, necesita una clave principal y una secundaria para el dispositivo. Si no tiene ninguna clave simétrica válida, puede usar las siguientes claves de ejemplo:
+
+    *Clave simétrica principal*
+
+    ```
+    UmorGiEVPNIQuaWGXXbe8v9gWayS7XtOZmNMo6DEaEXP65GvhuK3OeRf8RVZ9BymBCHxNg3oRTey0pUHUwwYKQ==
+    ```
+
+    *Clave simétrica secundaria*
+
+    ```
+    Zx8/eE7PUBmnouB1qlNQxI7fcQ2HbJX+y96F1uCVQvDj88jFL+q6L9YWLLi4jqTmkRPOulHlSbSv2uFgj4vKtw==
+    ```
+    
+    # <a name="tpm"></a>[TPM](#tab/tpm)
+    
+    En las inscripciones de TPM, necesita la clave de aprobación del dispositivo. Si siguió la guía de inicio rápido [Creación y aprovisionamiento de un dispositivo simulado](quick-create-simulated-device.md) para crear un dispositivo de TPM simulado, use la clave que se creó para dicho dispositivo. En caso contrario, puede usar la siguiente clave de aprobación proporcionada con el SDK:
 
     ```
     AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAtW6MOyCu/Nih47atIIoZtlYkhLeCTiSrtRN3q6hqgOllA979No4BOcDWF90OyzJvjQknMfXS/Dx/IJIBnORgCg1YX/j4EEtO7Ase29Xd63HjvG8M94+u2XINu79rkTxeueqW7gPeRZQPnl1xYmqawYcyzJS6GKWKdoIdS+UWu6bJr58V3xwvOQI4NibXKD7htvz07jLItWTFhsWnTdZbJ7PnmfCa2vbRH/9pZIow+CcAL9mNTNNN4FdzYwapNVO+6SY/W4XU0Q+dLMCKYarqVNH5GzAWDfKT8nKzg69yQejJM8oeUWag/8odWOfbszA+iFjw3wVNrA5n8grUieRkPQ==
     ```
-
+    
+    ---
 
 ## <a name="modify-the-python-sample-code"></a>Modificación del código de ejemplo de Python
 
-En esta sección se muestra cómo agregar los detalles de aprovisionamiento del dispositivo de TPM al código de ejemplo. 
+En esta sección se muestra cómo agregar los detalles de aprovisionamiento de la inscripción individual al código de ejemplo. 
 
-1. Con un editor de texto, cree un nuevo archivo **TpmEnrollment.py**.
+1. Con un editor de texto, cree un nuevo archivo **Enrollment.py**.
 
-1. Agregue las siguientes instrucciones y variables `import` al principio del archivo **TpmEnrollment.py**. Después, reemplace `dpsConnectionString` por la cadena de conexión que se encuentra en **Directivas de acceso compartido** en **Device Provisioning Service** de **Azure Portal**. Reemplace `endorsementKey` por el valor que se ha indicado anteriormente en [Preparación del entorno](quick-enroll-device-tpm-python.md#prepareenvironment). Por último, cree un único `registrationid`, y asegúrese de que solo consta de caracteres alfanuméricos en minúsculas y guiones.  
+1. Agregue las siguientes instrucciones y variables `import` al principio del archivo **Enrollment.py**. Después, reemplace `dpsConnectionString` por la cadena de conexión que se encuentra en **Directivas de acceso compartido** en **Device Provisioning Service** de **Azure Portal**. Reemplace las claves del dispositivo por el valor que ha anotado anteriormente en [Preparación del entorno](quick-enroll-device-tpm-python.md#prepareenvironment). Por último, cree un único `registrationid`, y asegúrese de que solo consta de caracteres alfanuméricos en minúsculas y guiones.  
+
+    # <a name="symmetric-key"></a>[Clave simétrica](#tab/symmetrickey)
+
+    ```python
+    from provisioningserviceclient import ProvisioningServiceClient
+    from provisioningserviceclient.models import IndividualEnrollment, AttestationMechanism
+    from provisioningserviceclient.protocol.models import SymmetricKeyAttestation
+
+    CONNECTION_STRING = "Enter your DPS connection string"
+    PRIMARY_KEY = "Add a valid key"
+    SECONDARY_KEY = "Add a valid key"
+    REGISTRATION_ID = "Enter a registration ID"
+    ```
+
+    # <a name="tpm"></a>[TPM](#tab/tpm)
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient
     from provisioningserviceclient.models import IndividualEnrollment, AttestationMechanism
 
-    CONNECTION_STRING = "{dpsConnectionString}"
-
-    ENDORSEMENT_KEY = "{endorsementKey}"
-
-    REGISTRATION_ID = "{registrationid}"
+    CONNECTION_STRING = "Enter your DPS connection string"
+    ENDORSEMENT_KEY = "Enter the endorsement key for your device"
+    REGISTRATION_ID = "Enter a registration ID"
     ```
 
-1. Agregue la función y llamada de función siguientes para implementar la creación de inscripción de grupo:
+    ---
+
+1. Agregue la función y la llamada a función siguientes para implementar la creación de la inscripción individual:
    
+    # <a name="symmetric-key"></a>[Clave simétrica](#tab/symmetrickey)
+
+    ```python
+    def main():
+        print ( "Starting individual enrollment..." )
+
+        psc = ProvisioningServiceClient.create_from_connection_string(CONNECTION_STRING)
+
+        symAtt = SymmetricKeyAttestation(primary_key=PRIMARY_KEY, secondary_key=SECONDARY_KEY)
+        att = AttestationMechanism(type="symmetricKey", symmetric_key=symAtt)
+        ie = IndividualEnrollment.create(REGISTRATION_ID, att)
+
+        ie = psc.create_or_update(ie)
+    
+        print ( "Individual enrollment successful." )
+    
+    if __name__ == '__main__':
+        main()
+    ```
+
+    # <a name="tpm"></a>[TPM](#tab/tpm)
+
     ```python
     def main():
         print ( "Starting individual enrollment..." )
@@ -94,20 +152,22 @@ En esta sección se muestra cómo agregar los detalles de aprovisionamiento del 
         main()
     ```
 
-1. Guarde y cierre el archivo **TpmEnrollment.py**.
+    ---
+
+1. Guarde y cierre el archivo **Enrollment.py**.
  
 
-## <a name="run-the-sample-tpm-enrollment"></a>Ejecución de la inscripción de TPM de ejemplo
+## <a name="run-the-sample-to-create-an-enrollment"></a>Ejecución del ejemplo para crear una inscripción
 
 1. Abra el símbolo del sistema y ejecute el script.
 
     ```cmd/sh
-    python TpmEnrollment.py
+    python Enrollment.py
     ```
 
 1. Observe la salida para comprobar si la inscripción se realizó correctamente.
 
-1. Vaya al servicio de aprovisionamiento en Azure Portal. Seleccione **Administrar inscripciones**. Tenga en cuenta que el dispositivo de TPM aparecerá en la pestaña **Inscripciones individuales**, con el nombre `registrationid` creado anteriormente. 
+1. Vaya al servicio de aprovisionamiento en Azure Portal. Seleccione **Administrar inscripciones**. Observe que la inscripción del dispositivo aparece en la pestaña **Inscripciones individuales** con el nombre `registrationid` creado anteriormente. 
 
     ![Comprobación de si la inscripción de TPM se realizó correctamente en el portal](./media/quick-enroll-device-tpm-python/1.png)  
 
@@ -121,7 +181,7 @@ Si planea explorar el ejemplo del servicio de Java, no elimine los recursos que 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En esta guía de inicio rápido, ha creado una entrada de inscripción individual mediante programación para un dispositivo de TPM y, opcionalmente, ha creado en una máquina un dispositivo de TPM simulado y lo ha aprovisionado en su centro de IoT mediante Azure IoT Hub Device Provisioning Service. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal.
+En este inicio rápido ha creado mediante programación una entrada de inscripción individual para un dispositivo. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal.
 
 > [!div class="nextstepaction"]
 > [Tutoriales del servicio Azure IoT Hub Device Provisioning](./tutorial-set-up-cloud.md)

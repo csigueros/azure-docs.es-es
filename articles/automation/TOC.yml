@@ -68,10 +68,14 @@
           href: quickstart-create-automation-account-template.md
         - name: Identidad administrada
           items:
-            - name: Habilitación de una entidad administrada
+            - name: Uso de identidad administrada asignada por el sistema
               href: enable-managed-identity-for-automation.md
-            - name: Deshabilitar la identidad administrada
+            - name: Uso de identidad administrada asignada por el usuario
+              href: add-user-assigned-identity.md
+            - name: Deshabilitación de identidad administrada asignada por el sistema
               href: disable-managed-identity-for-automation.md
+            - name: Eliminación de identidad administrada asignada por el usuario
+              href: remove-user-assigned-identity.md
             - name: Solución de problemas de identidad administrada
               href: troubleshoot/managed-identity.md
         - name: Cuenta de ejecución
