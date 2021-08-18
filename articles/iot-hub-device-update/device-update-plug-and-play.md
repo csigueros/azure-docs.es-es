@@ -6,19 +6,19 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 8d8d397dd81e6a7d30bd2877483dde1c3ab8de5a
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 0431f28a23b9fcae8e34e7c163e9628d3d503255
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114404196"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396987"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Device Update para IoT Hub e IoT Plug and Play
 
 Device Update para IoT Hub utiliza [IoT Plug and Play](../iot-develop/index.yml) para detectar y administrar dispositivos que admiten actualizaciones de forma inalámbrica. El servicio Device Update enviará propiedades y mensajes a los dispositivos y los recibirá de estos utilizando interfaces de PnP. Device Update para IoT Hub necesita que los dispositivos IoT implementen las siguientes interfaces e identificadores de modelo que se indican a continuación.
 
 Conceptos: 
-* Comprenda el [cliente de dispositivo de IoT Plug and Play](../iot-develop/concepts-developer-guide-device.md?pivots=programming-language-csharp#implement-telemetry-properties-and-commands). 
+* Comprenda el [cliente de dispositivo de IoT Plug and Play](../iot-develop/concepts-developer-guide-device.md?pivots=programming-language-csharp). 
 * Vea cómo se [implementa el agente de Device Update](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
 
 ## <a name="adu-core-interface"></a>Interfaz principal de ADU
