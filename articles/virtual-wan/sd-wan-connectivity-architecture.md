@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: eb6ae05b0e3c296a1ca56d3ea6085b8cd4586c23
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 08e20a497c7fddfe00e70fcf1d9d4c6e5f76054f
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165702"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122321842"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Arquitectura de conectividad SD WAN con Azure Virtual WAN
 
@@ -42,7 +42,7 @@ En este modelo, es posible que algunas optimizaciones de tráfico propietario de
 
 Con Virtual WAN, los usuarios pueden obtener la selección de ruta de acceso de Azure, que es una selección de la ruta de acceso basada en directivas en varios vínculos de ISP desde la rama CPE a las puertas de enlace de VPN de Virtual WAN. Virtual WAN permite configurar varios vínculos (rutas de acceso) desde el mismo CPE de rama de SD-WAN; cada vínculo representa una conexión de túnel dual desde una dirección IP pública única del CPE de SD-WAN a dos instancias diferentes de la puerta de enlace de VPN de Azure Virtual WAN. Los proveedores de SD-WAN pueden implementar la ruta de acceso óptima a Azure, en función de las directivas de tráfico establecidas por el motor de directivas en los vínculos de CPE. En el extremo de Azure, todas las conexiones entrantes se tratan de igual manera.
 
-## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct"></a>Modelo de interconexión directa con NVA en centro de VWAN
+## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct-nva"></a>Modelo de interconexión directa con NVA en centro de VWAN
 
 :::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="Modelo de interconexión directa con NVA en centro de VWAN":::
 
