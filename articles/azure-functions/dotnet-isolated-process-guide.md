@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/01/2021
 ms.custom: template-concept
 recommendations: false
-ms.openlocfilehash: 34a4a37d351f144d00d926de0544c8ae56e9a314
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 5f8d78f7080c1505db4a82d9393801ad8418beed
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901460"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751476"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guía para la ejecución de funciones en .NET 5.0 en Azure
 
@@ -44,7 +44,7 @@ Al ejecutarse fuera de proceso, las funciones de .NET pueden aprovechar las vent
 Un proyecto de función aislada de .NET es básicamente un proyecto de aplicación de consola de .NET que tiene como destino .NET 5.0. A continuación, se muestran los archivos básicos necesarios en cualquier proyecto aislado de .NET:
 
 + Archivo [host.json](functions-host-json.md).
-+ Archivo [local.settings.json](functions-run-local.md#local-settings-file).
++ Archivo [local.settings.json](functions-develop-local.md#local-settings-file).
 + Archivo del proyecto de C# (. csproj) que define el proyecto y las dependencias.
 + Archivo program.cs que es el punto de entrada de la aplicación.
 
@@ -142,7 +142,7 @@ Una función puede tener cero o más enlaces de entrada que pueden pasar datos a
 
 ### <a name="output-bindings"></a>Enlaces de salida
 
-Para escribir en un enlace de salida, debe aplicar un atributo de enlace de salida al método de función, que define cómo escribir en el servicio enlazado. El valor devuelto por el método se escribe en el enlace de salida. Por ejemplo, en el ejemplo siguiente se escribe un valor de cadena en una cola de mensajes denominada `functiontesting2` mediante un enlace de salida:
+Para escribir en un enlace de salida, debe aplicar un atributo de enlace de salida al método de función, que define cómo escribir en el servicio enlazado. El valor devuelto por el método se escribe en el enlace de salida. Por ejemplo, en el ejemplo siguiente se escribe un valor de cadena en una cola de mensajes denominada `myqueue-output` mediante un enlace de salida:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 

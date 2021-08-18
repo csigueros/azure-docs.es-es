@@ -5,12 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.openlocfilehash: 4b796af22604a2f09482bcb9a321159ebaafea11
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d318f7aad20f4bdf8ccb8db53c20c2426216b4dd
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756780"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112422505"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generación de un mapa térmico de humedad del suelo
 
@@ -36,7 +36,7 @@ Una granja es una zona geográfica de interés para la que desea crear una mapa 
 
 ## <a name="deploy-sensors"></a>Implementación de sensores
 
-Debe implementar físicamente sensores de humedad del suelo en la granja. Puede adquirir sensores de humedad del suelo de nuestros asociados aprobados: [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/) y [Teralytic](https://teralytic.com/). Debe coordinarse con el proveedor de sensores para realizar la instalación física en la granja.
+Debe implementar físicamente sensores de humedad del suelo en la granja. Puede adquirir sensores de humedad del suelo de nuestros asociados aprobados: [Davis Instruments](https://www.davisinstruments.com/products/enviromonitor-gateway-us-lte) y [Teralytic](https://teralytic.com/). Debe coordinarse con el proveedor de sensores para realizar la instalación física en la granja.
 
 ## <a name="get-soil-moisture-sensor-data-from-partner"></a>Obtención de datos del sensor de humedad del suelo del asociado
 

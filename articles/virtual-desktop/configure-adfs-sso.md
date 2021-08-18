@@ -6,21 +6,16 @@ author: Heidilohr
 manager: lizross
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/30/2021
 ms.author: helohr
-ms.openlocfilehash: c85186d8338918dbcf2af56abd959f5cbff6ad56
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3c6e61754d9332cbdfbea6b971363c1b0d6cb4fe
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967278"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289428"
 ---
 # <a name="configure-ad-fs-single-sign-on-for-azure-virtual-desktop"></a>Configuración del inicio de sesión único de AD FS para Azure Virtual Desktop
-
-> [!IMPORTANT]
-> El inicio de sesión único de AD FS está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo obtendrá información del proceso de configuración del inicio de sesión único (SSO) de los Servicios de federación de Active Directory (AD FS) para Azure Virtual Desktop.
 
@@ -29,15 +24,12 @@ En este artículo obtendrá información del proceso de configuración del inici
 
 ## <a name="requirements"></a>Requisitos
 
-> [!IMPORTANT]
-> Durante la versión preliminar pública, debe configurar el grupo host para que esté en el [entorno de validación](create-validation-host-pool.md).
-
 Antes de configurar el inicio de sesión único de AD FS, debe ejecutar la siguiente configuración en el entorno:
 
 * Debe implementar el rol **Servicios de certificados de Active Directory (CA)** . Todos los servidores que ejecutan el rol deben estar unidos a un dominio, tener instaladas las actualizaciones más recientes de Windows y configurarse como una [entidad de certificación de empresa](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731183%28v%3dws.10%29).
 * Asimismo, debe implementar el rol **Servicios de federación de Active Directory (AD FS)** . Todos los servidores que ejecutan el rol deben estar unidos a un dominio, tener instaladas las actualizaciones más recientes de Windows y ejecutar una versión de Windows Server 2016 o posterior. Consulte nuestro [tutorial de federación](../active-directory/hybrid/tutorial-federation.md) para empezar a configurar este rol.
 * Se recomienda configurar el rol de **Proxy de aplicación web** para proteger la conexión del entorno con los servidores de AD FS. Todos los servidores que ejecutan el rol deben tener instaladas las actualizaciones más recientes de Windows y ejecutar una versión de Windows Server 2016 o posterior. Consulte esta [guía de Proxy de aplicación web](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)) para empezar a configurar el rol.
-* Debe implementar **Azure AD Connect** para sincronizar usuarios con Azure AD. Igualmente, Azure AD Connect debe configurarse en el [modo de federación](../active-directory/connect/active-directory-aadconnect-get-started-custom.md).
+* Debe implementar **Azure AD Connect** para sincronizar usuarios con Azure AD. Igualmente, Azure AD Connect debe configurarse en el [modo de federación](../active-directory/hybrid/how-to-connect-install-custom.md).
 * [Configure el entorno de PowerShell](powershell-module.md) para Azure Virtual Desktop en el servidor de AD FS.
 * Al usar Windows 10 20H1 o 20H2 para conectarse a Azure Virtual Desktop, debe instalar la **actualización acumulativa 2021-04 para Windows 10 (KB5001330)** o una versión posterior para que el inicio de sesión único funcione correctamente.
 
@@ -48,8 +40,8 @@ Antes de configurar el inicio de sesión único de AD FS, debe ejecutar la sigu
 
 Los siguientes clientes de Azure Virtual Desktop admiten esta característica:
 
-* [Cliente de escritorio de Windows](connect-windows-7-10.md)
-* [Cliente web](connect-web.md)
+* [Cliente de escritorio de Windows](./user-documentation/connect-windows-7-10.md)
+* [Cliente web](./user-documentation/connect-web.md)
 
 ## <a name="configure-the-certificate-authority-to-issue-certificates"></a>Configuración de la entidad de certificación para emitir certificados
 
@@ -232,9 +224,6 @@ Este script solo tiene un parámetro necesario, *ADFSAuthority*, que es la direc
 
 ## <a name="configure-your-azure-virtual-desktop-host-pool"></a>Configuración del grupo de host de Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Durante la versión preliminar pública, debe configurar el grupo host para que esté en el [entorno de validación](create-validation-host-pool.md).
-
 Es el momento de configurar los parámetros de SSO de AD FS en el grupo de host de Azure Virtual Desktop. Para ello, [configure el entorno de PowerShell](powershell-module.md) para Azure Virtual Desktop, si aún no lo ha hecho, y conéctese a su cuenta.
 
 A continuación, actualice la información de SSO del grupo de host mediante la ejecución de uno de los dos cmdlets siguientes en la misma ventana de PowerShell en la VM de AD FS:
@@ -291,5 +280,5 @@ UnConfigureWVDSSO.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplic
 
 Ahora que ha configurado el inicio de sesión único, puede iniciar sesión en un cliente de Azure Virtual Desktop admitido para probarlo como parte de una sesión de usuario. Si quiere obtener información sobre cómo conectarse a una sesión mediante sus nuevas credenciales, consulte estos artículos:
 
-* [Conexión con el cliente de Escritorio de Windows](connect-windows-7-10.md)
-* [Conexión con el cliente web](connect-web.md)
+* [Conexión con el cliente de Escritorio de Windows](./user-documentation/connect-windows-7-10.md)
+* [Conexión con el cliente web](./user-documentation/connect-web.md)

@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 05/25/2021
-ms.openlocfilehash: fa62dc3470ef4d4ab79045379a8b76b057b44628
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 645fce68e408b65299090e4661b36690f7ca140c
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379223"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690493"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implementación de una puerta de enlace autohospedada en Kubernetes
 
@@ -68,13 +68,13 @@ En este artículo se describen los pasos para implementar un componente de puert
 ### <a name="access-token"></a>Access token
 Sin un token de acceso válido, una puerta de enlace autohospedada no puede tener acceso a los datos de configuración del punto de conexión del servicio API Management asociado ni descargarlos. El token de acceso puede ser válido durante 30 días como máximo. Se debe regenerar y el clúster se debe configurar con un token nuevo, ya sea manualmente o mediante automatización antes de que expire.
 
-Al automatizar la actualización de tokens, use esta [operación de la API de administración](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) para generar un nuevo token. Para obtener información sobre la administración de secretos de Kubernetes, consulte el [sitio web de Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
+Al automatizar la actualización de tokens, use esta [operación de la API de administración](/rest/api/apimanagement/2020-12-01/gateway/generate-token) para generar un nuevo token. Para obtener información sobre la administración de secretos de Kubernetes, consulte el [sitio web de Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
 
 ### <a name="namespace"></a>Espacio de nombres
 Los espacios de nombres de [Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) ayudan a dividir un solo clúster entre varios equipos, proyectos o aplicaciones. Los espacios de nombres proporcionan un ámbito para los recursos y los nombres. Pueden asociarse con una cuota de recursos y directivas de control de acceso.
 
 Azure Portal proporciona comandos para crear recursos de la puerta de enlace autohospedada en el espacio de nombres **predeterminado**. Este espacio de nombres se crea automáticamente, existe en todos los clústeres y no se puede eliminar.
-Considere la posibilidad de [crear e implementar](https://kubernetesbyexample.com/ns/) una puerta de enlace autohospedada en un espacio de nombres independiente en producción.
+Considere la posibilidad de [crear e implementar](https://www.kubernetesbyexample.com/) una puerta de enlace autohospedada en un espacio de nombres independiente en producción.
 
 ### <a name="number-of-replicas"></a>Número de réplicas
 El número mínimo de réplicas adecuado en producción es dos.

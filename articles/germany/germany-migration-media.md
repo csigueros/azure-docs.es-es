@@ -1,22 +1,22 @@
 ---
 title: Migración de recursos multimedia de Azure desde Azure Alemania a Azure global
 description: En este artículo se proporciona información sobre cómo migrar los recursos multimedia de Azure desde Azure Alemania a Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: c8a34137c6d1d0d238d27c61d11012bf589b6ea0
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: ac7cd5ca55525c11d2b985d931be24d1780899fb
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657042"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "117029020"
 ---
 # <a name="migrate-media-resources-to-global-azure"></a>Migración de recursos multimedia a Azure global
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 En este artículo se proporciona información que puede ayudarle a migrar los recursos multimedia de Azure desde Azure Alemania a Azure global.
 
@@ -26,7 +26,7 @@ En Azure Media Services, puede configurar su propia cuenta de almacenamiento y t
 
 Para obtener más información:
 
-- Actualice sus conocimientos completando los [tutoriales de Media Services](https://docs.microsoft.com/azure/media-services/previous/).
+- Actualice sus conocimientos completando los [tutoriales de Media Services](../media-services/previous/index.yml).
 - Revise la [introducción a Media Services](../media-services/previous/media-services-overview.md).
 - Aprenda a [crear una cuenta de Media Services](../media-services/previous/media-services-portal-create-account.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89f4172b08d56a0ec139f18519a3a9bcd081e08b
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "68965290"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113688530"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
 
@@ -83,7 +83,7 @@ Los dispositivos StorSimple tienen una combinación de unidades de disco duro y 
 | Capacidad total utilizable* |~ 15 TB |~ 38 TB |
 | Capacidad máxima de la solución (incluida la nube) |200 TB |500 TB |
 
-<sup>* </sup>- *La capacidad total utilizable incluye la capacidad disponible para datos, metadatos y búferes. Puede aprovisionar volúmenes anclados localmente de hasta 8,5 TB en dispositivos del modelo 8100 o de hasta 22,5 TB en dispositivos del modelo 8600 de mayor tamaño. Para obtener más información, consulte la sección [Volúmenes de StorSimple anclados localmente](storsimple-8000-local-volume-faq.md).*
+<sup>* </sup>- *La capacidad total utilizable incluye la capacidad disponible para datos, metadatos y búferes. Puede aprovisionar volúmenes anclados localmente de hasta 8,5 TB en dispositivos del modelo 8100 o de hasta 22,5 TB en dispositivos del modelo 8600 de mayor tamaño. Para obtener más información, consulte la sección [Volúmenes de StorSimple anclados localmente](storsimple-8000-local-volume-faq.yml).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Especificaciones de dimensiones y peso del revestimiento
 

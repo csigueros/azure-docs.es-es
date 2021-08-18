@@ -2,22 +2,22 @@
 title: 'Administración de permisos de usuario y de administrador: Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo revisar y administrar los permisos de una aplicación en Azure AD. Por ejemplo, revoque todos los permisos concedidos a una aplicación.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 7/10/2020
-ms.author: mtillman
-ms.reviewer: luleonpla
+ms.author: davidmu
+ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa8611fb932fadcdf8cd7c8a361fb840babf16b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 7585ad6816a8d9fd0a331ae9fcb1e1cea81ddbac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075887"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742885"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Adopción de medidas ante una aplicación con privilegios excesivos o sospechosa en Azure Active Directory
 
@@ -72,10 +72,10 @@ De manera opcional, puede deshabilitar la aplicación para impedir que los usuar
 Para restringir el acceso a esta aplicación, se recomienda activar la opción **Asignación de usuario**. A continuación, revise los permisos que los usuarios y administradores hayan concedido a la aplicación.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global, administrador de una aplicación o administrador de una aplicación en la nube.
-3. Seleccione **Azure Active Directory** > **Aplicaciones empresariales**.
-5. Seleccione la aplicación a la que desea restringir el acceso.
-6. Seleccione **Propiedades** y, después, establezca **User requirement required** (Requisito de usuario obligatorio) en **Sí**.
-7. Seleccione **Permisos** y revise los permisos concedidos a administradores y usuarios.
+2. Seleccione **Azure Active Directory** > **Aplicaciones empresariales**.
+3. Seleccione la aplicación a la que desea restringir el acceso.
+4. Seleccione **Propiedades** y, después, establezca **User requirement required** (Requisito de usuario obligatorio) en **Sí**.
+5. Seleccione **Permisos** y revise los permisos concedidos a administradores y usuarios.
 
 Opcionalmente, mediante PowerShell, puede:
 

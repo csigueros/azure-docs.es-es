@@ -4,12 +4,12 @@ description: Pasos de solución de problemas y soluciones posibles para problema
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
-ms.openlocfilehash: 54096e6d1741a7be9f50d4b4f7f0fcabbe880588
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0f5734197c0c00bb43584215f8eb26ad85e823c0
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943356"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284192"
 ---
 # <a name="scenario-cluster-creation-fails-with-domainnotfound-error-in-azure-hdinsight"></a>Escenario: error de creación del clúster con el mensaje DomainNotFound en Azure HDInsight
 
@@ -45,4 +45,4 @@ Cuando se implementan los clústeres unidos a un dominio, HDI crea un nombre de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -2,18 +2,17 @@
 title: 'Propiedades de los módulos gemelos del agente y del centro: Azure IoT Edge'
 description: Revisión de las propiedades específicas y sus valores de los módulos gemelos edgeAgent y edgeHub
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 04/16/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 29ec958764f4a464d51f29f4b9c8223d5d7a1760
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 18a1114c3253a9a8debb9289a3749df10ade7d54
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576013"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726508"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propiedades de los módulos gemelos del agente de IoT Edge y del centro de IoT Edge
 

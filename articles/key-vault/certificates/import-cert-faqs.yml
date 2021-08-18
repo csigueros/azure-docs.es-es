@@ -1,0 +1,75 @@
+### YamlMime:FAQ
+metadata:
+  title: 'Preguntas más frecuentes: importación de certificados de Azure Key Vault'
+  description: Obtenga respuestas a preguntas frecuentes sobre la importación de certificados de Azure Key Vault.
+  services: key-vault
+  author: msmbaldwin
+  tags: azure-resource-manager
+  ms.service: key-vault
+  ms.subservice: certificates
+  ms.topic: how-to
+  ms.date: 07/20/2020
+  ms.author: sebansal
+  ms.openlocfilehash: 7341cad11d049217d282eb1e2c5c80aea0271ff2
+  ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/15/2021
+  ms.locfileid: "112124805"
+title: Preguntas frecuentes sobre la importación de certificados de Azure Key Vault
+summary: En este artículo se responde a las preguntas frecuentes sobre la importación de certificados de Azure Key Vault.
+sections:
+- name: Preguntas más frecuentes
+  questions:
+  - question: >
+      ¿Cómo importo un certificado en Azure Key Vault?
+    answer: >
+      En la operación de importación de certificados, Azure Key Vault acepta dos formatos de archivo de certificado: PEM y PFX. Aunque hay archivos PEM que contienen solo la parte pública, Key Vault requiere y acepta únicamente un archivo PEM o PFX con una clave privada. Para más información, consulte [Importación de un certificado en Key Vault](./tutorial-import-certificate.md#import-a-certificate-to-key-vault).
+  - question: >
+      Después de importar un certificado protegido por contraseña a Key Vault y luego descargarlo, ¿por qué se ve la contraseña que tiene asociada?
+    answer: >
+      Una vez que se ha importado y protegido un certificado en Key Vault, su contraseña asociada no se guarda. La contraseña solo es necesaria una vez durante la operación de importación. Aunque se trata de una decisión intencionada, siempre puede obtener el certificado como secreto y convertirlo de Base64 a PFX y agregar la contraseña mediante [Azure PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
+  - question: >
+      ¿Cómo se puede resolver un error de "parámetro incorrecto"? ¿Cuáles son los formatos de certificado admitidos para la importación en Key Vault?
+    answer: "Al importar un certificado, debe asegurarse de que la clave esté incluida en el archivo. Si tiene una clave privada almacenada por separado en un formato diferente, debe combinar la clave con el certificado. Algunas entidades de certificación (CA) proporcionan certificados en otros formatos. Por lo tanto, antes de importar el certificado, asegúrese de que se encuentra en formato de archivo PEM o PFX y de que la clave usa el cifrado de Rivest, Shamir y Adleman (RSA) o de criptografía de curva elíptica (ECC). \n\nPara más información, consulte los [requisitos de certificado](./certificate-scenarios.md#formats-of-import-we-support) y los [requisitos de clave de certificado](../keys/about-keys.md).\n"
+  - question: >
+      ¿Se puede importar un certificado mediante una plantilla de ARM?
+    answer: >
+      No, no es posible realizar operaciones de certificado mediante una plantilla de Azure Resource Manager (ARM). La solución alternativa recomendada sería usar los métodos de importación de certificados en Azure API, la CLI de Azure o PowerShell. Si ya tiene un certificado, puede importarlo como secreto.
+  - question: >
+      Al importar un certificado a través de Azure Portal, aparece el error "Hubo un problema". ¿Cómo puedo investigar más?
+    answer: >
+      Para ver un error más descriptivo, importe el archivo de certificado mediante la [CLI de Azure](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) o [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate).
+  - question: >
+      ¿Cómo se resuelve el "Tipo de error: Acceso denegado o usuario no autorizado para importar el certificado"?
+    answer: "La operación de importación requiere la concesión de permisos de usuario para importar el certificado en las directivas de acceso. Para ello, vaya al almacén de claves, seleccione **Directivas de acceso** > **Agregar directiva de acceso** > **Select Certificate Permissions** (Seleccionar permisos de certificado)  > **Entidad de seguridad**, busque el usuario y, a continuación, agregue su dirección de correo electrónico. \n\nPara más información sobre las directivas de acceso relacionadas con los certificados, consulte [Acerca de los certificados de Azure Key Vault](./about-certificates.md#certificate-access-control).\n"
+  - question: >
+      ¿Cómo se resuelve el "Tipo de error: Conflicto al crear un certificado"?
+    answer: "El nombre de cada certificado debe ser único. Un certificado con el mismo nombre podría estar en un estado de eliminación temporal. Además, según la [composición de un certificado](./about-certificates.md#composition-of-a-certificate), cuando se crea un certificado, se crea un secreto direccionable con el mismo nombre, por lo que, si hay otra clave o secreto en el almacén de claves con el mismo nombre que el que intenta especificar para el certificado, no se podrá crear este y deberá quitar esa clave o secreto o usar un nombre diferente para él. \n\nPara más información, consulte [Operación de obtención de certificado eliminado](/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).\n"
+  - question: >
+      ¿Por qué se muestra el mensaje "Tipo de error: Longitud de caracteres demasiado larga"?
+    answer: "Este error puede deberse a dos razones:    \n* El nombre del firmante del certificado está limitado a 200 caracteres.\n* La contraseña del certificado está limitada a 200 caracteres.\n"
+  - question: >
+      Error "The specified PEM X.509 certificate content is in an unexpected format. Please check if certificate is in valid PEM format" (El contenido del certificado PEM X.509 especificado tiene un formato inesperado. Compruebe si el certificado tiene un formato PEM válido).
+    answer: >
+      Compruebe que el contenido del archivo PEM use separadores de líneas de estilo UNIX `(\n)`.
+  - question: >
+      ¿Se puede importar un certificado expirado en Azure Key Vault?
+    answer: >
+      No, los certificados PFX expirados no se pueden importar a Key Vault.
+  - question: >
+      ¿Cómo se puede convertir el certificado al formato adecuado?
+    answer: >
+      Puede pedir a la entidad de certificación que proporcione el certificado en el formato necesario. También hay herramientas de terceros que pueden ayudarle a convertir el certificado al formato adecuado.
+  - question: >
+      ¿Puedo importar certificados de entidades de certificación no asociadas?
+    answer: >
+      Sí, puede importar certificados desde cualquier entidad de certificación, pero el almacén de claves no podrá renovarlos automáticamente. Puede establecer avisos para recibir notificaciones sobre la expiración del certificado.
+  - question: >
+      Si se importa un certificado de una entidad de certificación asociada, ¿seguirá funcionando la característica de renovación automática?
+    answer: >
+      Sí. Una vez cargado el certificado, asegúrese de especificar la rotación automática en la directiva de emisión del certificado. La configuración permanecerá en vigor hasta que se publique el siguiente ciclo o versión de certificado.
+  - question: "¿Por qué no se puede ver el certificado de App Service que se importó a Key Vault? \n"
+    answer: >
+      Si ha importado el certificado correctamente, debería poder confirmarlo en el panel **Secretos**.
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n- [Certificados de Azure Key Vault](./about-certificates.md)"

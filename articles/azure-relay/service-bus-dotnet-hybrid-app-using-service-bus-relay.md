@@ -3,13 +3,13 @@ title: Aplicación híbrida en la nube o local (.NET) de Windows Communication F
 description: Aprenda a exponer un servicio WCF local a una aplicación web en la nube con Azure Relay
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 06/23/2020
-ms.openlocfilehash: 6f12133277d60560a19f35dead3a30be7c934adf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 06/23/2021
+ms.openlocfilehash: 2b332db84d3350b04a0ac4adfb94639c5f167c39
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137714"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669813"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Exposición de un servicio WCF local a una aplicación web en la nube con Azure Relay
 
@@ -70,7 +70,7 @@ Cuando la instalación haya finalizado, dispondrá de todo lo necesario para ini
 
 El primer paso consiste en crear un espacio de nombres y obtener una clave de [firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del servicio de retransmisión. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona las credenciales para que Azure autentique el acceso a una aplicación.
 
-[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
+[!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]
 
 ## <a name="create-an-on-premises-server"></a>Creación de un servidor local
 

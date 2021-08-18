@@ -6,26 +6,26 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 768e751f28f9725cab47f100188c318d6b35d667
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8d8d397dd81e6a7d30bd2877483dde1c3ab8de5a
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969144"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114404196"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Device Update para IoT Hub e IoT Plug and Play
 
-Device Update para IoT Hub utiliza [IoT Plug and Play](../iot-pnp/index.yml) para detectar y administrar dispositivos que admiten actualizaciones de forma inalámbrica. El servicio Device Update enviará propiedades y mensajes a los dispositivos y los recibirá de estos utilizando interfaces de PnP. Device Update para IoT Hub necesita que los dispositivos IoT implementen las siguientes interfaces e identificadores de modelo que se indican a continuación.
+Device Update para IoT Hub utiliza [IoT Plug and Play](../iot-develop/index.yml) para detectar y administrar dispositivos que admiten actualizaciones de forma inalámbrica. El servicio Device Update enviará propiedades y mensajes a los dispositivos y los recibirá de estos utilizando interfaces de PnP. Device Update para IoT Hub necesita que los dispositivos IoT implementen las siguientes interfaces e identificadores de modelo que se indican a continuación.
 
 Conceptos: 
-* Comprenda el [cliente de dispositivo de IoT Plug and Play](../iot-pnp/concepts-developer-guide-device.md?pivots=programming-language-csharp#implement-telemetry-properties-and-commands). 
+* Comprenda el [cliente de dispositivo de IoT Plug and Play](../iot-develop/concepts-developer-guide-device.md?pivots=programming-language-csharp#implement-telemetry-properties-and-commands). 
 * Vea cómo se [implementa el agente de Device Update](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
 
 ## <a name="adu-core-interface"></a>Interfaz principal de ADU
 
 La interfaz "ADUCoreInterface" se usa para enviar metadatos y acciones de actualización a los dispositivos y para recibir de ellos el estado de actualización. La interfaz principal de ADU se divide en dos propiedades de objeto.
 
-Cuando se implementa esta interfaz, el nombre del componente que el modelo espera es **"azureDeviceUpdateAgent"** . [Más información sobre los componentes de PnP para Azure IoT](../iot-pnp/concepts-modeling-guide.md)
+Cuando se implementa esta interfaz, el nombre del componente que el modelo espera es **"azureDeviceUpdateAgent"** . [Más información sobre los componentes de PnP para Azure IoT](../iot-develop/concepts-modeling-guide.md)
 
 ### <a name="agent-metadata"></a>Metadatos del agente
 
@@ -80,7 +80,7 @@ Ejemplo de dispositivo gemelo de IoT Hub
                             }
 ```
 
-Nota: El dispositivo o módulo debe agregar el marcador {"__t": "c"} para indicar que el elemento hace referencia a un componente, obtenga más información [aquí](../iot-pnp/concepts-convention.md#sample-multiple-components-writable-property).
+Nota: El dispositivo o módulo debe agregar el marcador {"__t": "c"} para indicar que el elemento hace referencia a un componente, obtenga más información [aquí](../iot-develop/concepts-convention.md#sample-multiple-components-writable-property).
 
 ### <a name="service-metadata"></a>Metadatos de servicio
 
@@ -106,9 +106,9 @@ El objeto `Actions` siguiente representa las acciones realizadas por Device Upda
 
 ## <a name="device-information-interface"></a>Interfaz de información del dispositivo
 
-La interfaz de información del dispositivo es un concepto que se utiliza en la [arquitectura de IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Contiene las propiedades entre el dispositivo y la nube que proporcionan información sobre el hardware y el sistema operativo del dispositivo. Device Update for IoT Hub utiliza las propiedades DeviceInformation.manufacturer y DeviceInformation.model para telemetría y diagnóstico. Para más información sobre la interfaz de información del dispositivo, consulte este [ejemplo](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
+La interfaz de información del dispositivo es un concepto que se utiliza en la [arquitectura de IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md). Contiene las propiedades entre el dispositivo y la nube que proporcionan información sobre el hardware y el sistema operativo del dispositivo. Device Update for IoT Hub utiliza las propiedades DeviceInformation.manufacturer y DeviceInformation.model para telemetría y diagnóstico. Para más información sobre la interfaz de información del dispositivo, consulte este [ejemplo](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-Cuando se implementa esta interfaz, el nombre que el modelo espera para el componente es **deviceInformation**. [Más información sobre los componentes de Azure IoT PnP](../iot-pnp/concepts-modeling-guide.md)
+Cuando se implementa esta interfaz, el nombre que el modelo espera para el componente es **deviceInformation**. [Más información sobre los componentes de Azure IoT PnP](../iot-develop/concepts-modeling-guide.md)
 
 |Nombre|Tipo|Schema|Dirección|Descripción|Ejemplo|
 |----|----|------|---------|-----------|-----------|
@@ -123,6 +123,6 @@ Cuando se implementa esta interfaz, el nombre que el modelo espera para el compo
 
 ## <a name="model-id"></a>Id. de modelo 
 
-El identificador del modelo es la forma en que Smart Devices anuncia sus funcionalidades a las aplicaciones de IoT de Azure con IoT plug and Play. Si necesita más información sobre la creación de Smart Devices para anunciar sus funcionalidades en aplicaciones de Azure IoT, visite la [guía para desarrolladores de dispositivos IoT Plug and Play](../iot-pnp/concepts-developer-guide-device.md).
+El identificador del modelo es la forma en que Smart Devices anuncia sus funcionalidades a las aplicaciones de IoT de Azure con IoT plug and Play. Si necesita más información sobre la creación de Smart Devices para anunciar sus funcionalidades en aplicaciones de Azure IoT, visite la [guía para desarrolladores de dispositivos IoT Plug and Play](../iot-develop/concepts-developer-guide-device.md).
 
-Device Update para IoT Hub necesita que los Smart Devics de IoT Plug and Play anuncien un identificador de modelo con el valor **"dtmi:AzureDeviceUpdate;1"** durante la conexión del dispositivo. [Descubra cómo se anuncia un identificador de modelo](../iot-pnp/concepts-developer-guide-device.md#model-id-announcement).
+Device Update para IoT Hub necesita que los Smart Devics de IoT Plug and Play anuncien un identificador de modelo con el valor **"dtmi:AzureDeviceUpdate;1"** durante la conexión del dispositivo. [Descubra cómo se anuncia un identificador de modelo](../iot-develop/concepts-developer-guide-device.md#model-id-announcement).

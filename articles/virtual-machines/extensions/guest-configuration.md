@@ -8,12 +8,12 @@ author: mgreenegit
 ms.author: migreene
 ms.date: 04/15/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d189cf54edfaca13b801e786254eec9fc5aa96f6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e12bcc3a1c1589baf5ab8fcc0f2b3e264d1953eb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662837"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751664"
 ---
 # <a name="overview-of-the-azure-policy-guest-configuration-extension"></a>Información general sobre la extensión Guest Configuration de Azure Policy
 
@@ -54,7 +54,7 @@ De forma predeterminada, todas las implementaciones se actualizan a la última v
 
 Para implementar la versión más reciente de la extensión a gran escala, incluidos los requisitos de identidad, [asigne](../../governance/policy/assign-policy-portal.md) la instancia de Azure Policy:
 
-[Implemente los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json).
+[Implemente los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json).
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -101,7 +101,7 @@ Para implementar la extensión en Linux:
   "properties": {
     "publisher": "Microsoft.GuestConfiguration",
     "type": "ConfigurationforLinux",
-    "typeHandlerVersion": "1.0"
+    "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
@@ -123,7 +123,7 @@ Para implementar la extensión en Windows:
   "properties": {
     "publisher": "Microsoft.GuestConfiguration",
     "type": "ConfigurationforWindows",
-    "typeHandlerVersion": "1.0"
+    "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
@@ -137,11 +137,12 @@ Para implementar la extensión en Linux:
 
 ```terraform
 resource "azurerm_virtual_machine_extension" "gc" {
-  name                  = "AzurePolicyforLinux"
-  virtual_machine_id    = "myVMID"
-  publisher             = "Microsoft.GuestConfiguration"
-  type                  = "ConfigurationforLinux"
-  type_handler_version  = "1.0"
+  name                       = "AzurePolicyforLinux"
+  virtual_machine_id         = "myVMID"
+  publisher                  = "Microsoft.GuestConfiguration"
+  type                       = "ConfigurationforLinux"
+  type_handler_version       = "1.0"
+  auto_upgrade_minor_version = "true"
 }
 ```
 
@@ -149,11 +150,12 @@ Para implementar la extensión en Windows:
 
 ```terraform
 resource "azurerm_virtual_machine_extension" "gc" {
-  name                  = "AzurePolicyforWindows"
-  virtual_machine_id    = "myVMID"
-  publisher             = "Microsoft.GuestConfiguration"
-  type                  = "ConfigurationforWindows"
-  type_handler_version  = "1.0"
+  name                       = "AzurePolicyforWindows"
+  virtual_machine_id         = "myVMID"
+  publisher                  = "Microsoft.GuestConfiguration"
+  type                       = "ConfigurationforWindows"
+  type_handler_version       = "1.0"
+  auto_upgrade_minor_version = "true"
 }
 ```
 

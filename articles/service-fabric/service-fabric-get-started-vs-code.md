@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.custom: devx-track-js
-ms.openlocfilehash: 7d54b4b048632324a58708f893a4778a56137916
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: cfcfe5eb29923de02c07a34a5bd6d70d0b002116
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107876086"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286077"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric para Visual Studio Code
 
@@ -42,7 +42,7 @@ Los siguientes requisitos previos deben instalarse en todos los entornos.
 
 Los siguientes requisitos previos deben instalarse para programar con Java:
 
-* [SDK de Java](/azure/developer/java/fundamentals/java-jdk-long-term-support) (versión 1.8)
+* [SDK de Java](/azure/developer/java/fundamentals/java-support-on-azure) (versión 1.8)
 * [Gradle](https://gradle.org/install/)
 * [Depurador para la extensión VS Code de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Necesario para depurar los servicios de Java. La depuración de los servicios de Java solo se admite en Linux. Para instalar, puede hacer clic en el icono Extensiones en la **Barra de actividades** de VS Code y buscar la extensión, o puede usar VS Code Marketplace.
 

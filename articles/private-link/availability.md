@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: 17b3b74bc6879d54577492a13eb93e0e0ab58373
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: ec1911911653b8c176d92ad3216c64f7fd1a836e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486384"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295586"
 ---
 # <a name="azure-private-link-availability"></a>Disponibilidad de Azure Private Link
 
@@ -44,7 +44,7 @@ En las tablas siguientes se enumeran los servicios de Private Link y las regione
 
 |Servicios admitidos  |Regiones disponibles | Otras consideraciones | Estado  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure App Configuration | Todas las regiones públicas      |  | Disponibilidad general  </br> [Aprenda a crear un punto de conexión privado para Azure App Configuration.](../azure-app-configuration/concept-private-endpoint.md) |
+|Azure App Configuration | Todas las regiones públicas      |  | GA  </br> [Aprenda a crear un punto de conexión privado para Azure App Configuration.](../azure-app-configuration/concept-private-endpoint.md) |
 |Discos administrados por Azure | Todas las regiones públicas<br/> Todas las regiones de Azure Government<br/>Todas las regiones de China    | [Seleccione las limitaciones conocidas](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Aprenda a crear un punto de conexión privado para Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
 
 ### <a name="containers"></a>Contenedores
@@ -58,7 +58,7 @@ En las tablas siguientes se enumeran los servicios de Private Link y las regione
 
 |Servicios admitidos  |Regiones disponibles | Otras consideraciones | Estado  |
 |:-------------------|:-----------------|:----------------|:--------|
-|  Azure SQL Database         | Todas las regiones públicas <br/> Todas las regiones de Azure Government<br/>Todas las regiones de China      |  Compatible con la [directiva de conexión](../azure-sql/database/connectivity-architecture.md#connection-policy) de proxy | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure SQL.](create-private-endpoint-portal.md)      |
+|  Azure SQL Database         | Todas las regiones públicas <br/> Todas las regiones de Azure Government<br/>Todas las regiones de China      |  Compatible con la [directiva de conexión](../azure-sql/database/connectivity-architecture.md#connection-policy) de proxy | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure SQL.](./tutorial-private-endpoint-sql-portal.md)      |
 |Azure Cosmos DB|  Todas las regiones públicas<br/> Todas las regiones de Azure Government</br> Todas las regiones de China | |Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
 |  Azure Database for PostgreSQL: servidor único         | Todas las regiones públicas <br/> Todas las regiones de Azure Government<br/>Todas las regiones de China     | Compatible con los planes de tarifa De uso general y Optimizada para memoria | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure Database for PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database for MySQL         | Todas las regiones públicas<br/> Todas las regiones de Azure Government<br/>Todas las regiones de China      |  | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure Database for MySQL.](../mysql/concepts-data-access-security-private-link.md)     |

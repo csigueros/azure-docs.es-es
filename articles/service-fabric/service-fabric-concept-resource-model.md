@@ -4,12 +4,12 @@ description: En este artículo se proporciona información general sobre la admi
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b98a1dccb20849ef299b0fff2fce2a70eb1e6314
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 69f05fab624fd4ad1eb2257adb200bd39bb04bd1
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677394"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114295247"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicación de Service Fabric
 
@@ -55,7 +55,7 @@ Después de crear la cuenta de almacenamiento cree un contenedor de blobs en el 
 Para proteger los recursos del clúster es preciso establecer el nivel de acceso público en **privado**. Hay varias formas de conceder acceso:
 
 * Autorizar el acceso a blobs y colas mediante [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Conceder acceso a los datos de los blobs y las colas de Azure mediante [RBAC de Azure en Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md).
+* Conceder acceso a los datos de los blobs y las colas de Azure mediante [RBAC de Azure en Azure Portal](../storage/blobs/assign-azure-role-data-access.md).
 * [Delegar el acceso mediante una firma de acceso compartido](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 El ejemplo de la siguiente captura de pantalla usa acceso de lectura anónimo para los blobs.

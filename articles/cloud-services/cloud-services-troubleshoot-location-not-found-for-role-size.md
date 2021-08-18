@@ -2,18 +2,18 @@
 title: Solución de problemas de LocationNotFoundForRoleSize al implementar un servicio en la nube (clásico) en Azure | Microsoft Docs
 description: En este artículo se muestra cómo resolver una excepción LocationNotFoundForRoleSize al implementar un servicio en la nube (clásico) en Azure.
 services: cloud-services
-author: mamccrea
-ms.author: mamccrea
+author: hirenshah1
+ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7938dcb3e66bc618832171668e392e4fff0cf5a9
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 971fffc02241a841ebbb1bc0855e8484579252e4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706160"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090122"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Solución de problemas de LocationNotFoundForRoleSize al implementar un servicio en la nube (clásico) en Azure
 

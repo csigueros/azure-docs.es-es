@@ -1,0 +1,72 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes (P+F)
+  titleSuffix: Microsoft Genomics
+  description: Obtenga respuestas a preguntas comunes relacionadas con el uso del servicio de Microsoft Genomics, como información técnica, contrato de nivel de servicio y facturación.
+  services: genomics
+  author: grhuynh
+  manager: cgronlun
+  ms.author: grhuynh
+  ms.service: genomics
+  ms.topic: troubleshooting
+  ms.date: 12/07/2017
+  ms.openlocfilehash: 0060ebfc207c6f0027e1387f859c71a917bf7b1b
+  ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/09/2021
+  ms.locfileid: "113559086"
+title: 'Microsoft Genomics: preguntas frecuentes'
+summary: "En este artículo se enumeran las principales consultas que pueden surgir en relación con Microsoft Genomics. Para más información acerca del servicio de Microsoft Genomics, consulte [¿Qué es Microsoft Genomics?](overview-what-is-genomics.md). Para más información acerca de cómo solucionar problemas, consulte el documento [Troubleshooting guide](troubleshooting-guide-genomics.md) (Guía para la solución de problemas). \n"
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Cómo se pueden ejecutar los flujos de trabajo de GATK4 en Microsoft Genomics?
+    answer: >
+      En el archivo config.txt del servicio Microsoft Genomics, especifique el argumento process_name en `gatk4`. Tenga en cuenta que se le cobrarán tarifas normales de facturación.
+  - question: >
+      ¿Cómo habilito la compresión de salida?
+    answer: >
+      Puede comprimir el archivo vcf o gvcf de salida con un argumento opcional para la compresión de salida. Esto es equivalente a ejecutar `-bgzip` seguido de `-tabix` en la salida del archivo vcf o gvcf para generar archivos `.gz` (salida de bgzip) y `.tbi` (salida de tabix). `bgzip` comprime el archivo vcf o gvcf y `tabix` crea un índice para el archivo comprimido. El argumento es un valor booleano, que se establece en `false` de forma predeterminada para la salida de vcf y `true` de forma predeterminada para la salida de gcvf. Para usarlo en la línea de comandos, especifique `-bz` o `--bgzip-output` como `true` (ejecute bgzip y tabix) o `false`. Para usar este argumento en el archivo config.txt, agregue `bgzip_output: true` o `bgzip_output: false` al archivo.
+  - question: >
+      ¿Qué es el SLA de Microsoft Genomics?
+    answer: >
+      Le garantizamos que el 99,9 % de las veces el servicio de Microsoft Genomics estará disponible para recibir las solicitudes de API del flujo de trabajo. Para más información, consulte [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).
+  - question: >
+      ¿Cómo se refleja el uso de Microsoft Genomics en la factura?
+    answer: >
+      Microsoft Genomics factura según el número de gigabases procesadas por flujo de trabajo. Para obtener más información, consulte el apartado [Precios](https://azure.microsoft.com/pricing/details/genomics/).
+  - question: >
+      ¿Dónde puedo encontrar una lista de todos los comandos y argumentos posibles para el cliente `msgen`?
+    answer: >
+      Puede obtener una lista completa de comandos y argumentos disponibles ejecutando `msgen help`. Si no se proporciona ningún argumento más, se muestra una lista con las secciones de ayuda disponibles; una para cada uno de los comandos `submit`, `list`, `cancel` y `status`. Para obtener ayuda sobre un comando específico, escriba `msgen help command`; por ejemplo, `msgen help submit` enumera todas las opciones de envío.
+  - question: >
+      ¿Cuáles son los comandos qué más usa el cliente `msgen`?
+    answer: "Los comandos más usados son argumentos del cliente `msgen` e incluyen: \n\n |**Comando**          |  **Descripción del campo** |\n |:--------------------|:-------------         |\n |`list`               |Devuelve una lista con los trabajos que se han enviado. Para ver los argumentos, consulte `msgen help list`.  |\n |`submit`             |Envía una solicitud de flujo de trabajo al servicio. Para ver los argumentos, consulte `msgen help submit`.|\n |`status`             |Devuelve el estado del flujo de trabajo que especificó `--workflow-id`. Vea también `msgen help status`. |\n |`cancel`             |Envía una solicitud para cancelar el procesamiento del flujo de trabajo que especificó `--workflow-id`. Vea también `msgen help cancel`. |\n"
+  - question: >
+      ¿Dónde se puede obtener el valor de `--api-url-base`?
+    answer: >
+      Vaya a Azure Portal y abra la página de la cuenta de Genomics. En el encabezado **Administración**, elija **Claves de acceso**. Allí encontrará la URL de la API y las claves de acceso.
+  - question: >
+      ¿Dónde se puede obtener el valor de `--access-key`?
+    answer: >
+      Vaya a Azure Portal y abra la página de la cuenta de Genomics. En el encabezado **Administración**, elija **Claves de acceso**. Allí encontrará la URL de la API y las claves de acceso.
+  - question: >
+      ¿Por qué necesito dos claves de acceso?
+    answer: >
+      Necesita dos claves de acceso en caso de que quiera actualizarlas (regenerarlas) sin interrumpir el uso del servicio. Por ejemplo, si quiere actualizar la primera clave, debe hacer que todos los flujos de trabajo nuevos usen la segunda clave. A continuación, espere a que todos los flujos de trabajo que usan la primera clave finalicen para poder actualizar dicha clave.
+  - question: >
+      ¿Se guardan mis claves de cuenta de almacenamiento?
+    answer: >
+      La clave de cuenta de almacenamiento se usa para crear tokens de acceso a corto plazo para el servicio de Microsoft Genomics y así poder leer los archivos de entrada y escribir en los archivos de salida. La duración predeterminada del token es de 48 horas. La duración del token se puede cambiar con la opción `-sas/--sas-duration` del comando Enviar; el valor se indica en horas.
+  - question: >
+      ¿Almacena Microsoft Genomics datos de los clientes?
+    answer: >
+      No. Microsoft Genomics no almacena datos de clientes.
+  - question: >
+      ¿Qué referencias genómicas puedo usar?
+    answer: "Se admiten estas referencias:\n\n |Referencia              | Valor de `-pa/--process-args` |\n |:-------------         |:-------------                 |\n |b37                    | `R=b37m1`                     |\n |hg38                   | `R=hg38m1`                    |      \n |hg38 (ningún análisis alternativo) | `R=hg38m1x`                   |  \n |hg19                   | `R=hg19m1`                    |    \n"
+  - question: "¿Cómo puedo dar el formato de un archivo de configuración a los argumentos de la línea de comandos? \n"
+    answer: "msgen comprende los archivos de configuración en el formato siguiente:\n* Todas las opciones se proporcionan como pares clave-valor con valores separados de las claves mediante dos puntos.\n  Se ignora el espacio en blanco.\n* Las líneas que empiezan con `#` se ignoran.\n* Cualquier argumento de la línea de comandos que tenga un formato largo se puede convertir en una clave; para ello, hay que quitar los guiones principales y reemplazar los que están entre las palabras con guiones bajos. Estos son algunos ejemplos de conversión:\n\n  |Argumento de línea de comandos            | Línea del archivo de configuración |\n  |:-------------                   |:-------------                 |\n  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |\n  |`-k/--access-key KEY`            | *access_key:KEY*              |      \n  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nUse los siguientes recursos para empezar a trabajar con Microsoft Genomics:\n- Ejecutar el primer flujo de trabajo mediante el servicio de Microsoft Genomics. [Ejecución de un flujo de trabajo mediante el servicio Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)\n- Enviar sus propios datos para que el servicio de Microsoft Genomics los procese: [FASTQ emparejados](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [varios FASTQ o BAM](quickstart-input-multiple.md)\n"

@@ -2,18 +2,18 @@
 title: Cifrado del lado servidor de Azure Managed Disks
 description: Azure Storage protege los datos mediante su cifrado en reposo antes de guardarlos en los clústeres de Storage. Puede usar las claves administradas por el cliente para administrar el cifrado con sus propias claves, o bien puede utilizar las claves administradas por Microsoft para el cifrado de los discos administrados.
 author: roygara
-ms.date: 04/15/2021
+ms.date: 06/29/2021
 ms.topic: conceptual
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4607778c78b8b062b265a5754337c09c41ba83f1
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 48b7fb11f3f0127358ee92ddea9262b805264500
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531522"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738997"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Cifrado del lado servidor de Azure Disk Storage
 
@@ -21,7 +21,7 @@ La mayoría de los discos administrados de Azure se cifran con el cifrado de Azu
 
 Los datos de los discos administrados de Azure se cifran de forma transparente mediante [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más sólidos que hay disponibles, y son compatibles con FIPS 140-2. Para más información sobre de los módulos criptográficos subyacentes en los discos administrados de Azure, consulte [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)
 
-El cifrado de Azure Storage no afecta al rendimiento de los discos administrados y no implica ningún costo adicional. Para más información sobre el cifrado de almacenamiento, consulte [Cifrado de Azure Storage](/azure/storage/common/storage-service-encryption).
+El cifrado de Azure Storage no afecta al rendimiento de los discos administrados y no implica ningún costo adicional. Para más información sobre el cifrado de almacenamiento, consulte [Cifrado de Azure Storage](../storage/common/storage-service-encryption.md).
 
 > [!NOTE]
 > Los discos temporales no son discos administrados y no están cifrados mediante SSE a menos que habilite el cifrado en el host.
@@ -51,17 +51,6 @@ Por ahora, las claves administradas por el cliente tienen las siguientes restric
 #### <a name="supported-regions"></a>Regiones admitidas
 
 Las claves administradas por el cliente están disponibles en todas las regiones en las que están disponibles los discos administrados.
-
-La rotación automática de claves está en versión preliminar y solo está disponible en las siguientes regiones:
-
-- Este de EE. UU.
-- Este de EE. UU. 2
-- Centro-sur de EE. UU.
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
-- Norte de Europa
-- Oeste de Europa
-- Centro de Francia
 
 > [!IMPORTANT]
 > Las claves administradas por el cliente dependen de identidades administradas para los recursos de Azure, una característica de Azure Active Directory (Azure AD). Al configurar claves administradas por el cliente, se asigna automáticamente una identidad administrada a los recursos en segundo plano. Si posteriormente mueve la suscripción, el grupo de recursos o el disco administrado de un directorio de Azure AD a otro, la identidad administrada asociada a los discos administrados no se transfiere al nuevo inquilino, por lo que es posible que las claves administradas por el cliente dejen de funcionar. Para obtener más información, consulte [Transferencia de una suscripción entre directorios de Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).

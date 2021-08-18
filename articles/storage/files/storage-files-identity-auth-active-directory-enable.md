@@ -7,18 +7,25 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: rogarana
-ms.openlocfilehash: 26932d05cd3d2ef7704b48463c895e05524d87f1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 585199f1898d3e2857f69c5c62fdfe4d07448bd5
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472137"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112118087"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Introducción: autenticación de Active Directory Domain Services local en SMB para recursos compartidos de archivos de Azure
 
 [Azure Files](storage-files-introduction.md) admite la autenticación basada en identidades a través del protocolo SMB (Bloque de mensajes del servidor) mediante dos tipos de servicios de dominio: Active Directory Domain Services (AD DS) local and Azure Active Directory Domain Services (Azure AD DS). Se recomienda encarecidamente consultar la sección [Funcionamiento](./storage-files-active-directory-overview.md#how-it-works) para seleccionar el servicio de dominio adecuado para la autenticación. La instalación es diferente en función del servicio de dominio que se elija. Esta serie de artículos se centra en habilitar y configurar AD DS local para la autenticación con recursos compartidos de archivos de Azure.
 
 Si no está familiarizado con los recursos compartidos de archivos de Azure, se recomienda leer la [guía de plan](storage-files-planning.md) antes de leer la siguiente serie de artículos.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="supported-scenarios-and-restrictions"></a>Escenarios y restricciones admitidos
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b860510610330d6c5d60f41dccc9e82bc77685f5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e24ba72960c40031dd49189f151fd3f35190e116
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969435"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463628"
 ---
 # <a name="devops-practices-for-luis"></a>Prácticas de DevOps para LUIS
 
@@ -183,7 +183,7 @@ Una aplicación de LUIS en formato LUDown es legible para el usuario y admite la
 
 ## <a name="versioning"></a>Control de versiones
 
-Una aplicación consta de varios componentes que pueden incluir elementos como un bot que se ejecute en [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), el [servicio Voz de Azure](../speech-service/overview.md), etc. Para lograr el objetivo de las aplicaciones de acoplamiento flexible, use el [control de versiones](/azure/devops/learn/git/what-is-version-control) para que cada componente de una aplicación tenga versiones independientes, lo que permite a los desarrolladores detectar cambios importantes o actualizaciones simplemente mediante la consulta del número de versión. Es más fácil crear una versión de la aplicación de LUIS independientemente de otros componentes si la mantiene en su propio repositorio.
+Una aplicación consta de varios componentes que pueden incluir elementos como un bot que se ejecute en [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), el [servicio Voz de Azure](../speech-service/overview.md), etc. Para lograr el objetivo de las aplicaciones de acoplamiento flexible, use el [control de versiones](/devops/develop/git/what-is-version-control) para que cada componente de una aplicación tenga versiones independientes, lo que permite a los desarrolladores detectar cambios importantes o actualizaciones simplemente mediante la consulta del número de versión. Es más fácil crear una versión de la aplicación de LUIS independientemente de otros componentes si la mantiene en su propio repositorio.
 
 La aplicación de LUIS de la rama principal debe tener aplicado un esquema de control de versiones. Al combinar las actualizaciones con el archivo `.lu` de una aplicación de LUIS en la rama principal, importará ese código fuente actualizado a una nueva versión de la rama principal en la aplicación de LUIS.
 

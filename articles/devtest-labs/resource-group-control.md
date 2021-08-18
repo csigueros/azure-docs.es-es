@@ -3,12 +3,12 @@ title: Especificación del grupo de recursos para VM en Azure DevTest Labs | Mic
 description: Obtenga información sobre cómo especificar un grupo de recursos para VM en un laboratorio en Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c6f576a20fc8fada9dd515e8ba2a266761a3e586
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8b7b331f505864edb5fd2b2cca2f56d9d6349db3
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377495"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282752"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especificación de un grupo de recursos para máquinas virtuales de laboratorio en Azure DevTest Labs
 
@@ -112,4 +112,4 @@ Cómo usar esta API:
 Vea los artículos siguientes: 
 
 - [Set policies for a lab](devtest-lab-set-lab-policy.md) (Definición de directivas para un laboratorio)
-- [Preguntas más frecuentes](devtest-lab-faq.md)
+- [Preguntas más frecuentes](devtest-lab-faq.yml)

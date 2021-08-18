@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: fd9b3b501d6efbe6a74d350a678494e8254dbb32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ad58078207a90966134ec4d6cf8815f614e4341
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100545407"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449875"
 ---
 #### <a name="to-create-a-volume-container"></a>Para crear un contenedor de volúmenes
 
@@ -28,7 +28,7 @@ ms.locfileid: "100545407"
    3. Seleccione **Habilitar el cifrado de almacenamiento en la nube** para habilitar el cifrado de los datos enviados del dispositivo a la nube.
    4. Proporcione y confirme una **Clave de cifrado de almacenamiento en la nube** con una longitud de entre 8 y 32 caracteres. El dispositivo usa esta clave para acceder a los datos cifrados.
    5. Seleccione una **Cuenta de almacenamiento** para asociarla a este contenedor de volúmenes. Puede elegir una cuenta de almacenamiento ya existente o la cuenta predeterminada que se genera en el momento en que se crea el servicio. También puede usar la opción **Agregar nuevo** para especificar una cuenta de almacenamiento que no esté vinculada a la suscripción al servicio.
-   6. Seleccione **Ilimitado** en la lista desplegable **Especificar el ancho de banda** si desea consumir todo el ancho de banda disponible. También puede establecer esta opción en **Personalizado** para usar los controles de ancho de banda y especificar un valor de entre 1 y 1000 Mbps.
+   6. Seleccione **Ilimitado** en la lista desplegable **Especificar el ancho de banda** si desea consumir todo el ancho de banda disponible.
    
       Si tiene a su disposición información sobre el uso del ancho de banda, es posible que pueda asignar ancho de banda en función de una programación especificando **Seleccionar una plantilla de ancho de banda**. Para conocer el procedimiento paso a paso, vaya a [Agregar una plantilla de ancho de banda](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template).
 

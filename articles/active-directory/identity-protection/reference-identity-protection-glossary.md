@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 10/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9adb0f453aebb47c939b1ab0ead601b05145f217
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88949181"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727629"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glosario de Azure Active Directory Identity Protection
 
@@ -62,7 +62,7 @@ Detección de riesgo que se desencadena cuando se encuentran credenciales de usu
 ### <a name="mitigation"></a>Mitigación
 Acción para limitar o eliminar la capacidad de un atacante de aprovechar una identidad o un dispositivo en peligro sin restaurar la identidad o el dispositivo a un estado seguro. Una mitigación no resuelve las anteriores detecciones de riesgo asociadas a la identidad o el dispositivo.
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Autenticación multifactor
 Método de autenticación que requiere dos o más métodos de autenticación, que pueden incluir algo que el usuario tiene, como un certificado; algo que el usuario sabe, como nombres de usuario, contraseñas o frases de contraseña; atributos físicos, como una huella digital; y atributos personales, como una firma personal.
 
 ### <a name="offline-detection"></a>Detección sin conexión

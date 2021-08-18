@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5fed7649353c0ef6cb222c0b0c91a5203665e9fa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 792197b3558a16706fee52204fa90a8ef8d0735a
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598055"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113232059"
 ---
 # <a name="data-exfiltration-protection-for-azure-synapse-analytics-workspaces"></a>Protección contra la filtración de datos en áreas de trabajo de Azure Synapse Analytics
 En este artículo se explica la protección contra la filtración de datos en Azure Synapse Analytics.
@@ -34,9 +34,7 @@ Vamos a usar un ejemplo para ilustrar la protección contra la filtración de da
 
 >[!IMPORTANT]
 >
-> - Los recursos de inquilinos que no sean el inquilino del área de trabajo no deben tener implantadas reglas de firewall que impidan que los grupos de SQL se conecten a ellos. Los recursos de la red virtual administrada del área de trabajo, como los clústeres de Spark, pueden conectarse a través de vínculos privados administrados a recursos protegidos mediante firewall.
->
-> - Metastore está deshabilitada en las áreas de trabajo de Synapse que tienen una red virtual administrada con la protección contra la filtración de datos habilitada. En estas áreas de trabajo, no puede usar Spark SQL.
+> Los recursos de inquilinos que no sean el inquilino del área de trabajo no deben tener implantadas reglas de firewall que impidan que los grupos de SQL se conecten a ellos. Los recursos de la red virtual administrada del área de trabajo, como los clústeres de Spark, pueden conectarse a recursos protegidos mediante firewall a través de vínculos privados administrados.
 > >
 
 ## <a name="next-steps"></a>Pasos siguientes

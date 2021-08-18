@@ -9,12 +9,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 05/12/2021
-ms.openlocfilehash: 5ce6b2d80341a9c6ebb8afcbbe8f7072b54ca93c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d907be8262fdc403f1e7b550d57c1aeaf77491fa
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087911"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369063"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Ejemplos de Azure Data Science Virtual Machines
 
@@ -29,7 +29,6 @@ Para ejecutar estos ejemplos, tiene que haber aprovisionado una [instancia de Da
 ## <a name="available-samples"></a>Ejemplos disponibles
 | Categoría de ejemplos | Descripción | Ubicaciones |
 | ------------- | ------------- | ------------- |
-| Lenguaje R  | Los ejemplos ilustran escenarios como la conexión con almacenes de datos en la nube basados en Azure y una comparación entre Microsoft Machine Learning Server y el lenguaje R de código abierto. También se explica cómo poner en marcha modelos en Microsoft Machine Learning Server y SQL Server. <br/> [Lenguaje R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Lenguaje Python  | Ejemplos que explican escenarios como la conexión con los almacenes de datos en la nube basados en Azure y cómo trabajar con Azure Machine Learning.  <br/> [Lenguaje Python](#python-language) | <br/>`~notebooks` <br/><br/>|
 | Lenguaje Julia  | Proporciona una descripción detallada del trazado y el aprendizaje profundo en Julia. También explica cómo llamar a C y Python desde Julia. <br/> [Lenguaje Julia](#julia-language) |<br/> Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux:<br/> `~notebooks/julia`<br/><br/> |
 | Azure Machine Learning  | Explica cómo crear modelos de aprendizaje automático y aprendizaje profundo con Machine Learning. Implemente los modelos en cualquier lenguaje. Utilice el ajuste de hiperparámetros inteligente y el aprendizaje automático automatizado. También puede usar la administración de modelos y el aprendizaje distribuido. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|

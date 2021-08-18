@@ -4,12 +4,12 @@ description: En este artículo se describe cómo ver las métricas en tiempo rea
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2e3a8a417a934374c2c0b256bb65a471d98fdebe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5dffc98e73a9d9e85b301d3272869b7fb5118ab5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731857"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747663"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Cómo ver métricas en tiempo real
 
@@ -82,4 +82,4 @@ Este gráfico de rendimiento se asigna a un equivalente de invocar `kubectl get 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vea [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) para ver ejemplos y consultas predefinidas para crear alertas, visualizaciones o realizar análisis adicionales de los clústeres.
+Vea [ejemplos de consultas de registro](container-insights-log-query.md) para ver ejemplos y consultas predefinidas para crear alertas, visualizaciones o realizar análisis adicionales de los clústeres.

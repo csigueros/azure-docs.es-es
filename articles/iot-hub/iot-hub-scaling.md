@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: cdb792198e6912fb0e68b2abec052c2b05166f17
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: cc293a58c372c09fa03cf9d0b6f2b729b80d7c0e
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310128"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114400628"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
@@ -52,7 +52,7 @@ Solo se puede elegir un tipo de [edición](https://azure.microsoft.com/pricing/d
 | [Dispositivos gemelos](iot-hub-devguide-device-twins.md), [Módulos gemelos](iot-hub-devguide-module-twins.md) y [Administración de dispositivos](iot-hub-device-management-overview.md) |   | Sí |
 | [Flujos de dispositivos (versión preliminar)](iot-hub-device-streams-overview.md) |   | Sí |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Sí |
-| [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) |   | Sí |
+| [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) |   | Sí |
 
 IoT Hub también ofrece un nivel gratis que está diseñado para pruebas y evaluación. Tiene todas las capacidades del nivel estándar, pero las concesiones de mensajería son limitadas. No puede actualizar desde el nivel gratis al plan Básico o Estándar.
 

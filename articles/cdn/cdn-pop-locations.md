@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2021
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: e58ce2b4fa016a79050425dad4e4dd0b784f0c9c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f51ca01988a090c4c61b821c16ec67f20d2c679f
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472375"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417008"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura de Azure CDN según Metro 
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ En este artículo se enumeran áreas metropolitanas que contienen ubicaciones de
 | África | Johannesburgo (Sudáfrica) <br/> Nairobi, Kenia | Sudáfrica |
 | Oriente Medio | Muscat, Omán<br />Fujirah, Emiratos Árabes Unidos | Qatar<br />Emiratos Árabes Unidos |
 | India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai (Bombay), India<br />Nueva Delhi, India<br /> | India |
-| Asia | RAE de Hong Kong<br />Yakarta, Indonesia<br />Osaka, Japón<br />Tokio, Japón<br />Singapur<br />Seúl, Corea del Sur<br />Kaohsiung, Taiwán<br />Taipei, Taiwán <br />Manila, Filipinas | RAE de Hong Kong<br />Indonesia<br />Israel<br />Japón<br />RAE de Macao<br />Malasia<br />Filipinas<br />Singapur<br />Corea del Sur<br />Taiwán<br />Tailandia<br />Turquía<br />Vietnam |
+| Asia | RAE de Hong Kong<br />Yakarta, Indonesia<br />Osaka, Japón<br />Tokio, Japón<br />Singapur<br />Kaohsiung, Taiwán<br />Taipei, Taiwán <br />Manila, Filipinas | RAE de Hong Kong<br />Indonesia<br />Israel<br />Japón<br />RAE de Macao<br />Malasia<br />Filipinas<br />Singapur<br />Corea del Sur<br />Taiwán<br />Tailandia<br />Turquía<br />Vietnam |
 | Australia y Nueva Zelanda | Melbourne, Australia<br />Sídney, Australia<br />Auckland, Nueva Zelanda | Australia<br />Nueva Zelanda |
 
 ## <a name="next-steps"></a>Pasos siguientes

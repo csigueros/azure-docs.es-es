@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: 20475e2cde1b42790740889cf341b3a0a0afccc0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bcf14b64b5e6417c3a1d90fd36651350efac879
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "76991089"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551729"
 ---
 # <a name="version-release-history"></a>Historial de lanzamientos de versiones
 El equipo de Microsoft Genomics actualiza de manera habitual el cliente Python de Microsoft Genomics para obtener correcciones y funcionalidades nuevas. 
@@ -27,7 +27,7 @@ La versión del cliente Python actual es la 0.9.0. Se lanzó el 6 febrero de 201
 Las versiones nuevas del cliente Python de Microsoft Genomics se lanzan una vez al año. Cuando se lanzan versiones nuevas del cliente Python de Microsoft Genomics, aquí se actualiza una lista de las correcciones y características. Cuando se lanzan versiones nuevas, se seguirá brindando soporte técnico a las versiones anteriores al menos por 90 días. En esta página se indicará cuando ya no se brinde soporte técnico a las versiones anteriores. 
 
 ### <a name="version-090"></a>Versión 0.9.0
-La versión 0.9.0 incluye compatibilidad con la compresión de salida. Esto es equivalente a ejecutar `-bgzip` seguido de `-tabix` en la salida de vcf o gvcf. Para más información, consulte [Preguntas más frecuentes](frequently-asked-questions-genomics.md). 
+La versión 0.9.0 incluye compatibilidad con la compresión de salida. Esto es equivalente a ejecutar `-bgzip` seguido de `-tabix` en la salida de vcf o gvcf. Para más información, consulte [Preguntas más frecuentes](frequently-asked-questions-genomics.yml). 
 
 ### <a name="version-081"></a>Versión 0.8.1
 La versión 0.8.1 incluye correcciones de errores menores.  

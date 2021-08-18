@@ -2,18 +2,17 @@
 title: Escala y administración de aptitudes personalizadas
 titleSuffix: Azure Cognitive Search
 description: Obtenga información sobre las herramientas y técnicas para escalar horizontalmente una aptitud personalizada de forma eficaz a fin de obtener el máximo rendimiento. Las aptitudes personalizadas invocan modelos o lógicas de IA que puede agregar a una canalización de indexación enriquecida con IA en Azure Cognitive Search.
-manager: luisca
-author: vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: f80e78da5c7d226c704c8b13fc496e416f5d0f0d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6b44cc3bde1a2e36cdd902a7366df8841795891a
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125596"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728439"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Escalado horizontal de una aptitud personalizada de forma eficaz
 

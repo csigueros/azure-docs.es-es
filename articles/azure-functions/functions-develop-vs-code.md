@@ -3,13 +3,13 @@ title: Desarrollo de Azure Functions con Visual Studio Code
 description: Aprenda a desarrollar y probar Azure Functions mediante la extensión de Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/21/2019
-ms.openlocfilehash: c2869b2b30722495523a9f0dfb2d70a17a205854
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.date: 02/21/2021
+ms.openlocfilehash: d7ed95080763d32f8a940066c2c6c5d80c25b0dc
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871280"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862408"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -69,7 +69,7 @@ Estos requisitos previos solo son necesarios para [ejecutar y depurar las funcio
 
 + [Depurador para la extensión de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
 
-+ Se recomienda [Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). Para obtener información sobre otras versiones compatibles, consulte [Versiones de Java](functions-reference-java.md#java-versions).
++ Se recomienda [Java 8](/azure/developer/java/fundamentals/java-support-on-azure). Para obtener información sobre otras versiones compatibles, consulte [Versiones de Java](functions-reference-java.md#java-versions).
 
 + [Maven 3 o versiones posteriores](https://maven.apache.org/)
 
@@ -129,7 +129,7 @@ La plantilla de proyecto crea un proyecto en el lenguaje elegido e instala las d
 
 * **host.json**: permite configurar el host de Functions. Esta configuración se aplica cuando se ejecutan funciones localmente y cuando se ejecutan en Azure. Para más información, consulte la [referencia sobre host.json](functions-host-json.md).
 
-* **local.settings.json**: mantiene la configuración que se usa al ejecutar localmente las funciones. Esta configuración solo se utiliza al ejecutar las funciones de forma local. Para más información, consulte [Archivo de configuración local](#local-settings-file).
+* **local.settings.json**: mantiene la configuración que se usa al ejecutar localmente las funciones. Esta configuración solo se utiliza al ejecutar las funciones de forma local. Para más información, consulte [Archivo de configuración local](#local-settings).
 
     >[!IMPORTANT]
     >Debido a que el archivo local.settings.json puede contener secretos, tiene que excluirlo del control de origen del proyecto.
@@ -383,7 +383,7 @@ Al ejecutar funciones en Azure, la extensión usa su cuenta de Azure para recupe
 
 ### <a name="run-functions-locally"></a>Ejecución local de funciones
 
-El tiempo de ejecución local es el mismo tiempo de ejecución que hospeda la aplicación de funciones en Azure. La configuración local se lee desde el [archivo local.settings.json](#local-settings-file). Para ejecutar el proyecto de Functions localmente, debe cumplir varios [requisitos adicionales](#run-local-requirements).
+El tiempo de ejecución local es el mismo tiempo de ejecución que hospeda la aplicación de funciones en Azure. La configuración local se lee desde el [archivo local.settings.json](#local-settings). Para ejecutar el proyecto de Functions localmente, debe cumplir varios [requisitos adicionales](#run-local-requirements).
 
 #### <a name="configure-the-project-to-run-locally"></a>Configuración del proyecto para que se ejecute localmente
 
@@ -399,7 +399,7 @@ Para establecer la cadena de conexión de cuenta de almacenamiento:
 
 3. Repita el paso anterior para agregar claves únicas a la matriz de **valores** para cualquier otra conexión que requieran sus funciones.
 
-Para más información, consulte [Archivo de configuración local](#local-settings-file).
+Para más información, consulte [Archivo de configuración local](#local-settings).
 
 #### <a name="debug-functions-locally"></a><a name="debugging-functions-locally"></a>Depuración local de funciones  
 
@@ -503,7 +503,7 @@ La extensión de Azure Functions proporciona una interfaz gráfica útil en el �
 | **Connect to GitHub Repository** (Conectar al repositorio de GitHub) | Conecta la aplicación de funciones con un repositorio de GitHub. |
 | **Copy Function URL** (Copiar la dirección URL de la función) | Obtiene la dirección URL remota de una función desencadenada por HTTP que se ejecuta en Azure. Para más información, consulte [cómo obtener la dirección URL de la función implementada](#get-the-url-of-the-deployed-function). |
 | **Create function app in Azure** (Creación de una aplicación de funciones en Azure) | Crea una nueva aplicación de funciones en su suscripción de Azure. Para más información, consulte [cómo publicar una nueva aplicación de funciones en Azure](#publish-to-azure).        |
-| **Decrypt Settings** (Descifrar la configuración) | Descifra la [configuración local](#local-settings-file) que se ha cifrado mediante **Azure Functions: Encrypt settings** (Cifrar configuración).  |
+| **Decrypt Settings** (Descifrar la configuración) | Descifra la [configuración local](#local-settings) que se ha cifrado mediante **Azure Functions: Encrypt settings** (Cifrar configuración).  |
 | **Delete Function App** (Eliminar aplicación de funciones) | Quita una aplicación de funciones existente de la suscripción de Azure. Cuando no hay ninguna otra aplicación en el plan de App Service, se le da la opción de eliminar este también. Otros recursos, como las cuentas de almacenamiento y grupos de recursos, no se eliminan. Para quitar todos los recursos, en su lugar debe [eliminar el grupo de recursos](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). El proyecto local no se verá afectado. |
 |**Delete Function**(Eliminar función)  | Quita una función existente de una aplicación de funciones en Azure. Dado que esta eliminación no afecta al proyecto local, en su lugar, considere la posibilidad de quitar la función localmente y después [volver a publicar el proyecto](#republish-project-files). |
 | **Delete Proxy** (Eliminar proxy) | Quita a un servidor proxy de Azure Functions desde la aplicación de funciones en Azure. Para más información sobre servidores proxy, consulte [Uso de Azure Functions Proxies](functions-proxies.md). |
@@ -511,7 +511,7 @@ La extensión de Azure Functions proporciona una interfaz gráfica útil en el �
 | **Disconnect from Repo** (Desconectar del repositorio)  | Quita la conexión de [implementación continua](functions-continuous-deployment.md) entre una aplicación de funciones en Azure y un repositorio de control de código fuente. |
 | **Download Remote Settings** (Descargar configuración remota) | Descarga la configuración de la aplicación de funciones elegida en Azure en el archivo local.settings.json. Si el archivo local está cifrado, se descifra, se actualiza y se cifra de nuevo. Si hay configuraciones con valores en conflicto en las dos ubicaciones, se le pedirá que elija cómo proceder. Asegúrese de guardar los cambios en el archivo local.settings.json antes de ejecutar este comando. |
 | **Edit Settings** (Editar configuración) | Cambia el valor de una configuración de aplicación de funciones existente en Azure. Este comando no afecta a la configuración en el archivo local.settings.json.  |
-| **Encrypt settings** (Cifrar configuración) | Cifra los elementos individuales de la matriz de `Values` en la [configuración local](#local-settings-file). En este archivo, `IsEncrypted` también se establece en `true`, lo que indica al tiempo de ejecución local que descifre la configuración antes de usarla. Cifre la configuración local para reducir el riesgo de pérdida de información valiosa. En Azure, las configuraciones de aplicación siempre se almacenan cifradas. |
+| **Encrypt settings** (Cifrar configuración) | Cifra los elementos individuales de la matriz de `Values` en la [configuración local](#local-settings). En este archivo, `IsEncrypted` también se establece en `true`, lo que indica al tiempo de ejecución local que descifre la configuración antes de usarla. Cifre la configuración local para reducir el riesgo de pérdida de información valiosa. En Azure, las configuraciones de aplicación siempre se almacenan cifradas. |
 | **Execute Function Now** (Ejecutar la función ahora) | Inicia manualmente una función mediante las API de administración. Este comando se usa para realizar pruebas, tanto localmente durante la depuración como con las funciones que se ejecutan en Azure. Al desencadenar una función en Azure, en primer lugar la extensión obtiene automáticamente una clave de administración, que se usa para llamar a las API de administración remota que inician las funciones en Azure. El cuerpo del mensaje enviado a la API depende del tipo de desencadenador. Los desencadenadores del temporizador no requieren que pase ningún dato. |
 | **Initialize Project for Use with VS Code** (Inicializar el proyecto para su uso con VS Code) | Agrega los archivos de proyecto de Visual Studio Code necesarios a un proyecto existente de Functions. Use este comando para trabajar con un proyecto creado mediante Core Tools. |
 | **Install of Update Azure Functions Core Tools** (Instalación de actualización de Azure Functions Core Tools) | Instala o actualiza [Azure Functions Core Tools], que se utilizan para ejecutar funciones localmente. |

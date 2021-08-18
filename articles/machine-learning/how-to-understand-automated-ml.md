@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl
-ms.openlocfilehash: d104ad879919b11152d56a2c9b6b6fd8652c3ddc
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: fc07c5bf61e1ef80fdcb574580f626eb46394564
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903801"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112462908"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Evaluación de los resultados del experimento de aprendizaje automático automatizado
 
@@ -36,7 +36,7 @@ Por ejemplo, ML automatizado genera los siguientes gráficos en función del tip
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Suscripción a Azure. (Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://aka.ms/AMLFree) antes de empezar).
+- Suscripción a Azure. (Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar).
 - Un experimento Azure Machine Learning creado con cualquiera de las siguientes opciones:
   - [Estudio de Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md) (no se requiere código)
   - El [SDK de Azure Machine Learning para Python](how-to-configure-auto-train.md)

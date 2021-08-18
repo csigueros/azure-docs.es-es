@@ -4,17 +4,17 @@ description: Información general de los errores comunes al migrar desde Cloud S
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
-author: tanmaygore
-ms.author: tagore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: 2e56e3d6b5f29996d8fe9606ac9a1b3778201803
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: cdfb7dd5d09d6925de23be70df18037165776a18
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288731"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751116"
 ---
 # <a name="common-errors-and-known-issues-when-migration-to-azure-cloud-services-extended-support"></a>Errores comunes y problemas conocidos al migrar a Azure Cloud Services (soporte extendido)
 
@@ -48,7 +48,7 @@ Errores de migración comunes y pasos de mitigación.
 | No se admite la migración de la implementación nombre-de-implementación en el servicio en la nube nombre-del-servicio-en-la-nube porque está en la región nombre-de-región. Regiones permitidas: [lista de regiones disponibles]. | La región todavía no se admite para la migración. | 
 | No se puede migrar la implementación nombre-de-implementación en el servicio en la nube nombre-del-servicio-en-la-nube porque no hay subredes asociadas a los roles nombre-de-rol. Asocie todos los roles con una subred y vuelva a intentar la migración del servicio en la nube. | Para actualizar la implementación de Cloud Services (clásico), colóquela en una subred antes de la migración. |  
 | No se puede migrar la implementación nombre-de-implementación en el servicio en la nube nombre-del-servicio-en-la-nube porque la implementación requiere al menos una característica que no esté registrada en la suscripción en Azure Resource Manager. Registre todas las características necesarias para migrar esta implementación. Características que faltan: [lista de características que faltan]. | Póngase en contacto con el soporte técnico para registrar las marcas de características. | 
-| No se puede migrar la implementación porque el servicio en la nube de la implementación tiene dos espacios ocupados. La migración de servicios en la nube solo se admite para implementaciones que son la única implementación en su servicio en la nube. Elimine la otra implementación en el servicio en la nube para continuar con la migración de esta implementación. | Consulte la lista de [escenarios no admitidos](in-place-migration-overview.md#unsupported-configurations--migration-scenarios) para obtener más información. | 
+| No se puede migrar la implementación porque el servicio en la nube de la implementación tiene dos espacios ocupados. La migración de servicios en la nube solo se admite para implementaciones que son la única implementación en su servicio en la nube. Elimine la otra implementación en el servicio en la nube para continuar con la migración de esta implementación. | Consulte la lista de [escenarios no admitidos](in-place-migration-technical-details.md#unsupported-configurations--migration-scenarios) para obtener más información. | 
 | La implementación nombre-de-implementación en HostedService nombre-del-servicio-en-la-nube está en estado intermedio: estado. No se permite la migración. | La implementación se está creando, eliminando o actualizando. Espere a que se complete la operación y vuelva a intentarlo. | 
 | La implementación nombre-de-implementación en el servicio hospedado nombre-del-servicio-en-la-nube tiene IP reservadas, pero ningún nombre de IP reservada. Para resolver este problema, actualice el nombre de la IP reservada o póngase en contacto con el servicio de asistencia al cliente de Microsoft Azure. | Actualice la implementación del servicio en la nube. | 
 | La implementación nombre-de-implementación en el servicio hospedado nombre-del-servicio-en-la-nube tiene IP reservadas nombre-de-ip-reservada, pero ningún punto de conexión en la IP reservada. Para resolver este problema, agregue al menos un punto de conexión a la IP reservada. | Agregue un punto de conexión a la IP reservada. | 

@@ -2,14 +2,14 @@
 title: Límites y cuotas del servicio
 description: Obtenga información sobre las restricciones, los límites y las cuotas de Azure Batch predeterminados y cómo solicitar un aumento de la cuota.
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 07/20/2021
 ms.custom: seodec18
-ms.openlocfilehash: 6e17a90cc573205bcb964a0428e0b7320323b8a6
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: ad5701c65f9f2068a1a68084b755f8d0a013b8c8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553556"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465580"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -63,7 +63,7 @@ El servicio Batch establece estos límites adicionales. A diferencia de [las cuo
 | **Recurso** | **Límite máximo** |
 | --- | --- |
 | [Tareas simultáneas](batch-parallel-node-tasks.md) por nodo de proceso | 4 × número de núcleos de nodo |
-| [Aplicaciones](batch-application-packages.md) por cuenta de Batch | 20 |
+| [Aplicaciones](batch-application-packages.md) por cuenta de Batch | 200 |
 | Paquetes de aplicación por aplicación | 40 |
 | Paquetes de aplicación por grupo | 10 |
 | Duración máxima de la tarea | 180 días<sup>1</sup> |

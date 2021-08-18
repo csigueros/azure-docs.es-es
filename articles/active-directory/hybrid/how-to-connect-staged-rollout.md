@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3474d14b84e41fdf808b5a5b5c612b3a872f2c6
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 5e35f88ef38367a9c25da6a77b556f4009880af0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753510"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737312"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migración a la autenticación en la nube mediante un lanzamiento almacenado preconfigurado
 
@@ -87,7 +87,7 @@ Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
 
 - La primera vez que se agrega un grupo de seguridad para el lanzamiento preconfigurado, está limitado a 200 usuarios para evitar que se agote el tiempo de espera de la experiencia de usuario. Después de agregar el grupo, puede agregarle más usuarios directamente, según sea necesario.
 
-- Mientras los usuarios están en fase de lanzamiento preconfigurado, cuando EnforceCloudPasswordPolicyForPasswordSyncedUsers está habilitado, la directiva de expiración de contraseñas se establece en 90 días sin la opción de personalizarla. 
+- Mientras los usuarios están en el lanzamiento preconfigurado, la directiva de expiración de contraseñas se establece en 90 días sin opción de personalizarla. 
 
 - Adquisición de token de actualización principal de Unión híbrida a Windows 10 o Unión a Azure AD para versiones de Windows 10 anteriores a la 1903. Este escenario revertirá al punto de conexión de WS-Trust del servidor de federación, incluso si el usuario que inicia sesión está en el ámbito del lanzamiento preconfigurado.
 
@@ -98,7 +98,7 @@ Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
 - Si tiene una relación de confianza de certificado híbrido de Windows Hello para empresas con certificados emitidos a través del servidor de federación que actúa como Autoridad de registro o usuarios de tarjeta inteligente, el escenario no es compatible con un lanzamiento preconfigurado. 
 
   >[!NOTE]
-  >Sigue siendo necesario realizar el traslado final de la autenticación federada a la nube mediante Azure AD Connect o PowerShell. El lanzamiento preconfigurado no cambia de dominio federado a administrado.  Para más información sobre la migración de dominios, consulte [Migración de la federación a la sincronización de hash de contraseña](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) y [Migración de la federación a la autenticación de paso a través](plan-migrate-adfs-pass-through-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso).
+  >Sigue siendo necesario realizar el traslado final de la autenticación federada a la nube mediante Azure AD Connect o PowerShell. El lanzamiento preconfigurado no cambia de dominio federado a administrado.  Para más información sobre la migración de dominios, consulte [Migración de la federación a la sincronización de hash de contraseña](./migrate-from-federation-to-cloud-authentication.md) y [Migración de la federación a la autenticación de paso a través](./migrate-from-federation-to-cloud-authentication.md).
   
 ## <a name="get-started-with-staged-rollout"></a>Introducción al lanzamiento preconfigurado
 
@@ -266,7 +266,6 @@ A. Sí. Para información sobre cómo usar PowerShell para realizar el lanzamien
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Versión preliminar de Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
-- [Cambio del método de inicio de sesión a la sincronización de hash de contraseña](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
-- [Cambio del método de inicio de sesión a la autenticación de paso a través](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Cambio del método de inicio de sesión a la sincronización de hash de contraseña](./migrate-from-federation-to-cloud-authentication.md)
+- [Cambio del método de inicio de sesión a la autenticación de paso a través](./migrate-from-federation-to-cloud-authentication.md)
 - [Guía interactiva de lanzamiento preconfigurado](https://mslearn.cloudguides.com/en-us/guides/Test%20migration%20to%20cloud%20authentication%20using%20staged%20rollout%20in%20Azure%20AD)
-

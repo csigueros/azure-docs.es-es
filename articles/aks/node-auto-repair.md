@@ -4,12 +4,12 @@ description: Obtenga información sobre la funcionalidad de reparación automát
 services: container-service
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 95783000739fd42e39ef1bbce88c3b8e62d4a8dc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6ca726445e7593898609c39e0a503405852098fc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073205"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748910"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Reparación automática de nodos de Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,6 @@ Si AKS identifica un nodo incorrecto que permanece de este modo durante 10 minu
 
 1. Reinicie el nodo.
 1. Si el reinicio no se realiza correctamente, restablece la imagen inicial del nodo.
-1. Si la nueva imagen no se restablece correctamente, crea y restablece la imagen inicial de un nuevo nodo.
 
 Los ingenieros de AKS están investigando correcciones alternativas si la reparación automática no se realiza correctamente. 
 

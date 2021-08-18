@@ -1,19 +1,19 @@
 ---
 title: Creación de una imagen de máquina virtual y usar una identidad administrada asignada por el usuario para acceder a archivos en Azure Storage
 description: Cree una imagen de máquina virtual mediante el generador de imágenes de Azure que pueda acceder a archivos almacenados en Azure Storage con la identidad administrada asignada por el usuario.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.openlocfilehash: 94bde3351f74c3388e137cc738f2b970654416bd
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: c122907ffc43f8e7e108773330b64da8c6acd96e
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439609"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113593679"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Creación de una imagen y usar una identidad administrada asignada por el usuario para acceder a archivos en Azure Storage 
 

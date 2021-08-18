@@ -3,12 +3,12 @@ title: Usar Azure DevTest Labs para entornos de prueba de máquina virtual y Paa
 description: Aprenda a usar Azure DevTest Labs para escenarios de entornos de prueba de máquina virtual y PaaS.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 978071aa160098612a5effebfb30d5d58b777df7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24ff4e982fb0c436133e7a39e72e8210b06eeb03
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89299837"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114295653"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Usar Azure DevTest Labs para entornos de prueba de máquina virtual y PaaS
 
@@ -48,7 +48,7 @@ En este artículo obtendrá información sobre varias características de Azure 
    | --- | --- |
    | [Configuración de imágenes de Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Aprenda a permitir imágenes de Azure Marketplace y haga que estén disponibles para su selección solo las imágenes que desee para los evaluadores.|
    | [Creación de una imagen personalizada](devtest-lab-create-template.md) |Cree una imagen personalizada instalando previamente el software que necesita para que los evaluadores puedan crear rápidamente una máquina virtual con la imagen personalizada.|
-   | [Información acerca del generador de imágenes](./devtest-lab-faq.md#blog-post) |Vea un vídeo que describe cómo configurar y usar un generador de imágenes.|
+   | [Información acerca del generador de imágenes](/azure/devtest-labs/devtest-lab-faq#blog-post) |Vea un vídeo que describe cómo configurar y usar un generador de imágenes.|
 
 3. **Creación de plantillas reutilizables para las máquinas de prueba** 
    
@@ -102,7 +102,7 @@ En este artículo obtendrá información sobre varias características de Azure 
    | Tarea | Conocimientos que adquirirá |
    | --- | --- |
    | [Definición de directivas de laboratorio](devtest-lab-set-lab-policy.md) |Controle los costos mediante el establecimiento de directivas en el laboratorio. |
-   | [Eliminación de todas las máquinas virtuales del laboratorio mediante un script de PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Elimine todos los laboratorios en una sola operación al finalizar la prueba.|
+   | [Eliminación de todas las máquinas virtuales del laboratorio mediante un script de PowerShell](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Elimine todos los laboratorios en una sola operación al finalizar la prueba.|
 
 1. **Incorporación de una red virtual a un laboratorio** 
    
@@ -118,7 +118,7 @@ En este artículo obtendrá información sobre varias características de Azure 
 
 6. **Uso compartido del laboratorio con cada evaluador**
    
-    Se puede obtener acceso directo a los laboratorios mediante un vínculo que puede compartir con los evaluadores. Ni siquiera es necesario que tengan una cuenta de Azure, siempre y cuando dispongan de una [cuenta de Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account). Los evaluadores no pueden ver las máquinas virtuales creadas por otros evaluadores.  
+    Se puede obtener acceso directo a los laboratorios mediante un vínculo que puede compartir con los evaluadores. Ni siquiera es necesario que tengan una cuenta de Azure, siempre y cuando dispongan de una [cuenta de Microsoft](/azure/devtest-labs/devtest-lab-faq#what-is-a-microsoft-account). Los evaluadores no pueden ver las máquinas virtuales creadas por otros evaluadores.  
    
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
@@ -126,7 +126,7 @@ En este artículo obtendrá información sobre varias características de Azure 
    | --- | --- |
    | [Incorporación de un evaluador a un laboratorio de Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Use Azure Portal para agregar evaluadores al laboratorio.|
    | [Incorporación de evaluadores al laboratorio mediante un script de PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Use PowerShell para automatizar la incorporación de evaluadores al laboratorio. |
-   | [Obtención de un vínculo al laboratorio](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Aprenda cómo pueden los evaluadores obtener acceso directo a un laboratorio a través de un hipervínculo.|
+   | [Obtención de un vínculo al laboratorio](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab) |Aprenda cómo pueden los evaluadores obtener acceso directo a un laboratorio a través de un hipervínculo.|
 
 7. **Automatización de la creación de un laboratorio para más equipos** 
    
@@ -136,6 +136,6 @@ En este artículo obtendrá información sobre varias características de Azure 
    
    | Tarea | Conocimientos que adquirirá |
    | --- | --- |
-   | [Creación de un laboratorio mediante una plantilla de Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Cree laboratorios en Azure DevTest Labs mediante plantillas de Resource Manager. |
+   | [Creación de un laboratorio mediante una plantilla de Resource Manager](/azure/devtest-labs/devtest-lab-faq#how-do-i-create-a-lab-from-a-resource-manager-template) |Cree laboratorios en Azure DevTest Labs mediante plantillas de Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

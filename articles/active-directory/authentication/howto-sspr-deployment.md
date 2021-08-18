@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 07/13/2021
 ms.author: baselden
 author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e7792546531d7f443a44b127620d508816edcb
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 272eaf3a21992cb5fecf1c02e5ab1000af149bcc
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285779"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687846"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Plan de implementación de autoservicio de restablecimiento de contraseña de Azure Active Directory
 
@@ -62,7 +62,7 @@ Las licencias de Azure Active Directory se otorgan por usuario; es decir, cada
 
 Para comparar las ediciones y las características y habilitar las licencias basadas en grupos o usuarios, consulte [Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD](./concept-sspr-licensing.md).
 
-Para obtener más información sobre los precios, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Para obtener más información sobre los precios, consulte [Precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### <a name="prerequisites"></a>Requisitos previos
 

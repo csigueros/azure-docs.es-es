@@ -2,13 +2,13 @@
 title: 'Azure Relay: Migrar a la autorización de Firma de acceso compartido'
 description: Describe la migración de aplicaciones de Azure Relay para pasar del uso de Azure Active Directory Access Control Service a la autorización de firma de acceso compartido.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 3b793173270b0ddf25f0e971dbb2fed97cb10a55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 30e656b3e4960cb7e2a8bdb23a2d8ce1aa91edbf
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87532873"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668722"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay: Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido
 

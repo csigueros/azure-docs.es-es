@@ -2,18 +2,17 @@
 title: Entorno de desarrollo de Azure IoT Edge | Microsoft Docs
 description: Obtenga información sobre los sistemas admitidos y las herramientas de desarrollo propias que le ayudarán a crear módulos IoT Edge.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1070a5ddf298ad88100e7803635e970f9a314e52
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: d420f9b7950e1b6324b7d7dc47cef4bfeb43248e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107869588"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727829"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Preparación del entorno de desarrollo y prueba para IoT Edge
 
@@ -60,7 +59,7 @@ Las plantillas de módulo para algunos lenguajes y servicios tienen requisitos p
 | Azure Functions | [SDK de .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1). |
 | C | [Git](https://git-scm.com/) |
 | C# | [SDK de .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1). |
-| Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [Establecer la variable de entorno JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
+| Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-support-on-azure) <li> [Establecer la variable de entorno JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Generador de módulos Node.js de Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 

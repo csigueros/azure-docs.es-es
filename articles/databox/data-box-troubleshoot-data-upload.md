@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 05/10/2021
 ms.author: alkohli
-ms.openlocfilehash: bd54b662e48ef6f66ea2bfef10863e2d7627289f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c1d1fd5a15d889ead669a5c7c880ed59f5a66ba8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966439"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750919"
 ---
 # <a name="review-copy-errors-in-uploads-from-azure-data-box-and-azure-data-box-heavy-devices"></a>Revisión de los errores de copia en las cargas desde dispositivos Azure Data Box y Azure Data Box Heavy
 
@@ -110,7 +110,7 @@ Pueden producirse otros errores de API de REST durante las cargas de datos. Para
 
 **Descripción del error:** si un contenedor de Blob Storage está configurado como Escribir una vez, leer muchas (WORM), se producirá un error en la carga de los blobs que ya están almacenados en el contenedor.
 
-**Seguimiento:** no se puede corregir este error en la carga actual. La carga se ha completado con errores. Antes de realizar una transferencia de red o iniciar un nuevo pedido de importación, asegúrese de que los blobs indicados no forman parte de un contenedor de almacenamiento inmutable. Para más información, consulte [Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable](../storage/blobs/storage-blob-immutable-storage.md).
+**Seguimiento:** no se puede corregir este error en la carga actual. La carga se ha completado con errores. Antes de realizar una transferencia de red o iniciar un nuevo pedido de importación, asegúrese de que los blobs indicados no forman parte de un contenedor de almacenamiento inmutable. Para más información, consulte [Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable](../storage/blobs/immutable-storage-overview.md).
 
 
 ### <a name="the-total-provisioned-capacity-of-the-shares-cannot-exceed-the-account-maximum-size-limit"></a>La capacidad total aprovisionada de los recursos compartidos no puede superar el límite de tamaño máximo de la cuenta.

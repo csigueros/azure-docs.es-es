@@ -12,12 +12,12 @@ ms.date: 06/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 17be85bd21a61ced7772786bb1fdaad1c947e4d1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8aeb818104e1424d96374bf535d4c02a870f4705
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962256"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453887"
 ---
 # <a name="manage-your-azure-active-directory-b2c-tenant"></a>Administración del inquilino de Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Azure AD B2C se basa en la plataforma de Azure AD. Las siguientes caracterís
 | [Nombres de dominio personalizados](../active-directory/fundamentals/add-custom-domain.md) |  Puede usar los dominios personalizados de Azure AD solo para las cuentas administrativas. | Las [cuentas de consumidor](user-overview.md#consumer-user) pueden iniciar sesión con un nombre de usuario, un número de teléfono o cualquier dirección de correo electrónico. Puede usar los [dominios personalizados](custom-domain.md) en las direcciones URL de redireccionamiento.|
 | [Acceso condicional](../active-directory/conditional-access/overview.md) | Totalmente compatible con cuentas administrativas y de usuario. | Se admite un subconjunto de características de acceso condicional de Azure AD con las [cuentas de consumidor](user-overview.md#consumer-user). Obtenga información sobre cómo configurar el [acceso condicional](conditional-access-user-flow.md) de Azure AD B2C.|
 | [Premium P1](https://azure.microsoft.com/pricing/details/active-directory) | Totalmente compatible con las características de Azure AD Premium P1. Por ejemplo, [protección de contraseñas](../active-directory/authentication/concept-password-ban-bad.md), [identidades híbridas](../active-directory/hybrid/whatis-hybrid-identity.md), [acceso condicional](../active-directory/roles/permissions-reference.md#), [grupos dinámicos](../active-directory/enterprise-users/groups-create-rule.md), etc. | Se admite un subconjunto de características de acceso condicional de Azure AD con las [cuentas de consumidor](user-overview.md#consumer-user). Aprenda a configurar el [acceso condicional](conditional-access-user-flow.md) de Azure AD B2C.|
-| [Premium P2](https://azure.microsoft.com/pricing/details/active-directory.md) | Totalmente compatible con las características de Azure AD Premium P2. Por ejemplo, [Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) e [Identity Governance](../active-directory/governance/identity-governance-overview.md).  | Un subconjunto de características de Azure AD Identity Protection es compatible con las [cuentas de consumidor](user-overview.md#consumer-user). Aprenda a [investigar el riesgo con Identity Protection](identity-protection-investigate-risk.md) y a configurar el [acceso condicional](conditional-access-user-flow.md) de Azure AD B2C. |
+| [Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) | Totalmente compatible con las características de Azure AD Premium P2. Por ejemplo, [Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) e [Identity Governance](../active-directory/governance/identity-governance-overview.md).  | Un subconjunto de características de Azure AD Identity Protection es compatible con las [cuentas de consumidor](user-overview.md#consumer-user). Aprenda a [investigar el riesgo con Identity Protection](identity-protection-investigate-risk.md) y a configurar el [acceso condicional](conditional-access-user-flow.md) de Azure AD B2C. |
 
 ## <a name="other-azure-resources-in-your-tenant"></a>Otros recursos de Azure en el inquilino
 
@@ -206,4 +206,3 @@ Para obtener el identificador del inquilino de Azure AD B2C, siga estos pasos:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de un inquilino de Azure Active Directory B2C en Azure Portal](tutorial-create-tenant.md)
-

@@ -2,14 +2,14 @@
 title: Autenticación del acceso a Azure Event Hubs con firmas de acceso compartido
 description: En este artículo se muestra cómo autenticar el acceso a recursos de Event Hubs mediante firmas de acceso compartido.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 07/26/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 12e129686bdde9b03e1c284e0f54cb31e32469c3
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: f647dd21db2920bff01ac5929c527e66f8d7350b
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903012"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708538"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticación del acceso a recursos de Event Hubs mediante firmas de acceso compartido (SAS)
 La firma de acceso compartido (SAS) le ofrece un control pormenorizado sobre el tipo de acceso que se concede a los clientes que la tienen. Estos son algunos de los controles que puede establecer en una SAS: 
@@ -222,7 +222,7 @@ Para autenticar las aplicaciones back-end que consumen los datos generados por l
 Vea los artículos siguientes:
 
 - [Autorización del uso de SAS](authenticate-shared-access-signature.md)
-- [Autorización mediante el control de acceso basado en roles de Azure (Azure RBAC)](authenticate-shared-access-signature.md)
+- [Autorización mediante el control de acceso basado en roles de Azure (Azure RBAC)](authorize-access-azure-active-directory.md)
 - [Más información sobre Event Hubs](event-hubs-about.md)
 
 Consulte los artículos relacionados siguientes:

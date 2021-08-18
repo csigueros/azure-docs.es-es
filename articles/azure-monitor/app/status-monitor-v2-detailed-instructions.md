@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 29922f088a51e4876e5e2ec8fe87c3bbce4482f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f63a623029e932fca08ab01113b460e8b601d46b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521686"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287126"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (antes Monitor de estado v2): Instrucciones detalladas
 
@@ -216,7 +216,7 @@ Al supervisar un equipo en su intranet privada, deberá enrutar el tráfico HTTP
 Los comandos de PowerShell para descargar e instalar Az.ApplicationMonitor desde la Galería de PowerShell admiten un parámetro `-Proxy`.
 Consulte las instrucciones anteriores cuando escriba los scripts de instalación.
 
-El SDK de Application Insights tendrá que enviar la telemetría de la aplicación a Microsoft. Le recomendamos que configure las opciones de configuración de proxy de la aplicación en el archivo web.config. Para obtener más información, consulte [Preguntas más frecuentes sobre Application Insights: Paso a través de proxy](../faq.md#proxy-passthrough).
+El SDK de Application Insights tendrá que enviar la telemetría de la aplicación a Microsoft. Le recomendamos que configure las opciones de configuración de proxy de la aplicación en el archivo web.config. Para obtener más información, consulte [Preguntas más frecuentes sobre Application Insights: Paso a través de proxy](../faq.yml).
 
 
 ## <a name="enable-monitoring"></a>Habilitar supervisión

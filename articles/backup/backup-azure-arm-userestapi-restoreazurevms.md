@@ -4,12 +4,12 @@ description: En este artículo obtendrá información sobre cómo administrar la
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: da6b4cd6134f0cd1fd3d6e04e814bbf8aec9b07d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4789285f4cc95f1885dbf9121bc5189fce02d6de
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452159"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460942"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restauración de máquinas virtuales de Azure mediante API REST
 
@@ -19,7 +19,7 @@ Para cualquier operación de restauración, se tiene que identificar primero el 
 
 ## <a name="select-recovery-point"></a>Selección de punto de recuperación
 
-Se pueden enumerar los puntos de recuperación disponibles de un elemento de copia de seguridad mediante la [enumeración de puntos de recuperación de la API REST](/rest/api/backup/recoverypoints/list). Es una sencilla operación *GET* con todos los valores pertinentes.
+Se pueden enumerar los puntos de recuperación disponibles de un elemento de copia de seguridad mediante la [enumeración de puntos de recuperación de la API REST](/rest/api/backup/recovery-points/list). Es una sencilla operación *GET* con todos los valores pertinentes.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
@@ -33,7 +33,7 @@ El identificador URI de *GET* tiene todos los parámetros necesarios. No es nece
 
 |Nombre  |Tipo  |Descripción  |
 |---------|---------|---------|
-|200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       Aceptar  |
+|200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recovery-points/list#recoverypointresourcelist)      |       Aceptar  |
 
 #### <a name="example-response"></a>Respuesta de ejemplo
 
@@ -246,7 +246,7 @@ El cuerpo de solicitud siguiente define las propiedades necesarias para desencad
 
 ### <a name="restore-disks-selectively"></a>Restauración de discos de forma selectiva
 
-Si está [realizando copias de seguridad de discos de forma selectiva](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), la lista actual de discos de los que se ha hecho una de copia de seguridad se proporciona en el [resumen de puntos de recuperación](#select-recovery-point) y en la [respuesta detallada](/rest/api/backup/recoverypoints/get). También puede restaurar los discos de forma selectiva. [Aquí](selective-disk-backup-restore.md#selective-disk-restore) se proporcionan más detalles. Para restaurar de forma selectiva un disco entre la lista de discos de los que se ha hecho copia de seguridad, busque el LUN del disco de la respuesta del punto de recuperación y agregue la propiedad **restoreDiskLunList** al [cuerpo de solicitud anterior](#example-request) como se muestra a continuación.
+Si está [realizando copias de seguridad de discos de forma selectiva](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), la lista actual de discos de los que se ha hecho una de copia de seguridad se proporciona en el [resumen de puntos de recuperación](#select-recovery-point) y en la [respuesta detallada](/rest/api/backup/recovery-points/get). También puede restaurar los discos de forma selectiva. [Aquí](selective-disk-backup-restore.md#selective-disk-restore) se proporcionan más detalles. Para restaurar de forma selectiva un disco entre la lista de discos de los que se ha hecho copia de seguridad, busque el LUN del disco de la respuesta del punto de recuperación y agregue la propiedad **restoreDiskLunList** al [cuerpo de solicitud anterior](#example-request) como se muestra a continuación.
 
 ```json
 {
@@ -332,6 +332,7 @@ Tal como se explicó [anteriormente](#restore-operations), el cuerpo de la solic
           "originalStorageAccountOption": false,
           "encryptionDetails": {
             "encryptionEnabled": false
+          }
      }
  }
 ```

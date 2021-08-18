@@ -2,7 +2,6 @@
 title: 'Recuperación de registros de IoT Edge: Azure IoT Edge'
 description: Recupere los registros del módulo de IoT Edge y cárguelos en Azure Blob Storage.
 author: v-tcassi
-manager: philmea
 ms.author: v-tcassi
 ms.date: 11/12/2020
 ms.topic: conceptual
@@ -10,12 +9,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 51a79058ec4456b173b1f50169198d3ea3ba2e93
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 53ea8657535cb353b2da0f2a5b35398aa972128a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541867"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745335"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperación de registros de implementaciones de IoT Edge
 
@@ -35,7 +34,7 @@ Aunque no es necesario, para mejorar la compatibilidad con esta característica,
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Timestamp}` debe tener el formato `yyyy-MM-dd hh:mm:ss.fff zzz` y `{Log Level}` debe seguir la tabla siguiente, que deriva sus niveles de gravedad del [código de gravedad del estándar Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
+`{Timestamp}` debe tener el formato `yyyy-MM-dd HH:mm:ss.fff zzz` y `{Log Level}` debe seguir la tabla siguiente, que deriva sus niveles de gravedad del [código de gravedad del estándar Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
 
 | Valor | Severity |
 |-|-|

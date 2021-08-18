@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 9edfb63f5ce43ed325b4c4a1fa67e0e9ca52dc89
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 339c455b4301012a8aee7a5d5113647c4bc31a3f
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110872"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113652486"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticación en Azure Communication Services
 
@@ -48,7 +48,7 @@ Si desea llamar a las API de ACS manualmente mediante una clave de acceso, deber
 
 Las identidades administradas proporcionan una mayor seguridad y facilidad de uso con otras opciones de autorización. Por ejemplo, con Azure AD evita tener que almacenar la clave de acceso de la cuenta con el código, como se hace con la autorización mediante la clave de acceso. Aunque puede seguir usando la autorización mediante la clave de acceso con las aplicaciones de Communication Services, Microsoft recomienda cambiar a Azure AD siempre que sea posible. 
 
-Para configurar una identidad administrada, [cree una aplicación registrada a partir de la CLI de Azure](../quickstarts/managed-identity-from-cli.md). A continuación, el punto de conexión y las credenciales se pueden usar para autenticar los SDK. Vea ejemplos de cómo se usa la [identidad administrada](../quickstarts/managed-identity.md).
+Para configurar una identidad administrada, [cree una aplicación registrada a partir de la CLI de Azure](../quickstarts/identity/service-principal-from-cli.md). A continuación, el punto de conexión y las credenciales se pueden usar para autenticar los SDK. Vea ejemplos de cómo se usa la [identidad administrada](../quickstarts/identity/service-principal.md).
 
 ### <a name="user-access-tokens"></a>Tokens de acceso de usuario
 
@@ -58,7 +58,7 @@ Los tokens de acceso de usuario se generan mediante el SDK de identidad y se aso
 
 > [!div class="nextstepaction"]
 > [Creación y administración de recursos de Communication Services](../quickstarts/create-communication-resource.md)
-> [Creación de una aplicación de identidad administrada de Azure Active Directory mediante la CLI de Azure](../quickstarts/managed-identity-from-cli.md)
+> [Creación de una aplicación de identidad administrada de Azure Active Directory mediante la CLI de Azure](../quickstarts/identity/service-principal-from-cli.md)
 > [Creación de tokens de acceso de usuario](../quickstarts/access-tokens.md)
 
 Para más información, consulte los siguientes artículos.

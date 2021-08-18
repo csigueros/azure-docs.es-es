@@ -5,20 +5,20 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: 98d18044693bc6f4d23e04e9403e71686df39451
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fdba94738f31d80667a4f804dbed2586aca9db1d
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872207"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282374"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creación de clústeres basados en Linux en HDInsight mediante Azure Portal
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 El Portal de Azure es una herramienta de administración basada en web para servicios y recursos hospedados en la nube de Microsoft Azure. En este artículo aprenderá a crear clústeres de Azure HDInsight basados en Linux mediante el portal. Puede encontrar más detalles en [Creación de clústeres de HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 El Portal de Azure expone la mayor parte de las propiedades del clúster. Mediante las plantillas de Azure Resource Manager puede ocultar una gran cantidad de detalles. Para más información, consulte [Creación de clústeres de Apache Hadoop en HDInsight con plantillas de Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-clusters"></a>Creación de clústeres
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -44,7 +44,7 @@ En la pestaña **Básico**, especifique la siguiente información:
 
 |Propiedad |Descripción |
 |---|---|
-|Subscription|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
+|Suscripción|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
 |Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
 |Nombre del clúster|Escriba un nombre único global.|
 |Region|En la lista desplegable, seleccione una región donde crear el clúster.|

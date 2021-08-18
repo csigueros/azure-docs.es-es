@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0bfdb7017a5042787e7e33e05e52bd90d67deb0e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: df35b537e3bcaa2fb7d876b55cea08e5dcf65586
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110058879"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113652446"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implementación de asistentes de voz en Windows
 
@@ -154,4 +154,4 @@ Para cerrar correctamente la aplicación mediante programación cuando se ha act
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Visite la aplicación de ejemplo del asistente de voz de UWP para ver ejemplos y tutoriales de código](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample)
+> [Visite la aplicación de ejemplo del asistente de voz de UWP para ver ejemplos y tutoriales de código](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample)

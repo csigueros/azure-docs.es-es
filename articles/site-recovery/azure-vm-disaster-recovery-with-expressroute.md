@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 07/25/2021
 ms.author: mayg
-ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c6e5bfb3e014540f4b23438cfe4869ace1f1345
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88654385"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742961"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integración de ExpressRoute con la recuperación ante desastres en máquinas virtuales de Azure
 
@@ -166,7 +166,7 @@ Esta configuración ayuda a protegerse frente a errores del circuito ExpressRout
 
 En esta configuración, solo hay un circuito ExpressRoute. Aunque el circuito tiene una conexión redundante en caso de que uno deje de funcionar, un único circuito no proporciona resistencia si la región de emparejamiento deja de funcionar. Observe lo siguiente:
 
-- Puede replicar máquinas virtuales de Azure en cualquier región de Azure de la [misma ubicación geográfica](azure-to-azure-support-matrix.md#region-support). Si la región de Azure de destino no está en la misma ubicación que la de origen, deberá habilitar ExpressRoute Premium si usa un único circuito ExpressRoute. Más información sobre [ubicaciones de ExpressRoute](../expressroute/expressroute-locations.md) y [precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+- Si la región de Azure de destino no está en la misma ubicación que la de origen, deberá habilitar ExpressRoute Premium si usa un único circuito ExpressRoute. Más información sobre [ubicaciones de ExpressRoute](../expressroute/expressroute-locations.md) y [precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 - No podrá conectar a la vez redes virtuales de origen y destino al circuito si se usa el mismo espacio de direcciones IP en la región de destino. En este escenario:    
     -  Desconecte la conexión del lado de origen y, luego, establezca la conexión de lado de destino. Se puede generar un script con este cambio de conexión como parte de un plan de Site Recovery. Observe lo siguiente:
         - En un error regional, si la región primaria es inaccesible, la operación de desconexión podría producir error. Este error puede afectar la creación de la conexión a la región de destino.

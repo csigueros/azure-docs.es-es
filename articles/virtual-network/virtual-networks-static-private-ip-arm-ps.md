@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71d8c9b30923f6b3fd79a42542cac43cbfa09964
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6b6361aa197076db3e36a36d5b770ccc2d6e0e4f
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678636"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431967"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Creación de una máquina virtual con una dirección IP privada estática mediante PowerShell
 
-Puede crear una máquina virtual (VM) con una dirección IP privada estática. Asigne una dirección IP privada estática en lugar de una dirección dinámica si quiere seleccionar la dirección de una subred que se asignará a una VM. Obtenga más información sobre las [direcciones IP privadas estáticas](./public-ip-addresses.md#allocation-method). Para cambiar una dirección IP privada asignada a una VM existente de dinámica a estática, o para trabajar con direcciones IP públicas, consulte [Incorporación, cambio o eliminación de direcciones IP](virtual-network-network-interface-addresses.md).
+Puede crear una máquina virtual (VM) con una dirección IP privada estática. Asigne una dirección IP privada estática en lugar de una dirección dinámica si quiere seleccionar la dirección de una subred que se asignará a una VM. Obtenga más información sobre las [direcciones IP privadas estáticas](./public-ip-addresses.md#ip-address-assignment). Para cambiar una dirección IP privada asignada a una VM existente de dinámica a estática, o para trabajar con direcciones IP públicas, consulte [Incorporación, cambio o eliminación de direcciones IP](virtual-network-network-interface-addresses.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/02/2021
 ms.author: yelevin
-ms.openlocfilehash: 4be182b3eee59f7f9d2ef704a3d0f57c6718b45d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e7eb8e2319d00f862b293cbb15482cdefde231ed
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044981"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252222"
 ---
 # <a name="connect-your-broadcom-symantec-data-loss-prevention-dlp-to-azure-sentinel"></a>Conexión de la prevención de pérdida de datos (DLP) de Broadcom Symantec con Azure Sentinel
 
 > [!IMPORTANT]
 > El conector de Broadcom Symantec DLP se encuentra actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 En este artículo se explica cómo conectar el dispositivo de Broadcom Symantec DLP con Azure Sentinel. El conector de datos de Broadcom Symantec DLP permite conectar fácilmente los registros de Symantec DLP con Azure Sentinel para ver paneles, crear alertas personalizadas y mejorar la investigación. Gracias a esta capacidad, dispondrá de más conclusiones sobre los datos de su organización, a dónde se envía y podrá mejorar las capacidades de las operaciones de seguridad. La integración entre Broadcom Symantec DLP y Azure Sentinel usa el servidor de Syslog con formato CEF, un reenviador de registros basado en Linux y el agente de Log Analytics. También usa un analizador de registro personalizado basado en una función de Kusto.
 
@@ -73,6 +75,6 @@ Consulte la pestaña **Pasos siguientes** de la página de conectores para ver a
 
 En este documento, ha aprendido a conectar Symantec DLP a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

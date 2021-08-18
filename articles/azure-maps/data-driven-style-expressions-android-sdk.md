@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 1babf1feb550109486089c45469ab4ce32f72cb3
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: d26947b48ca64ea5f06f3f9566d05fd110d6e93f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097421"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091850"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>Expresiones de estilo basadas en datos (Android SDK)
 
@@ -221,7 +221,7 @@ Las expresiones de datos proporcionan acceso a los datos de propiedad de una car
 
 | Expression | Tipo de valor devuelto | Descripción |
 |------------|-------------|-------------|
-| `accumulated()` | number | Obtiene el valor de una propiedad de clúster acumulada hasta el momento. |
+| `accumulated()` | number | Obtiene el valor de una propiedad de clúster acumulada hasta el momento. Solo se puede usar en la opción `clusterProperties` de un origen de `DataSource` agrupado. |
 | `at(number | Expression, Expression)` | value | Recupera un elemento de una matriz. |
 | `geometryType()` | string | Obtiene el tipo de geometría de la característica: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `get(string | Expression)` \| `get(string | Expression, Expression)` | value | Obtiene el valor de propiedad de las propiedades del objeto proporcionado. Devuelve null si no se encuentra la propiedad solicitada. |
@@ -856,9 +856,9 @@ La expresión anterior representa una chincheta en el mapa con el texto "64° F"
 
 ![Ejemplo de expresión de operador de cadena](media/how-to-expressions/string-operator-expression.png)
 
-## <a name="interpolate-and-step-expressions"></a>Expresiones de interpolación y paso
+## <a name="interpolate-and-step-expressions&quot;></a>Expresiones de interpolación y paso
 
-Se pueden usar para calcular valores a lo largo de una curva interpolada o una función de paso. Estas expresiones toman una expresión que devuelve un valor numérico como entrada, por ejemplo `get("temperature")`. El valor de entrada se evalúa con pares de valores de entrada y salida para determinar el valor que mejor se adapta a la curva interpolada o a la función de paso. Los valores de salida se denominan "paradas". Los valores de entrada de cada parada deben ser un número y estar en orden ascendente. Los valores de salida deben ser un número y una matriz de números, o un color.
+Se pueden usar para calcular valores a lo largo de una curva interpolada o una función de paso. Estas expresiones toman una expresión que devuelve un valor numérico como entrada, por ejemplo `get(&quot;temperature")`. El valor de entrada se evalúa con pares de valores de entrada y salida para determinar el valor que mejor se adapta a la curva interpolada o a la función de paso. Los valores de salida se denominan "paradas". Los valores de entrada de cada parada deben ser un número y estar en orden ascendente. Los valores de salida deben ser un número y una matriz de números, o un color.
 
 ### <a name="interpolate-expression"></a>Expresión de interpolación
 

@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3175b1292a7e69506b9193d1182e184e257ebda3
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 45663b7a2229de0600e60ec2e40c5b721440b997
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530501"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738934"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticación en Azure Active Directory: aplicación Microsoft Authenticator
 
 La aplicación Microsoft Authenticator proporciona un nivel de seguridad adicional para su cuenta profesional o educativa de Azure AD o su cuenta de Microsoft, y está disponible para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Con la aplicación Microsoft Authenticator, los usuarios pueden autenticarse sin contraseñas durante el inicio de sesión, o como una opción de verificación adicional durante los eventos de autoservicio de restablecimiento de contraseña (SSPR) o de Multi-Factor Authentication de Azure AD.
 
-Los usuarios pueden recibir una notificación mediante la aplicación móvil para que la aprueben o rechacen, o usar la aplicación Authenticator para generar un código de verificación de OAUTH que se pueda escribir en una interfaz de inicio de sesión. Si habilita tanto una notificación como un código de verificación, los usuarios que registran la aplicación Authenticator podrán utilizar cualquiera de los métodos para verificar su identidad.
+Los usuarios pueden recibir una notificación a través de la aplicación móvil para que aprueben o rechacen, o usar la aplicación Authenticator para generar un código de verificación de OATH que se pueda escribir en una interfaz de inicio de sesión. Si habilita tanto una notificación como un código de verificación, los usuarios que registran la aplicación Authenticator podrán utilizar cualquiera de los métodos para verificar su identidad.
 
 Para usar la aplicación Authenticator en una solicitud de inicio de sesión en lugar de una combinación de nombre de usuario y contraseña, consulte [Habilitación del inicio de sesión sin contraseña con la aplicación Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

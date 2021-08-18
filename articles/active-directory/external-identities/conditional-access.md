@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c6611b7437bdaf873caaaf4722e30fb644b5f13
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 40be574b048575a1cf056fcdcd97bc09d4f21098
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110617249"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729621"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acceso condicional para usuarios de colaboración B2B
 
@@ -115,14 +115,14 @@ Hay varios factores que influyen en las directivas de CA para los usuarios invit
 
 ### <a name="device-based-conditional-access"></a>Acceso condicional basado en dispositivos
 
-En CA, hay una opción para requerir que el [dispositivo de un usuario sea compatible o con conexión a Azure AD híbrido](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). Los usuarios invitados de B2B solo pueden satisfacer el requisito de compatibilidad si el inquilino de recursos puede administrar su dispositivo. Los dispositivos no pueden estar administrados por más de una organización a la vez. Los usuarios invitados de B2B no pueden satisfacer el requisito de conexión a Azure AD híbrido porque no tienen una cuenta de AD local. Solo en el caso de que el dispositivo del usuario invitado no esté administrado, pueden registrar o inscribir su dispositivo en el inquilino de recursos y luego hacer que el dispositivo sea compatible. A continuación, el usuario puede cumplir con el control de concesión.
+En CA, hay una opción para requerir que el [dispositivo de un usuario sea compatible o con conexión a Azure AD híbrido](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). Los usuarios invitados de B2B solo pueden satisfacer el requisito de compatibilidad si el inquilino de recursos puede administrar su dispositivo. Los dispositivos no pueden estar administrados por más de una organización a la vez. Los usuarios invitados de B2B no pueden satisfacer el requisito de conexión a Azure AD híbrido porque no tienen una cuenta de AD local. 
 
 >[!Note]
 >No se recomienda requerir un dispositivo administrado para los usuarios externos.
 
 ### <a name="mobile-application-management-policies"></a>Directivas de administración de aplicaciones móviles
 
-Los controles de concesión de CA, como **Require approved client apps** (Requerir aplicaciones cliente aprobadas) y **Require app protection policies** (Requerir directivas de protección de aplicación), necesitan que el dispositivo esté registrado en el inquilino. Estos controles solo pueden aplicarse a [dispositivos iOS y Android](../conditional-access/concept-conditional-access-conditions.md#device-platforms). Sin embargo, ninguno de estos controles se puede aplicar a los usuarios invitados de B2B si el dispositivo del usuario ya está administrado por otra organización. Un dispositivo móvil no se puede registrar en más de un inquilino a la vez. Si otra organización administra el dispositivo móvil, se bloqueará al usuario. Solo en el caso de que el dispositivo del usuario invitado no esté administrado, pueden registrar su dispositivo en el inquilino de recursos. A continuación, el usuario puede cumplir con el control de concesión.  
+Los controles de concesión de CA, como **Require approved client apps** (Requerir aplicaciones cliente aprobadas) y **Require app protection policies** (Requerir directivas de protección de aplicación), necesitan que el dispositivo esté registrado en el inquilino. Estos controles solo pueden aplicarse a [dispositivos iOS y Android](../conditional-access/concept-conditional-access-conditions.md#device-platforms). Sin embargo, ninguno de estos controles se puede aplicar a los usuarios invitados de B2B si el dispositivo del usuario ya está administrado por otra organización. Un dispositivo móvil no se puede registrar en más de un inquilino a la vez. Si otra organización administra el dispositivo móvil, se bloqueará al usuario. 
 
 >[!NOTE]
 >No se recomienda requerir una directiva de protección de aplicaciones para los usuarios externos.
@@ -153,5 +153,5 @@ Para más información, consulte los siguientes artículos sobre la Colaboració
 
 - [¿Qué es la colaboración B2B de Azure AD?](./what-is-b2b.md)
 - [Protección de identidades y usuarios de Colaboración B2B](../identity-protection/concept-identity-protection-b2b.md)
-- [Precios de identidades externas](https://azure.microsoft.com/pricing/details/active-directory/)
+- [Precios de identidades externas](https://azure.microsoft.com/pricing/details/active-directory/external-identities/)
 - [Preguntas más frecuentes (P+F)](./faq.yml)

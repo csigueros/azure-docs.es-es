@@ -2,21 +2,22 @@
 title: Uso del informe de actividades para trasladar aplicaciones de AD FS a Azure Active Directory | Microsoft Docs
 description: El informe de actividades de aplicaciones de Servicios de federación de Active Directory (AD FS) permite migrar rápidamente aplicaciones de AD FS a Azure Active Directory (Azure AD). Esta herramienta de migración para AD FS identifica la compatibilidad con Azure AD y proporciona instrucciones de migración.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/14/2019
-ms.author: mtillman
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5baf0ea07369ad8029c0f556ced16de1f2209dbc
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: alamaral
+ms.openlocfilehash: 6b60479d1205acdd0d18311791adfc4924913c4e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079236"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738773"
 ---
 # <a name="use-the-ad-fs-application-activity-report-to-migrate-applications-to-azure-ad"></a>Use el informe de actividades de aplicaciones de AD FS para migrar aplicaciones a Azure AD
 
@@ -31,20 +32,20 @@ El informe de actividades de aplicaciones de AD FS de Azure Portal permite ide
 
 Los datos de actividad de aplicaciones de AD FS están disponibles para los usuarios que tienen asignados cualquiera de estos roles de administrador: administrador global, lector de informes, lector de seguridad, administrador de aplicaciones o administrador de aplicaciones en la nube.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * En estos momentos, su organización debe usar AD FS para acceder a las aplicaciones.
 * Azure AD Connect Health debe estar habilitado en el inquilino de Azure AD.
 * El agente de Azure AD Connect Health para AD FS debe estar instalado.
-   * [Más información sobre Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
-   * [Introducción a la configuración de Azure AD Connect Health e instalación del agente de AD FS](../hybrid/how-to-connect-health-agent-install.md)
+* [Más información sobre Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
+* [Introducción a la configuración de Azure AD Connect Health e instalación del agente de AD FS](../hybrid/how-to-connect-health-agent-install.md)
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >Hay un par de razones por las que no verá todas las aplicaciones que espera después de haber instalado Azure Active Directory Connect Health. El informe de actividades de aplicaciones solo muestra usuarios de confianza de AD FS con inicios de sesión de usuario en los últimos 30 días. Además, el informe no mostrará los usuarios de confianza relacionados con Microsoft como Office 365.
 
-## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Descubrimiento de aplicaciones de AD FS que se pueden migrar 
+## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Descubrimiento de aplicaciones de AD FS que se pueden migrar
 
-El informe de actividades de aplicaciones de AD FS está disponible en Azure Portal, en los informes de Azure AD de **Usage & insights** (Uso e información). El informe de actividades de aplicaciones de AD FS analiza cada aplicación de AD FS para determinar si se puede migrar tal cual o si es necesario realizar una revisión adicional. 
+El informe de actividades de aplicaciones de AD FS está disponible en Azure Portal, en los informes de Azure AD de **Usage & insights** (Uso e información). El informe de actividades de aplicaciones de AD FS analiza cada aplicación de AD FS para determinar si se puede migrar tal cual o si es necesario realizar una revisión adicional.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con un rol de administrador que tenga acceso a los datos de actividad de las aplicaciones de AD FS (administrador global, lector de informes, lector de seguridad, administrador de aplicaciones o administrador de aplicaciones en la nube).
 
@@ -62,7 +63,7 @@ El informe de actividades de aplicaciones de AD FS está disponible en Azure P
 
    * **Pasos adicionales necesarios** significa que Azure AD no admite parte de la configuración de la aplicación, por lo que no se puede migrar en su estado actual.
 
-## <a name="evaluate-the-readiness-of-an-application-for-migration"></a>Evaluación de la preparación de una aplicación para su migración 
+## <a name="evaluate-the-readiness-of-an-application-for-migration"></a>Evaluación de la preparación de una aplicación para su migración
 
 1. En la lista de actividades de aplicaciones de AD FS, haga clic en el estado en la columna **Estado de migración** para abrir los detalles de la migración. Verá un resumen de las pruebas de configuración superadas, junto con los posibles problemas de migración.
 
@@ -129,16 +130,12 @@ En la tabla siguiente se enumeran todas las pruebas de reglas de notificaciones 
 ### <a name="cant-see-all-my-ad-fs-applications-in-the-report"></a>No se pueden ver todas las aplicaciones de AD FS en el informe
 
  Si ha instalado Azure AD Connect Health, pero sigue viendo el aviso de instalación o no ve todas las aplicaciones de AD FS en el informe, puede que no tenga aplicaciones de AD FS activas o que las aplicaciones de AD FS sean aplicaciones de Microsoft.
- 
+
  En el informe de actividades de aplicaciones de AD FS se enumeran todas las aplicaciones de AD FS de su organización en las que usuarios activos han iniciado sesión en los últimos 30 días. Además, el informe no muestra los usuarios de confianza relacionados con Microsoft en AD FS como Office 365. Por ejemplo, los usuarios de confianza con el nombre 'urn:federation:MicrosoftOnline', 'microsoftonline', 'microsoft:winhello:cert:prov:server' no se mostrarán en la lista.
-
-
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Vídeo: Cómo usar el informe de actividades de AD FS para migrar una aplicación](https://www.youtube.com/watch?v=OThlTA239lU)
-- [Administración de aplicaciones con Azure Active Directory](what-is-application-management.md)
-- [Administración del acceso a aplicaciones](what-is-access-management.md)
-- [Federación de Azure AD Connect](../hybrid/how-to-connect-fed-whatis.md)
+* [Vídeo: Cómo usar el informe de actividades de AD FS para migrar una aplicación](https://www.youtube.com/watch?v=OThlTA239lU)
+* [Administración de aplicaciones con Azure Active Directory](what-is-application-management.md)
+* [Administración del acceso a aplicaciones](what-is-access-management.md)
+* [Federación de Azure AD Connect](../hybrid/how-to-connect-fed-whatis.md)

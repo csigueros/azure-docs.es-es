@@ -6,12 +6,12 @@ ms.author: v-hhunter
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
-ms.openlocfilehash: 25a647df5d1afcb5212b4e717e1a70f9a68f4ac5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 71abc9acdcf8796591e7241a7fcfeded1cd3139a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388461"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112283130"
 ---
 # <a name="deploy-an-azure-api-management-gateway-on-azure-arc-preview"></a>Implementación de una puerta de enlace de Azure API Management en Azure Arc (versión preliminar)
 
@@ -48,14 +48,15 @@ La implementación de la puerta de enlace de API Management en un clúster de Ku
 1. En el recurso de puertas de enlace aprovisionadas, haga clic en **Implementación** en el menú de navegación lateral.
 1. Tome nota de los valores de **token** y de la **dirección URL de configuración** para realizar el siguiente paso.
 1. En la CLI de Azure, implemente la extensión de la puerta de enlace mediante el comando `az k8s-extension create`. Complete los valores `token` y `configuration URL`.
-    * En el siguiente ejemplo se usa la configuración de la extensión `service.Type='NodePort'`. Consulte más [configuraciones de extensión disponibles](#available-extension-configurations).
+    * En el siguiente ejemplo se usa la configuración de la extensión `service.type='LoadBalancer'`. Consulte más [configuraciones de extensión disponibles](#available-extension-configurations).
 
     ```azurecli
     az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> \
       --resource-group <rg-name> --name <extension-name> --extension-type Microsoft.ApiManagement.Gateway \
       --scope namespace --target-namespace <namespace> \
       --configuration-settings gateway.endpoint='<Configuration URL>' \
-      --configuration-protected-settings gateway.authKey='<token>' --release-train preview
+      --configuration-protected-settings gateway.authKey='<token>' \
+      --configuration-settings service.type='LoadBalancer' --release-train preview
     ```
 
     > [!TIP]
@@ -92,7 +93,7 @@ Las siguientes configuraciones de extensiones son **obligatorias**.
 | ------- | ----------- | 
 | `gateway.endpoint` | Dirección URL de configuración del punto de conexión de la puerta de enlace. |
 | `gateway.authKey` | Token para el acceso a la puerta de enlace. | 
-| `service.Type` | Configuración del servicio Kubernetes para la puerta de enlace: `LoadBalancer` `NodePort`, o `ClusterIP`. |
+| `service.type` | Configuración del servicio Kubernetes para la puerta de enlace: `LoadBalancer` `NodePort`, o `ClusterIP`. |
 
 ### <a name="log-analytics-settings"></a>Configuración de Log Analytics
 

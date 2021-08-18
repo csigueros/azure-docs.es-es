@@ -4,12 +4,12 @@ description: El error "watchdog BUG soft lockup - CPU" aparece en registros de s
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/05/2019
-ms.openlocfilehash: 5d9d7b0fc21660dd22ff92bbe2de38c759c440ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d2deb421dce440c1c8f949c858269fed038ac3d5
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944337"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299760"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Escenario: error "watchdog BUG soft lockup - CPU" desde un clúster de Azure HDInsight
 
@@ -53,4 +53,4 @@ Aplique una revisión del kernel. El siguiente script actualiza el kernel de Lin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

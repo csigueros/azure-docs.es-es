@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: a6a7bf24571660d8e728c1acba29af2504539a18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5fb8b95eea42f59150389b53a5334ccfaf8a4e65
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99219967"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112981761"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Procedimientos recomendados y recomendaciones de la plataforma de identidad de Microsoft
 
@@ -74,7 +74,7 @@ Utilice la siguiente lista de comprobación para asegurarse de que su aplicació
 
 ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) En el caso de las aplicaciones móviles, configure cada plataforma con la experiencia de registro de aplicaciones. Para que la aplicación pueda aprovechar las ventajas de Microsoft Authenticator o del Portal de empresa de Microsoft para el inicio de sesión único, debe tener configurado un "URI de redirección del agente". De esta manera, Microsoft puede devolver el control a la aplicación después de la autenticación. Al configurar cada plataforma, la experiencia de registro de aplicaciones le guía por el proceso. Use el inicio rápido para descargar un ejemplo práctico. En iOS, use los agentes y la vista web siempre que sea posible.
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) En aplicaciones web o API web, mantenga una caché de tokens por cada cuenta.  En el caso de las aplicaciones web, la caché de tokens debe estar protegida con clave mediante el identificador de cuenta.  En el caso de las API web, la cuenta debe estar protegida con clave mediante el hash del token usado para llamar a la API. MSAL.NET proporciona serialización de caché de tokens personalizada en las subplataformas .NET Framework y .NET Core. Por motivos de seguridad y rendimiento, se recomienda serializar una caché por cada usuario. Para más información, lea sobre la [serialización de la caché de tokens](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application).
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) En aplicaciones web o API web, mantenga una caché de tokens por cada cuenta.  En el caso de las aplicaciones web, la caché de tokens debe estar protegida con clave mediante el identificador de cuenta.  En el caso de las API web, la cuenta debe estar protegida con clave mediante el hash del token usado para llamar a la API. MSAL.NET proporciona serialización de caché de tokens personalizada en las subplataformas .NET Framework y .NET Core. Por motivos de seguridad y rendimiento, se recomienda serializar una caché por cada usuario. Para más información, lea sobre la [serialización de la caché de tokens](msal-net-token-cache-serialization.md).
 
 ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Si los datos que necesita la aplicación están disponibles con [Microsoft Graph](https://developer.microsoft.com/graph), solicite permisos para estos datos mediante el punto de conexión de Microsoft Graph en lugar de la API individual.
 

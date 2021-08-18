@@ -7,12 +7,12 @@ ms.service: cloud-services-extended-support
 ms.topic: troubleshooting
 ms.date: 4/28/2021
 ms.custom: support-help-page
-ms.openlocfilehash: 7e918b02304058e043dcd0507a33fa8ba172b9bc
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 836811e721a586ca9dcc25d16f27d7393ff8f82b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969479"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463076"
 ---
 # <a name="support-and-troubleshooting-for-azure-cloud-services-extended-support"></a>Soporte técnico y solución de problemas de Azure Cloud Services (soporte extendido)
 
@@ -23,7 +23,7 @@ Aquí encontrará sugerencias sobre dónde puede obtener ayuda al desarrollar la
     <img alt='Self help content' src='./media/logos/doc-logo.png'>
 </div>
 
-Para ver problemas comunes y soluciones alternativas, consulte [Solución de problemas de roles de Azure Cloud Services (soporte extendido) que no se inician](role-startup-failure.md) y [Preguntas más frecuentes](faq.md)
+Para ver problemas comunes y soluciones alternativas, consulte [Solución de problemas de roles de Azure Cloud Services (soporte extendido) que no se inician](role-startup-failure.md) y [Preguntas más frecuentes](faq.yml)
 
 
 

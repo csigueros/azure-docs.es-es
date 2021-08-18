@@ -1,22 +1,22 @@
 ---
 title: Enrutamiento de mensajes de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: cómo usar el enrutamiento de mensajes para enviar mensajes del dispositivo a la nube. Incluye información sobre el envío de datos de telemetría y datos que no son de telemetría.'
-author: ash2017
-manager: briz
+author: nehsin
+manager: mehmet.kucukgoz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.author: asrastog
+ms.date: 05/14/2021
+ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: c9c0b2807962aaddc2f3b6cef6a261084b21714c
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: b460c906806cc9c9beb9c9e037d1096feea098a3
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715779"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114404408"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -24,7 +24,7 @@ ms.locfileid: "109715779"
 
 El enrutamiento de mensajes le permite enviar mensajes desde los dispositivos a los servicios en la nube de forma automatizada, escalable y confiable. El enrutamiento de mensajes se puede usar para: 
 
-* **Enviar mensajes de telemetría del dispositivo y eventos**, es decir, eventos del ciclo de vida del dispositivo, eventos de cambio de dispositivo gemelo y eventos de cambio de gemelo digital, al punto de conexión integrado y a los puntos de conexión personalizados. Obtenga información sobre los [puntos de conexión de enrutamiento](#routing-endpoints). Para más información acerca de los eventos enviados desde los dispositivos de IoT Plug and Play, consulte [Información de Digital Twins de IoT Plug and Play](../iot-pnp/concepts-digital-twin.md).
+* **Enviar mensajes de telemetría y eventos del dispositivo**, es decir, eventos del ciclo de vida del dispositivo, eventos de cambio de dispositivo gemelo, eventos de cambio de gemelo digital y eventos de estado de conexión del dispositivo al punto de conexión integrado y los puntos de conexión personalizados. Obtenga información sobre los [puntos de conexión de enrutamiento](#routing-endpoints). Para más información acerca de los eventos enviados desde los dispositivos de IoT Plug and Play, consulte [Información de Digital Twins de IoT Plug and Play](../iot-develop/concepts-digital-twin.md).
 
 * **Filtrar los datos antes de enrutarlos a los diferentes puntos de conexión** mediante la aplicación de consultas enriquecidas. El enrutamiento de mensajes le permite realizar consultas sobre las propiedades de los mensajes y el cuerpo del mensaje, así como las etiquetas del dispositivo gemelo y las propiedades del dispositivo gemelo. Más información sobre el uso de [consultas en el enrutamiento de mensajes](iot-hub-devguide-routing-query-syntax.md).
 
@@ -107,7 +107,7 @@ Para configurar una ruta, siga este [tutorial](tutorial-routing.md).
 
 Use los siguientes tutoriales para obtener información sobre cómo leer mensajes de un punto de conexión.
 
-* Lectura desde el [punto de conexión integrado](quickstart-send-telemetry-node.md)
+* Lectura desde el [punto de conexión integrado](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 * Lectura desde [Blob Storage](../storage/blobs/storage-blob-event-quickstart.md)
 
@@ -120,15 +120,24 @@ Use los siguientes tutoriales para obtener información sobre cómo leer mensaje
 
 ## <a name="fallback-route"></a>Ruta de reserva
 
-La ruta de reserva envía todos los mensajes que no cumplen las condiciones de la consulta en cualquiera de las rutas existentes al punto de conexión de Event Hubs integrado (**mensajes y eventos**), que es compatible con [Event Hubs](../event-hubs/index.yml). Si el enrutamiento de mensajes está activado, puede habilitar la funcionalidad de ruta de reserva. Una vez que se crea una ruta, los datos dejan de fluir al punto de conexión integrado, a menos que se cree una ruta a ese punto de conexión. Si no hay ninguna ruta al punto de conexión integrado y está habilitada una ruta de reserva, solo se enviarán al punto de conexión integrado los mensajes que no coinciden con las condiciones de la consulta sobre rutas. Además, si se eliminan todas las rutas existentes, se debe habilitar la ruta de reserva para recibir todos los datos en el punto de conexión integrado.
+La ruta de reserva envía todos los mensajes que no cumplen las condiciones de la consulta en cualquiera de las rutas existentes al punto de conexión de Event Hubs integrado (**mensajes y eventos**), que es compatible con [Event Hubs](../event-hubs/index.yml). Si el enrutamiento de mensajes está activado, puede habilitar la funcionalidad de ruta de reserva. Una vez que se crea una ruta, los datos dejan de fluir al punto de conexión integrado, a menos que se cree una ruta a ese punto de conexión. Si no hay ninguna ruta al punto de conexión integrado y está habilitada una ruta de reserva, solo se enviarán al punto de conexión integrado los mensajes que no coinciden con las condiciones de la consulta sobre rutas. Además, si se eliminan todas las rutas existentes, se debe habilitar la ruta de reserva para recibir todos los datos en el punto de conexión integrado. 
 
 Puede habilitar o deshabilitar la ruta de reserva en Azure Portal -> hoja Enrutamiento de mensajes. También puede usar Azure Resource Manager para [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para usar un punto de conexión personalizado para la ruta de reserva.
 
 ## <a name="non-telemetry-events"></a>Eventos que no son de telemetría
 
-Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes permite enviar eventos de cambio de dispositivo gemelo, eventos del ciclo de vida del dispositivo y eventos de cambio de gemelos digitales. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo**, IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. Por último, como parte de [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), un desarrollador puede crear rutas con el origen de datos establecido en **eventos de cambio de gemelo digital** e IoT Hub enviará mensajes siempre que se establezca o cambie una propiedad de gemelo digital, se sustituya un gemelo digital o se produzca un evento de cambio para el dispositivo gemelo subyacente.
+Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes también permite enviar eventos de cambio de dispositivo gemelo, eventos del ciclo de vida del dispositivo, eventos de cambio de gemelo digital y eventos de estado de conexión del dispositivo. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo**, IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. Como parte de [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), un desarrollador puede crear rutas con el origen de datos establecido en **eventos de cambio de gemelo digital** e IoT Hub enviará mensajes siempre que se establezca o cambie una propiedad de gemelo digital, se sustituya un gemelo digital o se produzca un evento de cambio para el dispositivo gemelo subyacente. Finalmente, si se crea una ruta con el origen de datos establecido en **eventos de estado de conexión del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha conectado o desconectado.
+
 
 [IoT Hub también se integra con Azure Event Grid](iot-hub-event-grid.md) para publicar los eventos de dispositivo con el fin de admitir integraciones en tiempo real y la automatización de flujos de trabajo basados en estos eventos. Consulte las [diferencias principales entre el enrutamiento de mensajes y Event Grid](iot-hub-event-grid-routing-comparison.md) para obtener información sobre la mejor opción para su escenario.
+
+## <a name="limitations-for-device-connection-state-events"></a>Limitaciones de los eventos de estado de conexión del dispositivo
+
+Para recibir eventos de estado de conexión de dispositivo, el dispositivo debe llamar a una operación de *envío de telemetría de dispositivo a nube* o de *recepción de mensajes de nube a dispositivo* con IoT Hub. Sin embargo, si un dispositivo usa el protocolo AMQP para conectarse con IoT Hub, se recomienda que el dispositivo llame a la operación de *recepción de mensajes de nube a dispositivo*; de lo contrario, sus notificaciones de estado de conexión pueden retrasarse unos minutos. Si el dispositivo se conecta con el protocolo MQTT, IoT Hub mantiene abierto el vínculo de nube a dispositivo. Para abrir el vínculo de nube a dispositivo para AMQP, llame a [Receive Async API](/rest/api/iothub/device/receivedeviceboundnotification).
+
+El vínculo de dispositivo a nube permanece abierto siempre que el dispositivo envíe datos de telemetría.
+
+Si el estado de conexión del dispositivo cambia continuamente, lo que significa que el dispositivo se conecta y desconecta con frecuencia, IoT Hub no envía todos los estados de conexión, sino que publica el estado de conexión actual tomado en una instantánea periódica de 60 segundos hasta que se queda fijo. Si se recibe el mismo evento de estado de conexión con diferentes números de secuencia, o eventos de estado de conexión distintos, quiere decir que se ha producido un cambio en el estado de conexión del dispositivo.
 
 ## <a name="testing-routes"></a>Prueba de las rutas
 
@@ -158,6 +167,6 @@ Use la[ guía de solución de problemas del enrutamiento](troubleshoot-message-r
 
 * Para aprender a crear rutas de mensajes, consulte [Procesamiento de mensajes del dispositivo a la nube de IoT Hub mediante rutas](tutorial-routing.md).
 
-* [Envío de mensajes de dispositivo a nube](quickstart-send-telemetry-node.md).
+* [Envío de mensajes de dispositivo a nube](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs).
 
 * Para obtener información sobre los SDK que puede utilizar para enviar mensajes del dispositivo a la nube, consulte [SDK de Azure IoT](iot-hub-devguide-sdks.md).

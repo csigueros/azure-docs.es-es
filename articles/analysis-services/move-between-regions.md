@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions , devx-track-azurepowershell
-ms.openlocfilehash: 2b698ffaddb4bc818eaabda34022ab58ff05fe5f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9fb994968835d6fb609c079f008f87d4b37ef85b
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786358"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004887"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Traslado de Azure Analysis Services a otra región
 
@@ -40,7 +40,7 @@ Antes de mover un servidor a otra región, se recomienda crear un plan detallado
 > Las aplicaciones cliente y las cadenas de conexión se conectan a Analysis Services mediante el nombre completo del servidor, que es un identificador URI que incluye la región en la que se encuentra el servidor. Por ejemplo, `asazure://westcentralus.asazure.windows.net/advworks01`. Al trasladar un servidor a otra región, se crea un nuevo recurso de servidor en dicha región, que tendrá una región diferente en el identificador URI del nombre del servidor. Las aplicaciones cliente y las cadenas de conexión que se usan en los scripts se deben conectar al nuevo servidor con el nuevo identificador URI del nombre del servidor. El uso de un [alias de nombre de servidor](analysis-services-server-alias.md) puede mitigar el número de lugares en los que se debe cambiar el identificador URI del nombre de servidor, pero se debe implementar antes de un traslado de región.
 
 > [!IMPORTANT]
-> Las regiones de Azure usan distintos intervalos de direcciones IP. Si tiene configuradas excepciones de firewall para la región en la que se encuentran el servidor o la cuenta de almacenamiento, puede que sea necesario configurar un intervalo de direcciones IP diferente. Para más información, consulte [Preguntas frecuentes acerca de la conectividad de red de Analysis Services](analysis-services-network-faq.md).
+> Las regiones de Azure usan distintos intervalos de direcciones IP. Si tiene configuradas excepciones de firewall para la región en la que se encuentran el servidor o la cuenta de almacenamiento, puede que sea necesario configurar un intervalo de direcciones IP diferente. Para más información, consulte [Preguntas frecuentes acerca de la conectividad de red de Analysis Services](analysis-services-network-faq.yml).
 
 > [!NOTE]
 > En este artículo se describe cómo restaurar una copia de seguridad de base de datos en un servidor de destino desde un contenedor de almacenamiento de la región del servidor de origen. En algunos casos, la restauración de las copias de seguridad desde otra región puede tener un rendimiento deficiente, especialmente en el caso de bases de datos de gran tamaño. Para obtener el mejor rendimiento durante la restauración de la base de datos, migre o cree un nuevo contenedor de almacenamiento en la región del servidor de destino. Copie los archivos .abf de la copia de seguridad del contenedor de almacenamiento de la región de origen en el contenedor de almacenamiento de la región de destino antes de restaurar la base de datos en el servidor de destino. Aunque queda fuera del ámbito de este artículo, en algunos casos, especialmente en el caso de las bases de datos muy grandes, la creación de scripts de una base de datos desde el servidor de origen, la nueva creación y el procesamiento en el servidor de destino para cargar los datos de la base de datos puede ser más rentable que el uso de copias de seguridad y restauración.

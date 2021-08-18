@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f3249ba2089c3d9650aa46f665353ad392d0e773
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69e5aeff345bdf66d1b171738a2fbf14c7f8b15c
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94365574"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453491"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Las puntuaciones de recompensa reflejan el éxito de la personalización.
 
-La puntuación de recompensa indica el resultado que tuvo la elección de personalización, [RewardActionID](/rest/api/cognitiveservices/personalizer/rank/rank#response), para el usuario. El valor de la puntuación de recompensa viene determinado por la lógica de negocios, según las observaciones del comportamiento del usuario.
+La puntuación de recompensa indica el resultado que tuvo la elección de personalización, [RewardActionID](/rest/api/personalizer/1.0/rank/rank#response), para el usuario. El valor de la puntuación de recompensa viene determinado por la lógica de negocios, según las observaciones del comportamiento del usuario.
 
 Personalizer entrena sus modelos de Machine Learning mediante la evaluación de las recompensas.
 
@@ -22,7 +22,7 @@ Aprenda a [configurar](how-to-settings.md#configure-rewards-for-the-feedback-loo
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Uso de Reward API para enviar la puntuación de recompensa a Personalizer
 
-Las recompensas se envían a Personalizer mediante [Reward API](/rest/api/cognitiveservices/personalizer/events/reward). Normalmente, una recompensa es un número comprendido entre 0 y 1. Una recompensa negativa, con el valor de -1, es posible en ciertos escenarios y solo debe usarse si tiene experiencia con el aprendizaje de refuerzo (RL). Personalizer entrena el modelo para lograr la suma más alta posible de recompensas a la largo del tiempo.
+Las recompensas se envían a Personalizer mediante [Reward API](/rest/api/personalizer/1.0/events/reward). Normalmente, una recompensa es un número comprendido entre 0 y 1. Una recompensa negativa, con el valor de -1, es posible en ciertos escenarios y solo debe usarse si tiene experiencia con el aprendizaje de refuerzo (RL). Personalizer entrena el modelo para lograr la suma más alta posible de recompensas a la largo del tiempo.
 
 Las recompensas se envían después de que se haya producido el comportamiento del usuario, lo que podría ser días más tarde. El tiempo máximo que esperará Personalizer hasta que se considere que un evento no tiene ninguna recompensa o una recompensa predeterminada se configura con el [Tiempo de espera de las recompensas](#reward-wait-time) en Azure Portal.
 

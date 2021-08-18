@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 02a3a7ad73bf0434a215c5ab7a6e89c299e9518b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28d66477c31db9ee274fb1e8aaa1690365a4fa72
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019863"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112912796"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solución de problemas en las salidas de Azure Stream Analytics
 
@@ -74,7 +74,7 @@ Al configurar una instancia de Azure SQL Database como salida para un trabajo de
 
 Al configurar restricciones de clave única en la tabla SQL, Azure Stream Analytics quita los registros duplicados. Divide los datos en lotes e inserta los lotes de forma recursiva hasta que se encuentra un único registro duplicado. El proceso de división e inserción omite los duplicados de uno en uno. En el caso de un trabajo de streaming que tiene muchas filas duplicadas, el proceso es ineficaz y lleva mucho tiempo. Si ve varios mensajes de advertencia de infracción de clave en el registro de actividad para la última hora, es probable que la salida de SQL esté ralentizando todo el trabajo.
 
-Para resolver este problema, [configure el índice]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) que provoca la infracción de clave al habilitar la opción IGNORE_DUP_KEY. Esta opción permite a SQL omitir los valores duplicados durante las inserciones masivas. Azure SQL Database, simplemente, genera un mensaje de advertencia en lugar de un error. Como resultado, Azure Stream Analytics ya no produce errores de infracción de clave principal.
+Para resolver este problema, [configure el índice](/sql/t-sql/statements/create-index-transact-sql) que provoca la infracción de clave al habilitar la opción IGNORE_DUP_KEY. Esta opción permite a SQL omitir los valores duplicados durante las inserciones masivas. Azure SQL Database, simplemente, genera un mensaje de advertencia en lugar de un error. Como resultado, Azure Stream Analytics ya no produce errores de infracción de clave principal.
 
 Tenga en cuenta las observaciones siguientes al configurar IGNORE_DUP_KEY para varios tipos de índices:
 

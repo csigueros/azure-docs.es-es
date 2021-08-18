@@ -8,19 +8,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/18/2021
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: ce17b54905861759c437c2df735dd5515991b507
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 95f201a7809184b511c3187cf3fcf5fadd233168
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456623"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727031"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos DB: SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se explica cómo aprovisionar el rendimiento de escalabilidad automática en una base de datos o un contenedor (colección, grafo o tabla) en SQL API de Azure Cosmos DB. Puede habilitar la escalabilidad automática en un solo contenedor o aprovisionar el rendimiento de escalabilidad automática en una base de datos y compartirlo entre todos los contenedores de la base de datos.
 
-Si va a usar otra API, vea los artículos [MongoDB API](how-to-provision-throughput-mongodb.md), [Cassandra API](how-to-provision-throughput-cassandra.md) y [Gremlin API](how-to-provision-throughput-gremlin.md) para aprovisionar el rendimiento.
+Si va a usar otra API, vea los artículos [MongoDB API](mongodb/how-to-provision-throughput-mongodb.md), [Cassandra API](cassandra/how-to-provision-throughput-cassandra.md) y [Gremlin API](how-to-provision-throughput-gremlin.md) para aprovisionar el rendimiento.
 
 ## <a name="azure-portal"></a>Azure portal
 

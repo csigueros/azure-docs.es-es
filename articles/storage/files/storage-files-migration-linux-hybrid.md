@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 30a0269b5729516d8e8e378c700c493262e77f10
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 18438400054a8f7aa4d718efdff4ef2e116b3bf3
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "108756186"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "114462430"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migración desde Linux a una implementación de nube híbrida con Azure File Sync
 
@@ -28,6 +28,13 @@ Si el escenario es diferente, examine la [tabla de guías de migración](storage
 Azure File Sync funciona en instancias de Windows Server con almacenamiento conectado directamente (DAS). No admite la sincronización hacia y desde clientes Linux, un recurso compartido de Bloque de mensajes del servidor (SMB) remoto o recursos compartidos de Network File System (NFS).
 
 Como resultado, la transformación de los servicios de archivo en una implementación híbrida realiza una migración a una instancia de Windows Server necesaria. Este artículo le guía a través del planeamiento y la ejecución de este tipo de migración.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="migration-goals"></a>Objetivos de la migración
 

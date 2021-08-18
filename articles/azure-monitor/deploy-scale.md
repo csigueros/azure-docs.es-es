@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: 422ba2ecaed8803a49c0a82b85d821d3f55c9bbd
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 63da1c8f36f9e2db9593256a071d71ac70ea18bd
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072018"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380039"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implementación de Azure Monitor a escala mediante Azure Policy
 Aunque algunas características de Azure Monitor se configuran una vez o un número limitado de veces, otras se deben repetir para cada recurso que desee supervisar. En este artículo se describen los métodos para usar Azure Policy para implementar Azure Monitor a escala con el fin de asegurarse de que la supervisión se configura de forma coherente y precisa para todos los recursos de Azure.
@@ -42,7 +42,7 @@ Para ver las definiciones de directivas integradas relacionadas con la supervisi
 
   ![Captura de pantalla de la página Definiciones de Azure Policy en Azure Portal, que muestra una lista de definiciones de directivas para la categoría Supervisión y el Tipo Integrado.](media/deploy-scale/builtin-policies.png)
 
-## <a name="azure-monitor-agent-preview"></a>Agente de Azure Monitor (versión preliminar)
+## <a name="azure-monitor-agent"></a>Agente de Azure Monitor
 El [agente de Azure Monitor](agents/azure-monitor-agent-overview.md) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales de Azure y los entrega a Azure Monitor. Usa [reglas de recopilación de datos](agents/data-collection-rule-overview.md) a fin de configurar datos para su recopilación de cada agente, lo que permite la capacidad de administración de la configuración de recopilación a gran escala mientras se habilitan configuraciones con ámbito únicas para subconjuntos de máquinas.  
 Use las directivas e iniciativas de directiva siguientes para instalar automáticamente el agente y asociarlo a una regla de recopilación de datos, cada vez que cree una máquina virtual.
 

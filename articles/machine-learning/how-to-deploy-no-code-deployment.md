@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: d1d74369dde0118d055261b8c04df36d250221b4
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 094005b471bd1f4ea996defddf1f080481fa7c7b
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889419"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296387"
 ---
 # <a name="preview-no-code-model-deployment"></a>(Versión preliminar) Implementación de modelo sin código
 
@@ -134,7 +134,7 @@ print(output)
 * [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Creación de aplicaciones cliente para consumir servicios web](how-to-consume-web-service.md)
 * [Actualización de servicios web](how-to-deploy-update-web-service.md)
-* [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
+* [Cómo implementar un modelo con una imagen personalizada de Docker](./how-to-deploy-custom-container.md)
 * [Uso de TLS para proteger un servicio web con Azure Machine Learning](how-to-secure-web-service.md)
 * [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Recopilar datos de modelos en producción](how-to-enable-data-collection.md)

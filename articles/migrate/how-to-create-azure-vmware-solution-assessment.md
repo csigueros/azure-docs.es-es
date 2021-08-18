@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: f7014f8a403614740bdbc05abab4e7024f83c196
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: cfa3004b0587bbfe74157bf2922dd98cd8741597
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570527"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740396"
 ---
 # <a name="create-an-azure-vmware-solution-assessment"></a>Creación de una evaluación de Azure VMware Solution
 
@@ -150,7 +150,7 @@ Una valoración de Azure VMware Solution (AVS) describe:
     - **Preparación desconocida**: Azure Migrate no ha podido encontrar la preparación del servidor debido a una recopilación insuficiente de metadatos en el entorno local.
 
 3. Revise la herramienta sugerida:
-    - **VMware HCX o Enterprise**: En el caso de los servidores de VMware, la solución Hybrid Cloud Extension (HCX) de VMware es la herramienta de migración sugerida para migrar la carga de trabajo local a la nube privada de Azure VMware Solution (AVS). [Más información](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+    - **VMware HCX o Enterprise**: En el caso de los servidores de VMware, la solución Hybrid Cloud Extension (HCX) de VMware es la herramienta de migración sugerida para migrar la carga de trabajo local a la nube privada de Azure VMware Solution (AVS). [Más información](../azure-vmware/configure-vmware-hcx.md).
     - **Desconocido**: en el caso de los servidores importados mediante un archivo CSV, se desconoce la herramienta de migración predeterminada. Sin embargo, para los servidores de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMware. 
 
 4. Haga clic en un estado de **Preparación para AVS**. Puede ver los detalles de la preparación de la máquina virtual y explorar en profundidad los detalles de esta, entre los que se incluye la configuración de proceso, almacenamiento y red.

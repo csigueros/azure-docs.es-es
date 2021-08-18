@@ -4,12 +4,12 @@ description: Aprenda a integrar Azure Event Hubs con Azure Private Link
 ms.date: 05/10/2021
 ms.topic: article
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 76f205d97c7c77ff75f0143181631319c6a23b97
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 48688c9f16330830111aff5dd26292825370fcb9
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706049"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415575"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permiso para acceder a los espacios de nombres de Azure Event Hubs a través de puntos de conexión privados 
 Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados de Azure mediante un **punto de conexión privado** de la red virtual.
@@ -92,7 +92,7 @@ Si ya tiene un espacio de nombres de Event Hubs, puede crear una conexión de v�
 
     ![Punto de conexión privado creado](./media/private-link-service/private-endpoint-created.png)
 
-[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+[!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 Para permitir que los servicios de confianza accedan a su espacio de nombres, cambie a la pestaña **Firewalls y redes virtuales** de la página **Redes** y seleccione **Sí** para **¿Quiere permitir que los servicios de confianza de Microsoft puedan omitir este firewall?** 
 

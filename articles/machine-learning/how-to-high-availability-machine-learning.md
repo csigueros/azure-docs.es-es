@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 05/05/2021
-ms.openlocfilehash: 1cdc286376d53bcf6491cd6d29f74a62df8b68fb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ba8904713f9623cf80f259ad096a4dbfaddad393
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967672"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552917"
 ---
 # <a name="failover-for-business-continuity-and-disaster-recovery"></a>Conmutación por error para la continuidad empresarial y la recuperación ante desastres
 
@@ -150,7 +150,8 @@ Las ejecuciones Azure Machine Learning se definen mediante una especificación d
       > Las canalizaciones creadas en el diseñador de Studio no se pueden exportar actualmente como código.
 
 * Administre las configuraciones como código.
-    * Evite las referencias codificadas de forma rígida al área de trabajo. En su lugar, configure una referencia a la instancia del área de trabajo mediante un [archivo de configuración](how-to-configure-environment.md#workspace) y utilice [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) para inicializar el área de trabajo. Para automatizar el proceso, utilice el comando [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder#ext_azure_cli_ml_az_ml_folder_attach) en la [extensión de la CLI de Azure para el aprendizaje automático](reference-azure-machine-learning-cli.md).
+
+    * Evite las referencias codificadas de forma rígida al área de trabajo. En su lugar, configure una referencia a la instancia del área de trabajo mediante un [archivo de configuración](how-to-configure-environment.md#workspace) y utilice [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) para inicializar el área de trabajo. Para automatizar el proceso, utilice el comando [az ml folder attach](/cli/azure/ml(v1)/folder#ext_azure_cli_ml_az_ml_folder_attach) en la [extensión de la CLI de Azure para el aprendizaje automático](reference-azure-machine-learning-cli.md).
     * Use asistentes de envío de ejecuciones, [como ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) y [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)).
     * Use [Environments.save_to_directory() para](/python/api/azureml-core/azureml.core.environment(class)#save-to-directory-path--overwrite-false-) guardar las definiciones de entorno.
     * Use Dockerfile si tiene imágenes personalizadas de Docker.
@@ -180,11 +181,10 @@ Los artefactos siguientes se pueden exportar e importar entre áreas de trabajo 
 | ----- | ----- | ----- |
 | Modelos | [az ml model download --model-id {ID} --target-dir {PATH}](/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download) | [az ml model register –name {NAME} --path {PATH}](/cli/azure/ext/azure-cli-ml/ml/model) |
 | Entornos | [az ml environment download -n {NAME} -d {PATH}](/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_download) | [az ml environment register -d {PATH}](/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_register) |
-| Canalizaciones de Azure ML (generadas por código) | [az ml pipeline get --path {PATH}](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext_azure_cli_ml_az_ml_pipeline_get) | [az ml pipeline create --name {NAME} -y {PATH}](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext_azure_cli_ml_az_ml_pipeline_create)
+| Canalizaciones de Azure ML (generadas por código) | [az ml pipeline get --path {PATH}](/cli/azure/ml(v1)/pipeline#ext_azure_cli_ml_az_ml_pipeline_get) | [az ml pipeline create --name {NAME} -y {PATH}](/cli/azure/ml(v1)/pipeline#ext_azure_cli_ml_az_ml_pipeline_create)
 
 > [!TIP]
-> * Los __conjunto de datos registrados__ no se pueden descargar ni cambiar de sitio. Se incluyen los conjuntos de datos generados por Azure ML, como los conjuntos de datos de canalización intermedia. Sin embargo, los conjuntos de datos que hagan referencia a una ubicación de archivos compartidos a la que pueden acceder ambas áreas de trabajo, o en donde se replica el almacenamiento de datos subyacente, se pueden registrar en ambas áreas de trabajo. Use [az ml dataset register](/cli/azure/ext/azure-cli-ml/ml/dataset#ext_azure_cli_ml_az_ml_dataset_register) para registrar un conjunto de datos.
->
+> * Los __conjunto de datos registrados__ no se pueden descargar ni cambiar de sitio. Se incluyen los conjuntos de datos generados por Azure ML, como los conjuntos de datos de canalización intermedia. Sin embargo, los conjuntos de datos que hagan referencia a una ubicación de archivos compartidos a la que pueden acceder ambas áreas de trabajo, o en donde se replica el almacenamiento de datos subyacente, se pueden registrar en ambas áreas de trabajo. Use [az ml dataset register](/cli/azure/ml(v1)/dataset#ext_azure_cli_ml_az_ml_dataset_register) para registrar un conjunto de datos.
 > * Las __salidas de ejecución__ se almacenan en la cuenta de almacenamiento predeterminada asociada a un área de trabajo. Aunque las salidas de ejecución pueden quedar inaccesibles desde la interfaz de usuario de Studio en caso de una interrupción del servicio, se puede acceder directamente a los datos a través de la cuenta de almacenamiento. Para obtener más información sobre cómo trabajar con datos almacenados en blobs, consulte [Creación, descarga y enumeración de blobs mediante la CLI de Azure](../storage/blobs/storage-quickstart-blobs-cli.md).
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: 9ade5a51e2251669daee6fbaca9aa4c50f7e9bfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95462d60a9c77b78f9674a41d6ca44801f3e5ac0
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101704368"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183904"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solución VMware Monitoring (en desuso) en Azure Monitor
 
@@ -32,7 +32,7 @@ Utilice la siguiente información para instalar y configurar la solución.
 Hosts ESXi de vSphere 5.5, 6.0 y 6.5
 
 #### <a name="prepare-a-linux-server"></a>Preparación de servidores Linux
-Cree una máquina virtual con el sistema operativo de Linux para recibir todos los datos de Syslog de los hosts ESXi. El [agente de Linux de Log Analytics](../vm/quick-collect-linux-computer.md) es el punto de recopilación de todos los datos de Syslog de los hosts ESXi. Puede usar varios hosts ESXi para reenviar los registros a un único servidor Linux, como en el ejemplo siguiente.
+Cree una máquina virtual con el sistema operativo de Linux para recibir todos los datos de Syslog de los hosts ESXi. El [agente de Linux de Log Analytics](../vm/monitor-virtual-machine.md) es el punto de recopilación de todos los datos de Syslog de los hosts ESXi. Puede usar varios hosts ESXi para reenviar los registros a un único servidor Linux, como en el ejemplo siguiente.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -199,4 +199,3 @@ Puede haber varios motivos:
 * Utilice [consultas de registros](../logs/log-query-overview.md) en Log Analytics para ver datos detallados sobre los hosts de VMware.
 * [Cree sus propios paneles](../visualize/tutorial-logs-dashboards.md) que muestren datos de hosts de VMware.
 * [Cree alertas](../alerts/alerts-overview.md) cuando se produzcan eventos específicos de hosts de VMware.
-

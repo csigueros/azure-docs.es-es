@@ -2,18 +2,18 @@
 title: Cambio del rendimiento de los discos administrados de Azure mediante Azure Portal
 description: Aprenda a cambiar los niveles de rendimiento de los discos administrados nuevos y existentes desde Azure Portal.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 625fb1e3dd0b433da6b60f995aa6b380c23ec9ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37069bb17e0ce6a104ae3c1b79714da160737fe8
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97901041"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356282"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Cambio del nivel de rendimiento mediante Azure Portal
 
@@ -43,6 +43,42 @@ En los pasos siguientes se muestra cómo cambiar el nivel de rendimiento de un d
 En los pasos siguientes se describe cómo cambiar el nivel de rendimiento de un disco existente:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Vaya a la máquina virtual que contiene el disco que desea cambiar.
+1. Desasigne la máquina virtual o desasocie el disco.
+1. Seleccione el disco.
+1. Seleccione **Tamaño y rendimiento**.
+1. En la lista desplegable **Nivel de rendimiento**, seleccione un nivel distinto del nivel de rendimiento actual del disco.
+1. Seleccione **Cambiar tamaño**.
+
+:::image type="content" source="media/disks-performance-tiers-portal/change-tier-existing-disk.png" alt-text="Captura de pantalla de la hoja de tamaño y rendimiento, en la que hay un nivel de rendimiento resaltado." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::
+
+### <a name="change-the-performance-tier-of-a-disk-without-downtime-preview"></a>Cambio del nivel de rendimiento de un disco sin que haya tiempo de inactividad (versión preliminar)
+
+También puede cambiar el nivel de rendimiento sin tiempo de inactividad, por lo que no es preciso desasignar la máquina virtual ni desasociar el disco para cambiar el nivel.
+
+### <a name="prerequisites"></a>Requisitos previos
+
+El disco debe cumplir los requisitos establecidos en la sección [Cambio del nivel de rendimiento sin tiempo de inactividad (versión preliminar)](#change-performance-tier-without-downtime-preview); si no lo hace, el cambio del nivel de rendimiento incurrirá en tiempo de inactividad.
+
+Debe habilitar la característica en su suscripción para poder cambiar el nivel de rendimiento de un disco sin tiempo de inactividad. Siga los pasos que se indican a continuación para habilitar la característica para su suscripción:
+
+1.  Ejecute el siguiente comando para registrar la característica para su suscripción
+
+    ```azurecli
+    az feature register --namespace Microsoft.Compute --name LiveTierChange
+    ```
+ 
+1.  Compruebe que el estado de registro es **Registrado** (puede tardar unos minutos) mediante el comando siguiente antes de probar la característica.
+
+    ```azurecli
+    az feature show --namespace Microsoft.Compute --name LiveTierChange
+    ```
+
+### <a name="change-performance-tier"></a>Cambio del nivel de rendimiento
+
+Ahora que se ha registrado la característica, puede cambiar los niveles de rendimiento del disco aplicables sin tiempo de inactividad.
+
+1. Inicie sesión en Azure Portal desde el vínculo siguiente: [https://aka.ms/diskPerfTiersPreview](https://aka.ms/diskPerfTiersPreview).
 1. Vaya a la máquina virtual que contiene el disco que desea cambiar.
 1. Desasigne la máquina virtual o desasocie el disco.
 1. Seleccione el disco.

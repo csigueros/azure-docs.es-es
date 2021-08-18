@@ -2,19 +2,18 @@
 title: Introducción a la administración de dispositivos de IoT Hub de Azure (Node) | Microsoft Docs
 description: Describe cómo usar la administración de dispositivos de IoT Hub para iniciar un reinicio del dispositivo remoto. Usará los SDK de IoT de Azure para Node.js con el fin de implementar una aplicación de dispositivo simulado que incluye un método directo y un servicio que invoque el método directo.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8d551de4e467d602c40fc40889bfc36e5cf69a1d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: da842509c7adbf1cc576c42d229e3934bb74251d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075608"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733795"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>Introducción a la administración de dispositivos (Node.js)
 

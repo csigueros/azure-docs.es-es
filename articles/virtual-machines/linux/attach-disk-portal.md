@@ -4,16 +4,16 @@ description: Use el portal para conectar un disco de datos nuevo o existente a u
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 08/13/2021
 ms.author: cynthn
 ms.subservice: disks
 ms.collection: linux
-ms.openlocfilehash: 0fe584ea8559c285ee7e25caca958ff56aa9454d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b502467403ebf5dd85374317e609ed6694e39149
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104601844"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195676"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Uso del portal para conectar un disco de datos a una máquina virtual Linux 
 En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-managed-disk-portal.md). 

@@ -2,7 +2,6 @@
 title: Mensajes de nube a dispositivo con IoT Hub de Azure (.NET) | Microsoft Docs
 description: Cómo enviar mensajes de nube a un dispositivo de una instancia de IoT Hub de Azure mediante los SDK de IoT de Azure para .NET. Modifique una aplicación de dispositivo para recibir mensajes de nube a dispositivo y cambie una aplicación de back-end para enviar los mensajes de nube a dispositivo.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
@@ -15,22 +14,22 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: d8df9884c0104792240d85d9ebd4235ef2a18741
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10e149218eb783b8cdb36412cca66bc7cd642df7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92142358"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737766"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-IoT Hub de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una solución de back-end. En el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-dotnet.md) se muestra cómo crear un centro de IoT, aprovisionar en él la identidad del dispositivo y codificar una aplicación de dispositivo que envíe mensajes del dispositivo a la nube.
+IoT Hub de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una solución de back-end. En el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) se muestra cómo crear un centro de IoT, aprovisionar en él la identidad del dispositivo y codificar una aplicación de dispositivo que envíe mensajes del dispositivo a la nube.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Este tutorial se basa en el artículo [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-dotnet.md). Muestra cómo completar las tareas siguientes:
+Este tutorial se basa en el artículo [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp). Muestra cómo completar las tareas siguientes:
 
 * Desde el back-end de la nube de la aplicación, envíe mensajes de nube a dispositivo en un único dispositivo a través de IoT Hub.
 
@@ -42,7 +41,7 @@ Encontrará más información sobre los mensajes de nube a dispositivo en [Mensa
 
 Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET.
 
-* **SimulatedDevice**. Esta aplicación se conecta al centro de IoT y recibe mensajes de la nube al dispositivo. Esta aplicación es una versión modificada de la aplicación creada en [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-dotnet.md).
+* **SimulatedDevice**. Esta aplicación se conecta al centro de IoT y recibe mensajes de la nube al dispositivo. Esta aplicación es una versión modificada de la aplicación creada en [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp).
 
 * **SendCloudToDevice**. Esta aplicación envía un mensaje de la nube al dispositivo para la aplicación de dispositivo mediante IoT Hub y, luego, recibe su confirmación de entrega.
 
@@ -60,7 +59,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET.
 
 ## <a name="receive-messages-in-the-device-app"></a>Recepción de mensajes en la aplicación de dispositivo
 
-En esta sección, modificará la aplicación de dispositivo que creó en [Enviar datos de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-dotnet.md) para recibir mensajes de la nube al dispositivo desde IoT Hub.
+En esta sección, modificará la aplicación de dispositivo que creó en [Enviar datos de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) para recibir mensajes de la nube al dispositivo desde IoT Hub.
 
 1. En el proyecto **SimulatedDevice** de Visual Studio, agregue el método siguiente a la clase de **SimulatedDevice**.
 
@@ -108,7 +107,7 @@ Para información más detallada sobre cómo IoT Hub procesa los mensajes de la 
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obtención de la cadena de conexión de IoT Hub
 
-En este artículo, se crea un servicio de back-end para enviar mensajes de la nube al dispositivo mediante el centro de IoT que creó en [Envío de telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md). Para enviar mensajes de nube a un dispositivo, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
+En este artículo, se crea un servicio de back-end para enviar mensajes de la nube al dispositivo mediante el centro de IoT que creó en [Envío de telemetría desde un dispositivo a IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp). Para enviar mensajes de nube a un dispositivo, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -134,7 +133,7 @@ En esta sección, escribirá una aplicación de consola de .NET que envíe mensa
    using Microsoft.Azure.Devices;
    ```
 
-1. Agregue los campos siguientes a la clase **Program** . Reemplace el valor del marcador de posición `{iot hub connection string}` por la cadena de conexión del centro de IoT que tomó anteriormente de [Obtención de la cadena de conexión del centro de IoT](#get-the-iot-hub-connection-string). Sustituya el marcador de posición `{device id}` por la id. del dispositivo que agregó en el inicio rápido de [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-dotnet.md).
+1. Agregue los campos siguientes a la clase **Program** . Reemplace el valor del marcador de posición `{iot hub connection string}` por la cadena de conexión del centro de IoT que tomó anteriormente de [Obtención de la cadena de conexión del centro de IoT](#get-the-iot-hub-connection-string). Sustituya el marcador de posición `{device id}` por la id. del dispositivo que agregó en el inicio rápido de [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp).
 
    ``` csharp
    static ServiceClient serviceClient;

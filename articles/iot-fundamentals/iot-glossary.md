@@ -3,16 +3,16 @@ title: Glosario de términos de Azure IoT | Microsoft Docs
 description: 'Guía del desarrollador: glosario en el que se explican algunos de los términos comunes empleados en los artículos de Azure IoT.'
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-hub
-services: iot-hub
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: 3034f117f8efa383a9f7a5e768e8d5627ea32099
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 91604758ad2e53b3715a5b5c746959b3fe124ba6
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668411"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403403"
 ---
 # <a name="glossary-of-iot-terms"></a>Glosario de términos de IoT
 
@@ -182,7 +182,7 @@ La administración de dispositivos abarca el ciclo de vida completo asociado a l
 
 ### <a name="device-model"></a>Modelo de dispositivo
 
-Un modelo de dispositivo es un tipo de [modelo](#model) que usa el [lenguaje de definición de Digital Twins](#digital-twins-definition-language-dtdl) para describir las funcionalidades de un dispositivo IoT Plug and Play. Un modelo de dispositivo simple usa una sola interfaz para describir las funcionalidades del dispositivo. Un modelo de dispositivo más complejo incluye varios componentes, cada uno de los cuales describe un conjunto de funcionalidades. Para obtener más información, consulte [Componentes de los modelos de IoT Plug and Play](../iot-pnp/concepts-modeling-guide.md).
+Un modelo de dispositivo es un tipo de [modelo](#model) que usa el [lenguaje de definición de Digital Twins](#digital-twins-definition-language-dtdl) para describir las funcionalidades de un dispositivo IoT Plug and Play. Un modelo de dispositivo simple usa una sola interfaz para describir las funcionalidades del dispositivo. Un modelo de dispositivo más complejo incluye varios componentes, cada uno de los cuales describe un conjunto de funcionalidades. Para obtener más información, consulte [Componentes de los modelos de IoT Plug and Play](../iot-develop/concepts-modeling-guide.md).
 
 ### <a name="device-modeling"></a>Modelado de dispositivos
 
@@ -214,7 +214,7 @@ Hace referencia a los mensajes enviados desde un dispositivo conectado a [IoT Hu
 
 ### <a name="digital-twin"></a>Gemelo digital
 
-Un gemelo digital es una colección de datos digitales que representa un objeto físico. Los cambios en el objeto físico se reflejan en el gemelo digital. En algunos escenarios, puede usar el gemelo digital para manipular el objeto físico. El [servicio Azure Digital Twins](../digital-twins/index.yml) usa [modelos](#model) expresados en el [lenguaje de definición de Digital Twins (DTDL)](#digital-twins-definition-language-dtdl) para representar gemelos digitales de dispositivos físicos o conceptos empresariales abstractos de alto nivel, lo que permite una amplia gama de soluciones de gemelos digitales basadas en la nube. Un dispositivo [IoT Plug and Play](../iot-pnp/index.yml) tiene un gemelo digital, descrito por un [modelo de dispositivo](#device-model) DTDL.
+Un gemelo digital es una colección de datos digitales que representa un objeto físico. Los cambios en el objeto físico se reflejan en el gemelo digital. En algunos escenarios, puede usar el gemelo digital para manipular el objeto físico. El [servicio Azure Digital Twins](../digital-twins/index.yml) usa [modelos](#model) expresados en el [lenguaje de definición de Digital Twins (DTDL)](#digital-twins-definition-language-dtdl) para representar gemelos digitales de dispositivos físicos o conceptos empresariales abstractos de alto nivel, lo que permite una amplia gama de soluciones de gemelos digitales basadas en la nube. Un dispositivo [IoT Plug and Play](../iot-develop/index.yml) tiene un gemelo digital, descrito por un [modelo de dispositivo](#device-model) DTDL.
 
 ### <a name="digital-twin-change-events"></a>Eventos de cambio de gemelo digital
 
@@ -378,7 +378,7 @@ Los aceleradores de soluciones de Azure IoT agrupan varios servicios de Azure en
 
 En [IoT Hub](#iot-hub), los [trabajos](../iot-hub/iot-hub-devguide-jobs.md) permiten programar y realizar un seguimiento de las actividades en un conjunto de dispositivos registrados con IoT Hub. Las actividades incluyen actualizar las [propiedades deseadas](#desired-properties) del dispositivo gemelo, actualizar las [etiquetas](#tags) del dispositivo gemelo e invocar [métodos directos](#direct-method). IoT Hub también utiliza trabajos para [importar y exportar](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) desde el [registro de identidad](#identity-registry).
 
-En IoT Central, los [trabajos](../iot-central/core/howto-run-a-job.md) permiten administrar los dispositivos conectados de forma masiva mediante el establecimiento de propiedades y la llamada a comandos. Los trabajos de IoT Central también le permiten actualizar las [propiedades de nube](#cloud-property) de forma masiva.
+En IoT Central, los [trabajos](../iot-central/core/howto-manage-devices-in-bulk.md) permiten administrar los dispositivos conectados de forma masiva mediante el establecimiento de propiedades y la llamada a comandos. Los trabajos de IoT Central también le permiten actualizar las [propiedades de nube](#cloud-property) de forma masiva.
 
 ## <a name="l"></a>L
 
@@ -400,7 +400,7 @@ En Azure Digital Twins, este tipo de evento se desencadena cuando un elemento de
 
 Un modelo define un tipo de entidad en el entorno físico, incluidas sus propiedades, datos de telemetría, componentes y, a veces, otra información. Los modelos se usan para crear [gemelos digitales](#digital-twin) que representan objetos físicos concretos de este tipo. Los modelos se escriben en el [lenguaje de definición de Digital Twins](#digital-twins-definition-language-dtdl).
 
-En el [servicio Azure Digital Twins](../digital-twins/index.yml), los modelos pueden definir dispositivos o conceptos empresariales abstractos de nivel superior. En [IoT Plug and Play](../iot-pnp/index.yml), los [modelos de dispositivo](#device-model) se usan para describir dispositivos de forma específica.
+En el [servicio Azure Digital Twins](../digital-twins/index.yml), los modelos pueden definir dispositivos o conceptos empresariales abstractos de nivel superior. En [IoT Plug and Play](../iot-develop/index.yml), los [modelos de dispositivo](#device-model) se usan para describir dispositivos de forma específica.
 
 ### <a name="model-id"></a>Id. de modelo
 

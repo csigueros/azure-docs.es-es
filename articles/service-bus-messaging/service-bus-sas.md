@@ -4,12 +4,12 @@ description: Información general sobre el control de acceso de Service Bus con 
 ms.topic: article
 ms.date: 04/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 622a1dd877be98053fdb9b21bfbb40a81c749f02
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5659e159604c80ffe19cbc4b57dea5d99c1acb98
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760632"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379823"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
 
@@ -68,7 +68,7 @@ Las siguientes recomendaciones para el uso de firmas de acceso compartido pueden
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configuración de la autenticación de firma de acceso compartido
 
-Puede configurar la directiva de autorización de acceso compartido en los espacios de nombres, las colas o los temas de Service Bus. Actualmente, no se admite su configuración en una suscripción de Service Bus, pero puede usar las reglas configuradas en un espacio de nombres o tema para proteger el acceso a las suscripciones. Para ver un ejemplo funcional que ilustra este procedimiento, consulte el ejemplo [Uso de la autenticación de firma de acceso compartido (SAS) con suscripciones de Service Bus](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
+Puede configurar la directiva de autorización de acceso compartido en los espacios de nombres, las colas o los temas de Service Bus. Actualmente, no se admite su configuración en una suscripción de Service Bus, pero puede usar las reglas configuradas en un espacio de nombres o tema para proteger el acceso a las suscripciones. 
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 

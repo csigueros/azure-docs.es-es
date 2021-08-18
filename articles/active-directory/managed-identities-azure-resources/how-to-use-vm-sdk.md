@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/07/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85629f53cdd2753eca5574d627a01dd06ea49510
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 5ca24bb127c3149372eaf7ed2748fb252a17b3ef
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749514"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114474080"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Cómo usar las identidades administradas de recursos de Azure en una VM de Azure con SDK de Azure 
 
@@ -41,7 +41,7 @@ En este artículo se proporciona una lista de ejemplos de SDK que demuestran el 
 | .NET            | [Deploy an Azure Resource Manager template from a Windows VM using managed identities for Azure resources](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) (Implementación de una plantilla de Azure Resource Manager desde una máquina virtual Windows mediante identidades administradas de recursos de Azure) |
 | .NET Core       | [Call Azure services from a Linux VM using managed identities for Azure resources](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) (Llamada a servicios de Azure desde una máquina virtual Linux mediante identidades administradas de recursos de Azure) |
 | Go              | [Módulo de cliente de identidad de Azure para Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential)
-| Node.js         | [Administración de recursos mediante identidades administradas de recursos de Azure](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
+| Node.js         | [Administración de recursos mediante identidades administradas de recursos de Azure](https://github.com/Azure-Samples/resources-node-manage-resources-with-msi) |
 | Python          | [Uso de identidades administradas de recursos de Azure para la autenticación simple desde una máquina virtual](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
 | Ruby            | [Administración de recursos de una máquina virtual con identidades administradas de recursos de Azure habilitadas](https://github.com/Azure-Samples/resources-ruby-manage-resources-with-msi/) |
 

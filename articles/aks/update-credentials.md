@@ -5,12 +5,12 @@ description: Aprenda a actualizar o restablecer las credenciales de la entidad d
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 08a52f68ffdaa3305fbbeefffeeac78a59f3903b
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 128e2d38b002369381c860dbd94dbd93b278682d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949153"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743928"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Actualización o modificación de las credenciales de un clúster de Azure Kubernetes Service (AKS)
 
@@ -41,7 +41,7 @@ Para comprobar la fecha de expiración de la entidad de servicio, use el comando
 ```azurecli
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
-az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
+az ad sp credential list --id "$SP_ID" --query "[].endDate" -o tsv
 ```
 
 ### <a name="reset-the-existing-service-principal-credential"></a>Restablecimiento de las credenciales de una entidad de servicio existente
@@ -59,7 +59,7 @@ SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
 Con un conjunto de variables que contiene el id. de entidad de servicio, debe restablecer las credenciales mediante [az ad sp credential reset][az-ad-sp-credential-reset]. En el ejemplo siguiente se permite a la plataforma Azure generar un nuevo secreto seguro para la entidad de servicio. Este nuevo secreto seguro también se almacena como una variable.
 
 ```azurecli-interactive
-SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
+SP_SECRET=$(az ad sp credential reset --name "$SP_ID" --query password -o tsv)
 ```
 
 Ahora, vaya a la sección [Actualización del clúster de AKS con nuevas credenciales de la entidad de servicio](#update-aks-cluster-with-new-service-principal-credentials). Este paso es necesario para que los cambios de la entidad de servicio se reflejen en el clúster de AKS.
@@ -106,8 +106,8 @@ az aks update-credentials \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --reset-service-principal \
-    --service-principal $SP_ID \
-    --client-secret $SP_SECRET
+    --service-principal "$SP_ID" \
+    --client-secret "$SP_SECRET"
 ```
 
 En el caso de clústeres pequeños y medianos, las credenciales de la entidad de servicio tardan unos minutos en actualizarse en AKS.

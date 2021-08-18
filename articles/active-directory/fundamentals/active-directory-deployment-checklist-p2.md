@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43388c2750c7f82d407d59b6923258046fa00c7
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: b746b1f7d35668759108580d4d695787ac8fa3bc
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175881"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733113"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guía de implementación de la característica Azure Active Directory
 
@@ -32,7 +32,7 @@ Muchas de las recomendaciones de esta guía se pueden implementar con Azure AD F
 
 En las páginas siguientes encontrará información adicional sobre las licencias:
 
-* [Licencias de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Licencias de Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Precios de identidades externas de Azure AD](../external-identities/external-identities-pricing.md)
@@ -99,7 +99,7 @@ En la fase 4 los administradores deben aplicar los últimos principios de los pe
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Detalles de precios y licencias de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
+[Detalles de precios y licencias de Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 
 [Configuraciones de acceso de dispositivos e identidades](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 

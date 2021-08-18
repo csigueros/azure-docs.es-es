@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 457e598493ada3dbcbc9dbaaf9f40ea7469bd5b8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c9d16093b19fbcf1b8f0f60799c268d206fe956d
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664868"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179351"
 ---
 # <a name="manage-the-access-tier-of-a-blob-in-an-azure-storage-account"></a>Administración del nivel de acceso de un blob en una cuenta de Azure Storage
 
@@ -69,5 +69,5 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Administración del nivel de acceso predeterminado en una cuenta de Azure Storage](../common/manage-account-default-access-tier.md)
-- [Obtenga información sobre la rehidratación de datos de blob desde el nivel de archivo](storage-blob-rehydration.md)
+- [Obtenga información sobre la rehidratación de datos de blob desde el nivel de archivo](archive-rehydrate-overview.md)
 - [Comprobación de los precios de los niveles de acceso frecuente, esporádico y de archivo en cuentas de Blob Storage y de GPv2 por región](https://azure.microsoft.com/pricing/details/storage/)

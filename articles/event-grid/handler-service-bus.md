@@ -3,12 +3,12 @@ title: Colas y temas de Service Bus como controladores de eventos para eventos d
 description: Aquí se describe cómo puede usar las colas y temas de Service Bus como controladores de eventos para eventos de Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a13662f39410ee6a24644963dbfb3fc1f20d747
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97399866"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416567"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Colas y temas de Service Bus como controladores de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar eventos y **Azure Service Bus** es uno de ellos. 
@@ -16,6 +16,10 @@ Un controlador de eventos es el lugar al que se envía el evento. El controlador
 Puede usar una cola o un tema de Service como un controlador para los eventos de Event Grid. 
 
 ## <a name="service-bus-queues"></a>Colas de Service Bus
+
+> [!NOTE]
+> Las colas habilitadas para sesión no se admiten como controladores de eventos en eventos de Azure Event Grid
+ 
 Puede redirigir los eventos de Event Grid directamente a las colas de Service Bus para usarlos en escenarios de almacenamiento en búfer o comando y control en aplicaciones empresariales.
 
 En Azure Portal, al crear una suscripción de eventos, seleccione **Cola de Service Bus** como tipo de punto de conexión y, a continuación, haga clic en **Seleccionar un punto de conexión** para elegir una cola de Service Bus.
@@ -50,7 +54,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
+[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
 
 Cuando se envía un evento a una cola o tema de Service Bus como un mensaje asincrónico, el valor de `messageid` del mensaje asincrónico es un id. de sistema interno.
 

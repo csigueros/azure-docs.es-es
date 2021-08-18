@@ -7,20 +7,16 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 79224c14fc5182df7a699864af3d78c9be36259f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8eb4dc8ee58d9ced141c7c4e4404596ace727f0c
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97797287"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459173"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Traslado de recursos entre regiones (desde un grupo de recursos)
 
 En este artículo, aprenderá a trasladar recursos de un grupo de recursos específico a otra región de Azure. En el grupo de recursos, seleccione los recursos que desea trasladar. Después, trasládelos con [Azure Resource Mover](overview.md).
-
-> [!IMPORTANT]
-> Azure Resource Mover se encuentra actualmente en versión preliminar pública.
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -119,7 +115,7 @@ Lleve a cabo los siguientes preparativos:
 
 1. En **Entre regiones**, seleccione el grupo de recursos de origen > **Preparar**.
 2. En **Preparar recursos**, seleccione **Preparar**.
-1. 
+
     ![Botón para preparar el grupo de recursos de origen](./media/move-region-within-resource-group/prepare-source-resource-group.png)
 
     Durante el proceso de preparación, Resource Mover genera plantillas de Azure Resource Manager mediante la configuración del grupo de recursos. Los recursos que pertenecen al grupo no se ven afectados.
@@ -137,7 +133,7 @@ Empiece a trasladar el grupo de recursos como se indica a continuación:
 2. En **Mover recursos**, seleccione **Iniciar movimiento**. El grupo de recursos pasará al estado *Initiate move in progress* (Iniciar movimiento en curso).
 3. Una vez iniciado el traslado, se creará el grupo de recursos de destino, basado en la plantilla de Resource Manager generada. El grupo de recursos de origen pasa al estado *Commit move Pending* (Confirmar movimiento pendiente).
 
-![Estado que muestra la confirmación de movimiento](./media/move-region-availability-zone/commit-move-pending.png)
+    ![Estado que muestra la confirmación de movimiento](./media/move-region-availability-zone/commit-move-pending.png)
 
 Para confirmar y finalizar el proceso de traslado:
 

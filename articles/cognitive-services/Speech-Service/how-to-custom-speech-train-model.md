@@ -3,19 +3,19 @@ title: 'Entrenamiento e implementación de un modelo de Custom Speech: Servicio 
 titleSuffix: Azure Cognitive Services
 description: Aprenda a entrenar e implementar modelos de Custom Speech. El entrenamiento de un modelo de conversión de voz a texto puede mejorar la precisión del reconocimiento del modelo de línea base de Microsoft o de un modelo personalizado.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: trbye
-ms.openlocfilehash: 4ba046b5461c3b734d54ad3694f0ceea2e5127c6
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.author: lajanuar
+ms.openlocfilehash: a174848cf8a08942b9aa3777fc25bb0a0fcb8684
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387050"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122066499"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Entrenamiento e implementación de un modelo de Habla personalizada
 

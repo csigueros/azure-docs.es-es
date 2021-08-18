@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 81a0f0e01827c48518f2eb1fba062e9e6536d9df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 632b55b699df409049f77abecfca4c3cf75d3e73
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94655704"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252673"
 ---
 # <a name="connect-f5-asm-to-azure-sentinel"></a>Conexión de F5 ASM a Azure Sentinel
 
 En este artículo se explica cómo usar el conector de datos de F5 ASM para extraer fácilmente los registros de F5 ASM en Azure Sentinel. De este modo, puede ver los datos de F5 ASM en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar la investigación. Tener datos de F5 ASM en Azure Sentinel le proporcionará información detallada sobre la seguridad de las aplicaciones web de la organización y mejorará las funcionalidades de las operaciones de seguridad. 
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="configure-your-f5-asm-to-send-cef-messages"></a>Configuración de F5 ASM para enviar mensajes de CEF
 
@@ -42,6 +44,6 @@ En este artículo se explica cómo usar el conector de datos de F5 ASM para ex
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar F5 ASM a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](./detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

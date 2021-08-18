@@ -3,27 +3,27 @@ title: Configuración de la aplicación de una sola página | Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a crear una aplicación de página única (configuración del código de la aplicación)
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2020
-ms.author: mtillman
+ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: f8bce3057bec88791890d476ac85d4e6610dc89e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: f049f49893b2ce1a895b9d175cbc308ee2868043
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075212"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357578"
 ---
 # <a name="single-page-application-code-configuration"></a>Aplicación de página única: Configuración del código
 
 Obtenga información sobre cómo configurar el código de la aplicación de página única (SPA).
 
-## <a name="microsoft-libraries-supporting-single-page-apps"></a>Bibliotecas de Microsoft que admiten aplicaciones de una sola página 
+## <a name="microsoft-libraries-supporting-single-page-apps"></a>Bibliotecas de Microsoft que admiten aplicaciones de una sola página
 
 Las siguientes bibliotecas de Microsoft admiten aplicaciones de una sola página:
 

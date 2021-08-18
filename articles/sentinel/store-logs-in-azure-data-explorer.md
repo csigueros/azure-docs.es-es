@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-ms.openlocfilehash: 584f108ea534b8703b941d91b7d03b6275ea6134
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1f9d0a146c557f50c0cea776c6e3ae6853377df5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958353"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748074"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>Integración con Azure Data Explorer para conservar registros a largo plazo
 
@@ -31,7 +31,7 @@ Almacenar registros en Azure Data Explorer reduce los costos y, al mismo tiempo,
 
 Azure Data Explorer es una plataforma de análisis de macrodatos que está altamente optimizada para el análisis de registros y datos. Puesto que Azure Data Explorer usa el lenguaje de consulta Kusto (KQL), es una buena alternativa para almacenar datos de Azure Sentinel. Al usar Azure Data Explorer para el almacenamiento de datos, podrá ejecutar consultas multiplataforma y visualizar datos tanto en Azure Data Explorer como en Azure Sentinel.
 
-Para obtener más información, consulte la [documentación](/azure/data-explorer/) y el [blog](https://azure.microsoft.com/en-us/blog/tag/azure-data-explorer/) de Azure Data Explorer.
+Para obtener más información, consulte la [documentación](/azure/data-explorer/) y el [blog](https://azure.microsoft.com/blog/tag/azure-data-explorer/) de Azure Data Explorer.
 
 ### <a name="when-to-integrate-with-azure-data-explorer"></a>Cuándo se debe integrar con Azure Data Explorer
 
@@ -239,5 +239,5 @@ Independientemente de dónde almacene los datos, siga buscando e investigando me
 
 Para más información, consulte:
 
-- [Tutorial: Investigación de incidentes con Azure Sentinel](tutorial-investigate-cases.md)
+- [Tutorial: Investigación de incidentes con Azure Sentinel](investigate-cases.md)
 - [Búsqueda de amenazas con Azure Sentinel](hunting.md)

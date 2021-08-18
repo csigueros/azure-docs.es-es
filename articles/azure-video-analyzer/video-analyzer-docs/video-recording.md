@@ -3,13 +3,13 @@ title: Grabación de vídeo para su reproducción con Azure Video Analyzer
 description: En este artículo se describe la grabación de vídeo para su reproducción con Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 03/30/2021
-ms.openlocfilehash: 73f4f1ba473910c9bad5d700f9b5a4b7475592d9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 4c5d0121df90791d8eb77782fb6d949548a0185e
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388698"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604346"
 ---
 # <a name="record-video-for-playback"></a>Grabación de vídeo para reproducción
 

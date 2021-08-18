@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: 68b7300219953b0f80bd40522c3f4ec961ec5262
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 5c57b5574df3da9d581aafb49e9ba69b1b032509
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613550"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653514"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -150,7 +150,7 @@ A continuación se describen los encabezados de solicitud obligatorios.
 
 | Encabezado de solicitud obligatorio | Descripción |
 | --- | --- |
-| Authorization | Para realizar la autenticación en Azure Time Series Insights, es necesario pasar un token de portador de OAuth 2.0 válido en el [encabezado de autorización](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate). |
+| Authorization | Para realizar la autenticación en Azure Time Series Insights, es necesario pasar un token de portador de OAuth 2.0 válido en el [encabezado de autorización](/rest/api/apimanagement/2020-12-01/authorization-server/create-or-update). |
 
 > [!TIP]
 > Lea la [visualización de muestra del SDK de cliente](https://tsiclientsample.azurewebsites.net/) hospedado de Azure Time Series Insights para aprender a autenticarse con las API de Azure Time Series Insights mediante programación, usando el [SDK de cliente de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) junto con gráficos.

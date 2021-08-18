@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 01/14/2020
-ms.openlocfilehash: 983e037376be48f497118b06cce8b23c430b1501
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ec9aaf2222924718ad21cf0654d138be22c2d19
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98223081"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114293386"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integración de código abierto con proyectos de Azure Machine Learning
 
@@ -89,7 +89,7 @@ Para obtener más información sobre ONNX y cómo utilizar modelos de ONNX, cons
 
 ### <a name="package-and-deploy-models-as-containers"></a>Empaquetado e implementación de contenedores
 
-Las tecnologías de contenedor como Docker son una manera de implementar modelos como servicios web. Los contenedores ofrecen una manera independiente de la plataforma y los recursos para crear y organizar entornos de software reproducibles. Con estas tecnologías básicas, puede usar [entornos preconfigurados](./how-to-use-environments.md), [imágenes de contenedor preconfiguradas](./how-to-deploy-custom-docker-image.md) o las personalizadas para implementar los modelos de Machine Learning en, por ejemplo, [clústeres de Kubernetes](./how-to-deploy-azure-kubernetes-service.md?tabs=python). En el caso de flujos de trabajo intensivos de GPU, puede usar herramientas como NVIDIA Triton Inference Server para [realizar predicciones con GPU](how-to-deploy-with-triton.md?tabs=python).
+Las tecnologías de contenedor como Docker son una manera de implementar modelos como servicios web. Los contenedores ofrecen una manera independiente de la plataforma y los recursos para crear y organizar entornos de software reproducibles. Con estas tecnologías básicas, puede usar [entornos preconfigurados](./how-to-use-environments.md), [imágenes de contenedor preconfiguradas](./how-to-deploy-custom-container.md) o las personalizadas para implementar los modelos de Machine Learning en, por ejemplo, [clústeres de Kubernetes](./how-to-deploy-azure-kubernetes-service.md?tabs=python). En el caso de flujos de trabajo intensivos de GPU, puede usar herramientas como NVIDIA Triton Inference Server para [realizar predicciones con GPU](how-to-deploy-with-triton.md?tabs=python).
 
 ### <a name="secure-deployments-with-homomorphic-encryption"></a>Implementaciones seguras con cifrado homomórfico
 
@@ -101,4 +101,4 @@ Operaciones de Machine Learning (MLOps), también conocido como DevOps para apre
 
 Mediante el uso de prácticas de DevOps como la integración continua (CI) y la implementación continua (CD), puede automatizar el ciclo de vida de aprendizaje automático de un extremo a otro y capturar datos de gobernanza en torno a ellos. Puede definir la [canalización de CI/CD de aprendizaje automático con acciones de GitHub](./how-to-github-actions-machine-learning.md) para ejecutar tareas de entrenamiento e implementación de Azure Machine Learning. 
 
-La captura de dependencias de software, métricas, metadatos, datos y versiones de modelos son una parte importante del proceso de MLOps para construir canalizaciones transparentes, reproducibles y auditables. Para esta tarea, puede [usar MLFlow en Azure Machine Learning](how-to-use-mlflow.md) y también decidir cuándo [entrenar modelos de Machine Learning en Azure Databricks](./how-to-use-mlflow-azure-databricks.md). También puede [implementar modelos de MLflow como un servicio web de Azure](how-to-deploy-mlflow-models.md). 
+La captura de dependencias de software, métricas, metadatos, datos y versiones de modelos son una parte importante del proceso de MLOps para construir canalizaciones transparentes, reproducibles y auditables. Para esta tarea, puede [usar MLFlow en Azure Machine Learning](how-to-use-mlflow.md) y también decidir cuándo [entrenar modelos de Machine Learning en Azure Databricks](./how-to-use-mlflow-azure-databricks.md). También puede [implementar modelos de MLflow como un servicio web de Azure](how-to-deploy-mlflow-models.md).

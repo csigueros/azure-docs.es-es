@@ -11,12 +11,12 @@ ms.collection: windows
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: trinadhk
-ms.openlocfilehash: 6dc2fb12ebd166f62f04a1ecb9833edaad18f539
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 9749cb2e01950c05daf88bae831500c27033d31d
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789617"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112279764"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensión de Windows de instantánea de máquina virtual para Azure Backup
 
@@ -75,7 +75,7 @@ El siguiente JSON muestra el esquema para la extensión de instantánea de máqu
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
-Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Aun así, la manera recomendada de agregar una extensión de instantánea de máquina virtual a una máquina virtual consiste en habilitar la copia de seguridad en la máquina virtual. Esto puede conseguirse mediante una plantilla de Resource Manager.  Encontrará una plantilla de Resource Manager de ejemplo que habilita la copia de seguridad en una máquina virtual en la [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
+Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Aun así, la manera recomendada de agregar una extensión de instantánea de máquina virtual a una máquina virtual consiste en habilitar la copia de seguridad en la máquina virtual. Esto puede conseguirse mediante una plantilla de Resource Manager.  Encontrará una plantilla de Resource Manager de ejemplo que habilita la copia de seguridad en una máquina virtual en la [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/recovery-services-backup-vms/).
 
 
 ## <a name="azure-cli-deployment"></a>Implementación de la CLI de Azure

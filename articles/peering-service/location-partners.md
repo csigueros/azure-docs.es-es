@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/06/2020
 ms.author: derekol
-ms.openlocfilehash: cd57825172f69811dfa63e1d1dea048bbf1d5c82
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 79d9d15ff2707dfac7e206cf5a289d7eac00ffb4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626204"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447572"
 ---
 # <a name="peering-service-partners"></a>Asociados de Peering Service
 
@@ -34,7 +34,7 @@ En la tabla de este artículo se proporciona información sobre los asociados de
 | [BBIX](https://www.bbix.net/en/service/) |Japón |
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceanía |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europa, Asia|
-| [DE-CIX](https://www.de-cix.net/microsoft)|Europa, Norteamérica |
+| [DE-CIX](https://www.de-cix.net/)|Europa, Norteamérica |
 | [IIJ](https://www.iij.ad.jp/en/) | Japón |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europa  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceanía  |
@@ -54,7 +54,7 @@ En la tabla de este artículo se proporciona información sobre los asociados de
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información sobre Peering Service, vea [Introducción a Peering Service](about.md).
-- Para obtener información sobre las P+F de Peering Service, vea [Preguntas más frecuentes de Peering Service](faq.md).
+- Para obtener información sobre las P+F de Peering Service, vea [Preguntas más frecuentes de Peering Service](faq.yml).
 - Para obtener información sobre la incorporación de asociados y la configuración de Peering Service, vea [Configuración de Peering Service](connection.md).
 - Para más información sobre la conexión de Peering Service, consulte [Conexión de Peering Service](connection.md).
 - Para más información sobre la telemetría de la conexión de Peering Service, consulte [Telemetría de la conexión de Peering Service](connection-telemetry.md).

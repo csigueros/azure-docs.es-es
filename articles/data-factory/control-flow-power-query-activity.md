@@ -4,14 +4,15 @@ description: Obtenga información sobre cómo usar la actividad de Power Query p
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: fc4f20db55f8e7e0b2f92cb8309c1c128b235089
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab19b62ff4aaca1b3357d586e3bba4252e8a5d9e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385462"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738260"
 ---
 # <a name="power-query-activity-in-data-factory"></a>Actividad de Power Query en Data Factory
 

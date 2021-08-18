@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d97ab241120ddc4c8e7434591b866312ea7708ae
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: fa9f9ec8d7a8f60d6c72cb6c4f669ef511cc0068
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890121"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112456884"
 ---
 # <a name="test-your-custom-commands-application"></a>Prueba de una aplicación de Comandos personalizados
 
@@ -27,7 +27,7 @@ En este artículo, aprenderá distintos enfoques para probar una aplicación de 
 La prueba en el portal es la forma más sencilla y rápida de comprobar si la aplicación de comandos personalizada funciona según lo previsto. Una vez que la aplicación se haya entrenado correctamente, haga clic en el botón `Test` para iniciar la prueba.
 
 > [!div class="mx-imgBorder"]
-> ![Prueba en el portal](media/custom-commands/create-basic-test-chat.png)
+> ![Prueba en el portal](media/custom-commands/create-basic-test-chat-no-mic.png)
 
 ## <a name="test-with-windows-voice-assistant-client"></a>Prueba con el cliente del asistente de voz de Windows
 

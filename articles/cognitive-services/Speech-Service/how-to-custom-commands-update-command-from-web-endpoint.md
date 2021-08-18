@@ -3,19 +3,19 @@ title: Actualizar un comando desde un punto de conexión web
 titleSuffix: Azure Cognitive Services
 description: Aprenda a actualizar el estado de un comando mediante una llamada a un punto de conexión web.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: nitinme
-ms.openlocfilehash: d0b77e6af36f0a71405f6c032bfdd121abeb0071
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: 9900d873de5efac89db13b80c0cc37167a0cee05
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97560277"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122066612"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>Actualizar un comando desde un punto de conexión web
 
@@ -120,7 +120,7 @@ Vamos a enlazar la función de Azure con la aplicación de Comandos personalizad
 1. Seleccione **Probar**.
 1. Envíe `increment` (que es la frase de ejemplo para el comando `IncrementCounter`) varias veces.
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="Captura de pantalla que muestra un ejemplo de contador de incremento.":::
+    > :::image type="content" source="./media/custom-commands/increment-counter-example-no-mic.png" alt-text="Captura de pantalla que muestra un ejemplo de contador de incremento.":::
 
 Observe que la función de Azure incrementa el valor del parámetro `Counter` en cada turno.
 

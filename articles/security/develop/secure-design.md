@@ -10,12 +10,12 @@ ms.service: security
 ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.openlocfilehash: ee4e8f3abad2a4da924e42f81004c86691a1bc8a
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 6f99ce0f0229de5423a6dde4472b5b11b992f7e8
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792517"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112422721"
 ---
 # <a name="design-secure-applications-on-azure"></a>Diseño de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al diseñar aplicaciones para la nube. Se abarcan los recursos de entrenamiento junto con los conceptos y preguntas de seguridad que se han de tener en cuenta durante las fases de diseño y requisitos del [ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para diseñar una aplicación más segura.
@@ -86,7 +86,7 @@ OWASP Top 10 aborda los riesgos de seguridad críticos en aplicaciones web.
 El conocimiento de estos riesgos de seguridad puede ayudarle a tomar decisiones de diseño y de requisitos que minimicen estos riesgos en la aplicación.
 
 Es importante pensar en los controles de seguridad para evitar infracciones de seguridad.
-Aunque también es de esperar que se produzca [alguna infracción de seguridad](/azure/devops/learn/devops-at-microsoft/security-in-devops). Suponer que se produce una infracción de seguridad ayuda a responder de antemano a algunas preguntas importantes sobre la seguridad, para que no haya que responderlas en una emergencia:
+Aunque también es de esperar que se produzca [alguna infracción de seguridad](/devops/operate/security-in-devops). Suponer que se produce una infracción de seguridad ayuda a responder de antemano a algunas preguntas importantes sobre la seguridad, para que no haya que responderlas en una emergencia:
 
   - ¿Cómo se detecta un ataque?
 

@@ -2,14 +2,14 @@
 title: Proveedores de recursos por servicios de Azure
 description: Se enumeran todos los espacios de nombres de proveedor de recursos para Azure Resource Manager y se muestra el servicio de Azure para ese espacio de nombres.
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b83f0874527b366595f27aea6bab01afc1f8060b
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: dae2c2c3af6da9b946ce6e81260f4c124c474a42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071270"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727192"
 ---
 # <a name="resource-providers-for-azure-services"></a>Proveedores de recursos para servicios de Azure
 
@@ -83,8 +83,9 @@ Los proveedores de recursos con la marca **registrado** se registran de forma pr
 | Microsoft.DBforPostgreSQL | [Azure Database para PostgreSQL](../../postgresql/index.yml) |
 | Microsoft.DesktopVirtualization | [Windows Virtual Desktop](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Servicio Azure IoT Hub Device Provisioning](../../iot-dps/index.yml) |
+| Microsoft.DeviceUpdate | [Device Update para IoT Hub](../../iot-hub-device-update/index.yml)
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
-| Microsoft.DevSpaces | [Azure Dev Spaces](../../dev-spaces/index.yml) |
+| Microsoft.DevSpaces | [Azure Dev Spaces](/previous-versions/azure/dev-spaces/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/overview.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
@@ -101,7 +102,7 @@ Los proveedores de recursos con la marca **registrado** se registran de forma pr
 | Microsoft.HealthcareApis | [Azure API for FHIR](../../healthcare-apis/fhir/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
-| Microsoft.HybridNetwork  | [Private Edge Zones](../../networking/edge-zones-overview.md) |
+| Microsoft.HybridNetwork  | [Network Function Manager](../../network-function-manager/index.yml) |
 | Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
 | Microsoft.Insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |

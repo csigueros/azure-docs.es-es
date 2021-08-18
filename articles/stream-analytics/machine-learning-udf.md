@@ -7,18 +7,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: c35d5d2f63f4a7abe80a0ff19e5994013355c386
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9856b3b6c44c293c77582ba9c6fba9891d897a5d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020526"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742959"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integración de Azure Stream Analytics con Azure Machine Learning (versión preliminar)
 
-Puede implementar modelos de Machine Learning como funciones definidas por el usuario en los trabajos de Azure Stream Analytics para realizar predicciones y puntuaciones en tiempo real a partir de los datos de entrada de streaming. [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) le permite usar cualquier herramienta de código abierto popular (como Tensorflow, scikit-learn o PyTorch) para preparar, entrenar e implementar modelos.
+Puede implementar modelos de Machine Learning como funciones definidas por el usuario en los trabajos de Azure Stream Analytics para realizar predicciones y puntuaciones en tiempo real a partir de los datos de entrada de streaming. [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) le permite usar cualquier herramienta de código abierto popular (como Tensorflow, scikit-learn o PyTorch) para preparar, entrenar e implementar modelos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Siga los pasos que se indican a continuación antes de agregar un modelo de Machine Learning como función a su trabajo de Stream Analytics:
 
@@ -63,7 +63,7 @@ En la tabla siguiente se describe cada una de las propiedades de las funciones d
 |Propiedad.|Descripción|
 |--------|-----------|
 |Alias de función|Escriba un nombre para invocar la función en la consulta.|
-|Subscription|Su suscripción de Azure.|
+|Suscripción|Su suscripción de Azure.|
 |Área de trabajo de Azure Machine Learning|Área de trabajo de Azure Machine Learning que usó para implementar el modelo como servicio web.|
 |Implementaciones|Servicio web que hospeda el modelo.|
 |Signatura de función|Firma del servicio web que se deduce a partir de la especificación del esquema de la API. Si no se puede cargar la firma, compruebe que ha proporcionado entradas y salidas de ejemplo en el script de puntuación para generar el esquema automáticamente.|

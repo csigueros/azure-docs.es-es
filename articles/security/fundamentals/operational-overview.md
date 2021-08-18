@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 4bc30fbf342a9bc85b52c9f88ce7ca1df3c36e23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28bd7af9722bd76d6580257ffaf0446c79522502
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595498"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461556"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 
@@ -177,15 +177,15 @@ DevOps permite a los equipos ofrecer soluciones más seguras y de mayor calidad,
 
 Las plataformas en la nube, como Microsoft Azure, han quitado los cuellos de botella tradicionales y ayudaron a homogeneizar la infraestructura. El software impera en cada negocio como factor y diferenciador claves en los resultados empresariales. Ninguna organización, desarrollador o trabajador de TI puede o debe evitar el movimiento de DevOps.
 
-Los profesionales de DevOps consolidados adoptarán algunos de los siguientes procedimientos. Estos procedimientos [implican que personas](/azure/devops/learn/what-is-devops-culture) realicen estrategias basadas en escenarios empresariales. Las herramientas pueden ayudar a automatizar varios procedimientos.
+Los profesionales de DevOps consolidados adoptarán algunos de los siguientes procedimientos. Estos procedimientos [implican que personas](/devops/what-is-devops) realicen estrategias basadas en escenarios empresariales. Las herramientas pueden ayudar a automatizar varios procedimientos.
 
 - Las técnicas de [administración de proyectos y planificación ágiles](https://www.visualstudio.com/learn/what-is-agile/) se usan para planear y aislar el trabajo en sprints, administrar la capacidad del equipo y ayudar a los equipos a adaptarse rápidamente ante las cambiantes necesidades empresariales.
-- [Control de versiones, normalmente con Git](/azure/devops/learn/git/what-is-git), permite que los equipos ubicados en cualquier lugar del mundo para compartir código fuente e integrarlo con herramientas de desarrollo de software para automatizar la canalización de versiones.
-- La [integración continua](/azure/devops/learn/what-is-continuous-integration) impulsa la fusión en curso y la prueba de código, que permite la detección temprana de defectos.  Entre otras ventajas se incluye menos tiempo perdido en la lucha de problemas de fusión y comentarios rápidos para los equipos de desarrollo.
-- La [entrega continua](/azure/devops/learn/what-is-continuous-delivery) de soluciones de software para los entornos de producción y prueba ayudan a las organizaciones a solucionar los problemas rápidamente y a responder a los requisitos empresariales en constante cambio.
-- La [supervisión](/azure/devops/learn/what-is-monitoring) de aplicaciones en ejecución, incluidos los entornos de producción para el estado de la aplicación, así como el uso del cliente, ayudan a las organizaciones a plantear una hipótesis y validar o refutar estrategias rápidamente.  Los datos enriquecidos se capturan y almacenan en distintos formatos de registro.
-- La [infraestructura como código (IaC)](/azure/devops/learn/what-is-infrastructure-as-code) es un procedimiento que permite la automatización y validación de la creación y destrucción de redes y máquinas virtuales para ayudar a proporcionar plataformas de hospedaje de aplicaciones estables y seguras.
-- La arquitectura de [microservicios](/azure/devops/learn/what-are-microservices) se usa para aislar casos de uso empresariales en pequeños servicios reutilizables.  Esta arquitectura permite la escalabilidad y la eficacia.
+- [Control de versiones, normalmente con Git](/devops/develop/git/what-is-git), permite que los equipos ubicados en cualquier lugar del mundo para compartir código fuente e integrarlo con herramientas de desarrollo de software para automatizar la canalización de versiones.
+- La [integración continua](/devops/develop/what-is-continuous-integration) impulsa la fusión en curso y la prueba de código, que permite la detección temprana de defectos.  Entre otras ventajas se incluye menos tiempo perdido en la lucha de problemas de fusión y comentarios rápidos para los equipos de desarrollo.
+- La [entrega continua](/devops/deliver/what-is-continuous-delivery) de soluciones de software para los entornos de producción y prueba ayudan a las organizaciones a solucionar los problemas rápidamente y a responder a los requisitos empresariales en constante cambio.
+- La [supervisión](/devops/operate/what-is-monitoring) de aplicaciones en ejecución, incluidos los entornos de producción para el estado de la aplicación, así como el uso del cliente, ayudan a las organizaciones a plantear una hipótesis y validar o refutar estrategias rápidamente.  Los datos enriquecidos se capturan y almacenan en distintos formatos de registro.
+- La [infraestructura como código (IaC)](/devops/deliver/what-is-infrastructure-as-code) es un procedimiento que permite la automatización y validación de la creación y destrucción de redes y máquinas virtuales para ayudar a proporcionar plataformas de hospedaje de aplicaciones estables y seguras.
+- La arquitectura de [microservicios](/devops/deliver/what-are-microservices) se usa para aislar casos de uso empresariales en pequeños servicios reutilizables.  Esta arquitectura permite la escalabilidad y la eficacia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,19 +1,19 @@
 ---
 title: Definiciones de directivas integradas para Azure Stack Edge
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Stack Edge. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 06/11/2021
+ms.date: 08/13/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
 ms.subservice: edge
 author: alkohli
 ms.author: alkohli
-ms.openlocfilehash: 6e3d54ce866106b39ef1128e3f9b9fa5e7f07e5a
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: bbd5dea9a42a2636f992e35c600d2dacb0c626ad
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021130"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122184063"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stack-edge"></a>Definiciones integradas de Azure Policy para Azure Stack Edge
 

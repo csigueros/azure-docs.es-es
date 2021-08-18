@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 135ca977f19ed44742b1086c7a02a9b89dab1445
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: c451becdd6b0ae53b459d15b69f7241f84d3730d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422037"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731023"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Conexión de registros de Office 365 a Azure Sentinel
 
@@ -66,5 +66,5 @@ El conector de registro de [Office 365](/office/) incluye información de Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar Office 365 a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](tutorial-detect-threats-built-in.md) o [personalizadas](tutorial-detect-threats-custom.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](detect-threats-built-in.md) o [personalizadas](detect-threats-custom.md).

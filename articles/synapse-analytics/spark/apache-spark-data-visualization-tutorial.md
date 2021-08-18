@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 56af49b6fa862c93822293056752182b534ac442
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: beef6768f9b2fb05efb77c16c32b0acbe46d1e85
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98942272"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732483"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Análisis de datos con Apache Spark
 
 En este tutorial, aprenderá a realizar análisis de datos exploratorios mediante Azure Open Datasets y Apache Spark. A continuación, visualizará los resultados en un cuaderno de Synapse Studio en Azure Synapse Analytics.
 
-En concreto, se analizará el [conjunto de datos de taxis de Nueva York (NYC)](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Los datos están disponibles a través de Azure Open Datasets. Este subconjunto del conjunto de datos contiene información sobre las carreras de los taxis amarillos: información sobre cada carrera, la hora y la ubicación de inicio y fin, el costo y otros atributos interesantes.
+En concreto, se analizará el [conjunto de datos de taxis de Nueva York (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Los datos están disponibles a través de Azure Open Datasets. Este subconjunto del conjunto de datos contiene información sobre las carreras de los taxis amarillos: información sobre cada carrera, la hora y la ubicación de inicio y fin, el costo y otros atributos interesantes.
   
 ## <a name="before-you-begin"></a>Antes de empezar
 Cree un grupo de Apache Spark, para lo que puede seguir el tutorial [Creación de un grupo de Apache Spark](../articles/../quickstart-create-apache-spark-pool-studio.md). 

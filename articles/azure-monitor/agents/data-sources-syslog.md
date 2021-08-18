@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: e82e74f4cd325444221bbd2e1c060b7cd2f5c6c7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 49a337d106bab7f33c8f51149c2151c21d78f40b
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036745"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178552"
 ---
 # <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Recopilación de orígenes de datos de Syslog con el agente de Log Analytics
 Syslog es un protocolo de registro de eventos que es común a Linux. Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog. Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente. En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.  
@@ -56,7 +56,7 @@ Para agregar una nueva instalación, haga clic en **Add facility** (Agregar inst
 De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes. Si desea configurar Syslog manualmente en cada uno de los agentes de Linux, desactive la casilla *Aplicar la configuración siguiente a mis máquinas*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configuración de Syslog en agente de Linux
-Cuando el [agente de Log Analytics se instala en un cliente Linux](../vm/quick-collect-linux-computer.md), instala un archivo de configuración de Syslog predeterminado que define el recurso y la gravedad de los mensajes que se recopilan. Puede modificar este archivo para cambiar la configuración. El archivo de configuración es diferente según el demonio Syslog que ha instalado el cliente.
+Cuando el [agente de Log Analytics se instala en un cliente Linux](../vm/monitor-virtual-machine.md), instala un archivo de configuración de Syslog predeterminado que define el recurso y la gravedad de los mensajes que se recopilan. Puede modificar este archivo para cambiar la configuración. El archivo de configuración es diferente según el demonio Syslog que ha instalado el cliente.
 
 > [!NOTE]
 > Si modifica la configuración de Syslog, tiene que reiniciar el demonio Syslog para que los cambios surtan efecto.
@@ -231,4 +231,4 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información acerca de las [consultas de registros](../logs/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.
 * Use [Campos personalizados](../logs/custom-fields.md) para analizar datos de registros de Syslog en campos individuales.
-* [Configure agentes de Linux](../vm/quick-collect-linux-computer.md) para recopilar otros tipos de datos.
+* [Configure agentes de Linux](../vm/monitor-virtual-machine.md) para recopilar otros tipos de datos.

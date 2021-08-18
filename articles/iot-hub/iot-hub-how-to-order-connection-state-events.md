@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: 00765a51ad07cd53fde403ed1cfabb73c5692026
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 5035515c843db2ce7feb06090029c7e5995769cc
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076876"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114287970"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB
 
@@ -28,7 +28,7 @@ El número de secuencia es una representación de cadena de un número hexadecim
 
 * Una colección en la base de datos. Consulte [Incorporación de una colección](../cosmos-db/create-sql-api-java.md#add-a-container) para ver un tutorial. Cuando cree la colección, use `/id` para la clave de partición.
 
-* Una instancia de IoT Hub en Azure. Si aún no ha creado ninguna, vea un tutorial en [Introducción a Azure IoT Hub](./quickstart-send-telemetry-dotnet.md).
+* Una instancia de IoT Hub en Azure. Si aún no ha creado ninguna, vea un tutorial en [Introducción a Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp).
 
 ## <a name="create-a-stored-procedure"></a>Creación de un procedimiento almacenado
 

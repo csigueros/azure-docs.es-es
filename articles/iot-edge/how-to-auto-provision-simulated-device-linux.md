@@ -2,18 +2,17 @@
 title: 'Aprovisionamiento de dispositivos con un TPM virtual en una máquina virtual Linux: Azure IoT Edge'
 description: Usar un TPM simulado en una máquina virtual con Linux para probar Device Provisioning Service en Azure para Azure IoT Edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ca16099cffc22a19c2ee35b00ae6f1bcbe2977a7
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b380e9501ebed8f2830c09ddb00d40467b9b22a1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312406"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735159"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Creación y aprovisionamiento de un dispositivo IoT Edge con un TPM en Linux
 
@@ -149,7 +148,7 @@ Recupere la información de aprovisionamiento de la máquina virtual y úsela pa
 Al crear una inscripción en DPS, tiene la oportunidad de declarar un **Estado inicial de dispositivo gemelo**. En el dispositivo gemelo, puede establecer etiquetas para agrupar dispositivos por cualquier métrica que necesite en su solución, como la región, el entorno, la ubicación o el tipo de dispositivo. Estas etiquetas se usan para crear [implementaciones automáticas](how-to-deploy-at-scale.md).
 
 > [!TIP]
-> En la CLI de Azure, puede crear una [inscripción](/cli/azure/ext/azure-iot/iot/dps/enrollment) y usar la marca **edge-enabled** para especificar que se trata de un dispositivo IoT Edge.
+> En la CLI de Azure, puede crear una [inscripción](/cli/azure/iot/dps/enrollment) y usar la marca **edge-enabled** para especificar que se trata de un dispositivo IoT Edge.
 
 1. En [Azure Portal](https://portal.azure.com), navegue hasta la instancia de IoT Hub Device Provisioning Service.
 
@@ -227,6 +226,12 @@ Una vez que el entorno de ejecución está instalado en el dispositivo, configur
 :::moniker range=">=iotedge-2020-11"
 
 1. Conozca el **Ámbito de identificador** de DPS y el **Identificador de registro** del dispositivo que se recopilaron en las secciones anteriores.
+
+1. Cree un archivo de configuración para el dispositivo basándose en un archivo de plantilla que se proporciona como parte de la instalación de IoT Edge.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
 
 1. Abra el archivo de configuración en el dispositivo IoT Edge.
 

@@ -3,15 +3,15 @@ title: Cómo supervisar la latencia del servidor para las operaciones de Azure C
 description: Obtenga información acerca de cómo supervisar la latencia del servidor para las operaciones en una cuenta o en un contenedor de Azure Cosmos DB. Los propietarios de una cuenta de Azure Cosmos DB pueden comprender los problemas de latencia del servidor con las cuentas de Azure Cosmos.
 ms.service: cosmos-db
 ms.topic: how-to
-author: kanshiG
-ms.author: govindk
+ms.author: esarroyo
+author: StefArroyo
 ms.date: 04/07/2020
-ms.openlocfilehash: af58b0810ef45a9fff766b73188f66555ba6bc6c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 883552a556ce0cde191cb3dfeccca0ac09c96a10
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470994"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359632"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Cómo supervisar la latencia del servidor para las operaciones en una cuenta o en un contenedor de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

@@ -3,12 +3,12 @@ title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar sus soluciones de Azure Batch.
 ms.date: 04/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 181f8f8ced4113521c8791fd9e1b5d651776783e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: db67f91257db1ddb44f7dfb103ac02e49febe562
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773348"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126471"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -197,7 +197,7 @@ Normalmente, se accede a las máquinas virtuales de un grupo de Batch mediante d
 
 ### <a name="testing-connectivity-with-cloud-services-configuration"></a>Prueba de la conectividad con la configuración de Cloud Services
 
-No se puede usar el protocolo normal de "ping"/ICMP con servicios en la nube, ya que no se permite el protocolo ICMP a través de la instancia de Azure Load Balancer. Para obtener más información, consulte [Conectividad y redes en Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service)
+No se puede usar el protocolo normal de "ping"/ICMP con servicios en la nube, ya que no se permite el protocolo ICMP a través de la instancia de Azure Load Balancer. Para obtener más información, consulte [Conectividad y redes en Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.yml#can-i-ping-a-cloud-service-)
 
 ## <a name="batch-node-underlying-dependencies"></a>Dependencias subyacentes del nodo Batch
 

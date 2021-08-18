@@ -4,12 +4,12 @@ description: Aprenda a habilitar el cifrado de discos en nodos de clústeres adm
 ms.topic: how-to
 ms.date: 5/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 800ebb11c1d191ca68222b1fa473cebbca0e8912
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2b10c5fbade903ec9eb5786fc33eaaddff212956
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671329"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284116"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-managed-cluster-nodes"></a>Habilitación del cifrado de disco para nodos de clústeres administrados de Service Fabric
 
@@ -37,7 +37,7 @@ Azure Disk Encryption requiere Azure Key Vault para controlar y administrar las 
 
 ### <a name="create-key-vault-with-disk-encryption-enabled"></a>Creación de un almacén de claves con cifrado de disco habilitado
 
-Ejecute los siguientes comandos para crear un nuevo almacén de claves para el cifrado de discos. Asegúrese de que la región del almacén de claves sea compatible con los [clústeres administrados de Service Fabric](faq-managed-cluster.md#what-regions-are-supported) y que se encuentre en la misma región que el clúster.
+Ejecute los siguientes comandos para crear un nuevo almacén de claves para el cifrado de discos. Asegúrese de que la región del almacén de claves sea compatible con los [clústeres administrados de Service Fabric](./faq-managed-cluster.yml#what-regions-are-supported-) y que se encuentre en la misma región que el clúster.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

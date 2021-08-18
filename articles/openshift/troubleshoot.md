@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: azure-redhat-openshift
 ms.topic: troubleshooting
 ms.date: 05/08/2019
-ms.openlocfilehash: af66abff3507279dd1954fd83627900578229866
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b68a84b599f8dab071b54f566721ecd7118294e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100632958"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090608"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Solución de problemas de Red Hat OpenShift en Azure
 
@@ -36,4 +36,4 @@ Si la creación de un clúster genera el error `No registered resource provider 
 
 - Pruebe el [Centro de ayuda de Red Hat OpenShift](https://help.openshift.com/) para más soluciones de problemas de OpenShift.
 
-- Obtenga respuestas a algunas [preguntas frecuentes sobre Red Hat OpenShift en Azure](openshift-faq.md).
+- Obtenga respuestas a algunas [preguntas frecuentes sobre Red Hat OpenShift en Azure](openshift-faq.yml).

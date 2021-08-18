@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo solucionar problemas comunes en la
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ce7e3018e470df3840eb01127a7bf2ffa01b5cbc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f00b20751b60549b9b10409539354605ea4bd355
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771072"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292261"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
-En este artículo se muestra cómo solucionar problemas habituales al administrar o implementar contenedores en Azure Container Instances. Consulte también las [preguntas más frecuentes](container-instances-faq.md).
+En este artículo se muestra cómo solucionar problemas habituales al administrar o implementar contenedores en Azure Container Instances. Consulte también las [preguntas más frecuentes](container-instances-faq.yml).
 
 Si necesita soporte adicional, consulte las opciones disponibles de **Ayuda y soporte técnico** en [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -45,7 +45,7 @@ Si se especifica una imagen que Azure Container Instances no admite, se devuelve
 }
 ```
 
-Este error se suele encontrar con más frecuencia al implementar imágenes de Windows basadas en una versión de canal semianual (SAC) 1709 o 1803, que no se admiten. Para obtener imágenes de Windows admitidas en Azure Container Instances, consulte las [preguntas más frecuentes](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Este error se suele encontrar con más frecuencia al implementar imágenes de Windows basadas en una versión de canal semianual (SAC) 1709 o 1803, que no se admiten. Para obtener imágenes de Windows admitidas en Azure Container Instances, consulte las [preguntas más frecuentes](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
 
 ### <a name="unable-to-pull-image"></a>No se puede extraer la imagen
 
@@ -187,7 +187,7 @@ Otra forma de reducir el impacto de la extracción de la imagen en el tiempo de 
 
 #### <a name="cached-images"></a>Imágenes en caché
 
-Azure Container Instances usa un mecanismo de almacenamiento en caché para acelerar el tiempo de inicio del contenedor para las imágenes creadas con [imágenes de base de Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), incluidas `nanoserver:1809`, `servercore:ltsc2019` y `servercore:1809`. También se almacenan en caché las imágenes de Linux usadas comúnmente, como `ubuntu:1604` y `alpine:3.6`. En el caso de las imágenes de Windows y Linux, evite usar la etiqueta `latest`. Revise los [procedimientos recomendados de etiquetas de imágenes](../container-registry/container-registry-image-tag-version.md) de Container Registry para obtener instrucciones. Para obtener una lista actualizada de imágenes y etiquetas en caché, use la API [List Cached Images][list-cached-images].
+Azure Container Instances usa un mecanismo de almacenamiento en caché para acelerar el tiempo de inicio del contenedor para las imágenes creadas con [imágenes de base de Windows](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported), incluidas `nanoserver:1809`, `servercore:ltsc2019` y `servercore:1809`. También se almacenan en caché las imágenes de Linux usadas comúnmente, como `ubuntu:1604` y `alpine:3.6`. En el caso de las imágenes de Windows y Linux, evite usar la etiqueta `latest`. Revise los [procedimientos recomendados de etiquetas de imágenes](../container-registry/container-registry-image-tag-version.md) de Container Registry para obtener instrucciones. Para obtener una lista actualizada de imágenes y etiquetas en caché, use la API [List Cached Images][list-cached-images].
 
 > [!NOTE]
 > El uso de imágenes basadas en Windows Server 2019 en Azure Container Instances está en versión preliminar.

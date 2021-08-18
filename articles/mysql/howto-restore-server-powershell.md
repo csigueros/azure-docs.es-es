@@ -4,18 +4,20 @@ description: Obtenga información sobre cómo realizar una copia de seguridad y 
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.devlang: azurepowershel
+ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 43ce39a1fc05c8ffedd1ae8404cc20c1a498a73f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c5ebcb4d5807c93349f0e748bf3723899ea2a36
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94539063"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121779906"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Copia de seguridad y restauración de un servidor de Azure Database for MySQL mediante PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Periódicamente, se realizan copias de seguridad de los servidores de Azure Database for MySQL para habilitar las características de restauración. Con esta característica, puede restaurar el servidor y todas sus bases de datos en un servidor nuevo a un momento dado anterior.
 

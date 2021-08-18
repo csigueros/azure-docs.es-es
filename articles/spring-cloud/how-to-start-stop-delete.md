@@ -1,18 +1,18 @@
 ---
 title: Inicio, detención y eliminación de una aplicación de Azure Spring Cloud | Microsoft Docs
 description: Inicio, detención y eliminación de una aplicación de Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: f5fcd28f35260bf3b312e089e788f765c0219745
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 73fcf419438f24c784514c723397049d50dd87be
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070918"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015444"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Inicio, detención y eliminación de una aplicación de Azure Spring Cloud
 
@@ -32,7 +32,7 @@ Una vez que implemente una aplicación, puede iniciarla, detenerla y eliminarla 
 ## <a name="using-the-azure-cli"></a>Uso de la CLI de Azure
 
 > [!NOTE]
-> Puede usar parámetros opcionales y configurar los valores predeterminados con la CLI de Azure. Para más información sobre la CLI de Azure, lea [la documentación de referencia](/cli/azure/spring-cloud).  
+> Puede usar parámetros opcionales y configurar los valores predeterminados con la CLI de Azure. Para más información sobre la CLI de Azure, lea [la documentación de referencia](/cli/azure/spring-cloud).
 
 En primer lugar, instale la extensión de Azure Spring Cloud para la CLI de Azure de la manera siguiente:
 

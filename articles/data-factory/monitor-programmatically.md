@@ -2,17 +2,18 @@
 title: Supervisión mediante programación de una factoría de datos de Azure
 description: Aprenda a supervisar una canalización en una factoría de datos mediante distintos kits de desarrollo de software (SDK).
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 01/16/2018
 author: minhe-msft
 ms.author: hemin
 ms.custom: devx-track-python
-ms.openlocfilehash: 4c6c54138f7966c505ec0cdea2a90d2a8c1655f8
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 93187bd3f46fc85375289e911a816e2cb3e3da12
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005526"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749901"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Supervisión mediante programación de una factoría de datos de Azure
 
@@ -37,7 +38,7 @@ Para conocer las propiedades de la ejecución de canalización, consulte la [ref
 * Correcto
 * Con error
 * Cancelando
-* Canceled
+* Cancelado
 
 ## <a name="net"></a>.NET
 Para ver un tutorial completo sobre cómo crear y supervisar una canalización mediante el SDK de .NET, consulte [Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md).

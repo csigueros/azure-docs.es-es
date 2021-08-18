@@ -2,21 +2,21 @@
 title: 'Experiencias de usuario final para aplicaciones: Azure Active Directory'
 description: Azure Active Directory (Azure AD) proporciona varias maneras personalizables para implementar aplicaciones para los usuarios finales de su organización.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: mtillman
-ms.reviewer: arvindh
-ms.openlocfilehash: 9280cf669bb766ea82f2e668a56d2b3f743315fb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: lenalepa
+ms.openlocfilehash: 5cf4fe927d7079d866e90a789bb210730a6c4867
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081414"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738783"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiencias de usuario final para aplicaciones en Azure Active Directory
 
@@ -31,9 +31,9 @@ Los métodos que elija implementar en su organización son criterio suyo.
 
 ## <a name="azure-ad-my-apps"></a>Aplicaciones de Azure AD
 
-Mis aplicaciones de https://myapps.microsoft.com es un portal basado en web que permite que los usuarios finales que tengan cuenta organizativa en Azure Active Directory puedan ver e iniciar aplicaciones a las que el administrador de Azure AD les haya concedido acceso. Si es usuario final con [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), también puede usar las capacidades autoservicio de administración de grupos mediante Mis aplicaciones.
+Mis aplicaciones de <https://myapps.microsoft.com> es un portal basado en web que permite que los usuarios finales que tengan cuenta organizativa en Azure Active Directory puedan ver e iniciar aplicaciones a las que el administrador de Azure AD les haya concedido acceso. Si es usuario final con [Azure Active Directory Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), también puede usar las capacidades autoservicio de administración de grupos mediante Mis aplicaciones.
 
-De forma predeterminada, todas las aplicaciones se muestran juntas en una sola página. Sin embargo, puede usar colecciones para agrupar aplicaciones relacionadas y presentarlas en una pestaña independiente, lo que facilita su búsqueda. Por ejemplo, puede usar colecciones para crear agrupaciones lógicas de aplicaciones para roles de trabajo específicos, tareas, proyectos, etc. Para obtener información, vea [Creación de colecciones en el portal Mis aplicaciones](access-panel-collections.md). 
+De forma predeterminada, todas las aplicaciones se muestran juntas en una sola página. Sin embargo, puede usar colecciones para agrupar aplicaciones relacionadas y presentarlas en una pestaña independiente, lo que facilita su búsqueda. Por ejemplo, puede usar colecciones para crear agrupaciones lógicas de aplicaciones para roles de trabajo específicos, tareas, proyectos, etc. Para obtener información, vea [Creación de colecciones en el portal Mis aplicaciones](access-panel-collections.md).
 
 Mis aplicaciones es independiente de Azure Portal y no requiere que los usuarios tengan una suscripción de Azure u Microsoft 365.
 

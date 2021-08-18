@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: cbd12481312d310add15bf3d41e21e9c416f1c39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0a9aecec9e11a41b22b3f1639f653c14a6e7fce
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94491082"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285092"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Uso de Marketo para administrar clientes potenciales de marketplace comercial
 
@@ -67,7 +67,7 @@ En este artículo se describe cómo configurar el sistema CRM de Marketo para pr
 
 Cuando esté listo para configurar la información de administración de clientes potenciales de la oferta en el portal de publicación, siga estos pasos: 
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290).
 
 1. Seleccione la oferta y vaya a la pestaña **Configuración de la oferta**.
 

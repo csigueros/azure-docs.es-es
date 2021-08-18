@@ -4,12 +4,12 @@ description: Explicación de cómo se usa Apache Ambari en Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2021
-ms.openlocfilehash: 35338cad4364abbf233e3da81b05ba912959ed65
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 2a630d8cebf0c683a94e809269dcaef1df55c06e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064497"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112293471"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Uso de Apache Ambari en Azure HDInsight
 
@@ -77,4 +77,4 @@ Property Value: environment|env|dl_data_dt
 * [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Administración de clústeres de HDInsight mediante la API REST de Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]

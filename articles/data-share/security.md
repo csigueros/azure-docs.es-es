@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 12/17/2020
-ms.openlocfilehash: 4e62645dd5a7a8336df4fccf12daebc730a91168
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 770ee01d054aec084e9abd609af28e8125844e0f
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97678435"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895875"
 ---
 # <a name="security-overview-for-azure-data-share"></a>Información general de seguridad para Azure Data Share
 
@@ -30,8 +30,7 @@ Se pueden establecer controles de acceso a Azure Data Share en el nivel de recur
 Una vez que se crea o recibe un recurso compartido, los usuarios con el permiso adecuado para el recurso de Data Share pueden realizar cambios. Cuando el usuario que crea o recibe un recurso compartido deja la organización, no se finaliza el recurso compartido ni se detiene el flujo de datos. Otros usuarios con el permiso adecuado para el recurso de Data Share pueden seguir administrando el recurso compartido.
 
 ## <a name="share-data-from-or-to-data-stores-with-firewall-enabled"></a>Datos compartidos de almacenes de datos o con estos con el firewall habilitado
-Para compartir datos con cuentas de almacenamiento o de estas con el firewall activado, debe habilitar **Permitir servicios de Microsoft de confianza** en la cuenta de almacenamiento. Consulte [Configuración de redes virtuales y firewalls de Azure Storage](
-https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services) para más información.
+Para compartir datos con cuentas de almacenamiento o de estas con el firewall activado, debe habilitar **Permitir servicios de Microsoft de confianza** en la cuenta de almacenamiento. Consulte [Configuración de redes virtuales y firewalls de Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services) para más información.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

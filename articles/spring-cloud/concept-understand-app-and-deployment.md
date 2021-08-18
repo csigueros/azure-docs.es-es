@@ -1,18 +1,18 @@
 ---
 title: Aplicación e implementación en Azure Spring Cloud
 description: En este tema se explica la diferencia entre la aplicación y la implementación en Azure Spring Cloud.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8a543d3f6a875c41b3657ccc947c6f697bbcfd09
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b5a48a562781e68d7b653d55eb63d8a9edc71228
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129124"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860820"
 ---
 # <a name="app-and-deployment-in-azure-spring-cloud"></a>Aplicación e implementación en Azure Spring Cloud
 
@@ -27,6 +27,7 @@ Puede tener varias instancias de servicio en una sola suscripción de Azure, per
 El nivel estándar de Azure Spring Cloud permite que una aplicación tenga una implementación de producción y una implementación de almacenamiento provisional, de modo que pueda realizar una implementación azul/verde en ella fácilmente.
 
 ## <a name="app"></a>Aplicación
+
 Las siguientes características o propiedades se definen en el nivel de aplicación.
 
 | Características | Description |
@@ -58,4 +59,5 @@ Las siguientes características o propiedades se definen en el nivel de implemen
 * **La administración de implementación no está disponible en el nivel Básico**: use el nivel Estándar para la funcionalidad de implementación azul-verde.
 
 ## <a name="see-also"></a>Consulte también
+
 * [Configuración de un entorno de ensayo en Azure Spring Cloud](./how-to-staging-environment.md)

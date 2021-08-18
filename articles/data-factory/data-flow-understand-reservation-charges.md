@@ -3,15 +3,16 @@ title: Descripción del descuento por reserva para flujos de datos de Azure Data
 description: Obtenga información sobre cómo se aplica un descuento por reserva a los flujos de datos de ADF en ejecución. El descuento se aplica a dichos flujos de datos cada hora.
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: makromer
-ms.openlocfilehash: 12b640fd97f48e293320593b33ab2fdc54980c0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6796006bbac8987370bddab979356d5123fab204
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101716302"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726871"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-data-factory-data-flows"></a>Procedimiento para aplicar un descuento por reserva a flujo de datos de Azure Data Factory
 

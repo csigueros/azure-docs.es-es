@@ -2,22 +2,22 @@
 title: Mensaje de error en la página de la aplicación al iniciar sesión | Microsoft Docs
 description: Cómo resolver problemas con el inicio de sesión de Azure AD cuando la aplicación devuelve un mensaje de error.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mtillman
-ms.reviewer: asteen
+ms.author: davidmu
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ca0589da8cfa03553916755c4eb56ab74324501
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 1c1910eb106e7a3e405f58ba672c38fa108544d2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081756"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738899"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Mensaje de error en la página de la aplicación cuando el usuario inicia sesión
 
@@ -25,11 +25,11 @@ En este escenario, Azure Active Directory (Azure AD) inicia la sesión del usuar
 
 Hay algunos posibles motivos de por qué la aplicación no aceptó la respuesta de Azure AD. Si el mensaje de error no identifica claramente lo que no está presente en la respuesta, intente lo siguiente:
 
--   Si la aplicación es la Galería de Azure AD, compruebe que ha seguido todos los pasos del artículo [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure AD](./debug-saml-sso-issues.md).
+- Si la aplicación es la Galería de Azure AD, compruebe que ha seguido todos los pasos del artículo [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure AD](./debug-saml-sso-issues.md).
 
--   Use una herramienta como [Fiddler](https://www.telerik.com/fiddler) para capturar la solicitud, la respuesta y el token de SAML.
+- Use una herramienta como [Fiddler](https://www.telerik.com/fiddler) para capturar la solicitud, la respuesta y el token de SAML.
 
--   Envíe la respuesta SAML al proveedor de la aplicación y pídale lo que falta.
+- Envíe la respuesta SAML al proveedor de la aplicación y pídale lo que falta.
 
 ## <a name="attributes-are-missing-from-the-saml-response"></a>Faltan atributos de la respuesta SAML
 
@@ -58,7 +58,7 @@ Para agregar un atributo en la configuración de Azure AD que se enviará en la 
 
    1. Seleccione **Agregar atributo**. Escriba el **Nombre** y seleccione el **Valor** de la lista desplegable.
 
-   1.  Seleccione **Guardar**. En la tabla verá el nuevo atributo.
+   1. Seleccione **Guardar**. En la tabla verá el nuevo atributo.
 
 9. Guarde la configuración.
 
@@ -124,9 +124,9 @@ Para cambiar qué partes del token de SAML que Azure AD firma digitalmente, siga
 
 9. Seleccione la **opción de firma** que espera la aplicación entre estas opciones:
 
-   * **Firmar respuesta SAML**
-   * **Firmar respuesta y aserción SAML**
-   * **Firmar aserción SAML**
+   - **Firmar respuesta SAML**
+   - **Firmar respuesta y aserción SAML**
+   - **Firmar aserción SAML**
 
    La próxima vez que el usuario inicie sesión en la aplicación, Azure AD firmará la parte de la respuesta de SAML seleccionada.
 
@@ -160,4 +160,5 @@ Para cambiar el algoritmo de firma, siga estos pasos:
    La próxima vez que el usuario inicie sesión en la aplicación, Azure AD firmará el token SAML con el algoritmo SHA-1.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure AD](./debug-saml-sso-issues.md).

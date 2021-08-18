@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: f0c24940e606020dc45e5a000cfcb030fd806d4b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 67a564b813014ffc25049f0694ef05977d65efe6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047492"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463059"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adición de una capa de imagen a un mapa
 
@@ -38,7 +38,7 @@ La capa de imagen admite los siguientes formatos de imagen:
 
 ## <a name="add-an-image-layer"></a>Adición de una capa de imagen
 
-En el código siguiente se superpone una imagen de un [mapa de Newark, Nueva Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) en el mapa. Se crea un elemento [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) pasando una dirección URL a una imagen y las coordenadas de las cuatro esquinas en el formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
+En el código siguiente se superpone una imagen de un mapa de Newark, Nueva Jersey, de 1922 en el mapa. Se crea un elemento [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) pasando una dirección URL a una imagen y las coordenadas de las cuatro esquinas en el formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ```javascript
 //Create an image layer and add it to the map.

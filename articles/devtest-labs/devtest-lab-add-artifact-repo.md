@@ -3,12 +3,12 @@ title: Adición de un repositorio de Git a un laboratorio en Azure DevTest Labs 
 description: Aprenda a agregar un repositorio de GIT de GitHub o Azure DevOps Services para el origen de artefactos personalizados en Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2024c94c433559f067874fa852478a37e41eb53d
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483149"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539896"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adición de un repositorio de Git para almacenar artefactos personalizados y plantillas de Resource Manager
 
@@ -19,7 +19,7 @@ Ofrecemos un [repositorio de GitHub de artefactos](https://github.com/Azure/azur
 Cuando crea una máquina virtual, puede guardar la plantilla de Resource Manager, personalizarla si lo desea y usarla más adelante para crear más máquinas virtuales. Debe crear su propio repositorio privado para almacenar las plantillas personalizadas de Resource Manager.  
 
 * Para obtener información sobre cómo crear un repositorio de GitHub, consulte [Entrenamiento militar de GitHub](https://help.github.com/categories/bootcamp/).
-* Para aprender a crear un proyecto de Azure DevOps Services con un repositorio de Git, consulte [Conexión con Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Para aprender a crear un proyecto de Azure DevOps Services con un repositorio de Git, consulte [Conexión con Azure DevOps Services](https://azure.microsoft.com/services/devops/).
 
 La siguiente ilustración es un ejemplo del aspecto que podría tener en GitHub un repositorio que contiene artefactos:  
 

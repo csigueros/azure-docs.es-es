@@ -2,18 +2,18 @@
 title: 'Cambio del rendimiento de discos administrados de Azure: CLI/PowerShell'
 description: Aprenda a cambiar los niveles de rendimiento de los discos administrados existentes mediante el módulo de Azure PowerShell o la CLI de Azure.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 32f589be39740d62ef77967867522688d29a3618
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6d13f5927e31fc7f8cf412f6bba6088360af610d
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673505"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356228"
 ---
 # <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>El nivel de rendimiento se puede cambiar mediante el módulo Azure PowerShell o la CLI de Azure
 

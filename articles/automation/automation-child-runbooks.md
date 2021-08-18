@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 101ff9affe43dcc97de6cf5a535c82559aafeced
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: eeca2c5ed3e1d428d7ab521160604f588e5b0b4a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834919"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725698"
 ---
 # <a name="create-modular-runbooks"></a>Creación de runbooks modulares
 
@@ -96,7 +96,7 @@ En el ejemplo siguiente se inicia un runbook secundario con parámetros y se esp
 Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+$ServicePrincipalConnection = Get-AzAutomationConnection -Name 'AzureRunAsConnection'
 
 Connect-AzAccount `
     -ServicePrincipal `

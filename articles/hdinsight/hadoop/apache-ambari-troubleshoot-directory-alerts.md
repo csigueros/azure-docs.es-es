@@ -4,12 +4,12 @@ description: Debate y análisis de posibles causas y soluciones para las alertas
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 47d1f9797a44d7dc918677c21ffc7a124808525d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2e5e74c49b7654c2ade20e78f7098192649f9385
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943278"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300136"
 ---
 # <a name="scenario-apache-ambari-directory-alerts-in-azure-hdinsight"></a>Escenario: alertas de directorio de Apache Ambari en Azure HDInsight
 
@@ -51,4 +51,4 @@ Cree manualmente los directorios que faltan en los nodos de trabajo afectados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

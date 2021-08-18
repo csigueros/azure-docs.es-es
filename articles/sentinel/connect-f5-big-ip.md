@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 17c31bbe54326962c26ab53f702cbd28d1e36c6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aae69e8ff7cb0c3002bb9333f6d7685b9e247a28
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100092798"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254114"
 ---
 # <a name="connect-your-f5-big-ip-appliance"></a>Conexión del dispositivo de F5 BIG-IP 
 
 El conector de datos de F5 BIG-IP permite conectar fácilmente todos los registros de F5 BIG-IP con Azure Sentinel para ver libros, crear alertas personalizadas y mejorar la investigación. de modo que dispondrá de más información sobre la red de la organización y de mejores capacidades de seguridad. La integración entre F5 BIG-IP y Azure Sentinel usa la API de REST.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 > [!NOTE]
 > Los datos se almacenarán en la ubicación geográfica del área de trabajo en la que Azure Sentinel se ejecute.
@@ -48,8 +50,6 @@ Los registros pueden tardar hasta 20 minutos en empezar a aparecer en Log Analyt
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar F5 BIG-IP a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
-
-
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

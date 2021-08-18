@@ -2,18 +2,18 @@
 title: Niveles de rendimiento de discos administrados de Azure
 description: Información sobre los niveles de rendimiento de discos administrados.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: af1509073248b46575881beef7b9800107e7fed7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c45bc6fa0df5883f060458c3ce92680752e5875a
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677318"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358533"
 ---
 # <a name="performance-tiers-for-managed-disks"></a>Niveles de rendimiento de discos administrados
 

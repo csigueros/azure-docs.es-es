@@ -2,18 +2,17 @@
 title: Información de los puntos de conexión personalizados de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: mediante las consultas de enrutamiento para enrutar los mensajes del dispositivo a la nube a puntos de conexión personalizados.'
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 4ad57473e0950f031fbeadee2302f85557ed526f
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: ebc9240e75e5b30b9159f15f4ec1825c1d2b03ab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388268"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740501"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Uso de rutas de mensajes y de puntos de conexión personalizados para mensajes de dispositivo a nube
 

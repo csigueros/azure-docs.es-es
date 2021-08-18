@@ -3,12 +3,12 @@ title: Referencia de errores para las comprobaciones de estado del registro
 description: Códigos de error y posibles soluciones de los problemas encontrados tras la ejecución del comando az acr para el diagnóstico de comprobación de mantenimiento en Azure Container Registry
 ms.topic: article
 ms.date: 01/25/2021
-ms.openlocfilehash: 12cdd1e75a51097bab3830cdd0e6567e53f91dce
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: f4672d114c963717eb77725f0a159b8a21525f9a
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537425"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220405"
 ---
 # <a name="health-check-error-reference"></a>Referencia de errores de la comprobación de mantenimiento
 
@@ -114,7 +114,7 @@ Este error significa que la CLI no es compatible con la versión instalada actua
 
 Si quiere conocer las opciones para comprobar el mantenimiento de un registro, consulte [Comprobar el mantenimiento de Azure Container Registry](container-registry-check-health.md).
 
-Vea las [preguntas más frecuentes](container-registry-faq.md) para conocer las preguntas más habituales y otros problemas conocidos sobre Azure Container Registry.
+Vea las [preguntas más frecuentes](container-registry-faq.yml) para conocer las preguntas más habituales y otros problemas conocidos sobre Azure Container Registry.
 
 
 

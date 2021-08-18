@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 6aa21dda1f19335a542edf729135d55a9f3b9176
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c6dbfd0020598c280e006e863467a4dfa9b29a0c
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083483"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284512"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -37,7 +37,7 @@ Los sondeos de estado admiten varios protocolos. La disponibilidad de un protoco
 >Revise este documento en su totalidad, incluidas las [instrucciones de diseño importantes](#design) que se indican a continuación para crear un servicio confiable.
 
 >[!IMPORTANT]
->Los sondeos de estado de Load Balancer parten de la dirección IP 168.63.129.16 y no se deben bloquear para que los sondeos marquen la instancia como activa.  Para más información, consulte el apartado [Probe source IP address](#probesource) (Dirección IP de origen de sondeo). Para ver este tráfico de sondeo dentro de la instancia de back-end, revise [estas preguntas frecuentes](load-balancer-faqs.md#probes).
+>Los sondeos de estado de Load Balancer parten de la dirección IP 168.63.129.16 y no se deben bloquear para que los sondeos marquen la instancia como activa.  Para más información, consulte el apartado [Probe source IP address](#probesource) (Dirección IP de origen de sondeo). Para ver este tráfico de sondeo dentro de la instancia de back-end, revise [estas preguntas frecuentes](/azure/load-balancer/load-balancer-faqs#probes).
 
 >[!IMPORTANT]
 >Independientemente del umbral de tiempo de espera configurado, los sondeos de estado del equilibrador de carga HTTP o HTTPS comprobarán automáticamente una instancia si el servidor devuelve cualquier código de estado que no sea HTTP 200 u OK o si la conexión se termina a través del restablecimiento de TCP.
@@ -253,7 +253,7 @@ No habilite [las marcas de tiempo TCP](https://tools.ietf.org/html/rfc1323).  Ha
 
 [Standard Load Balancer](./load-balancer-overview.md), tanto público como interno, expone el estado del sondeo de estado por punto de conexión y punto de conexión de back-end como métricas multidimensionales mediante Azure Monitor. Otros servicios de Azure o aplicaciones de asociados pueden usar estas métricas. 
 
-La instancia pública básica de Load Balancer expone el estado del sondeo de estado resumido por grupo de back-end mediante registros de Azure Monitor.  Los registros de Azure Monitor no están disponible para las instancias internas básicas de Load Balancer.  Puede usar los [registros de Azure Monitor](load-balancer-monitor-log.md) para comprobar el estado del sondeo de estado y el número de sondeos del equilibrador de carga público. El registro se puede utilizar con Power BI o con Azure Operational Insights para proporcionar estadísticas del estado de mantenimiento del equilibrador de carga.
+La instancia pública básica de Load Balancer expone el estado del sondeo de estado resumido por grupo de back-end mediante registros de Azure Monitor.  Los registros de Azure Monitor no están disponible para las instancias internas básicas de Load Balancer.  Puede usar los [registros de Azure Monitor](./monitor-load-balancer.md) para comprobar el estado del sondeo de estado y el número de sondeos del equilibrador de carga público. El registro se puede utilizar con Power BI o con Azure Operational Insights para proporcionar estadísticas del estado de mantenimiento del equilibrador de carga.
 
 ## <a name="limitations"></a>Limitaciones
 

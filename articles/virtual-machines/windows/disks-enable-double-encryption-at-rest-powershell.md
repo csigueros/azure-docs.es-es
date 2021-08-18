@@ -2,18 +2,18 @@
 title: Azure PowerShell - Habilitación del cifrado doble en reposo - discos administrados
 description: Habilite el cifrado doble en reposo para los datos de discos administrados mediante Azure PowerShell.
 author: roygara
-ms.date: 08/24/2020
+ms.date: 06/29/2021
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: cfef3925152c0b94a59c662443cf202724dadc0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe713ac38e2dc5ac9163a4cb86a69105ae5aa52a
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549556"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358982"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-double-encryption-at-rest-for-managed-disks"></a>Uso del módulo de Azure PowerShell para habilitar el cifrado doble en reposo para discos administrados
 

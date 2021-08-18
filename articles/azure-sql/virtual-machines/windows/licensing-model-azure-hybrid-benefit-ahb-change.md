@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8eca44fa7e5a23b38c8cfa7368aace1ea0a942eb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6d840893de2c516137e54d015123fa9249b93d54
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080064"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434631"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambio del modelo de licencia de una máquina virtual de SQL en Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,7 +48,7 @@ Para indicar el uso de la Ventaja híbrida de Azure para SQL Server en una VM d
 
 El tipo de licencia de SQL Server se puede configurar cuando se aprovisiona la VM o en cualquier momento posterior. El cambio entre los modelos de licencia no genera ningún tiempo de inactividad, no reinicia la máquina virtual ni el servicio SQL Server, no agrega ningún costo adicional y es efectivo inmediatamente. De hecho, activar la Ventaja híbrida de Azure *reduce* el costo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 El cambio del modelo de licencia de la máquina virtual con SQL Server tiene los siguientes requisitos: 
 
@@ -61,11 +61,9 @@ El cambio del modelo de licencia de la máquina virtual con SQL Server tiene lo
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
 El modelo de licencia se puede modificar directamente desde el portal: 
 
-1. Abra [Azure Portal](https://portal.azure.com) y el [recurso de las máquinas virtuales de SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) para su VM con SQL Server. 
+1. Abra [Azure Portal](https://portal.azure.com) y el [recurso de las máquinas virtuales de SQL](manage-sql-vm-portal.md#access-the-resource) para su VM con SQL Server. 
 1. Seleccione **Configurar** en **Configuración**. 
 1. Seleccione la opción **Ventaja híbrida de Azure** y active la casilla para confirmar que tiene una licencia de SQL Server con Software Assurance. 
 1. Seleccione **Aplicar** en la parte inferior de la página **Configurar**. 

@@ -4,16 +4,16 @@ description: Aprenda a configurar puntos de conexión de red de Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 706ce7fbcc727be365c8b9ebc65d8ac2c9817c2f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 6d92350a46319400cb0c5ec8dce4b87ef1da5487
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287633"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113224983"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configuración de puntos de conexión de red de Azure Files
 
@@ -26,6 +26,13 @@ Los puntos de conexión públicos y privados existen en la cuenta de almacenamie
 Este artículo se centra en cómo configurar los puntos de conexión de una cuenta de almacenamiento para acceder directamente al recurso compartido de archivos de Azure. La mayoría de los detalles proporcionados en este documento también se aplican al modo en que Azure File Sync interopera con puntos de conexión públicos y privados de la cuenta de almacenamiento; sin embargo, para más información sobre las consideraciones de redes para una implementación de Azure File Sync, consulte [Configuración del proxy y el firewall de Azure File Sync](../file-sync/file-sync-firewall-and-proxy.md).
 
 Se recomienda leer [Consideraciones de redes para Azure Files](storage-files-networking-overview.md) antes de pasar a esta guía de procedimientos.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 ## <a name="prerequisites"></a>Requisitos previos
 

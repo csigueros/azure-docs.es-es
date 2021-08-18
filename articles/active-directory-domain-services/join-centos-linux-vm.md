@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 06/17/2021
 ms.author: justinha
-ms.openlocfilehash: 76fc11384b55337f581a74239d4a40b90b284f32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d78416308647af62bac1e44366b0ea978670889b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619664"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284444"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Unión de una máquina virtual CentOS Linux a un dominio administrado de Azure Active Directory Domain Services
 
@@ -79,7 +79,7 @@ Cuando haya terminado, guarde y salga del archivo *hosts* mediante el comando `:
 La máquina virtual necesita algunos paquetes adicionales para unir la máquina virtual al dominio administrado. Para instalar y configurar estos paquetes, actualice e instale las herramientas de unión a dominio mediante `yum`:
 
 ```console
-sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+sudo yum install adcli realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
 ```
 
 ## <a name="join-vm-to-the-managed-domain"></a>Unión de una máquina virtual al dominio administrado
@@ -109,7 +109,7 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual, una 
 1. Por último, una la VM al dominio administrado con el comando `realm join`. Use la misma cuenta de usuario que forma parte del dominio administrado que especificó en el comando `kinit` anterior, como `contosoadmin@AADDSCONTOSO.COM`:
 
     ```console
-    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
+    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --membership-software=adcli
     ```
 
 La máquina virtual tarda unos segundos en unirse al dominio administrado. La siguiente salida de ejemplo muestra que la máquina virtual se ha unido correctamente al dominio administrado:

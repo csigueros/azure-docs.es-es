@@ -1,19 +1,20 @@
 ---
 title: Escenas, capturas y fotogramas clave de Azure Video Analyzer for Media (anteriormente, Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: En este tema encontrará información general sobre las escenas, capturas y fotogramas clave de Azure Video Analyzer for Media (anteriormente, Video Indexer).
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: a3408ea644e5a2ac8ccc9bde808c232a705fd57e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 80494f98d789e5d04454065ff5cbf8ba97fd62f1
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386918"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119199"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Escenas, capturas y fotogramas clave
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.openlocfilehash: 3fa8b81a1dbd13c8570783b354696c8af81e7e7f
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 3c55bdb003f16539061bcbeae0f8cf7ed5cc660d
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187381"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728289"
 ---
 # <a name="integrate-with-azure-active-directory-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integración con Azure Active Directory Application Proxy en un servidor de Servicio de inscripción de dispositivos de red (NDES)
 
@@ -25,7 +25,7 @@ Si no está familiarizado con Azure AD Application Proxy y quiere obtener más 
 
 Azure AD Application Proxy forma parte de Azure. Proporciona una cantidad masiva de ancho de banda de red y de infraestructura de servidor para una mejor protección frente a ataques de denegación de servicio distribuidos (DDOS) y una disponibilidad óptima. Además, no es necesario abrir puertos del firewall externos en la red local y no se requiere ningún servidor de red perimetral. Todo el tráfico se origina en la entrada. Para obtener una lista completa de los puertos de salida, consulte [Tutorial: Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure Active Directory](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-> Azure AD Application Proxy es una característica que solo está disponible si usa la edición Prémium o Básica de Azure Active Directory. Para más información, consulte los [precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
+> Azure AD Application Proxy es una característica que solo está disponible si usa la edición Prémium o Básica de Azure Active Directory. Para más información, consulte los [precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). 
 > Si tiene licencias de Enterprise Mobility + Security (EMS), puede usar esta solución.
 > El conector de Azure AD Application Proxy solo se instala en Windows Server 2012 R2 o sus versiones posteriores. Este también es un requisito del servidor NDES.
 

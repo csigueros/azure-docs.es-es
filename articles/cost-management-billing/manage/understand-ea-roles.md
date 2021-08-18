@@ -6,15 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 07/06/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 7331f9a894d36ee15702a8fe53804efd53049762
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 82e5b16ef4f7892a52ea0ec3d332104cbf99bb68
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284126"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765482"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Administración de los roles del Contrato Enterprise de Azure
 
@@ -208,10 +208,10 @@ En la tabla siguiente se muestra la relación entre los roles de administrador d
 |Rol de administrador de Contrato Enterprise|Directiva de visualización de cargos por rol|Rol de Azure|Vista de precios|
 |---|---|---|---|
 |Propietario de la cuenta o administrador de departamento|✔ Habilitado|Propietario|Precios de EA de la organización|
-|Propietario de la cuenta o administrador de departamento|✘ Deshabilitado|Propietario|Precio de venta|
+|Propietario de la cuenta o administrador de departamento|✘ Deshabilitado|Propietario|No hay precios|
 |Propietario de la cuenta o administrador de departamento|✔ Habilitado |None|No hay precios|
 |Propietario de la cuenta o administrador de departamento|✘ Deshabilitado |None|No hay precios|
-|None|No aplicable |Propietario|Precio de venta|
+|None|No aplicable |Propietario|No hay precios|
 
 El rol de administrador de Enterprise y las directivas de visualización de cargos se establecen en Enterprise Portal. El rol de Azure puede actualizarse en Azure Portal. Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 

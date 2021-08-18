@@ -12,12 +12,12 @@ ms.topic: how-to
 zone_pivot_groups: aml-control-methods
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 4583d65a38b4d1f3400d58c69e3615e9cb50556f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: c222eebc1c2705cc2a5a65b5e11eb12b9a014d6e
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885171"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296359"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Generar perfiles del modelo para determinar el uso de recursos
 
@@ -137,9 +137,8 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 * [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Creación de aplicaciones cliente para consumir servicios web](how-to-consume-web-service.md)
 * [Actualización de servicios web](how-to-deploy-update-web-service.md)
-* [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
+* [Cómo implementar un modelo con una imagen personalizada de Docker](./how-to-deploy-custom-container.md)
 * [Uso de TLS para proteger un servicio web con Azure Machine Learning](how-to-secure-web-service.md)
 * [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Recopilar datos de modelos en producción](how-to-enable-data-collection.md)
 * [Creación de flujos de trabajo de aprendizaje automático controlados por eventos (versión preliminar)](how-to-use-event-grid.md)
-

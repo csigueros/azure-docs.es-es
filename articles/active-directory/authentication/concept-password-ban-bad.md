@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/13/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 740201b84323f5a01ab01bb21ec458a19832e499
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1910a9c62b1d1ab6de130ace3d759243d9ff36d6
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652027"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687864"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminación de contraseñas incorrectas mediante Protección con contraseña de Azure Active Directory
 
@@ -220,7 +220,7 @@ Si un usuario intenta restablecer una contraseña a algo que estaría prohibido,
 > [!NOTE]
 > Los usuarios de AD DS local que no se sincronizan con Azure AD también se benefician de Protección con contraseña de Azure AD según las licencias existentes para los usuarios sincronizados.
 
-Puede encontrar información adicional sobre licencias, incluidos los costos, en la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Puede encontrar información adicional sobre licencias, incluidos los costos, en la [página de precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,12 +4,12 @@ description: Solución de los problemas por los que no se puede iniciar sesión 
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/31/2019
-ms.openlocfilehash: 03657606f7e24436ff5a851fe7eef1e0c4d5dc24
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: eab5097ef27865b2d5d46370f60aebdac3739d24
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944317"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299688"
 ---
 # <a name="scenario-unable-to-log-into-azure-hdinsight-cluster"></a>Escenario: no se puede registrar en el clúster de Azure HDInsight.
 
@@ -33,4 +33,4 @@ Para resolver problemas habituales, pruebe uno o varios de los pasos siguientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 18cc42c3447de733447c27db52a9a6d664539464
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0bf9d40fd501a72aaaf104dcd0a0fe03790f008
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89400369"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743917"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -56,7 +56,7 @@ Para ver y configurar las opciones de configuración Git, puede hacer clic en el
 >
 >
 
-Para obtener información sobre la habilitación o la deshabilitación del acceso de Git mediante la API de REST, consulte [Enable or disable Git access using the REST API](/rest/api/apimanagement/2019-12-01/tenantaccess?EnableGit)(Habilitación o deshabilitación del acceso de Git mediante la API de REST).
+Para obtener información sobre la habilitación o la deshabilitación del acceso de Git mediante la API de REST, consulte [Enable or disable Git access using the REST API](/rest/api/apimanagement/2020-12-01/tenant-access?EnableGit)(Habilitación o deshabilitación del acceso de Git mediante la API de REST).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Guardado de la configuración del servicio en el repositorio de Git
 
@@ -68,7 +68,7 @@ Transcurridos unos segundos, la configuración se guarda y se muestra el estado 
 
 Una vez que la configuración se guarda en el repositorio, se puede clonar.
 
-Para obtener información acerca de cómo realizar esta operación mediante la API de REST, consulte [Commit configuration snapshot using the REST API](/rest/api/apimanagement/2019-12-01/tenantaccess?CommitSnapshot)(Confirmación de la instantánea de configuración mediante la API de REST).
+Para obtener información acerca de cómo realizar esta operación mediante la API de REST, consulte [Commit configuration snapshot using the REST API](/rest/api/apimanagement/2020-12-01/tenant-access?CommitSnapshot)(Confirmación de la instantánea de configuración mediante la API de REST).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Para clonar el repositorio en el equipo local
 
@@ -142,7 +142,7 @@ git push
 
 Una vez confirmados los cambios locales e insertados en el repositorio del servidor, puede implementarlos en la instancia del servicio Administración de API.
 
-Para obtener información acerca de cómo realizar esta operación mediante la API de REST, consulte [Deploy Git changes to configuration database using the REST API](/rest/api/apimanagement/2019-12-01/tenantconfiguration)(Implementación de cambios de Git en la base de datos de configuración mediante la API de REST).
+Para obtener información acerca de cómo realizar esta operación mediante la API de REST, consulte [Deploy Git changes to configuration database using the REST API](/rest/api/apimanagement/2020-12-01/tenant-configuration)(Implementación de cambios de Git en la base de datos de configuración mediante la API de REST).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Referencia de estructura de archivo y carpeta del repositorio local de Git
 
@@ -172,8 +172,8 @@ Estos archivos se pueden crear, eliminar, editar y administrar en el sistema de 
 > [!NOTE]
 > Las siguientes entidades no están en el repositorio de Git y no se pueden configurar mediante Git.
 >
-> * [Usuarios](/rest/api/apimanagement/2019-12-01/user)
-> * [Suscripciones](/rest/api/apimanagement/2019-12-01/subscription)
+> * [Usuarios](/rest/api/apimanagement/2020-12-01/user)
+> * [Suscripciones](/rest/api/apimanagement/2020-12-01/subscription)
 > * Valores con nombre
 > * Entidades del portal de desarrolladores distintas de los estilos
 >
@@ -222,14 +222,14 @@ El valor final, `$ref-policy`, se asigna al archivo de instrucciones de directiv
 ### <a name="apis-folder"></a>carpeta de API
 La carpeta `apis` contiene una carpeta para cada API de la instancia de servicio, que contiene los elementos siguientes.
 
-* `apis\<api name>\configuration.json` : es la configuración de la API y contiene información acerca de la dirección URL del servicio back-end y las operaciones. Se trata de la misma información que se devolvería si se llamase a [Obtener una API específica](/rest/api/apimanagement/2019-12-01/apis/get) con `export=true` en formato `application/json`.
+* `apis\<api name>\configuration.json` : es la configuración de la API y contiene información acerca de la dirección URL del servicio back-end y las operaciones. Se trata de la misma información que se devolvería si se llamase a [Obtener una API específica](/rest/api/apimanagement/2020-12-01/apis/get) con `export=true` en formato `application/json`.
 * `apis\<api name>\api.description.html`: es la descripción de la API y corresponde a la propiedad `description` de la [entidad de API](/java/api/com.microsoft.azure.storage.table.entityproperty).
 * `apis\<api name>\operations\`: esta carpeta contiene archivos `<operation name>.description.html` que se asignan a las operaciones de la API. Cada archivo contiene la descripción de una única operación en la API, que se asigna a la propiedad `description` de la [entidad de operación](/rest/api/visualstudio/operations/list#operationproperties) en la API de REST.
 
 ### <a name="groups-folder"></a>carpeta de grupos
 La carpeta `groups` contiene una carpeta para cada grupo definido en la instancia de servicio.
 
-* `groups\<group name>\configuration.json`: es la configuración para el grupo. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un grupo específico](/rest/api/apimanagement/2019-12-01/group/get) .
+* `groups\<group name>\configuration.json`: es la configuración para el grupo. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un grupo específico](/rest/api/apimanagement/2020-12-01/group/get) .
 * `groups\<group name>\description.html`: es la descripción del grupo y corresponde a la propiedad `description` de la [entidad de servicio](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>carpeta de directivas
@@ -249,7 +249,7 @@ La carpeta `portalStyles` contiene la configuración y las hojas de estilo para 
 ### <a name="products-folder"></a>carpeta de productos
 La carpeta `products` contiene una carpeta para cada producto que se define en la instancia de servicio.
 
-* `products\<product name>\configuration.json`: es la configuración del producto. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un producto específico](/rest/api/apimanagement/2019-12-01/product/get) .
+* `products\<product name>\configuration.json`: es la configuración del producto. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un producto específico](/rest/api/apimanagement/2020-12-01/product/get) .
 * `products\<product name>\product.description.html`: es la descripción del producto y corresponde a la propiedad `description` de la [entidad de producto](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) de la API de REST.
 
 ### <a name="templates"></a>plantillas

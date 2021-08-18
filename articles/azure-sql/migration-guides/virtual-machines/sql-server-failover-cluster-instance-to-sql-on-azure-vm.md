@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: d21a9b91a7030deb805c80034ca0515e2b226b16
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 27b0841e601fb7d2eaa7712495b7440a0b886d7c
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954585"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769262"
 ---
 # <a name="migrate-failover-cluster-instance-to-sql-server-on-azure-vms"></a>Migración de una instancia de clúster de conmutación por error a SQL Server en máquinas virtuales de Azure
 
@@ -379,7 +379,7 @@ La instancia de clúster de conmutación por error de SQL Server está lista.
     - Implemente [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
     - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Para supervisión y administración:
-    - Considere la posibilidad de implementar [Azure Cost Management](../../../cost-management-billing/cloudyn/overview.md) para supervisar el gasto y el uso de recursos.
+    - Considere la posibilidad de implementar [Azure Cost Management](../../../cost-management-billing/cost-management-billing-overview.md) para supervisar el gasto y el uso de recursos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

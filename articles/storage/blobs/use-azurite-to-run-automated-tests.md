@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: ikivanc
-ms.openlocfilehash: c4e8a11e0c46cb9a138a1a66060d9fdcc72c192e
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 7ad2fb4a808f2fef794a904287c25bd0643a085f
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111354"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378608"
 ---
 # <a name="run-automated-tests-by-using-azurite"></a>Ejecución de pruebas automatizadas mediante Azurite
 
@@ -61,7 +61,7 @@ Obtenga información sobre cómo escribir pruebas automatizadas en puntos de con
    python -m venv .venv
    ```
 
-1. Cree un contenedor e inicialice las variables de entorno. Utilice un archivo [PyTest](https://docs.pytest.org/) [conftest.py](https://docs.pytest.org/en/2.1.0/plugins.html) para generar pruebas. Este es un ejemplo de un archivo conftest.py:
+1. Cree un contenedor e inicialice las variables de entorno. Utilice un archivo [PyTest](https://docs.pytest.org/) [conftest.py](https://docs.pytest.org/en/latest/how-to/writing_plugins.html#conftest-py-plugins) para generar pruebas. Este es un ejemplo de un archivo conftest.py:
 
    ```python
    from azure.storage.blob import BlobServiceClient

@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eabb6e657db7ea39bf0fb746bb596f496bc5efaf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e24ea1fa02a70e63c8eaab21acff1d1c7b625e9a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958317"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727725"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -117,7 +117,7 @@ El método más sencillo y recomendado para permitir la autenticación en la nub
 
 Tanto si elige PHS o PTA, no olvide habilitar el [inicio de sesión único de conexión directa](./how-to-connect-sso.md) para permitir que los usuarios accedan a las aplicaciones en la nube sin escribir constantemente su nombre de usuario y contraseña cuando usan dispositivos Windows 7 y 8 en la red de la empresa. Sin el inicio de sesión único, los usuarios deben recordar cada contraseña específica de la aplicación e iniciar sesión en cada aplicación. Del mismo modo, el personal de TI necesita crear y actualizar las cuentas de usuario para cada aplicación como, por ejemplo, Microsoft 365, Box y Salesforce. Los usuarios tienen que recordar sus contraseñas, además de dedicar tiempo a iniciar sesión en cada aplicación. Proporcionar un mecanismo estándar de inicio de sesión único para toda la empresa es fundamental para mejorar la experiencia del usuario, reducir el riesgo, generar informes y facilitar el gobierno.
 
-En el caso de las organizaciones que ya usan AD FS u otro proveedor de autenticación local, el hecho de pasarse a Azure AD como proveedor de identidades puede reducir la complejidad y mejorar la disponibilidad. A menos que tenga escenarios específicos para el uso de la federación, se recomienda migrar de la autenticación federada a PHS y SSO de conexión directa o a PTA y SSO de conexión directa para disfrutar de las ventajas de tener una superficie local reducida y la flexibilidad que ofrece la nube con las experiencias de usuario mejoradas. Para más información, consulte [Migración de la federación a la sincronización de hash de contraseña para Azure Active Directory](./plan-migrate-adfs-password-hash-sync.md).
+En el caso de las organizaciones que ya usan AD FS u otro proveedor de autenticación local, el hecho de pasarse a Azure AD como proveedor de identidades puede reducir la complejidad y mejorar la disponibilidad. A menos que tenga escenarios específicos para el uso de la federación, se recomienda migrar de la autenticación federada a PHS y SSO de conexión directa o a PTA y SSO de conexión directa para disfrutar de las ventajas de tener una superficie local reducida y la flexibilidad que ofrece la nube con las experiencias de usuario mejoradas. Para más información, consulte [Migración de la federación a la sincronización de hash de contraseña para Azure Active Directory](./migrate-from-federation-to-cloud-authentication.md).
 
 ### <a name="enable-automatic-deprovisioning-of-accounts"></a>Habilitación del desaprovisionamiento automático de cuentas
 

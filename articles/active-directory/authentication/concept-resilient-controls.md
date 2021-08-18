@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/08/2020
+ms.date: 07/13/2021
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db90d49034fb61c26bf4528045d2b3f54d7a30fc
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: fe5f9987cb99aa90d1452b4f442e326d4e95bcee
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963847"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687810"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -72,7 +72,7 @@ Incorpore los siguientes controles de acceso en las directivas de acceso condici
 5. Si va a proteger el acceso de VPN mediante la extensión NPS de Azure AD MFA, considere la posibilidad de federar la solución VPN como una [aplicación SAML](../manage-apps/view-applications-portal.md) y determinar la categoría de la aplicación como se recomienda a continuación. 
 
 >[!NOTE]
-> Las directivas basadas en riesgos requieren licencias [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
+> Las directivas basadas en riesgos requieren licencias [Azure AD Premium P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 El siguiente ejemplo describe las directivas que debe crear para proporcionar un control de acceso resistente para que los usuarios accedan a sus aplicaciones y recursos. En este ejemplo, necesitará un grupo de seguridad **AppUsers** con los usuarios de destino a los que quiere dar acceso, un grupo denominado **CoreAdmins** con los administradores principales y un grupo denominado  **EmergencyAccess** con las cuentas de acceso de emergencia.
 Este conjunto de directivas de ejemplo concederá a los usuarios seleccionados en **AppUsers** acceso a las aplicaciones seleccionadas si se están conectando desde un dispositivo de confianza o proporcionan una autenticación sólida, como por ejemplo MFA. Excluye las cuentas de emergencias y los administradores principales.

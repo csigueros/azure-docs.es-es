@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: f716245d93727a0447bd1c67924ce7577c70b503
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c11e6804b507fcaa838a83cf9eba102cbca381f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201294"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727906"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>Búsqueda del cargo de la unidad de solicitud en las operaciones que se ejecutan en la API de SQL de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Azure Cosmos DB admite varias API, como SQL, MongoDB, Cassandra, Gremlin y Table
 
 Azure Cosmos DB se encarga de normalizar el costo de todas las operaciones de base de datos y se expresa en términos de unidades de solicitud (RU en su forma abreviada). La solicitud de cargos son las unidades de solicitud que consumen todas las operaciones de base de datos. Puede considerar que las unidades de solicitud son como una moneda de rendimiento, que resume los recursos del sistema, como CPU, IOPS y memoria, necesarios para realizar las operaciones de base de datos compatibles con Azure Cosmos DB. Con independencia de qué API utilice para interactuar con el contenedor de Azure Cosmos, los costos siempre se miden por RU. Si la operación de base de datos es una escritura, lectura puntual o consulta, los costos siempre se miden en RU. Para más información, consulte el artículo [Unidades de solicitud y sus consideraciones](request-units.md).
 
-En este artículo se presentan las distintas formas de encontrar el consumo de [unidades de solicitud](request-units.md) (RU) de cualquier operación que se ejecuta en un contenedor de la API de SQL de Azure Cosmos DB. Si usa una API diferente, consulte los artículos [API para MongoDB](find-request-unit-charge-mongodb.md), [Cassandra API](find-request-unit-charge-cassandra.md), [Gremlin API](find-request-unit-charge-gremlin.md) y [Table API](find-request-unit-charge-table.md) para buscar el cargo de las RU.
+En este artículo se presentan las distintas formas de encontrar el consumo de [unidades de solicitud](request-units.md) (RU) de cualquier operación que se ejecuta en un contenedor de la API de SQL de Azure Cosmos DB. Si usa una API diferente, consulte los artículos [API para MongoDB](mongodb/find-request-unit-charge-mongodb.md), [Cassandra API](cassandra/find-request-unit-charge-cassandra.md), [Gremlin API](find-request-unit-charge-gremlin.md) y [Table API](table/find-request-unit-charge.md) para buscar el cargo de las RU.
 
 Actualmente, puede medir este consumo solo con Azure Portal o por medio de la inspección de la respuesta enviada desde Azure Cosmos DB mediante uno de los SDK. Si usa la API de SQL, tiene varias opciones para buscar el consumo de RU para una operación en un contenedor de Azure Cosmos.
 

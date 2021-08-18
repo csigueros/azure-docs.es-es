@@ -2,13 +2,13 @@
 title: 'Azure Event Grid: Eventos de asociado'
 description: Envíe eventos de los asociados PaaS y SaaS de Event Grid de terceros directamente a los servicios de Azure con Azure Event Grid.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/15/2021
+ms.openlocfilehash: 5a215d8d007f411066d25d8751299ae6a73038dc
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94506153"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183991"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Eventos de asociado en Azure Event Grid (versión preliminar)
 La característica **Eventos de asociado** permite que un proveedor de SaaS de terceros publique eventos desde sus servicios para que los consumidores puedan suscribirse a esos eventos. Esta característica ofrece una experiencia propia para orígenes de eventos de terceros mediante la exposición de un tipo de [tema](concepts.md#topics), un **tema del asociado**. Los suscriptores crean suscripciones a este tema para consumir eventos. También proporciona un modelo de publicación y suscripción claro, ya que separa los intereses y la propiedad de los recursos que usan los publicadores y los suscriptores de eventos.
@@ -48,12 +48,10 @@ Puede que quiera usar Eventos de asociado si tiene uno o varios de los requisito
 ## <a name="available-third-party-event-publishers"></a>Publicadores de eventos de terceros disponibles
 Un publicador de eventos de terceros debe pasar por un [proceso de incorporación](partner-onboarding-overview.md) antes de que un suscriptor pueda empezar a consumir sus eventos. 
 
-Si es suscriptor y quiere que un servicio de terceros exponga sus eventos a través de Event Grid. 
 
 ### <a name="auth0"></a>Auth0
 **Auth0** es el primer publicador asociado disponible. Puede crear un [tema de asociado Auth0](auth0-overview.md) para conectar las cuentas de Auth0 y de Azure. Esta integración permite reaccionar a eventos de Auth0 en tiempo real, así como registrarlos y supervisarlos. Para probarla, consulte [Integración de Azure Event Grid con Auto0](auth0-how-to.md).
 
-Si quiere que un servicio de terceros exponga sus eventos a través de Event Grid, envíe la idea en el [portal User Voice](https://feedback.azure.com/forums/909934-azure-event-grid).
  
 ## <a name="resources-managed-by-event-publishers"></a>Recursos administrados por publicadores de eventos
 Los publicadores de eventos crean y administran los recursos siguientes:
