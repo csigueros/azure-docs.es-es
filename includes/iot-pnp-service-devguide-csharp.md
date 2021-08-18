@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: a92e37326cf9db0eba186b2bdca44c452c02ea91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98afd90c44eee488faad8271c12e8d157d1d3d7f
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92521423"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114405064"
 ---
 Los recursos siguientes también están disponibles:
 
@@ -19,7 +19,7 @@ Los recursos siguientes también están disponibles:
 
 ## <a name="iot-hub-service-client-examples"></a>Ejemplos de cliente de servicio de IOT Hub
 
-En esta sección se muestran C# ejemplos de uso del cliente de servicio de IOT Hub y las clases **RegistryManager** y **ServiceClient**. Utilice la clase **RegistryManager** para interactuar con el estado del dispositivo mediante el dispositivo gemelo. También puede utilizar la clase **RegistryManager** para [consultar los registros de dispositivos](../articles/iot-hub/iot-hub-devguide-query-language.md) en el IoT Hub. Utilice la clase **ServiceClient** para llamar a comandos en el dispositivo. El modelo [DTDL](../articles/iot-pnp/concepts-digital-twin.md) del dispositivo define las propiedades y los comandos que implementa el dispositivo. En los fragmentos de código, la variable `deviceTwinId` contiene el id. de dispositivo del dispositivo de IoT Plug and Play registrado en el centro de IoT.
+En esta sección se muestran C# ejemplos de uso del cliente de servicio de IOT Hub y las clases **RegistryManager** y **ServiceClient**. Utilice la clase **RegistryManager** para interactuar con el estado del dispositivo mediante el dispositivo gemelo. También puede utilizar la clase **RegistryManager** para [consultar los registros de dispositivos](../articles/iot-hub/iot-hub-devguide-query-language.md) en el IoT Hub. Utilice la clase **ServiceClient** para llamar a comandos en el dispositivo. El modelo [DTDL](../articles/iot-develop/concepts-digital-twin.md) del dispositivo define las propiedades y los comandos que implementa el dispositivo. En los fragmentos de código, la variable `deviceTwinId` contiene el id. de dispositivo del dispositivo de IoT Plug and Play registrado en el centro de IoT.
 
 ### <a name="get-the-device-twin-and-model-id"></a>Obtención del dispositivo gemelo y el id. del modelo
 
@@ -141,7 +141,7 @@ catch (DeviceNotFoundException)
 
 ## <a name="iot-hub-digital-twin-examples"></a>Ejemplos de gemelos digitales de IoT Hub
 
-Utilice la clase **DigitalTwinClient** para interactuar con el estado del dispositivo mediante Digital Twins. El modelo [DTDL](../articles/iot-pnp/concepts-digital-twin.md) del dispositivo define las propiedades y los comandos que implementa el dispositivo.
+Utilice la clase **DigitalTwinClient** para interactuar con el estado del dispositivo mediante Digital Twins. El modelo [DTDL](../articles/iot-develop/concepts-digital-twin.md) del dispositivo define las propiedades y los comandos que implementa el dispositivo.
 
 En esta sección se muestran C# ejemplos de uso de la API de Digital Twins. En los siguientes fragmentos de código se usan las siguientes clases para representar el gemelo digital de los dispositivos del termostato y del controlador de temperatura:
 
@@ -353,7 +353,7 @@ catch (HttpOperationException e)
 
 Los dispositivos de IoT Plug and Play envían la telemetría definida en el modelo DTDL a IoT Hub. De manera predeterminada, IoT Hub enruta la telemetría a un punto de conexión de Event Hubs en el que se puede consumir. Para más información, consulte [Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión](../articles/iot-hub/iot-hub-devguide-messages-d2c.md).
 
-En el siguiente fragmento de código se muestra cómo leer la telemetría del punto de conexión de Event Hubs predeterminado. El código de este fragmento de código se toma de la guía de inicio rápido de IoT Hub [Enviar telemetría desde un dispositivo a una instancia de IoT Hub y leerlo con una aplicación de back-end](../articles/iot-hub/quickstart-send-telemetry-dotnet.md):
+En el siguiente fragmento de código se muestra cómo leer la telemetría del punto de conexión de Event Hubs predeterminado. El código de este fragmento de código se toma de la guía de inicio rápido de IoT Hub [Enviar telemetría desde un dispositivo a una instancia de IoT Hub y leerlo con una aplicación de back-end](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp):
 
 ```csharp
 await using EventHubConsumerClient consumer = new EventHubConsumerClient(EventHubConsumerClient.DefaultConsumerGroupName, connectionString, EventHubName);

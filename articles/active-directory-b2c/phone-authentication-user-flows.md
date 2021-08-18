@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: abe9d9cd46c7d4cbcb383ee9a37fc84cd64fcea8
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 5d6e5f608a79765a0bf6ac46cb8e36e6ba1ed1f3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896016"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122321832"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows"></a>Configuración del registro e inicio de sesión telefónico para flujos de usuario
 
@@ -70,7 +70,7 @@ Este es un ejemplo en el que se muestra cómo agregar el registro telefónico a 
 3. En Azure Portal, busque y seleccione **Azure AD B2C**.
 4. En **Directivas**, seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
 
-    ![Página Flujos de usuario del portal con el botón Nuevo flujo de usuario resaltado](./media/phone-authentication-user-flows/signup-signin-user-flow.png)
+    ![Página Flujos de usuario del portal con el botón Nuevo flujo de usuario resaltado](./media/phone-authentication-user-flows/sign-up-sign-in-user-flow.png)
 
 5. En la página **Crear un flujo de usuario**, seleccione el flujo de usuario **Registrarse e iniciar sesión**.
 

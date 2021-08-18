@@ -2,21 +2,21 @@
 title: Traslado de la autenticación de las aplicaciones de AD FS a Azure Active Directory
 description: Obtenga información acerca de cómo usar Azure Active Directory para reemplazar los Servicios de federación de Active Directory (AD FS), lo que proporciona a los usuarios un inicio de sesión único para todas las aplicaciones.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
-ms.author: mtillman
-ms.reviewer: baselden
-ms.openlocfilehash: 616550188687823438187e1e09c90d5d3c6c6835
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.openlocfilehash: 6633d7a6ed7def1a2c3ee7f0262c16b106275bfa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078822"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742905"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
@@ -135,7 +135,7 @@ Tanto AD FS como Azure AD ofrecen cifrado de tokens; es decir, la capacidad de
 Para obtener información acerca del cifrado de tokens SAML de Azure AD y cómo configurarlo, consulte [Configuración del cifrado de tokens SAML de Azure AD](howto-saml-token-encryption.md).  
 
 > [!NOTE]
-> El cifrado de tokens es una característica Premium de Azure Active Directory (Azure AD). Para más información sobre las ediciones, las características y los precios de Azure AD, consulte [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+> El cifrado de tokens es una característica Premium de Azure Active Directory (Azure AD). Para más información sobre las ediciones, las características y los precios de Azure AD, consulte [Precios de Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### <a name="apps-and-configurations-that-can-be-moved-today"></a>Aplicaciones y configuraciones que se pueden migrar actualmente
 
@@ -154,8 +154,8 @@ Lo siguiente requiere pasos de configuración adicionales para migrar a Azure A
 * Aplicaciones con varios puntos de conexión de URL de respuesta. Se configuran en Azure AD mediante PowerShell o la interfaz de Azure Portal.
 * Aplicaciones de WS-Federation, como las aplicaciones de SharePoint, que requieren tokens de la versión 1.1 de SAML. Puede configurarlas manualmente con PowerShell. También puede agregar una plantilla genérica integrada previamente para aplicaciones de SharePoint y SAML 1.1 de la galería. Se admite el protocolo SAML 2.0.
 * Reglas de transformaciones de emisión de notificaciones complejas. Para información sobre las asignaciones de notificaciones compatibles, consulte:
-   *  [Asignación de notificaciones en Azure Active Directory](../develop/active-directory-claims-mapping.md).
-   * [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+  * [Asignación de notificaciones en Azure Active Directory](../develop/active-directory-claims-mapping.md).
+  * [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 ### <a name="apps-and-configurations-not-supported-in-azure-ad-today"></a>Aplicaciones y configuraciones no admitidas actualmente en Azure AD
 
@@ -308,7 +308,7 @@ Especifique las reglas de MFA para un usuario o un grupo en Azure AD:
 
     ‎![Captura de pantalla que muestra el panel Concesión, en el que puede conceder acceso.](media/migrate-adfs-apps-to-azure/mfa-users-groups.png)
 
- #### <a name="example-2-enforce-mfa-for-unregistered-devices"></a>Ejemplo 2: Aplicación de MFA para dispositivos no registrados
+#### <a name="example-2-enforce-mfa-for-unregistered-devices"></a>Ejemplo 2: Aplicación de MFA para dispositivos no registrados
 
 Especifique las reglas de MFA para los dispositivos no registrados en Azure AD:
 
