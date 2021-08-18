@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 00802f53f973ad9b5a80b265006943121a0fa763
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcd031a76e911f6368206d75736e934f79135b77
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96753406"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113225685"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -24,7 +24,7 @@ Revise la [guía de solución de problemas de proyectos de Azure Migrate](troubl
 
 ## <a name="i-cant-get-the-appliance-working"></a>No puedo conseguir que el dispositivo funcione.
 
-Revise las [respuestas a problemas comunes](troubleshoot-appliance-discovery.md) con la implementación del dispositivo.
+Revise las [respuestas a problemas comunes](troubleshoot-appliance.md) con la implementación del dispositivo.
 
 ## <a name="machines-arent-discovered"></a>No se detectan las máquinas.
 
@@ -32,7 +32,7 @@ Revise los [problemas de detección de habituales](common-questions-discovery-as
 
 ## <a name="app-discovery-isnt-working"></a>La detección de aplicaciones no funciona.
 
-La detección de aplicaciones, roles y características que se ejecutan en máquinas locales solo se admite actualmente para máquinas virtuales de VMware. [Revise los errores comunes](troubleshoot-appliance-discovery.md#common-app-discovery-errors) para la detección de aplicaciones.
+La detección de aplicaciones, roles y características que se ejecutan en máquinas locales solo se admite actualmente para máquinas virtuales de VMware. [Revise los errores comunes](troubleshoot-discovery.md#common-software-inventory-errors) para la detección de aplicaciones.
 
 ## <a name="assessment-isnt-working"></a>La evaluación no funciona.
 

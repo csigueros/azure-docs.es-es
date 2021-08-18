@@ -2,22 +2,23 @@
 title: Acceso híbrido seguro de Azure AD con la guía de implementación de F5 | Microsoft Docs
 description: Tutorial para implementar la máquina virtual de F5 BIG-IP Virtual Edition (VE) en IaaS de Azure para el acceso híbrido seguro
 services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/12/2020
-ms.author: gasinh
+ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aeb48b5ee2bd3fbb127b3a88e7dda4946e96c163
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: miccohen
+ms.openlocfilehash: f33e9a8207e3b8e6986999b7ea19aedbcb19b4da
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108184791"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749208"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implementar la máquina virtual de F5 BIG-IP Virtual Edition en IaaS de Azure para el acceso híbrido seguro
 
@@ -213,7 +214,7 @@ En los pasos siguientes se da por supuesto que la zona DNS del dominio público 
 
 6. Utilice la siguiente información para crear el primer registro de alias del DNS:
 
- | Campo | Value |
+ | Campo | Valor |
  |:-------|:-----------|
  |Subscription| La misma suscripción que la máquina virtual de BIG-IP|
  |Zona DNS| Zona DNS que tiene autorización para el sufijo de dominio comprobado que usarán los sitios web publicados, por ejemplo, www.contoso.com |
@@ -242,14 +243,14 @@ De forma predeterminada, las redes virtuales de Azure y las subredes asociadas s
 
 2. Seleccione la regla de entrada **Agregar** para especificar las siguientes propiedades de la regla del grupo de seguridad de red:
 
- |     Campo   |   Value        |
+ |     Campo   |   Valor        |
  |:------------|:------------|
- |Source| Any|
+ |Origen| Any|
  |Source port ranges| *|
  |Direcciones IP de destino|Lista separada por comas de todas las IP privadas secundarias de la máquina virtual de BIG-IP|
  |Puertos de destino| 80, 443|
  |Protocolo| TCP |
- |Acción| Permitir|
+ |Acción| Allow|
  |Priority|Menor valor disponible entre 100 y 4096|
  |Nombre | Un nombre descriptivo, como: `BIG-IP-VM_Web_Services_80_443`|
 
@@ -273,7 +274,7 @@ Una vez que esté listo, confirme que puede conectarse a la configuración web d
 
 - Si se va a conectar desde una máquina virtual de su red interna o a través de VPN, conéctese directamente a la dirección IP principal de BIG-IP y al puerto de la configuración web. Por ejemplo, `https://<BIG-IP-VM_Primary_IP:8443`. El explorador le avisará de que la conexión no es segura, pero puede pasar por alto el aviso hasta que la instancia de BIG-IP esté configurada. Si el explorador insiste en bloquear el acceso, borre la memoria caché y vuelva a intentarlo.
 
-- Si ha publicado el archivo de configuración web mediante Application Proxy, use la dirección URL definida para acceder a la configuración web externamente, sin necesidad de anexar el puerto, por ejemplo, `https://big-ip-vm.contoso.com`. La dirección URL interna debe definirse mediante el puerto de configuración web, por ejemplo, `https://big-ip-vm.contoso.com:8443` 
+- Si ha publicado el archivo de configuración web mediante Application Proxy, use la dirección URL definida para acceder a la configuración web externamente, sin necesidad de anexar el puerto, por ejemplo, `https://big-ip-vm.contoso.com`. La dirección URL interna debe definirse mediante el puerto de configuración web, por ejemplo, `https://big-ip-vm.contoso.com:8443`
 
 Un sistema de BIG-IP también se puede administrar mediante su entorno SSH subyacente, el cual se usa normalmente para las tareas de la línea de comandos (CLI) y el acceso de nivel raíz. Existen varias opciones para conectarse a la CLI, entre las que se incluyen:
 
@@ -474,14 +475,14 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
--   [Restablecimiento de la contraseña de BIG-IP VE en Azure](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
-    -   [Restablecimiento de la contraseña sin usar el portal](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)
+- [Restablecimiento de la contraseña de BIG-IP VE en Azure](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
+- [Restablecimiento de la contraseña sin usar el portal](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)
 
--   [Cambio de la NIC usada para la administración de BIG-IP VE](https://clouddocs.f5.com/cloud/public/v1/shared/change_mgmt_nic.html)
+- [Cambio de la NIC usada para la administración de BIG-IP VE](https://clouddocs.f5.com/cloud/public/v1/shared/change_mgmt_nic.html)
 
--   [Acerca de las rutas en una sola configuración de NIC](https://clouddocs.f5.com/cloud/public/v1/shared/routes.html)
+- [Acerca de las rutas en una sola configuración de NIC](https://clouddocs.f5.com/cloud/public/v1/shared/routes.html)
 
--   [Microsoft Azure: Waagent](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_waagent.html)
+- [Microsoft Azure: Waagent](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_waagent.html)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

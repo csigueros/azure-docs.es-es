@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 018315b7ed468e24fb922337848d14703ffdcd4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0553d15eccb7e3fee4422b17a545caf5cfc9378b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89003633"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728743"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Instrucciones sobre arquitectura de inserción empresarial
 
@@ -289,7 +289,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 <!-- Links -->
 [Ejemplos de centro de notificaciones]: https://github.com/Azure/azure-notificationhubs-samples
-[Servicio móvil de Azure]: https://azure.microsoft.com/documentation/services/mobile-services/
+[Servicio móvil de Azure]: https://azure.microsoft.com/services/app-service/mobile/
 [Azure Service Bus]: ../service-bus-messaging/service-bus-messaging-overview.md
 [Programación Pub/Sub de Service Bus]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 [trabajo web de Azure]: ../app-service/webjobs-create.md

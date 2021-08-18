@@ -1,17 +1,17 @@
 ---
 title: Use el cifrado del lado cliente con Always Encrypted para Azure Cosmos DB
 description: Aprenda a utilizar el cifrado del lado cliente con Always Encrypted para Azure Cosmos DB
-author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: thweiss
-ms.openlocfilehash: 884626bd5b0cbbf6fb24bf0e3da3b7776e720f77
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+author: ThomasWeiss
+ms.openlocfilehash: 9135e35e74eda1387dc6dee5ba0875c4152439b0
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071648"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356420"
 ---
 # <a name="use-client-side-encryption-with-always-encrypted-for-azure-cosmos-db-preview"></a>Use el cifrado del lado cliente con Always Encrypted para Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

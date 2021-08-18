@@ -15,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: 313f201aeabd470850b27d979dc5253f80e82a55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7daf98effad685d5e0044df3c416f3023fe42ba
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98541176"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253186"
 ---
 # <a name="connect-your-beyond-security-besecure-to-azure-sentinel"></a>Conexión de Beyond Security beSECURE a Azure Sentinel
 
 > [!IMPORTANT]
 > El conector de Beyond Security beSECURE se encuentra actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 El conector de Beyond Security beSECURE permite conectar fácilmente todos los registros de la solución de seguridad de beSECURE con Azure Sentinel para ver los paneles, crear alertas personalizadas y mejorar la investigación. La integración entre beSECURE y Azure Sentinel usa la API de REST.
 
@@ -71,6 +73,6 @@ Los registros pueden tardar hasta 20 minutos en empezar a aparecer en Log Analyt
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar beSECURE a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

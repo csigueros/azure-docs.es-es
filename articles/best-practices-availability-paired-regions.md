@@ -5,15 +5,15 @@ author: martinekuan
 manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 06/21/2021
 ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: 9fda6f913fcb5325c811671cd6476dcbf2413766
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4fe0b913c003ccf4247833ba1dc12c4ec1e7248a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058024"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730202"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 
@@ -43,7 +43,7 @@ No. Aunque un determinado servicio de Azure puede depender de un par regional, p
 
 ## <a name="must-i-use-azure-regional-pairs"></a>¿Debo usar los pares regionales de Azure?
 
-No. Los usuarios pueden aprovechar los servicios de Azure para diseñar un servicio resistente sin depender de los pares regionales de Azure.  Sin embargo, se recomienda que configure la continuidad empresarial y recuperación ante desastres entre las parejas regionales para beneficiarse de las directivas de [aislamiento](./security/fundamentals/isolation-choices.md) y mejorar la [disponibilidad](./availability-zones/az-overview.md). Para aplicaciones que admiten varias regiones activas, recomendamos utilizar, siempre que sea posible, ambas regiones en un par de regiones. Esto asegura una disponibilidad óptima para las aplicaciones y minimizará el tiempo de recuperación en caso de desastre. Siempre que sea posible, diseñe la aplicación para obtener la [resistencia máxima](/azure/architecture/framework/resiliency/overview) y facilitar la [recuperación ante desastres](/azure/architecture/framework/resiliency/backup-and-recovery).
+No. Los usuarios pueden aprovechar los servicios de Azure para diseñar un servicio resistente sin depender de los pares regionales de Azure.  Sin embargo, se recomienda que configure la continuidad empresarial y recuperación ante desastres entre las parejas regionales para beneficiarse de las directivas de [aislamiento](./security/fundamentals/isolation-choices.md) y mejorar la [disponibilidad](./availability-zones/az-overview.md). Para aplicaciones que admiten varias regiones activas, recomendamos utilizar, siempre que sea posible, ambas regiones en un par de regiones. Esto asegura una disponibilidad óptima para las aplicaciones y minimizará el tiempo de recuperación en caso de desastre. Siempre que sea posible, diseñe la aplicación para obtener la [resistencia máxima](/azure/architecture/framework/resiliency/app-design) y facilitar la [recuperación ante desastres](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 ## <a name="azure-regional-pairs"></a>Pares regionales de Azure
 
@@ -68,6 +68,7 @@ No. Los usuarios pueden aprovechar los servicios de Azure para diseñar un servi
 | Norteamérica |Este de EE. UU. 2 |Centro de EE. UU. |
 | Norteamérica |Centro-Norte de EE. UU |Centro-sur de EE. UU. |
 | Norteamérica |Oeste de EE. UU. 2 |Centro-Oeste de EE. UU. |
+| Norteamérica |Oeste de EE. UU. 3 |Este de EE. UU. |
 | Noruega | Este de Noruega | Oeste de Noruega* |
 | Sudáfrica | Norte de Sudáfrica |Oeste de Sudáfrica* |
 | Suiza | Norte de Suiza |Oeste de Suiza* |

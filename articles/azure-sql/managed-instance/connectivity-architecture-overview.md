@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova
+ms.reviewer: mathoma, bonova
 ms.date: 04/29/2021
-ms.openlocfilehash: 259bd0128a4c5ce677e4d01f44b114aaba0cb977
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: d9958d30fff09ba0d6c66b71143ea68468dd0363
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889163"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751257"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitectura de conectividad de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -165,7 +165,7 @@ Las siguientes características de red virtual *no se admiten* actualmente con S
 - **Emparejamiento de Microsoft**: la habilitación del [emparejamiento de Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) en circuitos de ExpressRoute emparejados directamente o de manera transitiva con la red virtual en la que reside SQL Managed Instance afecta al flujo de tráfico entre los componentes de SQL Managed Instance dentro de la red virtual y los servicios de los que depende, causando problemas de disponibilidad. Se prevé que se produzcan errores en las implementaciones de SQL Managed Instance en la red virtual con el emparejamiento de Microsoft habilitado.
 - **Emparejamiento global de redes virtuales**: la conectividad de [emparejamiento de redes virtuales](../../virtual-network/virtual-network-peering-overview.md) entre regiones de Azure no funciona con instancias de SQL Managed Instance colocadas en subredes creadas antes del 22/9/2020.
 - **AzurePlatformDNS**: el uso de la [etiqueta de servicio](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear la resolución DNS de la plataforma hace que SQL Managed Instance no esté disponible. Aunque SQL Managed Instance admite DNS definida por el cliente para la resolución DNS dentro del motor, existe una dependencia en la DNS de la plataforma para las operaciones de plataforma.
-- **NAT Gateway**: el uso de [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) para controlar la conectividad saliente con una dirección IP pública específica, representaría SQL Managed Instance como no disponible. Actualmente, el servicio SQL Managed Instance está limitado al uso de un equilibrador de carga básico que no proporciona coexistencia de flujos entrantes y salientes con Virtual Network NAT.
+- **NAT Gateway**: el uso de [Azure Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md) para controlar la conectividad saliente con una dirección IP pública específica, representaría SQL Managed Instance como no disponible. Actualmente, el servicio SQL Managed Instance está limitado al uso de un equilibrador de carga básico que no proporciona coexistencia de flujos entrantes y salientes con Virtual Network NAT.
 - **IPv6 para Azure Virtual Network**: Se espera que se produzca un error en la implementación de Azure SQL Managed Instance en [redes virtuales IPv4/IPv6 de pila dual](../../virtual-network/ipv6-overview.md). Al asociar el grupo de seguridad de red (NSG) o la tabla de rutas (UDR) que contiene los prefijos de dirección IPv6 a la subred de SQL Managed Instance, o al agregar prefijos de direcciones IPv6 a NSG o UDR que ya está asociado a la subred de instancia administrada, se representaría la instancia de SQL Managed Instance no disponible. Se espera que las implementaciones de Azure SQL Managed Instance en una subred con NSG y UDR que ya tienen prefijos IPv6.
 - **Zonas privadas de Azure DNS con un nombre reservado para servicios de Microsoft**: esta es una lista de los nombres reservados: windows.net, database.windows.net, core.windows.net, blob.core.windows.net, table.core.windows.net, management.core.windows.net, monitoring.core.windows.net, queue.core.windows.net, graph.windows.net, login.microsoftonline.com, login.windows.net, servicebus.windows.net, vault.azure.net. La implementación de SQL Managed Instance en una red virtual con una [zona privada de Azure DNS](../../dns/private-dns-privatednszone.md) asociada con un nombre reservado para servicios de Microsoft producirá un error. La asociación de la zona privada de Azure DNS con un nombre reservado con una red virtual que contiene Managed Instance representaría SQL Managed Instance como no disponible. Siga la [configuración de DNS del punto de conexión privado de Azure](../../private-link/private-endpoint-dns.md) para conocer la configuración apropiada de Private Link.
 - **Directivas de punto de conexión de servicio de Azure Storage**: se producirá un error al implementar SQL Managed Instance en una subred que tenga [directivas de punto de conexión de servicio](../../virtual-network/virtual-network-service-endpoint-policies-overview.md) asociadas. Las directivas de punto de conexión de servicio no se pueden asociar a una subred que hospeda Managed Instance.

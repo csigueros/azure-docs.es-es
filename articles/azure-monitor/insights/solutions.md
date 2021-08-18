@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 6a98571f513e25d801acd4f4a9c2901dcd56fabc
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 236fcdb27bccf56cfe9bf92784f74cfa7ac3057b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107869228"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285452"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
 
@@ -97,7 +97,7 @@ Las soluciones de supervisión de Microsoft y asociados están disponibles en [A
 Los miembros de la comunidad pueden enviar soluciones de administración a las plantillas de inicio rápido de Azure. Puede instalar estas soluciones directamente o descargar plantillas para hacerlo más adelante.
 
 1. Siga el proceso descrito en [Área de trabajo de Log Analytics y cuenta de Automation](#log-analytics-workspace-and-automation-account) para vincular un área de trabajo y una cuenta.
-2. Visite [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
+2. Visite [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/).
 3. Busque una solución que le interese.
 4. Seleccione la solución en los resultados para ver su información.
 5. Haga clic en botón **Deploy to Azure** (Implementar en Azure).

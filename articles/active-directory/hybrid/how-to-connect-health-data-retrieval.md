@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d147d2c094923e971e52e1dbfe3f7a19776d38c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 435cc73d9c2a91a9c72bf07258a15dced581d580
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89463343"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110068"
 ---
 # <a name="azure-ad-connect-health-instructions-for-data-retrieval"></a>Instrucciones para la recuperación de datos de Azure AD Connect Health
 
@@ -57,5 +57,5 @@ Utilice los pasos siguientes para recuperar las cuentas marcadas con intentos de
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalación del agente de Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operaciones de Azure AD Connect Health](how-to-connect-health-operations.md)
-* [Preguntas más frecuentes de Azure AD Connect Health](reference-connect-health-faq.md)
+* [Preguntas más frecuentes de Azure AD Connect Health](reference-connect-health-faq.yml)
 * [Historial de versiones de Azure AD Connect Health](reference-connect-health-version-history.md)

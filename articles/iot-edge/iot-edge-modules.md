@@ -2,19 +2,18 @@
 title: 'Obtenga información sobre cómo los módulos ejecutan la lógica en los dispositivos: Azure IoT Edge | Microsoft Docs'
 description: Los módulos de Azure IoT Edge son unidades de lógica en contenedores que se pueden implementar y administrar de forma remota para que pueda ejecutar la lógica de negocios en dispositivos IoT Edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9b1ffb2dbcbd6e81856277f4b672cf876cc75f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3076d73fe63536b7f3ceb8d4cda6e20bc33b5699
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492377"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731285"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Información sobre los módulos de Azure IoT Edge
 

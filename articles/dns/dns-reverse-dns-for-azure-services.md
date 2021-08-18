@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2021
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e9f952f0bb534ddad767280991ab0829ff9fa1b8
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6010d165b1a66f968c66f52cf3bfac754df47111
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696954"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460040"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configuración de DNS inversos para servicios hospedados en Azure
 
@@ -251,4 +251,4 @@ La capacidad técnica para enviar correos electrónicos directamente desde una i
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre los registros de DNS inverso, consulte información sobre la [búsqueda de DNS inverso en Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
-* Aprenda cómo [hospedar la zona de búsqueda inversa para el intervalo IP asignado por el ISP en DNS de Azure](dns-reverse-dns-for-azure-services.md).
+* Aprenda cómo [hospedar la zona de búsqueda inversa para el intervalo IP asignado por el ISP en DNS de Azure](dns-reverse-dns-hosting.md).

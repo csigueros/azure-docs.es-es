@@ -3,13 +3,13 @@ title: Métricas de Azure Relay en Azure Monitor | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo puede usar Azure Monitor para supervisar el estado de Azure Relay.
 services: service-bus-relay
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 7f91ac0aec46d0fc24901585156dceabb18640c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 29c54f65a0519e8e9152826953dea29a353c8443
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586829"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668782"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de Azure Relay en Azure Monitor 
 Las métricas de Azure Relay le permiten conocer el estado de los recursos de su suscripción de Azure. Con un amplio conjunto de datos de métricas, puede evaluar el estado general de los recursos de Relay, no solo en el nivel de espacio de nombres, sino también en el nivel de entidad. Estas estadísticas pueden ser importantes, ya que le ayudan a supervisar el estado de Azure Relay. Las métricas también pueden ayudarle a solucionar problemas de causa principal sin necesidad de ponerse en contacto con el soporte técnico de Azure.

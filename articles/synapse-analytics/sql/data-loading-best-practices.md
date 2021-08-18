@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 9fe7ef8e6ccbadd5e78de5bfd5f137132dbe6319
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: a04bf8a1805fa55afac3d51a2d4f3ba353edf03c
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567951"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860244"
 ---
 # <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Procedimientos recomendados para cargar datos en un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -106,7 +106,7 @@ Si se tienen miles de inserciones simples a lo largo del día, agrúpelas por lo
 
 ## <a name="create-statistics-after-the-load"></a>Creación de estadísticas después de la carga
 
-Para mejorar el rendimiento de las consultas, es importante crear estadísticas de todas las columnas de todas las tablas después de la primera carga o de que se produzcan cambios importantes en los datos. La creación de estadísticas se puede hacer manualmente o bien puede habilitar la [creación automática de estadísticas](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para mejorar el rendimiento de las consultas, es importante crear estadísticas de todas las columnas de todas las tablas después de la primera carga o de que se produzcan cambios importantes en los datos. La creación de estadísticas se puede hacer manualmente o bien puede habilitar la [creación automática de estadísticas](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?context=/azure/synapse-analytics/context/context).
 
 Para ver una explicación detallada de las estadísticas, consulte [Estadísticas](develop-tables-statistics.md). En el ejemplo siguiente se muestra cómo crear manualmente las estadísticas de cinco columnas de la tabla Customer_Speed.
 
@@ -144,6 +144,6 @@ No es necesario cambiar nada más en los orígenes de datos externos subyacentes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información acerca de PolyBase y del diseño de un proceso de extracción, carga y transformación (ETL), consulte [Design ELT for Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Diseño de ELT para Azure Synapse Analytics).
+- Para obtener más información acerca de PolyBase y del diseño de un proceso de extracción, carga y transformación (ETL), consulte [Design ELT for Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context) (Diseño de ELT para Azure Synapse Analytics).
 - Si desea un tutorial sobre carga, consulte [Uso de PolyBase para cargar de datos de Azure Blob Storage en Azure Synapse Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
-- Para supervisar las cargas de datos, consulte [Supervisión de la carga de trabajo mediante DMV](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- Para supervisar las cargas de datos, consulte [Supervisión de la carga de trabajo mediante DMV](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context).

@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: dukek
-ms.openlocfilehash: 2f5244fd8ef414a1bed6781c702014e805f47a76
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 26f6b62ece1fcde8ca69ffbb804d9ab24b3c1ac3
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060325"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112455741"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. 
@@ -160,7 +160,7 @@ Al configurar el *Rol de ARM de correo electrónico*, debe asegurarse de que se 
 ### <a name="function"></a>Función
 Llama a un punto de conexión del desencadenador HTTP existente en [Azure Functions](../../azure-functions/functions-get-started.md). Para controlar una solicitud, el punto de conexión debe controlar el verbo HTTP POST.
 
-Al definir la acción de la función, el punto de conexión httptrigger y la clave de acceso de la función se guardan en la definición de la acción. Por ejemplo: https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key. Si cambia la clave de acceso de la función, deberá quitar y volver a crear la acción de la función del grupo de acciones.
+Al definir la acción de la función, el punto de conexión httptrigger y la clave de acceso de la función se guardan en la definición de la acción. Por ejemplo: `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key`. Si cambia la clave de acceso de la función, deberá quitar y volver a crear la acción de la función del grupo de acciones.
 
 En un grupo de acciones puede tener un número limitado de acciones de función.
 

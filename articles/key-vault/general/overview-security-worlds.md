@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 07/03/2017
-ms.openlocfilehash: 0d82a3cb4c08d47b6827072378b9827037d32412
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0753108df52f0dcaea1d6c79eab266eeb000889a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751821"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747225"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Espacios de seguridad y límites geográficos de Azure Key Vault
 
-Los productos de Azure están disponibles en varias [zonas geográficas de Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/), y cada geografía de Azure contiene una o varias regiones. Por ejemplo, la geografía de Europa contiene dos regiones (Norte de Europa y Oeste de Europa), mientras que la única región de la geografía de Brasil es Sur de Brasil.
+Los productos de Azure están disponibles en varias [zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/), y cada geografía de Azure contiene una o varias regiones. Por ejemplo, la geografía de Europa contiene dos regiones (Norte de Europa y Oeste de Europa), mientras que la única región de la geografía de Brasil es Sur de Brasil.
 
 Azure Key Vault es un servicio multiinquilino que usa un grupo de módulos de seguridad de hardware (HSM). Todos los HSM de una geografía comparten el mismo límite criptográfico, denominado "entorno de seguridad". Cada geografía corresponde a un único entorno de seguridad y viceversa.
 

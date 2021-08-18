@@ -3,16 +3,16 @@ title: Conexiones híbridas de Azure Relay - Solicitudes HTTP en .NET
 description: Escriba una aplicación de consola en C# para las solicitudes HTTP de Conexiones híbridas de Azure Relay en .NET.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 06/23/2020
-ms.openlocfilehash: 7a11abb984da3601a4d6aa921224e01f94d0871c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: c3b78a3acf2e14a399e3c294dc40748fae5d7ce9
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88922589"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668266"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introducción a las solicitudes HTTP de Conexiones híbridas de Relay en .NET
-[!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
+[!INCLUDE [relay-selector-hybrid-connections](./includes/relay-selector-hybrid-connections.md)]
 
 En esta guía de inicio rápido, creará aplicaciones de remitente y receptor de .NET que envían y reciben mensajes mediante el protocolo HTTP. Las aplicaciones usan la característica Conexiones híbridas de Azure Relay. Para información acerca de Azure Relay en general, consulte [Azure Relay](relay-what-is-it.md). 
 
@@ -32,20 +32,20 @@ Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 * Suscripción a Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-a-namespace"></a>Creación de un espacio de nombres
-[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
+[!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]
 
 ## <a name="create-a-hybrid-connection"></a>Create a hybrid connection
-[!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
+[!INCLUDE [relay-create-hybrid-connection-portal](./includes/relay-create-hybrid-connection-portal.md)]
 
 ## <a name="create-a-server-application-listener"></a>Creación de una aplicación de servidor (agente de escucha)
 En Visual Studio, escriba una aplicación de consola en C# para escuchar y recibir mensajes de Relay.
 
-[!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-server](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-server.md)]
+[!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-server](./includes/relay-hybrid-connections-http-requests-dotnet-get-started-server.md)]
 
 ## <a name="create-a-client-application-sender"></a>Creación de una aplicación de cliente (remitente)
 En Visual Studio, escriba una aplicación de consola en C# para enviar mensajes a Relay.
 
-[!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
+[!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](./includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
 ## <a name="run-the-applications"></a>Ejecución de las aplicaciones
 1. Ejecute la aplicación de servidor. Verá el texto siguiente en la ventana de la consola:

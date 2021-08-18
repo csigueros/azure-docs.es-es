@@ -3,12 +3,12 @@ title: Copia de aplicaciones y datos en nodos de grupo
 description: Obtenga información sobre cómo copiar aplicaciones y datos en nodos de grupo.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: 0109171fd78dc11058daa30bf4604bebc1eeb857
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d53a285319e46f9311684b0ad66c1a278750f8b9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101703654"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752088"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copia de aplicaciones y datos en nodos de grupo
 
@@ -33,6 +33,10 @@ Si cada trabajo que se ejecuta en el grupo ejecuta una aplicación (.exe) que de
 En el caso de las aplicaciones o los datos que deban instalarse en cada nodo del grupo, considere la posibilidad de usar [paquetes de aplicación](batch-application-packages.md). No hay ningún comando de instalación asociado a un paquete de aplicación, pero puede usar una tarea de inicio para ejecutar cualquier comando de instalación. Si la aplicación no requiere instalación o está formada por un gran número de archivos, puede usar este método.
 
 Los paquetes de aplicación son útiles cuando se tiene un gran número de archivos, ya que pueden combinar muchas referencias de archivo en una pequeña carga. Si intenta incluir más de 100 archivos de recursos independientes en una tarea, el servicio de Batch puede encontrar limitaciones internas del sistema para una sola tarea. Los paquetes de aplicación también son útiles cuando hay muchas versiones diferentes de la misma aplicación y es necesario elegir entre ellas.
+
+## <a name="extensions"></a>Extensiones
+
+Las [extensiones](create-pool-extensions.md) son pequeñas aplicaciones que facilitan la configuración e instalación posteriores al aprovisionamiento en nodos de proceso de Batch. Al crear un grupo, puede seleccionar una extensión compatible para instalar en los nodos de proceso a medida que se aprovisionan. Después, la extensión puede realizar su operación esperada.
 
 ## <a name="job-preparation-task-resource-files"></a>Archivos de recursos de la tarea de preparación del trabajo
 

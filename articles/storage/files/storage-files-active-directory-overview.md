@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 8887243f953a7bb000033a2e56b4655b93cd7ca8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 84934668c36d518e65c8997f72309a5ca3eb8fbe
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519799"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112118491"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Introducción a las opciones de autenticación basada en la identidad de Azure Files con el acceso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -20,6 +20,13 @@ ms.locfileid: "102519799"
 Para más información sobre cómo habilitar la autenticación de Active Directory Domain Services local para recursos compartidos de archivos de Azure, vea [Habilitación de la autenticación de Azure Active Directory en SMB para recursos compartidos de archivos de Azure](storage-files-identity-auth-active-directory-enable.md).
 
 Para aprender a habilitar la autenticación de Azure AD DS para recursos compartidos de archivos de Azure, consulte [Habilitación de la autenticación de Azure Active Directory Domain Services en Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md).
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="glossary"></a>Glosario 
 Es útil entender algunos términos clave relacionados con la autenticación de Azure AD Domain Service sobre SMB para recursos compartidos de archivos de Azure:

@@ -6,15 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: d01febec3972dcc26c6e9b5aa8d0c4cca5f32d0a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e4945f6013c05135ea906fb813017ca152aa9d62
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606086"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113088339"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Uso de EXPLAIN para solucionar problemas relacionados con el rendimiento de consultas en Azure Database for MySQL
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 **EXPLAIN** es una herramienta útil a la hora de optimizar consultas. Las instrucciones de EXPLAIN se pueden usar para obtener información sobre cómo se ejecutan las instrucciones SQL. La salida siguiente muestra un ejemplo de la ejecución de una instrucción de EXPLAIN.
 
@@ -56,10 +57,11 @@ possible_keys: id
 ```
 
 La nueva herramienta EXPLAIN muestra que MySQL utiliza ahora un índice para limitar el número de filas a 1, lo cual permite, a su vez, reducir drásticamente el tiempo de búsqueda.
- 
+
 ## <a name="covering-index"></a>Índice de cobertura
+
 Un índice de cobertura consta de todas las columnas de una consulta del índice para reducir la recuperación de valores de las tablas de datos. Este es un ejemplo en la siguiente instrucción **GROUP BY**.
- 
+
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -78,10 +80,10 @@ possible_keys: NULL
 ```
 
 Como se puede ver en la salida, MySQL no utiliza índices porque no hay índices adecuados disponibles. También aparece *Using temporary; Using file sort*, lo que significa que MySQL crea una tabla temporal para satisfacer la cláusula **GROUP BY**.
- 
+
 La creación de un índice solo en la columna **c2** no supone ninguna diferencia y MySQL todavía necesita crear una tabla temporal:
 
-```sql 
+```sql
 mysql> ALTER TABLE tb1 ADD KEY (c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -122,6 +124,7 @@ possible_keys: covered
 Como puede ver en el ejemplo anterior de EXPLAIN, MySQL usa ahora el índice de cobertura y evita la creación de una tabla temporal. 
 
 ## <a name="combined-index"></a>Índice combinado
+
 Un índice combinado consta de valores de varias columnas y puede considerarse como una matriz de filas que se ordenan mediante la concatenación de valores de las columnas indexadas.  Este método puede ser útil en una instrucción **GROUP BY**.
 
 ```sql
@@ -143,7 +146,7 @@ possible_keys: NULL
 
 MySQL realiza una operación de *ordenación de archivos* que es bastante lenta, especialmente cuando tiene que ordenar muchas filas. Para optimizar esta consulta, se puede crear un índice combinado en las columnas que se están ordenando.
 
-```sql 
+```sql
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
 *************************** 1. row ***************************
@@ -162,11 +165,11 @@ possible_keys: NULL
 ```
 
 Ahora EXPLAIN muestra como MySQL puede usar un índice combinado para evitar una ordenación adicional dado que el índice ya está ordenado.
- 
+
 ## <a name="conclusion"></a>Conclusión
- 
+
 El uso de EXPLAIN y de distintos tipos de índice puede aumentar el rendimiento significativamente. El hecho de tener un índice en la tabla no significa necesariamente que MySQL pueda usarlo para sus consultas. Valide siempre sus suposiciones con EXPLAIN y optimice las consultas con índices.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Para buscar respuestas de otros usuarios a sus preguntas o publicar una nueva pregunta o respuesta, visite [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f35a32370f2c5aba0ea3c3e0ea84b739942ceb30
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1f9a0385856c053d3c7f73acf130ee48d712d4f5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457949"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469825"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -367,7 +367,7 @@ También puede conectarse a la cuenta de almacenamiento y recuperar las entradas
 
 #### <a name="analyzing-access-logs-through-goaccess"></a>Analizar los registros de acceso mediante GoAccess
 
-Hemos publicado una plantilla de Resource Manager que se instala y ejecuta el popular analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores, códigos de estado HTTP y mucho más. Para obtener más información, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager en GitHub](https://aka.ms/appgwgoaccessreadme).
+Hemos publicado una plantilla de Resource Manager que se instala y ejecuta el popular analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores, códigos de estado HTTP y mucho más. Para obtener más información, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

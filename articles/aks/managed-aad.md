@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 6b9bf8aea031b7dce88fbaa096d8e5996e1d6f57
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 353fdd952ed4b2baa8920f1e15fb0dc0f44264ba
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110189766"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122202073"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integración de Azure Active Directory administrado por AKS
 
@@ -190,7 +190,7 @@ Hay algunos escenarios no interactivos, como las canalizaciones de integración 
 
 ## <a name="disable-local-accounts-preview"></a>Deshabilitación de cuentas locales (versión preliminar)
 
-Al implementar un clúster de AKS, las cuentas locales se habilitan de forma predeterminada. Incluso al habilitar la integración de RBAC o de Azure Active Directory, el acceso a `--admin` sigue existiendo, básicamente como una opción de puerta trasera no auditable. Teniendo esto en cuenta, AKS ofrece a los usuarios la capacidad de deshabilitar las cuentas locales a través de una marca, `disable-local`. También se ha agregado un campo, `properties.disableLocalAccounts`, a la API de clúster administrado para indicar si la característica se ha habilitado en el clúster.
+Al implementar un clúster de AKS, las cuentas locales se habilitan de forma predeterminada. Incluso al habilitar la integración de RBAC o de Azure Active Directory, el acceso a `--admin` sigue existiendo, básicamente como una opción de puerta trasera no auditable. Teniendo esto en cuenta, AKS ofrece a los usuarios la capacidad de deshabilitar las cuentas locales a través de una marca, `disable-local-accounts`. También se ha agregado un campo, `properties.disableLocalAccounts`, a la API de clúster administrado para indicar si la característica se ha habilitado en el clúster.
 
 > [!NOTE]
 > En los clústeres en los que está habilitada la integración con Azure AD, los usuarios que pertenezcan a un grupo especificado por `aad-admin-group-object-ids` podrán acceder a través de credenciales que no sean de administrador. En clústeres sin la integración con Azure AD habilitada y `properties.disableLocalAccounts` establecido en true, se producirá un error al obtener las credenciales de usuario y administrador.
@@ -221,10 +221,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="create-a-new-cluster-without-local-accounts"></a>Creación de un clúster sin cuentas locales
 
-Para crear un clúster de AKS sin ninguna cuenta local, use el comando [az aks create][az-aks-create] con la marca `disable-local`:
+Para crear un clúster de AKS sin ninguna cuenta local, use el comando [az aks create][az-aks-create] con la marca `disable-local-accounts`:
 
 ```azurecli-interactive
-az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
 ```
 
 En la salida, confirme que se han deshabilitado las cuentas locales; para ello, compruebe que el campo `properties.disableLocalAccounts` está establecido en true:
@@ -247,10 +247,10 @@ Operation failed with status: 'Bad Request'. Details: Getting static credential 
 
 ### <a name="disable-local-accounts-on-an-existing-cluster"></a>Deshabilitación de cuentas locales en un clúster existente
 
-Para deshabilitar las cuentas locales en un clúster de AKS existente, use el comando [az aks update][az-aks-update] con la marca `disable-local`:
+Para deshabilitar las cuentas locales en un clúster de AKS existente, use el comando [az aks update][az-aks-update] con la marca `disable-local-accounts`:
 
 ```azurecli-interactive
-az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
 ```
 
 En la salida, confirme que se han deshabilitado las cuentas locales; para ello, compruebe que el campo `properties.disableLocalAccounts` está establecido en true:

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8a854e17c8a28b335f8c4e8c67bd5f27cb360789
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8dc109b5a14b680f7deb6ff39adb8af5e9c77562
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110464636"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733159"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "110464636"
 En Azure Cosmos DB, para indexar los datos se usan las [directivas de indexación](index-policy.md) que se definen para cada contenedor. La directiva de indexación predeterminada para los contenedores recién creados exige que se usen índices de intervalo para todas las cadenas o números. Puede invalidar esta directiva con su propia directiva de indexación personalizada.
 
 > [!NOTE]
-> El método de actualización de las directivas de indexación que se describe en este artículo solo se aplica a la API de Azure Cosmos DB SQL (Core). Obtenga información sobre la indexación en [API de Azure Cosmos DB para MongoDB](mongodb-indexing.md) e [Indexación secundaria en Cassandra API de Azure Cosmos DB](cassandra-secondary-index.md).
+> El método de actualización de las directivas de indexación que se describe en este artículo solo se aplica a la API de Azure Cosmos DB SQL (Core). Obtenga información sobre la indexación en [API de Azure Cosmos DB para MongoDB](mongodb/mongodb-indexing.md) e [Indexación secundaria en Cassandra API de Azure Cosmos DB](cassandra/secondary-indexing.md).
 
 ## <a name="indexing-policy-examples"></a>Ejemplos de directiva de indexación
 

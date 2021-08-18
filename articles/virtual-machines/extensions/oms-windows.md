@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aae7366c2dc056285876d9e1b3ae3e6820d788fb
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 0a7dc06feed0593c616c62dbb8b10fc58cb063b8
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669587"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280142"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Log Analytics para Windows
 
@@ -99,7 +99,7 @@ En el siguiente JSON se muestra el esquema para la extensión del agente de Log 
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
-Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. El esquema JSON detallado en la sección anterior se puede usar en una plantilla de Azure Resource Manager para ejecutar el agente de Log Analytics durante la implementación de una plantilla de Azure Resource Manager. En la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm) encontrará una plantilla de ejemplo que incluye la extensión de VM del agente de Log Analytics. 
+Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. El esquema JSON detallado en la sección anterior se puede usar en una plantilla de Azure Resource Manager para ejecutar el agente de Log Analytics durante la implementación de una plantilla de Azure Resource Manager. En la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/oms-extension-windows-vm) encontrará una plantilla de ejemplo que incluye la extensión de VM del agente de Log Analytics. 
 
 >[!NOTE]
 >La plantilla no admite la especificación de más de un identificador y clave de área de trabajo cuando quiere configurar el agente para informar a varias áreas de trabajo. Para configurar el agente para que informe a varias áreas de trabajo, consulte [Adición o eliminación de un área de trabajo](../../azure-monitor/agents/agent-manage.md#adding-or-removing-a-workspace).  

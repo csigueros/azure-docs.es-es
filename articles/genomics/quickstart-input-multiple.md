@@ -9,12 +9,12 @@ manager: cgronlund
 ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: b426015906a8e17674123c0c3ad2fccb9c43798f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c7a65a2ff58d3191e7b21ecd40a8aa1bc1f4086
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "72248564"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551855"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Envío de un flujo de trabajo con varias entradas del mismo ejemplo
 
@@ -156,4 +156,4 @@ output_storage_account_container: outputs
 Envíe el archivo `config.txt` con esta invocación: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, se cargan varios archivos BAM o FASTQ emparejados en Azure Storage y se envía un flujo de trabajo al servicio Microsoft Genomics mediante el cliente de Python `msgen`. Para más información sobre el envío del flujo de trabajo y otros comandos que puede usar con el servicio Microsoft Genomics, vea las [preguntas más frecuentes](frequently-asked-questions-genomics.md). 
+En este artículo, se cargan varios archivos BAM o FASTQ emparejados en Azure Storage y se envía un flujo de trabajo al servicio Microsoft Genomics mediante el cliente de Python `msgen`. Para más información sobre el envío del flujo de trabajo y otros comandos que puede usar con el servicio Microsoft Genomics, vea las [preguntas más frecuentes](frequently-asked-questions-genomics.yml). 

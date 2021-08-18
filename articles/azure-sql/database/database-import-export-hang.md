@@ -10,12 +10,12 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: cawrites
 ms.date: 09/27/2019
-ms.openlocfilehash: a36fd722f38ec2253ada7e2f759597ea0df080a3
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 27431b24b0f6507ac7031deae6573a8b111e0f76
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787377"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913693"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>El servicio Import/Export de Azure SQL Database e Instancia administrada tarda mucho tiempo en importar o exportar una base de datos
 
@@ -33,8 +33,6 @@ Las operaciones de importación y exportación no representan una copia de segur
 
 El servicio Import/Export de Azure SQL Database proporciona un número limitado de máquinas virtuales de proceso por región para procesar las operaciones de importación y exportación. La máquina virtual de proceso se hospeda por región para asegurarse de que la importación o exportación evita los cargos y los retrasos de ancho de banda entre regiones. Si se realizan demasiadas solicitudes al mismo tiempo en la misma región, se producen retrasos significativos en el procesamiento de las operaciones. El tiempo necesario para completar las solicitudes puede variar de unos segundos a varias horas.
 
-> [!NOTE]
-> Si una solicitud no se procesa en un plazo de cuatro días, el servicio la cancela automáticamente.
 
 ## <a name="recommended-solutions"></a>Soluciones recomendadas
 

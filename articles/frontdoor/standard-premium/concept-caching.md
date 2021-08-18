@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 63ea252a4b4c673ae3028adb7ab793ac21fb2e99
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 24a925b0d16dc1650398e6211aaff42cd47620eb
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564592"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369418"
 ---
 # <a name="caching-with-azure-front-door-standardpremium-preview"></a>Almacenamiento en caché con Azure Front Door Estándar/Prémium (versión preliminar)
 
@@ -37,7 +37,7 @@ Front Door Estándar/Prémium (versión preliminar) proporciona archivos grandes
 
 Una vez que el fragmento llega al entorno de Front Door, se almacena en caché y se sirve inmediatamente al usuario. Después, Front Door realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se ha solicitado) o el cliente termina la conexión.
 
-Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://www.rfc-editor.org/info/rfc7233).
 Front Door almacena en caché los fragmentos cuando se reciben, por lo que no es necesario poner todo el archivo en la caché de Front Door. Las solicitudes subsiguientes del archivo o los intervalos de bytes se sirven desde la caché. Si no se almacenan en caché todos los fragmentos, se usa la captura previa para solicitar fragmentos del back-end. Esta optimización se basa en la capacidad del origen para admitir solicitudes de intervalos de bytes. Si el origen no admite solicitudes de intervalos de bytes, esta optimización no es efectiva.
 
 ## <a name="file-compression"></a>Compresión de archivos

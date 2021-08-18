@@ -3,12 +3,12 @@ title: Ejecución rápida de tareas con una plantilla
 description: Ponga en cola una tarea de ACR Tasks que desee ejecutar para compilar una imagen con una plantilla de Azure Resource Manager
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: af7bebc311f81bb489fcc8be419f167ff6f9460a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c79eec16798b1e1c9933ab50fb443b4427075149
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781242"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112981093"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Ejecución de ACR Tasks mediante plantillas de Resource Manager
 
@@ -49,6 +49,8 @@ En este ejemplo, proporcione valores para los siguientes parámetros de la plant
 ### <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Implemente la plantilla con el comando [az deployment group create][az-deployment-group-create]. En este ejemplo, la imagen *helloworld-node:testrun* se compila y se inserta en un registro llamado *mycontainerregistry*.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
 az deployment group create \

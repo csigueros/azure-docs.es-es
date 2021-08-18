@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8af6802f785718ca6064a34c98d9f6dafc046a2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44e4b35d7e67e566b3ccef61cf5fa22077e844c7
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594774"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861811"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Uso de transacciones con un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -43,7 +43,7 @@ En la tabla siguiente se han considerado estas hipótesis:
 
 ## <a name="gen2"></a>Gen2
 
-| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Extremo por distribución (GB) | Número de distribuciones | Tamaño de la transacción MAX (GB) | N-º de filas por distribución | Máximo de filas por transacción |
+| [DWU](resource-consumption-models.md#data-warehouse-units) | Extremo por distribución (GB) | Número de distribuciones | Tamaño de la transacción MAX (GB) | N-º de filas por distribución | Máximo de filas por transacción |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4 000 000 |240 000 000 |
 | DW200c |1.5 |60 |90 |6\.000.000 |360 000 000 |
@@ -64,7 +64,7 @@ En la tabla siguiente se han considerado estas hipótesis:
 
 ## <a name="gen1"></a>Gen1
 
-| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Extremo por distribución (GB) | Número de distribuciones | Tamaño de la transacción MAX (GB) | N-º de filas por distribución | Máximo de filas por transacción |
+| [DWU](resource-consumption-models.md#data-warehouse-units) | Extremo por distribución (GB) | Número de distribuciones | Tamaño de la transacción MAX (GB) | N-º de filas por distribución | Máximo de filas por transacción |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4 000 000 |240 000 000 |
 | DW200 |1.5 |60 |90 |6\.000.000 |360 000 000 |
@@ -81,7 +81,7 @@ En la tabla siguiente se han considerado estas hipótesis:
 
 Se aplica el límite de tamaño de la transacción por transacción u operación. No se aplica en todas las transacciones simultáneas. Por tanto, cada transacción puede escribir esta cantidad de datos en el registro.
 
-Para optimizar y minimizar la cantidad de datos que se escriben en el registro, consulte el artículo [Procedimientos recomendados relacionados con las transacciones](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para optimizar y minimizar la cantidad de datos que se escriben en el registro, consulte el artículo [Procedimientos recomendados relacionados con las transacciones](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?context=/azure/synapse-analytics/context/context).
 
 > [!WARNING]
 > El tamaño máximo de la transacción solo se puede conseguir para las tablas de distribución HASH o ROUND_ROBIN donde la propagación de los datos es uniforme. Si la transacción está escribiendo datos de forma sesgada en las distribuciones, es posible que el límite se alcance antes de que la transacción llegue al máximo de su tamaño.
@@ -204,4 +204,4 @@ El grupo de SQL dedicado tiene algunas otras restricciones relacionadas con las 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la optimización de transacciones, vea [Procedimientos recomendados relacionados con las transacciones](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). También se proporcionan guías de procedimientos recomendados adicionales para un [grupo de SQL dedicado](best-practices-dedicated-sql-pool.md) y un [grupo de SQL sin servidor](best-practices-serverless-sql-pool.md).
+Para obtener más información sobre la optimización de transacciones, vea [Procedimientos recomendados relacionados con las transacciones](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?context=/azure/synapse-analytics/context/context). También se proporcionan guías de procedimientos recomendados adicionales para un [grupo de SQL dedicado](best-practices-dedicated-sql-pool.md) y un [grupo de SQL sin servidor](best-practices-serverless-sql-pool.md).

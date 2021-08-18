@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/17/2020
-ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f47833ab0fa36e4f58063640d60e188d850ea73f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98119034"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742149"
 ---
 # <a name="execute-r-script-module"></a>Módulo Execute R Script
 
@@ -50,7 +50,7 @@ Para instalar paquetes de R adicionales, use el método `install.packages()`. Lo
 
 > [!NOTE]
 > **NO** se recomienda instalar el paquete de R desde la agrupación de scripts, sino hacerlo directamente en el editor de scripts.
-> Especifique el repositorio de CRAN al instalar paquetes, como `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+> Especifique el repositorio de CRAN al instalar paquetes, como `install.packages("zoo",repos = "https://cloud.r-project.org")`.
 
 > [!WARNING]
 > El módulo Execute R Script (Ejecutar script R) no admite la instalación de paquetes que requieren compilación nativa, como el paquete `qdap`, que requiere JAVA, y el paquete `drc`, que requiere C++. Esto se debe a que este módulo se ejecuta en un entorno preinstalado con permisos que no son de administrador.
@@ -74,7 +74,7 @@ En este ejemplo se muestra cómo instalar Zoo:
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
   
-  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")
+  if(!require(zoo)) install.packages("zoo",repos = "https://cloud.r-project.org")
   library(zoo)
   # Return datasets as a Named List
   return(list(dataset1=dataframe1, dataset2=dataframe2))
@@ -99,32 +99,6 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-## <a name="uploading-files"></a>Carga de archivos
-El módulo Execute R Script (Ejecutar script R) admite la carga de archivos mediante el SDK de R de Azure Machine Learning.
-
-En el ejemplo siguiente se muestra cómo cargar un archivo de imagen en Execute R Script (Ejecutar script R):
-```R
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-
-  # Generate a jpeg graph
-  img_file_name <- "rect.jpg"
-  jpeg(file=img_file_name)
-  example(rect)
-  dev.off()
-
-  upload_files_to_run(names = list(file.path("graphic", img_file_name)), paths=list(img_file_name))
-
-
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
-
-Una vez que termina la ejecución de la canalización, se puede obtener una vista previa de la imagen en el panel derecho del módulo.
-
-> [!div class="mx-imgBorder"]
-> ![Vista previa de la imagen cargada](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>Procedimiento para configurar Ejecutar script R
 
@@ -147,7 +121,7 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
 1. En el cuadro de texto **Script de R**, escriba o pegue el script de R válido.
 
     > [!NOTE]
-    > Escriba el script con cuidado. Asegúrese de que no hay errores de sintaxis, como el uso de variables no declaradas o de funciones o módulos no importados. Preste especial atención a la lista de paquetes preinstalados al final de este artículo. Para usar paquetes que no aparecen en la lista, instálelos en el script. Un ejemplo es `install.packages("zoo&quot;,repos = &quot;http://cran.us.r-project.org")`.
+    > Escriba el script con cuidado. Asegúrese de que no hay errores de sintaxis, como el uso de variables no declaradas o de funciones o módulos no importados. Preste especial atención a la lista de paquetes preinstalados al final de este artículo. Para usar paquetes que no aparecen en la lista, instálelos en el script. Un ejemplo es `install.packages("zoo",repos = "https://cloud.r-project.org")`.
     
     Para ayudarle a empezar, el cuadro de texto **Script de R** se muestra rellenado previamente con el código de ejemplo, que puede editar o reemplazar.
     

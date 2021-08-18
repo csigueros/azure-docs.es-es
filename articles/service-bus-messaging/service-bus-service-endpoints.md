@@ -4,12 +4,12 @@ description: En este artículo se proporciona información sobre cómo agregar u
 ms.topic: article
 ms.date: 03/29/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9b5aba6c5ad4e1e6d0c90b99ebcdf441bb35cc39
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 63a2f556739f7f3eaec3874e6d02cc996e2aaec4
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960459"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416729"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir el acceso al espacio de nombres de Azure Service Bus desde redes virtuales específicas
 La integración de Service Bus con los [puntos de conexión de servicio de una red virtual (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería de cargas de trabajo como las de máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos.
@@ -85,7 +85,7 @@ En esta sección se muestra cómo usar Azure Portal para agregar un punto de con
     > [!NOTE]
     > Para obtener instrucciones para permitir el acceso desde intervalos o direcciones concretos, consulte [Permitir el acceso desde intervalos o direcciones IP específicos](service-bus-ip-filtering.md).
 
-[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Uso de plantillas de Resource Manager
 La siguiente plantilla de Resource Manager de ejemplo agrega una regla de red virtual a un espacio de nombres de Service Bus existente. Para la regla de red, especifica el identificador de una subred en una red virtual. 

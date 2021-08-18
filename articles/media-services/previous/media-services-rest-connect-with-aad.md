@@ -14,19 +14,18 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: a2b4e7bf03ebb1fbc197b78287cb50b3f421d713
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f20b4f2ac34a7e601fe07a9b631bb561bf46f54f
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103017314"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712413"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Uso de la autenticación de Azure AD para acceder a la API de Media Services con REST
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-v-2-v-3-migration-introduction.md).
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 Si usa la autenticación de Azure AD con Azure Media Services, puede autenticarse de alguna de estas dos formas:
 

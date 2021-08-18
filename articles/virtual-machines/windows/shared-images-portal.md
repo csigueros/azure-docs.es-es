@@ -4,16 +4,17 @@ description: Obtenga información sobre cómo usar Azure Portal para crear y com
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/06/2019
+ms.date: 06/21/2021
 ms.author: cynthn
-ms.openlocfilehash: 7ef48e6eaef441026457e584a302eb3fe515c0a6
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 537b6f70534386269bb2ea57815b3dbb21337e48
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079416"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204198"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Creación de una instancia de Azure Shared Image Gallery mediante el portal
 
@@ -67,6 +68,5 @@ Puede crear también recursos de galería de imágenes compartidas con plantilla
 - [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](../shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](../troubleshooting-shared-images.md).

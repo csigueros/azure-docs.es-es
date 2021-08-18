@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova
+ms.reviewer: mathoma, bonova
 ms.date: 09/12/2019
-ms.openlocfilehash: bcb1d9a81cfbb606abd1b594524c0a2ff932fb19
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 3993194b484e2d6d2956f9d995a9b977fcf5a6e4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892569"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745759"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-managed-instance"></a>Creación de una red virtual para Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

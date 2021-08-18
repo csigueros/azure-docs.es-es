@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 03/15/2021
-ms.openlocfilehash: 5c0de2c1589bfa495ab6ad287b998c403041674c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68daeddb958a3d009cfb2632c30780d7dfe6ce6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592173"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739655"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Supervisión del rendimiento de Microsoft Azure SQL Database e Instancia administrada de Azure SQL mediante vistas de administración dinámica
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -636,11 +636,11 @@ En el siguiente ejemplo se muestran distintas maneras en que puede usar la vista
 
    ```sql
     SELECT
-        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent',
-        (COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent',
-        (COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
+        100*((COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'CPU Fit Percent',
+        100*((COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Log Write Fit Percent',
+        100*((COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Physical Data IO Fit Percent'
     FROM sys.resource_stats
-    WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+    WHERE database_name = 'sample' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
     En función de su objetivo de nivel de servicio de la base de datos, puede decidir si la carga de trabajo se ajusta al tamaño de proceso inferior. Si el objetivo de la carga de trabajo de la base de datos es del 99,9 % y la consulta anterior devuelve valores mayores que el 99,9 % para las tres dimensiones de recursos, es probable que la carga de trabajo se ajuste al tamaño de proceso inferior.
@@ -654,12 +654,12 @@ En el siguiente ejemplo se muestran distintas maneras en que puede usar la vista
     El promedio de CPU es aproximadamente un cuarto del límite del tamaño de proceso, que se ajustaría bien al tamaño de proceso de la base de datos. Sin embargo, el valor máximo muestra que la base de datos alcanza el límite del tamaño de proceso. ¿Necesita pasar al siguiente tamaño de proceso superior? Observe cuántas veces la carga de trabajo alcanza el 100 % y compárelo con el objetivo de la carga de trabajo de la base de datos.
 
     ```sql
-    SELECT
-        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data IO fit percent'
-        FROM sys.resource_stats
-        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+     SELECT
+         100*((COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'CPU Fit Percent',
+         100*((COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Log Write Fit Percent',
+         100*((COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Physical Data IO Fit Percent'
+     FROM sys.resource_stats
+     WHERE database_name = 'sample' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
     Si esta consulta devuelve un valor inferior al 99,9 por ciento para cualquiera de las tres dimensiones de recursos, plantéese subir al siguiente tamaño de proceso o usar técnicas de optimización de aplicaciones para reducir la carga en la base de datos.

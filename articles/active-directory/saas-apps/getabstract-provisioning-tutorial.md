@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de getAbstract para el aprovisionamiento autom�
 description: Descubra cómo aprovisionar y desaprovisionar de forma automática las cuentas de usuario de Azure Active Directory en getAbstract.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: bd8898f9-7a01-4e85-9dd4-61ae4b01ab5b
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2021
-ms.author: Zhchia
-ms.openlocfilehash: 1d1b2417750b917f5b09bb53ee980887218a785c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.author: thwimmer
+ms.openlocfilehash: e4922e6ea8cd6e92739950300559fe7a6043b8f5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616152"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763802"
 ---
 # <a name="tutorial-configure-getabstract-for-automatic-user-provisioning"></a>Tutorial: Configuración de getAbstract para el aprovisionamiento automático de usuarios
 

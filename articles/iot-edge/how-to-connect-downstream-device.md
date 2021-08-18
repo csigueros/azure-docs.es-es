@@ -2,7 +2,6 @@
 title: 'Conexión de dispositivos de bajada: Azure IoT Edge | Microsoft Docs'
 description: Se describe cómo configurar dispositivos de bajada o dispositivos hoja para su conexión con dispositivos de puerta de enlace Azure IoT Edge.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 10/15/2020
 ms.topic: conceptual
@@ -12,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 4cb31017d87c235f4a26d6f86080c20b0c3b2a8a
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 92e1a38e962c80de53971523320cd168cfc66d06
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905295"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740660"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 

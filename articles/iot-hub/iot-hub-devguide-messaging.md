@@ -2,7 +2,6 @@
 title: Información sobre la mensajería de IoT Hub de Azure | Microsoft Docs
 description: 'Guía del desarrollador: mensajería de dispositivo a nube y de nube a dispositivo con IoT Hub Incluye información sobre los formatos de mensaje y protocolos de comunicación compatibles.'
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: e25b9d6cbe8446fb2f10150f17f7e2b0ccf85d3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec241eadb43b083905a2fea0fc7a03cf46dd31d1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147630"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727815"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>Envío de mensajes de dispositivo a nube y de nube a dispositivo con IoT Hub
 

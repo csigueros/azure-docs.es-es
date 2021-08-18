@@ -2,13 +2,13 @@
 title: 'Grabación de vídeo basada en eventos de Azure Video Analyzer: Azure'
 description: La grabación de vídeo basada en eventos (EVR) de Azure Video Analyzer hace referencia al proceso de grabación de vídeo desencadenado por un evento. El evento en cuestión podría originarse debido al procesamiento de la propia señal de vídeo (por ejemplo, cuando se detecta movimiento) o podría proceder de un origen independiente (por ejemplo, un sensor de puerta indica que se ha abierto la puerta). En este artículo se describen algunos casos de uso relacionados con la grabación de vídeo basada en eventos.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: de6581b60d0cee4c1ac34ffbd60ee22509807e8b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 2386e45c3d2cde881436e86eb267365355d652ba
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388508"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601393"
 ---
 # <a name="event-based-video-recording"></a>Grabación de vídeo basada en eventos  
 
@@ -43,7 +43,7 @@ Los eventos del nodo detector de movimiento también desencadenan el nodo del pr
 
 ### <a name="video-recording-based-on-events-from-other-sources"></a>Grabación de vídeo basada en eventos desde otros orígenes  
 
-En este caso de uso, se pueden usar las señales de otro sensor de IoT para desencadenar la grabación de vídeos. En el diagrama siguiente se muestra una representación gráfica de una canalización que aborda este caso de uso. La representación JSON de la topología de canalización de este tipo de canalización se puede encontrar [aquí](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-files/topology.json).
+En este caso de uso, se pueden usar las señales de otro sensor de IoT para desencadenar la grabación de vídeos. En el diagrama siguiente se muestra una representación gráfica de una canalización que aborda este caso de uso. La representación JSON de la topología de canalización de este tipo de canalización se puede encontrar [aquí](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-file-sink/topology.json).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording/other-sources.png" alt-text="Grabación basada en eventos de vídeo en directo cuando lo señala un origen externo.":::

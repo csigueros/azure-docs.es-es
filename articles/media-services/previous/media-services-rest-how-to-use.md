@@ -15,19 +15,18 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.reviewer: johndeu
-ms.openlocfilehash: 9f147e333e4d1b95a14dd3121d7ab304b6166248
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f815ef68830a55e04bcf5ab23ad70bac07b9584c
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103010055"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712234"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de operaciones de Media Services
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-v-2-v-3-migration-introduction.md).
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 La API de **REST de Media Services Operations** se usa para crear trabajos, activos, canales en vivo y otros recursos de una cuenta de Media Services. Para obtener más información, consulte la [referencia de la API de REST de Media Services Operations](/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -76,7 +75,7 @@ Para cada llamada que realice en los Media Services, hay un conjunto de encabeza
 
 A continuación se muestra un conjunto de encabezados opcionales:
 
-| Encabezado | Tipo | Value |
+| Encabezado | Tipo | Valor |
 | --- | --- | --- |
 | Date |Fecha RFC 1123 |Marca de tiempo de la solicitud |
 | Accept |Tipo de contenido |El tipo de contenido solicitado para la respuesta, por ejemplo, el siguiente:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Las respuestas pueden tener distintos tipos de contenido, como una captura de blob, donde una respuesta correcta contenga la secuencia de blob como la carga. |

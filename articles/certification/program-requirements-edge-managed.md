@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Managed Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 7d3cd36dd0f03db7cc701c618b40f58dc9873659
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: b7ca60a674a044e5fa37604eadad7ca5cbbfddf3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982023"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741131"
 ---
 # <a name="edge-managed-certification-requirements"></a>Requisitos de certificación de Edge Managed
 
@@ -51,7 +51,7 @@ La certificación de Edge Managed requiere todos los requisitos del [programa de
 | **SISTEMA OPERATIVO**                  | [Sistema operativo de nivel 1 y nivel 2](../iot-edge/support.md)                 |
 | **Tipo de validación**     | Automatizado                                                    |
 | **Validación**          | AICS valida la capacidad de implementación de RT de IoT Edge instalado. **1.** El usuario debe especificar un sistema operativo específico (el sistema operativo que no se encuentre en la lista de nivel 1 y nivel 2 no se acepta) **2.** AICS genera su archivo config.yaml e implementa el [módulo perimetral del sensor de temperatura simulado](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-iot.simulated-temperature-sensor?tab=Overview) canónico **3.** AICS valida que el subsistema de contenedor compatible con Docker (Moby) está instalado en el dispositivo **4.** El resultado de la prueba se determina en función de la implementación correcta del módulo perimetral del sensor de temperatura simulado y la funcionalidad del subsistema del contenedor compatible con Docker                                                    |
-| **Recursos**           | **a)** [Blog de AICS](https://azure.microsoft.com/en-in/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [Pasos de certificación](./overview.md) (tiene todos los recursos adicionales), **c)** [Requisitos](./program-requirements-azure-certified-device.md) |
+| **Recursos**           | **a)** [Blog de AICS](https://azure.microsoft.com/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [Pasos de certificación](./overview.md) (tiene todos los recursos adicionales), **c)** [Requisitos](./program-requirements-azure-certified-device.md) |
 | **Recomendado para Azure:**     | N/D                                                    |
 
 ### <a name="capability-template"></a>Plantilla de funcionalidad:
@@ -65,5 +65,5 @@ La certificación de Edge Managed requiere todos los requisitos del [programa de
 | **SISTEMA OPERATIVO**                  | [Sistema operativo de nivel 1 y nivel 2](../iot-edge/support.md)                                                     |
 | **Tipo de validación**     | Manual/Comprobado en el laboratorio                                                    |
 | **Validación**          | El OEM debe enviar el dispositivo físico a la administración de IoT (HCL). HCL realiza la validación manual en el dispositivo físico para comprobar lo siguiente: **1.** EdgeRT usa el subsistema Moby (versión de redistribución permitida). Sin Docker **2.** Elija el módulo perimetral más reciente para validar la capacidad de implementar Edge.                                                     |
-| **Recursos**           | **a)** [Blog de AICS](https://azure.microsoft.com/en-in/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [Pasos de certificación](./overview.md) , **c)** [Requisitos](./program-requirements-azure-certified-device.md) |
+| **Recursos**           | **a)** [Blog de AICS](https://azure.microsoft.com/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [Pasos de certificación](./overview.md) , **c)** [Requisitos](./program-requirements-azure-certified-device.md) |
 | **Recomendado para Azure:**     | N/D                                                    |

@@ -3,12 +3,12 @@ title: Configuración de la supervisión de GPU con Container insights | Microso
 description: En este artículo se describe cómo puede configurar la supervisión de clústeres de Kubernetes con nodos habilitados para GPU NVIDIA y AMD con Container Insights.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 2958b000ac0dabcd7fddf75a58f553b705a95e9a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9f18628b2814305d8629d3216bb0a0d1bab092fb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731874"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734293"
 ---
 # <a name="configure-gpu-monitoring-with-container-insights"></a>Configuración de la supervisión de GPU con Container insights
 
@@ -39,7 +39,7 @@ Container Insights inicia automáticamente la supervisión del uso de GPU en los
 
 ## <a name="gpu-performance-charts"></a>Gráficos de rendimiento de GPU 
 
-Container Insights incluye gráficos preconfigurados para las métricas indicadas anteriormente en la tabla como un libro de GPU para cada clúster. Consulte [Libros en Container Insights](../insights/container-insights-reports.md) a fin de obtener una descripción de los libros disponibles para Container Insights.
+Container Insights incluye gráficos preconfigurados para las métricas indicadas anteriormente en la tabla como un libro de GPU para cada clúster. Consulte [Libros en Container Insights](container-insights-reports.md) a fin de obtener una descripción de los libros disponibles para Container Insights.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,18 +3,17 @@ title: 'Escritura de createOptions para módulos: Azure IoT Edge | Microsoft Do
 description: Cómo usar createOptions en el manifiesto de implementación para configurar módulos en tiempo de ejecución
 keywords: ''
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ee5536562eb3f2008908a36ff296ef2cfa337ea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0a1b77cc3cfdda927c6df8c2e0d4b013647bab45
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200611"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728828"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Configuración de las opciones de creación de contenedores para módulos de IoT Edge
 

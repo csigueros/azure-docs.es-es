@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 32cbdabef4d89c7fabb47a52ebf0589690b7ab33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3527e098e282d9c8f31069f7b747aa33f9d0349
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85566057"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253769"
 ---
 # <a name="connect-check-point-to-azure-sentinel"></a>Conexión de Check Point a Azure Sentinel
 
 
 
 En este artículo se explica cómo conectar el dispositivo Check Point a Azure Sentinel. El conector de datos de Check Point permite conectar fácilmente los registros de Check Point con Azure Sentinel para ver paneles, crear alertas personalizadas y mejorar la investigación. El uso de Check Point en Azure Sentinel le proporcionará más información sobre el uso de Internet de su organización y mejorará sus capacidades de operación de seguridad. 
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 
 ## <a name="forward-check-point-logs-to-the-syslog-agent"></a>Reenvío de los registros de Check Point al agente de Syslog
 
@@ -43,7 +46,5 @@ Configure el dispositivo Check Point para reenviar mensajes de Syslog en formato
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar dispositivos de Check Point a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - [Validación de conectividad](connect-cef-verify.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
-
-
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

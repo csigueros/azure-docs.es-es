@@ -3,22 +3,22 @@ title: Problemas en Internet Explorer y Microsoft Edge (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información acerca de los problemas conocidos al usar la biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) con Internet Explorer y Microsoft Edge.
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 05/18/2020
-ms.author: mtillman
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9323558aec1cb330cc5253f8d380706854aaeae9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 91ef36a5dbbfb7e0edb7fe1d75d77d2f2dc4870b
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077237"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357614"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conocidos en los exploradores Internet Explorer y Microsoft Edge (MSAL.js)
 
@@ -36,7 +36,7 @@ La causa de la mayoría de estos problemas es la siguiente. El almacenamiento de
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
-- **La ventana emergente no se cierra o se bloquea cuando se usa el inicio de sesión a través de la ventana emergente para realizar la autenticación**. Cuando se realiza la autenticación mediante la ventana emergente de Microsoft Edge o IE (InPrivate), después de escribir las credenciales y realizar el inicio de sesión, si intervienen varios dominios de las zonas de seguridad en la navegación, la ventana emergente no se cierra porque MSAL.js pierde el identificador de la ventana emergente.  
+- **La ventana emergente no se cierra o se bloquea cuando se usa el inicio de sesión a través de la ventana emergente para realizar la autenticación**. Cuando se realiza la autenticación mediante la ventana emergente de Microsoft Edge o IE (InPrivate), después de escribir las credenciales y realizar el inicio de sesión, si intervienen varios dominios de las zonas de seguridad en la navegación, la ventana emergente no se cierra porque MSAL.js pierde el identificador de la ventana emergente.
 
 ### <a name="update-fix-available-in-msaljs-023"></a>Actualización: Corrección disponible en MSAL.js 0.2.3
 Las correcciones para los problemas del bucle de redireccionamiento de la autenticación se han publicado en [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Habilite la marca `storeAuthStateInCookie` en la configuración de MSAL.js para usar esta solución. De manera predeterminada, esta marca se establece en "false".
@@ -49,7 +49,7 @@ Cuando la marca `storeAuthStateInCookie` está habilitada, MSAL.js usará las co
 Use las soluciones que tiene a continuación.
 
 #### <a name="other-workarounds"></a>Otras soluciones
-Asegúrese de que su problema solo se produce en la versión específica del explorador Microsoft Edge y de que funciona en los otros exploradores antes de adoptar estas soluciones alternativas.  
+Asegúrese de que su problema solo se produce en la versión específica del explorador Microsoft Edge y de que funciona en los otros exploradores antes de adoptar estas soluciones alternativas.
 1. Como primer paso para solucionar estos problemas, asegúrese de que el dominio de la aplicación y cualquier otro sitio involucrado en las redirecciones del flujo de autenticación se agreguen como sitios de confianza en la configuración de seguridad del explorador, para que pertenezcan a la misma zona de seguridad.
 Para hacerlo, siga estos pasos:
     - Abra **Internet Explorer** y haga clic en la **configuración** (icono con forma de engranaje) en la esquina superior derecha.

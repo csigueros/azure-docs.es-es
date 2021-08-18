@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2020
 ms.author: yelevin
-ms.openlocfilehash: a0056391dddec25511deb7033d37f59db3d835c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b023745d8882d639cf9a39fd483dd7b82d1a782d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98567840"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780249"
 ---
 # <a name="connect-your-thycotic-secret-server-to-azure-sentinel"></a>Conexión de Thycotic Secret Server con Azure Sentinel
 
 > [!IMPORTANT]
 > El conector de Thycotic Secret Server está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 En este artículo se explica cómo conectar el dispositivo de Thycotic Secret Server con Azure Sentinel. El conector de datos de Thycotic Secret Server le permite conectar fácilmente los datos de registros de Thycotic Secret Server con Azure Sentinel, de modo que pueda verlos en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar la investigación. La integración entre Thycotic y Azure Sentinel hace uso del conector de datos de CEF para analizar y mostrar correctamente los mensajes de Syslog de Secret Server.
 
@@ -51,7 +53,7 @@ Para exportar los registros a Azure Sentinel, configure Thycotic Secret Server p
 
     1. En **1. Configuración del agente de Syslog para Linux**. Complete este paso si todavía no ejecuta un reenviador de registros o si necesita otro. Consulte [PASO 1: Implementación del reenviador de registros](connect-cef-agent.md) de la documentación de Azure Sentinel para una explicación e instrucciones más detalladas.
 
-    1. En **2. Reenvío de los registros en formato de evento común (CEF) al agente de Syslog**. Siga las instrucciones de Thycotic para [configurar Secret Server](https://thy.center/ss/link/syslog). Esta configuración debe incluir los elementos siguientes:
+    1. En **2. Reenvío de los registros en formato de evento común (CEF) al agente de Syslog**. Siga las instrucciones de Thycotic para [configurar Secret Server](https://docs.thycotic.com/ssi/1.0.0/splunk/splunk-on-prem/config/syslog-events.md). Esta configuración debe incluir los elementos siguientes:
         - Destino de los registros: el nombre de host o la dirección IP del servidor de reenvío de registros
         - Protocolo y puerto: **TCP 514** (si se recomienda otro, asegúrese de realizar el cambio adecuado en el demonio de Syslog en el servidor de reenvío de registros)
         - Formato de registro: CEF
@@ -78,6 +80,6 @@ Consulte la pestaña **Pasos siguientes** de la página de conectores para ver a
 
 En este documento, aprendió a conectar Thycotic Secret Server con Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

@@ -2,17 +2,17 @@
 title: 'CLI de Azure: búsqueda y eliminación de discos administrados y no administrados desasociados'
 description: Cómo buscar y eliminar discos administrados y no administrados (VHD o blobs en páginas) de Azure no asociados mediante la CLI de Azure.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0c3e8bb2ff6f3313e851a4253a95a5ad923a8f70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1bf4a1fab43bb190fd5cd72b09f6c4c7a56760d9
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96016223"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356858"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Búsqueda y eliminación de discos administrados y no administrados de Azure no conectados mediante la CLI de Azure
 Cuando se elimina una máquina virtual (VM) en Azure, de forma predeterminada, no se elimina ningún disco asociado a la máquina virtual. Esta característica ayuda a evitar la pérdida de datos debido a la eliminación accidental de máquinas virtuales. Después de eliminar una máquina virtual, seguirá pagando por los discos no asociados. En este artículo se muestra cómo buscar y eliminar los discos no asociados y reducir costos innecesarios. 

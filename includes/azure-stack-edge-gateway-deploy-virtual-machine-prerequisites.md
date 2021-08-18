@@ -2,20 +2,29 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 01/15/2021
+ms.date: 06/30/2021
 ms.author: alkohli
-ms.openlocfilehash: f166413507afb9aff814eaddaade099d2e34ae68
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: f96012c3ffa587a80d601447d99efc804956096e
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554683"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113120984"
 ---
 Para poder implementar VM en el dispositivo Azure Stack Edge, debe configurar el cliente para que se conecte al dispositivo mediante Azure Resource Manager con Azure PowerShell. Para consultar las instrucciones detalladas, vaya a [Conexión a Azure Resource Manager en un dispositivo Azure Stack Edge Pro](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).
 
 Asegúrese de que se pueden usar los pasos siguientes para acceder al dispositivo desde el cliente. Ya ha realizado esta configuración cuando se conectó a Azure Resource Manager y ahora está comprobando que la configuración se ha realizado correctamente. 
 
+
+
 1. Ejecute el siguiente comando para comprobar que la comunicación de Azure Resource Manager funciona:     
+
+    ### <a name="az"></a>[Az](#tab/Az)
+
+    ```powershell
+    Add-AzEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
+    ```
+    ### <a name="azurerm"></a>[AzureRM](#tab/AzureRM)
 
     ```powershell
     Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
@@ -23,7 +32,19 @@ Asegúrese de que se pueden usar los pasos siguientes para acceder al dispositiv
 
 1. Para llamar a las API de dispositivo local para autenticarse, escriba: 
 
-    `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
+    ### <a name="az"></a>[Az](#tab/Az)
+
+    ```powershell
+    login-AzAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    ```
+
+    Para conectarse mediante Azure Resource Manager, proporcione el nombre de usuario *EdgeArmUser* y la contraseña.
+
+    ### <a name="azurerm"></a>[AzureRM](#tab/AzureRM)
+
+    ```powershell
+    login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    ```
 
     Para conectarse mediante Azure Resource Manager, proporcione el nombre de usuario *EdgeArmUser* y la contraseña.
 

@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de Visibly para el aprovisionamiento automátic
 description: Aprenda a aprovisionar y desaprovisionar de forma automática las cuentas de usuario de Azure AD en Visibly.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 9c658962-8a11-47ca-86ee-34872a39813a
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2020
-ms.author: Zhchia
-ms.openlocfilehash: c2feae18c4b32e1a1a87d153219aff0bfee3b756
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: ad76dbce502cebb6fecd6f28cc2d878f134a5fea
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182196"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766771"
 ---
 # <a name="tutorial-configure-visibly-for-automatic-user-provisioning"></a>Tutorial: Configuración de Visibly para el aprovisionamiento automático de usuarios
 
@@ -35,7 +35,7 @@ En este tutorial se describen los pasos que se deben realizar en Visibly y Azure
 > * Aprovisionamiento de grupos y pertenencias a grupos en Visibly
 > * [Inicio de sesión único](./visibly-tutorial.md) en Visibly (recomendado)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 

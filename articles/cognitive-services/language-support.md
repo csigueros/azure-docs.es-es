@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3a535e1540535c52d4a21684074d81df8b41c4ca
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1fbf548436842f16516554558b74391567a761e0
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950766"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181378"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Compatibilidad con idiomas naturales para Azure Cognitive Services
 
@@ -37,7 +37,7 @@ Estas instancias de Cognitive Services son independientes del idioma y no tienen
 
 ## <a name="language"></a>Idioma
 
-* [Lector inmersivo](./immersive-reader/language-support.md)
+* [Lector inmersivo](../applied-ai-services/immersive-reader/language-support.md)
 * [Language Understanding (LUIS)](./luis/luis-language-support.md)
 * [QnA Maker](./qnamaker/overview/language-support.md)
 * [Text Analytics](./text-analytics/language-support.md)

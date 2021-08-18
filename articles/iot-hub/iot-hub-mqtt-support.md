@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: c003b172322892e18fdc7a0e618f00eb526a10a8
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ab706018e7c38e43ae75d5af49c3bd6c0a78d783
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892983"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403491"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -111,7 +111,7 @@ En el [repositorio de ejemplo de IoT MQTT](https://github.com/Azure-Samples/IoTM
 
 En estos ejemplos se usa la biblioteca Eclipse Mosquitto para enviar mensajes al agente MQTT implementado en IoT Hub.
 
-Para obtener información sobre cómo adaptar los ejemplos para usar las convenciones de [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), consulte [Tutorial: Uso de MQTT para desarrollar un cliente del dispositivo IoT Plug and Play](../iot-pnp/tutorial-use-mqtt.md).
+Para obtener información sobre cómo adaptar los ejemplos para usar las convenciones de [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), consulte [Tutorial: Uso de MQTT para desarrollar un cliente del dispositivo IoT Plug and Play](../iot-develop/tutorial-use-mqtt.md).
 
 Este repositorio contiene:
 
@@ -123,7 +123,7 @@ Este repositorio contiene:
 
 * DeviceTwinMQTTWin32: contiene código para consultar y suscribirse a los eventos de dispositivo gemelo de un dispositivo en Azure IoT Hub en una máquina Windows.
 
-* PnPMQTTWin32: contiene código para enviar un mensaje de telemetría con funcionalidad de dispositivo IoT Plug and Play en versión preliminar a una instancia de Azure IoT Hub compilada y ejecutada en una máquina Windows. Más información sobre [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md).
+* PnPMQTTWin32: contiene código para enviar un mensaje de telemetría con funcionalidad de dispositivo IoT Plug and Play en versión preliminar a una instancia de Azure IoT Hub compilada y ejecutada en una máquina Windows. Más información sobre [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md).
 
 **Para Linux:**
 

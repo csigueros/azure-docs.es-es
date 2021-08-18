@@ -1,27 +1,27 @@
 ---
 title: Creación y uso de tablas de libro de contabilidad de solo anexión
 description: Aprenda a crear y usar tablas de libro de contabilidad de solo anexión en Azure SQL Database.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: f433e56140a199cdb872bc733343a8cf88c818cb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: fede72baa7df89e821e496066090658bda2df80e
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076409"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665854"
 ---
 # <a name="create-and-use-append-only-ledger-tables"></a>Creación y uso de tablas de libro de contabilidad de solo anexión
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database está en versión preliminar pública y está disponible en el Centro-oeste de EE. UU.
+> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
 
 En este artículo se muestra cómo crear una [tabla de libro de contabilidad de solo anexión](ledger-append-only-ledger-tables.md) en Azure SQL Database. Luego, insertará valores en la tabla de libro de contabilidad de solo anexión e intentará realizar actualizaciones de los datos. Por último, verá los resultados mediante la vista de libro de contabilidad. Se usará un ejemplo de un sistema de acceso con clave de tarjeta de una instalación, que es un modelo de sistema de solo anexión. Este ejemplo le proporcionará una visión práctica de la relación entre la tabla de libro de contabilidad de solo anexión y su vista de libro de contabilidad correspondiente.
 
@@ -94,7 +94,7 @@ Crearemos una tabla `KeyCardEvents` con el esquema siguiente.
 
 - [Libro de contabilidad de base de datos](ledger-database-ledger.md) 
 - [Administración de resúmenes y comprobación de la base de datos](ledger-digest-management-and-database-verification.md)
-- [Tablas de libro de contabilidad de solo anexión](ledger-append-only-ledger-tables.md) 
+- [Tablas de solo adición del libro de contabilidad](ledger-append-only-ledger-tables.md) 
 - [Tablas de libro de contabilidad actualizables](ledger-updatable-ledger-tables.md)
 - [Creación y uso de tablas de libro de contabilidad actualizables](ledger-how-to-updatable-ledger-tables.md)
 - [Acceso a los resúmenes almacenados en Azure Confidential Ledger (ACL)](ledger-how-to-access-acl-digest.md)

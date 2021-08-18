@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35d2bf33b4a22c14abfb61a87a3697b05188ed31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d92f00281a06357f2135fe148f923b0671e10304
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579100"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203464"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -55,7 +55,7 @@ La parte de las asignaciones controla el quién, el qué y el dónde de una dire
 
 ### <a name="cloud-apps-or-actions"></a>Aplicaciones o acciones en la nube
 
-[Aplicaciones o acciones en la nube](concept-conditional-access-cloud-apps.md) puede incluir o excluir las aplicaciones en la nube o acciones del usuario que estarán sujetas a la directiva.
+Las [aplicaciones o acciones en la nube](concept-conditional-access-cloud-apps.md) puede incluir o excluir las aplicaciones en la nube, las acciones del usuario o los contextos de autenticación que estarán sujetos a la directiva.
 
 ### <a name="conditions"></a>Condiciones
 
@@ -77,13 +77,17 @@ Los datos de ubicación se proporcionan mediante datos de geolocalización de di
 
 #### <a name="client-apps"></a>Aplicaciones cliente
 
-De manera predeterminada, las directivas de acceso condicional se aplican a aplicaciones de explorador, aplicaciones móviles y clientes de escritorio que admiten la autenticación moderna. 
+De manera predeterminada, todas las directivas de acceso condicional recién creadas se aplicarán a todos los tipos de aplicaciones cliente, incluso si la condición de las aplicaciones cliente no está configurada.
 
-Esta condición de asignación permite que las directivas de acceso condicional tengan como destino aplicaciones cliente específicas que no usen la autenticación moderna. Entre estas aplicaciones se incluyen los clientes de Exchange ActiveSync, aplicaciones de Office anteriores que no usan la autenticación moderna y protocolos de correo como IMAP, MAPI, POP y SMTP.
+El comportamiento de la condición de las aplicaciones cliente se actualizó en agosto de 2020. Si ya tiene directivas de acceso condicional, estas permanecerán sin cambios. Sin embargo, si hace clic en una directiva existente, se habrá quitado el botón de alternancia de configuración, y estarán seleccionadas las aplicaciones cliente a las que se aplica la directiva.
 
 #### <a name="device-state"></a>Estado del dispositivo
 
 Este control se usa para excluir dispositivos que están unidos a Azure AD híbrido o que están marcados como compatibles en Intune. Esta exclusión se puede realizar para bloquear dispositivos no administrados. 
+
+#### <a name="filters-for-devices-preview"></a>Filtros para dispositivos (versión preliminar)
+
+Este control permite dirigirse a dispositivos específicos en función de sus atributos en una directiva.
 
 ## <a name="access-controls"></a>Controles de acceso
 

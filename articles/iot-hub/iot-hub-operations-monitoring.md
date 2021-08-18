@@ -2,19 +2,18 @@
 title: Supervisión de operaciones de Azure IoT Hub | Microsoft Docs
 description: Describe cómo usar la supervisión de operaciones de Azure IoT Hub para supervisar el estado de las operaciones de su centro de IoT en tiempo real.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e53fe91311eb5ad784c6e843bbe81727abcc547
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94408131"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750753"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Supervisión de operaciones de IoT Hub (en desuso)
 
@@ -37,7 +36,7 @@ IoT Hub supervisa seis categorías de eventos:
 
 ## <a name="how-to-enable-operations-monitoring"></a>Habilitación de la supervisión de operaciones
 
-1. Cree un Centro de IoT. Puede encontrar instrucciones sobre cómo crear un centro de IoT en la guía [Introducción](quickstart-send-telemetry-dotnet.md).
+1. Cree un Centro de IoT. Puede encontrar instrucciones sobre cómo crear un centro de IoT en la guía [Introducción](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp).
 
 2. Abra la hoja de su centro de IoT. Desde allí, haga clic en **Supervisión de operaciones**.
 

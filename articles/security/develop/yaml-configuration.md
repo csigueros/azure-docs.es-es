@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a41a788a84770201996fd369d9b47031674afee3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ea54329328725f5ae74525b63daae060289773e
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799554"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115983"
 ---
 # <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>Opciones de configuración de YAML para personalizar las tareas de compilación
 
@@ -30,7 +30,7 @@ En este artículo se muestran todas las opciones de configuración de YAML dispo
 
 | **InputType**      | **Tipo**     | **Aplicable a**            | **Obligatorio** | **Valor predeterminado**             | **Opciones (para listas desplegables)**                                   | **Descripción**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| InputType | pickList | Siempre | True | Básico | Basic, Custom | 
+| InputType | pickList | Siempre | True | Básica | Basic, Custom | 
 | ScanType | pickList | InputType = Basic | True | CustomScan | CustomScan, FullSystemScan, QuickScan, YourConfiguredScan | Tipo de detección que se va a usar para la detección de antimalware.
 | FileDirPath | filePath | ScanType = CustomScan | True | $(Build.StagingDirectory) |  | Indica el archivo o directorio que se va a examinar.
 | DisableRemediation | boolean | ScanType = CustomScan | False | true |  | Cuando está activado: 1) Se omiten las exclusiones de archivos. 2) Se examinan los archivos del almacenamiento. 3) No se aplican las acciones después de la detección. 4) No se escriben las entradas del registro de eventos después de la detección. 5) No se muestran las detecciones del examen personalizado en la interfaz de usuario. 6) La salida de la consola mostrará la lista de detecciones del examen personalizado.
@@ -46,7 +46,7 @@ En este artículo se muestran todas las opciones de configuración de YAML dispo
 
 | **InputType**      | **Tipo**     | **Aplicable a**            | **Obligatorio** | **Valor predeterminado**             | **Opciones (para listas desplegables)**                                   | **Descripción**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| InputType | pickList | Siempre | True | Básico | Basic, CommandLine | 
+| InputType | pickList | Siempre | True | Básica | Basic, CommandLine | 
 | argumentos | string | InputType = CommandLine | True |  |  | Argumentos de la línea de comandos de BinSkim estándar que se van a ejecutar. La ruta de acceso de salida se eliminará y se reemplazará.<br>Para más información sobre los argumentos de la línea de comandos de esta herramienta, escriba **help** (ayuda) en el campo Argumentos y ejecute la tarea de compilación.
 | Función | pickList | InputType = Basic | True | analyze | analyze, dump, exportConfig, exportRules | 
 | AnalyzeTarget | filePath | InputType = Basic && Function = analyze | True | $(Build.ArtifactStagingDirectory)\*.dll;<br>$(Build.ArtifactStagingDirectory)\*.exe |  | Uno o más especificadores para un archivo, un directorio o un patrón de filtro que se resuelve en uno o varios archivos binarios que se van a analizar. (lista separada por ";")
@@ -167,4 +167,4 @@ En este artículo se muestran todas las opciones de configuración de YAML dispo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene más preguntas sobre la extensión de Análisis de código de seguridad y las herramientas que se ofrecen, consulte [nuestra página de preguntas más frecuentes](security-code-analysis-faq.md).
+Si tiene más preguntas sobre la extensión de Análisis de código de seguridad y las herramientas que se ofrecen, consulte [nuestra página de preguntas más frecuentes](security-code-analysis-faq.yml).

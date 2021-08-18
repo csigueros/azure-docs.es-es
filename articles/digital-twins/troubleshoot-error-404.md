@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 4/13/2021
-ms.openlocfilehash: bc635d742fb9edf53a6cd3244b7e8aa34c8d7148
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 774642e15b7d7371872c1ec97455c8f56f8b8789
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205669"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456091"
 ---
 # <a name="service-request-failed-status-404-sub-domain-not-found"></a>Error en la solicitud del servicio. Estado: 404 subdominio no encontrado
 
@@ -46,4 +46,4 @@ Si usa la clase `DefaultAzureCredential` en el código y sigue detectando este p
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre la seguridad y los permisos de Azure Digital Twins:
-* [Conceptos: Seguridad para las soluciones de Azure Digital Twins](concepts-security.md)
+* [Seguridad para las soluciones de Azure Digital Twins](concepts-security.md)

@@ -10,12 +10,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: f3853ecc5a3741b485f779581da387b133065ed5
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: d254e434bd8cb9d45338507c1b88f99eca681729
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889365"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112460772"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Supervisión y recopilación de datos de los puntos de conexión del servicio web ML
 
@@ -33,7 +33,7 @@ El cuaderno [enable-app-insights-in-production-service.ipynb](https://github.com
  
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Una suscripción de Azure. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * Un área de trabajo de Azure Machine Learning, un directorio local que contenga los scripts y el SDK de Azure Machine Learning para Python instalado. Para obtener más información, consulte [Configurar un entorno de desarrollo](how-to-configure-environment.md).
 

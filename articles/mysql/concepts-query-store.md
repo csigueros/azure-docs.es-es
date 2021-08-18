@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 82482b260233994672e603c16fe8cf919c92337f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95b9a28dd0d62df12b8a3ea4f9334f2edbdabdc7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98201032"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121781075"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MySQL con el Almacén de consultas
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 **Se aplica a:** Azure Database for MySQL 5.7, 8.0
 
@@ -171,7 +173,7 @@ Esta vista devuelve datos de eventos de espera en el Almacén de consultas. Hay 
 
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 
-- Si un servidor de MySQL tiene el parámetro `default_transaction_read_only` activado, el Almacén de consultas no puede capturar datos.
+- Si un servidor de MySQL tiene el parámetro `read_only` activado, el Almacén de consultas no puede capturar datos.
 - Se puede interrumpir la funcionalidad de Almacén de consultas si encuentra consultas largas de Unicode (\>= 6000 bytes).
 - El período de retención de las estadísticas de espera es de 24 horas.
 - Las estadísticas de espera usan una muestra para capturar una fracción de los eventos. Se puede modificar la frecuencia con el parámetro `query_store_wait_sampling_frequency`.

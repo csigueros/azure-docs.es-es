@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 04/05/2021
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 472700f50175c115305bad332efa6b0e77fb74ce
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: f38172e82b61ce07863614857ab7ef096683f34a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315298"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729291"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Habilitación del estado de invitado de VM Insights (versión preliminar)
 El estado de invitado de VM Insights permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se explica cómo habilitar esta característica en la suscripción, así como la supervisión de invitado en cada máquina virtual.
@@ -38,6 +38,8 @@ La máquina virtual debe encontrarse en una de las siguientes regiones:
 - Centro de Australia
 - Este de Australia
 - Sudeste de Australia
+- Sur de Brasil
+- Sur de Brasil
 - Centro de Canadá
 - Centro de la India
 - Centro de EE. UU.
@@ -48,13 +50,17 @@ La máquina virtual debe encontrarse en una de las siguientes regiones:
 - Centro de Francia
 - Centro-oeste de Alemania
 - Japón Oriental
+- Japón Occidental
 - Centro de Corea del Sur
 - Centro-Norte de EE. UU
 - Norte de Europa
+- Este de Noruega
 - Centro-sur de EE. UU.
 - Norte de Sudáfrica
 - Sudeste de Asia
 - Norte de Suiza
+- Oeste de Suiza
+- Norte de Emiratos Árabes Unidos
 - Sur de Reino Unido
 - Oeste de Reino Unido
 - Centro-Oeste de EE. UU.
@@ -82,7 +88,7 @@ El área de trabajo de Log Analytics debe encontrarse en una de las siguientes r
 - Centro-sur de EE. UU.
 - Sudeste de Asia
 - Norte de Suiza
-- Sur de Reino Unido
+- Sur de Reino Unido 2
 - Región Oeste de Europa
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
@@ -355,13 +361,13 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorWindowsAgent", 
         "typeHandlerVersion": "1.0", 
-        "autoUpgradeMinorVersion": false 
+        "autoUpgradeMinorVersion": true 
       },
       "linux": {
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorLinuxAgent", 
-        "typeHandlerVersion": "1.5", 
-        "autoUpgradeMinorVersion": false 
+        "typeHandlerVersion": "1.0", 
+        "autoUpgradeMinorVersion": true 
       }
     }
   },

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/09/2020
 ms.author: banders
-ms.openlocfilehash: b32bb979176af8a8a3751db8edf9c129caf1002e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 35e4db91a09a4a647e79e39495ed344b82abbaa0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131996"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780792"
 ---
 # <a name="troubleshoot-ea-billing-issues-with-usage-file-pivot-tables"></a>Solución de problemas de facturación de EA con tablas dinámicas de archivos de uso
 
@@ -33,16 +33,16 @@ Solo los administradores de EA, los propietarios de las cuentas y los administra
 
 Dado que los archivos de uso de Azure están en formato CSV, debe preparar los datos para usarlos en Excel. Use los pasos siguientes para dar formato a los datos como tabla.
 
-1. Descargue el archivo de detalles de uso, versión 2, con todos los cargos (uso y compras) mediante las instrucciones que se indican en [Descarga del uso para los clientes de EA](./download-azure-invoice-daily-usage-date.md#download-usage-for-ea-customers).
+1. Descargue el archivo de detalles de uso, versión 2, con todos los cargos (uso y compras) mediante las instrucciones que se indican en [Descarga del uso para los clientes de EA](../understand/download-azure-daily-usage.md).
 1. Abra el archivo en Excel.
 1. Los datos sin formato se parecen al ejemplo siguiente.  
     :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" :::
 1. Seleccione el primer campo de la tabla, el que contiene el título de la primera columna, **BillingAccountID**.
 1. Presione Ctrl + Mayús + Flecha abajo y, a continuación, Ctrl + Mayús + Flecha derecha para seleccionar toda la información de la tabla.
 1. En el menú superior, seleccione **Insertar** > **Tabla**. En el cuadro Crear tabla, seleccione **Mi tabla tiene encabezados** y, después, seleccione **Aceptar**.  
-    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Ejemplo que muestra datos sin formato en Excel" :::
+    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Ejemplo que muestra el cuadro de diálogo Crear tabla" :::
 1. En el menú superior, seleccione **Insertar** > **Tabla dinámica** y, a continuación, seleccione **Aceptar**. La acción crea una nueva hoja en el archivo. Le llevará al área de la tabla dinámica del lado derecho de la hoja.  
-    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" :::
+    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" alt-text="Ejemplo que muestra el área Campos de la tabla dinámica" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" :::
 
 El área Campos de la tabla dinámica es un área de arrastrar y colocar. Continúe con la siguiente sección para crear la tabla dinámica.
 
@@ -51,18 +51,18 @@ El área Campos de la tabla dinámica es un área de arrastrar y colocar. Contin
 En esta sección, va a crear una tabla dinámica en la que podrá solucionar problemas generales del uso de Azure. La tabla de ejemplo puede ayudarle a investigar qué servicio consume la mayoría de los recursos. También podrá ver los recursos que incurren en el mayor costo y cómo se cobra un servicio.
 
 1. En el área Campos de la tabla dinámica, arrastre **Meter Category** (Categoría de medición) y **Product** (Producto) a la sección **Filas**. Coloque **Product** (Producto) debajo de **Meter Category** (Categoría de medición).  
-    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/rows-section.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/rows-section.png" :::
+    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/rows-section.png" alt-text="Ejemplo que muestra la categoría de medición y el producto en Filas" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/rows-section.png" :::
 1. A continuación, agregue la columna **Cost** (Costo) a la sección **Valores**. También puede usar la columna Consumed Quantity (Cantidad consumida) en su lugar para obtener información sobre las transacciones y unidades de consumo. Por ejemplo, GB y horas. O bien, transacciones en lugar de costos en monedas diferentes como USD, EUR y INR.  
-    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" :::
+    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" alt-text="Ejemplo que muestra las columnas agregadas a los campos de tabla dinámica" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" :::
 1. Ahora tiene un panel para la investigación generalizada del consumo. Puede filtrar por un servicio específico mediante las opciones de filtrado de la tabla dinámica.  
-    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" :::
+    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" alt-text="Ejemplo que muestra la opción de filtro de la tabla dinámica para la etiqueta de fila" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" :::
     Para filtrar un segundo nivel en una tabla dinámica, por ejemplo un recurso, seleccione un elemento de segundo nivel en la tabla.  
-    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" :::
+    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" alt-text="Ejemplo que muestra las opciones de filtro para el campo de selección" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" :::
 1. Arrastre la columna **ResourceID** al área **Filas** debajo de **Product** (Producto) para ver el costo de cada servicio por recurso. Para ver la información detallada sobre los precios, consulte el precio unitario de su organización y busque **Product** (Producto) en la primera columna de la lista de precios.
 1. Agregue la columna **Date** (Fecha) al área **Columnas** para ver el consumo diario del producto.  
-    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-date.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-date.png" :::
+    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-date.png" alt-text="Ejemplo que muestra dónde colocar la fecha en el área de columnas" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-date.png" :::
 1. Expanda y contraiga los meses con los símbolos **+** para cada columna de mes.  
-    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" :::  
+    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" alt-text="Ejemplo que muestra el símbolo +" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" :::  
     La adición de las columnas **Cost** (Costo) y **Quantity** (Cantidad) en el área **Valores** es opcional. Al hacerlo, se crean dos columnas para cada sección de datos por debajo de cada mes y día cuando la columna de fecha está en la sección de columnas de la tabla dinámica.
 1. En el caso de los filtros adicionales, puede agregar las columnas SubscriptionID, Department (Departamento), ResourceGroup, Tags (Etiquetas) o Cost Center (Centro de costo) al área **Filtros** y seleccionar el elemento que desee.
 
@@ -73,13 +73,15 @@ Un único recurso puede incurrir en varios cargos por los distintos servicios. P
 1. En el menú de la derecha, arrastre **ResourceID** a la sección **Filtro** del menú de tabla dinámica.
 1. Seleccione el recurso para el que desea ver el costo. Escriba en el cuadro **Buscar** para buscar un nombre de recurso.
 1. Agregue **Meter Category** (Categoría de medición) y **Product** (Producto) a la sección Filas. Coloque **Product** (Producto) debajo de **Meter Category** (Categoría de medición).  
-    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-fields-meter-category.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-fields-meter-category.png" :::
+    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-fields-meter-category.png" alt-text="Ejemplo que muestra dónde colocar la categoría de medición en el área de campos de la tabla dinámica" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-fields-meter-category.png" :::
 1. A continuación, agregue la columna **Cost** (Costo) a la sección **Valores**. También puede usar la columna Consumed Quantity (Cantidad consumida) en su lugar para obtener información sobre las transacciones y unidades de consumo. Por ejemplo, GB y horas. O bien, transacciones en lugar de costos en monedas diferentes como USD, EUR y INR. Ahora tiene un panel que muestra todos los servicios que consume el recurso.
 1. Agregue la columna **Date** (Fecha) a la sección **Columnas**. Muestra el consumo diario.
 1. Puede expandir y reducir mediante los símbolos **+** en la columna de cada mes.  
-    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" alt-text="Ejemplo que muestra datos sin formato en Excel" :::
+    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" alt-text="Ejemplo que muestra el símbolo +" :::
 
 [!INCLUDE [Transform data before using large usage files](../../../includes/cost-management-billing-transform-data-before-using-large-usage-files.md)]
+
+[!INCLUDE [Troubleshoot usage spikes](../../../includes/cost-management-billing-troubleshoot-usage-spikes.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

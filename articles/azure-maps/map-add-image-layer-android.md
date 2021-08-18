@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: e1d99297c0357039606149bdf7e5a526258fc7c5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4c11a1275b94eebba33819ae6c9ffeb313a3ce0b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054206"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463110"
 ---
 # <a name="add-an-image-layer-to-a-map-android-sdk"></a>Adición de una capa de imagen a un mapa (Android SDK)
 
@@ -30,7 +30,7 @@ En este artículo se explica cómo superponer una imagen a un conjunto fijo de c
 
 ## <a name="add-an-image-layer"></a>Adición de una capa de imagen
 
-En el código siguiente se superpone una imagen de un [mapa de Newark, Nueva Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) en el mapa. Esta imagen se agrega a la carpeta `drawable` del proyecto. Una capa de imagen se crea estableciendo la imagen y las coordenadas de las cuatro esquinas con el formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`. A menudo, es conveniente agregar las capas de imagen por debajo de la capa `label`.
+En el código siguiente se superpone una imagen de un mapa de Newark, Nueva Jersey, de 1922 en el mapa. Esta imagen se agrega a la carpeta `drawable` del proyecto. Una capa de imagen se crea estableciendo la imagen y las coordenadas de las cuatro esquinas con el formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`. A menudo, es conveniente agregar las capas de imagen por debajo de la capa `label`.
 
 ::: zone pivot="programming-language-java-android"
 

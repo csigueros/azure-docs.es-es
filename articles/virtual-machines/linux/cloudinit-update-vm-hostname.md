@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: mimckitt
 ms.subservice: cloud-init
-ms.openlocfilehash: 7f2a2e213ec2ea15f89fcdca76113db93171d774
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 7b50cddf4f0af6a5b54faf729a2529b500b49e49
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784150"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272133"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Uso de cloud-init para establecer el nombre de host para una máquina virtual Linux en Azure
 En este artículo se muestra el uso de [cloud-init](https://cloudinit.readthedocs.io) para configurar un nombre de host específico en una máquina virtual o en conjuntos de escalado de máquinas virtuales en el momento del aprovisionamiento en Azure. Estos scripts de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos. Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
@@ -25,7 +25,7 @@ Para ver la actualización en proceso, cree un archivo en el shell actual denomi
 
 ```yaml
 #cloud-config
-hostname: myhostname
+fqdn: myhostname
 ```
 
 Antes de implementar esta imagen, debe crear un grupo de recursos con el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.

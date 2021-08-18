@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58222b3d188cd9db4f092956c88dece7e5cf2696
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2e103e361b037e54dcc161cfcbd6081d6adb53ee
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055950"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712049"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Streaming de PlayReady sin conexión para Windows 10
 
@@ -30,8 +30,7 @@ ms.locfileid: "106055950"
 > * [Versión 3](../latest/drm-offline-playready-streaming-for-windows-10.md)
 > * [Versión 2](offline-playready-streaming-windows-10.md)
 
-> [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-v-2-v-3-migration-introduction.md).
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 Azure Media Services admite la descarga o reproducción sin conexión con protección DRM. En este artículo, se explica la compatibilidad sin conexión de Azure Media Services para clientes de Windows 10/PlayReady. Para obtener información sobre la compatibilidad del modo sin conexión para iOS/FairPlay y dispositivos Android/Widevine, vea los artículos siguientes:
 

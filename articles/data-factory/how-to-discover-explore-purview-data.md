@@ -2,17 +2,18 @@
 title: Detección y exploración de datos en ADF mediante Purview
 description: Aprenda a detectar y explorar datos en Azure Data Factory mediante Purview
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 author: linda33wj
 ms.author: jingwang
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
-ms.openlocfilehash: f37d2461a0e9c2db0cb3c7aa911dfb0ff5e049af
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 08/10/2021
+ms.openlocfilehash: 145f7c50d6fdd2fef5e1f31e029c06434fa2e8e5
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486492"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122201689"
 ---
 # <a name="discover-and-explore-data-in-adf-using-purview"></a>Detección y exploración de datos en ADF mediante Purview
 
@@ -26,6 +27,7 @@ Puede realizar las tareas siguientes en ADF:
 - Conectar esos datos a su factoría de datos con conjuntos de datos o servicios vinculados. 
 
 ## <a name="prerequisites"></a>Requisitos previos 
+
 - [Cuenta de Azure Purview](../purview/create-catalog-portal.md) 
 - [Data Factory](./quickstart-create-data-factory-portal.md) 
 - [Conexión de una cuenta de Azure Purview en Data Factory](./connect-data-factory-to-azure-purview.md) 
@@ -47,5 +49,8 @@ Puede crear directamente un servicio vinculado, un conjunto de datos o un flujo 
 
 ##  <a name="nextsteps"></a>Pasos siguientes 
 
-- [Registro y análisis de recursos de Azure Data Factory en Azure Purview](../purview/register-scan-azure-synapse-analytics.md)
-- [Búsqueda de datos en Data Catalog de Azure Purview](../purview/how-to-search-catalog.md).
+[Tutorial: Inserción de datos de linaje de Data Factory en Azure Purview](turorial-push-lineage-to-purview.md)
+
+[Conexión de una cuenta de Azure Purview en Data Factory](connect-data-factory-to-azure-purview.md) 
+
+[Búsqueda de datos en Data Catalog de Azure Purview](../purview/how-to-search-catalog.md).

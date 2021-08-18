@@ -2,7 +2,6 @@
 title: Mensajes de nube a dispositivo con IoT Hub de Azure (Node) | Microsoft Docs
 description: Cómo enviar mensajes de nube a un dispositivo de una instancia de IoT Hub de Azure mediante los SDK de IoT de Azure para Node.js. Modifique una aplicación de dispositivo simulado para recibir mensajes de nube a dispositivo y cambie una aplicación de back-end para enviar los mensajes de nube a dispositivo.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -13,22 +12,22 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc1e7bd2f82755f94469dc9feece7351f1ba0a32
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91446875"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729841"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Envío de mensajes de nube a dispositivo con IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-IoT Hub de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una solución de back-end. En el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md) se muestra cómo crear un centro de IoT, aprovisionar en él la identidad del dispositivo y codificar una aplicación de dispositivo simulado que envíe mensajes del dispositivo a la nube.
+IoT Hub de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una solución de back-end. En el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) se muestra cómo crear un centro de IoT, aprovisionar en él la identidad del dispositivo y codificar una aplicación de dispositivo simulado que envíe mensajes del dispositivo a la nube.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Este tutorial se basa en el artículo [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md). En él se muestra cómo realizar las siguientes acciones:
+Este tutorial se basa en el artículo [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs). En él se muestra cómo realizar las siguientes acciones:
 
 * Desde el back-end de la nube de la aplicación, envíe mensajes de nube a dispositivo en un único dispositivo a través de IoT Hub.
 * Reciba mensajes de nube a dispositivo en un dispositivo.
@@ -38,7 +37,7 @@ Encontrará más información sobre los mensajes de nube a dispositivo en la [Gu
 
 Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 
-* **SimulatedDevice**, una versión modificada de la aplicación que se creó en [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md) que se conecta al centro de IoT y recibe mensajes de la nube al dispositivo.
+* **SimulatedDevice**, una versión modificada de la aplicación que se creó en [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) que se conecta al centro de IoT y recibe mensajes de la nube al dispositivo.
 
 * **SendCloudToDeviceMessage**, que envía un mensaje de la nube a la aplicación de dispositivo simulado mediante IoT Hub y recibe su confirmación de entrega.
 
@@ -56,9 +55,9 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Recepción de mensajes en la aplicación de dispositivo simulado
 
-En esta sección, modificará la aplicación de dispositivo simulado que creó en [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md) para recibir mensajes de la nube al dispositivo desde el centro de IoT.
+En esta sección, modificará la aplicación de dispositivo simulado que creó en [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) para recibir mensajes de la nube al dispositivo desde el centro de IoT.
 
-1. Mediante un editor de texto, abra el archivo **SimulatedDevice.js**. Este archivo se encuentra en la carpeta **iot-hub\Quickstarts\simulated-device** folder, fuera de la carpeta raíz, del código de ejemplo de Node.js que descargó en el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md).
+1. Mediante un editor de texto, abra el archivo **SimulatedDevice.js**. Este archivo se encuentra en la carpeta **iot-hub\Quickstarts\simulated-device** folder, fuera de la carpeta raíz, del código de ejemplo de Node.js que descargó en el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs).
 
 2. Registre un controlador con el cliente del dispositivo para recibir los mensajes enviados desde IoT Hub. Agregue la llamada a `client.on` inmediatamente después de la línea que crea el cliente del dispositivo como en el fragmento de código siguiente:
 
@@ -94,13 +93,13 @@ Para información más detallada sobre cómo IoT Hub procesa los mensajes de la 
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obtención de la cadena de conexión de IoT Hub
 
-En este artículo, se crea un servicio de back-end para enviar mensajes de la nube a un dispositivo a través de la instancia de IoT Hub que creó en [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md). Para enviar mensajes de nube a un dispositivo, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
+En este artículo, se crea un servicio de back-end para enviar mensajes de la nube a un dispositivo a través de la instancia de IoT Hub que creó en [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs). Para enviar mensajes de nube a un dispositivo, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="send-a-cloud-to-device-message"></a>Envío de mensajes de nube a dispositivo
 
-En esta sección, usted crea una aplicación de consola de Node.js que envía mensajes de nube a dispositivo a la aplicación del dispositivo simulado. Necesitará el identificador del dispositivo que agregó en el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md). También necesitará la cadena de conexión de IoT Hub que copió anteriormente en [Obtención de la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
+En esta sección, usted crea una aplicación de consola de Node.js que envía mensajes de nube a dispositivo a la aplicación del dispositivo simulado. Necesitará el identificador del dispositivo que agregó en el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs). También necesitará la cadena de conexión de IoT Hub que copió anteriormente en [Obtención de la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
 
 1. Cree una carpeta vacía denominada **sendcloudtodevicemessage**. En la carpeta **sendcloudtodevicemessage** , cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
 

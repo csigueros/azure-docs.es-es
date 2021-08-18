@@ -6,12 +6,12 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 838084204ed2c1979f618bb2bfe644d1f88cd51e
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: b0306002ea8a77e82e0247353489761a24654e0e
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536505"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417368"
 ---
 # <a name="event-handlers-destinations-in-event-grid-on-kubernetes"></a>Destinos de controladores de eventos en Event Grid en Kubernetes
 Un controlador de eventos es cualquier sistema que expone un punto de conexión y es el destino de los eventos enviados por Event Grid. Un controlador de eventos que recibe un evento actúa sobre él y usa la carga del evento para ejecutar alguna lógica, lo que podría derivar en la aparición de nuevos eventos.
@@ -20,7 +20,7 @@ La manera de configurar Event Grid para enviar eventos a un destino es mediante 
 
 En general, Event Grid en Kubernetes puede enviar eventos a cualquier destino mediante **webhooks**. Los webhooks son puntos de conexión HTTP(S) expuestos por un servicio o una carga de trabajo a los que Event Grid tiene acceso. El webhook puede ser una carga de trabajo hospedada en el mismo clúster, en el mismo espacio de red, en la nube, localmente o en cualquier lugar al que Event Grid puede acceder. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 Con webhooks, Event Grid admite los siguientes destinos **hospedados en un clúster de Kubernetes**:
 

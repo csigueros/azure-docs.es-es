@@ -2,20 +2,21 @@
 title: Eliminación del acceso de un usuario a una aplicación en Azure Active Directory
 description: Aprenda a quitar el acceso de un usuario a una aplicación en Azure Active Directory
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
-ms.author: mtillman
-ms.openlocfilehash: bc6dc9120b0c1f31e3c8c92343513306b1760db1
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: phsignor
+ms.openlocfilehash: 7466cfda1f4a38ea1559d68f8b1fe4779efe97d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078607"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744113"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Cómo quitar el acceso de un usuario a una aplicación
 
@@ -39,16 +40,15 @@ Deshabilitar el consentimiento del usuario para todo el directorio impide que lo
 
 Para **deshabilitar todas las operaciones de consentimiento de usuario futuras en todo el directorio**, siga estas instrucciones:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **Extensión de Azure Active Directory** 
+2. Abra la **Extensión de Azure Active Directory**
 
-3.  Haga clic en **Aplicaciones empresariales** en el menú de navegación.
+3. Haga clic en **Aplicaciones empresariales** en el menú de navegación.
 
-5.  Haga clic en **Configuración de usuario**.
+4. Haga clic en **Configuración de usuario**.
 
-6.  En **Users can allow apps to access company data on their behalf** (Los usuarios pueden permitir a las aplicaciones acceder a los datos de la empresa en su nombre), seleccione **No** y haga clic en el botón Guardar.
-
+5. En **Users can allow apps to access company data on their behalf** (Los usuarios pueden permitir a las aplicaciones acceder a los datos de la empresa en su nombre), seleccione **No** y haga clic en el botón Guardar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
