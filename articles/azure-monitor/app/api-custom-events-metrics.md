@@ -4,12 +4,12 @@ description: Inserte unas cuantas líneas de código en su aplicación de dispos
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 75576056162bf869c20706bed22c31785a8ea2a0
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 648c9ee1de00ef638354a287e43fa234610e9dc7
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060307"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291489"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -177,7 +177,7 @@ Para enviar un único valor de métrica:
 *JavaScript*
 
 ```javascript
-appInsights.trackMetric("queueLength", 42.0);
+appInsights.trackMetric({name: "queueLength", average: 42});
 ```
 
 *C#*
@@ -1087,7 +1087,6 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
   * **Identificador**: valor generado que correlaciona distintos eventos, de modo que cuando usted inspeccione cualquier evento en Búsqueda de diagnóstico, puede encontrar elementos relacionados.
   * **Name**: un identificador, generalmente la dirección URL de la solicitud HTTP.
   * **SyntheticSource**: si no es un valor nulo ni está vacío, esta cadena indica que el origen de la solicitud se ha identificado como un robot o una prueba web. De forma predeterminada, se excluye de cálculos en el Explorador de métricas.
-* **Propiedades**: propiedades que se envían con todos los datos de telemetría. Se pueden invalidar en llamadas de seguimiento* individuales.
 * **Sesión**: sesión del usuario. El identificador se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
 * **Usuario**: información del usuario.
 
@@ -1126,4 +1125,4 @@ Para determinar cuánto tiempo se conservan los datos, consulte el artículo sob
 ## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 
 * [Búsqueda de eventos y registros](./diagnostic-search.md)
-* [Solución de problemas](../faq.md)
+* [Solución de problemas](../faq.yml)

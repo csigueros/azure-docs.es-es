@@ -4,15 +4,16 @@ description: Conozca los requisitos que debe cumplir para poder acceder mediante
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: b61608c0cb53ab808c5d3d789ec5ddc318c6923d
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: a3c27a8e91ef1f202fbc757eb1a21eeddfc1d3d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106809"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748279"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>Requisitos previos para acceder mediante programación a los datos de análisis
 
@@ -30,7 +31,7 @@ Las credenciales de usuario normales no se pueden usar para el acceso mediante p
 
 La aplicación de Azure AD que creó en Azure Portal debe estar vinculada a su cuenta del Centro de partners. Los pasos son los siguientes:
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. En la parte superior derecha, seleccione el icono de engranaje y luego **Configuración de cuenta**.
 1. En el menú **Configuración de cuenta**, seleccione **Administración de usuarios**.
 1. Seleccione **Aplicaciones de Azure AD** y, a continuación, **+ Crear una aplicación de Azure AD**.

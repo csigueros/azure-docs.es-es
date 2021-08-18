@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 519105374a2c12807bdac92bfb2b60feaeeb89c2
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: d20f504e4c35bcb314e599b3111a3c66805568e7
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324804"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676324"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registro de auditoría en Azure Database for PostgreSQL con un único servidor
 
@@ -60,7 +60,7 @@ Mediante [Azure Portal](https://portal.azure.com):
 pgAudit le permite configurar el registro de auditoría de objeto o sesión. [El registro de auditoría de sesión](https://github.com/pgaudit/pgaudit/blob/master/README.md#session-audit-logging) emite registros detallados de las instrucciones ejecutadas. [El registro de auditoría de objetos](https://github.com/pgaudit/pgaudit/blob/master/README.md#object-audit-logging) es una auditoría con un ámbito limitado a relaciones específicas. Puede optar por configurar uno o ambos tipos de registro. 
 
 > [!NOTE]
-> La configuración de pgAudit se especifica globalmente y no se puede en el nivel de base de datos o rol.
+> La configuración de pgAudit se especifica globalmente y no en el nivel de base de datos o rol.
 
 Una vez que haya [instalado pgAudit](#installing-pgaudit), puede configurar sus parámetros para iniciar el registro. La [documentación de pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) proporciona la definición de cada parámetro. Pruebe primero los parámetros y confirme que obtiene el comportamiento esperado.
 

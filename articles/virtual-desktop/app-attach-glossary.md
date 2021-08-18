@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 66f3cc71c27ff80991f3cded1957f90e622f447f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 9972a7bcff534f49f0c656dd1a9c3f66389c44b5
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745680"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708802"
 ---
 # <a name="msix-app-attach-glossary"></a>Glosario sobre la conexión de aplicaciones en formato MSIX
 
@@ -133,4 +133,4 @@ La tabla siguiente es una comparación de rendimiento entre VHD y CimFS. Estos n
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si quiere obtener más información sobre la conexión de aplicaciones en formato MSIX, consulte nuestra [introducción](what-is-app-attach.md) y [Preguntas frecuentes](app-attach-faq.md). De lo contrario, empiece a trabajar con [Configuración de la conexión de aplicaciones](app-attach.md).
+Si quiere obtener más información sobre la conexión de aplicaciones en formato MSIX, consulte nuestra [introducción](what-is-app-attach.md) y [Preguntas frecuentes](app-attach-faq.yml). De lo contrario, empiece a trabajar con [Configuración de la conexión de aplicaciones](app-attach.md).

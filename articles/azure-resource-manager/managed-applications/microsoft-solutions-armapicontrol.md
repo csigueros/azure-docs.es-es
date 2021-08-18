@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: fdc299ef1945e3ee0810f1c314fc07edfb4f4873
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a93795301eed232fad38e95c55e47ecf63496d75
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313307"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465665"
 ---
 # <a name="microsoftsolutionsarmapicontrol-ui-element"></a>Elemento de UI Microsoft.Solutions.ArmApiControl
 
@@ -51,7 +51,7 @@ La salida del control no se muestra al usuario. En su lugar, el resultado de la 
   Por ejemplo, una llamada de ARM al proveedor de recursos `Microsoft.Network/expressRouteCircuits`:
 
   ```json
-  "path": "<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2020-05-01"
+  "path": "subscriptions/<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2020-05-01"
   ```
 
 - La propiedad `request.body` es opcional. Úsela para especificar un cuerpo JSON que se enviará con la solicitud. Puede ser un cuerpo estático o se puede crear dinámicamente si se hace referencia a los valores de salida de otros controles.

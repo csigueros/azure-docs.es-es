@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: f32f36399eec2b54b872ae9750ea2ddf2fb5a218
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 3fd74e0fddedba5f69176c83aea5a5522bc54c2a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683792"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113758006"
 ---
 # <a name="use-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Uso del puente de dispositivos de IoT Central para conectar otras nubes de IoT a IoT Central
 
@@ -91,13 +91,13 @@ Cada clave del objeto `measurements` debe coincidir con el nombre de un tipo de 
 
 Puede incluir un campo `timestamp` en el cuerpo para especificar la fecha y hora UTC del mensaje. Este campo debe estar en formato ISO 8601. Por ejemplo, `2020-06-08T20:16:54.602Z`. Si no incluye una marca de tiempo, se usan la fecha y hora actuales.
 
-Puede incluir un campo `modelId` en el cuerpo. Use este campo para asociar el dispositivo a una plantilla de dispositivo durante el aprovisionamiento. Esta funcionalidad solo es compatible con las [aplicaciones V3](howto-get-app-info.md).
+Puede incluir un campo `modelId` en el cuerpo. Use este campo para asociar el dispositivo a una plantilla de dispositivo durante el aprovisionamiento. Esta funcionalidad solo es compatible con las [aplicaciones V3](howto-faq.yml#how-do-i-get-information-about-my-application-).
 
 `deviceId` debe estar formado por caracteres alfanuméricos y en minúscula, y puede contener guiones.
 
-Si no incluye el campo `modelId` o si IoT Central no reconoce el identificador de modelo, un mensaje con un identificador `deviceId` no reconocido crea un nuevo _dispositivo no asociado_ en IoT Central. Un operador puede migrar manualmente el dispositivo a la plantilla de dispositivo correcta. Para obtener más información, consulte [Administración de dispositivos en la aplicación de Azure IoT Central > Migración de dispositivos a una plantilla](howto-manage-devices.md).
+Si no incluye el campo `modelId` o si IoT Central no reconoce el identificador de modelo, un mensaje con un identificador `deviceId` no reconocido crea un nuevo _dispositivo no asociado_ en IoT Central. Un operador puede migrar manualmente el dispositivo a la plantilla de dispositivo correcta. Para obtener más información, consulte [Administración de dispositivos en la aplicación de Azure IoT Central > Migración de dispositivos a una plantilla](howto-manage-devices-individually.md).
 
-En las [aplicaciones V2](howto-get-app-info.md), el nuevo dispositivo aparece en la página **Explorador de dispositivos > Dispositivos no asociados**. Seleccione **Asociar** y elija una plantilla de dispositivo para empezar a recibir telemetría entrante del dispositivo.
+En las [aplicaciones V2](howto-faq.yml#how-do-i-get-information-about-my-application-), el nuevo dispositivo aparece en la página **Explorador de dispositivos > Dispositivos no asociados**. Seleccione **Asociar** y elija una plantilla de dispositivo para empezar a recibir telemetría entrante del dispositivo.
 
 > [!NOTE]
 > Hasta que el dispositivo esté asociado a una plantilla, todas las llamadas HTTP a la función devolverán un estado de error 403.
@@ -283,4 +283,4 @@ El puente de dispositivos solo reenvía mensajes a IoT Central y no envía mensa
 Ahora que ha aprendido a implementar el puente de dispositivos de IoT Central, este es el siguiente paso que se recomienda:
 
 > [!div class="nextstepaction"]
-> [Administración de dispositivos](howto-manage-devices.md)
+> [Administración de dispositivos](howto-manage-devices-individually.md)

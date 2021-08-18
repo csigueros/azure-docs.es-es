@@ -3,19 +3,19 @@ title: Actualización de comandos desde una aplicación cliente
 titleSuffix: Azure Cognitive Services
 description: Aprenda actualizar comandos desde una aplicación cliente.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: nitinme
-ms.openlocfilehash: 08c674a7a7ec060a4273836064cb1c21e979e725
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: 1f8607ec7094ecafe69f60e8f8972e04ec813adb
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97560294"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122067523"
 ---
 # <a name="update-a-command-from-a-client-app"></a>Actualización de un comando desde una aplicación cliente
 
@@ -68,7 +68,7 @@ Este escenario se puede probar en el portal de Comandos personalizados:
 1. Abra el panel lateral y seleccione **Activity editor** (Editor de actividades).
 1. Escriba y envíe el evento `RemoteCommand` especificado en la sección anterior.
     > [!div class="mx-imgBorder"]
-    > ![Captura de pantalla que muestra el evento de un comando remoto.](media/custom-commands/send-remote-command-activity.png)
+    > ![Captura de pantalla que muestra el evento de un comando remoto.](media/custom-commands/send-remote-command-activity-no-mic.png)
 
 Observe cómo el valor del parámetro `"OnOff"` se estableció en `"on"` mediante una actividad realizada desde el cliente en lugar de usar voz o texto.
 
@@ -140,7 +140,7 @@ Para probar este escenario, se va a crear un comando en la aplicación actual:
     }
     ```
 1. Envíe el texto `get device info`.
-   ![Captura de pantalla que muestra una actividad para el envío del contexto de cliente.](media/custom-commands/send-client-context-activity.png)
+   ![Captura de pantalla que muestra una actividad para el envío del contexto de cliente.](media/custom-commands/send-client-context-activity-no-mic.png)
 
 Tenga en cuenta algunas cuestiones:
 - Solo es necesario enviar esta actividad una vez (preferiblemente justo después de iniciar una conexión).

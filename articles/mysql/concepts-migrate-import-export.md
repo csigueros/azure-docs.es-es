@@ -7,30 +7,32 @@ ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: 641dfa2439513138b5dd8f56843e81c31eb38609
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 954e764cfa454cdfa3175a614093eda6ea8d6173
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389781"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113598385"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migración de la base de datos de MySQL mediante importación y exportación
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 En este artículo se explican dos métodos habituales para importar y exportar datos a un servidor de Azure Database for MySQL mediante el uso de MySQL Workbench.
 
 Para obtener instrucciones de migración detalladas y completas, consulte los [recursos de la guía de migración](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
 
-Para otros escenarios de migración, consulte la [Guía de migración de Azure Database](https://datamigration.microsoft.com/). 
+Para otros escenarios de migración, consulte la [Guía de migración de Azure Database](https://datamigration.microsoft.com/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar a migrar la base de datos MySQL, debe hacer lo siguiente:
+
 - Cree un [servidor de Azure Database for MySQL mediante Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md).
 - Descargue e instale [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) u otra herramienta de MySQL de terceros para importar y exportar.
 
 ## <a name="create-a-database-on-the-azure-database-for-mysql-server"></a>Creación de una base de datos en el servidor de Azure Database for MySQL
+
 Cree una base de datos vacía en el servidor de Azure Database for MySQL mediante MySQL Workbench, Toad o Navicat. La base de datos puede tener el mismo nombre que la base de datos que contiene los datos volcados, o puede crear una base de datos con un nombre diferente.
 
 Para conectarse, haga lo siguiente:
@@ -48,7 +50,7 @@ Para conectarse, haga lo siguiente:
 > [!TIP]
 > En el caso de los escenarios en los que quiera volcar y restaurar toda la base de datos, use el enfoque [volcado y restauración](concepts-migrate-dump-restore.md) en su lugar.
 
-En los siguientes escenarios, use herramientas de MySQL para importar y exportar bases de datos en su base de datos MySQL. Para otras herramientas, vaya a la sección "Métodos de migración" (página 22) de la [Guía de migración de MySQL a Azure Database](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1.pdf). 
+En los siguientes escenarios, use herramientas de MySQL para importar y exportar bases de datos en su base de datos MySQL. Para otras herramientas, vaya a la sección "Métodos de migración" (página 22) de la [Guía de migración de MySQL a Azure Database](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
 
 - Cuando deba elegir de forma selectiva unas cuantas tablas para importar desde una base de datos MySQL existente en Azure MySQL Database, es mejor usar la técnica de importación y exportación. Con ello, podrá omitir todas las tablas que no sean necesarias de la migración para ahorrar tiempo y recursos. Por ejemplo, use el modificador `--include-tables` o `--exclude-tables` con [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) y el modificador `--tables` con [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - Si va a mover objetos de base de datos que no sean tablas, deberá crearlos explícitamente. Incluya restricciones (clave principal, clave externa e índices), vistas, funciones, procedimientos, desencadenadores y cualquier otro objeto de base de datos que desee migrar.
@@ -66,17 +68,20 @@ En los siguientes escenarios, use herramientas de MySQL para importar y exportar
 ## <a name="performance-recommendations-for-import-and-export"></a>Recomendaciones de rendimiento para la importación y exportación
 
 Para un rendimiento óptimo de importación y exportación de datos, se recomienda hacer lo siguiente:
--   Cree los índices agrupados y las claves principales antes de cargar los datos. Cargue los datos en el orden de la clave principal.
--   Retrase la creación de índices secundarios hasta después de que se hayan cargado los datos.
--   Deshabilite las restricciones de clave externa antes de cargar los datos. El hecho de deshabilitar las comprobaciones de las claves externas favorece un aumento significativo del rendimiento. Habilite las restricciones y compruebe los datos después de la carga para garantizar la integridad referencial.
--   Cargue los datos en paralelo. Evite demasiado paralelismo ya que podría provocar que se alcanzara un límite de recursos, y supervise los recursos mediante las métricas disponibles en Azure Portal.
--   Use tablas con particiones cuando sea necesario.
+
+- Cree los índices agrupados y las claves principales antes de cargar los datos. Cargue los datos en el orden de la clave principal.
+- Retrase la creación de índices secundarios hasta después de que se hayan cargado los datos.
+- Deshabilite las restricciones de clave externa antes de cargar los datos. El hecho de deshabilitar las comprobaciones de las claves externas favorece un aumento significativo del rendimiento. Habilite las restricciones y compruebe los datos después de la carga para garantizar la integridad referencial.
+- Cargue los datos en paralelo. Evite demasiado paralelismo ya que podría provocar que se alcanzara un límite de recursos, y supervise los recursos mediante las métricas disponibles en Azure Portal.
+- Use tablas con particiones cuando sea necesario.
 
 ## <a name="import-and-export-data-by-using-mysql-workbench"></a>Importación y exportación de datos con MySQL Workbench
+
 Hay dos maneras de exportar e importar datos en MySQL Workbench: desde el menú contextual del examinador de objetos o desde el panel Navegador. Cada método sirve para un propósito diferente.
 
 > [!NOTE]
 > Si va a agregar una conexión a un servidor único o flexible de MySQL (versión preliminar) en MySQL Workbench, haga lo siguiente:
+>
 > - Si se trata de un servidor único de MySQL, asegúrese de que el nombre de usuario tiene el formato *\<username@servername>* .
 > - Si es un servidor flexible de MySQL, use solo *\<username>* . Si usa *\<username@servername>* para la conexión, se producirá un error.
 
@@ -109,6 +114,7 @@ Para importar una tabla desde un archivo CSV:
 1. En el panel **Importar datos**, seleccione **Siguiente**. El asistente importará los datos.
 
 ### <a name="run-the-sql-data-export-and-import-wizards-from-the-navigator-pane"></a>Ejecución de asistentes para la exportación e importación de datos de SQL desde el panel Navegador
+
 Use un Asistente para exportar o importar datos de SQL generados a partir de MySQL Workbench o con el comando mysqldump. Puede acceder a los asistentes desde el panel del **Navegador** o puede seleccionar **Servidor** en el menú principal.
 
 #### <a name="export-data"></a>Exportar datos
@@ -142,5 +148,6 @@ Puede usar el panel **Importación de datos** para importar o restaurar los dato
 1. Seleccione **Iniciar importación** para comenzar el proceso de importación.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Para conocer otro método de migración, vea [Migración de la base de datos MySQL a Azure Database for MySQL mediante el volcado y la restauración](concepts-migrate-dump-restore.md).
 - Para más información sobre cómo migrar bases de datos a Azure Database for MySQL, consulte la [Guía de migración de base de datos](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).

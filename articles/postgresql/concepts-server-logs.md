@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 31b3c0a1894280e90f696f6c107b67a3af7b1880
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8b4e306a39261da6c1422ba81ccb164e3903fbcd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605355"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725268"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registros en Azure Database for PostgreSQL con un único servidor
 
@@ -46,6 +46,8 @@ Puede establecer el período de retención de este almacenamiento de registros a
 Para la retención a largo plazo de registros y análisis de registros, puede descargar los archivos .log y moverlos a un servicio de terceros. Puede descargar los archivos mediante [Azure Portal](howto-configure-server-logs-in-portal.md) o la [CLI de Azure](howto-configure-server-logs-using-cli.md). Como alternativa, puede establecer la configuración de diagnóstico de Azure Monitor, que emite automáticamente los registros (en formato JSON) a ubicaciones a largo plazo. En la sección siguiente puede obtener más información sobre esta opción. 
 
 Puede detener la generación de archivos .log si establece el parámetro `logging_collector` en OFF. Se recomienda desactivar la generación de archivos .log si se usa la configuración de diagnóstico de Azure Monitor. Esta configuración reducirá el impacto en el rendimiento del registro adicional.
+> [!NOTE]
+> Reinicie el servidor para aplicar este cambio.
 
 ## <a name="resource-logs"></a>Registros del recurso
 

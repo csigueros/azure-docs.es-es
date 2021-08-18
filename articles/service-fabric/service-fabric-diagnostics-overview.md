@@ -3,12 +3,12 @@ title: Introducción a la supervisión y el diagnóstico de Azure Service Fabric
 description: Obtenga información sobre la supervisión y el diagnóstico para los clústeres, las aplicaciones y los servicios de Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 71ec86f26de1e94b4e17e0990d2eafd1fff954e2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d3a7060b7a12cb9a57a78c1bbb3fc0b58656ef6d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627751"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112455165"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Supervisión y diagnóstico para Azure Service Fabric
 
@@ -52,7 +52,7 @@ Asimismo, también permitimos que los usuarios invaliden el estado de entidades.
 
 
 ### <a name="watchdogs"></a>Guardianes
-Por lo general, un guardián es un servicio independiente que puede vigilar el estado y la carga en los servicios, hacer ping en los puntos de conexión e informar sobre el estado de cualquier componente en el clúster. Esto puede ayudar a evitar errores que se pasan por alto con la vista de un solo servicio. Los guardianas también son un buen lugar donde hospedar el código que realiza acciones de subsanación sin interacción del usuario (por ejemplo, limpiar los archivos de registro de almacenamiento a determinados intervalos de tiempo). [Aquí](https://github.com/Azure-Samples/service-fabric-watchdog-service) puede encontrar la implementación de un servicio guardián de ejemplo.
+Por lo general, un guardián es un servicio independiente que vigila el mantenimiento y la carga de los servicios, hace ping a los puntos de conexión e informa acerca de los eventos de mantenimiento inesperados del clúster. Esto puede ayudar a evitar errores que se podrían pasar pasan por alto si solo se tuviera en cuenta el rendimiento de un servicio. Los guardianes son también un buen lugar para hospedar código que realice acciones de subsanación que no requieran interacción del usuario, como limpiar los archivos de registro de almacenamiento a determinados intervalos de tiempo. Si quiere un servicio de vigilancia de SF de código abierto totalmente implementado que incluya un modelo de extensibilidad de vigilancia fácil de usar y que se ejecute en clústeres de Windows y Linux, consulte el proyecto [FabricObserver](https://github.com/Azure-Samples/service-fabric-watchdog-service). FabricObserver es un software listo para producción. Le recomendamos que implemente FabricObserver en los clústeres de producción y de prueba, y que lo amplíe para satisfacer sus necesidades, ya sea a través de su modelo de complementos o mediante su bifurcación y la escritura de sus propios observadores integrados. El primero (complementos) es el enfoque recomendado.
 
 ## <a name="infrastructure-performance-monitoring"></a>Supervisión de la infraestructura (rendimiento)
 Ahora que hemos analizado los diagnósticos en la aplicación y la plataforma, ¿cómo sabemos si el hardware funciona según lo previsto? La supervisión de la infraestructura subyacente es una parte fundamental del conocimiento del estado del clúster y la utilización de los recursos. La medición del rendimiento del sistema depende de muchos factores, que pueden ser subjetivos según las cargas de trabajo. Estos factores se miden normalmente mediante contadores de rendimiento. Estos contadores de rendimiento pueden proceder de diversos orígenes, como el sistema operativo, .NET Framework o la propia plataforma de Service Fabric. Algunos escenarios en los que podrían ser útiles son los siguientes:

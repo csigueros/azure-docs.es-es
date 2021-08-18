@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57916a7f142663711215fdb2a7f641e35fd9ad0f
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670437"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389984"
 ---
 # <a name="configure-prerequisites"></a>Configuración de los requisitos previos
 
@@ -25,7 +25,7 @@ Antes de usar la oferta de Marketplace para implementar un clúster autoadminist
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Implementar mediante la oferta de Marketplace
 
-La manera más sencilla de implementar un clúster autoadministrado de OpenShift Container Platform 3.11 en Azure es usar la [oferta de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
+La manera más sencilla de implementar un clúster autoadministrado de OpenShift Container Platform 3.11 en Azure es usar la oferta de Azure Marketplace.
 
 Esta opción es la más sencilla, pero también tiene funcionalidades de personalización limitadas. La oferta de Marketplace implementa OpenShift Container Platform 3.11.82 e incluye las siguientes opciones de configuración:
 

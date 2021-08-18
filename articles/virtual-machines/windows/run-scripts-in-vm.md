@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 7bf62eb2ab8d2ce82ce73e3e8ae26cf303b8ba67
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 34abfb3195f8a3640b1b4797aa430b6250d15b68
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765888"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112452375"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Ejecución de scripts en una máquina virtual Windows
 
@@ -35,7 +35,7 @@ La [extensión de scripts personalizados](../extensions/custom-script-windows.md
 La característica [Comando Ejecutar](run-command.md) habilita la administración de máquinas virtuales y aplicaciones y la solución de problemas mediante scripts, y está disponible incluso cuando no se puede acceder a la máquina, por ejemplo, si el firewall invitado no tiene abierto el puerto RDP o SSH.
 
 * Ejecute scripts en máquinas virtuales de Azure.
-* Se puede ejecutar mediante [Azure Portal](run-command.md), la [API de REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), la [CLI de Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand).
+* Se puede ejecutar mediante [Azure Portal](run-command.md), la [API de REST](/rest/api/compute/virtual-machines-run-commands/run-command), la [CLI de Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand).
 * Ejecute un script, vea la salida rápidamente y repita según sea necesario en Azure Portal.
 * El script se puede ejecutar directamente o puede ejecutar uno de los scripts integrados.
 * Ejecute un script de PowerShell en máquinas Windows y un script de Bash en máquinas Linux.

@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
-ms.openlocfilehash: 8fbcb66be11c7c77a9bfaf0e6ec790622dcbbda7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e2c9d0c2f1cd09b96e953640a1141891b6d784e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98932184"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282678"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Envío de trabajos de MapReduce mediante el SDK .NET de HDInsight
 
-[!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
+[!INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 
 Aprenda a enviar trabajos de MapReduce mediante el SDK .NET de HDInsight. Los clústeres de HDInsight vienen con un archivo .jar con varios ejemplos de MapReduce. El archivo jar es `/example/jars/hadoop-mapreduce-examples.jar`.  Uno de los ejemplos es **wordcount**. Desarrollará una aplicación de consola de C# para enviar un trabajo de recuento de palabras.  El trabajo lee el archivo `/example/data/gutenberg/davinci.txt` y envía los resultados a `/example/data/davinciwordcount`.  Si desea volver a ejecutar la aplicación, deberá limpiar la carpeta de salida.
 

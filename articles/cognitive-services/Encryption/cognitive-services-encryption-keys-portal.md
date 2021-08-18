@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: egeaney
-ms.openlocfilehash: 7c7476a3ab885e9c127cbd571ad723864bf0d898
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c45f7dd7daad911deff3c920222ec18118437692
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534562"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220388"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Configuración de claves administradas por el cliente con Azure Key Vault para Cognitive Services
 
@@ -39,7 +39,6 @@ El proceso para habilitar las claves administradas por el cliente con Azure Key�
 
 * [Cifrado de datos en reposo de Content Moderator](../Content-Moderator/encrypt-data-at-rest.md)
 * [Cifrado de datos en reposo de Personalizer](../personalizer/encrypt-data-at-rest.md)
-* [Cifrado de datos en reposo de Metrics Advisor](../metrics-advisor/encryption.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

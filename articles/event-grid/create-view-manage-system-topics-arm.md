@@ -2,13 +2,13 @@
 title: Uso de plantillas de Azure Resource Manager para crear temas del sistema en Azure Event Grid
 description: En este artículo se muestra cómo usar plantillas de Azure Resource Manager para crear temas del sistema en Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 1c8881a2d9dfca43084cc537b106e84b050a18d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/22/2021
+ms.openlocfilehash: 8420e60dd7336d17845a0a1c6b4e5e6637fe9c8a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86115169"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469467"
 ---
 # <a name="create-system-topics-in-azure-event-grid-using-resource-manager-templates"></a>Creación de temas del sistema en Azure Event Grid con plantillas de Resource Manager
 En este artículo se muestra cómo crear y administrar temas del sistema con plantillas de Resource Manager. Para ver un resumen de los temas del sistema, consulte [Temas del sistema](system-topics.md).

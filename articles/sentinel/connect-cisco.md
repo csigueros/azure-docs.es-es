@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: e8a64dd3e47384ba2bf7579f8052177252634622
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82e9775b085a5b969c175ef0b9af09d2f9bea988
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85566031"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252881"
 ---
 # <a name="connect-cisco-asa-to-azure-sentinel"></a>Conexión de Cisco ASA a Azure Sentinel
 
@@ -28,6 +28,7 @@ ms.locfileid: "85566031"
 
 En este artículo se explica cómo conectar el dispositivo de Cisco ASA a Azure Sentinel. El conector de datos de Cisco ASA permite conectar fácilmente los registros de Cisco ASA con Azure Sentinel para ver paneles, crear alertas personalizadas y mejorar la investigación. El uso de Cisco ASA en Azure Sentinel le proporcionará más información sobre el uso de Internet de su organización y mejorará sus capacidades de operación de seguridad. 
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 
 ## <a name="forward-cisco-asa-logs-to-the-syslog-agent"></a>Reenviar los registros de Cisco ASA al agente de Syslog
@@ -47,8 +48,6 @@ Cisco ASA no es compatible con CEF, por lo que los registros se envían como Sys
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar dispositivos de Cisco ASA a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
-
-
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

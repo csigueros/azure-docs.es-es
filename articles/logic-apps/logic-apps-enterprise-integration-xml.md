@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 3cb3472572abbd891f8d36ea036b371c1224f38c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c4e8f8c080d73ca77a69820ffe6af9d46d6f44af
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "74792150"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294002"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Mensajes XML y archivos planos en Azure Logic Apps con Enterprise Integration Pack
 
@@ -33,7 +33,7 @@ Por ejemplo, Enterprise Integration Pack incluye estas funcionalidades:
 
 ## <a name="sample"></a>Muestra
 
-[Implemente una aplicación lógica totalmente operativa](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (ejemplo de GitHub) con las características XML de Azure Logic Apps.
+[Implemente una aplicación lógica totalmente operativa](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-veter-pipeline) (ejemplo de GitHub) con las características XML de Azure Logic Apps.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

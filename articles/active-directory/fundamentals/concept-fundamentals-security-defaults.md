@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/03/2021
+ms.date: 07/07/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: c663282865e19df0e103e75a7e32d86651232a93
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d240e9bbf657a4336480d1340b8fbd59903a355a
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762558"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730305"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
@@ -137,7 +137,7 @@ Estos valores predeterminados de seguridad gratis permiten el registro y el uso 
 - *** Las contraseñas de aplicación solo están disponibles en MFA por usuario con escenarios de autenticación heredados si las habilitan los administradores.
 
 > [!WARNING]
-> No deshabilite los métodos de la organización si está usando Valores predeterminados de seguridad. La deshabilitación de los métodos puede dar lugar a su propia expulsión del inquilino. Deje todos los **Métodos disponibles para los usuarios** habilitados en el [portal de configuración del servicio MFA](../authentication/howto-mfa-getstarted.md#choose-verification-options).
+> No deshabilite los métodos de la organización si está usando Valores predeterminados de seguridad. La deshabilitación de los métodos puede dar lugar a su propia expulsión del inquilino. Deje todos los **Métodos disponibles para los usuarios** habilitados en el [portal de configuración del servicio MFA](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
 
 ### <a name="disabled-mfa-status"></a>Estado de MFA deshabilitado
 
@@ -145,7 +145,7 @@ Si su organización es un usuario anterior de Azure AD Multi-Factor Authenticat
 
 ### <a name="conditional-access"></a>Acceso condicional
 
-Puede usar el acceso condicional para configurar directivas similares a los valores predeterminados de seguridad, pero con más granularidad, incluidas las exclusiones de usuario, que no están disponibles en los valores predeterminados de seguridad. Si usa acceso condicional y tiene habilitadas directivas de acceso condicional en su entorno, los valores de seguridad predeterminados no estarán disponibles. Si tiene una licencia que proporciona acceso condicional, pero no tiene ninguna directiva de acceso condicional habilitada en su entorno, puede usar los valores de seguridad predeterminados hasta que habilite las directivas de acceso condicional. Para más información sobre las licencias de Azure AD, consulte la [página de precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Puede usar el acceso condicional para configurar directivas similares a los valores predeterminados de seguridad, pero con más granularidad, incluidas las exclusiones de usuario, que no están disponibles en los valores predeterminados de seguridad. Si usa acceso condicional y tiene habilitadas directivas de acceso condicional en su entorno, los valores de seguridad predeterminados no estarán disponibles. Si tiene una licencia que proporciona acceso condicional, pero no tiene ninguna directiva de acceso condicional habilitada en su entorno, puede usar los valores de seguridad predeterminados hasta que habilite las directivas de acceso condicional. Para más información sobre las licencias de Azure AD, consulte la [página de precios de Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ![Mensaje de advertencia que indica que puede tener valores predeterminados de seguridad o acceso condicional, pero no ambos](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 

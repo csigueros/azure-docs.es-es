@@ -2,13 +2,13 @@
 title: 'Protocolo de la extensión gRPC: Azure'
 description: Azure Video Analyzer permite mejorar sus funcionalidades de procesamiento mediante un nodo de extensión de canalización. El procesador de extensiones de gRPC permite escenarios de extensibilidad mediante el uso de un protocolo estructurado de alto rendimiento basado en gRPC.
 ms.topic: reference
-ms.date: 05/15/2021
-ms.openlocfilehash: aaa1030f2c751514568c96142268d41c2eba4df6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 7d6d60b0f9f6473cf226b8cecff0440ff90f008b
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388728"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605080"
 ---
 # <a name="use-the-grpc-extension-protocol"></a>Uso del protocolo de la extensión gRPC 
 
@@ -25,7 +25,7 @@ En una sola sesión: El cliente envía un descriptor de flujo multimedia seguido
 Se recomienda que las respuestas se devuelvan mediante documentos JSON válidos y que se siga el esquema preestablecido definido en el [modelo de objetos del esquema de metadatos de inferencia](inference-metadata-schema.md). Esto garantizará mejor la interoperabilidad con otros componentes y escenarios, como la grabación y reproducción de vídeo con metadatos de inferencia.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/grpc-extension-protocol/ava-module.png" alt-text="Módulo de Azure Video Analyzer" lightbox="./media/grpc-extension-protocol/ava-module.png":::
+> :::image type="content" source="./media/grpc-extension-protocol/grpc-external-srv.svg" alt-text="Módulo de Azure Video Analyzer" lightbox="./media/grpc-extension-protocol/grpc-external-srv.svg":::
 
 ## <a name="implementing-grpc-protocol"></a>Implementación del protocolo gRPC
 

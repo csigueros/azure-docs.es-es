@@ -9,12 +9,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/15/2021
 ms.author: apimpm
-ms.openlocfilehash: e4f9f3822b58886f7d453d52402b078d8401133f
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 6ef07743b7def1c49744185f153d13bb24719652
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107738889"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667921"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Migración al nuevo portal para desarrolladores
 
@@ -53,7 +53,7 @@ Al migrar desde el portal en desuso, tenga en cuenta los siguientes cambios:
 - Si cambió las plantillas de notificación de correo electrónico predeterminadas para incluir una dirección URL de portal en desuso definida explícitamente, cámbielas para usar el parámetro de la dirección URL del portal o para apuntar a la dirección URL del nuevo portal. Si en su lugar las plantillas usan el parámetro de dirección URL del portal integrado, no se requieren cambios.
 - Las características *Problemas* y *Aplicaciones* no se admiten en el nuevo portal para desarrolladores.
 - La integración directa con Facebook, Microsoft, Twitter y Google como proveedores de identidades no se admite en el nuevo portal para desarrolladores. Puede realizar la integración con estos proveedores a través de Azure AD B2C.
-- Si usa la delegación, cambie la dirección URL de retorno en las aplicaciones y use el [*punto de conexión Get Shared Access Token* API](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) en lugar del punto de conexión *Generate SSO URL*.
+- Si usa la delegación, cambie la dirección URL de retorno en las aplicaciones y use el [*punto de conexión Get Shared Access Token* API](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token) en lugar del punto de conexión *Generate SSO URL*.
 - Si usa Azure AD como proveedor de identidades:
 
     - Cambie la dirección URL de retorno en la aplicación para que apunte al nuevo dominio del portal para desarrolladores.

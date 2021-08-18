@@ -9,18 +9,18 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 07/01/2021
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee22ba3816e667bc58247fa81142e54587124fd6
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: d9eb9843e9ce0d59c28b2011164611e2a54e2b68
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865304"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215378"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -49,7 +49,7 @@ Un usuario debe escribir sus credenciales corporativas una segunda vez para aute
 
 En la sección siguiente se describe con detalle cómo funciona la sincronización de hash de contraseñas entre Active Directory y Azure AD.
 
-![Flujo detallado de contraseñas](./media/how-to-connect-password-hash-synchronization/arch3b.png)
+[![Flujo detallado de contraseñas](./media/how-to-connect-password-hash-synchronization/arch3d.png)](./media/how-to-connect-password-hash-synchronization/arch3d.png#lightbox)
 
 1. Cada dos minutos, el agente de sincronización de hash de contraseñas en el servidor de AD Connect solicita hashes de contraseña almacenados (el atributo unicodePwd) desde un controlador de dominio.  Esta solicitud es a través del protocolo de replicación [MS-DRSR](/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) estándar que se utiliza para sincronizar datos entre controladores de dominio. La cuenta de servicio debe tener los permisos para replicar cambios de directorio y para replicar cambios de directorio en todos los AD (se conceden de manera predeterminada en la instalación) para obtener los hashes de contraseña.
 2. Antes del envío, el controlador de dominio cifra el hash de contraseña MD4 mediante una clave que es un hash de [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) de la clave de sesión RPC y valor sal. Después envía el resultado al agente de sincronización de hash de contraseñas a través de RPC. El controlador de dominio también pasa el valor sal al agente de sincronización mediante el protocolo de replicación del controlador de dominio, por lo que el agente podrá descifrar el sobre.

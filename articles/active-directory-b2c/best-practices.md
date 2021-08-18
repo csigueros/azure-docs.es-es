@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 2c8a9121d0e36eb51cd02c2c884ddcaa0dd79a79
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 51f4bd3be4334d65504e8e72bc7595989e8b6be7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226216"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443881"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendaciones y procedimientos recomendados para Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Defina la arquitectura de aplicaciones y servicios, los sistemas actuales de inv
 | Diseño de una solución de un extremo a otro | Incluya todas las dependencias de las aplicaciones al planear una integración de Azure AD B2C. Tenga en cuenta todos los servicios y productos que se encuentran actualmente en su entorno o que podrían tener que agregarse a la solución, por ejemplo, Azure Functions, los sistemas de administración de relaciones con clientes (CRM), Azure API Management Gateway y los servicios de almacenamiento. Tenga en cuenta la seguridad y la escalabilidad de todos los servicios. |
 | Documentación de las experiencias de los usuarios | Detalle todos los recorridos del usuario que los clientes pueden experimentar en la aplicación. Incluya todas las pantallas y los flujos de bifurcación que puedan encontrarse al interactuar con los aspectos de la identidad y el perfil de la aplicación. Incluya facilidad de uso, accesibilidad y localización en el planeamiento. |
 | Elección del protocolo de autenticación adecuado |  Para ver un desglose de los distintos escenarios de aplicación y sus flujos de autenticación recomendados, consulte [Escenarios y flujos de autenticación compatibles](../active-directory/develop/authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). |
-| Piloto de una experiencia del usuario de un extremo a otro de prueba de concepto (POC) | Comience con los [ejemplos de código de Microsoft](code-samples.md) y [ejemplos de la comunidad](https://github.com/azure-ad-b2c/samples). |
+| Piloto de una experiencia del usuario de un extremo a otro de prueba de concepto (POC) | Comience con los [ejemplos de código de Microsoft](integrate-with-app-code-samples.md) y [ejemplos de la comunidad](https://github.com/azure-ad-b2c/samples). |
 | Creación de un plan de migración |La planificación previa puede hacer que la migración se realice de forma más fluida. Obtenga más información acerca de la [migración de usuarios](user-migration.md).|
 | Facilidad de uso frente a seguridad | La solución debe lograr el equilibrio adecuado entre la facilidad de uso de la aplicación y el nivel de riesgo aceptable de la organización. |
 | Traslado de dependencias locales a la nube | Para ayudar a garantizar una solución resistente, considere la posibilidad de mover las dependencias de aplicaciones existentes a la nube. |

@@ -8,12 +8,12 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: eda45b1a1a011a646915cf45e45218ae168a2af6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ada319684325b462729a44490207ad8e3c9d1cb9
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213086"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112371560"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configuración de la autenticación de Azure Active Directory para un clúster de Red Hat OpenShift en Azure 4 (Portal)
 
@@ -68,7 +68,7 @@ Vaya a **Configuración de token (versión preliminar)** y haga clic en **Agrega
 
 Las aplicaciones registradas en un inquilino de Azure Active Directory (Azure AD) están disponibles de forma predeterminada para todos los usuarios del inquilino que se autentica correctamente. Azure AD permite a los administradores y desarrolladores de inquilinos restringir una aplicación a un conjunto específico de usuarios o a los grupos de seguridad del inquilino.
 
-Siga las instrucciones de la documentación de Azure Active Directory para [asignar usuarios y grupos a la aplicación](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
+Siga las instrucciones de la documentación de Azure Active Directory para [asignar usuarios y grupos a la aplicación](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 ## <a name="configure-openshift-openid-authentication"></a>Configuración de la autenticación OpenID en OpenShift
 

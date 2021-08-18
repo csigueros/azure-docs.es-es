@@ -10,16 +10,16 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 03/19/2021
-ms.openlocfilehash: 37266c7a7692c59efdded9ba3fabe71458a5f674
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8363fb2dbd80f55cdae4c064177bed63ed988559
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110788628"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725567"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guía de migración: de Access a Azure SQL Database
 
-En esta guía va a aprender a [migrar](https://azure.microsoft.com/migration/migration-journey) la base de datos de Microsoft Access a una base de datos de Azure SQL mediante [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant para Access (SSMA para Access).
+En esta guía va a aprender a [migrar](https://azure.microsoft.com/migration/migration-journey) la base de datos de Microsoft Access a una base de datos de Azure SQL mediante [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant para Access (SSMA para Access).
 
 Para ver otras guías de migración, consulte [Guía de Azure Database Migration](/data-migration). 
 
@@ -170,7 +170,7 @@ Para obtener más ayuda a fin de completar este escenario de migración, vea el 
 
 | Título | Descripción |
 | --- | --- |
-| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y los niveles de corrección de la aplicación y la base de datos para las cargas de trabajo especificadas. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado. |
+| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://www.microsoft.com/download/details.aspx?id=103130) | Proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y los niveles de corrección de la aplicación y la base de datos para las cargas de trabajo especificadas. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado. |
 
 El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es permitir y acelerar la modernización compleja de los proyectos de migración de la plataforma de datos a la de Azure, de Microsoft.
 
@@ -186,7 +186,7 @@ El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetiv
 - Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Procedimientos recomendados para gestionar los costos y el tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
-   -  [Recursos de Migración a la nube](https://azure.microsoft.com/migration/resources)
+   -  [Recursos de migración a la nube](https://azure.microsoft.com/migration/resources)
 
 
 - Para evaluar la capa de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).

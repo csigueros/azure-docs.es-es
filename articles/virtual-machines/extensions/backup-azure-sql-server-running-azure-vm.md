@@ -9,12 +9,12 @@ ms.author: v-amallick
 ms.collection: windows
 ms.date: 07/05/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 183ed69efaba2da1e1b7f9a4a3feb2115dd6b7d1
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b63e5c7de8a7198d5631075e9748d13f72ddb354
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663214"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294056"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure Backup para SQL Server que se ejecuta en la máquina virtual de Azure
 
@@ -99,7 +99,7 @@ statusBlobUri | <https://seapod01coord1exsapk732.blob.core.windows.net/bcdrexten
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
-Recomendamos agregar la extensión AzureBackupWindowsWorkload a una máquina virtual mediante la habilitación la copia de seguridad de SQL Server en la máquina virtual. Esto puede lograrse mediante la [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) diseñada para automatizar la copia de seguridad en una máquina virtual de SQL Server.
+Recomendamos agregar la extensión AzureBackupWindowsWorkload a una máquina virtual mediante la habilitación la copia de seguridad de SQL Server en la máquina virtual. Esto puede lograrse mediante la [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-vm-workload-backup) diseñada para automatizar la copia de seguridad en una máquina virtual de SQL Server.
 
 ## <a name="powershell-deployment"></a>Implementación de PowerShell
 

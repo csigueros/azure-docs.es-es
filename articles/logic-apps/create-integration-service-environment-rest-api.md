@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: fa0b37c46fd39a1764c356aa910347cafaa7d448
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f50fecfb2675e870025d9e188d5303aacf77f7a2
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787264"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295730"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Creación de un entorno del servicio de integración (ISE) mediante la API REST de Logic Apps
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo crear un ISE mediante la API de REST de Logic
 Para obtener más información sobre otras formas de crear un ISE, consulte estos artículos:
 
 * [Creación de un ISE en Azure Portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
-* [Creación de un ISE mediante la plantilla de inicio rápido de Azure Resource Manager de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment)
+* [Creación de un ISE mediante la plantilla de inicio rápido de Azure Resource Manager de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/integration-service-environment)
 * [Creación de un ISE que admite el uso de claves administradas por el cliente para cifrar datos en reposo](customer-managed-keys-integration-service-environment.md)
 
 ## <a name="prerequisites"></a>Requisitos previos

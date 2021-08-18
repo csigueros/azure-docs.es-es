@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 03ab6be5b05cb42951b666776942270e4b430195
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: c6df0ee88d712d36d3b5f57009a844e45232960c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691214"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444956"
 ---
 # <a name="apply-the-windows-azure-diagnostics-extension-in-cloud-services-extended-support"></a>Aplicación de la extensión de Windows Azure Diagnostics en Cloud Services (soporte extendido) 
 Puede supervisar las métricas de rendimiento claves de cualquier servicio en la nube. Cada rol de servicio en la nube recopila datos mínimos: uso de CPU, uso de red y uso de disco. Si el servicio en la nube tiene la extensión Microsoft.Azure.Diagnostics aplicada a un rol, este último puede recopilar puntos de datos adicionales. Para obtener más información, consulte [Introducción a las extensiones](extensions.md).
@@ -117,5 +117,5 @@ Este es un ejemplo del archivo XML de configuración privada
 
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).
 - Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).

@@ -2,18 +2,17 @@
 title: 'Ejemplo: creación e implementación de una aptitud personalizada con el diseñador de Azure Machine Learning'
 titleSuffix: Azure Cognitive Search
 description: En este ejemplo se muestra cómo usar el diseñador de Azure Machine Learning para compilar e implementar una aptitud personalizada de AML para la canalización de enriquecimiento con IA de Azure Cognitive Search.
-manager: luiscab
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: f6e26d697c97b70770ec0445be8d72bda7269f4f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 5af4110d1092c2e0e916d1404e9177b64e650e0b
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961436"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728116"
 ---
 # <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning-designer"></a>Ejemplo: creación e implementación de una aptitud personalizada con el diseñador de Azure Machine Learning
 

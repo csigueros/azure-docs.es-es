@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 13fb05fe04988320c46755b38bfc952b7265d30d
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 86a998e304755085a9ae1e15e011df3b242c4df8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112059911"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725151"
 ---
 # <a name="microsoft-365-defender-integration-with-azure-sentinel"></a>Integración de Microsoft 365 Defender en Azure Sentinel
 
@@ -107,4 +107,4 @@ El nuevo conector Microsoft 365 Defender le permite transmitir eventos de **bú
 En este documento, aprendió la manera de aprovechar el uso de Microsoft 365 Defender junto con Azure Sentinel mediante el conector Microsoft 365 Defender.
 
 - Obtenga instrucciones para [habilitar el conector Microsoft 365 Defender](connect-microsoft-365-defender.md).
-- Cree [alertas personalizadas](tutorial-detect-threats-custom.md) o [investigue incidentes](tutorial-investigate-cases.md).
+- Cree [alertas personalizadas](detect-threats-custom.md) o [investigue incidentes](investigate-cases.md).

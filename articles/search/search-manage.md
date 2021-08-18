@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 98e0137c8e48696737cd5d8d1fd4d3de925b9f7f
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: dbc82b67206f6453101b0d6f419718b928506f79
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579796"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003861"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administración de los servicios de Azure Cognitive Search en Azure Portal
 
@@ -73,7 +73,7 @@ Cognitive Search aprovecha otros servicios de Azure para realizar una supervisi�
 
 Al abrir la página de información general del servicio de búsqueda, los permisos asignados a su cuenta determinan qué páginas están disponibles. La página de información general al principio del artículo muestra las páginas del portal que verá un administrador o colaborador.
 
-En el recurso de Azure, los derechos administrativos se conceden a través de asignaciones de roles. En el contexto de Azure Cognitive Search, las [asignaciones de roles](search-security-rbac.md) determinarán quién puede asignar réplicas y particiones o administrar claves de API, independientemente de si usan el portal, [PowerShell](search-manage-powershell.md), la [CLI de Azure](search-manage-azure-cli.md) o las [API REST de administración](/rest/api/searchmanagement/search-howto-management-rest-api):
+En el recurso de Azure, los derechos administrativos se conceden a través de asignaciones de roles. En el contexto de Azure Cognitive Search, las [asignaciones de roles](search-security-rbac.md) determinarán quién puede asignar réplicas y particiones o administrar claves de API, independientemente de si usan el portal, [PowerShell](search-manage-powershell.md), la [CLI de Azure](search-manage-azure-cli.md) o las [API REST de administración](/rest/api/searchmanagement):
 
 > [!TIP]
 > El aprovisionamiento o la retirada del propio servicio los puede realizar un administrador o coadministrador de una suscripción de Azure. Mediante el uso de mecanismos de aplicación en todo el sistema de Azure, puede bloquear una suscripción o un recurso para evitar la eliminación accidental o no autorizada del servicio de búsqueda por parte de usuarios con derechos de administrador. Para más información, consulte [Bloqueo de recursos para impedir eliminación inesperada](../azure-resource-manager/management/lock-resources.md).

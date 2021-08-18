@@ -9,19 +9,19 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a95807bc3b209a2b410b205b6d473560b454b2b0
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645752"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113758230"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar la manera en que la solución de factoría conectada muestra los datos de los servidores de OPC UA
 
 > [!IMPORTANT]
 > Mientras actualizamos este artículo, consulte el artículo sobre [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/), donde encontrará el contenido más actualizado.
 
-La solución de factoría conectada agrega y muestra datos de los servidores de OPC UA conectados a la solución. Puede examinar y enviar comandos a los servidores de OPC UA en la solución. Para más información acerca de OPC UA, consulte las [preguntas frecuentes sobre la factoría conectada](iot-accelerators-faq-cf.md).
+La solución de factoría conectada agrega y muestra datos de los servidores de OPC UA conectados a la solución. Puede examinar y enviar comandos a los servidores de OPC UA en la solución. Para más información acerca de OPC UA, consulte las [preguntas frecuentes sobre la factoría conectada](iot-accelerators-faq-cf.yml).
 
 Entre los ejemplos de datos agregados en la solución se pueden mencionar Overall Equipment Efficiency (OEE) (Eficacia general de equipos) y Key Performance Indicators (Indicadores clave de rendimiento) (KPI) que se pueden ver en el panel en los ámbitos de factoría, línea y estación. En las capturas de pantalla siguientes se muestran los valores de OEE y KPI para la estación **Assembly**, en **Production line 1**, en la factoría **Munich**:
 
@@ -83,7 +83,7 @@ El repositorio **-azure-iot-connected-factory** incluye un script de PowerShell 
 Para obtener más información sobre el acelerador de la solución de factoría conectada, lea los siguientes artículos:
 
 * [Permisos en el sitio azureiotsolutions.com][lnk-permissions]
-* [Preguntas frecuentes sobre factoría conectada](iot-accelerators-faq-cf.md)
+* [Preguntas frecuentes sobre factoría conectada](iot-accelerators-faq-cf.yml)
 * [P+F][lnk-faq]
 
 
@@ -95,4 +95,4 @@ Para obtener más información sobre el acelerador de la solución de factoría 
 
 
 [lnk-permissions]: iot-accelerators-permissions.md
-[lnk-faq]: iot-accelerators-faq.md
+[lnk-faq]: iot-accelerators-faq.yml

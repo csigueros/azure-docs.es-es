@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: b55f0562ae08a6e5a6b38bd0b6fc9f781b94ab64
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: ef1f069dbcf932475a062b309324a77932a88809
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078696"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750734"
 ---
 # <a name="assessment-overview-migrate-to-azure-vmware-solution"></a>Introducción a la evaluación (migración a Azure VMware Solution)
 
@@ -285,7 +285,7 @@ Como los precios de Azure VMware Solution (AVS) son por nodo, el costo total no 
 
 En el informe preparación para Azure para la evaluación de Azure VMware Solution (AVS), puede ver las siguientes herramientas sugeridas:
 
-- **VMware HCX o Enterprise**: En el caso de los servidores de VMware, la solución Hybrid Cloud Extension (HCX) de VMware es la herramienta de migración sugerida para migrar la carga de trabajo local a la nube privada de Azure VMware Solution (AVS). [Más información](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **VMware HCX o Enterprise**: En el caso de los servidores de VMware, la solución Hybrid Cloud Extension (HCX) de VMware es la herramienta de migración sugerida para migrar la carga de trabajo local a la nube privada de Azure VMware Solution (AVS). [Más información](../azure-vmware/install-vmware-hcx.md).
 - **Desconocido**: en el caso de los servidores importados mediante un archivo CSV, se desconoce la herramienta de migración predeterminada. Sin embargo, para los servidores de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMware.
 
 ## <a name="next-steps"></a>Pasos siguientes

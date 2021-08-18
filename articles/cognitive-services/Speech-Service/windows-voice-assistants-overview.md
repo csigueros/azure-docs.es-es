@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 989e4e48b03f976a647a542771ade053d9229ec7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1d961831094bf377acef910572be459ed18db4cb
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110058913"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113652429"
 ---
 # <a name="voice-assistants-on-windows"></a>Asistentes de voz en Windows
 
@@ -57,4 +57,4 @@ El observador de palabra clave que desencadena el inicio de la aplicación logra
 
 - **Revisar las directrices de diseño:** Nuestras [instrucciones de diseño](windows-voice-assistants-best-practices.md) diseñan el trabajo clave necesario para proporcionar las mejores experiencias posibles para la activación por voz en Windows 10.
 - **Visitar la página Introducción:** Comience [aquí](how-to-windows-voice-assistants-get-started.md) para conocer los pasos para empezar a implementar asistentes de voz en Windows, desde el establecimiento del entorno de desarrollo hasta una introducción a la guía de implementación.
-- **Probar la aplicación de ejemplo**: Para disfrutar de estas funcionalidades de primera mano, visite la página del [ejemplo del asistente de voz de UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) y siga los pasos para que se ejecute el cliente de ejemplo.
+- **Probar la aplicación de ejemplo**: Para disfrutar de estas funcionalidades de primera mano, visite la página del [ejemplo del asistente de voz de UWP](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample) y siga los pasos para que se ejecute el cliente de ejemplo.

@@ -2,13 +2,13 @@
 title: 'Configuración de una puerta de señal para la grabación de vídeo basada en eventos: Azure'
 description: En este artículo se proporcionan instrucciones sobre cómo configurar una puerta de señal en una canalización.
 ms.topic: how-to
-ms.date: 4/12/2021
-ms.openlocfilehash: e03524e7e12a0081172918159e9f2d2ed2e4a7d6
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/01/2021
+ms.openlocfilehash: c0b38005010d2718235700f0ed13575e15119103
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413436"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604071"
 ---
 # <a name="configuring-a-signal-gate-for-event-based-video-recording"></a>Configuración de una puerta de señal para la grabación de vídeo basada en eventos
 
@@ -155,7 +155,40 @@ Diagrama de ejemplo:
 > [!IMPORTANT]
 > En los diagramas anteriores se supone que todos los eventos llegan en el mismo instante en tiempo físico y tiempo del elemento multimedia. Es decir, suponen que no hay ninguna llegada tardía.
 
+### <a name="naming-video-or-files"></a>Nomenclatura de archivos o recursos de vídeo
+
+Las canalizaciones permiten grabar vídeos en la nube o como archivos MP4 en el dispositivo perimetral. Se pueden generar mediante la [grabación continua de vídeo](use-continuous-video-recording.md) o la [grabación de vídeo basada en eventos](record-event-based-live-video.md).
+
+La estructura de nomenclatura recomendada para la grabación en la nube es asignar al recurso de vídeo el nombre "<anytext>-${System.TopologyName}-${System.PipelineName}". Una canalización en directo determinada solo se puede conectar a una cámara IP compatible con RTSP y se debe grabar la entrada de esa cámara en un recurso de vídeo. Por ejemplo, puede establecer el valor de `VideoName` en el receptor de vídeo de la siguiente manera:
+
+```
+"VideoName": "sampleVideo-${System.TopologyName}-${System.PipelineName}"
+```
+Observe que el patrón de sustitución se define mediante el signo `$` seguido de llaves: **${nombreDeVariable}** .
+
+Al grabar en archivos MP4 en el dispositivo perimetral mediante la grabación basada en eventos, puede usar:
+
+```
+"fileNamePattern": "sampleFilesFromEVR-${System.TopologyName}-${System.PipelineName}-${fileSinkOutputName}-${System.Runtime.DateTime}"
+```
+
+> [!Note]
+> En el ejemplo anterior, la variable **fileSinkOutputName** es un nombre de variable de ejemplo que se define al crear la canalización en directo. Esta **no** es una variable del sistema. Observe cómo el uso de **DateTime** garantiza un nombre de archivo MP4 único para cada evento.
+
+#### <a name="system-variables"></a>Variables del sistema
+
+Algunas variables definidas por el sistema que puede usar son:
+
+| Variable del sistema        | Descripción                                                  | Ejemplo              |
+| :--------------------- | :----------------------------------------------------------- | :------------------- |
+| System.Runtime.DateTime        | Fecha y hora UTC en formato compatible con archivos ISO8601 (representación básica AAAAMMDDThhmmss). | 20200222T173200Z     |
+| System.Runtime.PreciseDateTime | Fecha y hora UTC en formato compatible con archivos ISO8601 con milisegundos (representación básica AAAAMMDDThhmmss.sss). | 20200222T173200.123Z |
+| System.TopologyName    | Nombre proporcionado por el usuario de la topología de canalización en ejecución.          | IngestAndRecord      |
+| System.PipelineName    | Nombre proporcionado por el usuario de la canalización en directo en ejecución.          | camera001            |
+
+> [!Tip]
+> System.Runtime.PreciseDateTime y System.Runtime.DateTime no se pueden usar al asignar nombres a vídeos en la nube.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Pruebe el [tutorial de grabación de vídeo basada en eventos](record-event-based-live-video.md). Empiece editando el archivo [topology.json](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-video-sink/topology.json). Modifique los parámetros para el nodo signalgateProcessor y luego siga el resto del tutorial. Revise las grabaciones de vídeo para analizar el efecto de los parámetros.
-

@@ -16,18 +16,18 @@ ms.date: 06/09/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ac5d6b6c3424be4e3f012a04c5fc1b149f58d0
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: edbc8c0151be2bc65dd653e996413d4c7877b1ef
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891903"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114229766"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para los recursos de Microsoft 365
 El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Microsoft 365, este atributo se usa para designar la ubicación geográfica de los datos de Microsoft 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
 
 ## <a name="supported-multi-geo-locations"></a>Ubicaciones multigeográficas admitidas
-Para obtener una lista de todas las geoáreas admitidas por Azure AD Connect, vea [Disponibilidad de Microsoft 365 Multi-Geo](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability).
+Para obtener una lista de todas las geoáreas admitidas por Azure AD Connect, vea [Disponibilidad de Microsoft 365 Multi-Geo](/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability).
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Habilitación de la sincronización de la ubicación de datos preferida
 De manera predeterminada, los recursos de Microsoft 365 para los usuarios se encuentran en la misma zona geográfica que el inquilino de Azure AD. For example, if your tenant is located in Norteamérica, then the users' Exchange mailboxes are also located in North America. Esto podría no ser adecuado para una organización multinacional.
@@ -37,7 +37,7 @@ Es posible definir la geoárea de un usuario si se establece el atributo **prefe
 > [!IMPORTANT]
 > La replicación geográfica múltiple está disponible actualmente para los clientes con un Contrato Enterprise y un mínimo de 250 suscripciones a los servicios de Microsoft 365. Póngase en contacto con su representante de Microsoft para más información.
 >
-> Para obtener una lista de todas las geoáreas admitidas por Azure AD Connect, vea [Disponibilidad de Microsoft 365 Multi-Geo](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability).
+> Para obtener una lista de todas las geoáreas admitidas por Azure AD Connect, vea [Disponibilidad de Microsoft 365 Multi-Geo](/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability).
 
 
 

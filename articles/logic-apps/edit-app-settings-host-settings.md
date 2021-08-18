@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.openlocfilehash: fcc7ac002c9d1024abc17dc26ba0b231213ceb53
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cf1361a531511daf7f249f4e7c7d2acf9207c457
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386551"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743245"
 ---
 # <a name="edit-host-and-app-settings-for-logic-apps-in-single-tenant-azure-logic-apps"></a>Edición de la configuración de host y aplicación para aplicaciones lógicas en Azure Logic Apps de inquilino único
 
@@ -45,7 +45,7 @@ Para obtener más información sobre cómo configurar las aplicaciones lógicas 
 
 En Visual Studio Code, en el nivel de raíz del proyecto de aplicación lógica, el archivo **local.settings.json** contiene opciones de configuración global que afectan a *todos los flujos de trabajo* de esa aplicación lógica mientras se ejecuta en el entorno de desarrollo local. Cuando los flujos de trabajo se ejecutan localmente, se accede a esta configuración como variables de entorno local, y sus valores a menudo pueden cambiar entre los distintos entornos donde se ejecutan los flujos de trabajo. Para ver y administrar esta configuración, consulte [Administración de la configuración de aplicación: local.settings.json](#manage-app-settings).
 
-La configuración de aplicación de Azure Logic Apps funciona de forma similar a la configuración de aplicación de Azure Functions o Azure Web Apps. Si ha usado estos otros servicios antes, es posible que ya esté familiarizado con la configuración de aplicación. Para obtener más información, consulte [Referencia de configuración de aplicación de Azure Functions](../azure-functions/functions-app-settings.md) y [Uso de Azure Functions Core Tools: archivo de configuración local](../azure-functions/functions-run-local.md#local-settings-file).
+La configuración de aplicación de Azure Logic Apps funciona de forma similar a la configuración de aplicación de Azure Functions o Azure Web Apps. Si ha usado estos otros servicios antes, es posible que ya esté familiarizado con la configuración de aplicación. Para obtener más información, consulte [Referencia de configuración de aplicación de Azure Functions](../azure-functions/functions-app-settings.md) y [Uso de Azure Functions Core Tools: archivo de configuración local](../azure-functions/functions-develop-local.md#local-settings-file).
 
 | Configuración | Valor predeterminado | Descripción |
 |---------|---------------|-------------|

@@ -2,14 +2,14 @@
 title: Introducción a las API de Node para Azure Relay | Microsoft Docs
 description: En este artículo se proporciona información general sobre la API de Node.js para el servicio Azure Relay. También se muestra cómo usar el paquete de Node hyco-ws.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 06/23/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec3f95b8a4cfc10132d22017daa58e59072d535a
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91263494"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668756"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Introducción a las API de Node para conexiones híbridas de Relay
 

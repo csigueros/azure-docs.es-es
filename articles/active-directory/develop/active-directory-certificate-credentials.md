@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/3/2020
+ms.date: 06/23/2021
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: contperf-fy21q4, aaddev
+ms.openlocfilehash: ed3495bb7267c54f9b95f7fc3465d76ddde2faaa
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99582033"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581896"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft
 
@@ -28,7 +28,7 @@ Un formato de credencial que una aplicación puede utilizar para la autenticaci�
 
 ## <a name="assertion-format"></a>Formato de aserción
 
-Para calcular la aserción, puede usar una de las muchas bibliotecas de JWT en el lenguaje que prefiera. [MSAL admite esto mediante `.WithCertificate()`](msal-net-client-assertions.md). La información la lleva el token en el [encabezado](#header), las [notificaciones](#claims-payload) y la [firma](#signature).
+Para calcular la aserción, puede usar una de las muchas bibliotecas de JWT en el lenguaje que prefiera. [MSAL admite esto mediante `.WithCertificate()`](msal-net-client-assertions.md). La información la lleva el token en el encabezado, las notificaciones y la firma.
 
 ### <a name="header"></a>Encabezado
 
@@ -131,7 +131,7 @@ En el registro de aplicación de Azure para la aplicación cliente:
 
 Las aserciones de cliente se pueden usar en cualquier lugar en el que se use un secreto de cliente.  Por ejemplo, en el [flujo de código de autorización](v2-oauth2-auth-code-flow.md), puede pasar un objeto `client_secret` para demostrar que la solicitud procede de la aplicación. Puede reemplazarlo por parámetros `client_assertion` y `client_assertion_type`. 
 
-| Parámetro | Value | Descripción|
+| Parámetro | Valor | Descripción|
 |-----------|-------|------------|
 |`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| Se trata de un valor fijo, que indica que está usando una credencial de certificado. |
 |`client_assertion`| JWT |Este es el JWT creado anteriormente. |

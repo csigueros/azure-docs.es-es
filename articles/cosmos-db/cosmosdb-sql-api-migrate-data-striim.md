@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 136853182e353ad5cd71981db5935fc3babe162e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 927711efc4469d26b3aaf00d38c11ad24466dfe5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339615"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733181"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migración de los datos a una cuenta de SQL API de Azure Cosmos DB mediante Striim
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,7 +42,7 @@ En este artículo se muestra cómo usar Striim para migrar datos desde una insta
 
 1. En el panel **Striim Cluster settings** (Configuración del clúster de Striim), elija el tipo de implementación de Striim y el tamaño de la máquina virtual.
 
-   |Configuración | Value | Descripción |
+   |Configuración | Valor | Descripción |
    | ---| ---| ---|
    |Tipo de implementación de Striim |Independiente | Striim se puede ejecutar en un tipo de implementación **independiente** o de **clúster**. El modo independiente implementará el servidor Striim en una sola máquina virtual, y lepermite seleccionar el tamaño de las máquinas virtuales dependiendo de su volumen de datos. El modo de clúster implementará el servidor Striim en dos o más máquinas virtuales con el tamaño seleccionado. Los entornos de clúster con más de dos nodos ofrecen conmutación por error y alta disponibilidad automáticas.</br></br> En este tutorial, puede seleccionar la opción Independiente. Use el tamaño "Standard_F4s" predeterminado de la máquina virtual.  | 
    | Nombre del clúster de Striim|    <Striim_cluster_Name>|  Nombre del clúster de Striim.|
@@ -199,6 +199,6 @@ Mediante el uso de la solución de Striim en Azure, puede migrar datos continuam
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Si va a migrar datos a SQL API de Azure Cosmos DB, consulte [cómo migrar datos a la cuenta de Cassandra API mediante Striim](cosmosdb-cassandra-api-migrate-data-striim.md)
+* Si va a migrar datos a SQL API de Azure Cosmos DB, consulte [cómo migrar datos a la cuenta de Cassandra API mediante Striim](cassandra/migrate-data-striim.md)
 
 * [Supervisión y depuración de los datos con métricas de Azure Cosmos DB](use-metrics.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 937048ce14b9b05b55cd8d76e7a8c1fd67c63e4d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cb68621017649c87849294be67bc2e12d96214e8
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933715"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113732250"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen2
 
@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen2 ofrece controles de acceso de POSIX de usuarios, gr
 
 ### <a name="use-security-groups-versus-individual-users"></a>Uso de grupos de seguridad frente a usuarios individuales
 
-Cuando se trabaja con macrodatos en Data Lake Storage Gen2, lo más probable es que se use una entidad de servicio para permitir que servicios como Azure HDInsight puedan trabajar con los datos. Sin embargo, puede haber casos en que los usuarios individuales también necesiten acceder a los datos. En cualquier caso, es muy recomendable usar [grupos de seguridad](../common/storage-auth-aad.md) de Azure Active Directory en lugar de asignar usuarios individuales a los directorios y archivos.
+Cuando se trabaja con macrodatos en Data Lake Storage Gen2, lo más probable es que se use una entidad de servicio para permitir que servicios como Azure HDInsight puedan trabajar con los datos. Sin embargo, puede haber casos en que los usuarios individuales también necesiten acceder a los datos. En cualquier caso, es muy recomendable usar [grupos de seguridad](../common/authorize-data-access.md) de Azure Active Directory en lugar de asignar usuarios individuales a los directorios y archivos.
 
 Una vez que se asignan permisos a un grupo de seguridad, agregar o quitar usuarios del grupo no requiere ninguna actualización de Data Lake Storage Gen2. Esto también ayuda a garantizar que no se supere el número máximo de entradas de control de acceso por cada lista de control de acceso (ACL). Actualmente, dicho número es 32 (incluidas las cuatro ACL de estilo POSIX que siempre están asociadas a cada archivo y directorio): el usuario propietario, el grupo propietario, la máscara y otros. Cada directorio puede tener dos tipos de ACL, la ACL de acceso y la ACL predeterminada, para un total de 64 entradas de control de acceso. Para más información sobre estas ACL, vea [Control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 

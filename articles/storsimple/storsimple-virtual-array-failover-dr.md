@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a321b2eb79ea01bbf94e1a413c189ac7f4614ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d70ffb0f9436e11de866c9ea9f423fd81036056
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99096430"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463462"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple mediante Azure Portal
 
@@ -156,7 +156,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
     1. Haga clic en el dispositivo de StorSimple que se usó como dispositivo de destino para el proceso de conmutación por error.
     2. Vaya a **Configuración > administración > Recursos compartidos** (o **Volúmenes** si se trata de un servidor iSCSI). En la hoja **Recursos compartidos**, puede ver todos los recursos compartidos (o volúmenes) del dispositivo antiguo.
         ![Captura de pantalla de la hoja Dispositivos. El dispositivo de destino se muestra con el estado En línea.](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. Tendrá que [crear un alias DNS](https://web.archive.org/web/20150307000707/http://support.microsoft.com:80/kb/168322) para que todas las aplicaciones que están intentando conectarse se puedan redirigir al nuevo dispositivo.
+14. Tendrá que [crear un alias DNS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772053(v=ws.11)?redirectedfrom=MSDN) para que todas las aplicaciones que están intentando conectarse se puedan redirigir al nuevo dispositivo.
 
 ## <a name="errors-during-dr"></a>Errores durante la recuperación ante desastres
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 01/05/2021
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: 97d8da86565db73aa9a3866f39f793aaf0905470
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 820daf5400d60df85973d45840bd7a4a1c553198
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97900168"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463947"
 ---
 # <a name="azure-data-box-limits"></a>Límites de Azure Data Box
 
@@ -51,7 +51,7 @@ Las características de los pedidos de exportación de Data Box incluyen:
 - Si tiene etiquetas duplicadas en archivos de entrada o etiquetas que hacen referencia a los mismos datos, la exportación de Data Box podría omitir o sobrescribir los archivos. El número de archivos y el tamaño de los datos que se muestran en Azure Portal pueden diferir del tamaño real de los datos del dispositivo. 
 - Data Box exporta los datos al sistema basado en Windows mediante SMB y está limitado por las limitaciones de SMB relativas a los archivos y las carpetas. Los archivos y las carpetas con nombres incompatibles no se exportan.
 - Hay una correspondencia 1:1 entre el prefijo y el contenedor.
-- El tamaño máximo del nombre de archivo es de 1024 caracteres. Los nombres de archivo que superan esta longitud no se exportan.
+- El tamaño máximo del nombre de archivo es de 1024 caracteres. Los nombres de archivo que superan esta longitud no se exportan. 
 - Se exportan los prefijos duplicados del archivo *xml* (cargados durante la creación del pedido). No se omiten los prefijos duplicados.
 - Los blobs en páginas y los nombres de contenedor distinguen mayúsculas de minúsculas. Si hay discrepancias en el uso de mayúsculas, no se encontrarán ni el blob ni el contenedor.
  

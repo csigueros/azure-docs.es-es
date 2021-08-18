@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 21c5fd8832805c5e733f19d5fbf71a4e5512478e
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 9034d493e0ab10d8c548170cac99238d5edc4e22
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540521"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003879"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
@@ -103,7 +103,7 @@ Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabi
 
 ## <a name="shared-private-link-resource-limits"></a>Límites de recursos compartidos de Private Link
 
-Los indexadores pueden acceder a otros recursos de Azure mediante [puntos de conexión privados](search-indexer-howto-access-private.md) administrados con la [API de recursos compartidos de Private Link](/rest/api/searchmanagement/sharedprivatelinkresources). En esta sección se describen los límites asociados a esta funcionalidad.
+Los indexadores pueden acceder a otros recursos de Azure mediante [puntos de conexión privados](search-indexer-howto-access-private.md) administrados con la [API de recursos compartidos de Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources). En esta sección se describen los límites asociados a esta funcionalidad.
 
 | Resource | Gratuito | Básica | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |

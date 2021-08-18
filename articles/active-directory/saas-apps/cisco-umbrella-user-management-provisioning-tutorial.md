@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de Cisco Umbrella User Management para aprovisi
 description: Obtenga información sobre cómo aprovisionar y desaprovisionar automáticamente las cuentas de usuario de Azure AD para Cisco Umbrella User Management.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 1aa20f40-19ec-4213-9a3b-5eb2bcdd9bbd
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2021
-ms.author: Zhchia
-ms.openlocfilehash: becc5010908c810688cfbd969bb12f236b2f127f
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.author: thwimmer
+ms.openlocfilehash: 03bbcd0b3723da68936799040664cc4cff370aad
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111896097"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113764355"
 ---
 # <a name="tutorial-configure-cisco-umbrella-user-management-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cisco Umbrella User Management para aprovisionar usuarios automáticamente
 

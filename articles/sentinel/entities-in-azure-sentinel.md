@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 43da1af7a3001d7f8e000a878948428a3d63aa4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60e92f28d36f9dd4e08338ac90b703f9536cf767
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102456183"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726071"
 ---
 # <a name="classify-and-analyze-data-using-entities-in-azure-sentinel"></a>Clasificación y análisis de datos mediante entidades en Azure Sentinel
 
@@ -103,7 +103,7 @@ Puede elegir el **intervalo de tiempo** entre varias opciones preestablecidas (c
 
 En la escala de tiempo se incluyen los siguientes tipos de elementos:
 
-- Alertas: alertas en las que la entidad se define como **entidad asignada**. Tenga en cuenta que si su organización ha creado [alertas personalizadas mediante reglas de análisis](./tutorial-detect-threats-custom.md), debe asegurarse de que la asignación de entidades de las reglas se realice correctamente.
+- Alertas: alertas en las que la entidad se define como **entidad asignada**. Tenga en cuenta que si su organización ha creado [alertas personalizadas mediante reglas de análisis](./detect-threats-custom.md), debe asegurarse de que la asignación de entidades de las reglas se realice correctamente.
 
 - Marcadores: marcadores que incluyen la entidad específica que se muestra en la página.
 

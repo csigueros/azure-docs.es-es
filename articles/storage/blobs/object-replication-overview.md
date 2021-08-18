@@ -10,12 +10,12 @@ ms.date: 05/11/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 39b1ebb4ca0a7daf5654c306382effa44d90c798
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: e65d6097afb6c2b6da1de332304d3b638d2ac081
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109845769"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740175"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicación de objetos para blobs en bloques
 
@@ -68,7 +68,7 @@ La replicación de objetos se admite cuando las cuentas de origen y de destino s
 
 ### <a name="immutable-blobs"></a>Blobs inalterables
 
-La replicación de objetos no admite blobs inmutables. Si un contenedor de origen o de destino tiene una directiva de retención basada en tiempo o una retención legal, se produce un error en la replicación de objetos. Para más información sobre los blobs inmutables, vea [Almacenamiento de datos críticos para la empresa con almacenamiento inmutable](storage-blob-immutable-storage.md).
+La replicación de objetos no admite blobs inmutables. Si un contenedor de origen o de destino tiene una directiva de retención basada en tiempo o una retención legal, se produce un error en la replicación de objetos. Para más información sobre los blobs inmutables, vea [Almacenamiento de datos críticos para la empresa con almacenamiento inmutable](immutable-storage-overview.md).
 
 ## <a name="object-replication-policies-and-rules"></a>Reglas y directivas de replicación de objetos
 

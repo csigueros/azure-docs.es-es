@@ -6,12 +6,12 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2021
-ms.openlocfilehash: bb820be289aa2ddcec2183094e819083dde8c1d8
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 90b9ee4be63bc1773751ae505701ea196cf1f483
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902795"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742614"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 Los [registros de plataforma](./platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](./data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
@@ -57,7 +57,7 @@ Se deben crear todos los destinos para la configuración de diagnóstico antes d
 |:---|:---|
 | Área de trabajo de Log Analytics | No es necesario que el área de trabajo esté en la misma región que el recurso que se esté supervisando.|
 | Centros de eventos | La directiva de acceso compartido del espacio de nombres define los permisos que tiene el mecanismo de transmisión. Para transmitir a Event Hubs, se necesitan permisos de administración, envío y escucha. Para actualizar la configuración de diagnóstico para incluir la transmisión, debe tener el permiso ListKey sobre esa regla de autorización de Event Hubs.<br><br>El espacio de nombres del centro de eventos debe estar en la misma región que el recurso que se está supervisando, si este es regional. |
-| Cuenta de almacenamiento de Azure | No debe utilizar una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos. Sin embargo, si va a archivar el registro de actividad y los registros de recurso, puede que tenga sentido utilizar esa misma cuenta de almacenamiento para mantener todos los datos de supervisión en una ubicación central.<br><br>Para enviar los datos al almacenamiento inmutable, establezca la directiva de inmutabilidad para la cuenta de almacenamiento tal como se escribe en [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../../storage/blobs/storage-blob-immutability-policies-manage.md). Debe seguir todos los pasos que aparecen en este artículo, incluida la habilitación de las escrituras de blobs en anexos protegidos.<br><br>La cuenta de almacenamiento debe estar en la misma región que el recurso que se esté supervisando, si el recurso es regional. |
+| Cuenta de almacenamiento de Azure | No debe utilizar una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos. Sin embargo, si va a archivar el registro de actividad y los registros de recurso, puede que tenga sentido utilizar esa misma cuenta de almacenamiento para mantener todos los datos de supervisión en una ubicación central.<br><br>Para enviar los datos al almacenamiento inmutable, establezca la directiva de inmutabilidad para la cuenta de almacenamiento tal como se escribe en [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../../storage/blobs/immutable-policy-configure-version-scope.md). Debe seguir todos los pasos que aparecen en este artículo, incluida la habilitación de las escrituras de blobs en anexos protegidos.<br><br>La cuenta de almacenamiento debe estar en la misma región que el recurso que se esté supervisando, si el recurso es regional. |
 
 > [!NOTE]
 > Actualmente, las cuentas de Azure Data Lake Storage Gen2 no se admiten como destino de la configuración de diagnóstico, aunque pueden aparecer como una opción válida en Azure Portal.

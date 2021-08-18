@@ -3,20 +3,20 @@ title: 'Compatibilidad con idiomas: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: El servicio de voz admite un gran número de idiomas para la conversión de texto a voz y voz a texto, junto con la traducción de voz. En este artículo se proporciona una lista completa de idiomas compatibles por servicio.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: references_regions
-ms.openlocfilehash: 2879ecbc6b50c3cd2bd7541357886f5d6dfe483b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f718ba81cf122b747652bf66d840dd8935897019
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752502"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253820"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -104,6 +104,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Maltés (Malta)                    | `mt-MT` | Texto                                   |                           |                          |
 | Maratí (India)                    | `mr-IN` | Texto                                   |                           |                          |
 | Noruego (Bokmål, Noruega)         | `nb-NO` | Texto                                   |     Sí                      |                          |
+| Persa (Irán)                     | `fa-IR` | Texto                                   |                           |                          |
 | Polaco (Polonia)                    | `pl-PL` | Texto                                   |       Sí                    |                          |
 | Portugués (Brasil)                | `pt-BR` | Audio (20190620, 20201015)<br>Texto<br>Pronunciación|          Sí                 |                          |
 | Portugués (Portugal)              | `pt-PT` | Texto<br>Pronunciación                  |             Sí              |                          |
@@ -133,6 +134,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Español (Uruguay)                  | `es-UY` | Texto<br>Pronunciación                  |                           |                          |
 | Español (EE. UU.)                      | `es-US` | Texto<br>Pronunciación                  |                           |                          |
 | Español (Venezuela)                | `es-VE` | Texto<br>Pronunciación                  |                           |                          |
+| Swahili (Kenia)                    | `sw-KE` | Texto<br>Pronunciación                  |                           |                          |
 | Sueco (Suecia)                   | `sv-SE` | Texto                                   |   Sí                        |                          |
 | Tamil (India)                      | `ta-IN` | Texto                                   |                           |                          |
 | Telugu (India)                     | `te-IN` | Texto                                   |                           |                          |
@@ -217,8 +219,19 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Inglés (Reino Unido) | `en-GB` | Female | `en-GB-MiaNeural` | General |
 | Inglés (Reino Unido) | `en-GB` | Male | `en-GB-RyanNeural` | General |
 | Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AriaNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-JennyNeural` | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-GuyNeural` | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-JennyNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-GuyNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AmberNeural` <sup>Nuevo</sup> | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AshleyNeural` <sup>Nuevo</sup> | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-CoraNeural` <sup>Nuevo</sup> | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-ElizabethNeural` <sup>Nuevo</sup> | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-MichelleNeural` <sup>Nuevo</sup> | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-MonicaNeural` <sup>Nuevo</sup> | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Niño | `en-US-AnaNeural` <sup>Nuevo</sup> | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-BrandonNeural` <sup>Nuevo</sup> | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-ChristopherNeural` <sup>Nuevo</sup> | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-JacobNeural` <sup>Nuevo</sup> | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-EricNeural` <sup>Nuevo</sup> | General |
 | Estonio (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` | General |
 | Estonio (Estonia) | `et-EE` | Male | `et-EE-KertNeural` | General |
 | Finés (Finlandia) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |
@@ -329,18 +342,7 @@ Las siguientes voces neuronales se encuentran en versión preliminar pública.
 
 | Idioma                         | Configuración regional  | Sexo | Nombre de voz                             | Compatibilidad de estilo |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AmberNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AshleyNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-CoraNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-ElizabethNeural` <sup>Nuevo</sup> | General |
 | Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>Nuevo</sup> | Funcionalidades generales multilingües disponibles [mediante SSML](speech-synthesis-markup.md#create-an-ssml-document) |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-MichelleNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-MonicaNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Niño | `en-US-AnaNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-BrandonNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-ChristopherNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-JacobNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-EricNeural` <sup>Nuevo</sup> | General |
 
 > [!IMPORTANT]
 > Las voces en versión preliminar pública solo están disponibles en tres regiones del servicio: Este de EE. UU., Oeste de Europa y Sudeste de Asia.
@@ -478,6 +480,7 @@ Voz personalizada está disponible en el nivel neuronal (conocido también como 
 | Coreano (Corea) | `ko-KR` | Sí | Sí |
 | Noruego (Bokmål, Noruega) | `nb-NO` | Sí | No |
 | Portugués (Brasil) | `pt-BR` | Sí | Sí |
+| Ruso (Rusia) | `ru-RU` | Sí | Sí |
 | Español (México) | `es-MX` | Sí | Sí |
 | Español (España) | `es-ES` | Sí | Sí |
 
@@ -572,7 +575,7 @@ Consulte la tabla siguiente para ver los idiomas compatibles con las distintas A
 
 | Idioma | Configuración regional (BCP-47) | Comprobación dependiente del texto | Comprobación independiente del texto | Identificación independiente del texto |
 |----|----|----|----|----|
-|Inglés (EE.UU.)  |  es-ES  |  sí  |  sí  |  sí |
+|Inglés (EE.UU.)  |  es-ES  |  sí  |  Sí  |  sí |
 |Chino (mandarín, simplificado) | zh-CN     |     N/D |     sí |     sí|
 |Inglés (Australia)     | en-AU     | N/D     | sí     | sí|
 |Inglés (Canadá)     | en-CA     | N/D |     sí |     sí|

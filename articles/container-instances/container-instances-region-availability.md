@@ -4,12 +4,12 @@ description: Disponibilidad de recursos de proceso y memoria para el servicio Az
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 26d1bf74656c63f4957df1129746a3f8fd33c554
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 69dc12c0a74855535e173868951c15a3acfcfd75
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959106"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371521"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
@@ -32,6 +32,7 @@ Están disponibles las siguientes regiones y recursos máximos para los grupos d
 | Region | Uso máximo de CPU | Memoria máxima (GB) | CPU máxima de VNET | Memoria máxima de VNET (GB) | Almacenamiento (GB) | SKU de GPU (versión preliminar) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
 | Este de Australia | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Sudeste de Australia | 4 | 14 | No aplicable | No aplicable | 50 | No aplicable |
 | Sur de Brasil | 4 | 16 | 2 | 8 | 50 | No aplicable |
 | Centro de Canadá | 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Este de Canadá | 4 | 16 | 4 | 16 | 50 | No aplicable |
@@ -47,12 +48,13 @@ Están disponibles las siguientes regiones y recursos máximos para los grupos d
 | Centro de Corea del Sur | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Centro-Norte de EE. UU | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Norte de Europa | 4 | 16 | 4 | 16 | 50 | K80 |
+| Este de Noruega | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Centro-sur de EE. UU. | 4 | 16 | 4 | 16 | 50 | V100 |
 | Sudeste de Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Sur de la India | 4 | 16 | No aplicable | No aplicable | 50 | K80 |
 | Norte de Suiza | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Sur de Reino Unido | 4 | 16 | 4 | 16 | 50 | No aplicable |
-| Oeste de Reino Unido | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Oeste de Reino Unido | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Norte de Emiratos Árabes Unidos | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
 | Centro-Oeste de EE. UU.| 4 | 16 | 4 | 16 | 50 | No aplicable |
 | Oeste de Europa | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
@@ -75,7 +77,7 @@ Los recursos máximos siguientes están disponibles para un grupo de contenedore
 
 ## <a name="windows-container-groups"></a>Grupos de contenedor de Windows
 
-Las siguientes regiones y recursos máximos están disponibles para los grupos de contenedores con contenedores de Windows Server [admitidos y en versión preliminar](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Las siguientes regiones y recursos máximos están disponibles para los grupos de contenedores con contenedores de Windows Server [admitidos y en versión preliminar](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
 
 > [!IMPORTANT]
 > En este momento, las implementaciones con grupos de contenedores de Windows no se admiten en una implementación de Azure Virtual Network.

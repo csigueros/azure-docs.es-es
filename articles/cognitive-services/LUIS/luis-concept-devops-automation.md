@@ -8,12 +8,12 @@ ms.date: 06/01/2021
 ms.author: aahi
 author: aahill
 ms.manager: nitinme
-ms.openlocfilehash: 550af8bda0768738dc2162a0dc0bf767d1c54741
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 7079c1ee309db9563142c54eea88ccd4ba6f6e28
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110783036"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463646"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flujos de trabajo de integración continua y entrega continua de DevOps para LUIS
 
@@ -30,9 +30,9 @@ En su sistema de administración de código fuente (SCM), configure las canaliza
 
 El **flujo de trabajo de CI/CD** combina dos procesos de desarrollo complementarios:
 
-* La [integración continua](/azure/devops/learn/what-is-continuous-integration) (CI) es la práctica de ingeniería que consiste en confirmar con frecuencia el código en un repositorio compartido y realizar una compilación automatizada con él. Junto con un enfoque de [pruebas](luis-concept-devops-testing.md) automatizado, la integración continua nos permite comprobar que, para cada actualización, el origen de LUDown siga siendo válido y se pueda importar a una aplicación de LUIS, y también que pase un grupo de pruebas que comprueben que la aplicación entrenada pueda reconocer las intenciones y las entidades necesarias para la solución.
+* La [integración continua](/devops/develop/what-is-continuous-integration) (CI) es la práctica de ingeniería que consiste en confirmar con frecuencia el código en un repositorio compartido y realizar una compilación automatizada con él. Junto con un enfoque de [pruebas](luis-concept-devops-testing.md) automatizado, la integración continua nos permite comprobar que, para cada actualización, el origen de LUDown siga siendo válido y se pueda importar a una aplicación de LUIS, y también que pase un grupo de pruebas que comprueben que la aplicación entrenada pueda reconocer las intenciones y las entidades necesarias para la solución.
 
-* La [entrega continua](/azure/devops/learn/what-is-continuous-delivery) (CD) va más allá de la integración continua, ya que implementa la aplicación automáticamente en un entorno en el que es posible realizar pruebas más exhaustivas. La CD nos permite saber con anticipación si se ha producido algún imprevisto a raíz de los cambios lo más rápidamente posible. También nos permite obtener información sobre las deficiencias de nuestra cobertura de pruebas.
+* La [entrega continua](/devops/deliver/what-is-continuous-delivery) (CD) va más allá de la integración continua, ya que implementa la aplicación automáticamente en un entorno en el que es posible realizar pruebas más exhaustivas. La CD nos permite saber con anticipación si se ha producido algún imprevisto a raíz de los cambios lo más rápidamente posible. También nos permite obtener información sobre las deficiencias de nuestra cobertura de pruebas.
 
 El objetivo de la integración continua y entrega continua es garantizar que el "elemento principal siempre se pueda enviar". En el caso de una aplicación de LUIS, esto significa que podríamos tomar cualquier versión de la aplicación de LUIS de la rama principal y enviarla a producción si es necesario.
 

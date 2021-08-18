@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1aee3c8213221775e3fde21003055fd9cc973455
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896215"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669357"
 ---
 # <a name="add-a-tile-layer"></a>Adición de una capa de icono
 
@@ -57,7 +57,7 @@ La dirección URL del mosaico es una URL https a una plantilla de dirección URL
 -   `{quadkey}`: Identificador `quadkey` del mosaico basado en la convención de nomenclatura del sistema de mosaicos de Bing Maps.
 -   `{bbox-epsg-3857}`: Cadena de un cuadro de límite con el formato `{west},{south},{east},{north}` en el sistema de referencia espacial EPSG 3857.
 
-Por ejemplo, a continuación se presenta una dirección URL con formato para el [servicio de mosaicos de radar meteorológico](/rest/api/maps/renderv2/getmaptilepreview) en Azure Maps. Tenga en cuenta que `[subscription-key]` es un marcador de posición para la clave de suscripción de Azure Maps.
+Por ejemplo, a continuación se presenta una dirección URL con formato para el [servicio de mosaicos de radar meteorológico](/rest/api/maps/render-v2/get-map-tile) en Azure Maps. Tenga en cuenta que `[subscription-key]` es un marcador de posición para la clave de suscripción de Azure Maps.
 
 > `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
 

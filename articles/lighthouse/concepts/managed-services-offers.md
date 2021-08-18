@@ -3,12 +3,12 @@ title: Ofertas de servicios administrados en Azure Marketplace
 description: Ofrezca sus servicios de administración de Azure Lighthouse a los clientes a través de ofertas de servicios administrados en Azure Marketplace.
 ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: df3cd76d840e37e711bdd92d93c2499d701afef9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 10b32445fcf6d014219dd8559c9c1ac9b2905044
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074780"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114391682"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de servicios administrados en Azure Marketplace
 
@@ -37,7 +37,7 @@ Los planes públicos permiten promover los servicios para nuevos clientes. Suele
 Si es necesario, puede incluir planes públicos y privados en la misma oferta.
 
 > [!IMPORTANT]
-> Una vez publicado un plan como público, no puede cambiarlo a privado. Para controlar qué clientes pueden aceptar su oferta y delegar recursos, use un plan privado. Con un plan público, no puede restringir la disponibilidad a determinados clientes ni a un determinado número de clientes, aunque puede dejar de vender el plan por completo si decide hacerlo. Puede [quitar el acceso a una delegación](../how-to/remove-delegation.md) después de que un cliente acepte una oferta solo si incluyó una **autorización** con la **definición de rol** establecida en [Rol para eliminar la asignación de registros de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al publicar la oferta. También puede ponerse en contacto con el cliente y solicitarle [que quite el acceso](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Una vez publicado un plan como público, no puede cambiarlo a privado. Para controlar qué clientes pueden aceptar su oferta y delegar recursos, use un plan privado. Con un plan público, no puede restringir la disponibilidad a determinados clientes ni a un determinado número de clientes, aunque puede dejar de vender el plan por completo si decide hacerlo. Puede [quitar el acceso a una delegación](../how-to/remove-delegation.md) después de que un cliente acepte una oferta solo si incluyó una **autorización** con la **definición de rol** establecida en [Rol para eliminar la asignación de registros de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al publicar la oferta. También puede ponerse en contacto con el cliente y solicitarle [que quite el acceso](../how-to/view-manage-service-providers.md#remove-service-provider-offers).
 
 ## <a name="publish-managed-service-offers"></a>Publicación de ofertas de servicio administrado
 

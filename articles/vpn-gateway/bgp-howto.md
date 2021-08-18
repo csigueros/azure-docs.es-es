@@ -6,14 +6,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 07/26/2021
 ms.author: yushwang
-ms.openlocfilehash: df42925b50cba4d32ea554ae54dbcb09a5e04377
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 5748b68940027269acaafe27148f0c4819cefc0a
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205960"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720329"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Configuración de BGP en instancias de Azure VPN Gateway
 
@@ -90,7 +90,7 @@ En este paso, creará una instancia de VPN Gateway con los parámetros BGP corre
    > * Cuando se usan direcciones de APIPA en puertas de enlace de VPN de Azure, estas últimas no inician sesiones de emparejamiento de BGP con direcciones IP de origen APIPA. El dispositivo VPN local debe iniciar conexiones de emparejamiento de BGP.
    >
 
-1. Seleccione **Revisar y crear** para ejecutar la validación. Una vez superada la validación, seleccione **Crear** para implementar VPN Gateway. Una puerta de enlace puede tardar hasta 45 minutos en crearse e implementarse completamente. Puede ver el estado de implementación en la página Información general de la puerta de enlace.
+1. Seleccione **Revisar y crear** para ejecutar la validación. Una vez superada la validación, seleccione **Crear** para implementar VPN Gateway. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada. Puede ver el estado de implementación en la página Información general de la puerta de enlace.
 
 ### <a name="3-obtain-the-azure-bgp-peer-ip-addresses"></a>3. Obtenga las direcciones IP del par BGP de Azure
 

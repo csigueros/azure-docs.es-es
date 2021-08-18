@@ -1,17 +1,17 @@
 ---
 title: Definiciones de directivas integradas para Azure Managed Applications
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Managed Applications. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 06/11/2021
+ms.date: 08/13/2021
 ms.topic: reference
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 59eb4ff5d2358d55e1c486b908b61a798f037d98
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 4130eae3ab14ae7f96e91e2c9272cf97976f7659
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018733"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179818"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-managed-applications"></a>Definiciones integradas de Azure Policy para Azure Managed Applications
 

@@ -2,44 +2,49 @@
 title: Explicación del proceso de asignación de usuarios a aplicaciones en Azure Active Directory
 description: Comprenda cómo se asignan los usuarios a una aplicación que usa Azure Active Directory para la administración de identidades.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
-ms.author: mtillman
-ms.openlocfilehash: f17b5111130d0c89097510361d018391ad5e5351
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.openlocfilehash: 081ae6506949407c0cc5331abf542367f7cc4c84
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080478"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738769"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Explicación del proceso de asignación de usuarios a aplicaciones en Azure Active Directory
+
 Este artículo le ayudará a comprender cómo se asignan los usuarios a una aplicación del inquilino.
 
 ## <a name="how-do-users-get-assigned-to-an-application-in-azure-ad"></a>¿Cómo se asignan los usuarios a una aplicación de Azure AD?
+
 Para que un usuario tenga acceso a una aplicación, se le debe primero asignar a ella de alguna forma. Un administrador, un delegado de la empresa o, en ocasiones, el usuario mismo puede realizar esta asignación. A continuación se describen las maneras en las que se pueden asignar los usuarios a las aplicaciones:
 
-*  Un administrador [asigna un usuario](./assign-user-or-group-access-portal.md) a la aplicación directamente
-*  Un administrador [asigna un grupo](./assign-user-or-group-access-portal.md), del que el usuario forma parte, a la aplicación, incluidos:
-    * Un grupo que se ha sincronizado de forma local
-    * Un grupo de seguridad estático creado en la nube
-    * Un [grupo de seguridad dinámico](../enterprise-users/groups-dynamic-membership.md) creado en la nube
-    * Un grupo de Microsoft 365 creado en la nube
-    * El grupo [Todos los usuarios](../fundamentals/active-directory-groups-create-azure-portal.md)
-*  Un administrador habilita [Acceso de autoservicio a las aplicaciones](./manage-self-service-access.md) para permitir que un usuario agregue una aplicación mediante la característica **Agregar aplicación** de la página [Aplicaciones](../user-help/my-apps-portal-end-user-access.md) **sin aprobación de la empresa**.
-*  Un administrador habilita [Acceso de autoservicio a las aplicaciones](./manage-self-service-access.md) para permitir que un usuario agregue una aplicación mediante la característica **Agregar aplicación** de la página [Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md), pero solo **con la aprobación previa de un conjunto seleccionado de aprobadores de la empresa**
-*  Un administrador habilita [Administración de grupos de autoservicio](../enterprise-users/groups-self-service-management.md) para permitir que un usuario se una a un grupo al que se ha asignado una aplicación **sin la aprobación de la empresa**
-*  Un administrador habilita [Administración de grupos de autoservicio](../enterprise-users/groups-self-service-management.md) para permitir que un usuario se una a un grupo al que se ha asignado una aplicación pero solo **con la aprobación anterior de un conjunto seleccionado de aprobadores de la empresa**
-*  Un administrador asigna una licencia a un usuario directamente para una aplicación original de Microsoft, como [Microsoft 365](https://products.office.com/)
-*  Un administrador asigna una licencia a un grupo del que el usuario forma parte para una aplicación original de Microsoft, como [Microsoft 365](https://products.office.com/)
-*  Un [administrador da su consentimiento a una aplicación](../develop/howto-convert-app-to-be-multi-tenant.md) para que la usen todos los usuarios y, a continuación, un usuario inicia sesión en ella
+* Un administrador [asigna un usuario](./assign-user-or-group-access-portal.md) a la aplicación directamente
+* Un administrador [asigna un grupo](./assign-user-or-group-access-portal.md), del que el usuario forma parte, a la aplicación, incluidos:
+
+  * Un grupo que se ha sincronizado de forma local
+  * Un grupo de seguridad estático creado en la nube
+  * Un [grupo de seguridad dinámico](../enterprise-users/groups-dynamic-membership.md) creado en la nube
+  * Un grupo de Microsoft 365 creado en la nube
+  * El grupo [Todos los usuarios](../fundamentals/active-directory-groups-create-azure-portal.md)
+* Un administrador habilita [Acceso de autoservicio a las aplicaciones](./manage-self-service-access.md) para permitir que un usuario agregue una aplicación mediante la característica **Agregar aplicación** de la página [Aplicaciones](../user-help/my-apps-portal-end-user-access.md) **sin aprobación de la empresa**.
+* Un administrador habilita [Acceso de autoservicio a las aplicaciones](./manage-self-service-access.md) para permitir que un usuario agregue una aplicación mediante la característica **Agregar aplicación** de la página [Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md), pero solo **con la aprobación previa de un conjunto seleccionado de aprobadores de la empresa**
+* Un administrador habilita [Administración de grupos de autoservicio](../enterprise-users/groups-self-service-management.md) para permitir que un usuario se una a un grupo al que se ha asignado una aplicación **sin la aprobación de la empresa**
+* Un administrador habilita [Administración de grupos de autoservicio](../enterprise-users/groups-self-service-management.md) para permitir que un usuario se una a un grupo al que se ha asignado una aplicación pero solo **con la aprobación anterior de un conjunto seleccionado de aprobadores de la empresa**
+* Un administrador asigna una licencia a un usuario directamente para una aplicación original de Microsoft, como [Microsoft 365](https://products.office.com/)
+* Un administrador asigna una licencia a un grupo del que el usuario forma parte para una aplicación original de Microsoft, como [Microsoft 365](https://products.office.com/)
+* Un [administrador da su consentimiento a una aplicación](../develop/howto-convert-app-to-be-multi-tenant.md) para que la usen todos los usuarios y, a continuación, un usuario inicia sesión en ella
 * Un usuario [da su consentimiento a una aplicación](../develop/howto-convert-app-to-be-multi-tenant.md) por sí mismo iniciando sesión en ella directamente
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
 * [¿Qué es la administración de aplicaciones?](what-is-application-management.md)
 * [¿Qué es el inicio de sesión único?](what-is-single-sign-on.md)

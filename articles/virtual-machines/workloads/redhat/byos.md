@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: af4f9dac30c1e443e9647a5b752cdabf9c094a6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77b55315256de8b2170a40c76006f05431aac267
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676093"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112455003"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Imágenes Gold de tipo "Bring-your-own-subscription" (BYOS) de Red Hat Enterprise Linux en Azure
 
@@ -213,4 +213,4 @@ Los pasos para aplicar Azure Disk Encryption están disponibles en [Escenarios d
 - Para más información sobre la infraestructura de actualización de Red Hat, consulte [Infraestructura de actualización de Azure Red Hat](./redhat-rhui.md).
 - Para más información sobre todas las imágenes de Red Hat en Azure, consulte la [página de documentación](./redhat-images.md).
 - Puede encontrar información sobre las directivas de compatibilidad de Red Hat para todas las versiones de RHEL en la página [Ciclo de vida de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
-- Para encontrar documentación adicional sobre las imágenes de RHEL Gold Image, consulte la [documentación de Red Hat](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access).
+- Para encontrar documentación adicional sobre las imágenes de RHEL Gold Image, consulte la [documentación de Red Hat](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access#proc_using-gold-images-azure_cloud-access).

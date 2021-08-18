@@ -7,26 +7,23 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: ac260f2fa8cd4f1fd469e3529b7ad6d55a965538
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/10/2021
+ms.openlocfilehash: dce33ff6ea1aef45059cc5535d7e6b5e1dc270ef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555724"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736320"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conexión a un almacén de conocimiento con Power BI
 
 En este artículo, aprenderá a conectarse a un almacén de conocimiento y a explorarlo mediante Power Query en la aplicación Power BI Desktop. Puede empezar a trabajar más rápido con plantillas o crear un panel personalizado desde cero. En este breve vídeo se muestra cómo puede enriquecer su experiencia con sus datos mediante el uso de Azure Cognitive Search en combinación con Power BI.
 
-
-> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=593&end=663]
-
-
-
 + Siga los pasos descritos en [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md) o en [Creación de un almacén de conocimiento de Azure Cognitive Search mediante REST](knowledge-store-create-rest.md) para crear el almacén de conocimiento de ejemplo que se usa en este tutorial. También necesitará el nombre de la cuenta de Azure Storage que usó para crear el almacén de conocimiento, junto con su clave de acceso de Azure Portal.
 
 + [Instalación de Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=593&end=663]
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Plantilla de ejemplo de Power BI: solo Azure Portal
 

@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 05/28/2021
-ms.openlocfilehash: 0be8e50ef500f746d26605048d577c5e806e7b9c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 665f91147bca5ed209d426d3864f5baa68b15d43
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110709443"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112289634"
 ---
 # <a name="marketplace-rewards"></a>Recompensas de Marketplace
 
@@ -36,7 +36,7 @@ Para comprobar su idoneidad para el programa Marketplace Rewards, consulte la p�
 Los pasos para comenzar son sencillos:
 
 1. Publique una oferta en Microsoft AppSource o en Azure Marketplace.
-1. Para ver la lista de ventajas, vaya a la página de [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) en el Centro de partners y seleccione la pestaña **Sales and Marketing benefits** (Beneficios comerciales y de marketing).
+1. Para ver la lista de ventajas, vaya a la página de [Marketplace Rewards](https://go.microsoft.com/fwlink/?linkid=2165388) en el Centro de partners y seleccione la pestaña **Sales and Marketing benefits** (Beneficios comerciales y de marketing).
 1. Para activar las ventajas de ventas y marketing, primero debe asignar un contacto de marketing de la empresa. Este contacto recibirá comunicaciones de seguimiento sobre Marketplace Rewards.
 1. Para agregar o actualizar la información del contacto de marketing, vaya a la parte superior de la pestaña Ventajas de marketing y ventas en la página Marketplace Rewards y seleccione **Add, update, or change** (Agregar, actualizar o cambiar).  A continuación, haga lo siguiente:
 
@@ -51,6 +51,6 @@ Los pasos para comenzar son sencillos:
 1. El uso de las ventajas de patrocinio de Azure se compartirá por correo electrónico a medida que desbloquee estas ventajas.
 
 >[!NOTE]
->Si su oferta ha estado activa durante más de cuatro semanas y no ha recibido ningún mensaje, compruebe en el Centro de partners quién es el propietario de la oferta en la organización. Deberían tener la comunicación y los pasos siguientes. Si no puede determinar el propietario o si el propietario ha dejado su empresa, abra una [incidencia de soporte técnico](https://aka.ms/marketplacepublishersupport).
+>Si su oferta ha estado activa durante más de cuatro semanas y no ha recibido ningún mensaje, compruebe en el Centro de partners quién es el propietario de la oferta en la organización. Deberían tener la comunicación y los pasos siguientes. Si no puede determinar el propietario o si el propietario ha dejado su empresa, abra una [incidencia de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 El ámbito de las actividades disponibles para usted se expande a medida que crecen sus ofertas en Marketplace. Todas las listas reciben un nivel básico de recomendaciones de optimización y promoción como parte de un correo electrónico de autoservicio de recursos y procedimientos recomendados.

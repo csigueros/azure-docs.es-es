@@ -2,18 +2,17 @@
 title: Personalización de una aptitud de API web en conjuntos de aptitudes
 titleSuffix: Azure Cognitive Search
 description: Extienda las funcionalidades de los conjuntos de aptitudes de Azure Cognitive Search mediante un llamado a las API web. Use la aptitud API web personalizada para integrar el código personalizado.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: cb5ee7d3549e433fb184b8c55c28b9a28ed89272
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffc9faa9bc6715417107e35729fc2e53f7e1fa83
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96011938"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731381"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Aptitud API web personalizada en una canalización de enriquecimiento de Azure Cognitive Search
 

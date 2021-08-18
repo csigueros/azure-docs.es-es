@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 ms.custom: references_regions, devx-track-azurecli
 description: Uso de ubicaciones personalizadas para implementar servicios de PaaS de Azure en clústeres de Kubernetes habilitado para Azure Arc
-ms.openlocfilehash: 5f25260041fe7d5998d7f1716c9d20e288168e9d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 5fa255755dd0b78498203624194d081447d70a13
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951657"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730863"
 ---
 # <a name="create-and-manage-custom-locations-on-azure-arc-enabled-kubernetes"></a>Creación y administración de ubicaciones personalizadas en Kubernetes habilitado para Azure Arc
 
@@ -105,26 +105,15 @@ Si ha iniciado sesión en la CLI de Azure con una entidad de servicio, para habi
 
 1. Implemente la extensión de clúster de servicio de Azure de la instancia de servicio de Azure que finalmente quiera en el clúster:
 
-    * Azure Arc: Data Services habilitado
+    * [Data Services habilitado para Azure Arc](../data/create-data-controller-direct-cli.md#create-the-arc-data-services-extension)
 
-        ```azurecli
-        az k8s-extension create --name <extensionInstanceName> --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
-        ```
         > [!NOTE]
         > El proxy de salida sin autenticación y el proxy de salida con autenticación básica son compatibles con la extensión de clúster de Data Services habilitada para Arc. El proxy de salida que espera certificados de confianza no está admitido actualmente.
 
 
-    * [Azure App Service en Azure Arc](../../app-service/overview-arc-integration.md)
+    * [Azure App Service en Azure Arc](../../app-service/manage-create-arc-environment.md#install-the-app-service-extension)
 
-        ```azurecli
-        az k8s-extension create --name <extensionInstanceName> --extension-type 'Microsoft.Web.Appservice' --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace appservice-ns --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" 
-        ```
-
-    * [Event Grid en Kubernetes](../../event-grid/kubernetes/overview.md)
-
-        ```azurecli
-          az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.EventGrid --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace eventgrid-ext --configuration-protected-settings-file protected-settings-extension.json --configuration-settings-file settings-extension.json
-        ```
+    * [Event Grid en Kubernetes](../../event-grid/kubernetes/install-k8s-extension.md)
 
 1. Obtenga el identificador de Azure Resource Manager del clúster de Kubernetes habilitado para Azure Arc, al que se hace referencia en pasos posteriores como `connectedClusterId`:
 

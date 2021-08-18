@@ -3,14 +3,14 @@ title: Configuración de la aplicación de funciones en Azure Functions
 description: Obtenga información sobre cómo configurar las opciones de la aplicación de funciones en Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/21/2021
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 6775fdf8d5174600344f3c7177a3130ef63e8f76
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 041f004f18b4b5fa44e4d652b2d29edb833cdc2b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832687"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862360"
 ---
 # <a name="manage-your-function-app"></a>Administración de la aplicación de funciones 
 
@@ -82,7 +82,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-Al desarrollar una aplicación de funciones localmente, debe mantener copias locales de estos valores en el archivo del proyecto local.settings.json. Para más información, consulte el [archivo de configuración local](functions-run-local.md#local-settings-file).
+Al desarrollar una aplicación de funciones localmente, debe mantener copias locales de estos valores en el archivo del proyecto local.settings.json. Para más información, consulte el [archivo de configuración local](functions-develop-local.md#local-settings-file).
 
 ## <a name="hosting-plan-type"></a>Tipo de plan de hospedaje
 

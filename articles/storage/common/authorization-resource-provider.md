@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09853e6dd96f41f966ff4344f886f1e6323b6c2c
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92789682"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733653"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Uso del proveedor de recursos de Azure Storage para acceder a los recursos de administración
 
@@ -28,7 +28,7 @@ Microsoft proporciona dos API REST para trabajar con recursos de Azure Storage. 
 
 Una solicitud que lee o escribe datos de blobs requiere permisos diferentes que los de una que realiza una operación de administración. Azure RBAC proporciona control específico de los permisos para ambos tipos de recursos. Cuando asigne un rol de Azure a una entidad de seguridad, asegúrese de que sabe qué permisos va a conceder dicha entidad. Para obtener una referencia detallada que describa las acciones asociadas a cada rol integrado de Azure, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
-Azure Storage admite el uso de Azure AD para autorizar solicitudes en Blob Storage y Queue Storage. Para más información sobre los roles de Azure para las operaciones de datos de blobs y colas, consulte [Autorización del acceso a blobs y colas mediante Active Directory](storage-auth-aad.md).
+Azure Storage admite el uso de Azure AD para autorizar solicitudes en Blob Storage y Queue Storage. Para más información sobre los roles de Azure para las operaciones de datos de blobs y colas, consulte [Autorización del acceso a blobs y colas mediante Active Directory](authorize-data-access.md).
 
 ## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Asignación de permisos de administración mediante el control de acceso basado en roles de Azure (Azure RBAC)
 

@@ -3,12 +3,12 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: Aprenda a usar API REST para administrar y supervisar los recursos compartidos de archivos de Azure de los que se ha creado una copia de seguridad con Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 5e2823472c6a7bdd6b3f9819db3079d7efa78c4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdd099cac609ef84a0ece9d0d116de5534d3e530
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88892854"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445151"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure con API REST
 
@@ -38,7 +38,7 @@ Por ejemplo, la respuesta final de una [operación para desencadenar una copia d
 }
 ```
 
-El trabajo de copia de seguridad del recurso compartido de archivos se identifica mediante el campo **jobId** y se puede realizar su seguimiento como se menciona [aquí](/rest/api/backup/jobdetails/) mediante una solicitud GET.
+El trabajo de copia de seguridad del recurso compartido de archivos se identifica mediante el campo **jobId** y se puede realizar su seguimiento como se menciona [aquí](/rest/api/backup/job-details) mediante una solicitud GET.
 
 ### <a name="tracking-the-job"></a>Seguimiento del trabajo
 
@@ -134,8 +134,8 @@ Puede quitar la protección de un recurso compartido de archivos protegido, pero
   "properties": {
     "protectedItemType": "AzureFileShareProtectedItem",
     "sourceResourceId": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/AzureFiles/providers/Microsoft.Storage/storageAccounts/testvault2",
-    "policyId": “" ,
-“protectionState”:”ProtectionStopped”
+    "policyId": "" ,
+"protectionState":"ProtectionStopped"
   }
 }
 ```
@@ -190,7 +190,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## <a name="stop-protection-and-delete-data"></a>Detener la protección y eliminar los datos
 
-Para quitar la protección de un recurso compartido de archivos y eliminar también los datos de la copia de seguridad, realice una operación de eliminación como se detalla [aquí](/rest/api/backup/protecteditems/delete).
+Para quitar la protección de un recurso compartido de archivos y eliminar también los datos de la copia de seguridad, realice una operación de eliminación como se detalla [aquí](/rest/api/backup/protected-items/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13

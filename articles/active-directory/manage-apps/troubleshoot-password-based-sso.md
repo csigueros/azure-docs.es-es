@@ -1,33 +1,36 @@
 ---
 title: Solución de problemas de inicio de sesión único basado en contraseña en Azure Active Directory
 description: Solución de incidencias relacionadas con aplicaciones de Azure AD configuradas para inicio de sesión único basado en contraseña.
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mtillman
-ms.reviewer: asteen
-ms.openlocfilehash: e587bfc3dfbd859be9ecea24b398c005f883dc10
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: ergreenl
+ms.openlocfilehash: 32b099b72a55e768087f6123e684f0107e1e1e57
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080586"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739958"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solución de problemas de inicio de sesión único basado en contraseña en Azure AD
 
 Para usar el inicio de sesión único (SSO) basado en contraseña en Aplicaciones, debe instalarse la extensión del explorador. Esta extensión se descarga automáticamente cuando se selecciona una aplicación que está configurada para el inicio de sesión único basado en contraseña. Para obtener información sobre el uso de Aplicaciones desde la perspectiva del usuario final, consulte la [ayuda del portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="my-apps-browser-extension-not-installed"></a>Extensión del explorador Aplicaciones no instalada
-Asegúrese de que la extensión del explorador está instalada. Para obtener más información, consulte [Planeamiento de la implementación de Aplicaciones de Azure Active Directory](my-apps-deployment-plan.md). 
+
+Asegúrese de que la extensión del explorador está instalada. Para obtener más información, consulte [Planeamiento de la implementación de Aplicaciones de Azure Active Directory](my-apps-deployment-plan.md).
 
 ## <a name="single-sign-on-not-configured"></a>Inicio de sesión único no configurado
+
 Asegúrese de que el inicio de sesión único basado en contraseña está configurado. Para obtener más información, consulte [Configuración del inicio de sesión único basado en contraseña](configure-password-single-sign-on-non-gallery-applications.md).
 
 ## <a name="users-not-assigned"></a>Usuarios no asignados
+
 Asegúrese de que el usuario está asignado a la aplicación. Para obtener más información, consulte [Asignar un usuario o grupo a una aplicación](assign-user-or-group-access-portal.md).
 
 ## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Se rellenan las credenciales, pero la extensión no las envía
@@ -44,15 +47,15 @@ Para resolver este problema, intente primero estas cosas:
 
 - Pídale al usuario que intente primero **iniciar sesión en el sitio web de la aplicación directamente** con las credenciales almacenadas para dicho sitio.
 
-  * Si el inicio de sesión funciona, a continuación, indíquele al usuario que haga clic en el botón **Actualizar credenciales** situado en el **icono de la aplicación** en la sección de **aplicaciones** de [Aplicaciones](https://myapps.microsoft.com/) para actualizarlas con el nombre de usuario y la contraseña más recientes.
+  - Si el inicio de sesión funciona, a continuación, indíquele al usuario que haga clic en el botón **Actualizar credenciales** situado en el **icono de la aplicación** en la sección de **aplicaciones** de [Aplicaciones](https://myapps.microsoft.com/) para actualizarlas con el nombre de usuario y la contraseña más recientes.
 
-  * Si usted u otro administrador ha asignado las credenciales para este usuario, busque la asignación de aplicación del usuario o del grupo yendo a la pestaña **Usuarios y grupos** de la aplicación, seleccione la asignación y haga clic en el botón **Actualizar credenciales**.
+  - Si usted u otro administrador ha asignado las credenciales para este usuario, busque la asignación de aplicación del usuario o del grupo yendo a la pestaña **Usuarios y grupos** de la aplicación, seleccione la asignación y haga clic en el botón **Actualizar credenciales**.
 
 - Si el usuario se asignó sus propias credenciales, pídale al usuario **que compruebe si su contraseña ha expirado en la aplicación** y si es así, **que actualice su contraseña expirada** iniciando sesión directamente en la aplicación.
 
-  * Después de actualizar la contraseña en la aplicación, indíquele al usuario que haga clic en el botón **Actualizar credenciales** situado en el **icono de la aplicación** en la sección de **aplicaciones** de [Aplicaciones](https://myapps.microsoft.com/) para actualizarlas con el nombre de usuario y la contraseña más recientes.
+  - Después de actualizar la contraseña en la aplicación, indíquele al usuario que haga clic en el botón **Actualizar credenciales** situado en el **icono de la aplicación** en la sección de **aplicaciones** de [Aplicaciones](https://myapps.microsoft.com/) para actualizarlas con el nombre de usuario y la contraseña más recientes.
 
-  * Si usted u otro administrador ha asignado las credenciales para este usuario, busque la asignación de aplicación del usuario o del grupo yendo a la pestaña **Usuarios y grupos** de la aplicación, seleccione la asignación y haga clic en el botón **Actualizar credenciales**.
+  - Si usted u otro administrador ha asignado las credenciales para este usuario, busque la asignación de aplicación del usuario o del grupo yendo a la pestaña **Usuarios y grupos** de la aplicación, seleccione la asignación y haga clic en el botón **Actualizar credenciales**.
 
 - Compruebe que la extensión de explorador Aplicaciones está habilitada y se está ejecutando en el explorador del usuario.
 
@@ -60,7 +63,7 @@ Para resolver este problema, intente primero estas cosas:
 
 Si las sugerencias anteriores no funcionan, puede que se haya producido un cambio en el lado de la aplicación que haya interrumpido provisionalmente la integración de la aplicación con Azure AD. Por ejemplo, esto puede ocurrir cuando el proveedor de la aplicación introduce un script en su página que tiene un comportamiento diferentes con las entradas manuales y con las automatizadas, lo que hace que una integración automatizada, como la nuestra, se interrumpa. Afortunadamente, en muchos casos, Microsoft puede trabajar con los proveedores de aplicaciones para resolver rápidamente estos problemas.
 
-Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen las integraciones de aplicaciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. Cuando una integración no funciona correctamente, puede abrir un caso de soporte técnico para que podamos corregirlo lo antes posible. 
+Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen las integraciones de aplicaciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. Cuando una integración no funciona correctamente, puede abrir un caso de soporte técnico para que podamos corregirlo lo antes posible.
 
 Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
@@ -68,7 +71,7 @@ Además, **si está en contacto con el proveedor de la aplicación,** **pídale 
 
 Si la página de inicio de sesión de la aplicación ha cambiado de forma considerable, esto hace que a veces nuestras integraciones se interrumpan. Un ejemplo de esto es cuando un proveedor de aplicación agrega un campo de inicio de sesión, un captcha o una autenticación multifactor a sus experiencias. Afortunadamente, en muchos casos, Microsoft puede trabajar con los proveedores de aplicaciones para resolver rápidamente estos problemas.
 
-Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen las integraciones de aplicaciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. Cuando una integración no funciona correctamente, puede abrir un caso de soporte técnico para que podamos corregirlo lo antes posible. 
+Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen las integraciones de aplicaciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. Cuando una integración no funciona correctamente, puede abrir un caso de soporte técnico para que podamos corregirlo lo antes posible.
 
 Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
@@ -87,6 +90,7 @@ Por lo general, si la captura automática de campos de inicio de sesión no func
 ### <a name="automatically-capture-sign-in-fields-for-an-app"></a>Capturar automáticamente campos de inicio de sesión para una aplicación
 
 Para configurar el SSO basado en contraseña con la captura automática de campos de inicio de sesión, siga estos pasos:
+
 1. Abra [Azure Portal](https://portal.azure.com/). Inicie sesión como administrador global o coadministrador.
 2. En el panel de navegación del lado izquierdo, seleccione **Todos los servicios** para abrir la extensión de Azure AD.
 3. Escriba **Azure Active Directory** en el cuadro de búsqueda de filtrado y, luego, seleccione **Azure Active Directory**.
@@ -106,12 +110,13 @@ Para configurar el SSO basado en contraseña con la captura automática de campo
 Para capturar manualmente los campos de inicio de sesión, debe tener instalada la extensión del explorador Aplicaciones. Además, el explorador no puede estar en ejecución en modo *inPrivate*, *incógnito* ni *privado*.
 
 Para configurar el SSO basado en contraseña para una aplicación con la captura manual de campos de inicio de sesión, siga estos pasos:
+
 1. Abra [Azure Portal](https://portal.azure.com/). Inicie sesión como administrador global o coadministrador.
 2. En el panel de navegación del lado izquierdo, seleccione **Todos los servicios** para abrir la extensión de Azure AD.
 3. Escriba **Azure Active Directory** en el cuadro de búsqueda de filtrado y, luego, seleccione **Azure Active Directory**.
 4. En el panel de navegación de Azure AD, seleccione **Aplicaciones empresariales**.
 5. Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
-   > [!NOTE] 
+   > [!NOTE]
    > Si no ve la aplicación que busca, use el control **Filtro** en la parte superior de la lista **Todas las aplicaciones**. Establezca la opción **Mostrar** en "Todas las aplicaciones".
 6. Seleccione la aplicación para la que quiere configurar el SSO.
 7. Después de que la aplicación se carga, seleccione **Inicio de sesión único** en el panel de navegación de la izquierda.
@@ -119,10 +124,9 @@ Para configurar el SSO basado en contraseña para una aplicación con la captura
 9. Escriba la **URL de inicio de sesión**, que es la página donde los usuarios escriben su nombre de usuario y contraseña para iniciar sesión. *Asegúrese de que los campos de inicio de sesión estén visibles en la página de la dirección URL que proporcione*.
 10. Seleccione **Establecer configuración de inicio de sesión único con contraseña de *&lt;nombre de la aplicación&gt;*** .
 11. Seleccione **Detectar campos de inicio de sesión manualmente**.
-14. Seleccione **Aceptar**.
-15. Seleccione **Guardar**.
-16. Siga las instrucciones para usar Aplicaciones.
-
+12. Seleccione **Aceptar**.
+13. Seleccione **Guardar**.
+14. Siga las instrucciones para usar Aplicaciones.
 
 ## <a name="troubleshoot-problems"></a>Solucionar problemas
 
@@ -139,12 +143,14 @@ Si sigue apareciendo el error, abra una incidencia de soporte técnico. Incluya 
 ### <a name="i-cant-manually-detect-sign-in-fields-for-my-app"></a>No puedo detectar manualmente los campos de inicio de sesión para mi aplicación
 
 Puede que observe los comportamientos siguientes cuando no funcione la detección manual:
+
 - El proceso de captura manual parece haber funcionado, pero los campos capturados no son correctos.
 - No se resaltan los campos correctos al ejecutar el proceso de captura.
 - El proceso de captura lo dirige a la página de inicio de sesión de la aplicación según lo previsto, pero no ocurre nada.
 - La captura manual parece funcionar, pero el SSO no se realiza cuando los usuarios acceden a la aplicación desde Aplicaciones.
 
 Si experimenta alguno de estos problemas, haga lo siguiente:
+
 - Asegúrese de tener *instalada y habilitada* la versión más reciente de la extensión de explorador Aplicaciones.
 - Asegúrese de que el explorador no se encuentre en los modos *InPrivate*, *incógnito* ni *privado* durante el proceso de captura. La extensión Aplicaciones no es compatible con estos modos.
 - Asegúrese de que los usuarios no intentan iniciar sesión en la aplicación desde Aplicaciones en los *modos incógnito*, *inPrivate* ni *privado*.
@@ -155,28 +161,31 @@ Si experimenta alguno de estos problemas, haga lo siguiente:
 
 La aplicación de SSO basada en contraseña tiene un límite de 48 usuarios. Por lo tanto, tiene un límite de 48 claves para los pares de nombre de usuario y contraseña por aplicación.
 Si desea agregar más usuarios, puede hacer lo siguiente:
--   Agregar otra instancia de la aplicación.
--   Quitar usuarios que ya no usen la aplicación en primer lugar.
 
-## <a name="request-support"></a>Solicitud de soporte técnico 
+- Agregar otra instancia de la aplicación.
+- Quitar usuarios que ya no usen la aplicación en primer lugar.
+
+## <a name="request-support"></a>Solicitud de soporte técnico
+
 Si recibe un mensaje de error al configurar el inicio de sesión único y asignar usuarios, abra una incidencia de soporte técnico. De la siguiente información, incluya tanta como sea posible:
 
--   Id. de error de correlación
--   UPN (dirección de correo electrónico del usuario)
--   TenantID
--   Tipo de explorador
--   Zona horaria y hora o período de tiempo en el que se ha producido el error
--   Seguimientos de Fiddler
+- Id. de error de correlación
+- UPN (dirección de correo electrónico del usuario)
+- TenantID
+- Tipo de explorador
+- Zona horaria y hora o período de tiempo en el que se ha producido el error
+- Seguimientos de Fiddler
 
 ### <a name="view-portal-notification-details"></a>Ver los detalles de notificaciones del portal
 
 Para ver los detalles de cualquier notificación del portal, siga estos pasos:
+
 1. Seleccione el icono **Notificaciones** (con forma de campana) de la esquina superior derecha de Azure Portal.
 2. Seleccione una notificación que tenga un estado de *Error*. (Tienen un "!" rojo).
    > [!NOTE]
    > No se puede seleccionar notificaciones con estado *Correcto* o *En curso*.
 3. Se abre el panel **Detalles de la notificación**. Lea la información para conocer más sobre el problema.
-5. Si aún necesita ayuda, comparta la información con un ingeniero de soporte técnico o el grupo de producto. Seleccione el icono de **copia** a la derecha del cuadro **Copiar error** para copiar los detalles de notificación para compartirlos.
+4. Si aún necesita ayuda, comparta la información con un ingeniero de soporte técnico o el grupo de producto. Seleccione el icono de **copia** a la derecha del cuadro **Copiar error** para copiar los detalles de notificación para compartirlos.
 
 ### <a name="send-notification-details-to-a-support-engineer-to-get-help"></a>Enviar los detalles de notificaciones a un ingeniero de soporte técnico para obtener ayuda
 
@@ -244,7 +253,7 @@ En la siguiente información se explica qué significa cada elemento de la notif
 
     Ejemplo:   ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-* [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
-* [Planeamiento de una implementación de Aplicaciones](my-apps-deployment-plan.md)
+
+- [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
+- [Planeamiento de una implementación de Aplicaciones](my-apps-deployment-plan.md)

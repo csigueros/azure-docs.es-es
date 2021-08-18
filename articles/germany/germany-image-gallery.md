@@ -1,28 +1,24 @@
 ---
 title: Imágenes de Azure Alemania | Microsoft Docs
 description: En este artículo se proporciona información general de las imágenes incluidas en Azure Alemania Marketplace.
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 34c45418f47e6e5238cfab5946a7f9b6ae61bdad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: dd43ef428426037696fb2fcfdf6bac58c9b27dc4
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033734"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "117029161"
 ---
 # <a name="azure-germany-images"></a>Imágenes de Azure Alemania
-## <a name="overview"></a>Información general
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
+## <a name="overview"></a>Introducción
 Al implementar nuevos servidores virtuales en Azure Alemania, los clientes pueden elegir entre implementar las imágenes prediseñadas de Microsoft o cargar sus propios discos duros virtuales. Esta flexibilidad significa que puede implementar sus propias imágenes estándar si es necesario.
 
 ## <a name="variations"></a>Variaciones
@@ -42,18 +38,18 @@ A continuación, se muestra una lista de imágenes disponibles en Azure Alemania
 | Canonical | UbuntuServer | 16.10 | 16.10.201701030 |
 | cloudera | cloudera-centos-os | 6_7 | 1.0.1 |
 | CoreOS | Contenedor de Linux | Alpha |  |
-| CoreOS | Contenedor de Linux | Versión beta |  |
+| CoreOS | Contenedor de Linux | Beta |  |
 | CoreOS | Contenedor de Linux | Stable |  |
 | CoreOS | CoreOS | Alpha | 1068.0.0 1081.2.0 1097.0.0 1122.0.0 1151.0.0 1153.0.0 1164.0.0 1164.1.0 1180.0.0 1185.0.0 1192.0.0 1192.1.0 1192.2.0 1207.0.0 1214.0.0 1221.0.0 1235.0.0 1248.0.0 1248.1.0 1262.0.0 1284.1.0 1284.2.0 1298.1.0 1325.1.0 1339.0.0 1353.1.0 |
-| CoreOS | CoreOS | Versión beta | 1010.4.0 1068.3.0 1081.3.0 1122.1.0 1153.3.0 1153.4.0 1185.1.0 1185.2.0 1192.2.0 1235.1.0 1235.2.0 1248.3.0 1248.4.0 1298.4.0 1325.2.0 1353.2.0 |
+| CoreOS | CoreOS | Beta | 1010.4.0 1068.3.0 1081.3.0 1122.1.0 1153.3.0 1153.4.0 1185.1.0 1185.2.0 1192.2.0 1235.1.0 1235.2.0 1248.3.0 1248.4.0 1298.4.0 1325.2.0 1353.2.0 |
 | CoreOS | CoreOS | Stable | 1010.5.0 1010.6.0 1068.10.0 1068.6.0 1068.8.0 1068.9.0 1122.2.0 1122.3.0 1185.3.0 1185.5.0 1235.12.0 1235.5.0 1235.6.0 1235.8.0 1298.5.0 1298.6.0 |
 | credativ | Debian | 7 | 7.0.201604200 7.0.201606240 7.0.201606280 7.0.201609120 7.0.201611020 7.0.201701180 |
 | credativ | Debian | 8 | 8.0.201604200 8.0.201606240 8.0.201606280 8.0.201609120 8.0.201611020 8.0.201701180 8.0.201703150 |
 | credativ | Debian | 8-backports | 8.0.201702060 |
 | credativ | Debian | 9-beta | 9.0.201702080 9.0.201703150 |
 | GE-SRS-Prod-GalleryImages | Process-Server | Windows-2012-R2-Datacenter | 201703.01.00 |
-| MicrosoftOSTC | FreeBSD | 10.3 | 10.3.20170112 |
-| MicrosoftOSTC | FreeBSD | 11.0 | 11.0.20161223 11.0.20170111 |
+| MicrosoftOSTC | FreeBSD | 10,3 | 10.3.20170112 |
+| MicrosoftOSTC | FreeBSD | 11,0 | 11.0.20161223 11.0.20170111 |
 | MicrosoftSharePoint | SharePoint2016 | SharePoint_Server_2016_Trial | 16.0.4351 |
 | MicrosoftSQLServer | sql2014sp1-ws2012r2 | Enterprise | 12.0.4100 |
 | MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Enterprise | 12.0.50000 12.0.50001 |
@@ -99,16 +95,16 @@ A continuación, se muestra una lista de imágenes disponibles en Azure Alemania
 | OpenLogic | CentOS | 6.5 | 6.5.20170207 |
 | OpenLogic | CentOS | 6.7 | 6.7.20160310 |
 | OpenLogic | CentOS | 6,8 | 6.8.20160620 6.8.20161026 6.8.20170105 |
-| OpenLogic | CentOS | 7,2 | 7.2.20160325 7.2.20160620 7.2.20161026 7.2.20161116 7.2.20170105 |
+| OpenLogic | CentOS | 7.2 | 7.2.20160325 7.2.20160620 7.2.20161026 7.2.20161116 7.2.20170105 |
 | OpenLogic | CentOS | 7.3 | 7.3.20161221 |
-| Redhat | RHEL | 6,8 | 6.8.20161028 6.8.20161214 6.8.20170224 6.8.2017032020 |
-| Redhat | RHEL | 6.9 | 6.9.2017032807 |
-| Redhat | RHEL | 7,2 | 7.2.20161026 7.2.20170203 7.2.20170224 7.2.2017032020 |
-| Redhat | RHEL | 7.3 | 7.3.20161104 7.3.20170202 7.3.20170224 7.3.2017032020 |
-| Redhat | RHEL-SAP-APPS | 6,8 | 6.8.201703130 |
-| Redhat | RHEL-SAP-APPS | 7.3 | 7.3.201703130 |
-| Redhat | RHEL-SAP-HANA | 6.7 | 6.7.20170310 |
-| Redhat | RHEL-SAP-HANA | 7,2 | 7.2.20170310 |
+| RedHat | RHEL | 6,8 | 6.8.20161028 6.8.20161214 6.8.20170224 6.8.2017032020 |
+| RedHat | RHEL | 6.9 | 6.9.2017032807 |
+| RedHat | RHEL | 7.2 | 7.2.20161026 7.2.20170203 7.2.20170224 7.2.2017032020 |
+| RedHat | RHEL | 7.3 | 7.3.20161104 7.3.20170202 7.3.20170224 7.3.2017032020 |
+| RedHat | RHEL-SAP-APPS | 6,8 | 6.8.201703130 |
+| RedHat | RHEL-SAP-APPS | 7.3 | 7.3.201703130 |
+| RedHat | RHEL-SAP-HANA | 6.7 | 6.7.20170310 |
+| RedHat | RHEL-SAP-HANA | 7.2 | 7.2.20170310 |
 | SUSE | Infraestructura | SMT |  |
 | SUSE | openSUSE-Leap | 42.1 | 2016.04.15 2016.11.21 |
 | SUSE | openSUSE-Leap | 42.2 | 2017.01.24 2017.03.20 |
@@ -197,11 +193,11 @@ A continuación, se muestra una lista de imágenes disponibles en Azure Alemania
 |  Microsoft Open Source Technology Center para FreeBSD  |  FreeBSD 10.3  |  Linux  |
 |  Microsoft Open Source Technology Center para FreeBSD  |  FreeBSD 11.0  |  Linux  |
 |  Grupo de productos de Microsoft SharePoint Server  |  Versión de evaluación de SharePoint Server 2016  |  Windows  |
-|  Redhat  |  Red Hat Enterprise Linux 6.7  |  Linux  |
-|  Redhat  |  Red Hat Enterprise Linux 6.8  |  Linux  |
-|  Redhat  |  Red Hat Enterprise Linux 6.9  |  Linux  |
-|  Redhat  |  Red Hat Enterprise Linux 7.2  |  Linux  |
-|  Redhat  |  Red Hat Enterprise Linux 7.3  |  Linux  |
+|  RedHat  |  Red Hat Enterprise Linux 6.7  |  Linux  |
+|  RedHat  |  Red Hat Enterprise Linux 6.8  |  Linux  |
+|  RedHat  |  Red Hat Enterprise Linux 6.9  |  Linux  |
+|  RedHat  |  Red Hat Enterprise Linux 7.2  |  Linux  |
+|  RedHat  |  Red Hat Enterprise Linux 7.3  |  Linux  |
 |  coreos  |  CoreOS Alpha  |  Linux  |
 |  coreos  |  CoreOS Beta  |  Linux  |
 |  coreos  |  CoreOS Stable  |  Linux  |
@@ -244,7 +240,7 @@ Para descubrir las diferencias mediante programación con los puntos de conexió
 Para obtener más información sobre la implementación desde Marketplace o mediante la creación de su propio disco duro virtual, consulte estos recursos:  
 
 * [Implementación de una máquina virtual Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Preguntas frecuentes sobre máquinas virtuales Windows](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Preguntas frecuentes sobre máquinas virtuales Windows](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Creación de una imagen personalizada de máquina virtual Linux](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 

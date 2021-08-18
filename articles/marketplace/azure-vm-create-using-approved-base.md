@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: 23fc6f6f6a62230e2cfc710c1c738eb42d6cc115
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 46b29bb6a7294d0f6741be4cac7028fe7e42ec95
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527554"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113430276"
 ---
 # <a name="create-a-virtual-machine-using-an-approved-base"></a>Creación de una máquina virtual mediante una base aprobada
 
@@ -78,5 +78,5 @@ Consulte la documentación siguiente para conectarse a la máquina virtual [Wind
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Siguiente paso recomendado: [Pruebe la imagen de la máquina virtual](azure-vm-image-test.md) para asegurarse de que cumple los requisitos de publicación de Azure Marketplace. Esta información es opcional.
-- Si no quiere probar la imagen de la máquina virtual, inicie sesión en el [Centro de partners](https://partner.microsoft.com/) para publicarla.
-- Si tiene dificultades para crear un disco duro virtual basado en Azure, consulte las [preguntas frecuentes que pueden surgir al crear una máquina virtual en Azure Marketplace](azure-vm-create-faq.md).
+- Si no quiere probar la imagen de la máquina virtual, inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165935) para publicarla.
+- Si tiene dificultades para crear un disco duro virtual basado en Azure, consulte las [preguntas frecuentes que pueden surgir al crear una máquina virtual en Azure Marketplace](azure-vm-create-faq.yml).

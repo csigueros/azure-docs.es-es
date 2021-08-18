@@ -1,27 +1,27 @@
 ---
 title: Creación y uso de tablas actualizables del libro de contabilidad
 description: Aprenda a crear y usar tablas actualizables del libro de contabilidad en Azure SQL Database.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 739523f6d98ea2905f4de5071581c8f4d8484893
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e4027bcaba4e89e89bec2ffa45d50c94e9a07b12
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076427"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739698"
 ---
 # <a name="create-and-use-updatable-ledger-tables"></a>Creación y uso de tablas actualizables del libro de contabilidad
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database está en versión preliminar pública y está disponible en el Centro-oeste de EE. UU.
+> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
 
 En este artículo se muestra cómo crear una [tabla de libro de contabilidad actualizable](ledger-updatable-ledger-tables.md) en Azure SQL Database. A continuación, insertará valores en la tabla actualizable del libro de contabilidad y, a continuación, hará actualizaciones en los datos. Por último, verá los resultados mediante la vista de libro de contabilidad. Para ello, usaremos un ejemplo de una aplicación bancaria que hace un seguimiento del saldo de la cuenta de los clientes del banco. Este ejemplo le proporcionará una visión práctica de la relación entre la tabla actualizable del libro de contabilidad y su vista de libro de contabilidad correspondiente.
 
@@ -161,7 +161,7 @@ Crearemos una tabla del saldo de cuenta con el esquema siguiente.
    FROM [Account].[Balance] 
    GO
    
-   SELECT * FROM <Your unique history table name>
+   SELECT * FROM [<Your unique history table name>]
    GO 
    
    SELECT * FROM Account.Balance_Ledger

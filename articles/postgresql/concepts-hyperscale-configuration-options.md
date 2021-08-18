@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/29/2021
-ms.openlocfilehash: 60f52a11aa1573e4d05bcdc1dd8308ec3cc96dac
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 08/03/2021
+ms.openlocfilehash: f46f5a01765d03c521c7bbc21b51aef9f3a8f93a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316144"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745157"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opciones de configuración de Hiperescala (Citus) para Azure Database for PostgreSQL
 
@@ -73,12 +73,7 @@ Para todo el clúster de Hiperescala (Citus), las IOPS agregadas alcanzan los si
 | 19           | 29 184              | 58 368            | 116 812           |
 | 20           | 30 720              | 61 440            | 122 960           |
 
-### <a name="basic-tier-preview"></a>Nivel Básico (versión preliminar)
-
-> [!IMPORTANT]
-> El nivel Básico de Hiperescala (Citus) está actualmente en versión preliminar.  Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
->
-> Puede ver una lista completa de otras características nuevas en [Características en versión preliminar de Hiperescala (Citus) de PostgreSQL](hyperscale-preview-features.md).
+### <a name="basic-tier"></a>Nivel Basic
 
 El [nivel Básico](concepts-hyperscale-tiers.md) es un grupo de servidores con solo un nodo.  Dado que no hay una distinción entre los nodos de coordinación y de trabajo, es menos complicado elegir recursos de proceso y almacenamiento.
 
@@ -113,7 +108,7 @@ Los grupos de servidores Hiperescala (Citus) están disponibles en las siguiente
     * Sur de Brasil
     * Centro de Canadá
     * Centro de EE. UU.
-    * Este de EE. UU.*
+    * Este de EE. UU.
     * Este de EE. UU. 2
     * Centro-Norte de EE. UU
     * Oeste de EE. UU. 2
@@ -124,12 +119,11 @@ Los grupos de servidores Hiperescala (Citus) están disponibles en las siguiente
     * Sudeste de Asia
 * Europa:
     * Centro de Francia
+    * Centro-oeste de Alemania
     * Norte de Europa
     * Norte de Suiza
-    * Sur de Reino Unido
+    * Sur de Reino Unido 2
     * Oeste de Europa
-
-(\* = admite [características en versión preliminar](hyperscale-preview-features.md))
 
 Es posible que algunas de estas regiones no se activen inicialmente en todas las suscripciones de Azure. Si desea utilizar una región de la lista anterior y no la ve en su suscripción, o si desea usar una región que no está en esta lista, abra una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

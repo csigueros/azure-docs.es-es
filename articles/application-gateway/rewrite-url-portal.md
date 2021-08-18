@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 4/05/2021
 ms.author: azhussai
-ms.openlocfilehash: c0a99d2c2885de59ccc903b9f505b8049d922b43
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c8bcaa692fe33229ef7d71f717879f39ffa88279
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205204"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742718"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal"></a>Reescritura de la dirección URL con Azure Application Gateway: Azure Portal
 
@@ -97,7 +97,7 @@ En el ejemplo siguiente, siempre que la dirección URL de la solicitud contenga 
 
    e. En **Valor de cadena de consulta de URL**, escriba el nuevo valor de la cadena de consulta de dirección URL. En este ejemplo, usaremos **id={var_uri_path_1}&title={var_uri_path_2}**
     
-    `{var_uri_path_1}` y `{var_uri_path_1}` se usan para recuperar las subcadenas capturadas durante la evaluación de la condición en esta expresión `.*article/(.*)/(.*)`.
+    `{var_uri_path_1}` y `{var_uri_path_2}` se usan para recuperar las subcadenas capturadas durante la evaluación de la condición en esta expresión `.*article/(.*)/(.*)`.
     
    f. Seleccione **Aceptar**.
 

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: ef018e58f8336220b96eba568c94efc40a0fb0c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98a74903f5472807ff7eb562ea9db9e12ceeb4be
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102612837"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108700"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Actualización de Azure Load Balancer público
 [Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](./skus.md#skus).
@@ -58,7 +58,7 @@ Existe un script de Azure PowerShell que hace lo siguiente:
 
 ## <a name="download-the-script"></a>Descarga del script
 
-Descargue el script de migración de la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/4.0).
+Descargue el script de migración de la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/5.0).
 ## <a name="use-the-script"></a>Uso del script
 
 Dispone de dos opciones en función de sus preferencias y de la configuración del entorno de PowerShell local:

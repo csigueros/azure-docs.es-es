@@ -8,12 +8,12 @@ ms.author: amjads
 author: amjads1
 ms.collection: linux
 ms.date: 09/21/2018
-ms.openlocfilehash: e316bf9763dd7c2cbbab21992086eac52d108912
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4823ea421153b5e95f80b4ebc7cde1f9bcbf64c5
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554792"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487568"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensión de máquina virtual de Chef para Linux y Windows
 
@@ -99,7 +99,7 @@ En el siguiente JSON, se muestra el esquema para la extensión de máquina virtu
 
 Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas se pueden utilizar para implementar una o varias máquinas virtuales, instalar el cliente de Chef, conectarse al servidor de Chef y realizar la configuración inicial en el servidor tal y como se define en la [lista de ejecución](https://docs.chef.io/run_lists.html).
 
-En la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm), hay una plantilla de Resource Manager de ejemplo que incluye la extensión de máquina virtual de Chef.
+En la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/chef/chef-json-parameters-linux-vm), hay una plantilla de Resource Manager de ejemplo que incluye la extensión de máquina virtual de Chef.
 
 La configuración JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual o colocada en la raíz o nivel superior de una plantilla JSON de Resource Manager. La colocación de la configuración JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/templates/child-resource-name-type.md).
 

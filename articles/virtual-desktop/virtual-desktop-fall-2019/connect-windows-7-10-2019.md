@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 6fcb8b3688ea5d2a8866093fd46efb8236db3558
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 004fff41e30ca9c60d51847035e30262e359270e
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982059"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031128"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Conexión con el cliente de escritorio de Windows (clásico)
 
 > Se aplica a: Windows 7, Windows 10 y Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Virtual Desktop para Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../connect-windows-7-10.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Virtual Desktop para Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../user-documentation/connect-windows-7-10.md).
 
 Para acceder a los recursos de Azure Virtual Desktop en dispositivos con Windows 7, Windows 10 o Windows 10 IoT Enterprise use el cliente de escritorio de Windows. El cliente no es compatible con Windows 8 ni Windows 8.1.
 
@@ -61,7 +61,7 @@ Hay dos maneras de suscribirse a un área de trabajo. El cliente puede intentar 
 1. En la página principal del cliente, seleccione **Subscribe with URL** (Suscribirse con URL).
 2. Escriba la dirección URL del área de trabajo o su dirección de correo electrónico:
    - Si usas la **URL del espacio de trabajo**, usa la que te proporcionó el administrador. Si va a acceder a los recursos desde Azure Virtual Desktop, puede usar una de las siguientes direcciones URL:
-     - Azure Virtual Desktop (clasico): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Azure Virtual Desktop (clásico): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
      - Azure Virtual Desktop: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Si en su lugar utiliza el campo **Email** (Correo electrónico), escriba su dirección de correo electrónico. Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador ha configurado la [detección de correo electrónico](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Seleccione **Next** (Siguiente).

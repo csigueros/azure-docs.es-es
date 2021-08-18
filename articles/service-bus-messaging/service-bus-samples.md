@@ -3,14 +3,14 @@ title: Información general sobre la mensajería de Azure Service Bus (ejemplos)
 description: En los ejemplos de mensajería de Service Bus se muestran las características principales de la mensajería de Azure Service Bus. Se proporcionan vínculos a ejemplos en GitHub.
 author: spelluru
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 07/23/2021
 ms.author: spelluru
-ms.openlocfilehash: 177c0eff7d0e7df254df4cc6c77c0a0cf674147d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22712d825fb341e4f34ea90dbb7531d9661070fa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201554"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723423"
 ---
 # <a name="service-bus-messaging-samples"></a>Ejemplos de mensajería de Service Bus
 En los ejemplos de mensajería de Service Bus se muestran las características principales de la [mensajería de Service Bus](https://azure.microsoft.com/services/service-bus/). Actualmente, puede encontrar los ejemplos en los siguientes lugares:
@@ -19,34 +19,34 @@ En los ejemplos de mensajería de Service Bus se muestran las características p
 
 | Paquete | Ubicación de los ejemplos | 
 | ------- | ---------------- | 
-| Azure.Messaging.ServiceBus (más reciente) | https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/ | 
-| Microsoft.Azure.ServiceBus (heredado) |  https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus |
+| Azure.Messaging.ServiceBus (más reciente) | [Ejemplos de código](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) | 
+| Microsoft.Azure.ServiceBus (heredado) | [Ubicación de GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus) |
 
 ## <a name="java-samples"></a>Ejemplos de Java
 | Paquete | Ubicación de los ejemplos | 
 | ------- | ---------------- | 
-| azure-messaging-servicebus (más reciente) | https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/ |
-| azure-servicebus (heredado) | https://github.com/Azure/azure-service-bus/tree/master/samples/Java |
+| azure-messaging-servicebus (más reciente) | [Ejemplos de código](/samples/azure/azure-sdk-for-java/servicebus-samples/) |
+| azure-servicebus (heredado) | [Ubicación de GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) |
 
 ## <a name="python-samples"></a>Ejemplos de Python
 | Paquete | Ubicación de los ejemplos |
 | -------------------- | ----------------------- |
-| azure.servicebus | https://docs.microsoft.com/samples/azure/azure-sdk-for-python/servicebus-samples/ |
+| azure.servicebus | [Ejemplos de código](/samples/azure/azure-sdk-for-python/servicebus-samples/) |
 
 ## <a name="typescript-samples"></a>Ejemplos de TypeScript
 | Paquete | Ubicación de los ejemplos | 
 | ------- | ---------------- | 
-| @azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/ | 
+| @azure/service-bus | [Ejemplos de código](/samples/azure/azure-sdk-for-js/service-bus-typescript/) | 
 
 ## <a name="javascript-samples"></a>Ejemplos de JavaScript
 | Paquete | Ubicación de los ejemplos | 
 | ------- | ---------------- | 
-| @azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
+| @azure/service-bus | [Ejemplos de código](/samples/azure/azure-sdk-for-js/service-bus-javascript/) | 
 
 ## <a name="go-samples"></a>Ejemplos de Go
 | Paquete | Ubicación de los ejemplos | 
 | ------- | ---------------- | 
-| azure-service-bus-go | https://github.com/Azure/azure-service-bus-go/ |
+| azure-service-bus-go | [Ubicación de GitHub](https://github.com/Azure/azure-service-bus-go/) |
 
 ## <a name="management-samples"></a>Ejemplos de administración
 Puede encontrar ejemplos de administración en GitHub en la siguiente dirección: https://github.com/Azure/azure-service-bus/tree/master/samples/Management.

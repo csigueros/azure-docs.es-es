@@ -6,12 +6,12 @@ author: eternovsky
 ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 933280b5d3b81098f18f22a72bd2c7f942869e6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e45a9cfe8a372247c7ac3550c65a5a30e3fd7cb6
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578316"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178215"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlación de los datos de Application Insights con orígenes de datos personalizados
 
@@ -31,7 +31,7 @@ Puesto que Application Insights está respaldado por la eficaz plataforma de reg
 
 En esta sección, revisamos cómo ingerir los datos en registros de Azure Monitor.
 
-Si aún no tiene una, aprovisione una nueva área de trabajo de Log Analytics según [estas instrucciones](../vm/quick-collect-azurevm.md), incluido el paso "Creación de un área de trabajo".
+Si aún no tiene una, aprovisione una nueva área de trabajo de Log Analytics según [estas instrucciones](../vm/monitor-virtual-machine.md), incluido el paso "Creación de un área de trabajo".
 
 Para empezar a enviar datos de registro a Azure Monitor. Existen varias opciones:
 

@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c01fa1aed8265f759e520d47c0d0cfe6ad182861
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: d2def3572c99b7c852b04cbf628ee20f5bc7f829
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032634"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204249"
 ---
 # <a name="create-a-vm-using-a-generalized-image"></a>Creación de una VM con una imagen generalizada 
 
@@ -154,6 +154,5 @@ Puede crear también recursos de galería de imágenes compartidas con plantilla
 - [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](./shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](troubleshooting-shared-images.md).

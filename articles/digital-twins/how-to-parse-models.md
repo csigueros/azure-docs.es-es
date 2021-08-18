@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Obtenga información sobre cómo usar la biblioteca del analizador para analizar los modelos de DTDL.
 author: baanders
 ms.author: baanders
-ms.date: 4/10/2020
+ms.date: 8/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 12916b06dd965d7eed717df2fe71f935b8319bc4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 52cec60dc771232fcb808184373b82f790f8a759
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772718"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252757"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Análisis y validación de modelos con la biblioteca del analizador de DTDL
 
@@ -70,7 +70,7 @@ Entre las capacidades del analizador se incluyen:
 * Determinar si un modelo es asignable desde otro modelo.
 
 > [!NOTE]
-> Los dispositivos[IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) usan una pequeña variante de la sintaxis para describir su funcionalidad. Esta variante de sintaxis es un subconjunto compatible semánticamente del DTDL que se usa en Azure Digital Twins. Cuando se usa la biblioteca del analizador, no es necesario saber qué variante de sintaxis se ha usado para crear el DTDL para el gemelo digital. El analizador siempre devolverá, de forma predeterminada, el mismo modelo para la sintaxis de PnP y de Azure Digital Twins.
+> Los dispositivos[IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) usan una pequeña variante de la sintaxis para describir su funcionalidad. Esta variante de sintaxis es un subconjunto compatible semánticamente del DTDL que se usa en Azure Digital Twins. Cuando se usa la biblioteca del analizador, no es necesario saber qué variante de sintaxis se ha usado para crear el DTDL para el gemelo digital. El analizador siempre devolverá, de forma predeterminada, el mismo modelo para la sintaxis de PnP y de Azure Digital Twins.
 
 ### <a name="code-with-the-parser-library"></a>Código con la biblioteca del analizador
 
@@ -87,4 +87,4 @@ En el código siguiente se muestra un ejemplo de cómo usar la biblioteca del an
 ## <a name="next-steps"></a>Pasos siguientes
 
 Una vez que haya terminado de escribir los modelos, consulte cómo cargarlos (y realizar otras operaciones de administración) con las API de DigitalTwinsModels:
-* [Procedimiento: Administración de modelos DTDL](how-to-manage-model.md)
+* [Administración de modelos DTDL](how-to-manage-model.md)

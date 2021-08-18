@@ -1,21 +1,21 @@
 ---
-title: 'Azure ExpressRoute: Azure para ingenieros de red'
+title: Azure para ingenieros de red
 description: En esta página se explica a los ingenieros de red tradicionales cómo funcionan las redes en Azure.
 documentationcenter: na
 services: networking
-author: osamaz
+author: osamazia
 manager: tracsman
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: 9a22e58e4407897fb9418cae0ba9f32408cda8e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c73ea7c9e2f399e479f7d3f8bef5797feabb83ec
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98234212"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228813"
 ---
 # <a name="azure-for-network-engineers"></a>Azure para ingenieros de red
 Como ingeniero de red convencional, ha trabajado con recursos físicos, como enrutadores, conmutadores, cables y firewalls, para crear infraestructuras. En una capa lógica, ha configurado la LAN virtual (VLAN), el protocolo de árbol de expansión (STP), los protocolos de enrutamiento (RIP, OSPF, BGP). Ha administrado la red mediante herramientas de administración y la CLI. Las redes en la nube son diferentes cuando los puntos de conexión de red son lógicos y el uso de los protocolos de enrutamiento es mínimo. Trabajará con la API Azure Resource Manager, la CLI de Azure y PowerShell para configurar y administrar recursos en Azure. Para comenzar el recorrido de la red en la nube, deberá comprender los inquilinos básicos de las redes de Azure. 

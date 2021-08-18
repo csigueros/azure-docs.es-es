@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 863b10f0ff41c1e28a59357f07be983715adbb55
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e6ef72031f000c0b638d47e235b75eccf3f885f8
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131429"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461402"
 ---
 # <a name="upgrade-compute-instance-and-compute-cluster-host-os"></a>Actualización de la instancia de proceso y del sistema operativo del host de clúster de proceso
 
@@ -40,7 +40,7 @@ Si tiene clústeres de cálculo o instancias de proceso creados antes del __15 d
     * Si el clúster está configurado con __nodos min = 0__, se actualizará automáticamente cuando se completen todos los trabajos y se reduzca a cero nodos.
     * Si los __nodos min > 0__, cambie temporalmente el número mínimo de nodos a cero y permita que el clúster se reduzca a cero nodos.
 
-    Para obtener más información sobre cómo cambiar los nodos mínimos, vea el comando CLI de Azure [az ml computetarget update amlcompute](/cli/azure/ml/computetarget/update#az_ml_computetarget_update_amlcompute) o la referencia del SDK de [AmlCompute.update()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-).
+    Para obtener más información sobre cómo cambiar los nodos mínimos, vea el comando CLI de Azure [az ml computetarget update amlcompute](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_amlcompute) o la referencia del SDK de [AmlCompute.update()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-).
 
 * __Instancia de proceso de Azure Machine Learning__: cree una instancia de proceso nueva (que usará Ubuntu 18,04) y elimine la instancia anterior.
 

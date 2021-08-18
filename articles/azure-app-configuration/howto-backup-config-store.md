@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 4b72de537f573d03f37a9b1de4341a14830479e7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 70c019858908ae3684470a5fb4e5aaf98a976777
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748446"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114298214"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Copia de seguridad automática de almacenes de App Configuration
 
@@ -199,7 +199,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Use el siguiente comando o [Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) para conceder a la identidad administrada de la aplicación de funciones acceso a la cola. Asigne el rol `Storage Queue Data Contributor` en la cola.
+Use el siguiente comando o [Azure Portal](../storage/blobs/assign-azure-role-data-access.md#assign-an-azure-role) para conceder a la identidad administrada de la aplicación de funciones acceso a la cola. Asigne el rol `Storage Queue Data Contributor` en la cola.
 
 ```azurecli-interactive
 az role assignment create \

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.openlocfilehash: d68a6714d336615f25a5fb937b845ca151472ca9
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 3642a48b1b8a5df9a3bc98079873415842b5c1a4
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227279"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727965"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -80,7 +80,7 @@ Para obtener más información sobre el tema, consulte [KCD para el inicio de se
 
    * La **publicación y administración de aplicaciones** requiere el rol *Administrador de la aplicación*. Los administradores de aplicaciones pueden administrar todas las aplicaciones del directorio, incluidos los registros, configuraciones de SSO, asignaciones y configuración de licencias de usuario y de grupo, configuración del proxy de aplicación y consentimiento. No concede la capacidad de administrar el acceso condicional. El rol *Administrador de aplicaciones en la nube* tiene todas las funcionalidades del administrador de la aplicación, excepto en que no permite la administración de la configuración de Application Proxy.
 
-* **Licencia**: Application Proxy está disponible mediante una suscripción a Azure AD Premium. Consulte la [página precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) para obtener una lista completa de características y opciones de licencia.
+* **Licencia**: Application Proxy está disponible mediante una suscripción a Azure AD Premium. Consulte la [página precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) para obtener una lista completa de características y opciones de licencia.
 
 ### <a name="application-discovery"></a>Detección de aplicaciones
 

@@ -1,17 +1,17 @@
 ---
-title: 'Solución de problemas: Los registros de Apache Hive llenan el espacio en disco: Azure HDInsight'
+title: 'Solución de problemas: los registros de Hive llenan el espacio en disco en Azure HDInsight'
 description: En este artículo se proporcionan los pasos para la solución de problemas que se deben seguir cuando los registros de Apache Hive llenan el espacio en disco de los nodos principales de Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: nisgoel
-ms.author: nisgoel
-ms.date: 10/05/2020
-ms.openlocfilehash: cd7e6a7f13f6cccb5be5d23d69c2a44fc655cf55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: kcheeeung
+ms.author: kecheung
+ms.date: 05/21/2021
+ms.openlocfilehash: d4fb0c4a197f28321e4328d17f00173f45b28d1b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98930945"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290744"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Escenario: Los registros de Apache Hive llenan el espacio en disco de los nodos principales de Azure HDInsight.
 
@@ -19,55 +19,66 @@ En este artículo se describen los pasos para la solución de problemas y las po
 
 ## <a name="issue"></a>Problema
 
-En un clúster de Apache Hive/LLAP, los registros no deseados ocupan todo el espacio en disco de los nodos principales. Esta condición podría provocar los problemas siguientes:
+En un clúster de Apache Hive/LLAP HDI 4.0, los registros no deseados ocupan todo el espacio en disco de los nodos principales. Esta condición podría provocar los problemas siguientes:
 
 - No se puede acceder a SSH porque no queda espacio en el nodo principal.
-- Ambari produce el *ERROR HTTP: 503: Servicio no disponible*.
 - HiveServer2 Interactive no se puede reiniciar.
-
-Los registros de `ambari-agent` incluirán las siguientes entradas cuando se produzca el problema:
-```
-ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
-```
-```
-ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckReportFileHandler - ERROR - Can't write host check file at /var/lib/ambari-agent/data/hostcheck.result
-```
 
 ## <a name="cause"></a>Causa
 
-En las configuraciones avanzadas de Hive log4j, la programación de eliminación predeterminada actual es borrar los archivos de más de 30 días, según la fecha de la última modificación.
+La eliminación automática de registros de Hive no está configurada en las opciones avanzadas de hive-log4j2. El límite de tamaño predeterminado de 60 GB ocupa demasiado espacio para el patrón de uso del cliente.
 
 ## <a name="resolution"></a>Solución
 
 1. Vaya al resumen de componentes de Hive en el portal de Ambari y seleccione la pestaña **Configs** (Configuraciones).
 
-2. Vaya a la sección `Advanced hive-log4j` en **Advanced settings** (Configuración avanzada).
+2. Vaya a la sección `Advanced hive-log4j2` en **Advanced settings** (Configuración avanzada).
 
-3. Establezca el parámetro `appender.RFA.strategy.action.condition.age` en una antigüedad de su elección. En este ejemplo se establecerá la antigüedad en 14 días: `appender.RFA.strategy.action.condition.age = 14D`
-
-4. Si no ve ninguna configuración relacionada, anexe estos valores:
+3. Asegúrese de que tiene estos valores: Si no ve ninguna configuración relacionada, anexe estos valores:
     ```
     # automatically delete hive log
     appender.RFA.strategy.action.type = Delete
     appender.RFA.strategy.action.basePath = ${sys:hive.log.dir}
-    appender.RFA.strategy.action.condition.type = IfLastModified
-    appender.RFA.strategy.action.condition.age = 30D
-    appender.RFA.strategy.action.PathConditions.type = IfFileName
-    appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
+    appender.RFA.strategy.action.condition.type = IfFileName
+    appender.RFA.strategy.action.condition.regex = hive*.*log.*
+    appender.RFA.strategy.action.condition.nested_condition.type = IfAny
+    # Deletes logs based on total accumulated size, keeping the most recent
+    appender.RFA.strategy.action.condition.nested_condition.fileSize.type = IfAccumulatedFileSize
+    appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds = 60GB
+    # Deletes logs IfLastModified date is greater than number of days
+    #appender.RFA.strategy.action.condition.nested_condition.lastMod.type = IfLastModified
+    #appender.RFA.strategy.action.condition.nested_condition.lastMod.age = 30D
     ```
 
-5. Establezca `hive.root.logger` en `INFO,RFA`, tal como se muestra en el ejemplo siguiente. La configuración predeterminada es `DEBUG`, lo que aumenta el tamaño de los registros.
+4. Recorreremos tres opciones básicas con eliminación basadas en:
+- **Tamaño total**
+    - Cambie `appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds` por un límite de tamaño de su elección.
+
+- **Fecha**
+    - También puede quitar la marca de comentario y cambiar las condiciones. Luego, cambie `appender.RFA.strategy.action.condition.nested_condition.lastMod.age` por la edad que prefiera.
 
     ```
-    # Define some default values that can be overridden by system properties
-    hive.log.threshold=ALL
-    hive.root.logger=INFO,RFA
-    hive.log.dir=${java.io.tmpdir}/${user.name}
-    hive.log.file=hive.log
+    # Deletes logs based on total accumulated size, keeping the most recent 
+    #appender.RFA.strategy.action.condition.nested_condition.fileSize.type = IfAccumulatedFileSize 
+    #appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds = 60GB
+    # Deletes logs IfLastModified date is greater than number of days 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.type = IfLastModified 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.age = 30D
     ```
 
-6. Guarde las configuraciones y reinicie los componentes necesarios.
+- **Combinación de tamaño total y fecha**
+    - Puede combinar ambas opciones quitando la marca de comentario, como aquí. log4j2 se comportará entonces así: comienza a eliminar registros cuando se cumple cualquiera de las condiciones.
+    
+    ```
+    # Deletes logs based on total accumulated size, keeping the most recent 
+    appender.RFA.strategy.action.condition.nested_condition.fileSize.type = IfAccumulatedFileSize 
+    appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds = 60GB
+    # Deletes logs IfLastModified date is greater than number of days 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.type = IfLastModified 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.age = 30D
+    ```
+5. Guarde las configuraciones y reinicie los componentes necesarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

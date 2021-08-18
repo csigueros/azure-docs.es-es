@@ -2,13 +2,13 @@
 title: Registros de diagnóstico para Conexiones híbridas
 description: En este artículo encontrará información general de todos los registros de actividad y de diagnóstico que hay disponibles para Azure Relay.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 7ca6dc95567a4867d3c58e0efad0fc74289e586c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.date: 06/23/2021
+ms.openlocfilehash: cfcbdacb7b4266601f4669a20013bb6a5a5331a6
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079104"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666275"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Habilitar registros de diagnóstico para Conexiones híbridas de Azure Relay
 Cuando empiece a usar Conexiones híbridas de Azure Relay, es posible que desee supervisar cómo y cuándo se abren y cierran los clientes de escucha y los emisores, y cómo se crean las Conexiones híbridas y se envían los mensajes. En este artículo se proporciona información general de todos los registros de actividad y de diagnóstico que ofrece el servicio Azure Relay. 

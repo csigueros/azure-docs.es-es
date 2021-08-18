@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 07/07/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 29f8e1e3b89ef68c3ead4841cfba7b5e44f09a36
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 9c5af374e29e53d65096e2663c3b790fd26a95ab
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744654"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492422"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Integración de la infraestructura existente de Servidor de directivas de redes (NPS) con Azure AD Multi-Factor Authentication
 
@@ -173,7 +173,7 @@ Si tiene que crear y configurar una cuenta de prueba, siga estos pasos:
 
 1. Inicie sesión en [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con una cuenta de prueba.
 2. Siga las indicaciones para configurar un método de verificación.
-3. En Azure Portal, como usuario administrador, [cree una directiva de acceso condicional](howto-mfa-getstarted.md#create-conditional-access-policy) para requerir la autenticación multifactor para la cuenta de pruebas.
+3. En Azure Portal, como usuario administrador, [cree una directiva de acceso condicional](howto-mfa-getstarted.md#plan-conditional-access-policies) para requerir la autenticación multifactor para la cuenta de pruebas.
 
 > [!IMPORTANT]
 >

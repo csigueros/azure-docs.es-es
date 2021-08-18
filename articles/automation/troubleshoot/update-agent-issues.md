@@ -5,12 +5,12 @@ services: automation
 ms.date: 01/25/2020
 ms.topic: troubleshooting
 ms.subservice: update-management
-ms.openlocfilehash: 9516210021ce48f069ae3b3b4e02503527e0db24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9dd04181f8118bef21dd64fc92c65cce248c1c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580893"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738612"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Solución de problemas del agente de actualización de Windows
 
@@ -57,7 +57,7 @@ La comprobación del sistema operativo constata si Hybrid Runbook Worker ejecuta
 
 ### <a name="net-462"></a>.NET 4.6.2
 
-La comprobación de .NET Framework constata si el sistema tiene instalado [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) o superior.
+La comprobación de .NET Framework constata si el sistema tiene instalado [.NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462) o superior.
 
 ### <a name="wmf-51"></a>WMF 5.1
 
@@ -87,7 +87,7 @@ Las configuraciones de proxy y firewall deben permitir que el agente de Hybrid R
 
 Esta comprobación determina si el agente de Log Analytics para Windows (`healthservice`) se ejecuta en la máquina. Para obtener más información sobre cómo solucionar problemas del servicio, consulte [El agente de Log Analytics para Windows no está en ejecución](hybrid-runbook-worker.md#mma-not-running).
 
-Para reinstalar el agente de Log Analytics para Windows, consulte [Instalación del agente de Log Analytics para Windows](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
+Para reinstalar el agente de Log Analytics para Windows, consulte [Instalación del agente de Log Analytics para Windows](../../azure-monitor/agents/agent-windows.md).
 
 ### <a name="monitoring-agent-service-events"></a>Supervisión de eventos de servicio del agente
 

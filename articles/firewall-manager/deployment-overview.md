@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: ceb6e84b31067f7289b9e003a4fb273ce717de33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bed9249b521d1b45f7d2bf6254802556c38b60d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89079105"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725374"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Información general sobre la implementación de Azure Firewall Manager
 
@@ -62,10 +62,7 @@ Hay más de una forma de implementar Azure Firewall Manager, pero se recomienda 
    - Enrute fácilmente el tráfico al centro protegido para filtrar y registrar rutas definidas por el usuario (UDR) en redes virtuales de radios mediante la página de configuración de rutas del centro virtual protegido.
 
 > [!NOTE]
-> - No se puede tener más de un concentrador por red WAN virtual por región. Sin embargo, es posible agregar varias redes WAN virtuales en la región para lograrlo.
 > - No se pueden tener espacios de direcciones IP superpuestos para los concentradores de una vWAN.
-> - Las conexiones de red virtual del concentrador deben estar en la misma región que el concentrador.
->
 > Para obtener más información sobre problemas conocidos, consulte [¿Qué es Azure Firewall Manager?](overview.md#known-issues)
 
 ## <a name="convert-virtual-networks"></a>Conversión de redes virtuales

@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/07/2021
-ms.openlocfilehash: 8b87cfc8276d13ccc7e12a4901489ea0b1e770a5
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.date: 08/03/2021
+ms.openlocfilehash: 22a0fb4d06194138d5169df5005d5a23b3580569
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012513"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726143"
 ---
 # <a name="pick-initial-size-for-hyperscale-citus-server-group"></a>Elección del tamaño inicial para un grupo de servidores de Hiperescala (Citus)
 
@@ -36,11 +36,6 @@ Total de núcleos virtuales: cuando los datos de trabajo se ajustan a la RAM, se
 RAM del trabajo: el mejor caso sería proporcionar suficiente memoria para que la mayor parte del espacio de trabajo se ajuste a la memoria. El tipo de consultas que utiliza la aplicación afecta a los requisitos de memoria. Puede ejecutar EXPLAIN ANALYZE en una consulta para determinar cuánta memoria se requiere. Recuerde que los núcleos virtuales y la RAM se escalan a la vez, tal y como se describe en el artículo sobre [opciones de configuración de Hiperescala (Citus)](concepts-hyperscale-configuration-options.md).
 
 ## <a name="choosing-a-hyperscale-citus-tier"></a>Elección de un nivel de Hiperescala (Citus)
-
-> [!IMPORTANT]
-> El nivel básico de Hiperescala (Citus) está actualmente en versión preliminar.  Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
->
-> Puede ver una lista completa de otras características nuevas en [Características en versión preliminar para Hiperescala (Citus)](hyperscale-preview-features.md).
 
 En las secciones anteriores se da una idea de cuántos núcleos virtuales y cuánta RAM se necesitan para cada caso de uso. Puede satisfacer estas demandas a través de una opción entre dos niveles de Hiperescala (Citus): el nivel básico y el estándar.
 

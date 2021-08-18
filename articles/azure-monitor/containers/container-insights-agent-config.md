@@ -3,12 +3,12 @@ title: Configuración de la recopilación de datos del agente de Container Insig
 description: En este artículo se describe cómo puede configurar el agente de Container Insights para controlar la recopilación de registros de stdout y stderr, así como de variables de entorno.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 1305ddc4417dc294dad865971dcd8970acfb8a2c
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: bd818d03d74042e7f58cbc8889ce862279706bec
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847353"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741322"
 ---
 # <a name="configure-agent-data-collection-for-container-insights"></a>Configuración de la recopilación de datos del agente de Container Insights
 
@@ -146,4 +146,4 @@ La salida será similar a la siguiente con las versiones de esquema de anotació
 
 - Con la supervisión habilitada para recopilar el estado y la utilización de recursos del clúster de AKS o híbrido y las cargas de trabajo que se ejecutan en estos, aprenda [cómo usar](container-insights-analyze.md) Container Insights.
 
-- En los [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) encontrará consultas predefinidas y ejemplos para evaluar o personalizar las alertas, la visualización o el análisis de los clústeres.
+- En los [ejemplos de consultas de registro](container-insights-log-query.md) encontrará consultas predefinidas y ejemplos para evaluar o personalizar las alertas, la visualización o el análisis de los clústeres.

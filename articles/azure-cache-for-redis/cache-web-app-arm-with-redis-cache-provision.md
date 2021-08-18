@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8232582231a359ea6a9cf49b20685a3c9e4ef0d0
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 26eedd9ecbd88b20d80752f379b8a6d1874217a4
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006318"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379715"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Creación de una aplicación web y Azure Cache for Redis mediante una plantilla
 
@@ -28,7 +28,7 @@ Puede usar esta plantilla para sus propias implementaciones o personalizarla par
 
 Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/templates/syntax.md). Para información sobre la sintaxis y las propiedades de JSON para los tipos de recursos de caché, consulte [Tipos de recursos Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
 
-Para ver la plantilla completa, consulte [Plantilla Aplicación web con Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
+Para ver la plantilla completa, consulte [Plantilla Aplicación web con Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/web-app-with-redis-cache/azuredeploy.json).
 
 ## <a name="what-you-will-deploy"></a>Lo que implementará
 En esta plantilla, implementará lo siguiente:

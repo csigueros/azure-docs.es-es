@@ -1,19 +1,19 @@
 ---
 title: Creación de un punto de conexión privado administrado para conectarse a los resultados del origen de datos
 description: En este artículo se explica cómo crear un punto de conexión privado administrado para los orígenes de datos desde un área de trabajo de Azure Synapse.
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
-ms.author: ronytho
+ms.author: seshin
 ms.reviewer: jrasnick
-ms.openlocfilehash: e0309b4c96b2ae25eb568e390717ba76cfd84fa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ca00f185c3bfc0a10a949953dfa0e2b1e7a09a4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461315"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737443"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source"></a>Creación de un punto de conexión privado administrado al origen de datos
 

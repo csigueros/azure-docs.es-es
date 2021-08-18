@@ -10,17 +10,17 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 05/14/2021
-ms.openlocfilehash: bf096e8e444ae9fd0832ad446d79db37fa365951
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 14feb78de79e0a9cb137415968dd9b623a4c603f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954807"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725568"
 ---
 # <a name="migration-guide-ibm-db2-to-azure-sql-database"></a>Guía de migración: de IBM Db2 a Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-Con esta guía [aprenderá a migrar](https://azure.microsoft.com/migration/migration-journey) las bases de datos de IBM Db2 a Azure SQL Database mediante [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant para Db2. 
+Con esta guía [aprenderá a migrar](https://azure.microsoft.com/migration/migration-journey) las bases de datos de IBM Db2 a Azure SQL Database mediante [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant para Db2. 
 
 Para ver otras guías de migración, consulte la [Guía de Azure Database Migration](/data-migration). 
 
@@ -126,7 +126,7 @@ Para publicar el esquema y migrar los datos, siga estos pasos:
 
    :::image type="content" source="media/db2-to-sql-database-guide/compare-schema-in-ssms.png" alt-text="Captura de pantalla que muestra la comparación del esquema en SQL Server Management Studio.":::
 
-## <a name="post-migration"></a>Después de la migración 
+## <a name="post-migration"></a>Etapa posterior a la migración 
 
 Cuando haya completado correctamente, deberá realizar una serie de tareas posteriores para asegurarse de que todo funcione de la forma más fluida y eficaz posible.
 
@@ -155,7 +155,7 @@ Para obtener más ayuda, consulte los siguientes recursos, que se desarrollaron 
 
 |Recurso  |Descripción  |
 |---------|---------|
-|[Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta herramienta proporciona las plataformas de destino de ajuste perfecto sugeridas, la preparación para la nube, y el nivel de corrección de la aplicación o base de datos para una carga de trabajo determinada. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado.|
+|[Herramienta y modelo de evaluación de la carga de trabajo de datos](https://www.microsoft.com/download/details.aspx?id=103130)| Esta herramienta proporciona las plataformas de destino de ajuste perfecto sugeridas, la preparación para la nube, y el nivel de corrección de la aplicación o base de datos para una carga de trabajo determinada. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado.|
 |[Paquete de detección y evaluación de recursos de datos de Db2 zOS](https://www.microsoft.com/download/details.aspx?id=103108)|Después de ejecutar el script de SQL en una base de datos, puede exportar los resultados a un archivo en el sistema de archivos. Se admiten varios formatos de archivo, incluido \*.csv, para que se puedan capturar los resultados en herramientas externas, como hojas de cálculo. Este método puede resultar útil si quiere compartir fácilmente los resultados con equipos que no tengan el área de trabajo instalada.|
 |[Artefactos y scripts de inventario de IBM Db2 LUW](https://www.microsoft.com/download/details.aspx?id=103109)|Este recurso incluye una consulta SQL que accede a las tablas del sistema IBM Db2 LUW, versión 11.1, y proporciona un recuento de objetos por esquema y tipo de objeto, una estimación aproximada de "datos sin procesar" en cada esquema y el tamaño de las tablas de cada esquema, cuyos resultados se almacenan en formato CSV.|
 |[Utilidad Comparación de bases de datos de IBM Db2 a SQL DB](https://www.microsoft.com/download/details.aspx?id=103016)|La utilidad Comparación de bases de datos es una aplicación de consola de Windows que se puede usar para comprobar que los datos son idénticos en la plataforma de origen y en la de destino. Puede usar la herramienta para comparar de forma eficaz los datos hasta el nivel de fila o de columna de todas las tablas, filas y columnas o únicamente en las seleccionadas.|

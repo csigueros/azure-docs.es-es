@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a4eabf37101622ac69ae05f3bec232fb8d2fe6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 265ae82f3a8d5a10e333057ebb55473c18fd36c3
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94517536"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113109474"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Marco de seguridad: seguridad en las comunicaciones | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -383,7 +383,7 @@ public class ValuesController : ApiController
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Soporte técnico de Azure Redis TLS](../../azure-cache-for-redis/cache-faq.md) |
+| **Referencias**              | [Soporte técnico de Azure Redis TLS](../../azure-cache-for-redis/cache-faq.yml) |
 | **Pasos** | El servidor de Redis no admite TLS desde el principio, pero Azure Cache for Redis sí. Si se conecta a Azure Cache for Redis y el cliente admite TLS, como StackExchange.Redis, deberá utilizar TLS. De forma predeterminada, el puerto no TLS está deshabilitado para instancias nuevas de Azure Cache for Redis. Asegúrese de que no se modifiquen los valores predeterminados seguros a menos que exista una dependencia de compatibilidad con TLS para los clientes de Redis. |
 
 Tenga en cuenta que Redis está diseñado para que puedan acceder clientes de confianza dentro de entornos de confianza. Por ello, normalmente no es recomendable exponer la instancia de Redis directamente a Internet o, en general, a un entorno desde el que clientes que no sean de confianza puedan acceder directamente el puerto TCP de Redis o a un socket de UNIX. 

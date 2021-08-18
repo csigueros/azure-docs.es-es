@@ -3,12 +3,12 @@ title: Solución de problemas de inicio de sesión en el registro
 description: Síntomas, causas y resolución de problemas comunes al iniciar sesión en un registro de contenedor de Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: d8579d2a590f722c40dc3582a03efb602dde6520
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6670d127736a97490ab5c01c03699b6a8f077778
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078155"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722398"
 ---
 # <a name="troubleshoot-registry-login"></a>Solución de problemas de inicio de sesión del registro
 
@@ -54,7 +54,7 @@ La mayoría de los flujos de autenticación de Azure Container Registry requiere
 Vínculos relacionados:
 
 * [Información general sobre la autenticación](container-registry-authentication.md#authentication-options)
-* [Preguntas frecuentes sobre Container Registry](container-registry-faq.md)
+* [Preguntas frecuentes sobre Container Registry](container-registry-faq.yml)
 
 ### <a name="specify-correct-registry-name"></a>Especificar el nombre de registro correcto
 
@@ -72,7 +72,7 @@ az acr login --name myregistry
 
 Vínculos relacionados:
 
-* [az acr login se ha ejecutado correctamente, pero docker ha producido el error: no autorizado: se necesita autorización](container-registry-faq.md#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
+* [az acr login se ha ejecutado correctamente, pero docker ha producido el error: no autorizado: se necesita autorización](container-registry-faq.yml#az-acr-login-succeeds-but-docker-fails-with-error--unauthorized--authentication-required)
 
 ### <a name="confirm-credentials-to-access-registry"></a>Confirmar las credenciales para acceder al registro
 
@@ -83,7 +83,7 @@ Compruebe la validez de las credenciales que usa para su escenario o que le prop
   * Contraseña: contraseña de la entidad de servicio (también denominada *secreto de cliente*)
 * Si usa un servicio de Azure, como Azure Kubernetes Service o Azure DevOps, para acceder al registro, confirme la configuración del registro del servicio. 
 * Si ejecutó `az acr login` con la opción `--expose-token`, que habilita el inicio de sesión del registro sin usar el demonio de Docker, asegúrese de autenticarse con el nombre de usuario `00000000-0000-0000-0000-000000000000`.
-* Si el registro está configurado para el [acceso de extracción anónimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), las credenciales de Docker existentes almacenadas desde un inicio de sesión de Docker anterior pueden impedir el acceso anónimo. Ejecute `docker logout` antes de intentar realizar una operación de extracción anónima en el registro.
+* Si el registro está configurado para el [acceso de extracción anónimo](container-registry-faq.yml#how-do-i-enable-anonymous-pull-access-), las credenciales de Docker existentes almacenadas desde un inicio de sesión de Docker anterior pueden impedir el acceso anónimo. Ejecute `docker logout` antes de intentar realizar una operación de extracción anónima en el registro.
 
 Vínculos relacionados:
 
@@ -135,8 +135,8 @@ Si la [colección de registros de recursos](monitor-service.md) está habilitada
 
 Vínculos relacionados:
 
-* [Supervisión de Azure Container Registry](monitor-service.md)
-* [Preguntas frecuentes sobre Container Registry](container-registry-faq.md)
+* [Registros para la evaluación y auditoría de diagnóstico](./monitor-service.md)
+* [Preguntas frecuentes sobre Container Registry](container-registry-faq.yml)
 * [Procedimientos recomendados para Azure Container Registry](container-registry-best-practices.md)
 
 ## <a name="next-steps"></a>Pasos siguientes

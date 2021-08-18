@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 983da6c909eb8c7b1e5deb3562aeaec30c747f4d
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 268993dcdd2250037ebcfa1640bc4e54f82c926f
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890445"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112575539"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Actualización o eliminación de un equilibrador de carga usado por conjuntos de escalado de máquinas virtuales
 
@@ -62,7 +62,7 @@ El nuevo grupo NAT de entrada no debe tener un intervalo de puertos de front-end
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
             
   az vmss update-instances
-          -â€“instance-ids *
+          --instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS
 ```
@@ -98,7 +98,7 @@ Para eliminar el grupo NAT, quítelo primero del conjunto de escalado. Aquí se 
        --name MyVMSS
     az network lb inbound-nat-pool delete
        --resource-group MyResourceGroup
-       -â€“lb-name MyLoadBalancer
+       --lb-name MyLoadBalancer
        --name MyNatPool
 ```
 
@@ -134,7 +134,7 @@ Asegúrese de crear grupos NAT de entrada independientes con intervalos de puert
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
             
   az vmss update-instances
-          -â€“instance-ids *
+          --instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS
           
@@ -153,7 +153,7 @@ Asegúrese de crear grupos NAT de entrada independientes con intervalos de puert
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool2'}"
             
   az vmss update-instances
-          -â€“instance-ids *
+          --instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS2
 ```

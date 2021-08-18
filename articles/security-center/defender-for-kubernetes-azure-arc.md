@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: 02690da936190b7d868f54c987939c06b91b1a35
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: e11d455238f4a4e8c128a6cda83a145adaf149e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854025"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745105"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>Protección de clústeres de Kubernetes habilitados para Azure Arc que se ejecutan en entornos locales y de varias nubes
 
@@ -30,7 +30,7 @@ La extensión puede proteger también los clústeres de Kubernetes en otros prov
 | Estado de la versión | **Versión preliminar**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | Roles y permisos necesarios | El [administrador de seguridad](../role-based-access-control/built-in-roles.md#security-admin) puede descartar las alertas.<br>El [Lector de seguridad](../role-based-access-control/built-in-roles.md#security-reader) puede ver los resultados. |
 | Precios | Requiere [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md) |
-| Distribuciones de Kubernetes admitidas | [Azure Kubernetes Service en Azure Stack HCl](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (versión 4.6 o posterior)<br> [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
+| Distribuciones de Kubernetes admitidas | [Azure Kubernetes Service en Azure Stack HCl](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Red Hat OpenShift en Azure](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (versión 4.6 o posterior)<br> [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
 | Limitaciones | Kubernetes habilitado para Azure Arc y la extensión de Azure Defender **no admiten** las ofertas de Kubernetes administrado, como Google Kubernetes Engine y Elastic Kubernetes Service. [Azure Defender está disponible de forma nativa para Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md) y no requiere conectar el clúster a Azure Arc. |
 | Entornos y regiones | La disponibilidad de esta extensión es la misma que la de [Kubernetes habilitado para Azure Arc](../azure-arc/kubernetes/overview.md).|
 
@@ -105,7 +105,7 @@ Una recomendación dedicada en Azure Security Center proporciona lo siguiente:
 
     | Propiedad | Descripción |
     |----------|-------------|
-    | logAnalyticsWorkspaceResourceID | **Opcional**. Identificador de recurso completo del área de trabajo de Log Analytics.<br>Cuando no se especifique, se usará el área de trabajo predeterminada de la región.<br><br>Para obtener el identificador de recurso completo, ejecute el siguiente comando para mostrar la lista de áreas de trabajo de sus suscripciones en el formato JSON predeterminado:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>El identificador de recurso del área de trabajo de Log Analytics tiene la siguiente sintaxis:<br>/subscriptions/{id-de-suscripción}/resourceGroups/{grupo-de-recursos}/providers/Microsoft.OperationalInsights/workspaces/{nombre-del-área-de-trabajo}. <br>Obtenga más información en [Áreas de trabajo de Log Analytics](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces). |
+    | logAnalyticsWorkspaceResourceID | **Opcional**. Identificador de recurso completo del área de trabajo de Log Analytics.<br>Cuando no se especifique, se usará el área de trabajo predeterminada de la región.<br><br>Para obtener el identificador de recurso completo, ejecute el siguiente comando para mostrar la lista de áreas de trabajo de sus suscripciones en el formato JSON predeterminado:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>El identificador de recurso del área de trabajo de Log Analytics tiene la siguiente sintaxis:<br>/subscriptions/{id-de-suscripción}/resourceGroups/{grupo-de-recursos}/providers/Microsoft.OperationalInsights/workspaces/{nombre-del-área-de-trabajo}. <br>Obtenga más información en [Áreas de trabajo de Log Analytics](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces). |
     | auditLogPath |**Opcional**. Ruta de acceso completa a los archivos de registro de auditoría.<br>Cuando no se especifique, se usará la ruta de acceso predeterminada ``/var/log/kube-apiserver/audit.log``.<br>En el caso del motor de AKS, la ruta de acceso estándar es ``/var/log/kubeaudit/audit.log``. |
 
     El siguiente comando muestra un ejemplo de uso de todos los campos opcionales:
@@ -118,7 +118,7 @@ Una recomendación dedicada en Azure Security Center proporciona lo siguiente:
 
 ### <a name="use-azure-resource-manager-to-deploy-the-azure-defender-extension"></a>Uso de Azure Resource Manager para implementar la extensión de Azure Defender
 
-Si quiere usar Azure Resource Manager para implementar la extensión de Azure Defender, necesitará un área de trabajo de Log Analytics en su suscripción. Obtenga más información en [Áreas de trabajo de Log Analytics](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces).
+Si quiere usar Azure Resource Manager para implementar la extensión de Azure Defender, necesitará un área de trabajo de Log Analytics en su suscripción. Obtenga más información en [Áreas de trabajo de Log Analytics](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
 
 Puede usar la plantilla de Resource Manager **azure-defender-extension-arm-template.json** de los [ejemplos de instalación](https://aka.ms/kubernetes-extension-installation-examples) de Security Center.
 
@@ -129,7 +129,7 @@ Puede usar la plantilla de Resource Manager **azure-defender-extension-arm-templ
 
 ### <a name="use-rest-api-to-deploy-the-azure-defender-extension"></a>Uso de la API REST para implementar la extensión de Azure Defender 
 
-Si quiere usar la API REST para implementar la extensión de Azure Defender, necesitará un área de trabajo de Log Analytics en su suscripción. Obtenga más información en [Áreas de trabajo de Log Analytics](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces).
+Si quiere usar la API REST para implementar la extensión de Azure Defender, necesitará un área de trabajo de Log Analytics en su suscripción. Obtenga más información en [Áreas de trabajo de Log Analytics](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
 
 > [!TIP]
 > La manera más sencilla de usar la API para implementar la extensión de Azure Defender es con el **JSON de la colección de Postman** de ejemplo que está incluida en los [ejemplos de instalación](https://aka.ms/kubernetes-extension-installation-examples) de Security Center.

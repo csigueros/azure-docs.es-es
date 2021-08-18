@@ -2,23 +2,23 @@
 title: Deshabilitación de los inicios de sesión de los usuarios de una aplicación empresarial en Azure AD
 description: Cómo deshabilitar una aplicación empresarial para que ningún usuario pueda iniciar sesión en ella en Azure Active Directory
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/12/2019
-ms.author: mtillman
-ms.reviewer: asteen
+ms.author: davidmu
+ms.reviewer: alamaral
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac4970a3dc62331e4a9f56c069f32def7351a8bb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 7ca695fc0e84f3db3b98c3e25333d58279ad53f1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081432"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738785"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Deshabilitación de los inicios de sesión de usuario de una aplicación empresarial en Azure Active Directory
 

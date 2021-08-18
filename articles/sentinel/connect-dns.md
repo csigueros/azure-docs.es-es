@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 4b6ad04afce5fb4ead5575d47333525c0f5f8a13
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f4e6ddf4e3db0213587a9154a424813c3cc5ca83
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075205"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183141"
 ---
 # <a name="connect-your-domain-name-server"></a>Conectar con el servidor de nombres de dominio
 
@@ -47,7 +47,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | **Origen conectado** | **Soporte técnico** | **Descripción** |
 | --- | --- | --- |
 | [Agentes de Windows](../azure-monitor/agents/agent-windows.md) | Sí | La solución recopila información de DNS de los agentes de Windows. |
-| [Agentes de Linux](../azure-monitor/vm/quick-collect-linux-computer.md) | No | La solución no recopila información de DNS de los agentes directos de Linux. |
+| [Agentes de Linux](../azure-monitor/vm/monitor-virtual-machine.md) | No | La solución no recopila información de DNS de los agentes directos de Linux. |
 | [Grupo de administración de System Center Operations](../azure-monitor/agents/om-agents.md) | Sí | La solución recopila información de DNS de los agentes en un grupo de administración de Operations Manager conectado. No se requiere ninguna conexión directa entre el agente de Operations Manager y Azure Monitor. Los datos se reenvían desde el grupo de administración al área de trabajo de Log Analytics. |
 | [Cuenta de Almacenamiento de Azure](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) | No | La solución no usa Azure Storage. |
 
@@ -88,5 +88,5 @@ Si las consultas de búsqueda no aparecen en Azure Sentinel, siga estos pasos pa
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido a conectar dispositivos locales DNS a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).

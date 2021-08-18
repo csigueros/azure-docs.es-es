@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 3fa167233c5afe7b50b2794f6c0fff5458e9acf7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b04cacb1d2767e152e62bc3fd5902798204f3f60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089063"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734281"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>¿Qué supervisa Azure Monitor?
 En este artículo se describen las distintas aplicaciones y servicios que se supervisan mediante Azure Monitor. 
@@ -29,7 +29,7 @@ Insights proporciona una experiencia de supervisión personalizada para determin
 | [Información sobre Cosmos DB](insights/cosmosdb-insights-overview.md) | Proporciona una vista del rendimiento general, los errores, la capacidad y el estado operativo de todos los recursos de Azure Cosmos DB en una experiencia interactiva unificada. |
 | [Información de redes (versión preliminar)](insights/network-insights-overview.md) | Proporciona una vista completa del estado y las métricas de todos los recursos de red. La capacidad de búsqueda avanzada ayuda a identificar dependencias de recursos, lo que habilita escenarios como la identificación de recursos que hospedan el sitio web con una simple búsqueda del nombre del sitio web. |
 [Información del grupo de recursos (versión preliminar)](insights/resource-group-insights.md) |  Clasifica y diagnostica cualquier problema que encuentren sus recursos individuales, a la vez que ofrece un contexto en cuanto al estado y el rendimiento del grupo de recursos como un todo. |
-| [Información de almacenamiento](insights/storage-insights-overview.md) | Proporciona una supervisión completa de las cuentas de Azure Storage al ofrecer una vista unificada del rendimiento, la capacidad y la disponibilidad de los servicios de Azure Storage. |
+| [Información de almacenamiento](../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) | Proporciona una supervisión completa de las cuentas de Azure Storage al ofrecer una vista unificada del rendimiento, la capacidad y la disponibilidad de los servicios de Azure Storage. |
 | [VM Insights](vm/vminsights-overview.md) | Supervisa las máquinas virtuales (VM) y los conjuntos de escalado de máquinas virtuales de Azure. El servicio analiza el rendimiento y el estado de las VM Windows y Linux, y supervisa sus procesos y dependencias en otros recursos y procesos externos. |
 | [Información de Azure Key Vault (versión preliminar)](./insights/key-vault-insights-overview.md) | Proporciona una supervisión completa de los almacenes de claves proporcionando una vista unificada del rendimiento, los errores, la latencia y las solicitudes de Key Vault. |
 | [Información de Azure Cache for Redis (versión preliminar)](insights/redis-cache-insights-overview.md) |  Proporciona una vista unificada e interactiva del rendimiento general, los errores, la capacidad y el mantenimiento operativo. |
@@ -154,7 +154,7 @@ En la tabla siguiente se enumeran los servicios de Azure y los datos que estos r
 |SQL Database | Sí | Sí | No |  |
 |SQL Server Stretch Database | Sí | Sí | No |  |
 |Pila | No | No | No |  |
-|Storage | Sí | No | [Sí](insights/storage-insights-overview.md) |  |
+|Storage | Sí | No | [Sí](../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) |  |
 |Almacenamiento caché | No | No | No |  |
 |Servicios de sincronización de almacenamiento | No | No | No |  |
 |Stream Analytics | Sí | Sí | No |  |
@@ -229,7 +229,7 @@ Hay otras soluciones disponibles para supervisar diferentes aplicaciones y servi
 ## <a name="resources-outside-of-azure"></a>Recursos fuera de Azure
 Azure Monitor puede recopilar datos de recursos fuera de Azure mediante los métodos que se enumeran en la tabla siguiente.
 
-| Recurso | Método |
+| Resource | Método |
 |:---|:---|
 | APLICACIONES | Supervise las aplicaciones web fuera de Azure mediante Application Insights. Vea [¿Qué es Application Insights?](./app/app-insights-overview.md). |
 | Máquinas virtuales | Use los agentes para recopilar datos del sistema operativo invitado de máquinas virtuales en otros entornos en la nube o locales. Consulte [Información general sobre los agentes de Azure Monitor](agents/agents-overview.md). |
@@ -243,4 +243,3 @@ Azure Monitor puede recopilar datos de recursos fuera de Azure mediante los mét
 - Complete un [tutorial sobre la supervisión de un recurso de Azure](essentials/tutorial-resource-logs.md).
 - Complete un [tutorial sobre la escritura de una consulta de registro para analizar datos en Registros de Azure Monitor](essentials/tutorial-resource-logs.md).
 - Complete un [tutorial sobre la creación de un gráfico de métricas para analizar datos en Métricas de Azure Monitor](essentials/tutorial-metrics-explorer.md).
-

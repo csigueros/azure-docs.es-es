@@ -15,12 +15,12 @@ ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a73c2b1be4b17136ba19e7efb71c2b21359fdf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f9faf134c47bdcb67d6a745be3d0c9980713c29
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89280152"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107035"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory
 
@@ -220,6 +220,6 @@ Para actualizar automáticamente un agente de autenticación:
 - [Migración de AD FS a la autenticación de paso a través](https://aka.ms/adfstoptadpdownload): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
 - [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): configure la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
 - [Cómo funciona](how-to-connect-pta-how-it-works.md): aprenda los conceptos básicos sobre cómo funciona la autenticación de paso a través de Azure AD.
-- [Preguntas más frecuentes](how-to-connect-pta-faq.md): Obtenga respuestas a las preguntas más frecuentes.
+- [Preguntas más frecuentes](how-to-connect-pta-faq.yml): Obtenga respuestas a las preguntas más frecuentes.
 - [Solución de problemas](tshoot-connect-pass-through-authentication.md): Obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
 - [SSO de conexión directa de Azure AD](how-to-connect-sso.md): Más información sobre esta característica complementaria.

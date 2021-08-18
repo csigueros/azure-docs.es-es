@@ -4,12 +4,12 @@ description: Las últimas actualizaciones para los SDK de Application Insights.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 07/27/2020
-ms.openlocfilehash: 6e8ce1f3a15351f295dc8a8f08418239e8aafc97
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 7bab9d7d0f7f071b7efe0c85ccf0ed73b7f60fc6
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072323"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114293910"
 ---
 # <a name="release-notes---application-insights"></a>Notas de la versión: Application Insights
 
@@ -35,7 +35,7 @@ Lea también nuestros [blogs](https://azure.microsoft.com/blog/tag/application-i
 Introducción a la supervisión sin código del monitor sin código:
 
 * [Aplicaciones hospedadas en IIS en máquina virtual de Azure y conjunto de escalado de máquinas virtuales de Azure](./azure-vm-vmss-apps.md)
-* [Servidor IIS](./monitor-performance-live-website-now.md)
+* [Servidor IIS](./status-monitor-v2-overview.md)
 * [Azure Web Apps](./azure-web-apps.md)
 
 Introducción a la supervisión basada en código:
@@ -45,4 +45,3 @@ Introducción a la supervisión basada en código:
 * [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
-

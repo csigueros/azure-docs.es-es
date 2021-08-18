@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: a143c0aa19241b532cabff95fe6bf85679e4007c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2db4734650f4af2f0ed67040c7f94eeda5f7c69
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652299"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453108"
 ---
 # <a name="use-python-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Uso de Python para administrar directorios y archivos en Azure Data Lake Storage Gen2
 
@@ -24,7 +24,7 @@ Para obtener información sobre cómo obtener, establecer y actualizar las lista
 
 [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-file-datalake/) | [Muestras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [Referencia de API](/python/api/azure-storage-file-datalake/azure.storage.filedatalake) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-python/issues)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -94,7 +94,7 @@ En este ejemplo se agrega un directorio denominado `my-directory` a un contenedo
 
 Cambie el nombre de un directorio o muévalo llamando al método **DataLakeDirectoryClient.rename_directory**. Pase la ruta de acceso del directorio que busca a un parámetro. 
 
-En este ejemplo se cambia el nombre de un subdirectorio a `my-subdirectory-renamed`.
+En este ejemplo se cambia el nombre de un subdirectorio a `my-directory-renamed`.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_RenameDirectory":::
 

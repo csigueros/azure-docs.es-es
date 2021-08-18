@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de LogicGate para el aprovisionamiento automát
 description: Obtenga información sobre cómo aprovisionar y desaprovisionar automáticamente cuentas de usuario de Azure AD para LogicGate.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: eea988ef-b0f1-4d22-b867-310f167540c3
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2021
-ms.author: Zhchia
-ms.openlocfilehash: 850e2f9e58c5e9d0c6d7bc2b5c15aa291d3c8e42
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.author: thwimmer
+ms.openlocfilehash: d555db3b38f726a014ed1ad0347f68eb2bcb3add
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125380"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763288"
 ---
 # <a name="tutorial-configure-logicgate-for-automatic-user-provisioning"></a>Tutorial: Configuración de LogicGate para aprovisionar usuarios automáticamente
 

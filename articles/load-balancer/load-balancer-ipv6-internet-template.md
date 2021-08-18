@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f0c4f7f70dc186c29ffa5d90c6a7ea2f245f431
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90562526"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298086"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implementación de una solución de equilibrador de carga orientado a Internet con IPv6 mediante el uso de una plantilla
 
@@ -50,7 +50,7 @@ En este escenario creará los siguientes recursos de Azure:
 
 ## <a name="deploying-the-template-using-the-azure-portal"></a>Implementación de la plantilla con Azure Portal
 
-En este artículo se hace referencia a una plantilla publicada en la galería de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) . Puede descargar la plantilla desde la galería o iniciar la implementación en Azure directamente desde la galería. En este artículo se da por hecho que ha descargado la plantilla en el equipo local.
+En este artículo se hace referencia a una plantilla publicada en la galería de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/load-balancer-ipv6-create/) . Puede descargar la plantilla desde la galería o iniciar la implementación en Azure directamente desde la galería. En este artículo se da por hecho que ha descargado la plantilla en el equipo local.
 
 1. Abra Azure Portal e inicie sesión con una cuenta que tenga permisos para crear máquinas virtuales y recursos de red en una suscripción a Azure. Además, salvo que use recursos existentes, la cuenta necesita permiso para crear un grupo de recursos y una cuenta de almacenamiento.
 2. Haga clic en "+Nuevo" desde el menú y, a continuación, escriba "plantilla" en el cuadro de búsqueda. Seleccione "Implementación de plantillas" en los resultados de la búsqueda.

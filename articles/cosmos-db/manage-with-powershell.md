@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 05/13/2021
 ms.author: mjbrown
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 3f2103577932f0b62e8f65a0e7b736ef111a780d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 79602cb2ba63d9e26990d246a9d62ed09db5be96
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681699"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751034"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Administración de recursos de API de Azure Cosmos DB Core (SQL) mediante PowerShell
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-En la guía siguiente se describe cómo usar PowerShell para crear scripts y automatizar la administración de los recursos de API de Azure Cosmos DB Core (SQL), incluida la cuenta, la base de datos, el contenedor y el rendimiento de Cosmos. Para obtener cmdlets de PowerShell para otras API, consulte [Ejemplos de PowerShell para Cassandra](powershell-samples-cassandra.md), [Ejemplos de PowerShell para MongoDB API](powershell-samples-mongodb.md), [Ejemplos de PowerShell para Gremlin](powershell-samples-gremlin.md) y [Ejemplos de PowerShell para Table](powershell-samples-table.md).
+En la guía siguiente se describe cómo usar PowerShell para crear scripts y automatizar la administración de los recursos de API de Azure Cosmos DB Core (SQL), incluida la cuenta, la base de datos, el contenedor y el rendimiento de Cosmos. Para obtener cmdlets de PowerShell para otras API, consulte [Ejemplos de PowerShell para Cassandra](cassandra/powershell-samples.md), [Ejemplos de PowerShell para MongoDB API](mongodb/powershell-samples.md), [Ejemplos de PowerShell para Gremlin](powershell-samples-gremlin.md) y [Ejemplos de PowerShell para Table](powershell-samples-table.md).
 
 > [!NOTE]
 > En los ejemplos de este artículo, se usan los cmdlets de administración de [Az.CosmosDB](/powershell/module/az.cosmosdb). Consulte la página de referencia de la API de [Az.CosmosDB](/powershell/module/az.cosmosdb) para conocer los cambios más recientes.

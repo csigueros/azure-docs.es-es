@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 06/30/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 7021367e1230573343ddf57ccd399d998ad5280e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93d86e0fe4a1dac4d9d780e0e14d6736b755f932
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339281"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724468"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lectura de la fuente de cambios de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -69,14 +69,11 @@ Puede ejecutar en paralelo el procesamiento de los cambios en varios clientes, d
 
 No hay ninguna garantía de entrega "al menos una vez" incluida en el modelo de extracción. Este le ofrece un control de bajo nivel para decidir cómo quiere administrar los errores.
 
-> [!NOTE]
-> El modelo de extracción de la fuente de cambios actualmente se encuentra en [versión preliminar solo para el SDK de .NET para Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview). La versión preliminar todavía no está disponible para otras versiones del SDK.
-
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Fuente de cambios en las API de Cassandra y MongoDB
 
-La funcionalidad de fuente de cambios aparece como flujos de cambios en la API de MongoDB y como consulta con predicado en Cassandra API. Para más información sobre los detalles de implementación de la API de MongoDB, consulte [Flujos de cambios en la API de Azure Cosmos DB para MongoDB](mongodb-change-streams.md).
+La funcionalidad de fuente de cambios aparece como flujos de cambios en la API de MongoDB y como consulta con predicado en Cassandra API. Para más información sobre los detalles de implementación de la API de MongoDB, consulte [Flujos de cambios en la API de Azure Cosmos DB para MongoDB](mongodb/change-streams.md).
 
-Apache Cassandra nativo proporciona captura de datos modificados (CDC), un mecanismo para marcar tablas concretas para el archivado, así como para rechazar escrituras en esas tablas una vez que se alcanza un tamaño en disco que se puede configurar para el registro de CDC. La característica de fuente de cambios de la API de Azure Cosmos DB para Cassandra mejora la capacidad de consultar los cambios con el predicado a través de CQL. Para más información sobre los detalles de implementación, consulte [Fuente de cambios de la API de Azure Cosmos DB para Cassandra](cassandra-change-feed.md).
+Apache Cassandra nativo proporciona captura de datos modificados (CDC), un mecanismo para marcar tablas concretas para el archivado, así como para rechazar escrituras en esas tablas una vez que se alcanza un tamaño en disco que se puede configurar para el registro de CDC. La característica de fuente de cambios de la API de Azure Cosmos DB para Cassandra mejora la capacidad de consultar los cambios con el predicado a través de CQL. Para más información sobre los detalles de implementación, consulte [Fuente de cambios de la API de Azure Cosmos DB para Cassandra](cassandra/cassandra-change-feed.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

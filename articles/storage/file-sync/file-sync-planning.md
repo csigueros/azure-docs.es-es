@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: ffff2c1831aab09a1c622ced98cfe180fe0ec5d7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b881b7b87ef704102df7c5d8a9d24542b3d89bb2
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679207"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112118609"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -310,11 +310,6 @@ Para obtener más información sobre el cifrado en tránsito, consulte [Requerir
 
 ## <a name="storage-tiers"></a>Niveles de almacenamiento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Habilitación de recursos compartidos de archivos para incluir hasta 100 TiB
-
-De forma predeterminada, los recursos compartidos de archivos estándar solo pueden abarcar hasta 5 TiB, pero puede aumentar el límite de recursos compartidos a 100 TiB. Para obtener información sobre cómo aumentar el límite de recursos compartidos, consulte [Habilitación y creación de recursos compartidos de archivos grandes](../files/storage-files-how-to-create-large-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
-
 
 #### <a name="regional-availability"></a>Disponibilidad regional
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]

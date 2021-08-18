@@ -1,19 +1,19 @@
 ---
 title: Uso de la fuente de cambios de Azure Cosmos DB con Azure Functions
 description: Uso de Azure Functions para conectarse a la fuente de cambios de Azure Cosmos DB. Más adelante, puede crear funciones de Azure reactivas que se desencadenan en cada nuevo evento.
-author: markjbrown
-ms.author: mjbrown
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7f4903cf29f15132db91e47d78efe5a556efd937
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a751313d5c7f43401a9c031bf502a9a5d7f79612
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93340250"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113355328"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquitecturas basadas en eventos sin servidor con Azure Cosmos DB y Azure Functions
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

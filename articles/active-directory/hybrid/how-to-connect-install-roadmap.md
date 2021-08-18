@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae575aa6544a174a70eb8ea4749566e8660280e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bf80f24aca889a57896bcb0768d4727cae9440a
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94873274"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110230"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Guía de instalación de Azure AD Connect y Azure AD Connect Health
 
@@ -155,7 +155,7 @@ Para empezar a usar Azure AD Connect Health, siga estos pasos:
 El portal de Azure AD Connect Health muestra las vistas de alertas, la supervisión del rendimiento y el análisis de uso. La dirección URL https://aka.ms/aadconnecthealth le lleva a la hoja principal de Azure AD Connect Health. Puede considerar una hoja como una ventana. En la hoja principal, verá **Inicio rápido**, los servicios de Azure AD Connect Health y otras opciones de configuración. Consulte la siguiente captura de pantalla y las explicaciones que se proporciona después de la captura de pantalla. Después de implementar los agentes, el servicio de mantenimiento identifica automáticamente los servicios que Azure AD Connect Health supervisa.
 
 > [!NOTE]
-> Para más información sobre licencias, consulte [Preguntas más frecuentes de Azure AD Connect Health](reference-connect-health-faq.md) o la [página de precios de Azure AD](https://aka.ms/aadpricing).
+> Para más información sobre licencias, consulte [Preguntas más frecuentes de Azure AD Connect Health](reference-connect-health-faq.yml) o la [página de precios de Azure AD](https://aka.ms/aadpricing).
     
 ![portal de Azure AD Connect Health](./media/whatis-hybrid-identity-health/portalsidebar.png)
 

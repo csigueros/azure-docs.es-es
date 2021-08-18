@@ -5,12 +5,12 @@ keywords: hadoop alta disponibilidad
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 74f8bdd26e000b89bfae84102077c241f85abf7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3cbae5df6e9a4e5ff17bf1245fcaf190efbbf84
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98933313"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112371525"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Continuidad empresarial de Azure HDInsight
 
@@ -81,7 +81,7 @@ No siempre se toma un evento catastrófico que afecta a la funcionalidad empresa
 
 ### <a name="hdinsight-metastore"></a>Metastore de HDInsight
 
-HDInsight usa [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) como metastore, lo que proporciona un Acuerdo de Nivel de Servicio del 99,99 %. Se conservan tres réplicas de datos dentro de un centro de datos con replicación sincrónica. Si se produce una pérdida de réplica, se proporciona una réplica alternativa sin problemas. La [replicación geográfica activa](../azure-sql/database/active-geo-replication-overview.md) es compatible de forma integrada con un máximo de cuatro centros de datos. Cuando hay una conmutación por error, ya sea manual o del centro de datos, la primera réplica de la jerarquía se convierte automáticamente en compatible con lectura y escritura. Para más información, consulte [Continuidad empresarial de Azure SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
+HDInsight usa [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_4/) como metastore, lo que proporciona un Acuerdo de Nivel de Servicio del 99,99 %. Se conservan tres réplicas de datos dentro de un centro de datos con replicación sincrónica. Si se produce una pérdida de réplica, se proporciona una réplica alternativa sin problemas. La [replicación geográfica activa](../azure-sql/database/active-geo-replication-overview.md) es compatible de forma integrada con un máximo de cuatro centros de datos. Cuando hay una conmutación por error, ya sea manual o del centro de datos, la primera réplica de la jerarquía se convierte automáticamente en compatible con lectura y escritura. Para más información, consulte [Continuidad empresarial de Azure SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 ### <a name="hdinsight-storage"></a>Almacenamiento para HDInsight
 

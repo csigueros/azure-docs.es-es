@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 658107bb74396891c8e6e05a9e8074a9416a5f6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 999bfb9278f3c355e2b431c0fe3ca13648aa42c9
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100369669"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112413014"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Introducción a la integración de Azure Service Bus en Event Grid
 Service Bus puede ahora emitir eventos a Event Grid cuando haya mensajes en una cola o suscripción y no haya ningún receptor presente. Puede crear suscripciones de Event Grid para los espacios de nombres de Service Bus, escuchar estos eventos y reaccionar a ellos iniciando un receptor. Con esta característica, puede usar Service Bus en modelos de programación reactiva. El principal escenario de esta característica es que aquellas colas o suscripciones de Service Bus que tengan un bajo volumen de mensajes, no tienen que tener un sondeo de receptor de mensajes en todo momento. 
@@ -25,7 +25,7 @@ Para habilitar la característica necesita los siguientes elementos:
 
 ![19][]
 
-[!INCLUDE [event-grid-service-bus.md](../../includes/event-grid-service-bus.md)]
+[!INCLUDE [event-grid-service-bus.md](./includes/event-grid-service-bus.md)]
 
 ## <a name="event-grid-subscriptions-for-service-bus-namespaces"></a>Suscripciones de Event Grid para espacios de nombres de Service Bus
 Puede crear suscripciones de Event Grid para los espacios de nombres de Service Bus de tres formas diferentes:

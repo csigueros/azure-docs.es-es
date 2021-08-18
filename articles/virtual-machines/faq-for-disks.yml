@@ -3,17 +3,17 @@ metadata:
   title: Preguntas frecuentes sobre los discos
   description: Preguntas más frecuentes sobre los discos de máquina virtual Linux de IaaS de Azure y los discos premium (administrados y no administrados)
   author: roygara
-  ms.service: virtual-machines
+  ms.service: storage
   ms.topic: conceptual
   ms.date: 06/15/2017
   ms.author: rogarana
   ms.subservice: disks
-  ms.openlocfilehash: 750a6e24434d205d5a6d014e1636c43e53be8692
-  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+  ms.openlocfilehash: 2e3e13f0db5b96d8d1cd8ca3eaa7b900dacb0d72
+  ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112034918"
+  ms.lasthandoff: 07/07/2021
+  ms.locfileid: "113358318"
 title: Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 summary: En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 sections:

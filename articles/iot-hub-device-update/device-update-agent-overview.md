@@ -6,18 +6,18 @@ ms.author: valls
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0d97287657b1e1fe7d540e8811c90794aaa5fece
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 14bc02c81e28e98d6d094cdfbde6095b7cd2d885
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739573"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403456"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>Introducción al agente de Device Update para IoT Hub
 
 El agente de Device Update consta de dos niveles conceptuales:
 
-* El nivel de interfaz se basa en [Azure IoT Plug and Play (PNP)](../iot-pnp/overview-iot-plug-and-play.md), lo que permite que la mensajería fluya entre el agente de Device Update y los servicios de Device Update.
+* El nivel de interfaz se basa en [Azure IoT Plug and Play (PNP)](../iot-develop/overview-iot-plug-and-play.md), lo que permite que la mensajería fluya entre el agente de Device Update y los servicios de Device Update.
 * El nivel de plataforma es responsable de las acciones de actualización Descargar, Instalar y Aplicar de alto nivel, que pueden ser específicas de la plataforma o del dispositivo.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="Implementaciones del agente." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::

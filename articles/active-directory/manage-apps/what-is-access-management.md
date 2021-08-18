@@ -2,20 +2,21 @@
 title: Administración del acceso a aplicaciones con Azure AD
 description: Describe cómo Azure Active Directory permite a las organizaciones especificar las aplicaciones a las que cada usuario tiene acceso.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: mtillman
-ms.openlocfilehash: b50f93dc13eb5fbd5934462b7084c521a6686ae0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.openlocfilehash: 2dc66adcce209b29579bb88184272fd2bda1353c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079398"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738751"
 ---
 # <a name="managing-access-to-apps"></a>Administración del acceso a las aplicaciones
 
@@ -61,6 +62,7 @@ Azure AD proporciona [varias maneras personalizables para implementar aplicacio
 Puede decidir si los usuarios asignados a una aplicación empresarial pueden verla en la página Aplicaciones y en el iniciador de aplicaciones de Microsoft 365.
 
 ## <a name="example-complex-application-assignment-with-azure-ad"></a>Ejemplo: Asignación de aplicaciones complejas con Azure AD
+
 Considere una aplicación como Salesforce. En muchas organizaciones, Salesforce se usa principalmente en los equipos de ventas y marketing. A menudo, los miembros del equipo de marketing tienen acceso privilegiado a Salesforce, mientras que los miembros del equipo de ventas tienen acceso limitado. En muchos casos, una amplia población de trabajadores de la información tiene acceso restringido a la aplicación. Las excepciones a estas reglas complican el asunto. Con frecuencia, es prerrogativa de los equipos líderes de marketing o de ventas conceder acceso a un usuario o cambiar su rol independientemente de estas reglas genéricas.
 
 Con Azure AD, las aplicaciones como Salesforce se pueden configurar previamente para el inicio de sesión único (SSO) y el aprovisionamiento automatizado. Después de configurar la aplicación, un administrador puede realizar la acción puntual de crear y asignar los grupos adecuados. En este ejemplo, un administrador puede ejecutar las siguientes asignaciones:
@@ -82,16 +84,18 @@ Las aplicaciones de Microsoft (como Exchange, SharePoint, Yammer, etc.) se asign
 
 Hay tres maneras principales en que un usuario puede acceder a una aplicación publicada por Microsoft.
 
-- En el caso de aplicaciones de Microsoft 365 u otros conjuntos de aplicaciones de pago, a los usuarios se les concede acceso mediante la **asignación de licencias** o mediante la funcionalidad de asignación de licencias basada en grupo.
-- En las aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, se puede conceder acceso a los usuarios por medio del [consentimiento del usuario](configure-user-consent.md). Esto significa que inician sesión en la aplicación con su cuenta profesional o educativa de Azure AD, que les permite tener acceso a un conjunto limitado de datos en sus cuentas.
-- Además, para aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, a los usuarios se les puede conceder acceso mediante [consentimiento del administrador](manage-consent-requests.md). Esto significa que un administrador ha determinado que todos los miembros de la organización pueden usar la aplicación, por lo que inicia sesión en la aplicación con una cuenta de administrador global y concede acceso a todos ellos.
+* En el caso de aplicaciones de Microsoft 365 u otros conjuntos de aplicaciones de pago, a los usuarios se les concede acceso mediante la **asignación de licencias** o mediante la funcionalidad de asignación de licencias basada en grupo.
+* En las aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, se puede conceder acceso a los usuarios por medio del [consentimiento del usuario](configure-user-consent.md). Esto significa que inician sesión en la aplicación con su cuenta profesional o educativa de Azure AD, que les permite tener acceso a un conjunto limitado de datos en sus cuentas.
+
+* Además, para aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, a los usuarios se les puede conceder acceso mediante [consentimiento del administrador](manage-consent-requests.md). Esto significa que un administrador ha determinado que todos los miembros de la organización pueden usar la aplicación, por lo que inicia sesión en la aplicación con una cuenta de administrador global y concede acceso a todos ellos.
 
 Algunas aplicaciones combinan estos métodos. Por ejemplo, algunas aplicaciones de Microsoft forman parte de una suscripción a Microsoft 365, pero siguen requiriendo consentimiento.
 
-Los usuarios pueden acceder a las aplicaciones de Microsoft 365 a través de sus portales de Office 365 correspondientes. También puede mostrar u ocultar las aplicaciones de Microsoft 365 en la página Aplicaciones con el [botón de alternancia de visibilidad de Office 365](hide-application-from-user-portal.md) en **Configuración de usuario** en su directorio. 
+Los usuarios pueden acceder a las aplicaciones de Microsoft 365 a través de sus portales de Office 365 correspondientes. También puede mostrar u ocultar las aplicaciones de Microsoft 365 en la página Aplicaciones con el [botón de alternancia de visibilidad de Office 365](hide-application-from-user-portal.md) en **Configuración de usuario** en su directorio.
 
 Al igual que sucede con las aplicaciones empresariales, se pueden [asignar usuarios](assign-user-or-group-access-portal.md) a determinadas aplicaciones de Microsoft a través de Azure Portal o, si la opción de Portal no está disponible, con PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Protección de aplicaciones con acceso condicional](../conditional-access/concept-conditional-access-cloud-apps.md)
 * [Administración de grupos de autoservicio/SSAA](../enterprise-users/groups-self-service-management.md)

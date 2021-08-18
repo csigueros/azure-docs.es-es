@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.author: mjbrown
-ms.openlocfilehash: 7163658024d150a7c5d75c3b3ac0b6b6b29cd3cb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb39414e73ec3df2d2714d794f7060815b99bce1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105037315"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735417"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Plantillas de Azure Resource Manager para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-En este artículo solo se muestran ejemplos de plantillas de Azure Resource Manager para cuentas de Core (SQL) API. También puede encontrar ejemplos de plantillas para [Cassandra API](templates-samples-cassandra.md), [Gremlin API](templates-samples-gremlin.md), [MongoDB API](templates-samples-mongodb.md) y [Table API](templates-samples-table.md).
+En este artículo solo se muestran ejemplos de plantillas de Azure Resource Manager para cuentas de Core (SQL) API. También puede encontrar ejemplos de plantillas para [Cassandra API](cassandra/templates-samples.md), [Gremlin API](templates-samples-gremlin.md), [MongoDB API](mongodb/resource-manager-template-samples.md) y [Table API](table/resource-manager-templates.md).
 
 ## <a name="core-sql-api"></a>API Core (SQL)
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
 ms.date: 05/27/2021
-ms.openlocfilehash: e260b9fa7b24a3cb91e107bac6b01537879857c0
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 56389ff2dc936fe1d9a0a922f10c8055de6de1ba
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110576902"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729735"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico o VM de VMware
 
@@ -223,7 +223,7 @@ Ejecute el archivo de instalación del modo siguiente:
 |/PSIP|Obligatorio|Dirección IP de la NIC que se usará para la transferencia de datos de replicación| Cualquier dirección IP válida|
 |/CSIP|Obligatorio|Dirección IP de la NIC en la que el servidor de configuración realiza la escucha| Cualquier dirección IP válida|
 |/PassphraseFilePath|Obligatorio|Ruta de acceso completa a la ubicación del archivo de frase de contraseña|Ruta de acceso de archivo válido|
-|/BypassProxy|Opcional|Especifica si el servidor de configuración se conecta a Azure sin proxy|Para hacerlo, obtenga este valor desde Venu|
+|/BypassProxy|Opcional|Especifica si el servidor de configuración se conecta a Azure sin proxy||
 |/ProxySettingsFilePath|Opcional|Configuración del proxy (el proxy predeterminado requiere autenticación, o un proxy personalizado)|El archivo debe tener el formato especificado a continuación|
 |DataTransferSecurePort|Opcional|Número de puerto en el PSIP que se usará para los datos de replicación| Número de puerto válido (el valor predeterminado es 9433)|
 |/SkipSpaceCheck|Opcional|Omitir comprobación de espacio para disco de caché| |

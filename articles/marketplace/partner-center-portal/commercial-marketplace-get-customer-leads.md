@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 05/20/2021
-ms.openlocfilehash: bfb900dd2be2d83c46663b21773bb14585129be9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e255c88d76d0f9a4a6c1256f36386beedee04683
+ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110453097"
+ms.lasthandoff: 07/11/2021
+ms.locfileid: "113601371"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Clientes potenciales a partir de la oferta en el marketplace comercial
 
@@ -98,4 +98,4 @@ Una vez implementada la configuración técnica, incorpore estos clientes potenc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas más frecuentes y solución de problemas de administración de clientes potenciales](../lead-management-faq.md)
+- [Preguntas más frecuentes y solución de problemas de administración de clientes potenciales](../lead-management-faq.yml)

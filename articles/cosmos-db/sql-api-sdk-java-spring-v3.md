@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 009d40d0120aa21a38f218087e803dd94bbfb9c2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1ac0d0af57cdafae611107361ccce9eced62c239
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075041"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733133"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v3 para la API Core (SQL): Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -82,7 +82,7 @@ Puede usar Spring Data Azure Cosmos DB en las aplicaciones de [Azure Spring Clo
 | Contenido | Vínculo |
 |---|---|
 |**Descarga del SDK**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-cosmos) |
-|**Documentación de la API** | [Documentación de referencia de API](/java/api/com.azure.spring.data.cosmos) |
+|**Documentación de la API** | [Documentación de referencia de API](/java/api/overview/azure/spring-data-cosmos-readme?view=azure-java-stable&preserve-view=true) |
 |**Contribuya al SDK** | [Repositorio central del SDK de Azure para Java en GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) | 
 |**Introducción** | [Inicio rápido: Creación de una aplicación de Spring Data Azure Cosmos DB para administrar los datos de SQL API de Azure Cosmos DB](./create-sql-api-spring-data.md) <br> [Repositorio de GitHub con código de inicio rápido](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) | 
 |**Ejemplos de código básicos** | [Azure Cosmos DB: Ejemplos de Spring Data Azure Cosmos DB para SQL API](sql-api-spring-data-sdk-samples.md) <br> [Repositorio de GitHub con código de ejemplo](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples)|
@@ -102,7 +102,7 @@ Puede usar Spring Data Azure Cosmos DB en las aplicaciones de [Azure Spring Clo
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

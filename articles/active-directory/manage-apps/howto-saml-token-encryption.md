@@ -2,33 +2,33 @@
 title: Cifrado de tokens SAML en Azure Active Directory
 description: Obtenga información para configurar el cifrado de tokens SAML de Azure Active Directory.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.author: mtillman
-ms.reviewer: paulgarn
+ms.author: davidmu
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 303a6e63a429ed77d5c613bb85626c11055ba04a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 2dc7169055f006ca12c2f291d20683022a27d7a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074870"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749164"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Procedimientos: Configuración del cifrado de tokens SAML de Azure AD
 
 > [!NOTE]
-> El cifrado de tokens es una característica Premium de Azure Active Directory (Azure AD). Para más información sobre las ediciones, las características y los precios de Azure AD, consulte [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+> El cifrado de tokens es una característica Premium de Azure Active Directory (Azure AD). Para más información sobre las ediciones, las características y los precios de Azure AD, consulte [Precios de Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 El cifrado de tokens SAML habilita el uso de aserciones SAML cifradas con una aplicación que lo admite. Cuando se configure para una aplicación, Azure AD cifrará las aserciones SAML que emite para esa aplicación mediante la clave pública obtenida desde un certificado almacenado en Azure AD. La aplicación debe usar la clave privada coincidente para cifrar el token antes de que se pueda usar como prueba de la autenticación del usuario conectado.
 
 Cifrar las aserciones SAML entre Azure AD y la aplicación proporciona una garantía adicional de que el contenido del token no se puede interceptar y que los datos personales o corporativos no quedan expuestos.
 
-Incluso sin el cifrado de tokens, los tokens SAML de Azure AD nunca se transmiten por la red sin cifrar. Azure AD requiere que los intercambios de solicitud/respuesta de token se realicen a través de canales HTTPS/TLS cifrados para que las comunicaciones entre el IDP, el explorador y la aplicación se realicen en vínculos cifrados. Considere el valor del cifrado de tokens para su situación en comparación con la sobrecarga de administrar certificados adicionales.   
+Incluso sin el cifrado de tokens, los tokens SAML de Azure AD nunca se transmiten por la red sin cifrar. Azure AD requiere que los intercambios de solicitud/respuesta de token se realicen a través de canales HTTPS/TLS cifrados para que las comunicaciones entre el IDP, el explorador y la aplicación se realicen en vínculos cifrados. Considere el valor del cifrado de tokens para su situación en comparación con la sobrecarga de administrar certificados adicionales.
 
 Para configurar el cifrado de tokens, debe cargar un archivo de certificado X.509 que contenga la clave pública en el objeto de aplicación de Azure AD que representa la aplicación. Para obtener el certificado X.509, puede descargarlo desde la misma aplicación u obtenerlo del proveedor de la aplicación en los casos donde este proporciona las claves de cifrado, o bien, en casos donde la aplicación espera que el usuario proporcione una clave cifrada, se puede crear usando herramientas de criptografía, la parte de la clave privada que se cargó en el almacén de claves de la aplicación y el certificado de clave pública coincidente que se cargó en Azure AD.
 

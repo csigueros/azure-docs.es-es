@@ -8,26 +8,25 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: SimranArora904
 ms.author: siarora
-ms.date: 05/25/2021
+ms.date: 06/14/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: b9890ad85bea81b918a9b625a2cd62adb11a5820
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 66fe4d7e5b145b5f32fc0a881c4a9270872d9cac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368879"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739151"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 
 Azure usa límites y cuotas para evitar rebasamientos presupuestarios por fraudes y para respetar las restricciones de capacidad de Azure. Tenga en cuenta estos límites a medida que escala para cargas de trabajo de producción. En este artículo, aprenderá lo siguiente:
 
 > [!div class="checklist"]
-> + Límites predeterminados de los recursos de Azure relacionados con [Azure Machine Learning](overview-what-is-azure-ml.md).
+> + Límites predeterminados de los recursos de Azure relacionados con [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
 > + Creación de cuotas de nivel de área de trabajo.
 > + Visualización de las cuotas y los límites.
 > + Solicitud de aumentos de cuota.
-> + Puntos de conexión privados y cuotas de DNS.
 
 Además de administrar cuotas, puede obtener información sobre el [Planeamiento y administración de los costos de Azure Machine Learning](concept-plan-manage-cost.md) o sobre los [Límites de servicio en Azure Machine Learning](resource-limits-quotas-capacity.md).
 
@@ -199,35 +198,8 @@ Cuando solicite un aumento de cuota, seleccione el servicio que tiene en mente. 
 > [!NOTE]
 > Las [suscripciones de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) no son aptas para aumentos de límite ni cuota. Si tiene una suscripción de evaluación gratuita, puede actualizar a una suscripción de [pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para obtener más información, vea [Actualización de evaluación gratuita de Azure a pago por uso](../cost-management-billing/manage/upgrade-azure-subscription.md) y [Preguntas más frecuentes sobre la cuenta gratuita de Azure](https://azure.microsoft.com/free/free-account-faq).
 
-## <a name="private-endpoint-and-private-dns-quota-increases"></a>El punto de conexión privado y la cuota de DNS privada aumentan
-
-Existen límites en cuanto al número de puntos de conexión privados y zonas DNS privadas que pueden crearse en una suscripción.
-
-Azure Machine Learning crea recursos en la suscripción (cliente), pero algunos escenarios crean recursos en una suscripción propiedad de Microsoft.
-
- En los siguientes escenarios puede que tenga que solicitar una asignación de cuota en la suscripción propiedad de Microsoft:
-
-* Área de trabajo habilitada para Azure Private Link con una clave administrada por el cliente (CMK)
-* Adjunte un clúster de Azure Kubernetes Service habilitado por Private Link en el área de trabajo.
-
-Para solicitar una asignación para dichos casos, siga estos pasos:
-
-1. [Cree una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) y seleccione las siguientes opciones en la sección __Conceptos básicos__:
-
-    | Campo | Número de selección |
-    | ----- | ----- |
-    | Tipo de problema | **Técnico** |
-    | Servicio | **Mis servicios**. Luego seleccione __Machine Learning__ en la lista desplegable. |
-    | Tipo de problema | **Seguridad y configuración del área de trabajo** |
-    | Subtipo de problema | **Solicitud de concesión de punto de conexión privado y de zona DNS privada** |
-
-2. En la sección __Detalles__, use el campo __Descripción__ para proporcionar la región de Azure y el escenario que piensa usar. Si necesita solicitar aumentos de cuota para varias suscripciones, especifique los identificadores de suscripción en este campo.
-
-3. Para crear la solicitud, seleccione __Crear__.
-
-:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Captura de pantalla de la solicitud de aumento de cuota de un punto de conexión privado y una DNS privada.":::
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 + [Planeamiento y administración de los costos de Azure Machine Learning](concept-plan-manage-cost.md)
 + [Límites de servicio en Azure Machine Learning](resource-limits-quotas-capacity.md)
++ [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md)

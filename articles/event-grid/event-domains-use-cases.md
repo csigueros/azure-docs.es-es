@@ -3,18 +3,18 @@ title: Casos de uso de dominios de eventos en Azure Event Grid
 description: En este artículo se describen algunos casos de uso de los dominios de eventos en Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 00318fc78053ed55e3599c329746d89d2eee4f99
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 24a338717b44567bad0ec1575d98ddaeada71113
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204241"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112413628"
 ---
 # <a name="use-cases-for-event-domains-in-azure-event-grid"></a>Casos de uso de dominios de eventos en Azure Event Grid
 En este artículo se describen algunos casos de uso de los dominios de eventos en Azure Event Grid. 
 
 ## <a name="use-case-1"></a>Caso de uso 1 
-[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
+[!INCLUDE [event-grid-domain-example-use-case.md](./includes/event-grid-domain-example-use-case.md)]
 
 ## <a name="use-case-2"></a>Caso de uso 2
 Cuando se usan temas del sistema, hay un límite de 500 suscripciones a eventos. Si necesita más de 500 suscripciones a eventos de un tema del sistema, puede usar dominios. 

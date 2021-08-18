@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 7d1c31c9f8507154056e6e6de0073eeb9ae636b7
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: fa41d81192a84b0b5b3c15f2c965c914a1ba42eb
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422019"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294326"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utilice identidades administradas con Azure Machine Learning (versión preliminar)
 
@@ -218,7 +218,7 @@ from azureml.core.container_registry import RegistryIdentity
 
 identity = RegistryIdentity()
 identity.resource_id= "<UAI resource ID>"
-identity.client_id="<UAI client ID>”
+identity.client_id="<UAI client ID>"
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
@@ -258,7 +258,7 @@ ws = Workspace.create(name="workspace name",
 También puede usar [una plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced) para crear un área de trabajo con una identidad administrada asignada por el usuario.
 
 > [!IMPORTANT]
-> Si aporta sus propios recursos asociados, en lugar de crearlos con el servicio Azure Machine Learning, debe conceder los roles de identidad administrados sobre esos recursos. Use la [plantilla de Resource Manager de asignación de roles](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) para hacer las asignaciones.
+> Si aporta sus propios recursos asociados, en lugar de crearlos con el servicio Azure Machine Learning, debe conceder los roles de identidad administrados sobre esos recursos. Use la [plantilla de Resource Manager de asignación de roles](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) para hacer las asignaciones.
 
 En un área de trabajo con [claves administradas por el cliente para el cifrado](concept-data-encryption.md), puede pasar una identidad administrada asignada por el usuario para autenticarse desde el almacenamiento en Key Vault. Use el argumento __user-assigned-identity-for-cmk-encryption__ (CLI) o __user_assigned_identity_for_cmk_encryption__ (SDK) para pasar la identidad administrada. Esta identidad administrada puede ser la misma que la identidad administrada asignada por el usuario principal del área de trabajo, o una diferente.
 

@@ -4,12 +4,12 @@ description: Aprenda a obtener, paginar, omitir y aplicar formato a registros de
 ms.date: 05/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d860ea4af08c8982e2205bb98c82b5475734d35c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6bbb19bc11344c77707caf2df19d5e9369161c3a
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099179"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112320899"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabajo con grandes conjuntos de datos de recursos de Azure
 
@@ -34,7 +34,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-En la [API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), el control es **$top** y forma parte de **QueryRequestOptions**.
+En la [API REST](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), el control es **$top** y forma parte de **QueryRequestOptions**.
 
 El control que sea _más restrictivo_ ganará. Por ejemplo, si la consulta usa los operadores **top** o **limit** y el resultado va a ser un número de registros superior a **First**, el número máximo de registros devueltos será igual a **First**. Igualmente, si **top** o **limit** son más pequeños que **First**, el conjunto de registros devuelto sería el valor más pequeño que configure **top** o **limit**.
 
@@ -60,11 +60,11 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-En la [API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), el control es **$skip** y forma parte de **QueryRequestOptions**.
+En la [API REST](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), el control es **$skip** y forma parte de **QueryRequestOptions**.
 
 ## <a name="paging-results"></a>Paginación de resultados
 
-Cuando sea necesario dividir un conjunto de resultados en conjuntos de registros más pequeños para su procesamiento, o porque un conjunto de resultados superaría el valor máximo permitido de _1000_ registros devueltos, use la paginación. La [API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
+Cuando sea necesario dividir un conjunto de resultados en conjuntos de registros más pequeños para su procesamiento, o porque un conjunto de resultados superaría el valor máximo permitido de _1000_ registros devueltos, use la paginación. La [API REST](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources)
 **QueryResponse** proporciona valores para indicar que un conjunto de resultados se ha dividido: **resultTruncated** y **$skipToken**. **resultTruncated** es un valor booleano que avisa al consumidor si existen más registros no devueltos en la respuesta. Esta condición también se puede identificar cuando la propiedad **count** es menor que la propiedad **totalRecords**. **totalRecords** define cuántos registros coinciden con la consulta.
 
 **resultTruncated** es **true** cuando la paginación está deshabilitada o no es posible debido a que no hay columna `id` o cuando hay menos recursos disponibles de los que una consulta está solicitando. Cuando **resultTruncated** es **true**, la propiedad **$skipToken** no se establece.
@@ -82,7 +82,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > [!IMPORTANT]
 > La consulta debe **proyectar** el campo **id** para que la paginación funcione. Si no aparece en la consulta, la respuesta no incluirá **$skipToken**.
 
-Para obtener un ejemplo, consulte [Consulta de página siguiente](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#next-page-query) en la documentación de la API REST.
+Para obtener un ejemplo, consulte [Consulta de página siguiente](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#next-page-query) en la documentación de la API REST.
 
 ## <a name="formatting-results"></a>Resultados de formato
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c27e84f15a01a2d8832baae137518685de59a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fb5d74f0c912db098b5e309793963d5f07fbd58
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98725448"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730359"
 ---
 # <a name="determine-your-security-posture-for-external-access"></a>Determinación de la posición de seguridad para el acceso externo 
 
@@ -67,7 +67,7 @@ Los objetivos de acceso delegado y controlado por TI difieren.
 
 Sea lo que fuere que apruebe para su organización y escenarios, deberá: 
 
-* **Controlar el acceso a las aplicaciones, los datos y el contenido**. Esto puede realizarse a través de diversos métodos, en función de las versiones de [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) y [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
+* **Controlar el acceso a las aplicaciones, los datos y el contenido**. Esto puede realizarse a través de diversos métodos, en función de las versiones de [Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) y [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
 
 * **Reducir la superficie expuesta a ataques**. [Privileged Identity Management](../privileged-identity-management/pim-configure.md), [la prevención de pérdida de datos (DLP)](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) y las [capacidades de cifrado](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) reducen la superficie expuesta a ataques.
 

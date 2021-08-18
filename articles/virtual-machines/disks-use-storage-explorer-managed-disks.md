@@ -5,14 +5,14 @@ author: roygara
 ms.author: rogarana
 ms.date: 09/25/2019
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 9dfce7b76eed5bfc9f4979c0e3041b6c65c28422
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aba38411be9502fd8592e293580a3c816fc9b55b
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88749376"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113362276"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Uso del Explorador de Azure Storage para administrar discos administrados de Azure
 
@@ -51,7 +51,7 @@ Si el Explorador de Storage no está conectado a Azure, no podrá usarlo para ad
 
     ![Seleccionar el grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
-1. Seleccione **Cargar**.
+1. Haga clic en **Cargar**.
 
     ![Selección de carga](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button.png)
 

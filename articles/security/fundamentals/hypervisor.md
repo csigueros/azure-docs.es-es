@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
-ms.openlocfilehash: 766266edd663b75b893a5883e30bb48eed7bbfdf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/24/2021
+ms.openlocfilehash: e8da9ae3d8f8c13bf52c5c0a2ea61b38f316a8b2
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94696122"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895641"
 ---
 # <a name="hypervisor-security-on-the-azure-fleet"></a>Seguridad del hipervisor en la flota de Azure
 
@@ -69,6 +69,7 @@ Todas las superficies expuestas a ataques de las máquinas virtuales son modelad
 Para más información sobre lo que se hace para fomentar la seguridad y la integridad de la plataforma, vea:
 
 - [Seguridad de firmware](firmware.md)
+- [Integridad del código de plataforma](code-integrity.md)
 - [Arranque seguro](secure-boot.md)
 - [Atestación de host y de arranque medido](measured-boot-host-attestation.md)
 - [Proyecto Cerberus](project-cerberus.md)

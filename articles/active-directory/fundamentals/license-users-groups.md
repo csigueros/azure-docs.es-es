@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e8ea30ddfcaeff1a177a14a0b1d911d14b76b4
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 3ba2e88a20106b9344a6d7942d4bc7149a346b7c
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111526095"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733149"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Asignación o eliminación de licencias en el portal de Azure Active Directory
 
@@ -35,7 +35,7 @@ Hay varios planes de licencia disponibles para el servicio de Azure AD, entre l
 
 - Azure AD Premium P2
 
-Para obtener información específica acerca de cada plan de licencia y los detalles de licencias asociados, consulte [¿Qué licencia necesito?](https://azure.microsoft.com/pricing/details/active-directory/) Para registrarse en planes de licencias Premium de Azure AD, consulte la información que se indica [aquí](./active-directory-get-started-premium.md).
+Para obtener información específica acerca de cada plan de licencia y los detalles de licencias asociados, consulte [¿Qué licencia necesito?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) Para registrarse en planes de licencias Premium de Azure AD, consulte la información que se indica [aquí](./active-directory-get-started-premium.md).
 
 No todos los servicios de Microsoft están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un grupo, tiene que especificar la **Ubicación de uso** para todos los miembros. Puede establecer este valor en el área **Azure Active Directory &gt; Usuarios &gt; Perfil &gt; Configuración** en Azure AD. Cualquier usuario cuya ubicación de uso no se especifique hereda la ubicación de la organización de Azure AD.
 

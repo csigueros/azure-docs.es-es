@@ -1,20 +1,20 @@
 ---
 title: Enlace de una instancia de Azure Database for MySQL con una aplicación de Azure Spring Cloud
 description: Aprenda a enlazar una instancia de Azure Database for MySQL a una aplicación de Azure Spring Cloud.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 71408513e18dc506f2c596d4e05db4fcc98ccea2
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 45ded9214f310f3505cc5d032754333c5cf702d8
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004158"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862542"
 ---
-# <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Enlace de una instancia de Azure Database for MySQL con una aplicación de Azure Spring Cloud 
+# <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Enlace de una instancia de Azure Database for MySQL con una aplicación de Azure Spring Cloud
 
 **Este artículo se aplica a:** ✔️ Java
 
@@ -38,6 +38,7 @@ Si no tiene ninguna instancia de Azure Spring Cloud implementado, siga las instr
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
     ```
+
 1. En el archivo *application.properties*, quite todas las propiedades de `spring.datasource.*`.
 
 1. Actualice la aplicación actual mediante la ejecución de `az spring-cloud app deploy` o cree una implementación para este cambio mediante la ejecución de `az spring-cloud app deployment create`.
@@ -45,20 +46,21 @@ Si no tiene ninguna instancia de Azure Spring Cloud implementado, siga las instr
 ## <a name="bind-your-app-to-the-azure-database-for-mysql-instance"></a>Enlace de una aplicación a una instancia de Azure Database for MySQL
 
 #### <a name="service-binding"></a>[enlace del servicio](#tab/Service-Binding)
-1. Anote el nombre de usuario y la contraseña de administrador de su cuenta de Azure Database for MySQL. 
+1. Anote el nombre de usuario y la contraseña de administrador de su cuenta de Azure Database for MySQL.
 
 1. Conéctese al servidor, cree una base de datos llamada **testdb** desde un cliente de MySQL y, después cree una cuenta que no sea de administrador.
 
-1. En Azure Portal, en la página del servicio **Azure Spring Cloud**, busque el **Panel de la aplicación** y seleccione la aplicación que va a enlazar a la instancia de Azure Database for MySQL.  Se trata de la misma aplicación que se actualizó o implementó en el paso anterior. 
+1. En Azure Portal, en la página del servicio **Azure Spring Cloud**, busque el **Panel de la aplicación** y seleccione la aplicación que va a enlazar a la instancia de Azure Database for MySQL.  Se trata de la misma aplicación que se actualizó o implementó en el paso anterior.
 
-1. Seleccione **Service binding** (Enlace de servicio) y, después, seleccione el botón **Create service binding** (Crear enlace de servicio). 
+1. Seleccione **Service binding** (Enlace de servicio) y, después, seleccione el botón **Create service binding** (Crear enlace de servicio).
 
 1. Rellene el formulario, seleccione **Azure MySQL** en **Tipo de enlace** y use el mismo nombre de base de datos que usó anteriormente, y el nombre de usuario y contraseña que anotó en el primer paso.
 
 1. Tras reiniciar la aplicación el enlace debería funcionar.
 
 1. Para asegurarse de que el enlace del servicio es correcto, seleccione el nombre del enlace y compruebe sus detalles. El campo `property` debería ser similar a este:
-    ```
+
+    ```properties
     spring.datasource.url=jdbc:mysql://some-server.mysql.database.azure.com:3306/testdb?useSSL=true&requireSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     spring.datasource.username=admin@some-server
     spring.datasource.password=abc******
@@ -170,6 +172,7 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
   deployment_name     = azurerm_spring_cloud_java_deployment.example.name
 }
 ```
+
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes

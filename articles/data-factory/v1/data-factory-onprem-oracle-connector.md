@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a590082acee1a3382ef51ce2361eb2c9b5fb2636
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 087afa7425d1244c38514c5388e242281bdab3dc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741552"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736787"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copia de datos con una instancia local de Oracle como origen o destino mediante Azure Data Factory
 
@@ -122,7 +122,7 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 
 **Ejemplo: uso del controlador de ODP**
 
-Para obtener información acerca de los formatos permitidos, consulte [Proveedor de datos de Oracle para .NET](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
+Para obtener información acerca de los formatos permitidos, consulte [Proveedor de datos de Oracle para .NET](https://www.oracle.com/in/database/technologies/appdev/dotnet/odp.html).
 
 ```json
 {

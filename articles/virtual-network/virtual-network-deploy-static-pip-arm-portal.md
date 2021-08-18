@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/12/2020
 ms.author: allensu
-ms.openlocfilehash: d416af3d3a8eb8ab8057f13cc0d9a133adcb849a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6eeb9f5874bc5379465c8d238f97c4e8f6c50cba
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98221163"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433675"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Creación de una máquina virtual con una dirección IP pública estática mediante Azure Portal
 
@@ -36,7 +36,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Value                                          |
+    | Configuración | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -57,7 +57,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | Acepte el nombre de red predeterminado. |
@@ -73,6 +73,8 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 5. Seleccione **Revisar + crear**. 
   
 6. Revise la configuración y, a continuación, seleccione **Crear**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -95,7 +97,7 @@ La SKU de la dirección IP pública de la máquina virtual debe coincidir con l
 
 Puede descargar la lista de intervalos (prefijos) para las nubes de Azure [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [Gobierno de Estados Unidos](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) y [Alemania](https://www.microsoft.com/download/details.aspx?id=57064).
 
-- Más información sobre [direcciones IP públicas estáticas](./public-ip-addresses.md#allocation-method).
+- Más información sobre [direcciones IP públicas estáticas](./public-ip-addresses.md#ip-address-assignment).
 - Obtenga más información acerca de las [direcciones IP públicas](./public-ip-addresses.md#public-ip-addresses) en Azure.
 - Obtenga más información acerca de toda la [configuración de direcciones IP públicas](virtual-network-public-ip-address.md#create-a-public-ip-address).
 - Obtener más información acerca de las [direcciones IP privadas](./private-ip-addresses.md) y la asignación de una [dirección IP privada estática](virtual-network-network-interface-addresses.md#add-ip-addresses) a una máquina virtual de Azure.

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 02/16/2021
 ms.author: alexeyo
-ms.openlocfilehash: d4369b66bacbe8cff4fc9712ffcd0cb5a370c439
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b27bd16168f4949081f3f399f7f8f8293d2aa0b
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100636275"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292573"
 ---
 # <a name="swagger-documentation"></a>Documentación de Swagger
 
-El servicio de voz ofrece una especificación de Swagger para interactuar con varias de las API REST que se usan para importar datos, crear modelos, probar la precisión de los modelos, crear puntos de conexión personalizados, poner en cola las transcripciones en lote y administrar las suscripciones. La mayoría de las operaciones disponibles en el [área de Habla personalizada de Speech Studio](https://aka.ms/customspeech) se pueden completar mediante programación con estas API.
+El servicio de voz ofrece una especificación de Swagger para interactuar con varias de las API REST que se usan para importar datos, crear modelos, probar la precisión de los modelos, crear puntos de conexión personalizados, poner en cola las transcripciones en lote y administrar las suscripciones. La mayoría de las operaciones disponibles en el [área de Habla personalizada de Speech Studio](./custom-speech-overview.md) se pueden completar mediante programación con estas API.
 
 > [!NOTE]
 > Los servicios de voz tienen varias API REST para la [conversión de voz en texto](rest-speech-to-text.md) y la [conversión de texto a voz](rest-text-to-speech.md).  

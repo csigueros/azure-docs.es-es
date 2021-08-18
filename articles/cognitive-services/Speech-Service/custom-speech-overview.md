@@ -3,20 +3,20 @@ title: 'Introducción a Custom Speech: Servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Custom Speech es un conjunto de herramientas en línea que permiten evaluar y mejorar la precisión de la conversión de voz a texto de Microsoft para las aplicaciones, herramientas y productos.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: trbye
-ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: 2eaf5a6a01b8ed0cb2a82f13c2d4d33ce88d5938
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.custom: contperf-fy21q2, references_regions
+ms.openlocfilehash: 588afaaa95ef871de11583e65d2a9ab831d28fa6
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110100422"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122069038"
 ---
 # <a name="what-is-custom-speech"></a>¿Qué es Custom Speech?
 
@@ -26,7 +26,7 @@ Habla personalizada permite evaluar y mejorar la precisión de la conversión de
 
 Para utilizar Custom Speech, necesitará una cuenta de Azure y una suscripción al Servicio de voz. Una vez que tenga una cuenta, podrá preparar los datos, entrenar y probar sus modelos, inspeccionar la calidad del reconocimiento, evaluar la precisión y, en última instancia, implementar y utilizar el modelo de conversión de voz a texto personalizado.
 
-Este diagrama resalta las partes que componen el [portal de Habla personalizada de Speech Studio](https://aka.ms/customspeech). Use los siguientes vínculos para obtener más información sobre cada paso.
+Este diagrama resalta las partes que componen el [portal de Habla personalizada de Speech Studio](https://aka.ms/speechstudio/customspeech). Use los siguientes vínculos para obtener más información sobre cada paso.
 
 ![Diagrama que resalta los componentes que constituyen el área de Habla personalizada de Speech Studio.](./media/custom-speech/custom-speech-overview.png)
 
@@ -43,9 +43,6 @@ Este diagrama resalta las partes que componen el [portal de Habla personalizada 
 ## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 
 Es preciso tener una cuenta de Azure y una suscripción al servicio Voz para poder usar [Speech Studio](https://speech.microsoft.com/customspeech) para crear un modelo personalizado. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](overview.md#try-the-speech-service-for-free).
-
-> [!NOTE]
-> Asegúrese de crear una suscripción estándar (S0). No se admiten las suscripciones Gratis (F0).
 
 Si tiene previsto entrenar un modelo personalizado con **datos de audio**, elija una de las siguientes regiones que tengan hardware dedicado disponible para el entrenamiento. Esto reducirá el tiempo necesario para entrenar un modelo y le permitirá usar más audio para el entrenamiento. En estas regiones, el servicio Voz usará hasta 20 horas de audio para el entrenamiento; en otras regiones solo usará hasta 8 horas.
 

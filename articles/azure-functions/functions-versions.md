@@ -4,12 +4,12 @@ description: Azure Functions admite varias versiones del runtime. Conozca las di
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/19/2021
-ms.openlocfilehash: b3d148bbf6aadaa9ed48d234fdd22d68412f3ec5
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 18f37bba5996e7d376684e8cee646dd705ab966c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789644"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725649"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
@@ -120,7 +120,7 @@ En la versión 2.x se han realizado los siguientes cambios:
 
 * Para mejorar la supervisión, el panel de WebJobs del portal, que usaba la configuración [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) se reemplaza por Azure Application Insights, que usa la configuración [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey). Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
 
-* Todas las funciones de una aplicación de función deben compartir el mismo lenguaje. Al crear una aplicación de función, debe elegir una pila del entorno de ejecución para la aplicación. La pila del entorno de ejecución se especifica con el valor [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) en la configuración de la aplicación. Este requisito se agregó para mejorar el tiempo de inicio y la superficie de memoria. Al desarrollar localmente, también debe incluir esta configuración en el [archivo local.settings.json](functions-run-local.md#local-settings-file).
+* Todas las funciones de una aplicación de función deben compartir el mismo lenguaje. Al crear una aplicación de función, debe elegir una pila del entorno de ejecución para la aplicación. La pila del entorno de ejecución se especifica con el valor [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) en la configuración de la aplicación. Este requisito se agregó para mejorar el tiempo de inicio y la superficie de memoria. Al desarrollar localmente, también debe incluir esta configuración en el [archivo local.settings.json](functions-develop-local.md#local-settings-file).
 
 * El tiempo de espera predeterminado para las funciones en un plan de App Service ha cambiado a 30 minutos. Puede cambiar manualmente el tiempo de espera de vuelta a ilimitado mediante la configuración [functionTimeout](functions-host-json.md#functiontimeout) de host.json.
 

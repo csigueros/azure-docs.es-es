@@ -3,13 +3,13 @@ title: 'Desarrollo e implementación de un servidor de inferencia de gRPC: Azure
 description: En este artículo se proporcionan instrucciones sobre cómo desarrollar e implementar un servidor de inferencia de gRPC que se usará con Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 04/01/2021
-ms.openlocfilehash: 499620dd0fc2f200f0f0a5080b9ab540a07f1df3
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 5d0e09bc4d1f542de0e59a7dc6da37248d2e0674
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388512"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601439"
 ---
 # <a name="develop-and-deploy-grpc-inference-server"></a>Desarrollo e implementación de un servidor de inferencia de gRPC
 
@@ -42,7 +42,7 @@ Siga los pasos necesarios para implementar y poner en funcionamiento el módulo 
 1. Elija uno de los muchos lenguajes compatibles con gRPC: C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby.
 1. Implemente un servidor de gRPC que se comunicará con Video Analyzer mediante [los archivos de proto3](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc).
 
-    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.png" alt-text="Servidor de gRPC que se comunicará con Video Analyzer mediante los archivos de proto3":::
+    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.svg" alt-text="Servidor de gRPC que se comunicará con Video Analyzer mediante los archivos de proto3":::
 
     Dentro de este servicio podrá hacer lo siguiente:
     1. Controlar el intercambio de los mensajes de descripción de la sesión entre el servidor y el cliente.

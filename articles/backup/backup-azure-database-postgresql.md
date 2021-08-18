@@ -4,12 +4,12 @@ description: Más información sobre la copia de seguridad de Azure Database for
 ms.topic: conceptual
 ms.date: 04/12/2021
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 4f8e44bbaba87581b3c988602a436ed18b1a1a20
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8c3540ee686eb69304f95e31126a1a29a48aeea8
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061775"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213910"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 
@@ -42,6 +42,12 @@ Puede usar esta solución de forma independiente o sumada a la solución de copi
 - No se admite la copia de seguridad entre regiones. Esto significa que no se puede realizar una copia de seguridad de un servidor de Azure PostgreSQL en un almacén de otra región. Del mismo modo, solo puede restaurar una copia de seguridad en un servidor que se encuentre dentro de la misma región que el almacén.
 - En la restauración solo se recuperan datos; no se restauran los "roles".
 - En la versión preliminar, se recomienda ejecutar la solución solo en el entorno de prueba.
+
+## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Permisos previos para configurar copias de seguridad y restauraciones
+
+Azure Backup sigue unas estrictas directrices de seguridad. Aunque sea un servicio nativo de Azure, no se asumen los permisos en el recurso, por lo que el usuario debe concederlos explícitamente.  Del mismo modo, no se almacenan las credenciales para conectarse a la base de datos. Esto es importante para proteger los datos. En su lugar, se usa la autenticación de Azure Active Directory.
+
+[Descargue este documento](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) para obtener un script automatizado y las instrucciones relacionadas. Este script le concederá un conjunto de permisos adecuado para realizar copias de seguridad y restauraciones en un servidor de Azure PostgreSQL.
 
 ## <a name="backup-process"></a>Proceso de copia de seguridad
 
@@ -212,11 +218,7 @@ Siga esta guía paso a paso para desencadenar una restauración:
 >[!NOTE]
 >La compatibilidad con archivos de Azure Database for PostgreSQL está en versión preliminar pública limitada.
 
-## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Permisos previos para configurar copias de seguridad y restauraciones
 
-Azure Backup sigue unas estrictas directrices de seguridad. Aunque sea un servicio nativo de Azure, no se asumen los permisos en el recurso, por lo que el usuario debe concederlos explícitamente.  Del mismo modo, no se almacenan las credenciales para conectarse a la base de datos. Esto es importante para proteger los datos. En su lugar, se usa la autenticación de Azure Active Directory.
-
-[Descargue este documento](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) para obtener un script automatizado y las instrucciones relacionadas. Este script le concederá un conjunto de permisos adecuado para realizar copias de seguridad y restauraciones en un servidor de Azure PostgreSQL.
 
 ## <a name="manage-the-backed-up-azure-postgresql-databases"></a>Administración de las bases de datos de Azure PostgreSQL de las que se hizo copia de seguridad
 

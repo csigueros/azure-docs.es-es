@@ -3,20 +3,20 @@ title: 'Referencia de la API de conversión de texto a voz (REST): servicio de v
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar la API de REST Text-to-Speech. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.author: trbye
+ms.date: 07/01/2021
+ms.author: lajanuar
 ms.custom: references_regions
-ms.openlocfilehash: c5772f6632629a75bc1ea54cf2434dac34d9586a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 31d03ee9cc230412ef6fdbdcc351b7a6b5e296a6
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478322"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122066284"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
@@ -63,7 +63,7 @@ El punto de conexión `voices/list` le permite obtener una lista completa de las
 | Norte de Sudáfrica | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-sur de EE. UU. | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste de Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Sur de Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sur de Reino Unido 2 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Oeste de EE. UU. | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de Europa | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de EE. UU. | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |

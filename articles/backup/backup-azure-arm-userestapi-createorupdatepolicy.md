@@ -4,16 +4,16 @@ description: En este artículo, aprenderá a crear y administrar directivas de c
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: e4e6f5b5cf28c3830a91a494ea60680eee1546f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d874f9a75673d45a8f22f6c1523a4b77bdb9641
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89179613"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438073"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creación de directivas de copia de seguridad de Azure Recovery Services mediante API REST
 
-Los pasos para crear una directiva de copia de seguridad para un almacén de Azure Recovery Services se describen en el [documento de API REST de directiva](/rest/api/backup/protectionpolicies/createorupdate). Vamos a usar este documento como referencia para crear una directiva de copia de seguridad de máquinas virtuales de Azure.
+Los pasos para crear una directiva de copia de seguridad para un almacén de Azure Recovery Services se describen en el [documento de API REST de directiva](/rest/api/backup/protection-policies/create-or-update). Vamos a usar este documento como referencia para crear una directiva de copia de seguridad de máquinas virtuales de Azure.
 
 ## <a name="create-or-update-a-policy"></a>Creación o actualización de una directiva
 
@@ -31,10 +31,10 @@ Por ejemplo, para crear una directiva para la copia de seguridad de las máquina
 
 |Nombre  |Obligatorio  |Tipo  |Descripción  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propiedades de ProtectionPolicyResource        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protection-policies/create-or-update#azureiaasvmprotectionpolicy)      | Propiedades de ProtectionPolicyResource        |
 |etiquetas     |         | Object        |  Etiquetas del recurso       |
 
-Para obtener una lista completa de las definiciones en el cuerpo de la solicitud, consulte el [documento de la directiva de copia de seguridad de API REST](/rest/api/backup/protectionpolicies/createorupdate).
+Para obtener una lista completa de las definiciones en el cuerpo de la solicitud, consulte el [documento de la directiva de copia de seguridad de API REST](/rest/api/backup/protection-policies/create-or-update).
 
 ### <a name="example-request-body"></a>Cuerpo de solicitud de ejemplo
 
@@ -139,7 +139,7 @@ Devuelve las dos respuestas: 202 - Aceptado cuando se crea otra operación y 200
 
 |Nombre  |Tipo  |Descripción  |
 |---------|---------|---------|
-|200 OK     |    [Protection PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  Aceptar       |
+|200 OK     |    [Protection PolicyResource](/rest/api/backup/protection-policies/create-or-update#protectionpolicyresource)     |  Aceptar       |
 |202 - Aceptado     |         |     Accepted    |
 
 ### <a name="example-responses"></a>Respuestas de ejemplo

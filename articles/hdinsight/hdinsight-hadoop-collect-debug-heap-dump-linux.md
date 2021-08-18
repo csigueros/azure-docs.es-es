@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: fe5b2a1f083e246ea61854c9cbe03932e6655fdb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4425fcc415e13e990ee8d3db4351c28a8e452669
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866597"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282552"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Habilitar los volcados de montón de los servicios de Apache Hadoop en HDInsight basado en Linux
 
-[!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
+[!INCLUDE [heapdump-selector](includes/hdinsight-selector-heap-dump.md)]
 
 Los volcados de montón contienen una instantánea de la memoria de la aplicación, incluidos los valores de variables en el momento en el que se creó el volcado de memoria. Por lo tanto, son útiles para diagnosticar los problemas que se producen en tiempo de ejecución.
 

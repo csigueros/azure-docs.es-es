@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: c16764d1ce985755b6a3042873cc18b09b697bcf
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: ef8c2756d6e11dc38ac488abb0ed6d8ae8e9a78b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551618"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745850"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -682,7 +682,7 @@ Restrinja el acceso a la cuenta de almacenamiento para permitir la separación d
 **Implementación**:
 
 - Al guardar los registros de auditoría en Azure Storage, asegúrese de que el acceso a la cuenta de almacenamiento está restringido a los principios de seguridad mínimos. Controle quién tiene acceso a la cuenta de almacenamiento.
-- Para más información, consulte [Autorización de acceso a Azure Storage](../../storage/common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- Para más información, consulte [Autorización de acceso a Azure Storage](../../storage/common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 **Procedimientos recomendados**:
 

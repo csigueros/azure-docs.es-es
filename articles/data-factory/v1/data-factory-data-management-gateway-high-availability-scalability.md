@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a76479a358366591d1c4edef0755dd26ce23cd81
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100391735"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112289880"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 > [!NOTE]
@@ -99,7 +99,7 @@ En esta sección se da por supuesto que ha consultado o está familiarizado con 
         ![Data Management Gateway: instalación correcta](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
-        > Si va a aprovisionar la puerta de enlace en una máquina virtual de Azure, puede usar [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). Este script crea una puerta de enlace lógica, configura las máquinas virtuales con el software de Data Management Gateway instalado y las registra en la puerta de enlace lógica. 
+        > Si va a aprovisionar la puerta de enlace en una máquina virtual de Azure, puede usar [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/mutiple-vms-with-data-management-gateway). Este script crea una puerta de enlace lógica, configura las máquinas virtuales con el software de Data Management Gateway instalado y las registra en la puerta de enlace lógica. 
 6. En Azure Portal, abra la página **Puerta de enlace**: 
     1. En la página de inicio de factoría de datos en el portal, haga clic en **Servicios vinculados**.
     
@@ -195,7 +195,7 @@ Role | Hay dos tipos de roles: distribuidor y de trabajo. Todos los nodos son tr
 
 La tabla siguiente proporciona los estados posibles de un **nodo de la puerta de enlace**: 
 
-Estado    | Comentarios/Escenarios
+Status    | Comentarios/Escenarios
 :------- | :------------------
 En línea | Nodo conectado al servicio Data Factory.
 Sin conexión | El nodo está sin conexión.
@@ -206,7 +206,7 @@ Inactivo | El nodo tiene una configuración diferente de la configuración de la
 
 La tabla siguiente proporciona los estados posibles de una **puerta de enlace lógica**. El estado de la puerta de enlace depende de los estados de los nodos de puerta de enlace. 
 
-Estado | Comentarios
+Status | Comentarios
 :----- | :-------
 Debe registrarse | Aún no se ha registrado ningún nodo en esta puerta de enlace lógica
 En línea | Los nodos de la puerta de enlace están en línea

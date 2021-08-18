@@ -1,27 +1,23 @@
 ---
-title: Consulta de datos en Azure Monitor mediante Azure Data Explorer (versión preliminar)
+title: Consulta de datos en Azure Monitor mediante Azure Data Explorer
 description: Use Azure Data Explorer para realizar consultas entre productos entre Azure Data Explorer, áreas de trabajo de Log Analytics y aplicaciones clásicas de Application Insights en Azure Monitor.
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 65dba60a798b1157a44a7a198b8eba7de1e8fe81
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9faa9ff9c0635c84ebc5c56a343db0426873f945
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031266"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735836"
 ---
-# <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Consulta de datos en Azure Monitor con Azure Data Explorer (versión preliminar)
+# <a name="query-data-in-azure-monitor-using-azure-data-explorer"></a>Consulta de datos en Azure Monitor mediante Azure Data Explorer
 
 Azure Data Explorer admite las consultas entre los servicios Azure Data Explorer, [Application Insights (AI)](../app/app-insights-overview.md) y [Log Analytics (LA)](./data-platform-logs.md). Asimismo, puede consultar el área de trabajo de Log Analytics/Application Insights mediante herramientas de Azure Data Explorer y hacer referencia a la misma en una consulta entre servicios. En este artículo se muestra cómo crear una consulta entre servicios y cómo agregar el área de trabajo de Log Analytics/Application Insights a la interfaz de usuario web de Azure Data Explorer.
 
 Flujo de consultas entre servicios de Azure Data Explorer: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Flujo del proxy de Azure Data Explorer.":::
-
-> [!NOTE]
-> * La capacidad de consultar los datos de Azure Monitor desde Azure Data Explorer, ya sea directamente desde las herramientas de cliente de Azure Data Explorer o indirectamente mediante la ejecución de una consulta en un clúster de Azure Data Explorer, está en su versión preliminar.
->* Póngase en contacto con el equipo de [consultas entre servicios](mailto:adxproxy@microsoft.com) si tiene cualquier pregunta.
 
 ## <a name="add-a-log-analyticsapplication-insights-workspace-to-azure-data-explorer-client-tools"></a>Incorporación de un área de trabajo de Log Analytics/Application Insights a herramientas de cliente de Azure Data Explorer
 
@@ -89,7 +85,8 @@ union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<tabl
 
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-cross-query-proxy.png" alt-text="Consulta entre servicios desde Azure Data Explorer":::.
 
-Usar el [`join` operador](/azure/data-explorer/kusto/query/joinoperator), en lugar de union, puede requerir una [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) para ejecutarla en un clúster nativo de Azure Data Explorer.
+>[!TIP]
+>* Usar el [`join` operador](/azure/data-explorer/kusto/query/joinoperator), en lugar de union, puede requerir una [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) para ejecutarla en un clúster nativo de Azure Data Explorer.
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Combinación de datos desde un clúster de Azure Data Explorer de un inquilino con un recurso de Azure Monitor de otro inquilino
 

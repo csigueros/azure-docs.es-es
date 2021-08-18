@@ -2,41 +2,42 @@
 title: Configuración de la asignación a la aplicación de autoservicio | Microsoft Docs
 description: Habilitar el acceso de autoservicio a las aplicaciones para permitir a los usuarios buscar sus propias aplicaciones
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.author: mtillman
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 506e29abe9c9a5c1c68fc3c0e53650ec51baf1b9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: phsignor
+ms.openlocfilehash: 98848b4ee117a0c2e34e21b30a920fe22c8e02be
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081162"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749118"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Configuración de la asignación a la aplicación de autoservicio
 
-Para que los usuarios puedan detectar automáticamente aplicaciones desde su página Aplicaciones, debe habilitar **Acceso de autoservicio a las aplicaciones** en las aplicaciones que quiera que los usuarios detecten automáticamente y puedan solicitar acceso. Esta funcionalidad está disponible para las aplicaciones que se agregaron desde la [Galería de Azure AD](./add-application-portal.md), [Azure AD Application Proxy](../app-proxy/application-proxy.md) o se agregaron mediante el [consentimiento del usuario o administrador](../develop/application-consent-experience.md). 
+Para que los usuarios puedan detectar automáticamente aplicaciones desde su página Aplicaciones, debe habilitar **Acceso de autoservicio a las aplicaciones** en las aplicaciones que quiera que los usuarios detecten automáticamente y puedan solicitar acceso. Esta funcionalidad está disponible para las aplicaciones que se agregaron desde la [Galería de Azure AD](./add-application-portal.md), [Azure AD Application Proxy](../app-proxy/application-proxy.md) o se agregaron mediante el [consentimiento del usuario o administrador](../develop/application-consent-experience.md).
 
 Esta característica es una excelente manera de ahorrar tiempo y dinero como grupo de TI y es muy recomendable como parte de una implementación de aplicaciones moderna con Azure Active Directory.
 
 Con esta característica, puede:
 
--   Permitir que los usuarios detecten automáticamente las aplicaciones desde la página [Aplicaciones](https://myapps.microsoft.com/) sin molestar al grupo de TI.
+- Permitir que los usuarios detecten automáticamente las aplicaciones desde la página [Aplicaciones](https://myapps.microsoft.com/) sin molestar al grupo de TI.
 
--   Agregar esos usuarios a un grupo preconfigurado para que pueda ver quién ha solicitado acceso, quitar el acceso y administrar los roles que tienen asignados.
+- Agregar esos usuarios a un grupo preconfigurado para que pueda ver quién ha solicitado acceso, quitar el acceso y administrar los roles que tienen asignados.
 
--   Si lo desea, puede permitir que un aprobador de la empresa apruebe las solicitudes de acceso a la aplicación para que no tenga que hacerlo el grupo de TI.
+- Si lo desea, puede permitir que un aprobador de la empresa apruebe las solicitudes de acceso a la aplicación para que no tenga que hacerlo el grupo de TI.
 
--   También puede configurar un máximo de 10 usuarios que pueden aprobar el acceso a esta aplicación.
+- También puede configurar un máximo de 10 usuarios que pueden aprobar el acceso a esta aplicación.
 
--   Permitir que un aprobador de la empresa establezca las contraseñas que los usuarios pueden usar para iniciar sesión en la aplicación directamente desde la página [Aplicaciones](https://myapps.microsoft.com/) del aprobador.
+- Permitir que un aprobador de la empresa establezca las contraseñas que los usuarios pueden usar para iniciar sesión en la aplicación directamente desde la página [Aplicaciones](https://myapps.microsoft.com/) del aprobador.
 
--   Asignar automáticamente usuarios asignados de autoservicio directamente a un rol de aplicación.
+- Asignar automáticamente usuarios asignados de autoservicio directamente a un rol de aplicación.
 
 > [!NOTE]
 > Se requiere una licencia de Azure Active Directory Premium (P1 o P2) para que los usuarios puedan solicitar unirse a una aplicación de autoservicio y para que los propietarios puedan aprobar o denegar solicitudes. Sin una licencia de Azure Active Directory Premium, los usuarios no pueden agregar aplicaciones de autoservicio.
@@ -78,4 +79,5 @@ Para habilitar el acceso de autoservicio a las aplicaciones, siga estos pasos:
 Cuando se haya completado la configuración de las aplicaciones de autoservicio, los usuarios pueden ir a su página [Aplicaciones](https://myapps.microsoft.com/) y hacer clic en el botón **Add self-service apps** (Agregar aplicaciones de autoservicio) para buscar las aplicaciones con acceso de autoservicio. Los aprobadores de la empresa pueden ver también una notificación en su página [Aplicaciones](https://myapps.microsoft.com/). Puede habilitar un correo electrónico que les informa cuando un usuario ha solicitado el acceso a una aplicación que requiere su aprobación.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 [Configuración de Azure Active Directory para la administración de grupos de autoservicio](../enterprise-users/groups-self-service-management.md)

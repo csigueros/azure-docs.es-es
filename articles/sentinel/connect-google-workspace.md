@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2021
 ms.author: yelevin
-ms.openlocfilehash: 4ada570502d913283ba9ee4cc4c65b7bdd853935
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ed49208a79436d3dd1bb2679129b0eafab39cca
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743658"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253523"
 ---
 # <a name="connect-your-google-workspace-to-azure-sentinel"></a>Conexión de Google Workspace con Azure Sentinel
 
 > [!IMPORTANT]
 > El conector Google Workspace está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 El conector de datos de [Google Workspace (anteriormente, G Suite)](https://workspace.google.com/) proporciona la capacidad de ingerir eventos de la actividad de Google Workspace en Azure Sentinel a través de la API REST. El conector proporciona visibilidad sobre estos [eventos](https://developers.google.com/admin-sdk/reports/reference/rest/v1/activities) en el centro de operaciones de seguridad, lo que le ayuda a examinar los posibles riesgos de seguridad, analizar la colaboración del equipo, diagnosticar problemas de configuración, realizar un seguimiento de quién inicia sesión y cuándo, analizar la actividad del administrador, comprender cómo los usuarios crean y comparten contenido, y revisar más eventos en la organización.
 
@@ -77,6 +79,6 @@ Consulte la pestaña **Pasos siguientes** de la página de conectores para ver a
 
 En este documento, ha aprendido a conectar Google Workspace con Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

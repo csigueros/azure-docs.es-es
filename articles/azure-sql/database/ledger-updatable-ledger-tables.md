@@ -1,27 +1,27 @@
 ---
 title: Tablas actualizables del libro de contabilidad de Azure SQL Database
 description: En este artículo se proporciona información sobre las tablas actualizables del libro de contabilidad, el esquema de libro de contabilidad y las vistas de libro de contabilidad en Azure SQL Database.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 688bcf79acd64006f35f7d5c6909088f5448d31d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 4a84cb359a0840f593fd732339a4ef9f9f3588db
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080406"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665517"
 ---
 # <a name="azure-sql-database-updatable-ledger-tables"></a>Tablas actualizables del libro de contabilidad de Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database está en versión preliminar pública y está disponible en el Centro-oeste de EE. UU.
+> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
 
 Las tablas actualizables del libro de contabilidad son tablas con versiones del sistema en las que los usuarios pueden realizar actualizaciones y eliminaciones, al tiempo que proporcionan funcionalidades para la evidencia de alteraciones. Cuando se producen actualizaciones o eliminaciones, todas las versiones anteriores de una fila se conservan en una tabla secundaria, conocida como tabla de historial. La tabla de historial refleja el esquema de la tabla actualizable del libro de contabilidad. Cuando se actualiza una fila, la versión más reciente de la fila permanece en la tabla del libro de contabilidad, mientras que el sistema inserta su versión anterior en la tabla de historial de forma transparente en la aplicación. 
 

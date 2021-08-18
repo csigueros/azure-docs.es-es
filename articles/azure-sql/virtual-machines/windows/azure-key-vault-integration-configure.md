@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a6955b7fc4948faaea6db426545f8cc3d1eece35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76363f171ba08c28e7460a988ff72afbf546716b
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359904"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434878"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Configuración de la integración de Azure Key Vault para SQL Server en máquinas virtuales de Azure (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -49,9 +49,7 @@ Para ver un tutorial detallado del aprovisionamiento, consulte [Aprovisionamient
 
 ### <a name="existing-vms"></a>Máquinas virtuales existentes
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
-En el caso de las máquinas virtuales de SQL existentes, abra su [recurso de máquinas virtuales de SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) y seleccione **Seguridad** en **Configuración**. Seleccione **Habilitar** para habilitar la integración de Azure Key Vault. 
+En el caso de las máquinas virtuales de SQL existentes, abra su [recurso de máquinas virtuales de SQL](manage-sql-vm-portal.md#access-the-resource) y seleccione **Seguridad** en **Configuración**. Seleccione **Habilitar** para habilitar la integración de Azure Key Vault. 
 
 ![Integración de Key Vault con SQL para máquinas virtuales existentes](./media/azure-key-vault-integration-configure/azure-sql-rm-akv-existing-vms.png)
 
@@ -62,7 +60,7 @@ Cuando termine, seleccione el botón **Aplicar** en la parte inferior de la pág
 
 
 > [!NOTE]
-> También puede usar una plantilla para configurar la integración de Key Vault. Para más información, consulte la [plantilla de inicio rápido de Azure para la integración de Azure Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
+> También puede usar una plantilla para configurar la integración de Key Vault. Para más información, consulte la [plantilla de inicio rápido de Azure para la integración de Azure Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-sql-existing-keyvault-update).
 
 
 [!INCLUDE [Key Vault integration next steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]

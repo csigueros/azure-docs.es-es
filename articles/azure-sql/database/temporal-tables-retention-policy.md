@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma
 ms.date: 09/25/2018
-ms.openlocfilehash: 7ba19b7de7843268c3fd1c8135deaa860a0905ee
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: bd1884785f5c6e84abd4aae5af29805ec4c004cb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110707579"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741227"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Administración de datos históricos en tablas temporales con directivas de retención
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,7 @@ FROM sys.databases
 La marca de base de datos **is_temporal_history_retention_enabled** se establece en ON de forma predeterminada, pero los usuarios pueden cambiarla con la instrucción ALTER DATABASE. También se establece automáticamente en OFF después de la operación de [restauración a un momento dado](recovery-using-backups.md). Para habilitar la limpieza de la retención de historial temporal de la base de datos, ejecute la instrucción siguiente:
 
 ```sql
-ALTER DATABASE <myDB>
+ALTER DATABASE [<myDB>]
 SET TEMPORAL_HISTORY_RETENTION  ON
 ```
 
@@ -175,7 +175,7 @@ Supongamos que una tabla temporal tiene especificado un período de retención d
 Si desea activar la limpieza de retención temporal, ejecute la siguiente instrucción de Transact-SQL después de la restauración a un momento dado:
 
 ```sql
-ALTER DATABASE <myDB>
+ALTER DATABASE [<myDB>]
 SET TEMPORAL_HISTORY_RETENTION  ON
 ```
 

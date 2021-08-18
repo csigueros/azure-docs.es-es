@@ -10,18 +10,20 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 82ea47037902ce3a9449f71a9edf62cb80863d4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f936208e936bfe65b28816cc373d9ba1190308e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94655993"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780043"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Conectar datos de Azure Information Protection
 
 > [!IMPORTANT]
 > El conector de datos de Azure Information Protection en Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Puede transmitir la información de registro de [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) a Azure Sentinel mediante la configuración del conector de datos de Azure Information Protection. Azure Information Protection le ayuda a controlar y proteger los datos confidenciales, tanto si están almacenados en la nube o de forma local.
 
@@ -74,5 +76,5 @@ Siga las instrucciones que se indican a continuación si no ha configurado un á
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido a conectar Azure Information Protection a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).

@@ -2,23 +2,17 @@
 title: Habilitar la rotación automática de certificados en un grupo de Batch
 description: Puede crear un grupo de Batch con una identidad administrada y un certificado que se renueve automáticamente.
 ms.topic: conceptual
-ms.date: 03/23/2021
-ms.custom: references_regions
-ms.openlocfilehash: e8bea49b2980deb8f20258ab7ea5619ece8cd2bf
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.date: 07/16/2021
+ms.openlocfilehash: 9a8f4d785c9a411df6c867724f057b1dc9b29722
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962367"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362424"
 ---
 # <a name="enable-automatic-certificate-rotation-in-a-batch-pool"></a>Habilitar la rotación automática de certificados en un grupo de Batch
 
  Puede crear un grupo de Batch con un certificado que se renueve automáticamente. Para ello, se debe crear el grupo con una [identidad administrada asignada por el usuario](managed-identity-pools.md) que tendrá acceso al certificado en [Azure Key Vault](../key-vault/general/overview.md).
-
-> [!IMPORTANT]
-> La compatibilidad de grupos de Azure Batch con identidades administradas asignadas por el usuario se encuentra actualmente en versión preliminar pública para las siguientes regiones: Oeste de EE. UU. 2, Centro y Sur de EE. UU., Este de EE. UU., US Gov Arizona y US Gov Virginia.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-user-assigned-identity"></a>Creación de una identidad asignada por el usuario
 

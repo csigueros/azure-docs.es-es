@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: how-to
 ms.custom: data4ml
-ms.openlocfilehash: 4b6ae5668715431875090be999806dc5a9d994c9
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 2319e513cf223118e043ba11702301f8a2796ff3
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885099"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113504988"
 ---
 # <a name="collect-data-from-models-in-production"></a>Recopilación de datos de modelos en producción
 
@@ -55,9 +55,9 @@ La ruta de acceso a los datos de salida en el blob sigue esta sintaxis:
 >[!NOTE]
 > En las versiones del SDK de Azure Machine Learning para Python anteriores a la versión 0.1.0 A16, el argumento `designation` se denomina `identifier`. Si desarrolló el código con una versión anterior, debe actualizarlo en consecuencia.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-- Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
+- Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 - Un área de trabajo de Azure Machine Learning, un directorio local que contenga los scripts y tener instalado el SDK de Azure Machine Learning para Python. Para información sobre cómo instalarlos, consulte [Configurar un entorno de desarrollo para Azure Machine Learning](how-to-configure-environment.md).
 
@@ -99,7 +99,7 @@ Para habilitar la recopilación de datos, debe hacer lo siguiente:
     data = np.array(data)
     result = model.predict(data)
     inputs_dc.collect(data) #this call is saving our input data into Azure Blob
-    prediction_dc.collect(result) #this call is saving our input data into Azure Blob
+    prediction_dc.collect(result) #this call is saving our prediction data into Azure Blob
     ```
 
 1. La recopilación de datos *no* se establece automáticamente en **true** cuando se implementa un servicio en AKS. Actualice el archivo de configuración, como en el ejemplo siguiente:

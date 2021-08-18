@@ -1,20 +1,20 @@
 ---
 title: Identidad de módulo y módulo gemelo de Azure IoT Hub (Python)
 description: Aprenda a crear la identidad de módulo y a actualizar módulos gemelos mediante los SDK de IoT para Python.
-author: chrissie926
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: menchi
+ms.author: robinsh
 ms.custom: devx-track-python
-ms.openlocfilehash: 665281adc892e6b3655c0b1d0533cb3148e62940
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce8dec215591b469c5593923eb9d5b211ee8ac29
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92139403"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114726847"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introducción a la identidad de módulo y a los módulos gemelos de IoT Hub (Python)
 

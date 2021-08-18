@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 247ae926dde9b07b1d627621c456333282f00a42
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 755d6ff3e4b7e82390f6bc2c961883de976f5459
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060082"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734790"
 ---
 # <a name="map-data-fields-to-entities-in-azure-sentinel"></a>Asignación de campos de datos a entidades en Azure Sentinel 
 
@@ -33,7 +33,7 @@ ms.locfileid: "112060082"
 
 ## <a name="introduction"></a>Introducción
 
-La asignación de entidades es una parte integral de la configuración de las [reglas de análisis de consultas programadas](tutorial-detect-threats-custom.md). Enriquece la salida de las reglas (alertas e incidentes) con datos esenciales que actúan como bloques de creación de cualquier proceso de investigación y de las acciones de corrección posteriores.
+La asignación de entidades es una parte integral de la configuración de las [reglas de análisis de consultas programadas](detect-threats-custom.md). Enriquece la salida de las reglas (alertas e incidentes) con datos esenciales que actúan como bloques de creación de cualquier proceso de investigación y de las acciones de corrección posteriores.
 
 El procedimiento que se detalla a continuación forma parte del asistente para crear reglas de análisis. Aquí se trata de forma independiente para abordar el escenario de agregar o cambiar las asignaciones de entidades de una regla de análisis existente.
 
@@ -81,5 +81,5 @@ El procedimiento que se detalla a continuación forma parte del asistente para c
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido cómo asignar campos de datos a entidades en las reglas de análisis de Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Obtenga una visión completa de las [reglas de análisis de consultas programadas](tutorial-detect-threats-custom.md).
+- Obtenga una visión completa de las [reglas de análisis de consultas programadas](detect-threats-custom.md).
 - Obtenga más información sobre las [entidades en Azure Sentinel](entities-in-azure-sentinel.md).

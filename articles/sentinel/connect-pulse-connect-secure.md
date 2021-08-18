@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 71e1c7787243713b29be9455fee966eff54f6d90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8eeea8f8f0410cb0c0d559cf1816e45e6c60c12e
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097660"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252667"
 ---
 # <a name="connect-your-pulse-connect-secure-to-azure-sentinel"></a>Conexión de Pulse Connect Secure a Azure Sentinel
 
@@ -54,6 +54,6 @@ Los registros pueden tardar hasta 20 minutos en empezar a aparecer en Log Analyt
 
 En este documento, ha aprendido a conectar Pulse Connect Secure a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

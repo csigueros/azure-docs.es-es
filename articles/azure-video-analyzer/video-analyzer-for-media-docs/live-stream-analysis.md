@@ -1,19 +1,20 @@
 ---
 title: Análisis de streaming en vivo mediante Azure Video Analyzer for Media (anteriormente Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: En este artículo se muestra cómo realizar un análisis de streaming en vivo mediante Azure Video Analyzer for Media (anteriormente Video Indexer).
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 866edfb6ee3ba429238bee1d5f03d530e89d537e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d5c45a708a1a878a00a93ce30dcbad37105bd5ea
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386728"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119496"
 ---
 # <a name="live-stream-analysis-with-video-analyzer-for-media"></a>Análisis de streaming en vivo con Video Analyzer for Media
 

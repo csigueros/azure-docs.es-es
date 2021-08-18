@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
-ms.openlocfilehash: 8f35e0fcf369616e5e95ce41554370e2bb7b604d
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 3dbb5abab6a3c7bcfc77b4e3bbc9b14ccd75b270
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632644"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112232848"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -225,7 +225,7 @@ Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelac
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte también
 

@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28dcf6a34621b0cc72d600d33af1cf63be875126
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: ba5db5208d53996d074dca15bdc8b7b3088e4dec
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289757"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113111202"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -37,7 +37,7 @@ Este artículo sirve de ayuda para encontrar información sobre cómo solucionar
 - Si un usuario forma parte de demasiados grupos de Active Directory, es probable que el valor de Kerberos del usuario sea demasiado largo para procesarse, lo que hará que se produzca un error en el inicio de sesión único de conexión directa. Las solicitudes HTTPS de Azure AD pueden tener encabezados con un tamaño máximo de 50 KB; los vales de Kerberos deben ser menores que ese número para albergar otros artefactos de Azure AD (generalmente, de 2 a 5 KB), como las cookies. Nuestra recomendación es reducir la pertenencia a grupos del usuario y volver a intentarlo.
 - Si va a sincronizar treinta bosques de Active Directory o más, no se puede habilitar el inicio de sesión único de conexión directa mediante Azure AD Connect. Como alternativa, también puede [habilitar manualmente](#manual-reset-of-the-feature) la característica en su inquilino.
 - Agregar la dirección URL del servicio de Azure AD (`https://autologon.microsoftazuread-sso.com`) a la zona de sitios de confianza en lugar de a la zona de intranet local *impide que los usuarios inicien sesión*.
-- El inicio de sesión único de conexión directa admite los tipos de cifrado AES256_HMAC_SHA1, AES128_HMAC_SHA1 y RC4_HMAC_MD5 para Kerberos. Se recomienda que el tipo de cifrado de la cuenta AzureADSSOAcc$ se establezca en AES256_HMAC_SHA1 o uno de los tipos AES en lugar de RC4, para mayor seguridad. El tipo de cifrado se almacena en el atributo msDS-SupportedEncryptionTypes de la cuenta en Active Directory.  Si el tipo de cifrado de la cuenta AzureADSSOAcc$ está establecido en RC4_HMAC_MD5 y desea cambiarlo a uno de los tipos de cifrado AES, asegúrese de revertir primero la clave de descifrado de Kerberos de dicha cuenta, tal como se explica en la pregunta correspondiente del [documento de preguntas más frecuentes](how-to-connect-sso-faq.md); de lo contrario, no se producirá el inicio de sesión único de conexión directa.
+- El inicio de sesión único de conexión directa admite los tipos de cifrado AES256_HMAC_SHA1, AES128_HMAC_SHA1 y RC4_HMAC_MD5 para Kerberos. Se recomienda que el tipo de cifrado de la cuenta AzureADSSOAcc$ se establezca en AES256_HMAC_SHA1 o uno de los tipos AES en lugar de RC4, para mayor seguridad. El tipo de cifrado se almacena en el atributo msDS-SupportedEncryptionTypes de la cuenta en Active Directory.  Si el tipo de cifrado de la cuenta AzureADSSOAcc$ está establecido en RC4_HMAC_MD5 y desea cambiarlo a uno de los tipos de cifrado AES, asegúrese de revertir primero la clave de descifrado de Kerberos de dicha cuenta, tal como se explica en la pregunta correspondiente del [documento de preguntas más frecuentes](how-to-connect-sso-faq.yml); de lo contrario, no se producirá el inicio de sesión único de conexión directa.
 -  Si tiene más de un bosque con confianza de bosque, la habilitación del inicio de sesión único en uno de los bosques habilitará el inicio de sesión único en todos los bosques de confianza. Si habilita SSO en un bosque en el que el SSO ya está habilitado, recibirá un error que indica que SSO ya está habilitado en el bosque.
 
 ## <a name="check-status-of-feature"></a>Comprobación del estado de la característica

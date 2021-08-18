@@ -3,12 +3,12 @@ title: Escalado vertical automático de las unidades de procesamiento de Azure E
 description: Habilite el inflado automático en un espacio de nombres para escalar verticalmente las unidades de procesamiento (nivel estándar).
 ms.topic: article
 ms.date: 05/26/2021
-ms.openlocfilehash: 6f45e5a023110132db9904da7d8b84f4906dd8b7
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: f7653618aa40c98c9647b9503d2da66681bb25f5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110617213"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735262"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units-standard-tier"></a>Escalado vertical automático de unidades de procesamiento de Azure Event Hubs (nivel estándar) 
 Azure Event Hubs es una plataforma de streaming de datos muy escalable. Por lo tanto, el uso de Event Hubs suele aumentar después de empezar a utilizar el servicio. Tal uso requiere el aumento de las [unidades de procesamiento (TU)](event-hubs-scalability.md#throughput-units) para escalar Event Hubs y administrar velocidades de transferencia más elevadas. La característica de **inflado automático** de Event Hubs realiza el escalado vertical de forma automática mediante el aumento del número de unidades de procesamiento para responder a las necesidades de uso. Al aumentar las TU, se evitan escenarios de limitación en los que nos encontramos con:
@@ -55,7 +55,7 @@ Para habilitar la característica de inflado automático y modificar su configur
 4. (opcional) Actualice el número **mínimo** de unidades de procesamiento en la parte superior de esta página.
 
 > [!NOTE]
-> Al aplicar la configuración de inflado automático para aumentar las unidades de procesamiento, el servicio Event Hubs emite los registros de diagnóstico que le proporcionan información acerca de por qué y cuándo aumentó el rendimiento. Para habilitar el registro de diagnóstico para un centro de eventos, seleccione **configuración de diagnóstico** en el menú izquierdo de la página del centro de eventos en Azure Portal. Para más información, vea [Configuración de registros de diagnóstico de Azure Event Hubs](event-hubs-diagnostic-logs.md).
+> Al aplicar la configuración de inflado automático para aumentar las unidades de procesamiento, el servicio Event Hubs emite los registros de diagnóstico que le proporcionan información acerca de por qué y cuándo aumentó el rendimiento. Para habilitar el registro de diagnóstico para un centro de eventos, seleccione **configuración de diagnóstico** en el menú izquierdo de la página del centro de eventos en Azure Portal. Para más información, vea [Configuración de registros de diagnóstico de Azure Event Hubs](monitor-event-hubs-reference.md#resource-logs).
 
 
 ## <a name="use-an-azure-resource-manager-template"></a>Uso de una plantilla de Azure Resource Manager

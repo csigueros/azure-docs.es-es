@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de TravelPerk para aprovisionar usuarios autom�
 description: Aprenda a aprovisionar y desaprovisionar automáticamente cuentas de usuario de Azure AD a TravelPerk.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 3e40f87d-8624-4b14-b098-80ff916103c3
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2021
-ms.author: Zhchia
-ms.openlocfilehash: 19436b7faef081757e4500c76e7537ee78081bfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 5744c3df69fd595d5fc7a576d9503f7d5b0caf70
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950457"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113761350"
 ---
 # <a name="tutorial-configure-travelperk-for-automatic-user-provisioning"></a>Tutorial: Configuración de TravelPerk para el aprovisionamiento automático de usuarios
 

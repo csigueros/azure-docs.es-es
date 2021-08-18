@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 01/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 53f438fe6ccb1659bde65ffbc8de0acee85c1b28
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 473c6bde1e75070e0103137d9e24849f38c6d684
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884379"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466706"
 ---
 # <a name="trigger-machine-learning-pipelines"></a>Desencadenamiento de canalizaciones de Machine Learning
 
@@ -23,7 +23,7 @@ En este artículo, aprenderá a programar mediante programación una canalizaci�
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree).
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
 
 * Entorno de Python en el que está instalado el SDK de Azure Machine Learning para Python. Para más información, consulte [Creación y administración de entornos reutilizables para aprendizaje e implementación con Azure Machine Learning](how-to-use-environments.md).
 

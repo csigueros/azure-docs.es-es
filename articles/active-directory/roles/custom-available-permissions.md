@@ -13,16 +13,20 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258dcb7c66b043828e55d6c0dbfe101c0992f8c6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 996a3f5f48685630a6946a5708c26cfecaf3b0a0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092897"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724845"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Permisos de los registros de aplicaciones para roles personalizados de Azure Active Directory
 
 Este artículo contiene los permisos del registro de aplicaciones disponibles actualmente para las definiciones de rol personalizado en Azure Active Directory (Azure AD).
+
+## <a name="license-requirements"></a>Requisitos de licencia
+
+[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="permissions-for-managing-single-tenant-applications"></a>Permisos para administrar aplicaciones de un solo inquilino
 
@@ -32,7 +36,7 @@ Para conceder acceso para administrar únicamente aplicaciones de un solo inquil
 
 Vea la [información general sobre los roles personalizados](custom-overview.md) para una explicación de lo que significa el subtipo de términos generales, el permiso y el conjunto de propiedades. La siguiente información es específica de los registros de aplicaciones.
 
-### <a name="create-and-delete"></a>Creación y eliminación
+## <a name="create-and-delete"></a>Creación y eliminación
 
 Hay dos permisos disponibles para conceder la capacidad de crear registros de aplicaciones, cada uno con un comportamiento diferente.
 
@@ -65,7 +69,7 @@ Permite eliminar los registros de aplicaciones restringidos a aquellos a los que
 > [!NOTE]
 > Al asignar un rol que contiene permisos de creación, la asignación de roles debe realizarse en el ámbito del directorio. Un permiso de creación asignado en un ámbito de recursos no concede la posibilidad de crear registros de aplicaciones.
 
-### <a name="read"></a>Lectura
+## <a name="read"></a>Lectura
 
 Todos los usuarios miembros de la organización pueden leer la información de registro de aplicaciones de forma predeterminada. Sin embargo, los usuarios invitados y las entidades de servicio de la aplicación no pueden. Si pretende asignar un rol a una aplicación o a un usuario invitado, debe incluir los permisos de lectura correspondientes.
 
@@ -91,7 +95,7 @@ Concede acceso para leer las propiedades de registro de aplicación estándar. E
 
 Concede los mismos permisos que microsoft.directory/applications/standard/read, pero solo para las aplicaciones de un solo inquilino.
 
-### <a name="update"></a>Actualizar
+## <a name="update"></a>Actualizar
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.directory/applications/allProperties/update
 
@@ -162,10 +166,6 @@ Capacidad para actualizar los permisos delegados, los permisos de aplicación, l
 #### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>microsoft.directory/applications.myOrganization/permissions/update
 
 Concede los mismos permisos que microsoft.directory/applications/permissions/update, pero solo para las aplicaciones de un solo inquilino.
-
-## <a name="license-requirements"></a>Requisitos de licencia
-
-[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

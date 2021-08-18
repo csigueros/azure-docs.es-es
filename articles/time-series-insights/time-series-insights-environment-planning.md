@@ -3,20 +3,21 @@ title: 'Planeamiento de un entorno de Gen1: Azure Time Series Insights | Microso
 description: Prácticas recomendadas para preparar, configurar e implementar el entorno de Azure Time Series Insights Gen1.
 services: time-series-insights
 ms.service: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e0f1ea42aa2ba888b89dd652d3397a3a2163a3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e93c415e464b344a24593428c267fb09e6566e08
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95016214"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136840"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planeamiento del entorno de Azure Time Series Insights Gen1
 
@@ -33,7 +34,7 @@ En este artículo se describe cómo planear el entorno de Azure Time Series Insi
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
-Para empezar a trabajar con Azure Time Series Insights, se recomienda saber cuántos datos se espera insertar por minuto, así como durante cuánto tiempo se deben almacenar.  
+Para empezar a trabajar con Azure Time Series Insights, se recomienda saber cuántos datos se espera insertar por minuto, así como durante cuánto tiempo se deben almacenar.
 
 Para más información sobre la capacidad y la retención de ambas SKU de Azure Time Series Insights, consulte los [precios de Azure Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
@@ -118,7 +119,7 @@ Es importante asegurarse de que el método de envío de eventos de Azure Time Se
 Un *conjunto de datos de referencia* es una colección de elementos que aumentan los eventos de un origen de eventos. El motor de entrada de Azure Time Series Insights combina cada evento del origen de eventos con la fila de datos correspondiente en el conjunto de datos de referencia. A partir de ese momento, el evento aumentado está disponible para consultas. La combinación se basa en las columnas de **clave principal** definidas en el conjunto de datos de referencia.
 
 > [!NOTE]
-> Los datos de referencia no se combinan de manera retroactiva. Solo los datos de entrada actuales y futuros se combinan y unen con el conjunto de datos de referencia una vez que se han configurado y cargado. Si va a enviar una gran cantidad de datos históricos a Azure Time Series Insights y primero no carga o crea datos de referencia en Azure Time Series Insights, deberá rehacer el trabajo (lo que no resulta nada agradable).  
+> Los datos de referencia no se combinan de manera retroactiva. Solo los datos de entrada actuales y futuros se combinan y unen con el conjunto de datos de referencia una vez que se han configurado y cargado. Si va a enviar una gran cantidad de datos históricos a Azure Time Series Insights y primero no carga o crea datos de referencia en Azure Time Series Insights, deberá rehacer el trabajo (lo que no resulta nada agradable).
 
 Para más información sobre cómo crear, cargar y administrar los datos de referencia en Azure Time Series Insights, consulte nuestra [documentación sobre el conjunto de datos de referencia](time-series-insights-add-reference-data-set.md).
 

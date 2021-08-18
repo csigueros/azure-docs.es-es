@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: daf169a84268a24fd1cc50cd67386d359f9d726a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ffe94b70305fc4516e185f72f87ec7e82f05d3a1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110097885"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747424"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Aprovisionamiento del rendimiento estándar (manual) de un contenedor de Azure Cosmos - API de SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se explica cómo aprovisionar el rendimiento estándar (manual) en un contenedor de la API de SQL de Azure Cosmos DB. Puede aprovisionar el rendimiento de un único contenedor o [aprovisionar el de una base de datos](how-to-provision-database-throughput.md) y compartirlo entre los contenedores incluidos en ella. Para aprovisionar el rendimiento de un contenedor, use Azure Portal, la CLI de Azure o los SDK de Azure Cosmos DB.
 
-Si va a usar otra API, vea los artículos [MongoDB API](how-to-provision-throughput-mongodb.md), [Cassandra API](how-to-provision-throughput-cassandra.md) y [Gremlin API](how-to-provision-throughput-gremlin.md) para aprovisionar el rendimiento.
+Si va a usar otra API, vea los artículos [MongoDB API](mongodb/how-to-provision-throughput-mongodb.md), [Cassandra API](cassandra/how-to-provision-throughput-cassandra.md) y [Gremlin API](how-to-provision-throughput-gremlin.md) para aprovisionar el rendimiento.
 
 ## <a name="azure-portal"></a>Azure portal
 

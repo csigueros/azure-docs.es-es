@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 09/12/2017
-ms.openlocfilehash: 4cb84b437097ba0d1953782004369c0b3a1fcb6d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: db58b0c1fae62c975b6b5d01e37b6cffd12a95f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665406"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726819"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script de PowerShell: transformación de datos en la nube con Azure Data Factory
 

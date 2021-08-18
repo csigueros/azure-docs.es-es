@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5eb0c7d72896cc9a27907743b1b9c3d5a40614dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a247c3b3f1aeae79fcf6a4369b9ae69e693b6024
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592857"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181404"
 ---
 # <a name="query-update-management-logs"></a>Consulta de registros de Update Management
 
@@ -195,7 +195,7 @@ En un equipo Windows, puede revisar la siguiente información para comprobar la 
 
 1. Abra el registro de eventos de Windows. Vaya a **Application and Services Logs\Operations Manager** y busque los identificadores de evento 3000 y 5002 desde el **Conector de servicio** de origen. Estos eventos indican que el equipo se ha registrado con el área de trabajo de Log Analytics y está recibiendo la configuración.
 
-Si el agente no puede comunicarse con los registros de Azure Monitor y está configurado para comunicarse con Internet mediante un firewall o un servidor proxy, confirme que estos están configurados correctamente. Para aprender a comprobar que un firewall o un servidor proxy estén correctamente configurados, consulte [Configuración de red para el agente Windows](../../azure-monitor/agents/agent-windows.md) o [Configuración de red para el agente de Linux](../../azure-monitor/vm/quick-collect-linux-computer.md).
+Si el agente no puede comunicarse con los registros de Azure Monitor y está configurado para comunicarse con Internet mediante un firewall o un servidor proxy, confirme que estos están configurados correctamente. Para aprender a comprobar que un firewall o un servidor proxy estén correctamente configurados, consulte [Configuración de red para el agente Windows](../../azure-monitor/agents/agent-windows.md) o [Configuración de red para el agente de Linux](../../azure-monitor/vm/monitor-virtual-machine.md).
 
 > [!NOTE]
 > Si los sistemas Linux están configurados para comunicarse con un servidor proxy o una puerta de enlace de Log Analytics y va a habilitar Update Management, actualice los permisos `proxy.conf` a fin de conceder al grupo omiuser permiso de lectura sobre el archivo mediante el uso de los comandos siguientes:

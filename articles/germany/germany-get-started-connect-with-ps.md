@@ -1,27 +1,23 @@
 ---
 title: Conexión a Azure Alemania mediante PowerShell | Microsoft Docs
 description: Información acerca de la administración de suscripciones en Azure Alemania mediante PowerShell
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 38ff91fe9ac50a85d684895d0ccb6333f6257284
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.service: germany
+ms.custom: bfdocs, devx-track-azurepowershell
+ms.openlocfilehash: 3f5caa51b992d348fa077a0dbb96e210aa18f4de
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033547"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "117029159"
 ---
 # <a name="connect-to-azure-germany-by-using-powershell"></a>Conexión a Azure Alemania mediante PowerShell
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 Para usar Azure PowerShell con Azure Alemania, es preciso conectarse a Azure Alemania, en lugar de a Azure global. Azure PowerShell se puede usar para administrar una suscripción de gran tamaño a través de un script o para acceder a características que no están actualmente disponibles en Azure Portal. Si ha usado PowerShell en Azure global, básicamente es lo mismo. Las diferencias en Azure Alemania son:
 
 * Conexión a la cuenta
@@ -30,7 +26,7 @@ Para usar Azure PowerShell con Azure Alemania, es preciso conectarse a Azure Ale
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Si aún no ha usado PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/overview).
+> Si aún no ha usado PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/).
 
 Al iniciar PowerShell, tiene que indicar a Azure PowerShell que se conecte a Azure Alemania mediante la especificación de un parámetro de entorno. El parámetro garantiza que PowerShell se conecta a los puntos de conexión correctos. La colección de puntos de conexión se determina cuando se establece la conexión con la cuenta. Diferentes API requieren versiones diferentes del conmutador de entorno:
 
@@ -39,7 +35,7 @@ Al iniciar PowerShell, tiene que indicar a Azure PowerShell que se conecte a Azu
 | Comandos de [Azure (modelo de implementación clásica)](/powershell/azure) |`Add-AzureAccount -Environment AzureGermanCloud` |
 | Comandos de [Azure (modelo de implementación de Resource Manager)](/powershell/azure) |`Connect-AzAccount -EnvironmentName AzureGermanCloud` |
 | Comandos de [Azure Active Directory (modelo de implementación clásica)](/previous-versions/azure/jj151815(v=azure.100)) |`Connect-MsolService -AzureEnvironment AzureGermanyCloud` |
-| Comandos de [Azure Active Directory (modelo de implementación Resource Manager)](https://msdn.microsoft.com/library/azure/mt757189.aspx) |`Connect-AzureAD -AzureEnvironmentName AzureGermanyCloud` |
+| Comandos de [Azure Active Directory (modelo de implementación Resource Manager)](../azure-resource-manager/management/deployment-models.md) |`Connect-AzureAD -AzureEnvironmentName AzureGermanyCloud` |
 
 También puede usar el modificador `Environment` al conectarse a una cuenta de almacenamiento mediante `New-AzStorageContext` y, después, especificar `AzureGermanCloud`.
 
@@ -50,7 +46,7 @@ Después de estar conectado, hay una diferencia adicional: las regiones que se u
 | Nombre común | Nombre para mostrar | Nombre de la ubicación |
 | --- | --- | --- |
 | Centro de Alemania |`Germany Central` | `germanycentral` |
-| Noreste de Alemania |`Germany Northeast` | `germanynortheast` |
+| Nordeste de Alemania |`Germany Northeast` | `germanynortheast` |
 
 
 > [!NOTE]
@@ -60,13 +56,17 @@ Después de estar conectado, hay una diferencia adicional: las regiones que se u
 
 Si desea validar las regiones disponibles en Azure Alemania, puede ejecutar los siguientes comandos e imprimir la lista actual. Para las implementaciones clásicas, use el primer comando. Para las implementaciones con Resource Manager, use el segundo comando.
 
-    Get-AzureLocation
-    Get-AzLocation
+```azurepowershell
+Get-AzureLocation
+Get-AzLocation
+```
 
 Si desea conocer los entornos disponibles en Azure, puede ejecutar:
 
-    Get-AzureEnvironment
-    Get-AzEnvironment
+```azurepowershell
+Get-AzureEnvironment
+Get-AzEnvironment
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de cómo conectarse a Azure Alemania, consulte los siguientes recursos:
@@ -74,7 +74,3 @@ Para más información acerca de cómo conectarse a Azure Alemania, consulte los
 * [Conexión a Azure Alemania mediante la CLI de Azure](./germany-get-started-connect-with-cli.md)
 * [Conexión a Azure Alemania mediante Visual Studio](./germany-get-started-connect-with-vs.md)
 * [Conexión a Azure Alemania mediante Azure Portal](./germany-get-started-connect-with-portal.md)
-
-
-
-

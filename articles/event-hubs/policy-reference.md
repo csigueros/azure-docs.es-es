@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas en Azure Event Hubs
 description: Se enumeran las definiciones de directivas integradas de Azure Policy en Azure Event Hubs. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 06/11/2021
+ms.date: 08/13/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bbe0a96287eddeb0a294efb40e266b34886cc143
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 91a00d4f063536772988aebfe7e930d79ee7180e
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112019148"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179239"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-hubs"></a>Definiciones integradas de Azure Policy para Azure Event Hubs
 

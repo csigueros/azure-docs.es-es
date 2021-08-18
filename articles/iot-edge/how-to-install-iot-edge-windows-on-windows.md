@@ -2,7 +2,6 @@
 title: Instalación de Azure IoT Edge para Windows | Microsoft Docs
 description: Instalación de contenedores de Azure IoT Edge para Windows en dispositivos Windows
 author: kgremban
-manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: kgremban
 monikerRange: iotedge-2018-06
-ms.openlocfilehash: bb87d09b67658f9a3d7c68f635bfcd9a29de675c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 676bd23dce7ca79f3640bdfa8f9b55e427390e91
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201632"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722019"
 ---
 # <a name="install-and-manage-azure-iot-edge-with-windows-containers"></a>Instalación y administración de Azure IoT Edge con contenedores Windows
 

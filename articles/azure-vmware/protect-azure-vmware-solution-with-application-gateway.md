@@ -3,12 +3,12 @@ title: Protección de aplicaciones web en Azure VMware Solution con Azure Applic
 description: Configure Azure Application Gateway para exponer de forma segura las aplicaciones web que se ejecutan en Azure VMware Solution.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 4d31eb24f1cb4ec1e2ead789174189dc99d5310f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1b9f55386c2900660ddee209d0aea95e7bac610a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108771692"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739620"
 ---
 # <a name="protect-web-apps-on-azure-vmware-solution-with-azure-application-gateway"></a>Protección de aplicaciones web en Azure VMware Solution con Azure Application Gateway
 
@@ -26,7 +26,7 @@ En este artículo se muestra cómo usar Application Gateway delante de una granj
 ## <a name="topology"></a>Topología
 El diagrama muestra cómo se usa Application Gateway para proteger máquinas virtuales de IaaS de Azure, conjuntos de escalado de máquinas virtuales de Azure o servidores locales. Application Gateway considera las máquinas virtuales de Azure VMware Solution como servidores locales. 
 
-![Diagrama que muestra cómo Application Gateway protege máquinas virtuales de IaaS de Azure, conjuntos de escalado de máquinas virtuales de Azure o servidores locales.](media/protect-azure-vmware-solution-with-application-gateway/app-gateway-protects.png)
+:::image type="content" source="media/application-gateway/app-gateway-protects.png" alt-text="Diagrama que muestra cómo Application Gateway protege máquinas virtuales de IaaS de Azure, conjuntos de escalado de máquinas virtuales de Azure o servidores locales." border="false":::
 
 > [!IMPORTANT]
 > Azure Application Gateway es actualmente el único método admitido para exponer las aplicaciones web que se ejecutan en máquinas virtuales de Azure VMware Solution.
@@ -48,7 +48,7 @@ La instancia de Application Gateway se implementa en el centro de una subred ded
 
 2. Proporcione los detalles básicos como se indica en la ilustración siguiente. A continuación, seleccione **Siguiente: Front-end >** . 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/create-app-gateway.png" alt-text="Captura de pantalla que muestra la página Creación de una puerta de enlace de aplicación en Azure Portal.":::
+    :::image type="content" source="media/application-gateway/create-app-gateway.png" alt-text="Captura de pantalla que muestra la página Creación de una puerta de enlace de aplicación en Azure Portal.":::
 
 3. Seleccione el tipo de dirección IP de front-end. Para que sea pública, seleccione una dirección IP pública existente o cree una nueva. Seleccione **Siguiente: Back-end >** .
 
@@ -92,7 +92,7 @@ En este procedimiento se muestra cómo definir grupos de direcciones de back-end
 
 1. En la nube privada, cree dos grupos distintos de máquinas virtuales. Uno representa a Contoso y el segundo, a Fabrikam. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool.png" alt-text="Captura de pantalla que muestra un resumen de los detalles de un servidor web en el cliente de vSphere.":::
+    :::image type="content" source="media/application-gateway/app-gateway-multi-backend-pool.png" alt-text="Captura de pantalla que muestra un resumen de los detalles de un servidor web en el cliente de vSphere.":::
 
     Hemos usado Windows Server 2016 con el rol Internet Information Services (IIS) instalado. Una vez instaladas las máquinas virtuales, ejecute los comandos de PowerShell siguientes para configurar IIS en cada una de ellas. 
 
@@ -103,13 +103,13 @@ En este procedimiento se muestra cómo definir grupos de direcciones de back-end
 
 2. En una instancia de Application Gateway existente, seleccione **Grupos de back-end** en el menú de la izquierda, seleccione **Agregar** y escriba los detalles de los grupos nuevos. Seleccione **Agregar** en el panel derecho.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-02.png" alt-text="Captura de pantalla de la página Grupos de back-end para agregar grupos de back-end." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-02.png":::
+    :::image type="content" source="media/application-gateway/app-gateway-multi-backend-pool-02.png" alt-text="Captura de pantalla de la página Grupos de back-end para agregar grupos de back-end." lightbox="media/application-gateway/app-gateway-multi-backend-pool-02.png":::
 
 3. En la sección **Clientes de escucha**, cree un nuevo cliente de escucha para cada sitio web. Especifique los detalles de cada cliente de escucha y seleccione **Agregar**.
 
 4. A la izquierda, seleccione **Configuración HTTP** y seleccione **Agregar** en el panel de la izquierda. Complete los detalles para crear una nueva configuración HTTP y seleccione **Guardar**.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-03.png" alt-text="Captura de pantalla de la página Configuración HTTP para crear una nueva configuración HTTP." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-03.png":::
+    :::image type="content" source="media/application-gateway/app-gateway-multi-backend-pool-03.png" alt-text="Captura de pantalla de la página Configuración HTTP para crear una nueva configuración HTTP." lightbox="media/application-gateway/app-gateway-multi-backend-pool-03.png":::
 
 5. Cree las reglas en la sección **Reglas** del menú de la izquierda. Asocie cada regla con el cliente de escucha correspondiente. Seleccione **Agregar**.
 
@@ -117,7 +117,7 @@ En este procedimiento se muestra cómo definir grupos de direcciones de back-end
 
 7. Pruebe la conexión. Abra el explorador que prefiera y vaya a los distintos sitios web hospedados en su entorno de Azure VMware Solution, como por ejemplo http://www.fabrikam.com.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-07.png" alt-text="Captura de pantalla de la página del explorador que muestra que la prueba de la conexión se completa correctamente.":::
+    :::image type="content" source="media/application-gateway/app-gateway-multi-backend-pool-07.png" alt-text="Captura de pantalla de la página del explorador que muestra que la prueba de la conexión se completa correctamente.":::
 
 ### <a name="routing-by-url"></a>Enrutamiento por dirección URL
 
@@ -125,7 +125,7 @@ En los pasos siguientes se definen grupos de direcciones de back-end mediante m�
 
 1. En la nube privada, cree un grupo de máquinas virtuales para representar la granja de servidores web. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool.png" alt-text="Captura de pantalla de la página del cliente de VMSphere que muestra el resumen de otra VM.":::
+    :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool.png" alt-text="Captura de pantalla de la página del cliente de VMSphere que muestra el resumen de otra VM.":::
 
     Se ha usado Windows Server 2016 con el rol de IIS instalado para ilustrar este tutorial. Una vez instaladas las máquinas virtuales, ejecute los comandos de PowerShell siguientes para configurar IIS para cada tutorial de VM. 
 
@@ -160,31 +160,31 @@ En los pasos siguientes se definen grupos de direcciones de back-end mediante m�
    1. Seleccione **Agregar**. 
    1. Repita este proceso para **contoso-images** y **contoso-video**, agregando una máquina virtual única como destino. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-02.png" alt-text="Captura de pantalla de la página Grupos de back-end que muestra la incorporación de tres grupos de back-end nuevos." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-02.png":::
+    :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool-02.png" alt-text="Captura de pantalla de la página Grupos de back-end que muestra la incorporación de tres grupos de back-end nuevos." lightbox="media/application-gateway/app-gateway-url-route-backend-pool-02.png":::
 
 3. En la sección **Clientes de escucha**, cree un nuevo cliente de escucha de tipo Básico mediante el puerto 8080.
 
 4. En el panel de navegación izquierdo, seleccione **Configuración HTTP** y seleccione **Agregar** en el panel izquierdo. Complete los detalles para crear una nueva configuración HTTP y seleccione **Guardar**.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-04.png" alt-text="Captura de pantalla de la página Agregar configuración HTTP que muestra la configuración de los valores HTTP.":::
+    :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool-04.png" alt-text="Captura de pantalla de la página Agregar configuración HTTP que muestra la configuración de los valores HTTP.":::
 
 5. Cree las reglas en la sección **Reglas** del menú de la izquierda. Asocie cada regla con el cliente de escucha creado anteriormente. A continuación, configure el grupo de back-end principal y la configuración HTTP. Seleccione **Agregar**.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-07.png" alt-text="Captura de pantalla de la página Agregar una regla de enrutamiento para configurar las reglas de enrutamiento a un destino de back-end.":::
+    :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool-07.png" alt-text="Captura de pantalla de la página Agregar una regla de enrutamiento para configurar las reglas de enrutamiento a un destino de back-end.":::
 
 6. Pruebe la configuración. Acceda a la puerta de enlace de aplicación en Azure Portal y copie la IP pública en la sección **Información general**. 
 
    1. Abra una ventana nueva del explorador y escriba la dirección URL `http://<app-gw-ip-address>:8080`. 
 
-      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-08.png" alt-text="Captura de pantalla de la página del explorador que muestra que la prueba de la configuración se completa correctamente.":::
+      :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool-08.png" alt-text="Captura de pantalla de la página del explorador que muestra que la prueba de la configuración se completa correctamente.":::
 
    1. Cambie la dirección URL a `http://<app-gw-ip-address>:8080/images/test.htm`.
 
-      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-09.png" alt-text="Captura de pantalla de otra prueba correcta con la dirección URL nueva.":::
+      :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool-09.png" alt-text="Captura de pantalla de otra prueba correcta con la dirección URL nueva.":::
 
    1. Vuelva a cambiar la dirección URL a `http://<app-gw-ip-address>:8080/video/test.htm`.
 
-      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-10.png" alt-text="Captura de pantalla de una prueba correcta con la dirección URL final.":::
+      :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool-10.png" alt-text="Captura de pantalla de una prueba correcta con la dirección URL final.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

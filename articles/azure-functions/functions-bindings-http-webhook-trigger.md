@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4550be7ae8c543eea1bdfa085db6f23fe668a121
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b423e763492a0c244982422122705039cd9de80
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025703"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302327"
 ---
 # <a name="azure-functions-http-trigger"></a>Desencadenador HTTP de Azure Functions
 
@@ -375,7 +375,7 @@ module.exports = function(context, req) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de PowerShell](functions-reference-node.md). La función busca un parámetro `name` en la cadena de consulta o en el cuerpo de la solicitud HTTP.
+En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de PowerShell](functions-reference-powershell.md). La función busca un parámetro `name` en la cadena de consulta o en el cuerpo de la solicitud HTTP.
 
 ```json
 {
@@ -755,7 +755,7 @@ Puede tener acceso mediante programación a la plantilla `invoke_URL_template` c
 
 ## <a name="working-with-client-identities"></a>Uso de identidades de cliente
 
-Si la aplicación de función está usando la [autenticación/autorización de App Service](../app-service/overview-authentication-authorization.md), puede ver información sobre los clientes autenticados desde el código. Esta información está disponible como [encabezados de solicitud insertados por la plataforma](../app-service/app-service-authentication-how-to.md#access-user-claims).
+Si la aplicación de función está usando la [autenticación/autorización de App Service](../app-service/overview-authentication-authorization.md), puede ver información sobre los clientes autenticados desde el código. Esta información está disponible como [encabezados de solicitud insertados por la plataforma](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 También puede leer esta información desde los datos de enlace. Esta funcionalidad solo está disponible para el entorno en tiempo de ejecución de Functions en la versión 2.x y posteriores. Actualmente, también está disponible para lenguajes .NET.
 
@@ -827,19 +827,19 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="java"></a>[Java](#tab/java)
 
-El usuario autenticado está disponible a través de [encabezados HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+El usuario autenticado está disponible a través de [encabezados HTTP](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-El usuario autenticado está disponible a través de [encabezados HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+El usuario autenticado está disponible a través de [encabezados HTTP](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-El usuario autenticado está disponible a través de [encabezados HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+El usuario autenticado está disponible a través de [encabezados HTTP](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 # <a name="python"></a>[Python](#tab/python)
 
-El usuario autenticado está disponible a través de [encabezados HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+El usuario autenticado está disponible a través de [encabezados HTTP](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 
 ---
@@ -924,7 +924,7 @@ En las funciones que no son de C#, las solicitudes enviadas con el tipo de conte
 
 La longitud de la solicitud HTTP está limitada a 100 MB (104 857 600 bytes) y la longitud de la dirección URL a 4 KB (4 096 bytes). El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config) especifica estos límites.
 
-Si una función que usa el desencadenador HTTP no se completa en menos de 230 segundos, [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) agotará el tiempo de espera y devolverá un error HTTP 502. La función seguirá ejecutándose, pero no podrá devolver una respuesta HTTP. En el caso de funciones de ejecución prolongada, se recomienda que siga patrones asincrónicos y que devuelva una ubicación donde pueda hacer ping con el estado de la solicitud. Para más información sobre cuánto tiempo se puede ejecutar una función, consulte [Escalado y hospedaje: Plan de consumo](functions-scale.md#timeout).
+Si una función que usa el desencadenador HTTP no se completa en menos de 230 segundos, [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds-) agotará el tiempo de espera y devolverá un error HTTP 502. La función seguirá ejecutándose, pero no podrá devolver una respuesta HTTP. En el caso de funciones de ejecución prolongada, se recomienda que siga patrones asincrónicos y que devuelva una ubicación donde pueda hacer ping con el estado de la solicitud. Para más información sobre cuánto tiempo se puede ejecutar una función, consulte [Escalado y hospedaje: Plan de consumo](functions-scale.md#timeout).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

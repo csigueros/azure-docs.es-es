@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2021
-ms.openlocfilehash: c135e33da60bf3ed8603b8fc0d6e59bbfab27b77
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 52bb368ccf19c23c04bc062e7db50c07ecebaceb
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142556"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296066"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor-retired"></a>Solución Wire Data 2.0 (versión preliminar) en Azure Monitor (retirada)
 
@@ -124,7 +124,7 @@ VMConnection
 
 ### <a name="more-examples-queries"></a>Más consultas de ejemplo
 
-Consulte la [documentación de búsqueda de registros de VM Insights](../vm/vminsights-log-search.md) y la [documentación de alerta de VM Insights](../vm/vminsights-alerts.md#sample-alert-queries) para ver consultas de ejemplo adicionales.
+Consulte la [documentación de búsqueda de registros de VM Insights](../vm/vminsights-log-search.md) y la [documentación de alerta de VM Insights](../vm/monitor-virtual-machine-alerts.md) para ver consultas de ejemplo adicionales.
 
 ## <a name="uninstall-wire-data-20-solution"></a>Desinstalación de la solución Wire Data 2.0
 

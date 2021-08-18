@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 60c15909f542ca4ef3e1f3fb87a98e66c12368ed
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: d20be688ccd13e7f053c4633a91cc5ce7a6cc34f
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792072"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669078"
 ---
 # <a name="create-a-data-source"></a>Creación de un origen de datos
 
@@ -83,10 +83,10 @@ Un origen de mosaico vectorial describe cómo acceder a una capa de mosaico vect
 
 Azure Maps se adhiere a la [especificación de mosaicos vectoriales de Mapbox](https://github.com/mapbox/vector-tile-spec), un estándar abierto. Azure Maps proporciona los siguientes servicios de mosaicos vectoriales como parte de la plataforma:
 
-- [Documentación](/rest/api/maps/renderv2/getmaptilepreview) | [Detalles del formato de datos](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) de mosaicos de carreteras
+- [Documentación](/rest/api/maps/render-v2/get-map-tile) | [Detalles del formato de datos](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) de mosaicos de carreteras
 - [Documentación](/rest/api/maps/traffic/gettrafficincidenttile) | [Detalles del formato de datos](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) de incidentes de tráfico
 - [Documentación](/rest/api/maps/traffic/gettrafficflowtile) | [Detalles del formato de datos](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de flujo de tráfico
-- Creator de Azure Maps también permite crear mosaicos vectoriales personalizados y acceder a ellos a través de [Render V2-Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview).
+- Creator de Azure Maps también permite crear mosaicos vectoriales personalizados y acceder a ellos a través de [Render V2-Get Map Tile API](/rest/api/maps/render-v2/get-map-tile).
 
 > [!TIP]
 > Al usar mosaicos de imagen vectoriales o de trama del servicio de representación de Azure Maps con el SDK web, puede reemplazar `atlas.microsoft.com` por el marcador de posición `{azMapsDomain}`. Este marcador de posición se reemplazará por el mismo dominio usado por el mapa y también anexará automáticamente los mismos detalles de autenticación. Esto simplifica considerablemente la autenticación con el servicio de representación al usar la autenticación de Azure Active Directory.

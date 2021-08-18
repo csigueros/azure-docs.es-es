@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 5822da267119ab1e0154653c750a3f73e6785b7f
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 4a79892669c746121a0699a5696dcb95d55d7572
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032652"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204403"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Creación de una galería de imágenes compartidas con Azure PowerShell 
 
@@ -43,4 +43,3 @@ Puede crear también recursos de galería de imágenes compartidas con plantilla
 - [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/vm-from-sig/)

@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
-ms.openlocfilehash: 7583b4037d350b9190d6eae30c28b907b1d41d86
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d9628c9d10818b2b7a8a731b14537e4b533af74e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722861"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862100"
 ---
 # <a name="azure-activity-log"></a>Registro de actividad de Azure
 El Registro de actividad es un [registro de plataforma](./platform-logs-overview.md) de Azure que proporciona información de los eventos de nivel de suscripción. Esto incluye información como cuándo se modificó un recurso o cuándo se inició una máquina virtual. Puede ver el registro de actividad en Azure Portal o recuperar entradas con PowerShell y la CLI. Para obtener más funciones, debe crear una configuración de diagnóstico para enviar el registro de actividad a los [registros de Azure Monitor](../logs/data-platform-logs.md), a Azure Event Hubs para reenviarlo fuera de Azure o a Azure Storage para archivarlo. En este artículo se proporcionan detalles sobre cómo visualizar el registro de actividad y enviarlo a diversos destinos.
@@ -63,7 +63,7 @@ También puede acceder a los eventos del registro de actividad mediante los mét
 - No se generan cargos por ingesta para los datos del registro de actividad almacenados en un área de trabajo de Log Analytics.
 - No se generan cargos por retención de datos hasta un período de 90 días para los datos del registro de actividad almacenados en un área de trabajo de Log Analytics.
 
-[Cree una configuración de diagnóstico](./diagnostic-settings.md) para enviar el registro de actividad a un área de trabajo de Log Analytics. Puede enviar el registro de actividad desde cualquier suscripción única hasta un máximo de cinco áreas de trabajo. La recopilación de registros entre inquilinos requiere [Azure Lighthouse](../../lighthouse/index.yml).
+[Cree una configuración de diagnóstico](./diagnostic-settings.md) para enviar el registro de actividad a un área de trabajo de Log Analytics. Puede enviar el registro de actividad desde cualquier suscripción única hasta un máximo de cinco áreas de trabajo. 
 
 Los datos del registro de actividad de un área de trabajo de Log Analytics se almacenan en una tabla denominada *AzureActivity* que se puede recuperar con una [consulta de registro](../logs/log-query-overview.md) en [Log Analytics](../logs/log-analytics-tutorial.md). La estructura de esta tabla varía en función de la [categoría de la entrada de registro](activity-log-schema.md). Para obtener una descripción de las propiedades de la tabla, vea la [referencia de datos de Azure Monitor](/azure/azure-monitor/reference/tables/azureactivity).
 

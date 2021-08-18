@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: b26ce91b005fc7bd4d5b89ccf5306dc03a040b0f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 426a83836a16fd3d4a403b3cda015dd5f49af22e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106758"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780390"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Creación y administración de reglas de firewall para un servidor flexible de Azure Database for MySQL mediante Azure Portal
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
@@ -23,7 +25,7 @@ Se admiten dos métodos de conectividad de red mutuamente excluyentes para conec
 1. Acceso público (direcciones IP permitidas)
 2. Acceso privado (integración con red virtual)
 
-Este artículo gira en torno a la creación de un servidor MySQL con **Acceso público (direcciones IP permitidas)** mediante Azure Portal y proporciona información general sobre la administración de reglas de firewall después de la creación de un servidor flexible. Con *Acceso público (direcciones IP permitidas)* , las conexiones con el servidor MySQL se restringen únicamente a las direcciones IP permitidas. Las direcciones IP del cliente se deben permitir en las reglas de firewall. Para obtener más información al respecto, vea [Acceso público (direcciones IP permitidas)](./concepts-networking.md#public-access-allowed-ip-addresses). Las reglas de firewall se pueden definir en el momento de crear el servidor (recomendado), pero también se pueden agregar después. En este artículo, se proporcionará información general sobre cómo crear y administrar reglas de firewall con acceso público (direcciones IP permitidas).
+Este artículo gira en torno a la creación de un servidor MySQL con **Acceso público (direcciones IP permitidas)** mediante Azure Portal y proporciona información general sobre la administración de reglas de firewall después de la creación de un servidor flexible. Con *Acceso público (direcciones IP permitidas)* , las conexiones con el servidor MySQL se restringen únicamente a las direcciones IP permitidas. Las direcciones IP del cliente se deben permitir en las reglas de firewall. Para obtener más información al respecto, vea [Acceso público (direcciones IP permitidas)](./concepts-networking-public.md#public-access-allowed-ip-addresses). Las reglas de firewall se pueden definir en el momento de crear el servidor (recomendado), pero también se pueden agregar después. En este artículo, se proporcionará información general sobre cómo crear y administrar reglas de firewall con acceso público (direcciones IP permitidas).
 
 ## <a name="create-a-firewall-rule-when-creating-a-server"></a>Creación de una regla de firewall al crear un servidor
 
@@ -37,7 +39,7 @@ Este artículo gira en torno a la creación de un servidor MySQL con **Acceso p�
    > Servidor flexible de Azure Database for MySQL crea un firewall en el nivel de servidor. Evita que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que cree una regla para abrir el firewall para direcciones IP concretas.
 
 7. Seleccione **Revisar y crear** para revisar la configuración del servidor flexible.
-8.  Seleccione **Crear** para realizar el aprovisionamiento del servidor. El aprovisionamiento puede tardar unos minutos.
+8. Seleccione **Crear** para realizar el aprovisionamiento del servidor. El aprovisionamiento puede tardar unos minutos.
 
 ## <a name="create-a-firewall-rule-after-server-is-created"></a>Creación de una regla de firewall después de crear el servidor
 
@@ -73,7 +75,7 @@ Cuando una aplicación se intenta conectar al servidor desde Azure, el firewall 
 Para que la regla de firewall habilite esas conexiones no es preciso que los recursos se encuentren en la misma red virtual (VNET) o grupo de recursos. Si no se permite el intento de conexión, la solicitud no llega al servidor flexible de Azure Database for MySQL.
 
 > [!IMPORTANT]
-> Esta opción configura el firewall para permitir todas las conexiones de Azure, incluidas las de las suscripciones de otros clientes. Al seleccionar esta opción, asegúrese de que los permisos de usuario y el inicio de sesión limiten el acceso solamente a los usuarios autorizados.
+>Esta opción configura el firewall para permitir todas las conexiones de Azure, incluidas las de las suscripciones de otros clientes. Al seleccionar esta opción, asegúrese de que los permisos de usuario y el inicio de sesión limiten el acceso solamente a los usuarios autorizados.
 >
 > Se recomienda elegir **Acceso privado (integración con red virtual)** para acceder de forma segura al servidor flexible.
 >
@@ -88,6 +90,7 @@ Repita los pasos siguientes para administrar las reglas de firewall.
 - Para eliminar una regla existente, haga clic en el botón de puntos suspensivos […] y luego en **Eliminar** para quitar la regla. Haga clic en **Guardar** para guardar los cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Obtenga más información sobre la [conexión de red en servidores flexibles de Azure Database for MySQL](./concepts-networking.md).
-- Para más información, consulte [Reglas de firewall de servidor flexible de Azure Database for MySQL](./concepts-networking.md#public-access-allowed-ip-addresses).
-- [Creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure](./how-to-manage-firewall-cli.md).
+- Para más información, consulte [Reglas de firewall de servidor flexible de Azure Database for MySQL](./concepts-networking-public.md#public-access-allowed-ip-addresses).
+- [Creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure](./how-to-manage-firewall-cli.md)

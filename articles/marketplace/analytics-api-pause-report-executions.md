@@ -4,15 +4,16 @@ description: Use esta API para pausar la ejecución programada de un informe de 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 39b535278fef42818f572631cfa1cb1f923930a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80a7238e76b7152f13dd157aa0a1b7fc9937867a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583588"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745208"
 ---
 # <a name="pause-report-executions-api"></a>Pausa de API de ejecuciones de informes
 

@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 1efd91d92bac1bc1f39d82aaa0cc71daa0275f8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c9fe214cd9527a5e49ff2717222355e9dd8319f
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100570545"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253122"
 ---
 # <a name="connect-your-salesforce-service-cloud-to-azure-sentinel"></a>Conexión de Salesforce Service Cloud con Azure Sentinel
 
 > [!IMPORTANT]
 > El conector de Salesforce Service Cloud está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 En este artículo se explica cómo conectar la solución de Salesforce Service Cloud a Azure Sentinel. El conector de datos de Salesforce Service Cloud le permite conectar fácilmente los datos de Salesforce con Azure Sentinel, de modo que pueda verlos en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar la investigación. La integración entre Salesforce Service Cloud y Azure Sentinel usa la API REST.
 
@@ -65,6 +67,6 @@ Los registros pueden tardar hasta 20 minutos en empezar a aparecer en Log Analyt
 
 En este documento, aprendió a conectar Salesforce Service Cloud con Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

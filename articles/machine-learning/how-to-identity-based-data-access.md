@@ -11,12 +11,12 @@ author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 02/22/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 2ca7eec3bcc40d5c0f93c43cc32b9395feb1e5d0
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 3552a8191fc5482f8a58cc3365302f44f2f364a3
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790422"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284319"
 ---
 # <a name="connect-to-storage-by-using-identity-based-data-access-preview"></a>Conexión al almacenamiento mediante el acceso a datos basado en identidades (versión preliminar)
 
@@ -59,7 +59,7 @@ Algunos escenarios de aprendizaje automático implican el entrenamiento de model
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+- Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - Una cuenta de Azure Storage con un tipo de almacenamiento compatible. Los tipos de almacenamiento admitidos en la versión preliminar son los siguientes: 
     - [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md)
@@ -84,7 +84,7 @@ El acceso a datos basado en identidades solo permite conectarse a los siguientes
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-Para poder acceder a estos servicios de almacenamiento, debe tener como mínimo acceso de [Lector de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Solo los propietarios de la cuenta de almacenamiento pueden [cambiar el nivel de acceso mediante Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md).
+Para poder acceder a estos servicios de almacenamiento, debe tener como mínimo acceso de [Lector de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Solo los propietarios de la cuenta de almacenamiento pueden [cambiar el nivel de acceso mediante Azure Portal](../storage/blobs/assign-azure-role-data-access.md).
 
 Si va a entrenar un modelo en un destino de proceso remoto, es necesario conceder a la identidad de proceso al menos el rol Lector de datos de Storage Blob en el servicio de almacenamiento. Aprenda a [configurar la identidad administrada en un clúster de proceso](how-to-create-attach-compute-cluster.md#managed-identity).
 

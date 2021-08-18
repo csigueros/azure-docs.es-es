@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/07/2021
+ms.date: 07/13/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fb2f36e1b51ed5fbb7c3f2c002760d07f3723645
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 12b909b467b7f53d568e80f60c8b30f701820216
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590487"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728523"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory
 
@@ -75,7 +75,7 @@ Esta función de aprovisionamiento de TI controlada por RR. HH. ofrece las sigu
 
 ### <a name="licensing"></a>Licencias
 
-Para configurar la integración del aprovisionamiento de usuarios de la aplicación de RR. HH. en la nube en Azure AD, necesita una [licencia válida de Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) y una licencia de la aplicación de RR. HH. en la nube, como Workday o SuccessFactors.
+Para configurar la integración del aprovisionamiento de usuarios de la aplicación de RR. HH. en la nube en Azure AD, necesita una [licencia válida de Azure AD Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) y una licencia de la aplicación de RR. HH. en la nube, como Workday o SuccessFactors.
 
 También necesita una licencia válida de suscripción a Azure AD Premium P1 o superior para cada usuario que se obtenga de la aplicación de RR. HH. en la nube y que se aprovisionará en Active Directory o en Azure AD. Un número incorrecto de las licencias que se poseen en la aplicación de RR. HH. en la nube puede dar lugar a errores durante el aprovisionamiento de usuarios.
 

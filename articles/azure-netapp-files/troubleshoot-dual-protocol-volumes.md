@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 02/19/2021
 ms.author: b-juche
-ms.openlocfilehash: 29a1251ed390ec3aefbb45a02a3c4284ca1848b8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1ec2b7c3c9f4aaccd168031b718bbb5b50394506
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142466"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735767"
 ---
 # <a name="troubleshoot-smb-or-dual-protocol-volumes"></a>Solución de problemas de SMB o de volúmenes de dos protocolos
 
@@ -32,7 +32,7 @@ En este artículo se describen las soluciones a las condiciones de error que pue
 | Está habilitado LDAP sobre TLS y se produce un error al crear el volumen de protocolo dual: `This Active Directory has no Server root CA Certificate`.    |     Si este error se produce al crear un volumen de protocolo dual, compruebe que el certificado de la entidad de certificación raíz se haya cargado en su cuenta de NetApp.    |
 | Se produce un error al crear el volumen de protocolo dual: `Failed to validate LDAP configuration, try again after correcting LDAP configuration`.    |  Es posible que falte el registro de puntero (PTR) del equipo host de AD en el servidor DNS. Tiene que crear una zona de búsqueda inversa en el servidor DNS y luego agregar un registro de puntero (PTR) del equipo host de AD a esa zona de búsqueda inversa. <br> Por ejemplo, supongamos que la dirección IP de la máquina de AD es `10.x.x.x`, que el nombre de host de la máquina de AD (que se encuentra mediante el comando `hostname`) es `AD1` y el nombre de dominio es `contoso.com`.  El registro PTR agregado a la zona de búsqueda inversa debe ser `10.x.x.x` -> `contoso.com`.   |
 | Se produce un error al crear el volumen de protocolo dual: `Failed to create the Active Directory machine account \\\"TESTAD-C8DD\\\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\\n [ 434] Loaded the preliminary configuration.\\n [ 537] Successfully connected to ip 10.x.x.x, port 88 using TCP\\n**[ 950] FAILURE`. |     Este error indica que la contraseña de AD es incorrecta cuando Active Directory está unido a la cuenta de NetApp. Actualice la conexión de AD con la contraseña correcta e inténtelo de nuevo. |
-| Se produce un error al crear el volumen de protocolo dual: `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available`. |   Este error indica que no se puede obtener acceso al servidor DNS. La razón puede ser que la dirección IP del servidor DNS sea incorrecta o que haya un problema de red. Compruebe la dirección IP de DNS especificada en la conexión de AD y asegúrese de que sea correcta. <br> Asegúrese también de que AD y el volumen estén en la misma región y en la misma red virtual. Si están en redes virtuales diferentes, asegúrese de establecer un emparejamiento entre las dos redes virtuales.|
+| Se produce un error al crear el volumen de protocolo dual: `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available`. |   Este error indica que no se puede obtener acceso al servidor DNS. La razón puede ser que la dirección IP del servidor DNS sea incorrecta o que haya un problema de red. Compruebe la dirección IP de DNS especificada en la conexión de AD y asegúrese de que sea correcta. <br> Asegúrese también de que AD y el volumen estén en la misma región y en la misma red virtual. Si están en redes virtuales diferentes, asegúrese de establecer un emparejamiento entre las dos redes virtuales. <br> Consulte [Directrices para el planeamiento de red de Azure NetApp Files](azure-netapp-files-network-topologies.md#azure-native-environments) para una información más detallada. |
 | Error de denegación de permiso al montar un volumen de protocolo dual. | Un volumen de protocolo dual admite los protocolos NFS y SMB.  Al intentar obtener acceso al volumen montado en el sistema UNIX, el sistema intenta asignar el usuario de UNIX que utiliza a un usuario de Windows. Si no se encuentra ninguna asignación, se produce el error "Permiso denegado". <br> Esta situación se aplica también cuando se usa el usuario "raíz" para obtener acceso. <br> Para evitar el problema de tipo "Permiso denegado", asegúrese de que Active Directory para Windows incluya `pcuser` antes de obtener acceso al punto de montaje. Si agrega `pcuser` después de encontrar el problema "Permiso denegado", espere 24 horas para que la entrada de caché se borre antes de volver a intentar el acceso. |
 
 ## <a name="common-errors-for-smb-and-dual-protocol-volumes"></a>Errores comunes de los volúmenes SMB y de protocolo dual

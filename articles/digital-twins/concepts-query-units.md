@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7a1ba0ab0759a5c765497aac4346fa7d72dae96c
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 4e588e08e6c4180056bb2e27274154f1c00f0556
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616195"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114466190"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unidades de consulta en Azure Digital Twins 
 
@@ -41,8 +41,8 @@ En el fragmento de código siguiente se muestra cómo se pueden extraer los carg
 
 Para más información sobre cómo hacer consultas en Azure Digital Twins, consulte:
 
-* [Conceptos: Lenguaje de consulta](concepts-query-language.md)
-* [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md)
+* [Lenguaje de consulta](concepts-query-language.md)
+* [Consulta del grafo de gemelos](how-to-query-graph.md)
 * [Documentación de referencia de la API de consulta](/rest/api/digital-twins/dataplane/query/querytwins)
 
 Puede encontrar límites relacionados con las consultas de Azure Digital Twins en [Límites del servicio Azure Digital Twins](reference-service-limits.md).

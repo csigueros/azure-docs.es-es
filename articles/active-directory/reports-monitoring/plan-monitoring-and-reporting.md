@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52166e8cf615c831f37b9122393af4039063f2b4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f831acacfd1aaf2248e7993c3e7161cad62312b3
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964624"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733408"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planeamiento de la implementación de la supervisión y los informes de Azure Active Directory
 
@@ -55,7 +55,7 @@ Con la supervisión de Azure AD, puede enrutar los registros a:
 
 Necesitará una licencia de Azure AD Premium para acceder a los registros de inicio de sesión de Azure AD.
 
-Para más información acerca de las características y licencias, consulte la [guía de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Para más información acerca de las características y licencias, consulte la [guía de precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 Para implementar la supervisión y los informes de Azure AD, necesitará un usuario que sea administrador global o administrador de seguridad del inquilino de Azure AD.
 

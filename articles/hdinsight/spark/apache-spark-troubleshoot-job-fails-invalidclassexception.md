@@ -4,12 +4,12 @@ description: Error del trabajo de Apache Spark con InvalidClassException, la ver
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/29/2019
-ms.openlocfilehash: 0b0889ac1e71ce33406e89ead62370a0c0168763
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 936e0728e70ceba35fbde105d68d77b9fbace45a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98929266"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288846"
 ---
 # <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Error del trabajo de Apache Spark con InvalidClassException, la versión de la clase no coincide, en Azure HDInsight
 
@@ -36,10 +36,10 @@ Este error puede deberse a la incorporación de un archivo jar adicional a la co
 > [!TIP]
 > Para sombrear una biblioteca, debe incluir el contenido en un archivo jar propio y cambiar el paquete. Este procedimiento es diferente al del empaquetamiento de la biblioteca, que incluye la biblioteca en un archivo jar propio sin volver a empaquetar.
 
-## <a name="resolution"></a>Solución
+## <a name="resolution"></a>Resolución
 
 Quite el archivo jar o vuelva a compilar el archivo jar personalizado (AzureLogAppender) y use [maven-shade-plugin](https://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html) para reubicar las clases.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -11,12 +11,12 @@ ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/22/2021
-ms.openlocfilehash: f9c52307e4d743e32f8771998e2dfaacc6643a35
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c047d89b554bed61f0015235a52927ffda7d1ec7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739014"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446586"
 ---
 # <a name="deploy-a-model-locally"></a>Implementación de un modelo de forma local
 
@@ -27,6 +27,8 @@ Obtenga información sobre cómo usar Azure Machine Learning para implementar un
 
 > [!TIP]
 > La implementación de un modelo de Jupyter Notebook de una instancia de proceso, en un servicio web de la misma máquina virtual es una _implementación local_. En este caso, la máquina "local" es la instancia de proceso. Para más información sobre las implementaciones, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -94,7 +96,7 @@ print("prediction:", resp.text)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
+* [Cómo implementar un modelo con una imagen personalizada de Docker](./how-to-deploy-custom-container.md)
 * [Solución de problemas de implementación](how-to-troubleshoot-deployment.md)
 * [Uso de TLS para proteger un servicio web con Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir un modelo de ML que está implementado como un servicio web](how-to-consume-web-service.md)

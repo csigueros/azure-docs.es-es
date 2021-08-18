@@ -7,13 +7,12 @@ ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: f213976d0e61706b2d8a9c8465be1ff0a4065b2e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 0a4095cd5f15bae3089b597ef6773c3a96e48f45
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031896"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747755"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Guía de referencia del esquema de StylesObject para Azure Maps dinámico
 

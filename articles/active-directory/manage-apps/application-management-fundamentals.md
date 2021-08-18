@@ -2,9 +2,8 @@
 title: 'Administración de aplicaciones: Procedimientos recomendados y recomendaciones | Microsoft Docs'
 description: Obtenga información sobre los procedimiento recomendados y recomendaciones para administrar aplicaciones en Azure Active Directory. Aprenda a usar el aprovisionamiento automático y la publicación de aplicaciones locales con el proxy de aplicación.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
@@ -12,39 +11,42 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.subservice: app-mgmt
-ms.author: mtillman
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 526c3ead0509b6e69eab23a7f2b3771ffe40bd29
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: napuri
+ms.openlocfilehash: f05668e8614178dcc1071d6c1a8b0ea7ca7b2d1a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077399"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738914"
 ---
 # <a name="application-management-best-practices"></a>Procedimientos recomendados de administración de aplicaciones
 
 Este artículo contiene recomendaciones y procedimientos recomendados para administrar aplicaciones en Azure Active Directory (Azure AD), usar el aprovisionamiento automático y publicar aplicaciones locales con el proxy de aplicación.
 
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Recomendaciones para la aplicación en la nube y el inicio de sesión único
+
 | Recomendación | Comentarios |
 | --- | --- |
-| Consultar la galería de aplicaciones de Azure AD para aplicaciones  | Azure AD dispone de una galería que contiene miles de aplicaciones previamente integradas que se habilitan con el inicio de sesión único empresarial (SSO). Para obtener instrucciones sobre la configuración específica de la aplicación, consulte la [Lista de tutoriales de aplicaciones SaaS](../saas-apps/tutorial-list.md).  | 
-| Usar SSO basado en SAML federado  | Cuando una aplicación lo admita, use el SSO basado en SAML federado con Azure AD en lugar de SSO basado en contraseña y ADFS.  | 
-| Usar SHA-256 para la firma de certificados  | Azure AD utiliza el algoritmo predeterminado SHA-256 para firmar la respuesta SAML. Use SHA-256 a menos que la aplicación requiera SHA-1 (consulte [Opciones de firma de certificados](certificate-signing-options.md) y [Problema de inicio de sesión de la aplicación](application-sign-in-problem-application-error.md)).  | 
-| Requerir la asignación de usuario  | De forma predeterminada, los usuarios pueden acceder a sus aplicaciones empresariales sin tener que asignarlas. Sin embargo, si la aplicación expone roles o si quiere que aparezca en la página Aplicaciones de un usuario, exija la asignación de usuarios.  | 
+| Consultar la galería de aplicaciones de Azure AD para aplicaciones  | Azure AD dispone de una galería que contiene miles de aplicaciones previamente integradas que se habilitan con el inicio de sesión único empresarial (SSO). Para obtener instrucciones sobre la configuración específica de la aplicación, consulte la [Lista de tutoriales de aplicaciones SaaS](../saas-apps/tutorial-list.md).  |
+| Usar SSO basado en SAML federado  | Cuando una aplicación lo admita, use el SSO basado en SAML federado con Azure AD en lugar de SSO basado en contraseña y ADFS.  |
+| Usar SHA-256 para la firma de certificados  | Azure AD utiliza el algoritmo predeterminado SHA-256 para firmar la respuesta SAML. Use SHA-256 a menos que la aplicación requiera SHA-1 (consulte [Opciones de firma de certificados](certificate-signing-options.md) y [Problema de inicio de sesión de la aplicación](application-sign-in-problem-application-error.md)).  |
+| Requerir la asignación de usuario  | De forma predeterminada, los usuarios pueden acceder a sus aplicaciones empresariales sin tener que asignarlas. Sin embargo, si la aplicación expone roles o si quiere que aparezca en la página Aplicaciones de un usuario, exija la asignación de usuarios.  |
 | Implementación de la página Aplicaciones en los usuarios | La página [Aplicaciones](end-user-experiences.md) en `https://myapps.microsoft.com` es un portal web que proporciona a los usuarios un único punto de entrada para las aplicaciones basadas en la nube asignadas. A medida que se agreguen funcionalidades adicionales, como la administración de grupos y el autoservicio de restablecimiento de contraseña, los usuarios pueden encontrarlas en dicho portal. Consulte [Planeamiento de una implementación de Aplicaciones](my-apps-deployment-plan.md).
-| Usar asignación de un grupo  | Si se incluye en la suscripción, asigne grupos a una aplicación para que pueda delegar la administración de acceso continuo al propietario del grupo.  | 
+| Usar asignación de un grupo  | Si se incluye en la suscripción, asigne grupos a una aplicación para que pueda delegar la administración de acceso continuo al propietario del grupo.  |
 | Establecer un proceso para administrar certificados | La duración máxima de un certificado de firma es de tres años. Para evitar o minimizar la interrupción debido a la expiración de un certificado, use las listas de distribución de correo electrónico y roles para asegurarse de que las notificaciones de cambios relacionadas con los certificados se supervisan con atención. |
 
 ## <a name="provisioning-recommendations"></a>Aprovisionar las recomendaciones
+
 | Recomendación | Comentarios |
 | --- | --- |
 | Usar tutoriales para configurar el aprovisionamiento con aplicaciones en la nube | Consulte la [Lista de tutoriales de aplicaciones SaaS](../saas-apps/tutorial-list.md) para obtener instrucciones paso a paso sobre cómo configurar el aprovisionamiento de la aplicación de la galería que desea agregar. |
 | Usar registros de aprovisionamiento (versión preliminar) para supervisar el estado | Los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) proporcionan detalles sobre todas las acciones que ha llevado a cabo el servicio de aprovisionamiento, incluido el estado de los usuarios individuales. |
 | Asignación de un grupo de distribución al correo electrónico de notificación de aprovisionamiento | Para aumentar la visibilidad de las alertas críticas enviadas por el servicio de aprovisionamiento, asigne un grupo de distribución a la configuración de los correos electrónicos de notificación. |
 
-
 ## <a name="application-proxy-recommendations"></a>Recomendaciones sobre el proxy de aplicación
+
 | Recomendación | Comentarios |
 | --- | --- |
 | Uso del proxy de aplicación para el acceso remoto a recursos internos | Se recomienda el proxy de aplicación para dar a los usuarios remotos acceso a recursos internos, reemplazando la necesidad de una VPN o un proxy inverso. No está diseñado para tener acceso a recursos desde dentro de la red corporativa porque podría agregar latencia.

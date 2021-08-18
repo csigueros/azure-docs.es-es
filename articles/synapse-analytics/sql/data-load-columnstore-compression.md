@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a452808b1c349e2aec91759675e269e3680f0598
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 750fc421cd644ec41384d43705b41602df24719b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567968"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860986"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximización de la calidad de un grupo de filas para mejorar el rendimiento de un índice de almacén de columnas
 
@@ -137,8 +137,8 @@ OPTION (MAXDOP 1);
 
 Juntos, el tamaño de DWU y la clase de recursos de usuario, determinan cuánta memoria hay disponible para la consulta de un usuario. A fin de incrementar la concesión de memoria para una consulta de carga, puede aumentar el número de DWU o la clase de recursos.
 
-- Para aumentar las DWU, consulte [¿Cómo se realiza el escalado del rendimiento?](../sql-data-warehouse/quickstart-scale-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- Para cambiar la clase de recursos de una consulta, consulte [Cambio de ejemplo de clase de recursos de usuario](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#change-a-users-resource-class).
+- Para aumentar las DWU, consulte [¿Cómo se realiza el escalado del rendimiento?](../sql-data-warehouse/quickstart-scale-compute-portal.md?context=/azure/synapse-analytics/context/context)
+- Para cambiar la clase de recursos de una consulta, consulte [Cambio de ejemplo de clase de recursos de usuario](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context#change-a-users-resource-class).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

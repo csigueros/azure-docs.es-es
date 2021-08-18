@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b2c1840acae64940561133a90cb1450c4af80a19
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 0a5ad3a5fb542476eb4cdeb1ffe67907a7209d0c
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952760"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112232564"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de cumplimiento de SaaS versión 2 en el marketplace comercial
 
@@ -249,7 +249,7 @@ Código: 403 Prohibido. El token de autorización no es válido, ha expirado o n
 
 Este error suele indicar que no se ha realizado correctamente el [registro de SaaS](pc-saas-registration.md).
 
-Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="activate-a-subscription"></a>Activar una suscripción
 
@@ -302,7 +302,7 @@ Este error suele indicar que no se ha realizado correctamente el [registro de Sa
 
 Código: 404 No encontrado. La suscripción de SaaS se encuentra en el estado *Suscripción cancelada*.
 
-Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="get-list-of-all-subscriptions"></a>Obtención de una lista de todas las suscripciones
 
@@ -411,7 +411,7 @@ Código: 403 Prohibido. El token de autorización no está disponible, no es vá
 
 Este error suele indicar que no se ha realizado correctamente el [registro de SaaS](pc-saas-registration.md). 
 
-Código: 500 Error interno del servidor. Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Código: 500 Error interno del servidor. Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="get-subscription"></a>Obtener una suscripción
 
@@ -481,7 +481,7 @@ Este error suele indicar que no se ha realizado correctamente el [registro de Sa
 
 Código: 404 No encontrado.  No se encuentra la suscripción de SaaS con el valor de `subscriptionId` especificado.
 
-Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="list-available-plans"></a>Lista de planes disponibles
 
@@ -536,7 +536,7 @@ Código: 403 Prohibido. El token de autorización no es válido, ha expirado o n
 
 Este error suele indicar que no se ha realizado correctamente el [registro de SaaS](pc-saas-registration.md). 
 
-Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="change-the-plan-on-the-subscription"></a>Cambiar el plan de la suscripción
 
@@ -595,7 +595,7 @@ Este error suele indicar que no se ha realizado correctamente el [registro de Sa
 
 Código: 404 No encontrado.  No se encuentra la suscripción de SaaS con el valor de `subscriptionId`.
 
-Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 >[!NOTE]
 >Se puede cambiar el plan o la cantidad de puestos de cada vez, pero no ambos.
@@ -661,7 +661,7 @@ Este error suele indicar que no se ha realizado correctamente el [registro de Sa
 
 Código: 404 No encontrado.  No se encuentra la suscripción de SaaS con el valor de `subscriptionId`.
 
-Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 >[!Note]
 >Solo se puede cambiar un plan o cantidad a la vez, pero no ambos.
@@ -720,7 +720,7 @@ Este error suele indicar que no se ha realizado correctamente el [registro de Sa
 
 Código: 404 No encontrado.  No se encuentra la suscripción de SaaS con el valor de `subscriptionId`.
 
-Código: 500 Error interno del servidor. Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Código: 500 Error interno del servidor. Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ### <a name="operations-apis"></a>API Operations
 
@@ -783,7 +783,7 @@ Este error suele indicar que no se ha realizado correctamente el [registro de Sa
 
 Código: 404 No encontrado.  No se encuentra la suscripción de SaaS con el valor de `subscriptionId`.
 
-Código: 500 Error interno del servidor. Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Código: 500 Error interno del servidor. Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="get-operation-status"></a>Obtener el estado de la operación
 
@@ -843,7 +843,7 @@ Código: 404 No encontrado.
 * No se encuentra la suscripción con el valor de `subscriptionId`.
 * No se encuentra la operación con el valor de `operationId`.
 
-Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="update-the-status-of-an-operation"></a>Actualizar el estado de una operación
 
@@ -895,7 +895,7 @@ Código: 404 No encontrado.
 
 Código: 409 Conflicto.  Por ejemplo, ya se suministra una actualización más reciente.
 
-Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si el error persiste, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>Implementación de un webhook en el servicio de SaaS
 

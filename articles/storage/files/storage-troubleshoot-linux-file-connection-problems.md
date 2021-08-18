@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 4c618fad5b1e85df1ffa19fa2aa0e8621ae2bdd9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2eb87704d8cb967bb58a0fd1302b6f0f8225af72
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094463"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117646"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Solución de problemas de Azure Files en Linux (SMB)
 
@@ -22,6 +22,13 @@ Además de los pasos de solución de problemas de este artículo, también puede
 
 > [!IMPORTANT]
 > El contenido de este artículo solo se aplica a los recursos compartidos SMB. Para obtener información sobre los recursos compartidos NFS, consulte el artículo sobre la [solución de problemas de los recursos compartidos de archivos NFS de Azure](storage-troubleshooting-files-nfs.md).
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>No se puede conectar a un recurso compartido de archivos de Azure ni montarlo
 

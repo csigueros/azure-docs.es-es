@@ -9,16 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
-ms.openlocfilehash: e70361b747cac10b602efcf590963b707c7d5da7
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: c78d8f3bc4a7bfc7b73d71a97e29c369926448c5
+ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559005"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113139420"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Indexación de blobs cifrados mediante indexadores de blobs y conjuntos de aptitudes en Azure Cognitive Search
 
-En este artículo se muestra cómo usar [Azure Cognitive Search](search-what-is-azure-search.md) para indexar documentos que se han cifrado previamente en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) mediante [Azure Key Vault](../key-vault/general/overview.md). Normalmente, los indexadores no pueden extraer contenido de archivos cifrados porque no tienen acceso a la clave de cifrado. Sin embargo, al aprovechar la aptitud personalizada [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile), seguida de [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), puede proporcionar acceso controlado a la clave para descifrar los archivos y, a continuación, extraer contenido de ellos. De este modo, se desbloquea la capacidad de indexar estos documentos sin poner en peligro el estado de cifrado de los documentos almacenados.
+En este artículo se muestra cómo usar [Azure Cognitive Search](search-what-is-azure-search.md) para indexar documentos que se han cifrado previamente en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) mediante [Azure Key Vault](../key-vault/general/overview.md). Normalmente, los indexadores no pueden extraer contenido de archivos cifrados porque no tienen acceso a la clave de cifrado. Sin embargo, al aprovechar la aptitud personalizada [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile), seguida de [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), puede proporcionar acceso controlado a la clave para descifrar los archivos y, a continuación, extraer contenido de ellos. De este modo, se desbloquea la capacidad de indexar estos documentos sin poner en peligro el estado de cifrado de los documentos almacenados.
 
 A partir de documentos completos (texto no estructurado) cifrados previamente, como PDF, HTML, DOCX y PPTX en Azure Blob Storage, en esta guía se usan Postman y las API de REST de Búsqueda para realizar las tareas siguientes:
 
@@ -44,11 +44,11 @@ En este ejemplo se da por supuesto que ha cargado los archivos en Azure Blob Sto
 
 ### <a name="set-up-the-custom-skill"></a>Configuración de la aptitud personalizada
 
-En este ejemplo se usa el proyecto [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) de ejemplo del repositorio de GitHub [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills). En esta sección, implementará la aptitud en una instancia de Azure Functions para que se pueda usar en un conjunto de aptitudes. Un script de implementación integrado crea un recurso de Azure Functions cuyo nombre comienza por **psdbf-function-app-** y carga la aptitud. Se le pedirá que especifique una suscripción y un grupo de recursos. Asegúrese de elegir la misma suscripción en la que reside la instancia de Azure Key Vault.
+En este ejemplo se usa el proyecto [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) de ejemplo del repositorio de GitHub [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills). En esta sección, implementará la aptitud en una instancia de Azure Functions para que se pueda usar en un conjunto de aptitudes. Un script de implementación integrado crea un recurso de Azure Functions cuyo nombre comienza por **psdbf-function-app-** y carga la aptitud. Se le pedirá que especifique una suscripción y un grupo de recursos. Asegúrese de elegir la misma suscripción en la que reside la instancia de Azure Key Vault.
 
 A nivel operativo, la aptitud DecryptBlobFile toma la dirección URL y el token de SAS de cada blob como entradas, y genera el archivo descifrado descargado mediante el contrato de referencia de archivo que Azure Cognitive Search espera. Recuerde que DecryptBlobFile necesita la clave de cifrado para realizar el descifrado. Como parte de la configuración, también creará una directiva de acceso que concede a la función DecryptBlobFile acceso a la clave de cifrado de Azure Key Vault.
 
-1. Haga clic en el botón **Implementar en Azure** que se encuentra en la [página de aterrizaje de DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile#deployment), que abrirá la plantilla de Resource Manager proporcionada en Azure Portal.
+1. Haga clic en el botón **Implementar en Azure** que se encuentra en la [página de aterrizaje de DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile#deployment), que abrirá la plantilla de Resource Manager proporcionada en Azure Portal.
 
 1. Seleccione **la suscripción en la que existe la instancia de Azure Key Vault** (esta guía no funcionará si selecciona otra suscripción) y seleccione un grupo de recursos existente o cree uno (si lo crea, también tendrá que seleccionar una región para implementarlo).
 

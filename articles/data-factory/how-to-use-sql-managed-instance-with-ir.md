@@ -4,14 +4,15 @@ description: Obtenga información sobre el uso de Instancia administrada de Azur
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 190def0e6e2f77d330d2307753dc9e9d53c55dd7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c7ed059e3f7a0bbf620bf9008a08a7d600dcbc88
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564159"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739440"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Uso de Instancia administrada de Azure SQL con SQL Server Integration Services (SSIS) en Azure Data Factory
 

@@ -9,12 +9,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: dab3411319f40a111144a3e1c1f02f1b67d011b0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ef8bf7192814ee791066bbbfd080d0d5cf9d6943
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935658"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460908"
 ---
 # <a name="configure-scaling-options-with-azure-cloud-services-extended-support"></a>Configuración de opciones de escalado con Azure Cloud Services (soporte extendido) 
 
@@ -64,5 +64,5 @@ Tenga en cuenta la siguiente información al configurar el escalado de las imple
 
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).
 - Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).

@@ -5,24 +5,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: 6f3761b1c933d113bf65c70370c29bcfa7950eea
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b9bd43591c64d1b83ba8bf8f5400c0273141d735
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728661"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122180343"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solución Alert Management en Azure Log Analytics
 
 ![Icono Administración de alertas](media/alert-management-solution/icon.png)
 
-La solución Administración de alertas le ayuda a analizar todas las alertas del repositorio de Log Analytics.  Estas alertas pueden proceder de diversos orígenes, incluidos los [creados por Log Analytics ](../alerts/alerts-overview.md) o los [importados de Nagios o Zabbix](../vm/quick-collect-linux-computer.md). La solución también importa alertas desde cualquier [grupo de administración conectado de System Center Operations Manager](../agents/om-agents.md).
+La solución Administración de alertas le ayuda a analizar todas las alertas del repositorio de Log Analytics.  Estas alertas pueden proceder de diversos orígenes, incluidos los [creados por Log Analytics ](../alerts/alerts-overview.md) o los [importados de Nagios o Zabbix](../vm/monitor-virtual-machine.md). La solución también importa alertas desde cualquier [grupo de administración conectado de System Center Operations Manager](../agents/om-agents.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 La solución funciona con todos los registros del repositorio de Log Analytics con un tipo de **Alerta**, por lo que debe realizar las configuraciones que sean necesarias para recopilar estos registros.
 
 - Para las alertas de Log Analytics, [cree reglas de alerta](../alerts/alerts-overview.md) para crear registros de alerta directamente en el repositorio.
-- Para las alertas de Nagios y Zabbix, [configure esos servidores](../vm/quick-collect-linux-computer.md) para que envíen alertas a Log Analytics.
+- Para las alertas de Nagios y Zabbix, [configure esos servidores](../vm/monitor-virtual-machine.md) para que envíen alertas a Log Analytics.
 - Para las alertas de System Center Operations Manager,[conecte el grupo de administración de Operations Manager al área de trabajo de Log Analytics](../agents/om-agents.md).  Las alertas creadas en System Center Operations Manager se importan en Log Analytics.  
 
 ## <a name="configuration"></a>Configuración
@@ -42,7 +42,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | Origen conectado | Soporte técnico | Descripción |
 |:--- |:--- |:--- |
 | [Agentes de Windows](../agents/agent-windows.md) | No |Los agentes directos de Windows no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Windows. |
-| [Agentes de Linux](../vm/quick-collect-linux-computer.md) | No |Los agentes directos de Linux no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Linux.  Las alertas de Nagios y Zabbix se recopilan desde los servidores que requieren el agente de Linux. |
+| [Agentes de Linux](../vm/monitor-virtual-machine.md) | No |Los agentes directos de Linux no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Linux.  Las alertas de Nagios y Zabbix se recopilan desde los servidores que requieren el agente de Linux. |
 | [Grupo de administración de System Center Operations](../agents/om-agents.md) |Sí |Las alertas que se generan en agentes de Operations Manager se entregan al grupo de administración y luego se reenvían a Log Analytics.<br><br>No se requiere ninguna conexión directa entre los agentes de Operations Manager y Log Analytics. Los datos de alerta se reenvían desde el grupo de administración al repositorio de Log Analytics. |
 
 

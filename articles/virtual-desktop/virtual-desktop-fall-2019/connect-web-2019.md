@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e604e5de1a5abd46961c0ec447f7d3fb29aa3b49
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b028635b3b58d8f0a771616dac7036428e7a8fe4
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749964"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031164"
 ---
 # <a name="connect-to-azure-virtual-desktop-classic-with-the-web-client"></a>Conexión a Azure Virtual Desktop (clásico) con el cliente web
 
 >[!IMPORTANT]
->Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../connect-web.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../user-documentation/connect-web.md).
 
 El cliente web le permite acceder a los recursos de Azure Virtual Desktop desde un explorador web sin el largo proceso de instalación.
 

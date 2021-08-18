@@ -3,12 +3,12 @@ title: puntos de conexión de servicio de red virtual - Azure Event Hubs | Micro
 description: En este artículo se proporciona información sobre cómo agregar el punto de conexión de servicio de Microsoft.EventHub a una red virtual.
 ms.topic: article
 ms.date: 05/10/2021
-ms.openlocfilehash: bc13878be3b596d514ad2ed8ad024064df6e6fb4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 33ae280b49b4f2afca39e8de8954f836737c9d7c
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375343"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416225"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir el acceso al espacio de nombres de Event Hubs desde redes virtuales específicas 
 
@@ -78,7 +78,7 @@ En esta sección se muestra cómo usar Azure Portal para agregar un punto de con
     > [!NOTE]
     > Para restringir el acceso a intervalos o direcciones concretos, consulte [Permitir el acceso desde intervalos o direcciones IP específicos](event-hubs-ip-filtering.md).
 
-[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+[!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Uso de plantillas de Resource Manager
 La siguiente plantilla de Resource Manager de ejemplo agrega una regla de red virtual a un espacio de nombres de Event Hubs. Para la regla de red, especifica el identificador de una subred en una red virtual. 
