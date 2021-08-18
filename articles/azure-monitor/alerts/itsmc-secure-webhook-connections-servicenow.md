@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/31/2020
-ms.openlocfilehash: cf19911bd8126bfb73f848c086aa817a7d7adb00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0864eca7a6a93ddaa2023cae7b0a7f5dc8e2ebd0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563698"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114451513"
 ---
 # <a name="connect-servicenow-to-azure-monitor"></a>Conexión de ServiceNow a Azure Monitor
 
@@ -29,6 +29,7 @@ Asegúrese de que se cumplen los requisitos previos siguientes:
 1. Use el vínculo https://(nombre de instancia).service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor del URI de la definición de exportación segura.
 
 2. Siga las instrucciones correspondientes a la versión:
+   * [Quebec](https://docs.servicenow.com/bundle/quebec-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [París](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Orlando](https://docs.servicenow.com/bundle/orlando-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Nueva York](https://docs.servicenow.com/bundle/newyork-it-operations-management/page/product/event-management/concept/azure-integration.html)

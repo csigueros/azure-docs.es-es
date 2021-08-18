@@ -8,12 +8,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: e9f27b5cc3c4cb526dbcf6e6511fcd53e3c2fe67
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: af9f5218b7f7f94ddc73fb67fe82427d1cfbfff2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891727"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743073"
 ---
 # <a name="connect-azure-storage-account-diagnostics-logs"></a>Conexión de registros de diagnóstico de la cuenta de Azure Storage
 
@@ -62,11 +62,11 @@ Este conector usa Azure Policy para aplicar una única configuración de streami
 
 > [!NOTE]
 >
-> Con este conector de datos concreto, los indicadores de estado de conectividad (una franja de color en la galería de conectores de datos y los iconos de conexión situados junto a los nombres de tipo de datos) mostrarán el estado *Conectado* (verde) solo si los datos se han ingerido en algún momento en los últimos 14 días. Transcurrido este período sin ingesta de datos, el conector se mostrará como desconectado. En el momento en que circulen más datos, se devolverá el estado *conectado*.
+> Con este conector de datos concreto, los indicadores de estado de conectividad (una franja de color en la galería de conectores de datos y los iconos de conexión situados junto a los nombres de tipo de datos) se mostrarán como *Conectado* (verde) solo si los datos se han ingerido en algún momento en los últimos catorce días. Transcurridos catorce días sin ingesta de datos, el conector se mostrará como desconectado. En el momento en que circulen más datos, se devolverá el estado *conectado*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido a conectar la cuenta de Azure Storage a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).

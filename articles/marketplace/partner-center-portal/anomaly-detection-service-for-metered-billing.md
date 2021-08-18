@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 77159a099dcc28739457a10afef374502d117b5a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8c0cba39c2fe299a2cc822309b0063d2d4fe2f71
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971160"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431526"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Servicio de detección de anomalías para la facturación de uso medido
 
-El [servicio de medición de Marketplace](../marketplace-metering-service-apis-faq.md), le permite crear ofertas en el programa comercial de Marketplace que se cobran conforme a unidades no estándar. Con la facturación de uso medido, puede enviar eventos de uso del cliente a Microsoft y nosotros prepararemos la facturación según ese uso.
+El [servicio de medición de Marketplace](../marketplace-metering-service-apis-faq.yml), le permite crear ofertas en el programa comercial de Marketplace que se cobran conforme a unidades no estándar. Con la facturación de uso medido, puede enviar eventos de uso del cliente a Microsoft y nosotros prepararemos la facturación según ese uso.
 
 Unos datos de uso incorrectos pueden deberse a diversas causas como, por ejemplo, errores, configuraciones incorrectas en el seguimiento del consumo o fraude. Los datos de uso incorrectos pueden producir cargos incorrectos al cliente y conflictos de facturación.
 
@@ -67,7 +67,7 @@ Si se aplica uno de los siguientes casos, puede ajustar la cantidad de uso en el
 
 Para enviar una incidencia de soporte técnico relacionada con las anomalías de facturación de uso medido:
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) con su cuenta profesional.
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290) con su cuenta profesional.
 1. En el menú que se encuentra en la parte superior derecha de la página, seleccione el icono **Soporte técnico**. El panel **Ayuda y soporte técnico** aparece en el lado derecho de la página.
 1. Para ayuda con el marketplace comercial, seleccione **Marketplace comercial**.
    ![Se muestra el panel de soporte técnico.](../media/support/commercial-marketplace-support-pane.png)

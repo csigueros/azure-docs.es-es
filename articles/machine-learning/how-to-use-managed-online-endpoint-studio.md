@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: how-to, managed online endpoints
+ms.custom: how-to, managed online endpoints, devplatv2
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: peterlu
 ms.date: 05/25/2021
-ms.openlocfilehash: 96ec383d5110b3acf4ca3b83bd40526443df887a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 4f2b69a4a4009784e7943d57b0ec5653528a418e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382997"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448184"
 ---
 # <a name="create-and-use-managed-online-endpoints-preview-in-the-studio"></a>Creación y uso de puntos de conexión en línea administrados (versión preliminar) en Estudio
 
@@ -56,9 +56,9 @@ También puede crear un punto de conexión en línea administrado desde la pági
 1. Seleccione el círculo situado junto al nombre del modelo para elegirlo.
 1. Seleccione **Deploy** > **Deploy to endpoint (preview)** (Implementar > Implementar en el punto de conexión [versión preliminar]).
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/models-create-managed-online-endpoint.png" alt-text="Creación de un punto de conexión en línea administrado desde la pestaña Modelos":::
-
 Siga el asistente para configurar el punto de conexión en línea administrado.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/models-page-deployment-latest.png" alt-text="Creación de un punto de conexión en línea administrado desde la pestaña Modelos":::
 
 ## <a name="view-managed-online-endpoints-preview"></a>Visualización de puntos de conexión en línea administrados (versión preliminar)
 
@@ -167,4 +167,8 @@ En este artículo, ha aprendido a usar los puntos de conexión en línea adminis
 
 - [¿Qué son los puntos de conexión?](concept-endpoints.md)
 - [Implementación de puntos de conexión en línea administrados con la CLI de Azure](how-to-deploy-managed-online-endpoints.md)
+- [Implementación de modelos con REST (versión preliminar)](how-to-deploy-with-rest.md)
 - [Supervisión de los puntos de conexión en línea administrados](how-to-monitor-online-endpoints.md)
+- [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Visualización de los costos de un punto de conexión en línea administrado de Azure Machine Learning (versión preliminar)](how-to-view-online-endpoints-costs.md)
+- [Administración y aumento de las cuotas de los recursos con Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

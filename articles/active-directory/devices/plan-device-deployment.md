@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7158a42a61ccba736e94f22714cc3b30f7f1cc5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 8f2ae8a38305b74f2bccba55b02d98626b5afc1d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286949"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724841"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeación de la implementación de dispositivos de Azure Active Directory
 
@@ -142,6 +142,8 @@ Los usuarios que instalan la aplicación Portal de empresa registran los disposi
 * [Android](/mem/intune/user-help/enroll-device-android-company-portal)
 
 * [Windows 10](/mem/intune/user-help/enroll-windows-10-device)
+
+* [macOS](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)
 
 Si el registro de sus dispositivos es la mejor opción para su organización, consulte los siguientes recursos:
 

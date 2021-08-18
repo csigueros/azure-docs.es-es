@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 05/25/2021
-ms.openlocfilehash: fddb938e003969d0eff95b94b0ea4a18fa0d0727
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 5ed86f84f8b2fbe78ee53f776cb9f420e5077113
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111855157"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290630"
 ---
 # <a name="deploy-red-hat-jboss-enterprise-platform-eap-on-azure-vms-and-virtual-machine-scale-sets-using-the-azure-marketplace-offer"></a>Implementación de Red Hat JBoss Enterprise Platform (EAP) en máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure con la oferta de Azure Marketplace
 
-Las ofertas de Azure Marketplace para [Red Hat JBoss Enterprise Application Platform](https://www.redhat.com/technologies/jboss-middleware/application-platform) en [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/technologies/linux-platforms/enterprise-linux) de Azure son una solución conjunta de [Red Hat](https://www.redhat.com/) y Microsoft. Red Hat es un proveedor y colaborador líder de soluciones de código abierto que incluye los estándares de [Java](https://www.java.com/), [OpenJDK](https://openjdk.java.net/), [MicroProfile](https://microprofile.io/), [Jakarta EE](https://jakarta.ee/) y [Quarkus](https://quarkus.io/). JBoss EAP es una plataforma de servidor líder de aplicaciones Java con certificado Java EE y compatible con Jakarta EE tanto para perfil web como plataforma completa. Cada versión de JBoss EAP se prueba y admite en varios sistemas operativos líderes del mercado, máquinas virtuales Java (JVM) y combinaciones de bases de datos.  JBoss EAP y RHEL incluyen todo lo necesario para compilar, ejecutar, implementar y administrar aplicaciones empresariales Java en cualquier entorno.  Incluye entornos locales y virtuales, y nubes privadas, públicas o híbridas. La solución conjunta de Red Hat y Microsoft incluye soporte técnico integrado y flexibilidad de licencias de software.
+Las ofertas de Azure Marketplace para [Red Hat JBoss Enterprise Application Platform](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) en [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) de Azure son una solución conjunta de [Red Hat](https://www.redhat.com/) y Microsoft. Red Hat es un proveedor y colaborador líder de soluciones de código abierto que incluye los estándares de [Java](https://www.java.com/), [OpenJDK](https://openjdk.java.net/), [MicroProfile](https://microprofile.io/), [Jakarta EE](https://jakarta.ee/) y [Quarkus](https://quarkus.io/). JBoss EAP es una plataforma de servidor líder de aplicaciones Java con certificado Java EE y compatible con Jakarta EE tanto para perfil web como plataforma completa. Cada versión de JBoss EAP se prueba y admite en varios sistemas operativos líderes del mercado, máquinas virtuales Java (JVM) y combinaciones de bases de datos.  JBoss EAP y RHEL incluyen todo lo necesario para compilar, ejecutar, implementar y administrar aplicaciones empresariales Java en cualquier entorno.  Incluye entornos locales y virtuales, y nubes privadas, públicas o híbridas. La solución conjunta de Red Hat y Microsoft incluye soporte técnico integrado y flexibilidad de licencias de software.
 
 ## <a name="jboss-eap-on-azure-integrated-support"></a>JBoss EAP en soporte integrado de Azure
 
@@ -43,7 +43,7 @@ Los seis planes disponibles son:
 
 - Boss EAP 7.3 en RHEL 8.3 como máquina virtual independiente (Pago por uso)
 - JBoss EAP 7.3 en RHEL 8.3 como máquina virtual independiente (BYOS)
-- JBoss EAP 7.3 en RHEL 8.3 como máquina virtual en clúster (Pago por uso)
+- JBoss EAP 7.3 en RHEL 8.3 como máquina virtual en clúster (Pago por uso)
 - JBoss EAP 7.3 en RHEL 8.3 como máquina virtual en clúster (BYOS)
 - JBoss EAP 7.3 en RHEL 8.3 como conjunto de escalado de máquinas virtuales en clúster (Pago por uso)
 - JBoss EAP 7.3 en RHEL 8.3 como conjunto de escalado de máquinas virtuales en clúster (BYOS)
@@ -56,7 +56,7 @@ Consulte los [precios de Red Hat Enterprise Linux](https://azure.microsoft.com/p
 
 ## <a name="using-rhel-os-with-byos-model"></a>Uso del sistema operativo RHEL con el modelo BYOS
 
-Para usar RHEL como máquinas virtuales o conjuntos de escalado de máquinas virtuales BYOS, es necesario tener una suscripción válida a Red Hat con derechos para usar RHEL en Azure. Estos planes de JBoss EAP de BYOS en RHEL están disponibles como [ofertas privadas de Azure](/azure/marketplace/private-offers). DEBE completar los siguientes requisitos previos para implementar un plan de oferta de BYOS en RHEL desde el Azure Marketplace. 
+Para usar RHEL como máquinas virtuales o conjuntos de escalado de máquinas virtuales BYOS, es necesario tener una suscripción válida a Red Hat con derechos para usar RHEL en Azure. Estos planes de JBoss EAP de BYOS en RHEL están disponibles como [ofertas privadas de Azure](../../../marketplace/private-offers.md). DEBE completar los siguientes requisitos previos para implementar un plan de oferta de BYOS en RHEL desde el Azure Marketplace. 
 
 1. Asegúrese de que tiene los derechos del sistema operativo RHEL y JBoss EAP asignados en la suscripción de Red Hat.
 2. Autorice su identificador de suscripción de Azure para usar imágenes de BYOS en RHEL. Siga la [documentación de administración de suscripciones de Red Hat (RHSM)](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access) para completar el proceso, que incluye estos pasos:
@@ -66,7 +66,7 @@ Para usar RHEL como máquinas virtuales o conjuntos de escalado de máquinas vir
     4. Active las imágenes Gold de Red Hat para su suscripción de Azure. Para más información, lea el capítulo sobre cómo [habilitar y mantener suscripciones para Cloud Access](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#using-gold-images-on-azure_cloud-access). 
     5. Espere a que las imágenes de Red Hat Gold estén disponibles en su suscripción de Azure. Estas imágenes Gold suelen estar disponibles en un plazo de 3 horas a partir del envío o menos como ofertas privadas de Azure.
 
-3. Acepte los términos y condiciones (T&C) de Azure Marketplace para las imágenes de BYOS en RHEL. Para aceptarlos, ejecute los comandos de [Interfaz de la línea de comandos de Azure (CLI)](/cli/azure/install-azure-cli) como se indica a continuación. Para más información, consulte la documentación de las [imágenes Gold de BYOS en RHEL en Azure](/azure/virtual-machines/workloads/redhat/byos). Es importante que ejecute la versión más reciente de la CLI de Azure.
+3. Acepte los términos y condiciones (T&C) de Azure Marketplace para las imágenes de BYOS en RHEL. Para aceptarlos, ejecute los comandos de [Interfaz de la línea de comandos de Azure (CLI)](/cli/azure/install-azure-cli) como se indica a continuación. Para más información, consulte la documentación de las [imágenes Gold de BYOS en RHEL en Azure](./byos.md). Es importante que ejecute la versión más reciente de la CLI de Azure.
     1. Inicie una sesión de la CLI de Azure y autentíquese con su cuenta de Azure. Consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli) para obtener ayuda. Asegúrese de ejecutar la versión más reciente de la CLI de Azure antes de continuar.
     2. Compruebe que los planes de BYOS en RHEL están disponibles en su suscripción mediante la ejecución del siguiente comando de la CLI. Si no obtiene ningún resultado aquí, consulte el paso 2. Asegúrese de que la suscripción de Azure está activada con derechos para JBoss EAP en planes de BYOS en RHEL.
 
@@ -110,17 +110,17 @@ Estos planes de oferta crean todos los recursos de proceso de Azure para ejecuta
 
 ## <a name="after-a-successful-deployment"></a>Después de la implementación correcta
 
-1. [Cree una máquina virtual de salto con emparejamiento de red virtual](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine) en una red virtual distinta, acceda al servidor y exponga la aplicación mediante [emparejamiento de red virtual](/azure/virtual-network/tutorial-connect-virtual-networks-portal#peer-virtual-networks).
-2. [Cree una dirección IP pública](/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address) para acceder al servidor y a la aplicación.
-3. [Cree una máquina virtual de salto en la misma red virtual (VNet)](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine) en una subred diferente (nueva subred) en la misma red virtual y acceda al servidor a través de una máquina virtual de salto. La máquina virtual de salto se puede usar para exponer la aplicación.
-4. Exponga la aplicación mediante una [puerta de enlace de aplicación](/azure/application-gateway/quick-create-portal#create-an-application-gateway).
-5. Exponga la aplicación mediante [equilibrador de carga externo](/azure/load-balancer/tutorial-load-balancer-standard-manage-portal#create-a-standard-load-balancer) (ELB).
-6. [Use Azure Bastion](/azure/bastion/bastion-overview) para acceder a las máquinas virtuales de RHEL mediante el explorador y Azure Portal. 
+1. [Cree una máquina virtual de salto con emparejamiento de red virtual](../../windows/quick-create-portal.md#create-virtual-machine) en una red virtual distinta, acceda al servidor y exponga la aplicación mediante [emparejamiento de red virtual](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks).
+2. [Cree una dirección IP pública](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) para acceder al servidor y a la aplicación.
+3. [Cree una máquina virtual de salto en la misma red virtual (VNet)](../../windows/quick-create-portal.md#create-virtual-machine) en una subred diferente (nueva subred) en la misma red virtual y acceda al servidor a través de una máquina virtual de salto. La máquina virtual de salto se puede usar para exponer la aplicación.
+4. Exponga la aplicación mediante una [puerta de enlace de aplicación](../../../application-gateway/quick-create-portal.md#create-an-application-gateway).
+5. Exponga la aplicación mediante equilibrador de carga externo (ELB).
+6. [Use Azure Bastion](../../../bastion/bastion-overview.md) para acceder a las máquinas virtuales de RHEL mediante el explorador y Azure Portal. 
 
 ### <a name="1-create-a-jump-vm-in-a-different-virtual-network-and-access-the-rhel-vm-using-virtual-network-peering-recommended-method"></a>1. Cree una máquina virtual de salto en una red virtual distinta y acceda a la máquina virtual de RHEL mediante emparejamiento de red virtual (método recomendado)
 
-1. [Cree una máquina virtual de Windows](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine): en un nuevo grupo de recursos de Azure, cree una máquina virtual de Windows, que DEBE estar en la misma región que la máquina virtual de RHEL. Proporcione los detalles necesarios y deje otras configuraciones como predeterminadas, ya que creará la máquina virtual de salto en una red virtual nueva.
-2. [Emparejar las redes virtuales](/azure/virtual-network/tutorial-connect-virtual-networks-portal#peer-virtual-networks): el emparejamiento es la forma de asociar la máquina virtual de RHEL con la máquina virtual de salto. Una vez se hace el emparejamiento de la red virtual de manera correcta, ambas máquinas virtuales pueden comunicarse entre sí.
+1. [Cree una máquina virtual de Windows](../../windows/quick-create-portal.md#create-virtual-machine): en un nuevo grupo de recursos de Azure, cree una máquina virtual de Windows, que DEBE estar en la misma región que la máquina virtual de RHEL. Proporcione los detalles necesarios y deje otras configuraciones como predeterminadas, ya que creará la máquina virtual de salto en una red virtual nueva.
+2. [Emparejar las redes virtuales](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks): el emparejamiento es la forma de asociar la máquina virtual de RHEL con la máquina virtual de salto. Una vez se hace el emparejamiento de la red virtual de manera correcta, ambas máquinas virtuales pueden comunicarse entre sí.
 3. Vaya a la página de detalles de la máquina virtual de salto y copie la dirección IP pública. Inicie sesión en la máquina virtual de salto mediante la dirección IP pública.
 4. Copie la dirección IP privada de la máquina virtual de RHEL de la página de salida y úsela para iniciar sesión en la máquina virtual de RHEL desde la máquina virtual de salto.
 5. Pegue la dirección URL de la aplicación que copió de la página de salida en un explorador dentro de la máquina virtual de salto. Consulte la página web de JBoss EAP en Azure desde este explorador.
@@ -128,15 +128,15 @@ Estos planes de oferta crean todos los recursos de proceso de Azure para ejecuta
 
 ### <a name="2-create-a-public-ip-to-access-the-rhel-vm-and-jboss-eap-admin-console"></a>2. Cree una dirección IP pública para acceder a la máquina virtual de RHEL y a la consola de administración de JBoss EAP.
 
-1. La máquina virtual de RHEL que creó no tiene asociada una dirección IP pública. Puede [crear una dirección IP pública](/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address) para acceder a la máquina virtual y [asociar la dirección IP pública a la máquina virtual](/azure/virtual-network/associate-public-ip-address-vm). La creación de una dirección IP pública se puede realizar con comandos de Azure Portal, de [Azure PowerShell](/powershell/) o de [la CLI de Azure](/cli/azure/install-azure-cli).
+1. La máquina virtual de RHEL que creó no tiene asociada una dirección IP pública. Puede [crear una dirección IP pública](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) para acceder a la máquina virtual y [asociar la dirección IP pública a la máquina virtual](../../../virtual-network/associate-public-ip-address-vm.md). La creación de una dirección IP pública se puede realizar con comandos de Azure Portal, de [Azure PowerShell](/powershell/) o de [la CLI de Azure](/cli/azure/install-azure-cli).
 2. Obtenga la dirección IP pública de una máquina virtual: vaya a la página de detalles de la máquina virtual y copie la dirección IP pública. Use una dirección IP pública para acceder a la máquina virtual y a la consola de administrador de JBoss EAP.
 3. Vea la página web de JBoss EAP en Azure: abra un explorador web y vaya a *http://<PUBLIC_HOSTNAME>:8080/* y debería ver la página de bienvenida de EAP predeterminada.
 4. Inicie sesión en la consola de administrador de JBoss EAP: abra un explorador web y vaya a *http://<PUBLIC_HOSTNAME>:9990*. Escriba el nombre de usuario y la contraseña de JBoss EAP para iniciar sesión.
 
 ### <a name="3-create-a-jump-vm-in-a-different-subnet-new-subnet-in-the-same-vnet-and-access-the-rhel-vm-via-a-jump-vm"></a>3. Cree una máquina virtual de salto en una subred diferente (nueva subred) en la misma red virtual y acceda a la máquina virtual de RHEL a través de una máquina virtual de salto.
 
-1. [Agregue una nueva subred](/azure/virtual-network/virtual-network-manage-subnet#add-a-subnet) en la red virtual existente, que contiene la máquina virtual de RHEL.
-2. [Cree una máquina virtual Windows](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine) en Azure en el mismo grupo de recursos (RG) que la máquina virtual de RHEL. Proporcione los detalles necesarios y deje otras configuraciones como predeterminadas, excepto la red virtual y la subred. Asegúrese de seleccionar la red virtual existente en el grupo de recursos y seleccione la subred que creó en el paso anterior, ya que será la máquina virtual de salto.
+1. [Agregue una nueva subred](../../../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) en la red virtual existente, que contiene la máquina virtual de RHEL.
+2. [Cree una máquina virtual Windows](../../windows/quick-create-portal.md#create-virtual-machine) en Azure en el mismo grupo de recursos (RG) que la máquina virtual de RHEL. Proporcione los detalles necesarios y deje otras configuraciones como predeterminadas, excepto la red virtual y la subred. Asegúrese de seleccionar la red virtual existente en el grupo de recursos y seleccione la subred que creó en el paso anterior, ya que será la máquina virtual de salto.
 3. Acceda a la dirección IP pública de la máquina virtual de salto: una vez implementada correctamente, vaya a la página de detalles de la máquina virtual y copie la dirección IP pública. Inicie sesión en la máquina virtual de salto mediante la dirección IP pública.
 4. Inicie sesión en la máquina virtual de RHEL: copie la dirección IP privada de la máquina virtual de RHEL de la página de salida y úsela para iniciar sesión en la máquina virtual de RHEL desde la máquina virtual de salto.
 5. Acceda a la página principal de JBoss EAP: en la máquina virtual de salto, abra un explorador y pegue la dirección URL de la aplicación que copió de la página de salida de la implementación.
@@ -144,7 +144,7 @@ Estos planes de oferta crean todos los recursos de proceso de Azure para ejecuta
 
 ### <a name="4-expose-the-application-using-an-external-load-balancer"></a>4. Exponga la aplicación mediante un equilibrador de carga externo
 
-1. [Cree una puerta de enlace de aplicación](/application-gateway/quick-create-portal#create-an-application-gateway): para acceder a los puertos de la máquina virtual de RHEL, cree una puerta de enlace de aplicación en una subred diferente. La subred solo debe contener la puerta de enlace de aplicación.
+1. [Cree una puerta de enlace de aplicación](../../../application-gateway/quick-create-portal.md#create-an-application-gateway): para acceder a los puertos de la máquina virtual de RHEL, cree una puerta de enlace de aplicación en una subred diferente. La subred solo debe contener la puerta de enlace de aplicación.
 2. Establezca parámetros de *front-end*: asegúrese de seleccionar la dirección IP pública o ambos y proporcione los detalles necesarios. En la sección *Back-ends*, seleccione la opción **Agregar un grupo de back-end** y agregue la máquina virtual de RHEL al grupo de back-end de la puerta de enlace de aplicación.
 3. Establezca puertos de acceso: en la sección *Configuración*, agregue reglas de enrutamiento para acceder a los puertos 8080 y 9990 de la máquina virtual de RHEL.
 4. Copiar la dirección IP pública de la puerta de enlace de aplicación: una vez creada  la puerta de enlace de aplicación con las configuraciones necesarias, vaya a la página de información general y copie la dirección IP pública de la puerta de enlace de aplicación.
@@ -153,8 +153,8 @@ Estos planes de oferta crean todos los recursos de proceso de Azure para ejecuta
 
 ### <a name="5-use-an-external-load-balancer-elb-to-access-your-rhel-vmvirtual-machine-scale-sets"></a>5. Use un equilibrador de carga externo (ELB) para acceder a la máquina virtual o a los conjuntos de escalado de máquinas virtuales de RHEL.
 
-1. [Cree un equilibrador de carga](/load-balancer/tutorial-load-balancer-standard-manage-portal#create-a-standard-load-balancer) para acceder a los puertos de la máquina virtual de RHEL. Proporcione los detalles necesarios para implementar el equilibrador de carga externo y deje otras configuraciones como valor predeterminado. Deje la SKU como básico para la configuración del ELB.
-2. Agregue reglas de equilibrador de carga: una vez que el equilibrador de carga se haya creado correctamente, [cree recursos de equilibrador de carga](/azure/load-balancer/tutorial-load-balancer-standard-manage-portal#create-load-balancer-resources) y, a continuación, agregue reglas de equilibrador de carga para acceder a los puertos 8080 y 9990 de la máquina virtual RHEL.
+1. [Cree un equilibrador de carga](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources) para acceder a los puertos de la máquina virtual de RHEL. Proporcione los detalles necesarios para implementar el equilibrador de carga externo y deje otras configuraciones como valor predeterminado. Deje la SKU como básico para la configuración del ELB.
+2. Agregue reglas de equilibrador de carga: una vez que el equilibrador de carga se haya creado correctamente, [cree recursos de equilibrador de carga](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources) y, a continuación, agregue reglas de equilibrador de carga para acceder a los puertos 8080 y 9990 de la máquina virtual RHEL.
 3. Agregue la máquina virtual de RHEL al grupo de back-end del equilibrador de carga: haga clic en *Grupos de back-end* en la sección de configuración y, a continuación, seleccione el grupo de back-end que creó en el paso anterior. Seleccione la máquina virtual correspondiente a la opción *Asociado a* y agregue la máquina virtual de RHEL.
 4. Para obtener la dirección IP pública del equilibrador de carga: vaya a la página de información general del equilibrador de carga y copie la dirección IP pública del equilibrador de carga.
 5. Para ver la página web de JBoss EAP en Azure: abra un explorador web y vaya a *http://<PUBLIC_IP_LoadBalancer>:8080/* y debería ver la página principal de EAP predeterminada.
@@ -207,26 +207,26 @@ Siga los pasos que se indican a continuación para continuar con la solución de
     more eap.log
     ```
 
-El archivo de registro tendrá detalles que incluyen el motivo del error de implementación y posibles soluciones. Si la implementación no se pudo realizar debido a derechos o cuentas RHSM, consulte la sección "Notas de soporte técnico y suscripción" para completar los requisitos previos. A continuación, inténtelo de nuevo. Al implementar EAP en el plan en clúster de RHEL, asegúrese de que la implementación no alcanza el límite de cuota. Es importante comprobar las cuotas de CPU virtuales de la serie de VM y vCPU regionales antes de proporcionar el recuento de instancias para la implementación. Si la suscripción o región no tiene límite de cuota suficiente, [solicite cuota](/azure/azure-portal/supportability/regional-quota-requests) de su Azure Portal.
+El archivo de registro tendrá detalles que incluyen el motivo del error de implementación y posibles soluciones. Si la implementación no se pudo realizar debido a derechos o cuentas RHSM, consulte la sección "Notas de soporte técnico y suscripción" para completar los requisitos previos. A continuación, inténtelo de nuevo. Al implementar EAP en el plan en clúster de RHEL, asegúrese de que la implementación no alcanza el límite de cuota. Es importante comprobar las cuotas de CPU virtuales de la serie de VM y vCPU regionales antes de proporcionar el recuento de instancias para la implementación. Si la suscripción o región no tiene límite de cuota suficiente, [solicite cuota](../../../azure-portal/supportability/regional-quota-requests.md) de su Azure Portal.
 
-Consulte [Uso de la extensión de la versión 2 de script personalizado de Azure con máquinas virtuales Linux](/azure/virtual-machines/extensions/custom-script-linux) para más información sobre la solución de problemas de las extensiones de script personalizado de máquina virtual.
+Consulte [Uso de la extensión de la versión 2 de script personalizado de Azure con máquinas virtuales Linux](../../extensions/custom-script-linux.md) para más información sobre la solución de problemas de las extensiones de script personalizado de máquina virtual.
 
 ## <a name="resource-links-and-support"></a>Vínculos de recursos y soporte técnico
 
-Para cualquier pregunta relacionada con el soporte técnico, incidencias o requisitos de personalización, póngase en contacto con el [Soporte técnico de Red Hat](https://access.redhat.com/support) o el [Soporte técnico de Microsoft Azure](https://ms.portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Para cualquier pregunta relacionada con el soporte técnico, incidencias o requisitos de personalización, póngase en contacto con el [soporte técnico de Red Hat](https://access.redhat.com/support) o el [soporte técnico de Microsoft Azure](https://ms.portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 * Más información sobre [JBoss EAP](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform)
 * [JBoss EAP en Red Hat OpenShift en Azure](https://azure.microsoft.com/services/openshift/)
-* [JBoss EAP en Azure App Service](https://aka.ms/jboss-app-service-overview) 
-* [Ventajas híbridas de Azure](/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
+* [JBoss EAP en Azure App Service](/azure/developer/java/ee/jboss-on-azure) 
+* [Ventajas híbridas de Azure](../../windows/hybrid-use-benefit-licensing.md)
 * [Administración de la suscripción de Red Hat](https://access.redhat.com/products/red-hat-subscription-management)
-* [Documentación de Microsoft para Red Hat en Azure](https://aka.ms/rhel-docs)
+* [Documentación de Microsoft para Red Hat en Azure](./overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Implementación de JBoss EAP en máquinas virtuales o en un conjunto de escalado de máquinas virtuales de RHEL desde [Azure Marketplace](https://aka.ms/AMP-JBoss-EAP)
 * Implementación de JBoss EAP en máquinas virtuales o en un conjunto de escalado de máquinas virtuales de RHEL desde [Inicio rápido de Azure](https://aka.ms/Quickstart-JBoss-EAP)
-* Configuración de una aplicación Java para [Azure App Service](/azure/app-service/configure-language-java)
+* Configuración de una aplicación Java para [Azure App Service](../../../app-service/configure-language-java.md)
 * Tutorial "Cómo implementar [JBoss EAP en Azure App Service](https://github.com/JasonFreeberg/jboss-on-app-service)"
 * Use la [asistencia para la migración de Azure App Service](https://azure.microsoft.com/services/app-service/migration-assistant/)
-* Use el [kit de herramientas de migración para aplicaciones](https://developers.redhat.com/products/mta) de Red Hat
+* Uso del [kit de herramientas de migración para aplicaciones](https://developers.redhat.com/products/mta) de Red Hat

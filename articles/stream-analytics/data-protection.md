@@ -5,13 +5,13 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/03/2020
-ms.openlocfilehash: 102b03ad4fe247ae0abc4e2312d7027c6170333f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/07/2021
+ms.openlocfilehash: b236c433e55bb2b702497b42a1b4fc73ce520f00
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019472"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113491144"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protección de datos en Azure Stream Analytics 
 
@@ -94,9 +94,6 @@ Para ayudarle a cumplir las obligaciones de cumplimiento normativo de cualquier 
 
 ## <a name="enables-data-residency"></a>Habilitación de la residencia de datos 
 Puede usar esta característica para aplicar los requisitos de residencia de datos que pueda tener; para ello, proporcione una cuenta de almacenamiento como corresponda.
-
-## <a name="known-issues"></a>Problemas conocidos
-Hay un problema conocido en el que un trabajo que usa la clave administrada por el cliente devuelve errores cuando se usa la identidad administrada para autenticarse en cualquier entrada o salida. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

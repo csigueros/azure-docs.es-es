@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6aa233e82ca272b9b5b9e4a9bee4ef2b57f2de77
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e9fc377acf528d564411a5c65c5fce9d6282118a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070016"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749933"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Creación de un contenedor en la API de SQL de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En este artículo se explican las distintas formas de crear un contenedor en la API de SQL de Azure Cosmos DB. Muestra cómo crear un contenedor mediante Azure Portal, la CLI de Azure, PowerShell o los SDK admitidos. En este artículo se muestra cómo crear un contenedor, especificar la clave de partición y aprovisionar el rendimiento.
 
-En este artículo se explican las distintas formas de crear un contenedor en la API de SQL de Azure Cosmos DB. Si usa una API diferente, consulte los artículos [API para MongoDB](how-to-create-container-mongodb.md), [Cassandra API](how-to-create-container-cassandra.md), [Gremlin API](how-to-create-container-gremlin.md) y [Table API](how-to-create-container-table.md) para crear el contenedor.
+En este artículo se explican las distintas formas de crear un contenedor en la API de SQL de Azure Cosmos DB. Si usa una API diferente, consulte los artículos [API para MongoDB](how-to-create-container-mongodb.md), [Cassandra API](cassandra/how-to-create-container-cassandra.md), [Gremlin API](how-to-create-container-gremlin.md) y [Table API](table/how-to-create-container.md) para crear el contenedor.
 
 > [!NOTE]
 > Cuando cree contenedores, asegúrese de no utilizar el mismo nombre en dos de ellos con distintas mayúsculas y minúsculas. Algunos componentes de la plataforma de Azure no distinguen mayúsculas de minúsculas y esto puede producir confusión o problemas con los datos telemetría y las acciones que se realicen en los contenedores con estos nombres.
@@ -34,9 +34,9 @@ En este artículo se explican las distintas formas de crear un contenedor en la 
 1. Abra el panel **Data Explorer** y seleccione **Nuevo contenedor**. Después, proporcione los detalles siguientes:
 
    * Indique si va a crear una nueva base de datos o a usar una existente.
-   * Escriba un **identificador de contenedor**.
-   * Escriba un valor de **clave de partición** (por ejemplo, `/ItemID`).
-   * Seleccione un rendimiento de **Escalabilidad automática** o **Manual** y escriba el **rendimiento de contenedor** necesario (por ejemplo, 1000 RU/s). Escriba un rendimiento que quiera aprovisionar (por ejemplo, 1000 RU).
+   * Escriba un valor en **Container Id** (Id. de contenedor).
+   * Escriba un valor en **Partition key** (Clave de partición) (por ejemplo, `/ItemID`).
+   * Seleccione un rendimiento de **Autoscale** (Escalabilidad automática) o **Manual** y especifique el valor de **Container throughput** (Rendimiento de contenedor) (por ejemplo, 1000 RU/s). Escriba un rendimiento que quiera aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
     :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Captura de pantalla de Data Explorer, con la Nueva colección resaltada":::

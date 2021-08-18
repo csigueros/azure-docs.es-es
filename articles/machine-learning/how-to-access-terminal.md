@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: bff14ddd6a361c93c416aa746640b774afc43961
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: d02259419a6349224b1d047ce01b2e1bf64c1b37
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897242"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112454561"
 ---
 # <a name="access-a-compute-instance-terminal-in-your-workspace"></a>Acceso a un terminal de instancia de proceso en el área de trabajo
 
@@ -27,7 +27,7 @@ Acceda al terminal de una instancia de proceso en el área de trabajo para hacer
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="access-a-terminal"></a>Acceso a un terminal

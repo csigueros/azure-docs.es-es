@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b00561875d7c8c08061c9fcbe46a88815ef2f32c
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 245979140b2d5214dcbb9ba8456cc90d8b8fd864
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784649"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669340"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidad de Azure Maps: proyectos de código abierto
 
@@ -59,7 +59,7 @@ A continuación se muestra una lista de proyectos de código abierto que amplía
 |-|-|
 | [Ejemplos de código de Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Colección de ejemplos de código para usar Azure Maps en aplicaciones basadas en web. |
 | [Ejemplos de código de Azure Maps Gov en la nube](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Colección de ejemplos de código para usar Azure Maps en la nube de Azure Government. |
-| [Muestras de Azure Maps y Azure Active Directory](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Colección de ejemplos que muestran cómo usar Azure Active Directory con Azure Maps. | 
+| [Muestras de Azure Maps y Azure Active Directory](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Colección de ejemplos que muestran cómo usar Azure Active Directory con Azure Maps. |
 | [LiveMaps](https://github.com/Azure-Samples/LiveMaps) | Aplicación de ejemplo para proporcionar la visualización de mapas interior en directo de datos de IoT sobre Azure Maps con Azure Maps Creator |
 | [Ejemplos de Jupyter Notebook en Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Colección de ejemplos de Python con los servicios REST de Azure Maps. |
 | [Control remoto de IoT para .NET UWP en Azure Maps](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Se trata de una aplicación de ejemplo que muestra cómo crear un mapa controlado de forma remota con los servicios de Azure Maps e IoT Hub. |
@@ -70,9 +70,9 @@ A continuación se muestra una lista de proyectos de código abierto que amplía
 
 | Nombre de proyecto | Descripción |
 |-|-|
-| [Complemento Cesium de Azure Maps](https://github.com/azure-samples/azure-maps-cesium) | Complemento de [Cesium JS](https://cesium.com/cesiumjs/) que facilita la integración de servicios de Azure Maps como [capas de mosaico](/rest/api/maps/renderv2/getmaptilepreview) y [servicios de geocodificación](/rest/api/maps/search). |
-| [Complemento Leaftlet de Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) | Un complemento de [folleto](https://leafletjs.com/) de JavaScript que facilita la superposición de las capas de mosaico en los [servicios de mosaico de Azure Maps](/rest/api/maps/renderv2/getmaptilepreview). |
- | [Complemento OpenLayers de Azure Maps](https://github.com/azure-samples/azure-maps-openlayers) | Complemento [OpenLayers](https://www.openlayers.org/) de JavaScript que facilita la superposición de las capas de mosaico en los [servicios de mosaico de Azure Maps](/rest/api/maps/renderv2/getmaptilepreview). |
+| [Complemento Cesium de Azure Maps](https://github.com/azure-samples/azure-maps-cesium) | Complemento de [Cesium JS](https://cesium.com/cesiumjs/) que facilita la integración de servicios de Azure Maps como [capas de mosaico](/rest/api/maps/render-v2/get-map-tile) y [servicios de geocodificación](/rest/api/maps/search). |
+| [Complemento Leaftlet de Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) | Un complemento de [folleto](https://leafletjs.com/) de JavaScript que facilita la superposición de las capas de mosaico en los [servicios de mosaico de Azure Maps](/rest/api/maps/render-v2/get-map-tile). |
+ | [Complemento OpenLayers de Azure Maps](https://github.com/azure-samples/azure-maps-openlayers) | Complemento [OpenLayers](https://www.openlayers.org/) de JavaScript que facilita la superposición de las capas de mosaico en los [servicios de mosaico de Azure Maps](/rest/api/maps/render-v2/get-map-tile). |
 
 **Herramientas y recursos**
 

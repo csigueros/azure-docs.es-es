@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 3a8fe3ded6608059cc6ad50901ffe6df5dcf1b08
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 969e2d2424b9f9af1dcd921a1cebfa9407e313eb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441595"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438427"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
@@ -23,7 +23,7 @@ Explorador de Microsoft Azure Storage es una aplicación independiente que fac
 
 En este artículo aprenderá varias maneras de conectarse a cuentas de Azure Storage y de administrarlas.
 
-:::image type="content" alt-text="Explorador de Microsoft Azure Storage" source="./vs-storage-explorer-overview.png":::
+:::image type="content" alt-text="Explorador de Microsoft Azure Storage" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-overview.png":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -86,17 +86,17 @@ El Explorador de Storage proporciona varias maneras de conectar con los recursos
 
 1. En el Explorador de Storage, seleccione **Ver** > **Administración de cuentas**, o bien seleccione el botón **Administrar cuentas**.
 
-    :::image type="content" alt-text="Administración de cuentas" source ="./vs-storage-explorer-manage-accounts.png":::
+    :::image type="content" alt-text="Administración de cuentas" source ="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-manage-accounts.png":::
 
 1. En **ADMINISTRACIÓN DE CUENTAS** ahora se muestran todas las cuentas de Azure en las que ha iniciado sesión. Para conectarse a otra cuenta, seleccione **Agregar una cuenta**.
 
 1. Se abre el cuadro de diálogo **Conectar a Azure Storage**. En el panel **Seleccionar recurso**, elija **Suscripción**.
 
-    :::image type="content" alt-text="Cuadro de diálogo Conectar" source="./vs-storage-explorer-connect-dialog.png":::
+    :::image type="content" alt-text="Cuadro de diálogo Conectar" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-dialog.png":::
 
 1. En el panel **Seleccionar entorno de Azure**, elija un entorno de Azure en el que iniciar sesión. Puede iniciar sesión en Azure global, en una nube nacional o en una instancia de Azure Stack. Luego, seleccione **Siguiente**.
 
-    :::image type="content" alt-text="Opción para iniciar sesión" source="./vs-storage-explorer-connect-environment.png":::
+    :::image type="content" alt-text="Opción para iniciar sesión" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-environment.png":::
 
     > [!TIP]
     > Para más información sobre Azure Stack, consulte [Conexión del Explorador de Storage a una suscripción de Azure Stack o una cuenta de almacenamiento](/azure-stack/user/azure-stack-storage-connect-se).
@@ -105,11 +105,11 @@ El Explorador de Storage proporciona varias maneras de conectar con los recursos
 
 1. Después de iniciar sesión correctamente con una cuenta de Azure, tanto la cuenta como las suscripciones de Azure asociadas con esa cuenta aparecen en **ADMINISTRACIÓN DE CUENTAS**. Elija las suscripciones de Azure con las que desea trabajar y luego seleccione **Aplicar**.
 
-    :::image type="content" alt-text="Selección de suscripciones de Azure" source="./vs-storage-explorer-account-panel.png":::
+    :::image type="content" alt-text="Selección de suscripciones de Azure" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-account-panel.png":::
 
 1. **EXPLORADOR** muestra las cuentas de almacenamiento asociadas a las suscripciones de Azure seleccionadas.
 
-    :::image type="content" alt-text="Suscripciones de Azure seleccionadas" source="./vs-storage-explorer-subscription-node.png":::
+    :::image type="content" alt-text="Suscripciones de Azure seleccionadas" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-subscription-node.png":::
 
 ### <a name="attach-to-an-individual-resource"></a>Asociación a un recurso individual
 
@@ -129,7 +129,7 @@ El Explorador de Storage también puede conectarse a un [emulador de almacenamie
 
 Para conectarse a un recurso individual, seleccione el botón **Conectar** en la barra de herramientas de la izquierda. A continuación, siga las instrucciones del tipo de recurso al que desea conectarse.
 
-:::image type="content" alt-text="Opción de conexión a Almacenamiento de Azure" source="./vs-storage-explorer-connect-button.png":::
+:::image type="content" alt-text="Opción de conexión a Almacenamiento de Azure" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-button.png":::
 
 Si se agrega correctamente una conexión a una cuenta de almacenamiento, aparecerá un nuevo nodo de árbol en **Local y asociado** > **Cuentas de almacenamiento**.
 

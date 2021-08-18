@@ -3,12 +3,12 @@ title: Reglas de firewall de Azure Event Hubs | Microsoft Docs
 description: Use las reglas de firewall para permitir las conexiones desde direcciones IP específicas a Azure Event Hubs.
 ms.topic: article
 ms.date: 05/10/2021
-ms.openlocfilehash: e0cefa24db8728ebe9d268c00718c2276ed7cee4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: eb8f83d03fffe514fcd34a394943d4a0fef27c0c
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375013"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417125"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Permitir el acceso a los espacios de nombres de Azure Event Hubs desde intervalos o direcciones IP específicas
 Los espacios de nombres de Azure Event Hubs son accesibles de forma predeterminada desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -53,7 +53,7 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
     > [!NOTE]
     > Para restringir el acceso a redes virtuales específicas, consulte [Permitir el acceso desde redes específicas](event-hubs-service-endpoints.md).
 
-[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+[!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 
 ## <a name="use-resource-manager-template"></a>Uso de plantillas de Resource Manager

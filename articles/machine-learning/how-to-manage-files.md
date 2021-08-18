@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: e1868794f7e47ccce3efa36b7954a1a2a704e8d6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 57392991be00d8e34a378309cf8a0f124e988236
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739032"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112460565"
 ---
 # <a name="how-to-create-and-manage-files-in-your-workspace"></a>Cómo crear y administrar archivos en el área de trabajo
 
@@ -23,7 +23,7 @@ Aprenda a crear y administrar los archivos en el área de trabajo de Azure Machi
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="create-files"></a><a name="create"></a> Creación de archivos

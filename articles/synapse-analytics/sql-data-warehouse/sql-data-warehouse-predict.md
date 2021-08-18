@@ -2,21 +2,21 @@
 title: Puntuación de modelos de Machine Learning con PREDICT
 description: Aprenda a puntuar modelos de Machine Learning con la función PREDICT de T-SQL en el grupo de SQL dedicado.
 services: synapse-analytics
-author: anumjs
+author: rothja
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 07/21/2020
-ms.author: anjangsh
+ms.author: jroth
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9e7d45a588e60cd082f1eef43d1d1b6681b9e912
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11e5f2e3ea46794367247ef9a1b4a0a43f7d6c1e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98117748"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438316"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Puntuación de modelos de Machine Learning con PREDICT
 

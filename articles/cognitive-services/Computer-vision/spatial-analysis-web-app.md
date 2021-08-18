@@ -3,19 +3,19 @@ title: Implementación de una aplicación web de análisis espacial
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar el análisis espacial en una aplicación web.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
-ms.openlocfilehash: 96c9e2a6726fdfb2436bc3e59995ab9f6633ccff
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: ecccbb4e2741cc7f413e9b2076bd3199b00dd9a8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110098009"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752083"
 ---
 # <a name="how-to-deploy-a-spatial-analysis-web-application"></a>Implementación de una aplicación web de análisis espacial
 
@@ -42,8 +42,6 @@ Esta aplicación mostrará los escenarios siguientes:
 * Un [equipo host](spatial-analysis-container.md) configurado.
 
 ## <a name="deploy-the-spatial-analysis-container"></a>Implementación del contenedor de análisis espacial
-
-Rellene la [aplicación de solicitud](https://aka.ms/csgate) para obtener acceso a la ejecución del contenedor. 
 
 Siga [la configuración del equipo host](./spatial-analysis-container.md) para configurar el equipo host y conecte un dispositivo IoT Edge a Azure IoT Hub. 
 
@@ -80,7 +78,7 @@ La mayoría de las **variables de entorno** para el módulo de IoT Edge ya está
 "EULA": { 
     "value": "accept"
 },
-"ENDPOINT":{ 
+"BILLING":{ 
     "value": "<Use a key from your Computer Vision resource>"
 },
 "APIKEY":{

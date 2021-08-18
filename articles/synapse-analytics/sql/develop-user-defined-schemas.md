@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6920d6cd190927747a69fc4dc0f0791278665abe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bbe3e3471101df5d147c5079d6cd4a7e5ce00cb
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96451692"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114287559"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Esquemas definidos por el usuario en SQL de Synapse
 
@@ -118,7 +118,7 @@ FROM    [edw].customer
 > [!NOTE]
 > Cualquier cambio en la estrategia de esquema requiere de una revisión del modelo de seguridad de la base de datos. En muchos casos puede simplificar el modelo de seguridad mediante la asignación de permisos a nivel de esquema.
 
-Si se requieren permisos más específicos, puede usar los roles de base de datos. Para obtener más información acerca de los roles de base de datos, consulte [Administración de usuarios y roles de base de datos](../../analysis-services/analysis-services-database-users.md).
+Si se requieren permisos más específicos, puede usar los roles de base de datos. Para obtener más información acerca de los roles de base de datos, consulte [Administración de usuarios y roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

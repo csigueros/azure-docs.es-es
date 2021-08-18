@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f773bdedcbcb014e15436732e489f9b15900f58
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: cc65a1c0cd72d9da9208e7377eaef7a887119f43
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951780"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730533"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solución de problemas de Update Management
 
@@ -78,7 +78,7 @@ En el caso de la máquina Linux, Update Management muestra actualizaciones espec
 
 Cuando se realiza una evaluación de las actualizaciones del sistema operativo pendientes para la máquina Linux, Update Management utiliza los archivos [Open Vulnerability and Assessment Language ](https://oval.mitre.org/) (OVAL) proporcionados por el proveedor de distribución de Linux para la clasificación. La categorización se realiza para las actualizaciones de Linux como **Seguridad** u **Otras**, en función de los archivos OVAL, que indica que las actualizaciones tratan problemas de seguridad o vulnerabilidades. Sin embargo, cuando se ejecuta la programación de actualización, lo hace en la máquina Linux mediante el administrador de paquetes adecuado, como YUM, APT o ZYPPER, para instalarlas. El administrador de paquetes para la distribución de Linux puede tener un mecanismo diferente para clasificar las actualizaciones, donde los resultados pueden diferir de los que se obtienen de los archivos OVAL mediante Update Management.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Puede comprobar manualmente el equipo Linux, las actualizaciones aplicables y su clasificación según el administrador de paquetes de la distribución. Para saber qué actualizaciones clasifica el administrador de paquetes como **Seguridad**, ejecute los siguientes comandos.
 
@@ -122,7 +122,7 @@ Este error puede ocurrir debido a uno de los siguientes motivos:
 
 * Es posible que también note que la máquina muestra un estado de `Non-compliant` en **Cumplimiento**. Al mismo tiempo, **Análisis de escritorio del agente** informa el agente como `Disconnected`.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 * Ejecute el solucionador de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), según el sistema operativo.
 
@@ -134,7 +134,7 @@ Este error puede ocurrir debido a uno de los siguientes motivos:
 
 ## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Escenario: En Update Management se indica que falta una actualización reemplazada
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Se indica que faltan actualizaciones antiguas en la cuenta de Automation, aunque se han reemplazado. Una actualización reemplazada es aquella que no es necesario instalar, puesto que hay una posterior disponible que corrige la misma vulnerabilidad. Update Management omite la actualización reemplazada y no la convierte en aplicable en favor de la actualización que la reemplaza. Para obtener información sobre un problema relacionado, vea [Actualización reemplazada](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
 
@@ -162,7 +162,7 @@ Cuando una actualización reemplazada sea no aplicable al cien por cien, debe ca
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>Escenario: Las máquinas no se muestran en el portal en Update Management
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Los equipos presentan estos síntomas:
 
@@ -180,7 +180,7 @@ Este problema puede deberse a problemas de configuración local o a que la confi
 
 * Es posible que se haya alcanzado una cuota definida en el área de trabajo y que impida el almacenamiento de datos adicional.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 1. Ejecute el solucionador de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), según el sistema operativo.
 
@@ -193,7 +193,7 @@ Este problema puede deberse a problemas de configuración local o a que la confi
    | summarize by Computer, Solutions
    ```
 
-    Si no ve la máquina en los resultados de la consulta, significa que no se ha registrado recientemente. Probablemente haya un problema de configuración local y debe [volver a instalar el agente](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Si no ve la máquina en los resultados de la consulta, significa que no se ha registrado recientemente. Probablemente haya un problema de configuración local y debe [volver a instalar el agente](../../azure-monitor/agents/agent-windows.md).
 
     Si el equipo aparece en los resultados de la consulta, compruebe en la propiedad **Solutions** que aparezca **updates**. Así se comprueba si está registrado en Update Management. Si no es así, compruebe si hay problemas de configuración de ámbito. La [configuración de ámbito](../update-management/scope-configuration.md) determina qué máquinas se configuran para Update Management. Para configurar el ámbito para el equipo de destino, vea [Habilitación de máquinas en el área de trabajo](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
@@ -211,7 +211,7 @@ Este problema puede deberse a problemas de configuración local o a que la confi
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Escenario: No se puede registrar el proveedor de recursos de Automation para las suscripciones
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Al trabajar con implementaciones de características en la cuenta de Automation, se produce el siguiente error:
 
@@ -223,7 +223,7 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 El proveedor de recursos de Automation no está registrado en la suscripción.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Para registrar el proveedor de recursos de Automation, realice los pasos siguientes en Azure Portal.
 
@@ -354,7 +354,7 @@ Las máquinas aparecen en los resultados de la consulta de azure Resource Graph,
 
 ## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Escenario: Componentes de Update Management habilitados, mientras la máquina virtual se sigue mostrando como configurada
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Continúa recibiendo el mensaje siguiente en una máquina virtual 15 minutos después de la implementación:
 
@@ -372,7 +372,7 @@ Este error puede ocurrir debido a uno de los siguientes motivos:
 
 * La imagen de máquina virtual que se implementará puede provenir de una máquina clonada que no se haya preparado mediante la preparación del sistema (sysprep) con el agente de Log Analytics para Windows instalado.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Para ayudar a determinar el problema exacto con la VM, ejecute la consulta siguiente en el área de trabajo de Log Analytics que está vinculada a su cuenta de Automation.
 
@@ -408,7 +408,7 @@ Si usa una imagen clonada, los distintos nombres de equipo tienen el mismo ident
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Escenario: Recibe un error de la suscripción vinculada al crear una implementación de actualización para las máquinas en otro inquilino de Azure
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Encuentra el error siguiente al intentar crear una implementación de actualización para las máquinas en otro inquilino de Azure:
 
@@ -420,7 +420,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 Este error se produce cuando se crea una implementación de actualización que tiene máquinas virtuales de Azure en otro inquilino que se incluye en una implementación de actualización.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Use la solución alternativa siguiente para programar estos elementos. Puede usar el cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) con el parámetro `ForUpdateConfiguration` para crear una programación. Después, use el cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) y pase las máquinas del otro inquilino al parámetro `NonAzureComputer`. El ejemplo siguiente muestra cómo hacerlo:
 
@@ -436,7 +436,7 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 ## <a name="scenario-unexplained-reboots"></a><a name="node-reboots"></a>Escenario: Reinicios inexplicables
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Aunque haya establecido la opción **Reboot Control** (Control de reinicio) en **No reiniciar nunca**, las máquinas todavía se reinician después de instalar las actualizaciones.
 
@@ -444,7 +444,7 @@ Aunque haya establecido la opción **Reboot Control** (Control de reinicio) en *
 
 Windows Update se puede modificar mediante varias claves del Registro, cualquiera de ellas puede modificar el comportamiento del reinicio.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Revise las claves del Registro enumeradas en [Configuración de actualizaciones automáticas mediante la edición del Registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) y [Claves del Registro usadas para administrar reinicios](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) para asegurarse de que las máquinas estén configuradas correctamente.
 
@@ -479,7 +479,7 @@ Cuando proceda, use [grupos dinámicos](../update-management/configure-groups.md
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Escenario: Las actualizaciones se instalan sin una implementación
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Al inscribir una máquina Windows en Update Management, puede ver las actualizaciones instaladas sin una implementación.
 
@@ -487,7 +487,7 @@ Al inscribir una máquina Windows en Update Management, puede ver las actualizac
 
 En Windows, las actualizaciones se instalan automáticamente en cuanto están disponibles. Este comportamiento puede producir confusión si no ha programado que una actualización se implemente en la máquina.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 La clave del Registro `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` se establece de manera predeterminada en un valor de 4: `auto download and install`.
 
@@ -497,7 +497,7 @@ Para más información, consulte [Configuración de actualizaciones automáticas
 
 ## <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Escenario: La máquina ya está registrada en otra cuenta
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Aparece el siguiente mensaje de error:
 
@@ -509,14 +509,14 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 La máquina ya se ha implementado en otra área de trabajo para Update Management.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 1. Siga los pasos de [Las máquinas no se muestran en el portal en Update Management](#nologs) para asegurarse de que la máquina envía notificaciones al área de trabajo adecuada.
 2. Limpie los artefactos en la máquina mediante la [eliminación del grupo Hybrid Runbook](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group) y vuelva a intentarlo.
 
 ## <a name="scenario-machine-cant-communicate-with-the-service"></a><a name="machine-unable-to-communicate"></a>Escenario: La máquina no se puede comunicar con el servicio
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Aparece uno de los siguientes mensajes de error:
 
@@ -540,13 +540,13 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 Un proxy, una puerta de enlace o un firewall pueden estar bloqueando la comunicación de red.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Revise la red y asegúrese de que están permitidas las direcciones y los puertos adecuados. Consulte los [requisitos de red](../automation-hybrid-runbook-worker.md#network-planning) para obtener una lista de puertos y direcciones que Update Management necesita y las instancias de Hybrid Runbook Worker.
 
 ## <a name="scenario-unable-to-create-self-signed-certificate"></a><a name="unable-to-create-selfsigned-cert"></a>Escenario: Error al crear el certificado autofirmado
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Aparece uno de los siguientes mensajes de error:
 
@@ -558,13 +558,13 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Hybrid Runbook Worker no pudo generar un certificado autofirmado.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\ProgramData\Microsoft\Crypto\RSA** e inténtelo de nuevo.
 
 ## <a name="scenario-the-scheduled-update-failed-with-a-maintenancewindowexceeded-error"></a><a name="mw-exceeded"></a>Escenario: Error en la actualización programada con un error MaintenanceWindowExceeded
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 La ventana de mantenimiento predeterminada para las actualizaciones es de 120 minutos. Puede aumentar la ventana de mantenimiento a un máximo de seis 6 horas o 360 minutos. Es posible que reciba el mensaje de error `For one or more machines in schedule, UM job run resulted in Maintenance Window Exceeded state. Guide available at https://aka.ms/UMSucrMwExceeded.`
 
@@ -580,7 +580,7 @@ Para más información sobre las ventanas de mantenimiento, consulte la [instala
 
 ## <a name="scenario-machine-shows-as-not-assessed-and-shows-an-hresult-exception"></a><a name="hresult"></a>Escenario: La máquina aparece como "No evaluado" y se muestra una excepción HRESULT
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 * Tiene máquinas que aparecen como `Not assessed` en **Cumplimiento** y verá un mensaje de excepción debajo de él.
 * Se muestra un código de error HRESULT en el portal.
@@ -589,7 +589,7 @@ Para más información sobre las ventanas de mantenimiento, consulte la [instala
 
 El agente de actualización (Agente de Windows Update en Windows, el administrador de paquetes para la distribución de Linux) no está configurado correctamente. Update Management se basa en el agente de actualización de la máquina para proporcionar las actualizaciones necesarias, el estado de la revisión y los resultados de las revisiones implementadas. Sin esta información, Update Management no puede informar correctamente de las revisiones que son necesarias o que están instaladas.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Intente realizar actualizaciones de forma local en la máquina. Si esta operación falla, suele significar que hay un error de configuración con el agente de actualización.
 
@@ -625,7 +625,7 @@ También puede descargar y ejecutar el [solucionador de problemas de Windows Upd
 
 ## <a name="scenario-update-run-returns-failed-status-linux"></a>Escenario: La ejecución de la actualización devuelve un estado Error (Linux)
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Se inicia una ejecución de actualización, pero encuentra errores durante la ejecución.
 
@@ -639,7 +639,7 @@ Causas posibles:
 * La máquina es inaccesible.
 * Las actualizaciones tenían dependencias que no se resolvieron.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Si se producen errores durante una ejecución de actualizaciones después de que se haya iniciado correctamente, [compruebe el trabajo de salida](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) desde la máquina afectada en la ejecución. Puede encontrar mensajes de error específicos procedentes de las máquinas que puede investigar e intentar solucionar. Update Management requiere que el administrador de paquetes tenga un estado correcto para que las implementaciones de actualizaciones se realicen con éxito.
 

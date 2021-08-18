@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: 0d85cf6ae501a7d50f20e48543e361149f4b57d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7481e22b9d03d7f49f4ee383bb52c4772631c16
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580543"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178919"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Registro y auditoría de seguridad de Azure
 
@@ -51,7 +51,7 @@ En la tabla siguiente se enumeran los tipos más importante de registros disponi
 |[Registros de actividad](../../azure-monitor/essentials/platform-logs-overview.md)|Eventos de plano de control de los recursos de Azure Resource Manager|    Proporciona información detallada sobre las operaciones que se realizaron en los recursos de la suscripción.|    API REST y [Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md)|
 |[Registros de recursos de Azure](../../azure-monitor/essentials/platform-logs-overview.md)|Datos frecuentes acerca del funcionamiento de los recursos de Azure Resource Manager de la suscripción| Proporciona información detallada sobre las operaciones que el mismo recurso realiza.| Azure Monitor|
 |[Informes de Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)|Registros e informes | Informa sobre las actividades de inicio de sesión de usuario e información de actividades del sistema acerca de la administración de grupos y usuarios.|[Graph API](../../active-directory/develop/microsoft-graph-intro.md)|
-|[Máquinas virtuales y servicios en la nube](../../azure-monitor/vm/quick-collect-azurevm.md)|Servicio de Registro de eventos de Windows y Syslog de Linux| Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|   Windows con [WAD](../../azure-monitor/agents/diagnostics-extension-overview.md) (almacenamiento de Windows Azure Diagnostics) y Linux en Azure Monitor|
+|[Máquinas virtuales y servicios en la nube](../../azure-monitor/vm/monitor-virtual-machine.md)|Servicio de Registro de eventos de Windows y Syslog de Linux|   Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|   Windows con [WAD](../../azure-monitor/agents/diagnostics-extension-overview.md) (almacenamiento de Windows Azure Diagnostics) y Linux en Azure Monitor|
 |[Análisis de Azure Storage](/rest/api/storageservices/fileservices/storage-analytics)|El registro de almacenamiento proporciona datos de métricas de una cuenta de almacenamiento|Proporciona información detallada sobre seguimiento de solicitudes, análisis de tendencias de uso y diagnóstico de problemas con la cuenta de almacenamiento.| API de REST o [biblioteca de cliente](/dotnet/api/overview/azure/storage)|
 |[Registros de flujo de los grupos de seguridad de red (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)|Tiene formato JSON y muestra flujos entrantes y salientes por cada regla|Muestra información sobre el tráfico IP de entrada y salida a través de un grupo de seguridad de red.|[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)|
 |[Application Insights](../../azure-monitor/app/app-insights-overview.md)|Registros, excepciones y diagnósticos personalizados|  Proporciona un servicio de supervisión de rendimiento de aplicaciones (APM) para desarrolladores web en varias plataformas.| API de REST, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|

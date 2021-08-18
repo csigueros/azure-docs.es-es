@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 0780f66c981f0cebebc1ab327d783954753db965
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: c0475ee0a97e3d9e3dd376d84028cedca3cfa70b
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104866733"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676426"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Profundización: análisis avanzado
 
@@ -52,7 +52,6 @@ Además de seleccionar los algoritmos más adecuados, debe considerar si debe pr
 HDInsight tiene varias opciones de aprendizaje automático para un flujo de trabajo de análisis avanzado:
 
 * Machine Learning y Apache Spark
-* R y ML Services
 * Azure Machine Learning y Apache Hive
 * Apache Spark y aprendizaje profundo
 
@@ -65,10 +64,6 @@ Hay tres bibliotecas de aprendizaje automático escalables que ofrecen las funci
 * [**MLlib**](https://spark.apache.org/docs/latest/ml-guide.html): MLlib contiene la API original que se basa en RDD de Spark.
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html): SparkML es un paquete más reciente que proporciona una API de nivel más alto que se basa en DataFrames de Spark para construir canalizaciones de ML.
 * [**MMLSpark**](https://github.com/Azure/mmlspark): la biblioteca de Microsoft Machine Learning para Apache Spark (MMLSpark) se ha diseñado para que los científicos de datos sean más productivos en Spark, aumenten la velocidad de experimentación y aprovechen las técnicas de aprendizaje automático de vanguardia, así como el aprendizaje profundo, en grandes conjuntos de datos. La biblioteca MMLSpark simplifica las tareas de modelado comunes para la compilación de modelos en PySpark.
-
-### <a name="r-and-ml-services"></a>R y ML Services
-
-Como parte de HDInsight, puede crear un clúster de HDInsight con [ML Services](../r-server/r-server-overview.md) listo para su uso con grandes conjuntos de datos y modelos. Esta nueva funcionalidad proporciona a los científicos de datos y a los estadísticos una interfaz conocida de R que se puede escalar a petición a través de HDInsight, sin la sobrecarga de mantenimiento y configuración del clúster.
 
 ### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning y Apache Hive
 
@@ -115,12 +110,12 @@ Siga [este tutorial](../spark/apache-spark-microsoft-cognitive-toolkit.md) para 
 
 Apache Hive y Azure Machine Learning
 
-* [Apache Hive y Azure Machine Learning de un extremo a otro](../../machine-learning/team-data-science-process/hive-walkthrough.md)
-* [Uso de un clúster de Azure HDInsight Hadoop en un conjunto de información de 1 TB](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
+* [Apache Hive y Azure Machine Learning de un extremo a otro](/azure/architecture/data-science-process/hive-walkthrough)
+* [Uso de un clúster de Azure HDInsight Hadoop en un conjunto de información de 1 TB](/azure/architecture/data-science-process/hive-criteo-walkthrough)
 
 Apache Spark y MLLib
 
-* [Aprendizaje automático con Apache Spark en HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
+* [Aprendizaje automático con Apache Spark en HDInsight](/azure/architecture/data-science-process/spark-overview)
 * [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](../spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para predecir los resultados de la inspección de alimentos](../spark/apache-spark-machine-learning-mllib-ipython.md)
 

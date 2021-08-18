@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c6ec162ceb51c3bf19be42219b054d8371ff221
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a796aff2c0882bd07b12a2f6fa6c0ab3eb793834
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98247359"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746128"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Solución de problemas de sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 
@@ -256,7 +256,7 @@ Siga estos pasos para determinar por qué no se sincronizan las contraseñas:
 3. Si la característica no está habilitada en Azure AD o si el estado del canal de sincronización no está habilitado, ejecute el Asistente para instalación de Connect. Seleccione **Personalizar las opciones de sincronización** y anule la selección de sincronización de contraseñas. Este cambio deshabilita temporalmente la característica. Después, vuelva a ejecutar al asistente y habilite de nuevo la sincronización de contraseñas. Vuelva a ejecutar el script para comprobar que la configuración es correcta.
 
 4. Busque errores en el registro de eventos. Busque los siguientes eventos, que podrían indicar un problema:
-    * Origen: Identificador de "sincronización de directorios": 0, 611, 652, 655. Si ve estos eventos, tiene un problema de conectividad. El mensaje de registro de eventos contiene información de bosques en los que hay un problema. Para más información, vea [Problemas de conectividad](#connectivity problem).
+    * Origen: Identificador de "sincronización de directorios": 0, 611, 652, 655. Si ve estos eventos, tiene un problema de conectividad. El mensaje de registro de eventos contiene información de bosques en los que hay un problema.
 
 5. Si no ve ningún latido o si nada funciona, ejecute [Desencadenamiento de una sincronización completa de todas las contraseñas](#trigger-a-full-sync-of-all-passwords). Ejecute el script una sola vez.
 

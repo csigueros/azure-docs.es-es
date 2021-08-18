@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28f4c314b65a27c71c7620ff5941463b1ea68b55
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 547889b63bcaa7e8a43d62c639ac40715949e89d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831463"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730535"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Uso de Azure Private Link para conectar redes a Azure Automation de forma segura
 
@@ -64,7 +64,7 @@ Se pueden iniciar runbooks mediante una operación POST en la dirección URL del
 
 La característica Hybrid Runbook Worker de usuario de Azure Automation le permite ejecutar runbooks directamente en la máquina de Azure (o en otra que no sea de Azure), incluidos los servidores registrados con servidores habilitados para Azure Arc. En la máquina o servidor que hospeda el rol, puede ejecutar runbooks directamente en él y en los recursos del entorno para administrar esos recursos locales.
 
-Hybrid Worker usa un punto de conexión de JRDS para iniciar o detener runbooks, descargarlos en el rol de trabajo y devolver el flujo de registro de trabajos al servicio Automation. Después de habilitar el punto de conexión de JRDS, la dirección URL debe tener el siguiente aspecto: `https://<automationaccountID>.jobruntimedata.<region>.azure-automation.net`. Esto garantiza la ejecución del runbook en el rol Hybrid Worker conectado a Azure Virtual Network lo cual permite ejecutar trabajos sin necesidad de abrir una conexión saliente a Internet.  
+Hybrid Worker usa un punto de conexión de JRDS para iniciar o detener runbooks, descargarlos en el rol de trabajo y devolver el flujo de registro de trabajos al servicio Automation. Después de habilitar el punto de conexión de JRDS, la dirección URL debe tener el siguiente aspecto: `https://<automationaccountID>.jrds.<region>.privatelink.azure-automation.net`. Esto garantiza la ejecución del runbook en el rol Hybrid Worker conectado a Azure Virtual Network lo cual permite ejecutar trabajos sin necesidad de abrir una conexión saliente a Internet.  
 
 > [!NOTE]
 >Con la implementación actual de instancias de Private Link para Azure Automation, solo se admite la ejecución de trabajos en la instancia de Hybrid Runbook Worker conectada a una red virtual de Azure y no se admiten los trabajos en la nube.
@@ -77,7 +77,7 @@ Para comprender y configurar Update Management, consulte [Acerca de Update Manag
 
 Si desea que las máquinas configuradas para Update Management se conecten a las áreas de trabajo de Automation y Log Analytics de forma segura a través de un canal de Private Link, debe habilitar Private Link para el área de trabajo de Log Analytics vinculada a la cuenta de Automation configurada con Private Link.
 
-Puede controlar cómo acceder a un área de trabajo de Log Analytics desde fuera de los ámbitos de Private Link siguiendo los pasos que se indican en [Configuración de Log Analytics](../../azure-monitor/logs/private-link-security.md#configure-log-analytics). Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No**, las máquinas que se encuentren fuera de los ámbitos conectados no podrán cargar datos en esta área de trabajo. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No**, las máquinas que se encuentren fuera de los ámbitos no podrán acceder a los datos de esta área de trabajo.
+Puede controlar cómo acceder a un área de trabajo de Log Analytics desde fuera de los ámbitos de Private Link siguiendo los pasos que se indican en [Configuración de Log Analytics](../../azure-monitor/logs/private-link-configure.md#configure-access-to-your-resources). Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No**, las máquinas que se encuentren fuera de los ámbitos conectados no podrán cargar datos en esta área de trabajo. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No**, las máquinas que se encuentren fuera de los ámbitos no podrán acceder a los datos de esta área de trabajo.
 
 Use un subrecurso de destino **DSCAndHybridWorker** para habilitar Private Link para los roles Hybrid Worker del usuario y el sistema.
 
@@ -111,7 +111,7 @@ En esta sección, se creará un punto de conexión privado para la cuenta de Aut
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre | Escriba el elemento *PrivateEndpoint*. |
@@ -125,7 +125,7 @@ En esta sección, se creará un punto de conexión privado para la cuenta de Aut
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
-    | Subscription| Seleccione su suscripción. |
+    | Suscripción| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.Automation/automationAccounts**. |
     | Recurso |Seleccione *myAutomationAccount*.|
     |Subrecurso de destino |Seleccione *webhook* o *DSCAndHybridWorker* en función de su escenario.|

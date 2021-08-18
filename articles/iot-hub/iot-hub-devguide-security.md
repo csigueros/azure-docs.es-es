@@ -2,7 +2,6 @@
 title: Control de acceso y seguridad en IoT Hub | Microsoft Docs
 description: Información general sobre cómo controlar el acceso a IoT Hub, que incluye vínculos a artículos detallados sobre la integración de AAD y las opciones de SAS.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -16,12 +15,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 617a68a36e0f4673ed89753d1e48f529725d1648
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: eb28d0384f0daa4029319597c5f3680a185c4ab6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484188"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727809"
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
 

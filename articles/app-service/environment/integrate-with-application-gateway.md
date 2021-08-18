@@ -4,21 +4,21 @@ description: Obtenga más información sobre la integración de una aplicación 
 author: ccompy
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.topic: article
-ms.date: 03/03/2018
+ms.date: 07/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3b73d528802a8aa33c6122eaf5edfa9d046b6753
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 839d817001bf4f939bdcacb7e439c7eb8e45b3a3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962084"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743920"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integración de ILB App Service Environment con Azure Application Gateway #
 
 [App Service Environment](./intro.md) es una implementación de Azure App Service en la subred de una red virtual de Azure de cliente. Se puede implementar con un punto de conexión público o privado para el acceso a las aplicaciones. La implementación de App Service Environment con un punto de conexión privado (es decir, un equilibrador de carga interno) se denomina ILB App Service Environment.  
 
-Los firewalls de aplicaciones web ayudan a proteger las aplicaciones web, ya que inspeccionan el tráfico web entrante y bloquean las inyecciones de código SQL, un posible ataque de scripts de sitios, cargas de malware y DDoS de aplicaciones, y otros ataques. También examina las respuestas de los servidores web back-end para prevención de pérdida de datos (DLP). Puede obtener un dispositivo WAF en Azure Marketplace o puede usar [Azure Application Gateway][appgw].
+Los firewalls de aplicaciones web ayudan a proteger las aplicaciones web, ya que inspeccionan el tráfico web entrante y bloquean las inyecciones de código SQL, un posible ataque de scripts de sitios, cargas de malware y DDoS de aplicaciones, y otros ataques. Puede obtener un dispositivo WAF en Azure Marketplace o puede usar [Azure Application Gateway][appgw].
 
 Azure Application Gateway es una aplicación virtual que ofrece un equilibrio de carga de nivel 7, descarga de TLS/SSL y protección mediante firewall de aplicaciones web (WAF). Puede escuchar en una dirección IP pública y enrutar el tráfico hacia el punto de conexión de la aplicación. La siguiente información describe cómo integrar una puerta de enlace de aplicaciones configurada con firewall de aplicaciones web con una aplicación en una instancia de ILB App Service Environment.  
 

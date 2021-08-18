@@ -3,15 +3,13 @@ title: Versiones retiradas de Azure HDInsight
 description: Obtenga información sobre las versiones retiradas de Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-author: deshriva
-ms.author: deshriva
 ms.date: 02/08/2021
-ms.openlocfilehash: c5c5a6699759e3abda05b7a0d85f4914a15f00e6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4f6099d7d869803eb91016d6de1583abc83f40ac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103490252"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748464"
 ---
 # <a name="retired-hdinsight-versions"></a>Versiones de HDInsight retiradas
 

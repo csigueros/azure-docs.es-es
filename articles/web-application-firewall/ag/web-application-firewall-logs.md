@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: af7b46d0942b5d1bec1cbe77ec02eec7080597ba
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5cf40434740b1cc531ecf7959058e5c7260364ca
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676966"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458991"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Registros de recursos para el firewall de aplicaciones web de Azure
 
@@ -301,7 +301,7 @@ También puede conectarse a la cuenta de almacenamiento y recuperar las entradas
 
 #### <a name="analyzing-access-logs-through-goaccess"></a>Analizar los registros de acceso mediante GoAccess
 
-Hemos publicado una plantilla de Resource Manager que se instala y ejecuta el popular analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores, códigos de estado HTTP y mucho más. Para obtener más información, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager en GitHub](https://aka.ms/appgwgoaccessreadme).
+Hemos publicado una plantilla de Resource Manager que se instala y ejecuta el popular analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores, códigos de estado HTTP y mucho más. Para obtener más información, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

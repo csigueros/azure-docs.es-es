@@ -12,12 +12,12 @@ metadata:
   manager: daveba
   ms.reviewer: na
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 2c43149c2a15c7ea35c87aca8188a01e6350df77
-  ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+  ms.openlocfilehash: 8fa75d1baae917e7e60ca99f4d5c3cc33ff85f0a
+  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/30/2021
-  ms.locfileid: "111907506"
+  ms.lasthandoff: 06/16/2021
+  ms.locfileid: "112200753"
 title: Preguntas más frecuentes sobre itinerancia de datos y configuración
 summary: Este artículo responde a algunas preguntas que los administradores de TI podrían tener sobre la sincronización de datos de aplicación y la configuración.
 sections:
@@ -149,7 +149,7 @@ sections:
   - question: >
       ¿Qué ocurre si mi organización adquiere una suscripción que incluye Azure Rights Management después de usar la itinerancia?
     answer: >
-      Si su organización ya está usando la itinerancia en Windows 10 con la suscripción gratuita de uso limitado de Azure Rights Management y compra una [suscripción de pago](https://azure.microsoft.com/pricing/details/information-protection/) que incluye el servicio de protección de Azure Rights Management no afectará a la funcionalidad de la característica de itinerancia y el administrador de TI no tendrá que realizar cambios en la configuración.
+      Si su organización ya está usando la itinerancia en Windows 10 con la suscripción gratuita de uso limitado de Azure Rights Management y compra una [suscripción de pago](https://azure.microsoft.com/services/information-protection/) que incluye el servicio de protección de Azure Rights Management no afectará a la funcionalidad de la característica de itinerancia y el administrador de TI no tendrá que realizar cambios en la configuración.
   - question: >
       Problemas conocidos
     answer: "Consulte la documentación en la sección de [solución de problemas](enterprise-state-roaming-troubleshooting.md) para obtener una lista de problemas conocidos. \n"

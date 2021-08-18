@@ -12,12 +12,12 @@ ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a56f8339535c64c6eeac1b06c04aa7c89cd38356
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: daee0bc89804b8fe72845c411224b689452fe7d2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886397"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723239"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verificación de correo electrónico personalizado con SendGrid
 
@@ -37,9 +37,9 @@ La verificación del correo electrónico personalizado requiere el uso de un pro
 
 ## <a name="create-a-sendgrid-account"></a>Creación de una cuenta de SendGrid
 
-Si aún no tiene una, empiece por configurar una cuenta de SendGrid (los clientes de Azure pueden desbloquear 25 000 mensajes de correo electrónico gratuitos al mes). Para obtener instrucciones de configuración, consulte la sección [Creación de una cuenta de SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) en [Envío de correos electrónicos con SendGrid y Azure](../sendgrid-dotnet-how-to-send-email.md).
+Si aún no tiene una, empiece por configurar una cuenta de SendGrid (los clientes de Azure pueden desbloquear 25 000 mensajes de correo electrónico gratuitos al mes). Para obtener instrucciones de configuración, consulte la sección [Creación de una cuenta de SendGrid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-sendgrid-account) en [Envío de correos electrónicos con SendGrid y Azure](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account).
 
-Asegúrese de completar la sección en la que [crea una clave de API de SendGrid](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Anote la clave de API para usarla en un paso posterior.
+Asegúrese de completar la sección en la que [crea una clave de API de SendGrid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key). Anote la clave de API para usarla en un paso posterior.
 
 > [!IMPORTANT]
 > SendGrid ofrece a los clientes la capacidad de enviar correos electrónicos desde direcciones IP compartidas y [direcciones IP dedicadas](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/). Al usar direcciones IP dedicadas, tiene que mejorar su propia reputación de manera adecuada con un calentamiento de la dirección IP. Para obtener más información, [consulte ¿Cómo caliento mi IP?](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/)

@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 06/02/2021
-ms.openlocfilehash: b604b98410d61d61bdb8a24e81872cb2c1caf1b4
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 6170c6e00d232e65125963680c522610cb5239ec
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410313"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722712"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -34,7 +34,7 @@ En esta sección se trata el error en la operación de copia de seguridad de la 
   * Este es un ejemplo de un error 517 del visor de eventos en el que Azure Backup funcionaba correctamente, pero se produjo un error en "Copias de seguridad de Windows Server": ![Error de Copias de seguridad de Windows Server](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * Si Azure Backup no funciona correctamente, busque el código de error correspondiente en la sección Errores comunes de la copia de seguridad de VM de este artículo.
   * Si ve una opción de Azure Backup atenuada en una máquina virtual de Azure, mantenga el puntero sobre el menú deshabilitado para encontrar el motivo. Los motivos podrían ser "No disponible con disco Efímero" o "No disponible con disco Ultra".
-   ![Motivos de la deshabilitación de la opción de Azure Backup](media/backup-azure-vms-troubleshoot/azure-backup-disable-reasons.png)
+    ![Motivos de la deshabilitación de la opción de Azure Backup](media/backup-azure-vms-troubleshoot/azure-backup-disable-reasons.png)
 
 ## <a name="common-issues"></a>Problemas comunes
 

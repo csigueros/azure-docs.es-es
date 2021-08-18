@@ -9,12 +9,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 05/12/2021
-ms.openlocfilehash: 03ab10c4ee4ab4db1054650630ba347abbc7f25e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 86cbac686c2f994dff4042ea2a227156d9e45472
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068849"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742048"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Herramientas de aprendizaje automático y ciencia de datos en Azure Data Science Virtual Machines
 Azure Data Science Virtual Machine (DSVM) tiene un amplio conjunto de herramientas y bibliotecas para el aprendizaje automático, disponibles en lenguajes conocidos como Python, R o Julia.
@@ -23,7 +23,7 @@ A continuación se muestran algunas de las herramientas y bibliotecas de aprendi
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>SDK de Azure Machine Learning para Python
 
-Consulte la referencia completa del [SDK de Azure Machine Learning para Python](../overview-what-is-azure-ml.md).
+Consulte la referencia completa del [SDK de Azure Machine Learning para Python](../overview-what-is-azure-machine-learning.md).
 
 | Category | Value |
 | ------------- | ------------- |

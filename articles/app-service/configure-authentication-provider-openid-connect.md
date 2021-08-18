@@ -4,12 +4,12 @@ description: Aprenda a configurar un proveedor de OpenID Connect como proveedor 
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: befedca9fa872575d990ceea786a09d60a5773ca
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90983867"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113092944"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configuración de la aplicación de App Service o Azure Functions para iniciar sesión mediante un proveedor de OpenID Connect (versión preliminar)
 
@@ -48,7 +48,7 @@ Si no puede usar un documento de metadatos de configuración, tendrá que recopi
 ## <a name="add-provider-information-to-your-application"></a><a name="configure"> </a>Adición de información de un proveedor a su aplicación
 
 > [!NOTE]
-> La configuración necesaria está en un nuevo formato de API, que actualmente solo es compatible con la [configuración basada en archivos (versión preliminar)](.\app-service-authentication-how-to.md#config-file). Debe seguir los pasos que se indican a continuación para usar este tipo de archivo.
+> La configuración necesaria está en un nuevo formato de API, que actualmente solo es compatible con la [configuración basada en archivos (versión preliminar)](configure-authentication-file-based.md). Debe seguir los pasos que se indican a continuación para usar este tipo de archivo.
 
 Esta sección le guiará a través de la actualización de la configuración para incluir su nuevo IDP. La siguiente es una configuración de ejemplo.
 

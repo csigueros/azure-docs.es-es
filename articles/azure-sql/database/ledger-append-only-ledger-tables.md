@@ -1,27 +1,27 @@
 ---
 title: Tablas de libro de contabilidad de solo anexión de Azure SQL Database
 description: En este artículo se proporciona información sobre el esquema y las vistas de tabla del libro de contabilidad de solo anexión de Azure SQL Database.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: bb8c1c933bda5a972209133fea301c1d87f6bd06
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a23190552239af387fa2af362592347c0c46b900
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080208"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666739"
 ---
 # <a name="azure-sql-database-append-only-ledger-tables"></a>Tablas de libro de contabilidad de solo anexión de Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database está en versión preliminar pública y está disponible en el Centro-oeste de EE. UU.
+> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
 
 Las tablas del libro de contabilidad de solo anexión solo permiten operaciones `INSERT` en las tablas, lo que garantiza que los usuarios con privilegios, como los administradores de bases de datos, no puedan modificar los datos mediante las operaciones tradicionales del [lenguaje de manipulación de datos](/sql/t-sql/queries/queries). Las tablas del libro de contabilidad de solo anexión son muy adecuadas para sistemas que no actualizan ni eliminan registros, como sistemas de administración y eventos de información de seguridad o sistemas de cadena de bloques en los que los datos deben replicarse desde la cadena de bloques a una base de datos. Puesto que no hay ninguna operación `UPDATE` o `DELETE` en una tabla de solo anexión, no hay necesidad de una tabla de historial correspondiente, ya que existen [tablas actualizables del libro de contabilidad](ledger-updatable-ledger-tables.md).
 

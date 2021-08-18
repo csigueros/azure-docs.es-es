@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 99bab73cabfb0cbe59461c424b5857ace07212dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00a03df16bde1a0e48407f108032ff13a5ea9f03
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103013098"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712227"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Configure el entorno de desarrollo de Media Services 
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-v-2-v-3-migration-introduction.md).
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 Los pasos siguientes describen los requisitos previos necesarios para el desarrollo con Azure Media Services.
 

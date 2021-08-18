@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3688f0f9266844ce584f3f2d2e1a7c39ed3e4f70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 229fb0391f0c4f736e2658214f10ad125a6e2187
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009024"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712073"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acceso a Azure Media Services API con la autenticación de Azure AD 
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
-> [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-v-2-v-3-migration-introduction.md).
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 Azure Media Services API es una API RESTful. Puede usarla para realizar operaciones en recursos multimedia a través de una API de REST o mediante los SDK del cliente disponibles. Azure Media Services ofrece un SDK del cliente de Media Services para Microsoft .NET. Para ser autorizado a acceder a recursos de Media Services y a Media Services API, se debe autenticar primero. 
 

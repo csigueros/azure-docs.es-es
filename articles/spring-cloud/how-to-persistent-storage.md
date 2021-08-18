@@ -1,18 +1,18 @@
 ---
 title: Uso del almacenamiento persistente en Azure Spring Cloud | Microsoft Docs
 description: Uso del almacenamiento persistente en Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 77ccfa08d5e2076a83c5a11df3ce6caf597c2d2f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 925f1d8113f08f1bc8b063623dcc85ac79964047
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134868"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015513"
 ---
 # <a name="use-persistent-storage-in-azure-spring-cloud"></a>Uso del almacenamiento persistente en Azure Spring Cloud
 
@@ -61,6 +61,7 @@ Si es necesario, instale la extensión de Spring Cloud para la CLI de Azure:
 ```azurecli
 az extension add --name spring-cloud
 ```
+
 Otras operaciones:
 
 * Para crear una aplicación con almacenamiento persistente habilitado:

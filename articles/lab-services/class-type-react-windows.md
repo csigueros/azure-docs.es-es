@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 05/16/2021
 ms.author: enewman
-ms.openlocfilehash: 0fe26d50a7afcb08325396d7c9a22279b01bfd9b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 089ec3d3d4836b4dadb5a0a60023b85ebf9950e0
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483500"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112456551"
 ---
 # <a name="set-up-lab-for-react-on-windows"></a>Configuración del laboratorio para React en Windows
 
@@ -67,7 +67,7 @@ Por ejemplo, si usa la [ventana interactiva de Node.js](/visualstudio/javascript
 .npm install react-jsx
 ```
 
-Para crear la primera aplicación de Node.js con React en Visual Studio, consulte [Tutorial: Crear una aplicación Node.js y React en Visual Studio](/visualstudio/javascript/tutorial-nodejs-with-react-and-jsx.md?view=vs-2019&preserve-view=true).
+Para crear la primera aplicación de Node.js con React en Visual Studio, consulte [Tutorial: Crear una aplicación Node.js y React en Visual Studio](/visualstudio/javascript/tutorial-nodejs-with-react-and-jsx?view=vs-2019&preserve-view=true).
 
 ### <a name="install-debugger-extensions"></a>Instalación de extensiones del depurador
 

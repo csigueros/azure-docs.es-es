@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0fecd1fca22b003892817f8fd33db88b1eea6127
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94651319"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729763"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Seguimiento de los datos durante una búsqueda con Azure Sentinel
 
@@ -30,7 +30,7 @@ Puede volver a ver los datos marcados en cualquier momento en la pestaña **Marc
 
 La visualización de los marcadores de la table le permite filtrar, resumir y combinar los datos marcados con otros orígenes de datos, lo que facilita la búsqueda de pruebas definitivas.
 
-Actualmente en versión preliminar, si encuentra algo que debe abordarse con urgencia mientras realiza una búsqueda en los registros, en un par de clics, puede crear un marcador y promoverlo a un incidente, o bien agregar el marcador a un incidente ya existente. Para más información acerca de los incidentes, consulte [Tutorial: Investigación de incidentes con Azure Sentinel](tutorial-investigate-cases.md). 
+Actualmente en versión preliminar, si encuentra algo que debe abordarse con urgencia mientras realiza una búsqueda en los registros, en un par de clics, puede crear un marcador y promoverlo a un incidente, o bien agregar el marcador a un incidente ya existente. Para más información acerca de los incidentes, consulte [Tutorial: Investigación de incidentes con Azure Sentinel](investigate-cases.md). 
 
 También en versión preliminar, puede visualizar los datos marcados haciendo clic en **Investigar** en los detalles del marcador. Esto inicia la experiencia de investigación, en la que puede ver, investigar y comunicar visualmente sus hallazgos con un diagrama gráfico de entidades y una escala de tiempo interactivos.
 
@@ -94,7 +94,7 @@ También en versión preliminar, puede visualizar los datos marcados haciendo cl
 
 3. Haga clic en **Investigar** para ver el marcador en el gráfico de investigación.
 
-Para obtener instrucciones sobre cómo usar el gráfico de investigación, consulte [Use the investigation graph to deep dive](tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive) (Uso del gráfico de investigación para un análisis a fondo).
+Para obtener instrucciones sobre cómo usar el gráfico de investigación, consulte [Use the investigation graph to deep dive](investigate-cases.md#use-the-investigation-graph-to-deep-dive) (Uso del gráfico de investigación para un análisis a fondo).
 
 ## <a name="add-bookmarks-to-a-new-or-existing-incident"></a>Agregar marcadores a un incidente nuevo o a otro ya existente
 

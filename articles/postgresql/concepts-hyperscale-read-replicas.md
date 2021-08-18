@@ -6,20 +6,15 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: 08629ed8ce361f5d7ac4bb4d2e148ae5b20fff02
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 08/03/2021
+ms.openlocfilehash: 150d6b02ff2c11d2489c46b4dc2dd44fd2276b75
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315568"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736407"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---hyperscale-citus"></a>Réplicas de lectura en Azure Database for PostgreSQL - Hiperescala (Citus)
-
-> [!IMPORTANT]
-> Las réplicas de lectura en Hiperescala (Citus) están actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
->
-> Puede ver una lista completa de otras características nuevas en [Características en versión preliminar para PostgreSQL - Hiperescala (Citus)](hyperscale-preview-features.md).
 
 Con la característica de réplica de lectura, puede replicar datos de un grupo de servidores de Hiperescala (Citus) a otro de solo lectura. Las réplicas se actualizan **de manera asincrónica** mediante la tecnología de replicación física de PostgreSQL. Puede replicar desde el servidor principal a un número ilimitado de réplicas.
 

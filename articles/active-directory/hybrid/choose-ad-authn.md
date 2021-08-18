@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 15d62f40b50617fd1f6e543cb404a0d38361d3bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf0de37d2736f84505708b26d4cab9274b3621e0
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836502"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730791"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory
 
@@ -80,7 +80,7 @@ Detalles sobre las preguntas de decisión:
 5. Azure AD Identity Protection requiere la sincronización del hash de contraseña, independientemente de qué método de inicio de sesión elija, para proporcionar el informe *Usuarios con credenciales filtradas*. Las organizaciones pueden conmutar por error a la sincronización del hash de contraseña si se produce un error en su método principal de inicio de sesión y se ha configurado antes del evento de error.
 
 > [!NOTE]
-> Azure AD Identity Protection requiere licencias de [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
+> Azure AD Identity Protection requiere licencias de [Azure AD Premium P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## <a name="detailed-considerations"></a>Consideraciones detalladas
 
@@ -95,7 +95,7 @@ Detalles sobre las preguntas de decisión:
     Las organizaciones que requieren una autenticación multifactor con sincronización de hash de contraseñas tienen que usar Azure AD Multi-Factor Authentication o los [controles personalizados de acceso condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Esas organizaciones no pueden usar métodos de autenticación multifactor de terceros o locales que se basen en la federación.
 
 > [!NOTE]
-> El acceso condicional de Azure AD requiere licencias de [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/).
+> El acceso condicional de Azure AD requiere licencias de [Azure AD Premium P1](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 * **Continuidad del negocio**. La sincronización de hash de contraseñas tiene una alta disponibilidad como servicio en la nube que se puede escalar a todos los centros de datos de Microsoft. Para asegurarse de que la sincronización de hash de contraseñas no deja de funcionar durante períodos prolongados, implemente un segundo servidor de Azure AD Connect de modo provisional en una configuración en espera.
 
@@ -114,7 +114,7 @@ Para ver los pasos de implementación, consulte [Implementación de la sincroniz
 
 * **Experiencia del usuario**. Para mejorar la experiencia de inicio de sesión de los usuarios, puede implementar un SSO de conexión directa con la autenticación de paso a través. El SSO de conexión directa elimina las solicitudes innecesarias cuando los usuarios inician sesión.
 
-* **Escenarios avanzados**. La autenticación de paso a través aplica la directiva de cuenta local al iniciar sesión. Por ejemplo, se deniega el acceso cuando el estado de la cuenta de un usuario local indica que está deshabilitada, bloqueada, con su [contraseña expirada](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) o que el intento de inicio de sesión se encuentra fuera de las horas de inicio de sesión del usuario.
+* **Escenarios avanzados**. La autenticación de paso a través aplica la directiva de cuenta local al iniciar sesión. Por ejemplo, se deniega el acceso cuando el estado de la cuenta de un usuario local indica que está deshabilitada, bloqueada, con su [contraseña expirada](../../active-directory/hybrid/how-to-connect-pta-faq.yml#what-happens-if-my-user-s-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication-) o que el intento de inicio de sesión se encuentra fuera de las horas de inicio de sesión del usuario.
 
     Las organizaciones que requieren una autenticación multifactor con una autenticación de paso a través tienen que usar Azure AD Multi-Factor Authentication (MFA) o los [controles personalizados de acceso condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Esas organizaciones no pueden usar métodos de autenticación multifactor de terceros o locales que se basen en la federación. Las características avanzadas requieren que se implemente la sincronización de hash de contraseñas sin importar si elige o no la autenticación de paso a través. Por ejemplo, esto sucede con el informe de credenciales filtradas de Identity Protection.
 
@@ -124,7 +124,7 @@ Para ver los pasos de implementación, consulte [Implementación de la sincroniz
 
 * **Consideraciones**. Puede utilizar la sincronización de hash de contraseñas como método de autenticación de respaldo para la autenticación de paso a través, cuando los agentes no puedan asegurarse de las credenciales de un usuario debido a un error local importante. La conmutación por error de la sincronización de hash de contraseñas no sucede automáticamente y debe usar Azure AD Connect para cambiar el método de inicio de sesión manualmente.
 
-    Para ver más detalles sobre la autenticación de paso a través, incluida la compatibilidad con identificadores alternativos, consulte las [preguntas más frecuentes](../../active-directory/hybrid/how-to-connect-pta-faq.md).
+    Para ver más detalles sobre la autenticación de paso a través, incluida la compatibilidad con identificadores alternativos, consulte las [preguntas más frecuentes](../../active-directory/hybrid/how-to-connect-pta-faq.yml).
 
 Para obtener información sobre los pasos de implementación, consulte [Implementación de la autenticación de paso a través](../../active-directory/hybrid/how-to-connect-pta.md).
 
@@ -180,7 +180,7 @@ En los siguientes diagramas se describen los componentes de arquitectura de alto
 |¿Hay algún requisito de certificado TLS/SSL?|No|No|Sí|
 |¿Hay alguna solución de supervisión de estado?|No se requiere|El estado del agente lo proporciona el [Centro de administración de Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |¿Los usuarios realizan el inicio de sesión único en los recursos de nube desde dispositivos unidos a un dominio de la red de la empresa?|Sí, con [SSO de conexión directa](../../active-directory/hybrid/how-to-connect-sso.md)|Sí, con [SSO de conexión directa](../../active-directory/hybrid/how-to-connect-sso.md)|Sí|
-|¿Qué tipos de inicio de sesión se admiten?|UserPrincipalName + contraseña<br><br>Autenticación integrada de Windows con [SSO de conexión directa](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Identificador de inicio de sesión alternativo](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + contraseña<br><br>Autenticación integrada de Windows con [SSO de conexión directa](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Identificador de inicio de sesión alternativo](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + contraseña<br><br>sAMAccountName + contraseña<br><br>Autenticación integrada de Windows<br><br>[Autenticación de certificados y tarjetas inteligentes](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Identificador de inicio de sesión alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
+|¿Qué tipos de inicio de sesión se admiten?|UserPrincipalName + contraseña<br><br>Autenticación integrada de Windows con [SSO de conexión directa](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Identificador de inicio de sesión alternativo](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + contraseña<br><br>Autenticación integrada de Windows con [SSO de conexión directa](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Identificador de inicio de sesión alternativo](../../active-directory/hybrid/how-to-connect-pta-faq.yml)|UserPrincipalName + contraseña<br><br>sAMAccountName + contraseña<br><br>Autenticación integrada de Windows<br><br>[Autenticación de certificados y tarjetas inteligentes](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Identificador de inicio de sesión alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |¿Se admite Windows Hello para empresas?|[Modelo de confianza de clave](/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Modelo de confianza de clave](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Requiere el nivel funcional de dominio de Windows Server 2016*|[Modelo de confianza de clave](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confianza de certificado](/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |¿Cuáles son las opciones de autenticación multifactor?|[Azure AD MFA](/azure/multi-factor-authentication/)<br><br>[Controles personalizados con acceso condicional*](../../active-directory/conditional-access/controls.md)|[Azure AD MFA](/azure/multi-factor-authentication/)<br><br>[Controles personalizados con acceso condicional*](../../active-directory/conditional-access/controls.md)|[Azure AD MFA](/azure/multi-factor-authentication/)<br><br>[Servidor de Azure MFA](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA de terceros](/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controles personalizados con acceso condicional*](../../active-directory/conditional-access/controls.md)|
 |¿Qué estados de cuenta de usuario se admiten?|Cuentas deshabilitadas<br>(retraso de hasta 30 minutos)|Cuentas deshabilitadas<br><br>Cuenta bloqueada<br><br>Cuenta expirada<br><br>Contraseña expirada<br><br>Horas de inicio de sesión|Cuentas deshabilitadas<br><br>Cuenta bloqueada<br><br>Cuenta expirada<br><br>Contraseña expirada<br><br>Horas de inicio de sesión|

@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: ae3899a61e942695fed1e3da5fc543b298a42e24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da7d31d018853b340be4506af48a602e7cb2765b
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94695561"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437943"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Solución de errores comunes de implementación de Azure con Azure Load Balancer
 
@@ -35,7 +35,7 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 |CannotUseInactiveHealthProbe| No puede tener un sondeo que no lo use ninguna regla configurada para el mantenimiento del conjunto de escalado de máquinas virtuales. Asegúrese de que el sondeo que se está configurando se use activamente. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| No puede tener varios equilibradores de carga del mismo tipo (interno, público). Puede tener un equilibrador de carga público interno como máximo. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | No se admite Basic Load Balancer para conjuntos de escalado de máquinas virtuales de múltiples ubicaciones o para el conjunto de escalado de máquinas virtuales de varias zonas de disponibilidad. Use Standard Load Balancer en su lugar. |
-|MarketplacePurchaseEligibilityFailed | Cambie a la cuenta administrativa correcta para habilitar las compras debido a que la suscripción es un una suscripción EA. Puede leer más [aquí](../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase). |
+|MarketplacePurchaseEligibilityFailed | Cambie a la cuenta administrativa correcta para habilitar las compras debido a que la suscripción es un una suscripción EA. Puede leer más [aquí](../marketplace/marketplace-faq-publisher-guide.yml#what-could-block-a-customer-from-completing-a-purchase-). |
 |ResourceDeploymentFailure| Si el equilibrador de carga está en un estado de error, siga estos pasos para recuperarlo de dicho estado:<ol><li>Vaya a https://resources.azure.com e inicie sesión con las credenciales de Azure Portal.</li><li>Seleccione **Lectura o escritura**.</li><li>A la izquierda, expanda **Suscripciones** y, a continuación, expanda la suscripción con la instancia de Load Balancer que se va a actualizar.</li><li>Expanda **ResourceGroups** y, a continuación, expanda el grupo de recursos con la instancia de Load Balancer que se va a actualizar.</li><li>Seleccione **Microsoft.Network** > **LoadBalancers** y, a continuación, seleccione la instancia de Load Balancer que se va a actualizar, **LoadBalancer_1**.</li><li>En la página para mostrar de **LoadBalancer_1**, seleccione **GET** > **Editar**.</li><li>Actualice el valor de **ProvisioningState** de **Incorrecto** a **Correcto**.</li><li>Seleccione **PUT**.</li></ol>|
 |  |  |
 

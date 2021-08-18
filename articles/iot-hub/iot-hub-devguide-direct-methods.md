@@ -1,23 +1,23 @@
 ---
 title: Información de los métodos directos de IoT Hub de Azure | Microsoft Docs
 description: 'Guía del desarrollador: uso de métodos directos para invocar código en los dispositivos de una aplicación de servicio.'
-author: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: philmea
+ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: b75e859fc1237bc88bee464cef423b7289810fa8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b9b0a86b86ae1e2253da2349bb9e1c3523f5798
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147802"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862218"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Conocimiento e invocación de los métodos directos de IoT Hub
 
@@ -228,5 +228,5 @@ Ahora que ha aprendido a usar métodos directos, puede interesarle el siguiente 
 
 Si desea probar algunos de los conceptos descritos en este artículo, puede interesarle el siguiente tutorial de IoT Hub:
 
-* [Uso de métodos directos](quickstart-control-device-node.md)
+* [Uso de métodos directos](quickstart-control-device.md)
 * [Administración de dispositivos con Azure IoT Tools para VS Code](iot-hub-device-management-iot-toolkit.md)

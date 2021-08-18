@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 04/23/2021
-ms.openlocfilehash: 443dd0a1172c98b67282b50659ffeb3611470413
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 14b3487a158062e3186b485a8bcbd4584a0f09d2
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163776"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113665356"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
@@ -158,7 +158,7 @@ En Visual Studio, si la aplicación lógica existe como un archivo JSON (.json) 
 Para cambiar el tipo de ubicación o la propia ubicación de la aplicación lógica, tiene que abrir el archivo de definición de flujo de trabajo (.json) de la aplicación lógica desde Explorador de soluciones con el Diseñador de aplicación lógica. Estas propiedades no se pueden cambiar mediante Cloud Explorer.
 
 > [!IMPORTANT]
-> El cambio del tipo de ubicación de **Región** a [**Entorno del servicio de integración**](connect-virtual-network-vnet-isolated-environment-overview.md) afecta al [modelo de precios](logic-apps-pricing.md#fixed-pricing) de la aplicación lógica que se usa para la facturación, a los [límites](logic-apps-limits-and-config.md#integration-account-limits), la [compatibilidad con la cuenta de integración](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), etc. Antes de seleccionar un tipo de ubicación diferente, asegúrese de que comprende el impacto que tendrá en la aplicación lógica.
+> El cambio del tipo de ubicación de **Región** a [**Entorno del servicio de integración**](connect-virtual-network-vnet-isolated-environment-overview.md) afecta al [modelo de precios](logic-apps-pricing.md#ise-pricing) de la aplicación lógica que se usa para la facturación, a los [límites](logic-apps-limits-and-config.md#integration-account-limits), la [compatibilidad con la cuenta de integración](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), etc. Antes de seleccionar un tipo de ubicación diferente, asegúrese de que comprende el impacto que tendrá en la aplicación lógica.
 
 1. En Visual Studio, abra el proyecto de grupo de recursos de Azure que contiene la aplicación lógica.
 

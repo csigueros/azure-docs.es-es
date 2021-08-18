@@ -4,12 +4,12 @@ description: Aprenda a aislar los clústeres de Azure HDInsight en una red virtu
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fe3b9617db20f445d4139c006c283bbfe537d544
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 4c5e30bfd7afd8a7cd8974544324f6e610736846
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616485"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438483"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Protección y aislamiento de clústeres de Azure HDInsight con Private Link (versión preliminar)
 
@@ -53,7 +53,7 @@ Private Link, que está deshabilitado de manera predeterminada, requiere un ampl
 
 Cuando `privateLink` está establecido en *habilitado*, se crean [equilibradores de carga estándar](../load-balancer/load-balancer-overview.md) (SLB) y se aprovisiona un servicio Azure Private Link para cada uno de ellos. El servicio Private Link es lo que permite acceder al clúster de HDInsight desde puntos de conexión privados.
 
-Los equilibradores de carga estándar no proporcionan automáticamente la [NAT saliente pública](../load-balancer/load-balancer-outbound-connections.md) como sí lo hacen los equilibradores de carga básicos. Debe proporcionar su propia solución NAT, como [Virtual Network NAT](../virtual-network/nat-overview.md) o un [firewall](./hdinsight-restrict-outbound-traffic.md), para las dependencias de salida. El clúster de HDInsight de todos modos necesita acceso a sus dependencias de salida. Si no se permiten estas dependencias de salida, puede producirse un error en la creación del clúster.
+Los equilibradores de carga estándar no proporcionan automáticamente la [NAT saliente pública](../load-balancer/load-balancer-outbound-connections.md) como sí lo hacen los equilibradores de carga básicos. Debe proporcionar su propia solución NAT, como [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) o un [firewall](./hdinsight-restrict-outbound-traffic.md), para las dependencias de salida. El clúster de HDInsight de todos modos necesita acceso a sus dependencias de salida. Si no se permiten estas dependencias de salida, puede producirse un error en la creación del clúster.
 
 ### <a name="prepare-your-environment"></a>Preparación del entorno
 

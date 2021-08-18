@@ -15,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: aa57963ce369e4c8f84f4aae5f99fe343181ff6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3f18481821361feff525e3357543036784b21495
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100530508"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253480"
 ---
 # <a name="connect-cyberark-enterprise-password-vault-epv-to-azure-sentinel"></a>Conexión de CyberArk Enterprise Password Vault (EPV) con Azure Sentinel
 
 > [!IMPORTANT]
 > El conector de datos de CyberArk Enterprise Password Vault (EPV) de Azure Sentinel se encuentra actualmente en versión preliminar pública. Esta característica se proporciona sin un Acuerdo de Nivel de Servicio. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 El conector de Syslog de CyberArk permite conectar fácilmente todos los registros de la solución de seguridad de CyberArk con Azure Sentinel para ver los paneles, crear alertas personalizadas y mejorar la investigación. La integración entre CyberArk y Azure Sentinel hace uso del conector de datos de CEF para analizar y mostrar correctamente los mensajes de Syslog de CyberArk.
 
@@ -51,6 +53,6 @@ Para consultar los registros de CyberArk EPV en Log Analytics, escriba `CommonSe
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento aprendió a conectar los registros de CyberArk Enterprise Password Vault a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

@@ -12,13 +12,13 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 05/26/2020
-ms.openlocfilehash: be5face0a93dc360493e22fd3d2c6d9743c4f5ff
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/21/2021
+ms.openlocfilehash: 9501c49bec8d2a632387ecb9b620dcbdc5a0ac1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072460"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751272"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introducción a la auditoría de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,6 +27,9 @@ La auditoría de [SQL Managed InstanceL](sql-managed-instance-paas-overview.md) 
 
 - Ayudar a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 - Posibilitar y facilitar la observancia de estándares reguladores aunque no garantiza el cumplimiento. Para más información sobre los programas de Azure que se adhieren al cumplimiento normativo, visite el [Centro de confianza de Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde podrá encontrar la lista más reciente de certificaciones de cumplimiento.
+
+> [!IMPORTANT]
+> La auditoría de Azure SQL Database, Azure Synapse y Azure SQL Managed Instance está optimizada para el rendimiento y la disponibilidad. Durante periodos de actividad muy elevada o alta carga en la red, Azure SQL Database, Azure Synapse y Azure SQL Managed Instance permiten que las operaciones continúen y es posible que no registren algunos eventos auditados.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configuración de la auditoría de un servidor en Azure Storage
 
@@ -55,7 +58,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
       ![Configuración de la opción Crear contenedor de blobs](./media/auditing-configure/3_create_container_config.png)
 
     > [!IMPORTANT]
-    > Los clientes que quieran configurar un almacén de registros inmutable para los eventos de auditoría de nivel de servidor o de base de datos deben seguir las [instrucciones que se proporcionan en Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). (Asegúrese de que ha seleccionado **Permitir anexiones adicionales** al configurar el almacenamiento de blobs inmutable).
+    > Los clientes que quieran configurar un almacén de registros inmutable para los eventos de auditoría de nivel de servidor o de base de datos deben seguir las [instrucciones que se proporcionan en Azure Storage](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes). (Asegúrese de que ha seleccionado **Permitir anexiones adicionales** al configurar el almacenamiento de blobs inmutable).
   
 3. Después de crear el contenedor para los registros de auditoría, hay dos maneras de configurarlo como destino de los registros de auditoría: [mediante T-SQL](#blobtsql) o [mediante la interfaz de usuario de SQL Server Management Studio (SSMS)](#blobssms):
 

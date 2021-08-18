@@ -3,12 +3,12 @@ title: Habilitación de la identidad administrada en el grupo de contenedores
 description: Aprenda a habilitar una identidad administrada en Azure Container Instances que se pueda autenticar con otros servicios de Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: f8f3c646487d86f4e1bce13ccbf28992b8b1497a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 44f4e15e6e11fac884c2d117aae351615420ba43
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764016"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219286"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Cómo utilizar una identidad administrada con Azure Container Instances
 
@@ -278,13 +278,13 @@ az container exec \
 
 Ejecute los siguientes comandos del shell de Bash en el contenedor. En primer lugar, inicie sesión en la CLI de Azure mediante la identidad administrada:
 
-```bash
+```azurecli
 az login --identity
 ```
 
 En el contenedor en ejecución, recupere el secreto del almacén de claves:
 
-```bash
+```azurecli
 az keyvault secret show \
   --name SampleSecret \
   --vault-name mykeyvault --query value
@@ -292,7 +292,7 @@ az keyvault secret show \
 
 Se recupera el valor del secreto:
 
-```bash
+```output
 "Hello Container Instances"
 ```
 

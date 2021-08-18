@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 4591253e1a305632b7f41afe692f297d71366382
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32f140ae27501b9f4f3b66e5f5815b8f3f20b3ff
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98744116"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445117"
 ---
 # <a name="enable-monitoring-for-cloud-services-extended-support-using-the-azure-portal"></a>Habilitación de la supervisión para Cloud Services (soporte extendido) mediante Azure Portal
 
@@ -40,5 +40,5 @@ En este artículo se explica cómo habilitar alertas en implementaciones existen
 6. Cuando haya terminado de configurar las alertas, guarde los cambios y, en función de las métricas configuradas, comenzará a ver que la hoja **Alertas** se rellena con el tiempo.
 
 ## <a name="next-steps"></a>Pasos siguientes 
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).
 - Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).

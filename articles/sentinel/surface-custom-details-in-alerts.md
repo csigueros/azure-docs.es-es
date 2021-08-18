@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 97cd4d51da70b9b1cca501c7f04a3b0ccfc51305
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 18e176f11da9c8dca86c5f3477cb282c478664cf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112059692"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748067"
 ---
 # <a name="surface-custom-event-details-in-alerts-in-azure-sentinel"></a>Exposición de detalles de eventos personalizados de alertas en Azure Sentinel 
 
@@ -29,7 +29,7 @@ ms.locfileid: "112059692"
 
 ## <a name="introduction"></a>Introducción
 
-Las [reglas programadas de análisis de consultas](tutorial-detect-threats-custom.md) analizan los **eventos** de los orígenes de datos conectados a Azure Sentinel y generan **alertas** cuando el contenido de estos eventos es significativo desde una perspectiva de seguridad. Estas alertas se analizan, agrupan y filtran a través de los distintos motores de Azure Sentinel y se sintetizan en **incidentes** que garantizan la atención del analista de SOC. Sin embargo, cuando el analista ve el incidente, solo las propiedades de las alertas de componentes son inmediatamente visibles. Para obtener el contenido real (información contenida en los eventos) es necesario investigar un poco.
+Las [reglas programadas de análisis de consultas](detect-threats-custom.md) analizan los **eventos** de los orígenes de datos conectados a Azure Sentinel y generan **alertas** cuando el contenido de estos eventos es significativo desde una perspectiva de seguridad. Estas alertas se analizan, agrupan y filtran a través de los distintos motores de Azure Sentinel y se sintetizan en **incidentes** que garantizan la atención del analista de SOC. Sin embargo, cuando el analista ve el incidente, solo las propiedades de las alertas de componentes son inmediatamente visibles. Para obtener el contenido real (información contenida en los eventos) es necesario investigar un poco.
 
 Con la característica **Detalles personalizados** del **Asistente para reglas de análisis**, puede exponer los datos de eventos en las alertas que se crean a partir de esos eventos, lo que hace que los datos de evento formen parte de las propiedades de la alerta. De hecho, le ofrece visibilidad inmediata del contenido del evento en sus incidentes, lo que le permite evaluar, investigar, extraer conclusiones y responder con mucha mayor velocidad y eficacia.
 
@@ -70,5 +70,5 @@ El procedimiento que se detalla a continuación forma parte del Asistente para c
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a exponer detalles personalizados en alertas mediante reglas de análisis de Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Obtenga una visión completa de las [reglas de análisis de consultas programadas](tutorial-detect-threats-custom.md).
+- Obtenga una visión completa de las [reglas de análisis de consultas programadas](detect-threats-custom.md).
 - Obtenga más información sobre las [entidades en Azure Sentinel](entities-in-azure-sentinel.md).

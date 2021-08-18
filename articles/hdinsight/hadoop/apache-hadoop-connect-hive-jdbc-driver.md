@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 6073000f2f14f835e2bfbd91b41619101c36b10f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 3e363d04fbfd0222cb49ffa9fa02b88d7fba2468
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104866852"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300604"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulta de Apache Hive mediante el controlador JDBC en HDInsight
 
-[!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
+[!INCLUDE [ODBC-JDBC-selector](../includes/hdinsight-selector-odbc-jdbc.md)]
 
 Aprenda a usar el controlador JDBC desde una aplicación de Java. Para enviar consultas de Apache Hive a Apache Hadoop en Azure HDInsight. La información de este documento muestra cómo conectarse mediante programación y desde el cliente de SQuirreL SQL.
 
@@ -82,7 +82,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
 5. En el cuadro de diálogo Add driver (agregar controlador), agregue la siguiente información:
 
-    |Propiedad | Value |
+    |Propiedad | Valor |
     |---|---|
     |Nombre|Hive|
     |Example URL (URL de ejemplo)|`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`|
@@ -99,7 +99,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
 7. Use los siguientes valores en el cuadro de diálogo **Add Alias** (Agregar alias).
 
-    |Propiedad |Value |
+    |Propiedad |Valor |
     |---|---|
     |Nombre|Hive en HDInsight|
     |Controlador|Use la lista desplegable para seleccionar el controlador **Hive**.|

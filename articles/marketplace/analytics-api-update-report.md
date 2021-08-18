@@ -4,15 +4,16 @@ description: Use esta API con los parámetros de informes de análisis del marke
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 38680eb291417ded4c2f93539e8d1ae091b1d560
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35c01bf83d4c5ecf98a49a17fce62bfd757be122
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583548"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748308"
 ---
 # <a name="update-report-api"></a>Actualización de la API de informe
 

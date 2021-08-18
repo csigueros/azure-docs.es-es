@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 904b4ec201b38a817fe7a84d88878c62629b2625
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 1789f70b0bf649bb4dc25aeace6973a159df1537
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110785937"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737363"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C
 
@@ -291,5 +291,5 @@ Consulte los siguientes artículos para obtener ejemplos del uso de un perfil t�
 
 - [Integración de intercambios de notificaciones de la API de REST en la directiva personalizada de Azure AD B2C](api-connectors-overview.md)
 - [Tutorial: Adición de un conector de API a un flujo de usuario de registro](add-api-connector.md)
-- [Tutorial: Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
+- [Tutorial: Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C](add-api-connector-token-enrichment.md)
 - [Protección de los servicios de la API de REST](secure-rest-api.md)

@@ -4,12 +4,12 @@ description: Obtenga información sobre los recursos disponibles al crear un cl�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 43640a9de91b6b44a236090ff029a49313ee0247
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 511f1b1bba227e58303a47994d7a6f7bd8b14604
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871680"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290996"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitectura de red virtual de Azure HDInsight
 
@@ -24,7 +24,6 @@ Los clústeres de Azure HDInsight tienen distintos tipos de máquinas virtuales 
 | Nodo principal |  Para todos los tipos de clúster excepto Apache Storm, los nodos principales hospedan los procesos que administran la ejecución de la aplicación distribuida. El nodo principal es también el nodo al que puede acceder mediante SSH y ejecutar aplicaciones que después se coordinan para ejecutarse en los recursos de clúster. El número de nodos principales se fija en dos para los tipos de clúster. |
 | Nodo de ZooKeeper | ZooKeeper coordina las tareas entre los nodos que realizan el procesamiento de datos. También realiza la elección de líder del nodo principal y realiza un seguimiento de qué nodo principal ejecuta un servicio maestro específico. El número de nodos de ZooKeeper se fija en tres. |
 | Nodo de trabajo | Representa los nodos que admiten la funcionalidad de procesamiento de datos. Los nodos de trabajo se pueden agregar o quitar del clúster para escalar la funcionalidad de computación y administrar los costos. |
-| Nodo perimetral de R Server | El nodo perimetral de R Server representa el nodo al que puede acceder mediante SSH y ejecutar aplicaciones que después se coordinan para ejecutarse en los recursos de clúster. El nodo perimetral no participa en el análisis de datos dentro del clúster. Este nodo también hospeda R Studio Server, lo que permite ejecutar la aplicación de R con un explorador. |
 | Nodo regional | Para el tipo de clúster de HBase, el nodo regional (también denominado un nodo de datos) ejecuta el servidor de regiones. Los servidores de regiones atienden y administran una parte de los datos administrados por HBase. Los nodos regionales se pueden agregar o quitar del clúster para escalar la funcionalidad de computación y administrar los costos.|
 | Nodo Nimbus | Para el tipo de clúster de Storm, el nodo Nimbus proporciona una funcionalidad similar a la del nodo principal. El nodo de Nimbus asigna tareas a otros nodos de un clúster mediante ZooKeeper, que coordina la ejecución de topologías de Storm. |
 | Nodo de supervisión | Para el tipo de clúster de Storm, el nodo de supervisor ejecuta las instrucciones que el nodo Nimbus proporciona para realizar el procesamiento. |

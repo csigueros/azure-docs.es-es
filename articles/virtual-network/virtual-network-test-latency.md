@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 7dc8aac730fdf46cab47a3297b8c001cb0b8e314
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd316ce7a868f639cdfd80293d5d6189e2942f6f
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99226412"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988182"
 ---
 # <a name="test-vm-network-latency"></a>Comprobación de la latencia de red de VM
 
@@ -71,7 +71,7 @@ Cuando analice los resultados de las pruebas, tenga en cuenta las siguientes rec
 
 ### <a name="get-latteexe-onto-the-vms"></a>Instalación de latte.exe en las máquinas virtuales
 
-Descargue la [versión más reciente de latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
+Descargue la [versión más reciente de latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe).
 
 Considere la posibilidad de colocar latte.exe en una carpeta independiente, como *c:\tools*.
 

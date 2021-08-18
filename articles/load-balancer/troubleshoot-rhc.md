@@ -3,20 +3,20 @@ title: Solución de problemas de disponibilidad de front-end y back-end y de man
 description: Use las métricas disponibles para hacer un diagnóstico de una instancia de Azure Standard Load Balancer que se ha degradado o no está disponible.
 services: load-balancer
 documentationcenter: na
-author: erichrt
+author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
-ms.author: errobin
-ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: kumud
+ms.openlocfilehash: 8c43a0125dac9931e68ae9567f47d63b3409f878
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955627"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357236"
 ---
 # <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>Solución de problemas de estado y disponibilidad de entrada de los recursos 
 

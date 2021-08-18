@@ -6,17 +6,17 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: a246ee493b89051ad35436cd9213462a09a5d1b0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 46ae19af49b827af857f5f224ee5f0013d620a43
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388431"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414600"
 ---
 # <a name="event-grid-on-kubernetes---batch-event-delivery"></a>Event Grid en Kubernetes: entrega de eventos por lotes 
 Event Grid en Kubernetes con Azure Arc admite la entrega de más de un evento en una única solicitud de entrega. Esta característica permite aumentar el rendimiento general de la entrega sin tener las sobrecargas de HTTP por solicitud. La entrega de eventos por lotes está desactivada de forma predeterminada y se puede activar mediante la configuración de la suscripción de eventos. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 > [!WARNING]
 > La duración máxima permitida para procesar cada solicitud de entrega no cambia, aunque el código del controlador de eventos pueda tener potencialmente más trabajo por cada solicitud por lotes. El tiempo de espera de entrega predeterminado es de 60 segundos.

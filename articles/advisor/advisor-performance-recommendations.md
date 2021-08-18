@@ -3,12 +3,12 @@ title: Mejora del rendimiento de las aplicaciones de Azure con Advisor
 description: Use recomendaciones sobre rendimiento de Azure Advisor para mejorar la velocidad y la capacidad de respuesta de las aplicaciones empresariales críticas.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 69fd86226375073c71903af5704ef3a635eeaffb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2813699e082afbc263775821839ed6946e26c1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579917"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724789"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -173,7 +173,7 @@ Hemos determinado que las máquinas virtuales se encuentran en una región disti
 
 ## <a name="upgrade-to-the-latest-version-of-the-immersive-reader-sdk"></a>Actualice a la versión más reciente del SDK de Lector inmersivo.
 Hemos identificado recursos en esta suscripción con versiones obsoletas del SDK de Lector inmersivo. El uso de la versión más reciente del SDK de Lector inmersivo le proporciona seguridad actualizada, rendimiento y un conjunto expandido de características para personalizar y mejorar la experiencia de integración.
-Más información sobre el [SDK de Lector inmersivo](../cognitive-services/immersive-reader/index.yml).
+Más información sobre el [SDK de Lector inmersivo](../applied-ai-services/immersive-reader/index.yml).
 
 ## <a name="improve-vm-performance-by-changing-the-maximum-session-limit"></a>Mejora del rendimiento de la máquina virtual cambiando el límite máximo de sesión
 

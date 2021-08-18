@@ -1,28 +1,28 @@
 ---
 title: Estrategias de implementación azul-verde en Azure Spring Cloud
 description: En este tema se explican dos enfoques para las implementaciones azul-verde en Azure Spring Cloud.
-author: yevster
+author: karlerickson
 ms.author: yebronsh
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 05/12/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: ca385c2be61e359cc93e40cc42718096606583cf
-ms.sourcegitcommit: 14cd60fe58964acd4bccb6053f36e60d5848edc0
+ms.openlocfilehash: bce33a40933e5c40b5eab0948880d44f4b23edcd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109795640"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728556"
 ---
 # <a name="blue-green-deployment-strategies-in-azure-spring-cloud"></a>Estrategias de implementación azul-verde en Azure Spring Cloud
 
 En este artículo se describe la compatibilidad con la implementación azul-verde en Azure Spring Cloud.
 
-Azure Spring Cloud (nivel Estándar y superior) permite dos implementaciones para cada aplicación, aunque solo una recibe el tráfico de producción. Este patrón se conoce normalmente como implementación azul-verde. La compatibilidad de Azure Spring Cloud con la implementación azul-verde, junto con una canalización de [entrega continua (CD)](/azure/devops/learn/what-is-continuous-delivery) y rigurosas pruebas automatizadas, permite implementaciones de aplicaciones ágiles con alta confianza.
+Azure Spring Cloud (nivel Estándar y superior) permite dos implementaciones para cada aplicación, aunque solo una recibe el tráfico de producción. Este patrón se conoce normalmente como implementación azul-verde. La compatibilidad de Azure Spring Cloud con la implementación azul-verde, junto con una canalización de [entrega continua (CD)](/devops/deliver/what-is-continuous-delivery) y rigurosas pruebas automatizadas, permite implementaciones de aplicaciones ágiles con alta confianza.
 
 ## <a name="alternating-deployments"></a>Implementaciones alternativas
 
-La manera más sencilla de aplicar la implementación azul-verde con Azure Spring Cloud es crear dos implementaciones fijas e implementar siempre en la que no recibe el tráfico de producción. Con la tarea de Azure Spring Cloud para Azure Pipelines, puede implementarlo de esta manera con el establecimiento de la marca `UseStagingDeployment` en `true`.
+La manera más sencilla de aplicar la implementación azul-verde con Azure Spring Cloud es crear dos implementaciones fijas e implementar siempre en la que no recibe el tráfico de producción. Con la [tarea de Azure Spring Cloud para Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud), puede implementarlo de esta manera. Solo debe establecer la marca `UseStagingDeployment` en `true`.
 
 Este es el funcionamiento del enfoque de implementaciones alternativas en la práctica:
 
@@ -98,3 +98,7 @@ Sin embargo, también hay inconvenientes, como se describe en la sección siguie
 Entre el momento en que se inicia una implementación y el momento en que se elimina la implementación de ensayo, se producirá un error en los intentos adicionales de ejecutar la canalización de implementación. La canalización intentará crear una nueva implementación, lo que dará lugar a un error porque solo se permiten dos implementaciones por cada aplicación de Azure Spring Cloud.
 
 Por lo tanto, la orquestación de la implementación debe tener los medios para reintentar un proceso de implementación con errores en un momento posterior, o los medios para asegurarse de que los flujos de implementación para cada versión permanecerán en cola hasta que se complete el flujo para todas las versiones anteriores.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Automatización de implementaciones de aplicaciones en Azure Spring Cloud](./how-to-cicd.md)

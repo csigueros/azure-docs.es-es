@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 58044b38b78776eca650b52d448ff1477b71e362
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0b0822bf7653a076e579a0bec1cbfcc926d4c7b9
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756120"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113651133"
 ---
 # <a name="create-a-azure-virtual-desktop-host-pool-with-powershell"></a>Creación de un grupo de hosts de Azure Virtual Desktop con PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "111756120"
 
 Los grupos de hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Azure Virtual Desktop. Cada grupo de hosts puede estar asociado a varios grupos de RemoteApp, un grupo de aplicaciones de escritorio y varios hosts de sesión.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se supone que ya ha seguido las instrucciones del artículo [Configuración del módulo de PowerShell](powershell-module.md).
 
@@ -76,7 +76,6 @@ Puede crear una máquina virtual de varias maneras:
 
 - [Crear una máquina virtual desde una imagen de la galería de Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Crear una máquina virtual desde una imagen administrada](../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Crear una máquina virtual desde una imagen no administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-user-image-data-disks)
 
 >[!NOTE]
 >Si va a implementar una máquina virtual en la que Windows 7 es el sistema operativo del host, el proceso de creación e implementación será un poco diferente. Para más información, consulte [Implementación de una máquina virtual Windows 7 en Azure Virtual Desktop](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
@@ -87,8 +86,8 @@ Una vez que haya creado las máquinas virtuales de host de sesión, [aplique una
 
 Deberá hacer lo siguiente para preparar las máquinas virtuales antes de poder instalar los agentes de Azure Virtual Desktop y registrar las máquinas virtuales en el grupo de hosts de Azure Virtual Desktop:
 
-- Debe unir la máquina al dominio. Esto permite que los usuarios entrantes de Azure Virtual Desktop se asignen desde sus cuentas de Azure Active Directory a su cuenta de Active Directory, así como tener acceso correctamente a la máquina virtual.
-- Debe instalar el rol de host de sesión de Escritorio remoto (RDSH) si la máquina virtual está ejecutando un sistema operativo de Windows Server. El rol de RDSH permite que los agentes de Azure Virtual Desktop se instalen correctamente.
+- Debe unir la máquina al dominio. Esto permite que los usuarios entrantes de Azure Virtual Desktop se asignen desde sus cuentas de Azure Active Directory a su cuenta de Active Directory, así como tener acceso correctamente a la máquina virtual.
+- Debe instalar el rol de host de sesión de Escritorio remoto (RDSH) si la máquina virtual está ejecutando un sistema operativo de Windows Server. El rol de RDSH permite que los agentes de Azure Virtual Desktop se instalen correctamente.
 
 Para realizar correctamente una unión a un dominio, realice los siguientes pasos en cada máquina virtual:
 
@@ -149,7 +148,7 @@ Para actualizar el agente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha creado un grupo de hosts, puede rellenarlo con RemoteApp. Para más información sobre cómo administrar las aplicaciones de Azure Virtual Desktop, consulte el tutorial Administración de grupos de aplicaciones.
+Ahora que ha creado un grupo de hosts, puede rellenarlo con RemoteApp. Para obtener más información sobre cómo administrar las aplicaciones de Azure Virtual Desktop, consulte el tutorial Administración de grupos de aplicaciones.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Administración de grupos de aplicaciones](./manage-app-groups.md)

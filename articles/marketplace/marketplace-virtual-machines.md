@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 25cfca98857d33a90b2c1f11692d83ae30911bb7
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4278a3b0e022015a1e12542cac7699590150b5e4
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480879"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602568"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>Planificación de una oferta de máquina virtual
 
@@ -23,7 +23,7 @@ Antes de empezar, [cree una cuenta de marketplace comercial en el Centro de part
 
 ### <a name="technical-fundamentals"></a>Aspectos fundamentales técnicos
 
-El proceso de diseño, compilación y prueba de estos recursos lleva tiempo y requiere experiencia tanto en la plataforma de Azure como en las tecnologías que se usan para crear la oferta. El equipo de ingeniería debe tener conocimientos prácticos de [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage) y [Redes de Azure](https://azure.microsoft.com/services/?filter=networking#networking), así como destreza en el [diseño y la arquitectura de aplicaciones de Azure](https://azure.microsoft.com/solutions/architecture/). Vea los recursos técnicos adicionales: 
+El proceso de diseño, compilación y prueba de estos recursos lleva tiempo y requiere experiencia tanto en la plataforma de Azure como en las tecnologías que se usan para crear la oferta. El equipo de ingeniería debe tener conocimientos prácticos de [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage) y [Redes de Azure](https://azure.microsoft.com/services/?filter=networking#networking), así como destreza en el [diseño y la arquitectura de aplicaciones de Azure](https://azure.microsoft.com/solutions/architecture/). Vea los recursos técnicos adicionales:
 
 - Tutoriales
   - [Máquinas virtuales Linux](../virtual-machines/linux/tutorial-manage-vm.md)

@@ -3,15 +3,15 @@ title: Supervisar RU/s normalizadas para un contenedor de Azure Cosmos o una cue
 description: Obtenga información sobre cómo supervisar el uso de unidades de solicitud normalizadas de una operación en Azure Cosmos DB. Los propietarios de una cuenta de Azure Cosmos DB pueden conocer qué operaciones consumen más unidades de solicitud.
 ms.service: cosmos-db
 ms.topic: how-to
-author: kanshiG
-ms.author: govindk
+ms.author: esarroyo
+author: StefArroyo
 ms.date: 01/07/2021
-ms.openlocfilehash: ec82532b54e7834b62fcc03d3ee7de1345a0f546
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3fe29f94cf874d7ede2b5d7f85199c2d9df65f2
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98027815"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359669"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Cómo supervisar RU/s normalizadas para un contenedor de Azure Cosmos o una cuenta
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

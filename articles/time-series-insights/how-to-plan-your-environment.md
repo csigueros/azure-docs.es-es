@@ -1,21 +1,22 @@
 ---
 title: 'Planeamiento de un entorno de Gen2: Azure Time Series Insights | Microsoft Docs'
 description: Procedimientos recomendados para configurar, administrar, planear e implementar el entorno de Azure Time Series Insights Gen2.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b305a650637f8140cf85cb0e5e8d59a569de4d32
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95016792"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135849"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planeamiento del entorno de Azure Time Series Insights Gen2
 

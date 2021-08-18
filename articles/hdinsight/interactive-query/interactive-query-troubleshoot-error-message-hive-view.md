@@ -4,12 +4,12 @@ description: Se produce un error de consulta en la vista de Apache Hive sin ning
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
-ms.openlocfilehash: c60e06e8f37e7aed0d0a0df661690a2b1f32dbd5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2f80a966b3d326d367d376354bc83f7d1d935812
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930998"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290857"
 ---
 # <a name="scenario-query-error-message-not-displayed-in-apache-hive-view-in-azure-hdinsight"></a>Escenario: mensaje de error de consulta no mostrado en la vista de Apache Hive en Azure HDInsight
 
@@ -33,4 +33,4 @@ Consulte la pestaña Notificaciones en la esquina superior derecha de la vista d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 03/17/2021
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b11a76be94fc52285482e13dadbc8c7c92af1374
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4d37cabb8b74fea3a72ddafdf3322d20379f8d29
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608823"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860983"
 ---
 # <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Procedimientos recomendados para grupos de SQL dedicados en Azure Synapse Analytics
 
@@ -27,7 +27,7 @@ Puede encontrar una guía sobre la carga de grupos de SQL dedicados en [Guía pa
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Menos costos gracias a las características de pausa y escalado
 
-Para obtener más información acerca de cómo reducir los costos mediante la pausa y el escalado, consulte [Administración de procesos](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para obtener más información acerca de cómo reducir los costos mediante la pausa y el escalado, consulte [Administración de procesos](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="maintain-statistics"></a>Mantenimiento de estadísticas
 
@@ -63,13 +63,13 @@ Lo que haya cargado con PolyBase se ejecuta con la consulta CTAS o de selección
 
 Con el fin de conseguir un mayor rendimiento al usar archivos de texto Gzip, divídalos en 60 o más archivos para aumentar el paralelismo de la carga. Para conseguir un rendimiento total más rápido, cargue los datos simultáneamente. En los siguientes artículos se incluye información adicional sobre los temas pertinentes para esta sección:
 
-- [Carga de datos](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Carga de datos](../sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context)
 - [Guía para el uso de PolyBase](data-loading-best-practices.md)
 - [Modelos y estrategias de carga en el grupo de SQL dedicado](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)
-- [Carga de datos con Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Movimiento de datos con Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Carga de datos con Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?context=/azure/synapse-analytics/context/context)
+- [Movimiento de datos con Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md?context=/azure/synapse-analytics/context/context)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true)
-- [Create Table As Select (CTAS) en Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Create Table As Select (CTAS) en Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context)
 
 ## <a name="load-then-query-external-tables"></a>Carga y consulta de tablas externas
 
@@ -91,7 +91,7 @@ Por ejemplo, si tiene una tabla de pedidos que se distribuye por order_id, y una
 Los vínculos a los artículos que se proporcionan a continuación le proporcionarán más detalles sobre cómo mejorar el rendimiento al seleccionar una columna de distribución. Además, encontrará información sobre cómo definir una tabla distribuida en la cláusula WITH de la instrucción CREATE TABLE:
 
 - [Información general sobre las tablas](develop-tables-overview.md)
-- [Distribución de tablas](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Distribución de tablas](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context)
 - [Selección de la distribución de tablas](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service)
 - [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true)
 - [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true)
@@ -104,7 +104,7 @@ El exceso de particiones puede reducir la eficacia de los índices de almacén d
 
 Una opción que debe tener en cuenta consiste en usar una granularidad inferior a la que estaba implementada al usar SQL Server. Por ejemplo, puede usar particiones semanales o mensuales, en lugar de particiones diarias.
 
-Encontrará más información sobre las particiones en el artículo [Creación de particiones de tablas](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Encontrará más información sobre las particiones en el artículo [Creación de particiones de tablas](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="minimize-transaction-sizes"></a>Reducción del tamaño de las transacciones
 
@@ -119,10 +119,10 @@ Para tablas sin particiones, puede usar CTAS en lugar de DELETE para escribir lo
 
 En los artículos siguientes se incluye más información sobre el contenido relacionado con esta sección:
 
-- [Create Table As Select (CTAS) en Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Create Table As Select (CTAS) en Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context)
 - [Descripción de las transacciones](develop-transactions.md)
-- [Optimización de transacciones para Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Partición de tabla](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Optimización de transacciones para Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?context=/azure/synapse-analytics/context/context)
+- [Partición de tabla](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context)
 - [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 - [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
@@ -148,7 +148,7 @@ Para obtener instrucciones adicionales, consulte los artículos [Tablas temporal
 
 Los índices de almacén de columnas en clúster son una de las maneras más eficaces de almacenar los datos en el grupo de SQL dedicado.  De forma predeterminada, las tablas del grupo de SQL dedicado se crean como almacén de columnas en clúster.  Para conseguir el máximo rendimiento de las consultas en las tablas de almacén de columnas, es importante la calidad de los segmentos.  Escriben filas en las tablas de almacén de columnas bajo presión de memoria afecta a la calidad de segmento.  
 
-La calidad de los segmentos se puede medir por el número de filas en un grupo de filas comprimido. Para obtener instrucciones detalladas acerca de la detección y mejora de la calidad de los segmentos en las tablas de almacén de columnas agrupadas, consulte la sección [Causas de una calidad deficiente del índice de almacén de columnas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality) del artículo sobre [Indexación de tablas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
+La calidad de los segmentos se puede medir por el número de filas en un grupo de filas comprimido. Para obtener instrucciones detalladas acerca de la detección y mejora de la calidad de los segmentos en las tablas de almacén de columnas agrupadas, consulte la sección [Causas de una calidad deficiente del índice de almacén de columnas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context#causes-of-poor-columnstore-index-quality) del artículo sobre [Indexación de tablas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context).  
 
 Como es importante que los segmentos de almacén de columnas sean de una buena calidad, es conveniente usar identificadores de usuario que se encuentren en la clase de recursos grande o mediana para cargar los datos. El uso de [unidades de almacenamiento de datos](resource-consumption-models.md) inferiores significa que desea asignar una clase de recurso mayor para el usuario que realiza la carga.
 
@@ -162,7 +162,7 @@ Si divide los datos, cada partición deberá tener 1 millón de filas para bene
 Si la tabla no tiene 6 mil millones filas, tiene dos opciones principales. Reduzca el número de particiones o considere la posibilidad de usar una tabla de montón en su lugar.  También puede experimentar para ver si consigue un mejor rendimiento mediante una tabla de montón con índices secundarios, en lugar de con una tabla de almacén de columnas.
 
 Al consultar una tabla de almacén de columnas, las consultas se ejecutarán más rápido si selecciona solo las que necesita.  Más información sobre los índices de tabla y de almacén de columnas en los siguientes artículos:
-- [Índices de tablas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Índices de tablas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context)
 - [Guía de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true)
 - [Regeneración de índices de almacén de columnas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?view=azure-sqldw-latest&preserve-view=true#rebuilding-indexes-to-improve-segment-quality) 
 - [Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado](../sql-data-warehouse/performance-tuning-ordered-cci.md)
@@ -173,7 +173,7 @@ Los grupos de SQL usan grupos de recursos para asignar memoria a las consultas. 
 
 Algunas consultas, como las combinaciones de gran tamaño o las cargas a las tablas de almacén de columnas agrupadas, se beneficiarán de las mayores asignaciones de memoria.  Algunas consultas, como los exámenes puros, no sufrirán cambios. El uso de clases de recursos más grandes afecta a la simultaneidad. Por lo tanto, deberá tener estos datos en cuenta antes de mover todos los usuarios a una clase de recursos grande.
 
-Para obtener información adicional sobre las clases de recursos, consulte el artículo [Clases de recursos para la administración de cargas de trabajo](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para obtener información adicional sobre las clases de recursos, consulte el artículo [Clases de recursos para la administración de cargas de trabajo](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Uso de clases de recursos más pequeñas para aumentar la simultaneidad
 
@@ -185,7 +185,7 @@ Los artículos [Clases de recursos para la administración de cargas de trabajo]
 
 Los grupos de SQL dedicados tienen varias vistas de administración dinámica que sirven para supervisar la ejecución de las consultas.  El siguiente artículo de supervisión le guía con instrucciones paso a paso acerca de cómo revisar los detalles de una consulta en curso.  Usar la opción LABEL con las consultas puede ayudar a encontrar rápidamente las consultas en estas DMV. Para obtener información detallada adicional, consulte los artículos incluidos en la siguiente lista:
 
-- [Supervisión de la carga de trabajo mediante DMV](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Supervisión de la carga de trabajo mediante DMV](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context)
 
 - [LABEL](develop-label.md)
 - [OPTION](/sql/t-sql/queries/option-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -199,7 +199,7 @@ Los grupos de SQL dedicados tienen varias vistas de administración dinámica qu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte también el artículo sobre [Solución de problemas](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para conocer los problemas comunes y sus soluciones.
+Consulte también el artículo sobre [Solución de problemas](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?context=/azure/synapse-analytics/context/context) para conocer los problemas comunes y sus soluciones.
 
 Si necesita información que no se proporciona en este artículo, busque en la [página de preguntas y respuestas de Microsoft para Azure Synapse](/answers/topics/azure-synapse-analytics.html), donde puede plantear preguntas a otros usuarios y al grupo de productos de Azure Synapse Analytics.  
 

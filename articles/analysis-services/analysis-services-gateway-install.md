@@ -8,12 +8,12 @@ ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3128b9f7ae628a0a1974bb30cf87014e269ea466
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7cf788c4b11591121254e1712253827462deac35
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130338"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113009549"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 
@@ -159,4 +159,4 @@ Eso es todo. Si necesita abrir puertos o solucionar cualquier problema, asegúre
 * [Conexión a orígenes de datos locales](analysis-services-gateway.md)   
 * [Orígenes de datos admitidos en Azure Analysis Services](analysis-services-datasource.md)   
 * [Uso de la puerta de enlace para orígenes de datos en Azure Virtual Network](analysis-services-vnet-gateway.md)   
-* [Preguntas frecuentes acerca de la conectividad de red de Analysis Services](analysis-services-network-faq.md) 
+* [Preguntas frecuentes acerca de la conectividad de red de Analysis Services](analysis-services-network-faq.yml) 

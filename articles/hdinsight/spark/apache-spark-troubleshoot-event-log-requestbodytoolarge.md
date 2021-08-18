@@ -4,12 +4,12 @@ description: NativeAzureFileSystem ... RequestBodyTooLarge aparece en el registr
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/29/2019
-ms.openlocfilehash: 73ae646cb083841ee1d55b6c7ce6af7180cef08e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d02764fd6c16106aad1bf939b7e03cc11f3a434d
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929438"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288962"
 ---
 # <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>"NativeAzureFileSystem...RequestBodyTooLarge" aparecen en el registro de las aplicaciones de Apache Spark Streaming en HDInsight
 
@@ -55,4 +55,4 @@ Hay tres soluciones disponibles para este error:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

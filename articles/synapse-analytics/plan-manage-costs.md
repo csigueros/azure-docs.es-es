@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 7a5b9efce1c24aecb54d3f473b7227357c8fb99f
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 1527888458a494e0b2d7177246c991228440d255
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890193"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860529"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Planeamiento y administración de costos de Azure Synapse Analytics
 
@@ -126,7 +126,7 @@ Para más información sobre los costos del grupo SQL sin servidor, consulte [Ad
 
 ### <a name="dedicated-sql-pool"></a>Grupo de SQL dedicado
 
-Para controlar los costos de un grupo de SQL dedicado, puede pausar el recurso cuando no se use. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día. Para más información, vea [Pausa y reanudación del proceso en un grupo de SQL dedicado mediante Azure Portal](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para controlar los costos de un grupo de SQL dedicado, puede pausar el recurso cuando no se use. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día. Para más información, vea [Pausa y reanudación del proceso en un grupo de SQL dedicado mediante Azure Portal](./sql-data-warehouse/pause-and-resume-compute-portal.md?context=/azure/synapse-analytics/context/context).
 
 ### <a name="serverless-apache-spark-pool"></a>Grupo de Apache Spark sin servidor
 

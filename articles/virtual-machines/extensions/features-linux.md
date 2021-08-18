@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 03/30/2018
-ms.openlocfilehash: bdbbc4c421b83fd041c7d900fb0edd01c4d636e0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ba1f3e9ca68f44927c1d163a8d02c63c7b2f3b0c
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785098"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113598484"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Características y extensiones de las máquinas virtuales para Linux
 
@@ -27,7 +27,7 @@ Varias extensiones de máquina virtual de Azure diferentes están disponibles, c
 
 - Aplique configuraciones de estado deseado de PowerShell a una máquina virtual con la extensión DSC para Linux. Para obtener más información, consulte la sección sobre la [extensión de configuración de estado deseado de Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
 - Configure la supervisión de una máquina virtual con la extensión de máquina virtual de Microsoft Monitoring Agent. Para más información, consulte el artículo sobre la [supervisión de máquinas virtuales Linux](/previous-versions/azure/virtual-machines/linux/tutorial-monitor).
-- Configure la supervisión de su infraestructura de Azure con la extensión de Chef o Datadog. Para más información, consulte la [documentación de Chef](https://docs.chef.io/azure_portal.html) o el [blog de Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+- Configure la supervisión de su infraestructura de Azure con la extensión de Chef o Datadog. Para más información, consulte la [documentación de Chef](https://docs.chef.io/) o el [blog de Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 Además de las extensiones específicas de proceso, una extensión de script personalizado está disponible tanto para máquinas virtuales Windows como para máquinas virtuales Linux. La extensión de script personalizado para Linux permite que se ejecute cualquier script de Bash en una máquina virtual. Los scripts personalizados resultan útiles para diseñar implementaciones de Azure que requieren una configuración más allá de lo que las herramientas de Azure nativas pueden proporcionar. Para obtener más información, consulte la sección sobre la [extensión de script personalizado de máquina virtual Linux](custom-script-linux.md).
 

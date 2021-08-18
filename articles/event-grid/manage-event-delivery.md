@@ -2,14 +2,14 @@
 title: 'Mensajes fallidos y directivas de reintento: Azure Event Grid'
 description: Describe la personalización de las opciones de entrega de eventos para Event Grid. Defina un destino de mensajes fallidos y especifique el tiempo para reintentar la entrega.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: db5f9dbd6738b2d9e7861f463d02a87d948c6afb
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 48fa27a1fe69481dda294f32bfc88af0e1718f25
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698438"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731965"
 ---
 # <a name="set-dead-letter-location-and-retry-policy"></a>Establecimiento de una ubicación para los eventos fallidos y de una directiva de reintentos
 
@@ -73,7 +73,7 @@ Para desactivar las colas de mensajes fallidos, vuelva a ejecutar el comando par
 
 Al crear una suscripción a Event Grid, puede establecer durante cuanto tiempo debe intentar Event Grid entregar el evento. De manera predeterminada, Event Grid lo intenta durante 24 horas (1440 minutos), o 30 veces. Puede establecer cualquiera de estos valores para la suscripción a Event Grid. El valor del período de vida del evento debe ser un entero entre 1 y 1440. El valor de reintentos máximos debe ser un entero entre 1 y 30.
 
-No se puede configurar la [programación de reintentos](delivery-and-retry.md#retry-schedule-and-duration).
+No se puede configurar la [programación de reintentos](delivery-and-retry.md#retry-schedule).
 
 ### <a name="azure-cli"></a>Azure CLI
 

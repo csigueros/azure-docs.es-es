@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/25/2021
-ms.openlocfilehash: 1df93a987348ed54303f2d9118337dbc710bc3bc
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 03ae1ed134f6d25128d9846c5e5c9949a96f36fa
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001435"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112679697"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Excepciones y códigos de error para el diseñador
 
@@ -1092,9 +1092,9 @@ El mensaje de error de Hive normalmente se incluye en el registro de errores par
 
 Consulte los siguientes artículos para obtener ayuda con las consultas de Hive para el aprendizaje automático:
 
-+ [Creación de tablas de Hive y carga de datos desde Azure Blob Storage](../team-data-science-process/move-hive-tables.md)
-+ [Exploración de los datos de las tablas de Hive con consultas de Hive](../team-data-science-process/explore-data-hive-tables.md)
-+ [Creación de características para los datos en un clúster de Hadoop mediante consultas de Hive](../team-data-science-process/create-features-hive.md)
++ [Creación de tablas de Hive y carga de datos desde Azure Blob Storage](/azure/architecture/data-science-process/move-hive-tables)
++ [Exploración de los datos de las tablas de Hive con consultas de Hive](/azure/architecture/data-science-process/explore-data-hive-tables)
++ [Creación de características para los datos en un clúster de Hadoop mediante consultas de Hive](/azure/architecture/data-science-process/create-features-hive)
 + [Hive for SQL Users Cheat Sheet (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) (hoja de referencia rápida de Hive para usuarios de SQL [PDF])
 
   

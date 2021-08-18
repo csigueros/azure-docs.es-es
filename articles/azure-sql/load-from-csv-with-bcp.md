@@ -11,12 +11,12 @@ author: dzsquared
 ms.author: drskwier
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: 24bf347aa617e1a05aa8bf3284169aa669b297db
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6fe0fdf53235ce1ec42a2b46e95291c111ed2dff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110707452"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743692"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>Carga de datos desde CSV en Azure SQL Database o Instancia administrada de SQL (archivos planos)
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,7 @@ Defina una tabla en SQL Database como tabla de destino. Las columnas de la tabla
 
 Para crear una tabla, abra un símbolo del sistema y use sqlcmd.exe para ejecutar el comando siguiente:
 
-```sql
+```cmd
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
     CREATE TABLE DimDate2
     (
@@ -61,7 +61,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 Abra el Bloc de notas y copie las líneas de datos siguientes en un nuevo archivo de texto y, después, guarde este archivo en el directorio temporal local, C:\Temp\DimDate2.txt. Estos datos están en formato ASCII.
 
-```
+```txt
 20150301,1,3
 20150501,2,4
 20151001,4,2
@@ -78,7 +78,7 @@ Abra el Bloc de notas y copie las líneas de datos siguientes en un nuevo archiv
 
 (Opcional) Para exportar sus propios datos desde una base de datos de SQL Server, abra un símbolo del sistema y ejecute el comando siguiente. Reemplace TableName, ServerName, DatabaseName, Username y Password por su propia información.
 
-```bcp
+```cmd
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ,
 ```
 
@@ -86,13 +86,13 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 
 Para cargar los datos, abra un símbolo del sistema y ejecute el comando siguiente, pero reemplace los valores de nombre de servidor, nombre de base de datos, nombre de usuario y contraseña por su propia información.
 
-```bcp
+```cmd
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
 Utilice este comando para comprobar que los datos se cargaron correctamente
 
-```bcp
+```cmd
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 

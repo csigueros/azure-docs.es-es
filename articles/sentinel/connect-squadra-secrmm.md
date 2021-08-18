@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: a00b4b1e81c0d644cf1475aa46dda3848fda1365
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd599fbfc712d85ec5fac0a3aa6f9f1cd320d91c
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98632908"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253417"
 ---
 # <a name="connect-your-squadra-technologies-secrmm-data-to-azure-sentinel"></a>Conexión de datos de secRMM de Squadra Technologies a Azure Sentinel. 
 
 El conector secRMM de Squadra Technologies le permite conectar fácilmente sus registros de la solución de seguridad secRMM de Squadra Technologies a Azure Sentinel. Le permite ver paneles, crear alertas personalizadas y mejorar la investigación. Este conector le ofrece información sobre los eventos de almacenamiento extraíble USB. La integración entre secRMM de Squadra Technologies y Azure Sentinel usa la API de REST.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 > [!NOTE]
 > Los datos se almacenarán en la ubicación geográfica del área de trabajo en la que Azure Sentinel se ejecute.
@@ -47,6 +49,6 @@ Los registros pueden tardar hasta 20 minutos en empezar a aparecer en Log Analyt
 
 En este documento, ha aprendido a conectar secRMM de Squadra Technologies a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

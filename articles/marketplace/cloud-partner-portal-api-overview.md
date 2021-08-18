@@ -7,12 +7,12 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5813b08a14a95a8b7bbb51b3d6593fe374a83ba6
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92425779"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282050"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Referencia de API del Cloud Partner Portal
 
@@ -36,7 +36,7 @@ Antes de usar las API, debe revisar:
 | **API** | **Descripción del cambio** | **Impacto** |
 | ------- | ---------------------- | ---------- |
 | POST Publish, GoLive, Cancel | En el caso de las ofertas migradas, el encabezado de respuesta tendrá un formato diferente, pero continuará funcionando de la misma manera, lo que denota una ruta de acceso relativa para recuperar el estado de la operación. | Al enviar cualquiera de las solicitudes POST correspondientes para una oferta, el encabezado de ubicación tendrá alguno de los dos formatos disponibles, según el estado de migración de la oferta:<ul><li>Ofertas no migradas<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Ofertas migradas<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
-| GET Operation | En el caso de los tipos de oferta que anteriormente admitían el campo "Dirección de correo electrónico para notificaciones" en la respuesta, este campo quedará en desuso y ya no se devolverá para las ofertas migradas. | En el caso de las ofertas migradas, ya no se enviarán notificaciones a la lista de correos electrónicos especificados en las solicitudes. En su lugar, el servicio de API se alineará con el proceso de correo electrónico de notificaciones del Centro de partners para enviar correos electrónicos. En concreto, las notificaciones se enviarán a la dirección de correo electrónico establecida en la sección de información de contacto del vendedor de la configuración de la cuenta en el Centro de partners, para notificarle el progreso de la operación.<br><br>Revise la dirección de correo electrónico establecida en la sección de información de contacto del vendedor de la [configuración de la cuenta](https://partner.microsoft.com/dashboard/account/management) en el Centro de partners para asegurarse de que se proporciona el correo electrónico correcto para las notificaciones.  |
+| GET Operation | En el caso de los tipos de oferta que anteriormente admitían el campo "Dirección de correo electrónico para notificaciones" en la respuesta, este campo quedará en desuso y ya no se devolverá para las ofertas migradas. | En el caso de las ofertas migradas, ya no se enviarán notificaciones a la lista de correos electrónicos especificados en las solicitudes. En su lugar, el servicio de API se alineará con el proceso de correo electrónico de notificaciones del Centro de partners para enviar correos electrónicos. En concreto, las notificaciones se enviarán a la dirección de correo electrónico establecida en la sección de información de contacto del vendedor de la configuración de la cuenta en el Centro de partners, para notificarle el progreso de la operación.<br><br>Revise la dirección de correo electrónico establecida en la sección de información de contacto del vendedor de la [configuración de la cuenta](https://go.microsoft.com/fwlink/?linkid=2165291) en el Centro de partners para asegurarse de que se proporciona el correo electrónico correcto para las notificaciones. |
 
 ## <a name="common-tasks"></a>Tareas comunes
 

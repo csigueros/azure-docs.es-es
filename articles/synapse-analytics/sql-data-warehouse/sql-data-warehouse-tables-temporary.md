@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 077782099d6d61982052dc1690d545e58e928d8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9898bc94aa79b374174f80592dc250e660f7f8c3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93310677"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734591"
 ---
 # <a name="temporary-tables-in-dedicated-sql-pool"></a>Tablas temporales en un grupo de SQL dedicado
 
@@ -30,8 +30,6 @@ Las tablas temporales son útiles al procesar datos, especialmente durante la tr
 Solo son visibles para la sesión en la que se crearon y se eliminan automáticamente cuando esa sesión se cierra.  
 
 Las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local en lugar de en el remoto.
-
-Las tablas temporales son útiles al procesar datos, especialmente durante la transformación, en la que los resultados intermedios son transitorios. Con el grupo de SQL dedicado, las tablas temporales existen en el nivel de sesión.  Solo están visibles para la sesión en la que se crearon. Como tales, se quitan automáticamente cuando se cierra la sesión. 
 
 ## <a name="temporary-tables-in-dedicated-sql-pool"></a>Tablas temporales en el grupo de SQL dedicado
 

@@ -4,12 +4,12 @@ description: Aprenda a trasladar los recursos de App Service de una región a ot
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 87a2da31802a8b6858e875c23ef1dbd2d6d006bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea789504476473bec2615180e76e671b06b85758
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86524861"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895182"
 ---
 # <a name="move-an-app-service-resource-to-another-region"></a>Traslado de un recurso de App Service a otra región
 
@@ -33,7 +33,7 @@ Identifique todos los recursos de App Service que utiliza actualmente. Por ejemp
 - [Planes de App Service](overview-hosting-plans.md)
 - [Ranuras de implementación](deploy-staging-slots.md)
 - [Dominios personalizados adquiridos en Azure](manage-custom-dns-buy-domain.md)
-- [Certificados SSL](configure-ssl-certificate.md)
+- [Certificados TLS/SSL](configure-ssl-certificate.md)
 - [Integración de Azure Virtual Network](web-sites-integrate-with-vnet.md)
 - [Conexiones híbridas](app-service-hybrid-connections.md)
 - [Identidades administradas](overview-managed-identity.md)

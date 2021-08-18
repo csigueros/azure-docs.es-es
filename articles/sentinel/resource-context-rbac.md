@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 1c4a32e79f54bd2626f2eb4f3a3cc97266d3bab0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 95ff033ab83fee6e9dacbf15b12db33f8b36c3c0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958500"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723502"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>Administración del acceso a los datos de Azure Sentinel por recurso
 
@@ -149,6 +149,7 @@ Por ejemplo, el código siguiente muestra un archivo de configuración Logstash 
 Al realizar la recopilación mediante la [API del recopilador de datos de Log Analytics](../azure-monitor/logs/data-collector-api.md), puede asignar a los eventos un id. de recurso mediante el encabezado de solicitud HTTP [*x-ms-AzureResourceId*](../azure-monitor/logs/data-collector-api.md#request-headers).
 
 Si usa RBAC de contexto de recursos y quiere que los eventos recopilados por la API estén disponibles para usuarios específicos, use el id. de recurso del grupo de recursos que [creó para los usuarios](#explicitly-configure-resource-context-rbac).
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

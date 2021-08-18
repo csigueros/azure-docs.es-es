@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-azurepowershell
 ms.date: 02/28/2020
-ms.openlocfilehash: 6077db17258c40cef5c6cd987469612171e344d2
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 874782828c4d7e63c0e1ad5ea607ddbd09b31881
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558573"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112291275"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Conexión a HDInsight (Apache Hadoop) mediante SSH
 
@@ -22,7 +22,6 @@ La tabla siguiente contiene la información de dirección y puerto necesaria par
 | ----- | ----- | ----- |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nodo principal primario |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nodo principal secundario |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nodo perimetral (Machine Learning Services en HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nodo perimetral (cualquier otro tipo de clúster, si existe un nodo perimetral) |
 
 Reemplace `<clustername>` por el nombre del clúster. Reemplace `<edgenodename>` con el nombre del nodo perimetral.

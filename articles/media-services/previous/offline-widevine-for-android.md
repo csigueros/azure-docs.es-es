@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: b009c0844a0030da9698ba7e058cde8ba68c5f7e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bd8db39190641894eea9771ae994b4d110906ad8
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063324"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114709229"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android
 
@@ -30,8 +30,7 @@ ms.locfileid: "106063324"
 > * [Versión 3](../latest/drm-offline-widevine-for-android.md)
 > * [Versión 2](offline-widevine-for-android.md)
 
-> [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-v-2-v-3-migration-introduction.md).
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 Además de proteger el contenido del streaming en línea, la suscripción de contenido multimedia y los servicios de alquiler ofrecen contenido descargable que funciona cuando no hay conexión a Internet. Tendrá que descargar el contenido en su teléfono o tableta para reproducirlo en modo de avión al volar sin conexión a la red. Estos son otros escenarios en los que la descarga de contenido podría resultarle útil:
 

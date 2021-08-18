@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 3312eed71865508e5e83d37c7ced8cf220f13ca9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18dcd909ef55894e7548129a9b5836b68a30efe0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97835115"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780040"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conectar datos de Microsoft Cloud App Security 
 
 El conector de [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) le permite transmitir alertas y [registros de Cloud Discovery](/cloud-app-security/tutorial-shadow-it) de MCAS a Azure Sentinel. Esto le permitirá adquirir visibilidad sobre las aplicaciones en la nube, obtener análisis sofisticados para identificar y combatir las ciberamenazas y controlar cómo viajan los datos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
 
 - El usuario debe tener permisos de lectura y escritura en el área de trabajo.
 - El usuario debe tener permisos de administrador global o de administrador de seguridad en el inquilino del área de trabajo.
@@ -59,5 +61,5 @@ Si Cloud App Security ya está implementado e ingiriendo datos, los datos de ale
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar Microsoft Cloud App Security a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](./tutorial-detect-threats-built-in.md) o [personalizadas](tutorial-detect-threats-custom.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](./detect-threats-built-in.md) o [personalizadas](detect-threats-custom.md).

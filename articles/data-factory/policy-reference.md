@@ -4,17 +4,16 @@ description: Aquí se enumeran las definiciones de directivas integradas de Azur
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom:
-- seo-lt-2019
-- references_regions
-ms.date: 06/11/2021
-ms.openlocfilehash: e3ff681ed09289d4f709ce4518047b3accb78c03
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.custom: seo-lt-2019, references_regions
+ms.date: 08/13/2021
+ms.openlocfilehash: 739b21da993bd220a6884980be886627f699fe6e
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017368"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181507"
 ---
 # <a name="azure-policy-built-in-definitions-for-data-factory-preview"></a>Definiciones integradas de Azure Policy para Data Factory (versión preliminar)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]

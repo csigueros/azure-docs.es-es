@@ -4,14 +4,14 @@ description: Explica cómo agregar, modificar, supervisar y eliminar volúmenes 
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 12/09/2017
+ms.date: 08/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 3d649b54b544c120198963f8094764e9590e20b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5653fdcaa37b1adb728a23454317c6088b9efbc7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547639"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750647"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar el servicio Administrador de dispositivos de StorSimple para administrar volúmenes (Update 3 o posterior)
 
@@ -38,7 +38,7 @@ Los volúmenes anclados localmente son volúmenes totalmente aprovisionados, sin
 
 Los volúmenes anclados localmente están totalmente aprovisionados, por lo que debe haber espacio suficiente en el dispositivo cuando los crea. Puede aprovisionar volúmenes anclados localmente hasta un tamaño máximo de 8 TB en el dispositivo StorSimple 8100 y de 20 TB en el dispositivo 8600. StorSimple reserva el resto del espacio local en el dispositivo para las instantáneas, los metadatos y el procesamiento de los datos. Puede aumentar el tamaño de un volumen anclado localmente hasta el espacio máximo disponible, pero no puede reducir el tamaño de un volumen una vez creado.
 
-Cuando se crea un volumen anclado localmente, el espacio disponible para la creación de los volúmenes en capas se reduce. Y al contrario, si tiene volúmenes en capas existentes, el espacio disponible para crear volúmenes anclados localmente será inferior a los límites máximos indicados anteriormente. Para obtener más información sobre los volúmenes locales, consulte las [preguntas más frecuentes sobre los volúmenes anclados localmente](storsimple-8000-local-volume-faq.md).
+Cuando se crea un volumen anclado localmente, el espacio disponible para la creación de los volúmenes en capas se reduce. Y al contrario, si tiene volúmenes en capas existentes, el espacio disponible para crear volúmenes anclados localmente será inferior a los límites máximos indicados anteriormente. Para obtener más información sobre los volúmenes locales, consulte las [preguntas más frecuentes sobre los volúmenes anclados localmente](storsimple-8000-local-volume-faq.yml).
 
 ### <a name="tiered-volumes"></a>Volúmenes en capas
 
@@ -315,7 +315,7 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 2. Desde la lista tabular de volúmenes, seleccione el volumen y haga clic con el botón derecho para abrir el menú contextual. Seleccione **Modificar**.
 3. En la hoja **Modificar volumen**, para **Supervisión** active **Habilitar** o **Deshabilitar** para habilitar o deshabilitar la supervisión.
 
-    ![Deshabilitar la supervisión](./media/storsimple-8000-manage-volumes-u2/monitor-volume-0 1.png) 
+    ![Deshabilitar la supervisión](./media/storsimple-8000-manage-volumes-u2/monitor-volume-01.png) 
 
 4. Haga clic en **Guardar** y, cuando se le pida confirmación, haga clic en **Sí**. En Azure Portal se muestra una notificación de la actualización del volumen y luego un mensaje de confirmación, después de que el volumen se haya actualizado correctamente.
 

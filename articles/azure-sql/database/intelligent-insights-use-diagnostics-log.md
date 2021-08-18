@@ -11,12 +11,12 @@ author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
 ms.date: 06/12/2020
-ms.openlocfilehash: 551886010cb5dc6d1b4977a6687d11704cc7776e
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 9f163d34c83ace01d0af4085dfc6c14d8211c975
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590277"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284887"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Registro de diagnóstico de rendimiento de Intelligent Insights con los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -138,7 +138,7 @@ La última parte del registro de rendimiento de Intelligent Insights pertenece a
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-El registro de rendimiento de Intelligent Insights se puede usar con [registros de Azure Monitor](/azure/log-analytics/log-analytics-azure-sql) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
+El registro de rendimiento de Intelligent Insights se puede usar con [registros de Azure Monitor](../../azure-monitor/insights/azure-sql.md) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

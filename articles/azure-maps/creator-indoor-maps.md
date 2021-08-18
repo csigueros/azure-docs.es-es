@@ -7,13 +7,12 @@ ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: c3e6632f607ca9168f63538e4c2a6d96d6197d8a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 646045df9a6586d80969ec3e80081d45d4dcd249
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032148"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725617"
 ---
 # <a name="creator-for-indoor-maps"></a>Uso de Creator para planos interiores
 
@@ -117,7 +116,7 @@ Una aplicación puede usar un conjunto de estados de características para repre
 
 ### <a name="render-v2-get-map-tile-api"></a>Get Map Tile API de Render V2
 
-[Get Map Tile API de Render V2](/rest/api/maps/renderv2/getmaptilepreview) de Azure Maps se ha ampliado para admitir los conjuntos de mosaicos de Creator.
+[Get Map Tile API de Render V2](/rest/api/maps/render-v2/get-map-tile) de Azure Maps se ha ampliado para admitir los conjuntos de mosaicos de Creator.
 
 Las aplicaciones pueden usar Get Map Tile API de Render V2 para solicitar conjuntos de mosaicos. El conjunto de mosaicos se puede integrar en un control de plano o un SDK. Para obtener un ejemplo de un control de mapa que use el servicio Render V2, consulte el [módulo de Indoor Maps](#indoor-maps-module).
 
@@ -146,7 +145,7 @@ Cuando empiece a desarrollar soluciones para planos interiores, puede descubrir 
  Puede usar Creator List, Update, y Delete API de Azure Maps para enumerar, actualizar y eliminar conjuntos de datos, conjuntos de mosaicos y conjuntos de estados de características.
 
 >[!NOTE]
->Cuando revise una lista de elementos para determinar si debe eliminarlos, considere el impacto que esa eliminación tendrá en todas las API o aplicaciones dependientes. Por ejemplo, si elimina un conjunto de mosaicos que usa una aplicación mediante [Get Map Tile API de Render V2](/rest/api/maps/renderv2/getmaptilepreview), la aplicación no podrá representar ese conjunto de mosaicos.
+>Cuando revise una lista de elementos para determinar si debe eliminarlos, considere el impacto que esa eliminación tendrá en todas las API o aplicaciones dependientes. Por ejemplo, si elimina un conjunto de mosaicos que usa una aplicación mediante [Get Map Tile API de Render V2](/rest/api/maps/render-v2/get-map-tile), la aplicación no podrá representar ese conjunto de mosaicos.
 
 ### <a name="example-updating-a-dataset"></a>Ejemplo: actualización de un conjunto de datos
 

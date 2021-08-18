@@ -4,12 +4,12 @@ description: Declaración de directiva de retención y privacidad
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 56c86387ab06bf0fe94900e654853e74d3ee2603
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3e37024e4fef3e989977ef76b0508aeb66d93b7a
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059417"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616134"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 
@@ -39,7 +39,7 @@ Los SDK de Application Insights están disponible para varios tipos de aplicacio
 ## <a name="what-data-does-it-collect"></a>¿Qué datos recopila?
 Hay tres orígenes de datos:
 
-* El SDK, que se integra con la aplicación en la [fase de desarrollo](./asp-net.md) o [en tiempo de ejecución](./monitor-performance-live-website-now.md). Existen distintos SDK para los diferentes tipos de aplicaciones. También hay un [SDK para páginas web](./javascript.md), que se carga en el explorador del usuario final junto con la página.
+* El SDK, que se integra con la aplicación en la [fase de desarrollo](./asp-net.md) o [en tiempo de ejecución](./status-monitor-v2-overview.md). Existen distintos SDK para los diferentes tipos de aplicaciones. También hay un [SDK para páginas web](./javascript.md), que se carga en el explorador del usuario final junto con la página.
   
   * Cada SDK tiene varios [módulos](./configuration-with-applicationinsights-config.md), que emplean diferentes técnicas para recopilar distintos tipos de datos de telemetría.
   * Si instala el SDK en la fase de desarrollo, puede usar su API para enviar su propia telemetría, además de los módulos estándar. Esta telemetría personalizada puede incluir los datos que desee enviar.
@@ -314,6 +314,6 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [https:/
 [java]: ./java-in-process-agent.md
 [platforms]: ./platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ./monitor-performance-live-website-now.md
+[redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md
 

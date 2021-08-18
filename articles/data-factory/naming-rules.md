@@ -5,14 +5,15 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 349a768af9b1e7693840880df5e870991336a8ba
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 0e469df360fed09924dbf6759bdd84c15671c7f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903658"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739425"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory: reglas de nomenclatura
 

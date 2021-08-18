@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d6922eaec624141c8acab2d8d8e133db5becd66d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: dacf5814ee487c008e343347f7ab1319fd578597
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950048"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729009"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -378,9 +378,9 @@ Puede administrar las reglas de red IP para las cuentas de almacenamiento a trav
 
 ## <a name="grant-access-from-azure-resource-instances-preview"></a>Concesión de acceso a instancias de recursos de Azure (versión preliminar)
 
-En algunos casos, una aplicación puede depender de recursos de Azure que no se pueden aislar a través de una regla de red virtual o de dirección IP. Sin embargo, todavía le gustaría proteger y restringir el acceso de la cuenta de almacenamiento solo a los recursos de Azure de la aplicación. Puede configurar cuentas de almacenamiento para permitir el acceso a instancias de recursos específicas de algunos servicios de Azure mediante la creación de una regla de instancia de recurso. 
+En algunos casos, una aplicación puede depender de recursos de Azure que no se pueden aislar a través de una regla de red virtual o de dirección IP. Sin embargo, todavía le gustaría proteger y restringir el acceso de la cuenta de almacenamiento solo a los recursos de Azure de la aplicación. Puede configurar cuentas de almacenamiento para permitir el acceso a instancias de recursos específicas de algunos servicios de Azure mediante la creación de una regla de instancia de recurso.
 
-Los tipos de operaciones que puede realizar una instancia de recursos en los datos de la cuenta de almacenamiento se determinan mediante las [asignaciones de roles de Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) de la instancia de recurso. Las instancias de recursos deben estar en el mismo inquilino que la cuenta de almacenamiento, pero pueden pertenecer a cualquier suscripción del inquilino.
+Los tipos de operaciones que puede realizar una instancia de recursos en los datos de la cuenta de almacenamiento se determinan mediante las asignaciones de roles de Azure de la instancia de recurso. Las instancias de recursos deben estar en el mismo inquilino que la cuenta de almacenamiento, pero pueden pertenecer a cualquier suscripción del inquilino.
 
 > [!NOTE]
 > Esta característica está en versión preliminar pública y está disponible en todas las regiones de la nube pública.
@@ -586,9 +586,9 @@ Los recursos de algunos servicios, **cuando están registrados en su suscripció
 
 ### <a name="trusted-access-based-on-system-assigned-managed-identity"></a>Acceso de confianza basado en la identidad administrada asignada por el sistema
 
-En la tabla siguiente se enumeran los servicios que pueden tener acceso a los datos de la cuenta de almacenamiento si las instancias de recursos de esos servicios reciben el permiso adecuado. 
+En la tabla siguiente se enumeran los servicios que pueden tener acceso a los datos de la cuenta de almacenamiento si las instancias de recursos de esos servicios reciben el permiso adecuado.
 
-Si la cuenta no tiene habilitada la característica de espacio de nombres jerárquico, puede conceder permiso mediante la [asignación explícita de un rol de Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para cada instancia de recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada. 
+Si la cuenta no tiene habilitada la característica de espacio de nombres jerárquico, puede conceder permiso mediante la asignación explícita de un rol de Azure a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para cada instancia de recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada.
 
 Puede usar la misma técnica para una cuenta que tenga la característica de espacio de nombres jerárquico habilitado en ella. Sin embargo, no tiene que asignar un rol de Azure si agrega la identidad administrada asignada por el sistema a la lista de control de acceso (ACL) de cualquier directorio o blob incluido en la cuenta de almacenamiento. En ese caso, el ámbito de acceso de la instancia corresponde al directorio o archivo al que se ha concedido acceso a la identidad administrada asignada por el sistema. También puede combinar roles y listas de control de acceso de Azure. Para más información sobre cómo combinarlos para conceder acceso, consulte [Modelo de control de acceso de Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
 

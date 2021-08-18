@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f346995e47c0156f546722031ebaa8734239549c
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: e5cc7974038ed69c745a958c682967d26545d5bc
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536714"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113109582"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Enlaces de Azure Event Grid para Azure Functions
 
@@ -36,11 +36,11 @@ El código de esta referencia tiene como valor predeterminado la sintaxis de .NE
 
 Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia al paquete adecuado. En las bibliotecas de clases de .NET se usa el paquete NuGet, mientras que en los demás tipos de aplicaciones se emplea el conjunto de extensiones.
 
-| Idioma                                        | Agregar mediante...                                   | Observaciones 
-|-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Instalación del [paquete NuGet], versión 2.x | |
-| Script de C#, Java, JavaScript, Python, PowerShell | Registro de [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) con Visual Studio Code. |
-| Script de C# (solo en línea en Azure Portal)         | Adición de un enlace                            | Para actualizar extensiones de enlace existentes sin tener que volver a publicar la aplicación de funciones, vea [Actualización de las extensiones]. |
+| Idioma | Agregar mediante... | Observaciones |
+|---|---|---|
+| C# | Instalación del [paquete NuGet], versión 2.x | |
+| Script de C#, Java, JavaScript, Python, PowerShell | Registro de [conjunto de extensiones] | Se recomienda usar la [extensión Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) con Visual Studio Code. |
+| Script de C# (solo en línea en Azure Portal) | Adición de un enlace | Para actualizar extensiones de enlace existentes sin tener que volver a publicar la aplicación de funciones, vea [Actualización de las extensiones]. |
 
 [core tools]: ./functions-run-local.md
 [conjunto de extensiones]: ./functions-bindings-register.md#extension-bundles

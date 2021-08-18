@@ -3,12 +3,12 @@ title: 'Equilibrio de carga de particiones entre varias instancias: Azure Event
 description: Describe cómo equilibrar la carga de las particiones entre varias instancias de una aplicación mediante un procesador de eventos y el SDK de Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: af307058d0eda6b96c0811bccc245c09e2bdd27d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d27736667ca6d5e7e073b24f3cfcad96b2381c0d
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95025051"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003183"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibrio de carga de particiones entre varias instancias de una aplicación
 Para escalar la aplicación de procesamiento de eventos, puede ejecutar varias instancias de la aplicación y equilibrar la carga entre ellas. En las versiones anteriores, [EventProcessorHost](event-hubs-event-processor-host.md) permitía equilibrar la carga entre varias instancias del programa y eventos de punto de comprobación en la recepción. En las versiones más recientes (5.0 y posteriores), **EventProcessorClient** (.NET y Java) o **EventHubConsumerClient** (Python y JavaScript) le permiten hacer lo mismo. El modelo de desarrollo se simplifica mediante el uso de eventos. Para suscribirse a los eventos que le interesen, registre un controlador de eventos. Si usa la versión anterior de la biblioteca cliente, vea las siguientes guías de migración: [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md) y [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md).
@@ -78,7 +78,7 @@ Cuando se realiza el punto de control para marcar un evento como procesado, se a
 > Si usa Azure Blob Storage como el almacén de puntos de comprobación en un entorno que admite una versión diferente del SDK de blobs de almacenamiento que las que normalmente están disponibles en Azure, tendrá que utilizar código para cambiar la versión de la API del servicio de almacenamiento a la versión admitida por ese entorno. Por ejemplo, si ejecuta [Event Hubs en una instancia de Azure Stack Hub versión 2002](/azure-stack/user/event-hubs-overview), la versión más alta disponible para el servicio Storage es 2017-11-09. En este caso, tendrá que usar código para establecer como destino la versión de la API del servicio Storage en 2017-11-09. Para obtener un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea estos ejemplos en GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/) 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) o [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript) o [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ## <a name="thread-safety-and-processor-instances"></a>Seguridad para subprocesos e instancias de procesador

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 08f4c00d5d0d1d0d6d060d2170024ac166c308b8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735512"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458561"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configuración de la recuperación ante desastres para una aplicación web basada en IIS de niveles múltiples
 
@@ -95,7 +95,7 @@ Para más información, consulte cómo [personalizar el plan de recuperación](s
 Es posible que tenga que realizar algunas operaciones en las máquinas virtuales de Azure tras la conmutación por error o durante una conmutación por error de prueba. Algunas de las operaciones posteriores a la conmutación por error se pueden automatizar. Por ejemplo, puede actualizar la entrada DNS, cambiar un enlace de sitio o cambiar una cadena de conexión mediante la adición de los scripts correspondientes al plan de recuperación. En [Adición de scripts de VMM a los planes de recuperación](./hyper-v-vmm-recovery-script.md) se describe cómo configurar tareas automatizadas mediante un script.
 
 #### <a name="dns-update"></a>Actualización de DNS
-Si el DNS está configurado para que se actualice de forma dinámica, por lo general, las máquinas virtuales lo actualizarán con la nueva dirección IP al iniciarse. Si quiere incorporar un paso explícito para actualizar DNS con las nuevas direcciones IP de las máquinas virtuales, agregue un [script para actualizar direcciones IP en DNS](https://aka.ms/asr-dns-update) como una acción posterior a la conmutación por error en los grupos de planes de recuperación.  
+Si el DNS está configurado para que se actualice de forma dinámica, por lo general, las máquinas virtuales lo actualizarán con la nueva dirección IP al iniciarse. Si quiere incorporar un paso explícito para actualizar DNS con las nuevas direcciones IP de las máquinas virtuales, agregue un [script para actualizar direcciones IP en DNS](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-DNS-UpdateIP.ps1) como una acción posterior a la conmutación por error en los grupos de planes de recuperación.  
 
 #### <a name="connection-string-in-an-applications-webconfig"></a>Cadena de conexión del archivo web.config de una aplicación
 La cadena de conexión especifica la base de datos con la que se comunica el sitio web. Si la cadena de conexión contiene el nombre de la máquina virtual de la base de datos, no es necesario realizar ningún paso adicional después de realizar la conmutación por error. La aplicación puede comunicarse automáticamente con la base de datos. Asimismo, si la dirección IP de la máquina virtual de la base de datos no cambia, no será necesario actualizar la cadena de conexión. 

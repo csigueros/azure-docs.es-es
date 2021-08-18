@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1ccd47b0a2f10c67dc808fb13aafca55fa5a5e67
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1af6136e5d09c512ad515871cd7cbfceaf1877a2
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088757"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299920"
 ---
 # <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Conversión del contenido del certificado de entidad de servicio al formato de cadena con codificación Base 64 en HDInsight
 
@@ -24,7 +24,7 @@ Recibe un mensaje de error en el que se indica que la entrada no es una cadena c
 
 Al usar PowerShell o la implementación de plantillas de Azure para crear clústeres con Data Lake como almacenamiento principal o adicional, el contenido del certificado de entidad de servicio proporcionado para acceder a la cuenta de almacenamiento de Data Lake se encontrará en el formato Base 64. La conversión incorrecta del contenido del certificado PFX a una cadena con codificación Base 64 puede producir este error.
 
-## <a name="resolution"></a>Solución
+## <a name="resolution"></a>Resolución
 
 Cuando tenga el certificado de entidad de servicio en formato PFX (haga clic [aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-datalake-store-azure-storage) para ver los pasos de creación de la entidad de servicio de ejemplo), use el siguiente fragmento de código de C# o comando de PowerShell para convertir el contenido del certificado al formato Base 64.
 
@@ -52,4 +52,4 @@ namespace ConsoleApplication
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

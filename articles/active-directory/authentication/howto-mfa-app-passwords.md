@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac603cef478b821d1fea72fce22004fc72860914
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 58344a385a8ad4d409748c039f8f1e7807e290b7
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744474"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228385"
 ---
 # <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitación y uso de Azure AD Multi-Factor Authentication con aplicaciones heredadas mediante contraseñas de aplicación
 
@@ -103,7 +103,7 @@ Cuando los usuarios completan el registro inicial en Azure AD Multi-Factor Auth
 
 Los usuarios también pueden crear contraseñas de aplicación después del registro. Para obtener más información y los pasos detallados para los usuarios, consulte los siguientes recursos:
 * [¿Qué son las contraseñas de aplicación en Azure AD Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
-* [Creación de contraseñas de aplicaciones desde la página Información de seguridad](https://docs.microsoft.com/azure/active-directory/user-help/security-info-app-passwords)
+* [Creación de contraseñas de aplicaciones desde la página Información de seguridad](../user-help/security-info-app-passwords.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

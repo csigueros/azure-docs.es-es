@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 576a791ee8c252a8bc1fa73cd98174e6958cf606
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 8e893a95337801db4ee35cfdc00e2d97f8d12db6
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751440"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285845"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
@@ -188,7 +188,7 @@ Después de preparar la imagen para su carga, asegúrese de que la máquina virt
 
 Esta sección solo procede si la imagen maestra se ha creado localmente.
 
-Las siguientes instrucciones le indicarán cómo cargar la imagen maestra en una cuenta de Azure Storage. Si aún no tiene una cuenta de Azure Storage, siga las instrucciones de [este artículo](/azure/developer/javascript/tutorial-vscode-static-website-node-03) para crearla.
+Las siguientes instrucciones le indicarán cómo cargar la imagen maestra en una cuenta de Azure Storage. Si aún no tiene una cuenta de Azure Storage, siga las instrucciones de [este artículo](../storage/common/storage-account-create.md) para crearla.
 
 1. Si aún no lo ha hecho, convierta la imagen de máquina virtual (VHD) en fija. Si no lo hace, no podrá crear la imagen correctamente.
 

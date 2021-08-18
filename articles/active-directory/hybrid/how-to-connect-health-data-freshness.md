@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00518eb91e57efaacb7abc63b6ad4531619be2ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bd83071e725d68a424642f68680748247a26706
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98012876"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110086"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Alerta sobre que los datos del servicio de mantenimiento no están actualizados
 
@@ -71,4 +71,4 @@ A continuación se indican los pasos necesarios para diagnosticar el problema. E
 Si alguno de los pasos anteriores identificó un problema, arréglelo y espere a que se resuelva la alerta. El proceso de la alerta en segundo plano se ejecuta cada dos horas, por lo que tardará hasta dos horas en resolverse la alerta. 
 
 * [Directiva de retención de datos de Azure AD Connect Health](reference-connect-health-user-privacy.md#data-retention-policy)
-* [Preguntas más frecuentes de Azure AD Connect Health](reference-connect-health-faq.md)
+* [Preguntas más frecuentes de Azure AD Connect Health](reference-connect-health-faq.yml)

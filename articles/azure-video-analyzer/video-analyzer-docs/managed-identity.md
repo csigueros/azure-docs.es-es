@@ -3,13 +3,13 @@ title: Identidades administradas con Azure Video Analyzer
 description: En este tema se explica cómo usar identidades administradas con Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/04/2021
-ms.openlocfilehash: 8d9558319168e2a94c81f764c9b19f70dc904f79
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 073f9ee8d039435b4cf8c7dac59831a2870b2ce0
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386799"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601423"
 ---
 # <a name="managed-identity"></a>Identidad administrada
 

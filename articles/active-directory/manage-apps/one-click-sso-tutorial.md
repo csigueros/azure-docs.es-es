@@ -2,22 +2,22 @@
 title: Configuración del inicio de sesión único (SSO) mediante un solo clic de una aplicación de Azure Marketplace | Microsoft Docs
 description: Pasos para la configuración del inicio de sesión único mediante un solo clic para una aplicación de Azure Marketplace.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
-ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: mtillman
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766c1446a2fad9cff1103a726043d6c61d503020
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: ergreenl
+ms.openlocfilehash: bec4df252a98fc105f0eec1480452021fefb0031
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077021"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733671"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configuración del inicio de sesión único mediante un solo clic de una aplicación
 
@@ -80,5 +80,5 @@ La característica de SSO con un clic se ha diseñado para configurar el inicio 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-* [¿Qué es la extensión de inicio de sesión seguro de Mis aplicaciones para el explorador?](../user-help/my-apps-portal-end-user-access.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
+- [¿Qué es la extensión de inicio de sesión seguro de Mis aplicaciones para el explorador?](../user-help/my-apps-portal-end-user-access.md)

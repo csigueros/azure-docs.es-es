@@ -6,22 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 02/26/2021
 ms.author: alkohli
-ms.openlocfilehash: bdd44bf81e34b60ee648b71c6dc3bde5a96d3deb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ef54d3a252baa8d84588481b2a73d1b365bb8c13
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443019"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721400"
 ---
 # <a name="proactive-log-collection-on-your-azure-stack-edge-device"></a>Recopilación proactiva de registros en un dispositivo de Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-La recopilación proactiva de registros reúne indicadores de estado del sistema en el dispositivo de Azure Stack Edge para ayudar a solucionar de forma eficaz cualquier problema del dispositivo. La recopilación proactiva de registros está habilitada de manera predeterminada. En este artículo se describe lo que se registra, cómo controla Microsoft los datos, y cómo deshabilitar o habilitar la recopilación proactiva de registros. 
-
-La información de este artículo se aplica a los dispositivos de Azure Stack Edge Pro con GPU, Azure Stack Edge Pro R y Azure Stack Edge Mini R.
+La recopilación proactiva de registros reúne indicadores de estado del sistema en el dispositivo de Azure Stack Edge para ayudar a solucionar de forma eficaz cualquier problema del dispositivo. La recopilación proactiva de registros está habilitada de manera predeterminada. En este artículo se describe lo que se registra, cómo controla Microsoft los datos, y cómo deshabilitar o habilitar la recopilación proactiva de registros.
 
 ## <a name="about-proactive-log-collection"></a>Acerca de la recopilación proactiva de registros
 

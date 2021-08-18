@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/22/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5abe1755e22ac20e210aece956056ea647393dc1
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: d3fa9b89cb1fa7b0f7fa33025f908ae8ba5af7a8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896250"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734553"
 ---
 # <a name="tutorial-configure-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial: Configuración de Arkose Labs con Azure Active Directory B2C
 
@@ -157,7 +157,7 @@ Para volver a implementar la instancia local durante las pruebas, repita los pas
 
 En este ejemplo se protege el punto de conexión de la API web mediante la [autenticación básica de HTTPc](https://tools.ietf.org/html/rfc7617).
 
-El nombre de usuario y la contraseña se almacenan como variables de entorno y no como parte del repositorio. Consulte el archivo [local.settings.json](../azure-functions/functions-run-local.md?tabs=macos%2ccsharp%2cbash#local-settings-file) para obtener más información.
+El nombre de usuario y la contraseña se almacenan como variables de entorno y no como parte del repositorio. Consulte el archivo [local.settings.json](../azure-functions/functions-develop-local.md#local-settings-file) para obtener más información.
 
 1. Creación de un archivo local.settings.json en la carpeta raíz
 

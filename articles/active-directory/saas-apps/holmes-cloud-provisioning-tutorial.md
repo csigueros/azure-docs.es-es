@@ -2,25 +2,22 @@
 title: 'Tutorial: Configuración de Holmes Cloud para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a aprovisionar y desaprovisionar de forma automática las cuentas de usuario de Azure AD para Holmes Cloud.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: b1088904-2ea2-4440-b39e-c4b7712b8229
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/07/2021
-ms.author: Zhchia
-ms.openlocfilehash: 9ccd17b045526a57c35d34b47c8c9415eb76d29c
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.author: thwimmer
+ms.openlocfilehash: 82fdfb7621762828a32ad67774e9b0141c6b0464
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111852343"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195320"
 ---
 # <a name="tutorial-configure-holmes-cloud-for-automatic-user-provisioning"></a>Tutorial: Configuración de Holmes Cloud para el aprovisionamiento automático de usuarios
 

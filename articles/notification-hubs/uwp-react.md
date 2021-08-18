@@ -7,12 +7,12 @@ ms.service: notification-hubs
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.custom: template-concept
-ms.openlocfilehash: 7158fa486483f1ff26599e47e43ee3219a23045a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 229de776e7e2dace0253d7cc4495663969cb3e62
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082878"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285247"
 ---
 # <a name="send-notifications-to-android-and-ios-applications"></a>Envío de notificaciones a aplicaciones Android e iOS
 
@@ -53,7 +53,7 @@ La aplicación de ejemplo en GitHub contiene las siguientes carpetas:
 
 - **NotificationHub.Sample.API:** una solución Visual Studio 2019 ASP.NET de API web que actúa como back-end.
 - **app:** una aplicación multiplataforma React Native que permite enviar notificaciones con un inicio de sesión de administrador y, a continuación, recibir notificaciones con un inicio de sesión de usuario de encuesta.
-- **azure-template:** plantillas Azure Resource Manager (`parameters.json` y `template.json`) que puede usar para implementar todos los recursos necesarios para configurar esta implementación en la suscripción de Azure. Para obtener más información sobre implementación de plantillas de Resource Manager, consulte [Creación e implementación de plantillas de ARM mediante el Azure Portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+- **azure-template:** plantillas Azure Resource Manager (`parameters.json` y `template.json`) que puede usar para implementar todos los recursos necesarios para configurar esta implementación en la suscripción de Azure. Para obtener más información sobre implementación de plantillas de Resource Manager, consulte [Creación e implementación de plantillas de ARM mediante el Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="sample-overview"></a>Información general de la muestra
 
@@ -355,9 +355,9 @@ Para ejecutar la muestra, se precisan los siguientes requisitos previos:
 
 - **[Instancia de Azure Notification Hub](#create-resource-notification-hub):** un centro de notificaciones configurado en Azure.
 - **[Una instancia de base de datos SQL Server](#create-resource-sql-database):** una base de datos SQL Server hospedada en Azure.
-- **back-end de aplicación ASP.NET:** Back-end de API web creado a través de .NET 5.0, que se conecta con Azure Notification Hub hospedado como Azure App Service. Para obtener más información, consulte [Inicio rápido: Implementación de una aplicación web de ASP.NET](/azure/app-service/quickstart-dotnetcore?tabs=net50&pivots=development-environment-vs).
+- **back-end de aplicación ASP.NET:** Back-end de API web creado a través de .NET 5.0, que se conecta con Azure Notification Hub hospedado como Azure App Service. Para obtener más información, consulte [Inicio rápido: Implementación de una aplicación web de ASP.NET](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=net50).
 
-Si no desea implementar todos los recursos manualmente, puede usar el archivo template.jsen de Azure Resource Manager proporcionado en el repositorio de GitHub para implementar todas las instancias necesarias en un solo paso. El archivo de plantilla está disponible en el repositorio en /azure-template. Para obtener más información sobre cómo usar plantillas de Resource Manager, consulte [Tutorial: uso de plantillas de inicio rápido de Azure](/azure/azure-resource-manager/templates/template-tutorial-quickstart-template?tabs=azure-powershell).
+Si no desea implementar todos los recursos manualmente, puede usar el archivo template.jsen de Azure Resource Manager proporcionado en el repositorio de GitHub para implementar todas las instancias necesarias en un solo paso. El archivo de plantilla está disponible en el repositorio en /azure-template. Para obtener más información sobre cómo usar plantillas de Resource Manager, consulte [Tutorial: uso de plantillas de inicio rápido de Azure](../azure-resource-manager/templates/template-tutorial-quickstart-template.md?tabs=azure-powershell).
 
 ### <a name="set-up-notifications-for-android-and-ios"></a>Configuración de notificaciones para Android e iOS
 
@@ -370,7 +370,7 @@ Para compilar la muestra, siga estos pasos.
 
 ### <a name="create-resource-sql-database"></a>Creación de un recurso: base de datos SQL
 
-[Cree una instancia de base de datos SQL Server](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal) en Azure Portal. Por ejemplo:
+[Cree una instancia de base de datos SQL Server](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal) en Azure Portal. Por ejemplo:
 
 :::image type="content" source="media/uwp-react/resources-sql.png" alt-text="Recursos de instancia de SQL":::
 

@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: b1e4b06fcbecf11d7d5f58a583fe3bd6643d99ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 784fed6efb83e02940c6b73fb4c3aab792c4cf99
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709406"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112518239"
 ---
 # <a name="troubleshooting-apache-kafka-for-confluent-cloud-solutions"></a>Solución de problemas de Apache Kafka para soluciones de Confluent Cloud
 
 Este documento contiene información sobre la solución de problemas de las soluciones que usan Apache Kafka para Confluent Cloud.
 
-Si no encuentra una respuesta o no puede resolver un problema, [cree una solicitud a través de Azure Portal](manage.md#get-support) o póngase en contacto con el [soporte técnico de Confluent](https://support.confluent.io).
+Si no encuentra una respuesta o no puede resolver un problema, [cree una solicitud a través de Azure Portal](get-support.md) o póngase en contacto con el [soporte técnico de Confluent](https://support.confluent.io).
 
 ## <a name="cant-find-offer-in-the-marketplace"></a>No se encuentra la oferta en Marketplace
 

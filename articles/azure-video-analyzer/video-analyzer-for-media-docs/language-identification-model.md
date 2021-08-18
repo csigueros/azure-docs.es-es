@@ -1,19 +1,20 @@
 ---
 title: 'Uso de Azure Video Analyzer for Media (anteriormente, Video Indexer) para identificar automáticamente idiomas hablados: Azure'
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: En este artículo se describe cómo se usa el modelo de identificación de idiomas de Azure Video Analyzer for Media (anteriormente, Video Indexer) para identificar automáticamente el idioma que se habla en un vídeo.
-services: media-services
+services: azure-video-analyzer
 author: juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 04/12/2020
 ms.author: ellbe
-ms.openlocfilehash: f82c8c7726ad7ef77fd90ffa74ae4d8cdee9b7a8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8caada82b0c4b0c99e2d18b8586cc0b2c9d575f4
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386749"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119541"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificación automática del idioma hablado con el modelo de identificación de idiomas
 

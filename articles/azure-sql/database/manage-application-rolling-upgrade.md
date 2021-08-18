@@ -11,12 +11,12 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 02/13/2019
-ms.openlocfilehash: 30b5d1f7e5fd3a052ecce3c28b75fe020b2257c9
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: dd71998eaa3254e31d123a9ca011339d1aaeee10
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694263"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739676"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Administración de actualizaciones graduales de aplicaciones en la nube mediante la replicación geográfica activa de SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -106,16 +106,16 @@ Una vez completados los pasos preparatorios, el entorno de ensayo está listo pa
 
 ```sql
 -- Set the production database to read-only mode
-ALTER DATABASE <Prod_DB>
-SET (ALLOW_CONNECTIONS = NO)
+ALTER DATABASE [<Prod_DB>]
+SET READ_ONLY
 ```
 
 2. Finalice la replicación geográfica mediante la desconexión de la secundaria (11). Esta acción crea una copia independiente aunque totalmente sincronizada de la base de datos de producción. Esta base de datos se actualizará. En el ejemplo siguiente se utiliza Transact-SQL, pero [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary) también está disponible. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
-ALTER DATABASE <Prod_DB>
-REMOVE SECONDARY ON SERVER <Partner-Server>
+ALTER DATABASE [<Prod_DB>]
+REMOVE SECONDARY ON SERVER [<Partner-Server>]
 ```
 
 3. Ejecute el script de actualización en `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` y la base de datos principal de ensayo (12). Los cambios de la base de datos se replicarán automáticamente en la base de datos secundaria de ensayo.

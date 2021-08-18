@@ -2,18 +2,17 @@
 title: 'Creación de certificados de prueba: Azure IoT Edge | Microsoft Docs'
 description: Cree certificados de prueba y obtenga información sobre cómo instalarlos en un dispositivo Azure IoT Edge para preparar la implementación de producción.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 724c02f56b49957934deefe9f4733cda57620987
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 500c7627f36dd1eddfbb12ac26729fd6dbc027aa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112019996"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722120"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creación de certificados de demostración para probar las características de dispositivo IoT Edge
 

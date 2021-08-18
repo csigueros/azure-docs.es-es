@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: caya
-ms.openlocfilehash: 2329dc7426b223ef2c81dd0e2e607bccf73192e6
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 15655ba313a3a3cba23289c6d829523db6735129
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106231040"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739908"
 ---
 # <a name="export-a-trusted-client-ca-certificate-chain-to-use-with-client-authentication"></a>Exportación de cadenas de certificados de CA de cliente de confianza para usarlos en la autenticación de clientes
 Para configurar la autenticación mutua con el cliente o la autenticación de clientes, Application Gateway requiere que se cargue una cadena de certificados de CA de cliente de confianza en la puerta de enlace. Si tiene varias cadenas de certificados, deberá crear las cadenas por separado y cargarlas como archivos diferentes en Application Gateway. En este artículo, aprenderá a exportar una cadena de certificados de CA de cliente de confianza, que puede usar en la configuración de autenticación de clientes en la puerta de enlace.  
@@ -55,7 +55,7 @@ Los siguientes pasos le ayudan a exportar el archivo .pm o .cer para el certific
 6. Haga clic en **Finalizar** para exportar el certificado.
 
     > [!div class="mx-imgBorder"]
-    > ![Instantánea en la que aparece el Asistente para exportar certificados después de completar la exportación del archivo.](./media/certificates-for-backend-authentication/finish.png)
+    > ![Instantánea en la que aparece el Asistente para exportar certificados después de completar la exportación del archivo.](./media/certificates-for-backend-authentication/finish-screen.png)
 
 7. El certificado se exportó correctamente.
 

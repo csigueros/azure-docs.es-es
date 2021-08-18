@@ -2,14 +2,14 @@
 title: Traslado de un espacio de nombres de Azure Relay a otra región
 description: En este artículo se muestra cómo trasladar un espacio de nombres de Azure Relay desde la región actual a otra región.
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 06/03/2021
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 60a182764639341fcda159356dd9fe6c65cfabd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f612dc5318044fd539724c66b4aa37df6d3dafa
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89463372"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667780"
 ---
 # <a name="move-an-azure-relay-namespace-to-another-region"></a>Traslado de un espacio de nombres de Azure Relay a otra región
 En este artículo se muestra cómo trasladar un espacio de nombres de Azure Relay desde una región a otra región. Los pasos generales son los siguientes:

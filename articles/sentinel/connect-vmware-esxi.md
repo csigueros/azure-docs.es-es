@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2021
 ms.author: yelevin
-ms.openlocfilehash: 3d478a9ac3cf91f3f6815859b8534efff88f07b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f43607e47e059e6bba9a3ae02c07262ec7309a2
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743555"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252661"
 ---
 # <a name="connect-your-vmware-esxi-to-azure-sentinel"></a>Conexión de la instancia de VMware ESXi a Azure Sentinel
 
 > [!IMPORTANT]
 > El conector de VMware ESXi está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 En este artículo se explica cómo conectar el dispositivo de VMware ESXi con Azure Sentinel. El conector de datos de VMware ESXi le permite ingerir fácilmente los registros de VMware ESXi en Azure Sentinel; esto le proporciona más información sobre las actividades ESXi de su organización y le ayuda a mejorar la capacidad de las operaciones de seguridad. La integración entre VMware ESXi y Azure Sentinel permite el uso de un servidor de Syslog con el agente de Log Analytics instalado. También usa un analizador de registro personalizado basado en una función de Kusto.
 
@@ -79,6 +81,6 @@ Consulte la pestaña **Pasos siguientes** de la página de conectores para ver a
 
 En este documento, aprendió a conectar VMware ESXi con Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

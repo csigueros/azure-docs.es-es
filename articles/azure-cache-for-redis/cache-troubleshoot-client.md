@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da61064fb65db85ebb41b441c228e9c77a1db6fc
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008974"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136533"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Solución de problemas del lado cliente de Redis Cache
 
@@ -53,7 +53,7 @@ En la excepción anterior, hay varias incidencias que son interesantes:
 - Observe que en la sección `IOCP` y la sección `WORKER` tiene un valor de `Busy` que es mayor que el valor de `Min`. Esta diferencia significa que es necesario ajustar la configuración de `ThreadPool`.
 - También puede ver `in: 64221`. Este valor indica que se han recibido 64 211 bytes en la capa de sockets del kernel del cliente, pero que la aplicación aún no los ha leído. Esta diferencia normalmente significa que la aplicación (por ejemplo, StackExchange.Redis) no está leyendo los datos de la red con la rapidez con la que el servidor se los envía.
 
-Puede [configurar las opciones de `ThreadPool`](cache-management-faq.md#important-details-about-threadpool-growth) para asegurarse de que su grupo de subprocesos se escala verticalmente a gran velocidad en escenarios de ráfaga.
+Puede [configurar las opciones de `ThreadPool`](cache-management-faq.yml#important-details-about-threadpool-growth) para asegurarse de que su grupo de subprocesos se escala verticalmente a gran velocidad en escenarios de ráfaga.
 
 ## <a name="high-client-cpu-usage"></a>Uso elevado de la CPU del cliente
 
@@ -109,4 +109,4 @@ Las resoluciones para los tamaños grandes de respuesta varían, pero incluyen l
 ## <a name="additional-information"></a>Información adicional
 
 - [Solución de problemas del lado servidor de Redis Cache](cache-troubleshoot-server.md)
-- [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)

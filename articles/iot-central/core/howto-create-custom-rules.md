@@ -1,20 +1,19 @@
 ---
 title: Ampliación de Azure IoT Central con notificaciones y reglas personalizadas | Microsoft Docs
 description: Como desarrollador de soluciones, configure una aplicación de IoT Central para enviar notificaciones por correo electrónico cuando un dispositivo deja de enviar datos de telemetría. Esta solución utiliza Azure Stream Analytics, Azure Functions y SendGrid.
-author: philmea
-ms.author: philmea
+author: dominicbetts
+ms.author: dobett
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
-manager: philmea
-ms.openlocfilehash: 2eb776add1e4a53edc6f4f57983074af31d8f52d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3d528ba1bf1e7ba0c13d5bcf8abb140365cbe7d6
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750048"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861523"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Extensión de Azure IoT Central con reglas personalizadas mediante Stream Analytics, Azure Functions y SendGrid
 
@@ -60,7 +59,7 @@ Use [Azure Portal para crear un grupo de recursos](https://portal.azure.com/#cre
 
 Use [Azure Portal para crear un espacio de nombres de Event Hubs](https://portal.azure.com/#create/Microsoft.EventHub) con la siguiente configuración:
 
-| Configuración | Value |
+| Configuración | Valor |
 | ------- | ----- |
 | Nombre    | Elija el nombre del espacio de nombres |
 | Plan de tarifa | Básica |
@@ -73,7 +72,7 @@ Use [Azure Portal para crear un espacio de nombres de Event Hubs](https://portal
 
 Use [Azure Portal para crear un trabajo de Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) con la siguiente configuración:
 
-| Configuración | Value |
+| Configuración | Valor |
 | ------- | ----- |
 | Nombre    | Elija el nombre del trabajo |
 | Subscription | Su suscripción |
@@ -86,7 +85,7 @@ Use [Azure Portal para crear un trabajo de Stream Analytics](https://portal.azur
 
 Use [Azure Portal para crear una aplicación de función](https://portal.azure.com/#create/Microsoft.FunctionApp) con la siguiente configuración:
 
-| Configuración | Value |
+| Configuración | Valor |
 | ------- | ----- |
 | Nombre de la aplicación    | Elija el nombre de la aplicación de función |
 | Subscription | Su suscripción |
@@ -320,7 +319,7 @@ En esta sección va a configurar la aplicación para que haga streaming de los d
 1. Vaya a la página **Exportación de datos**, seleccione **+ Nuevo** y, después, **Azure Event Hubs**.
 1. Utilice los siguientes valores para configurar la exportación y, luego, seleccione **Guardar**: 
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Display Name (Nombre para mostrar) | Exportar a Event Hubs |
     | habilitado | Por |

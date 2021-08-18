@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 3c8b9444344e5bae414145e2b3367c265114a423
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c136f0f2a946eca0d89c04734c9f351d4e6c79d6
+ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586840"
+ms.lasthandoff: 07/11/2021
+ms.locfileid: "113601144"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Uso de Azure Table Storage para administrar clientes potenciales de marketplace comercial
 
@@ -206,4 +206,4 @@ Cuando se generan los clientes potenciales, Microsoft los envía a la tabla de A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas más frecuentes y solución de problemas de administración de clientes potenciales](../lead-management-faq.md)
+- [Preguntas más frecuentes y solución de problemas de administración de clientes potenciales](../lead-management-faq.yml)

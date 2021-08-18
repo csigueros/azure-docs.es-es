@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de SecureLogin para el aprovisionamiento autom�
 description: Aprenda a aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para SecureLogin.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: f37882fb-80fa-446c-8f56-d13fd905fe54
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2021
-ms.author: Zhchia
-ms.openlocfilehash: 8c75c0638365caf885900e2f26742e5fc5aab78b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 5f5b517bea97302e4be49659349acfff51dd0cf0
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953194"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766072"
 ---
 # <a name="tutorial-configure-securelogin-for-automatic-user-provisioning"></a>Tutorial: Configuración de SecureLogin para el aprovisionamiento automático de usuarios
 

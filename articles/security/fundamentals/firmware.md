@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
-ms.openlocfilehash: 8233cc714d977083f4d55716d35c0b7094a069ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/24/2021
+ms.openlocfilehash: 64c1a42147a55423336c9994246f08046f44adf5
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94557477"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895659"
 ---
 # <a name="firmware-security"></a>Seguridad de firmware
 En este artículo se describe la forma en que Microsoft protege el ecosistema de hardware en la nube y las cadenas de suministro.
@@ -50,6 +50,7 @@ También es preciso que los proveedores de hardware de la nube de Azure sigan lo
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre lo que se hace para fomentar la seguridad y la integridad de la plataforma, vea:
 
+- [Integridad del código de plataforma](code-integrity.md)
 - [Arranque seguro](secure-boot.md)
 - [Atestación de host y de arranque medido](measured-boot-host-attestation.md)
 - [Proyecto Cerberus](project-cerberus.md)

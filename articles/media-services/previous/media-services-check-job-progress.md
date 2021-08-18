@@ -15,19 +15,18 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a32744f7a2385bf9da92a0f9cae5f664b1a18fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: def232775847ac96621abf957e7fb1afabea716d
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016974"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114706582"
 ---
 # <a name="monitor-job-progress-using-net"></a>Supervisión del progreso de los trabajos mediante .NET
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-v-2-v-3-migration-introduction.md).
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede consultar el progreso si define un controlador de eventos StateChanged (como se describe en este tema) o usa el almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Media Services (como se explica en [este](media-services-dotnet-check-job-progress-with-queues.md) tema).
 

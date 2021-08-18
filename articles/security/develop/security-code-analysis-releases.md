@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7596df66dbcbe1b7cdefab4811da7174bc83ac65
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 137e4cf1392db8b1ee10d4441769f602802d6ac6
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801186"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115963"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Versiones y hoja de ruta de Análisis de código de seguridad de Microsoft
 
@@ -80,4 +80,4 @@ El servicio de pruebas de vulnerabilidad ante datos aleatorios o inesperados de 
 
 Para más instrucciones sobre cómo incorporar e instalar Análisis de código de seguridad de Microsoft, consulte [nuestra guía de incorporación e instalación](security-code-analysis-onboard.md).
 
-Si tiene más preguntas sobre la extensión y las herramientas que se ofrecen, consulte nuestra página de [preguntas más frecuentes.](security-code-analysis-faq.md)
+Si tiene más preguntas sobre la extensión y las herramientas que se ofrecen, consulte nuestra página de [preguntas más frecuentes.](security-code-analysis-faq.yml)

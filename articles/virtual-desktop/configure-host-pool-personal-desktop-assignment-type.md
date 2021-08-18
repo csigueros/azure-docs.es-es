@@ -7,12 +7,12 @@ ms.date: 07/09/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 39e4b23b4f007c790dcfe495661628a53a9293d8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: e53bcbca2e40ef9a9587e0b571f2798132c2a829
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111743898"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033594"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configuración del tipo de asignación de grupo de host de escritorio personal
 
@@ -26,7 +26,7 @@ Puede configurar el tipo de asignación del grupo de hosts de escritorio persona
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se da por supuesto que ya ha descargado e instalado el módulo de PowerShell para Azure Virtual Desktop. Si no lo ha hecho, siga las instrucciones que se indican en [Configuración del módulo de PowerShell](powershell-module.md).
+En este artículo se da por supuesto que ya ha descargado e instalado el módulo de PowerShell para Azure Virtual Desktop. Si no lo ha hecho, siga las instrucciones que se indican en [Configuración del módulo de PowerShell](powershell-module.md).
 
 ## <a name="configure-automatic-assignment"></a>Configuración de la asignación automática
 
@@ -87,8 +87,8 @@ Para asignar directamente un usuario a un host de sesión en Azure Portal:
 
 Ahora que ha configurado el tipo de asignación de escritorio personal, puede iniciar sesión en un cliente de Azure Virtual Desktop para probarlo como parte de una sesión de usuario. Estos dos procedimientos siguientes le indicarán cómo conectarse a una sesión mediante el cliente que elija:
 
-- [Conexión con el cliente de Escritorio de Windows](connect-windows-7-10.md)
-- [Conexión con el cliente web](connect-web.md)
-- [Conexión con el cliente de Android](connect-android.md)
-- [Conexión con el cliente iOS](connect-ios.md)
-- [Conexión con el cliente macOS](connect-macos.md)
+- [Conexión con el cliente de Escritorio de Windows](./user-documentation/connect-windows-7-10.md)
+- [Conexión con el cliente web](./user-documentation/connect-web.md)
+- [Conexión con el cliente de Android](./user-documentation/connect-android.md)
+- [Conexión con el cliente iOS](./user-documentation/connect-ios.md)
+- [Conexión con el cliente macOS](./user-documentation/connect-macos.md)

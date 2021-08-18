@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: fca5c1a0aee6e62890d734e3233177549d932672
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c24b7ee5154ec7f79bbbf19ffc6c59b8bf6221b3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643676"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743319"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -43,7 +43,7 @@ En este artículo, se usa el [SDK de dispositivo de IoT de Azure para C](iot-hub
   - **Sudeste de Asia**
   - **Oeste de EE. UU. 2**
 
-- En este artículo se da por supuesto que está familiarizado con el envío de mensajes de telemetría a IoT hub. Asegúrese de que ha completado el [Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (C)](quickstart-send-telemetry-c.md).
+- En este artículo se da por supuesto que está familiarizado con el envío de mensajes de telemetría a IoT hub. Asegúrese de que ha completado el [Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (C)](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c).
 
 - Registre un dispositivo con IoT hub (los pasos están disponibles en cada inicio rápido) y anote la cadena de conexión.
 
@@ -144,7 +144,7 @@ Estas instrucciones sirven para generar el muestreo en Windows. Para otros entor
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
 
-    Reemplace el valor de la constante `connectionString` por la cadena de conexión de dispositivo que anotó en la sección [Registrar un dispositivo](./quickstart-send-telemetry-c.md#register-a-device) de [Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (C)](./quickstart-send-telemetry-c.md).
+    Reemplace el valor de la constante `connectionString` por la cadena de conexión de dispositivo que anotó en la sección [Registrar un dispositivo](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c#register-a-device) de [Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (C)](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c).
 
 1. Cambie la declaración define `MESSAGE_COUNT` a `5000`:
 

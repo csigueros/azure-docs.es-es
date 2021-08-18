@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 633f01d813fe4e6c56d88052cbc7440c43f350dc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7327af790eb8a3ddda646f0da208083d4431934a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870507"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280232"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Uso de MirrorMaker para replicar temas de Apache Kafka con Kafka en HDInsight
 
@@ -296,7 +296,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 Al seguir los pasos de este documento, se crearon clústeres en diferentes grupos de recursos de Azure. Para eliminar todos los recursos que se crearon, puede eliminar los dos grupos de recursos: **kafka-primary-rg** y **kafka-secondary_rg**. Al eliminar los grupos de recursos, se eliminan todos los recursos que se crearon al seguir el procedimiento descrito en este documento, incluidos los clústeres, las redes virtuales y las cuentas de almacenamiento.
 

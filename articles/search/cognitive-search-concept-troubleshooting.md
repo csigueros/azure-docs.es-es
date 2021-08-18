@@ -2,18 +2,17 @@
 title: Sugerencias para el diseño del enriquecimiento con IA
 titleSuffix: Azure Cognitive Search
 description: Sugerencias y solución de problemas para configurar las canalizaciones de enriquecimiento con inteligencia artificial en Azure Cognitive Search.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: d372c4bff4977ed310d2e84aa255679a9c5ed928
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 254c56d2557692afb4ef9f384612006324268edf
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756462"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731794"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Sugerencias para el enriquecimiento con IA en Azure Cognitive Search
 

@@ -3,12 +3,12 @@ title: 'Uso de Apache Flink para Apache Kafka: Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo conectar Apache Flink a un centro de eventos de Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 1d382270248e95b1b973f57f67ebf81160f03a16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84dd1f735ae041449bba474fd1147c7084bd5f0e
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92369512"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286437"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Uso de Apache Flink con Azure Event Hubs para Apache Kafka
 En este tutorial se muestra cómo conectar Apache Flink a un centro de eventos sin cambiar los clientes del protocolo o ejecutar sus propios clústeres. Para más información sobre la compatibilidad de Event Hubs con el protocolo de consumidor de Apache Kafka, consulte [Event Hubs para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
@@ -30,7 +30,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 * Lea el artículo [Event Hubs para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
-* [Kit de desarrollo de Java (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [Kit de desarrollo de Java (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure)
     * En Ubuntu, ejecute `apt-get install default-jdk` para instalar el JDK.
     * Asegúrese de establecer la variable de entorno JAVA_HOME para que apunte a la carpeta donde está instalado el JDK.
 * [Descargue](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) un archivo binario de Maven

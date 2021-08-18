@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: 5145aa0ffdc4095f178a214f63433e5bcece83b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9d8a10d4adcad2072282f59641b157364fecad2
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "72249165"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551909"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Envío de un flujo de trabajo con una entrada de archivo BAM
 
@@ -82,4 +82,4 @@ output_storage_account_container: outputs
 Envíe el archivo `config.txt` con esta invocación: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, se va a cargar un archivo BAM en Azure Storage y se va a enviar un flujo de trabajo al servicio Microsoft Genomics mediante el cliente de Python `msgen`. Para obtener información adicional sobre el envío del flujo de trabajo y otros comandos que puede usar con el servicio Microsoft Genomics, vea nuestras [preguntas más frecuentes](frequently-asked-questions-genomics.md). 
+En este artículo, se va a cargar un archivo BAM en Azure Storage y se va a enviar un flujo de trabajo al servicio Microsoft Genomics mediante el cliente de Python `msgen`. Para obtener información adicional sobre el envío del flujo de trabajo y otros comandos que puede usar con el servicio Microsoft Genomics, vea nuestras [preguntas más frecuentes](frequently-asked-questions-genomics.yml). 

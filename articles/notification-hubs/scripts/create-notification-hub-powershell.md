@@ -1,7 +1,7 @@
 ---
 title: Creación de un centro de notificaciones de Azure mediante PowerShell | Microsoft Docs
 description: Aprenda a usar un script de PowerShell para crear un centro de notificaciones de Azure.
-author: dimazaid
+author: femila
 manager: femila
 services: notification-hubs
 editor: sethmanheim
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2020
-ms.author: dimazaid
+ms.author: femila
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c9dafcfb202f9c25cb66d904809bc7a543fe079e
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 74dff49ff26fd6b4a283cda4d3c3cc2524362a93
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110705871"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458297"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>Uso de PowerShell para crear un centro de notificaciones de Azure
 
@@ -28,7 +28,7 @@ Este script de PowerShell de ejemplo crea un centro de notificaciones de Azure d
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Suscripción a Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

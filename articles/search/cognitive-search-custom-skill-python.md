@@ -2,19 +2,18 @@
 title: Ejemplo de aptitud personalizada (Python)
 titleSuffix: Azure Cognitive Search
 description: Pensado para que los desarrolladores de Python conozcan las herramientas y técnicas para crear una aptitud personalizada mediante Azure Functions y Visual Studio. Las aptitudes personalizadas contienen modelos o lógicas definidos por el usuario que puede agregar a una canalización de indexación enriquecida con inteligencia artificial en Azure Cognitive Search.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: effa3aede0c0020a32935ae58b702d234488411e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88936136"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737628"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Ejemplo: Creación de una aptitud personalizada con Python
 
@@ -29,12 +28,12 @@ La aptitud personalizada es sencilla por diseño (concatena dos cadenas) para qu
 + Configure el entorno. Hemos seguido [este tutorial de principio a fin](/azure/python/tutorial-vs-code-serverless-python-01) para configurar una instancia de Azure Function sin servidor con las extensiones de Visual Studio Code y Python. Este tutorial le guía a través de la instalación de las herramientas y los componentes siguientes: 
 
   + [Python 3.75](https://www.python.org/downloads/release/python-375/)
-  + [Visual Studio Code](https://code.visualstudio.com/)
+  + Tener [Visual Studio Code](https://code.visualstudio.com/)
   + [Extensión de Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   + [Azure Functions Core Tools](../azure-functions/functions-run-local.md#v2)
   + [Extensión de Azure Functions para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
-## <a name="create-an-azure-function"></a>Creación de una Función de Azure
+## <a name="create-an-azure-function"></a>Creación de una función de Azure
 
 En este ejemplo se usa una función de Azure para mostrar el concepto de hospedaje de una API web, pero hay otros enfoques posibles. Siempre que cumpla con los [requisitos de interfaz de una aptitud cognitiva](cognitive-search-custom-skill-interface.md), no importa el enfoque que quiera usar. Sin embargo, Azure Functions facilita la creación de una aptitud personalizada.
 
@@ -56,7 +55,7 @@ La plantilla del proyecto de Azure Functions de Visual Studio Code crea un proye
 1. Seleccione **Función** como nivel de autorización. Esto significa que proporcionaremos una [clave de función](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) para llamar al punto de conexión HTTP de la función. 
 1. Seleccione cómo desea que se abra el proyecto. En este paso, seleccione **Add to workspace** (Agregar al área de trabajo) para crear la aplicación de funciones en el área de trabajo actual.
 
-Visual Studio Code crea el proyecto de la aplicación de función en una nueva área de trabajo. Este proyecto contiene los archivos de configuración [host.json](../azure-functions/functions-host-json.md) y [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), además de los archivos de proyecto específicos del lenguaje. 
+Visual Studio Code crea el proyecto de la aplicación de función en una nueva área de trabajo. Este proyecto contiene los archivos de configuración [host.json](../azure-functions/functions-host-json.md) y [local.settings.json](../azure-functions/functions-develop-local.md#local-settings-file), además de los archivos de proyecto específicos del lenguaje. 
 
 También se crea una nueva función desencadenada por HTTP en la carpeta **Concatenator** del proyecto de la aplicación de funciones. Dentro de ella habrá un archivo denominado "\_\_init__.py" con este contenido:
 

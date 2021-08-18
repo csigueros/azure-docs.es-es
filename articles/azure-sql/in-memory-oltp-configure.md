@@ -10,12 +10,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.date: 11/07/2018
-ms.openlocfilehash: 9d878ce051b9986dc17f2154d91a529b7c38d0cd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 2d1e00059948b6b3347c41910f8c1f75d9635da5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698949"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752214"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Uso de OLTP en memoria para mejorar el rendimiento de aplicación en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -103,8 +103,8 @@ Para usar esta opción de migración:
 7. Copie los datos en la tabla optimizada en memoria mediante INSERT... SELECT * INTO:
 
 ```sql
-INSERT INTO <new_memory_optimized_table>
-        SELECT * FROM <old_disk_based_table>;
+INSERT INTO [<new_memory_optimized_table>]
+        SELECT * FROM [<old_disk_based_table>];
 ```
 
 ## <a name="step-5-optional-migrate-stored-procedures"></a>Paso 5 (opcional): Migre los procedimientos almacenados

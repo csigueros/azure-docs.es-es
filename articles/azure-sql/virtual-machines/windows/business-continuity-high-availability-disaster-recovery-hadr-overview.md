@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: f42cb2f3f00c75dea262b7151bef5efad4e9aa92
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: a5fe3157d419b199f1e83f44485e507812c0b80c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569609"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434838"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidad empresarial y HADR para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -100,7 +100,7 @@ O bien, puede configurar un entorno de conmutación por error híbrido, con una 
 
 Para más información, consulte los [términos de licencia del producto](https://www.microsoft.com/licensing/product-licensing/products). 
 
-Para habilitar esta ventaja, vaya al [recurso de máquina virtual de SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Seleccione **Configurar** en **Configuración** y elija la opción **Recuperación ante desastres** en **Licencia de SQL Server**. Active la casilla para confirmar que esta VM con SQL Server se usará como una réplica pasiva y, a continuación, seleccione **Aplicar** para guardar la configuración. 
+Para habilitar esta ventaja, vaya al [recurso de máquina virtual de SQL Server](manage-sql-vm-portal.md#access-the-resource). Seleccione **Configurar** en **Configuración** y elija la opción **Recuperación ante desastres** en **Licencia de SQL Server**. Active la casilla para confirmar que esta VM con SQL Server se usará como una réplica pasiva y, a continuación, seleccione **Aplicar** para guardar la configuración. 
 
 ![Configuración de una réplica de recuperación ante desastres en Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 

@@ -12,12 +12,12 @@ ms.date: 04/27/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: entorno local, reconocimiento óptico de caracteres, Docker, contenedor
-ms.openlocfilehash: 42f840c9237d22638236efb758c9b789501b0ce5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 18827a1c301125b722995d43869f4a4439f36e12
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773438"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301710"
 ---
 # <a name="install-read-ocr-docker-containers"></a>Instalación de contenedores de Docker de OCR de Read
 
@@ -471,6 +471,6 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
 
 * Revise [Configure containers](computer-vision-resource-container-config.md) (Configuración de contenedores) para ver las opciones de configuración.
 * Revise [Introducción a OCR](overview-ocr.md) para obtener más información sobre el reconocimiento de texto escrito a mano e impreso.
-* Consulte [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) para obtener más información acerca de los métodos que admite el contenedor.
-* Consulte [Preguntas más frecuentes (P+F)](FAQ.md) para resolver problemas relacionados con la funcionalidad de Computer Vision.
+* Consulte [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) para más información sobre los métodos que admite el contenedor.
+* Consulte [Preguntas más frecuentes (P+F)](FAQ.yml) para resolver problemas relacionados con la funcionalidad de Computer Vision.
 * Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2021
 ms.author: bagol
-ms.openlocfilehash: b6ada209d556ae981360661cea4db71219dbba37
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: da901a0beb5a90981293b4cae1f620a0668c7e0e
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124534"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179377"
 ---
 # <a name="protecting-mssp-intellectual-property-in-azure-sentinel"></a>Protección de la propiedad intelectual del MSSP en Azure Sentinel
 
@@ -161,5 +161,5 @@ Para más información, consulte:
 - [Cuaderno de estrategias técnico de Azure Sentinel para los MSSP](https://cloudpartners.transform.microsoft.com/download?assetname=assets/Azure-Sentinel-Technical-Playbook-for-MSSPs.pdf&download=1)
 - [Administración de varios inquilinos en Azure Sentinel como un MSSP](multiple-tenants-service-providers.md)
 - [Extender Azure Sentinel por áreas de trabajo e inquilinos](extend-sentinel-across-workspaces-tenants.md)
-- [Tutorial: Visualizar y supervisar los datos](tutorial-monitor-your-data.md)
+- [Visualizar y supervisar los datos](monitor-your-data.md)
 - [Tutorial: Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](tutorial-respond-threats-playbook.md)

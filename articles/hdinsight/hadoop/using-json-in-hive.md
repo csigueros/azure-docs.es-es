@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: d3c5077450dd4ec59f5ea7bc8f37879f9aa775bf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0c1067b2e2002992d75311497b1ba8f984c421b8
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868943"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370408"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Procesamiento y análisis de documentos JSON mediante Apache Hive en Azure HDInsight
 
@@ -147,7 +147,7 @@ La UDF `json_tuple` usa la sintaxis de [lateral view](https://cwiki.apache.org/c
 
 ### <a name="use-a-custom-serde"></a>Uso de un SerDe personalizado
 
-Un SerDe es la mejor opción para analizar documentos JSON anidados. Le permite definir el esquema JSON y utilizarlo para analizar los documentos. Para instrucciones, consulte [How to use a custom JSON SerDe with Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) (Uso de un SerDe personalizado para JSON con Microsoft Azure HDInsight).
+Un SerDe es la mejor opción para analizar documentos JSON anidados. Le permite definir el esquema JSON y utilizarlo para analizar los documentos. Para instrucciones, consulte [How to use a custom JSON SerDe with Microsoft Azure HDInsight](/archive/blogs/bigdatasupport/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight) (Uso de un SerDe personalizado para JSON con Microsoft Azure HDInsight).
 
 ## <a name="summary"></a>Resumen
 

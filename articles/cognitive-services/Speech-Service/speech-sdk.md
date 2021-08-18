@@ -3,19 +3,19 @@ title: 'Acerca del SDK de Voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: El kit de desarrollo de software (SDK) de voz expone muchas de las funcionalidades del servicio de voz, lo que facilita el desarrollo de aplicaciones habilitadas para la voz.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: trbye
-ms.openlocfilehash: cc5ed68fa7a26a347f0cb85c94bb0b7b79ccb055
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.openlocfilehash: 3f97558a9efbc9a1cff11baaae6d4d8869e02915
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059180"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122067802"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca del SDK de Voz
 
@@ -48,12 +48,14 @@ La [conversión de texto en voz](text-to-speech.md) (también conocido como *sí
 
 El servicio de **texto a voz (TTS)** está disponible en las siguientes plataformas:
 
-  - C++/Windows y Linux
-  - C#/Windows, UWP y Unity
+  - C++/Windows, Linux y macOS
+  - C# (Framework y .NET Core)/Windows, UWP, Unity, Xamarin, Linux y macOS
   - Java (JRE y Android)
+  - JavaScript (Browser y NodeJS)
   - Python
   - Swift
   - Objective-C
+  - Go
   - La API REST de TTS puede usarse en todas las demás situaciones.
 
 ### <a name="voice-assistants"></a>Asistentes de voz
@@ -135,7 +137,7 @@ El servicio de voz ofrece una gran funcionalidad con sus modelos predeterminados
 
 ### <a name="custom-speech-to-text"></a>Conversión de voz a texto personalizada
 
-Cuando se usa la conversión de voz en texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados para dirigir el sonido ambiental o vocabulario específico del sector. La creación y administración de modelos de Habla personalizada sin código está disponible en el [portal de Habla personalizada](https://aka.ms/customspeech). Una vez publicado el modelo de Habla personalizada, el SDK de voz ya puede usarse.
+Cuando se usa la conversión de voz en texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados para dirigir el sonido ambiental o vocabulario específico del sector. La creación y administración de modelos de Habla personalizada sin código está disponible en el [portal de Habla personalizada](./custom-speech-overview.md). Una vez publicado el modelo de Habla personalizada, el SDK de voz ya puede usarse.
 
 ### <a name="custom-text-to-speech"></a>Conversión de texto a voz personalizada
 

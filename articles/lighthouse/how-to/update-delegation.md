@@ -3,12 +3,12 @@ title: Actualización de una delegación
 description: Obtenga información sobre cómo actualizar una delegación para un cliente previamente incorporado a Azure Lighthouse.
 ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: bc52790c5652f9571e3a63023314ff8e97fb7e99
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e8044732cd1cb544515bcfe5b2c0ac3b40bf0cfe
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965062"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389261"
 ---
 # <a name="update-a-delegation"></a>Actualización de una delegación
 
@@ -45,14 +45,14 @@ Si está actualizando la oferta solo para ajustar las autorizaciones y mantiene 
 
 :::image type="content" source="../media/update-delegation.jpg" alt-text="Diagrama que muestra cuándo se debe cambiar el valor de mspOfferName y quitar una delegación anterior.":::
 
-El acceso a la delegación puede retirarlo cualquier usuario del inquilino de administración al que se haya concedido el [rol de eliminación de la asignación de registro de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) en la delegación original. Si ningún usuario del inquilino de administración tiene este rol, puede pedir al cliente que [retire el acceso a la oferta en Azure Portal](view-manage-service-providers.md#add-or-remove-service-provider-offers).
+El acceso a la delegación puede retirarlo cualquier usuario del inquilino de administración al que se haya concedido el [rol de eliminación de la asignación de registro de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) en la delegación original. Si ningún usuario del inquilino de administración tiene este rol, puede pedir al cliente que [retire el acceso a la oferta en Azure Portal](view-manage-service-providers.md#remove-service-provider-offers).
 
 > [!TIP]
 > Si quitó la delegación anterior siguiendo los pasos anteriores y sigue sin poder implementar la nueva plantilla de ARM, es posible que necesite [quitar la definición de registro por completo](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Esto lo puede hacer cualquier usuario con un rol que tenga el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](../../role-based-access-control/built-in-roles.md#owner), en el inquilino del cliente.  
 
 ## <a name="deploy-the-arm-template"></a>Implementación de la plantilla de ARM
 
-El cliente puede [implementar la plantilla actualizada](onboard-customer.md#deploy-the-azure-resource-manager-templates) de la misma manera que antes: en Azure Portal, mediante PowerShell o con la CLI de Azure.
+El cliente puede [implementar la plantilla actualizada](onboard-customer.md#deploy-the-azure-resource-manager-template) de la misma manera que antes: en Azure Portal, mediante PowerShell o con la CLI de Azure.
 
 Una vez finalizada la implementación, [confirme que se realizó correctamente](onboard-customer.md#confirm-successful-onboarding). Las autorizaciones actualizadas se aplicarán a la suscripción o a los grupos de recursos que el cliente haya delegado.
 

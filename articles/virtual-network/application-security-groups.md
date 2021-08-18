@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: e60d8490632a29e96dccf9cc8ff0365baf671bb6
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: ea9d59629ac843020ef8aa29e9140552b26b13be
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802631"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725953"
 ---
 # <a name="application-security-groups"></a>Grupos de seguridad de aplicaciones
 
@@ -57,7 +57,6 @@ Las reglas que especifican un grupo de seguridad de aplicaciones como origen o d
 Los grupos de seguridad de aplicaciones presentan las siguientes restricciones:
 
 -    Hay límites en el número de grupos de seguridad de aplicaciones que puede tener en una suscripción, así como otros límites relacionados con los grupos de seguridad de aplicaciones. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-- En Azure Portal, puede especificar solo un grupo de seguridad de aplicaciones como el origen y el destino en una regla de seguridad. En la API REST (incluido PowerShell/CLI de Azure), puede especificar varios grupos de seguridad de aplicaciones en el origen o el destino.
 - Todas las interfaces de red asignadas a un grupo de seguridad de aplicaciones deben existir en la misma red virtual en la que se encuentra la primera interfaz de red asignada a dicho grupo. Por ejemplo, si la primera interfaz de red asignada a un grupo de seguridad de aplicaciones llamado *AsgWeb* está en la red virtual llamada *VNet1*, todas las sucesivas interfaces de red asignadas a *ASGWeb* deben existir en *VNet1*. No se pueden agregar interfaces de red de distintas redes virtuales al mismo grupo de seguridad de aplicaciones.
 - Si especifica grupos de seguridad de aplicaciones como origen y destino de una regla de seguridad, las interfaces de red de ambos grupos de seguridad de aplicaciones deben existir en la misma red virtual. Por ejemplo, si *AsgLogic* contiene interfaces de red de *VNet1* y *AsgDb* contiene interfaces de red de *VNet2*, no puede asignar *AsgLogic* como origen y *AsgDb* como destino en una regla. Todas las interfaces de red para los grupos de seguridad de aplicaciones de origen y de destino deben existir en la misma red virtual.
 

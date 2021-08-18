@@ -3,13 +3,13 @@ title: 'Grabación de vídeo continua desde el perímetro: Azure Video Analyzer'
 description: Grabación de vídeo continua (CVR) hace referencia al proceso de grabación continua desde un origen de vídeo en directo. En este tema se explica qué es CVR y cómo se usa con Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 05/10/2021
-ms.openlocfilehash: 19bf86d03178ad1242430bc9faf2c141ab7d4189
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: a7909fab420302fe8246e8f1ce2cd050d1f854f8
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388573"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603987"
 ---
 # <a name="continuous-video-recording"></a>Grabación de vídeo continua    
 

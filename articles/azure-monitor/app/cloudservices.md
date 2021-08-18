@@ -4,12 +4,12 @@ description: Supervisión de los roles web y de trabajo de manera eficaz con App
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 264d6d4b0b397a29b5dc1db4bb299297c1e30584
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b225a35d87f24d8f6c297ea52728ebc9f3d881da
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419242"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289980"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 [Application Insights][start] puede supervisar las [aplicaciones de Azure Cloud Service](https://azure.microsoft.com/services/cloud-services/) para comprobar la disponibilidad, el rendimiento, los errores y el uso al combinar datos de los SDK de Application Insights con datos de [Azure Diagnostics](../agents/diagnostics-extension-overview.md) de los servicios en la nube. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
@@ -285,6 +285,6 @@ Si tiene una aplicación móvil cliente, utilice [App Center](../app/mobile-cent
 [diagnostic]: ./diagnostic-search.md
 [netlogs]: ./asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../faq.md
-[redfield]: ./monitor-performance-live-website-now.md
+[qna]: ../faq.yml
+[redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md

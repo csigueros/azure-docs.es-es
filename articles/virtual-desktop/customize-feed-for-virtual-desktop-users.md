@@ -7,12 +7,12 @@ ms.date: 09/14/2019
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 24174d7ac9fa33cb1fb3ca6e325537dde346b3c3
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d2a1e8df23bca2e57f2d26bd83fc06ad93847903
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752016"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113032946"
 ---
 # <a name="customize-the-feed-for-azure-virtual-desktop-users"></a>Personalización de la fuente para usuarios de Azure Virtual Desktop
 
@@ -120,8 +120,8 @@ Para cambiar el nombre para mostrar de un escritorio remoto publicado, establezc
 
 Ahora que ha personalizado la fuente para los usuarios, puede iniciar sesión en un cliente de Azure Virtual Desktop para probarlo. Para ello, continúe con los procedimientos para conectarse a Azure Virtual Desktop:
 
- * [Conexión con Windows 10 o Windows 7](connect-windows-7-10.md)
- * [Conexión con el cliente web](connect-web.md)
- * [Conexión con el cliente de Android](connect-android.md)
- * [Conexión con el cliente iOS](connect-ios.md)
- * [Conexión con el cliente macOS](connect-macos.md)
+ * [Conexión con Windows 10 o Windows 7](./user-documentation/connect-windows-7-10.md)
+ * [Conexión con el cliente web](./user-documentation/connect-web.md)
+ * [Conexión con el cliente de Android](./user-documentation/connect-android.md)
+ * [Conexión con el cliente iOS](./user-documentation/connect-ios.md)
+ * [Conexión con el cliente macOS](./user-documentation/connect-macos.md)

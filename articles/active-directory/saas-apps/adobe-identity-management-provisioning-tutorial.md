@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de Adobe Identity Management para el aprovision
 description: Obtenga información sobre cómo aprovisionar y desaprovisionar automáticamente las cuentas de usuario de Azure AD para Adobe Identity Management.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 6ae05dc7-1265-44b4-a20c-512b5218b9d1
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2021
-ms.author: Zhchia
-ms.openlocfilehash: f9608a3a9e086cc6c03dc80f0666becbcbc06290
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.author: thwimmer
+ms.openlocfilehash: fb80ddaecb7b200a52b944febc40bf26e9fb6de9
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688394"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765072"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>Tutorial: Configuración de Adobe Identity Management para el aprovisionamiento automático de usuarios
 

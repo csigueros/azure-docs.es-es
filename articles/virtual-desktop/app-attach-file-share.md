@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 80de8767d96cacc5fdec95f26efec88c55e2ceb3
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: e0ba3363b6004afb8e42f420fae681b2827106fb
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745698"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707092"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX (versión preliminar)
 
@@ -107,4 +107,4 @@ Una vez que haya terminado, aquí se muestran otros recursos que pueden resultar
 - Pregunte a la comunidad sobre esta característica en el espacio de [TechCommunity sobre Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 - También puede dejar comentarios sobre Azure Virtual Desktop en el [Centro de opiniones de Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 - [Glosario sobre la conexión de aplicaciones en formato MSIX](app-attach-glossary.md)
-- [Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX](app-attach-faq.md)
+- [Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX](app-attach-faq.yml)

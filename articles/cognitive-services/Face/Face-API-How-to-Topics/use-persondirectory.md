@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d7238aea62b3532461cd40404b683e18227386f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 0cba5fc8bb499ef52f6a2b1d89f23ddd6d450442
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950982"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603173"
 ---
 # <a name="use-the-persondirectory-structure"></a>Uso de la estructura de PersonDirectory
 
@@ -82,7 +82,7 @@ En primer lugar, debe definir un modelo de datos como el siguiente para controla
 public class AsyncStatus
 {
     [DataMember(Name = "status")]
-    public string AsyncStatus { get; set; }
+    public string Status { get; set; }
 
     [DataMember(Name = "createdTime")]
     public DateTime CreatedTime { get; set; }

@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de Eletive para aprovisionar usuarios automáti
 description: Aprenda a aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD para Eletive.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 8a775422-e6d7-4cd5-b8d1-cc8a2db24c4f
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2021
-ms.author: Zhchia
-ms.openlocfilehash: c16e95cde0848debac28e0296277076c1747d654
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.author: thwimmer
+ms.openlocfilehash: a63f4b5d9ebf3df092481fe0a3cd6c669150281c
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108148052"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767915"
 ---
 # <a name="tutorial-configure-eletive-for-automatic-user-provisioning"></a>Tutorial: Configuración de Eletive para aprovisionar usuarios automáticamente
 
@@ -34,7 +34,7 @@ En este tutorial, se describen los pasos que debe seguir en Eletive y Azure Acti
 > * Mantener los atributos de usuario sincronizados entre Azure AD y Eletive
 > * Inicio de sesión único en Eletive (recomendado)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -70,7 +70,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 6.  Copie y guarde la dirección URL de SCIM 2.0 y el token de portador. Estos valores se escriben en el campo URL de inquilino y Token secreto de la pestaña Aprovisionamiento de la aplicación Eletive en Azure Portal.
 
 
-## <a name="step-3-add-eletive-from-the-azure-ad-application-gallery"></a>Paso 3. Incorporación de Eletive desde la galería de aplicaciones de Azure AD
+## <a name="step-3-add-eletive-from-the-azure-ad-application-gallery"></a>Paso 3. Incorporación de Eletive desde la galería de aplicaciones de Azure AD
 
 Para empezar a administrar el aprovisionamiento en Eletive, agregue Eletive desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Eletive para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](../manage-apps/add-application-portal.md). 
 

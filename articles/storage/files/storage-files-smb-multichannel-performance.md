@@ -7,16 +7,23 @@ ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e8b2f64b0249cfe3b8a0a2e1bebcf7daabfe94dc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 995ece7fb5d199a4c403d4512c29eae46fe9fdcb
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094625"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116668"
 ---
 # <a name="smb-multichannel-performance"></a>Rendimiento de SMB multicanal
 
 SMB multicanal de Azure Files (versión preliminar) habilita un cliente SMB 3.x para establecer varias conexiones de red en los recursos compartidos de archivos Premium de una cuenta de FileStorage. El protocolo SMB 3.x presentó la característica SMB multicanal en clientes de Windows Server 2012 y Windows 8. Por este motivo, cualquier cliente SMB 3.x de Azure Files que admita SMB multicanal podrá aprovechar la característica para sus recursos compartidos de archivos Premium de Azure. No hay ningún costo adicional por habilitar SMB multicanal en una cuenta de almacenamiento.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="benefits"></a>Ventajas
 

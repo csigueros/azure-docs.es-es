@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo quitar el acceso a los recursos qu
 ms.date: 05/11/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e9456d7b910c71305f321d0a4874aab0f4f368cd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: bae8407e09ab07a13c12abe3ee6371c04155cced
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110700142"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389848"
 ---
 # <a name="remove-access-to-a-delegation"></a>Quitar el acceso a una delegación
 
@@ -22,7 +22,7 @@ La eliminación de una delegación puede realizarla un usuario en el inquilino d
 
 ## <a name="customers"></a>Clientes
 
-Los usuarios del inquilino del cliente que tienen un rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](../../role-based-access-control/built-in-roles.md#owner), pueden quitar el acceso del proveedor de servicios a esa suscripción (o a los grupos de recursos de esa suscripción). Para ello, el usuario puede ir a la [página Proveedores de servicios](view-manage-service-providers.md#add-or-remove-service-provider-offers) de Azure Portal, buscar la oferta en la pantalla **Ofertas del proveedor de servicios** y seleccionar el icono de la papelera en la fila de esa oferta.
+Los usuarios del inquilino del cliente que tienen un rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](../../role-based-access-control/built-in-roles.md#owner), pueden quitar el acceso del proveedor de servicios a esa suscripción (o a los grupos de recursos de esa suscripción). Para ello, el usuario puede ir a la [página Proveedores de servicios](view-manage-service-providers.md#remove-service-provider-offers) de Azure Portal, buscar la oferta en la pantalla **Ofertas del proveedor de servicios** y seleccionar el icono de la papelera en la fila de esa oferta.
 
 Tras confirmar la eliminación, ningún usuario en el inquilino del proveedor de servicios podrá acceder a los recursos que se hayan delegado previamente.
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 349d7453962a736c9f15bb7d31d5a44098f463a4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aec0feb938841e9d6bba6cf876577c67bcaad441
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791956"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136479"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Asignación de una directiva de acceso de Key Vault
 
@@ -74,6 +74,5 @@ Solo necesita incluir `--secret-permissions`, `--key-permissions` y `--certifica
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Seguridad en Azure Key Vault: Administración de identidades y acceso](security-overview.md#identity-management)
-- [Protección del almacén de claves](security-overview.md)
+- [Seguridad de Azure Key Vault](security-features.md)
 - [Guía del desarrollador de Azure Key Vault](developers-guide.md)

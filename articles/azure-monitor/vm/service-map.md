@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: ad3f8821189e6e7aabb5653e5f938bb73f57a34b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f79e436f1fcce346304b2e88f213ff298b27aa04
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047016"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300838"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 
@@ -25,7 +25,7 @@ En este artículo se describen los detalles sobre la incorporación y utilizaci�
 * [Dependency Agent](vminsights-enable-overview.md#agents) instalado en el equipo con Windows o en el servidor Linux.
 
 >[!NOTE]
->Si ya ha implementado Service Map, ahora también puede ver las asignaciones en VM Insights, lo que incluye características adicionales para supervisar el rendimiento y el estado de la VM. Para más información, consulte [Información general sobre VM Insights](../vm/vminsights-overview.md). Para obtener información sobre las diferencias entre la solución Service Map y la característica de asignación de VM Insights, consulte las siguientes [Preguntas más frecuentes](../faq.md#vm-insights).
+>Si ya ha implementado Service Map, ahora también puede ver las asignaciones en VM Insights, lo que incluye características adicionales para supervisar el rendimiento y el estado de la VM. Para más información, consulte [Información general sobre VM Insights](../vm/vminsights-overview.md). Para obtener información sobre las diferencias entre la solución Service Map y la característica de asignación de VM Insights, consulte las siguientes [Preguntas más frecuentes](/azure/azure-monitor/faq#vm-insights).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -570,7 +570,7 @@ Puede ser útil instalar uno mismo las [últimas bibliotecas en entorno de ejecu
 
 En la tabla siguiente se muestran números de código y resoluciones sugeridas.
 
-| Código | Descripción | Solución |
+| Código | Descripción | Resolución |
 |:--|:--|:--|
 | 0 x 17 | El instalador de la biblioteca requiere una actualización de Windows que no se ha instalado. | Mire el registro del instalador de la biblioteca más reciente.<br><br>Si una referencia a `Windows8.1-KB2999226-x64.msu` va seguida de una línea `Error 0x80240017: Failed to execute MSU package,`, no tiene los requisitos previos para instalar KB2999226. Siga las instrucciones que aparecen en la sección de requisitos previos en el artículo [Universal C Runtime en Windows](https://support.microsoft.com/kb/2999226). Es posible que tenga que ejecutar Windows Update y reiniciar varias veces para instalar los requisitos previos.<br><br>Ejecute de nuevo el instalador Microsoft Dependency Agent. |
 

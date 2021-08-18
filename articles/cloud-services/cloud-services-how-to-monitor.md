@@ -4,16 +4,16 @@ description: Se describe qué conlleva la supervisión de un servicio en la nube
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 60f320f86860cca482cdf25c7d93f84dae8c4e5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6148183962249b3dc1d446e62ff6fe8e48e608ac
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743379"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093740"
 ---
 # <a name="introduction-to-cloud-service-classic-monitoring"></a>Introducción a la supervisión de servicios en la nube (clásico)
 

@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: eaa064a8a266bb68bacff8e42fd5dd6794c0f682
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 93ab5cf44286a4fcba638f14e1c7b29698a02e55
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110105458"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358028"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd: Métricas de rendimiento de Linux en Application Insights [en desuso]
 
@@ -35,7 +35,7 @@ Realice una copia de la clave de instrumentación, que identifica al recurso.
 En los equipos de servidor Linux:
 
 1. Instale la versión de [collectd](https://collectd.org/) 5.4.0 o posterior.
-2. Descargue el [complemento del escritor collectd de Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal). Anote el número de versión.
+2. Descargue el [complemento del escritor collectd de Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/main/agent/agent-tooling/src/main/java/com/microsoft/applicationinsights/agent/internal). Anote el número de versión.
 3. Copie el archivo JAR del complemento en `/usr/share/collectd/java`.
 4. Edite `/etc/collectd/collectd.conf`:
    * Asegúrese de que [el complemento de Java](https://collectd.org/wiki/index.php/Plugin:Java) está habilitado.

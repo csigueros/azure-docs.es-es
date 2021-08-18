@@ -12,18 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
-ms.openlocfilehash: eb099a786a84f9b7d0a6f0dc6e6df9c3459af295
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e02131d6a72af64f919021d688864667f042a89
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77588236"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254046"
 ---
 # <a name="connect-your-forcepoint-products-to-azure-sentinel"></a>Conecte productos de Forcepoint a Azure Sentinel
 
 > [!IMPORTANT]
 > El conector de datos de productos de Forcepoint en Azure Sentinel se encuentra actualmente en versión preliminar pública. Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 En este artículo se explica cómo conectar los productos de Forcepoint a Azure Sentinel. 
 
@@ -52,8 +53,8 @@ Configure el producto de Forcepoint para reenviar mensajes de Syslog en formato 
 
 En este documento, ha aprendido a conectar productos de Forcepoint a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
 
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
 
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- [Use libros](monitor-your-data.md) para supervisar los datos.

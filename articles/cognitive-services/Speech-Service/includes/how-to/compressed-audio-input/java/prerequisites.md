@@ -1,15 +1,15 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: trbye
-ms.openlocfilehash: 955e79040f84f395849ab13103fd4c22693a9913
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.openlocfilehash: a17c2da5a1b12ca81c48a914f00040802e2de408
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110163075"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122262406"
 ---
 El control del audio comprimido se implementa mediante [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licencia, los binarios de GStreamer no se compilan ni se vinculan con el SDK de Voz. En su lugar, tiene que usar los binarios compilados previamente para Android. Para descargar las bibliotecas compiladas previamente, vea [Instalación para desarrollo de Android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 

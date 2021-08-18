@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/21/2021
+ms.date: 07/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa9bc861ffdc2c8671f062bb41499c8ffee1123d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 12bb1d26c8c9abbf3d2312b1d0186b8b4303c746
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965631"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739955"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretación del esquema de registros de inicio de sesión de Azure AD en Azure Monitor
 
@@ -134,9 +134,8 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
             "riskState":"none",
             "riskEventTypes":[],
             "resourceDisplayName":"windows azure service management api",
-            "resourceId":"797f4846-ba00-4fd7-ba43-dac1f8f63013",
-            "authenticationMethodsUsed":[]
-        }
+            "resourceId":"797f4846-ba00-4fd7-ba43-dac1f8f63013"
+         }
 }
 ```
 
@@ -168,6 +167,8 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 | Nivel | - | Proporciona el tipo de mensaje. Para la auditoría, siempre es *informativo*. |
 | Location | - | Indica la ubicación de la actividad de inicio de sesión. |
 | Propiedades | - | Enumera todas las propiedades asociadas con los inicios de sesión.|
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo crear e implementar certificados p
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: c73f9812f344eecf4e51f43405b48693ddfa191b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 926d711f86a07ee22a4370e838efae9f4e0be957
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98739741"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126219"
 ---
 # <a name="certificates-overview-for-azure-cloud-services-classic"></a>Introducción a los certificados de Azure Cloud Services (clásico)
 
@@ -37,7 +37,7 @@ Puede cargar certificados de servicio en Azure mediante Azure Portal o mediante 
 Los certificados de servicio se pueden administrar independientemente de los servicios y pueden ser administrados por distintas personas. Por ejemplo, un desarrollador puede cargar un paquete de servicio que hace referencia a un certificado que un administrador de TI ha cargado previamente en Azure. Un administrador de TI puede administrar y renovar el certificado (cambiando la configuración del servicio) sin necesidad de cargar un nuevo paquete de servicio. La actualización sin un nuevo paquete de servicio es posible porque el nombre lógico, el nombre y la ubicación del certificado se encuentran en el archivo de definición de servicio y la huella digital del certificado se especifica en el archivo de configuración de servicio. Para actualizar el certificado, solo es necesario cargar un nuevo certificado y cambiar el valor de huella digital en el archivo de configuración de servicio.
 
 >[!Note]
->El artículo [P+F de Cloud Services - Configuración y administración](cloud-services-configuration-and-management-faq.md) dispone de información útil sobre los certificados.
+>El artículo [P+F de Cloud Services - Configuración y administración](cloud-services-configuration-and-management-faq.yml) dispone de información útil sobre los certificados.
 
 ## <a name="what-are-management-certificates"></a>¿Qué son los certificados de administración?
 Los certificados de administración le permiten autenticar con el modelo de implementación clásica. Muchos programas y herramientas (como Visual Studio o Azure SDK) utilizan estos certificados para automatizar la configuración y la implementación de diferentes servicios de Azure. Estos no están relacionados realmente con servicios en la nube. 

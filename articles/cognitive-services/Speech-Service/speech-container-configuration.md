@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 07/22/2021
 ms.author: aahi
-ms.openlocfilehash: 400770a99e12bfb200b3e480d1546a26ce2aca6c
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: f86de9cbb7bf6235af6d112f9eae396b43a911f8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495252"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441398"
 ---
 # <a name="configure-speech-service-containers"></a>Configuración de contenedores del servicio de voz
 
@@ -76,7 +76,7 @@ Utilice montajes de enlace para leer y escribir datos hacia y desde el contenedo
 
 Los contenedores de Voz estándar no usan montajes de entrada o salida para almacenar datos de entrenamiento o servicio. Sin embargo, los contenedores de voz personalizados dependen de los montajes de volumen.
 
-La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](speech-container-howto.md#the-host-computer) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host.
+La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](speech-container-howto.md#host-computer-requirements-and-recommendations) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host.
 
 | Opcional | Nombre | Tipo de datos | Descripción |
 | -------- | ---- | --------- | ----------- |

@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: 2819a5a927562d92153e5ef08a73a976c91a9363
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 26c068450b93272986a1a3c82af0530adfa30ebb
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954619"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766458"
 ---
 # <a name="migrate-availability-group-to-sql-server-on-azure-vm"></a>Migración de grupos de disponibilidad a SQL Server en máquinas virtuales de Azure
 
@@ -351,7 +351,7 @@ El grupo de disponibilidad AlwaysOn está listo.
     - Implemente [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
     - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Para supervisión y administración:
-    - Considere la posibilidad de implementar [Azure Cost Management](../../../cost-management-billing/cloudyn/overview.md) para supervisar el gasto y el uso de recursos.
+    - Considere la posibilidad de implementar [Azure Cost Management](../../../cost-management-billing/cost-management-billing-overview.md) para supervisar el gasto y el uso de recursos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

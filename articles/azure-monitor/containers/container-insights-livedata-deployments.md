@@ -4,12 +4,12 @@ description: En este artículo se describe la visualización en tiempo real de l
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: c6eaac209234f7352395502c6761312cf258108f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3ae515f2addf21f8183aed83ab26922e77f981
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713922"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734355"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Cómo ver implementaciones (versión preliminar) en tiempo real
 
@@ -64,4 +64,4 @@ También puede filtrar por los eventos de nivel de clúster o de espacio de nomb
 
 - Para continuar aprendiendo a usar Azure Monitor y supervisar otros aspectos de su clúster de AKS, consulte [Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores](container-insights-analyze.md).
 
-- Vea [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) para ver ejemplos y consultas predefinidas para crear alertas, visualizaciones o realizar análisis adicionales de los clústeres.
+- Vea [ejemplos de consultas de registro](container-insights-log-query.md) para ver ejemplos y consultas predefinidas para crear alertas, visualizaciones o realizar análisis adicionales de los clústeres.

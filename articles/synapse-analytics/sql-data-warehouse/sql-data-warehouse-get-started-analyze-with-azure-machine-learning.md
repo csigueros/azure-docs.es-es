@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 76a154d3a137017f374247308a3980d598698246
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb4f39f14dad9426f48cc86597f74333c830bba5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678666"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736190"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Análisis de datos con Azure Machine Learning
 
@@ -159,6 +159,6 @@ Para ver cómo ha funcionado el modelo compare la columna BikeBuyer (real) con l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure Machine Learning, consulte [Introducción a Machine Learning en Azure](../../machine-learning/overview-what-is-azure-ml.md).
+Para más información sobre Azure Machine Learning, consulte [Introducción a Machine Learning en Azure](../../machine-learning/overview-what-is-azure-machine-learning.md).
 
 Obtenga [aquí](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true) información acerca de la puntuación integrada en el almacenamiento de datos.

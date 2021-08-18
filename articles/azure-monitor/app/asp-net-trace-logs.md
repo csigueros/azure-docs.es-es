@@ -4,12 +4,12 @@ description: Busque registros generados por Seguimiento, NLog o Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: 5f94920d44e37aae17c484be4f8e74a4f351e1b1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8b956c0e63f96dbfbcf3204c260952ccf2f2c22a
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082781"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552881"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de .NET, .NET Core y Python en Application Insights
 
@@ -141,7 +141,7 @@ Por ejemplo:
 ```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
 var telemetryClient = new TelemetryClient(configuration);
-telemetry.TrackTrace("Slow response - database01");
+telemetryClient.TrackTrace("Slow response - database01");
 ```
 
 Una ventaja de TrackTrace es que puede colocar datos relativamente largos en el mensaje. Por ejemplo, aquí puede codificar datos POST.
@@ -231,6 +231,6 @@ Si usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o poste
 [diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../faq.md
+[qna]: ../faq.yml
 [start]: ./app-insights-overview.md
 

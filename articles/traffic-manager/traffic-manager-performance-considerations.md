@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
-ms.openlocfilehash: 5a0de772598877029649f8a985c79e28f5264535
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9fc6095cc2961cf494238749b240bd90de1d0eb
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98186182"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113032676"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Consideraciones de rendimiento sobre el Administrador de tráfico
 
@@ -41,10 +41,6 @@ Existen varios sitios web que sirven para comprender el rendimiento y el comport
 Las herramientas de estos sitios miden las latencias de DNS y muestran las direcciones IP resueltas para ubicaciones de cliente en el mundo. La mayoría de estas herramientas no almacenan en caché los resultados de DNS. Por lo tanto, muestran la búsqueda de DNS completa cada vez que se ejecuta una prueba. Cuando hace la prueba desde su propio cliente, solo experimenta el rendimiento de la búsqueda de DNS completa una vez durante el TTL.
 
 ## <a name="sample-tools-to-measure-dns-performance"></a>Herramientas de muestra para medir el rendimiento de DNS
-
-* [SolveDNS](https://www.solvedns.com/dns-comparison/)
-
-    SolveDNS ofrece muchas herramientas de rendimiento. La herramienta de comparación de DNS puede mostrarle cuánto tiempo se tarda en resolver el nombre DNS y lo compara con otros proveedores de servicios DNS.
 
 * [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 

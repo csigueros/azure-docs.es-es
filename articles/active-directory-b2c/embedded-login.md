@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dc4450fb1e21211b43bc178d94cf4bdfe6da58e1
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: bed0b1e887fd5735077ef66725b267f42be9bbc1
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256793"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445374"
 ---
 # <a name="embedded-sign-in-experience"></a>Experiencia de inicio de sesión insertada
 
@@ -107,7 +107,7 @@ window.parent.postMessage("signUp", '*');
 
 ## <a name="configure-a-web-application"></a>Configuración de una aplicación web
 
-Cuando un usuario selecciona el botón de inicio de sesión, la [aplicación web](code-samples.md#web-apps-and-apis) genera una solicitud de autorización que lleva al usuario a la experiencia de inicio de sesión de Azure AD B2C. Una vez completado el inicio de sesión, Azure AD B2C devuelve un token de identificador, o código de autorización, al URI de redirección configurado dentro de la aplicación.
+Cuando un usuario selecciona el botón de inicio de sesión, la [aplicación web](integrate-with-app-code-samples.md#web-apps-and-apis) genera una solicitud de autorización que lleva al usuario a la experiencia de inicio de sesión de Azure AD B2C. Una vez completado el inicio de sesión, Azure AD B2C devuelve un token de identificador, o código de autorización, al URI de redirección configurado dentro de la aplicación.
 
 Para admitir el inicio de sesión insertado, la propiedad **src** de iframe apunta al controlador de inicio de sesión, como `/account/SignUpSignIn`, que genera la solicitud de autorización y redirige al usuario a la directiva de Azure AD B2C.
 
@@ -168,6 +168,6 @@ Consulte los artículos relacionados siguientes:
 - [Personalización de la interfaz de usuario](customize-ui.md)
 - Referencia del elemento [RelyingParty](relyingparty.md)
 - [Habilitación de la directiva para JavaScript](./javascript-and-page-layout.md)
-- [Ejemplos de código](code-samples.md)
+- [Ejemplos de código](integrate-with-app-code-samples.md)
 
 ::: zone-end

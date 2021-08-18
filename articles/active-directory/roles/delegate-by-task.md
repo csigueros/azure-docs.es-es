@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9869a90c0159a7f60929c1ff9b0cf3319d60d5b
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: a65ce79252c25d187ed61de3b637182deaf225db
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439033"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136353"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -55,6 +55,7 @@ En este artículo, puede encontrar la información necesaria para restringir los
 > | Crear, leer, actualizar y eliminar flujos de usuario de registro |Administrador de flujos de usuarios con id. externo |  |
 > | Crear, leer, actualizar y eliminar atributos de usuario | Administrador de atributos de flujos de usuarios con id. externo |  |
 > | Crear, leer, actualizar y eliminar usuarios | Administrador de usuarios |  |
+> | Configuración de los valores de colaboración externa B2B | Administrador global |  |
 > | Leer toda la configuración | Lector global |  |
 > | Leer registros de auditoría de B2C | Lector global ([consulte la documentación](../../active-directory-b2c/faq.yml)) |  |
 
@@ -165,8 +166,8 @@ En este artículo, puede encontrar la información necesaria para restringir los
 > [!div class="mx-tableFixed"]
 > | Tarea | Rol con privilegios mínimos | Roles adicionales |
 > | ---- | --------------------- | ---------------- |
-> | Adición de recursos a un catálogo | Administrador de usuarios | Con la administración de derechos, puede delegar esta tarea en el propietario del catálogo ([consulte la documentación](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)). |
-> | Adición de sitios de SharePoint Online al catálogo | Administrador global |  |
+> | Adición de recursos a un catálogo | Administrador de Identity Governance | Con la administración de derechos, puede delegar esta tarea en el propietario del catálogo ([consulte la documentación](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)). |
+> | Adición de sitios de SharePoint Online al catálogo | Administrador de SharePoint |  |
 
 ## <a name="groups"></a>Grupos
 
@@ -225,7 +226,7 @@ En este artículo, puede encontrar la información necesaria para restringir los
 > [!div class="mx-tableFixed"]
 > | Tarea | Rol con privilegios mínimos | Roles adicionales |
 > | ---- | --------------------- | ---------------- |
-> | Leer registros de inicio de sesión | Lector de informes | Lector de seguridad<br/>Administrador de seguridad |
+> | Leer registros de inicio de sesión | Lector de informes | Lector de seguridad<br/>Administrador de seguridad<br/> Lector global |
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 

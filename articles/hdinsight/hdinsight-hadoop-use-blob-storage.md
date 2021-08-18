@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: cedc0ff1b3c2aa64f32445eabc800748a753981d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4cbce0bce0b495bee9a2f9c717f21de665f29f7
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945424"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280351"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Uso de Azure Storage con clústeres de Azure HDInsight
 
@@ -154,7 +154,7 @@ Cualquiera que sea su ubicación, todos los blobs que cree pertenecerán a un co
 
 El contenedor de blobs predeterminado almacena información específica del clúster, como los registros y el historial de trabajos. No comparta un contenedor de blobs predeterminado con varios clústeres de HDInsight. Esta acción podría dañar el historial de trabajos. Se recomienda usar un contenedor diferente para cada clúster. Coloque los datos compartidos en una cuenta de almacenamiento vinculada especificada para todos los clústeres apropiados, en lugar de en la cuenta de almacenamiento predeterminada. Para más información sobre cómo configurar cuentas de almacenamiento vinculadas, consulte [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Aunque puede volver a usar un contenedor de almacenamiento predeterminado después de que se haya eliminado el clúster de HDInsight original. En el caso de los clústeres de HBase, para conservar el esquema y los datos de tabla de HBase se puede crear un nuevo clúster de HBase mediante el contenedor de blobs predeterminado que usaba un clúster de HBase eliminado
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 ## <a name="use-additional-storage-accounts"></a>Uso de cuentas de almacenamiento adicionales
 

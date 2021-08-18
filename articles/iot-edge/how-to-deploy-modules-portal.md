@@ -2,18 +2,17 @@
 title: 'Implementación de módulos desde Azure Portal: Azure IoT Edge'
 description: Use IoT Hub en Azure Portal para enviar un módulo de IoT Edge desde la instancia de IoT Hub al dispositivo IoT Edge, tal como se configura en un manifiesto de implementación.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9248c9578d94b000c04c82b33eeeb089e55a26ef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: df229db3f68de7bdd59a3074e3011bebc8676178
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200305"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750783"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementación de módulos de Azure IoT Edge desde Azure Portal
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 64ad2c4311ade34314edde6e841e747745378e8c
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 754504374fc9955a0327d2fb2aa19c6cf1f2d4d3
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716265"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295766"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa Proveedor de soluciones en la nube
 
@@ -99,7 +99,7 @@ Si autorizó a un asociado del programa CSP y ese asociado ya revendió el produ
 
 Si hay un asociado del programa CSP que todavía no vende su producto a los clientes y quiere quitar el CSP una vez que se publique la oferta, siga estas instrucciones:
 
-1. Vaya a la [página de solicitud de soporte técnico](https://aka.ms/marketplacepublishersupport). Los primeros menús desplegables se rellenan automáticamente.
+1. Vaya a la [página de solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2165533). Los primeros menús desplegables se rellenan automáticamente.
 
    > [!NOTE]
    > No cambie las selecciones de menú desplegable rellenadas previamente.
@@ -118,7 +118,7 @@ Use esta sección para navegar entre las tres opciones de revendedor de CSP.
 
 Si la oferta es actualmente **Opción 1: cualquier asociado del programa CSP** y quisiera navegar a cualquiera de las otras dos opciones, use estas instrucciones para crear una solicitud:
 
-1. Vaya a la [página de solicitud de soporte técnico](https://aka.ms/marketplacepublishersupport). Los primeros menús desplegables se rellenan automáticamente.
+1. Vaya a la [página de solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2165533). Los primeros menús desplegables se rellenan automáticamente.
 
    > [!NOTE]
    > No cambie las selecciones de menú desplegable rellenadas previamente.
@@ -136,7 +136,7 @@ Si la oferta es actualmente **Opción 1: cualquier asociado del programa CSP** y
 
 Si la oferta es actualmente **Opción 2: asociados específicos del programa CSP que selecciono** y quisiera navegar a la **Opción 1: cualquier asociado del programa CSP**, use estas instrucciones para crea una solicitud:
 
-1. Vaya a la [página de solicitud de soporte técnico](https://aka.ms/marketplacepublishersupport). Los primeros menús desplegables se rellenan automáticamente.
+1. Vaya a la [página de solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2165533). Los primeros menús desplegables se rellenan automáticamente.
 
    > [!NOTE]
    > No cambie las selecciones de menú desplegable rellenadas previamente.
@@ -149,7 +149,7 @@ Si la oferta es actualmente **Opción 2: asociados específicos del programa CSP
 
  Si la oferta es actualmente **Opción 2: asociados específicos en el programa CSP que selecciono** y quisiera navegar a la **Opción 3: ningún asociado del programa CSP**, solo podrá navegar a esa opción si los asociados del programa CSP a los que autorizó anteriormente todavía no revenden la oferta a los clientes finales. Use estas instrucciones para crear una solicitud:
 
-1. Vaya a la [página de solicitud de soporte técnico](https://aka.ms/marketplacepublishersupport). Los primeros menús desplegables se rellenan automáticamente.
+1. Vaya a la [página de solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2165533). Los primeros menús desplegables se rellenan automáticamente.
 
    > [!NOTE]
    > No cambie las selecciones de menú desplegable rellenadas previamente.

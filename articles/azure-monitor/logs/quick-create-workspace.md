@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/18/2021
-ms.openlocfilehash: 7d3ffd754959c59fb34f326473247d836871ea75
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 6edadff4d785f0db87e4e6363889719d50e988da
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106826"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741271"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Creación de un área de trabajo de Log Analytics en Azure Portal
 Use el menú **Áreas de trabajo de Log Analytics** para crear un área de trabajo de Log Analytics con Azure Portal. Un área de trabajo de Log Analytics es un entorno único de datos de registro de Azure Monitor. Cada área de trabajo tiene su propio repositorio de datos y configuración, y las soluciones y orígenes de datos están configurados para almacenar sus datos en una determinada área de trabajo. Necesitará un área de trabajo de Log Analytics si tiene intención de recopilar datos de los orígenes siguientes:
@@ -19,12 +19,6 @@ Use el menú **Áreas de trabajo de Log Analytics** para crear un área de traba
 * Equipos locales supervisados por System Center Operations Manager
 * Colecciones de dispositivos de Configuration Manager 
 * Datos de diagnóstico o de registro de Azure Storage
-
-Para otros orígenes, como las máquinas virtuales de Azure y la máquinas virtuales Windows o Linux del entorno, consulte los temas siguientes:
-
-*  [Recopilación de datos de máquinas virtuales de Azure](../vm/quick-collect-azurevm.md) 
-*  [Recopilación de datos de un equipo Linux híbrido](../vm/quick-collect-linux-computer.md)
-*  [Recopilación de datos de un equipo Windows híbrido](../vm/quick-collect-windows-computer.md)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

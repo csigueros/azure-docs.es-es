@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 12/9/2020
-ms.openlocfilehash: 3ce4f673657561e196520466b569d0cf83d75a8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b2de0d25c8bdba99e6559bdec1902e9cda7b35c
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019353"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583102"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Salidas de Azure Stream Analytics
 
@@ -25,10 +25,10 @@ Algunos tipos de salida admiten la [creación de particiones](#partitioning), y 
 | Tipo de salida | Creación de particiones | Seguridad | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sí|Usuario de Azure Active Directory </br> , Identidad administrada|
-|[Azure SQL Database](sql-database-output.md)|Sí, opcional.|Autenticación de usuario de SQL, </br> Identidad administrada (versión preliminar)|
+|[Azure SQL Database](sql-database-output.md)|Sí, opcional.|Autenticación de usuario de SQL, </br> Identidad administrada|
 |[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Sí|Autenticación de usuario de SQL, </br> Identidad administrada (versión preliminar)|
-|[Blob Storage y Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Sí|Clave de acceso, </br> Identidad administrada (versión preliminar)|
-|[Azure Event Hubs](event-hubs-output.md)|Sí, es necesario establecer la columna de clave de partición en la configuración de salida.|Clave de acceso, </br> Identidad administrada (versión preliminar)|
+|[Blob Storage y Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Sí|Clave de acceso, </br> Identidad administrada|
+|[Azure Event Hubs](event-hubs-output.md)|Sí, es necesario establecer la columna de clave de partición en la configuración de salida.|Clave de acceso, </br> Identidad administrada|
 |[Power BI](power-bi-output.md)|No|Usuario de Azure Active Directory, </br> Identidad administrada|
 |[Azure Table Storage](table-storage-output.md)|Sí|Clave de cuenta|
 |[Colas de Azure Service Bus](service-bus-queues-output.md)|Sí|Clave de acceso|

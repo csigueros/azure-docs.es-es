@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 02/18/2020
-ms.openlocfilehash: c3d4b882a83b457527fcf71424357b8a51a86d84
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 345ef497ecb14279c117932bd2c9a1cf7b42ba1d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110783275"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743659"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Información general sobre la migración: de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -217,11 +217,9 @@ Para obtener más ayuda, consulte los siguientes recursos, que se desarrollaron 
 
 |Recurso  |Descripción  |
 |---------|---------|
-|[Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta herramienta proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y un nivel de corrección de la aplicación o base de datos para una carga de trabajo. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado.|
-|[Utilidad DBLoader](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|Puede usar DBLoader para cargar datos de archivos de texto delimitados en SQL Server. Esta utilidad de la consola de Windows usa la interfaz de carga masiva de SQL Server Native Client. La interfaz funciona en todas las versiones de SQL Server, junto con Azure SQL Managed Instance.|
-|[Utilidad para migrar los inicios de sesión de SQL Server locales a Azure SQL Managed Instance](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins)|Un script de PowerShell que crea un script de comandos de T-SQL para volver a crear inicios de sesión y seleccionar usuarios de base de datos de SQL Server local para Azure SQL Managed Instance. La herramienta permite la asignación automática de cuentas de Windows Server Active Directory a cuentas de Azure AD, junto con la migración de inicios de sesión nativos de SQL Server.|
-|[Automatización de la colección de datos de PerfMon mediante Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|Puede usar la herramienta Logman para recopilar datos de Perfmon (para ayudarle a comprender el rendimiento de línea base) y obtener recomendaciones de destino para la migración. Esta herramienta utiliza el archivo logman.exe para crear el comando que creará, iniciará, detendrá y eliminará el conjunto de contadores de rendimiento en una instancia de SQL Server remota.|
-|[Migración de bases de datos a Azure SQL Managed Instance mediante la restauración de copias de seguridad completas y diferenciales](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20to%20Azure%20SQL%20DB%20Managed%20Instance%20-%20%20Restore%20with%20Full%20and%20Differential%20backups.pdf)|En estas notas del producto se proporcionan instrucciones y pasos para ayudar a acelerar las migraciones de SQL Server a Azure SQL Managed Instance si solo tiene copias de seguridad completas y diferenciales (y ninguna funcionalidad de copia de seguridad de registros).|
+|[Herramienta y modelo de evaluación de la carga de trabajo de datos](https://www.microsoft.com/download/details.aspx?id=103130)| Esta herramienta proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y un nivel de corrección de la aplicación o base de datos para una carga de trabajo. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado.|
+|[Utilidad para migrar los inicios de sesión de SQL Server locales a Azure SQL Managed Instance](https://www.microsoft.com/download/details.aspx?id=103111)|Un script de PowerShell que crea un script de comandos de T-SQL para volver a crear inicios de sesión y seleccionar usuarios de base de datos de SQL Server local para Azure SQL Managed Instance. La herramienta permite la asignación automática de cuentas de Windows Server Active Directory a cuentas de Azure AD, junto con la migración de inicios de sesión nativos de SQL Server.|
+|[Automatización de la colección de datos de PerfMon mediante Logman](https://www.microsoft.com/download/details.aspx?id=103114)|Puede usar la herramienta Logman para recopilar datos de Perfmon (para ayudarle a comprender el rendimiento de línea base) y obtener recomendaciones de destino para la migración. Esta herramienta utiliza el archivo logman.exe para crear el comando que creará, iniciará, detendrá y eliminará el conjunto de contadores de rendimiento en una instancia de SQL Server remota.|
 
 El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es permitir y acelerar la modernización compleja de los proyectos de migración de la plataforma de datos a la de Azure, de Microsoft.
 

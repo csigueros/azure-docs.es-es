@@ -8,12 +8,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 04/22/2021
 ms.author: yelevin
-ms.openlocfilehash: f1ef860f1b84de84c42996a7523af8ce174d5981
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 96068491bd4be59c34d62375db30edad504823a9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890805"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780041"
 ---
 # <a name="connect-azure-kubernetes-service-diagnostics-logs"></a>Conexión de los registros de diagnóstico de Azure Kubernetes Service
 
@@ -21,7 +21,9 @@ Azure Kubernetes Service (AKS) es un servicio de orquestación de contenedores d
 
 Este conector permite transmitir los registros de diagnóstico de Azure Kubernetes Service (AKS) a Azure Sentinel, para poder supervisar continuamente la actividad en todas las instancias. 
 
-Más información sobre la [supervisión de Azure Kubernetes Service](../azure-monitor/containers/container-insights-overview.md) y sobre la [telemetría de diagnóstico de AKS](../aks/view-control-plane-logs.md).
+Más información sobre la [supervisión de Azure Kubernetes Service](../azure-monitor/containers/container-insights-overview.md) y sobre la [telemetría de diagnóstico de AKS](../aks/monitor-aks-reference.md#resource-logs).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -47,7 +49,7 @@ Este conector usa Azure Policy para aplicar una única configuración de streami
 
     1. En la pestaña **Básico**, haga clic en el botón con los tres puntos debajo de **Ámbito** para seleccionar la suscripción (y, opcionalmente, un grupo de recursos). También puede agregar una descripción.
 
-    1. En la pestaña **Parámetros**, deje los campos **Efecto** y **Nombre de configuración** tal y como están. Elija el área de trabajo de Azure Sentinel en la lista desplegable **Área de trabajo de Log Analytics**. Los campos desplegables restantes representan los tipos de registro de diagnóstico disponibles. Deje marcado como "True" todos los tipos de registro que quiera ingerir.
+    1. En la pestaña **Parámetros,** deje los campos **Efecto** y **Nombre de configuración** tal y como están. Elija el área de trabajo de Azure Sentinel en la lista desplegable **Área de trabajo de Log Analytics**. Los campos desplegables restantes representan los tipos de registro de diagnóstico disponibles. Deje marcado como "True" todos los tipos de registro que quiera ingerir.
 
     1. La directiva se aplicará a los recursos agregados en el futuro. Para aplicar la directiva también a los recursos existentes, seleccione la pestaña **Corrección** y marque la casilla **Crear una tarea de corrección**.
 
@@ -55,11 +57,11 @@ Este conector usa Azure Policy para aplicar una única configuración de streami
 
 > [!NOTE]
 >
-> Con este conector de datos concreto, los indicadores de estado de conectividad (una franja de color en la galería de conectores de datos y los iconos de conexión situados junto a los nombres de tipo de datos) mostrarán el estado *Conectado* (verde) solo si los datos se han ingerido en algún momento en los últimos 14 días. Transcurrido este período sin ingesta de datos, el conector se mostrará como desconectado. En el momento en que circulen más datos, se devolverá el estado *conectado*.
+> Con este conector de datos concreto, los indicadores de estado de conectividad (una franja de color en la galería de conectores de datos y los iconos de conexión situados junto a los nombres de tipo de datos) se mostrarán como *Conectado* (verde) solo si los datos se han ingerido en algún momento en los últimos catorce días. Transcurridos catorce días sin ingesta de datos, el conector se mostrará como desconectado. En el momento en que circulen más datos, se devolverá el estado *conectado*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido a usar Azure Policy para conectar Azure Kubernetes Service a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).

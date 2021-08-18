@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: fc1927ddf867ab9bfd5b288d57f2c5c9e59b0295
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3bc3a7c4cd6f02fcfae8c92875c09f6c31416c89
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957256"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112232104"
 ---
 # <a name="azure-cosmos-db-apache-spark-2-oltp-connector-for-core-sql-api-release-notes-and-resources"></a>API del conector OLTP de Apache Spark 2 para Azure Cosmos DB para Core (SQL): notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -121,7 +121,7 @@ Este conector se puede usar con [Azure Databricks](https://azure.microsoft.com/s
 * Se ha mejorado la administración y la agrupación de conexiones para reducir el número de llamadas de metadatos.
 
 ## <a name="faq"></a>Preguntas más frecuentes
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

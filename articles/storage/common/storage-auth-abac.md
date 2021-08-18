@@ -10,12 +10,12 @@ ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
-ms.openlocfilehash: 8e424bd03e69affebac6f9bb614d2449e6ec45c0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 355eaa0c7e907dea1e1fe88e0640d3b09463fa09
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070829"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729027"
 ---
 # <a name="authorize-access-to-blobs-using-azure-role-assignment-conditions-preview"></a>Autorización del acceso a blobs mediante las condiciones de asignación de roles de Azure (versión preliminar)
 
@@ -28,7 +28,7 @@ El control de acceso basado en atributos (ABAC) es una estrategia de autorizaci�
 
 ## <a name="overview-of-conditions-in-azure-storage"></a>Introducción a las condiciones de Azure Storage
 
-Azure Storage permite el [uso de Azure Active Directory](storage-auth-aad.md) para autorizar solicitudes a Blob Storage y Queue Storage. Azure AD autoriza derechos de acceso a recursos protegidos mediante Azure RBAC. Azure Storage define un conjunto de [roles integrados](../../role-based-access-control/built-in-roles.md#storage) de Azure que engloban los conjuntos comunes de permisos que se usan para acceder a los datos de los blobs y de las colas. También puede definir roles personalizados con un conjunto de permisos seleccionado. Azure Storage admite asignaciones de roles para cuentas de almacenamiento o contenedores de blobs.
+Azure Storage permite el [uso de Azure Active Directory](authorize-data-access.md) para autorizar solicitudes a Blob Storage y Queue Storage. Azure AD autoriza derechos de acceso a recursos protegidos mediante Azure RBAC. Azure Storage define un conjunto de [roles integrados](../../role-based-access-control/built-in-roles.md#storage) de Azure que engloban los conjuntos comunes de permisos que se usan para acceder a los datos de los blobs y de las colas. También puede definir roles personalizados con un conjunto de permisos seleccionado. Azure Storage admite asignaciones de roles para cuentas de almacenamiento o contenedores de blobs.
 
 Sin embargo, en algunos casos, es posible que tenga que habilitar un acceso más específico a los recursos de Storage o simplificar los cientos de asignaciones de roles para un recurso de almacenamiento. Para lograr estos objetivos, puede configurar [condiciones en las asignaciones de roles](../../role-based-access-control/conditions-overview.md) de [DataActions](../../role-based-access-control/role-definitions.md#dataactions). Puede usar condiciones con un [rol personalizado](../../role-based-access-control/custom-roles.md) o seleccionar roles integrados. Tenga en cuenta que no se admiten condiciones para las [acciones](../../role-based-access-control/role-definitions.md#actions) de administración mediante el [proveedor de recursos de almacenamiento](/rest/api/storagerp).
 

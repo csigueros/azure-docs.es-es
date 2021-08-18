@@ -4,12 +4,12 @@ description: Aprenda a desarrollar funciones con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 82e40fbe3be88754ce7196f61c971c7a002998ca
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: fc827c8c03edecbdb10769f7830806ff01596bd1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095111"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742641"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 
@@ -106,7 +106,7 @@ Puede colocar más de una función en un proyecto. Evite colocar las funciones e
 Utilice las anotaciones de Java incluidas en el paquete [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) para enlazar las entradas y salidas a los métodos. Para más información, vea los [documentos de referencia de Java](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
-> Debe configurar una cuenta de Azure Storage en [local.settings.json](./functions-run-local.md#local-settings-file) para ejecutar de manera local los desencadenadores de Azure Blob Storage, Azure Queue Storage o Azure Table Storage.
+> Debe configurar una cuenta de Azure Storage en [local.settings.json](./functions-develop-local.md#local-settings-file) para ejecutar de manera local los desencadenadores de Azure Blob Storage, Azure Queue Storage o Azure Table Storage.
 
 Ejemplo:
 
@@ -132,7 +132,7 @@ Aquí está el elemento `function.json` correspondiente que generó [azure-funct
       "name": "req",
       "direction": "in",
       "authLevel": "anonymous",
-      "methods": [ "post" ]
+      "methods": [ "GET","POST" ]
     },
     {
       "type": "http",
@@ -214,7 +214,7 @@ Puede proporcionar argumentos adicionales en una configuración de la aplicació
 > [!IMPORTANT]  
 > En el plan de consumo, también debe agregar el valor WEBSITE_USE_PLACEHOLDER con un valor de 0 para que funcione la personalización. Esta configuración aumenta los tiempos de arranque en frío de las funciones Java.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 En [Azure Portal](https://portal.azure.com), utilice la pestaña [Configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings) para agregar la configuración `JAVA_OPTS`.
 

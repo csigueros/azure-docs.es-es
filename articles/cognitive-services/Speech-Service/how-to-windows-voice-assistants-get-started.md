@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: b50b98095cdfe0e6ec19c89b57887ebc4a0f6317
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d9b5e861b35ade3cf391e2a0ace52722821a158
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101713055"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113650626"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Introducción a los asistentes de voz en Windows
 
@@ -32,7 +32,7 @@ Para empezar a desarrollar un asistente de voz para Windows, deberá asegurarse 
 
 ## <a name="obtain-resources-from-microsoft"></a>Obtención de recursos de Microsoft
 
-Algunos recursos necesarios para un agente de voz completamente personalizado en Windows requerirán recursos de Microsoft. El [ejemplo del asistente de voz de UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) proporciona versiones de ejemplo de estos recursos para el desarrollo y las pruebas iniciales, por lo que esta sección no es necesaria para el desarrollo inicial.
+Algunos recursos necesarios para un agente de voz completamente personalizado en Windows requerirán recursos de Microsoft. El [ejemplo del asistente de voz de UWP](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample) proporciona versiones de ejemplo de estos recursos para el desarrollo y las pruebas iniciales, por lo que esta sección no es necesaria para el desarrollo inicial.
 
 - **Modelo de palabras clave:** la activación por voz requiere un modelo de palabras clave de Microsoft con el formato de archivo .bin. El archivo .bin que se proporciona en el ejemplo del asistente de voz de UWP se entrena con la palabra clave *Contoso*.
 - **Token de característica de acceso limitado:** dado que las API de ConversationalAgent proporcionan acceso al audio del micrófono, están protegidas con restricciones de la característica de acceso limitado.  Para usar una característica de acceso limitado, tendrá que obtener un token de característica de acceso limitado conectado a la identidad del paquete de la aplicación de Microsoft.
@@ -53,7 +53,7 @@ Estos son los requisitos para crear un servicio de diálogo básico mediante Dir
 
 ## <a name="try-out-the-sample-app"></a>Prueba de la aplicación de ejemplo
 
-Con la clave de suscripción de Speech Services y el id. de bot del bot de eco, está listo para probar el [ejemplo del asistente de voz de UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample). Siga las instrucciones del archivo Léame para ejecutar la aplicación y escribir sus credenciales.
+Con la clave de suscripción de Speech Services y el id. de bot del bot de eco, está listo para probar el [ejemplo del asistente de voz de UWP](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample). Siga las instrucciones del archivo Léame para ejecutar la aplicación y escribir sus credenciales.
 
 ## <a name="create-your-own-voice-assistant-for-windows"></a>Creación de un asistente de voz propio para Windows
 

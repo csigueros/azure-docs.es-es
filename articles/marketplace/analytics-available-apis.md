@@ -4,15 +4,16 @@ description: Use estas API para acceder mediante programación a los datos de an
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: ed6d658155267ab21fd4cdd28dd50fcbb258ee90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07dae73901fca44200d6b4fb8c8149b69728d065
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583650"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748305"
 ---
 # <a name="apis-for-accessing-commercial-marketplace-analytics-data"></a>API para acceder a datos de análisis del marketplace comercial
 

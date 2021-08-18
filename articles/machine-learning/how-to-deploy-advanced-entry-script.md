@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 0e585f9502025117bae406492131184b0d2ecc41
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 920dd7a885570df4cd7c5529bcc00f2345c3d81d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889761"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114287121"
 ---
 # <a name="advanced-entry-script-authoring"></a>Creación avanzada de scripts de entrada
 
@@ -311,7 +311,7 @@ A continuación, puede encontrar más ejemplos de scripts de entrada para casos 
 * [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Creación de aplicaciones cliente para consumir servicios web](how-to-consume-web-service.md)
 * [Actualización de servicios web](how-to-deploy-update-web-service.md)
-* [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
+* [Cómo implementar un modelo con una imagen personalizada de Docker](./how-to-deploy-custom-container.md)
 * [Uso de TLS para proteger un servicio web con Azure Machine Learning](how-to-secure-web-service.md)
 * [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Recopilar datos de modelos en producción](how-to-enable-data-collection.md)

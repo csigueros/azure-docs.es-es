@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 05/12/2021
+ms.date: 07/01/2021
 ms.author: alkohli
-ms.openlocfilehash: f1e6ff675c7754b1eaa8705f335818053b80ef40
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: c772d2722c90cefb99c9f2fdd111e2d654d11659
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846594"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279911"
 ---
 El tamaño de la máquina virtual determina la cantidad de recursos de proceso (como memoria, CPU y GPU) que están disponibles para la máquina virtual. Debe crear máquinas virtuales con un tamaño adecuado para la carga de trabajo. Aunque todas las máquinas se ejecutarán en el mismo hardware, los tamaños de máquina tienen límites diferentes para el acceso al disco, lo que puede ayudarle a administrar el acceso total al disco en todas las máquinas virtuales. Si una carga de trabajo aumenta, también se puede cambiar el tamaño de una máquina virtual existente.
 
@@ -26,7 +26,8 @@ Se admiten las siguientes máquinas virtuales para la creación en un dispositiv
 | **Standard_D11_v2**  | 2     | 14            | 100                 | 1000                           | 6000                                | 500                              | 8               | 2         |
 | **Standard_D12_v2**  | 4     | 28            | 200                 | 1000                           | 12000                               | 500                              | 16              | 4         |
 | **Standard_D13_v2**  | 8     | 56            | 400                 | 1000                           | 24000                               | 500                              | 32              | 8         |
-| **Standard_D14_v2**  | 16    | 114           | 800                 | 1000                           | 48000                               | 500                              | 64              | 8         |
+
+<!--| **Standard_D14_v2**  | 16    | 114           | 800                 | 1000                           | 48000                               | 500                              | 64              | 8         |-->
 
 
 ### <a name="dsv2-series"></a>DSv2-series
@@ -40,7 +41,8 @@ Se admiten las siguientes máquinas virtuales para la creación en un dispositiv
 | **Standard_DS11_v2**  | 2     | 14            | 28                  | 2000                           | 8000                                | 2300                             | 8               | 2         |
 | **Standard_DS12_v2**  | 4     | 28            | 56                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
 | **Standard_DS13_v2**  | 8     | 56            | 112                 | 2000                           | 32000                               | 2300                             | 32              | 8         |
-| **Standard_DS14_v2**  | 16    | 114           | 224                 | 2000                           | 64000                               | 2300                             | 64              | 8         |
+
+<!--| **Standard_DS14_v2**  | 16    | 114           | 224                 | 2000                           | 64000                               | 2300                             | 64              | 8         |-->
 
 Para obtener más información, vea [Series Dv2 y Dsv2](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 

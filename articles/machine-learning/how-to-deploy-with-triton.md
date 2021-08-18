@@ -11,12 +11,12 @@ ms.date: 05/17/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: b8ccc8eb55031f583eba24368fca66e0943124b1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 894b95b1fb00402f9cfed2614639b29ac5412f4b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064853"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446447"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servicio de alto rendimiento con Triton Inference Server (versión preliminar) 
 
@@ -37,7 +37,7 @@ Triton es un marco que está *optimizado para la inferencia*. Ofrece un mejor us
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 * Familiaridad con [cómo y dónde se implementa un modelo](how-to-deploy-and-where.md) con Azure Machine Learning.
 * El [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/) **o** la [CLI de Azure](/cli/azure/) y la [extensión de Machine Learning](reference-azure-machine-learning-cli.md).
 * Una instalación en funcionamiento de Docker para las pruebas locales. Para obtener información sobre la instalación y validación de Docker, consulte [Orientation and setup](https://docs.docker.com/get-started/) (Orientación e instalación) en la documentación de Docker.
@@ -135,6 +135,8 @@ az ml model deploy -n triton-webservice -m triton_model:1 --dc deploymentconfig.
 ---
 
 Consulte [esta documentación para más información sobre la implementación de modelos](how-to-deploy-and-where.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ### <a name="call-into-your-deployed-model"></a>Llamada al modelo implementado
 

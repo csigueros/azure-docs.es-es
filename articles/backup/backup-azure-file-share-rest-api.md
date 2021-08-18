@@ -3,12 +3,12 @@ title: Copia de seguridad de recursos compartidos de archivos de Azure con API R
 description: Aprenda a usar la API REST para realizar copias de seguridad de recursos compartidos de archivos de Azure en el almacén de Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a305200feac635c03caa2477a08267c150219b9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88824872"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471411"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Copia de seguridad de un recurso compartido de archivos de Azure con Azure Backup mediante API REST
 
@@ -32,7 +32,7 @@ En este artículo, usaremos los siguientes recursos:
 
 ### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>Detección de cuentas de almacenamiento con recursos compartidos de archivos de Azure sin protección
 
-El almacén debe detectar todas las cuentas de almacenamiento de Azure de la suscripción que tengan recursos compartidos de archivos de los que se pueda realizar una copia de seguridad en el almacén de Recovery Services. Esta acción se desencadena con la [operación de actualización](/rest/api/backup/protectioncontainers/refresh). Se trata de una operación *POST* asincrónica que garantiza que el almacén obtiene la lista más reciente de todos los recursos compartidos de archivos sin protección de Azure de la suscripción actual y los "almacena en caché". Una vez que el recurso compartido de archivos se almacena en caché, Recovery Services puede acceder a este y protegerlo.
+El almacén debe detectar todas las cuentas de almacenamiento de Azure de la suscripción que tengan recursos compartidos de archivos de los que se pueda realizar una copia de seguridad en el almacén de Recovery Services. Esta acción se desencadena con la [operación de actualización](/rest/api/backup/protection-containers/refresh). Se trata de una operación *POST* asincrónica que garantiza que el almacén obtiene la lista más reciente de todos los recursos compartidos de archivos sin protección de Azure de la suscripción actual y los "almacena en caché". Una vez que el recurso compartido de archivos se almacena en caché, Recovery Services puede acceder a este y protegerlo.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -108,7 +108,7 @@ Date   : Mon, 27 Jan 2020 10:53:04 GMT
 
 ### <a name="get-list-of-storage-accounts-with-file-shares-that-can-be-backed-up-with-recovery-services-vault"></a>Obtenga una lista de cuentas de almacenamiento con recursos compartidos de archivos de los que se puede realizar una copia de seguridad con el almacén de Recovery Services
 
-Para confirmar que se ha realizado el "almacenamiento en caché", enumere todas las cuentas de almacenamiento de la suscripción con recursos compartidos de archivos de los que se pueda realizar una copia de seguridad con el almacén de Recovery Services. A continuación, busque la cuenta de almacenamiento deseada en la respuesta. Esto se hace mediante la operación [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list).
+Para confirmar que se ha realizado el "almacenamiento en caché", enumere todas las cuentas de almacenamiento de la suscripción con recursos compartidos de archivos de los que se pueda realizar una copia de seguridad con el almacén de Recovery Services. A continuación, busque la cuenta de almacenamiento deseada en la respuesta. Esto se hace mediante la operación [GET ProtectableContainers](/rest/api/backup/protectable-containers/list).
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -160,7 +160,7 @@ Dado que podemos encontrar la cuenta de almacenamiento *testvault2* en el cuerpo
 
 ### <a name="register-storage-account-with-recovery-services-vault"></a>Registro de la cuenta de almacenamiento con el almacén de Recovery Services
 
-Este paso solo es necesario si no registró la cuenta de almacenamiento con el almacén anteriormente. Puede registrar el almacén mediante la [operación ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register).
+Este paso solo es necesario si no registró la cuenta de almacenamiento con el almacén anteriormente. Puede registrar el almacén mediante la [operación ProtectionContainers-Register](/rest/api/backup/protection-containers/register).
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}?api-version=2016-12-01
@@ -205,11 +205,11 @@ La creación del cuerpo de la solicitud se lleva a cabo como se indica a continu
 
   "backupManagementType": "AzureStorage"
 
-
  }
+}
 ```
 
-Para obtener una lista completa de las definiciones del cuerpo de la solicitud y otros detalles, consulte [ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
+Para obtener una lista completa de las definiciones del cuerpo de la solicitud y otros detalles, consulte [ProtectionContainers-Register](/rest/api/backup/protection-containers/register#azurestoragecontainer).
 
 Se trata de una operación asincrónica y devuelve dos respuestas: "202 Aceptado" cuando se acepta la operación y "200 Correcto" cuando se completa la operación.  Para realizar un seguimiento del estado de la operación, use el encabezado de ubicación para obtener el estado más reciente de la operación.
 
@@ -241,7 +241,7 @@ Puede comprobar si el registro se realizó correctamente a partir del valor del 
 
 ### <a name="inquire-all-unprotected-files-shares-under-a-storage-account"></a>Consultar todos los recursos compartidos de archivos sin protección en una cuenta de almacenamiento
 
-Puede consultar los elementos que se pueden proteger de una cuenta de almacenamiento mediante la operación [Protection Containers-Inquire](/rest/api/backup/protectioncontainers/inquire). Es una operación asincrónica y se debe realizar un seguimiento de los resultados mediante el encabezado de ubicación.
+Puede consultar los elementos que se pueden proteger de una cuenta de almacenamiento mediante la operación [Protection Containers-Inquire](/rest/api/backup/protection-containers/inquire). Es una operación asincrónica y se debe realizar un seguimiento de los resultados mediante el encabezado de ubicación.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire?api-version=2016-12-01
@@ -276,7 +276,7 @@ Date  : Mon, 27 Jan 2020 10:53:05 GMT
 
 ### <a name="select-the-file-share-you-want-to-back-up"></a>Seleccione el recurso compartido de archivos del que quiere hacer una copia de seguridad
 
-Puede enumerar todos los elementos que se pueden proteger en la suscripción y buscar el recurso compartido de archivos que se va a incluir en la copia de seguridad mediante la operación [GET backupprotectableItems](/rest/api/backup/backupprotectableitems/list).
+Puede enumerar todos los elementos que se pueden proteger en la suscripción y buscar el recurso compartido de archivos que se va a incluir en la copia de seguridad mediante la operación [GET backupprotectableItems](/rest/api/backup/backup-protectable-items/list).
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
@@ -351,7 +351,7 @@ La respuesta contiene la lista de todos los recursos compartidos de archivos sin
 
 ### <a name="enable-backup-for-the-file-share"></a>Habilitación de la copia de seguridad para el recurso compartido de archivos
 
-Una vez que el recurso compartido de archivos correspondiente esté "identificado" con el nombre descriptivo, seleccione la directiva para la protección. Para más información acerca de las directivas existentes en el almacén, consulte el artículo sobre [la API de enumeración de directivas](/rest/api/backup/backuppolicies/list). A continuación, seleccione la [directiva pertinente](/rest/api/backup/protectionpolicies/get) haciendo referencia al nombre de la directiva. Para crear las directivas, consulte el [ tutorial sobre la creación de directivas](./backup-azure-arm-userestapi-createorupdatepolicy.md).
+Una vez que el recurso compartido de archivos correspondiente esté "identificado" con el nombre descriptivo, seleccione la directiva para la protección. Para más información acerca de las directivas existentes en el almacén, consulte el artículo sobre [la API de enumeración de directivas](/rest/api/backup/backup-policies/list). A continuación, seleccione la [directiva pertinente](/rest/api/backup/protection-policies/get) haciendo referencia al nombre de la directiva. Para crear las directivas, consulte el [ tutorial sobre la creación de directivas](./backup-azure-arm-userestapi-createorupdatepolicy.md).
 
 La habilitación de la protección es una operación asincrónica *PUT* que crea un "elemento protegido".
 

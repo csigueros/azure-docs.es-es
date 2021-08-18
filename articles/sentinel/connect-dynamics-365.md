@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 7d2a9c69108211b1342c553731c28785e1f2cc79
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: d8151ac8f0ae26bc3567ec3a2a533703b401a90f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421803"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747156"
 ---
 # <a name="connect-dynamics-365-activity-logs-to-azure-sentinel"></a>Conexión de los registros de actividad de Dynamics 365 a Azure Sentinel
 
@@ -67,5 +67,5 @@ El conector de actividades de [Dynamics 365](/office365/servicedescriptions/mic
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar los datos de actividades de Dynamics 365 a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](tutorial-detect-threats-built-in.md) o [personalizadas](tutorial-detect-threats-custom.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](detect-threats-built-in.md) o [personalizadas](detect-threats-custom.md).

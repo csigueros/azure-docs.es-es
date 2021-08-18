@@ -1,23 +1,24 @@
 ---
 title: Conmutación por error y recuperación ante desastres de Azure Video Analyzer for Media (anteriormente Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Aprenda cómo realizar la conmutación por error en una cuenta secundaria de Azure Video Analyzer for Media (anteriormente Video Indexer) si se produce un desastre o un error en un centro de datos regional.
-services: media-services
+services: azure-video-analyzer
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
 ms.workload: ''
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: e3f1f09f58d79ce3927b137cae20db5e1d55af14
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a7361f75a9327a6fbc88132e67e87f9be7ed5f84
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386859"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112118842"
 ---
 # <a name="video-analyzer-for-media-failover-and-disaster-recovery"></a>Conmutación por error y recuperación ante desastres de Video Analyzer for Media
 

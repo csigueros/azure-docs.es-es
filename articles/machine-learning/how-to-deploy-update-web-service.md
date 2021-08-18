@@ -10,12 +10,12 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: 5a586d29fd25ee7332f11737345aef8209de8824
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: e95bc02cce2cc3ff736de44e9f7fb3d367c33e5c
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889347"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296336"
 ---
 # <a name="update-a-deployed-web-service"></a>Actualización de un servicio web implementado
 
@@ -86,14 +86,14 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > Para actualizar el servicio de modo que use un nuevo entorno o script de entrada, cree un [archivo de configuración de inferencia](./reference-azure-machine-learning-cli.md#inference-configuration-schema) y especifíquelo con el parámetro `ic`.
 
-Para más información, consulte la documentación de [az ml service update](/cli/azure/ml/service#az_ml_service_update).
+Para más información, consulte la documentación de [az ml service update](/cli/azure/ml(v1)/computetarget/create#az_ml_service_update).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Solución de problemas de implementaciones con errores](how-to-troubleshoot-deployment.md)
 * [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Creación de aplicaciones cliente para consumir servicios web](how-to-consume-web-service.md)
-* [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
+* [Cómo implementar un modelo con una imagen personalizada de Docker](./how-to-deploy-custom-container.md)
 * [Uso de TLS para proteger un servicio web con Azure Machine Learning](how-to-secure-web-service.md)
 * [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Recopilar datos de modelos en producción](how-to-enable-data-collection.md)

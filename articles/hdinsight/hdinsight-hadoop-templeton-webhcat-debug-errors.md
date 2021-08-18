@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: ce7a21a2b5401c68c6b58bc934fb20b0225ba8ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f11967367709cec14fc9fb81931f22e34301eb1b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945464"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280392"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entender y resolver errores recibidos de WebHCat en HDInsight
 
@@ -38,7 +38,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 **Código de estado HTTP**: 429
 
-| Causa | Solución |
+| Causa | Resolución |
 | --- | --- |
 | Ha superado el número máximo de solicitudes simultáneas atendidas por WebHCat por minuto (el valor predeterminado es 20) |Reduzca la carga de trabajo para asegurarse de que no envía más del número máximo de solicitudes simultáneas o aumenta el límite de solicitudes simultáneas al modificar `templeton.exec.max-procs`. Consulte [Modificación de la configuración](#modifying-configuration) para más información. |
 
@@ -46,7 +46,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 **Código de estado HTTP**: 503
 
-| Causa | Solución |
+| Causa | Resolución |
 | --- | --- |
 | Este código de estado suele producirse durante la conmutación por error entre el nodo principal primario y secundario para el clúster. |Espere dos minutos y vuelva a intentar la operación. |
 
@@ -54,7 +54,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 **Código de estado HTTP**: 400
 
-| Causa | Solución |
+| Causa | Resolución |
 | --- | --- |
 | Los detalles de los trabajos se han limpiado con el limpiador del historial de trabajos |El período de retención predeterminado para el historial de trabajos es de 7 días. El período de retención predeterminado puede cambiarse modificando `mapreduce.jobhistory.max-age-ms`. Consulte [Modificación de la configuración](#modifying-configuration) para más información. |
 | Se ha suprimido el trabajo debido a una conmutación por error. |Vuelva a intentar el envío de trabajos durante un tiempo máximo de dos minutos |
@@ -64,7 +64,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 **Código de estado HTTP**: 502
 
-| Causa | Solución |
+| Causa | Resolución |
 | --- | --- |
 | La recolección de elementos no utilizados internos se está produciendo en el proceso de WebHCat |Espere a que termine la recolección de elementos no utilizados o reinicie el servicio de WebHCat |
 | Tiempo de espera de una respuesta desde el servicio de ResourceManager. Este error se puede producir cuando el número de aplicaciones activas alcanza el máximo configurado (el valor predeterminado es 10.000) |Espere a que finalice los trabajos actualmente en ejecución o aumente el límite de trabajos simultáneos modificando `yarn.scheduler.capacity.maximum-applications`. Consulte [Modificación de la configuración](#modifying-configuration) para más información. |
@@ -74,7 +74,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]
 
 [maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

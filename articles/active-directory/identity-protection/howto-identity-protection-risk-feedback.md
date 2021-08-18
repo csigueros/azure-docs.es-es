@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 939ffc9e2a8fb8ce3a25dc212e3df34dc6bb2ec1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a12a2ee0929ed72c242446021828c5efdbf6290a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88950364"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733674"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Aprenda cómo enviar comentarios sobre riesgo en Azure AD Identity Protection
 

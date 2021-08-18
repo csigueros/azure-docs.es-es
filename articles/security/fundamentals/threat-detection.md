@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 81b2227ac519de4d03bb63907d14c23b9c34dc64
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 19944b336a9140a7133b2f96d7821c56a59abe7e
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101042"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676859"
 ---
 # <a name="azure-threat-protection"></a>Protección contra amenazas de Azure
 
@@ -287,7 +287,7 @@ La configuración de WAF en Application Gateway proporciona las siguientes venta
 
 La API de detección de anomalías es una API útil para detectar una variedad de patrones anómalos en datos de series temporales. La API asigna una puntuación de anomalía a cada punto de datos de la serie temporal, que se puede usar para generar alertas, supervisar a través de paneles o conectar con los sistemas de vales.
 
-La [API de detección de anomalías](../../machine-learning/team-data-science-process/apps-anomaly-detection-api.md) detecta los siguientes tipos de anomalías en datos de series temporales:
+La [API de detección de anomalías](/azure/architecture/data-science-process/apps-anomaly-detection-api) detecta los siguientes tipos de anomalías en datos de series temporales:
 
 -   **Cambios abruptos e interrupciones**: al supervisar el número de errores de inicio de sesión en un servicio o el número de finalizaciones de compras en un sitio de comercio electrónico, los cambios abruptos y las interrupciones inusuales podrían indicar ataques a la seguridad o interrupciones en el servicio.
 

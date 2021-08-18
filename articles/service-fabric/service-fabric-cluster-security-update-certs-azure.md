@@ -4,12 +4,12 @@ description: Describe cómo agregar nuevos certificados, sustituir certificados 
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71096ad79f044edc003f80c838a989f694e69dd6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: be243f3c1860e2a696add5e67a86f030819eb88a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677484"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113092768"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Agregar o quitar certificados para un clúster de Service Fabric de Azure
 Se recomienda leer [Escenarios de seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md) para familiarizarse con cómo Service Fabric usa los certificados X.509. Debe entender qué es un certificado de clúster y para qué se usa antes de seguir avanzando.
@@ -282,6 +282,8 @@ Para implementar un certificado que se use para las aplicaciones del clúster, c
 
 ## <a name="next-steps"></a>Pasos siguientes
 Lea estos artículos para más información sobre la administración de clústeres:
+
+* [Administración de certificados en clústeres de Service Fabric](cluster-security-certificate-management.md)
 
 * [Proceso de actualización del clúster de Service Fabric y expectativas del usuario](service-fabric-cluster-upgrade.md)
 * [Control de acceso basado en roles para clientes de Service Fabric](service-fabric-cluster-security-roles.md)

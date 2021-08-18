@@ -1,17 +1,17 @@
 ---
 title: Definiciones de directivas integradas para proveedores de recursos personalizados de Azure
 description: Muestra las definiciones de directivas integradas de Azure Policy para los proveedores de recursos personalizados de Azure. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 06/11/2021
+ms.date: 08/13/2021
 ms.topic: reference
 author: jjbfour
 ms.author: jobreen
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0c5cacff57df7d3250748e9759bfcdb055d48e19
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: f78984912449115f0748a01bd68ccb9773f8d7d2
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020140"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181381"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-custom-resource-providers"></a>Definiciones integradas de Azure Policy para los proveedores de recursos personalizados de Azure
 

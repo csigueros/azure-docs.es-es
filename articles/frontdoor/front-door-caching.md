@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: d001a7a24d44c46a19bde08051e21d3ae3c5acb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 977a0d3eb0081818c0afe4f544dd33169cea0e95
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99538058"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370480"
 ---
 # <a name="caching-with-azure-front-door"></a>Almacenamiento en caché con Azure Front Door
 En el documento siguiente se especifican los comportamientos de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché. Front Door es una red Content Delivery Network (CDN) moderna con aceleración de sitios dinámicos y equilibrio de carga; también admite comportamientos de almacenamiento en caché como cualquier otra red CDN.
@@ -26,7 +26,7 @@ Azure Front Door proporciona archivos grandes sin un límite en el tamaño de lo
 
 Una vez que el fragmento llega al entorno de Front Door, se almacena en caché y se sirve inmediatamente al usuario. Después, Front Door realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se ha solicitado) o el cliente termina la conexión.
 
-Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://www.rfc-editor.org/info/rfc7233).
 Front Door almacena en caché los fragmentos cuando se reciben, por lo que no es necesario poner todo el archivo en la caché de Front Door. Las solicitudes subsiguientes del archivo o los intervalos de bytes se sirven desde la caché. Si no se almacenan en caché todos los fragmentos, se usa la captura previa para solicitar fragmentos del back-end. Esta optimización se basa en la capacidad del back-end de admitir solicitudes de intervalos de bytes. Si el back-end no admite solicitudes de intervalos de bytes, esta optimización no sirve.
 
 ## <a name="file-compression"></a>Compresión de archivos

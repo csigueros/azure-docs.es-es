@@ -1,27 +1,27 @@
 ---
 title: Introducción al libro de contabilidad de Azure SQL Database
 description: Conozca los conceptos básicos sobre la característica libro de contabilidad de Azure SQL Database.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: bbca4e9f4ec7ccf2b1bfd2927dd0f76eb51161b7
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6b8ca057d896cc7fa353e8b09b1d1667b87cc273
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077075"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727057"
 ---
 # <a name="azure-sql-database-ledger"></a>Libro de contabilidad de Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database está en versión preliminar pública y está disponible en la región Centro-oeste de EE. UU.
+> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
 
 Establecer la confianza en torno a la integridad de los datos almacenados en los sistemas de base de datos ha sido un problema persistente para todas las organizaciones que administran datos financieros, médicos u otros datos confidenciales. La característica de libro de contabilidad de [Azure SQL Database](sql-database-paas-overview.md) proporciona funcionalidades de evidencia de alteración en la base de datos. Puede atestiguar criptográficamente a terceros, como auditores u otras partes interesadas de la empresa, que los documentos no se han modificado.
 
@@ -61,7 +61,7 @@ Los patrones típicos para resolver este problema implican la replicación de da
 
 Cada transacción que recibe la base de datos está codificada con hash criptográfico (SHA-256). La función hash usa el valor de la transacción, junto con el hash de la transacción anterior como entrada para la función hash. (El valor incluye los hashes de las filas contenidas en la transacción). La función vincula criptográficamente todas las transacciones como una cadena de bloques. 
 
-Codificado con hash criptográfico([resúmenes de la base de datos](#database-digests)) representa el estado de la base de datos. Se generan periódicamente y se almacenan fuera de Azure SQL Database en una ubicación de almacenamiento a prueba de alteraciones. Un ejemplo de una ubicación de almacenamiento es la [característica de almacenamiento inmutable de Azure Blob Storage](../../storage/blobs/storage-blob-immutable-storage.md) o [Azure Confidential Ledger](../../confidential-ledger/index.yml). Los resúmenes de la base de datos se usan posteriormente para comprobar la integridad de la base de datos comparando el valor del hash del código con los hash calculados de la base de datos. 
+Codificado con hash criptográfico([resúmenes de la base de datos](#database-digests)) representa el estado de la base de datos. Se generan periódicamente y se almacenan fuera de Azure SQL Database en una ubicación de almacenamiento a prueba de alteraciones. Un ejemplo de una ubicación de almacenamiento es la [característica de almacenamiento inmutable de Azure Blob Storage](../../storage/blobs/immutable-storage-overview.md) o [Azure Confidential Ledger](../../confidential-ledger/index.yml). Los resúmenes de la base de datos se usan posteriormente para comprobar la integridad de la base de datos comparando el valor del hash del código con los hash calculados de la base de datos. 
 
 La funcionalidad del libro de contabilidad se introduce en las tablas en Azure SQL Database de dos formas:
 
@@ -116,7 +116,7 @@ Cuando se forma un bloque, su resumen de base de datos asociado se publica y alm
 2. Generar los hashes que representan la base de datos con esos cambios.
 3. Modifique los resúmenes para representar el hash actualizado de las transacciones del bloque . 
 
-El libro de contabilidad proporciona la capacidad de generar y almacenar automáticamente los resúmenes de base de datos en un [almacenamiento inmutable](../../storage/blobs/storage-blob-immutable-storage.md) o en [Azure Confidential Ledger](../../confidential-ledger/index.yml) para evitar la alteración. Como alternativa, los usuarios pueden generar manualmente resúmenes de base de datos y almacenarlos en la ubicación que prefieran. Los resúmenes de base de datos se usan para comprobar posteriormente que los datos almacenados en tablas de libro de contabilidad no se han alterado.
+El libro de contabilidad proporciona la capacidad de generar y almacenar automáticamente los resúmenes de base de datos en un [almacenamiento inmutable](../../storage/blobs/immutable-storage-overview.md) o en [Azure Confidential Ledger](../../confidential-ledger/index.yml) para evitar la alteración. Como alternativa, los usuarios pueden generar manualmente resúmenes de base de datos y almacenarlos en la ubicación que prefieran. Los resúmenes de base de datos se usan para comprobar posteriormente que los datos almacenados en tablas de libro de contabilidad no se han alterado.
 
 ### <a name="ledger-verification"></a>Verificación del libro de contabilidad
 

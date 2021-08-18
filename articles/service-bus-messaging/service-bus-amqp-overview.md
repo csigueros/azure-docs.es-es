@@ -3,12 +3,12 @@ title: Introducción a AMQP 1.0 en Azure Service Bus
 description: Obtenga información sobre cómo Azure Service Bus admite Advanced Message Queuing Protocol (AMQP), un protocolo estándar abierto.
 ms.topic: article
 ms.date: 04/08/2021
-ms.openlocfilehash: 006511789bfa93f8e7d578ed21a73a2563fb4c6b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0e976f0cba4a599b64fde57f3a271a1565f93417
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304429"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416920"
 ---
 # <a name="advanced-message-queueing-protocol-amqp-10-support-in-service-bus"></a>Compatibilidad con Advanced Message Queueing Protocol (AMQP) 1.0 en Service Bus
 El servicio en la nube Azure Service Bus usa [AMQP 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) como medio principal de comunicación. Microsoft se ha comprometido con asociados de todo el sector, tanto clientes como proveedores de agentes de mensajería de la competencia, para desarrollar y evolucionar el protocolo AMQP en la última década, con nuevas extensiones desarrolladas en el [Comité técnico de OASIS AMQP](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1.0 es una norma ISO e IEC ([ISO 19464:20149](https://www.iso.org/standard/64955.html)). 
@@ -70,7 +70,7 @@ Todas bibliotecas cliente de Service Bus disponible a través de Azure SDK usan 
 - [Módulos de Azure Service Bus para JavaScript y TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
 - [Bibliotecas de Azure Service Bus para Python](/python/api/overview/azure/servicebus?preserve-view=true)
 
-[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+[!INCLUDE [service-bus-websockets-options](./includes/service-bus-websockets-options.md)]
 
 Además, Service Bus se puede usar desde cualquier pila de protocolos compatible con AMQP 1.0:
 

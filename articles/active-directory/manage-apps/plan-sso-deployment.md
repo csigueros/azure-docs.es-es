@@ -2,23 +2,23 @@
 title: Planificación de una implementación de inicio de sesión único de Azure Active Directory
 description: Guía para ayudarle a planear, implementar y administrar el inicio de sesión único en la organización.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2020
-ms.author: mtillman
-ms.reviewer: jeedes
+ms.author: davidmu
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ef1daed862a67c5219d7ec243985340a8a20ea01
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: eacb1d03ce4d7148543948f4bf107d8a99181a0e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076967"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744112"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planeación de una implementación de inicio de sesión único
 
@@ -26,7 +26,7 @@ El Inicio de sesión único (SSO) significa acceder a todas las aplicaciones y l
 
 ## <a name="benefits-of-sso"></a>Ventajas del inicio de sesión único
 
-El inicio de sesión único (SSO) agrega seguridad y comodidad cuando los usuarios inician sesión en aplicaciones en Azure Active Directory (Azure AD). 
+El inicio de sesión único (SSO) agrega seguridad y comodidad cuando los usuarios inician sesión en aplicaciones en Azure Active Directory (Azure AD).
 
 Muchas organizaciones confían en las aplicaciones de software como servicio (SaaS), como Microsoft 365, Box y Salesforce, para la productividad del usuario final. Tradicionalmente, el personal de TI tenía que crear y actualizar individualmente las cuentas de usuario en cada aplicación SaaS, y los usuarios tenían que recordar una contraseña para cada una.
 
@@ -34,13 +34,13 @@ Azure Marketplace tiene más de 3000 aplicaciones con conexiones de inicio de se
 
 ## <a name="licensing"></a>Licencias
 
-- **Licencias de Azure AD**: el inicio de sesión único para las aplicaciones SaaS preintegradas es gratuito. Pero es posible que el número de objetos en el directorio y las características que quiere implementar requieran licencias adicionales. Para obtener una lista completa de los requisitos de licencia, vea [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+- **Licencias de Azure AD**: el inicio de sesión único para las aplicaciones SaaS preintegradas es gratuito. Pero es posible que el número de objetos en el directorio y las características que quiere implementar requieran licencias adicionales. Para obtener una lista completa de los requisitos de licencia, vea [Precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 - **Licencias de aplicaciones**: necesitará las licencias adecuadas para las aplicaciones SaaS con el fin de satisfacer las necesidades empresariales. Trabaje con el propietario de la aplicación para determinar si los usuarios asignados a la aplicación tienen las licencias adecuadas para sus roles dentro de ella. Si Azure AD administra el aprovisionamiento automático en función de los roles, los roles asignados en Azure AD se deben alinear con el número de licencias que posee dentro de la aplicación. Un número incorrecto de las licencias que se poseen en la aplicación puede dar lugar a errores durante el aprovisionamiento o la actualización de un usuario.
 
 ## <a name="plan-your-sso-team"></a>Planificación del equipo de inicio de sesión único
 
 - **Interactuar con las partes interesadas adecuadas**: cuando los proyectos tecnológicos fracasan, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de que interactúa con las partes interesadas adecuadas](../fundamentals/active-directory-deployment-plans.md) y que las partes interesadas comprendan sus roles.
-- **Planificación de las comunicaciones**: la comunicación es fundamental para el éxito de cualquier servicio nuevo. Comunique de forma proactiva a los usuarios cómo y cuándo va a cambiar su experiencia y cómo obtener soporte técnico si experimentan problemas. Revise las opciones sobre [cómo accederán los usuarios finales a sus aplicaciones habilitadas para el inicio de sesión único](end-user-experiences.md) y elabore las comunicaciones de forma que coincidan con la selección. 
+- **Planificación de las comunicaciones**: la comunicación es fundamental para el éxito de cualquier servicio nuevo. Comunique de forma proactiva a los usuarios cómo y cuándo va a cambiar su experiencia y cómo obtener soporte técnico si experimentan problemas. Revise las opciones sobre [cómo accederán los usuarios finales a sus aplicaciones habilitadas para el inicio de sesión único](end-user-experiences.md) y elabore las comunicaciones de forma que coincidan con la selección.
 
 ## <a name="plan-your-sso-protocol"></a>Planificación del protocolo de inicio de sesión único
 
@@ -87,10 +87,10 @@ Desde la perspectiva del inicio de sesión, las aplicaciones con cuentas compart
 
 1. Trabaje con los usuarios profesionales de la aplicación para documentar lo siguiente:
    1. El conjunto de usuarios de la organización que van a usar la aplicación
-   1. El conjunto existente de credenciales en la aplicación asociadas con el conjunto de usuarios 
+   1. El conjunto existente de credenciales en la aplicación asociadas con el conjunto de usuarios
 1. Para cada combinación de conjunto de usuarios y credenciales, cree un grupo de seguridad local en la nube según los requisitos.
-1. Restablezca las credenciales compartidas. Una vez que se haya implementado la aplicación en Azure AD, los usuarios no necesitan la contraseña de la cuenta compartida. Como la contraseña se va a almacenar en Azure AD, considere la posibilidad de establecer una muy larga y compleja. 
-1. Si la aplicación lo admite, configure la sustitución automática de la contraseña. De ese modo, ni siquiera el administrador que ha realizado la instalación inicial conocerá la contraseña de la cuenta compartida. 
+1. Restablezca las credenciales compartidas. Una vez que se haya implementado la aplicación en Azure AD, los usuarios no necesitan la contraseña de la cuenta compartida. Como la contraseña se va a almacenar en Azure AD, considere la posibilidad de establecer una muy larga y compleja.
+1. Si la aplicación lo admite, configure la sustitución automática de la contraseña. De ese modo, ni siquiera el administrador que ha realizado la instalación inicial conocerá la contraseña de la cuenta compartida.
 
 ## <a name="plan-your-authentication-method"></a>Planificación del método de autenticación
 
@@ -98,9 +98,9 @@ La elección del método de autenticación correcto es una primera decisión fun
 
 Para elegir un método de autenticación, es necesario tener en cuenta el tiempo, la infraestructura existente, la complejidad y el costo de implementar cada opción. Estos factores varían con cada organización y pueden cambiar con el tiempo. Debe elegir el que mejor coincida con el escenario concreto. Para más información, vea [Selección del método de autenticación adecuado para la solución de identidad híbrida de Azure Active Directory](../hybrid/choose-ad-authn.md).
 
-## <a name="plan-your-security-and-governance"></a>Planificación de la seguridad y la gobernanza 
+## <a name="plan-your-security-and-governance"></a>Planificación de la seguridad y la gobernanza
 
-La identidad es el nuevo eje principal de la atención y las inversiones en materia de seguridad porque los perímetros de red se han vuelto cada vez más porosos y menos eficaces debido a la explosión de los dispositivos BYOD y las aplicaciones en la nube. 
+La identidad es el nuevo eje principal de la atención y las inversiones en materia de seguridad porque los perímetros de red se han vuelto cada vez más porosos y menos eficaces debido a la explosión de los dispositivos BYOD y las aplicaciones en la nube.
 
 ### <a name="plan-access-reviews"></a>Planificación de las revisiones de acceso
 
@@ -116,7 +116,7 @@ Algunos de los temas clave para planear la configuración de revisiones de acces
 
 ### <a name="plan-auditing"></a>Planificación de auditorías
 
-Azure AD proporciona [informes que contienen datos técnicos y empresariales](../reports-monitoring/overview-reports.md). 
+Azure AD proporciona [informes que contienen datos técnicos y empresariales](../reports-monitoring/overview-reports.md).
 
 Hay informes de seguridad y actividad disponibles. En los informes de seguridad se muestran los usuarios marcados en riesgo y los inicios de sesión no seguros. Para ayudar a comprender el comportamiento de los usuarios de la organización, los informes de actividad detallan la actividad de inicio de sesión y proporcionan registros de auditoría de todos los inicios de sesión. Puede usar los informes para administrar los riesgos, aumentar la productividad y supervisar el cumplimiento.
 
@@ -167,9 +167,9 @@ Hay un conjunto preconfigurado de atributos y asignaciones de atributos entre lo
 
 ### <a name="certificate-requirements"></a>Requisitos de certificados
 
-El certificado de la aplicación debe estar actualizado o habrá riesgo de que los usuarios no puedan acceder a la aplicación. La mayoría de los certificados de aplicación SaaS son válidos durante 36 meses. Puede cambiar esa duración del certificado en la hoja de la aplicación. Asegúrese de documentar la expiración y saber cómo administrará la renovación de certificados. 
+El certificado de la aplicación debe estar actualizado o habrá riesgo de que los usuarios no puedan acceder a la aplicación. La mayoría de los certificados de aplicación SaaS son válidos durante 36 meses. Puede cambiar esa duración del certificado en la hoja de la aplicación. Asegúrese de documentar la expiración y saber cómo administrará la renovación de certificados.
 
-Hay dos maneras de administrar los certificados. 
+Hay dos maneras de administrar los certificados.
 
 - **Sustitución automática de certificados**: Microsoft admite la [sustitución de claves de firma en Azure AD](../develop/active-directory-signing-key-rollover.md). Aunque este es el método preferido para administrar certificados, no todos los ISV lo admiten.
 
@@ -184,7 +184,7 @@ Use las fases siguientes para planear e implementar la solución en la organizac
 - **Identificación de los usuarios de prueba**
 
    Póngase en contacto con el propietario de la aplicación y pídale que cree un mínimo de tres usuarios de prueba dentro de la aplicación. Asegúrese de la información que va a usar como identificador principal está rellenada de forma correcta y coincide con un atributo que está disponible en Azure AD. En la mayoría de los casos, esto se asignará a "NameID" para las aplicaciones basadas en SAML. Para los tokens JWT, es "preferred_username".
-   
+
    Cree el usuario en Azure AD ya sea de forma manual como un usuario basado en la nube, o bien sincronice el usuario desde el entorno local mediante el motor de sincronización de Azure AD Connect. Asegúrese de que la información coincide con las notificaciones que se envían a la aplicación.
 
 - **Configuración del inicio de sesión único**
@@ -259,7 +259,7 @@ Después de completar las pruebas en función de los casos de prueba, es el mome
 
 La disponibilidad de métodos de autenticación dentro de la aplicación determinará la mejor estrategia. Asegúrese de que siempre dispone de documentación detallada para los propietarios de la aplicación sobre cómo recuperar de forma exacta el estado de configuración de inicio de sesión original en caso de que se produzcan problemas en la implementación.
 
-- **Si la aplicación admite varios proveedores de identidades**, por ejemplo, LDAP y AD FS y Ping, no elimine la configuración de inicio de sesión único existente durante la implementación. En su lugar, deshabilítela durante la migración en caso de que deba volver a activarla más tarde. 
+- **Si la aplicación admite varios proveedores de identidades**, por ejemplo, LDAP y AD FS y Ping, no elimine la configuración de inicio de sesión único existente durante la implementación. En su lugar, deshabilítela durante la migración en caso de que deba volver a activarla más tarde.
 
 - **Si la aplicación no admite varios IDP** pero permite a los usuarios iniciar sesión con la autenticación basada en formularios (nombre de usuario y contraseña), asegúrese de que pueden revertir a este enfoque en caso de que se produzca un error en la nueva implementación de la configuración de inicio de sesión único.
 
@@ -293,10 +293,9 @@ Los vínculos siguientes presentan escenarios de solución de problemas. Es posi
 
 #### <a name="sso-issues-for-applications"></a>Problemas de SSO para aplicaciones
 
-- [Problema con el SSO de contraseña para las aplicaciones](./troubleshoot-password-based-sso.md) 
+- [Problema con el SSO de contraseña para las aplicaciones](./troubleshoot-password-based-sso.md)
 
-- [Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)   
-
+- [Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

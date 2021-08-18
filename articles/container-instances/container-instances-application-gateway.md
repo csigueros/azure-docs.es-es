@@ -3,12 +3,12 @@ title: Dirección IP estática del grupo de contenedores
 description: Creación de un grupo de contenedores en una red virtual y uso de una instancia de Azure Application Gateway para exponer una dirección IP de front-end estática en una aplicación web en contenedor
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: c0401c0b6ec4aae124ee1954762d22c16cacb994
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 46b04534a6beae5a2e102aa0167815da44ae21ed
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084230"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219269"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exposición de una dirección IP estática para un grupo de contenedores
 
@@ -31,7 +31,7 @@ En un caso típico, es posible que ya tenga una instancia de Azure Virtual Netwo
 
 Si es necesario, cree un grupo de recursos de Azure. Por ejemplo:
 
-```azureci
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 

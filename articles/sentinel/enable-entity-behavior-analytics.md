@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 3f3e945a00ec7bba75deebb56118d45aa7ff571d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 985f1d4edacd81b7567124845836c3d93f976bb2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100530729"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121781167"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Habilitación del análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel 
 
 > [!IMPORTANT]
 >
-> - Las características de UEBA y de las páginas de entidad ahora están en **disponibilidad general** en **_todas_** las zonas geográficas y regiones de Azure Sentinel.
+> Las características de UEBA y de las páginas de entidad ahora están en **disponibilidad general** en **_todas_** las zonas geográficas y regiones de Azure Sentinel. 
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -64,5 +66,5 @@ Para habilitar o deshabilitar esta característica (estos requisitos previos no 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a habilitar y configurar el análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).

@@ -3,13 +3,13 @@ title: Creación de una cuenta de Azure Video Analyzer
 description: En este tema se explica cómo crear una cuenta para Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/01/2021
-ms.openlocfilehash: c1c9b7a01fa23b3c5b450fdfa5d5024169b4453e
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.date: 06/01/2021
+ms.openlocfilehash: 1cb2f317ca712f2ad8ca911ecff0ac5e62cac0f5
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007560"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604008"
 ---
 # <a name="create-a-video-analyzer-account"></a>Creación de una cuenta de Video Analyzer
 

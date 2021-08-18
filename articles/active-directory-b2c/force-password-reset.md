@@ -12,12 +12,12 @@ ms.date: 06/10/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0944dfd177ba82680b315913046ce8a4103f1156
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a8fc74a298450ad2581a8a147eaff9f996dca8dc
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960614"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112198807"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña forzado en Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Cuando un administrador restablece la contraseña de un usuario desde Azure Port
 
 ![Flujo de restablecimiento de contraseña forzado](./media/force-password-reset/force-password-reset-flow.png)
 
-El flujo de restablecimiento de contraseña es aplicable a las cuentas locales de Azure AD B2C que utilizan una [dirección de correo electrónico](identity-provider-local.md#email-sign-in) o un [nombre de usuario](identity-provider-local.md#username-sign-in) con una contraseña para el inicio de sesión.
+El flujo de restablecimiento de contraseña es aplicable a las cuentas locales de Azure AD B2C que utilizan una [dirección de correo electrónico](sign-in-options.md#email-sign-in) o un [nombre de usuario](sign-in-options.md#username-sign-in) con una contraseña para el inicio de sesión.
 
 ::: zone pivot="b2c-user-flow"
 

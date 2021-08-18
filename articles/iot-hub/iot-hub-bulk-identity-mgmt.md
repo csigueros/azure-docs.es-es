@@ -2,19 +2,18 @@
 title: Importación y exportación de identidades de dispositivo de IoT Hub de Azure | Microsoft Docs
 description: Describe cómo usar el SDK de servicio IoT de Azure para ejecutar operaciones masivas en el registro de identidad con el fin de importar y exportar identidades de dispositivo. Las operaciones de importación permiten crear, actualizar y eliminar las identidades de dispositivo de forma masiva.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8e7de74a75bc0cf2a298b7ff75cf7b6b92eaec9d
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: c7c85b88e2648f41c815d9cd864362f60845116b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716121"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735148"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importación y exportación de identidades de dispositivo de IoT Hub de forma masiva
 

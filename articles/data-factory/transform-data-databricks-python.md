@@ -1,18 +1,20 @@
 ---
 title: Transformación de datos con Python en Databricks
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Aprenda a procesar o transformar datos mediante la ejecución de una actividad de Python en Databricks en una canalización de Azure Data Factory.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
-ms.custom: devx-track-python
-ms.openlocfilehash: 6e25c08554e50311613ac4a79ac40c7efce23ae9
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.custom: devx-track-python, synapse
+ms.openlocfilehash: 24d1ab1860f875201c255e775af151af88585731
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107902991"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182071"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformación de datos mediante la ejecución de una actividad de Python en Azure Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -34,7 +36,7 @@ Esta es la definición de JSON de ejemplo de una actividad de Python en Databric
         "description": "MyActivity description",
         "type": "DatabricksSparkPython",
         "linkedServiceName": {
-            "referenceName": "MyDatabricksLinkedservice",
+            "referenceName": "MyDatabricksLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {

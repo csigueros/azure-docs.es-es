@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a8f1b8c54ad4fd42cc8ebda4965aaf1233143f39
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 0676639523a0b1ebd23ff0e5082e6cccbd641f4a
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741500"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117288"
 ---
 # <a name="how-to-use-dfs-namespaces-with-azure-files"></a>Uso de Espacios de nombres DFS con Azure Files
-[Espacios de nombres del Sistema de archivos distribuido](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview), normalmente conocido como Espacios de nombres DFS o DFS-N, es un rol de servidor de Windows Server muy utilizado para simplificar la implementación y el mantenimiento de los recursos compartidos de archivos SMB en la producción. Espacios de nombres DFS es una tecnología de virtualización de espacios de nombres de almacenamiento, lo que significa que le permite proporcionar una capa de direccionamiento indirecto entre la ruta de acceso UNC de los recursos compartidos de archivos y los recursos compartidos de archivos en sí. Los espacios de nombres DFS funcionan con recursos compartidos de archivos SMB y se hospedan con independencia de estos: se pueden usar con recursos compartidos de SMB hospedados en un servidor de archivos de Windows local con o sin Azure File Sync, recursos compartidos de archivos de Azure directamente, recursos compartidos de archivos SMB hospedados en Azure NetApp Files u otras ofertas de terceros e incluso con recursos compartidos de archivos hospedados en otras nubes. 
+[Espacios de nombres del Sistema de archivos distribuido](/windows-server/storage/dfs-namespaces/dfs-overview), normalmente conocido como Espacios de nombres DFS o DFS-N, es un rol de servidor de Windows Server muy utilizado para simplificar la implementación y el mantenimiento de los recursos compartidos de archivos SMB en la producción. Espacios de nombres DFS es una tecnología de virtualización de espacios de nombres de almacenamiento, lo que significa que le permite proporcionar una capa de direccionamiento indirecto entre la ruta de acceso UNC de los recursos compartidos de archivos y los recursos compartidos de archivos en sí. Los espacios de nombres DFS funcionan con recursos compartidos de archivos SMB y se hospedan con independencia de estos: se pueden usar con recursos compartidos de SMB hospedados en un servidor de archivos de Windows local con o sin Azure File Sync, recursos compartidos de archivos de Azure directamente, recursos compartidos de archivos SMB hospedados en Azure NetApp Files u otras ofertas de terceros e incluso con recursos compartidos de archivos hospedados en otras nubes. 
 
 Básicamente, Espacios de nombres DFS proporciona una asignación entre una ruta de acceso UNC descriptiva, como `\\contoso\shares\ProjectX`, y la ruta de acceso UNC subyacente del recurso compartido SMB, como `\\Server01-Prod\ProjectX` o `\\storageaccount.file.core.windows.net\projectx`. Cuando el usuario final quiere navegar al recurso compartido de archivos, escribe la ruta de acceso UNC descriptiva, pero el cliente SMB accede a la ruta de acceso SMB subyacente de la asignación. También puede ampliar este concepto básico para que asuma un nombre de servidor de archivos existente, como `\\MyServer\ProjectX`. Puede usar esta funcionalidad para conseguir lo siguiente:
 
@@ -32,6 +32,13 @@ Puede ver un ejemplo de cómo usar Espacios de nombres DFS con su implementació
 > Vaya al minuto 10:10 del vídeo para ver cómo configurar Espacios de nombres DFS.
 
 Si ya tiene un espacio de nombres DFS, no es necesario realizar ningún paso especial para usarlo con Azure Files y File Sync. Si accede al recurso compartido de archivos de Azure desde el entorno local, se aplican las consideraciones habituales para las redes. Consulte [Consideraciones de redes para Azure Files](./storage-files-networking-overview.md) para obtener más información.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="namespace-types"></a>Tipos de espacios de nombres
 Espacios de nombres DFS proporciona dos tipos de espacio de nombres principales:
@@ -210,4 +217,4 @@ Ahora que ha creado un espacio de nombres, una carpeta y un destino de carpeta, 
 ## <a name="see-also"></a>Consulta también
 - Implementación de un recurso compartido de archivos de Azure: [Planeamiento de una implementación de Azure Files](storage-files-planning.md) y [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
 - Configuración del acceso a recursos compartidos de archivos: documentos sobre [autenticación basada en la identidad](storage-files-active-directory-overview.md) y [consideraciones de red para el acceso directo](storage-files-networking-overview.md).
-- [Espacios de nombres del Sistema de archivos distribuido de Windows Server](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)
+- [Espacios de nombres del Sistema de archivos distribuido de Windows Server](/windows-server/storage/dfs-namespaces/dfs-overview)

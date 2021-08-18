@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: f974a99c59b19b5df7bf6ffcc66c2dc133743f0a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3f486e1f46cc4ed21dc3da89d242d50010178e7d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790546"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739214"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidad empresarial y recuperación ante desastres para Azure Logic Apps
 
@@ -348,7 +348,7 @@ Puede configurar el registro de las ejecuciones de la aplicación lógica y envi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a la resistencia para Azure](/azure/architecture/framework/resiliency/overview)
+* [Diseño de aplicaciones de Azure confiables](/azure/architecture/framework/resiliency/app-design)
 * [Lista de comprobación de resistencia para servicios de Azure específicos](/azure/architecture/checklist/resiliency-per-service)
 * [Administración de datos para lograr la resistencia en Azure](/azure/architecture/framework/resiliency/data-management)
 * [Copia de seguridad y recuperación ante desastres para aplicaciones de Azure](/azure/architecture/framework/resiliency/backup-and-recovery)

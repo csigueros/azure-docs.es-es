@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 863734596861f3116418cb322a1e4a8ae9c8ea40
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645740"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746422"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configuración del acelerador de soluciones de factoría conectada
 
@@ -32,7 +32,7 @@ Cada factoría de Contoso tiene líneas de producción, y cada una de ellas se c
 * Estación de prueba
 * Estación de empaquetado
 
-Estos servidores OPC UA tienen nodos OPC UA y el [publicador de OPC](overview-opc-publisher.md) envía los valores de estos nodos a la factoría conectada. Esto incluye:
+Estos servidores OPC UA tienen nodos OPC UA y el [publicador de OPC](/previous-versions/azure/iot-accelerators/overview-opc-publisher) envía los valores de estos nodos a la factoría conectada. Esto incluye:
 
 * Estado operativo actual, como el consumo de energía actual.
 * Información de producción, como el número de productos fabricados.
@@ -310,7 +310,7 @@ Para determinadas operaciones, como la visualización del último valor o la cre
 
   Identifica el valor del nodo en el servidor OPC UA. El formato de la propiedad debe ser como se especifica en la especificación OPC UA. En los mensajes ingeridos, esta propiedad se envía como **NodeId**.
 
-Vea [¿Qué es OPC Publisher?](overview-opc-publisher.md) para obtener más información sobre cómo los datos de telemetría se ingieren en la factoría conectada mediante el publicador de OPC.
+Vea [¿Qué es OPC Publisher?](/previous-versions/azure/iot-accelerators/overview-opc-publisher) para obtener más información sobre cómo los datos de telemetría se ingieren en la factoría conectada mediante el publicador de OPC.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Ejemplo: Cómo se calcula KPI1
 

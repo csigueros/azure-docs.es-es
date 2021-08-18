@@ -7,12 +7,12 @@ ms.date: 04/27/2021
 ms.author: helohr
 ms.reviewer: denisgun
 manager: femila
-ms.openlocfilehash: c8df5cbcc241877e5637abd89804071b4dcbf938
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 41ee917602ed67af40f3244ad7215cae4d3a93c8
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753096"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113032464"
 ---
 # <a name="proxy-server-guidelines-for-azure-virtual-desktop"></a>Directrices del servidor proxy en Azure Virtual Desktop
 
@@ -115,7 +115,7 @@ En la tabla siguiente se muestra qué clientes de Azure Virtual Desktop admiten 
 | macOS | Sí |
 | Tienda Windows | Yes |
 
-Para obtener más información sobre la compatibilidad con proxy en clientes ligeros basados en Linux, consulte [Compatibilidad con clientes ligeros](linux-overview.md).
+Para obtener más información sobre la compatibilidad con proxy en clientes ligeros basados en Linux, consulte [Compatibilidad con clientes ligeros](./user-documentation/linux-overview.md).
 
 ## <a name="support-limitations"></a>Limitaciones de compatibilidad
 

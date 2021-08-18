@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de GitHub Enterprise Managed User para aprovisi
 description: Obtenga información sobre cómo aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para GitHub Enterprise Managed User.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 6aee39c7-08a1-4110-b936-4c85d129743b
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2021
-ms.author: Zhchia
-ms.openlocfilehash: cbae87a005240c15a2c3c28dcb8ab126d9957ba6
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.author: thwimmer
+ms.openlocfilehash: 69a6bc9137fa5456c7681d2b3e7fae016d04ac0e
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801237"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767796"
 ---
 # <a name="tutorial-configure-github-enterprise-managed-user-for-automatic-user-provisioning"></a>Tutorial: Configuración de GitHub Enterprise Managed User para el aprovisionamiento automático de usuarios
 

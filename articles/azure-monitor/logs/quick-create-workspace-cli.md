@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 175473f5abd74fa208962fd94852e9ddedfaf7e3
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 4e4cf08f9955e79125e998e2fe0b80a97768554c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105821"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741276"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Creación de un área de trabajo de Log Analytics con la CLI de Azure 2.0
 
@@ -21,11 +21,6 @@ La CLI de Azure 2.0 se usa para crear y administrar recursos de Azure desde la l
 * Colecciones de dispositivos de Configuration Manager  
 * Datos de diagnóstico o registro de Azure Storage  
 
-Para otros orígenes, como las máquinas virtuales de Azure y la máquinas virtuales Windows o Linux del entorno, consulte los temas siguientes:
-
-* [Recopilación de datos de máquinas virtuales de Azure](../vm/quick-collect-azurevm.md)
-* [Recopilación de datos de un equipo Linux híbrido](../vm/quick-collect-linux-computer.md)
-* [Recopilación de datos de un equipo Windows híbrido](../vm/quick-collect-windows-computer.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -120,7 +115,7 @@ La implementación puede demorar unos minutos en completarse. Cuando termine, ve
 ## <a name="troubleshooting"></a>Solución de problemas
 Al crear un área de trabajo que se eliminó en los últimos 14 días y en [estado de eliminación temporal](../logs/delete-workspace.md#soft-delete-behavior), la operación podría tener un resultado diferente en función de la configuración del área de trabajo:
 1. Si proporciona el mismo nombre de área de trabajo, grupo de recursos, suscripción y región que en el área de trabajo eliminado, se recuperará el área de trabajo, incluidos los datos, la configuración y los agentes conectados.
-2. Este nombre debe ser único por cada grupo de recursos. Si usa un nombre de área de trabajo que ya existe, también en la eliminación temporal del grupo de recursos, recibirá un error que indica que *el nombre del área de trabajo no es único* o entra en *conflicto*. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:
+2. Este nombre debe ser único por cada grupo de recursos. Si usa un nombre de área de trabajo que ya existe, también en la eliminación temporal del grupo de recursos, recibirá un error que indica que *el nombre del área de trabajo no es único* o entra en *conflicto.* Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:
    * [Recuperar](../logs/delete-workspace.md#recover-workspace) el área de trabajo
    * [Eliminación permanente del área de trabajo](../logs/delete-workspace.md#permanent-workspace-delete)
    * Crear una nueva área de trabajo con el mismo nombre

@@ -10,12 +10,12 @@ ms.date: 05/07/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28f46ec6354f98c11ce68beeb2e3de375c7a0249
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: bd1bbf0d1c5a49bde35d303e6780737fb43ca997
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632338"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726066"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicio de una conmutación por error de la cuenta de almacenamiento
 
@@ -42,7 +42,7 @@ Tenga en cuenta que las siguientes características y servicios no son compatibl
 - Azure File Sync no admite la conmutación por error de una cuenta de almacenamiento. No se debe realizar la conmutación por error de las cuentas de almacenamiento que contienen recursos compartidos de archivos de Azure y que se usan como puntos de conexión de nube en Azure File Sync. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas.
 - Actualmente, no se admiten cuentas de almacenamiento que tienen habilitado el espacio de nombres jerárquico (como Data Lake Storage Gen2).
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs en bloques Premium. Las cuentas de almacenamiento que admiten los blobs en bloques Premium actualmente no admiten la redundancia geográfica.
-- No se puede conmutar por error una cuenta de almacenamiento que contenga contenedores habilitados por la [Directiva de inmutabilidad de gusanos](../blobs/storage-blob-immutable-storage.md). Las directivas de retención legal o retención basada en tiempo desbloqueada o bloqueada impiden la conmutación por error para mantener el cumplimiento.
+- No se puede conmutar por error una cuenta de almacenamiento que contenga contenedores habilitados por la [Directiva de inmutabilidad de gusanos](../blobs/immutable-storage-overview.md). Las directivas de retención legal o retención basada en tiempo desbloqueada o bloqueada impiden la conmutación por error para mantener el cumplimiento.
 
 ## <a name="initiate-the-failover"></a>Inicio de la conmutación por error
 

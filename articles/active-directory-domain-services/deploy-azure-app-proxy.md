@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 67d29dcf0ea4e68354f7b0fad2be7e57e85f8fe7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b01595353dd9857409c75ab95271452fb3cee7b0
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962209"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228573"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Implementación de Azure AD Application Proxy para el acceso seguro a las aplicaciones internas en un dominio administrado de Azure Active Directory Domain Services
 
@@ -75,7 +75,7 @@ Con una máquina virtual lista para usarla como el conector de Azure AD Applica
         > Por ejemplo, si el dominio de Azure AD es *contoso.com*, el administrador global debe ser `admin@contoso.com` u otro alias válido en ese dominio.
 
    * Si la configuración de seguridad mejorada de Internet Explorer está activada en la máquina virtual donde instala el conector, la pantalla de registro podría bloquearse. Para permitir el acceso, siga las instrucciones del mensaje de error o desactive la seguridad mejorada de Internet Explorer durante el proceso de instalación.
-   * Si el registro del conector no funciona, consulte [Solución de problemas de Proxy de aplicación](/azure/active-directory/app-proxy/application-proxy-troubleshoot).
+   * Si el registro del conector no funciona, consulte [Solución de problemas de Proxy de aplicación](../active-directory/app-proxy/application-proxy-troubleshoot.md).
 1. Al final de la instalación, se muestra una nota para los entornos con un proxy de salida. Para configurar el conector de Azure AD Application Proxy para que funcione a través del proxy de salida, ejecute el script proporcionado, como `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
 1. En la página Proxy de aplicación de Azure Portal, el conector nuevo aparece con estado *Activo*, tal como se muestra en el ejemplo siguiente:
 

@@ -2,21 +2,22 @@
 title: Acceso híbrido seguro de Azure AD con F5 | Microsoft Docs
 description: Integración del administrador de directivas de acceso de F5 BIG-IP y Azure Active Directory para el acceso híbrido seguro
 services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/12/2020
-ms.author: gasinh
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38b484bd67f3354132675f343dcc06bd7f9d48a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: miccohen
+ms.openlocfilehash: cc55eff7c5ed3a4773a016bcd73bbd33708d9595
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499821"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738781"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>Integración del administrador de directivas de acceso de F5 BIG-IP y Azure Active Directory para el acceso híbrido seguro
 
@@ -34,7 +35,6 @@ Hacer que Azure AD realice una autenticación previa para el acceso a los servi
 - [Acceso condicional](../conditional-access/overview.md) preventivo y [autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md).
 
 - [Protección de identidades](../identity-protection/overview-identity-protection.md): control adaptable mediante la generación de perfiles de riesgo de usuario y sesión.
-
 
 - [Detección de credenciales filtradas](../identity-protection/concept-identity-protection-risks.md).
 
@@ -117,19 +117,19 @@ La integración de F5 BIG-IP con Azure AD para el acceso híbrido seguro tiene 
 
 - Una licencia de F5 BIG-IP APM, a través de una de las siguientes opciones:
 
-   - F5 BIG-IP® Best bundle (o)
+  - F5 BIG-IP® Best bundle (o)
 
-   - Licencia independiente de F5 BIG-IP Access Policy Manager™ (APM).
+    - Licencia independiente de F5 BIG-IP Access Policy Manager™ (APM).
 
-   - Licencia del complemento F5 BIG-IP Access Policy Manager™ (APM) en una instalación de F5 BIG-IP® Local Traffic Manager™ (LTM) ya existente.
+    - Licencia del complemento F5 BIG-IP Access Policy Manager™ (APM) en una instalación de F5 BIG-IP® Local Traffic Manager™ (LTM) ya existente.
 
-   - Una [licencia de evaluación gratuita](https://www.f5.com/trial/big-ip-trial.php) de 90 días de F5 BIG-IP Access Policy Manager™ (APM).
+    - Una [licencia de evaluación gratuita](https://www.f5.com/trial/big-ip-trial.php) de 90 días de F5 BIG-IP Access Policy Manager™ (APM).
 
 - Licencias de Azure AD mediante cualquiera de las siguientes opciones:
 
-   - Una [suscripción gratuita](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) de Azure AD proporciona los requisitos básicos mínimos para implementar el acceso híbrido seguro con autenticación sin contraseña.
+  - Una [suscripción gratuita](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) de Azure AD proporciona los requisitos básicos mínimos para implementar el acceso híbrido seguro con autenticación sin contraseña.
 
-   - Una [suscripción Premium](https://azure.microsoft.com/pricing/details/active-directory/) proporciona todo el valor adicional que se indica en el prefacio, incluido el [acceso condicional](../conditional-access/overview.md), la [autenticación multifactor](../authentication/concept-mfa-howitworks.md) y la [protección de identidades](../identity-protection/overview-identity-protection.md).
+  - Una [suscripción Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) proporciona todo el valor adicional que se indica en el prefacio, incluido el [acceso condicional](../conditional-access/overview.md), la [autenticación multifactor](../authentication/concept-mfa-howitworks.md) y la [protección de identidades](../identity-protection/overview-identity-protection.md).
 
 No se necesita experiencia ni conocimientos previos de F5 BIG-IP para implementar el acceso híbrido seguro, aunque es recomendable que se familiarice con la terminología de F5 BIG-IP. La [knowledge base](https://www.f5.com/services/resources/glossary) enriquecida de F5 también es un buen punto de partida para empezar a conocer BIG-IP.
 

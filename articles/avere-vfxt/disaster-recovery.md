@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 5cc4678b082aa5a4a3f90518ff8fac448f414f1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec58e921940be71b0189bcba96596c18b1b8786b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92342253"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751495"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Guía de recuperación ante desastres para Avere vFXT for Azure
 
@@ -117,7 +117,7 @@ Para acceder al contenedor de copia de seguridad desde un clúster de Avere vFXT
 * Para más información sobre la personalización de la configuración de Avere vFXT for Azure, lea [Ajuste del clúster](avere-vfxt-tuning.md).
 * Más información sobre la recuperación ante desastres y la compilación de aplicaciones resistentes en Azure:
 
-  * [Guía técnica sobre resistencia en Azure](/azure/architecture/framework/resiliency/overview)
+  * [Guía técnica sobre resistencia en Azure](/azure/architecture/reliability/architect)
   * [Recuperación después de una interrupción del servicio en toda la región](/azure/architecture/resiliency/recovery-loss-azure-region)
   * [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
   <!-- can't find these in the source tree to use relative links -->

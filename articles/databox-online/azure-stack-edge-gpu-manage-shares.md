@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 02/26/2021
 ms.author: alkohli
-ms.openlocfilehash: b79cb1b195d35c1e25dd750476c0dacb296f8010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a77cbee43ed52500e5de1b67286bada931a87754
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102637357"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736865"
 ---
 # <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Stack Edge Pro
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-En este artículo se explica cómo administrar recursos compartidos en Azure Stack Edge Pro. Azure Stack Edge Pro se puede administrar con Azure Portal o con la interfaz de usuario web local. Use Azure Portal para agregar, eliminar y actualizar recursos compartidos o sincronizar la clave de almacenamiento para la cuenta de almacenamiento asociada con los recursos compartidos. Este artículo se aplica a los dispositivos de Azure Stack Edge con GPU, Azure Stack Edge Pro R y Azure Stack Edge Mini R.
+En este artículo se explica cómo administrar recursos compartidos en Azure Stack Edge Pro. Azure Stack Edge Pro se puede administrar con Azure Portal o con la interfaz de usuario web local. Use Azure Portal para agregar, eliminar y actualizar recursos compartidos o sincronizar la clave de almacenamiento para la cuenta de almacenamiento asociada con los recursos compartidos.
 
 ## <a name="about-shares"></a>Acerca de los recursos compartidos
 
@@ -63,7 +63,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
 ## <a name="add-a-local-share"></a>Incorporación de un recurso compartido local
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). Seleccione **+ Agregar recurso compartido** en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y, luego, a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). Seleccione **+ Agregar recurso compartido** en la barra de comandos.
 
     ![Seleccionar Agregar recurso compartido 2](media/azure-stack-edge-gpu-manage-shares/add-local-share-1.png)
 
@@ -74,7 +74,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 3. Seleccione un **tipo** de recurso compartido. El tipo puede ser **SMB** o **NFS** (SMB es el predeterminado). SMB es el estándar para los clientes de Windows y se usa NFS para los clientes de Linux. Dependiendo de si elige recursos compartidos SMB o NFS, las opciones que se presentan son ligeramente diferentes.
 
    > [!IMPORTANT]
-   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
+   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/immutable-policy-configure-version-scope.md).
 
 4. Para acceder fácilmente a los recursos compartidos de los módulos de proceso perimetral, use el punto de montaje local. Seleccione **Use the share with Edge compute** (Usar el recurso compartido con el proceso perimetral) para que el módulo de Edge pueda usar el proceso con el punto de montaje local.
 
@@ -99,7 +99,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 Si creó un recurso compartido antes de configurar el proceso en su dispositivo Azure Stack Edge Pro, deberá montar el recurso compartido. Realice los siguientes pasos para montar un recurso compartido.
 
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). En la lista de recursos compartidos, seleccione el que desee montar. En la columna **Usado para el proceso**, el estado del recurso compartido seleccionado aparecerá como **Deshabilitado**.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y, luego, a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). En la lista de recursos compartidos, seleccione el que desee montar. En la columna **Usado para el proceso**, el estado del recurso compartido seleccionado aparecerá como **Deshabilitado**.
 
     ![Seleccionar recurso compartido](media/azure-stack-edge-gpu-manage-shares/mount-share-1.png)
 

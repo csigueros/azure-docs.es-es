@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
 ms.custom: mqtt
-ms.openlocfilehash: 15c0df33b8f09ec71f2be913d72f0785dc766375
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 627342bb4ee7a6192b6dd7b9fdce71a87158ec39
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93027540"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114287688"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Envío de mensajes de nube a dispositivo con IoT Hub (iOS)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-IoT Hub de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una solución de back-end. En el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-ios.md) se muestra cómo crear un centro de IoT, aprovisionar en él la identidad del dispositivo y codificar una aplicación de dispositivo simulado que envíe mensajes del dispositivo a la nube.
+IoT Hub de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una solución de back-end. En el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md) se muestra cómo crear un centro de IoT, aprovisionar en él la identidad del dispositivo y codificar una aplicación de dispositivo simulado que envíe mensajes del dispositivo a la nube.
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
@@ -33,7 +33,7 @@ Encontrará más información sobre los mensajes de la nube al dispositivo en la
 
 Al final de este artículo, se ejecutan dos proyectos de iOS con Swift:
 
-* **sample-device**, la aplicación que se creó en [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-ios.md) (Envío de telemetría de un dispositivo a IoT Hub), que se conecta al centro de IoT y recibe mensajes de la nube al dispositivo.
+* **sample-device**, la aplicación que se creó en [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md) (Envío de telemetría de un dispositivo a IoT Hub), que se conecta al centro de IoT y recibe mensajes de la nube al dispositivo.
 
 * **sample-service**, que envía un mensaje de la nube a la aplicación de dispositivo simulado mediante IoT Hub y recibe la confirmación de entrega.
 
@@ -58,7 +58,7 @@ Al final de este artículo, se ejecutan dos proyectos de iOS con Swift:
 
 En esta sección se simula un dispositivo iOS que ejecuta una aplicación con Swift para recibir mensajes de la nube al dispositivo desde IoT Hub. 
 
-Este es el dispositivo de ejemplo que se creó en el artículo [Enviar telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-ios.md). Si ya lo tiene en ejecución, puede omitir esta sección.
+Este es el dispositivo de ejemplo que se creó en el artículo [Enviar telemetría desde un dispositivo a IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md). Si ya lo tiene en ejecución, puede omitir esta sección.
 
 ### <a name="install-cocoapods"></a>Instalación de CocoaPods
 
@@ -106,7 +106,7 @@ Junto con la instalación de los pods necesarios para el proyecto, el comando de
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obtención de la cadena de conexión de IoT Hub
 
-En este artículo, creará un servicio de back-end para enviar mensajes de la nube a un dispositivo a través de la instancia de IOT Hub que creó en [Enviar telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-ios.md). Para enviar mensajes de nube a un dispositivo, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
+En este artículo, creará un servicio de back-end para enviar mensajes de la nube a un dispositivo a través de la instancia de IOT Hub que creó en [Enviar telemetría desde un dispositivo a IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md). Para enviar mensajes de nube a un dispositivo, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 

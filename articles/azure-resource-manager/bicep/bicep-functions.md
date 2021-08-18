@@ -2,13 +2,13 @@
 title: Funciones de Bicep
 description: Describe las funciones que se van a usar en un archivo de Bicep para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: ac8d9660fa198db3da9c5fd3d9770157efd818d6
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 06/16/2021
+ms.openlocfilehash: 827770c449d144e266022ee1b53c3b10078f605f
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026893"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112292940"
 ---
 # <a name="bicep-functions"></a>Funciones de Bicep
 
@@ -83,6 +83,7 @@ Las siguientes funciones están disponibles para trabajar con objetos.
 Las siguientes funciones están disponibles para obtener valores de recursos:
 
 * [extensionResourceId](./bicep-functions-resource.md#extensionresourceid)
+* [getSecret](./bicep-functions-resource.md#getsecret)
 * [listAccountSas](./bicep-functions-resource.md#list)
 * [listKeys](./bicep-functions-resource.md#listkeys)
 * [listSecrets](./bicep-functions-resource.md#list)

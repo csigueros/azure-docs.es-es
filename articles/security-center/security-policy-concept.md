@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: eb6369e89066451779d05a97057acbdd451de192
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 240ed5ed7aefb31503047f124d34e99d738da687
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146678"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236866"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>¿Qué son las directivas de seguridad, las iniciativas y las recomendaciones?
 
@@ -71,13 +71,13 @@ Como se mencionó anteriormente, las recomendaciones integradas de Security Cent
 
 Cuando se revisan los detalles de una recomendación, a menudo resulta útil poder ver la directiva subyacente. Para cada recomendación compatible con una directiva, use el vínculo **View policy definition** (Ver definición de directiva) de la página de detalles de la recomendación para ir directamente a la entrada Azure Policy de la directiva pertinente:
 
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Vínculo a la página de Azure Policy de la directiva específica que admite una recomendación":::
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Vínculo a la página de Azure Policy de la directiva específica que admite una recomendación.":::
 
 Use este vínculo para ver la definición de directiva y revisar la lógica de evaluación. 
 
 Si va a revisar la lista de recomendaciones de la [guía de referencia de recomendaciones de seguridad](recommendations-reference.md), también verá vínculos a las páginas de definición de directiva:
 
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Acceso a la página de Azure Policy de una directiva específica directamente desde la página de referencia de recomendaciones de Azure Security Center":::
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Acceso a la página de Azure Policy de una directiva específica directamente desde la página de referencia de recomendaciones de Azure Security Center.":::
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 450a089c6cc1c77ac26cb0aa339277d5c49b41c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 215b9486af06c58cd1e7a6990bfc10ad43d4407f
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594791"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860980"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estadísticas en SQL de Synapse
 
@@ -205,7 +205,7 @@ Otra opción consiste en especificar el tamaño del ejemplo como un porcentaje:
 ```sql
 CREATE STATISTICS col1_stats
     ON dbo.table1 (col1)
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
 #### <a name="create-single-column-statistics-on-only-some-of-the-rows"></a>Crear estadísticas de columna única solo en algunas filas
@@ -233,7 +233,7 @@ También puede combinar las opciones. En el ejemplo siguiente se crea un objeto 
 CREATE STATISTICS stats_col1
     ON table1 (col1)
     WHERE col1 > '2000101' AND col1 < '20001231'
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
 Para obtener la referencia completa, consulte [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true).
@@ -251,7 +251,7 @@ En este ejemplo, el histograma se encuentra en *product\_category*. Las estadís
 CREATE STATISTICS stats_2cols
     ON table1 (product_category, product_sub_category)
     WHERE product_category > '2000101' AND product_category < '20001231'
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
 Dado que no existe una correlación entre *product\_category* y *product\_sub\_category*, un objeto de estadística de varias columnas puede ser útil si se tiene acceso a estas columnas al mismo tiempo.
@@ -884,6 +884,6 @@ WHERE   st.[user_created] = 1
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para mejorar aún más el rendimiento de las consultas de los grupos de SQL dedicados, consulte [Supervisión de la carga de trabajo](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) y [Procedimientos recomendados para grupos de SQL dedicados](best-practices-dedicated-sql-pool.md#maintain-statistics).
+Para mejorar aún más el rendimiento de las consultas de los grupos de SQL dedicados, consulte [Supervisión de la carga de trabajo](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context) y [Procedimientos recomendados para grupos de SQL dedicados](best-practices-dedicated-sql-pool.md#maintain-statistics).
 
 Para mejorar aún más el rendimiento de las consultas de los grupos de SQL sin servidor, consulte [Procedimientos recomendados para grupos de SQL sin servidor](best-practices-serverless-sql-pool.md).

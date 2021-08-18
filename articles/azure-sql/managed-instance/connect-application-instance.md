@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, vanto
-ms.date: 02/25/2021
-ms.openlocfilehash: 4a24c40abc938d63ed94c9b8b23654c619b776f1
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.reviewer: mathoma, bonova, vanto
+ms.date: 07/08/2021
+ms.openlocfilehash: fd2616b6de5c1c3955139ec7869c1903d68729f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688978"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751265"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Para conectar redes virtuales hay dos opciones:
 El emparejamiento es la opción preferida porque se usa la red troncal de Microsoft y, por lo tanto, desde la perspectiva de la conectividad, no hay diferencias notables de latencia entre las máquinas virtuales de la red virtual emparejada y la propia. El emparejamiento de red virtual se admite entre las redes de la misma región. El emparejamiento de red virtual global también se admite, con la limitación descrita en la siguiente nota.  
 
 > [!IMPORTANT]
-> [El 22 de septiembre de 2020, anunciamos el emparejamiento de red virtual global para los clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. 
+> [El 22 de septiembre de 2020 se anunció el emparejamiento de red virtual global para clústeres virtuales recién creados](https://azure.microsoft.com/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región, debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. Para poder usar el emparejamiento de red virtual global en instancias de SQL Managed Instance desde clústeres virtuales creados antes de la fecha del anuncio, considere la posibilidad de configurar la [ventana de mantenimiento](../database/maintenance-window.md) en las instancias, ya que eso mueve las instancias a nuevos clústeres virtuales que admiten el emparejamiento de red virtual global.
 
 ## <a name="connect-from-on-premises"></a>Conexión desde el entorno local 
 

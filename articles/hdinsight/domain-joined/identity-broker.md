@@ -4,12 +4,12 @@ description: Obtenga información sobre el Agente de identidad de Azure HDInsigh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: c5bc5bc702dbd54bbad43aa4e1c6c8650c18e088
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8201935f9aff99c9fa2709fe0b1418b0dab56e87
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863197"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737767"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Agente de identidad de Azure HDInsight (HIB)
 
@@ -126,7 +126,7 @@ En la configuración del Agente de identidad de HDInsight, las aplicaciones pers
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *    Permiso: (nombre: Cluster.ReadWrite; id.: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
-Después de adquirir el token de OAuth, úselo en el encabezado de autorización de la solicitud HTTP para la puerta de enlace del clúster (por ejemplo, https://<clustername>-int.azurehdinsight.net). Un comando cURL de ejemplo para la Livy API podría ser similar al siguiente ejemplo:
+Después de adquirir el token de OAuth, úselo en el encabezado de autorización de la solicitud HTTP para la puerta de enlace del clúster (por ejemplo, https://\<clustername\>-int.azurehdinsight.net). Un comando cURL de ejemplo para la Livy API podría ser similar al siguiente ejemplo:
     
 ```bash
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"

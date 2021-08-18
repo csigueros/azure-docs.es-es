@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/16/2020
-ms.openlocfilehash: 4769cc8abe121625f3bf77785cd681c0f649d166
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 525fed571576f6d5fc49d68abbbe26e46cf3291e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567696"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862258"
 ---
 # <a name="data-flows-in-azure-synapse-analytics"></a>Flujos de datos en Azure Synapse Analytics
 
@@ -30,7 +30,7 @@ Los flujos de datos se crean desde el panel Desarrollar de Synapse Studio. Para 
 
 ![Nuevo flujo de datos](media/data-flow/new-data-flow.png)
 
-Con esta acción, accederá al lienzo de flujo de datos, donde podrá crear la lógica de transformación. Seleccione **Agregar origen** para comenzar a configurar la transformación de origen. Para más información, consulte [Transformación de origen](../data-factory/data-flow-source.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Con esta acción, accederá al lienzo de flujo de datos, donde podrá crear la lógica de transformación. Seleccione **Agregar origen** para comenzar a configurar la transformación de origen. Para más información, consulte [Transformación de origen](../data-factory/data-flow-source.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="authoring-data-flows"></a>Creación de flujos de datos
 
@@ -40,13 +40,13 @@ El flujo de datos tiene un lienzo de creación único diseñado para facilitar l
 
 ### <a name="graph"></a>Grafo
 
-En el gráfico se muestra el flujo de transformación. Muestra el linaje de los datos de origen a medida que fluyen hacia uno o varios receptores. Para agregar un nuevo origen, seleccione **Agregar origen**. Para agregar una nueva transformación, seleccione el signo más situado en la parte inferior derecha de una transformación existente. Obtenga más información sobre cómo [administrar el gráfico de flujo de datos](../data-factory/concepts-data-flow-manage-graph.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+En el gráfico se muestra el flujo de transformación. Muestra el linaje de los datos de origen a medida que fluyen hacia uno o varios receptores. Para agregar un nuevo origen, seleccione **Agregar origen**. Para agregar una nueva transformación, seleccione el signo más situado en la parte inferior derecha de una transformación existente. Obtenga más información sobre cómo [administrar el gráfico de flujo de datos](../data-factory/concepts-data-flow-manage-graph.md?context=/azure/synapse-analytics/context/context).
 
 ![Captura de pantalla que muestra la parte del gráfico del lienzo con un cuadro de texto de búsqueda.](media/data-flow/canvas-2.png)
 
 ### <a name="configuration-panel"></a>Panel de configuración
 
-En el panel configuración se muestra la configuración específica de la transformación seleccionada actualmente. Si no se ha seleccionado ninguna transformación, se muestra el flujo de datos. En la configuración de flujo de datos general, puede agregar parámetros a través de la pestaña **Parámetros**. Para obtener más información, consulte [Parámetros de Data Flow](../data-factory/parameters-data-flow.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+En el panel configuración se muestra la configuración específica de la transformación seleccionada actualmente. Si no se ha seleccionado ninguna transformación, se muestra el flujo de datos. En la configuración de flujo de datos general, puede agregar parámetros a través de la pestaña **Parámetros**. Para obtener más información, consulte [Parámetros de Data Flow](../data-factory/parameters-data-flow.md?context=/azure/synapse-analytics/context/context).
 
 Cada transformación contiene al menos cuatro pestañas de configuración.
 
@@ -58,7 +58,7 @@ La primera pestaña del panel de configuración de cada transformación contiene
 
 #### <a name="optimize"></a>Optimización
 
-La pestaña **Optimizar** contiene valores opcionales para configurar los esquemas de partición. Para obtener más información sobre cómo optimizar los flujos de datos, consulte la [guía de rendimiento de flujos de datos de asignación](../data-factory/concepts-data-flow-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+La pestaña **Optimizar** contiene valores opcionales para configurar los esquemas de partición. Para obtener más información sobre cómo optimizar los flujos de datos, consulte la [guía de rendimiento de flujos de datos de asignación](../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context).
 
 ![Captura de pantalla que muestra la pestaña Optimizar](media/data-flow/optimize.png)
 
@@ -72,7 +72,7 @@ Al cambiar la forma de los datos mediante transformaciones, verá que los cambio
 
 #### <a name="data-preview"></a>Vista previa de datos
 
-Si el modo de depuración está activado, en la pestaña **Vista previa de los datos**, podrá ver una instantánea interactiva de los datos en cada transformación. Para más información, consulte [Vista previa de los datos en modo de depuración](../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#data-preview).
+Si el modo de depuración está activado, en la pestaña **Vista previa de los datos**, podrá ver una instantánea interactiva de los datos en cada transformación. Para más información, consulte [Vista previa de los datos en modo de depuración](../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context#data-preview).
 
 ### <a name="top-bar"></a>Barra superior
 
@@ -80,23 +80,23 @@ La barra superior contiene acciones que afectan a todo el flujo de datos, como l
 
 ## <a name="available-transformations"></a>Transformaciones disponibles
 
-Vea [Introducción a las transformaciones en el flujo de datos de asignación](../data-factory/data-flow-transformation-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para obtener una lista de las transformaciones disponibles.
+Vea [Introducción a las transformaciones en el flujo de datos de asignación](../data-factory/data-flow-transformation-overview.md?context=/azure/synapse-analytics/context/context) para obtener una lista de las transformaciones disponibles.
 
 ## <a name="data-flow-activity"></a>Actividad de los flujos de datos
 
-Los flujos de datos se han operado dentro de las canalizaciones de Azure Synapse Analytics mediante la [actividad de flujo de datos](../data-factory/control-flow-execute-data-flow-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Todo lo que tiene que hacer el usuario es especificar qué entorno de ejecución de integración usar y pasar valores de parámetro. Para obtener más información, vea el [entorno de ejecución de integración de Azure](../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-integration-runtime).
+Los flujos de datos se han operado dentro de las canalizaciones de Azure Synapse Analytics mediante la [actividad de flujo de datos](../data-factory/control-flow-execute-data-flow-activity.md?context=/azure/synapse-analytics/context/context). Todo lo que tiene que hacer el usuario es especificar qué entorno de ejecución de integración usar y pasar valores de parámetro. Para obtener más información, vea el [entorno de ejecución de integración de Azure](../data-factory/concepts-integration-runtime.md?context=/azure/synapse-analytics/context/context#azure-integration-runtime).
 
 ## <a name="debug-mode"></a>Modo de depuración
 
-El modo de depuración permite ver de forma interactiva los resultados de cada paso de transformación mientras compila y depura flujos de datos. La sesión de depuración se puede usar al compilar la lógica de flujo de datos y al ejecutar series de depuración de canalización con actividades de flujo de datos. Para obtener más información, vea la [documentación del modo de depuración](../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+El modo de depuración permite ver de forma interactiva los resultados de cada paso de transformación mientras compila y depura flujos de datos. La sesión de depuración se puede usar al compilar la lógica de flujo de datos y al ejecutar series de depuración de canalización con actividades de flujo de datos. Para obtener más información, vea la [documentación del modo de depuración](../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="monitoring-data-flows"></a>Supervisión de flujos de datos
 
-El flujo de datos se integra con las funcionalidades de supervisión existentes de Azure Synapse Analytics. Para obtener información para comprender la salida de la supervisión de flujos de datos, vea [Supervisión de flujos de datos de asignación](../data-factory/concepts-data-flow-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+El flujo de datos se integra con las funcionalidades de supervisión existentes de Azure Synapse Analytics. Para obtener información para comprender la salida de la supervisión de flujos de datos, vea [Supervisión de flujos de datos de asignación](../data-factory/concepts-data-flow-monitoring.md?context=/azure/synapse-analytics/context/context).
 
-El equipo de Azure Synapse Analytics ha creado una [Guía para la optimización del rendimiento](../data-factory/concepts-data-flow-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para ayudar a optimizar el tiempo de ejecución de los flujos de datos después de compilar la lógica de negocios.
+El equipo de Azure Synapse Analytics ha creado una [Guía para la optimización del rendimiento](../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context) para ayudar a optimizar el tiempo de ejecución de los flujos de datos después de compilar la lógica de negocios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda a crear una [transformación de origen](../data-factory/data-flow-source.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* Aprenda a crear flujos de datos en [modo de depuración](../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+* Aprenda a crear una [transformación de origen](../data-factory/data-flow-source.md?context=/azure/synapse-analytics/context/context).
+* Aprenda a crear flujos de datos en [modo de depuración](../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context).

@@ -1,18 +1,18 @@
 ---
 title: Recuperación ante desastres geográfica de Azure Spring Cloud | Microsoft Docs
 description: Más información sobre cómo proteger su aplicación de Spring Cloud ante interrupciones regionales
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 8e3471d778e0589083caaf2dfedbccc4568de471
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 69dbe496745ebbe3fbc9547a1ffc381ec0cae905
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144662"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861339"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperación ante desastres de Azure Spring Cloud
 
@@ -26,9 +26,9 @@ Las aplicaciones de Azure Spring Cloud se ejecutan en una región específica.
 
 Para garantizar la alta disponibilidad y la protección ante desastres, tiene que implementar las aplicaciones de Spring Cloud en varias regiones.  Azure proporciona una lista de [regiones emparejadas](../best-practices-availability-paired-regions.md) para que se puedan planear las implementaciones de Spring Cloud en pares regionales.  Se recomienda tener en cuenta tres factores clave al diseñar la arquitectura de microservicio: disponibilidad en regiones, regiones emparejadas de Azure y disponibilidad del servicio.
 
-*  Disponibilidad en regiones:  Elija un área geográfica cercana a sus usuarios para minimizar el retraso de la red y el tiempo de transmisión.
-*  Regiones emparejadas de Azure:  Elija regiones emparejadas dentro del área geográfica elegida para garantizar las actualizaciones coordinadas de la plataforma y los esfuerzos de recuperación prioritarios si es necesario.
-*  Disponibilidad del servicio:   Decida si los niveles de acceso de las regiones emparejadas deben ser frecuente/frecuente, frecuente/normal o frecuente/poco frecuente.
+* Disponibilidad en regiones:  Elija un área geográfica cercana a sus usuarios para minimizar el retraso de la red y el tiempo de transmisión.
+* Regiones emparejadas de Azure:  Elija regiones emparejadas dentro del área geográfica elegida para garantizar las actualizaciones coordinadas de la plataforma y los esfuerzos de recuperación prioritarios si es necesario.
+* Disponibilidad del servicio:   Decida si los niveles de acceso de las regiones emparejadas deben ser frecuente/frecuente, frecuente/normal o frecuente/poco frecuente.
 
 ## <a name="use-azure-traffic-manager-to-route-traffic"></a>Uso de Azure Traffic Manager para enrutar el tráfico
 
@@ -39,7 +39,7 @@ Si tiene aplicaciones de Azure Spring Cloud en varias regiones, use Azure Tra
 ## <a name="create-azure-traffic-manager-for-azure-spring-cloud"></a>Creación de Azure Traffic Manager para Azure Spring Cloud
 
 1. Cree Azure Spring Cloud en dos regiones diferentes.
-Necesitará dos instancias de servicio de Azure Spring Cloud implementadas en dos regiones diferentes (Este de EE. UU. y Oeste de Europa). Inicie una aplicación de Azure Spring Cloud existente con Azure Portal para crear dos instancias de servicio. Cada una de ellas servirá como los puntos de conexión principal y de conmutación por error de Traffic. 
+Necesitará dos instancias de servicio de Azure Spring Cloud implementadas en dos regiones diferentes (Este de EE. UU. y Oeste de Europa). Inicie una aplicación de Azure Spring Cloud existente con Azure Portal para crear dos instancias de servicio. Cada una de ellas servirá como los puntos de conexión principal y de conmutación por error de Traffic.
 
 **Información de las dos instancias de servicio:**
 
@@ -54,14 +54,14 @@ Necesitará dos instancias de servicio de Azure Spring Cloud implementadas en do
 
 Este es el perfil de Traffic Manager:
 * Nombre DNS de Traffic Manager: `http://asc-bcdr.trafficmanager.net`
-* Perfiles de punto de conexión: 
+* Perfiles de punto de conexión:
 
 | Perfil | Tipo | Destino | Priority | Configuración del encabezado personalizado |
 |--|--|--|--|--|
 | Perfil de punto de conexión A | Punto de conexión externo | service-sample-a.asc-test.net | 1 | host: bcdr-test.contoso.com |
 | Perfil de extremo B | Punto de conexión externo | service-sample-b.asc-test.net | 2 | host: bcdr-test.contoso.com |
 
-4. Cree un registro CNAME en la zona DNS: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
+4. Cree un registro CNAME en la zona DNS: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net.
 
 5. El entorno ahora está completamente configurado. Los clientes deben poder acceder a la aplicación a través de: bcdr-test.contoso.com
 

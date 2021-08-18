@@ -3,12 +3,12 @@ title: Introducción a las plantillas
 description: Describe las ventajas del uso de plantillas de Azure Resource Manager (plantillas de ARM) para la implementación de recursos.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 62d25d2bd87f9335ac6442a7038f9326b04b36b0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6c576b7e18d60a858f5f29bde0e674160610223b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960366"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727186"
 ---
 # <a name="what-are-arm-templates"></a>¿Qué son las plantillas de Resource Manager?
 
@@ -153,4 +153,4 @@ Este enfoque significa que puede compartir de forma segura plantillas que satisf
 * Para una guía en módulos con información sobre las plantillas de ARM en Microsoft Learn, consulte [Implementación y administración de recursos en Azure mediante plantillas de ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 * Para obtener información sobre las propiedades de los archivos de plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).
 * Para obtener información sobre la exportación de plantillas, consulte [Guía de inicio rápido: Creación e implementación de plantillas de Resource Manager mediante Azure Portal](quickstart-create-templates-use-the-portal.md).
-* Para obtener respuestas a preguntas comunes, consulte [Preguntas más frecuentes sobre las plantillas de ARM](frequently-asked-questions.md).
+* Para obtener respuestas a preguntas comunes, consulte [Preguntas más frecuentes sobre las plantillas de ARM](./frequently-asked-questions.yml).

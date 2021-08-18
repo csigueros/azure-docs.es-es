@@ -2,8 +2,8 @@
 title: Migración del grupo de SQL dedicado (anteriormente SQL DW) a Gen2
 description: Instrucciones para la migración de un grupo de SQL dedicado (anteriormente SQL DW) existente a Gen2 y la programación de la migración por región.
 services: synapse-analytics
-author: mlee3gsd
-ms.author: anjangsh
+author: rothja
+ms.author: jroth
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
@@ -12,12 +12,12 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0ce07ff3ca5fbcc9776792129d3bfb4ef54efe7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59ebd89701f23979a8a359fecfd68a4796bf6d9c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98120128"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472117"
 ---
 # <a name="upgrade-your-dedicated-sql-pool-formerly-sql-dw-to-gen2"></a>Actualización del grupo de SQL dedicado (anteriormente SQL DW) a Gen2
 
@@ -34,12 +34,8 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 
 | **Región** | **Proceso inferior Gen2 disponible** | **Fecha de inicio de la actualización automática** |
 |:--- |:--- |:--- |
-| Este de Canadá |1 de junio de 2020 |1 de julio de 2020 |
 | Este de China |\* |\* |
 | Norte de China |\* |\* |
-| Centro de Alemania |\* |\* |
-| Centro-oeste de Alemania |Disponible |1 de mayo de 2020 |
-| India occidental |Disponible |1 de mayo de 2020  |
 
 ## <a name="automatic-upgrade-process"></a>Proceso de actualización automática
 

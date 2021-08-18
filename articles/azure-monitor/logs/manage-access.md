@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 82e34bff573b746f7d9c4185fe6c24fa92de0394
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 38d0b9db730d82642fafda4a42751c35d6cac0f8
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321058"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178445"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -29,7 +29,7 @@ Para comprender los conceptos de registros relacionados con las estrategias de a
 
 Puede ver el [modo de control de acceso](../logs/design-logs-deployment.md) configurado en un área de trabajo desde Azure Portal o con Azure PowerShell.  Puede cambiar esta configuración con uno de estos métodos compatibles:
 
-* Portal de Azure
+* Azure portal
 
 * Azure PowerShell
 
@@ -285,7 +285,7 @@ Los ejemplos anteriores definen una lista de las tablas que están permitidas. E
 
 ### <a name="custom-logs"></a>Registros personalizados
 
- Los registros personalizados se crean a partir de orígenes de datos, como los registros personalizados y la API HTTP Data Collector. La manera más fácil de identificar el tipo de registro es mediante la comprobación de las tablas que aparecen en [Registros personalizados del esquema del registro](./log-analytics-tutorial.md#table-schema).
+ Los registros personalizados se crean a partir de orígenes de datos, como los registros personalizados y la API HTTP Data Collector. La manera más fácil de identificar el tipo de registro es mediante la comprobación de las tablas que aparecen en [Registros personalizados del esquema del registro](./log-analytics-tutorial.md#view-table-information).
 
  No se puede conceder el acceso a registros personalizados individuales, pero puede conceder el acceso a todos los registros personalizados. Para crear un rol con acceso a todos los registros personalizados, cree un rol personalizado con las siguientes acciones:
 
@@ -312,4 +312,4 @@ A veces, los registros personalizados proceden de orígenes que no están direct
 
 * Consulte la [información general sobre el agente de Log Analytics](../agents/log-analytics-agent.md) para recopilar datos de los equipos de su centro de datos u otro entorno de nube.
 
-* Consulte [Recopilación de datos de máquinas virtuales de Azure](../vm/quick-collect-azurevm.md) para configurar la recopilación de datos de máquinas virtuales de Azure.
+* Consulte [Recopilación de datos de máquinas virtuales de Azure](../vm/monitor-virtual-machine.md) para configurar la recopilación de datos de máquinas virtuales de Azure.

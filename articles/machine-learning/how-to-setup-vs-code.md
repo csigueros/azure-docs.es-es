@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 80f6849bb4989692e8cd29a3288f9b104bf250bb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: devplatv2
+ms.openlocfilehash: 30b378f0ba25579d78118ff82a17689f4bdf56a5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460092"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457787"
 ---
 # <a name="set-up-the-visual-studio-code-azure-machine-learning-extension-preview"></a>Configuración de la extensión Azure Machine Learning para Visual Studio Code (versión preliminar)
 
@@ -34,7 +35,7 @@ La extensión Azure Machine Learning para VS Code proporciona una interfaz de u
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Suscripción de Azure. Si no tiene una, regístrese para probar la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+- Suscripción de Azure. Si no tiene una, regístrese para probar la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 - Código de Visual Studio. Si no lo tiene, [instálelo](https://code.visualstudio.com/docs/setup/setup-overview).
 - [Python](https://www.python.org/downloads/)
 - (Opcional) Para crear recursos mediante la extensión, debe instalar la CLI 2.0. Para obtener instrucciones, consulte [Instalación, configuración y uso de la CLI 2.0 (versión preliminar).](how-to-configure-cli.md)

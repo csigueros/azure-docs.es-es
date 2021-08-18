@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/01/2021
 ms.author: apimpm
-ms.openlocfilehash: d000b9db658c76b5d7cdb586599f04d9078dde5d
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 6faa78dc75b67afd4c310a94ce4a81129e09cb26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812164"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742752"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Protección de API mediante la autenticación de certificados de cliente en API Management
 
@@ -49,7 +49,7 @@ Para obtener más información, consulte [Directivas de restricción de acceso d
 También puede crear expresiones de directiva con la [variable `context`](api-management-policy-expressions.md#ContextVariables) para comprobar los certificados de cliente. En los ejemplos de las secciones siguientes se muestran expresiones que usan la propiedad `context.Request.Certificate` y otras propiedades `context`.
 
 > [!IMPORTANT]
-> A partir de mayo de 2021, la propiedad `context.Request.Certificate` solo solicita el certificado cuando [`hostnameConfiguration`](/rest/api/apimanagement/2019-12-01/apimanagementservice/createorupdate#hostnameconfiguration) de la instancia de API Management establece la propiedad `negotiateClientCertificate` en True. De manera predeterminada, `negotiateClientCertificate` se establece en False.
+> A partir de mayo de 2021, la propiedad `context.Request.Certificate` solo solicita el certificado cuando [`hostnameConfiguration`](/rest/api/apimanagement/2020-12-01/api-management-service/create-or-update#hostnameconfiguration) de la instancia de API Management establece la propiedad `negotiateClientCertificate` en True. De manera predeterminada, `negotiateClientCertificate` se establece en False.
 
 ### <a name="checking-the-issuer-and-subject"></a>Comprobación del emisor y el asunto
 

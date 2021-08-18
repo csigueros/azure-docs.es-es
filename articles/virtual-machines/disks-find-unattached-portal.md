@@ -2,17 +2,17 @@
 title: 'Identificación de discos de Azure no conectados: Azure Portal'
 description: Cómo buscar discos administrados y no administrados (VHD o blobs en páginas) de Azure no conectados mediante la CLI de Azure.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 4d31ce4b6086c44de913afd1083bae25fa3d44cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 815e4bd34ecce3e77fafb95520632df6570cebb3
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98898162"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113361160"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Búsqueda y eliminación de discos administrados y no administrados de Azure no conectados: Azure Portal
 

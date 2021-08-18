@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 45433268a61772f499b5d2672a8b81044c1e3414
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 669b03d0d1d6f5f328cc4af368a756d0bbdab787
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764466"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727839"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-active-directory-application-proxy"></a>Habilitación del acceso remoto a SharePoint con Azure Active Directory Application Proxy
 
@@ -26,7 +26,7 @@ En esta guía paso a paso se explica cómo integrar una granja de servidores de 
 
 Para realizar la configuración, necesita los siguientes recursos:
 - Una granja de servidores de SharePoint 2013, o posterior.
-- Un inquilino de Azure AD con un plan que incluya el proxy de aplicación. Obtenga más información acerca de los [planes y precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+- Un inquilino de Azure AD con un plan que incluya el proxy de aplicación. Obtenga más información acerca de los [planes y precios de Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 - Un [dominio comprobado personalizado ](../fundamentals/add-custom-domain.md) en el inquilino de Azure AD.
 - Un directorio local de Active Directory sincronizado con Azure AD Connect con el que los usuarios pueden [iniciar sesión en Azure](../hybrid/plan-connect-user-signin.md).
 - Un conector del proxy de aplicación instalado y en ejecución en una máquina que se encuentre dentro del dominio corporativo.
