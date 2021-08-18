@@ -11,12 +11,12 @@ ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 71a3b38da6a63824a42f64052bf16a5fe0e25483
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94937129de318bacab129ef115bb03d6aa1c53d0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102525439"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723312"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitar la restricción de acceso por edad en Azure Active Directory B2C
 
@@ -82,7 +82,7 @@ Cuando inicie sesión como menor, debería ver el siguiente mensaje de error: *S
 
 ## <a name="enable-age-gating-in-your-custom-policy"></a>Habilitación de la restricción de acceso por edad en su directiva personalizada
 
-1. Obtenga el ejemplo de una directiva de restricción de acceso por edad en [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/age-gating).
+1. Obtenga el ejemplo de una directiva de restricción de acceso por edad en [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies).
 1. En cada archivo, reemplace la cadena `yourtenant` por el nombre del inquilino de Azure AD B2C. Por ejemplo, si el nombre del inquilino de B2C es *contosob2c*, todas las instancias de `yourtenant.onmicrosoft.com` se convierten en `contosob2c.onmicrosoft.com`.
 1. Cargue los archivos de directivas.
 
@@ -91,4 +91,3 @@ Cuando inicie sesión como menor, debería ver el siguiente mensaje de error: *S
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda a [administrar el acceso de usuarios en Azure AD B2C](manage-user-access.md).
-

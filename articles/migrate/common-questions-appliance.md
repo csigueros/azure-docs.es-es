@@ -1,17 +1,17 @@
 ---
 title: Preguntas más frecuentes sobre el dispositivo de Azure Migrate
 description: Respuestas a preguntas comunes sobre el dispositivo de Azure Migrate.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 059a1888b529487f2b0d17509370897222a20d83
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a814cce09a134f007fbd136b8c142a60fb099a1b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563028"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732656"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -50,7 +50,6 @@ El dispositivo puede conectarse a través de Internet, o mediante Azure ExpressR
 - Asegúrese de que el dispositivo se puede conectar a estas [direcciones URL de Azure](./migrate-appliance.md#url-access). 
 - Puede usar ExpressRoute con emparejamiento de Microsoft. El emparejamiento público está en desuso y no está disponible para nuevos circuitos de ExpressRoute.
 - El emparejamiento privado solo no se admite.
-
 
 ## <a name="does-appliance-analysis-affect-performance"></a>¿Afecta el análisis del dispositivo al rendimiento?
 
@@ -142,7 +141,7 @@ No. Para descubrir servidores en el entorno VMware, debe tener vCenter Server.
 
 ## <a name="how-do-i-update-the-appliance"></a>¿Cómo se actualiza el dispositivo?
 
-De forma predeterminada, el dispositivo y sus agentes instalados se actualizan automáticamente. El dispositivo busca actualizaciones cada 24 horas. Las actualizaciones que resultan en error se vuelven a intentar. 
+De forma predeterminada, el dispositivo y sus agentes instalados se actualizan automáticamente. El dispositivo busca actualizaciones cada 24 horas. Las actualizaciones que resultan en error se vuelven a intentar.
 
 Estas actualizaciones automáticas solo actualizan los agentes del dispositivo y el dispositivo. Las actualizaciones automáticas de Azure Migrate no actualizan el sistema operativo. Use las actualizaciones de Windows para mantener actualizado el sistema operativo.
 
@@ -155,13 +154,14 @@ Sí. En el portal, vaya a la página **Agent Health** de Azure Migrate: Detecci�
 Sí, ahora se admiten varias credenciales de servidor para realizar el inventario de software (detección de aplicaciones instaladas), el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server. [Obtenga más información](tutorial-discover-vmware.md#provide-server-credentials) sobre cómo proporcionar las credenciales en el administrador de configuración del dispositivo.
 
 ## <a name="what-type-of-server-credentials-can-i-add-on-the-vmware-appliance"></a>¿Qué tipo de credenciales de servidor puedo agregar en el dispositivo de VMware?
+
 Puede proporcionar credenciales de autenticación de dominio, Windows (no de dominio), Linux (no de dominio) o SQL Server en el administrador de configuración del dispositivo. [Obtenga más información](add-server-credentials.md) sobre cómo proporcionar credenciales y cómo administrarlas.
 
 ## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>¿Qué tipo de propiedades de conexión de SQL Server es compatible con Azure Migrate para la detección de SQL?
+
 Azure Migrate cifrará la comunicación entre el dispositivo de Azure Migrate y las instancias de origen de SQL Server (con la propiedad Cifrar conexión establecida en TRUE). Estas conexiones se cifran con [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (establecido en TRUE); la capa de transporte usará SSL para cifrar el canal y evitar la cadena de certificados para validar la confianza. El servidor del dispositivo se debe configurar para [confiar en la entidad de certificación raíz del certificado](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 Si no se ha proporcionado ningún certificado al servidor, cuando se inicia, SQL Server genera un certificado autofirmado que se utiliza para cifrar los paquetes de inicio de sesión. [Más información](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

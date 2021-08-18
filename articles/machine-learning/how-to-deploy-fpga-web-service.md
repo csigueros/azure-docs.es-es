@@ -11,16 +11,16 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: 3914c1ce732161828f9c2653edd5c43d86310dae
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: bfb29a00dbef95007eba6ca69f9a38d0f23d2da2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889689"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736513"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Implementación de modelos de ML en matrices de puertas programables (FPGA) con Azure Machine Learning 
 
-En este artículo, obtendrá información sobre las matrices FPGA y sobre cómo implementar los modelos de ML en una matriz FPGA de Azure mediante el [paquete de Python de modelos acelerados por hardware](/python/api/azureml-accel-models/azureml.accel) desde [Azure Machine Learning](overview-what-is-azure-ml.md).
+En este artículo, obtendrá información sobre las matrices FPGA y sobre cómo implementar los modelos de ML en una matriz FPGA de Azure mediante el [paquete de Python de modelos acelerados por hardware](/python/api/azureml-accel-models/azureml.accel) desde [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
 
 ## <a name="what-are-fpgas"></a>¿Qué son las FPGA?
 Las FPGA contienen una matriz de bloques de lógica programables y una jerarquía de interconexiones reconfigurables. Las interconexiones permiten que estos bloques se configuren de distintas maneras después de su fabricación. Las FPGA ofrecen una combinación de capacidad de programación y rendimiento en comparación con otros chips. 

@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 6de01d2c12454f43a2802b4a7a979b5f74b46f0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1ffad8a0d5741ad25c4dd92ec9917d8b845bcd7
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96340278"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913858"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Compatibilidad de idiomas y regiones para Bing Web Search API
 
@@ -118,4 +118,4 @@ Si lo desea, también puede especificar el mercado con el parámetro de consulta
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Referencia de Bing Image Search API](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referencia de Bing Image Search API](/rest/api/cognitiveservices/bing-images-api-v7-reference)

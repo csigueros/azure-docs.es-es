@@ -3,22 +3,22 @@ title: Inicio de sesión único (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre la creación de experiencias de inicio de sesión único mediante la biblioteca de autenticación de Microsoft para JavaScript (MSAL.js).
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: mtillman
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 86df7b35987fcc0081aca4e7e33f4da72f08e452
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: c8da247219a2228ef4effdf94485fef990e2bcaa
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077147"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359540"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Inicio de sesión único con MASL.js
 
@@ -47,7 +47,7 @@ const myMSALObj = new UserAgentApplication(config);
 
 ## <a name="sso-between-apps"></a>Inicio de sesión único entre aplicaciones
 
-Cuando un usuario se autentica, se establece una cookie de sesión en el dominio de Azure AD del explorador. MSAL.js se basa en esta cookie de sesión para proporcionar un inicio de sesión único al usuario entre diferentes aplicaciones. MSAL.js también almacena en caché los tokens de identificador y tokens de acceso del usuario en el almacenamiento del explorador por dominio de aplicación. Como resultado, el comportamiento de inicio de sesión único varía en función del caso:  
+Cuando un usuario se autentica, se establece una cookie de sesión en el dominio de Azure AD del explorador. MSAL.js se basa en esta cookie de sesión para proporcionar un inicio de sesión único al usuario entre diferentes aplicaciones. MSAL.js también almacena en caché los tokens de identificador y tokens de acceso del usuario en el almacenamiento del explorador por dominio de aplicación. Como resultado, el comportamiento de inicio de sesión único varía en función del caso:
 
 ### <a name="applications-on-the-same-domain"></a>Aplicaciones en el mismo dominio
 
@@ -76,7 +76,7 @@ var request = {
 userAgentApplication.acquireTokenSilent(request).then(function(response) {
         const token = response.accessToken
     }
-).catch(function (error) {  
+).catch(function (error) {
         //handle error
 });
 ```
@@ -132,14 +132,14 @@ var request = {
 userAgentApplication.acquireTokenSilent(request).then(function(response) {
         const token = response.accessToken
     }
-).catch(function (error) {  
+).catch(function (error) {
         //handle error
 });
 ```
 
 ## <a name="sso-in-adaljs-to-msaljs-update"></a>Inicio de sesión único en ADAL.js para la actualización de MSAL.js
 
-MSAL.js aporta paridad de características con ADAL.js para escenarios de autenticación de Azure AD. Para facilitar la migración de ADAL.js a MSAL.js y no tener que pedir a los usuarios que vuelvan a iniciar sesión, la biblioteca lee el token de identificación que representa la sesión del usuario en la memoria caché de ADAL.js e inicia la sesión del usuario en MSAL.js.  
+MSAL.js aporta paridad de características con ADAL.js para escenarios de autenticación de Azure AD. Para facilitar la migración de ADAL.js a MSAL.js y no tener que pedir a los usuarios que vuelvan a iniciar sesión, la biblioteca lee el token de identificación que representa la sesión del usuario en la memoria caché de ADAL.js e inicia la sesión del usuario en MSAL.js.
 
 Para poder aprovechar el comportamiento de inicio de sesión único (SSO) al actualizar desde ADAL.js, deberá asegurarse de que las bibliotecas están utilizando `localStorage` para almacenar los tokens en caché. Al inicializar, establezca `cacheLocation` en `localStorage` en la configuración tanto de MSAL.js como de ADAL.js de la manera siguiente:
 

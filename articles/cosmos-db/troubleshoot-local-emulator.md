@@ -3,16 +3,16 @@ title: Solución de problemas al usar el emulador de Azure Cosmos DB
 description: Obtenga información sobre cómo solucionar problemas de servicio no disponible, certificados, cifrado y control de versiones mediante el emulador de Azure Cosmos DB.
 ms.service: cosmos-db
 ms.topic: troubleshooting
-author: markjbrown
-ms.author: mjbrown
+ms.author: esarroyo
+author: StefArroyo
 ms.date: 09/17/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: bb07adafbc68ff1e9b7d3ee49bb7631dc4395d77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e255388432c51562b254bf86c52090a50cb8e4a5
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97033466"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358910"
 ---
 # <a name="troubleshoot-issues-when-using-the-azure-cosmos-db-emulator"></a>Solución de problemas al usar el emulador de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

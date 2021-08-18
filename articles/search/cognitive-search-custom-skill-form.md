@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: a3b073cdb90e0c427bfbca15c1440b9122672610
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb7c36a67d5ac6ab7ccc0aa5ddceab84dfc67bce
+ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880142"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113138754"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Ejemplo: Creación de una aptitud personalizada de Form Recognizer
 
@@ -34,7 +34,7 @@ Deberá entrenar un modelo de Form Recognizer con los formularios de entrada ant
 
 ## <a name="set-up-the-custom-skill"></a>Configuración de la aptitud personalizada
 
-En este tutorial se usa el proyecto [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) del repositorio de GitHub [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills). Clone este repositorio en el equipo local y vaya a **Vision/AnalyzeForm/** para acceder al proyecto. A continuación, abra _AnalyzeForm.csproj_ en Visual Studio. Este proyecto crea un recurso de Azure Functions que cumple la [interfaz de habilidades personalizadas](cognitive-search-custom-skill-interface.md) y se puede usar para el enriquecimiento de Azure Cognitive Search. Toma los documentos de formulario como entradas y genera (como texto) los pares clave/valor que especifique.
+En este tutorial se usa el proyecto [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Vision/AnalyzeForm) del repositorio de GitHub [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills). Clone este repositorio en el equipo local y vaya a **Vision/AnalyzeForm/** para acceder al proyecto. A continuación, abra _AnalyzeForm.csproj_ en Visual Studio. Este proyecto crea un recurso de Azure Functions que cumple la [interfaz de habilidades personalizadas](cognitive-search-custom-skill-interface.md) y se puede usar para el enriquecimiento de Azure Cognitive Search. Toma los documentos de formulario como entradas y genera (como texto) los pares clave/valor que especifique.
 
 En primer lugar, agregue variables de entorno de nivel de proyecto. Busque el proyecto **AnalyzeForm** en el panel izquierdo, haga clic con el botón derecho en él y seleccione **Propiedades**. En la ventana **Propiedades**, haga clic en la pestaña **Depurar** y busque el campo **Variables de entorno**. Haga clic en **Agregar** para agregar las siguientes variables:
 * `FORMS_RECOGNIZER_ENDPOINT_URL` con el valor establecido en la dirección URL del punto de conexión.
@@ -77,12 +77,12 @@ Comience con la plantilla de cuerpo de la solicitud siguiente.
 }
 ```
 
-Aquí tendrá que proporcionar la dirección URL de un formulario que tenga el mismo tipo que los formularios con los que se entrenó. Con fines de prueba, puede usar uno de los formularios de entrenamiento. Si siguió el inicio rápido de cURL, los formularios se ubicarán en una cuenta de almacenamiento de blobs de Azure. Abra el Explorador de Azure Storage, busque un archivo de formulario, haga clic con el botón secundario en él y seleccione **Obtener firma de acceso compartido**. La siguiente ventana de diálogo proporcionará una dirección URL y un token de SAS. Escriba estas cadenas en los campos `"formUrl"` y `"formSasToken"` del cuerpo de la solicitud, respectivamente.
+Aquí tendrá que proporcionar la dirección URL de un formulario que tenga el mismo tipo que los formularios con los que se entrenó. Con fines de prueba, puede usar uno de los formularios de entrenamiento. Si siguió el inicio rápido de cURL, los formularios se ubicarán en una cuenta de Azure Blob Storage. Abra el Explorador de Azure Storage, busque un archivo de formulario, haga clic con el botón secundario en él y seleccione **Obtener firma de acceso compartido**. La siguiente ventana de diálogo proporcionará una dirección URL y un token de SAS. Escriba estas cadenas en los campos `"formUrl"` y `"formSasToken"` del cuerpo de la solicitud, respectivamente.
 
 > [!div class="mx-imgBorder"]
 > ![Explorador de Azure Storage; un documento PDF seleccionado](media/cognitive-search-skill-form/form-sas.png)
 
-Si desea analizar un documento remoto que no está en el almacenamiento de blobs de Azure, pegue su dirección URL en el campo `"formUrl"` y deje el campo `"formSasToken"` en blanco.
+Si quiere analizar un documento remoto que no está en Azure Blob Storage, pegue su dirección URL en el campo `"formUrl"` y deje el campo `"formSasToken"` en blanco.
 
 > [!NOTE]
 > Cuando la aptitud esté integrada en un conjunto de aptitudes, Cognitive Search proporcionará la dirección URL y el token.

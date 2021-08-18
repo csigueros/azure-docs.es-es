@@ -3,12 +3,12 @@ title: Configuración de reglas de firewall de IP para Azure Service Bus
 description: Uso de las reglas de firewall para permitir las conexiones desde direcciones IP específicas a Azure Service Bus.
 ms.topic: article
 ms.date: 03/29/2021
-ms.openlocfilehash: 747e15e912033c5bc6a1f64ab389f1ab03f40c0b
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 84ba9f71d3d1da590d8ec43bfe1cfefb91b7c8ae
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962329"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415719"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir el acceso al espacio de nombres de Azure Service Bus desde intervalos o direcciones IP específicas
 De forma predeterminada, los espacios de nombres de Service Bus son accesibles desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -55,7 +55,7 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
     > [!NOTE]
     > Para restringir el acceso a redes virtuales específicas, consulte [Permitir el acceso desde redes específicas](service-bus-service-endpoints.md).
 
-[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Uso de plantillas de Resource Manager
 En esta sección se incluye una plantilla de Azure Resource Manager de ejemplo que agrega una red virtual y una regla de firewall a un espacio de nombres de Service Bus existente.

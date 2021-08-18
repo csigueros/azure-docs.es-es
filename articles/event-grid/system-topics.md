@@ -2,13 +2,13 @@
 title: Temas del sistema en Azure Event Grid
 description: Describe los temas del sistema en Azure Event Grid.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: ca59dd6bb99b9b7d06f0622e8c0cb4e4234e21ff
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 07/19/2021
+ms.openlocfilehash: cb054b8085c422f56a6cf8c6cc492470aaa4be95
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105733050"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437044"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Temas del sistema en Azure Event Grid
 Un tema del sistema en Event Grid representa uno o varios eventos publicados por los servicios de Azure, como Azure Storage y Azure Event Hubs. Por ejemplo, un tema del sistema puede representar **todos los eventos de blobs** o solo los eventos de **blob creado** y **blobs eliminado** publicados para una **cuenta de almacenamiento específica**. En este ejemplo, cuando se carga un blob en la cuenta de almacenamiento, el servicio de Azure Storage publica un evento de **blob creado** en el tema del sistema en Event Grid, que luego reenvía el evento a los [suscriptores](event-handlers.md) del tema que reciben y procesan el evento. 
@@ -19,12 +19,14 @@ Un tema del sistema en Event Grid representa uno o varios eventos publicados por
 ## <a name="azure-services-that-support-system-topics"></a>Servicios de Azure que admiten temas del sistema
 Esta es la lista actual de los servicios de Azure que admiten la creación de temas del sistema.
 
+- [Azure API Management](event-schema-api-management.md)
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure App Service](event-schema-app-service.md)
 - [Azure Blob Storage](event-schema-blob-storage.md)
 - [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
+- [FarmBeats de Azure](event-schema-farmbeats.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)

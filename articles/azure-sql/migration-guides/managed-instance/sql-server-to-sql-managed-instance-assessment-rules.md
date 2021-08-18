@@ -10,12 +10,12 @@ author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 489ba57063244d399c9dd0255641568f2db5c6de
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: abe88555bc7d545e62faa4c22a5e3f02e5eef630
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034578"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743652"
 ---
 # <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>Reglas de evaluación para la migración de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ Más información: [Diferencias de inserción masiva y OPENROWSET en Azure SQL M
 ## <a name="clr-security"></a>Seguridad CLR<a id="ClrStrictSecurity"></a>
 
 **Título: Los ensamblados CLR marcados como SAFE o EXTERNAL_ACCESS se consideran UNSAFE**   
-**Categoría**: Problema   
+**Categoría**: Advertencia   
 
 **Descripción**   
 Se aplica el modo de seguridad estricta de CLR en Azure SQL Managed Instance. Este modo está habilitado de manera predeterminada y presenta cambios importantes para las bases de datos que contienen ensamblados CLR definidos por el usuario y marcados como SAFE o EXTERNAL_ACCESS.
@@ -202,7 +202,7 @@ La característica FileStream, que permite almacenar datos no estructurados, com
 **Recomendación**   
 Cargue los archivos no estructurados en Azure Blob Storage y almacene los metadatos relacionados con estos archivos (nombre, tipo, ubicación de dirección URL, clave de almacenamiento, etc.) en Azure SQL Managed Instance. Es posible que tenga que volver a diseñar la aplicación para habilitar la transmisión de blobs desde la instancia de Azure SQL Managed Instance y hacia ella. También puede migrar a SQL Server en la máquina virtual de Azure.
 
-Más información: [Blog de la transmisión de blobs hacia la instancia de Azure SQL y desde ella](https://azure.microsoft.com/en-in/blog/streaming-blobs-to-and-from-sql-azure/)
+Más información: [Blog de la transmisión de blobs hacia la instancia de Azure SQL y desde ella](https://azure.microsoft.com/blog/streaming-blobs-to-and-from-sql-azure/)
 
 ## <a name="heterogeneous-ms-dtc"></a>MS DTC heterogéneo<a id="MIHeterogeneousMSDTCTransactSQL"></a>
 
@@ -451,19 +451,6 @@ Vuelva a escribir la instrucción con la sintaxis de RAISERROR actual o evalúe 
 
 Más información: [Funcionalidad del motor de base de datos descontinuada en SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## <a name="service-broker"></a>Service Broker<a id="ServiceBrokerWithNonLocalAddress"></a>
-
-**Título: La característica Service Broker se admite parcialmente en Azure SQL Managed Instance.**    
-**Categoría**: Problema   
-
-**Descripción**   
-SQL Server Service Broker proporciona compatibilidad nativa de aplicaciones de mensajería y de puesta en cola en el Motor de base de datos de SQL Server. Esta base de datos tiene habilitada la característica Service Broker entre instancias, lo que no se admite en Azure SQL Managed Instance. 
-
-
-**Recomendación**   
-Azure SQL Managed Instance no admite Service Broker entre instancias, es decir, cuando la dirección no es local. Debe deshabilitar Service Broker con el siguiente comando antes de migrar esta base de datos a Azure: `ALTER DATABASE [database_name] SET DISABLE_BROKER`. Además, es posible que también tenga que quitar o detener el punto de conexión de Service Broker para evitar que los mensajes lleguen a la instancia de SQL. Una vez que la base de datos se haya migrado a Azure, puede examinar la funcionalidad Azure Service Bus para implementar un sistema de mensajería genérico basado en la nube en lugar de Service Broker. También puede migrar a SQL Server en la máquina virtual de Azure. 
-
-Más información: [Diferencias de Service Broker en Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#service-broker)
 
 ## <a name="sql-mail"></a>SQL Mail<a id="SqlMail"></a>
 

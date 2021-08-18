@@ -5,20 +5,18 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 621773a84db99dbacfaa163f77189974ba102163
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f36f02b426c41eb193a8eecfcefc07f1ed23786
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98034822"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126975"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
 
 Aprenda a crear una función que se desencadena cuando se agregan o se cambian datos en Azure Cosmos DB. Para más información acerca de Azure Cosmos DB, consulte [Azure Cosmos DB: Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions](../cosmos-db/serverless-computing-database.md).
 
-:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Código de Azure Cosmos DB":::
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -35,7 +33,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) con su cuenta de Azu
 
 Debe tener una cuenta de Azure Cosmos DB que use la API de SQL para poder crear el desencadenador.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="create-a-function-app-in-azure"></a>Creación de una aplicación de función en Azure
 

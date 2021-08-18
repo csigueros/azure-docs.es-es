@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a6bfb1c6aa268914e6dd1157115067b15bfa404
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d8594f9278795be60b5e0434337fd16b64000df
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98786917"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731438"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Data Box Gateway 
 
@@ -50,7 +50,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 5. Elija el **servicio de almacenamiento** entre blob en bloques, blobs en páginas o archivos. El tipo de servicio elegido depende de en qué formato desea que los datos residan en Azure. Por ejemplo, en este caso, queremos que los datos residan como **blobs en bloques** en Azure y, por tanto, seleccionamos esa opción. Si elige **Blob en páginas**, debe asegurarse de que los datos tienen una alineación de 512 bytes. Por ejemplo, un VHDX siempre tiene una alineación de 512 bytes.
 
    > [!IMPORTANT]
-   > Asegúrese de que la cuenta de Azure Storage que usa no tenga directivas de inmutabilidad establecidas si se utiliza con un dispositivo Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
+   > Asegúrese de que la cuenta de Azure Storage que usa no tenga directivas de inmutabilidad establecidas si se utiliza con un dispositivo Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/immutable-policy-configure-version-scope.md).
 
 6. Este paso depende de si está creando un recurso compartido SMB o NFS.
     - **Si crea un recurso compartido SMB**: en el campo **Usuario local con todos los privilegios**, elija entre **Crear nuevo** o **Usar existente**. Si va a crear un nuevo usuario local, indique el **nombre de usuario** y la **contraseña** y, después, confirme la contraseña. Esto asigna los permisos al usuario local. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.

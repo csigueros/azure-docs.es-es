@@ -8,12 +8,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 05/10/2021
-ms.openlocfilehash: 453b7558ac4f26395186a6aabc54ce831b5ef9b5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 10695c20bc177abd084d6a3724ae3d379d4ca74a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071891"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284574"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Ubuntu en Azure
 
@@ -326,7 +326,7 @@ rattle()
 > [!NOTE]
 > No es necesario instalar Rattle en DSVM. Sin embargo, es posible que se le pida que instale paquetes adicionales cuando se abra Rattle.
 
-Rattle usa una interfaz de usuario basada en pestañas. La mayoría de las pestañas corresponden a pasos del [Proceso de ciencia de datos en equipo](../team-data-science-process/index.yml), como cargar los datos o explorarlos. El proceso de ciencia de los datos fluye de izquierda a derecha por las pestañas. La última pestaña contiene un registro de los comandos de R ejecutados por Rattle.
+Rattle usa una interfaz de usuario basada en pestañas. La mayoría de las pestañas corresponden a pasos del [Proceso de ciencia de datos en equipo](/azure/architecture/data-science-process/overview), como cargar los datos o explorarlos. El proceso de ciencia de los datos fluye de izquierda a derecha por las pestañas. La última pestaña contiene un registro de los comandos de R ejecutados por Rattle.
 
 Para cargar y configurar el conjunto de datos:
 

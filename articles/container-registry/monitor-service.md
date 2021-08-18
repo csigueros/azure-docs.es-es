@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-monitoring
 ms.service: container-registry
 ms.date: 03/19/2021
-ms.openlocfilehash: 21cc4aeb5b8a643fcee85cfd60e2958ed0c72c72
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 1b7f8a13a7d372fe67e5ca7c235febfa52294432
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060973"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294937"
 ---
 # <a name="monitor-azure-container-registry"></a>Supervisión de Azure Container Registry
 
@@ -91,7 +91,7 @@ Puede usar la API REST de Azure Monitor para obtener información mediante progr
 
 Los datos de los registros de Azure Monitor se almacenan en tablas, cada una con un conjunto propio de propiedades únicas.  
 
-Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquema de registros de recursos de Azure Monitor](/azure/azure-monitor/essentials/resource-logs-schema#top-level-resource-logs-schema). El esquema de los registros de recursos de Azure Container Registry se encuentra en la [referencia de datos de Azure Container Registry](monitor-service-reference.md#schemas). 
+Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquema de registros de recursos de Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). El esquema de los registros de recursos de Azure Container Registry se encuentra en la [referencia de datos de Azure Container Registry](monitor-service-reference.md#schemas). 
 
 El [registro de actividad](../azure-monitor/essentials/activity-log.md) es un registro de plataforma de Azure que proporciona conclusiones sobre los eventos del nivel de suscripción. Puede verlo de forma independiente o enrutarlo a registros de Azure Monitor, donde puede realizar consultas mucho más complejas mediante Log Analytics.  
 

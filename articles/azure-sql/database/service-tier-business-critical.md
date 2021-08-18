@@ -8,16 +8,16 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: mathoma
+author: danimir
+ms.author: danil
+ms.reviewer: mathoma, urmilano
 ms.date: 12/04/2018
-ms.openlocfilehash: 3e5a4283416dcd20c8d419a00cb3debfb208d118
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 5c4ea72c94e71e0c57c0d88e5f8324111ae151c2
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691572"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119694"
 ---
 # <a name="business-critical-tier---azure-sql-database-and-azure-sql-managed-instance"></a>Nivel Crítico para la empresa: Azure SQL Database y Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,11 +49,11 @@ Además, el clúster Crítico para la empresa incorpora la funcionalidad [Escala
 El nivel de servicio Crítico para la empresa está diseñado para las aplicaciones que requieren respuestas de baja latencia desde el almacenamiento SSD subyacente (1 o 2 ms como promedio), recuperación rápida si se produce un error en la infraestructura subyacente o necesidad de descargar informes, análisis y consultas de solo lectura en la versión gratuita de la réplica secundaria legible de la base de datos principal.
 
 A continuación, se indican las principales razones por las que debe elegir el nivel de servicio Crítico para la empresa en lugar del nivel De uso general:
--   **Requisitos de latencia baja de E/S**: las cargas de trabajo que necesitan una respuesta rápida de la capa de almacenamiento (promedio de 1 a 2 milisegundos) deben usar el nivel Crítico para la empresa. 
--   **Comunicación frecuente entre la aplicación y la base de datos**. Las aplicaciones que no pueden aprovechar el almacenamiento en caché de nivel de aplicación o el [procesamiento por lotes de solicitudes](../performance-improve-use-batching.md) y necesitan enviar muchas consultas SQL que se deben procesar rápidamente son buenos candidatos para el nivel Crítico para la empresa.
--   **Gran número de actualizaciones**: las operaciones de inserción, actualización y eliminación modifican las páginas de datos en memoria (página desfasada) que deben guardarse en archivos de datos con la operación `CHECKPOINT`. Un posible bloqueo del proceso del motor de base de datos o una conmutación por error de la base de datos con un gran número de páginas desfasadas podría aumentar el tiempo de recuperación en el nivel De uso general. Use el nivel Crítico para la empresa si tiene una carga de trabajo que produce muchos cambios en memoria. 
--   **Transacciones de larga duración que modifican los datos**. Las transacciones que se abren durante más tiempo impiden el truncamiento del archivo de registro, lo que podría aumentar el tamaño del registro y el número de [archivos de registro virtuales (VLF)](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Un gran número de VLF puede ralentizar la recuperación de la base de datos después de la conmutación por error.
--   **Carga de trabajo con informes y consultas analíticas** que se pueden redirigir a la réplica secundaria gratuita de solo lectura.
+-    **Requisitos de latencia baja de E/S**: las cargas de trabajo que necesitan una respuesta rápida de la capa de almacenamiento (promedio de 1 a 2 milisegundos) deben usar el nivel Crítico para la empresa. 
+-    **Comunicación frecuente entre la aplicación y la base de datos**. Las aplicaciones que no pueden aprovechar el almacenamiento en caché de nivel de aplicación o el [procesamiento por lotes de solicitudes](../performance-improve-use-batching.md) y necesitan enviar muchas consultas SQL que se deben procesar rápidamente son buenos candidatos para el nivel Crítico para la empresa.
+-    **Gran número de actualizaciones**: las operaciones de inserción, actualización y eliminación modifican las páginas de datos en memoria (página desfasada) que deben guardarse en archivos de datos con la operación `CHECKPOINT`. Un posible bloqueo del proceso del motor de base de datos o una conmutación por error de la base de datos con un gran número de páginas desfasadas podría aumentar el tiempo de recuperación en el nivel De uso general. Use el nivel Crítico para la empresa si tiene una carga de trabajo que produce muchos cambios en memoria. 
+-    **Transacciones de larga duración que modifican los datos**. Las transacciones que se abren durante más tiempo impiden el truncamiento del archivo de registro, lo que podría aumentar el tamaño del registro y el número de [archivos de registro virtuales (VLF)](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Un gran número de VLF puede ralentizar la recuperación de la base de datos después de la conmutación por error.
+-    **Carga de trabajo con informes y consultas analíticas** que se pueden redirigir a la réplica secundaria gratuita de solo lectura.
 - **Mayor resistencia y recuperación más rápida de los errores**. En caso de error del sistema, se deshabilitará la base de datos en la instancia principal y una de las réplicas secundarias se convertirá inmediatamente en la nueva base de datos principal de lectura y escritura lista para procesar las consultas. El motor de base de datos no necesita analizar ni rehacer las transacciones del archivo de registro, así como tampoco cargar todos los datos en el búfer de memoria.
 - **Protección avanzada de datos dañados**. El nivel Crítico para la empresa aprovecha las réplicas de base de datos en segundo plano para fines de continuidad empresarial, por lo que el servicio también aprovecha la reparación automática de páginas, que es la misma tecnología que se usa para los [grupos de disponibilidad y la creación de reflejo](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) de la base de datos de SQL Server. En caso de que una réplica no pueda leer una página debido a un problema de integridad de datos, se recuperará una copia nueva de la página de otra réplica, reemplazando la página ilegible sin pérdida de datos ni tiempo de inactividad del cliente. Esta funcionalidad es aplicable en el nivel De uso general si la base de datos tiene una réplica geográfica secundaria.
 - **Mayor disponibilidad**: un nivel Crítico para la empresa en la configuración de AZ múltiple garantiza una disponibilidad del 99,995 %, en comparación con el 99,99 % del nivel De uso general.

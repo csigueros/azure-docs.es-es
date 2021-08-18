@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: tagore
-ms.openlocfilehash: 43473b734968b25ca90bd8809c8291625011d46f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1a2a5f035ca0a182371f0beea3b5b58e7353bcc
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667005"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112322969"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager
 
@@ -190,4 +190,4 @@ Como parte de la migración de los recursos desde el modelo de implementación c
 * [Migración de circuitos ExpressRoute y las redes virtuales asociadas del modelo de implementación clásica a Resource Manager](../expressroute/expressroute-migration-classic-resource-manager.md)
 * [Herramientas de la comunidad para ayudar con la migración de recursos de IaaS del modelo de implementación clásica a Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
 * [Revisión de los errores más comunes en la migración](migration-classic-resource-manager-errors.md)
-* [Revisión de las preguntas más frecuentes acerca de cómo migrar recursos de IaaS del modelo de implementación clásica a Azure Resource Manager](migration-classic-resource-manager-faq.md)
+* [Revisión de las preguntas más frecuentes acerca de cómo migrar recursos de IaaS del modelo de implementación clásica a Azure Resource Manager](migration-classic-resource-manager-faq.yml)

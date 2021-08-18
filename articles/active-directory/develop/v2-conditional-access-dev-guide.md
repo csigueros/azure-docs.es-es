@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 9e74f35a99bb57fff6d7134fb1fb4b596306a21b
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 0492055262ccd627d2e3400f78e5c26db0b2acb2
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072430"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730053"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -36,7 +36,7 @@ Para desarrolladores que compilan aplicaciones para Azure AD, este artículo mu
 En él se supone que tiene conocimientos sobre aplicaciones de inquilino [único](quickstart-register-app.md) y [multiinquilino](howto-convert-app-to-be-multi-tenant.md), además de sobre los [patrones comunes de autenticación](./authentication-vs-authorization.md).
 
 > [!NOTE]
-> Necesita una licencia de Azure AD Premium P1 para usar esta característica. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis, Básico y Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+> Necesita una licencia de Azure AD Premium P1 para usar esta característica. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis, Básico y Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 > Los clientes con [licencias de Microsoft 365 Empresa](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) también tienen acceso a características de acceso condicional.
 
 ## <a name="how-does-conditional-access-impact-an-app"></a>¿Cómo el acceso condicional afecta a una aplicación?

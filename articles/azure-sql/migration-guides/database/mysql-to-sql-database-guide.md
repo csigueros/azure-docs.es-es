@@ -9,17 +9,17 @@ ms.topic: how-to
 author: cawrites
 ms.author: chadam
 ms.date: 03/19/2021
-ms.openlocfilehash: ec117b8f341546deb48510d9b27a43b731d03742
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3b9f286796a832d075977cda2eda54f990bbb3c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970708"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743720"
 ---
 # <a name="migration-guide-mysql-to-azure-sql-database"></a>Guía de migración: de MySQL a Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-En esta guía obtendrá información sobre [cómo migrar](https://azure.microsoft.com/migration/migration-journey) una base de datos de MySQL a otra de Azure SQL mediante [SQL Server Migration Assistant](https://azure.microsoft.com/en-us/migration/sql-server/) para MySQL (SSMA para MySQL). 
+En esta guía obtendrá información sobre [cómo migrar](https://azure.microsoft.com/migration/migration-journey) una base de datos de MySQL a otra de Azure SQL mediante [SQL Server Migration Assistant](https://azure.microsoft.com/migration/sql-server/) para MySQL (SSMA para MySQL). 
 
 Para ver otras guías de migración, consulte [Guía de Azure Database Migration](/data-migration). 
 
@@ -133,7 +133,7 @@ Para publicar el esquema y migrar los datos, haga lo siguiente:
 
    ![Captura de pantalla de SQL Server Management Studio.](./media/mysql-to-sql-database-guide/validate-in-ssms.png)
 
-## <a name="post-migration"></a>Después de la migración 
+## <a name="post-migration"></a>Etapa posterior a la migración 
 
 Cuando haya completado correctamente la fase de *migración*, deberá realizar una serie de tareas posteriores para asegurarse de que todo funcione de la forma más fluida y eficaz posible.
 
@@ -165,7 +165,7 @@ Para obtener más ayuda a fin de completar este escenario de migración, vea el 
 
 | Título | Descripción |
 | --- | --- |
-| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y los niveles de corrección de la aplicación y la base de datos para las cargas de trabajo especificadas. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado. |
+| [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://www.microsoft.com/download/details.aspx?id=103130) | Proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y los niveles de corrección de la aplicación y la base de datos para las cargas de trabajo especificadas. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado. |
 |[Utilidad Comparación de bases de datos de MySQL a SQL DB](https://www.microsoft.com/download/details.aspx?id=103016)|La utilidad Comparación de bases de datos es una aplicación de consola de Windows que se puede usar para comprobar que los datos son idénticos en la plataforma de origen y en la de destino. Puede usar la herramienta para comparar de forma eficaz los datos hasta el nivel de fila o de columna de todas las tablas, filas y columnas o únicamente en las seleccionadas.|
 
 El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es permitir y acelerar la modernización compleja de los proyectos de migración de la plataforma de datos a la de Azure, de Microsoft.

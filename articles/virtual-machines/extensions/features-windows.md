@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 03/30/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2c6a96c1716f34b7bb27e8632a547cbafa432db1
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c4f2da1bd955f9a0b47519c913f656aa6e8bdce4
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663112"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179653"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -29,7 +29,7 @@ Este artículo proporciona información general sobre las extensiones de máquin
 Varias extensiones de máquina virtual de Azure diferentes están disponibles, cada una con un caso de uso específico. Estos son algunos ejemplos:
 
 - Aplique configuraciones de estado deseado de PowerShell a una máquina virtual con la extensión DSC para Windows. Para obtener más información, consulte la sección sobre la [extensión de configuración de estado deseado de Azure](dsc-overview.md).
-- Configure la supervisión de una máquina virtual con la extensión de máquina virtual del agente de Log Analytics. Para más información, consulte el artículo sobre la [conexión de máquinas virtuales de Azure a registros de Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md).
+- Configure la supervisión de una máquina virtual con la extensión de máquina virtual del agente de Log Analytics. Para más información, consulte el artículo sobre la [conexión de máquinas virtuales de Azure a registros de Azure Monitor](../../azure-monitor/vm/monitor-virtual-machine.md).
 - Configure una máquina virtual de Azure con Chef. Para más información, consulte el artículo sobre [automatización de la implementación de máquinas virtuales de Azure con Chef](/azure/developer/chef/windows-vm-configure).
 - Configure la supervisión de su infraestructura de Azure con la extensión de Datadog. Para obtener más información, consulte el [blog de Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 

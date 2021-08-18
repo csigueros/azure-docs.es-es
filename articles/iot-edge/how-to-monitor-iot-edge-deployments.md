@@ -2,19 +2,18 @@
 title: 'Supervisión de las implementaciones de IoT Edge: Azure IoT Edge'
 description: Supervisión de alto nivel que incluye las propiedades informadas de EdgeHub y EdgeAgent y las métricas de implementación automática.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 04/21/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1b06ea5e541634a3b6738272c7b6540ff17006df
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 834208d1499e83b1de5cd276a5de65c00f25e4f7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073636"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722010"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Supervisión de las implementaciones de IoT Edge
 

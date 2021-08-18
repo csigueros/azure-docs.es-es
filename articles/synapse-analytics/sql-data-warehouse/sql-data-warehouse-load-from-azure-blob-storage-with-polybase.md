@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b1afcdfa74245eb566663d5dec6ce2e2276fbdc8
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: c6abbecfa7bc2946dc68b5acb530c5d2bbd2e700
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568240"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540481"
 ---
 # <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Carga de datos de Contoso Retail en grupos de SQL dedicados en Azure Synapse Analytics
 
@@ -221,7 +221,7 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>Carga de los datos en nuevas tablas
 
-Para cargar datos de Azure Blob Storage a la tabla del almacenamiento de datos, use la instrucción [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). La carga con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) aprovecha las tablas externas de tipos rigurosos que ha creado. Para cargar los datos en nuevas tablas, utilice una instrucción CTAS por tabla.
+Para cargar datos de Azure Blob Storage a la tabla del almacenamiento de datos, use la instrucción [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). La carga con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) aprovecha las tablas externas de tipos rigurosos que ha creado. Para cargar los datos en nuevas tablas, utilice una instrucción CTAS por tabla.
 
 CTAS crea una nueva tabla y la rellena con los resultados de una instrucción SELECT. CTAS define la nueva tabla para tener las mismas columnas y tipos de datos que los resultados de la instrucción SELECT. Si selecciona todas las columnas de una tabla externa, la nueva tabla será una réplica de las columnas y los tipos de datos de la tabla externa.
 

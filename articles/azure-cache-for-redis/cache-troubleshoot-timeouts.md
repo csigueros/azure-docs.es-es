@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: d00ec82b5b66b2c413337f0c4efe803fc1013ab9
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: b4549978925f2e7016b54ce3004eabadaa8e985f
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847878"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113134355"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solución de problemas de tiempos de expiración de Redis Cache
 
@@ -50,7 +50,7 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 | wr |Hay un escritor activo (lo que significa que 6 solicitudes sin enviar no se omiten) bytes/activewriters. |
 | bucear |No hay ningún lector activo y hay cero bytes disponibles para su lectura en los bytes/activereaders de NIC. |
 
-En el ejemplo de excepción anterior, las secciones `IOCP` y `WORKER` incluyen cada una un valor `Busy` mayor que el valor `Min`. La diferencia significa que debe ajustar la configuración de `ThreadPool`. Puede [configurar las opciones de ThreadPool](cache-management-faq.md#important-details-about-threadpool-growth) para asegurarse de que su grupo de subprocesos se escale verticalmente a gran velocidad en escenarios de ráfaga.
+En el ejemplo de excepción anterior, las secciones `IOCP` y `WORKER` incluyen cada una un valor `Busy` mayor que el valor `Min`. La diferencia significa que debe ajustar la configuración de `ThreadPool`. Puede [configurar las opciones de ThreadPool](cache-management-faq.yml#important-details-about-threadpool-growth) para asegurarse de que su grupo de subprocesos se escale verticalmente a gran velocidad en escenarios de ráfaga.
 
 Puede usar los pasos siguientes para investigar posibles causas principales.
 
@@ -123,5 +123,5 @@ Puede usar los pasos siguientes para investigar posibles causas principales.
 
 - [Solución de problemas del lado cliente de Redis Cache](cache-troubleshoot-client.md)
 - [Solución de problemas del lado servidor de Redis Cache](cache-troubleshoot-server.md)
-- [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
 - [Supervisión de Azure Cache for Redis](cache-how-to-monitor.md)

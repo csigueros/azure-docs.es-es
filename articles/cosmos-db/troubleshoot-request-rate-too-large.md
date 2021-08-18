@@ -8,17 +8,17 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 99cad194317a2dfc7a5924635aef7484d83f8ba0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f892bd439424fdd35110dfa704e0bf319d85a0c5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969273"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745453"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-429-exceptions"></a>Diagnóstico y solución de problemas de las excepciones de tasa de solicitudes demasiado grande (429) en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Este artículo contiene las causas conocidas y las soluciones de varios errores de código de estado 429 para la API de SQL. Si usa la API para MongoDB, consulte el artículo [Solución de problemas comunes en API para MongoDB](mongodb-troubleshoot.md) para obtener información sobre cómo depurar el código de estado 16500.
+Este artículo contiene las causas conocidas y las soluciones de varios errores de código de estado 429 para la API de SQL. Si usa la API para MongoDB, consulte el artículo [Solución de problemas comunes en API para MongoDB](mongodb/error-codes-solutions.md) para obtener información sobre cómo depurar el código de estado 16500.
 
 Una excepción de "tasa de solicitudes demasiado grande", también conocida como código de error 429, indica que se limita la tasa de las solicitudes en Azure Cosmos DB.
 

@@ -12,16 +12,16 @@ ms.reviewer: larryfr
 ms.date: 01/26/2021
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 2874878c8b03b6cf63c2a5214a0de68000d51569
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 401b565d69797bc4880729dd5f5c4af3e0012f6f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885639"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736522"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingesta de datos con Azure Data Factory
 
-En este artículo, obtendrá información sobre las opciones disponibles para crear una canalización de ingesta de datos con [Azure Data Factory](../data-factory/introduction.md). Esta canalización de Azure Data Factory se utiliza para ingerir datos para su uso con [Azure Machine Learning](overview-what-is-azure-ml.md). Data Factory permite extraer, transformar y cargar (ETL) datos fácilmente. Una vez que los datos se han transformado y cargado en el almacenamiento, se pueden usar para entrenar los modelos de Machine Learning en Azure Machine Learning.
+En este artículo, obtendrá información sobre las opciones disponibles para crear una canalización de ingesta de datos con [Azure Data Factory](../data-factory/introduction.md). Esta canalización de Azure Data Factory se utiliza para ingerir datos para su uso con [Azure Machine Learning](overview-what-is-azure-machine-learning.md). Data Factory permite extraer, transformar y cargar (ETL) datos fácilmente. Una vez que los datos se han transformado y cargado en el almacenamiento, se pueden usar para entrenar los modelos de Machine Learning en Azure Machine Learning.
 
 La transformación de datos simple se puede controlar con actividades e instrumentos nativos de Data Factory, como el [flujo de datos](../data-factory/control-flow-execute-data-flow-activity.md). Cuando se trata de escenarios más complicados, los datos se pueden procesar con código personalizado. Por ejemplo, código de Python o R.
 

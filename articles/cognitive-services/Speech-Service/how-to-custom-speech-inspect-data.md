@@ -3,19 +3,19 @@ title: 'Inspección de la calidad de los datos de Habla personalizada: Servicio 
 titleSuffix: Azure Cognitive Services
 description: Habla personalizada proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: erhopf
-ms.openlocfilehash: 9ce0d3a06846cbc3aa37ab836564150e6f2c34ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: f7e9d16584e19bb54eb14500ae67553f9557e60a
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100362818"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122066519"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspección de los datos de Habla personalizada
 

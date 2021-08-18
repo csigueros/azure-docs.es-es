@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 1b4570b09994f292de2b175396e4b6d1882658d9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4247cce1ad43c2ba25085e3db41b838337e56486
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866495"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725358"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari
 
-[!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
+[!INCLUDE [ambari-selector](includes/hdinsight-ambari-selector.md)]
 
 Apache Ambari simplifica la administración y la supervisión de un clúster de Apache Hadoop, La simplificación se lleva a cabo al proporcionar una forma fácil de usar la interfaz de usuario web y la API REST. Ambari se incluye en los clústeres de HDInsight y, además, se usa para supervisar el clúster y realizar cambios en la configuración.
 
@@ -85,7 +85,7 @@ Para administrar métodos de alerta y crear notificaciones de alerta, en el men�
 
 Por último, al seleccionar __Manage Alert Settings__ (Administrar configuración de alerta) en el menú __Actions__ (Acciones) podrá probar el número de veces que debe aparecer una alerta antes de enviar una notificación. Esta opción puede usarse para evitar notificaciones de errores transitorios.
 
-Para ver un tutorial de una notificación de alerta con una [cuenta de SendGrid](../sendgrid-dotnet-how-to-send-email.md) gratuita, consulte [Configuración de notificaciones por correo electrónico de Apache Ambari en Azure HDInsight](./apache-ambari-email.md).
+Para ver un tutorial de una notificación de alerta con una [cuenta de SendGrid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account) gratuita, consulte [Configuración de notificaciones por correo electrónico de Apache Ambari en Azure HDInsight](./apache-ambari-email.md).
 
 ### <a name="cluster"></a>Clúster
 

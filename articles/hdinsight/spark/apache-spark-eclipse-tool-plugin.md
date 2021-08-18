@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
-ms.openlocfilehash: e4f19afc0edf0f43b64548ae1c93ed5ff8dfa8a1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 61f4ee43f89e4b0dffe626be84b135e6dc8e3a29
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866580"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286473"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Uso de Azure Toolkit for Eclipse para crear aplicaciones de Apache Spark para un clúster de HDInsight
 
@@ -24,7 +24,7 @@ Use las herramientas de HDInsight de Azure Toolkit for [Eclipse](https://www.ecl
 
 * Clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 
-* [Kit de desarrolladores de Java (JDK), versión 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* [Kit de desarrolladores de Java (JDK), versión 8](/azure/developer/java/fundamentals/java-support-on-azure).
 
 * [IDE de Eclipse](https://www.eclipse.org/downloads/). En este artículo se usa el IDE de Eclipse para desarrolladores de Java.
 

@@ -2,13 +2,13 @@
 title: Compatibilidad de etiquetas de los recursos
 description: Muestra los tipos de recursos de Azure que admiten etiquetas. Proporciona detalles de todos los servicios de Azure.
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: b196cae267a8d7dc878f055f6b2d70a3ff6f9313
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/20/2021
+ms.openlocfilehash: 4f15fea365fc242f3c7253a39b6a877dd672deb1
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773970"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453295"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](tag-resources.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos. Puede ver los costos por etiquetas en el [análisis de costos de Cost Management](../../cost-management-billing/costs/group-filter.md) y los [datos de uso diario y de facturación de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -1619,7 +1619,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | actionGroups | Sí | Sí |
+> | actionGroups | Sí | No |
 > | activityLogAlerts | Sí | Sí |
 > | alertrules | Sí | Sí |
 > | autoscalesettings | Sí | Sí |
@@ -1962,7 +1962,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts | Sí | No |
 > | netAppAccounts/accountBackups | No | No |
-> | netAppAccounts/capacityPools | Sí | No |
+> | netAppAccounts/capacityPools | Sí | Sí |
 > | netAppAccounts/capacityPools/volumes | Sí | No |
 > | netAppAccounts/capacityPools/volumes/snapshots | No | No |
 > | netAppAccounts/volumeGroups | No | No |
@@ -2567,7 +2567,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servers/restorableDroppedDatabases | No | No |
 > | servers/serviceobjectives | No | No |
 > | servers/tdeCertificates | No | No |
-> | virtualClusters | Sí | Sí |
+> | virtualClusters | No | No |
 
 <a id="sqlnote"></a>
 

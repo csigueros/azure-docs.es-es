@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: ea9dc2627d5a6498f69ca8c61a9cac8089816886
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 4bf2024a54535e5091857ccedf01a812b2f6a49c
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378591"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280176"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
@@ -18,7 +18,7 @@ ms.locfileid: "107378591"
 
 Para ver una comparación completa de las opciones de creación de clústeres con Data Lake Storage Gen2, consulte [Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight](hdinsight-hadoop-compare-storage-options.md).
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="data-lake-storage-gen2-availability"></a>Disponibilidad de Data Lake Storage Gen2
 

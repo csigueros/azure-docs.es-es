@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 16379380fc35bb2355c496dc857e9de3b41347f9
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: df7af81b51428f53beb7722c7f224dc7afdd28cb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096911"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728642"
 ---
 # <a name="the-azure-defender-dashboard"></a>Panel de Azure Defender
 
@@ -27,7 +27,7 @@ Para acceder al panel de Azure Defender, seleccione  **Azure Defender** en la se
 
 ## <a name="whats-shown-on-the-dashboard"></a>¿Qué se muestra en el panel?
 
-:::image type="content" source="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png" alt-text="Ejemplo del panel de Azure Defender" lightbox="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png":::
+:::image type="content" source="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png" alt-text="Ejemplo del panel de Azure Defender." lightbox="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png":::
 
 El panel incluye las secciones siguientes:
 
@@ -46,7 +46,7 @@ El panel incluye las secciones siguientes:
 
 En este artículo, aprendió las características del panel de Azure Defender. 
 
-Para más información sobre Azure Defender, consulte [Introducción a Azure Defender](azure-defender.md).
-
 > [!div class="nextstepaction"]
 > [Habilitación de Azure Defender](enable-azure-defender.md)
+
+Para más información sobre Azure Defender, consulte [Introducción a Azure Defender](azure-defender.md).

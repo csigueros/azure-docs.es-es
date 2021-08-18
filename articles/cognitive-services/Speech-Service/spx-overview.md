@@ -3,20 +3,20 @@ title: La CLI de voz de Azure
 titleSuffix: Azure Cognitive Services
 description: La CLI de voz es una herramienta de línea de comandos para usar el servicio de voz sin necesidad de escribir código. La CLI de voz requiere una configuración mínima y es fácil empezar a experimentar de inmediato con características clave del servicio de voz para ver si pueden resultar útiles para sus casos de uso.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ddba62b37c200ade87dbb51042fe0cb084a9ef9a
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 4a2b1ca8a852f775b61bf378998e46a1e6d580f1
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106129"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071525"
 ---
 # <a name="what-is-the-speech-cli"></a>¿Qué es la CLI de Voz?
 

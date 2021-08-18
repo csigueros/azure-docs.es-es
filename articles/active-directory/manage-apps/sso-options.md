@@ -2,21 +2,21 @@
 title: Opciones de inicio de sesión único en Azure AD
 description: Conozca las opciones disponibles para el inicio de sesión único (SSO) en Azure Active Directory.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: mtillman
-ms.reviewer: arvindh, japere
-ms.openlocfilehash: 965c3898a0175bbf448d8c59b9f7853c8aeb37bd
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: ergreenl
+ms.openlocfilehash: 99d478738c8fc7a2e67bb0585b997afe4b42ecb2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082296"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738771"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opciones de inicio de sesión único en Azure AD
 
@@ -32,7 +32,7 @@ Para más información sobre el inicio de sesión único, consulte [¿Qué es el
 
 Hay varias maneras de configurar una aplicación para el inicio de sesión único. La elección de un método de inicio de sesión único depende de cómo esté configurada la aplicación para la autenticación.
 
-- Las aplicaciones en la nube pueden usar los métodos OpenID Connect, OAuth, SAML, basado en contraseñas, vinculado o deshabilitado para realizar el inicio de sesión único. 
+- Las aplicaciones en la nube pueden usar los métodos OpenID Connect, OAuth, SAML, basado en contraseñas, vinculado o deshabilitado para realizar el inicio de sesión único.
 - Las aplicaciones locales pueden usar métodos de inicio de sesión único basados en contraseñas, de autenticación integrada, basados en encabezados, vinculados o deshabilitados. Las opciones locales funcionan si las aplicaciones están configuradas para el proxy de aplicación.
 
 Este diagrama de flujo le ayuda a decidir qué método de inicio de sesión único es el mejor en su caso.
@@ -132,6 +132,7 @@ Si el usuario final administra las credenciales:
 - Los administradores pueden seguir estableciendo nuevas credenciales para la aplicación.
 
 ## <a name="linked-sign-on"></a>Inicio de sesión vinculado
+
 El inicio de sesión único vinculado permite a Azure AD proporcionar inicio de sesión único a una aplicación que ya está configurada para el inicio de sesión único en otro servicio. La aplicación vinculada puede aparecer a los usuarios finales en el portal de Office 365 o el portal Mis aplicaciones de Azure AD. Por ejemplo, un usuario puede iniciar una aplicación que está configurada para el inicio de sesión único en Servicios de federación de Active Directory (AD FS) 2.0 desde el portal de Office 365. También hay informes adicionales disponibles para aplicaciones vinculadas que se inician desde el portal de Office 365 o el portal Mis aplicaciones de Azure AD. Para configurar una aplicación para el inicio de sesión vinculado, consulte [Configuración del inicio de sesión vinculado](configure-linked-sign-on.md).
 
 ### <a name="linked-sign-on-for-application-migration"></a>Inicio de sesión vinculado para la migración de aplicaciones
@@ -141,7 +142,7 @@ El inicio de sesión vinculado puede proporcionar una experiencia de usuario coh
 Una vez que el usuario se ha autenticado con una aplicación vinculada, se debe crear un registro de cuenta antes de proporcionar al usuario final el acceso de inicio de sesión único. El aprovisionamiento de este registro de cuenta puede producirse automáticamente o bien lo puede realizar manualmente un administrador.
 
 >[!NOTE]
->No se pueden aplicar directivas de acceso condicional ni la autenticación multifactor a una aplicación vinculada. Esto se debe a que las aplicaciones vinculadas no proporcionan funcionalidades de inicio de sesión único mediante Azure AD. Al configurar una aplicación vinculada, simplemente se agrega un vínculo que aparecerá en el iniciador de aplicaciones o en el portal Aplicaciones. 
+>No se pueden aplicar directivas de acceso condicional ni la autenticación multifactor a una aplicación vinculada. Esto se debe a que las aplicaciones vinculadas no proporcionan funcionalidades de inicio de sesión único mediante Azure AD. Al configurar una aplicación vinculada, simplemente se agrega un vínculo que aparecerá en el iniciador de aplicaciones o en el portal Aplicaciones.
 
 ## <a name="disabled-sso"></a>Inicio de sesión único deshabilitado
 
@@ -164,6 +165,7 @@ Elija el modo de inicio de sesión único de autenticación integrada para propo
 Para configurar una aplicación local para IWA, consulte [Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md).
 
 ### <a name="how-single-sign-on-with-kcd-works"></a>Cómo funciona el inicio de sesión único con KCD
+
 En este diagrama se explica el flujo cuando un usuario accede a una aplicación local que usa IWA.
 
 ![Diagrama de flujos de autenticación de Microsoft Azure AD](../app-proxy/media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
@@ -185,8 +187,8 @@ Elija el inicio de sesión único basado en encabezados cuando Application Proxy
 
 Para más información acerca de la autenticación basada en encabezados, consulte [Inicio de sesión único basado en encabezados](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-* [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
-* [Planeación de una implementación de inicio de sesión único](plan-sso-deployment.md)
-* [Inicio de sesión único con aplicaciones locales](../app-proxy/application-proxy-config-sso-how-to.md)
+
+- [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
+- [Planeación de una implementación de inicio de sesión único](plan-sso-deployment.md)
+- [Inicio de sesión único con aplicaciones locales](../app-proxy/application-proxy-config-sso-how-to.md)

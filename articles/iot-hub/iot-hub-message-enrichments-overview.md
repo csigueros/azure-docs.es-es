@@ -2,18 +2,17 @@
 title: Introducción al enriquecimiento de mensajes de Azure IoT Hub
 description: En este artículo se muestran los enriquecimientos de mensajes, que proporcionan al centro de IoT la posibilidad de marcar los mensajes con información adicional antes de enviarlos al punto de conexión designado.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 10e999a7f0662c421d73872448506a9c9ca05975
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 4edbdca9089cc04d7ba1f9a62216fb3370b787d5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079036"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751968"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enriquecimientos de mensajes para mensajes de IoT Hub del dispositivo a la nube
 

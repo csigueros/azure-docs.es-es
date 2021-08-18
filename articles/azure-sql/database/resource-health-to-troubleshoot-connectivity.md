@@ -11,12 +11,12 @@ author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
 ms.date: 03/24/2021
-ms.openlocfilehash: 4be870b68c7679382d397bdd0d44a3191c3f082b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1c52ca808b509ddb3a79d27a110a08a451b9c748
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697450"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722969"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Uso de Resource Health para solucionar problemas de conectividad para Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -77,4 +77,4 @@ Las reconfiguraciones se consideran condiciones transitorias y se espera que se 
 - [Cómo solucionar problemas, diagnosticar y evitar errores de conexión de SQL y errores transitorios de SQL Database](troubleshoot-common-connectivity-issues.md).
 - Más información sobre la [configuración de alertas de Resource Health](../../service-health/resource-health-alert-arm-template-guide.md).
 - Obtener una introducción a [Resource Health](../../service-health/resource-health-overview.md).
-- Revisar [P+F sobre Resource Health](../../service-health/resource-health-faq.md).
+- Revisar [P+F sobre Resource Health](../../service-health/resource-health-faq.yml).

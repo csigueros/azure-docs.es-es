@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: dd9f35a0b7c3bb5c2c5888765e4ebac436b4cde1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fab7a613a040a57b65ecb8cb2372fff37f35c84a
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711134"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114392567"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -291,7 +291,7 @@ Las notificaciones se cobran por separado según los [Precios de notificaciones 
 
 ## <a name="pricing"></a>Precios
 
-La información sobre los precios está disponible [en línea](network-performance-monitor-pricing-faq.md).
+La información sobre los precios está disponible [en línea](network-performance-monitor-pricing-faq.yml).
 
 ## <a name="provide-feedback"></a>Envío de comentarios 
 

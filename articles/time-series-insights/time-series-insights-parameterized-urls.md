@@ -3,19 +3,20 @@ title: 'Uso compartido de vistas personalizadas con direcciones URL con parámet
 description: Aprenda a crear direcciones URL con parámetros para compartir fácilmente vistas del explorador personalizadas en Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: narmeens
+ms.author: narsam
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 395420c61e2cc3f4167590f81e625bf7e67cbfac
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91665334"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112371236"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Uso compartido de una vista personalizada mediante una dirección URL con parámetros
 
@@ -78,12 +79,12 @@ El parámetro `timeSeriesDefinitions=<collection of term objects>` especifica lo
 | **useSum** | `true` | Un parámetro opcional que especifica el uso de sum para la medida. |
 
 > [!NOTE]
-> Si `Events` es la medida **useSum** seleccionada, el recuento se selecciona de forma predeterminada.  
+> Si `Events` es la medida **useSum** seleccionada, el recuento se selecciona de forma predeterminada.
 > Si `Events` no se selecciona, se selecciona la media de forma predeterminada. |
 
 * El par clave-valor `multiChartStack=<true/false>` permite el apilamiento en el gráfico.
-* El par clave-valor `multiChartSameScale=<true/false>` permite la misma escala del eje Y por los términos de un parámetro opcional.  
-* `timeBucketUnit=<Unit>&timeBucketSize=<integer>` permite ajustar el control deslizante de intervalos para proporcionar una vista más pormenorizada y agregada del gráfico.  
+* El par clave-valor `multiChartSameScale=<true/false>` permite la misma escala del eje Y por los términos de un parámetro opcional.
+* `timeBucketUnit=<Unit>&timeBucketSize=<integer>` permite ajustar el control deslizante de intervalos para proporcionar una vista más pormenorizada y agregada del gráfico.
 * El parámetro `timezoneOffset=<integer>` permite establecer la zona horaria del gráfico que se va a ver como un desplazamiento a la hora UTC.
 
 | Par(es) | Descripción |

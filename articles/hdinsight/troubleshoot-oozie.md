@@ -4,12 +4,12 @@ description: Solución de determinados errores de Apache Oozie en Azure HDInsigh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
-ms.openlocfilehash: 2cdd20a5d639f74916657edc3f73183a403204a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4dfc85b566f464a6c0fd49f7859f2c62aad1d8c4
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944672"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112283886"
 ---
 # <a name="troubleshoot-apache-oozie-in-azure-hdinsight"></a>Solución de problemas de Apache Oozie en Azure HDInsight
 
@@ -104,4 +104,4 @@ Por ejemplo, para el ejemplo de trabajo del artículo [Uso de flujos de trabajo 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]

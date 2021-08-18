@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: eb3327ad84310e5dae55103171f7677d5b2c06d1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 75387c4309283fc1e3df543bd1dced5f4fa792bf
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756168"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "114462333"
 ---
 # <a name="use-databox-to-migrate-from-network-attached-storage-nas-to-azure-file-shares"></a>Uso de DataBox para migrar desde un almacenamiento conectado a la red (NAS) a los recursos compartidos de archivos de Azure
 
@@ -26,6 +26,13 @@ Este artículo de migración es uno de varios que implican las palabras clave NA
 Si el escenario es diferente, examine la [tabla de guías de migración](storage-files-migration-overview.md#migration-guides).
 
 Este artículo le guía de forma detallada por el planeamiento, implementación y configuración de las redes necesarias para migrar del dispositivo NAS a recursos compartidos de archivos de Azure funcionales. En esta guía se usa Azure Data Box para el transporte de datos masivo (transporte de datos sin conexión).
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="migration-goals"></a>Objetivos de la migración
 

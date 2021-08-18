@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: c1fb80001f0669672e9f6e8a567685b799314df1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ce02e1af466562c2a50c8a3286e45355a881cb3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549828"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461097"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Aplicación de directivas a máquinas virtuales con Linux con Azure Resource Manager
 Mediante las directivas, una organización puede aplicar varias convenciones y reglas en toda la empresa. La aplicación del comportamiento deseado puede ayudar a reducir el riesgo a la vez que se contribuye al éxito de la organización. En este artículo, describimos cómo puede usar las directivas de Azure Resource Manager para definir el comportamiento deseado para las máquinas virtuales de su organización.
@@ -31,7 +31,6 @@ Para asegurarse de que las máquinas virtuales de la organización son compatibl
       {
         "field": "type",
         "in": [
-          "Microsoft.Compute/disks",
           "Microsoft.Compute/virtualMachines",
           "Microsoft.Compute/VirtualMachineScaleSets"
         ]

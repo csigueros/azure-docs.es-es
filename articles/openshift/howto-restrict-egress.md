@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 04/09/2021
-ms.openlocfilehash: c15e7261587952c93d059cfcfadd06c7d204d80d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 53efeff1024d104f4dae2d70fc6f00c73d3d8fed
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135680"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291817"
 ---
 # <a name="control-egress-traffic-for-your-azure-red-hat-openshift-aro-cluster-preview"></a>Control del tráfico de salida del clúster de Red Hat OpenShift (ARO) en Azure (versión preliminar)
 
@@ -32,7 +32,7 @@ Se requieren las siguientes reglas de aplicación / FQDN:
 
 | FQDN de destino | Port | Uso |
 | ----------- | ----------- | ------------- |
-| **`quay.io`** | **HTTPS:443** | Obligatorio para la instalación; lo usa el clúster. El clúster lo usa para descargar las imágenes del contenedor de plataformas. |
+| **`*.quay.io`** | **HTTPS:443** | Obligatorio para la instalación; lo usa el clúster. El clúster lo usa para descargar las imágenes del contenedor de plataformas. |
 | **`registry.redhat.io`** | **HTTPS:443** | Obligatorio para los complementos principales. El clúster lo usa para descargar los componentes principales, como las herramientas de desarrollo, complementos basados en operadores e imágenes de contenedor proporcionadas por Red Hat.
 | **`mirror.openshift.com`** | **HTTPS:443** | Necesario en el entorno de VDI o en el portátil para acceder a las imágenes y al contenido de la instalación reflejados. En el clúster, se requiere para descargar firmas de versión de la plataforma a fin de saber qué imágenes deben extraerse de quay.io. |
 | **`api.openshift.com`** | **HTTPS:443** | Requerido por el clúster para comprobar si hay actualizaciones disponibles antes de descargar las firmas de imagen. |

@@ -3,15 +3,15 @@ title: Acceso a orígenes de datos en entornos locales
 description: Conexión a orígenes de datos locales desde Azure Logic Apps mediante la creación de un recurso de puerta de enlace de datos en Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, logicappspm
+ms.reviewer: arthii, azla
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: 490750fecf1634f8d0bbcd92bd71cdf3cb531c71
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.date: 07/14/2021
+ms.openlocfilehash: 4f49e0fbbfa4c2a98b86c96dc3b0e650d6ff6bc9
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888597"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204832"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
@@ -35,18 +35,20 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
 
 En Azure Logic Apps, la puerta de enlace de datos local admite los [conectores locales](../connectors/managed.md#on-premises-connectors) para estos orígenes de datos:
 
-* BizTalk Server 2016
-* Sistema de archivos
-* IBM DB2  
-* IBM Informix
-* IBM MQ
-* MySQL
-* Base de datos de Oracle
-* PostgreSQL
-* SAP
-* SharePoint Server
-* SQL Server
-* Teradata
+* [Apache Impala](/connectors/impala)
+* [BizTalk Server](/connectors/biztalk)
+* [Sistema de archivos](/connectors/filesystem)
+* [HTTP with Azure AD](/connectors/webcontents)
+* [IBM DB2](/connectors/db2)
+* [IBM Informix](/connectors/informix)
+* [IBM MQ](/connectors/mq)
+* [MySQL](/connectors/mysql)
+* [Base de datos de Oracle](/connectors/oracle)
+* [PostgreSQL](/connectors/postgresql)
+* [SAP](/connectors/sap)
+* [SharePoint Server](/connectors/sharepointonline)
+* [SQL Server](/connectors/sql)
+* [Teradata](/connectors/teradata)
 
 También puede crear [conectores personalizados](../logic-apps/custom-connector-overview.md) que se conectan a orígenes de datos a través de HTTP o HTTPS mediante REST o SOAP. Aunque la puerta de enlace por sí sola no genera costos adicionales, el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) se aplica a estos conectores y a otras operaciones en Azure Logic Apps.
 

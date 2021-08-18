@@ -3,20 +3,20 @@ title: 'Creación de un entorno: Azure Time Series Insights | Microsoft Docs'
 description: Aprenda a usar Azure Portal para crear un entorno de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.reviewer: v-mamcge, jasonh, kfile
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 61af7922318514a7b86a349d1970c59d4d168d85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e886c343a37b65d548f84f2faca76bdf92ff089
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95023333"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136875"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>Creación de un entorno de Azure Time Series Insights Gen1 en Azure Portal
 
@@ -53,7 +53,7 @@ Siga estos pasos para crear un entorno:
    Location | La más cercana al origen de su evento | Si es posible, elija la misma ubicación del centro de datos que contiene los datos de origen de eventos para evitar costos adicionales de ancho de banda entre regiones y zonas, y un aumento de la latencia cuando se mueven datos fuera de la región.
    Plan de tarifa | S1 | Elija el rendimiento requerido. Para costos más bajos y una capacidad de inicio menor, seleccione S1.
    Capacity | 1 | La capacidad es el multiplicador que se aplica a la tasa de entrada, la capacidad de almacenamiento y el costo asociado con la SKU seleccionada.  Puede cambiar la capacidad de un entorno después de su creación. Para costos más bajo, seleccione una capacidad de 1.
-  
+
 1. Haga clic en **Crear** para comenzar el proceso de aprovisionamiento. Este proceso tardará unos minutos.
 
 1. Seleccione el símbolo de **Notificaciones** (icono de campana) para supervisar el proceso de implementación.

@@ -2,18 +2,17 @@
 title: 'Traducción de protocolos modbus con puertas de enlace: Azure IoT Edge | Microsoft Docs'
 description: Permitir dispositivos que usan Modbus TCP para comunicarse con Azure IoT Hub mediante la creación de un dispositivo de puerta de enlace con IoT Edge
 author: kgremban
-manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 0388520903e208b3225375d5cee81e8321740a1b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5b1c1884dd9b6a37219fece848ebab9e9369906b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103487741"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731292"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Conexión de dispositivos que usan Modbus TCP a través de una puerta de enlace de dispositivos IoT Edge
 

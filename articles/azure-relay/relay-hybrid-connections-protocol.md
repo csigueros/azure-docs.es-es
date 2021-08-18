@@ -2,13 +2,13 @@
 title: Guía del protocolo de conexiones híbridas de Retransmisión de Azure | Microsoft Docs
 description: En este artículo se describen las interacciones en el lado cliente con el servicio de retransmisión de Conexiones híbridas para la conexión de clientes en los roles de agente de escucha y remitente.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 95eb6a66ac7580f115c85ddb258768b9eef62321
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 06/23/2021
+ms.openlocfilehash: fb87a2deb40455befccdd1d7ae4b0b54010b1af3
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314225"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668739"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexiones híbridas de Azure Relay
 

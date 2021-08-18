@@ -10,12 +10,12 @@ ms.author: ravokkar
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0a7ec2f4f8fdf631a6bc5096296275291ec41751
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d13bdc5bb98159d5a267a821f0431bed622e5e11
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94967132"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728829"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Comunicación con su DPS mediante el protocolo MQTT
 
@@ -70,8 +70,8 @@ Para usar el protocolo MQTT directamente, el cliente *debe* conectarse mediante 
 
 Para registrar un dispositivo mediante DPS, un dispositivo debe suscribirse mediante `$dps/registrations/res/#` como un **filtro de tema**. El comodín de varios niveles `#` en el filtro de tema solo se utiliza para permitir que el dispositivo reciba propiedades adicionales en el nombre del tema. DPS no permite el uso de los caracteres comodín `#` o `?` para el filtrado de subtemas. Puesto que DPS no es un agente de mensajería de publicación-suscripción de propósito general, solo admite los filtros de tema y los nombres de tema documentados.
 
-El dispositivo debe publicar un mensaje de registro en DPS mediante `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` como **Nombre del tema**. La carga útil debe contener el objeto [Registro de dispositivo](/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) en formato JSON.
-En un escenario exitoso, el dispositivo recibirá una respuesta sobre el nombre del tema `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` donde x es el valor de reintento en segundos. La carga útil de la respuesta contendrá el objeto [RegistrationOperationStatus](/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) en formato JSON.
+El dispositivo debe publicar un mensaje de registro en DPS mediante `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` como **Nombre del tema**. La carga útil debe contener el objeto [Registro de dispositivo](/rest/api/iot-dps/device/runtime-registration/register-device) en formato JSON.
+En un escenario exitoso, el dispositivo recibirá una respuesta sobre el nombre del tema `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` donde x es el valor de reintento en segundos. La carga útil de la respuesta contendrá el objeto [RegistrationOperationStatus](/rest/api/iot-dps/device/runtime-registration/register-device#registrationoperationstatus) en formato JSON.
 
 ## <a name="polling-for-registration-operation-status"></a>Sondeo para el estado de la operación de registro
 

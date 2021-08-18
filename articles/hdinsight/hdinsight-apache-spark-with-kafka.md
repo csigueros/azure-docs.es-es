@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 6ef11e9c7907f57b3b8de0a042e1035bce638cf4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 370549811fd0f9dd8a0ff9b41e36acfb5999c61a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863282"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282590"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Ejemplo de streaming de Apache Spark (DStream) con Apache Kafka en HDInsight
 
@@ -48,7 +48,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
 1. Utilice los datos siguientes para rellenar las entradas de la sección **Implementación personalizada**:
 
-   |Propiedad |Value |
+   |Propiedad |Valor |
    |---|---|
    |Resource group|cree un grupo o seleccione uno existente.|
    |Location|seleccione una ubicación geográfica próxima a usted.|
@@ -77,7 +77,7 @@ El código para el ejemplo descrito en este documento está disponible en [https
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 Como el procedimiento descrito en este documento crea los dos clústeres en el mismo grupo de recursos de Azure, puede eliminar el grupo de recursos de Azure Portal. Al eliminar el grupo, se eliminan también todos los recursos creados con el procedimiento descrito en este documento, la red virtual de Azure Virtual Network y la cuenta de almacenamiento que utilizan los clústeres.
 

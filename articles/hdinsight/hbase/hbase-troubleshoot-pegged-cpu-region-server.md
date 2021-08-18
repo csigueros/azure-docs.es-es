@@ -4,12 +4,12 @@ description: Solución de problemas de CPU fija en el servidor de regiones del c
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/01/2019
-ms.openlocfilehash: 7d0cf139f06bb296b486d2932d95b53fc1167a5d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 58eea6b5318b2d7cc71c30b1db7119442ca6a9fc
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98937019"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112291338"
 ---
 # <a name="scenario-pegged-cpu-on-region-server-in-apache-hbase-cluster-in-azure-hdinsight"></a>Escenario: CPU fija en el servidor de regiones del clúster de Apache HBase en Azure HDInsight
 
@@ -49,4 +49,4 @@ ps -aux | grep regionserver, and verify the version like '''/usr/lib/jvm/java-8-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: c9ee7e475957ca41c9094cab3b149f53e48a3764
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 84b27bc4ae30e28a1d97fb8e9931602a1eb14504
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900921"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444792"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Extensiones de Cloud Services (soporte extendido)
 
@@ -23,7 +23,7 @@ Las extensiones son aplicaciones pequeñas que proporcionan tareas de automatiza
 
 La extensión de máquina virtual de Key Vault proporciona la actualización automática de certificados almacenados en una instancia de Azure Key Vault. En concreto, la extensión supervisa una lista de certificados observados almacenados en almacenes de claves y, cuando detecta un cambio, recupera e instala los certificados correspondientes. También permite la referencia de certificados entre regiones o entre suscripciones para Cloud Service (soporte extendido).
 
-Para más información, vea [Configuración de la extensión de almacén de claves para el servicio en la nube (soporte extendido)](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-key-vault-virtual-machine).
+Para más información, vea [Configuración de la extensión de almacén de claves para el servicio en la nube (soporte extendido)](./enable-key-vault-virtual-machine.md).
 
 ## <a name="remote-desktop-extension"></a>Extensión de Escritorio remoto
 
@@ -54,5 +54,5 @@ Para más información acerca de Azure Antimalware, consulte [aquí](../security
 
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).
 - Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).

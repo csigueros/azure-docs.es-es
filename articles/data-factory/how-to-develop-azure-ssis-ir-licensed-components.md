@@ -2,17 +2,18 @@
 title: Instalación de componentes con licencia para Azure SSIS Integration Runtime
 description: Más información sobre cómo un ISV puede desarrollar e instalar componentes personalizados de pago o con licencia en un entorno de ejecución para la integración de SSIS en Azure
 ms.service: data-factory
+ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: fd62822e111346ee9a81a5d1bcce55191b19da02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c12c6bf17b5a773e9ef7f5ef122dfd8f466f3822
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386295"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738138"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalación de componentes personalizados de pago o con licencia para la instancia de Integration Runtime para la integración de SSIS en Azure
 
@@ -28,7 +29,7 @@ La naturaleza de la instancia de Integration Runtime para la integración de SSI
 
 -   También puede escalar la instancia de Integration Runtime para la integración de SSIS en Azure vertical u horizontalmente para que el número de nodos se reduzca o aumente en cualquier momento.
 
-## <a name="the-solution"></a>La solución
+## <a name="the-solution"></a>La solución.
 
 Debido a las limitaciones de los métodos tradicionales de licencias que se describen en la sección anterior, la instancia de Integration Runtime para la integración de SSIS en Azure ofrece una nueva solución. Esta solución utiliza variables de entorno de Windows y variables del sistema de SSIS para el enlace y la validación de licencias de componentes de terceros. Los ISV pueden usar estas variables para obtener información duradera y única de la instancia de Integration Runtime para la integración de SSIS en Azure, como el identificador del clúster y el número de nodos del clúster. Con esta información, los ISV pueden luego enlazar la licencia del componente a una instancia de Integration Runtime para la integración de SSIS en Azure *como clúster*. Este enlace utiliza un identificador que no cambia cuando los clientes inician o detienen, escalan vertical u horizontalmente, reducen vertical u horizontalmente o reconfiguran la instancia de Integration Runtime para la integración de SSIS en Azure de algún modo.
 
@@ -36,7 +37,7 @@ En el siguiente diagrama se muestra la instalación típica, la activación y el
 
 ![Instalación de componentes con licencia](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
-## <a name="instructions"></a>Instrucciones
+## <a name="instructions"></a>Instructions
 1. Los ISV pueden ofrecer sus componentes con licencia en varios SKU o niveles (por ejemplo, nodo único, hasta 5 nodos, hasta 10 nodos, etc.). El ISV proporciona la clave de producto correspondiente al cliente durante la compra. El ISV puede proporcionar también un contenedor de blobs de Azure Storage con un script de instalación de ISV y los archivos asociados. Los clientes puedan copiar estos archivos en su propio contenedor de almacenamiento y modificarlos con su propia clave de producto (por ejemplo, al ejecutar `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Los clientes pueden aprovisionar o volver a configurar la instancia de Integration Runtime para la integración de SSIS en Azure con el URI de SAS de su contenedor como parámetro. Para más información, consulte [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md) (Instalación personalizada de la instancia de Integration Runtime para la integración de SSIS en Azure).
 
 2. Cuando la instancia de Integration Runtime para la integración de SSIS en Azure se aprovisiona o se vuelve a configurar, el programa de instalación de ISV se ejecuta en todos los nodos para consultar las variables de entorno de Windows, `SSIS_CLUSTERID` y `SSIS_CLUSTERNODECOUNT`. A continuación, la instancia de Integration Runtime para la integración de SSIS en AzureIS envía el identificador del clúster y la clave de producto del producto con licencia para que el servidor de activación de ISV genere una clave de activación.

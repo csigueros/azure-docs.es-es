@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 3baea92d78cf15c35d2fb36692dab1edfd950699
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17a927798b58c0a9f917e8906d9f808c4e4e81fd
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98744079"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460925"
 ---
 # <a name="what-is-the-azure-cloud-service-model-and-how-do-i-package-it"></a>Descripción del modelo de servicio en la nube de Azure y cómo se empaqueta
 
@@ -277,5 +277,5 @@ Donde las variables se definen como de la manera siguiente:
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
 - Implemente un servicio de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).
 

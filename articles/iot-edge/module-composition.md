@@ -2,18 +2,17 @@
 title: 'Implementación de módulos y rutas con manifiestos de implementación: Azure IoT Edge'
 description: Obtenga información sobre cómo un manifiesto de implementación declara qué módulos se deben implementar, cómo implementarlos y cómo crear rutas de mensajes entre ellos.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2e3f1891a786751365a0bea58097e03bd41f85bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a83e2f8c14b2dcb4c97d1189ad262b3ed51b2d79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489934"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726512"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Obtenga información sobre cómo implementar módulos y establecer rutas en IoT Edge
 
@@ -330,7 +329,7 @@ El ejemplo siguiente muestra el aspecto de un documento de manifiesto de impleme
             "type": "docker",
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
-              "createOptions": ""
+              "createOptions": "{}"
             }
           },
           "edgeHub": {

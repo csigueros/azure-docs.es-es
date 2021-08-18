@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 006abf62c605c2ca34fd1adeadee8e29ae0fb8fb
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 1a5e665636e725252b18c2086471b272f40466cd
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588316"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291842"
 ---
 # <a name="troubleshoot-library-installation-errors"></a>Solución de errores de instalación de biblioteca 
 Para que el código de terceros o el código compilado localmente esté disponible para las aplicaciones, puede instalar una biblioteca en uno de los grupos de Apache Spark sin servidor. Los paquetes que aparecen en el archivo requirements.txt se descargan de PyPi cuando se inicia el grupo. Este archivo de requisitos se usa cada vez que se crea una instancia de Spark desde ese grupo de Spark. Una vez instalada una biblioteca para un grupo de Spark, está disponible para todas las sesiones que usan el mismo grupo. 
@@ -67,7 +67,7 @@ df = spark.createDataFrame(data=data2,schema=schema)
 df.write.csv("abfss://<<ENTER NAME OF FILE SYSTEM>>@<<ENTER NAME OF PRIMARY STORAGE ACCOUNT>>.dfs.core.windows.net/validate_permissions.csv")
 
 ```
-Si recibe un error, es probable que le falten los permisos necesarios. Para saber cómo obtener los permisos necesarios, consulte este documento: [Asignación de los permisos Colaborador de datos de Storage Blob o Propietario de datos de Storage Blob](../../storage/common/storage-auth-aad-rbac-portal.md#assign-an-azure-built-in-role).
+Si recibe un error, es probable que le falten los permisos necesarios. Para saber cómo obtener los permisos necesarios, consulte este documento: [Asignación de los permisos Colaborador de datos de Storage Blob o Propietario de datos de Storage Blob](../../storage/blobs/assign-azure-role-data-access.md).
 
 Además, si ejecuta una canalización, el MSI del área de trabajo también debe tener los permisos Propietario de datos de Storage Blob o Colaborador de datos de Storage Blob. Para información sobre cómo conceder este permiso a su identidad de área de trabajo, visite: [Concesión de permisos a una identidad administrada de área de trabajo](../security/how-to-grant-workspace-managed-identity-permissions.md).
 

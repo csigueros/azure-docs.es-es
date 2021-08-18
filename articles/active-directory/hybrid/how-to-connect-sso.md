@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42c73e2fa0439b247267f8d1021c0a779b6ca2ba
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: cdbb34c147b3629384d7173c3c20d75aac3c7da1
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627913"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108808"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -91,6 +91,6 @@ El inicio de sesión único mediante PRT funciona una vez que los dispositivos s
 - [**Inicio rápido**](how-to-connect-sso-quick-start.md): desarrollo y ejecución de SSO de conexión directa de Azure AD.
 - [**Plan de implementación**](../manage-apps/plan-sso-deployment.md): paso a paso.
 - [**Profundización técnica**](how-to-connect-sso-how-it-works.md): descripción del funcionamiento de esta característica.
-- [**Preguntas más frecuentes**](how-to-connect-sso-faq.md): obtenga respuestas a las preguntas más frecuentes.
+- [**Preguntas más frecuentes**](how-to-connect-sso-faq.yml): obtenga respuestas a las preguntas más frecuentes.
 - [**Solución de problemas**](tshoot-connect-sso.md): información para resolver problemas habituales de esta característica.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.

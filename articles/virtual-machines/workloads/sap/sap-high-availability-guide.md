@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67b472d1629c2b59f80d36aaf43df1e783d2ffa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b63dc024124665e76e27241101de9b70e62fa17
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666804"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486254"
 ---
 # <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver
 
@@ -142,11 +142,11 @@ ms.locfileid: "101666804"
 [sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
@@ -171,7 +171,7 @@ Para simplificar la implementación y configuración, en este artículo usamos l
 ## <a name="prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Requisitos previos
 Antes de comenzar, asegúrese de cumplir los requisitos previos que se describen en las secciones siguientes. Además, asegúrese de revisar todos los recursos que aparecen en la sección [Recursos][sap-ha-guide-2].
 
-En este artículo usamos plantillas de Azure Resource Manager para [SAP NetWeaver de tres niveles con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). Consulte [Plantillas de Azure Resource Manager para SAP](/archive/blogs/saponsqlserver/azure-quickstart-templates-for-sap) para ver información general útil sobre las plantillas.
+En este artículo usamos plantillas de Azure Resource Manager para [SAP NetWeaver de tres niveles con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-3-tier-marketplace-image-md/). Consulte [Plantillas de Azure Resource Manager para SAP](/archive/blogs/saponsqlserver/azure-quickstart-templates-for-sap) para ver información general útil sobre las plantillas.
 
 ## <a name="resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> Recursos
 Estos artículos también se refieren a las implementaciones de SAP en Azure:
@@ -398,9 +398,9 @@ Las plantillas de 3 niveles de Azure Resource Manager también admiten escenario
 Aquí puede obtener las plantillas de Azure Resource Manager para el escenario de ejemplo que se describe en este artículo:
 
 * [Imagen de Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
-* [Imagen de Azure Marketplace con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
+* [Imagen de Azure Marketplace con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-3-tier-marketplace-image-md)  
 * [Imagen personalizada](https://github.com/Azure/azure-quickstart-templates/)
-* [Imagen personalizada con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
+* [Imagen personalizada con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-3-tier-user-image-md)
 
 Para preparar la plantilla 1 de arquitectura, siga estos pasos:
 
@@ -491,9 +491,9 @@ Puede usar estas plantillas de Azure Resource Manager para simplificar la implem
 Aquí puede obtener las plantillas de Azure Resource Manager para este escenario de implementación:
 
 * [Imagen de Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
-* [Imagen de Azure Marketplace con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
+* [Imagen de Azure Marketplace con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-3-tier-marketplace-image-converged-md)  
 * [Imagen personalizada](https://github.com/Azure/azure-quickstart-templates/)
-* [Imagen personalizada con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
+* [Imagen personalizada con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-3-tier-user-image-converged-md)
 
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Preparación de la infraestructura de la plantilla 3 de arquitectura
@@ -1103,7 +1103,7 @@ Después de instalar SIOS DataKeeper en ambos nodos, debe iniciar la configuraci
 
 ## <a name="install-the-sap-netweaver-system"></a><a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a> Instalación del sistema SAP NetWeaver
 
-No se describirá la configuración de DBMS, porque las configuraciones varían en función del sistema de DBMS que usa. Sin embargo, se da por supuesto que las inquietudes respecto de la alta disponibilidad con DBMS se abordan con las funcionalidades que admiten los diversos proveedores de DBMS para Azure. Por ejemplo, AlwaysOn o creación de reflejo de la base de datos para SQL Server y Oracle Data Guard para Oracle. En el escenario de este artículo, no se agregó más protección a DBMS.
+No se describirá la configuración de DBMS porque las opciones varían en función del sistema DBMS que usa. Sin embargo, se da por supuesto que las inquietudes respecto de la alta disponibilidad con DBMS se abordan con las funcionalidades que admiten los diversos proveedores de DBMS para Azure. Por ejemplo, AlwaysOn o creación de reflejo de la base de datos para SQL Server y Oracle Data Guard para Oracle. En el escenario de este artículo, no se agregó más protección a DBMS.
 
 No hay ninguna consideración especial cuando distintos servicios de DBMS interactúan con esta variante de configuración de ASCS/SCS de SAP en clúster en Azure.
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 52a5e60537aaaa9a4fcd7f8345a21854d48a2076
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 120ef18c0796f56b083bcbbc51c82ab0f17afac5
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076123"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285020"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Scripts de ejemplo de Azure Disk Encryption para máquinas virtuales Linux
 
@@ -65,7 +65,7 @@ En la siguiente tabla se muestran los parámetros que se pueden usar en el scrip
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Cifrado o descifrado de máquinas virtuales sin aplicación de Azure AD
 
-- [Habilitar el cifrado de disco en una máquina virtual Linux existente o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)
+- [Habilitar el cifrado de disco en una máquina virtual Linux existente o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm-without-aad)
 - [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm)
     - La deshabilitación del cifrado solo se permite en volúmenes de datos de máquinas virtuales Linux.
 
@@ -74,11 +74,11 @@ En la siguiente tabla se muestran los parámetros que se pueden usar en el scrip
 - [Habilitar el cifrado de disco en una máquina virtual Linux existente o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm)
 
 
--  [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm)
+-  [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-linux-vm)
     - La deshabilitación del cifrado solo se permite en volúmenes de datos de máquinas virtuales Linux.
 
 
-- [Crear un disco administrado cifrado a partir de un blob de almacenamiento o disco duro virtual previamente cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+- [Crear un disco administrado cifrado a partir de un blob de almacenamiento o disco duro virtual previamente cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/create-encrypted-managed-disk)
     - Crea un disco administrado cifrado a partir de un disco duro virtual previamente cifrado y su correspondiente configuración de cifrado.
 
 ## <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Cifrado de la unidad del sistema operativo en una máquina virtual con Linux en ejecución

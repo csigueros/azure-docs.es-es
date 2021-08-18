@@ -4,12 +4,12 @@ description: Error 404 "No encontrado" del servidor de Jupyter debido a "Cross O
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/29/2019
-ms.openlocfilehash: 27cd3aff859fd46679679ac12d3acc03fa6da158
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dc64a375f9010e48403493c1b13efa1e4f551bce
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929449"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112286820"
 ---
 # <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Escenario: Error 404 "No encontrado" del servidor de Jupyter debido al bloqueo de la API entre orígenes en Azure HDInsight
 
@@ -54,4 +54,4 @@ Esta es una opción menos segura que la configuración ya implementada. Pero se 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

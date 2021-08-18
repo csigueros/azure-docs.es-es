@@ -9,18 +9,18 @@ ms.topic: how-to
 author: cawrites
 ms.author: chadam
 ms.date: 03/19/2021
-ms.openlocfilehash: 3126877833774f0f2e874e2a2dfd6cf5cb6181d8
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: bcd9758fe77f2b5623c7aba1e145de07e6396e60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796054"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745753"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>Guía de migración: de SAP ASE a Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-En esta guía obtendrá información sobre [cómo migrar](https://azure.microsoft.com/migration/migration-journey) las bases de datos de SAP Adaptive Server Enterprise (ASE) a Azure SQL Database mediante [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant para SAP Adaptive Server Enterprise.
+En esta guía obtendrá información sobre [cómo migrar](https://azure.microsoft.com/migration/migration-journey) las bases de datos de SAP Adaptive Server Enterprise (ASE) a Azure SQL Database mediante [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant para SAP Adaptive Server Enterprise.
 
 Para ver otras guías de migración, consulte [Guía de Azure Database Migration](/data-migration). 
 
@@ -29,7 +29,7 @@ Para ver otras guías de migración, consulte [Guía de Azure Database Migration
 Antes de empezar a migrar la base de datos de SAP SE a SQL Database, haga lo siguiente:
 
 - Compruebe que el entorno de origen es compatible. 
-- Descargue e instale [SQL Server Migration Assistant para SAP Adaptive Server Enterprise (anteriormente, SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256).
+- Descargue e instale [SQL Server Migration Assistant para SAP Adaptive Server Enterprise (anteriormente, SAP Sybase ASE)](https://www.microsoft.com/download/details.aspx?id=54256).
 - Asegúrese de que tiene conectividad y permisos suficientes para acceder tanto al origen como al destino.
 
 ## <a name="pre-migration"></a>Antes de la migración
@@ -38,7 +38,7 @@ Una vez cumplidos los requisitos previos, estará listo para detectar la topolog
 
 ### <a name="assess"></a>Evaluar
 
-Con el uso de [SQL Server Migration Assistant (SSMA) para SAP Adaptive Server Enterprise (anteriormente, SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256), puede revisar los datos y objetos de base de datos, evaluar las bases de datos para la migración, migrar objetos de base de datos de Sybase a Azure SQL Database y, después, migrar datos a SQL Database. Para obtener más información, consulte [SQL Server Migration Assistant para Sybase (SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql).
+Con el uso de [SQL Server Migration Assistant (SSMA) para SAP Adaptive Server Enterprise (anteriormente, SAP Sybase ASE)](https://www.microsoft.com/download/details.aspx?id=54256), puede revisar los datos y objetos de base de datos, evaluar las bases de datos para la migración, migrar objetos de base de datos de Sybase a Azure SQL Database y, después, migrar datos a SQL Database. Para obtener más información, consulte [SQL Server Migration Assistant para Sybase (SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql).
 
 Para crear una valoración, siga estos pasos: 
 
@@ -123,7 +123,7 @@ Para obtener más información sobre estos problemas y los pasos para mitigarlos
 - Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Procedimientos recomendados para gestionar los costos y el tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
-   -  [Recursos de Migración a la nube](https://azure.microsoft.com/migration/resources)
+   -  [Recursos de migración a la nube](https://azure.microsoft.com/migration/resources)
 
 - Para evaluar la capa de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Para más información sobre cómo realizar pruebas A/B en la capa de acceso a datos, consulte [Información general del Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).

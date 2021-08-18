@@ -2,13 +2,13 @@
 title: Preparación para la producción y procedimientos recomendados
 description: En este artículo se ofrecen instrucciones sobre cómo configurar e implementar el módulo de Azure Video Analyzer en entornos de producción.
 ms.topic: reference
-ms.date: 04/26/2021
-ms.openlocfilehash: af353c6845259f09edf4f1cb6ee4282f0fae6ba9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 1f7477be52d99bdfca91fd0d122d2db63ef27827
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388644"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602132"
 ---
 # <a name="production-readiness-and-best-practices"></a>Preparación para la producción y procedimientos recomendados
 
@@ -123,40 +123,6 @@ Después, en las opciones de creación para el módulo perimetral del manifiesto
 Si observa las canalizaciones de ejemplo de la guía de inicio rápido y los tutoriales, como la [Grabación continua de vídeo](use-continuous-video-recording.md), observará que el directorio de memoria caché multimedia (`localMediaCachePath`) usa un subdirectorio en `applicationDataDirectory`. Este es el enfoque recomendado, ya que la memoria caché contiene datos transitorios.
 
 Observe también que `allowedUnsecuredEndpoints` se establece en `true`, como se recomienda para entornos de producción en lo que usará el cifrado TLS para proteger el tráfico.
-
-### <a name="naming-video-or-files"></a>Nomenclatura de archivos o recursos de vídeo
-
-Las canalizaciones permiten grabar vídeos en la nube o como archivos MP4 en el dispositivo perimetral. Se pueden generar mediante la [grabación continua de vídeo](use-continuous-video-recording.md) o la [grabación de vídeo basada en eventos](record-event-based-live-video.md).
-
-La estructura de nomenclatura recomendada para la grabación en la nube es asignar al recurso de vídeo el nombre "<anytext>-${System.TopologyName}-${System.PipelineName}". Una canalización en directo determinada solo se puede conectar a una cámara IP compatible con RTSP y se debe grabar la entrada de esa cámara en un recurso de vídeo. Por ejemplo, puede establecer el valor de `VideoName` en el receptor de vídeo de la siguiente manera:
-
-```
-"VideoName": "sampleVideo-${System.TopologyName}-${System.PipelineName}"
-```
-Observe que el patrón de sustitución se define mediante el signo `$` seguido de llaves: **${nombreDeVariable}** .
-
-Al grabar en archivos MP4 en el dispositivo perimetral mediante la grabación basada en eventos, puede usar:
-
-```
-"fileNamePattern": "sampleFilesFromEVR-${System.TopologyName}-${System.PipelineName}-${fileSinkOutputName}-${System.Runtime.DateTime}"
-```
-
-> [!Note]
-> En el ejemplo anterior, la variable **fileSinkOutputName** es un nombre de variable de ejemplo que se define al crear la canalización en directo. Esta **no** es una variable del sistema. Observe cómo el uso de **DateTime** garantiza un nombre de archivo MP4 único para cada evento.
-
-#### <a name="system-variables"></a>Variables del sistema
-
-Algunas variables definidas por el sistema que puede usar son:
-
-| Variable del sistema        | Descripción                                                  | Ejemplo              |
-| :--------------------- | :----------------------------------------------------------- | :------------------- |
-| System.Runtime.DateTime        | Fecha y hora UTC en formato compatible con archivos ISO8601 (representación básica AAAAMMDDThhmmss). | 20200222T173200Z     |
-| System.Runtime.PreciseDateTime | Fecha y hora UTC en formato compatible con archivos ISO8601 con milisegundos (representación básica AAAAMMDDThhmmss.sss). | 20200222T173200.123Z |
-| System.TopologyName    | Nombre proporcionado por el usuario de la topología de canalización en ejecución.          | IngestAndRecord      |
-| System.PipelineName    | Nombre proporcionado por el usuario de la canalización en directo en ejecución.          | camera001            |
-
-> [!Tip]
-> System.Runtime.PreciseDateTime y System.Runtime.DateTime no se pueden usar al asignar nombres a vídeos en la nube.
 
 ### <a name="tips-about-maintaining-your-edge-device"></a>Sugerencias sobre el mantenimiento del dispositivo perimetral
 

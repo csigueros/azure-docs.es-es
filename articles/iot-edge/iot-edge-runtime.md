@@ -2,19 +2,18 @@
 title: 'Información sobre cómo el entorno de ejecución administra los dispositivos: Azure IoT Edge | Microsoft Docs'
 description: Obtenga información sobre cómo el entorno de ejecución de Azure IoT Edge administra los módulos, la seguridad, la comunicación y los informes sobre los dispositivos.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 74cfe4ba3c92d8d96dd196ef6f612b9ed7c0da9d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 30690cb90fcaa57f955b531e1902333dc43976f5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496259"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740666"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Información del entorno de ejecución de Azure IoT Edge y su arquitectura
 

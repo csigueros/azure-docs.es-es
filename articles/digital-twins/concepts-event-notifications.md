@@ -8,12 +8,12 @@ ms.date: 4/8/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 8b8205681da7ea24fdafcef337ad903fff06c589
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e403ed4778e87e42ad4abb2e6d45923e420ca0c4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474635"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438639"
 ---
 # <a name="event-notifications"></a>Notificaciones de eventos
 
@@ -157,7 +157,7 @@ Dentro del mensaje, el campo `data` contiene los datos del gemelo digital afecta
 
 En el caso de los eventos de creación, la carga de `data` refleja el estado del gemelo una vez creado el recurso, por lo que debe incluir todos los elementos generados por el sistema tal como una llamada `GET`.
 
-Este es un ejemplo de los datos para un dispositivo [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), con componentes y sin propiedades de nivel superior. Se deben omitir las propiedades que no tienen sentido para los dispositivos (como las propiedades notificadas). Esta es la información que aparecerá en el campo `data` del mensaje de notificación del ciclo de vida.
+Este es un ejemplo de los datos para un dispositivo [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), con componentes y sin propiedades de nivel superior. Se deben omitir las propiedades que no tienen sentido para los dispositivos (como las propiedades notificadas). Esta es la información que aparecerá en el campo `data` del mensaje de notificación del ciclo de vida.
 
 ```json
 {
@@ -312,4 +312,4 @@ Este es un cuerpo del mensaje de telemetría de ejemplo:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre la entrega de eventos a distintos destinos, mediante puntos de conexión y rutas:
-* [Conceptos: Rutas de eventos](concepts-route-events.md)
+* [Rutas de eventos](concepts-route-events.md)

@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
-ms.openlocfilehash: f085858a9d550623704efd4f051ed525e55a37e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/24/2021
+ms.openlocfilehash: cda9aacfc3a207aa43c63cc26189da64fac87e85
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94557464"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112893931"
 ---
 # <a name="project-cerberus"></a>Proyecto Cerberus
 
@@ -45,6 +45,7 @@ Junto con el servicio de atestación del host, las funcionalidades de Cerberus m
 Para más información sobre lo que se hace para fomentar la seguridad y la integridad de la plataforma, vea:
 
 - [Seguridad de firmware](firmware.md)
+- [Integridad del código de plataforma](code-integrity.md)
 - [Arranque seguro](secure-boot.md)
 - [Atestación del host y arranque medido](measured-boot-host-attestation.md)
 - [Cifrado en reposo](encryption-atrest.md)

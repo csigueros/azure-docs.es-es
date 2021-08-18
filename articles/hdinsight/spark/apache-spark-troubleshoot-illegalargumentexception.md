@@ -4,12 +4,12 @@ description: IllegalArgumentException para una actividad de Apache Spark en Azur
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/29/2019
-ms.openlocfilehash: 429659d605cdaf8aad978841e486a17da321cce4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2b892e6419045d362ac8675a6e8976600650851a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929399"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288926"
 ---
 # <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>Escenario: IllegalArgumentException para una actividad de Apache Spark en Azure HDInsight
 
@@ -38,4 +38,4 @@ Asegúrese de que el jar de la aplicación está almacenado en el almacenamiento
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

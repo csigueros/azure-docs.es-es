@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: b146e228de13109975a76b0e4c6c9fd183fd362d
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 418a1289b6f584e58b88e2fb0f571f724ba5d800
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600411"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253189"
 ---
 # <a name="connect-your-alcide-kaudit-to-azure-sentinel"></a>Conexión de Alcide kAudit a Azure Sentinel
 
 > [!IMPORTANT]
 > El conector de datos de Alcide kAudit en Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 [Alcide kAudit](https://www.alcide.io/kaudit-K8s-forensics/) le ayuda a identificar los comportamientos anómalos de Kubernetes y a centrarse en las infracciones e incidentes de Kubernetes a la vez que reduce el tiempo de detección. En este artículo se explica cómo conectar la solución de Alcide kAudit a Azure Sentinel. El conector de datos de Alcide kAudit permite incorporar fácilmente los datos de registro de kAudit a Azure Sentinel, de modo que pueda verlos en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar la investigación. La integración entre Alcide kAudit y Azure Sentinel usa la API de REST.
 
@@ -71,6 +73,6 @@ En este documento, ha aprendido a conectar Alcide kAudit a Azure Sentinel. Para 
 
 Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

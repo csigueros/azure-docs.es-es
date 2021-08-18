@@ -2,13 +2,13 @@
 title: Seguridad de red para Azure Relay
 description: En este artículo se describe cómo usar las reglas de firewall de IP y los puntos de conexión privados con Azure Relay.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 735a0b7dc303ad63cb301151e3e14e4488c856b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 2590face6242c101536bc68285325837ce206954
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217250"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667644"
 ---
 # <a name="network-security-for-azure-relay"></a>Seguridad de red para Azure Relay 
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Relay: 

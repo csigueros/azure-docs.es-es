@@ -4,12 +4,12 @@ description: Aprenda a usar Java Message Service (JMS) con Azure Service Bus.
 ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 894821444f74248b73578595df943cb3a0025360
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b27784e4f70a72ae5b114d2796c2aaeace8068ab
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698406"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414700"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium"></a>Uso de la API de Java Message Service 2.0 con Azure Service Bus Premium
 
@@ -38,7 +38,7 @@ Para obtener más información sobre cómo preparar el entorno de desarrollo par
 
 ## <a name="what-jms-features-are-supported"></a>¿Qué características de JMS se admiten?
 
-[!INCLUDE [service-bus-jms-features-list](../../includes/service-bus-jms-feature-list.md)]
+[!INCLUDE [service-bus-jms-features-list](./includes/service-bus-jms-feature-list.md)]
 
 ## <a name="downloading-the-java-message-service-jms-client-library"></a>Descarga de la biblioteca cliente de Java Message Service (JMS)
 

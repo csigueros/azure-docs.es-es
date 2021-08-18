@@ -1,18 +1,18 @@
 ---
 title: Controles de seguridad para el servicio Azure Spring Cloud
 description: Use los controles de seguridad integrados en el servicio Azure Spring Cloud.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: faa278b60f3b120fc6f1aad14cd6f8b6dbfb1e21
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: dbd544a3b8a2a55b6eafa51115277f6ef142b41c
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129196"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861774"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Controles de seguridad para el servicio Azure Spring Cloud
 
@@ -20,7 +20,7 @@ ms.locfileid: "108129196"
 
 Los controles de seguridad están integrados en el servicio Azure Spring Cloud.
 
-Un control de seguridad es una cualidad o característica de un servicio de Azure que ayuda a dicho servicio a prevenir y detectar vulnerabilidades de seguridad, así como a responder a ellas.  En cada control, utilizamos *Sí* o *No* para indicar si actualmente está disponible para el servicio.  Usamos *N/D* para un control que no se pueda aplicar al servicio. 
+Un control de seguridad es una cualidad o característica de un servicio de Azure que ayuda a dicho servicio a prevenir y detectar vulnerabilidades de seguridad, así como a responder a ellas.  En cada control, utilizamos *Sí* o *No* para indicar si actualmente está disponible para el servicio.  Usamos *N/D* para un control que no se pueda aplicar al servicio.
 
 **Controles de seguridad para la protección de datos**
 

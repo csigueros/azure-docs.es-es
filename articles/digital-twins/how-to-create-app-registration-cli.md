@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/13/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 80d34833397e8ca1cb5cb14acd869597decd2d48
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: a42a09af845bce160689718fb74eb393409740d3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110989549"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437953"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins-cli"></a>Creación de un registro de aplicaciones para usar con Azure Digital Twins (CLI)
 
@@ -151,4 +151,4 @@ Para más información sobre el registro de aplicaciones y sus distintas opcione
 En este artículo, ha configurado un registro de aplicaciones de Azure AD que se puede usar para autenticar las aplicaciones cliente con las API de Azure Digital Twins.
 
 A continuación, lea sobre los mecanismos de autenticación, tanto los que usan registros de aplicaciones como los que no:
-* [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)
+* [Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)

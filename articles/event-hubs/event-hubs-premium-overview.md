@@ -3,12 +3,12 @@ title: Introducción a Event Hubs Premium (versión preliminar)
 description: En este artículo se proporciona información general sobre Azure Event Hubs Premium, que ofrece implementaciones multiinquilino de Event Hubs para necesidades de streaming de alto nivel.
 ms.topic: article
 ms.date: 5/25/2021
-ms.openlocfilehash: 7ae58a46484f6f83fdd737ac32e559a5dd90c627
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: d60469937324226b8d928fb257d83966c52dce7e
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409962"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415030"
 ---
 # <a name="overview-of-event-hubs-premium-preview"></a>Introducción a Event Hubs Premium (versión preliminar)
 
@@ -67,7 +67,7 @@ El nivel Premium ofrece todas las características del plan estándar, pero con 
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
-[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-premium-faq.md)]
+[!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-premium-faq.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

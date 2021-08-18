@@ -3,19 +3,17 @@ title: Acceso a almacenes de datos y recursos compartidos de archivos con la aut
 description: Aprenda a configurar el catálogo de SSIS en Azure SQL Database y Azure-SSIS Integration Runtime en Azure Data Factory para ejecutar paquetes que accedan a los almacenes de datos y los recursos compartidos de archivos con la autenticación de Windows.
 ms.date: 10/27/2020
 ms.topic: conceptual
-ms.prod: sql
-ms.prod_service: integration-services
-ms.custom: ''
-ms.technology: integration-services
+ms.service: data-factory
+ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: jburchel
-ms.openlocfilehash: 8cb92407954ab5376850e57b0ee91d934480b025
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a0777b13eb394ac221bc85679c2ea05925b156c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786896"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733004"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Acceso a los almacenes de datos y los recursos compartidos de archivos con la autenticación de Windows desde paquetes SSIS en Azure
 
@@ -126,7 +124,7 @@ Para comprobar que puede conectarse a un recurso compartido de archivos local, h
 
 3. Compruebe que se devuelve la lista de directorios del recurso compartido de archivos local.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para acceder a un recurso compartido de archivos en el entorno local desde paquetes que se ejecutan en Azure, realice lo siguiente:
 

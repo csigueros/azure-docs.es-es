@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: alsin
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 99371b8618756c196b75858288c5c4785272a7e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e9fba5ff9dc10e0691423da689024af3e2b72bc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650472"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468353"
 ---
 # <a name="move-an-azure-automanage-virtual-machine-to-a-different-region"></a>Traslado de una máquina virtual de Azure Automanage a otra región
 En este artículo se describe cómo mantener Automanage habilitado en una máquina virtual (VM) cuando se mueve a otra región. Puede mover sus máquinas virtuales a otra región por varios motivos. Por ejemplo, para aprovechar una nueva región de Azure, para cumplir los requisitos de gobernanza y las directivas internas o como respuesta a los requisitos de planeamiento de capacidad. Actualmente, es posible que las máquinas virtuales que mueve se administren automáticamente y que desee que permanezcan así tras el traslado.
@@ -33,4 +33,4 @@ Una vez que haya migrado las máquinas virtuales entre regiones, puede rehabilit
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre Azure Automanage](./automanage-virtual-machines.md)
-* [Consulta de las preguntas más frecuentes sobre Azure Automanage](./faq.md)
+* [Consulta de las preguntas más frecuentes sobre Azure Automanage](./faq.yml)

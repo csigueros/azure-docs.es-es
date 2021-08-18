@@ -3,19 +3,19 @@ title: 'Transcripción para los centros de llamadas: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Un escenario común para la conversión de voz a texto es la transcripción de grandes volúmenes de datos de telefonía que provienen de varios sistemas, como la respuesta de voz interactiva (IVR). Con el servicio Voz y el modelo de voz unificado, una empresa puede obtener transcripciones de alta calidad con sistemas de captura de audio.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: erhopf
-ms.openlocfilehash: f83948fe0805229c0f01accb9e2b51112da599aa
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.author: lajanuar
+ms.openlocfilehash: 1cf4c6111c18a9c0b79bc898a89b24717bb9f438
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109838184"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122069369"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servicio Voz para datos de telefonía
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 12/09/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: ff1e43ca78583e5ccda56b7c813ec580050e3288
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 01d8aa850c5f816026561ca64541724bd8c3b832
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495731"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738585"
 ---
 # <a name="update-service-principal-credentials"></a>Actualización de credenciales de entidad de servicio
 
@@ -22,7 +22,6 @@ Cuando cambien las credenciales de la entidad de servicio, deberá actualizar lo
 
 Por ejemplo, si implementó el controlador de datos con un conjunto específico de valores para el identificador de inquilino de la entidad de servicio, el identificador de cliente y el secreto de cliente y, luego, cambia uno o varios de estos valores, debe actualizar los secretos en el controlador de datos.  A continuación, se indican las instrucciones para actualizar el identificador de inquilino, el identificador de cliente o el secreto de cliente. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="background"></a>Información previa
 

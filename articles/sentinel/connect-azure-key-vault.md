@@ -8,12 +8,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 04/22/2021
 ms.author: yelevin
-ms.openlocfilehash: fe86c963ab0ec009b527d2d6138a8af2af9ba68a
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: ba268f75b770dfd3d19e7bc4750f2c466245279d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890841"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780042"
 ---
 # <a name="connect-azure-key-vault-diagnostics-logs"></a>Conexión de los registros de diagnóstico de Azure Key Vault
 
@@ -22,6 +22,8 @@ Azure Key Vault es un servicio en la nube para el almacenamiento de los secretos
 Este conector permite transmitir los registros de diagnóstico de Azure Key Vault a Azure Sentinel, para poder supervisar continuamente la actividad en todas las instancias.
 
 Más información sobre la [supervisión de Azure Key Vault](../azure-monitor/insights/key-vault-insights-overview.md) y sobre la [telemetría de diagnósticos de Azure Key Vault](../key-vault/general/logging.md).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -61,5 +63,5 @@ Este conector usa Azure Policy para aplicar una única configuración de streami
 
 En este documento, ha obtenido información sobre cómo usar Azure Policy pata conectar Azure Key Vault a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).

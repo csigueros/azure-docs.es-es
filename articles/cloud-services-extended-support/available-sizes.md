@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1c1faf14eb101da41679f9f0596e1e750a3c6a51
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: e49cb32c198cf3279dbad5491075138115efd951
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166278"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743578"
 ---
 # <a name="available-sizes-for-azure-cloud-services-extended-support"></a>Tamaños disponibles para Azure Cloud Services (soporte extendido)
 
@@ -55,12 +55,20 @@ Para cambiar el tamaño de un rol existente, cambie el tamaño de la máquina vi
 
 Para recuperar una lista de los tamaños disponibles, consulte [Resource Skus - List](/rest/api/compute/resourceskus/list) y aplique los siguientes filtros:
 
-
-`ResourceType = virtualMachines ` <br>
-`VMDeploymentTypes = PaaS `
-
+```powershell
+    # Update the location
+    $location = 'WestUS2'
+    # Get all Compute Resource Skus
+    $allSkus = Get-AzComputeResourceSku
+    # Filter virtualMachine skus for given location
+    $vmSkus = $allSkus.Where{$_.resourceType -eq 'virtualMachines' -and $_.LocationInfo.Location -like $location}
+    # From filtered virtualMachine skus, select PaaS Skus
+    $passVMSkus = $vmSkus.Where{$_.Capabilities.Where{$_.name -eq 'VMDeploymentTypes'}.Value.Contains("PaaS")}
+    # Optional step to format and sort the output by Family
+    $passVMSkus | Sort-Object Family, Name | Format-Table -Property Family, Name, Size
+```
 
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).
 - Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).

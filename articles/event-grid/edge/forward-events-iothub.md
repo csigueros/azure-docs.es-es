@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 9dd47981ba3067fefefb7a2360894a1f57ff7a64
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 30fa58a79068a1dc367f4ac330efd01685a4401c
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368047"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415595"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Tutorial: reenviar eventos a IoTHub
 
@@ -33,7 +33,7 @@ Para realizar este tutorial, necesitará lo siguiente:
 * Una **suscripción a Azure**: cree una [cuenta gratuita](https://azure.microsoft.com/free) si aún no tiene una. 
 * **Dispositivo Azure IoT Hub e IoT Edge**: siga los pasos del inicio rápido para dispositivos [Linux](../../iot-edge/quickstart-linux.md) o [Windows](../../iot-edge/quickstart.md) si aún no tiene uno.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-deploy-iot-edge.md)]
 
 ## <a name="create-topic"></a>Crear tema
 
@@ -81,7 +81,7 @@ Como publicador de un evento, debe crear un tema de Event Grid. El tema hace ref
 
 Los suscriptores pueden registrarse en eventos publicados en un tema. Para recibir cualquier evento, deberán crear una suscripción de Event Grid a un tema de interés.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Cree subscription4.json con el contenido siguiente. Para más información sobre la carga, consulte nuestra [documentación de API](api.md).
 

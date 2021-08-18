@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c8016b566db8be1b7f5c5ddb8d92123d6673db5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8e55202163a447ca2d7d08999c953e619bc027b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98569851"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746576"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Migración de código de la versión v2.0 a v3.0 de API REST
 
@@ -143,7 +143,7 @@ Este cambio requiere llamar a la operación `GET` de la colección en un bucle h
 Puede encontrar una descripción detallada sobre cómo crear lotes de transcripciones en [Instrucciones para la transcripción por lotes](./batch-transcription.md).
 
 La API de transcripción v3 le permite establecer opciones específicas de transcripción explícitamente. Ahora, todas las propiedades de configuración (opcionales) se pueden establecer en la propiedad `properties`.
-La versión v3 también admite varios archivos de entrada, por lo que requiere una lista de direcciones URL en lugar de una sola dirección URL, a diferencia de la versión v2. Ahora el nombre de la propiedad v2 `recordingsUrl` es `contentUrls` en v3. En la versión v3 se ha quitado la funcionalidad de análisis de opiniones en las transcripciones. Consulte [Text Analytics](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) de Microsoft Cognitive Services para ver las opciones de análisis de opiniones.
+La versión v3 también admite varios archivos de entrada, por lo que requiere una lista de direcciones URL en lugar de una sola dirección URL, a diferencia de la versión v2. Ahora el nombre de la propiedad v2 `recordingsUrl` es `contentUrls` en v3. En la versión v3 se ha quitado la funcionalidad de análisis de opiniones en las transcripciones. Consulte [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) de Microsoft Cognitive Services para ver las opciones de análisis de opiniones.
 
 La nueva propiedad `timeToLive` en `properties` puede ayudar a eliminar las entidades completadas existentes. `timeToLive` especifica una duración después de la cual se eliminará automáticamente una entidad completada. Establézcala en un valor alto (por ejemplo, `PT12H`) cuando se realice un seguimiento de las entidades o cuando estas se consuman y se eliminen de forma continua y, por lo tanto, se procesen mucho antes de que pasen 12 horas.
 

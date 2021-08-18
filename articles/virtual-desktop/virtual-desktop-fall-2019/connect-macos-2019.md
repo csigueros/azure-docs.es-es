@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 3a372e09c575f1805050af6ea427f7650c614aff
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 914d52c91920aa5f76bdb9d1e738919f8f4aedef
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749982"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031200"
 ---
 # <a name="connect-to-azure-virtual-desktop-classic-with-the-macos-client"></a>Conexión a Azure Virtual Desktop (clásico) con el cliente macOS
 
 > Se aplica a: macOS 10.12, o cualquier versión posterior
 
 >[!IMPORTANT]
->Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../connect-macos.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../user-documentation/connect-macos.md).
 
 Puede acceder a los recursos de Azure Virtual Desktop desde sus dispositivos macOS con nuestro cliente, que se puede descargar. En esta guía se le indicará cómo configurar el cliente.
 
@@ -35,7 +35,7 @@ Para suscribirse a una fuente:
 1. Seleccione **Agregar área de trabajo** en la página principal para conectarse al servicio y recuperar los recursos.
 2. Escriba la dirección URL de la fuente. Puede ser una dirección URL o una dirección de correo electrónico:
    - Si eliges una dirección URL, usa la que te proporcionó el administrador. Normalmente, la dirección URL es <https://rdweb.wvd.microsoft.com>.
-   - Para usar un correo electrónico, escribe tu dirección de correo: Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador configuró el servidor de esa forma.
+   - Para usar el correo electrónico, escriba su dirección de correo electrónico. Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador configuró el servidor de esa forma.
 3. Seleccione **Agregar**.
 4. Inicie sesión con su cuenta de usuario cuando se le solicite.
 

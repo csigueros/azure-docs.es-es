@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
-ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c6afc21ce2dd4ba08a29d2a1c19e680b838c9ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96601618"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737237"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Descripción de los precios de Azure Application Gateway y el firewall de aplicaciones web
 
@@ -392,4 +392,4 @@ Unidades de capacidad observadas en las métricas = 49,23
 Consulte los siguientes artículos para saber cómo funcionan los precios en Azure Application Gateway:
 
 * [Página de precios de Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/)
-* [Calculadora de precios de Azure Application Gateway](https://azure.microsoft.com/en-us/pricing/calculator/?service=application-gateway)
+* [Calculadora de precios de Azure Application Gateway](https://azure.microsoft.com/pricing/calculator/?service=application-gateway)

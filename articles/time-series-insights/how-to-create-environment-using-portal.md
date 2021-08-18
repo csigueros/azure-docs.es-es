@@ -1,21 +1,21 @@
 ---
 title: 'Configuración de un entorno de Gen2 mediante Azure Portal: Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Aprenda a configurar un entorno en Azure Time Series Insights Gen2 con Azure Portal.
-author: riserrad
-ms.author: riserrad
-manager: edett
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: e10685b1b64e8e3cd636245625c13df12f177fbb
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 9ac665304e874c711306b0fae16d2970de7be6a9
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951849"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135472"
 ---
 # <a name="create-an-azure-time-series-insights-gen2-environment-using-the-azure-portal"></a>Creación de un entorno de Azure Time Series Insights Gen2 mediante Azure Portal
 

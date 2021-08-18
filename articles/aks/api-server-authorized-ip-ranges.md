@@ -4,12 +4,12 @@ description: Aprenda a proteger el clúster mediante un intervalo de direcciones
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: c28514490b77917f16ae4687a62d3a8963d57537
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: cf65fcfe297cfbff60490b165771095e6d3b402a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111887409"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733651"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -137,7 +137,7 @@ Para buscar los intervalos IP que se han autorizado, use [az aks show][az-aks-sh
 az aks show \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --query apiServerAccessProfile.authorizedIpRanges'
+    --query apiServerAccessProfile.authorizedIpRanges
 ```
 
 ## <a name="update-disable-and-find-authorized-ip-ranges-using-azure-portal"></a>Actualización, deshabilitación y búsqueda de intervalos IP autorizados mediante Azure Portal
@@ -161,7 +161,7 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```
 
->> [!NOTE]
+> [!NOTE]
 > El ejemplo anterior agrega los intervalos IP autorizados de servidor de API en el clúster. Para deshabilitar los intervalos IP autorizados, use az aks update y especifique un intervalo vacío "". 
 
 Otra opción consiste en usar el comando siguiente en los sistemas de Windows para obtener la dirección IPv4 pública, o bien puede usar los pasos descritos en [Buscar su dirección IP](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
@@ -180,7 +180,7 @@ Para más información, consulte [Conceptos de seguridad de las aplicaciones y l
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[dev-spaces-ranges]: ../dev-spaces/index.yml#aks-cluster-network-requirements
+[dev-spaces-ranges]: /previous-versions/azure/dev-spaces/#aks-cluster-network-requirements
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

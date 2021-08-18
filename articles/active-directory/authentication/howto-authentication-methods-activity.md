@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 07/13/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699ff88e4181dada5eacaa3f13469722cdf7ceaa
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a46b368954102dff2a09635114b5ef9a6a23b710
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530444"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687935"
 ---
 # <a name="authentication-methods-activity"></a>Actividad de los métodos de autenticación 
 
@@ -40,7 +40,7 @@ Los siguientes roles tienen los permisos necesarios:
 - Administrador de seguridad
 - Administrador global
 
- Se necesita una licencia de Azure AD Premium P1 o P2 para acceder al uso y a la información. Se puede encontrar información sobre las licencias de Multi-Factor Authentication de Azure AD y el autoservicio de restablecimiento de contraseña (SSPR) en el [sitio web de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+ Se necesita una licencia de Azure AD Premium P1 o P2 para acceder al uso y a la información. Se puede encontrar información sobre las licencias de Multi-Factor Authentication de Azure AD y el autoservicio de restablecimiento de contraseña (SSPR) en el [sitio web de precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## <a name="how-it-works"></a>Funcionamiento
 

@@ -2,21 +2,21 @@
 title: Solución de problemas de conectividad
 description: Solución de problemas de conectividad de un grupo de SQL dedicado (anteriormente SQL DW).
 services: synapse-analytics
-author: anumjs
+author: rothja
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/27/2019
-ms.author: anjangsh
+ms.author: jroth
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 8b23a3634b34277b732d4ba18bef7e71c783ebd5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 923000d0a0579df2bcdcd82e7c4ad3bf13a1213e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98681193"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441836"
 ---
 # <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool-formerly-sql-dw"></a>Solución de problemas de conectividad de un grupo de SQL dedicado (anteriormente SQL DW).
 

@@ -2,13 +2,13 @@
 title: Filtros de tema de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo los suscriptores pueden especificar filtros para definir qué mensajes desean recibir de un tema.
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/19/2021
+ms.openlocfilehash: f813c9a635fde70e2f72ab3dab0d2e01197c6fff
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651670"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448669"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros y acciones de temas
 
@@ -52,7 +52,7 @@ Las reglas de filtro complejas requieren capacidad de procesamiento. En concreto
 
 ## <a name="actions"></a>Acciones
 
-Con las condiciones de filtro SQL puede definir una acción que puede anotar el mensaje mediante la adición, eliminación o sustitución de propiedades y sus valores. La acción [usa una expresión de tipo SQL](service-bus-messaging-sql-filter.md) que se basa ligeramente en la sintaxis de la instrucción UPDATE de SQL. La acción se realiza en el mensaje después de que se haya correspondido y antes de que el mensaje se seleccione en la suscripción. Los cambios en las propiedades del mensaje son privados para el mensaje copiado en la suscripción.
+Con las condiciones de filtro SQL puede definir una acción que puede anotar el mensaje mediante la adición, eliminación o sustitución de propiedades y sus valores. La acción [usa una expresión de tipo SQL](service-bus-messaging-sql-rule-action.md) que se basa ligeramente en la sintaxis de la instrucción UPDATE de SQL. La acción se realiza en el mensaje después de que se haya correspondido y antes de que el mensaje se seleccione en la suscripción. Los cambios en las propiedades del mensaje son privados para el mensaje copiado en la suscripción.
 
 ## <a name="usage-patterns"></a>Patrones de uso
 

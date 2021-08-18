@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: a63194ae3ca9e5661b82113c450ebb929cc67e76
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 128c872165494aee69e0fcfced2b277a444e6335
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364539"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112235786"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,13 +25,13 @@ ms.locfileid: "107364539"
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [SDK de Java v4](sql-api-sdk-java-v4.md)
+> * [SDK para Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector OLTP de Spark 3](sql-api-sdk-java-spark-v3.md)
-> * [Conector OLTP de Spark 2](sql-api-sdk-java-spark.md)
+> * [Conector Spark 3 OLTP](sql-api-sdk-java-spark-v3.md)
+> * [Conector Spark 2 OLTP](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
 > * [Proveedor de recursos de REST](/azure/azure-resource-manager/management/azure-services-resource-providers)
@@ -57,7 +57,7 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 
 [!INCLUDE [Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
 ## <a name="faq"></a>Preguntas más frecuentes
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte también
 Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

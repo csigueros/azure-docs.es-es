@@ -2,16 +2,17 @@
 title: Ejecución de paquetes SSIS mediante el agente de Instancia administrada de Azure SQL
 description: Aprenda a ejecutar paquetes SSIS mediante el agente de Instancia administrada de Azure SQL.
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
 ms.date: 04/14/2020
-ms.openlocfilehash: 904d742792c4fd43b5f69e8ec01317527196dad3
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 4bcce019e5b659f7af4056e861631a7a6ed31efb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903225"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733028"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Ejecución de paquetes SSIS con el agente de Instancia administrada de Azure SQL
 

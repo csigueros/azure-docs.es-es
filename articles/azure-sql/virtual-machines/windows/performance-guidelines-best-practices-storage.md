@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: d3a4a8bb54c5bafa9eb50ed4441cd6eebe2acc6c
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: d7d33fe4bc94de3d1fdca3d2b2e99d0663e39c97
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079920"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112289862"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Almacenamiento: procedimientos recomendados de rendimiento de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -87,7 +87,7 @@ Muchas máquinas virtuales de Azure contienen otro disco denominado disco tempor
 
 La unidad de almacenamiento temporal no se conserva en el almacenamiento remoto y, por lo tanto, no debe almacenar los archivos de base de datos de usuario, los archivos de registro de transacciones ni cualquier elemento que deba conservarse. 
 
-Coloque el archivo tempdb en la unidad local de SSD `D:\` para las cargas de trabajo de SQL Server a menos que el consumo de la memoria caché local sea un problema. Si usa una máquina virtual que [no tiene un disco temporal](../../../virtual-machines/azure-vms-no-temp-disk.md), se recomienda colocar el archivo tempdb en su propio disco aislado o grupo de almacenamiento con la opción de almacenamiento en caché establecida en solo lectura. Para obtener más información, consulte las [directivas de almacenamiento en caché de datos del archivo tempdb](performance-guidelines-best-practices-storage.md#data-file-caching-policies).
+Coloque el archivo tempdb en la unidad local de SSD `D:\` para las cargas de trabajo de SQL Server a menos que el consumo de la memoria caché local sea un problema. Si usa una máquina virtual que [no tiene un disco temporal](../../../virtual-machines/azure-vms-no-temp-disk.yml), se recomienda colocar el archivo tempdb en su propio disco aislado o grupo de almacenamiento con la opción de almacenamiento en caché establecida en solo lectura. Para obtener más información, consulte las [directivas de almacenamiento en caché de datos del archivo tempdb](performance-guidelines-best-practices-storage.md#data-file-caching-policies).
 
 ### <a name="data-disks"></a>Discos de datos.
 

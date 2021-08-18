@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7b997f817e8e430d6f2985f73e4005da86dcda10
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f7c0af3ef2992fdd2c337ff6d1172f6da6db5f56
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745536"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708785"
 ---
 # <a name="using-the-msixmgr-tool"></a>Uso de la herramienta MSIXMGR
 
@@ -84,4 +84,4 @@ Para obtener información sobre cómo configurar la asociación de la aplicació
 - [Preparación de una imagen de MSIX para Azure Virtual Desktop](app-attach-image-prep.md)
 - [Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX (versión preliminar)](app-attach-file-share.md)
 
-Si tiene alguna pregunta sobre la asociación de aplicaciones MSIX, consulte [Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX](app-attach-faq.md) y [Glosario sobre la conexión de aplicaciones en formato MSIX](app-attach-glossary.md).
+Si tiene alguna pregunta sobre la asociación de aplicaciones MSIX, consulte [Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX](app-attach-faq.yml) y [Glosario sobre la conexión de aplicaciones en formato MSIX](app-attach-glossary.md).

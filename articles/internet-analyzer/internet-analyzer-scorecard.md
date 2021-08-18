@@ -2,17 +2,17 @@
 title: Interpretación de la puntuación | Microsoft Docs
 description: Obtenga información sobre cómo interpretar la puntuación. La pestaña de puntuación contiene los resultados agregados y analizados de las pruebas.
 services: internet-analyzer
-author: mattcalder
+author: KumudD
 ms.service: internet-analyzer
 ms.topic: how-to
 ms.date: 10/16/2019
-ms.author: mebeatty
-ms.openlocfilehash: f43d094193fb266d1ecec7089b44d8b3fd5e9b43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: kumud
+ms.openlocfilehash: dbfe2147c87d1d113543935915923966e965b102
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91330220"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437036"
 ---
 # <a name="interpreting-your-scorecard"></a>Interpretación de la puntuación
 

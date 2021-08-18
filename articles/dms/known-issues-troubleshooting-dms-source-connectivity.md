@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: edc420cb1e79ed6d99a55524764cb164bd2edaf5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e3dcc8f6bba6830eec9f20732da9e42f03d5b28e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641348"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724420"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Solución de errores de DMS al conectarse a las bases de datos de origen
 
@@ -86,7 +86,6 @@ Los problemas potenciales asociados con la conexión a una base de datos de AWS 
 ## <a name="known-issues"></a>Problemas conocidos
 
 * [Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL Database](./index.yml)
-* [Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure Database for MySQL](./known-issues-azure-mysql-online.md)
 * [Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -94,4 +93,4 @@ Los problemas potenciales asociados con la conexión a una base de datos de AWS 
 * Consulte el artículo [PowerShell en Azure Database Migration Service](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0&preserve-view=true#data_migration).
 * Consulte el artículo [Cómo configurar parámetros del servidor en Azure Database for MySQL mediante Azure Portal](../mysql/howto-server-parameters.md).
 * Consulte el artículo [Introducción a los requisitos previos para usar Azure Database Migration Service](./pre-reqs.md).
-* Consulte las [preguntas más frecuentes sobre el uso de Azure Database Migration Service](./faq.md).
+* Consulte las [preguntas más frecuentes sobre el uso de Azure Database Migration Service](./faq.yml).

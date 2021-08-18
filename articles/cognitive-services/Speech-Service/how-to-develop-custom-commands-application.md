@@ -3,19 +3,19 @@ title: 'Procedimiento: Desarrollo de aplicaciones de Comandos personalizados: se
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo desarrollar y personalizar aplicaciones de Comandos personalizados. Estas aplicaciones de comandos de voz son más adecuadas para escenarios de realización de tareas o de comando y control.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.author: trbye
-ms.openlocfilehash: 84253f897e8b85029ea4425a7919be4bf71028ed
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.author: lajanuar
+ms.openlocfilehash: cb97e41740997e35445cdf6dfb7281e54c3a5c16
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110451951"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122069022"
 ---
 # <a name="develop-custom-commands-applications"></a>Desarrollo de aplicaciones de Comandos personalizados
 
@@ -153,7 +153,7 @@ Pruebe los siguientes ejemplos de expresiones mediante el uso de voz o texto:
 - La respuesta esperada: Ok, setting an alarm for 9 am tomorrow (de acuerdo, estableceré una alarma para mañana a las 9:00)
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla que muestra la prueba en una interfaz de chat web.](media/custom-commands/create-basic-test-chat.png)
+> ![Captura de pantalla que muestra la prueba en una interfaz de chat web.](media/custom-commands/create-basic-test-chat-no-mic.png)
 
 > [!TIP]
 > En el panel de pruebas, puede seleccionar **Turn details** (Activar detalles) para obtener información sobre cómo se procesó esta entrada de voz/texto.

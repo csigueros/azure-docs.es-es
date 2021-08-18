@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: a6d4c5811c08aa8c4de2eeea5f5f53967c3006b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8fa3c329afe26979e6f557d075aff478e79d10e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025363"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727227"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso de cuentas de almacenamiento administradas por el cliente en Log Analytics de Azure Monitor
 
@@ -22,7 +22,7 @@ Log Analytics se basa en Azure Storage en varios escenarios. Normalmente, este u
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Ingesta de registros de extensión de Azure Diagnostics (WAD/LAD)
 Los agentes de extensión de Azure Diagnostics (también denominados WAD y LAD para los agentes de Windows y Linux, respectivamente) recopilan varios registros del sistema operativo y los almacenan en una cuenta de almacenamiento administrada por el cliente. Después, puede ingerir estos registros en Log Analytics para revisarlos y analizarlos.
 ### <a name="how-to-collect-azure-diagnostics-extension-logs-from-your-storage-account"></a>Recopilación de registros de extensión de Azure Diagnostics desde la cuenta de almacenamiento
-Conecte la cuenta de almacenamiento a su área de trabajo de Log Analytics como origen de datos de almacenamiento mediante [Azure Portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) o mediante una llamada a la [API de Storage Insights](/rest/api/loganalytics/storage%20insights/createorupdate).
+Conecte la cuenta de almacenamiento a su área de trabajo de Log Analytics como origen de datos de almacenamiento mediante [Azure Portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) o mediante una llamada a la [API de Storage Insights](/rest/api/loganalytics/storage-insights/create-or-update).
 
 Tipos de datos admitidos:
 * syslog
@@ -100,7 +100,7 @@ Para reemplazar una cuenta de almacenamiento usada para la ingesta,
 Cuando use su propia cuenta de almacenamiento, la retención depende de usted. Log Analytics no eliminará los registros almacenados en el almacenamiento privado. En su lugar, debe configurar una directiva para controlar la carga según sus preferencias.
 
 #### <a name="consider-load"></a>Consideración de la carga
-Las cuentas de almacenamiento pueden controlar cierta carga de solicitudes de lectura y escritura antes de empezar a limitar las solicitudes (para obtener más información, consulte [Objetivos de escalabilidad y rendimiento de Blob Storage](../../storage/common/scalability-targets-standard-account.md)). La limitación afecta al tiempo que se tarda en ingerir registros. Si la cuenta de almacenamiento está sobrecargada, registre una cuenta de almacenamiento adicional para distribuir la carga entre ellas. Para supervisar la capacidad y el rendimiento de la cuenta de almacenamiento, revise su [Información en Azure Portal]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview).
+Las cuentas de almacenamiento pueden controlar cierta carga de solicitudes de lectura y escritura antes de empezar a limitar las solicitudes (para obtener más información, consulte [Objetivos de escalabilidad y rendimiento de Blob Storage](../../storage/common/scalability-targets-standard-account.md)). La limitación afecta al tiempo que se tarda en ingerir registros. Si la cuenta de almacenamiento está sobrecargada, registre una cuenta de almacenamiento adicional para distribuir la carga entre ellas. Para supervisar la capacidad y el rendimiento de la cuenta de almacenamiento, revise su [Información en Azure Portal](../../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ### <a name="related-charges"></a>Cargos relacionados
 Las cuentas de almacenamiento se cobran según el volumen de datos almacenados, el tipo de almacenamiento y el tipo de redundancia. Para detalles, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs) y [Precios de Azure Table Storage](https://azure.microsoft.com/pricing/details/storage/tables).

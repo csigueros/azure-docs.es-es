@@ -7,13 +7,12 @@ ms.date: 08/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: f290395f4bd7afccace5067a97e63dda553f183c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd73c1ef16b48340a77ce6a64823465a4f893b05
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91999730"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746405"
 ---
 # <a name="toggle-live-chat"></a>Alternancia de chat en directo
 
@@ -49,4 +48,4 @@ Para mostrar el chat, elija **Mostrar chat** en el panel **Ayuda**:
 Ahora que ha aprendido a activar y desactivar el chat en directo en Azure IoT Central, este es el paso siguiente sugerido:
 
 > [!div class="nextstepaction"]
-> [Adición de iconos al panel](howto-add-tiles-to-your-dashboard.md)
+> [Adición de iconos al panel](howto-manage-dashboards.md)

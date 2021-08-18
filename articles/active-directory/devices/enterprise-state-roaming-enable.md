@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a80a357b58ec7b17cc0da3e8247a668faf7ee413
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b95226ba8eb0d780ee20d761e3132a9c6bfd9e19
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286481"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112200769"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Habilitación de Enterprise State Roaming en Azure Active Directory
 
 Enterprise State Roaming está disponible para cualquier organización con una licencia de Azure AD Premium o Enterprise Mobility + Security (EMS). Para más información acerca de cómo obtener una suscripción de Azure AD, consulte la [página de producto de Azure AD](https://azure.microsoft.com/services/active-directory).
 
-Al habilitar Enterprise State Roaming, a su organización se le otorgará automáticamente una licencia gratuita de uso limitado para la protección con Azure Rights Management desde Azure Information Protection. Esta suscripción gratuita se limita a cifrar y descifrar la configuración de la empresa y los datos de las aplicaciones sincronizadas por Enterprise State Roaming. Debe tener [una suscripción de pago](https://azure.microsoft.com/pricing/details/information-protection/) para utilizar todas las funcionalidades del servicio Azure Rights Management.
+Al habilitar Enterprise State Roaming, a su organización se le otorgará automáticamente una licencia gratuita de uso limitado para la protección con Azure Rights Management desde Azure Information Protection. Esta suscripción gratuita se limita a cifrar y descifrar la configuración de la empresa y los datos de las aplicaciones sincronizadas por Enterprise State Roaming. Debe tener [una suscripción de pago](https://azure.microsoft.com/services/information-protection/) para utilizar todas las funcionalidades del servicio Azure Rights Management.
 
 > [!NOTE]
 > Este artículo se aplica al explorador basado en HTML heredado de Microsoft Edge que se publicó con Windows 10 en julio de 2015. No se aplica al nuevo explorador Microsoft Edge basado en Chromium, publicado el 15 de enero de 2020. Para más información sobre el comportamiento de sincronización del nuevo Microsoft Edge, consulte el artículo [Sincronización de Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).

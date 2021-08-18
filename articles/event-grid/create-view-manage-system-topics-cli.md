@@ -2,13 +2,13 @@
 title: Creación, visualización y administración de temas del sistema en Azure Event Grid con la CLI
 description: En este artículo se muestra cómo usar la CLI de Azure para crear, ver y eliminar temas del sistema.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 34a098406762fd57dc9dc4b58fc375286f5d5b13
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.date: 07/22/2021
+ms.openlocfilehash: e8ea2e1351b5faf93e58d5a96561555050ce05b6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874304"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469423"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Creación, visualización y administración de temas del sistema de Event Grid en la CLI de Azure
 En este artículo se muestra cómo crear y administrar temas del sistema con la CLI de Azure. Para una introducción a los temas del sistema, consulte [Temas del sistema](system-topics.md).

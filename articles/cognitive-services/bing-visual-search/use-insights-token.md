@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 161266a69308175637f5967b2ded48621d4d9c53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 685bdc3f67594c51f6ab749c33ab30e940faee34
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102424077"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288291"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Uso de un token de información para obtener los detalles de una imagen
 
@@ -262,7 +262,7 @@ namespace VisualSearchInsightsToken
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="cree un recurso de Bing Search"  target="_blank">crear un recurso de Bing Search</a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
-* [JDK 7 u 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) para compilar y ejecutar este código. Puede utilizar un IDE de Java si tiene un favorito, pero bastará con un editor de texto.
+* [JDK 7 u 8](/azure/developer/java/fundamentals/java-support-on-azure) para compilar y ejecutar este código. Puede utilizar un IDE de Java si tiene un favorito, pero bastará con un editor de texto.
 
 
 ## <a name="run-the-java-application"></a>Ejecución de la aplicación Java

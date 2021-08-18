@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de PrinterLogic SaaS para el aprovisionamiento 
 description: Obtenga información sobre cómo aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para PrinterLogic SaaS.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 001cfccf-b8a4-46e6-b355-94e8b694b122
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2020
-ms.author: Zhchia
-ms.openlocfilehash: 6b00067e7f13e609c2999d6949429038e9a7dfd8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: f5cc06f639e651164639ea99364e82ade61eb11b
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181754"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113758509"
 ---
 # <a name="tutorial-configure-printerlogic-saas-for-automatic-user-provisioning"></a>Tutorial: Configuración de PrinterLogic SaaS para el aprovisionamiento automático de usuarios
 
@@ -35,7 +35,7 @@ En este tutorial se describen los pasos que debe realizar en PrinterLogic SaaS y
 > * Aprovisionar grupos y pertenencias a grupos en PrinterLogic SaaS
 > * [Inicio de sesión único](./printerlogic-saas-tutorial.md) en PrinterLogic SaaS (recomendado)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 

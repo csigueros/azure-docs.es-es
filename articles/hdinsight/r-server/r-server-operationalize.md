@@ -2,17 +2,19 @@
 title: 'Puesta en funcionamiento de ML Services en HDInsight: Azure'
 description: Aprenda a poner en funcionamiento un modelo de datos para realizar predicciones con ML Services en Azure HDInsight.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 7d597c4dbb81562050e9523c61d47d0020fc9059
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ROBOTS: NOINDEX
+ms.openlocfilehash: eb8114da913347309e6e8ad263c0bb7fcf56790f
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869485"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299292"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Puesta en funcionamiento de clústeres de ML Services en Azure HDInsight
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 Después de haber usado el clúster de ML Services en HDInsight para completar el modelado de datos, puede usar el modelo para realizar predicciones. En este artículo se ofrecen instrucciones sobre realizar esta tarea.
 
@@ -164,7 +166,7 @@ Siga estos pasos para retirar nodos de trabajo:
 * Anule la selección de los nodos de trabajo y selecciones los nodos principales.
 * Seleccione **Acciones** > **Hosts seleccionados** > "**Hosts** > **Reiniciar todos los componentes**.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Paso 2: Configuración de los nodos de proceso en cada nodo de trabajo retirado
+###    <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Paso 2: Configuración de los nodos de proceso en cada nodo de trabajo retirado
 
 1. SSH en cada nodo de trabajo retirado.
 

@@ -2,7 +2,6 @@
 title: Opciones de nube a dispositivo de IoT Hub de Azure | Microsoft Docs
 description: 'Guía del desarrollador: una guía sobre cuándo usar métodos directos, propiedades notificadas del dispositivo gemelo o mensajes de nube a dispositivo para comunicaciones de este mismo tipo.'
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -13,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: ad4f5dcd137a9be6dfc764385802792026c0297d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 105374dc214ad77978973a5e7288ac1dd487941b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093018"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728798"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Guía de comunicación de nube a dispositivo
 
@@ -30,7 +29,7 @@ IoT Hub proporciona tres opciones para aplicaciones de dispositivo que exponen f
 
 * [Mensajes de nube a dispositivo](iot-hub-devguide-messages-c2d.md), para notificaciones unidireccionales a la aplicación de dispositivo.
 
-Para obtener información sobre cómo usa [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) estas opciones para controlar los dispositivos IoT Plug and Play, consulte [Guía para desarrolladores de dispositivos IoT Plug and Play](../iot-pnp/concepts-developer-guide-service.md).
+Para obtener información sobre cómo usa [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) estas opciones para controlar los dispositivos IoT Plug and Play, consulte [Guía para desarrolladores de dispositivos IoT Plug and Play](../iot-develop/concepts-developer-guide-service.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -48,6 +47,6 @@ Esta es una comparación detallada de las distintas opciones de comunicación de
 
 Aprenda a usar métodos directos, propiedades deseadas y mensajes de nube a dispositivo en los siguientes tutoriales:
 
-* [Uso de métodos directos](quickstart-control-device-node.md)
+* [Uso de métodos directos](quickstart-control-device.md)
 * [Uso de las propiedades deseadas para configurar dispositivos](tutorial-device-twins.md) 
 * [Envío de mensajes de nube a dispositivo](iot-hub-node-node-c2d.md)

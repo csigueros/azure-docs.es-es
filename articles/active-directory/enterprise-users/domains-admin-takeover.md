@@ -14,16 +14,19 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 816f4645626675ae19a462ac8707e995c3b4045e
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 38f036f96b4747fb6b712bf032d6f2ec3cb38e6a
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739377"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288039"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Adquisición de un directorio no administrado como administrador en Azure Active Directory
 
 En este artículo se describen dos maneras de adquirir un nombre de dominio DNS en un directorio no administrado en Azure Active Directory (Azure AD). Cuando un usuario de autoservicio se registra en un servicio en la nube que usa Azure AD, se agrega a un directorio de Azure AD no administrado en función del dominio de su correo electrónico. Para más información sobre el registro de autoservicio o "viral" de un servicio, consulte [¿Qué es el registro de autoservicio de Azure Active Directory?](directory-self-service-signup.md)
+
+
+> [!VIDEO https://www.youtube.com/embed/GOSpjHtrRsg]
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decida cómo desea adquirir un directorio no administrado
 Durante el proceso de adquisición de un administrador, puede comprobar la propiedad tal como se describe en [Incorporación de un nombre de dominio personalizado a Azure Active Directory](../fundamentals/add-custom-domain.md). En las secciones siguientes se explica con más detalle la experiencia del administrador, pero a continuación se incluye un resumen:

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ee483872535c58bde521cf0a751058fdc2fecd40
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 114ff5b5b0d23ed9f9ec519dd6874a14066c6fb7
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871459"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286293"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Procesamiento de eventos desde Azure Event Hubs con Apache Storm en HDInsight (C#)
 
@@ -104,7 +104,7 @@ Puede descargar una versión completa del proyecto creado en este artículo desd
 
 * Las [herramientas de HDInsight para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-* Java JDK 1.8 o posterior en el entorno de desarrollo. Las descargas de JDK están disponibles en [Oracle](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* Java JDK 1.8 o posterior en el entorno de desarrollo. Las descargas de JDK están disponibles en [Oracle](/azure/developer/java/fundamentals/java-support-on-azure).
 
   * La variable de entorno **JAVA_HOME** debe señalar al directorio que contiene Java.
   * El directorio **%JAVA_HOME%/bin** debe estar en la ruta de acceso.
@@ -204,7 +204,7 @@ Para detener las topologías, seleccione cada una en el **Visor de topologías d
 
 ## <a name="delete-your-cluster"></a>Eliminación del clúster
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

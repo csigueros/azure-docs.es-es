@@ -9,12 +9,12 @@ ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b5eca5eb8ed59553e1b5eebdb859bc3f23d8b0e5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6263a58aebcb7e6eb9d50d18e63257a3deb2cff5
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379858"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416549"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: Publicación de eventos y suscripción a ellos en la nube
 
@@ -28,7 +28,7 @@ Para realizar este tutorial, necesitará lo siguiente:
 * Una **suscripción a Azure**: cree una [cuenta gratuita](https://azure.microsoft.com/free) si aún no tiene una. 
 * **Dispositivo Azure IoT Hub e IoT Edge**: siga los pasos del inicio rápido para dispositivos [Linux](../../iot-edge/quickstart-linux.md) o [Windows](../../iot-edge/quickstart.md) si aún no tiene uno.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-deploy-iot-edge.md)]
 
 ## <a name="create-an-azure-function-in-the-azure-portal"></a>Cree una función de Azure en Azure Portal.
 
@@ -108,7 +108,7 @@ Como publicador de un evento, debe crear un tema de Event Grid. El tema hace ref
 
 Los suscriptores pueden registrarse en eventos publicados en un tema. Para recibir cualquier evento, los suscriptores deberán crear una suscripción a Event Grid en un tema de interés.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Cree el archivo subscription2.json con el siguiente contenido. Para más información sobre la carga, consulte nuestra [documentación de API](api.md).
 

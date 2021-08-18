@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Key Vault
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Key Vault. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 06/11/2021
+ms.date: 08/13/2021
 ms.topic: reference
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 07d6d6626507a7847ad81c2d43f8e048651f5ac0
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 0a22a01740b80239abe6ceb4fd9707b80e848025
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018376"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182693"
 ---
 # <a name="azure-policy-built-in-definitions-for-key-vault"></a>Definiciones integradas de Azure Policy para Key Vault
 

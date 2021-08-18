@@ -5,12 +5,12 @@ ms.date: 05/03/2021
 ms.topic: how-to
 recommendations: false
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 6521c02686da55142d9a9d9f1faf569d584ef593
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 1de1aaf8f293621d69534897add89c8a29a7916e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111590019"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752395"
 ---
 # <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Desarrollo y publicación de funciones de .NET 5 mediante Azure Functions 
 
@@ -89,7 +89,7 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
     cd LocalFunctionProj
     ```
 
-    Esta carpeta contiene varios archivos del proyecto, incluidos los archivos de configuración [local.settings.json](functions-run-local.md#local-settings-file) y [host.json](functions-host-json.md). Como *local.settings.json* puede contener secretos descargados de Azure, el archivo se excluye del control de código fuente de forma predeterminada en el archivo *.gitignore*.
+    Esta carpeta contiene varios archivos del proyecto, incluidos los archivos de configuración [local.settings.json](functions-develop-local.md#local-settings-file) y [host.json](functions-host-json.md). Como *local.settings.json* puede contener secretos descargados de Azure, el archivo se excluye del control de código fuente de forma predeterminada en el archivo *.gitignore*.
 
 1. Agregue una función al proyecto mediante el comando siguiente, donde el argumento `--name` es el nombre único de la función (HttpExample) y el argumento `--template` especifica el desencadenador de esta (HTTP).
 

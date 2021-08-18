@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: 28bb55b24cdc758906ab9aff5746e4c5d4c7bfc3
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 1aa0140a29864f08e40e3d1058d86597be5d99a5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112059713"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747422"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Administración de recursos de Core (SQL) API de Azure Cosmos DB con plantillas de Azure Resource Manager
 
@@ -20,7 +20,7 @@ ms.locfileid: "112059713"
 
 En este artículo, aprenderá a usar plantillas de Azure Resource Manager para ayudarle a implementar y administrar las cuentas, bases de datos y contenedores de Azure Cosmos DB.
 
-En este artículo solo se muestran ejemplos de plantillas de Azure Resource Manager para cuentas de Core (SQL) API. También puede encontrar ejemplos de plantillas para [Cassandra API](templates-samples-cassandra.md), [Gremlin API](templates-samples-gremlin.md), [MongoDB API](templates-samples-mongodb.md) y [Table API](templates-samples-table.md).
+En este artículo solo se muestran ejemplos de plantillas de Azure Resource Manager para cuentas de Core (SQL) API. También puede encontrar ejemplos de plantillas para [Cassandra API](cassandra/templates-samples.md), [Gremlin API](templates-samples-gremlin.md), [MongoDB API](mongodb/resource-manager-template-samples.md) y [Table API](table/resource-manager-templates.md).
 
 > [!IMPORTANT]
 >
@@ -78,9 +78,9 @@ Esta plantilla crea una cuenta, una base de datos y un contenedor de Azure Cosmo
 
 Esta plantilla creará una cuenta de SQL Cosmos, una definición de rol mantenida de forma nativa y una asignación de roles mantenida de forma nativa para una identidad de AAD. Esta plantilla también está disponible para implementar con un solo clic desde la galería de plantillas de inicio rápido de Azure.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-rbac%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-sql-rbac%2Fazuredeploy.json)
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-rbac/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-sql-rbac/azuredeploy.json":::
 
 <a id="free-tier"></a>
 

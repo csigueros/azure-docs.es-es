@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 160aa372cec2d018d5a3558f99e079624d965098
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b0708f83ff7ef54da19fdf8219fe594a540e678
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98895567"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362194"
 ---
 # <a name="what-is-a-dictionary"></a>¿Qué es un diccionario?
 
 Un diccionario es un par alineado de documentos que especifica una lista de frases u oraciones y sus traducciones correspondientes. Use un diccionario en el entrenamiento cuando quiera que Microsoft Translator siempre traduzca todas las instancias de la frase u oración de origen de la forma que especifique el diccionario. A veces, los diccionarios se denominan glosarios o bases terminológicas. Puede pensar en el diccionario como un "copiar y remplazar" a la fuerza para todos los términos incluidos. Además, el servicio Traductor personalizado de Microsoft crea y usa sus propios diccionarios de uso general para mejorar la calidad de su traducción. Sin embargo, los diccionarios proporcionados por el cliente tienen prioridad y serán los primeros en usarse al buscar palabras o frases.
 
-Los diccionarios solo funcionan en los proyectos en los pares de idiomas que tengan detrás un modelo de red neuronal general de Microsoft totalmente compatible. [Consulte la lista completa de idiomas](../language-support.md#customization).
+Los diccionarios solo funcionan en los proyectos en los pares de idiomas que tengan detrás un modelo de red neuronal general de Microsoft totalmente compatible. [Consulte la lista completa de idiomas](../language-support.md).
 
 ## <a name="phrase-dictionary"></a>Diccionario de frases
 El diccionario de frases distingue mayúsculas de minúsculas. Se trata de una operación exacta de búsqueda y reemplazo. Al incluir un diccionario de frases durante el entrenamiento de un modelo, todas las palabras y frases incluidas se traducen de la forma especificada. El resto de la oración se traduce como de costumbre. Puede usar un diccionario de frases para especificar las frases que no se deben traducir si proporciona la misma frase sin traducir en los archivos de origen y de destino del diccionario.

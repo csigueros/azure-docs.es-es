@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 09e7d954261b5bfb680486e06ed298e11974847d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6258de3e6f81ef25c4f515c956662be13eb5f1e2
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749740"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136497"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Asignación de una directiva de acceso de Key Vault mediante Azure Portal
 
@@ -53,5 +53,5 @@ Para más información sobre cómo crear grupos en Azure Active Directory median
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Seguridad en Azure Key Vault: Administración de identidades y acceso](security-features.md#identity-management)
+- [Seguridad de Azure Key Vault](security-features.md)
 - [Guía del desarrollador de Azure Key Vault](developers-guide.md)

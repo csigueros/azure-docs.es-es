@@ -8,16 +8,16 @@ ms.date: 04/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: b9ee3b76b1762034e6c1c5d29654b00d31022ff2
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: dc2c284bf1d44ca4fbdd4ddbea95048c38cdbf55
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109838094"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728492"
 ---
 # <a name="azure-storage-archive-backup-and-disaster-recovery-partners"></a>Asociados con Azure Storage para archivado, copia de seguridad y recuperación ante desastres
 
-En este artículo se destacan cuáles son los asociados de Microsoft que están integrados con Azure Storage para cargas de trabajo de archivado, copia de seguridad y continuidad empresarial y recuperación ante desastres (BCDR). Las soluciones de estos asociados aprovechan las ventajas de escala y costos de Azure Storage. Puede usar las soluciones para resolver los retos en torno a las copias de seguridad, crear un sitio de recuperación ante desastres o archivar el contenido no utilizado para su retención a largo plazo. Con todos los estándares de cumplimiento que Azure Storage cumple y con el [almacenamiento inmutable](../../../blobs/storage-blob-immutable-storage.md) y la [administración del ciclo de vida](../../../blobs/storage-lifecycle-management-concepts.md), estas soluciones pueden reemplazar fácilmente las copias de seguridad basadas en cinta y ofrecer un sitio de recuperación a petición económico.
+En este artículo se destacan cuáles son los asociados de Microsoft que están integrados con Azure Storage para cargas de trabajo de archivado, copia de seguridad y continuidad empresarial y recuperación ante desastres (BCDR). Las soluciones de estos asociados aprovechan las ventajas de escala y costos de Azure Storage. Puede usar las soluciones para resolver los retos en torno a las copias de seguridad, crear un sitio de recuperación ante desastres o archivar el contenido no utilizado para su retención a largo plazo. Con todos los estándares de cumplimiento que Azure Storage cumple y con el [almacenamiento inmutable](../../../blobs/immutable-storage-overview.md) y la [administración del ciclo de vida](../../../blobs/storage-lifecycle-management-concepts.md), estas soluciones pueden reemplazar fácilmente las copias de seguridad basadas en cinta y ofrecer un sitio de recuperación a petición económico.
 
 ## <a name="verified-partners"></a>Asociados comprobados
 

@@ -1,19 +1,19 @@
 ---
 title: Implementación de Azure Spring Cloud con Azure PowerShell
 description: Implementación de Azure Spring Cloud con Azure PowerShell
-author: bmitchell287
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.topic: conceptual
 ms.service: spring-cloud
 ms.devlang: azurepowershell
 ms.date: 11/16/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 40c5d720aa3ddf6d38b830c84e326e9cbbf06ed0
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f0badb1954cfbd78bc347bf949a6f7ad29bc0177
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135192"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014819"
 ---
 # <a name="deploy-azure-spring-cloud-with-azure-powershell"></a>Implementación de Azure Spring Cloud con Azure PowerShell
 
@@ -25,18 +25,18 @@ En este artículo se describe cómo crear una instancia de Azure Spring Cloud me
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
-  > [!IMPORTANT]
-  > Aunque el módulo **Az.SpringCloud** de PowerShell está en versión preliminar, se debe instalar por separado mediante el cmdlet `Install-Module`. Una vez que este módulo de PowerShell esté disponible con carácter general, formará parte de las futuras versiones del módulo Az de PowerShell y estará disponible de forma predeterminada en Azure Cloud Shell.
+   > [!IMPORTANT]
+   > Aunque el módulo **Az.SpringCloud** de PowerShell está en versión preliminar, se debe instalar por separado mediante el cmdlet `Install-Module`. Una vez que este módulo de PowerShell esté disponible con carácter general, formará parte de las futuras versiones del módulo Az de PowerShell y estará disponible de forma predeterminada en Azure Cloud Shell.
 
-  ```azurepowershell-interactive
-  Install-Module -Name Az.SpringCloud
-  ```
+   ```azurepowershell-interactive
+   Install-Module -Name Az.SpringCloud
+   ```
 
 * Si tiene varias suscripciones a Azure, elija la suscripción adecuada en la que se debe facturar el recurso. Seleccione una suscripción específica con el cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
-  ```azurepowershell-interactive
-  Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+   ```
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

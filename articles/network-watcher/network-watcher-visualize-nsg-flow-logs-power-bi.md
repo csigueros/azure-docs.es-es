@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 50f08ffc304962cc66f6eed07adcb5b7e4aa6692
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c386714fbc24c5e5f2f7e71234e2838aa2e5f216
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98011159"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112542245"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualización de registros de flujo del grupo de seguridad de red con Power BI
 
@@ -52,7 +52,7 @@ También tiene que tener el cliente de Power BI Desktop instalado en su equipo y
 
 ### <a name="steps"></a>Pasos
 
-1. Descargue y abra la siguiente plantilla de Power BI en la aplicación de Power BI Desktop [plantilla de registros de flujo de Power BI de Network Watcher](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
+1. Descargue y abra la siguiente plantilla de Power BI en la aplicación de Power BI Desktop [plantilla de registros de flujo de Power BI de Network Watcher](https://aka.ms/networkwatcherflowlogspowerbitemplate)
 1. Escriba los parámetros de consulta necesarios
    1. **StorageAccountName**: especifica el nombre de la cuenta de almacenamiento que contiene los registros de flujo de NSG que desea cargar y visualizar.
    1. **NumberOfLogFiles**: especifica el número de archivos de registro que desear descargar y visualizar en Power BI. Por ejemplo, si se especifica 50, los 50 archivos de registro más recientes. Si tenemos 2 NSG habilitados y configurados para enviar registros de flujo de NSG a esta cuenta, se pueden ver las últimas 25 horas de registros.

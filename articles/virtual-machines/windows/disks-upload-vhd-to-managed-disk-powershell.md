@@ -3,18 +3,18 @@ title: 'Carga de un VHD en Azure o copia de un disco entre regiones: Azure Power
 description: Aprenda a cargar un VHD en un disco administrado de Azure y a copiar un disco administrado entre regiones mediante Azure PowerShell a través de la carga directa.
 author: roygara
 ms.author: rogarana
-ms.date: 06/15/2020
+ms.date: 06/29/2021
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2dfd3df6cdfa7ce42194821dcf4891d82f6042db
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 9bec6aaf34691adf03dad9204b93af006008c7a0
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668922"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356161"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Carga de un VHD en Azure o copia de un disco administrado en otra región: Azure PowerShell
 

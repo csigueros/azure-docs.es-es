@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: a37abf369d1f34dc8f4a27802dfad88dab79be44
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6f68b249b9bedd638594bf6956e909ee8d792e5
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698440"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253517"
 ---
 # <a name="connect-your-imperva-waf-gateway-appliance-to-azure-sentinel"></a>Conexión del dispositivo Imperva WAF Gateway a Azure Sentinel
 
 > [!IMPORTANT]
 > El conector de Imperva WAF Gateway está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 En este artículo se explica cómo conectar el dispositivo Imperva WAF Gateway a Azure Sentinel. El conector de datos de Imperva WAF Gateway le permite conectar fácilmente los registros de Imperva WAF Gateway con Azure Sentinel, de modo que pueda verlos en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar la investigación. La integración entre Imperva WAF Gateway y Azure Sentinel usa el servidor de Syslog con formato CEF, un reenviador de registros basado en Linux y el agente de Log Analytics.
 
@@ -77,6 +79,6 @@ Consulte la pestaña **Pasos siguientes** de la página de conectores para ver m
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar Imperva WAF Gateway a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

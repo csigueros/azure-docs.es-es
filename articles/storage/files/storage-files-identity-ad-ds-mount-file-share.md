@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 1dd2768c7541312b68e2a44a35fc4260d67c5655
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d71526fea23e3a440428266addfc497b1a89c63c
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587005"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117145"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Parte 4: Montaje de un recurso compartido de archivos desde una VM unida al dominio
 
@@ -23,6 +23,13 @@ El proceso descrito en este artículo comprueba que el recurso compartido de arc
 Inicie sesión en el cliente con las credenciales a las que ha concedido permisos, como se muestra en la imagen siguiente.
 
 ![Captura de pantalla que muestra la pantalla Inicio de sesión de Azure AD para la autenticación de usuario](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="mounting-prerequisites"></a>Requisitos previos de montaje
 

@@ -3,12 +3,12 @@ title: Rotación de las credenciales de administrador de la nube en Azure VMware
 description: Aprenda a rotar las credenciales de vCenter Server y NSX-T Manager para la nube privada de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 305447f8eac40a08564b9b57d82709f223f6086d
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 27d6c75046010d680734018d65f54eacbb520ae3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021508"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747590"
 ---
 # <a name="rotate-the-cloudadmin-credentials-for-azure-vmware-solution"></a>Rotación de las credenciales de administrador de la nube en Azure VMware Solution
 
@@ -61,6 +61,5 @@ En este paso, actualizará el conector HCX con las credenciales actualizadas.
 
 Ahora que ha examinado el restablecimiento de las credenciales de VCenter Server y NSX-T Manager para Azure VMware Solution, puede que quiera obtener información sobre lo siguiente:
 
-- [Configuración de los componentes de red NSX en Azure VMware Solution](configure-nsx-network-components-azure-portal.md)
 - [Integración de servicios nativos de Azure en Azure VMware Solution](integrate-azure-native-services.md)
 - [Implementación de la recuperación ante desastres para las cargas de trabajo de Azure VMware Solution con VMware HCX](deploy-disaster-recovery-using-vmware-hcx.md)

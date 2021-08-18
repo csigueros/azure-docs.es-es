@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 558610a23098a64f0f36ccb5c04ee71e8a7343cb
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 7652f1562050b3253b0df7ee16c4eff5dd6f8e85
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408468"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112376871"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-and-attach-apache-spark-poolspreview"></a>Vinculación de las áreas de trabajo de Azure Synapse y Azure Machine Learning, y asociación de grupos de Azure Spark (versión preliminar)
 
@@ -26,7 +26,7 @@ Con el área de trabajo de Azure Machine Learning vinculada con el área de trab
 
 Puede vincular ambas áreas de trabajo mediante el [SDK de Python](#link-sdk) o [Estudio de Azure Machine Learning](#link-studio).
 
-También puede vincular áreas de trabajo y adjuntar un grupo de Spark de Synapse con una sola [plantilla de Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json).
+También puede vincular áreas de trabajo y adjuntar un grupo de Spark de Synapse con una sola [plantilla de Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json).
 
 >[!IMPORTANT]
 > La integración de Azure Machine Learning y Azure Synapse se encuentra en versión preliminar pública. Las funcionalidades que presenta el paquete `azureml-synapse` son características [experimentales](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y pueden cambiar en cualquier momento.
@@ -134,7 +134,7 @@ Después de recuperar el servicio vinculado, conecte un grupo de Apache Spark de
 
 Puede conectar grupos de Apache Spark mediante lo siguiente:
 * Azure Machine Learning Studio
-* [Plantillas de Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)
+* [Plantillas de Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json)
 * El SDK de Azure Machine Learning para Python 
 
 ### <a name="attach-a-pool-via-the-studio"></a>Conexión de un grupo mediante el Estudio de Azure Machine Learning

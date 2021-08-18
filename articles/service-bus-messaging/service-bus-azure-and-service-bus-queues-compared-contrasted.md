@@ -2,13 +2,13 @@
 title: Comparación de colas de Azure Storage con colas de Service Bus
 description: Analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure.
 ms.topic: article
-ms.date: 04/12/2021
-ms.openlocfilehash: a63ed276981a692b96b7e7369093af221b3d3a5f
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.date: 06/15/2021
+ms.openlocfilehash: a93123ded873a5020e440c606fcd4f8278baa4aa
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190133"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112120177"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de cola que ofrece Microsoft Azure: las colas de Storage y las colas de Service Bus. Con esta información, puede tomar una decisión más fundamentada sobre la solución que mejor se adapta a sus necesidades.
@@ -203,9 +203,6 @@ En los artículos siguientes se ofrece más orientación e información sobre el
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Uso del servicio Queue Storage](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica de Service Bus](service-bus-performance-improvements.md)
-* [Introducción a las colas y los temas de Azure Service Bus (publicación en un blog)](https://www.serverless360.com/blog/azure-service-bus-queues-vs-topics)
-* [Guía para desarrolladores sobre el Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
-* [Uso del servicio de cola en Azure ](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
 [Azure portal]: https://portal.azure.com
 

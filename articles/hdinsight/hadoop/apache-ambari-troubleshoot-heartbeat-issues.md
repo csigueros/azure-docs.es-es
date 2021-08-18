@@ -4,12 +4,12 @@ description: Revisión de varias causas para los problemas de latido de Apache A
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
-ms.openlocfilehash: 5eebde42098d74f533565d274b693c4a06f2f60d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 348a4d801590ba8f0e10f3c7f72ce6ead0a16022
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946737"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300048"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemas de latido de Apache Ambari en Azure HDInsight
 
@@ -99,4 +99,4 @@ Los registros de OMS están causando un uso elevado de la CPU.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

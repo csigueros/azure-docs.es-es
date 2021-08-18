@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: d9a4da6fe65fda07609c7399518fa324017ea44c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 020b9f61af668e1e0e29a3a93ee5cdc5d8803e81
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649352"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440297"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Obtención de AppSource certificado para Azure Active Directory
 
@@ -47,7 +47,7 @@ Para más información sobre la arquitectura multiempresa, vea [Inicio de sesió
 
 Una *aplicación de inquilino único* es una aplicación que solo aceptan inicios de sesión de usuarios de una instancia de Azure AD definida. Los usuarios externos (incluidas las cuentas profesionales o educativas de otras organizaciones o una cuenta personal) pueden iniciar sesión en una aplicación de inquilino único después de agregar cada usuario como cuenta de invitado a la instancia de Azure AD en la que esa aplicación está registrada. 
 
-Puede agregar usuarios como cuentas de invitado a una instancia de Azure AD a través de la [Colaboración B2B en Azure AD](../external-identities/what-is-b2b.md), que se puede realizar [mediante programación](../../active-directory-b2c/code-samples.md). Al usar B2B, los usuarios pueden crear un portal de autoservicio que no requiera invitación para iniciar sesión. Para obtener más información, consulte [Portal de autoservicio para el registro en la colaboración B2B de Azure AD](../external-identities/self-service-portal.md).
+Puede agregar usuarios como cuentas de invitado a una instancia de Azure AD a través de la [Colaboración B2B en Azure AD](../external-identities/what-is-b2b.md), que se puede realizar [mediante programación](../../active-directory-b2c/integrate-with-app-code-samples.md). Al usar B2B, los usuarios pueden crear un portal de autoservicio que no requiera invitación para iniciar sesión. Para obtener más información, consulte [Portal de autoservicio para el registro en la colaboración B2B de Azure AD](../external-identities/self-service-portal.md).
 
 Las aplicaciones de inquilino único pueden habilitar la experiencia *Ponerse en contacto conmigo*, pero si se quiere habilitar la experiencia de evaluación gratuita/con un solo clic que AppSource recomienda, habilite en su lugar la arquitectura multiempresa en la aplicación.
 

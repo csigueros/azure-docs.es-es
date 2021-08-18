@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo Azure App Service le ayuda a mante
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 1388dc11254324f74efcbaa55c97cac2ccd0c026
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77ba7e71570e235de297bd0eabc466b5ea180ece
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87073738"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895236"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Traslado de una aplicación de App Service a otra región
 
@@ -29,7 +29,7 @@ Identifique todos los recursos de App Service que la aplicación afectada utiliz
 - [Planes de App Service](overview-hosting-plans.md)
 - [Ranuras de implementación](deploy-staging-slots.md)
 - [Dominios personalizados adquiridos en Azure](manage-custom-dns-buy-domain.md)
-- [Certificados SSL](configure-ssl-certificate.md)
+- [Certificados TLS/SSL](configure-ssl-certificate.md)
 - [Integración de Azure Virtual Network](web-sites-integrate-with-vnet.md)
 - [Conexiones híbridas](app-service-hybrid-connections.md)
 - [Identidades administradas](overview-managed-identity.md)
@@ -47,7 +47,7 @@ Ciertos recursos, como los certificados importados o las conexiones híbridas, t
 
 1. En la página **Restaurar copia de seguridad**, configure la operación de restauración de acuerdo con la tabla siguiente. Cuando termine, haga clic en **Aceptar**.
 
-   | Configuración | Value | Descripción |
+   | Configuración | Valor | Descripción |
    |-|-|-|
    | **Instantánea (versión preliminar)** | Seleccione una instantánea. | Están disponibles las dos instantáneas más recientes. |
    | **Destino de restauración** | **Aplicación existente** | Haga clic en la nota siguiente que indica **Haga clic aquí para cambiar la aplicación de destino de la restauración** y seleccione la aplicación de destino. En un escenario de desastre, solo puede restaurar la instantánea en una aplicación en una región de Azure diferente. |

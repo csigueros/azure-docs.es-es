@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo implementar un grupo de contenedor
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 44be66957aa745179ffe4cd00db75f1d47237dfc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f107b5b04726047bea4d7c05a6c031d921f26547
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771054"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300172"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementación de instancias de contenedor en una red virtual de Azure
 
@@ -115,7 +115,7 @@ La salida del registro debe mostrar que `wget` fue capaz de conectarse y descarg
 
 ### <a name="example---yaml"></a>Ejemplo: YAML
 
-También puede implementar un grupo de contenedores en una red virtual existente mediante un archivo YAML, una [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+También puede implementar un grupo de contenedores en una red virtual existente mediante un archivo YAML, una [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 ) u otro método de programación como con el SDK de Python. 
 
 Por ejemplo, si usa un archivo YAML, puede realizar la implementación en una red virtual con una subred delegada en Azure Container Instances. Especifique las propiedades siguientes:
@@ -224,7 +224,7 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para implementar una nueva red virtual, subred, perfil de red y grupo de contenedores mediante una plantilla de Resource Manager, consulte el artículo sobre la [creación de un grupo de contenedores de Azure con VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+Para implementar una nueva red virtual, subred, perfil de red y grupo de contenedores mediante una plantilla de Resource Manager, consulte el artículo sobre la [creación de un grupo de contenedores de Azure con VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 ).
 
 <!-- IMAGES -->

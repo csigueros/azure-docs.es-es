@@ -2,13 +2,13 @@
 title: Excepciones de Azure Relay y cómo resolverlas | Microsoft Docs
 description: Lista de excepciones de Azure Relay y las acciones sugeridas que puede seguir para ayudar a resolverlas.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: e3f9fe2e8aac826bd63d9842bd3380be10e1b87e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 06/23/2021
+ms.openlocfilehash: d9097e58557529a646f3b047f7875ba9fc1b95a2
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313953"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668352"
 ---
 # <a name="azure-relay-exceptions"></a>Excepciones de Azure Relay
 

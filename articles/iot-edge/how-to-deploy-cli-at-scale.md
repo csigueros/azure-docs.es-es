@@ -3,19 +3,18 @@ title: 'Implementación de módulos a escala mediante la CLI de Azure: Azure IoT
 description: Uso de la extensión de IoT para la CLI de Azure para crear implementaciones automáticas para grupos de dispositivos IoT Edge
 keywords: ''
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: c502a9c02160c5a92d78ccdbb0532e6f173122da
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 4e7302cda688d92e19d147f0bfa1a482823b2623
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479515"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750791"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar y supervisar módulos de IoT Edge a escala, mediante la CLI de Azure
 
@@ -135,7 +134,7 @@ Este es un manifiesto de implementación superpuesta básico con un módulo como
         "properties.desired.modules.SimulatedTemperatureSensor": {
           "settings": {
             "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-              "createOptions": ""
+              "createOptions": "{}"
           },
           "type": "docker",
           "status": "running",

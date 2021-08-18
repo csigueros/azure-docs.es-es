@@ -4,12 +4,12 @@ description: Solución de problemas de Apache HDFS local bloqueado en modo segur
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: d34bf8d82aee14f5ba835f68a061555d24ee2621
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6764b2c1b8b2a06f2bd9264a7461f43986f557ad
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944453"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299976"
 ---
 # <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>Escenario: La instancia de HDFS local está detenida en modo seguro en el clúster de Azure HDInsight
 
@@ -55,4 +55,4 @@ El clúster de HDInsight se ha reducido verticalmente a muy pocos nodos por deba
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

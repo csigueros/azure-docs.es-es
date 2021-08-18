@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 0d78cc9d99bd7ace2d214c2a2a1d7f75a74df098
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3c163f34ecec0eae1467b375928eab95ce70d374
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785060"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112292850"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: ejemplos
 > [!NOTE]
@@ -44,9 +44,9 @@ En GitHub, puede encontrar las siguientes plantillas de Azure Resource Manager p
 
 | Plantilla | Descripción |
 | --- | --- |
-| [Copia de datos de Azure Blob Storage en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde el almacenamiento de blobs de Azure especificado en Azure SQL Database |
-| [Copia de datos de Salesforce en Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde la cuenta de Salesforce especificada al almacenamiento de blobs de Azure. |
-| [Transformación de los datos mediante la ejecución de un script de Hive en un clúster de Azure HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización de datos que transforma los dato ejecutando el script de Hive en un clúster de Azure HDInsight (Hadoop). |
+| [Copia de datos de Azure Blob Storage en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-blob-to-sql-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde el almacenamiento de blobs de Azure especificado en Azure SQL Database |
+| [Copia de datos de Salesforce en Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-salesforce-to-blob-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde la cuenta de Salesforce especificada al almacenamiento de blobs de Azure. |
+| [Transformación de los datos mediante la ejecución de un script de Hive en un clúster de Azure HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-hive-transformation) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización de datos que transforma los dato ejecutando el script de Hive en un clúster de Azure HDInsight (Hadoop). |
 
 ## <a name="samples-in-azure-portal"></a>Ejemplos en Azure Portal
 Puede usar el icono de **Canales de muestras** de la página principal de la factoría de datos para implementar canalizaciones de ejemplo y sus entidades asociadas (conjuntos de datos y servicios vinculados) en la factoría de datos.

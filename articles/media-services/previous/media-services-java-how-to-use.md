@@ -15,19 +15,18 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-java
-ms.openlocfilehash: 5fa9f1eb4c9468c5cabaab6ee0430f165f339ed6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a34f3af846e6dcde2dc65be0ad5cd48e7d36806f
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014917"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114706337"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introducción al SDK de cliente de Java para Azure Media Services
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-v-2-v-3-migration-introduction.md).
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 Este tutorial le guía por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo con la aplicación Azure Media Services mediante el SDK de cliente de Java.
 

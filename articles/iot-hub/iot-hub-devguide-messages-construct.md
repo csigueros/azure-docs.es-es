@@ -2,21 +2,20 @@
 title: Información sobre el formato de mensaje de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: describe el formato y el contenido esperados de los mensajes de IoT Hub.'
 author: ash2017
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 07/01/2021
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 547152e5c74d8953ae206d9ff3b6076013b0ade1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 40cbc1c5046c944a8915f1db38805cacb95b2889
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091637"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294774"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
 
@@ -151,4 +150,4 @@ La propiedad **iothub-connection-auth-method** contiene un objeto JSON serializa
 
 * Para información acerca de los límites de tamaño de mensaje en IoT Hub, consulte [Cuotas y limitación de IoT Hub](iot-hub-devguide-quotas-throttling.md).
 
-* Para información sobre cómo crear y leer mensajes de IoT Hub en varios lenguajes de programación, consulte las [guías de inicio rápido](quickstart-send-telemetry-node.md).
+* Para información sobre cómo crear y leer mensajes de IoT Hub en varios lenguajes de programación, consulte las [guías de inicio rápido](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs).

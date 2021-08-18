@@ -4,15 +4,16 @@ description: Use esta API para obtener todas las consultas que están disponible
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: e2be43e8402e5179fb62d810fe7b9f41e704c49d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f3a6351f726a5b1bd408764280ad2487cf7ecd95
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583614"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747240"
 ---
 # <a name="get-report-queries-api"></a>Obtención de API de consultas de informe
 

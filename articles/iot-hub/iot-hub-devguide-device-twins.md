@@ -2,7 +2,6 @@
 title: Dispositivos gemelos de Azure IoT Hub | Microsoft Docs
 description: 'Guía para desarrolladores: uso de dispositivos gemelos para sincronizar los datos de estado y configuración entre IoT Hub y sus dispositivos'
 author: nehsin
-manager: philmea
 ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
@@ -11,12 +10,12 @@ ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: cc1f9aaa0409300f99535b0b64f5719f8e8c97ad
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1bea2bab5a930d16ebc7675a14bfa4486dc35951
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484620"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728787"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 
@@ -43,7 +42,7 @@ Para obtener instrucciones sobre el uso de propiedades notificadas, mensajes de 
 
 Para obtener instrucciones sobre el uso de propiedades deseadas, los métodos directos o los mensajes de nube a dispositivo, consulte [Guía de comunicación de nube a dispositivo](iot-hub-devguide-c2d-guidance.md).
 
-Para obtener información sobre cómo se relacionan los dispositivos gemelos con el modelo de dispositivo utilizado en un dispositivo Azure IoT Plug and Play, consulte [Información de Digital Twins de IoT Plug and Play](../iot-pnp/concepts-digital-twin.md).
+Para obtener información sobre cómo se relacionan los dispositivos gemelos con el modelo de dispositivo utilizado en un dispositivo Azure IoT Plug and Play, consulte [Información de Digital Twins de IoT Plug and Play](../iot-develop/concepts-digital-twin.md).
 
 ## <a name="device-twins"></a>Dispositivos gemelos
 

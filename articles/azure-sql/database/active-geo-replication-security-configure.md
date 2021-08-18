@@ -11,12 +11,12 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 12/18/2018
-ms.openlocfilehash: 6dde8aaa676e8045326f7078e1c3fd2a0ada6dc2
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: d6a22f1bab9b24412fe9109fff955d3eeeb0749c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699846"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747656"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configuración y administración de la seguridad de Azure SQL Database para la restauración geográfica o la conmutación por error
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -90,15 +90,15 @@ El último paso consiste en ir al servidor o los servidores de destino y generar
 
 ```sql
 CREATE LOGIN [<login name>]
-WITH PASSWORD = <login password>,
-SID = <desired login SID>
+WITH PASSWORD = '<login password>',
+SID = 0x1234 /*replace 0x1234 with the desired login SID*/
 ```
 
 > [!NOTE]
 > Si desea conceder acceso de usuario a la base de datos secundaria, pero no a la principal, puede hacerlo modificando el inicio de sesión de usuario en el servidor principal con la sintaxis siguiente.
 >
 > ```sql
-> ALTER LOGIN <login name> DISABLE
+> ALTER LOGIN [<login name>] DISABLE
 > ```
 >
 > DISABLE no cambia la contraseña, por lo que siempre puede habilitarlo si es necesario.

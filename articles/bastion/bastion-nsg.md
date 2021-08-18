@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 06/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: 84f32755a4838fbcb29b3d85d8308b5288d746ea
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: e3772f3583e4487c8c508136537ab213413865e7
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537911"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112464758"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion
 
@@ -48,7 +48,7 @@ Azure Bastion se implementa específicamente en ***AzureBastionSubnet***.
    * **Tráfico de entrada desde Azure Load Balancer:** en el caso de los sondeos de estado, habilite el puerto 443 de entrada desde la etiqueta de servicio **AzureLoadBalancer**. Esto permite que Azure Load Balancer detecte la conectividad.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Captura de pantalla que muestra las reglas de seguridad de entrada para la conectividad de Azure Bastion.":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Captura de pantalla que muestra las reglas de seguridad de entrada para la conectividad de Azure Bastion." lightbox="./media/bastion-nsg/inbound.png":::
 
 * **Tráfico de salida:**
 
@@ -58,7 +58,7 @@ Azure Bastion se implementa específicamente en ***AzureBastionSubnet***.
    * **Tráfico de salida a Internet:** Azure Bastion debe ser capaz de comunicarse con Internet para la validación de la sesión y el certificado. Por esta razón, se recomienda habilitar el puerto 80 de salida a **Internet.**
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Captura de pantalla que muestra las reglas de seguridad de salida para la conectividad de Azure Bastion.":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Captura de pantalla que muestra las reglas de seguridad de salida para la conectividad de Azure Bastion." lightbox="./media/bastion-nsg/outbound.png":::
 
 ### <a name="target-vm-subnet"></a>Subred de máquina virtual de destino
 Se trata de una subred que contiene la máquina virtual de destino a la que quiere conectarse mediante RDP/SSH.

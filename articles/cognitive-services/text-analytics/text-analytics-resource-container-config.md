@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/21/2021
 ms.author: aahi
-ms.openlocfilehash: f6a1bc652125990a7daf3414895f34b95c544912
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae3a147b64c1355700398371206c3da39597ad9b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "83590561"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114451318"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configuración de los contenedores de docker de Text Analytics
 
@@ -75,7 +75,7 @@ Utilice montajes de enlace para leer y escribir datos hacia y desde el contenedo
 
 El contenedor de Text Analytics no usa los montajes de entrada o salida para almacenar datos de entrenamiento o del servicio. 
 
-La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](how-tos/text-analytics-how-to-install-containers.md#the-host-computer) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host. 
+La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](how-tos/text-analytics-how-to-install-containers.md#host-computer-requirements-and-recommendations) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host. 
 
 |Opcional| Nombre | Tipo de datos | Descripción |
 |-------|------|-----------|-------------|

@@ -4,16 +4,16 @@ description: Aprenda a usar PowerShell para habilitar la recopilación de datos 
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 23528190d2eb60cc6ea3fe94bb9f7a2374526f6a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 50890e0231ac0b0a24a51aacd41ea97df4b73c0c
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618447"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113086197"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-classic-using-powershell"></a>Habilitación del diagnóstico en Azure Cloud Services (clásico) mediante PowerShell
 

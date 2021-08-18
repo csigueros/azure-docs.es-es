@@ -3,7 +3,7 @@ title: Uso de DNS dinámico para registrar nombres de host en Azure | Microsoft 
 description: Obtenga información sobre cómo configurar DNS dinámico para registrar nombres de host en sus propios servidores DNS.
 services: dns
 documentationcenter: na
-author: subsarma
+author: KumudD
 manager: vitinnan
 editor: ''
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
-ms.author: subsarma
-ms.openlocfilehash: ad91eb94aedcdd0e4e715162e3ae064a1d2fb1ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: kumud
+ms.openlocfilehash: 0f688e3ea61dc550571c8f6d3b7009ba2cf06ab4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98220429"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746161"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Uso de DNS dinámico para registrar nombres de host en su propio servidor DNS
 

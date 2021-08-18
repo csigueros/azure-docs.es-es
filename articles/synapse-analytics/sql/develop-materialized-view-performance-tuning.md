@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: e6c3987e2de7f9592a1f7f6086657592e1bf0c16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a42f39e7c3124c2360419d6129f22c35f71b2cec
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676589"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862487"
 ---
 # <a name="performance-tuning-with-materialized-views-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Ajuste del rendimiento con vistas materializadas mediante el grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -81,7 +81,7 @@ En comparación con otras opciones de optimización, como el escalado y la admin
 
 Azure Data Warehouse es un sistema de procesamiento masivo en paralelo (MPP) y distribuido.  
 
-Synapse SQL es un sistema de consultas distribuidas que permite a las empresas implementar escenarios de virtualización de datos y almacenamiento de datos mediante experiencias estándar de T-SQL conocidas para los ingenieros de datos. También amplía las funcionalidades de SQL para abordar los escenarios de streaming y aprendizaje automático. Los datos de una tabla del almacenamiento de datos se distribuyen entre 60 nodos mediante una de estas tres [estrategias de distribución](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hash, round_robin o replicada).  
+Synapse SQL es un sistema de consultas distribuidas que permite a las empresas implementar escenarios de virtualización de datos y almacenamiento de datos mediante experiencias estándar de T-SQL conocidas para los ingenieros de datos. También amplía las funcionalidades de SQL para abordar los escenarios de streaming y aprendizaje automático. Los datos de una tabla del almacenamiento de datos se distribuyen entre 60 nodos mediante una de estas tres [estrategias de distribución](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context) (hash, round_robin o replicada).  
 
 La distribución de datos se especifica en el momento de creación de la tabla y permanece invariable hasta que se elimina la tabla. Puesto que la vista materializada es una tabla virtual en disco, posibilita las distribuciones de datos hash y round_robin.  Los usuarios pueden elegir una distribución de datos diferente a la de las tablas base, pero que sea óptima para el rendimiento de las consultas que utilizan las vistas con frecuencia.  
 

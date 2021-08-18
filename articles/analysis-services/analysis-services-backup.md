@@ -8,12 +8,12 @@ ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 6c2ea063e37660767d266c15dcfc471ee5d73a02
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7f12ca1530b40885dea456763bd231d487ba5cb
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732115"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004635"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Copia de seguridad de datos y restauración de Analysis Services
 
@@ -25,7 +25,7 @@ Realizar una copia de seguridad de bases de datos de modelo tabular en Azure Ana
 > 
 
 > [!NOTE]
-> Si la cuenta de almacenamiento está en otra región, configure el firewall de la cuenta de almacenamiento para permitir el acceso desde **Redes seleccionadas**. En el **intervalo de direcciones** del firewall, especifique el intervalo de direcciones IP para la región en la que se encuentra el servidor de Analysis Services. Se admite la configuración del firewall de la cuenta de almacenamiento para permitir el acceso desde todas las redes, aunque es preferible elegir Redes seleccionadas y especificar un intervalo de direcciones IP. Para más información, consulte [Preguntas frecuentes acerca de la conectividad de red](analysis-services-network-faq.md#backup-and-restore).
+> Si la cuenta de almacenamiento está en otra región, configure el firewall de la cuenta de almacenamiento para permitir el acceso desde **Redes seleccionadas**. En el **intervalo de direcciones** del firewall, especifique el intervalo de direcciones IP para la región en la que se encuentra el servidor de Analysis Services. Se admite la configuración del firewall de la cuenta de almacenamiento para permitir el acceso desde todas las redes, aunque es preferible elegir Redes seleccionadas y especificar un intervalo de direcciones IP. Para más información, consulte [Preguntas frecuentes acerca de la conectividad de red](/azure/analysis-services/analysis-services-network-faq#backup-and-restore).
 
 Las copias de seguridad se guardan con una extensión .abf. Para los modelos tabulares en memoria, se almacenan los datos y los metadatos del modelo. Para los modelos tabulares de consulta directa, solo se almacenan los metadatos del modelo. Las copias de seguridad se pueden comprimir y cifrar, según las opciones que elija.
 
@@ -109,4 +109,4 @@ Use el cmdlet [Restore-ASDatabase](/powershell/module/sqlserver/restore-asdataba
 
 [Cuentas de almacenamiento de Azure](../storage/common/storage-account-create.md)  
 [Alta disponibilidad](analysis-services-bcdr.md)      
-[Preguntas frecuentes acerca de la conectividad de red de Analysis Services](analysis-services-network-faq.md)
+[Preguntas frecuentes acerca de la conectividad de red de Analysis Services](analysis-services-network-faq.yml)

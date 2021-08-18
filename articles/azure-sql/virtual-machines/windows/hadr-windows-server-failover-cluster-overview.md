@@ -11,14 +11,14 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/25/2021
+ms.date: 06/01/2021
 ms.author: mathoma
-ms.openlocfilehash: edfd8e09ed44134637a33a065de0f2e7b812e8a1
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: f85c603f7bfa4113edaeaed1eb92d907d06fe09d
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111573283"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581932"
 ---
 # <a name="windows-server-failover-cluster-with-sql-server-on-azure-vms"></a>Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -67,7 +67,7 @@ Técnicamente, un clúster de tres nodos puede sobrevivir a la pérdida de un so
 
 El testigo de disco es la opción de cuórum más resistente, pero para usar un testigo de disco en SQL Server en VM de Azure, debe usar un disco compartido de Azure que imponga algunas limitaciones a la solución de alta disponibilidad. Por lo tanto, use un testigo de disco al configurar la instancia de clúster de conmutación por error con discos compartidos de Azure; de lo contrario, use un testigo en la nube siempre que sea posible. 
 
-En la tabla siguiente se enumeran las opciones de cuórum disponibles para SQL Server en VM de Azure: 
+En la tabla siguiente se enumeran las opciones de cuórum disponibles para SQL Server en máquinas virtuales de Azure: 
 
 |  |[Testigo en la nube](/windows-server/failover-clustering/deploy-cloud-witness) |[Testigo de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum) |[Testigo de recurso compartido de archivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|

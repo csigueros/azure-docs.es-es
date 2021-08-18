@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a489b8fd416c750071fa5e292bf916f23c83dab5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505909"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747943"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guía de planificación e implementación de la plataforma de inteligencia empresarial SAP BusinessObjects en Azure
 
@@ -80,13 +80,13 @@ En la siguiente ilustración, se muestra la arquitectura de una implementación 
   En Azure, puede usar [Azure Files Premium](../../../storage/files/storage-files-introduction.md) o [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) como servidor de repositorio de archivos. Ambos servicios de Azure incluyen redundancia integrada.
 
   > [!Important]
-  > El protocolo SMB para Azure Files está disponible con carácter general, pero la compatibilidad con el protocolo NFS para Azure Files se encuentra actualmente en versión preliminar. Para obtener más información, consulte [La compatibilidad de NFS 4.1 con Azure Files ya se encuentra en versión preliminar](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/).
+  > El protocolo SMB para Azure Files está disponible con carácter general, pero la compatibilidad con el protocolo NFS para Azure Files se encuentra actualmente en versión preliminar. Para obtener más información, consulte [La compatibilidad de NFS 4.1 con Azure Files ya se encuentra en versión preliminar](https://azure.microsoft.com/blog/nfs-41-support-for-azure-files-is-now-in-preview/).
 
 - Base de datos de auditoría y CMS
   
   La plataforma SAP BOBI requiere de una base de datos para almacenar los datos del sistema, que se conoce como base de datos CMS. Se usa para almacenar información de plataforma de inteligencia empresarial, como usuarios, servidores, carpetas, documentos, configuraciones y datos de autenticación.
 
-  Las ofertas de Azure [base de datos MySQL](https://azure.microsoft.com/en-us/services/mysql/) y [base de datos de Azure SQL](https://azure.microsoft.com/en-us/services/sql-database/) de tipo base de datos como servicio (DBaaS) se pueden usar para la base de datos CMS y la base de datos de auditoría. Como se trata de una oferta de PaaS, los clientes no tienen que preocuparse de la operación, disponibilidad y mantenimiento de las bases de datos. El cliente también puede elegir su propia base de datos para CMS, así como un repositorio de auditoría, en función de sus necesidades comerciales.
+  Las ofertas de Azure [base de datos MySQL](https://azure.microsoft.com/services/mysql/) y [base de datos de Azure SQL](https://azure.microsoft.com/services/sql-database/) de tipo base de datos como servicio (DBaaS) se pueden usar para la base de datos CMS y la base de datos de auditoría. Como se trata de una oferta de PaaS, los clientes no tienen que preocuparse de la operación, disponibilidad y mantenimiento de las bases de datos. El cliente también puede elegir su propia base de datos para CMS, así como un repositorio de auditoría, en función de sus necesidades comerciales.
 
 ## <a name="support-matrix"></a>Matrices compatibles
 
@@ -119,11 +119,11 @@ La plataforma de inteligencia empresarial necesita una base de datos para CMS y 
 
 - Microsoft SQL Server
 
-- [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/) (base de datos compatible solo con la plataforma SAP BOBI en Windows)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) (base de datos compatible solo con la plataforma SAP BOBI en Windows)
 
   Se trata de un motor de base de datos de SQL Server totalmente administrado, basado en la última versión de Enterprise Edition estable de SQL Server. La base de datos de Azure SQL se encarga de la mayoría de las funciones de administración de bases de datos, como actualizar, aplicar revisiones y supervisar sin intervención del usuario. Con Azure SQL Database, puede crear una capa de almacenamiento de datos de gran rendimiento y disponibilidad para las aplicaciones y las soluciones de Azure. Para obtener más información, consulte la documentación sobre [Azure SQL Database](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md).
 
-- [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/) (siga las mismas instrucciones de compatibilidad que se mencionan para MySQL AB en SAP PAM).
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) (siga las mismas instrucciones de compatibilidad que se mencionan para MySQL AB en SAP PAM).
 
   Es un servicio de base de datos relacional con tecnología de MySQL Community Edition. Al tratarse de una base de datos como servicio (DBaaS) totalmente administrada, puede manejar cargas de trabajo críticas con un rendimiento predecible y escalabilidad dinámica. Cuenta con alta disponibilidad integrada, copias de seguridad automáticas, revisiones de software, detección automática de errores y restauración a un momento dado durante un máximo de 35 días, lo que reduce considerablemente las tareas operativas. Para obtener más información, consulte la documentación sobre [Azure Database for MySQL](../../../mysql/overview.md).
 
@@ -145,7 +145,7 @@ El ajuste de tamaño es un proceso que consiste en determinar los requisitos de 
 
 Para las necesidades de almacenamiento de la plataforma SAP BOBI, Azure ofrece diferentes tipos de [discos administrados](../../managed-disks-overview.md). Se recomienda usar el disco administrado Premium para el directorio de instalación de SAP BOBI y para la base de datos que se ejecuta en máquinas virtuales; siga las instrucciones incluidas en [Implementación de DBMS para la carga de trabajo de SAP](dbms_guide_general.md).
 
-Azure admite dos ofertas DBaaS para el nivel de datos de la plataforma SAP BOBI: [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database) (aplicación de inteligencia empresarial que se ejecuta en Windows) y [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql) (aplicación de inteligencia empresarial que se ejecuta en Linux y Windows). Por lo tanto, en función del resultado de ajuste de tamaño, puede elegir el modelo de compra que mejor se adapte a sus necesidades.
+Azure admite dos ofertas DBaaS para el nivel de datos de la plataforma SAP BOBI: [Azure SQL Database](https://azure.microsoft.com/services/sql-database) (aplicación de inteligencia empresarial que se ejecuta en Windows) y [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) (aplicación de inteligencia empresarial que se ejecuta en Linux y Windows). Por lo tanto, en función del resultado de ajuste de tamaño, puede elegir el modelo de compra que mejor se adapte a sus necesidades.
 
 > [!Tip]
 > Para obtener una referencia rápida del ajuste de tamaño, considere que 800 SAPS = 1 vCPU mientras asigna el resultado en SAPS del nivel de base de datos de la plataforma SAP BOBI a la base de datos como servicio de Azure (Azure SQL Database o Azure Database for MySQL).
@@ -204,7 +204,7 @@ Azure Database for MySQL incluye tres planes de tarifa distintos. Estos se difer
 
 Una región de Azure es un centro de datos, o una colección de estos, que contiene la infraestructura para ejecutar y hospedar diferentes servicios de Azure. Esta infraestructura incluye un gran número de nodos que funcionan como nodos de proceso o de almacenamiento, o bien que ejecutan funcionalidades de red. No todas las regiones ofrecen los mismos servicios.
 
-La plataforma de inteligencia empresarial de SAP contiene distintos componentes que pueden requerir de tipos de máquinas virtuales específicos, almacenamiento como el de Azure Files o Azure NetApp Files, o bien una base de datos como servicio (DBaaS) para el nivel de datos que podría no estar disponible en determinadas regiones. Puede averiguar la información exacta sobre los tipos de máquina virtual, los tipos de almacenamiento de Azure Storage u otros servicios de Azure en el sitio de [productos disponibles por región](https://azure.microsoft.com/en-us/global-infrastructure/services/). Si ya está ejecutando sus sistemas SAP en Azure, probablemente ya tiene identificada su región. En ese caso, primero debe investigar si los servicios necesarios están disponibles en esas regiones, para determinar la arquitectura de la plataforma de inteligencia empresarial de SAP.
+La plataforma de inteligencia empresarial de SAP contiene distintos componentes que pueden requerir de tipos de máquinas virtuales específicos, almacenamiento como el de Azure Files o Azure NetApp Files, o bien una base de datos como servicio (DBaaS) para el nivel de datos que podría no estar disponible en determinadas regiones. Puede averiguar la información exacta sobre los tipos de máquina virtual, los tipos de almacenamiento de Azure Storage u otros servicios de Azure en el sitio de [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Si ya está ejecutando sus sistemas SAP en Azure, probablemente ya tiene identificada su región. En ese caso, primero debe investigar si los servicios necesarios están disponibles en esas regiones, para determinar la arquitectura de la plataforma de inteligencia empresarial de SAP.
 
 ### <a name="availability-zones"></a>Zonas de disponibilidad
 
@@ -249,7 +249,7 @@ Azure Storage tiene diferentes tipos de almacenamiento disponibles para los clie
 
 - Azure Files Premium o Azure NetApp Files
 
-  En la plataforma SAP BOBI, el servidor de repositorio de archivos (FRS) hace referencia a los directorios del disco donde se almacena contenido como informes, universos y conexiones que todos los servidores de aplicaciones de ese sistema utilizan. Se puede usar el almacenamiento de [Azure Files Premium](../../../storage/files/storage-files-introduction.md) o [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) como sistema de archivos compartidos para el FRS de las aplicaciones de SAP BOBI. Como esta oferta de almacenamiento no está disponible en todas las regiones, consulte el sitio de [Productos disponibles por región](https://azure.microsoft.com/en-us/global-infrastructure/services/) para buscar información actualizada.
+  En la plataforma SAP BOBI, el servidor de repositorio de archivos (FRS) hace referencia a los directorios del disco donde se almacena contenido como informes, universos y conexiones que todos los servidores de aplicaciones de ese sistema utilizan. Se puede usar el almacenamiento de [Azure Files Premium](../../../storage/files/storage-files-introduction.md) o [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) como sistema de archivos compartidos para el FRS de las aplicaciones de SAP BOBI. Como esta oferta de almacenamiento no está disponible en todas las regiones, consulte el sitio de [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) para buscar información actualizada.
 
   Si el servicio no está disponible en su región, puede crear un servidor NFS desde el que pueda compartir el sistema de archivos con la aplicación SAP BOBI. Sin embargo, también debe tener en cuenta su alta disponibilidad.
 

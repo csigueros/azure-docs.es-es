@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 725711ed7d49b21303769ccd6959fc8b2083e9fa
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 0b6d64167451b3c7363d6bd80c5fafcd67b6fc5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063786"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740181"
 ---
 # <a name="customize-alert-details-in-azure-sentinel"></a>Personalización de los detalles de las alertas de Azure Sentinel | Microsoft Docs 
 
@@ -63,5 +63,5 @@ El procedimiento que se detalla a continuación forma parte del Asistente para c
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a personalizar los detalles de la alertas en las reglas de análisis de Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Obtenga una visión completa de las [reglas de análisis de consultas programadas](tutorial-detect-threats-custom.md).
+- Obtenga una visión completa de las [reglas de análisis de consultas programadas](detect-threats-custom.md).
 - Obtenga más información sobre las [entidades en Azure Sentinel](entities-in-azure-sentinel.md).

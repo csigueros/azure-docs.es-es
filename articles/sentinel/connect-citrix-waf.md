@@ -15,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: 475e04ad3dd8c7cc51d6345b4b51dd68cff5b597
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eaee16d865a0d208dbf0c41665d590e7ecb14e89
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93102746"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253593"
 ---
 # <a name="connect-your-citrix-waf-to-azure-sentinel"></a>Conexión de Citrix WAF a Azure Sentinel
 
 > [!IMPORTANT]
 > El conector de datos de Citrix Web Application Firewall (WAF) de Azure Sentinel se encuentra actualmente en versión preliminar pública. Esta característica se proporciona sin un acuerdo de nivel de servicio. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 En este artículo se explica cómo conectar el dispositivo Citrix Web Application Firewall (WAF) a Azure Sentinel. El conector de datos de Citrix WAF permite conectar fácilmente los registros de Citrix WAF a Azure Sentinel para ver paneles, crear alertas personalizadas y mejorar la investigación. Al conectar los registros CEF de Citrix WAF a Azure Sentinel, puede aprovechar las ventajas de la búsqueda, la correlación, las alertas y el enriquecimiento de la inteligencia sobre amenazas de cada registro.
 
@@ -51,6 +53,6 @@ Para consultar los registros de Citrix WAF en Log Analytics, escriba `CommonSecu
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido a conectar Citrix WAF a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

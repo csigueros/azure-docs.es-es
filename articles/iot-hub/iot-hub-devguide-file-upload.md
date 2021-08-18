@@ -2,7 +2,6 @@
 title: Información sobre la carga de archivos de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: uso de la característica de carga de archivos de IoT Hub para administrar la carga de archivos desde un dispositivo a un contenedor de blobs de Azure Storage.'
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -12,12 +11,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: bb0d39ea9e37f87a465ea5803e004a142c3a3fc6
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: dd7adc3a1fdb45255bd13ee279d66e64bdf4c1d1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715167"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728781"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carga de archivos con IoT Hub
 

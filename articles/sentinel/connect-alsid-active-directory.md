@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 654ecb65068e4321b85594d96e8ca7a7f73cde7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50b1256849bd469c2729896f6a3e10b90431fe91
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99566624"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252329"
 ---
 # <a name="connect-your-alsid-for-active-directory-ad-to-azure-sentinel"></a>Conexión de Alsid para Active Directory (AD) a Azure Sentinel
 
 > [!IMPORTANT]
 > El conector Alsid para Active Directory está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 En este artículo se explica cómo conectar la solución Alsid para AD a Azure Sentinel. El conector de datos de Alsid para Active Directory le permite conectar fácilmente los registros de Alsid para AD con Azure Sentinel, de modo que pueda ver los datos en los libros, consultarlos para crear alertas personalizadas e incorporarlos para mejorar la investigación. La integración entre Alsid para AD y Azure Sentinel permite el uso de un servidor de Syslog con el agente de Log Analytics instalado. También usa un analizador de registro personalizado basado en una función de Kusto.
 
@@ -194,6 +196,6 @@ Consulte la pestaña **Pasos siguientes** de la página de conectores para más 
 
 En este documento, ha aprendido a conectar Alsid para AD a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

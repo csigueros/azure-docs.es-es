@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 41a117c9ea8b47afcedaa1714abc2031d3be6c21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 851f7865553d45d8d4c4d1f86171d79a89dd8996
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680054"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091832"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expresiones de estilo basadas en datos (SDK web)
 
@@ -28,7 +28,7 @@ En este vídeo, encontrará información general sobre la aplicación de estilos
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
-Las expresiones se representan como matrices JSON. El primer elemento de una expresión de la matriz es una cadena que especifica el nombre del operador de expresión. Por ejemplo, "+" o "case". Los elementos siguientes (si existen) son los argumentos para la expresión. Cada argumento es un valor literal (cadena, número, booleano o `null`) u otra matriz de expresiones. El pseudocódigo siguiente define la estructura básica de una expresión. 
+Las expresiones se representan como matrices JSON. El primer elemento de una expresión de la matriz es una cadena que especifica el nombre del operador de expresión. Por ejemplo, "+" o "case". Los elementos siguientes (si existen) son los argumentos para la expresión. Cada argumento es un valor literal (cadena, número, booleano o `null`) u otra matriz de expresiones. El pseudocódigo siguiente define la estructura básica de una expresión.
 
 ```javascript
 [ 
@@ -56,7 +56,7 @@ El SDK web de Azure Maps admite muchos tipos de expresiones. Las expresiones se 
 | [Expresiones de enlace de variable](#variable-binding-expressions) | Las expresiones de enlace de variables almacenan los resultados de un cálculo en una variable y permiten utilizar referencias en otra parte de una expresión varias veces sin tener que volver a calcular el valor almacenado. |
 | [Expresión de zoom](#zoom-expression) | Recupera el nivel de zoom actual del mapa en tiempo de representación. |
 
-En todos los ejemplos de este documento, se utiliza la siguiente característica para mostrar diferentes maneras en que se pueden usar los diversos tipos de expresiones. 
+En todos los ejemplos de este documento, se utiliza la siguiente característica para mostrar diferentes maneras en que se pueden usar los diversos tipos de expresiones.
 
 ```json
 {
@@ -65,7 +65,7 @@ En todos los ejemplos de este documento, se utiliza la siguiente característica
         "type": "Point",
         "coordinates": [-122.13284, 47.63699]
     },
-    "properties": { 
+    "properties": {
         "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
@@ -84,7 +84,7 @@ En todos los ejemplos de este documento, se utiliza la siguiente característica
 
 ## <a name="data-expressions"></a>Expresiones de datos
 
-Las expresiones de datos proporcionan acceso a los datos de propiedad de una característica. 
+Las expresiones de datos proporcionan acceso a los datos de propiedad de una característica.
 
 | Expression | Tipo de valor devuelto | Descripción |
 |------------|-------------|-------------|
@@ -103,7 +103,7 @@ Las expresiones de datos proporcionan acceso a los datos de propiedad de una car
 
 **Ejemplos**
 
-Se puede acceder directamente a las propiedades de una característica en una expresión mediante una expresión `get`. En este ejemplo, el valor `zoneColor` de la característica se utiliza para especificar la propiedad de color de una capa de burbujas. 
+Se puede acceder directamente a las propiedades de una característica en una expresión mediante una expresión `get`. En este ejemplo, el valor `zoneColor` de la característica se utiliza para especificar la propiedad de color de una capa de burbujas.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -134,7 +134,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-El siguiente ejemplo permite que se representen las características `Point` y `MultiPoint`. 
+El siguiente ejemplo permite que se representen las características `Point` y `MultiPoint`.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -210,7 +210,7 @@ Las expresiones matemáticas proporcionan operadores matemáticos para llevar a 
 
 ## <a name="aggregate-expression"></a>Expresión de agregado
 
-Una expresión de agregado define un cálculo que se procesa en un conjunto de datos y que se puede utilizar con la opción `clusterProperties` de `DataSource`. La salida de estas expresiones debe ser un número o un valor booleano. 
+Una expresión de agregado define un cálculo que se procesa en un conjunto de datos y que se puede utilizar con la opción `clusterProperties` de `DataSource`. La salida de estas expresiones debe ser un número o un valor booleano.
 
 Una expresión de agregado toma tres valores: un valor de operador, un valor inicial y una expresión para recuperar una propiedad de cada característica de los datos en los que se va a aplicar esta operación. La expresión tiene el siguiente formato:
 
@@ -218,9 +218,9 @@ Una expresión de agregado toma tres valores: un valor de operador, un valor ini
 [operator: string, initialValue: boolean | number, mapExpression: Expression]
 ```
 
-- operator: función de la expresión que se aplica después a todos los valores calculados por `mapExpression` en cada punto del clúster. Operadores admitidos: 
-    - Para números `+`: `*`, `max`, `min`
-    - Para valores booleanos: `all`, `any`
+- operator: función de la expresión que se aplica después a todos los valores calculados por `mapExpression` en cada punto del clúster. Operadores admitidos:
+  - Para números `+`: `*`, `max`, `min`
+  - Para valores booleanos: `all`, `any`
 - initialValue: un valor inicial al que se agrega el primer valor calculado.
 - mapExpression: expresión que se aplica a cada punto del conjunto de datos.
 
@@ -242,7 +242,7 @@ La expresión `accumulated` obtiene el valor de una propiedad de clúster acumul
 
 Las expresiones booleanas proporcionan un conjunto de expresiones de operadores booleanos para evaluar las comparaciones booleanas.
 
-Cuando se comparan valores, la comparación debe estar estrictamente tipada. Los valores de distintos tipos siempre se consideran desiguales. Los casos en los que se sabe que los tipos son diferentes en tiempo de análisis se consideran no válidos y producirán un error de análisis. 
+Cuando se comparan valores, la comparación debe estar estrictamente tipada. Los valores de distintos tipos siempre se consideran desiguales. Los casos en los que se sabe que los tipos son diferentes en tiempo de análisis se consideran no válidos y producirán un error de análisis.
 
 | Expression | Tipo de valor devuelto | Descripción |
 |------------|-------------|-------------|
@@ -261,13 +261,13 @@ Cuando se comparan valores, la comparación debe estar estrictamente tipada. Los
 
 Las expresiones condicionales proporcionan operaciones lógicas que son parecidas a las instrucciones if.
 
-Las expresiones siguientes realizan operaciones de lógica condicional sobre los datos de entrada. Por ejemplo, la expresión `case` proporciona la lógica "if/then/else" mientras que la expresión `match` es como una "instrucción swtich". 
+Las expresiones siguientes realizan operaciones de lógica condicional sobre los datos de entrada. Por ejemplo, la expresión `case` proporciona la lógica "if/then/else" mientras que la expresión `match` es como una "instrucción swtich".
 
 ### <a name="case-expression"></a>Expresión case
 
 Una expresión `case` es un tipo de expresión condicional que proporciona la lógica "if/then/else". Este tipo de expresión recorre paso a paso una lista de condiciones booleanas. Devuelve el valor de salida de la primera condición booleana que se evalúa como true.
 
-El pseudocódigo siguiente define la estructura de la expresión `case`. 
+El pseudocódigo siguiente define la estructura de la expresión `case`.
 
 ```javascript
 [
@@ -283,7 +283,7 @@ El pseudocódigo siguiente define la estructura de la expresión `case`.
 
 **Ejemplo**
 
-En el ejemplo siguiente se recorren diferentes condiciones booleanas hasta encontrar una que se evalúe como `true` y, luego, se devuelve ese valor asociado. Si ninguna condición booleana se evalúa como `true`, se devolverá un valor de retroceso. 
+En el ejemplo siguiente se recorren diferentes condiciones booleanas hasta encontrar una que se evalúe como `true` y, luego, se devuelve ese valor asociado. Si ninguna condición booleana se evalúa como `true`, se devolverá un valor de retroceso.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -308,7 +308,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Una expresión `match` es un tipo de expresión condicional que proporciona la instrucción switch como lógica. La entrada puede ser cualquier expresión, como `['get', 'entityType']` que devuelve una cadena o un número. Cada etiqueta debe ser un único valor literal o una matriz de valores literales, cuyos valores deben ser todos cadenas o todos números. La entrada coincide si coincide alguno de los valores de la matriz. Cada etiqueta debe ser única. Si el tipo de entrada no coincide con el tipo de las etiquetas, el resultado será el valor de retroceso.
 
-El pseudocódigo siguiente define la estructura de la expresión `match`. 
+El pseudocódigo siguiente define la estructura de la expresión `match`.
 
 ```javascript
 [
@@ -368,9 +368,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ### <a name="coalesce-expression"></a>Expresión coalesce
 
-Una expresión `coalesce` recorre un conjunto de expresiones hasta que se obtiene el primer valor distinto de null y devuelve ese valor. 
+Una expresión `coalesce` recorre un conjunto de expresiones hasta que se obtiene el primer valor distinto de null y devuelve ese valor.
 
-El pseudocódigo siguiente define la estructura de la expresión `coalesce`. 
+El pseudocódigo siguiente define la estructura de la expresión `coalesce`.
 
 ```javascript
 [
@@ -383,7 +383,7 @@ El pseudocódigo siguiente define la estructura de la expresión `coalesce`.
 
 **Ejemplo**
 
-En el ejemplo siguiente se usa una expresión `coalesce` para establecer la opción `textField` de una capa de símbolos. Si falta la propiedad `title` de la característica o está establecida en `null`, la expresión intentará buscar la propiedad `subTitle` y, si falta o es `null`, retrocede a una cadena vacía. 
+En el ejemplo siguiente se usa una expresión `coalesce` para establecer la opción `textField` de una capa de símbolos. Si falta la propiedad `title` de la característica o está establecida en `null`, la expresión intentará buscar la propiedad `subTitle` y, si falta o es `null`, retrocede a una cadena vacía.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -523,9 +523,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 La expresión anterior representa una chincheta en el mapa con el texto "64° F" superpuesto sobre ella, como se muestra en la imagen siguiente.
 
-<center>
-
-![Ejemplo de expresión de operador de cadena](media/how-to-expressions/string-operator-expression.png) </center>
+![Ejemplo de expresión de operador de cadena](media/how-to-expressions/string-operator-expression.png)
 
 ## <a name="interpolate-and-step-expressions"></a>Expresiones de interpolación y paso
 
@@ -536,18 +534,18 @@ Se pueden usar para calcular valores a lo largo de una curva interpolada o una f
 Una expresión `interpolate` puede usarse para calcular un conjunto continuo y fluido de valores mediante la interpolación entre valores de parada. Una expresión `interpolate` que devuelve valores de color produce un degradado de color del que se seleccionan valores de resultados.
 
 Hay tres tipos de métodos de interpolación que se pueden usar en una expresión `interpolate`:
- 
-* `['linear']`: interpola linealmente entre el par de paradas.
-* `['exponential', base]`: interpola exponencialmente entre las paradas. El valor `base` controla la velocidad a la que aumenta la salida. Los valores más altos hacen que aumente la salida más hacia el extremo superior del intervalo. Un valor `base` cercano a 1 genera una salida que aumenta más linealmente.
-* `['cubic-bezier', x1, y1, x2, y2]` interpola mediante una [curva Bézier cúbica](https://developer.mozilla.org/docs/Web/CSS/timing-function) definida por los puntos de control especificados.
 
-Este es un ejemplo del aspecto de estos diferentes tipos de interpolaciones. 
+- `['linear']`: interpola linealmente entre el par de paradas.
+- `['exponential', base]`: interpola exponencialmente entre las paradas. El valor `base` controla la velocidad a la que aumenta la salida. Los valores más altos hacen que aumente la salida más hacia el extremo superior del intervalo. Un valor `base` cercano a 1 genera una salida que aumenta más linealmente.
+- `['cubic-bezier', x1, y1, x2, y2]` interpola mediante una [curva Bézier cúbica](https://developer.mozilla.org/docs/Web/CSS/timing-function) definida por los puntos de control especificados.
+
+Este es un ejemplo del aspecto de estos diferentes tipos de interpolaciones.
 
 | Lineal  | Exponencial | Bézier cúbica |
 |---------|-------------|--------------|
 | ![Gráfico de interpolación lineal](media/how-to-expressions/linear-interpolation.png) | ![Gráfico de interpolación exponencial](media/how-to-expressions/exponential-interpolation.png) | ![Gráfico de interpolación de Bézier cúbica](media/how-to-expressions/bezier-curve-interpolation.png) |
 
-El pseudocódigo siguiente define la estructura de la expresión `interpolate`. 
+El pseudocódigo siguiente define la estructura de la expresión `interpolate`.
 
 ```javascript
 [
@@ -582,15 +580,13 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 En la siguiente imagen se muestra cómo se eligen los colores de la expresión anterior.
  
-<center>
-
-![Ejemplo de expresión de interpolación](media/how-to-expressions/interpolate-expression-example.png) </center>
+![Ejemplo de expresión de interpolación](media/how-to-expressions/interpolate-expression-example.png)
 
 ### <a name="step-expression"></a>Expresión de paso
 
-Una expresión `step` puede usarse para calcular valores de resultados escalonados discretos mediante la evaluación de una [función constante a trozos](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) definida por paradas. 
+Una expresión `step` puede usarse para calcular valores de resultados escalonados discretos mediante la evaluación de una [función constante a trozos](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) definida por paradas.
 
-El pseudocódigo siguiente define la estructura de la expresión `step`. 
+El pseudocódigo siguiente define la estructura de la expresión `step`.
 
 ```javascript
 [
@@ -605,7 +601,7 @@ El pseudocódigo siguiente define la estructura de la expresión `step`.
 ]
 ```
 
-Las expresiones de paso devuelven el valor de salida de la parada justo antes del valor de entrada, o el primer valor de entrada si la entrada es menor que la primera parada. 
+Las expresiones de paso devuelven el valor de salida de la parada justo antes del valor de entrada, o el primer valor de entrada si la entrada es menor que la primera parada.
 
 **Ejemplo**
 
@@ -625,11 +621,8 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 ```
 
 En la siguiente imagen se muestra cómo se eligen los colores de la expresión anterior.
- 
-<center>
 
 ![Ejemplo de expresión de paso](media/how-to-expressions/step-expression-example.png)
-</center>
 
 ## <a name="layer-specific-expressions"></a>Expresiones específicas de una capa
 
@@ -644,9 +637,9 @@ Una expresión de densidad de mapa término recupera el valor de densidad de map
 
 **Ejemplo**
 
-En este ejemplo se usa una expresión de interpolación lineal para crear un degradado de color suave para representar el mapa térmico. 
+En este ejemplo se usa una expresión de interpolación lineal para crear un degradado de color suave para representar el mapa térmico.
 
-```javascript 
+```javascript
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
     color: [
         'interpolate',
@@ -662,7 +655,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 Además de usar un degradado suave para colorear un mapa térmico, se pueden especificar colores dentro de un conjunto de intervalos mediante una expresión `step`. El uso de una expresión `step` para colorear el mapa térmico separa visualmente la densidad en intervalos, lo que recuerda a un mapa de estilo de contorno o radar.  
 
-```javascript 
+```javascript
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
     color: [
         'step',
@@ -681,7 +674,7 @@ Para más información, consulte el artículo [Adición de una capa de mapa tér
 
 ### <a name="line-progress-expression"></a>Expresión de progreso lineal
 
-Una expresión de progreso lineal recupera el progreso a lo largo de una línea de degradado en una capa de línea y se define como `['line-progress']`. Este valor es un número comprendido entre 0 y 1. Se usa en combinación con una expresión `interpolation` o `step`. Esta expresión solo puede usarse con la [opción strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) de la capa de línea. 
+Una expresión de progreso lineal recupera el progreso a lo largo de una línea de degradado en una capa de línea y se define como `['line-progress']`. Este valor es un número comprendido entre 0 y 1. Se usa en combinación con una expresión `interpolation` o `step`. Esta expresión solo puede usarse con la [opción strokeGradient](/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) de la capa de línea.
 
 > [!NOTE]
 > La opción `strokeGradient` de la capa de línea requiere que la opción `lineMetrics` del origen de datos esté establecida en `true`.
@@ -712,10 +705,10 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 
 La expresión de formato de campo de texto puede usarse con la opción `textField` de la propiedad `textOptions` de las capas de símbolos para proporcionar formato de texto mixto. Esta expresión permite la especificación de un conjunto de cadenas de entrada y opciones de formato. Las siguientes opciones pueden especificarse para cada cadena de entrada de esta expresión.
 
- * `'font-scale'`: especifica el factor de escala del tamaño de fuente. Si se especifica, este valor invalidará la propiedad `size` de `textOptions` para la cadena individual.
- * `'text-font'`: especifica una o varias familias de fuentes que se deben usar para esta cadena. Si se especifica, este valor invalidará la propiedad `font` de `textOptions` para la cadena individual.
+- `'font-scale'`: especifica el factor de escala del tamaño de fuente. Si se especifica, este valor invalidará la propiedad `size` de `textOptions` para la cadena individual.
+- `'text-font'`: especifica una o varias familias de fuentes que se deben usar para esta cadena. Si se especifica, este valor invalidará la propiedad `font` de `textOptions` para la cadena individual.
 
-El siguiente pseudocódigo define la estructura de la expresión de formato de campo de texto. 
+El siguiente pseudocódigo define la estructura de la expresión de formato de campo de texto.
 
 ```javascript
 [
@@ -764,21 +757,19 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 ```
 
 Esta capa representará la característica punto, tal como se muestra en la imagen siguiente:
- 
-<center>
 
-![Imagen de la característica de punto con el campo de texto con formato](media/how-to-expressions/text-field-format-expression.png) </center>
+![Imagen de la característica de punto con el campo de texto con formato](media/how-to-expressions/text-field-format-expression.png)
 
 ### <a name="number-format-expression"></a>Expresión de formato de número
 
 La expresión `number-format` solo se puede usar con la opción `textField` de una capa de símbolos. Esta expresión convierte al número proporcionado en una cadena con formato. Esta expresión encapsula la función [Number.toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) de JavaScript y admite el siguiente conjunto de opciones.
 
- * `locale`: especifique esta opción para convertir números en cadenas de forma que se alineen con el idioma especificado. Pase una [etiqueta de idioma BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) en esta opción.
- * `currency`: para convertir el número en una cadena que representa una moneda. Los valores posibles son los [códigos de divisa ISO 4217](https://en.wikipedia.org/wiki/ISO_4217), como "USD" para el dólar estadounidense, "EUR" para el euro o "CNY" para el RMB chino.
- * `'min-fraction-digits'`: especifica el número mínimo de posiciones decimales que se incluyen en la versión de cadena del número.
- * `'max-fraction-digits'`: especifica el número máximo de posiciones decimales que se incluyen en la versión de cadena del número.
+- `locale`: especifique esta opción para convertir números en cadenas de forma que se alineen con el idioma especificado. Pase una [etiqueta de idioma BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) en esta opción.
+- `currency`: para convertir el número en una cadena que representa una moneda. Los valores posibles son los [códigos de divisa ISO 4217](https://en.wikipedia.org/wiki/ISO_4217), como "USD" para el dólar estadounidense, "EUR" para el euro o "CNY" para el RMB chino.
+- `'min-fraction-digits'`: especifica el número mínimo de posiciones decimales que se incluyen en la versión de cadena del número.
+- `'max-fraction-digits'`: especifica el número máximo de posiciones decimales que se incluyen en la versión de cadena del número.
 
-El siguiente pseudocódigo define la estructura de la expresión de formato de campo de texto. 
+El siguiente pseudocódigo define la estructura de la expresión de formato de campo de texto.
 
 ```javascript
 [
@@ -813,9 +804,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 Esta capa representará la característica punto, tal como se muestra en la imagen siguiente:
 
-<center>
-
-![Ejemplo de expresión de formato de número](media/how-to-expressions/number-format-expression.png) </center>
+![Ejemplo de expresión de formato de número](media/how-to-expressions/number-format-expression.png)
 
 ### <a name="image-expression"></a>Expresión de imagen
 
@@ -823,7 +812,7 @@ Se puede usar una expresión de imagen con las opciones `image` y `textField` de
 
 **Ejemplo**
 
-En el ejemplo siguiente se usa una expresión `image` para agregar un icono en línea con texto en una capa de símbolo. 
+En el ejemplo siguiente se usa una expresión `image` para agregar un icono en línea con texto en una capa de símbolo.
 
 ```javascript
  //Load the custom image icon into the map resources.
@@ -832,10 +821,10 @@ map.imageSprite.add('wifi-icon', 'wifi.png').then(function () {
     //Create a data source and add it to the map.
     datasource = new atlas.source.DataSource();
     map.sources.add(datasource);
-
+    
     //Create a point feature and add it to the data source.
     datasource.add(new atlas.data.Point(map.getCamera().center));
-
+    
     //Add a layer for rendering point data as symbols.
     map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
         iconOptions: {
@@ -851,9 +840,7 @@ map.imageSprite.add('wifi-icon', 'wifi.png').then(function () {
 
 Esta capa representará al campo de texto en la capa de símbolo, tal como se muestra en la imagen siguiente:
 
-<center>
-
-![Ejemplo de expresión de imagen](media/how-to-expressions/image-expression.png) </center>
+![Ejemplo de expresión de imagen](media/how-to-expressions/image-expression.png)
 
 ## <a name="zoom-expression"></a>Expresión de zoom
 
@@ -922,10 +909,10 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Consulte los siguientes artículos para ver más ejemplos de código que implementan expresiones:
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Adición de una capa de símbolo](map-add-pin.md)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Adición de una capa de burbuja](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
@@ -934,22 +921,22 @@ Consulte los siguientes artículos para ver más ejemplos de código que impleme
 > [!div class="nextstepaction"]
 > [Adición de una capa de polígono](map-add-shape.md)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Adición de una capa de mapa térmico](map-add-heat-map-layer.md)
 
 Más información sobre las opciones de capa que admiten expresiones:
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)

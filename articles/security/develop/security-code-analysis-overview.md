@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4443bdbc134f222256c6af8bb1f52c684cdb4624
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: a661f2f79da1ecc519516c1f7dd34291c057d650
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801203"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116005"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Acerca de Análisis de código de seguridad de Microsoft
 
@@ -113,4 +113,4 @@ Para más instrucciones sobre cómo incorporar e instalar Análisis de código d
 
 Para más información sobre la configuración de las tareas de compilación, consulte nuestra [guía de configuración](security-code-analysis-customize.md) o la [guía de configuración de YAML](yaml-configuration.md).
 
-Si tiene más preguntas sobre la extensión y las herramientas que se ofrecen, consulte nuestra [página de preguntas más frecuentes](security-code-analysis-faq.md).
+Si tiene más preguntas sobre la extensión y las herramientas que se ofrecen, consulte nuestra [página de preguntas más frecuentes](security-code-analysis-faq.yml).

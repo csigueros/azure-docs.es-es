@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/24/2021
+ms.date: 07/13/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86a055bade77f92912134a295f7576e545fe7124
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d6e4926d9bad317027d1b290e0365c667b867df6
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467155"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729657"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modelo de facturación para Azure AD for External Identities
 
 Los precios de Azure Active Directory (Azure AD) for External Identities se basan en los usuarios activos mensuales (MAU), que es el recuento de usuarios únicos con actividad de autenticación dentro de un mes natural. Este modelo de facturación se aplica tanto a la colaboración de usuarios invitados (B2B) de Azure AD como a los [inquilinos de Azure AD B2C](../../active-directory-b2c/billing.md). La facturación de MAU le ayuda a reducir los costos al ofrecer un nivel gratis y precios flexibles y predecibles. En este artículo obtendrá información sobre la facturación de MAU y la vinculación de los inquilinos de Azure AD a una suscripción.
 
 > [!IMPORTANT]
-> Este artículo no contiene detalles de precios. Para conocer la información más reciente sobre la facturación por uso y los precios, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+> Este artículo no contiene detalles de precios. Para conocer la información más reciente sobre la facturación por uso y los precios, consulte [Precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## <a name="what-do-i-need-to-do"></a>¿Qué tengo que hacer?
 
@@ -39,7 +39,7 @@ Para aprovechar las ventajas de la facturación de MAU, el inquilino de Azure A
 
 En el inquilino de Azure AD, el uso de la colaboración de usuarios invitados se factura en función del número de usuarios invitados únicos con actividad de autenticación dentro de un mes natural. Este modelo reemplaza el modelo de facturación con una relación 1:5, que permitía hasta cinco usuarios invitados para cada licencia Premium de Azure AD del inquilino. Cuando el inquilino está vinculado a una suscripción y usa las características de identidades externas para colaborar con los usuarios invitados, se le facturará automáticamente mediante el modelo de facturación basado en MAU.
 
-El plan de tarifa que se aplica a los usuarios invitados se basa en el plan de tarifa más alto asignado al inquilino de Azure AD. Para más información, consulte [Precios de Azure Active Directory for External Identities](https://azure.microsoft.com/en-us/pricing/details/active-directory/external-identities/).
+El plan de tarifa que se aplica a los usuarios invitados se basa en el plan de tarifa más alto asignado al inquilino de Azure AD. Para más información, consulte [Precios de Azure Active Directory for External Identities](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>Vinculación del inquilino de Azure AD a una suscripción
 
@@ -74,4 +74,4 @@ Después de completar estos pasos, la suscripción de Azure se factura según lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener la información de precios más reciente, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Para obtener la información de precios más reciente, consulte [Precios de Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).

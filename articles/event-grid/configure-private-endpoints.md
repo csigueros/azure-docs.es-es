@@ -2,14 +2,14 @@
 title: Configuración de puntos de conexión privados para temas o dominios de Azure Event Grid
 description: En este artículo se describe cómo configurar los puntos de conexión privados para los temas o dominios de Azure Event Grid.
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 07/22/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: df0c855a50bdb8f617513e635a021032a1ebf7da
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e97883be779d0bea22cc2169754cac3b17d83db7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706064"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469567"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configuración de puntos de conexión privados para temas o dominios de Azure Event Grid
 Puede usar [puntos de conexión privados](../private-link/private-endpoint-overview.md) para permitir la entrada de eventos directamente desde su red virtual a sus temas y dominios de forma segura a través de un [vínculo privado](../private-link/private-link-overview.md) sin tener que ir a la red pública de Internet. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el tema o dominio. Para más información conceptual, consulte [Seguridad de las redes](network-security.md).
@@ -151,7 +151,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 
 
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 Actualice la extensión de Azure Event Grid para la CLI mediante el siguiente comando: 
 
 ```azurecli-interactive

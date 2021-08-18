@@ -3,12 +3,12 @@ title: Configuración de identidades administradas en grupos de Batch
 description: Obtenga información sobre cómo habilitar identidades administradas asignadas por el usuario en grupos de Batch y cómo usar identidades administradas en los nodos.
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.openlocfilehash: 243cf375b3ebf8bd64d73022ba44c3224b58872d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f8946575497a7453ca729d9334b90977efd906d9
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457776"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862241"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Configuración de identidades administradas en grupos de Batch
 
@@ -53,10 +53,10 @@ var poolParameters = new Pool(name: "yourPoolName")
         Identity = new BatchPoolIdentity
         {
             Type = PoolIdentityType.UserAssigned,
-            UserAssignedIdentities = new Dictionary<string, BatchPoolIdentityUserAssignedIdentitiesValue>
+            UserAssignedIdentities = new Dictionary<string, UserAssignedIdentities>
             {
                 ["Your Identity Resource Id"] =
-                    new BatchPoolIdentityUserAssignedIdentitiesValue()
+                    new UserAssignedIdentities()
             }
         }
     };

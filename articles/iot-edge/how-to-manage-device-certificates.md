@@ -2,18 +2,17 @@
 title: 'Administración de certificados de dispositivo: Azure IoT Edge | Microsoft Docs'
 description: Cree certificados de prueba, instálelos y adminístrelos en un dispositivo Azure IoT Edge para preparar la implementación de producción.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3b6bd19d47658e5ad079f0b731cbafc866bb333
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fa643753aa7f916fbd79850af352c37746357693
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045780"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722013"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Administración de certificados en un dispositivo IoT Edge
 

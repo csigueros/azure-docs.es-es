@@ -3,18 +3,17 @@ title: 'Implementación de módulos a escala mediante Azure Portal: Azure IoT Ed
 description: Uso de Azure Portal para crear implementaciones automáticas para grupos de dispositivos IoT Edge
 keywords: ''
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: db27a466ca5f1370e8b43ceb472f5deeaba509f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c8b5bfe8f3b46cfc5b21a3578c4842e55a551dd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200332"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750797"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación de módulos de IoT Edge a escala mediante Azure Portal
 

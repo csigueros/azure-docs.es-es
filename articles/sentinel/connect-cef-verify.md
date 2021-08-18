@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 3ce83de7f876bbd67120bf511d29860b71cd2227
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 98d97bd7c8ffab685475f50130d68668fe1c9f8b
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771284"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253290"
 ---
 # <a name="step-3-validate-connectivity"></a>PASO 3: Validar conectividad
 
-Una vez que haya implementado el reenviador de registros (en el paso 1) y configurado la solución de seguridad para enviar mensajes de CEF (en el paso 2), siga estas instrucciones para comprobar la conectividad entre la solución de seguridad y Azure Sentinel. 
+Una vez que haya implementado el reenviador de registros (en el paso 1) y configurado la solución de seguridad para enviar mensajes de CEF (en el paso 2), siga estas instrucciones para comprobar la conectividad entre la solución de seguridad y Azure Sentinel.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -37,9 +37,9 @@ Use el comando `python –version` para comprobarlo.
 ## <a name="how-to-validate-connectivity"></a>Procedimientos para validar la conectividad
 
 1. En el menú de navegación de Azure Sentinel, abra **Registros**. Ejecute una consulta con el esquema **CommonSecurityLog** para ver si recibe registros de la solución de seguridad.<br>
-Tenga en cuenta que pueden transcurrir unos 20 minutos hasta que los registros empiecen a aparecer en **Log Analytics**. 
+Tenga en cuenta que pueden transcurrir unos 20 minutos hasta que los registros empiecen a aparecer en **Log Analytics**.
 
-1. Si no ve ningún resultado de la consulta, compruebe que se generan eventos en la solución de seguridad o intente generar algunos, y compruebe que se reenvían a la máquina del reenviador de Syslog que ha designado. 
+1. Si no ve ningún resultado de la consulta, compruebe que se generan eventos en la solución de seguridad o intente generar algunos, y compruebe que se reenvían a la máquina del reenviador de Syslog que ha designado.
 
 1. Ejecute el siguiente script en el reenviador de registros (aplicando el id. del área de trabajo en lugar del marcador de posición) para comprobar la conectividad entre la solución de seguridad, el reenviador de registros y Azure Sentinel. Este script comprueba que el demonio escucha en los puertos correctos, que el reenvío del demonio está configurado correctamente y que nada bloquee la comunicación entre el demonio y el agente de Log Analytics. También envía mensajes ficticios "TestCommonEventFormat" para comprobar la conectividad de un extremo a otro. <br>
 
@@ -81,20 +81,20 @@ El script de validación realiza las siguientes comprobaciones:
     </filter>
     ```
 
-1. Comprueba que el análisis de los eventos del firewall de Cisco ASA esté configurado según lo previsto, con el siguiente comando: 
+1. Comprueba que el análisis de los eventos del firewall de Cisco ASA esté configurado según lo previsto, con el siguiente comando:
 
     ```bash
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
     - <a name="parsing-command"></a>Si hay un problema con el análisis, el script generará un mensaje de error que le indicará que debe **ejecutar manualmente el siguiente comando** (debe agregar el id. del área de trabajo en lugar del marcador de posición). El comando garantizará que el análisis se realice correctamente y reiniciará el agente.
-    
+
         ```bash
         # Cisco ASA parsing fix
         sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
-1. Comprueba que el campo *Equipo* del origen de syslog se haya asignado correctamente en el agente de Log Analytics, mediante el siguiente comando: 
+1. Comprueba que el campo *Equipo* del origen de syslog se haya asignado correctamente en el agente de Log Analytics, mediante el siguiente comando:
 
     ```bash
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
@@ -114,7 +114,7 @@ El script de validación realiza las siguientes comprobaciones:
     - Archivo de configuración: `/etc/rsyslog.d/security-config-omsagent.conf`
 
         ```bash
-        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226 
+        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
         ```
 
 1. Reinicia el demonio de syslog y el agente de Log Analytics:
@@ -174,20 +174,20 @@ El script de validación realiza las siguientes comprobaciones:
     </filter>
     ```
 
-1. Comprueba que el análisis de los eventos del firewall de Cisco ASA esté configurado según lo previsto, con el siguiente comando: 
+1. Comprueba que el análisis de los eventos del firewall de Cisco ASA esté configurado según lo previsto, con el siguiente comando:
 
     ```bash
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
     - <a name="parsing-command"></a>Si hay un problema con el análisis, el script generará un mensaje de error que le indicará que debe **ejecutar manualmente el siguiente comando** (debe agregar el id. del área de trabajo en lugar del marcador de posición). El comando garantizará que el análisis se realice correctamente y reiniciará el agente.
-    
+
         ```bash
         # Cisco ASA parsing fix
         sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
-1. Comprueba que el campo *Equipo* del origen de syslog se haya asignado correctamente en el agente de Log Analytics, mediante el siguiente comando: 
+1. Comprueba que el campo *Equipo* del origen de syslog se haya asignado correctamente en el agente de Log Analytics, mediante el siguiente comando:
 
     ```bash
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
@@ -243,11 +243,12 @@ El script de validación realiza las siguientes comprobaciones:
     ```
 ---
 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido a conectar dispositivos CEF a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
 - Obtenga información sobre la [asignación de campos de CEF y CommonSecurityLog](cef-name-mapping.md).
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](./detect-threats-built-in.md).
+- [Use libros](monitor-your-data.md) para supervisar los datos.

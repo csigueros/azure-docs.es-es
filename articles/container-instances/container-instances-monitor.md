@@ -3,12 +3,12 @@ title: Supervisión de instancias de contenedor
 description: Aprenda a supervisar el consumo de los recursos de computación, como la CPU y la memoria, en los contenedores de Azure Container Instances.
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: ae9725ffe66bebbed26745c311b2ada07d5d2c00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f485efc5bdc29760f0b4278b746940c947777e3
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589286"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219235"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Supervisión de los recursos de los contenedores en Azure Container Instances
 
@@ -51,7 +51,7 @@ En un grupo de contenedores que contenga varios contenedores, utilice una [dimen
 Las métricas de las instancias de contenedor también pueden obtenerse mediante la CLI de Azure. En primer lugar, debe utilizar el siguiente comando para obtener el identificador del grupo de contenedores. Sustituya `<resource-group>` por el nombre del grupo de recursos y `<container-group>` por el nombre del grupo de contenedores.
 
 
-```console
+```azurecli
 CONTAINER_GROUP=$(az container show --resource-group <resource-group> --name <container-group> --query id --output tsv)
 ```
 

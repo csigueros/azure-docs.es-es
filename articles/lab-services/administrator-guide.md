@@ -3,12 +3,12 @@ title: 'Azure Lab Services: guía del administrador | Microsoft Docs'
 description: Esta guía sirve de ayuda para los administradores que crean y administran cuentas de laboratorio mediante Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 0dd7cb9f23d820cc8a4001d430e8ef446ecc5460
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 567a6ad5cd7eae6fb6963dbcdb781fc2d7667f79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958836"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737696"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services: guía del administrador
 Los administradores de tecnología de la información (TI) que administran los recursos en la nube de una universidad suelen ser también responsables de configurar la cuenta de laboratorio en su institución. Una vez configurada una cuenta de laboratorio, los administradores o educadores crean los laboratorios que están incluidos en la cuenta. En este artículo se proporciona información general de alto nivel sobre los recursos de Azure relacionados e instrucciones para crearlos.
@@ -291,7 +291,7 @@ En este ejemplo, el costo es:
 * 1 imagen personalizada (32 GB) &times; 2 versiones &times; 8 regiones de EE. UU. &times; 1,54 USD = 24,64 USD al mes
 
 > [!NOTE]
-> El cálculo anterior solo se usa con fines de ejemplo. Cubre los costos de almacenamiento asociados al uso de Shared Image Gallery y *no* incluye los costos de salida. Para información sobre los precios reales de almacenamiento, consulte [Precios de Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+> El cálculo anterior solo se usa con fines de ejemplo. Cubre los costos de almacenamiento asociados al uso de Shared Image Gallery y *no* incluye los costos de salida. Para información sobre los precios reales de almacenamiento, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 #### <a name="cost-management"></a>Administración de costos
 

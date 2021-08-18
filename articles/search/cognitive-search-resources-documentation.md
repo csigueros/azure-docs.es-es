@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: f2f99ad89b1fd0c62b329d314e897ee95fc3520b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 07055d8a8cb3d4957a3dcb934f951afc943773fc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539749"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751874"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentación para el enriquecimiento con inteligencia artificial en Azure Cognitive Search
 
@@ -44,7 +44,7 @@ A continuación se muestra una lista consolidada de la documentación sobre el e
 + [Creación de un almacén de conocimiento mediante REST y Postman](knowledge-store-create-rest.md)
 + [Visualización de un almacén de conocimiento con el Explorador de Storage](knowledge-store-view-storage-explorer.md)
 + [Conexión a un almacén de conocimiento con Power BI](knowledge-store-connect-power-bi.md)
-+ [Ejemplos de proyección (dar forma y exportar enriquecimientos)](knowledge-store-projections-examples.md)
++ [Definición de proyecciones en un almacén de conocimiento](knowledge-store-projections-examples.md)
 
 ## <a name="custom-skills-advanced"></a>Aptitudes personalizadas (avanzado)
 

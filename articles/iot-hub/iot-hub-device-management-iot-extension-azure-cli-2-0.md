@@ -1,21 +1,20 @@
 ---
 title: Administración de dispositivos IoT de Azure con la extensión de IoT de la CLI de Azure | Microsoft Docs
 description: Use la extensión de IoT de la CLI de Azure para la administración de dispositivos de Azure IoT Hub, herramienta que incluye métodos directos y opciones de administración de las propiedades deseadas de los dispositivos gemelos.
-author: chrissie926
+author: robinsh
 manager: ''
 keywords: administración de dispositivos de azure iot, administración de dispositivos de azure iot hub, iot de administración de dispositivos, administración de dispositivos de iot hub
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
-ms.author: menchi
-ms.openlocfilehash: a6bf14691e583190c4485ae854de78b187d95211
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.author: robinsh
+ms.openlocfilehash: c67e9fc7cb6a2530c752efee760b2fb7fcb7f277
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773906"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727106"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Usar la extensión de IoT de la CLI de Azure para la administración de dispositivos de Azure IoT Hub
 
@@ -43,7 +42,7 @@ Los dispositivos gemelos son documentos JSON que almacenan información sobre el
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Realice el tutorial del [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md), o bien uno de los tutoriales del dispositivo. Por ejemplo, puede ir a [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md) o a uno de los inicios rápidos de [envío de telemetría](quickstart-send-telemetry-dotnet.md). Estos artículos abarcan los requisitos siguientes:
+* Realice el tutorial del [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md), o bien uno de los tutoriales del dispositivo. Por ejemplo, puede ir a [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md) o a uno de los inicios rápidos de [envío de telemetría](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp). Estos artículos abarcan los requisitos siguientes:
 
   * Una suscripción de Azure activa.
   * Un centro de Azure IoT en su suscripción.

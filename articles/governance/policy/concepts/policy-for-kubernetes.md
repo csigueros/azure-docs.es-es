@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo Azure Policy usa Rego y Open Polic
 ms.date: 05/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5a479c6f6bf22f416b3508c08dff5d60a8297d1a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 5319504a0e25531ce77ebc06748bb360c0cbc171
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985029"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202785"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -196,8 +196,8 @@ Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las c
 
    |Domain |Port |
    |---|---|
-   |`gov-prod-policy-data.trafficmanager.net` |`443` |
-   |`raw.githubusercontent.com` |`443` |
+   |`data.policy.core.windows.net` |`443` |
+   |`store.policy.core.windows.net` |`443` |
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 

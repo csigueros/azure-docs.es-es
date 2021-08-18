@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de Shopify Plus para el aprovisionamiento autom
 description: Aprenda a aprovisionar y desaprovisionar de forma automática cuentas de usuario de Azure AD en Shopify Plus.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: e2fa3ac8-a30f-4dcd-8073-ed7c65909feb
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2020
-ms.author: Zhchia
-ms.openlocfilehash: ce791337cb27d3704d1cfa007ed6dca3e8e7e0d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 3ccc8dcbb6cbe5cca5edd1532b15e3b33c768db6
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98729639"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759463"
 ---
 # <a name="tutorial-configure-shopify-plus-for-automatic-user-provisioning"></a>Tutorial: Configuración de Shopify Plus para el aprovisionamiento automático de usuarios
 

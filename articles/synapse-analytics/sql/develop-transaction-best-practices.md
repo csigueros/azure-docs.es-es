@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b47342a0013eafe9444c30ced4d00a96500ccdab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d309e2786a1ec56a5e34f2594520e7e36bbcf6b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592989"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861808"
 ---
 # <a name="optimize-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optimización de transacciones con un grupo de SQL dedicado en Azure Synapse Analytics 
 
@@ -44,7 +44,7 @@ Los límites de seguridad de la transacción solo se aplican a las operaciones d
 
 Las siguientes operaciones admiten el registro mínimo:
 
-* CREATE TABLE AS SELECT ([CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json))
+* CREATE TABLE AS SELECT ([CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context))
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -84,7 +84,7 @@ A menudo, la carga de datos en una tabla no vacía con un índice agrupado puede
 
 ## <a name="optimize-deletes"></a>Optimización de eliminaciones
 
-DELETE es una operación con registro completo.  Si necesita eliminar una gran cantidad de datos de una tabla o una partición, suele tener más sentido realizar una instrucción `SELECT` en los datos que desea conservar, que pueden ejecutarse como operación con registro completo.  Para seleccionar los datos, cree una nueva tabla con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Cuando lo haya hecho, utilice [RENAME](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest&preserve-view=true) para intercambiar la tabla por la que acaba de crear.
+DELETE es una operación con registro completo.  Si necesita eliminar una gran cantidad de datos de una tabla o una partición, suele tener más sentido realizar una instrucción `SELECT` en los datos que desea conservar, que pueden ejecutarse como operación con registro completo.  Para seleccionar los datos, cree una nueva tabla con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context).  Cuando lo haya hecho, utilice [RENAME](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest&preserve-view=true) para intercambiar la tabla por la que acaba de crear.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -177,11 +177,11 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> El uso de las características de administración de cargas de trabajo del grupo de SQL dedicado puede ser una ventaja a la hora de volver a crear tablas de gran tamaño. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> El uso de las características de administración de cargas de trabajo del grupo de SQL dedicado puede ser una ventaja a la hora de volver a crear tablas de gran tamaño. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="optimize-with-partition-switching"></a>Optimización con modificación de particiones
 
-Cuando se enfrenta a modificaciones a gran escala dentro de una [partición de tabla](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), un patrón de modificación de particiones constituye un buen enfoque. Si la modificación de datos es importante y abarca varias particiones, basta con iterar en las particiones para obtener el mismo resultado.
+Cuando se enfrenta a modificaciones a gran escala dentro de una [partición de tabla](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context), un patrón de modificación de particiones constituye un buen enfoque. Si la modificación de datos es importante y abarca varias particiones, basta con iterar en las particiones para obtener el mismo resultado.
 
 Los pasos para realizar una conmutación de particiones son los siguientes:
 
@@ -406,7 +406,7 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Instrucciones de operaciones de pausa y escalado
 
-Azure Synapse Analytics le permite [pausar, reanudar y escalar](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) el grupo de SQL dedicado a petición. 
+Azure Synapse Analytics le permite [pausar, reanudar y escalar](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?context=/azure/synapse-analytics/context/context) el grupo de SQL dedicado a petición. 
 
 Al pausar o escalar el grupo de SQL dedicado, es importante entender que las transacciones en curso se terminan inmediatamente, lo que hace que las que están abiertas se reviertan. 
 

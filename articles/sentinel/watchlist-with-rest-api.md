@@ -15,17 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2021
 ms.author: yelevin
-ms.openlocfilehash: ea571f9b033ba82709a13c6d32649f3228ee04b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 254647e6e73683b13bd8c1cbeb7b476066c36a7c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98798040"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467972"
 ---
 # <a name="manage-watchlists-in-azure-sentinel-using-rest-api"></a>Administración de listas de reproducción en Azure Sentinel mediante la API de REST
-
-> [!IMPORTANT]
-> Esta característica de listas de reproducción está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 Azure Sentinel, que se integra en parte en Log Analytics de Azure Monitor, le permite usar la API de REST de Log Analytics para administrar las listas de reproducción. En este documento se muestra cómo crear, modificar y eliminar listas de reproducción y sus elementos mediante la API de REST.  Las listas de reproducción creadas de este modo se mostrarán en la interfaz de usuario de Azure Sentinel.
 

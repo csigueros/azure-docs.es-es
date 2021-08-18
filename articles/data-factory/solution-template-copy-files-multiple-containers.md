@@ -4,15 +4,16 @@ description: Aprenda a usar una plantilla de solución para copiar archivos de v
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: ec7af1e81e0b295491420597636c8443f4d36512
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1f2a83807703593482cc725036a2da158d7195d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376095"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747406"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Copia de varias carpetas con Azure Data Factory
 

@@ -2,7 +2,6 @@
 title: Desarrollo sin un SDK de Azure IoT | Microsoft Docs
 description: 'Guía del desarrollador: Información y vínculos a los temas que puede usar para compilar aplicaciones de back-end y de aplicaciones de dispositivo sin usar el SDK de Azure IoT.'
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -13,18 +12,18 @@ ms.custom:
 - amqp
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: ae8b01522a248b8b1dbdd255a9fcd55f16cf2369
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34476ee99dcf455886a72d3fcef2356ab4e6229f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461710"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121721926"
 ---
 # <a name="develop-without-using-an-azure-iot-hub-sdk"></a>Desarrollo sin usar un SDK de Azure IoT Hub
 
 En este tema se proporciona información útil y vínculos para desarrolladores que quieren desarrollar aplicaciones de dispositivo o de back-end sin usar los SDK de Azure IoT.
 
-Microsoft recomienda encarecidamente usar un SDK de Azure IoT. Los SDK de dispositivo y de servicio de Azure IoT se publican en muchas plataformas populares. Los SDK proporcionan una capa de conveniencia que controla gran parte de la complejidad del protocolo de comunicación subyacente, como la conexión y reconexión del dispositivo, y la directiva de reintentos. Los SDK se actualizan periódicamente para proporcionar las características más recientes que expone IoT Hub, así como actualizaciones de seguridad. El uso de los SDK puede ayudarle a reducir el tiempo de desarrollo y el tiempo que dedica al mantenimiento del código. Para más información acerca de los SDK de Azure IoT, consulte el artículo sobre los [SDK de dispositivo y servicio de Azure IoT](iot-hub-devguide-sdks.md). Para obtener más información sobre las ventajas de usar un SDK de Azure IoT, consulte la entrada de blog sobre las [ventajas de usar los SDK de Azure IoT y las dificultades a evitar si no se usan](https://azure.microsoft.com/en-us/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/).
+Microsoft recomienda encarecidamente usar un SDK de Azure IoT. Los SDK de dispositivo y de servicio de Azure IoT se publican en muchas plataformas populares. Los SDK proporcionan una capa de conveniencia que controla gran parte de la complejidad del protocolo de comunicación subyacente, como la conexión y reconexión del dispositivo, y la directiva de reintentos. Los SDK se actualizan periódicamente para proporcionar las características más recientes que expone IoT Hub, así como actualizaciones de seguridad. El uso de los SDK puede ayudarle a reducir el tiempo de desarrollo y el tiempo que dedica al mantenimiento del código. Para más información acerca de los SDK de Azure IoT, consulte el artículo sobre los [SDK de dispositivo y servicio de Azure IoT](iot-hub-devguide-sdks.md). Para obtener más información sobre las ventajas de usar un SDK de Azure IoT, consulte la entrada de blog sobre las [ventajas de usar los SDK de Azure IoT y las dificultades a evitar si no se usan](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/).
 
 Aunque IoT Hub admite AMQP, AMQP sobre WebSockets, HTTPS, MQTT y MQTT sobre WebSockets para la comunicación con dispositivos, se recomienda usar MQTT si el dispositivo lo admite.
 

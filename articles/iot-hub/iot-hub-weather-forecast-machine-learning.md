@@ -2,20 +2,18 @@
 title: Previsión meteorológica mediante Azure Machine Learning Studio (clásico) con datos de IoT Hub
 description: Use Azure Machine Learning Studio (clásico) para predecir la posibilidad de lluvia en función de los datos de temperatura y humedad que IoT Hub recopila de un sensor.
 author: robinsh
-manager: philmea
 keywords: Previsión meteorológica con Machine Learning
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 455d78ed21403952046448dd4447b5ec54f77c00
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: f9b683d08a5b1fde172efa5a769a605d3d1862da
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566986"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742227"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning Studio (clásico)
 
@@ -27,7 +25,7 @@ El aprendizaje automático es una técnica de ciencia de datos que ayuda a los e
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Realice el tutorial del [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md), o bien uno de los tutoriales del dispositivo. Por ejemplo, puede acceder a [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md) o a uno de los inicios rápidos de [envío de telemetría](quickstart-send-telemetry-dotnet.md). Estos artículos abarcan los requisitos siguientes:
+- Realice el tutorial del [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md), o bien uno de los tutoriales del dispositivo. Por ejemplo, puede ir a [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md) o a uno de los inicios rápidos de [envío de telemetría](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp). Estos artículos abarcan los requisitos siguientes:
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.

@@ -1,19 +1,20 @@
 ---
 title: 'Examen de la salida de Azure Video Analyzer for Media (anteriormente, Video Indexer) producida por la API v2: Azure'
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: En este tema se examina la salida de Azure Video Analyzer for Media (anteriormente, Video Indexer) producida por la API v2.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 7e805aee76bf60733d3d010cf330b90debdfb2be
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 11fcc36ec8ad6d5feb030d00be4fbf470237634f
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386495"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115256"
 ---
 # <a name="examine-the-video-analyzer-for-media-output"></a>Examen de la salida de Video Analyzer for Media
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 67ddcf5fd7d3ef3c1def12a325eb19980176a8ba
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 96cc983cba992452882a8f3307974e83683c39a9
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756222"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "114462198"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migración de StorSimple 1200 a Azure File Sync
 
@@ -20,7 +20,14 @@ StorSimple de la serie 1200 es una aplicación virtual que se ejecuta en un cent
 
 StorSimple serie 1200 alcanzará el [final de su ciclo de vida](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) en diciembre de 2022.  Es importante empezar a planear la migración lo antes posible. En este artículo se proporcionan los conocimientos básicos y los pasos de migración necesarios para realizar una migración correcta a Azure File Sync. 
 
-## <a name="azure-file-sync"></a>Azure File Sync
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
+## <a name="azure-file-sync&quot;></a>Azure File Sync
 
 > [!IMPORTANT]
 > Microsoft se compromete a ayudar a los clientes en su migración. Envíe un correo electrónico a AzureFilesMigration@microsoft.com si desea obtener un plan de migración personalizado o ayuda durante la migración.
@@ -32,7 +39,7 @@ Azure File Sync es un servicio en la nube de Microsoft, que se basa en dos compo
 
 Este artículo se centra en los pasos de migración. Si antes de la migración desea obtener más información sobre Azure File Sync, se recomienda consultar los siguientes artículos:
 
-* [Introducción a Azure File Sync](../file-sync/file-sync-planning.md "Información general")
+* [Introducción a Azure File Sync](../file-sync/file-sync-planning.md &quot;Información general")
 * [Guía de implementación de Azure File Sync](../file-sync/file-sync-deployment-guide.md)
 
 ## <a name="migration-goals"></a>Objetivos de la migración

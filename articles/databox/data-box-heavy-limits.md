@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 08/28/2019
+ms.date: 06/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 76e543a5bec749db55eb77649d2f6e0526f2cb1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fedd7417f6f199289bfd5c6e11a1cf1bd8c98a82
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84705566"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113038361"
 ---
 # <a name="azure-data-box-heavy-limits"></a>Límites de Azure Data Box Heavy
 
@@ -27,7 +27,7 @@ Tenga en cuenta estos límites al implementar y usar el dispositivo de Azure Dat
 ## <a name="data-box-heavy-limits"></a>Límites del servicio de Data Box Heavy
 
 - Data Box Heavy puede almacenar un máximo de mil millones de archivos por nodo.
-- Data Box Heavy admite un máximo de 512 contenedores o recursos compartidos por nodo en la nube. Los directorios de nivel superior dentro del recurso compartido de usuario se convierten en contenedores o en recursos compartidos de archivos de Azure en la nube.
+- Data Box Heavy admite un máximo de 512 contenedores o recursos compartidos por nodo en la nube. Los directorios de nivel superior dentro del recurso compartido de usuario se convierten en contenedores o en recursos compartidos de archivos de Azure en la nube. 
 
 ## <a name="azure-storage-limits"></a>Límites de Azure Storage
 

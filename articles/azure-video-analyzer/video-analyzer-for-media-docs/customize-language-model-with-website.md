@@ -1,19 +1,20 @@
 ---
 title: Personalización de un modelo de lenguaje con el sitio web de Azure Video Analyzer for Media (anteriormente, Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Obtenga información sobre cómo personalizar un modelo de lenguaje con el sitio web de Azure Video Analyzer for Media (anteriormente, Video Indexer).
-services: media-services
+services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 08/10/2020
 ms.author: kumud
-ms.openlocfilehash: 4f1d5e708755828fb2193ffca6275684418110d5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 67610ef51a11aca59b65dd60a8a70dbf10d59e50
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386407"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121460"
 ---
 # <a name="customize-a-language-model-with-the-video-analyzer-for-media-website"></a>Personalización de un modelo de lenguaje con el sitio web de Video Analyzer for Media
 

@@ -1,19 +1,20 @@
 ---
 title: Personalización de un modelo de marcas con la API de Azure Video Analyzer for Media (anteriormente, Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Obtenga información sobre cómo personalizar un modelo de marcas con la API de Azure Video Analyzer for Media (anteriormente, Video Indexer).
-services: media-services
+services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: 3f3e2356a9c9101763f9b944993b9a96b22b8a0e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cf693036fb31613c171bf7618e45e3b1e57970e4
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386689"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112123294"
 ---
 # <a name="customize-a-brands-model-with-the-video-analyzer-for-media-api"></a>Personalización de un modelo de marcas con la API de Video Analyzer for Media
 

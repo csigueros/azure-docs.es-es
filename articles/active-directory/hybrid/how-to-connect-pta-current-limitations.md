@@ -16,17 +16,14 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e9c4489f59f72e4d0b5c7a0b911da188eb0828c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7db9a12a65cf127cb4c65e24128181ab6c0cb485
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89280203"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135039"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticación de paso a través de Azure Active Directory: limitaciones actuales
-
->[!IMPORTANT]
->La autenticación de paso a través de Azure Active Directory (Azure AD) es una característica gratuita y no es necesario tener ninguna versión de pago de Azure AD para usarla. La autenticación de paso a través solo está disponible en la instancia mundial de Azure AD y no en la [nube Microsoft Azure Alemania](https://www.microsoft.de/cloud-deutschland) ni en la [nube Microsoft Azure Government](https://azure.microsoft.com/features/gov/).
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
@@ -58,7 +55,7 @@ Los siguientes escenarios _no_ son compatibles:
 - [Migración de AD FS a la autenticación de paso a través](https://aka.ms/ADFSTOPTADPDownload): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
 - [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): Obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
 - [Profundización técnica](how-to-connect-pta-how-it-works.md): Conozca cómo funciona la característica de autenticación de paso a través.
-- [Preguntas más frecuentes](how-to-connect-pta-faq.md): encuentre respuesta a las preguntas más frecuentes sobre la característica de autenticación de paso a través.
+- [Preguntas más frecuentes](how-to-connect-pta-faq.yml): encuentre respuesta a las preguntas más frecuentes sobre la característica de autenticación de paso a través.
 - [Solución de problemas](tshoot-connect-pass-through-authentication.md): Obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
 - [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): Obtenga información técnica detallada sobre la característica de autenticación de paso a través.
 - [SSO de conexión directa de Azure AD](how-to-connect-sso.md): Más información sobre esta característica complementaria.

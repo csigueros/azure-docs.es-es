@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: depadia
-ms.openlocfilehash: f520bc6615d9c7ea40612e7d52fb201d04c246e9
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: bd65c77d8be0cef06a81f0f7699b04134e0e1706
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408126"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747960"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-windows-on-azure"></a>Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Windows en Azure
 
@@ -445,7 +445,7 @@ El almacén de archivos hace referencia a los directorios del disco donde se alm
 
 Para la plataforma de SAP BOBI que se ejecuta en Windows, puede elegir [Azure Premium Files](../../../storage/files/storage-files-introduction.md) o [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) para el almacén de archivos, que, por naturaleza, está diseñado para tener alta disponibilidad y alta durabilidad. Azure Premium Files admite ZRS, que puede ser útil para la implementación entre zonas de la plataforma de SAP BOBI. Para más información, consulte la sección [Redundancia](../../../storage/files/storage-files-planning.md#redundancy) para Azure Files.
 
-Dado que el servicio de recursos compartidos de archivos no está disponible en todas las regiones, asegúrese de consultar la lista de [productos disponibles por región](https://azure.microsoft.com/en-us/global-infrastructure/services/) para buscar la información actualizada. Si el servicio no está disponible en su región, puede crear un servidor NFS desde el que pueda compartir el sistema de archivos con la aplicación SAP BOBI. Sin embargo, también debe tener en cuenta su alta disponibilidad.
+Dado que el servicio de recursos compartidos de archivos no está disponible en todas las regiones, asegúrese de consultar la lista de [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) para buscar la información actualizada. Si el servicio no está disponible en su región, puede crear un servidor NFS desde el que pueda compartir el sistema de archivos con la aplicación SAP BOBI. Sin embargo, también debe tener en cuenta su alta disponibilidad.
 
 ### <a name="high-availability-for-the-load-balancer"></a>Alta disponibilidad para el equilibrador de carga
 
@@ -501,7 +501,7 @@ El almacén de archivos es un directorio de discos donde se almacenan los archiv
 - **Azure Premium Files** solo admite LRS y ZRS. Para la estrategia de recuperación ante desastres de los archivos de Azure Premium, use [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) o [Azure PowerShell](/powershell/module/az.storage/?preserve-view=true&view=azps-5.8.0) para copiar los archivos en otra cuenta de almacenamiento en una región distinta. Para más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](../../../storage/common/storage-disaster-recovery-guidance.md).
 - **Azure NetApp Files** proporciona volúmenes NFS y SMB, por lo que se puede usar cualquier herramienta de copia basada en archivos para replicar datos entre regiones de Azure. Para más información sobre cómo copiar el volumen de Azure NetApp Files en otra región, consulte [Preguntas más frecuentes acerca de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region).
 
-  Puede usar la replicación entre regiones de Azure NetApp Files, actualmente en [versión preliminar](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/), que usa la tecnología de NetApp SnapMirror. Con esta tecnología, solo los bloques modificados se envían a través de la red en un formato comprimido y eficaz. Esta tecnología propietaria reduce la cantidad de datos necesarios para replicar entre regiones, lo que ahorra costos de transferencia de datos. También acorta el tiempo de replicación, por lo que puede lograr un RPO menor. Para obtener más información, consulte [Requisitos y consideraciones del uso de la replicación entre regiones](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md).
+  Puede usar la replicación entre regiones de Azure NetApp Files, actualmente en [versión preliminar](https://azure.microsoft.com/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/), que usa la tecnología de NetApp SnapMirror. Con esta tecnología, solo los bloques modificados se envían a través de la red en un formato comprimido y eficaz. Esta tecnología propietaria reduce la cantidad de datos necesarios para replicar entre regiones, lo que ahorra costos de transferencia de datos. También acorta el tiempo de replicación, por lo que puede lograr un RPO menor. Para obtener más información, consulte [Requisitos y consideraciones del uso de la replicación entre regiones](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md).
 
 ### <a name="cms-database"></a>Base de datos CMS
 

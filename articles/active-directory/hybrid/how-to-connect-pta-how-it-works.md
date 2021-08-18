@@ -16,12 +16,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe92f761ac0b16da7c3cc3c69c1fa4b00f4e7579
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c159842ca1693803286a164541fa631ee0537185
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95996600"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105604"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticación de paso a través de Azure Active Directory: Inmersión técnica profunda
 En este artículo se ofrece información general sobre el funcionamiento de la autenticación de paso a través de Azure Active Directory (Azure AD). Si desea información técnica y de seguridad detallada, consulte el artículo [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md).
@@ -55,7 +55,7 @@ En el diagrama siguiente se ilustran todos los componentes y los pasos implicado
 - [Inicio rápido](how-to-connect-pta-quick-start.md): ponga en marcha la autenticación de paso a través de Azure AD.
 - [Migración de AD FS a la autenticación de paso a través](https://aka.ms/adfstoPTADP): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
 - [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): configure la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
-- [Preguntas más frecuentes](how-to-connect-pta-faq.md): Obtenga respuestas a las preguntas más frecuentes.
+- [Preguntas más frecuentes](how-to-connect-pta-faq.yml): Obtenga respuestas a las preguntas más frecuentes.
 - [Solución de problemas](tshoot-connect-pass-through-authentication.md): Obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
 - [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): Obtenga información técnica detallada sobre la característica de autenticación de paso a través.
 - [SSO de conexión directa de Azure AD](how-to-connect-sso.md): Más información sobre esta característica complementaria.

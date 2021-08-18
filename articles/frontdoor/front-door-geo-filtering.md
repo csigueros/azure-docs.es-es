@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: amsriva
-ms.openlocfilehash: 0ab6dfb61800bba91b52edd5b07fa918c85ba73b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bb7de037f63c8892aa73e357f744b1f25fb0750f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085013"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441035"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtrado geográfico en un dominio para Azure Front Door
 
@@ -65,6 +65,7 @@ Las directivas de filtrado geográfico para Front Door se pueden configurar medi
 | BZ | Belice|
 | CA | Canadá|
 | CD | República Democrática del Congo|
+| CG | República del Congo |
 | CF | República Centroafricana|
 | CH | Suiza|
 | CI | República de Côte d’Ivoire|

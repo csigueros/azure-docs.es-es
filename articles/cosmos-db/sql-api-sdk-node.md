@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: a3e21abe2f4ed24726256689af16b48ed6721ce8
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 9166b2fae5943f1ab264d0c69ad91c630337e1cb
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366154"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862589"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Azure Cosmos DB para .NET para SQL API: Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,13 +24,13 @@ ms.locfileid: "107366154"
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [SDK de Java v4](sql-api-sdk-java-v4.md)
+> * [SDK para Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector OLTP de Spark 3](sql-api-sdk-java-spark-v3.md)
-> * [Conector OLTP de Spark 2](sql-api-sdk-java-spark.md)
+> * [Conector Spark 3 OLTP](sql-api-sdk-java-spark-v3.md)
+> * [Conector Spark 2 OLTP](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](/rest/api/cosmos-db-resource-provider/)
@@ -43,7 +43,7 @@ ms.locfileid: "107366154"
 |Descargar SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |Documentación de la API  |  [Documentación de referencia del SDK de JavaScript](/javascript/api/%40azure/cosmos/)
 |Instrucciones de instalación del SDK  |  [Instrucciones de instalación](https://github.com/Azure/azure-sdk-for-js)
-|Contribuya al SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+|Contribuya al SDK | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main)
 | Ejemplos | [Ejemplos de código Node.js](sql-api-nodejs-samples.md)
 | Tutorial de inicio | [Introducción al SDK de JavaScript](sql-api-nodejs-get-started.md)
 | Tutorial de la aplicación web | [Creación de una aplicación web de Node.js con Azure Cosmos DB](sql-api-nodejs-application.md)
@@ -474,7 +474,7 @@ Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelació
 | [1.0.0](#1.0.0) |08 de abril de 2015 |30 de agosto de 2020 |
 
 ## <a name="faq"></a>Preguntas más frecuentes
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte también
 Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

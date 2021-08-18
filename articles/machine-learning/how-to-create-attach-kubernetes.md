@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: 7825942ce692e83f2305e4c9f9b1a31cdadaea71
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: f623a5012ebd02ddf55b41541bb66cc34eaa4de8
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901614"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461240"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 
@@ -128,7 +128,7 @@ Result
 1.16.13
 ```
 
-Si quiere **comprobar mediante programación las versiones disponibles**, utilice la API REST [Container Service Client - List Orchestrators](/rest/api/container-service/container%20service%20client/listorchestrators). Para buscar las versiones disponibles, examine las entradas en las que `orchestratorType` sea `Kubernetes`. Las entradas `orchestrationVersion` asociadas contienen las versiones disponibles que se pueden **adjuntar** al área de trabajo.
+Si quiere **comprobar mediante programación las versiones disponibles**, utilice la API REST [Container Service Client - List Orchestrators](/rest/api/container-service/container-service-client/list-orchestrators). Para buscar las versiones disponibles, examine las entradas en las que `orchestratorType` sea `Kubernetes`. Las entradas `orchestrationVersion` asociadas contienen las versiones disponibles que se pueden **adjuntar** al área de trabajo.
 
 Para buscar la versión predeterminada que se usa al **crear** un clúster a través de Azure Machine Learning, busque la entrada en la que `orchestratorType` sea `Kubernetes` y `default` sea `true`. El valor de `orchestratorVersion` asociado es la versión predeterminada. El siguiente fragmento de código JSON es un ejemplo de entrada:
 
@@ -198,7 +198,7 @@ Para más información acerca de las clases, los métodos y los parámetros que 
 az ml computetarget create aks -n myaks
 ```
 
-Para más información, consulte la referencia de [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks).
+Para más información, consulte la referencia de [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -225,7 +225,7 @@ Para más información acerca de cómo crear un clúster de AKS mediante la CLI 
 
 * [Creación de un clúster de AKS (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az_aks_create)
 * [Creación de un clúster de AKS: Portal](../aks/kubernetes-walkthrough-portal.md)
-* [Creación de un clúster de AKS (plantilla de ARM en las plantillas de inicio rápido de Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
+* [Creación de un clúster de AKS (plantilla de ARM en las plantillas de inicio rápido de Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
 En el ejemplo siguiente se muestra cómo adjuntar un clúster de AKS existente a un área de trabajo:
 
@@ -275,7 +275,7 @@ Para conectar el clúster existente a un área de trabajo, use el siguiente coma
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Para más información, consulte la referencia de [az ml computetarget attach aks](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach_aks).
+Para más información, consulte la referencia de [az ml computetarget attach aks](/cli/azure/ml(v1)/computetarget/attach#az_ml_computetarget_attach_aks).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

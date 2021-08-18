@@ -4,12 +4,12 @@ description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo
 ms.topic: conceptual
 ms.date: 06/03/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: fdda54f31fe4a85a5ac62d8ce60fffd03c5a785d
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: ec23b4306f088328bfb72f3cf9071a70f8eb2307
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111526683"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586786"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -234,7 +234,7 @@ Para mover a una nueva suscripción, proporcione el parámetro `--destination-su
 
 ### <a name="validate"></a>Validación
 
-La [operación de validación del movimiento](/rest/api/resources/resources/moveresources) le permite probar el escenario de movimiento sin mover realmente los recursos. Use esta operación para comprobar si el movimiento se realizará correctamente. La validación se llama automáticamente cuando se envía una solicitud de traslado. Use esta operación solo cuando necesite determinar de antemano los resultados. Para ejecutar esta operación, necesita el:
+La [operación de validación del movimiento](/rest/api/resources/resources/validate-move-resources) le permite probar el escenario de movimiento sin mover realmente los recursos. Use esta operación para comprobar si el movimiento se realizará correctamente. La validación se llama automáticamente cuando se envía una solicitud de traslado. Use esta operación solo cuando necesite determinar de antemano los resultados. Para ejecutar esta operación, necesita el:
 
 * nombre del grupo de recursos de origen
 * identificador de recurso del grupo de recursos de destino

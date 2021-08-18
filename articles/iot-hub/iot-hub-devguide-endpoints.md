@@ -2,7 +2,6 @@
 title: Información de los puntos de conexión de Azure IoT Hub | Microsoft Docs
 description: 'Guía para desarrolladores: información de referencia sobre los puntos de conexión orientados a dispositivos y servicios IoT Hub.'
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -13,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 3fe95c00c95898be1ddd6967fb9ab8ba1e3f0ddb
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 47694418fab999646361dc8999ac250a6b58ab32
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484654"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727824"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 

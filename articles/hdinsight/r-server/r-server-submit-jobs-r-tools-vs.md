@@ -2,17 +2,19 @@
 title: Envío de trabajos desde Herramientas de R para Visual Studio en Azure HDInsight
 description: Envío de trabajos de R desde la máquina local de Visual Studio hasta un clúster de HDInsight.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: ee984de22052076618728fbacfc31b73c18c073a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8cc2cdfc123d0a02008859d2c6ecf8d20b763495
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864693"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295988"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Envío de trabajos desde Herramientas de R para Visual Studio
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 [Herramientas de R para Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) es una extensión gratuita de código abierto de las ediciones Community (gratuita), Professional y Enterprise de [Visual Studio 2017](https://www.visualstudio.com/downloads/) y [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) o superior. RTVS no está disponible para [Visual Studio 2019](/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?preserve-view=true&view=vs-2019).
 

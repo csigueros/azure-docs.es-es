@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurepowershell
 ms.date: 04/29/2020
-ms.openlocfilehash: 249355b4d5e80625511d8448c587d079c77dd92b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 0b8b57164d97007695d28efdccbf873d6fc71674
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701538"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299632"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Administración de clústeres de HDInsight mediante la API REST de Apache Ambari
 
-[!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
+[!INCLUDE [ambari-selector](includes/hdinsight-ambari-selector.md)]
 
 Aprenda a usar la API REST de Apache Ambari para administrar y supervisar clústeres de Apache Hadoop en Azure HDInsight.
 

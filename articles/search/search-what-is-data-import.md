@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: aa44a27fa5bf6b7b4ea649e1a9b9a69ef8cd78d3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 99cfe23cab5e9a61f548e78c914cafb1f6f63f7c
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102049328"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985875"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Introducción a la importación de datos: Azure Cognitive Search
 
@@ -82,7 +82,7 @@ El modelo de extracción rastrea un origen de datos compatible y carga automáti
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure SQL Database, Instancia administrada de SQL y SQL Server en máquinas virtuales de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [SharePoint Online (versión preliminar)](search-howto-index-sharepoint-online.md)
-+ [Azure Data Lake Storage Gen2 (versión preliminar)](search-howto-index-azure-data-lake-storage.md)
++ [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 
 Los indexadores conectan un índice a un origen de datos (normalmente una tabla, vista o estructura equivalente) y asignan campos de origen a los campos equivalentes del índice. Durante la ejecución, el conjunto de filas se transforma automáticamente en JSON y se carga en el índice especificado. Todos los indexadores admiten la programación, de modo que se puede especificar con qué frecuencia se deben actualizar los datos. La mayoría de los indexadores proporcionan seguimiento de cambios, siempre el origen de datos lo admita. Mediante el seguimiento de cambios y eliminaciones en documentos existentes, además de reconocer nuevos documentos, los indexadores eliminan la necesidad de administrar activamente los datos del índice.
 

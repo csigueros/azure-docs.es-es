@@ -3,12 +3,12 @@ title: Dominios de eventos de Azure Event Grid
 description: En este artículo se describe cómo usar dominios de eventos para administrar el flujo de eventos personalizados a sus diversas organizaciones empresariales, clientes o aplicaciones.
 ms.topic: conceptual
 ms.date: 04/13/2021
-ms.openlocfilehash: 78a785d3f1ee0431b11e8c14c3e48f4a156b5fd4
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: a8f9b21b84b2c764d25943af8988e40672dccd31
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537791"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112413551"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Dominios de eventos para administrar temas de Event Grid
 
@@ -26,7 +26,7 @@ Un dominio de eventos es una herramienta de administración para un gran número
 Los dominios de eventos le proporcionan la misma arquitectura que usan los servicios de Azure (por ejemplo, Storage e IoT Hub) para publicar sus eventos. Le permiten publicar eventos en miles de temas. Los dominios también proporcionan control de autenticación y autorización sobre cada tema para que pueda dividir los inquilinos.
 
 ## <a name="example-use-case"></a>Ejemplo de caso de uso
-[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
+[!INCLUDE [event-grid-domain-example-use-case.md](./includes/event-grid-domain-example-use-case.md)]
 
 ## <a name="access-management"></a>Administración de acceso
 

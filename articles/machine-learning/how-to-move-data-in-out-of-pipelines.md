@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: ae041bd8780524d24c360412232ec77ae60aa3c4
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: ddac4588009d495ac64c607e97780eca5aceb54b
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884721"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112515463"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 
@@ -34,7 +34,7 @@ Este artículo le mostrará cómo realizar los siguientes procedimientos:
 
 Necesitará:
 
-- Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+- Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro) o acceso a [Azure Machine Learning Studio](https://ml.azure.com/).
 
@@ -169,14 +169,6 @@ dataprep_step = PythonScriptStep(
     compute_target=cluster,
     arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
     )
-```
-
-Puede optar por cargar el contenido del objeto `OutputFileDatasetConfig` al final de una ejecución. En ese caso, use la función `as_upload()` junto con el objeto `OutputFileDatasetConfig` y especifique si se sobrescribirán los archivos existentes en el destino. 
-
-```python
-#get blob datastore already registered with the workspace
-blob_store= ws.datastores['my_blob_store']
-OutputFileDatasetConfig(name="clean_data", destination=(blob_store, 'outputdataset')).as_upload(overwrite=False)
 ```
 
 > [!NOTE]

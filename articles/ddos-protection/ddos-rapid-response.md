@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 8f0ebeebb47885d12529a7f09041af9bc3eb12f2
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 847cd81886a12d5a8d414181e2919b43aa607228
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656711"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732921"
 ---
 # <a name="azure-ddos-rapid-response"></a>Respuesta rápida de Azure DDoS
 
@@ -49,7 +49,7 @@ Solo debe interaccionar con DRR si:
 
 5. Complete los detalles adicionales y envíe la solicitud de soporte técnico.
 
-DRR sigue el modelo de soporte técnico de Azure Rapid Response. Consulte [Ámbito de soporte técnico y capacidad de respuesta](https://azure.microsoft.com/en-us/support/plans/response/) para más información sobre la respuesta rápida.
+DRR sigue el modelo de soporte técnico de Azure Rapid Response. Consulte [Ámbito de soporte técnico y capacidad de respuesta](https://azure.microsoft.com/support/plans/response/) para más información sobre la respuesta rápida.
 
 Para más información, lea la [documentación sobre DDoS Protection Standard](./ddos-protection-overview.md).
 

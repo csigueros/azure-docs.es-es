@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 72c210ae08ad794267433891aa5bf498d70bf464
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c40dd2b6b5abd4173f1f1e042768725ed11bb651
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669211"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112283310"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption con Azure AD para máquinas virtuales Windows (versión anterior)
 
@@ -32,7 +32,7 @@ Puede habilitar muchos escenarios de cifrado de disco, y los pasos pueden variar
 ## <a name="enable-encryption-on-new-iaas-vms-created-from-the-marketplace"></a>Habilitación del cifrado en nuevas máquinas virtuales IaaS creadas en Marketplace
 Puede habilitar el cifrado de disco en nuevas máquinas virtuales IaaS de Windows desde Marketplace en Azure mediante la plantilla de Resource Manager. La plantilla crea una máquina virtual Windows cifrada mediante la imagen de la galería de Windows Server 2012.
 
-1. En la [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image), haga clic en **Deploy to Azure** (Implementar en Azure).
+1. En la [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-create-new-vm-gallery-image), haga clic en **Deploy to Azure** (Implementar en Azure).
 
 2. Seleccione la suscripción, el grupo de recursos, la ubicación del grupo de recursos, los parámetros, los términos legales y el contrato. Haga clic en **Comprar** para implementar una nueva máquina virtual IaaS donde esté habilitado el cifrado.
 
@@ -64,7 +64,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | subnetName | Nombre de la subred en la red virtual a la que debería pertenecer la NIC de la máquina virtual. |
 | AADClientID | Identificador de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves. |
 | AADClientSecret | Secreto de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves. |
-| keyVaultURL | Dirección URL del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerla mediante el cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault&quot; -ResourceGroupName &quot;MyKeyVaultResourceGroupName").VaultURI` o la CLI de Azure `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
+| keyVaultURL | Dirección URL del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerla mediante el cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` o la CLI de Azure `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
 | keyEncryptionKeyURL | Dirección URL de la clave de cifrado de claves que se utiliza para cifrar la clave generada por BitLocker (opcional). </br> </br>KeyEncryptionKeyURL es un parámetro opcional. Puede aportar su propia KEK para proteger aún más la clave de cifrado de datos (frase de contraseña secreta) en el almacén de claves. |
 | keyVaultResourceGroup | Grupo de recursos del almacén de claves. |
 | vmName | Nombre de la máquina virtual en que se va a realizar la operación de cifrado. |
@@ -96,7 +96,7 @@ Use el cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/se
      ```azurepowershell
      $KVRGname = 'MyKeyVaultResourceGroup';
      $VMRGName = 'MyVirtualMachineResourceGroup';
-     $vmName = ‘MyExtraSecureVM’;
+     $vmName = 'MyExtraSecureVM';
      $aadClientID = 'My-AAD-client-ID';
      $aadClientSecret = 'My-AAD-client-secret';
      $KeyVaultName = 'MySecureVault';
@@ -154,7 +154,7 @@ Use el comando [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encrypti
 
 
 ### <a name="using-the-resource-manager-template"></a><a name="bkmk_RunningWinVMwRM"> </a>Uso de la plantilla de Resource Manager
-Puede habilitar el cifrado de disco en máquinas virtuales IaaS de Windows existentes o en ejecución en Azure mediante la [plantilla de Resource Manager para cifrar una máquina virtual Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
+Puede habilitar el cifrado de disco en máquinas virtuales IaaS de Windows existentes o en ejecución en Azure mediante la [plantilla de Resource Manager para cifrar una máquina virtual Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm).
 
 
 1. En la plantilla de inicio rápido de Azure, haga clic en **Deploy to Azure** (Implementar en Azure).
@@ -260,7 +260,7 @@ Puede usar la autenticación de certificado de cliente con o sin KEK. Antes de u
 ### <a name="enable-encryption-using-certificate-based-authentication-with-azure-powershell"></a>Habilitación del cifrado mediante la autenticación basada en certificados con Azure PowerShell
 
 ```powershell
-## Fill in 'MyVirtualMachineResourceGroup', 'MyKeyVaultResourceGroup', 'My-AAD-client-ID', 'MySecureVault, and ‘MySecureVM’.
+## Fill in 'MyVirtualMachineResourceGroup', 'MyKeyVaultResourceGroup', 'My-AAD-client-ID', 'MySecureVault, and 'MySecureVM'.
 
 $VMRGName = 'MyVirtualMachineResourceGroup'
 $KVRGname = 'MyKeyVaultResourceGroup';
@@ -286,7 +286,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -Aa
 ### <a name="enable-encryption-using-certificate-based-authentication-and-a-kek-with-azure-powershell"></a>Habilitación del cifrado mediante la autenticación basada en certificados y KEK con Azure PowerShell
 
 ```powershell
-# Fill in 'MyVirtualMachineResourceGroup', 'MyKeyVaultResourceGroup', 'My-AAD-client-ID', 'MySecureVault,, 'MySecureVM’, and "KEKName.
+# Fill in 'MyVirtualMachineResourceGroup', 'MyKeyVaultResourceGroup', 'My-AAD-client-ID', 'MySecureVault,, 'MySecureVM', and "KEKName.
 
 $VMRGName = 'MyVirtualMachineResourceGroup';
 $KVRGname = 'MyKeyVaultResourceGroup';
@@ -325,7 +325,7 @@ Puede deshabilitar el cifrado con Azure PowerShell, la CLI de Azure o una planti
      ```
 - **Deshabilitar el cifrado con una plantilla de Resource Manager:** 
 
-    1. Haga clic en **Deploy to Azure** (Implementar en Azure) en la plantilla [Deshabilitar el cifrado de disco en una máquina virtual Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm).
+    1. Haga clic en **Deploy to Azure** (Implementar en Azure) en la plantilla [Deshabilitar el cifrado de disco en una máquina virtual Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-windows-vm).
     2. Seleccione la suscripción, el grupo de recursos, la ubicación, la máquina virtual, los términos legales y el contrato.
     3.  Haga clic en **Comprar** para deshabilitar el cifrado de disco en una máquina virtual Windows en ejecución. 
 

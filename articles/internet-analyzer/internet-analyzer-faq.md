@@ -2,17 +2,17 @@
 title: Preguntas frecuentes sobre Internet Analyzer | Microsoft Docs
 description: Las preguntas más frecuentes sobre Azure Internet Analyzer.
 services: internet-analyzer
-author: diego-perez-botero
+author: KumudD
 ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 10/16/2019
-ms.author: mebeatty
-ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: kumud
+ms.openlocfilehash: 9a9bedc1dcc1d217a3f7dac270245afa923482d8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74184253"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114454839"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Preguntas frecuentes sobre Azure Internet Analyzer (versión preliminar)
 

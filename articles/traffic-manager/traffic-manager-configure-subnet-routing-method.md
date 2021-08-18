@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
-ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c87278d19a2e035de6abedc8cb5c46bea4e5ca13
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95994900"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081666"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 
@@ -49,11 +49,11 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
 1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Compute** > **Windows Server 2016 VM** (VM de Windows Server 2016).
 2. Escriba o seleccione la siguiente información para **Aspectos básicos**, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Crear**:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Nombre|myIISVMEastUS|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Resource group| Seleccione **Nuevo** y luego escriba *myResourceGroupTM1*.|
     |Location| Seleccione **Este de EE. UU**.|
     |||
@@ -72,7 +72,7 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
 
 7. Complete de nuevo los pasos del 1 al 6, con los cambios siguientes:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Resource group | Seleccione **Nuevo** y, a continuación, escriba *myResourceGroupTM2*|
     |Location|Oeste de Europa|
@@ -135,11 +135,11 @@ En esta sección, creará una máquina virtual (*mVMEastUS* and *myVMWestEurope*
 1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Compute** > **Windows Server 2016 VM** (VM de Windows Server 2016).
 2. Escriba o seleccione la siguiente información para **Aspectos básicos**, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Crear**:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Nombre|myVMEastUS|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Resource group| Seleccione **Existente** y, a continuación, seleccione *myResourceGroupTM1*.|
     |||
 
@@ -172,7 +172,7 @@ Cree un perfil de Traffic Manager que le permita devolver puntos de conexión es
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
 2. En **Crear perfil de Traffic Manager**, escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y, a continuación, seleccione **Crear**:
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Nombre                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento **Subred**.                                       |
@@ -191,7 +191,7 @@ Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*myII
 2. En **perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión** y, a continuación, haga clic en **Agregar**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Punto de conexión de Azure                                   |
     | Nombre           | myTestWebSiteEndpoint                                        |

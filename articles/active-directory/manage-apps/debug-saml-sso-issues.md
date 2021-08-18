@@ -2,25 +2,25 @@
 title: 'Depuración del inicio de sesión único basado en SAML: Azure Active Directory'
 description: Depure el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory.
 services: active-directory
-ms.author: mtillman
-author: mtillman
+ms.author: davidmu
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
-ms.reviewer: luleon, hirsin, paulgarn
-ms.openlocfilehash: 8391d52a17f897c0526c49ec39d408792d2e3699
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: ergreenl
+ms.openlocfilehash: 8e01b93c2371f55f56d9c9284894c3bdbbaac993
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075959"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744125"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
 
-Aprenda a buscar y corregir problemas del [inicio de sesión único](what-is-single-sign-on.md) en aplicaciones de Azure Active Directory (Azure AD) que usan el inicio de sesión único basado en SAML. 
+Aprenda a buscar y corregir problemas del [inicio de sesión único](what-is-single-sign-on.md) en aplicaciones de Azure Active Directory (Azure AD) que usan el inicio de sesión único basado en SAML.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -37,7 +37,7 @@ Para descargar e instalar la extensión de inicio de sesión seguro de mis aplic
 Para probar el inicio de sesión único basado en SAML entre Azure AD y una aplicación de destino:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global u otro administrador que esté autorizado para administrar aplicaciones.
-1. En la hoja de la izquierda, seleccione **Azure Active Directory** y, luego, **Aplicaciones empresariales**. 
+1. En la hoja de la izquierda, seleccione **Azure Active Directory** y, luego, **Aplicaciones empresariales**.
 1. En la lista de aplicaciones empresariales, seleccione la aplicación para la que desea probar el inicio de sesión único y, a continuación, en las opciones de la izquierda, seleccione **Inicio de sesión único**.
 1. Para abrir la experiencia de prueba de inicio de sesión único basado en SAML, vaya a **Prueba del inicio de sesión único** (paso 5). Si el botón **Probar** está atenuado, primero deberá rellenar y guardar los atributos obligatorios en la sección **Configuración básica de SAML**.
 1. En la hoja **Probar el inicio de sesión único**, use sus credenciales corporativas para iniciar sesión en la aplicación de destino. Puede iniciar sesión como el usuario actual o como otro usuario. Si inicia sesión como otro usuario, un mensaje le pedirá que se autentique.
@@ -77,7 +77,6 @@ Si no se proporciona ninguna solución para el error de inicio de sesión, le re
 1. Compruebe que el emisor de la solicitud SAML es el mismo identificador que ha configurado para la aplicación en Azure AD. Azure AD usa al emisor para buscar una aplicación en el directorio.
 1. Compruebe que AssertionConsumerServiceURL es la dirección en la que la aplicación espera recibir el token SAML de Azure AD. Puede configurar este valor en Azure AD, pero no es obligatorio si forma parte de la solicitud SAML.
 
-
 ## <a name="resolve-a-sign-in-error-on-the-application-page"></a>Resolución de un error de inicio de sesión único en la página de la aplicación
 
 Puede iniciar sesión correctamente y luego ver un error en la página de la aplicación. Esto se produce cuando Azure AD ha emitido un token a la aplicación, pero la aplicación no acepta la respuesta.
@@ -95,7 +94,7 @@ Para resolver el error, siga estos pasos o vea este [breve vídeo sobre cómo us
 
      Para más información sobre la respuesta SAML, vea [Protocolo SAML de inicio de sesión único](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-1. Ahora que ha revisado la respuesta SAML, consulte [Error en la página de aplicación después de iniciar sesión](application-sign-in-problem-application-error.md) para obtener instrucciones sobre cómo resolver el problema. 
+1. Ahora que ha revisado la respuesta SAML, consulte [Error en la página de aplicación después de iniciar sesión](application-sign-in-problem-application-error.md) para obtener instrucciones sobre cómo resolver el problema.
 1. Si sigue sin poder iniciar sesión correctamente, puede preguntar al proveedor de la aplicación lo que falta en la respuesta SAML.
 
 ## <a name="next-steps"></a>Pasos siguientes

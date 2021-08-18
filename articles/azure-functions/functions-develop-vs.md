@@ -3,13 +3,13 @@ title: Desarrollo de Azure Functions con Visual Studio
 description: Obtenga información sobre cómo desarrollar y probar Azure Functions mediante Herramientas de Azure Functions para Visual Studio 2019.
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: 2cba0a9ad63e319af0a5eaa1c1c018c3b285c28a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 12/10/2020
+ms.openlocfilehash: 2cd702286b2f35fcbc725af5ee231e1ab4b78284
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765582"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862402"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desarrollo de Azure Functions con Visual Studio  
 
@@ -73,7 +73,7 @@ Después de crear un proyecto de Azure Functions, la plantilla de proyecto crea 
 
 * **host.json**: permite configurar el host de Functions. Esta configuración se aplica tanto cuando se ejecuta localmente como en Azure. Para más información, consulte la [referencia sobre host.json](functions-host-json.md).
 
-* **local.settings.json**: mantiene la configuración que se usa cuando se ejecutan localmente las funciones. Esta configuración no se usa cuando se ejecuta en Azure. Para más información, consulte [Archivo de configuración local](#local-settings-file).
+* **local.settings.json**: mantiene la configuración que se usa cuando se ejecutan localmente las funciones. Esta configuración no se usa cuando se ejecuta en Azure. Para más información, consulte [Archivo de configuración local](#local-settings).
 
     >[!IMPORTANT]
     >Como el archivo local.settings.json puede contener secretos, debe excluirlo del control de código fuente del proyecto. Asegúrese de que la opción **Copiar en el directorio de salida** para este archivo esté establecida en **Copiar si es posterior**. 
@@ -124,7 +124,7 @@ En las funciones de biblioteca de clases C#, los enlaces que la función usa se 
 
     ![Creación de una función de desencadenador de Queue Storage](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    En este ejemplo de desencadenador se usa una cadena de conexión con una clave denominada `QueueStorage`. Defina la configuración de esta cadena de conexión en el [archivo local.settings.json](functions-run-local.md#local-settings-file).
+    En este ejemplo de desencadenador se usa una cadena de conexión con una clave denominada `QueueStorage`. Defina la configuración de esta cadena de conexión en el [archivo local.settings.json](functions-develop-local.md#local-settings-file).
 
 4. Examine la clase recién agregada. Verá un método `Run()` con el atributo `FunctionName`. Este atributo indica que el método es el punto de entrada de la función.
 
@@ -164,7 +164,7 @@ Al igual que sucede con los desencadenadores, los enlaces de entrada y salida se
 
    Para obtener más información, vea [Biblioteca de clases de C# con Visual Studio](./functions-bindings-register.md#local-csharp). Busque los requisitos del paquete NuGet específico del enlace en el artículo de referencia del enlace. Por ejemplo, buscar los requisitos del paquete para el desencadenador de Event Hubs en el [artículo de referencia Enlaces de Azure Event Hubs](functions-bindings-event-hubs.md).
 
-3. Si hay valores de la aplicación que el enlace necesita, agréguelos a la colección `Values` del [archivo de configuración local](functions-run-local.md#local-settings-file). 
+3. Si hay valores de la aplicación que el enlace necesita, agréguelos a la colección `Values` del [archivo de configuración local](functions-develop-local.md#local-settings-file). 
 
    La función usa estos valores cuando se ejecuta localmente. Cuando la función se ejecuta en la aplicación de funciones en Azure, usa los [valores de la aplicación de funciones](#function-app-settings).
 

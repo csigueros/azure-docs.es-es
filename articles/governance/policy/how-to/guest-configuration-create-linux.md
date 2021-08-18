@@ -4,12 +4,12 @@ description: Aprenda a crear una directiva de Configuración de invitado de Azur
 ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b28d7f0ccd2f4b8cca7bdb5015dce6e8ee8f2f17
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 89f4e64f6448f93a4b746ae4301450707f832cde
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762990"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287018"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -17,7 +17,7 @@ Antes de crear directivas personalizadas, lea la información general en [Config
 
 Para obtener información sobre cómo crear directivas de Configuración de invitado para Windows, consulte la página [Cómo crear una directiva de configuración de invitados para Windows](./guest-configuration-create.md).
 
-Al auditar Linux, Configuración de invitado usa [Chef InSpec](https://www.inspec.io/). El perfil de InSpec define la condición en la que debe encontrarse la máquina. Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
+Al auditar Linux, Configuración de invitado usa [Chef InSpec](https://community.chef.io/tools/chef-inspec). El perfil de InSpec define la condición en la que debe encontrarse la máquina. Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
 
 Solo se puede usar la [configuración de invitados de Azure Policy](../concepts/guest-configuration.md) para auditar la configuración dentro de las máquinas. Todavía no está disponible la opción para corregir la configuración dentro de las máquinas.
 
@@ -94,7 +94,7 @@ Los cmdlets de PowerShell ayudan en la creación del paquete. No se requiere nin
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Opciones personalizadas de la configuración de invitados en Linux
 
-Configuración de invitado en Linux usa el recurso `ChefInSpecResource` para proporcionar al motor el nombre del [perfil de InSpec](https://www.inspec.io/docs/reference/profiles/). **Name** es la única propiedad de recurso requerida. Cree un archivo YAML y un archivo de script de Ruby, tal como se detalla a continuación.
+Configuración de invitado en Linux usa el recurso `ChefInSpecResource` para proporcionar al motor el nombre del [perfil de InSpec](https://docs.chef.io/inspec/profiles/). **Name** es la única propiedad de recurso requerida. Cree un archivo YAML y un archivo de script de Ruby, tal como se detalla a continuación.
 
 En primer lugar, cree el archivo YAML que usa InSpec. El archivo ofrece información básica sobre el entorno. A continuación encontrará un ejemplo:
 
@@ -401,7 +401,7 @@ Parámetros del cmdlet `Protect-GuestConfigurationPackage`:
 
 Una buena referencia para la creación de claves GPG para usarlas con máquinas Linux se proporciona en el artículo de Github [Generar una clave GPG nueva](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
-El agente GuestConfiguration espera que la clave pública del certificado esté presente en la ruta de acceso `/usr/local/share/ca-certificates/extra` de las máquinas Linux. Para que el nodo compruebe el contenido firmado, instale la clave pública del certificado en la máquina antes de aplicar la directiva personalizada. Este proceso se puede realizar con cualquier técnica dentro de la máquina virtual o mediante Azure Policy. [Aquí se proporciona](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows) una plantilla de ejemplo.
+El agente GuestConfiguration espera que la clave pública del certificado esté presente en la ruta de acceso `/usr/local/share/ca-certificates/extra` de las máquinas Linux. Para que el nodo compruebe el contenido firmado, instale la clave pública del certificado en la máquina antes de aplicar la directiva personalizada. Este proceso se puede realizar con cualquier técnica dentro de la máquina virtual o mediante Azure Policy. [Aquí se proporciona](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-push-certificate-windows) una plantilla de ejemplo.
 La directiva de acceso de Key Vault debe permitir que el proveedor de recursos del proceso obtenga acceso a los certificados durante las implementaciones. Para obtener los pasos detallados, consulte [Configuración de Key Vault para máquinas virtuales en Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
 
 Una vez publicado el contenido, anexe una etiqueta con el nombre `GuestConfigPolicyCertificateValidation` y el valor `enabled` a todas las máquinas virtuales en las que se debe solicitar la firma de código. Consulte los [ejemplos de etiqueta](../samples/built-in-policies.md#tags) sobre cómo se pueden entregar etiquetas a escala mediante Azure Policy. Una vez que esta etiqueta esté en su lugar, la definición de la directiva que se genera mediante el cmdlet `New-GuestConfigurationPolicy` habilita el requisito a través de la extensión de configuración de invitados.

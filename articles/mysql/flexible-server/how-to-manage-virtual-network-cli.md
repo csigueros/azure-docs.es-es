@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 7da8062f18d737af9d19df54863bc56c7268910c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 243aa85ed2e52fe73efcb0e81c5b3de70b43039e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776924"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780430"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Creación y administración de redes virtuales de Azure Database for MySQL: servidor flexible mediante la CLI de Azure
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL: servidor flexible está actualmente en versión preliminar pública.
@@ -23,7 +25,7 @@ Se admiten dos métodos de conectividad de red mutuamente excluyentes para conec
 - Acceso público (direcciones IP permitidas)
 - Acceso privado (integración con red virtual)
 
-En este artículo nos vamos a centrar en la creación de un servidor de MySQL con **acceso privado (integración con red virtual)** mediante la CLI de Azure. Con *acceso privado (Integración con red virtual)* , puede implementar su servidor flexible en su propio [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Las redes de Azure Virtual Network proporcionan una comunicación de red privada y segura. En el acceso privado, las conexiones con el servidor de MySQL están restringidas a dentro de la red virtual. Para obtener más información al respecto, consulte [Acceso privado (Integración con red virtual)](./concepts-networking.md#private-access-vnet-integration).
+En este artículo nos vamos a centrar en la creación de un servidor de MySQL con **acceso privado (integración con red virtual)** mediante la CLI de Azure. Con *acceso privado (Integración con red virtual)* , puede implementar su servidor flexible en su propio [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Las redes de Azure Virtual Network proporcionan una comunicación de red privada y segura. En el acceso privado, las conexiones con el servidor de MySQL están restringidas a dentro de la red virtual. Para obtener más información al respecto, consulte [Acceso privado (Integración con red virtual)](./concepts-networking-vnet.md).
 
 En Azure Database for MySQL: servidor flexible, solo puede implementar el servidor en una red virtual y una subred durante la creación del servidor. Una vez implementado el servidor flexible en una red virtual y una subred, no se puede trasladar a otra red virtual, a una subred o a *acceso público (direcciones IP permitidas)* .
 
@@ -84,4 +86,4 @@ Consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server) 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre las [redes de Azure Database for MySQL: servidor flexible](./concepts-networking.md).
 - [Cree y administre redes virtuales de Azure Database for MySQL: servidor flexible mediante Azure Portal](./how-to-manage-virtual-network-portal.md).
-- Obtenga más información sobre las [redes virtuales de Azure Database for MySQL: servidor flexible](./concepts-networking.md#private-access-vnet-integration).
+- Obtenga más información sobre las [redes virtuales de Azure Database for MySQL: servidor flexible](./concepts-networking-vnet.md#private-access-vnet-integration).

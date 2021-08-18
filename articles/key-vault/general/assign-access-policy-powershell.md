@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9b9ff0a4f432a8fbf9eaee84bc0215af736b6bbd
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a39a8b77b37bc5e5cc49df07449b6dd894fc005b
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110667022"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136398"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Asignación de una directiva de acceso de Key Vault mediante Azure PowerShell
 
@@ -79,5 +79,5 @@ Solo necesita incluir `-PermissionsToSecrets`, `-PermissionsToKeys` y `-Permissi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Seguridad en Azure Key Vault: Administración de identidades y acceso](security-features.md#identity-management)
+- [Seguridad de Azure Key Vault](security-features.md)
 - [Guía del desarrollador de Azure Key Vault](developers-guide.md)

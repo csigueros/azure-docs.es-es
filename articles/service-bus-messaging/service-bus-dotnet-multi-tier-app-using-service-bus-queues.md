@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/30/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 38a1c975df578b32ec2d6cac9ff5c6ad4acb3687
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 56ee5afdb907f660079fd1ac853ccbd80258b30b
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759198"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416603"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicación de niveles múltiples .NET con colas de Azure Service Bus
 
@@ -62,7 +62,7 @@ En este tutorial, usará la autenticación de Azure Active Directory (Azure AD)
 
 El primer paso consiste en crear un *espacio de nombres* y obtener una [clave de Firma de acceso compartido (SAS)](service-bus-sas.md) para dicho espacio de nombres. Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través de Service Bus. El sistema genera una clave SAS cuando se crea un espacio de nombres. La combinación del espacio de nombres y la clave SAS proporciona las credenciales de Service Bus para autenticar el acceso a una aplicación.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-web-role"></a>Creación de un rol web
 
@@ -399,12 +399,6 @@ Para obtener más información sobre Service Bus, consulte los siguientes recurs
 * [Introducción al uso de las colas de Service Bus][sbacomqhowto]
 * [Página de servicio de Service Bus][sbacom]  
 
-Para más información sobre los escenarios de niveles múltiples, consulte:  
-
-* [Aplicación de niveles múltiples .NET mediante tablas, colas y blobs de Storage][mutitierstorage]  
-
-
 
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
-[mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

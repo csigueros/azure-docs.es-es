@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
-ms.openlocfilehash: 011ddb883c028a954a8b0683c220bf6341eddb66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf2a9380b404876ef9c963d54d9069ebd66fef56
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91578160"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725147"
 ---
 # <a name="manage-multiple-tenants-in-azure-sentinel-as-an-mssp"></a>Administración de varios inquilinos en Azure Sentinel como un MSSP
 
@@ -53,6 +53,6 @@ Si es un proveedor de servicios de seguridad administrados (MSSP) y usa [Azure L
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido a administrar varios inquilinos de Azure Sentinel sin problemas. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
 

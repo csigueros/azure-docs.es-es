@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: 24fcb043845f3946c142a9e73ba0efd9df71932f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c92d0faedbc564ff33de7f51eccde3cda92fe813
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960796"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112458243"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
 
@@ -130,7 +130,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
         - Esta tasa de modificación de datos aumentará o permanecer en un nivel alto, dependiendo de cómo de estén de ocupadas la máquina virtual o sus aplicaciones.
         - El promedio de modificación de datos del disco de origen es 2 MB/s de almacenamiento estándar para Site Recovery. [Más información](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - Además, puede [comprobar los objetivos de escalabilidad de Storage](../storage/common/scalability-targets-standard-account.md).
-8. Asegúrese de que, si usa un servidor basado en Linux, tiene habilitada en él la coherencia de la aplicación. [Más información](/azure/site-recovery/site-recovery-faq.yml#replication)
+8. Asegúrese de que, si usa un servidor basado en Linux, tiene habilitada en él la coherencia de la aplicación. [Más información](/azure/site-recovery/site-recovery-faq#replication)
 9. Ejecute [Deployment Planner](hyper-v-deployment-planner-run.md).
 10. Revise las recomendaciones para [red](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) y [almacenamiento](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 

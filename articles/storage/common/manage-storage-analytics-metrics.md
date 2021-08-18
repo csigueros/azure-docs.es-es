@@ -9,18 +9,18 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-azurepowershell
-ms.openlocfilehash: d9179872562ea048fe713d9535c4ff2994bcd223
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5c652696d825b6dae4665de1d8afdd9bae6848a4
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666798"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183527"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-metrics-classic"></a>Habilitación y administración de las métricas de Azure Storage Analytics (clásico)
 
 [Azure Storage Analytics](storage-analytics.md) proporciona métricas para todos los servicios de almacenamiento en relación con los blobs, las colas y las tablas. Puede usar [Azure Portal](https://portal.azure.com) para configurar qué métricas se registran para su cuenta y configurar gráficos que proporcionen representaciones visuales de los datos de las métricas. En este artículo se muestra cómo habilitar y administrar las métricas. Para obtener información sobre cómo habilitar los registros, vea [Habilitación y administración de los registros de Azure Storage Analytics (clásico)](manage-storage-analytics-logs.md).
 
-Se recomienda consultar [Azure Monitor para Storage](../../azure-monitor/insights/storage-insights-overview.md) (versión preliminar). Es una característica de Azure Monitor que ofrece una supervisión completa de las cuentas de Azure Storage, ya que ofrece una vista unificada del rendimiento, la capacidad y la disponibilidad de los servicios de Azure Storage. No es preciso habilitar o configurar nada, y puede ver inmediatamente estas métricas desde los gráficos interactivos predefinidos y otras visualizaciones incluidas.
+Se recomienda consultar [Azure Monitor para Storage](./storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) (versión preliminar). Es una característica de Azure Monitor que ofrece una supervisión completa de las cuentas de Azure Storage, ya que ofrece una vista unificada del rendimiento, la capacidad y la disponibilidad de los servicios de Azure Storage. No es preciso habilitar o configurar nada, y puede ver inmediatamente estas métricas desde los gráficos interactivos predefinidos y otras visualizaciones incluidas.
 
 > [!NOTE]
 > Existen costos asociados con el análisis de los datos de supervisión en Azure Portal. Para más información, consulte [Storage Analytics](storage-analytics.md).

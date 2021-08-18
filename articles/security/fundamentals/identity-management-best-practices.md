@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 227b8d9c797a8fec81d8792a48f456bcda6a838c
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 70f318c10799c1cf30265373d8971faddfafc072
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958518"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122180459"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 
@@ -68,7 +68,7 @@ En las siguientes secciones se enumeran los procedimientos recomendados de segur
 
 ## <a name="centralize-identity-management"></a>Centralizar la administración de identidades
 
-En un escenario de [identidad híbrida](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?), se recomienda integrar los directorios en el entorno local y en la nube. La integración permite al equipo de TI administrar las cuentas desde una ubicación, independientemente de donde se crea una cuenta. La integración también hace que los usuarios sean más productivos, ya que proporciona una identidad común para tener acceso a recursos de la nube y del entorno local.
+En un escenario de identidad híbrida, se recomienda integrar los directorios en el entorno local y en la nube. La integración permite al equipo de TI administrar las cuentas desde una ubicación, independientemente de donde se crea una cuenta. La integración también hace que los usuarios sean más productivos, ya que proporciona una identidad común para tener acceso a recursos de la nube y del entorno local.
 
 **Procedimiento recomendado**: establecer una única instancia de Azure AD. La coherencia y tener un solo origen de autoridad aumentará la claridad y reducirá los riesgos de seguridad originados por errores humanos, así como la complejidad de la configuración.
 **Detalles**: designe un solo directorio de Azure AD como origen de autoridad de cuentas corporativas y de la organización.
@@ -339,7 +339,7 @@ Un sistema de supervisión de identidades activo puede detectar un comportamient
 Las organizaciones que no supervisen activamente sus sistemas de identidad corren el riesgo de comprometer las credenciales de los usuarios. Si las organizaciones no saben que están teniendo lugar actividades sospechosas a través de estas credenciales, no podrán mitigar este tipo de amenaza.
 
 ## <a name="use-azure-ad-for-storage-authentication"></a>Uso de Azure AD para la autenticación de almacenamiento
-[Azure Storage](../../storage/common/storage-auth-aad.md) admite la autenticación y autorización con Azure AD para Blob Storage y Queue Storage. Con la autenticación de Azure AD, puede usar el control de acceso basado en roles de Azure para conceder permisos específicos a usuarios, grupos y aplicaciones hasta el ámbito de una cola o un contenedor de blobs individual.
+[Azure Storage](../../storage/blobs/authorize-access-azure-active-directory.md) admite la autenticación y autorización con Azure AD para Blob Storage y Queue Storage. Con la autenticación de Azure AD, puede usar el control de acceso basado en roles de Azure para conceder permisos específicos a usuarios, grupos y aplicaciones hasta el ámbito de una cola o un contenedor de blobs individual.
 
 Se recomienda usar [Azure AD para autenticar el acceso al almacenamiento](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/).
 

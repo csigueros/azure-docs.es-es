@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
-ms.openlocfilehash: dbb7e07c9abc11e25e4fd46c185b413f51cec147
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 351d905b45d6c1bae6e4fa52aa34d22df9de82f9
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026244"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204096"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Creación y uso de imágenes compartidas personalizada para conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
@@ -50,6 +50,5 @@ Puede crear también recursos de galería de imágenes compartidas con plantilla
 - [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](../virtual-machines/shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](../virtual-machines/troubleshooting-shared-images.md).

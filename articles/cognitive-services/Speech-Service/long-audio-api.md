@@ -3,19 +3,19 @@ title: 'Long Audio API: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo se ha diseñado Long Audio API para la síntesis asincrónica de texto de formato largo a voz.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.author: trbye
-ms.openlocfilehash: 92a41c3b18b96dc7d12fe7a0cfdae022fcb4d363
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.openlocfilehash: 62546d4f7a1cd93d787faee22132d967bb0def8d
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110079163"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122067064"
 ---
 # <a name="long-audio-api"></a>Long Audio API
 
@@ -452,7 +452,7 @@ Long Audio API está disponible en varias regiones con puntos de conexión únic
 | Este de EE. UU. | `https://eastus.customvoice.api.speech.microsoft.com` |
 | India central | `https://centralindia.customvoice.api.speech.microsoft.com` |
 | Sudeste de Asia | `https://southeastasia.customvoice.api.speech.microsoft.com` |
-| Sur de Reino Unido | `https://uksouth.customvoice.api.speech.microsoft.com` |
+| Sur de Reino Unido 2 | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | Oeste de Europa | `https://westeurope.customvoice.api.speech.microsoft.com` |
 
 ## <a name="audio-output-formats"></a>Formatos de salida de audio

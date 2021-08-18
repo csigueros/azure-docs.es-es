@@ -4,12 +4,12 @@ description: En este artículo se explica cómo usar el módulo de Azure PowerSh
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5b5bb551584b0bb3d0cc84f408f1935e727ee50a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d2f8b1252e75a2c0aa1a44b8b7aaae5389aa8fa3
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663831"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379859"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use PowerShell para administrar recursos de Service Bus
 
@@ -19,7 +19,7 @@ Las entidades de Service Bus también se pueden administrar mediante plantillas 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, tendrá que cumplir los siguientes requisitos previos:
 
@@ -27,7 +27,7 @@ Antes de empezar, tendrá que cumplir los siguientes requisitos previos:
 * Un equipo con Azure PowerShell. Para obtener instrucciones, consulte [Introducción a los cmdlets de Azure PowerShell](/powershell/azure/get-started-azureps).
 * Conocimientos generales sobre los scripts de PowerShell, paquetes de NuGet y .NET Framework.
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 El primer paso es usar PowerShell para iniciar sesión en su cuenta de Azure y su suscripción de Azure. Siga las instrucciones descritas en [Introducción a los cmdlets de Azure PowerShell](/powershell/azure/get-started-azureps) para iniciar sesión en su cuenta de Azure y recuperar y tener acceso a los recursos de la suscripción.
 
@@ -162,7 +162,6 @@ Hay varias formas alternativas de administrar entidades de Service Bus, tal como
 
 * [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
 * [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
-* [Scripts de PowerShell de Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 

@@ -2,17 +2,18 @@
 title: Creación de un entorno de ejecución de integración autohospedado compartido con PowerShell
 description: Aprenda a crear un entorno de ejecución de integración autohospedado compartido en Azure Data Factory, para que varias factorías de datos puedan obtener acceso al entorno de ejecución de integración.
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 06/10/2020
-ms.openlocfilehash: 193e669b3429077be4e07c52042939a8a101e192
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b59655f343c8b5aa279dae9197c1d7fa41e0c318
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681111"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733074"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory
 
@@ -219,7 +220,6 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `
-    -Links `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 

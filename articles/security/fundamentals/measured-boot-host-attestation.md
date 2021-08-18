@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
-ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/24/2021
+ms.openlocfilehash: 6dac3b8230a0bad9c6492b236eac5dddc1839471
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96498870"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895785"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Atestación del host y arranque medido
 En este artículo se describe cómo Microsoft garantiza la integridad y la seguridad de los hosts mediante la atestación del host y el arranque medido.
@@ -55,6 +55,7 @@ El [arranque seguro](secure-boot.md) de UEFI garantiza que solo se puede ejecuta
 Para más información sobre lo que se hace para fomentar la seguridad y la integridad de la plataforma, vea:
 
 - [Seguridad de firmware](firmware.md)
+- [Integridad del código de plataforma](code-integrity.md)
 - [Arranque seguro](secure-boot.md)
 - [Proyecto Cerberus](project-cerberus.md)
 - [Cifrado en reposo](encryption-atrest.md)

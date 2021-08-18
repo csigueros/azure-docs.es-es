@@ -4,12 +4,12 @@ description: Uso de los servicios de inserción de errores y análisis del clús
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 759e2d1c8d2a326583625fbbbcadb4f4fa950510
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6f9746a3c58c32c0e21daaa79491be105fc14a1a
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732438"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136911"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Inducción de errores controlados con Caos en clústeres de Service Fabric
 Los sistemas distribuidos a gran escala, como las infraestructuras en la nube, por naturaleza, no son confiables. Azure Service Fabric permite a los desarrolladores crear servicios distribuidos confiables en una infraestructura no confiable. Para escribir servicios distribuidos sólidos en una infraestructura no confiable, los desarrolladores necesitan poder probar la estabilidad de sus servicios, mientras que la infraestructura no confiable subyacente pasa por transiciones de estado complicadas debido a los errores.
@@ -77,7 +77,7 @@ using System.Fabric;
 using System.Diagnostics;
 using System.Fabric.Chaos.DataStructures;
 
-class Program
+static class Program
 {
     private class ChaosEventComparer : IEqualityComparer<ChaosEvent>
     {
@@ -91,7 +91,7 @@ class Program
         }
     }
 
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         var clusterConnectionString = "localhost:19000";
         using (var client = new FabricClient(clusterConnectionString))
@@ -168,7 +168,7 @@ class Program
 
             try
             {
-                client.TestManager.StartChaosAsync(parameters).GetAwaiter().GetResult();
+                await client.TestManager.StartChaosAsync(parameters);
             }
             catch (FabricChaosAlreadyRunningException)
             {
@@ -187,8 +187,8 @@ class Program
                 try
                 {
                     report = string.IsNullOrEmpty(continuationToken)
-                        ? client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult()
-                        : client.TestManager.GetChaosReportAsync(continuationToken).GetAwaiter().GetResult();
+                        ? await client.TestManager.GetChaosReportAsync(filter)
+                        : await client.TestManager.GetChaosReportAsync(continuationToken);
                 }
                 catch (Exception e)
                 {
@@ -205,7 +205,7 @@ class Program
                         throw;
                     }
 
-                    Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
+                    await Task.Delay(TimeSpan.FromSeconds(1.0));
                     continue;
                 }
 
@@ -228,7 +228,7 @@ class Program
                     break;
                 }
 
-                Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
+                await Task.Delay(TimeSpan.FromSeconds(1.0));
             }
         }
     }

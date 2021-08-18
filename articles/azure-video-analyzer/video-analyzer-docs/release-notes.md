@@ -2,13 +2,13 @@
 title: 'Notas de la versión de Azure Video Analyzer: Azure'
 description: En este tema encontrará las notas de la versión de las mejoras, las versiones, las correcciones de errores y los problemas conocidos de Azure Video Analyzer.
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: ef1c395bb10000599f901e62cf77b3573146aeee
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 06/01/2021
+ms.openlocfilehash: f7189e6bda42ad77cb4bb6f426bf73209f46c363
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591231"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601934"
 ---
 # <a name="azure-video-analyzer-release-notes"></a>Notas de la versión de Azure Video Analyzer
 

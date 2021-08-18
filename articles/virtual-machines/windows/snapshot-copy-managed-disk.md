@@ -2,19 +2,19 @@
 title: Creación de una instantánea de una unidad de disco duro virtual mediante el portal o PowerShell
 description: Aprenda a crear una copia de una máquina virtual de Azure como copia de seguridad o para solucionar problemas mediante el portal o PowerShell.
 author: roygara
+ms.author: rogarana
 manager: twooley
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/08/2018
-ms.author: rogarana
-ms.openlocfilehash: 9070b69ac4c6b85791ff3dd4662273e75a3cd22c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d43d005ed7989d74872473f7977f8591cf576057
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556067"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114386244"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Creación de una instantánea mediante el portal o PowerShell
 

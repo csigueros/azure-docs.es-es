@@ -5,12 +5,12 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 07/02/2021
 ms.custom: include file
-ms.openlocfilehash: a295c5bda4c6d5822d762f23372d3b2b5d206a3a
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: f03bf23140131b34b3d97c0dda6c707984b5d5c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113279840"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121801342"
 ---
 1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
 
@@ -20,9 +20,9 @@ ms.locfileid: "113279840"
 
 1. En la página **Creación de una cuenta de Azure Cosmos DB** , especifique la configuración básica de la nueva cuenta de Azure Cosmos.
 
-   |Configuración|Value|Descripción |
+   |Configuración|Valor|Descripción |
    |---|---|---|
-   |Subscription|Nombre de suscripción|Seleccione la suscripción de Azure que desea usar para esta cuenta de Azure Cosmos. |
+   |Suscripción|Nombre de suscripción|Seleccione la suscripción de Azure que desea usar para esta cuenta de Azure Cosmos. |
    |Grupo de recursos|Definición de un nombre de grupo de recursos|Seleccione un grupo de recursos o seleccione **Crear nuevo** y escriba un nombre único para el grupo de recursos nuevo. |
    |Nombre de cuenta|Un nombre único|Escriba un nombre para identificar la cuenta de Azure Cosmos. Dado que *documents.azure.com* se anexa al nombre que se proporciona para crear el identificador URI, debe usar un nombre único.<br><br>El nombre solo puede contener letras minúsculas, números y el carácter de guion (-). Debe tener una longitud de entre 3 y 44 caracteres.|
    |API|El tipo de cuenta que se va a crear|Seleccione **Core(SQL)** para crear una base de datos de documentos y consultarla mediante la sintaxis SQL. <br><br>La API determina el tipo de cuenta que se va a crear. Azure Cosmos DB proporciona cinco API: Core (SQL) y MongoDB para datos de documento, Gremlin para datos de gráfico, Azure Table y Cassandra. Actualmente, debe crear una cuenta independiente para cada API. <br><br>[Más información acerca de SQL API](../introduction.md).|
@@ -37,7 +37,7 @@ ms.locfileid: "113279840"
 
 1. En la pestaña **Distribución global**, configure los detalles siguientes. Puede dejar los valores predeterminados para este inicio rápido:
 
-   |Configuración|Value|Descripción |
+   |Configuración|Valor|Descripción |
    |---|---|---|
    |Redundancia geográfica|Deshabilitar|Habilite o deshabilite la distribución global en su cuenta. Para ello, debe emparejar su región con una región de par. Puede agregar más regiones a su cuenta más adelante.|
    |Escrituras en varias regiones|Deshabilitar|La funcionalidad de escrituras en varias regiones le permite aprovechar el rendimiento aprovisionado para sus bases de datos y contenedores de todo el mundo.|
@@ -51,7 +51,7 @@ ms.locfileid: "113279840"
 1. Opcionalmente, puede configurar detalles adicionales en las pestañas siguientes:
 
    * **Redes**: configure el [acceso desde una red virtual](../how-to-configure-vnet-service-endpoint.md).
-   * **Directiva de copia de seguridad**: configure una directiva de copia de seguridad [periódica](../configure-periodic-backup-restore.md) o [continua](../continuous-backup-restore-portal.md).
+   * **Directiva de copia de seguridad**: configure una directiva de copia de seguridad [periódica](../configure-periodic-backup-restore.md) o [continua](../provision-account-continuous-backup.md).
    * **Cifrado**: use una clave administrada por el servicio o una [clave administrada por el cliente](../how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
    * **Etiquetas**: son pares nombre-valor que permiten categorizar los recursos y ver una facturación consolidada mediante la aplicación de la misma etiqueta en varios recursos y grupos de recursos.
 

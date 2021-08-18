@@ -10,15 +10,15 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab85dbc95a8f7432afba3eaa082f6490d1ba8dba
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "72248607"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113552467"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Cómo ponerse en contacto con Microsoft Genomics para obtener soporte técnico
-Esta introducción describe cómo enviar una solicitud de soporte técnico para ponerse en contacto con Microsoft Genomics. Esto puede resultar útil si no puede solucionar el problema mediante la [Guía de solución de problemas](troubleshooting-guide-genomics.md) o las [Preguntas frecuentes](frequently-asked-questions-genomics.md). 
+Esta introducción describe cómo enviar una solicitud de soporte técnico para ponerse en contacto con Microsoft Genomics. Esto puede resultar útil si no puede solucionar el problema mediante la [Guía de solución de problemas](troubleshooting-guide-genomics.md) o las [Preguntas frecuentes](frequently-asked-questions-genomics.yml). 
 
 
 ## <a name="file-a-support-ticket-through-the-azure-portal"></a>Enviar una incidencia de soporte técnico mediante Azure Portal
@@ -46,4 +46,4 @@ Por último, agregue la información de contacto y seleccione `Create` en la par
 ![Información de contacto en la solicitud de soporte técnico](./media/file-support-ticket/support-request-contact.png "Información de contacto en la solicitud de soporte técnico")
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo aprendió a enviar una solicitud de soporte técnico. También puede resolver problemas comunes mediante las [Preguntas frecuentes ](frequently-asked-questions-genomics.md) y la [Guía de solución de problemas](troubleshooting-guide-genomics.md). 
+En este artículo aprendió a enviar una solicitud de soporte técnico. También puede resolver problemas comunes mediante las [Preguntas frecuentes ](frequently-asked-questions-genomics.yml) y la [Guía de solución de problemas](troubleshooting-guide-genomics.md). 

@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 02/18/2020
-ms.openlocfilehash: d30aee396eb3e8e5c56896e048210f5f7d47ef87
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 352aea7f000082a2f978005d958b41669e191584
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949852"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181567"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Log Analytics para Linux
 
@@ -69,7 +69,7 @@ La extensión del agente de Log Analytics para Linux requiere que la máquina vi
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
-El siguiente JSON muestra el esquema para la extensión del agente de Log Analytics. La extensión requiere el identificador y la clave del área de trabajo de Log Analytics de destino, valores que se pueden [encontrar en el área de trabajo de Log Analytics](../../azure-monitor/vm/quick-collect-linux-computer.md#obtain-workspace-id-and-key) en Azure Portal. Como la clave del área de trabajo debe tratarse como datos confidenciales, debe almacenarse en una configuración protegida. Los datos de configuración protegida de la extensión de VM de Azure están cifrados y solo se descifran en la máquina virtual de destino. Tenga en cuenta que **workspaceId** y **workspaceKey** distinguen mayúsculas de minúsculas.
+El siguiente JSON muestra el esquema para la extensión del agente de Log Analytics. La extensión requiere el identificador y la clave del área de trabajo de Log Analytics de destino, valores que se pueden [encontrar en el área de trabajo de Log Analytics](../../azure-monitor/vm/monitor-virtual-machine.md) en Azure Portal. Como la clave del área de trabajo debe tratarse como datos confidenciales, debe almacenarse en una configuración protegida. Los datos de configuración protegida de la extensión de VM de Azure están cifrados y solo se descifran en la máquina virtual de destino. Tenga en cuenta que **workspaceId** y **workspaceKey** distinguen mayúsculas de minúsculas.
 
 ```json
 {
@@ -115,7 +115,7 @@ El siguiente JSON muestra el esquema para la extensión del agente de Log Analyt
 >[!NOTE]
 >Algunos componentes de la extensión de máquina virtual de Log Analytics también se incluyen en la [extensión de máquina virtual de diagnóstico](./diagnostics-linux.md). Debido a esta arquitectura, se pueden producir conflictos si se crean instancias de las dos extensiones en la misma plantilla de ARM. Para evitar estos conflictos en tiempo de instalación, use la [directiva `dependsOn`](../../azure-resource-manager/templates/resource-dependency.md#dependson) para asegurarse de que las extensiones se instalan de forma secuencial. Las extensiones se pueden instalar en cualquier orden.
 
-Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales cuando se implementan una o varias máquinas virtuales que requieren configuración tras la implementación, como por ejemplo, su incorporación a los registros de Azure Monitor. Puede encontrar una plantilla de Resource Manager de ejemplo que incluye la extensión de máquina virtual del agente de Log Analytics en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales cuando se implementan una o varias máquinas virtuales que requieren configuración tras la implementación, como por ejemplo, su incorporación a los registros de Azure Monitor. Puede encontrar una plantilla de Resource Manager de ejemplo que incluye la extensión de máquina virtual del agente de Log Analytics en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/oms-extension-ubuntu-vm). 
 
 La configuración JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual o colocada en la raíz o nivel superior de una plantilla JSON de Resource Manager. La colocación de la configuración JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/templates/child-resource-name-type.md). 
 

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 0541b626168fb680daa2fc5c0c14df5bc8a4ea7c
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 023bef17efd0d61031f51d37ab48b633b297ef23
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904182"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234508"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Implementación de un modelo de Machine Learning en Azure Functions con Azure Cache for Redis
 
@@ -304,7 +304,7 @@ Si va a seguir con el tutorial siguiente, puede mantener los recursos creados en
 En caso contrario, si ya ha terminado con la guía de inicio rápido, puede eliminar los recursos de Azure creados en esta guía para evitar cargos.
 
 > [!IMPORTANT]
-> La eliminación de un grupo de recursos es irreversible. Cuando elimine un grupo de recursos, todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado los recursos para hospedar este ejemplo dentro de un grupo de recursos existente que contiene recursos que desea mantener, puede eliminar cada recurso individualmente de sus hojas respectivas, en lugar de eliminar el grupo de recursos.
+> La eliminación de un grupo de recursos es irreversible. Cuando elimine un grupo de recursos, todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado los recursos para hospedar este ejemplo en un grupo de recursos existente que contiene recursos que quiere conservar, puede eliminar cada recurso individualmente en la parte izquierda, en lugar de eliminar el grupo de recursos.
 
 ### <a name="to-delete-a-resource-group"></a>Para eliminar un grupo de recursos
 

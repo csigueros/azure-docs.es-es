@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 7a26091d4985b6fdb17120c6fd70476a750c94a9
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: c7dea620058fa91945448e9966120db514eb286b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714122"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780908"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Conexión de datos de Microsoft Defender for Identity (antes Azure Advanced Threat Protection)
 
 > [!IMPORTANT]
 > El conector de datos Microsoft Defender for Identity se encuentra actualmente en versión preliminar pública.
 > Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 
 En este artículo se describe cómo transmitir alertas de seguridad desde [Microsoft Defender for Identity](/azure-advanced-threat-protection/what-is-atp) a Azure Sentinel. 
 
@@ -57,5 +60,5 @@ Si Microsoft Defender for Identity está implementado e ingiriendo sus datos, la
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar Microsoft Defender for Identity con Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).

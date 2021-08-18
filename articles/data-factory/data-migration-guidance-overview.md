@@ -4,15 +4,16 @@ description: Use Azure Data Factory para migrar datos del lago de datos y el alm
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
-ms.openlocfilehash: 4e7421cb8ea4b0c14e4f4b59a688cdb1afe7d462
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 41c2a1fd7bccb6a43a9b5f3a8ad979fca90e8749
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100367714"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738222"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Uso de Azure Data Factory para migrar datos del lago de datos y el almacenamiento de datos a Azure
 

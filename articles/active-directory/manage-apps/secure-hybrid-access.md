@@ -2,21 +2,22 @@
 title: Azure AD acceso híbrido seguro | Microsoft Docs
 description: En este artículo se describen las soluciones de asociados para integrar las aplicaciones locales, de nube pública o de nube privada heredadas con Azure AD. Proteja sus aplicaciones heredadas conectando controladores de entrega de aplicaciones o redes a Azure AD.
 services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 2/16/2021
-ms.author: gasinh
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3946dcd850a4a3d05f4d28882d08408e39b707
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.reviewer: miccohen
+ms.openlocfilehash: d7cafd5c3586feb99aeade5af7f858659baf6100
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964703"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744096"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Acceso híbrido seguro: Protección de aplicaciones heredadas con Azure Active Directory
 
@@ -77,7 +78,6 @@ Los siguientes proveedores de SDP ofrecen soluciones predefinidas e instruccione
 - [Datawiza Access Broker](./add-application-portal-setup-oidc-sso.md)
 
 - [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
-
 
 - [Silverfort Authentication Platform](./add-application-portal-setup-oidc-sso.md)
 

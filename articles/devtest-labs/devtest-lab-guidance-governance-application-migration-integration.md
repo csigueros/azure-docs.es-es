@@ -4,12 +4,12 @@ description: En este artículo se proporcionan instrucciones para la gobernanza 
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 8d86728eefc46c74b49ac610e2207ce5e7ae6a9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ad0eb500afad0309d9c5b34d3d8e83319192556
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87289350"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726738"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Gobernanza de la infraestructura de Azure DevTest Labs: migración e integración de aplicaciones
 Una vez establecido el entorno de laboratorio de desarrollo y pruebas, necesita pensar en las siguientes preguntas:
@@ -50,14 +50,14 @@ Sin embargo, otro factor que se debe tener en cuenta es la frecuencia de los cam
 ¿Cómo se configura un proceso repetible fácilmente para incorporar imágenes de la organización personalizadas en un entorno de DevTest Labs?
 
 ### <a name="answer"></a>Respuesta
-Vea [este vídeo sobre el patrón de una fábrica de imágenes](./devtest-lab-faq.md#blog-post). Este escenario es un escenario avanzado, y los scripts se proporcionan solo como ejemplo. Si se requieren cambios, deberá administrar y mantener los scripts usados en su entorno.
+Vea [este vídeo sobre el patrón de una fábrica de imágenes](/azure/devtest-labs/devtest-lab-faq#blog-post). Este escenario es un escenario avanzado, y los scripts se proporcionan solo como ejemplo. Si se requieren cambios, deberá administrar y mantener los scripts usados en su entorno.
 
 Uso de DevTest Labs para crear una canalización de la imagen personalizada en Azure Pipelines:
 
-- [Introduction: Get VMs ready in minutes by setting up an image factory in Azure DevTest Labs](./devtest-lab-faq.md#blog-post) (Introducción: Preparación de máquinas virtuales en cuestión de minutos con la configuración de una fábrica de imágenes en Azure DevTest Labs)
-- [Image Factory – Part 2! Setup Azure Pipelines and Factory Lab to Create VMs](./devtest-lab-faq.md#blog-post) (Fábrica de imágenes – Parte 2: Configuración de Azure Pipelines y del laboratorio de fábrica para crear máquinas virtuales)
-- [Image Factory – Part 3: Save Custom Images and Distribute to Multiple Labs](./devtest-lab-faq.md#blog-post) (Fábrica de imágenes – Parte 3: Personalización de imágenes y distribución a varios laboratorios)
-- [Vídeo: Custom Image Factory with Azure DevTest Labs](./devtest-lab-faq.md#blog-post) (Fábrica de imágenes personalizadas con Azure DevTest Labs)
+- [Introduction: Get VMs ready in minutes by setting up an image factory in Azure DevTest Labs](/azure/devtest-labs/devtest-lab-faq#blog-post) (Introducción: Preparación de máquinas virtuales en cuestión de minutos con la configuración de una fábrica de imágenes en Azure DevTest Labs)
+- [Image Factory – Part 2! Setup Azure Pipelines and Factory Lab to Create VMs](/azure/devtest-labs/devtest-lab-faq#blog-post) (Fábrica de imágenes – Parte 2: Configuración de Azure Pipelines y del laboratorio de fábrica para crear máquinas virtuales)
+- [Image Factory – Part 3: Save Custom Images and Distribute to Multiple Labs](/azure/devtest-labs/devtest-lab-faq#blog-post) (Fábrica de imágenes – Parte 3: Personalización de imágenes y distribución a varios laboratorios)
+- [Vídeo: Custom Image Factory with Azure DevTest Labs](/azure/devtest-labs/devtest-lab-faq#blog-post) (Fábrica de imágenes personalizadas con Azure DevTest Labs)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>Patrones para configurar la red
 

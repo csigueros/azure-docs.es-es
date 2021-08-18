@@ -3,12 +3,12 @@ title: 'Solución de problemas de conectividad: Azure Event Hubs | Microsoft Doc
 description: En este artículo se proporciona información sobre cómo solucionar problemas de conectividad con Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8eddc0e8c598e4553b30759d179fecb6ae880829
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48c96cf2e0a142c96e1413bb62730ef2e31aa7ca
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96012687"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416655"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Solución de problemas de conectividad: Azure Event Hubs
 Hay varias razones por las que las aplicaciones cliente no pueden conectarse a un centro de eventos. Los problemas de conectividad que experimenta pueden ser permanentes o transitorios. Si el problema sucede todo el tiempo (permanente), puede que desee comprobar la cadena de conexión, la configuración del firewall de la organización, la configuración del firewall de IP, la configuración de seguridad de la red (puntos de conexión de servicio, puntos de conexión privados, etc.), etc. En el caso de problemas transitorios, la actualización a la versión más reciente del SDK, la ejecución de comandos para comprobar los paquetes descartados y la obtención de seguimientos de red pueden ayudar a solucionar los problemas. 
@@ -26,7 +26,7 @@ Compruebe que la cadena de conexión que está usando es correcta. Consulte [Obt
 
 Para clientes de Kafka, compruebe que los archivos productor.config o consumer.config están configurados correctamente. Para más información, consulte [Envío y recepción de mensajes con Kafka en Event Hubs](event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs).
 
-[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
+[!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
 
 ### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Compruebe que se permite la etiqueta de servicio AzureEventGrid en los grupos de seguridad de red
 Si la aplicación se ejecuta dentro de una subred y hay un grupo de seguridad de red asociado, confirme si se permite la salida de Internet o la etiqueta de servicio AzureEventGrid. Vea [Etiquetas de servicio de red virtual](../virtual-network/service-tags-overview.md) y busque `EventHub`.

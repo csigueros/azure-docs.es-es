@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: e3e5333b339101676582cec03dbb960148d59b56
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 47f69c72fdd7b3890d22d56de3a530135cf6fcc3
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067561"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437637"
 ---
 # <a name="what-is-a-rule-set-for-azure-front-door-standardpremium-preview"></a>¿Qué es un conjunto de reglas de Azure Front Door Estándar/Premium (versión preliminar)?
 
@@ -70,7 +70,7 @@ Para más información sobre el límite de cuota, consulte [Límites, cuotas y r
 
 ## <a name="arm-template-support"></a>Compatibilidad con plantillas de ARM
 
-Los conjuntos de reglas se pueden configurar mediante plantillas de Azure Resource Manager. [Vea una plantilla de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). Puede personalizar el comportamiento si usa los fragmentos de código JSON o Bicep incluidos en los ejemplos de la documentación de [condiciones de coincidencia](concept-rule-set-match-conditions.md) y [acciones](concept-rule-set-actions.md).
+Los conjuntos de reglas se pueden configurar mediante plantillas de Azure Resource Manager. [Vea una plantilla de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-rule-set). Puede personalizar el comportamiento si usa los fragmentos de código JSON o Bicep incluidos en los ejemplos de la documentación de [condiciones de coincidencia](concept-rule-set-match-conditions.md) y [acciones](concept-rule-set-actions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

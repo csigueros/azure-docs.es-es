@@ -2,13 +2,13 @@
 title: Configuración del firewall de IP para el espacio de nombres de Azure Relay
 description: En este artículo se describe el uso de las reglas de firewall para permitir las conexiones desde direcciones IP específicas a espacios de nombres de Azure Relay.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: ad8feed5df49dcc4503226a5fae50195bb9d48aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: fe5e1eac2f5ba90b2a1bcc461668d673ffc22965
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91999512"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667746"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configuración del firewall de IP para un espacio de nombres de Azure Relay
 De forma predeterminada, se puede acceder en Internet a los espacios de nombres de Relay, siempre que la solicitud tenga una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: dc0cf718ee51e23fb749bdf57d5344977de009d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b79ed39464d7f10c1c2ad50f22941d50d42b802b
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021867"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113085243"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implementación de StorSimple Virtual Array para el programa de proveedores de soluciones en la nube
 
@@ -103,5 +103,5 @@ En algunos casos, es posible que tenga un cliente existente y que necesite agreg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si tiene más preguntas sobre StorSimple en CSP, vaya a [StorSimple in CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple en CSP: preguntas más frecuentes).
+- Si tiene más preguntas sobre StorSimple en CSP, vaya a [StorSimple in CSP: Frequently asked questions](storsimple-partner-csp-faq.yml) (StorSimple en CSP: preguntas más frecuentes).
 - Si está listo para implementar StorSimple, vaya a [Deploy StorSimple Virtual Array for Cloud Solution Provider Program](storsimple-partner-csp-deploy.md) (Implementación de StorSimple Virtual Array para el programa Proveedor de soluciones en la nube).

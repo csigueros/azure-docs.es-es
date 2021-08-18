@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: ca403a5fdbdaaa8b2922647d832a23e120840c6b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e69520f53cea9c6cd6eb662f4cc1acce2cab00f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142484"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752264"
 ---
 # <a name="monitor-your-sql-deployments-with-sql-insights-preview"></a>Supervisión de las implementaciones de SQL mediante SQL Insights (versión preliminar)
 SQL Insights es una solución completa para realizar la supervisión de cualquier producto de la [familia de Azure SQL](../../azure-sql/index.yml). SQL Insights usa las [vistas de administración dinámica](../../azure-sql/database/monitoring-with-dmvs.md) para exponer los datos que necesita para supervisar el estado, diagnosticar problemas y optimizar el rendimiento.  
@@ -22,7 +22,7 @@ No hay ningún costo directo para SQL Insights. Todos los costos se producen deb
 
 **Máquinas virtuales**
 
-En el caso de las máquinas virtuales, se le cobrará en función del precio publicado en la [Página de precios de máquinas virtuales](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/). El número de máquinas virtuales necesarias variará en función del número de cadenas de conexión que quiera supervisar. Se recomienda asignar una máquina virtual de tamaño Standard_B2s por cada 100 cadenas de conexión. Consulte los [requisitos de la máquina virtual de Azure](sql-insights-enable.md#azure-virtual-machine-requirements) para obtener más detalles.
+En el caso de las máquinas virtuales, se le cobrará en función del precio publicado en la [Página de precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). El número de máquinas virtuales necesarias variará en función del número de cadenas de conexión que quiera supervisar. Se recomienda asignar una máquina virtual de tamaño Standard_B2s por cada 100 cadenas de conexión. Consulte los [requisitos de la máquina virtual de Azure](sql-insights-enable.md#azure-virtual-machine-requirements) para obtener más detalles.
 
 **Áreas de trabajo de Log Analytics**
 
@@ -123,4 +123,4 @@ Las tablas siguientes tienen las siguientes columnas:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [Habilitación de SQL Insights](sql-insights-enable.md) para obtener instrucciones sobre cómo habilitar SQL Insights.
-- Consulte [Preguntas más frecuentes](../faq.md#sql-insights-preview) para ver las preguntas más frecuentes sobre SQL Insights.
+- Consulte [Preguntas más frecuentes](/azure/azure-monitor/faq#sql-insights-preview) para ver las preguntas más frecuentes sobre SQL Insights.

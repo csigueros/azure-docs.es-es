@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 6008ca1549629bcbb582f38de2ab1b453cd73a99
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 11f5e699651270b4dec898400cb0d2e756fdee1e
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94843764"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112516543"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Desarrollo para la plataforma Android Things con SDK de Azure IoT
 
@@ -103,4 +103,3 @@ az iot hub monitor-events --device-id MyAndroidThingsDevice --hub-name YourIoTHu
 
 * Información acerca de la [administración de la conectividad y la mensajería confiable](iot-hub-reliability-features-in-sdks.md) mediante los SDK de IoT Hub.
 * Aprenda cómo [desarrollar para plataformas móviles](iot-hub-how-to-develop-for-mobile-devices.md) como iOS y Android.
-* [Compatibilidad con plataformas de SDK de Azure IoT](iot-hub-device-sdk-platform-support.md)

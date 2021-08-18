@@ -7,16 +7,16 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3f933393b331d24e5de05a00d1abdc7302282308
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 571f338345a8fe87c47609e9d50cef7b9e0f5711
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684152"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071653"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualización y análisis de los datos de Azure IoT Central en un panel de Power BI
 
-> [!Note] 
+> [!Important]
 > Esta solución utiliza [características de exportación de datos heredados](./howto-export-data-legacy.md). Manténgase atento a las instrucciones actualizadas sobre cómo conectarse a Power BI con la exportación de datos más reciente.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Canalización de las soluciones de Power BI":::
@@ -85,4 +85,4 @@ La [solución de Power BI para Azure IoT Central V3](https://appsource.microsoft
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a usar visualizar los datos en Power BI, el siguiente paso que se recomienda es aprender a [administrar los dispositivos](howto-manage-devices.md).
+Ahora que ha aprendido a usar visualizar los datos en Power BI, el siguiente paso que se recomienda es aprender a [administrar los dispositivos](howto-manage-devices-individually.md).

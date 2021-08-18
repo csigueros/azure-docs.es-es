@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/7/2021
-ms.openlocfilehash: 07b7715935756293467f2a3004109df9bf679661
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.date: 7/7/2021
+ms.openlocfilehash: d3f8bab950af095a457347b825966a0845ef36f6
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030017"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113506788"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Salida de Power BI desde Azure Stream Analytics
 
@@ -80,5 +80,5 @@ Para obtener más información sobre el tamaño del lote de salida, consulte los
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI (versión preliminar)](powerbi-output-managed-identity.md)
+* [Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI](powerbi-output-managed-identity.md)
 * [Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal](stream-analytics-quick-create-portal.md)

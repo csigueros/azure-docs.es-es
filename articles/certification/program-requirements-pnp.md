@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: IoT Plug and Play Certification Requirements
 ms.service: certification
-ms.openlocfilehash: bec37c72d8db3e0891cb2cd375084465950ea5f5
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 54ef14a3851d656d81d9b0ec194f6b8127eba5b3
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541946"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114402764"
 ---
 # <a name="iot-plug-and-play-certification-requirements"></a>Requisitos de certificación de IoT Plug and Play
 
@@ -25,7 +25,7 @@ La versión preliminar de IoT Plug and Play permite a los creadores de solucione
 El compromiso de la certificación de IoT Plug and Play es:
 
 1.  Las interfaces y los modelos de dispositivos definidos son compatibles con el [lenguaje de definición de gemelos digitales](https://github.com/Azure/opendigitaltwins-dtdl)  
-1.  Fácil integración con las soluciones basadas en Azure IoT mediante las [API gemelas digitales](../iot-pnp/concepts-digital-twin.md): Azure IoT Hub y Azure IoT Central
+1.  Fácil integración con las soluciones basadas en Azure IoT mediante las [API gemelas digitales](../iot-develop/concepts-digital-twin.md): Azure IoT Hub y Azure IoT Central
 1.  Veracidad del producto validada en dispositivos certificados
 1.  Cumple todos los requisitos [de Azure Certified Device](./program-requirements-azure-certified-device.md)
 
@@ -52,7 +52,7 @@ El compromiso de la certificación de IoT Plug and Play es:
 | **SISTEMA OPERATIVO**                  | Independiente                                                     |
 | **Tipo de validación**     | Automatizado                                                    |
 | **Validación**          | El [flujo de trabajo del portal](https://certify.azure.com) se valida: **1.** Anuncio del identificador de modelo y asegúrese de que el dispositivo está conectado mediante MQTT o MQTT a través del protocolo de WebSockets **2.** Los modelos son compatibles con DTDL v2 **3.** La telemetría, las propiedades y los comandos se implementan correctamente e interactúan entre el gemelo digital de IoT Hub y el dispositivo gemela en el dispositivo |
-| **Recursos**           | [Actualizaciones de versión preliminar pública](../iot-pnp/overview-iot-plug-and-play.md) |
+| **Recursos**           | [Actualizaciones de versión preliminar pública](../iot-develop/overview-iot-plug-and-play.md) |
 
 **[Obligatorio] Los modelos de dispositivos se publican en el repositorio de modelos público**
 
@@ -63,7 +63,7 @@ El compromiso de la certificación de IoT Plug and Play es:
 | **SISTEMA OPERATIVO**                  | Independiente                                                     |
 | **Tipo de validación**     | Automatizado                                                    |
 | **Validación**          | Todos los modelos de dispositivo deben publicarse en el repositorio público. Los modelos de dispositivo se resuelven a través de los modelos disponibles en el repositorio público **1.** El usuario debe publicar manualmente los modelos en el repositorio público antes de enviar para la certificación. **2.** Tenga en cuenta que una vez que se publican los modelos, es inmutable. Se recomienda encarecidamente publicar solamente cuando se finalizan los modelos y el código de dispositivo incorporado.*1  *1 El usuario debe ponerse en contacto con el soporte técnico de Microsoft para revocar los modelos una vez publicados en el repositorio de modelos **3.** El [flujo de trabajo del portal](https://certify.azure.com) comprueba la existencia de los modelos en el repositorio público cuando el dispositivo está conectado al servicio de certificación |
-| **Recursos**           | [Repositorio de modelos](../iot-pnp/overview-iot-plug-and-play.md) |
+| **Recursos**           | [Repositorio de modelos](../iot-develop/overview-iot-plug-and-play.md) |
 
 **[Obligatorio] Validación del dispositivo físico mediante GSG**
 
@@ -86,7 +86,7 @@ El compromiso de la certificación de IoT Plug and Play es:
 | **SISTEMA OPERATIVO**                  | Independiente                                                     |
 | **Tipo de validación**     | Automatizado                                                    |
 | **Validación**          | El [flujo de trabajo del portal](https://certify.azure.com) valida el código del dispositivo que implementa la interfaz de información del dispositivo **1.** Comprueba que el código del dispositivo emite los valores para IoT Hub **2.** Comprueba que la interfaz está implementada en DCM (esta implementación cambiará en DTDL v2) **3.** Comprueba que las propiedades no pueden escribirse (solo lectura) **4.** Comprueba que el tipo de esquema es String y/o Long, no null |
-| **Recursos**           | [Interfaz definidas por Microsoft](../iot-pnp/overview-iot-plug-and-play.md) |
+| **Recursos**           | [Interfaz definidas por Microsoft](../iot-develop/overview-iot-plug-and-play.md) |
 | **Recomendado para Azure**  | N/D                                                          |
 
 **[Si se implementa] De la nube al dispositivo: el propósito de la prueba es asegurarse de que los mensajes se pueden enviar desde la nube a los dispositivos.**

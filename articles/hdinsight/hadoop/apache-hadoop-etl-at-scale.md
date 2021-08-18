@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e1621acb66e62b03418b59f184ba4e7fa031a164
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0dc5960b3aa24b220f23f5bd56650c48ca4ccde9
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472116"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370516"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 
@@ -129,7 +129,7 @@ Sqoop usa MapReduce para importar y exportar los datos y para proporcionar toler
 
 Apache Flume es un servicio distribuido, confiable y disponible para recopilar, agregar y mover grandes cantidades de datos de registro de forma eficaz. Su arquitectura flexible se basa en los flujos de datos de streaming. Flume es sólido y tolerante a errores con mecanismos de confiabilidad ajustables. Tiene numerosos mecanismos de conmutación por error y recuperación. Flume utiliza un modelo de datos extensible simple que permite la aplicación de análisis en línea.
 
-No se puede usar Flume Apache con Azure HDInsight. Sin embargo, en una instalación de Hadoop local, se puede usar Flume para enviar datos a Azure Blob Storage o Azure Data Lake Storage. Para obtener más información, consulte [Using Apache Flume with HDInsight (Uso de Apache Flume con HDInsight)](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+No se puede usar Flume Apache con Azure HDInsight. Sin embargo, en una instalación de Hadoop local, se puede usar Flume para enviar datos a Azure Blob Storage o Azure Data Lake Storage. Para obtener más información, consulte [Using Apache Flume with HDInsight (Uso de Apache Flume con HDInsight)](/archive/blogs/bigdatasupport/using-apache-flume-with-hdinsight).
 
 ## <a name="transform"></a>Transformación
 

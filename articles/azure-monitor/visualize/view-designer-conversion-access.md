@@ -5,12 +5,12 @@ author: shijatsu
 ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 89b812fff9856fda2bd1da896261481eddfdc566
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d79e36c77505635cb37573712a028b98b66af1ff
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316684"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472338"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Acceso y resumen de conversión del diseñador de vistas en libros
 El [diseñador de vistas](view-designer.md) es una característica de Azure Monitor que permite crear vistas personalizadas para ayudar a visualizar datos en el área de trabajo de Log Analytics, con gráficos, listas y escalas de tiempo. Estas vistas se están retirando paulatinamente y están siendo reemplazadas por libros, que proporcionan funcionalidad adicional. En este artículo se describe cómo puede crear un resumen de información general y los permisos necesarios para acceder a los libros.
@@ -33,10 +33,7 @@ Es posible que también desee anclar varias visualizaciones del libro o el conte
 
 ![Anclar todos](media/view-designer-conversion-access/pin-all.png)
 
-
-
 ## <a name="sharing-and-viewing-permissions"></a>Compartición y visualización de permisos 
-Los libros tienen la ventaja de que pueden ser un documento privado o compartido. De forma predeterminada, los libros guardados se guardarán en **Mis informes**, lo que significa que solo el creador puede ver este libro.
 
 Puede compartir los libros seleccionando el icono **Compartir** de la barra de herramientas superior, mientras se encuentra en **Modo de edición**. Se le pedirá que mueva el libro a **Informes compartidos**, lo que generará un vínculo que proporciona acceso directo al libro.
 

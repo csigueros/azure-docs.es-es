@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: dech
 ms.custom: references_regions
-ms.openlocfilehash: 02e8ad5f2b5326f947ba0bca6456ce9d9d3c27d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1309ac31c8669ad678b96a4d99d32daf8f89815
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101692783"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234265"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitación de cuadernos para las cuentas de Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,7 +38,7 @@ A partir del 10 de febrero de 2021, las nuevas cuentas de Azure Cosmos creada
 
 1. Seleccione **Ir al recurso** para ir a la página de la cuenta de Azure Cosmos DB.
 
-   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Página de la cuenta de Azure Cosmos DB":::
+   :::image type="content" source="includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Página de la cuenta de Azure Cosmos DB":::
 
 1. Vaya al panel **Explorador de datos**. Ahora debería ver el área de trabajo de Notebooks.
 

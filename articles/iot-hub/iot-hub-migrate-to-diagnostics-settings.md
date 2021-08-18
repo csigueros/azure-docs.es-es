@@ -2,18 +2,17 @@
 title: Migración de la supervisión de operaciones de Azure IoT Hub a los registros de recursos de IoT Hub en Azure Monitor | Microsoft Docs
 description: Se describe cómo actualizar Azure IoT Hub para usar Azure Monitor en lugar de la supervisión de operaciones para controlar el estado de las operaciones de IoT Hub en tiempo real.
 author: kgremban
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 48b646881b12047b28490999a96326f6076af2c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c41b3298e265fb3dab41a6fc1af51e3ff0829489
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591851"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733822"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Migración de la supervisión de operaciones de IoT Hub a los registros de recursos de Azure Monitor
 

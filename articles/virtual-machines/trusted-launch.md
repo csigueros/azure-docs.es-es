@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 2483a207344894489992f38d08b37126d7eded22
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 0bdc063c5820ed9ab52cf9962638cbcb56146c0d
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652244"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113508300"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Inicio seguro para máquinas virtuales de Azure (versión preliminar)
 
@@ -63,10 +63,16 @@ Azure ofrece el inicio seguro como una manera continua de mejorar la seguridad d
 
 **Regiones**: 
 - Centro de EE. UU.
+- Este de EE. UU.
 - Este de EE. UU. 2
+- Centro-Norte de EE. UU
 - Centro-sur de EE. UU.
+- Oeste de EE. UU.
+- Oeste de EE. UU. 2
 - Norte de Europa
 - Oeste de Europa
+- Japón Oriental
+- Sudeste de Asia
 
 **Precios**: no hay coste adicional en los precios de las máquinas virtuales existentes.
 

@@ -10,12 +10,12 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: df2e47b75b4dd01274a2ec2c4f5b5acaac164ca0
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: cef99e06eaafda41022d4c8937a4a624267b1e1d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536281"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112454427"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Solución de problemas de una implementación de modelo remota 
 
@@ -31,7 +31,7 @@ Aprenda a solucionar errores comunes, o a proporcionar soluciones alternativas, 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una **suscripción de Azure**. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Una **suscripción de Azure**. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 * El [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install).
 * La[CLI de Azure](/cli/azure/install-azure-cli).
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -211,7 +211,7 @@ Puede aumentar el tiempo de espera o intentar acelerar el servicio modificando e
 
 Realice estas acciones para los siguientes errores:
 
-|Error  | Solución  |
+|Error  | Resolución  |
 |---------|---------|
 |Error de creación de imágenes al implementar el servicio web     |  Agregar "pynacl==1.2.1" como una dependencia pip al archivo de Conda para la configuración de la imagen.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Cambie la SKU de las máquinas virtuales usadas en la implementación por otra que tenga más memoria. |

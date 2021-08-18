@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/16/2021
 ms.author: apimpm
-ms.openlocfilehash: 8e8047fc6865bab8f4aac2315b269bf7526b1e42
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: cf4ff32af5b0960d22496512e8d624df0f4cf5e5
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599385"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669253"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importación de una instancia de Azure Function App como API en Azure API Management
 
@@ -125,7 +125,7 @@ La importación de una instancia de Azure Function App genera automáticamente:
 * una clave de host en la aplicación de función con el nombre apim-{*nombre de instancia del servicio Azure API Management*}.
 * un valor con nombre dentro de la instancia de Azure API Management con el nombre {*nombre de la instancia de Azure Function App*}-key, que contiene la clave de host creada.
 
-En el caso de las API creadas después del 4 de abril de 2019, la clave de host se pasa en las solicitudes HTTP desde API Management a la aplicación de función en un encabezado. Las API más antiguas pasan la clave de host como [un parámetro de consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Se puede cambiar este comportamiento mediante la `PATCH Backend` [llamada API REST](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) en la entidad de *back-end* asociada con la aplicación de funciones.
+En el caso de las API creadas después del 4 de abril de 2019, la clave de host se pasa en las solicitudes HTTP desde API Management a la aplicación de función en un encabezado. Las API más antiguas pasan la clave de host como [un parámetro de consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Se puede cambiar este comportamiento mediante la `PATCH Backend` [llamada API REST](/rest/api/apimanagement/2020-12-01/backend/update#backendcredentialscontract) en la entidad de *back-end* asociada con la aplicación de funciones.
 
 > [!WARNING]
 > Si se quita o se cambia el valor de la clave de host de Azure Function App o el valor con nombre de Azure API Management, se interrumpirá la comunicación entre los servicios. Los valores no se sincronizan automáticamente.

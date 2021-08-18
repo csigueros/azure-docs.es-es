@@ -1,19 +1,20 @@
 ---
 title: Creación de una cuenta de Azure Video Analyzer for Media (anteriormente, Video Indexer) conectada a Azure
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Obtenga información sobre cómo crear una cuenta de Azure Video Analyzer for Media (anteriormente, Video Indexer) conectada a Azure.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 28f8bb6a610e13aa0e7cf76adf52f13972215365
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7bc5188c5987d393d63049a0a87a84605e4fa372
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388620"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121597"
 ---
 # <a name="create-a-video-analyzer-for-media-account"></a>Creación de una cuenta de Video Analyzer for Media
 
@@ -241,6 +242,10 @@ Si quiere eliminar una cuenta de Video Analyzer for Media, puede hacerlo desde e
 Seleccione la cuenta de -> **Settings** -> **Delete this account** (Configuración > Eliminar esta cuenta). 
 
 La cuenta se eliminará de manera permanente en 90 días.
+
+## <a name="firewall"></a>Firewall
+
+Consulte [Cuenta de almacenamiento que está detrás de un firewall](faq.md#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,15 +4,16 @@ description: Este script de PowerShell le muestra cómo usar Azure Data Factory 
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: article
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 10/31/2017
-ms.openlocfilehash: c1148af0228adea9d0742376bf2afec0f03afecd
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 948498cad9317b7b1a68aef9fb621f4d638f85e0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665594"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738128"
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Script de PowerShell: copia masiva de varias tablas mediante Azure Data Factory
 

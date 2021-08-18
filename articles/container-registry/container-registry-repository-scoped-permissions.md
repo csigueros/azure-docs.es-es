@@ -3,12 +3,12 @@ title: Permisos a repositorios en Azure Container Registry
 description: Cree un token con permisos orientados a repositorios específicos de un registro Premium para extraer o insertar imágenes, o realizar otras acciones.
 ms.topic: article
 ms.date: 02/04/2021
-ms.openlocfilehash: 8cdcd3e09603f24c37ad7323a273ca97f76fcd0c
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 796d98173a5ec850af2f8dbec3e8bfd1db902ca0
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930504"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220440"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Creación de un token con permisos orientados al repositorio
 
@@ -28,7 +28,7 @@ Esta característica está disponible en el nivel de servicio de un registro de 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
 * Actualmente no se pueden asignar permisos orientados al repositorio a una identidad de Azure Active Directory, como una entidad de servicio o una identidad administrada.
-* No se puede crear una asignación de ámbito en un registro habilitado para el [acceso de extracción anónimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access).
+* No se puede crear una asignación de ámbito en un registro habilitado para el [acceso de extracción anónimo](container-registry-faq.yml#how-do-i-enable-anonymous-pull-access-).
 
 ## <a name="concepts"></a>Conceptos
 
