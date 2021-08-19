@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/30/2021
 ms.author: thwimmer
-ms.openlocfilehash: fb80ddaecb7b200a52b944febc40bf26e9fb6de9
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 504b0c40a2cf0b4daf8af95c6564168dd2867bd5
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765072"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322807"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>Tutorial: Configuración de Adobe Identity Management para el aprovisionamiento automático de usuarios
 

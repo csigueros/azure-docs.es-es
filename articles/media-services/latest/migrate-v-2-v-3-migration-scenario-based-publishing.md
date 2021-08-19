@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 0a0052fa3d78a3b77094cfccbd4c011321ac5925
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: d8cba5c69802828a0bd486d902d85199f3ae1d00
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279024"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322156"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Guía de migración basada en escenarios de empaquetado y entrega
 
@@ -26,14 +26,14 @@ ms.locfileid: "106279024"
 
 En este artículo se proporcionan instrucciones basadas en escenarios de empaquetado y entrega que le ayudarán a migrar de Azure Media Services v2 a v3.
 
-Cambios importantes en la forma en que se publica el contenido en la API v3. El nuevo modelo de publicación está simplificado y usa menos entidades para crear un localizador de streaming. La API se redujo a solo dos entidades frente a las cuatro entidades necesarias anteriormente. Las directivas de clave de contenido y los localizadores de streaming ahora reemplazarán la necesidad de los elementos `ContentKeyAuthoriationPolicy`, `AssetDeliveyPolicy`, `ContentKey` y `AccessPolicy`.
+Cambios importantes en la forma en que se publica el contenido en la API v3. El nuevo modelo de publicación está simplificado y usa menos entidades para crear un localizador de streaming. La API se redujo a solo dos entidades frente a las cuatro entidades necesarias anteriormente. Las directivas de clave de contenido y los localizadores de streaming ahora reemplazarán la necesidad de los elementos `ContentKeyAuthorizationPolicy`, `AssetDeliveryPolicy`, `ContentKey` y `AccessPolicy`.
 
 ## <a name="packaging-and-delivery-in-v3"></a>Empaquetado y entrega en v3
 
 1. Cree [directivas de clave de contenido](drm-content-key-policy-concept.md).
 1. Cree [localizadores de streaming](stream-streaming-locators-concept.md).
 1. Obtenga las [rutas de acceso de streaming](create-streaming-locator-build-url.md). 
-    1. Configúrelas para un reproductor [DASH](encode-dynamic-packaging-concept.md#mpeg-dash-protocol) o [HLS](encode-dynamic-packaging-concept.md#hls-protocol).
+    1. Configúrelas para un reproductor [DASH](encode-dynamic-packaging-concept.md#deliver-dash) o [HLS](encode-dynamic-packaging-concept.md#deliver-hls).
 
 Consulte los conceptos, tutoriales y guías de procedimientos de publicación a continuación para conocer los pasos específicos.
 
