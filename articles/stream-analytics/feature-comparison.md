@@ -6,12 +6,12 @@ ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 037bd8bc823cd8c77241d0ca25174e29d25149b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cb51198fec12590b497f94b23fce8b32b67bb8c
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020543"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396816"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparación de características de Azure Stream Analytics
 
@@ -37,13 +37,13 @@ Con Azure Stream Analytics, puede crear soluciones de streaming en la nube y en 
 |Enumerar los trabajos y ver las entidades job     |Sí         |Sí        |Sí         |
 |Exportar un trabajo a un proyecto local     |No         |Sí         |Sí         |
 |Enviar, iniciar y detener trabajos     |Sí         |Sí         |Sí         |
-|Ver métricas y diagramas de trabajos     |Sí         |Sí         |Abrir en el portal         |
-|Ver errores en tiempo de ejecución de trabajos     |Sí         |Sí         |No         |
-|Registros del recurso     |Sí         |No         |No         |
-|Propiedades de mensajes personalizados     |Sí         |Sí         |No       |
-|Deserializador y función de código personalizada de C#|Modo de solo lectura|Sí|No|
+|Ver métricas y diagramas de trabajos     |Sí         |Sí         |Sí         |
+|Ver errores en tiempo de ejecución de trabajos     |Sí         |Sí         |Sí         |
+|Registros del recurso     |Sí         |No         |Sí         |
+|Propiedades de mensajes personalizados     |Sí         |Sí         |Sí       |
+|Deserializador y función de código personalizada de C#|Modo de solo lectura|Sí|Sí|
 |UDF y UDA de JavaScript     |Sí         |Sí         |Solo Windows         |
-|Machine Learning Service     |Sí        |Sí         |No         |
+|Machine Learning Service     |Sí        |Sí         |Sí         |
 |Azure Machine Learning Studio (clásico)|Sí, pero la consulta no se puede probar        |Sí |No         |
 |Nivel de compatibilidad     |1.0</br>1.1</br>1.2 (valor predeterminado)         |1.0</br>1.1</br>1.2 (valor predeterminado)           |1.0</br>1.1</br>1.2 (valor predeterminado)           |
 |Funciones integradas de detección de anomalías basadas en ML     |Sí         |Sí         |Sí         |

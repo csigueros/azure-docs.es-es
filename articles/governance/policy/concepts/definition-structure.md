@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: fdf3b12c3449fc9b2219442d65bae9a0ccdefdfb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b09d11e6f1c5ea8f4882021530dc4d06d2d2f350
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730077"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324881"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -807,7 +807,7 @@ Las siguientes funciones solo están disponibles en las reglas de directiva:
   - `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 
 - `requestContext().apiVersion`
-  - Devuelve la versión de la API de la solicitud que desencadenó la evaluación de la directiva (por ejemplo: `2019-09-01`).
+  - Devuelve la versión de la API de la solicitud que desencadenó la evaluación de la directiva (por ejemplo: `2021-09-01`).
     Este valor es la versión de API que se usó en la solicitud PUT/PATCH para las evaluaciones de la creación o actualización de recursos. La versión más reciente de la API siempre se usa durante la evaluación del cumplimiento de los recursos existentes.
 
 - `policy()`
