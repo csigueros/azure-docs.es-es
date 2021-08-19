@@ -1,15 +1,15 @@
 ---
 title: Guía para solicitudes limitadas
 description: Aprenda a agrupar, escalonar, paginar y consultar en paralelo las solicitudes para evitar que Azure Resource Graph las limite.
-ms.date: 04/09/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 87d94da5ae247f80d1d7eb26e7aea3d9f582b370
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 745f90fd82c4ee0bd233f6b074c7c3a637820609
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751974"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324984"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Guía de solicitudes limitadas en Azure Resource Graph
 

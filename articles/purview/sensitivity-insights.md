@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
-ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3b828aab13a822c307119dca64dac81c9201d5b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676570"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397804"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Conclusiones de la etiqueta de confidencialidad sobre los datos de Azure Purview
 
@@ -42,7 +42,7 @@ Antes de empezar con las conclusiones de Purview, asegúrese de que ha completad
 
 - Configurar y completar un examen de los datos de prueba en cada origen de datos. Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
 
-- Iniciar sesión en Purview con una cuenta con un [rol de lector o conservador de datos](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+- Iniciar sesión en Purview con una cuenta con un [rol de lector o conservador de datos](catalog-permissions.md#roles).
 
 Para obtener más información, consulte [Administrar orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md) y [Etiquetar automáticamente los datos en Azure Purview](create-sensitivity-label.md).
 

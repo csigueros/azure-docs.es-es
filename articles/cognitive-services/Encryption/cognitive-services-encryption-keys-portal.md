@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: egeaney
-ms.openlocfilehash: c45f7dd7daad911deff3c920222ec18118437692
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: 4ffafa5618de85a0d47a5cf8317aae6d6b5d6987
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220388"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323872"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Configuración de claves administradas por el cliente con Azure Key Vault para Cognitive Services
 
@@ -23,7 +23,7 @@ El proceso para habilitar las claves administradas por el cliente con Azure Key�
 
 * [Cifrado de datos en reposo de Custom Vision](../custom-vision-service/encrypt-data-at-rest.md)
 * [Cifrado de datos en reposo de los servicios Face](../face/encrypt-data-at-rest.md)
-* [Cifrado de datos en reposo de Form Recognizer](../form-recognizer/encrypt-data-at-rest.md)
+* [Cifrado de datos en reposo de Form Recognizer](../../applied-ai-services/form-recognizer/encrypt-data-at-rest.md)
 
 ## <a name="language"></a>Idioma
 

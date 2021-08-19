@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
-ms.openlocfilehash: 5cbfb41d50e055f745864e4d5f8bc15a55d925e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f581594e6830efcf849f4ba51b218ce849bf3f9c
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668576"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396957"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Conclusiones de extensión de archivo sobre los datos en Azure Purview 
 
@@ -34,7 +34,7 @@ Antes de empezar con las conclusiones de Purview, asegúrese de que ha completad
 
 - Configurar y completar un examen de los datos de prueba en cada origen de datos. Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
 
-- Ha iniciado sesión en Purview con una cuenta con el [rol de lector o conservador de datos](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+- Ha iniciado sesión en Purview con una cuenta con el [rol de lector o conservador de datos](catalog-permissions.md#roles).
 
 
 Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md).
