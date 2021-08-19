@@ -1,14 +1,14 @@
 ---
 title: 'Procedimiento para proteger la jerarquía de recursos: Gobernanza en Azure'
 description: Obtenga información sobre cómo proteger la jerarquía de recursos con configuraciones de jerarquía que incluyen la configuración del grupo de administración predeterminado.
-ms.date: 04/09/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: c87603510d036efded1331a5c08a7aae17326d09
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4315160030657b5aca0b293677ec0ec44d19adab
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108765168"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323154"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Procedimiento para proteger la jerarquía de recursos
 
@@ -55,7 +55,7 @@ Para configurar este valor con la API REST, se llama al punto de conexión de la
 - URI DE LA API REST
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{rootMgID}/settings/default?api-version=2020-02-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{rootMgID}/settings/default?api-version=2020-05-01
   ```
 
 - Cuerpo de la solicitud
@@ -96,7 +96,7 @@ Para configurar este valor con la API REST, se llama al punto de conexión de la
 - URI DE LA API REST
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{rootMgID}/settings/default?api-version=2020-02-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{rootMgID}/settings/default?api-version=2020-05-01
   ```
 
 - Cuerpo de la solicitud
@@ -128,7 +128,7 @@ $body = '{
 
 $token = (Get-AzAccessToken).Token
 $headers = @{"Authorization"= "Bearer $token"; "Content-Type"= "application/json"}
-$uri = "https://management.azure.com/providers/Microsoft.Management/managementGroups/$root_management_group_id/settings/default?api-version=2020-02-01"
+$uri = "https://management.azure.com/providers/Microsoft.Management/managementGroups/$root_management_group_id/settings/default?api-version=2020-05-01"
 
 Invoke-RestMethod -Method PUT -Uri $uri -Headers $headers -Body $body
 ```

@@ -1,14 +1,14 @@
 ---
 title: Solución de errores comunes
 description: Obtenga información acerca de cómo solucionar problemas al crear, asignar y eliminar planos técnicos, como infracciones de directivas y funciones de parámetros del plano técnico.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: ca86b81f846465c996d05f08d3a721829f8e496f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 732fe511fb63ca32cd23c1630195c83d26564371
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733902"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322934"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solución de problemas de errores con instancias de Azure Blueprint
 
@@ -43,7 +43,7 @@ Una directiva puede entrar en conflicto con la implementación por los motivos s
 - El recurso que se crea está restringido por la directiva (normalmente restricciones de SKU o ubicación)
 - La implementación establece campos que están configurados por la directiva (normalmente con etiquetas)
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Cambie el plano técnico para que no entre en conflicto con las directivas en los detalles del error. Si este cambio no es posible, una opción alternativa es hacer que el ámbito de la asignación de directivas cambie para que el plano técnico deje de estar en conflicto con la directiva.
 
@@ -57,7 +57,7 @@ Los parámetros de plano técnico que son funciones se procesan antes de que se 
 
 Pasar un parámetro de plano técnico que usa una función, como `[resourceGroup().tags.myTag]`, a un artefacto genera el resultado procesado de la función que se va a establecer en el artefacto, en lugar de la función dinámica.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Para pasar una función como parámetro, escape la cadena completa con `[`, de modo que el parámetro de plano técnico sea similar a `[[resourceGroup().tags.myTag]`. El carácter de escape hace que los planos técnicos traten el valor como una cadena al procesar el plano técnico. El servicio de planos técnicos luego coloca la función en el artefacto para que pueda ser dinámico, según lo previsto. Para obtener más información, consulte [Sintaxis y expresiones de las plantillas de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 

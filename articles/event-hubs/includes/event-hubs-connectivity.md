@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/21/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 051dc952381800667fc3b36cdcf32f2aa2f6844c
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 97c3013586e9671d7d9cce55c5e6253cb8a368f4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416649"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733879"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>¿Qué puertos es necesario abrir en el firewall? 
 Puede usar los siguientes protocolos con Azure Event Hubs para enviar y recibir eventos:
@@ -75,7 +75,7 @@ Si usa la **redundancia de zona** para el espacio de nombres, deberá realizar a
 ### <a name="what-client-ips-are-sending-events-to-or-receiving-events-from-my-namespace"></a>¿Qué direcciones IP de cliente envían o reciben eventos desde mi espacio de nombres?
 En primer lugar, habilite el [filtrado de IP](../event-hubs-ip-filtering.md) en el espacio de nombres. 
 
-A continuación, habilite los registros de diagnóstico para [eventos de conexión de red virtual de Event Hubs](../event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) siguiendo las instrucciones indicadas en [Habilitar registros de diagnóstico](../event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Verá la dirección IP para la que se deniega la conexión.
+A continuación, habilite los registros de diagnóstico para [eventos de conexión de red virtual de Event Hubs](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema) siguiendo las instrucciones indicadas en [Habilitar registros de diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md). Verá la dirección IP para la que se deniega la conexión.
 
 ```json
 {
