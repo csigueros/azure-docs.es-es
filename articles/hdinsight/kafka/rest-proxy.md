@@ -3,14 +3,14 @@ title: 'Proxy de REST de Apache Kafka: Azure HDInsight'
 description: Obtenga información sobre cómo realizar operaciones de Apache Kafka mediante un servidor proxy REST de Kafka en Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-python
+ms.custom: devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: bc3cbe5d0d7cf5e5a78112ae5df63ebb88a97f5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 634526e8a136023368a06887af648ca3925151a0
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864846"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122396937"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interacción con clústeres de Apache Kafka en Azure HDInsight mediante un proxy de REST
 
