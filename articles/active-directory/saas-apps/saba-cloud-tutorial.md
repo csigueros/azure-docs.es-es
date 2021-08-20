@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 7622b3bb50139ddfdce53bb7e765db5aac90eff3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 79f0f24d1328181557b2fec1e867c36ebcde57f0
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766068"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453599"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-cloud"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Saba Cloud
 
@@ -51,7 +51,6 @@ Para configurar la integración de Saba Cloud en Azure AD, necesita agregar Sab
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Saba Cloud** en el cuadro de búsqueda.
 1. Seleccione **Saba Cloud** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-saba-cloud"></a>Configuración y prueba del inicio de sesión único de Azure AD para Saba Cloud
 
@@ -99,7 +98,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Atributos y notificaciones de usuario**, ajuste el identificador de usuario único al valor que la organización pretenda usar como nombre de usuario principal para los usuarios de Saba.
 
-   Este paso solo es necesario si se intenta pasar del modelo de nombre de usuario y contraseña a inicio de sesión único. Si se trata de una nueva implementación de Saba Cloud que no tiene usuarios, puede omitir este paso.
+   Este paso solo es necesario si se intenta pasar del modelo de nombre de usuario y contraseña a inicio de sesión único. En las nuevas implementaciones de Saba Cloud que no tengan usuarios, este paso se puede omitir.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
@@ -135,7 +134,16 @@ En esta sección va a permitir que B.Simon acceda a Saba Cloud mediante el inici
 
 ## <a name="configure-saba-cloud-sso"></a>Configuración del inicio de sesión único en Saba Cloud
 
-1. Inicie sesión como administrador en el sitio de la empresa Saba Cloud.
+1. Para automatizar la configuración en Saba Cloud, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+1. Después de agregar la extensión al navegador, haga clic en **Set up Saba Cloud** (Configurar Saba Cloud) para ir a la aplicación Saba Cloud. Desde allí, proporcione las credenciales del administrador para iniciar sesión en Saba Cloud. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos del 3 al 9.
+
+    ![Configuración](common/setup-sso.png)
+
+1. Si quiere configurar Saba Cloud manualmente, en otra ventana del explorador web, inicie sesión en el sitio de la empresa Saba Cloud como administrador.
+
 1. Haga clic en el icono **Menu** (Menú) y en **Admin** (Administración), y seleccione la pestaña **System Admin** (Administrador del sistema).
 
     ![captura de pantalla del administrador del sistema](./media/saba-cloud-tutorial/system.png)

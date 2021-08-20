@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/02/2021
+ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 5c68453f7f7d638877683920a17022cf3d29bdc5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9bba6c33dafb04be0cec0eb74be3b7211bc1b0ed
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104597817"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466481"
 ---
 # <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>Tutorial: Integración de Expensify con Azure Active Directory
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Expensify con Azure Active Directory (A
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Expensify con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -78,11 +78,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://www.expensify.com/authentication/saml/login`
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `https://www.expensify.com`.
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `https://www.expensify.com`.
-
-    c. b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
+    
+    c. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://www.expensify.com/authentication/saml/login`
 
     > [!NOTE]
     > El valor de dirección URL de respuesta no es real. Actualice este valor con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de cliente de Expensify](mailto:help@expensify.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -127,7 +127,7 @@ Para habilitar SSO en Expensify, primero deberá habilitar el **control de domin
 
 1. Inicie sesión en la aplicación Expensify.
 
-2. En el panel izquierdo, haga clic en **Configuración** y vaya a **SAML**.
+2. En el panel izquierdo, mantenga el puntero sobre Settings (Configuración), haga clic en Domains (Dominios) y vaya a **SAML**.
 
 3. Cambie la opción **Inicio de sesión SAML** a **Habilitado**.
 
@@ -135,7 +135,7 @@ Para habilitar SSO en Expensify, primero deberá habilitar el **control de domin
 
 ### <a name="create-expensify-test-user"></a>Creación de un usuario de prueba de Expensify
 
-En esta sección creará un usuario llamado B.Simon en Expensify. Colabore con el [equipo de soporte técnico de cliente de Expensify](mailto:help@expensify.com) para agregar los usuarios a la plataforma de Expensify.
+En esta sección creará el mismo usuario llamado B. Simon (por ejemplo, B.Simon@contoso.com) en Expensify. Consulte [aquí](https://community.expensify.com/discussion/4869/how-to-manage-domain-members) la guía para invitar a miembros, o bien póngase en contacto con el [equipo de soporte técnico a los clientes de Expensify](mailto:help@expensify.com) para agregar los usuarios a la plataforma de Expensify.
 
 ## <a name="test-sso"></a>Prueba de SSO
 

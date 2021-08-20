@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e75a141dd8dd09423f4e99a9f4860e7e5022a15f
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: ae5c25eec6440a02d173c2f0dcc51a750d128796
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108871"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113280204"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
@@ -52,19 +52,19 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## <a name="create-a-speech-configuration"></a>Creación de una configuración de voz
 
-Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). Esta clase incluye información sobre la suscripción, como la clave, la región asociada, el punto de conexión, el host o el token de autorización.
+Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). Esta clase incluye información sobre la suscripción, como la clave de voz y la región o ubicación asociada, el punto de conexión, el host, o el token de autorización.
 
 > [!NOTE]
 > Debe crear siempre una configuración, independientemente de si va a realizar reconocimiento de voz, síntesis de voz, traducción o reconocimiento de intenciones.
 
 Existen diversas maneras para inicializar un elemento [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig):
 
-* Con una suscripción: pase una clave y la región asociada.
+* Con una suscripción: pase una clave y la región o ubicación asociada.
 * Con un punto de conexión: pase un punto de conexión del servicio de voz. La clave y el token de autorización son opcionales.
 * Con un host: pase una dirección de host. La clave y el token de autorización son opcionales.
-* Con un token de autorización: pase el token de autorización y la región asociada.
+* Con un token de autorización: pase el token de autorización y la región o ubicación asociada.
 
-En este ejemplo, se crea un elemento [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) mediante una clave de suscripción y una región. Para obtener estas credenciales, siga los pasos descritos en [Prueba gratuita del servicio Voz](../../../overview.md#try-the-speech-service-for-free). Cree también código reutilizable básico para usarlo en el resto del artículo y que modificará cuando realice distintas personalizaciones.
+En este ejemplo, se crea un elemento [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) mediante una clave de voz y una región o ubicación. Para obtener estas credenciales, siga los pasos descritos en [Prueba gratuita del servicio Voz](../../../overview.md#try-the-speech-service-for-free). Cree también código reutilizable básico para usarlo en el resto del artículo y que modificará cuando realice distintas personalizaciones.
 
 ```csharp
 public class Program
@@ -76,7 +76,7 @@ public class Program
 
     static async Task SynthesizeAudioAsync()
     {
-        var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+        var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     }
 }
 ```
@@ -90,7 +90,7 @@ Para empezar, cree un objeto `AudioConfig` para escribir automáticamente la sal
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
 }
 ```
@@ -100,7 +100,7 @@ A continuación, cree una instancia de `SpeechSynthesizer` con otra instrucción
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
     using var synthesizer = new SpeechSynthesizer(config, audioConfig);
     await synthesizer.SpeakTextAsync("A simple test to write to a file.");
@@ -116,7 +116,7 @@ En algunos casos, puede que desee enviar la voz sintetizada directamente a un al
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     using var synthesizer = new SpeechSynthesizer(config);
     await synthesizer.SpeakTextAsync("Synthesizing directly to speaker output.");
 }
@@ -140,7 +140,7 @@ Esta vez se guarda el resultado en una variable [`SpeechSynthesisResult`](/dotne
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     using var synthesizer = new SpeechSynthesizer(config, null);
 
     var result = await synthesizer.SpeakTextAsync("Getting the response as an in-memory stream.");
@@ -167,7 +167,7 @@ En este ejemplo, se especifica un formato RIFF de alta fidelidad `Riff24Khz16Bit
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     config.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 
     using var synthesizer = new SpeechSynthesizer(config, null);
@@ -203,7 +203,7 @@ A continuación, debe cambiar la solicitud de síntesis de voz para que haga ref
 ```csharp
 public static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     using var synthesizer = new SpeechSynthesizer(config, null);
 
     var ssml = File.ReadAllText("./ssml.xml");

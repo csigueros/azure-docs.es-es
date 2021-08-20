@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/14/2021
+ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 09c46efab8eea797b10b2724c3c19c7b1b34c87f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 907b627a260bf552555dca63936af6495fb987c6
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467715"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453761"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-logmein"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con LogMeIn
 
@@ -50,7 +50,6 @@ Para configurar la integración de LogMeIn en Azure AD, deberá agregar LogMeIn
 1. En la sección **Agregar desde la galería**, escriba **LogMeIn** en el cuadro de búsqueda.
 1. Seleccione **LogMeIn** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-logmein"></a>Configuración y prueba del inicio de sesión único de Azure AD para LogMeIn
 
 Configure y pruebe el inicio de sesión único de Azure AD con LogMeIn mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de LogMeIn.
@@ -70,7 +69,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **LogMeIn**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -91,7 +90,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 6. En la sección **Configurar LogMeIn**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
-
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -119,7 +117,15 @@ En esta sección va a permitir que B.Simon acceda a LogMeIn mediante el inicio d
 
 ## <a name="configure-logmein-sso"></a>Configuración del inicio de sesión único de LogMeIn
 
-1. En otra ventana del explorador, inicie sesión en el sitio web de LogMeIn como administrador.
+1. Para automatizar la configuración en LogMeIn, debe instalar la **extensión del navegador de inicio de sesión seguro de Aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Configurar LogMeIn** para ir a dicha aplicación. Ahí, escriba las credenciales de administrador para iniciar sesión en LogMeIn. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 5.
+
+    ![Configuración](common/setup-sso.png)
+
+1. Si quiere configurar LogMeIn manualmente, en otra ventana del explorador web, inicie sesión en su sitio empresarial de LogMeIn como administrador.
 
 1. Vaya a la pestaña **Identity Provider** (Proveedor de identidades) y, en el cuadro de texto **Metadata url** (Dirección URL de metadatos), pegue la **dirección URL de metadatos de federación** que copió desde Azure Portal.
 

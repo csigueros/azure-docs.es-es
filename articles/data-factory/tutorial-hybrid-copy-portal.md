@@ -6,13 +6,13 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 4bfbd83f3f3910e1231bcce4043d9b59ccc512db
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 07/05/2021
+ms.openlocfilehash: 2b9f37d6f45591a43849c8d61787513702982e5b
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606657"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436431"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Copia de datos de una base de datos de SQL Server a Azure Blob Storage
 
@@ -130,15 +130,16 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
 1. Una vez finalizada la creación, verá la página **Data Factory** tal como se muestra en la imagen:
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono de creación y supervisión":::
-1. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono Abrir Azure Data Factory Studio.":::
+
+1. Seleccione **Abrir** en el icono **Abrir Azure Data Factory Studio** para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
 
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 
-1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización). Se crea automáticamente una canalización. Aparece la canalización en la vista de árbol y se abre su editor.
+1. En la página principal de Azure Data Factory, seleccione **Orchestrate** (Organizar). Se crea automáticamente una canalización. Aparece la canalización en la vista de árbol y se abre su editor.
 
-   ![Página de introducción](./media/doc-common-process/get-started-page.png)
+   ![Captura de pantalla que muestra la página principal de Azure Data Factory.](./media/doc-common-process/get-started-page.png)
 
 1. En el panel General, en **Propiedades**, especifique **SQLServerToBlobPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 

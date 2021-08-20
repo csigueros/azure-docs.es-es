@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ce02c86fff5ccece1528e0d08413acb5c0a7f9c6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: da7c1c0268f04b183ba48491bd5f0d0b01e15b41
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743388"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113224116"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutorial: Uso de grupos de dispositivos para analizar la telemetría de dispositivo
 
@@ -26,14 +26,52 @@ En este tutorial, aprenderá a:
 > * Creación de un grupo de dispositivos
 > * Uso de un grupo de dispositivos para analizar la telemetría del dispositivo
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, debe completar los inicios rápidos [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) e [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-simulated-device.md) para crear la plantilla de dispositivo **Sensor Controller** con la que va a trabajar.
+Para completar los pasos de este tutorial, necesitará lo siguiente:
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+
+## <a name="add-and-customize-a-device-template"></a>Incorporación y personalización de una plantilla de dispositivo
+
+Agregue una plantilla de dispositivo desde el catálogo de dispositivos. En este tutorial se usa la plantilla de dispositivo **ESP32-Azure IoT Kit**:
+
+1. Para agregar una nueva plantilla de dispositivo, seleccione **+ New** (+ Nuevo) en la página **Device templates** (Plantillas de dispositivo).
+
+1. En la página **Select type** (Seleccionar tipo), desplácese hacia abajo hasta que encuentre el icono de **ESP32-Azure IoT Kit** en la sección **Use a preconfigured device template** (Usar una plantilla de dispositivo preconfigurada).
+
+1. Seleccione el icono **ESP32-Azure IoT Kit** y **Next: Revisión**.
+
+1. En la página **Revisar**, seleccione **Crear**.
+
+El nombre de la plantilla que creó es **Sensor Controller**. El modelo incluye componentes como **Sensor Controller**, **SensorTemp** y **Device Information interface** (Interfaz de información del dispositivo). Los componentes definen las funcionalidades de un dispositivo ESP32, como la telemetría, las propiedades y los comandos.
+
+Agregue dos propiedades de la nube a la plantilla de dispositivo **Sensor Controller**:
+
+1. Seleccione **Cloud Properties** (Propiedades de la nube) y, luego, **+ Add cloud property** (+ Agregar propiedad de la nube). Use la información de la tabla siguiente para agregar dos propiedades de la nube a la plantilla de dispositivo:
+
+    | Display Name (Nombre para mostrar)      | Semantic Type (Tipo semántico) | Schema |
+    | ----------------- | ------------- | ------ |
+    | Fecha de la última revisión | None          | Date   |
+    | Nombre del cliente     | None          | String |
+
+1. Haga clic en **Guardar** para guardar los cambios.
+
+Agregue un nuevo formulario a la plantilla de dispositivo para administrar el dispositivo:
+
+1. Seleccione el nodo **Views** (Vistas) y, después, seleccione el icono **Editing device and cloud data** (Editar datos del dispositivo y de la nube) para agregar una vista.
+
+1. Cambie el nombre del formulario a **Manage device** (Administrar dispositivo).
+
+1. Seleccione las propiedades de la nube **Customer Name** (Nombre del cliente) y **Last Service Date** (Fecha de la última revisión), así como la propiedad **Target Temperature** (Temperatura objetivo). Después, seleccione **Add section** (Agregar sección).
+
+1. Seleccione **Save** (Guardar) para guardar la configuración.
+
+Ahora publique la plantilla de dispositivo.
 
 ## <a name="create-simulated-devices"></a>Creación de dispositivos simulados
 
 Antes de crear un grupo de dispositivos, agregue al menos cinco dispositivos simulados basados en la plantilla de dispositivo **Sensor Controller** que se va a usar en este tutorial:
-
 
 :::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Captura de pantalla que muestra cinco dispositivos simulados de Sensor Controller.":::
 
@@ -73,13 +111,17 @@ Para analizar la telemetría de un grupo de dispositivos:
 
     :::image type="content" source="media/tutorial-use-device-groups/create-analysis.png" alt-text="Captura de pantalla que muestra los tipos de telemetría seleccionados para el análisis":::
 
-    Use los iconos de engranaje situados junto a los tipos de telemetría para seleccionar un tipo de agregación. El valor predeterminado es **Promedio**. Use **Agrupar por** para cambiar el modo en que se muestran los datos agregados. Por ejemplo, si divide por id. del dispositivo, verá un trazado para cada dispositivo al seleccionar **Analizar**.
+    Use los iconos de los puntos suspensivos, que se encuentra junto a los tipos de telemetría para seleccionar un tipo de agregación. El valor predeterminado es **Promedio**. Use **Agrupar por** para cambiar el modo en que se muestran los datos agregados. Por ejemplo, si divide por id. del dispositivo, verá un trazado para cada dispositivo al seleccionar **Analizar**.
 
 1. Seleccione **Analizar** para ver los valores de telemetría promedio:
 
     :::image type="content" source="media/tutorial-use-device-groups/view-analysis.png" alt-text="Captura de pantalla que muestra los valores medios de todos los dispositivos de Contoso":::
 
-    Puede personalizar la vista, cambiar el período de tiempo mostrado y exportar los datos.
+    Puede personalizar la vista, cambiar el período de tiempo que se muestra y exportar los datos como archivo CSV o ver los datos en forma de tabla.
+
+    :::image type="content" source="media/tutorial-use-device-groups/export-data.png" alt-text="Captura de pantalla que muestra cómo exportar datos para los dispositivos de Contoso":::
+
+Para más información sobre el análisis, consulte el artículo en el que se explica [cómo usar Analytics para analizar los datos de un dispositivo](howto-create-analytics.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

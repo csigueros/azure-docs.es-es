@@ -1,6 +1,5 @@
 ---
-title: Acceso a recursos de Azure con un punto de conexión en línea administrado
-titleSuffix: Azure Machine Learning
+title: 'Tutorial: Puntos de conexión en línea administrados para el acceso a recursos'
 description: Acceda de forma segura a los recursos de Azure para la implementación del modelo de Machine Learning con un punto de conexión en línea administrado y una identidad administrada asignada por el sistema.
 services: machine-learning
 ms.service: machine-learning
@@ -10,15 +9,15 @@ ms.reviewer: laobri
 author: rsethur
 ms.date: 05/25/2021
 ms.topic: tutorial
-ms.custom: tutorial
-ms.openlocfilehash: 731d9a64c9ef144e8e51e9bce319a031056958ae
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.custom: tutorial, devplatv2
+ms.openlocfilehash: 78cbec0c8f4805794062b6fd525567f8aebcb2b6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071558"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448843"
 ---
-# <a name="tutorial-access-azure-resources-with-a-managed-online-endpoint-and-system-managed-identity-preview"></a>Tutorial: Acceso a recursos de Azure con un punto de conexión en línea administrado e identidad administrada por el sistema (versión preliminar)
+# <a name="tutorial-access-resources-with-managed-online-endpoints-and-identity-preview"></a>Tutorial: Acceso a recursos con puntos de conexión en línea administrados e identidades (versión preliminar)
 
 En este tutorial, aprenderá a acceder de forma segura a los recursos de Azure desde el script de puntuación con un punto de conexión en línea administrado y una identidad administrada asignada por el sistema.
 
@@ -36,7 +35,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones con la CLI de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Para usar Azure Machine Learning, debe tener una suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Para usar Azure Machine Learning, debe tener una suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * Debe instalar y configurar la CLI de Azure y la extensión de Machine Learning. Para más información, consulte [Instalación, configuración y uso de la CLI 2.0 (versión preliminar)](how-to-configure-cli.md). 
 
@@ -73,6 +72,7 @@ El siguiente ejemplo de código crea un punto de conexión administrado que:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
 
+Para obtener una referencia a YAML, consulte [Referencia de YAML sobre puntos de conexión en línea administrados (versión preliminar)](reference-online-endpoint-yaml.md).
 
 ## <a name="configure-variables-for-your-deployment"></a>Configuración de variables para la implementación
 
@@ -120,6 +120,7 @@ Compruebe el estado del punto de conexión con lo siguiente.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
+Si experimenta algún problema, consulte [Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)](how-to-troubleshoot-managed-online-endpoints.md).
 
 ## <a name="give-storage-permission-to-system-assigned-managed-identity"></a>Concesión de permiso de almacenamiento a la identidad administrada asignada por el sistema
 
@@ -193,3 +194,8 @@ En este tutorial de Azure Machine Learning, usó la CLI de Machine Learning para
 * Para más información sobre cómo usar la CLI, consulte [Uso de la extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Para refinar las consultas JSON para que solo devuelvan datos específicos, consulte [Resultados de los comandos de consulta de la CLI de Azure](/cli/azure/query-azure-cli).
 * Para más información sobre el esquema de YAML, consulte el documento de [referencia de YAML del punto de conexión en línea](reference-online-endpoint-yaml.md).
+* Para ver qué recursos de proceso puede usar, consulte [Lista de SKU de puntos de conexión en línea administrados (versión preliminar)](reference-managed-online-endpoints-vm-sku-list.md).
+* Para más información sobre los costos, consulte [Visualización de los costos de un punto de conexión en línea administrado de Azure Machine Learning (versión preliminar)](how-to-view-online-endpoints-costs.md).
+* Para más información sobre una implementación, consulte [Implementación segura para puntos de conexión en línea (versión preliminar)](how-to-safely-rollout-managed-endpoints.md).
+* Para más información sobre la supervisión de puntos de conexión, consulte [Supervisión de puntos de conexión en línea administrados (versión preliminar)](how-to-monitor-online-endpoints.md).
+* Para más información sobre los límites relacionados con los puntos de conexión administrados, consulte [Administración y aumento de las cuotas de recursos con Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).

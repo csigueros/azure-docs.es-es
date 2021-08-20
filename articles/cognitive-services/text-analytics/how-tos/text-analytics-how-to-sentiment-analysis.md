@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 06/10/2021
+ms.date: 07/07/2021
 ms.author: aahi
-ms.openlocfilehash: a8645552cba0bb687b5d9a9dc93bc917d7ee38af
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 00ffe7d9911e10dad26976b36954be5fe61c3474
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969336"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113549695"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procedimiento: análisis de sentimiento y minería de opiniones
 
@@ -25,7 +25,7 @@ El servicio proporciona los modelos de AI que usa la API, el usuario solo tiene 
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versiones y características de Análisis de sentimiento
 
-| Característica                                   | Análisis de sentimiento, versión 3 | Análisis de sentimiento, versión 3.1 (versión preliminar) |
+| Característica                                   | Análisis de sentimiento v3.0 | Análisis de sentimiento v3.1 |
 |-------------------------------------------|-----------------------|-----------------------------------|
 | Métodos para solicitudes individuales y por lotes    | X                     | X                                 |
 | Puntuaciones y etiquetas de Análisis de sentimiento             | X                     | X                                 |
@@ -49,7 +49,7 @@ Las puntuaciones de confianza oscilan entre 1 y 0. Las puntuaciones más pró
 
 ## <a name="opinion-mining"></a>Minería de opiniones
 
-La minería de opiniones es una característica de Análisis de sentimiento a partir de la versión preliminar de la versión 3.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con los atributos de los productos o servicios del texto. La API muestra las opiniones como un destino (con un sustantivo o verbo) y una evaluación (con un adjetivo).
+La minería de opiniones es una característica de Análisis de sentimiento, a partir de la versión 3.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con los atributos de los productos o servicios del texto. La API muestra las opiniones como un destino (con un sustantivo o verbo) y una evaluación (con un adjetivo).
 
 Por ejemplo, si un cliente deja comentarios sobre un hotel, como "La habitación era fantástica, pero el personal era antipático", la minería de opiniones localizará destinos (aspectos) en el texto, así como sus evaluaciones (opiniones) y sentimientos asociados. Análisis de sentimiento solo puede informar de las opiniones negativas.
 
@@ -64,7 +64,7 @@ Para obtener minería de opiniones en los resultados, es preciso incluir la marc
 
 Análisis de sentimiento genera un resultado de mayor calidad cuando se le proporcionan fragmentos de texto más pequeños para trabajar. Esto es opuesto a la extracción de frases clave, que funciona mejor en bloques de texto más grandes. Para obtener los mejores resultados de ambas operaciones, considere la posibilidad de reestructurar las entradas en consecuencia.
 
-Debe tener documentos JSON en este formato: identificador, texto e idioma. Análisis de sentimiento admite una amplia gama de idiomas, y hay más en la versión preliminar. Para más información, consulte [Lenguajes admitidos](../language-support.md).
+Debe tener documentos JSON en este formato: identificador, texto e idioma. Análisis de sentimiento admite una amplia variedad de idiomas. Para más información, consulte [Lenguajes admitidos](../language-support.md).
 
 El tamaño del documento debe ser inferior a 5120 caracteres por documento. Para conocer el número máximo de documentos permitidos en una colección, consulte el artículo sobre [límites de datos](../concepts/data-limits.md?tabs=version-3) en Conceptos. La colección se envía en el cuerpo de la solicitud.
 
@@ -72,9 +72,9 @@ El tamaño del documento debe ser inferior a 5120 caracteres por documento. Para
 
 Cree una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md) o la **consola de pruebas de API** en los siguientes vínculos de referencia para estructurar y enviar rápidamente una. 
 
-#### <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-1)
+#### <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
-[Referencia de Análisis de sentimiento, versión 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Sentiment)
+[Referencia de Análisis de sentimiento, versión 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment)
 
 #### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
@@ -89,17 +89,17 @@ Establezca el punto de conexión HTTPS para el análisis de sentimiento, para lo
 > [!NOTE]
 > Tanto la clave como el punto de conexión del recurso de Text Analytics se pueden encontrar en Azure Portal. Están en la página **Inicio rápido** del recurso, en **Administración de recursos**. 
 
-#### <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-1)
+#### <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 **Análisis de sentimiento**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment`
 
 **Minería de opiniones**
 
 Para obtener resultados de la minería de opiniones, debe incluir el parámetro `opinionMining=true`. Por ejemplo:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment?opinionMining=true`
 
 De manera predeterminada, este parámetro se establece en `false`. 
 
@@ -117,7 +117,7 @@ Establezca un encabezado de la solicitud para incluir la clave de la API Text An
 
 ### <a name="example-request-for-sentiment-analysis-and-opinion-mining"></a>Solicitud de ejemplo de análisis de sentimiento y minería de opiniones  
 
-En el siguiente ejemplo se presenta contenido que se podría enviar para el análisis de opiniones. El formato de la solicitud es el mismo para `v3.0` y para `v3.1-preview`.
+En el siguiente ejemplo se presenta contenido que se podría enviar para el análisis de opiniones. El formato de la solicitud es el mismo para `v3.0` y para `v3.1`.
     
 ```json
 {
@@ -142,7 +142,7 @@ La API Text Analytics no tiene estado. No se almacenan datos en la cuenta y los 
 
 La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local. Después, importe el resultado en una aplicación que pueda usar para ordenar los datos, realizar búsquedas en ellos y manipularlos. Debido a la compatibilidad con varios idiomas y con Emojis, la respuesta puede contener desplazamientos de texto. Consulte [cómo procesar desplazamientos](../concepts/text-offsets.md) para más información.
 
-#### <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-1)
+#### <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>Respuesta de ejemplo de análisis de sentimiento y minería de opiniones
 

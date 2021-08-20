@@ -1,23 +1,25 @@
 ---
-title: 'Inicio rápido: Eliminación de una aplicación del inquilino de Azure Active Directory (Azure AD)'
+title: 'Inicio rápido: Eliminación de una aplicación del inquilino'
+titleSuffix: Azure AD
 description: Este inicio rápido utiliza Azure Portal para eliminar una aplicación del inquilino de Azure Active Directory (Azure AD).
 services: active-directory
-author: mtillman
+author: davidmu
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 1/5/2021
-ms.author: mtillman
-ms.openlocfilehash: 70129123a842ef123992df4614fa7b9a35a774b9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/23/2021
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.openlocfilehash: 04e4e011773426b5be7f6ef9c00f7969c35d20fd
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075905"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668431"
 ---
-# <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Eliminación de una aplicación del inquilino de Azure Active Directory (Azure AD)
+# <a name="quickstart-delete-an-application-from-your-tenant"></a>Inicio rápido: Eliminación de una aplicación del inquilino
 
 Este inicio rápido utiliza Azure Portal para eliminar una aplicación que se agregó al inquilino de Azure Active Directory (Azure AD).
 
@@ -38,13 +40,18 @@ Para eliminar una aplicación del inquilino de Azure AD, necesita:
 >[!IMPORTANT]
 >Use un entorno que no sea de producción para probar los pasos de esta guía de inicio rápido.
 
+> [!NOTE]
+>Para eliminar una aplicación de Azure AD, se debe asignar a un usuario uno de los siguientes roles: administrador global, administrador de aplicaciones en la nube, administrador de aplicaciones o propietario de la entidad de servicio.
+
 ## <a name="delete-an-application-from-your-azure-ad-tenant"></a>Eliminación de una aplicación del inquilino de Azure AD
 
 Para eliminar una aplicación del inquilino de Azure AD:
 
-1. En el portal de Azure AD, seleccione **Aplicaciones empresariales**. Busque y seleccione la aplicación que desea eliminar. En este caso, se eliminará la aplicación **GitHub_test** que agregamos en el inicio rápido anterior.
+1. En el portal de Azure AD, seleccione **Aplicaciones empresariales**. Busque y seleccione la aplicación que desea eliminar. En este caso, queremos eliminar **360 Online**.
 1. En la sección **Administrar** en el panel izquierdo, seleccione **Propiedades**.
 1. Seleccione **Eliminar** y, a continuación, seleccione **Sí** para confirmar que quiere eliminar la aplicación de su inquilino de Azure AD.
+
+:::image type="content" source="media/add-application-portal/delete-application.png" alt-text="Captura de la pantalla Propiedades que muestra cómo cambiar el logotipo.":::
 
 > [!TIP]
 > La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](/graph/application-saml-sso-configure-api).

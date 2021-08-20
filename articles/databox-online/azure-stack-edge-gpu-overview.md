@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 07/14/2021
 ms.author: alkohli
-ms.openlocfilehash: b56b79c29838c00fd79a0ed91a1c3ff0686c56ce
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: a307fd2e2504e3c11c96fb56c7ab4f55db9508ff
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737985"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221271"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>¿Qué es Azure Stack Edge Pro con GPU?
 
@@ -51,6 +51,7 @@ Azure Stack Edge Pro GPU presenta las siguientes funcionalidades:
 |Actualización de datos     | Capacidad para actualizar los archivos locales con la versión más reciente de la nube.|
 |Cifrado    | Compatibilidad con BitLocker para, localmente, cifrar los datos y proteger las transferencias de datos hacia la nube a través de *https*.|
 |Límite de ancho de banda| Limite el uso de ancho de banda durante las horas punta.|
+|Funciones de red especializadas|Use Marketplace desde Azure Network Function Manager para implementar rápidamente funciones de red, como redes troncales de paquetes móviles, dispositivos perimetrales SD-WAN y servicios VPN, en un dispositivo Azure Stack Edge que se ejecuta en un entorno local. Para más información, consulte [¿Qué es Azure Network Function Manager? (versión preliminar)](../network-function-manager/overview.md).|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
 
@@ -87,4 +88,5 @@ El servicio Azure Stack Edge es un servicio no regional. Para obtener más infor
 - Revise los [requisitos del sistema de Azure Stack Edge Pro GPU](azure-stack-edge-gpu-system-requirements.md).
 
 - Consulte los [límites de Azure Stack Edge Pro GPU](azure-stack-edge-limits.md).
+
 - Implemente [Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md) en Azure Portal.

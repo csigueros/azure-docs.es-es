@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 25a308f3a162e675b4d0ae3f7a706f6b85a5ce57
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: fbe5fc8d11763f036a9991d3e2fefcd183feadbb
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110164514"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113280091"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 
@@ -45,10 +45,10 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## <a name="create-a-speech-configuration"></a>Creación de una configuración de voz
 
-Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig). Esta clase incluye información sobre la suscripción, como la clave, la región asociada, el punto de conexión, el host o el token de autorización. Cree una clase [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) mediante su clave y región. Consulte la página [Búsqueda de las claves y la región](../../../overview.md#find-keys-and-region) para encontrar el par clave-región.
+Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig). Esta clase incluye información sobre la suscripción, como la clave y la región o ubicación asociada, el punto de conexión, el host, o el token de autorización. Cree una clase [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) mediante la clave y la región o ubicación. Vea la página [Búsqueda de claves y región o ubicación](../../../overview.md#find-keys-and-locationregion) para encontrar el par clave-región o ubicación.
 
 ```Python
-speech_config = speechsdk.SpeechConfig(subscription="<paste-your-subscription-key>", region="<paste-your-region>")
+speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
 ```
 
 Existen otras maneras de inicializar una clase [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig):
@@ -68,7 +68,7 @@ Para reconocer la voz desde el micrófono del dispositivo, cree una clase `Speec
 import azure.cognitiveservices.speech as speechsdk
 
 def from_mic():
-    speech_config = speechsdk.SpeechConfig(subscription="<paste-your-subscription-key>", region="<paste-your-region>")
+    speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
     
     print("Speak into your microphone.")
@@ -88,7 +88,7 @@ Si desea reconocer la voz de un archivo de audio, en lugar de usar un micrófono
 import azure.cognitiveservices.speech as speechsdk
 
 def from_file():
-    speech_config = speechsdk.SpeechConfig(subscription="<paste-your-subscription-key>", region="<paste-your-region>")
+    speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
     audio_input = speechsdk.AudioConfig(filename="your_file_name.wav")
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
     
@@ -103,7 +103,7 @@ from_file()
 Los ejemplos anteriores sencillamente obtienen el texto reconocido de `result.text`, pero para gestionar los errores y otras respuestas, deberá escribir código para determinar el resultado. En el código siguiente se evalúa la propiedad [`result.reason`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason) y:
 
 * Imprime el resultado del reconocimiento: `speechsdk.ResultReason.RecognizedSpeech`.
-* Si no hay ninguna coincidencia de reconocimiento, se informa al usuario: `speechsdk.ResultReason.NoMatch `.
+* Si no hay ninguna coincidencia de reconocimiento, se informa al usuario: `speechsdk.ResultReason.NoMatch`.
 * Si se produce un error, se imprime el mensaje de error: `speechsdk.ResultReason.Canceled`.
 
 ```Python
@@ -209,7 +209,7 @@ A una lista de frases se pueden agregar palabras solas o frases completas. Duran
 > [!IMPORTANT]
 > La característica de lista de frases está disponible en los siguientes idiomas: en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN
 >
-> Para otras configuraciones regionales y si tiene una gran cantidad de frases, [entrenar un modelo personalizado](../../../custom-speech-overview.md) probablemente será la mejor opción para mejorar la precisión.
+> La característica de lista de frases debe usarse con no más de unos cientos de frases. Si tiene una lista mayor o es de idiomas que no se admiten actualmente, es probable que [entrenar un modelo personalizado](../../../custom-speech-overview.md) sea la mejor opción para mejorar la precisión.
 >
 > No use la característica Lista de frases con los puntos de conexión personalizados. En su lugar, entrene un modelo personalizado que incluya las frases.
 

@@ -1,19 +1,19 @@
 ---
-title: 'Creación de una instancia de Apache Kafka para Confluent Cloud: soluciones de partners de Azure'
+title: 'Creación de una instancia de Apache Kafka para Confluent Cloud mediante Azure Portal: soluciones de partners de Azure'
 description: En este artículo se describe cómo usar Azure Portal para crear una instancia de Apache Kafka para Confluent Cloud.
 ms.service: partner-services
 ms.topic: quickstart
-ms.date: 01/15/2021
+ms.date: 06/07/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: f4c6dacf63b1be44e826fe6841c87ccec4bf9b1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d2326d330dca9111a68edcc81c8c45f7525c1b0
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98253695"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112521045"
 ---
-# <a name="quickstart-get-started-with-apache-kafka-for-confluent-cloud"></a>Inicio rápido: Introducción a Apache Kafka para Confluent Cloud
+# <a name="quickstart-get-started-with-apache-kafka-for-confluent-cloud---azure-portal"></a>Inicio rápido: Introducción a Apache Kafka para Confluent Cloud mediante Azure Portal
 
 En está guía de inicio rápido, usará Azure Portal para crear una instancia de Apache Kafka para Confluent Cloud.
 

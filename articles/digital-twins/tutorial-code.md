@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 68afdb1c0ab74f5d05fd13a9fe8868cb9e2ac4aa
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: be0502f61105b88e5a751dde88e4828722c866af
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460265"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446827"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Programación con las API de Azure Digital Twins
 
-Es habitual que los desarrolladores que trabajan con Azure Digital Twins escriban una aplicación que interactúe con su instancia del servicio Azure Digital Twins. Este tutorial orientado al desarrollador proporciona una introducción a la programación para el servicio Azure Digital Twins, mediante el [SDK de Azure Digital Twins para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). Le guía a través de la escritura de una aplicación cliente de consola paso a paso en C#, empezando desde cero.
+Es habitual que los desarrolladores que trabajan con Azure Digital Twins escriban aplicaciones cliente que interactúen con su instancia del servicio Azure Digital Twins. Este tutorial orientado al desarrollador proporciona una introducción a la programación para el servicio Azure Digital Twins, mediante el [SDK de Azure Digital Twins para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). Le guía a través de la escritura de una aplicación cliente de consola paso a paso en C#, empezando desde cero.
 
 > [!div class="checklist"]
 > * Configuración del proyecto
@@ -27,7 +27,7 @@ Es habitual que los desarrolladores que trabajan con Azure Digital Twins escriba
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial se usa la línea de comandos para configurar el proyecto y trabajar en él. Por lo tanto, puede usar cualquier editor de código para realizar los ejercicios.
+En este tutorial se usa la línea de comandos para configurar el proyecto y trabajar en él. Por definición, puede usar cualquier editor de código para realizar los ejercicios.
 
 Lo que necesita para comenzar:
 * Cualquier editor de código
@@ -53,7 +53,7 @@ Una vez en el directorio del proyecto, **cree un proyecto de aplicación de cons
 dotnet new console
 ```
 
-Se crean varios archivos dentro del directorio, incluido uno llamado *Program.cs* en el que escribirá la mayor parte del código.
+Este comando creará varios archivos dentro del directorio, incluido uno llamado *Program.cs* en el que escribirá la mayor parte del código.
 
 Mantenga abierta la ventana de comandos, ya que la seguirá usando durante todo el tutorial.
 
@@ -74,7 +74,7 @@ En esta sección, comenzará a escribir el código del nuevo proyecto de aplicac
 * Creación de las relaciones
 * Consulta de los gemelos digitales
 
-También hay una sección en la que se muestra el código completo al final del tutorial. Puede usarla como referencia para comprobar el programa a medida que avanza.
+También hay una sección en la que se muestra el código completo al final del tutorial. Puede usar esta sección como referencia para comprobar el programa a medida que avanza.
 
 Para empezar, abra el archivo *Program.cs* en cualquier editor de código. Verá una plantilla de código mínimo parecida a esta:
 
@@ -110,13 +110,13 @@ En la ventana de comandos, ejecute el código con este comando:
 dotnet run
 ```
 
-Se restaurarán las dependencias en la primera ejecución y, luego, se ejecutará el programa. 
+Este comando restaurará las dependencias en la primera ejecución y, luego, ejecutará el programa. 
 * Si no se produce ningún error, el programa devolverá el mensaje *Service client created - ready to go* (Se ha creado el servicio de cliente: listo para continuar).
 * Cómo aún no hay ningún control de errores en este proyecto, si hay algún problema, verá que el código inicia una excepción.
 
 ### <a name="upload-a-model"></a>Carga de un modelo
 
-Azure Digital Twins carece de vocabulario de dominio intrínseco. Los tipos de elementos del entorno que puede representar en Azure Digital Twins los define el usuario mediante **modelos**. Los [modelos](concepts-models.md) son parecidos a las clases de los lenguajes de programación orientados a objetos en el sentido de que proporcionan plantillas definidas por el usuario para [gemelos digitales](concepts-twins-graph.md), las cuales se siguen. Más adelante también se crean instancias de estas plantillas. Se escriben en un lenguaje similar a JSON denominado **lenguaje de definición de gemelos digitales (DTDL)** .
+Azure Digital Twins carece de vocabulario de dominio intrínseco. Los tipos de elementos del entorno que puede representar en Azure Digital Twins los define el usuario mediante **modelos**. Los [modelos](concepts-models.md) son parecidos a las clases de los lenguajes de programación orientados a objetos en el sentido de que proporcionan plantillas definidas por el usuario para [gemelos digitales](concepts-twins-graph.md), las cuales se siguen. Más adelante también se crean instancias de estas plantillas. Se escriben en un lenguaje similar a JSON denominado **Lenguaje de definición de Digital Twins (DTDL)** .
 
 El primer paso para crear una solución de Azure Digital Twins es definir al menos un modelo en un archivo DTDL.
 
@@ -128,7 +128,7 @@ En el directorio en el que creó el proyecto, cree un archivo .json llamado *Sam
 > Si va a usar Visual Studio en este tutorial, es posible que quiera seleccionar el archivo JSON recién creado y establecer la propiedad *Copiar en el directorio de salida* del inspector de propiedad en *Copiar si es más reciente* o *Copia siempre*. De esta forma, Visual Studio podrá encontrar el archivo JSON con la ruta de acceso predeterminada cuando ejecute el programa con **F5** durante el resto del tutorial.
 
 > [!TIP] 
-> Hay un [ejemplo de validador de DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) independiente del lenguaje que puede usar para comprobar los documentos del modelo y asegurarse de que el DTDL sea válido. Se basa en la biblioteca del analizador de DTDL, sobre la que puede leer más en [Procedimiento: Análisis y validación de modelos](how-to-parse-models.md).
+> Hay un [ejemplo de validador de DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) independiente del lenguaje que puede usar para comprobar los documentos del modelo y asegurarse de que el DTDL sea válido. Se basa en la biblioteca del analizador de DTDL, sobre la que puede leer más en [Análisis y validación de modelos](how-to-parse-models.md).
 
 Después, agregue más código a *Program.cs* para cargar el modelo que acaba de crear en la instancia de Azure Digital Twins.
 
@@ -212,7 +212,7 @@ A continuación, agregue el siguiente código al final del método `Main` para l
 
 En la ventana de comandos, ejecute el programa con `dotnet run`. En la salida, busque instrucciones de impresión que digan que las dos relaciones se han creado correctamente.
 
-Tenga en cuenta que Azure Digital Twins no permite crear una relación si ya existe otra con el mismo identificador, por lo que, si ejecuta el programa varias veces, observará excepciones en la creación de la relación. Este código almacena en caché las excepciones y las omite. 
+Azure Digital Twins no permite crear una relación si ya existe otra con el mismo identificador, por lo que, si ejecuta el programa varias veces, observará excepciones en la creación de la relación. Este código almacena en caché las excepciones y las omite. 
 
 ### <a name="list-relationships"></a>Enumeración de las relaciones
 
@@ -248,7 +248,7 @@ En la ventana de comandos, ejecute el programa con `dotnet run`. En la salida ve
 
 ## <a name="complete-code-example"></a>Finalización del ejemplo de código
 
-En este punto del tutorial, tiene una aplicación cliente completa, capaz de llevar a cabo acciones básicas en Azure Digital Twins. Como referencia, a continuación, se muestra el código completo del programa en *Program.cs*:
+En este punto del tutorial, tiene una aplicación cliente completa, que puede llevar a cabo acciones básicas en Azure Digital Twins. Como referencia, a continuación, se muestra el código completo del programa en *Program.cs*:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 
@@ -271,4 +271,4 @@ En este tutorial, ha creado una aplicación cliente de consola .NET desde cero. 
 Continúe con el siguiente tutorial para explorar lo que puede hacer con esta aplicación cliente de ejemplo: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo](tutorial-command-line-app.md)
+> [Exploración de los conceptos básicos con una aplicación cliente de ejemplo](tutorial-command-line-app.md)

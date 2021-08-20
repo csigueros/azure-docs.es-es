@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 41f96202bffc0169be9705cd7e67c1eedbecbc05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d11384a3a1cab1ef5145a8e29a64e26552862da
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453451"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236884"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Evaluación de prioridades, investigación y respuesta a alertas de seguridad
 Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado y la inteligencia sobre amenazas para alertarle de cualquier actividad potencialmente malintencionada en los recursos en la nube. También puede integrar alertas de otros productos y servicios de seguridad en Security Center. Una vez que se genera una alerta, es necesario investigarla y corregir el posible problema de seguridad. 
@@ -60,7 +60,7 @@ Cuando haya decidido qué alerta desea investigar primero:
 1. En la página de información general de alertas, seleccione el recurso que desea investigar en primer lugar.
 1. Comience la investigación en el panel izquierdo, que muestra información de alto nivel sobre la alerta de seguridad.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="El panel izquierdo de la página de detalles de la alerta que resalta la información de alto nivel":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="El panel izquierdo de la página de detalles de la alerta que resalta la información de alto nivel.":::
 
     Este panel muestra:
     - Gravedad de la alerta, estado y tiempo de actividad.
@@ -80,7 +80,7 @@ Después de investigar una alerta y conocer su ámbito, puede responder a la ale
 
 1.  Abra la pestaña **Tomar medidas** para ver las respuestas recomendadas.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Pestaña Tomar medidas de Alertas de seguridad" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Pestaña para tomar medidas ante las alertas de seguridad." lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  Consulte la sección **Mitigación de la amenaza** para ver los pasos de investigación manual necesarios para mitigar el problema.
 1.  Para proteger los recursos y evitar futuros ataques de este tipo, lleve a cabo las recomendaciones de seguridad que se indican en la sección **Prevención ante futuros ataques**.
@@ -97,7 +97,7 @@ Después de investigar una alerta y conocer su ámbito, puede responder a la ale
     1. Marque la alerta como **Útil** o **No útil**.
     1. Seleccione un motivo y agregue un comentario.
 
-        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Proporcionar a Microsoft comentarios sobre la utilidad de una alerta":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Proporcionar a Microsoft comentarios sobre la utilidad de una alerta.":::
 
     > [!TIP]
     > Examinamos sus comentarios para mejorar nuestros algoritmos y proporcionar mejores alertas de seguridad.

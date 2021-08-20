@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a39b963fa88866e02e9813c68d1b6504d3e98c7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c8a93ce59927144ce02edb8c1193406a29b18530
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956537"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913786"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -189,7 +189,10 @@ ROWTERMINATOR ="row_terminator"
 
 Especifica el terminador de fila que se va a usar. Si no se especifica ningún terminador de fila, se usará uno de los terminadores predeterminados. Los terminadores predeterminados para PARSER_VERSION = "1.0" son \r\n, \n y \r. Los terminadores predeterminados para PARSER_VERSION = "2.0" son \r\n y \n.
 
-ESCAPECHAR = 'char'
+> [!NOTE]
+> Si usa PARSER_VERSION="1.0" y especifica \n (nueva línea) como terminador de fila, se antepondrá automáticamente el carácter \r (retorno de carro) como prefijo, lo que genera el terminador de fila \r\n.
+
+ESCAPE_CHAR = "char"
 
 Especifica el carácter del archivo que se usa como carácter de escape de sí mismo y de todos los valores de delimitador del archivo. Si el carácter de escape va seguido de un valor distinto de sí mismo o de cualquiera de los valores de delimitador, se quita al leer el valor. 
 
@@ -221,6 +224,8 @@ La versión 1.0 del analizador de CSV es la predeterminada y tiene gran cantida
 Detalles de la versión 1.0 del analizador de CSV:
 
 - Las siguientes opciones no se admiten: HEADER_ROW.
+- Los terminadores predeterminados son \r\n, \n y \r. 
+- Si especifica \n (nueva línea) como terminador de fila, se agregará automáticamente el carácter \r (retorno de carro) como prefijo, lo que genera un terminador de fila \r\n.
 
 Detalles de la versión 2.0 del analizador de CSV:
 
@@ -233,6 +238,7 @@ Detalles de la versión 2.0 del analizador de CSV:
 - Formato admitido para el tipo de datos DATE: YYYY-MM-DD
 - Formato admitido para el tipo de datos TIME: HH:MM:SS[.fracciones de segundo]
 - Formato admitido para el tipo de datos DATETIME2: AAAA-MM-DD HH:MM:SS[.fracciones de segundo]
+- Los terminadores predeterminados son \r\n y \n.
 
 HEADER_ROW = { TRUE | FALSE }
 

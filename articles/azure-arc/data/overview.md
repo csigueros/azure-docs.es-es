@@ -8,20 +8,20 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/31/2021
+ms.date: 07/13/2021
 ms.topic: overview
-ms.openlocfilehash: 2d866dcb5b2a0be9e6468b3d40258e37ac93834e
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: cb905bd3e8ceb7012415a65bda1928b25da3037b
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107716104"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760991"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>¿Qué son los servicios de datos habilitados para Azure Arc (versión preliminar)?
 
 Azure Arc permite ejecutar servicios de datos de Azure en el entorno local, en el perímetro y en nubes públicas con Kubernetes y la infraestructura de su elección.
 
-Actualmente, hay disponibles los siguientes servicios de datos habilitados para Azure Arc en versión preliminar:
+Actualmente, los siguientes servicios de datos habilitados para Azure Arc están disponibles en versión preliminar:
 
 - Instancia administrada de SQL
 - Hiperescala de PostgreSQL
@@ -30,7 +30,7 @@ Actualmente, hay disponibles los siguientes servicios de datos habilitados para 
 
 ## <a name="always-current"></a>Siempre actual
 
-Los servicios de datos habilitados para Azure Arc, como la instancia administrada de SQL habilitada para Azure Arc y PostgreSQL con la opción Hiperescala habilitado para Azure Arc, reciben actualizaciones con frecuencia, como revisiones de mantenimiento y nuevas características similares a la experiencia de Azure. Usted recibe las actualizaciones de Microsoft Container Registry y debe definir las cadencias de implementación de acuerdo con sus directivas. De este modo, las bases de datos locales pueden mantenerse al día a la vez que mantiene su control. Dado que los servicios de datos habilitados para Azure Arc son de suscripción, ya no deberá se producirá ninguna otra finalización de soporte técnico para las bases de datos.
+Los servicios de datos habilitados para Azure Arc, como la instancia administrada de SQL habilitada para Azure Arc e Hiperescala de PostgreSQL habilitado para Azure Arc, reciben actualizaciones con frecuencia, como revisiones de mantenimiento y nuevas características similares a la experiencia de Azure. Usted recibe las actualizaciones de Microsoft Container Registry y debe definir las cadencias de implementación de acuerdo con sus directivas. De este modo, las bases de datos locales pueden mantenerse al día a la vez que mantiene su control. Dado que los servicios de datos habilitados para Azure Arc son de suscripción, dejarán de producirse situaciones de finalización de soporte técnico para las bases de datos.
 
 ## <a name="elastic-scale"></a>Escalado elástico
 
@@ -42,11 +42,11 @@ Azure Arc también proporciona otras ventajas en la nube, como la implementació
 
 ## <a name="unified-management"></a>Administración unificada
 
-Gracias a las herramientas conocidas como Azure Portal, Azure Data Studio y la [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], ahora puede obtener una vista unificada de todos los recursos de datos implementados con Azure Arc. No solo puede ver y administrar una variedad de bases de datos relacionales en todo el entorno y Azure, sino que también puede obtener registros y telemetría de las API de Kubernetes para analizar la capacidad y el estado de la infraestructura subyacente. Además de contar con la supervisión del rendimiento y el análisis de registros localizados, ahora puede aprovechar Azure Monitor para obtener información operativa completa en todo el estado.
+Gracias a herramientas conocidas como Azure Portal, Azure Data Studio y la CLI de Azure (`az`) con la extensión `arcdata`, ahora puede obtener una vista unificada de todos los recursos de datos implementados con Azure Arc. No solo puede ver y administrar una variedad de bases de datos relacionales en todo el entorno y Azure, sino que también puede obtener registros y datos de telemetría de las API de Kubernetes para analizar la capacidad y el estado de la infraestructura subyacente. Además de contar con la supervisión del rendimiento y el análisis de registros localizados, ahora puede aprovechar Azure Monitor para obtener información operativa completa en todo el estado.
 
 ## <a name="disconnected-scenario-support"></a>Compatibilidad con los escenarios sin conexión
 
-Muchos de los servicios, como el aprovisionamiento de autoservicio, las copias de seguridad automatizadas y la restauración y la supervisión se pueden ejecutar localmente en la infraestructura con una conexión directa con Azure o sin ninguna. La conexión directa a Azure abre opciones adicionales para la integración con otros servicios de Azure, como Azure Monitor y la capacidad de usar las API de Azure Portal y Azure Resource Manager desde cualquier lugar del mundo, a fin de administrar los servicios de datos habilitados para Azure Arc.
+Muchos de los servicios, como el aprovisionamiento de autoservicio, las copias de seguridad automatizadas y la restauración y la supervisión se pueden ejecutar localmente en la infraestructura con una conexión directa con Azure o sin ninguna. La conexión directa a Azure abre opciones adicionales para la integración con otros servicios de Azure, como Azure Monitor y la capacidad de usar las API de Azure Portal y Azure Resource Manager desde cualquier lugar del mundo para administrar los servicios de datos habilitados para Azure Arc.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
@@ -55,17 +55,30 @@ En la tabla siguiente se describen los escenarios compatibles actualmente con lo
 |Regiones de Azure  |Modo de conexión directa  |Modo conectado indirecto  |
 |---------|---------|---------|
 |Este de EE. UU.|Disponible|Disponible
+|Este de EE. UU. 2|Disponible|Disponible
+|Oeste de EE. UU. 2|Disponible|Disponible
+|Centro de EE. UU.|No disponible|Disponible
+|Centro-sur de EE. UU.|Disponible|Disponible
+|Sur de Reino Unido 2|Disponible|Disponible
+|Centro de Francia|Disponible|Disponible
 |Oeste de Europa |Disponible |Disponible
 |Norte de Europa|Disponible|Disponible
+|Japón Oriental|No disponible|Disponible
+|Centro de Corea del Sur|No disponible|Disponible
+|Este de Asia|No disponible|Disponible
+|Sudeste de Asia|Disponible|Disponible
+|Este de Australia|Disponible|Disponible
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > **¿Solo desea realizar algunas pruebas?**  
 > Empiece a trabajar rápidamente con el [Inicio rápido de Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) en Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o en una máquina virtual de Azure.
+>
+>Además, implemente [Jumpstart ArcBox](https://azurearcjumpstart.io/azure_jumpstart_arcbox/), un espacio aislado fácil de implementar para Azure Arc. ArcBox está diseñado para ser completamente independiente dentro de una sola suscripción de Azure y un grupo de recursos, lo que facilitará la obtención de toda la tecnología habilitada para Azure Arc disponible sin más que una suscripción de Azure disponible.
 
 [Instalación de las herramientas de cliente](install-client-tools.md)
 
-[Creación del controlador de datos de Azure Arc](create-data-controller.md) (requiere primero la instalación de las herramientas de cliente).
+[Planeamiento de la implementación Azure Arc servicios de datos](plan-azure-arc-data-services.md) (requiere instalar primero las herramientas de cliente)
 
 [Creación de una instancia administrada de Azure SQL en Azure Arc](create-sql-managed-instance.md) (requiere primero la creación de un controlador de datos de Azure Arc).
 

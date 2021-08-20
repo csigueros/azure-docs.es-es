@@ -6,13 +6,13 @@ author: dearandyxu
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 1fad6274b1dbbc4bf255caabd79352b3c836e352
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 07/05/2021
+ms.openlocfilehash: b003a6efba93e35d39601a33449cadb212f17c28
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606706"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436459"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Carga incremental de datos de varias tablas de SQL Server en Azure SQL Database mediante Azure Portal
 
@@ -253,13 +253,14 @@ END
 8. Haga clic en **Crear**.      
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
    
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono de creación y supervisión.":::
-10. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono para abrir Azure Data Factory Studio.":::
+
+10. Seleccione **Open** (Abrir) en el icono **Open Azure Data Factory Studio** (Abrir Azure Data Factory Studio) para iniciar la aplicación de interfaz de usuario (IU) de Azure Data Factory en una pestaña independiente.
 
 ## <a name="create-self-hosted-integration-runtime"></a>Creación de un entorno de ejecución de integración autohospedado
 Cuando mueva datos de un almacén de datos de una privada red (local) a un almacén de datos de Azure, instale un entorno de ejecución de integración (IR) autohospedado en su entorno local. El entorno de ejecución de integración autohospedado mueve los datos entre la red privada y Azure. 
 
-1. En la página **Comencemos** de la interfaz de usuario de Azure Data Factory, seleccione la [pestaña Administrar](./author-management-hub.md) en el panel izquierdo.
+1. En la página principal de la interfaz de usuario de Azure Data Factory, seleccione la pestaña [Administrar](./author-management-hub.md) en el panel izquierdo.
 
    ![Botón Administrar de la página principal](media/doc-common-process/get-started-page-manage-button.png)
 

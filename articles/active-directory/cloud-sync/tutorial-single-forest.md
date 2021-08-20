@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3bc9378539e6a7f98e34d0a149848d0e892c224
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a5ef6895710cf4af6022b728942f94e4c3a3d59d
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306099"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913624"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integración de un único bosque con un único inquilino de Azure AD
 
@@ -34,7 +34,7 @@ El entorno que se crea en este tutorial se puede usar para realizar pruebas o pa
 
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 
-1. Identifique un servidor host unido a un dominio en el que se ejecuta Windows Server 2012 R2 o superior con un mínimo de 4 GB de RAM y un entorno de ejecución .NET 4.7.1 o posterior. 
+1. Identifique un servidor host unido a un dominio en el que se ejecuta Windows Server 2016 o superior con 4 GB de RAM como mínimo y un entorno de ejecución .NET 4.7.1 o posterior. 
 
 2. Si hay un firewall entre los servidores y Azure AD, configure los elementos siguientes:
    - Asegúrese de que los agentes pueden realizar solicitudes *de salida* a Azure AD a través de los puertos siguientes:

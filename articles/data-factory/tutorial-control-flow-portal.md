@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/11/2018
-ms.openlocfilehash: a1e30bb59d81e949720560f2ce5da796a2c7fbe2
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 06/07/2021
+ms.openlocfilehash: 3891cf49f536cea11049e4bcea05f90eb7892ac2
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905349"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217006"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Bifurcación y encadenamiento de actividades en una canalización de Azure Data Factory mediante Azure Portal
 
@@ -166,9 +166,9 @@ En este paso se crea una canalización con una actividad de copia y dos activida
 - Conexión de una actividad con otra (con operaciones correctas e incorrectas)
 - Uso de la salida de una actividad como la entrada para la actividad subsiguiente
 
-1. En la página de **introducción** de la interfaz de usuario de Data Factory, haga clic en el icono **Create pipeline** (Crear canalización).  
+1. En la página principal de la interfaz de usuario de Data Factory, haga clic en el icono **Orchestrate** (Organizar).  
 
-   ![Página de introducción](./media/tutorial-control-flow-portal/get-started-page.png)
+   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
 3. En la ventana de propiedades de la canalización, cambie a la pestaña **Parameters** (Parámetros) y a use el botón **New** (Nuevo) para agregar los siguientes tres parámetros de tipo String: sourceBlobContainer, sinkBlobContainer y receiver.
 
     - **sourceBlobContainer**: parámetro de la canalización que consume el conjunto de datos del blob de origen.

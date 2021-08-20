@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 07/13/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fdaa61e7b02121dcafaba758be2734eabf0e09d
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 1412b0ff7703d5bcc9950c80d5ab59b4c33cc7ae
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112295424"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113732231"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Configuración de identidades administradas para recursos de Azure en una máquina virtual de Azure mediante plantillas
 
@@ -30,7 +30,7 @@ Las identidades administradas para los recursos de Azure proporcionan a los serv
 
 En este artículo, con la plantilla de implementación de Azure Resource Manager, aprenderá a usar las siguientes entidades administradas para operaciones de recursos de Azure en una VM de Azure:
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no está familiarizado con el uso de la plantilla de implementación de Azure Resource Manager, consulte la [sección de información general](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -83,49 +83,8 @@ Para habilitar una identidad administrada asignada por el sistema en una máquin
 
 ### <a name="assign-a-role-the-vms-system-assigned-managed-identity"></a>Asignación de un rol a la identidad administrada asignada por el sistema de la VM
 
-Después de haber habilitado la identidad administrada asignada por el sistema en la VM, es aconsejable concederle un rol con el acceso de **lector** al grupo de recursos en el que se creó.
+Después de haber habilitado la identidad administrada asignada por el sistema en la máquina virtual, quizá quiera concederle un rol con el acceso de **lector** al grupo de recursos en el que se creó. En el artículo [Asignación de roles de Azure mediante plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md) encontrará información detallada que le ayudará con este paso.
 
-Para asignar un rol a una identidad asignada por el sistema de la máquina virtual, la cuenta debe tener la asignación del rol [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator).
-
-1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual.
-
-2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y agregue la siguiente información para dar a la máquina virtual acceso de **lector** al grupo de recursos en el que se creó.  La estructura de la plantilla puede variar según el editor y el modelo de implementación que elija.
-
-   Agregue lo siguiente bajo la sección `parameters`:
-
-    ```json
-    "builtInRoleType": {
-        "type": "string",
-        "defaultValue": "Reader"
-    },
-    "rbacGuid": {
-        "type": "string"
-    }
-    ```
-
-    Agregue lo siguiente bajo la sección `variables`:
-
-    ```json
-    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
-    ```
-
-    Agregue lo siguiente bajo la sección `resources`:
-
-    ```json
-    {
-        "apiVersion": "2017-09-01",
-        "type": "Microsoft.Authorization/roleAssignments",
-        "name": "[parameters('rbacGuid')]",
-        "properties": {
-            "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-            "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
-            "scope": "[resourceGroup().id]"
-        },
-         "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-        ]
-    }
-    ```
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Deshabilitación de una identidad administrada asignada por el sistema en una VM de Azure
 

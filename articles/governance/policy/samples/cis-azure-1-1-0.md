@@ -1,15 +1,15 @@
 ---
 title: Detalles del cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark 1.1.0
 description: Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark 1.1.0. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 06/11/2021
+ms.date: 07/16/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: d18e912a2139188d4d6c330fab4e03fcc5e68f2d
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: a0fd7ea4b015c04bf2bd108a13cb06dc5b4d0dde
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030188"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114401862"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark 1.1.0.
 
@@ -117,7 +117,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[El cifrado de discos debe aplicarse en máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Azure Security Center supervisará las máquinas virtuales sin el cifrado de disco habilitado como recomendaciones. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[Las máquinas virtuales deben cifrar los discos temporales, las cachés y los flujos de datos entre los recursos de Proceso y Almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Azure Security Center supervisará las máquinas virtuales sin el cifrado de disco habilitado como recomendaciones. |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar los grupos de seguridad de red" no sea "Deshabilitado".
 
@@ -133,7 +133,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Las máquinas virtuales accesibles desde Internet deben estar protegidas con grupos de seguridad de red](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6de0be7-9a8a-4b8a-b349-43cf02d22f7c) |Proteja sus máquinas virtuales de posibles amenazas limitando el acceso a ellas con grupos de seguridad de red (NSG). Más información sobre cómo controlar el tráfico con los grupos de seguridad de red en [https://aka.ms/nsg-doc](https://aka.ms/nsg-doc). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnInternetFacingVirtualMachines_Audit.json) |
+|[Las máquinas virtuales accesibles desde Internet deben estar protegidas con grupos de seguridad de red](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6de0be7-9a8a-4b8a-b349-43cf02d22f7c) |Proteja sus máquinas virtuales de posibles amenazas limitando el acceso a ellas con grupos de seguridad de red (NSG). Más información sobre cómo controlar el tráfico con los grupos de seguridad de red en [https://aka.ms/nsg-doc](../../../virtual-network/network-security-groups-overview.md). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnInternetFacingVirtualMachines_Audit.json) |
 |[Las subredes deben estar asociadas con un grupo de seguridad de red.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe71308d3-144b-4262-b144-efdc3cc90517) |Proteja la subred de posibles amenazas mediante la restricción del acceso con un grupo de seguridad de red (NSG). Estos grupos contienen las reglas de la lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a la subred. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnSubnets_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar la evaluación de vulnerabilidades" no sea "Deshabilitado".
@@ -266,8 +266,8 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Se debe habilitar Azure Defender para SQL en los servidores de Azure SQL Server sin protección](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb4388-5bf4-4ad7-ba82-2cd2f41ceae9) |Auditoría de los servidores de SQL sin Advanced Data Security |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurity_Audit.json) |
-|[Azure Defender para SQL debe habilitarse en las instancias de SQL Managed Instance sin protección](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb7388-5bf4-4ad7-ba99-2cd2f41cebb9) |Permite auditr cada servicio SQL Managed Instance sin Advanced Data Security. |AuditIfNotExists, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurity_Audit.json) |
+|[Se debe habilitar Azure Defender para SQL en las instancias de Azure SQL Server desprotegidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb4388-5bf4-4ad7-ba82-2cd2f41ceae9) |Auditoría de los servidores de SQL sin Advanced Data Security |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurity_Audit.json) |
+|[Azure Defender para SQL debe habilitarse en las instancias de SQL Managed Instances desprotegidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb7388-5bf4-4ad7-ba99-2cd2f41cebb9) |Permite auditr cada servicio SQL Managed Instance sin Advanced Data Security. |AuditIfNotExists, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurity_Audit.json) |
 
 ### <a name="ensure-that-azure-active-directory-admin-is-configured"></a>Asegúrese de que el administrador de Azure Active Directory está configurado.
 
@@ -390,7 +390,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[La cuenta de almacenamiento que contiene el contenedor con los registros de actividad debe estar cifrada con BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |Esta directiva audita si la cuenta de almacenamiento que contiene el contenedor con los registros de actividad está cifrada con BYOK. Esta directiva solo funciona si la cuenta de almacenamiento se encuentra en la misma suscripción que los registros de actividad por diseño. Se puede encontrar más información sobre el cifrado de Azure Storage en reposo en [https://aka.ms/azurestoragebyok](https://aka.ms/azurestoragebyok).  |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
+|[La cuenta de almacenamiento que contiene el contenedor con los registros de actividad debe estar cifrada con BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |Esta directiva audita si la cuenta de almacenamiento que contiene el contenedor con los registros de actividad está cifrada con BYOK. Esta directiva solo funciona si la cuenta de almacenamiento se encuentra en la misma suscripción que los registros de actividad por diseño. Se puede encontrar más información sobre el cifrado de Azure Storage en reposo en [https://aka.ms/azurestoragebyok](../../../storage/common/customer-managed-keys-configure-key-vault.md).  |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
 
 ### <a name="ensure-that-logging-for-azure-keyvault-is-enabled"></a>Asegúrese de que el registro de Azure KeyVault esté habilitado.
 
@@ -398,8 +398,8 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Los registros de recursos del HSM administrado de Azure Key Vault deben estar habilitados.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) |Para volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o cuando la red se ve comprometida, es posible que desee realizar auditorías habilitando los registros de recursos en HSM administrados. Siga las instrucciones que encontrará aquí: [https://docs.microsoft.com/azure/key-vault/managed-hsm/logging](https://docs.microsoft.com/azure/key-vault/managed-hsm/logging). |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_AuditDiagnosticLog_Audit.json) |
-|[Los registros de recursos de Key Vault deben estar habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Habilitación de la auditoría de los registros de recursos. De esta forma, puede volver a crear seguimientos de actividad con fines de investigación en caso de incidentes de seguridad o riesgos para la red. |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
+|[Los registros de recursos del HSM administrado de Azure Key Vault deben estar habilitados.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) |Para volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o cuando la red se ve comprometida, es posible que desee realizar auditorías habilitando los registros de recursos en HSM administrados. Siga las instrucciones que encontrará aquí: [https://docs.microsoft.com/azure/key-vault/managed-hsm/logging](../../../key-vault/managed-hsm/logging.md). |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_AuditDiagnosticLog_Audit.json) |
+|[Los registros de recursos de Key Vault deben estar habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Habilitación de la auditoría de los registros de recursos. De esta forma, puede volver a crear seguimientos de actividad con fines de investigación en caso de incidentes de seguridad o riesgos para la red. |AuditIfNotExists, Disabled |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Asegúrese de que existe una alerta de registro de actividad para la creación de una asignación de directiva.
 
@@ -507,7 +507,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[El cifrado de discos debe aplicarse en máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Azure Security Center supervisará las máquinas virtuales sin el cifrado de disco habilitado como recomendaciones. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[Las máquinas virtuales deben cifrar los discos temporales, las cachés y los flujos de datos entre los recursos de Proceso y Almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Azure Security Center supervisará las máquinas virtuales sin el cifrado de disco habilitado como recomendaciones. |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-that-data-disks-are-encrypted"></a>Asegúrese de que la opción "Discos de datos" esté cifrada.
 
@@ -515,7 +515,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[El cifrado de discos debe aplicarse en máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Azure Security Center supervisará las máquinas virtuales sin el cifrado de disco habilitado como recomendaciones. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[Las máquinas virtuales deben cifrar los discos temporales, las cachés y los flujos de datos entre los recursos de Proceso y Almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Azure Security Center supervisará las máquinas virtuales sin el cifrado de disco habilitado como recomendaciones. |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-that-unattached-disks-are-encrypted"></a>Asegúrese de que la opción "Unattached disks" (Discos no asignados) esté cifrada.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/26/2021
+ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: a70f88857bdbff825271793b58b442e6ea78c8ee
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8dc52348967963cbe5fd23b2ce01224c99e913e7
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146030"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: integración de Azure Active Directory con Greenhouse
 
@@ -79,22 +79,16 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<COMPANYNAME>.greenhouse.io`
+    a. En el cuadro de texto **Identificador**, escriba el valor: `greenhouse.io`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con uno de los siguientes patrones:
-    
-    | URL de respuesta|
-    | -------------- |
-    | `https://<COMPANYNAME>.greenhouse.io/users/saml/consume` |
-    | `https://app.greenhouse.io/<ENTITY ID>/users/saml/consume` |
-    |
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<COMPANYNAME>.greenhouse.io/<ENTITY ID>/users/saml/consume`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<COMPANYNAME>.greenhouse.io`
+    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://app.greenhouse.io`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte de cliente de Greenhouse](https://www.greenhouse.io/contact) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte de técnico de Greenhouse Client](https://www.greenhouse.io/contact) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 

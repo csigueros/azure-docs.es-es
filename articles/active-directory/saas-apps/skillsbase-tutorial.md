@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 07/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 9b712756b6daf7380998bb98f56113cab29ebb59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e5dc6d0e420364494f3ec4974fda1bd5eebc69ab
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96015169"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604283"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: Integración de Azure Active Directory con Skills Base
 
-En este tutorial, aprenderá a integrar Skills Base con Azure Active Directory (Azure AD).
-La integración de Skills Base con Azure AD proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Skills Base con Azure Active Directory (Azure AD). Al integrar Skills Base con Azure AD, puede hacer lo siguiente:
 
-* Puede controlar en Azure AD quién tiene acceso a Skills Base.
-* Puede permitir que los usuarios inicien sesión automáticamente en Skills Base (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a Skills Base.
+* Permitir que los usuarios inicien sesión automáticamente en Skills Base con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="prerequisites"></a>Prerequisites
+Para empezar, necesita los siguientes elementos:
 
-Para configurar la integración de Azure AD con Skills Base, necesita los siguientes elementos:
-
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para inicio de sesión único en Skills Base
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para inicio de sesión único (SSO) en Skills Base.
 
 > [!NOTE]
 > Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
@@ -47,63 +43,44 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 * Skills Base admite el inicio de sesión único iniciado por **SP**.
 * Skills Base admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-skills-base-from-the-gallery"></a>Adición de Skills Base desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
+## <a name="add-skills-base-from-the-gallery"></a>Adición de Skills Base desde la galería
 
 Para configurar la integración de Skills Base en Azure AD, es preciso agregar Skills Base desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Skills Base desde la galería, realice los pasos siguientes:**
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Skills Base** en el cuadro de búsqueda.
+1. Seleccione **Skills Base** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-skills-base"></a>Configuración y prueba del inicio de sesión único de Azure AD para Skills Base
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+Configure y pruebe el inicio de sesión único de Azure AD con Skills Base mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Skills Base.
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+Para configurar y probar el inicio de sesión único de Azure AD con Skills Base, lleve a cabo los siguientes pasos:
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único en Skills Base](#configure-skills-base-sso)** : para definir los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba en Skills Base](#create-skills-base-test-user)** : para tener un homólogo de B.Simon en Skills Base que esté vinculado a la representación de ella en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-4. En el cuadro de búsqueda, escriba **Skills Base**, seleccione **Skills Base** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En Azure Portal, en la página de integración de aplicaciones de **Skills Base**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-     ![Skills Base en la lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Skills Base con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Skills Base.
-
-Para configurar y probar el inicio de sesión único de Azure AD con Skills Base, es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Skills Base](#configure-skills-base-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Skills Base](#create-skills-base-test-user)** : para tener un homólogo de Britta Simon en Skills Base que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con Skills Base, realice los siguientes pasos:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Skills Base**, seleccione **Inicio de sesión único**.
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
-
-    ![Información de dominio y direcciones URL de inicio de sesión único de Skills Base](common/sp-signonurl.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.skills-base.com/o/<customer-unique-key>`
 
@@ -118,27 +95,45 @@ Para configurar el inicio de sesión único de Azure AD con Skills Base, realice
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-    b. Identificador de Azure AD
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-    c. URL de cierre de sesión
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
-### <a name="configure-skills-base-single-sign-on"></a>Configuración del inicio de sesión único de Skills Base
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección va a permitir que B.Simon acceda a Skills Base mediante el inicio de sesión único de Azure.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Skills Base**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-skills-base-sso"></a>Configuración del inicio de sesión único de Skills Base
 
 1. En otra ventana del explorador web, inicie sesión en Skills Base como administrador de seguridad.
 
 2. En el lado izquierdo del menú, bajo **ADMIN** haga clic en **Authentication** (Autenticación).
 
-    ![El administrador](./media/skillsbase-tutorial/tutorial_skillsbase_auth.png)
+    ![El administrador](./media/skillsbase-tutorial/admin.png)
 
 3. En la página **Authentication** (Autenticación), seleccione el inicio de sesión único como **SAML 2**.
 
-    ![Captura de pantalla que muestra la página de autenticación con la opción SAML 2 seleccionada para el inicio de sesión único.](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
+    ![Captura de pantalla que muestra la página de autenticación con la opción SAML 2 seleccionada para el inicio de sesión único.](./media/skillsbase-tutorial/configuration.png)
 
 4. En la página **Authentication** (Autenticación), realice los siguientes pasos:
 
-    ![Captura de pantalla que muestra la página de autenticación, donde puede especificar los valores descritos.](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
+    ![Captura de pantalla que muestra la página de autenticación, donde puede especificar los valores descritos.](./media/skillsbase-tutorial/save-configuration.png)
 
     a. Haga clic en el botón **Update IdP metadata** (Actualizar metadatos de IdP) junto a la opción **Status** (Estado) y pegue el contenido del XML de metadatos que descargó de Azure Portal en el cuadro de texto especificado.
 
@@ -147,57 +142,6 @@ Para configurar el inicio de sesión único de Azure AD con Skills Base, realice
 
     b. Haga clic en **Save**(Guardar).
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
-    Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Crear**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Skills Base.
-
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **Skills Base**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-2. En la lista de aplicaciones, seleccione **Skills Base**.
-
-    ![Vínculo a Skills Base en la lista de aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
-
 ### <a name="create-skills-base-test-user"></a>Creación de un usuario de prueba de Skills Base
 
 En esta sección, se crea un usuario llamado Britta Simon en Skills Base. Skills Base admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario ya no existe en Skills Base, se crea uno después de la autenticación.
@@ -205,16 +149,16 @@ En esta sección, se crea un usuario llamado Britta Simon en Skills Base. Skills
 > [!Note]
 > Si necesita crear manualmente un usuario, siga las instrucciones que se indican [aquí](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de Skills Base en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Skills Base para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Skills Base, donde puede iniciar el flujo de inicio de sesión. 
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Vaya directamente a la dirección URL de inicio de sesión de Skills Base e inicie el flujo de inicio de sesión desde allí.
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Skills Base en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de esa aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+Una vez que haya configurado Skills Base, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

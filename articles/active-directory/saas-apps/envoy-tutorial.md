@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/01/2021
+ms.date: 06/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 643ab787e07cdb1f3a61d1028838a2fc68a169f2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3342198600c3549a7ce5e1e52111233d4fa920d8
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108148042"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110188"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Envoy
 
@@ -78,7 +78,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
 
@@ -127,27 +127,19 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
     ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
 
-2. Después de agregar la extensión al explorador, haga clic en **Configurar Envoy** para ir a la aplicación Envoy. En ella, escriba las credenciales de administrador para iniciar sesión en Envoy. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 7.
+2. Después de agregar la extensión al explorador, haga clic en **Configurar Envoy** para ir a la aplicación Envoy. En ella, escriba las credenciales de administrador para iniciar sesión en Envoy. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 5.
 
     ![Configuración](common/setup-sso.png)
 
-3. Si quiere configurar Envoy manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Envoy como administrador y haga lo siguiente:
+3. Si quiere configurar Envoy manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Envoy como administrador y siga estos pasos.
 
-4. En la barra de herramientas de la parte superior, haga clic en el icono de **Configuración**.
+4. Vaya a **Integrations** > **All integrations** (Integraciones > Todas las integraciones) y haga clic en **Install** SAML (Instalar SAML) en **Single sign-on** (Inicio de sesión único).
 
-    ![Envoy](./media/envoy-tutorial/envoy-1.png "Envoy")
+    ![SAML Authentication (Autenticación SAML)](./media/envoy-tutorial/integrations.png "Autenticación SAML")
 
-5. Haga clic en **Compañía**.
+5. Vaya a la sección **Enabled integrations** (Integraciones habilitadas) y siga estos pasos:
 
-    ![Company](./media/envoy-tutorial/envoy-2.png "Compañía")
-
-6. Haga clic en **SAML**.
-
-    ![SAML](./media/envoy-tutorial/envoy-3.png "SAML")
-
-7. En la sección de configuración de **Autenticación SAML**, lleve a cabo los siguientes pasos:
-
-    ![Autenticación SAML](./media/envoy-tutorial/envoy-4.png "Autenticación SAML")
+    ![Inicio de sesión único](./media/envoy-tutorial/configuration.png "Inicio de sesión único")
     
     >[!NOTE]
     >La aplicación genera automáticamente el valor del identificador de ubicación de la sede central.
@@ -156,7 +148,7 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
     
     b. Pegue el valor del campo **Dirección URL de inicio de sesión**, que copió de Azure Portal, en el cuadro de texto **IDENTITY PROVIDER HTTP SAML URL** (Dirección URL de SAML HTTP del proveedor de identidades).
     
-    c. Haga clic en **Guardar cambios**.
+    c. Haga clic en **Save**(Guardar).
 
 ### <a name="create-envoy-test-user"></a>Creación de un usuario de prueba en Envoy
 

@@ -1,15 +1,15 @@
 ---
 title: 'Creación de archivos de Bicep: Visual Studio Code'
 description: Uso de Visual Studio Code y la extensión Bicep para archivos de Bicep a fin de implementar recursos de Azure
-ms.date: 06/01/2021
+ms.date: 06/25/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8369d0185977ae85e561b809200f1e7d733ea556
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8167516a41943ea17fdeb47bce84767178593e85
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027261"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112970110"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de archivos de Bicep con Visual Studio Code
 
@@ -154,7 +154,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 
 Casi ha terminado. Solo tiene que proporcionar valores para esas propiedades.
 
-De nuevo, IntelliSense le puede ayudar. En el caso de `name`, proporcione el parámetro que contiene un nombre para la cuenta de almacenamiento. En el caso de `location`, establezca el valor en `eastus`. Al agregar el nombre y el tipo de SKU, IntelliSense presentará las opciones válidas. 
+De nuevo, IntelliSense le puede ayudar. En el caso de `name`, proporcione el parámetro que contiene un nombre para la cuenta de almacenamiento. En el caso de `location`, establezca el valor en `eastus`. Al agregar el nombre y el tipo de SKU, IntelliSense presentará las opciones válidas.
 
 Cuando haya terminado, tendrá lo siguiente:
 
@@ -232,6 +232,9 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.
 ```
 
 ---
+
+> [!NOTE]
+> Reemplace **{your-unique-name}** , incluidos los corchetes, por un nombre de cuenta de almacenamiento único.
 
 Una vez finalizada la implementación, debería mostrarse un mensaje indicando que la implementación se realizó correctamente. Si recibe un mensaje de error indicando que la cuenta de almacenamiento ya está ocupada, significa que el nombre de almacenamiento proporcionado está en uso. Especifique un nombre con mayores probabilidades de ser único.
 

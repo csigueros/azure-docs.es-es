@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 06/29/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2e8bf2ccbf7a53563013c7ba653a6f6e8905337
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a91010f100aa0a464ec61f763b38150ebb4efcf4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97881317"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090356"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Tutorial: Protección de los eventos de inicio de sesión de usuario mediante Azure AD Multi-Factor Authentication
 
@@ -41,7 +41,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
 * Un inquilino de Azure AD activo con al menos una licencia de Azure AD Premium P1 o de prueba habilitada.
     * Si es preciso, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Una cuenta con privilegios de *administrador global*.
+* Una cuenta con privilegios de *administrador global*. Un administrador de directivas de autenticación también puede administrar algunos valores de MFA. Para más información, consulte [Administrador de directivas de autenticación](../roles/permissions-reference.md#authentication-policy-administrator).
 * Un usuario que no sea administrador con una contraseña que conozca, como *usuarioDePrueba*. Utilizará esta cuenta para probar la experiencia de Azure AD Multi-Factor Authentication por parte del usuario final en este tutorial.
     * Si necesita crear un usuario, consulte [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * Un grupo del que sea miembro el usuario que no es administrador, como *Grupo-Prueba-MFA*. En este tutorial, habilitará Azure AD Multi-Factor Authentication para este grupo.

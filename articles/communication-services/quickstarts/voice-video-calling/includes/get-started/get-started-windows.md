@@ -4,17 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 7589190f29e7d85bfb49a868dde9b261882d28b0
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: a85246e9c60af6363ddd59066f55941da04cfe1c
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111594098"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112536044"
 ---
 En este artículo de inicio rápido aprenderá a iniciar una llamada con Calling SDK de Azure Communication Services para Windows.
 
-> [!NOTE]
-> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling)
+## <a name="sample-code"></a>Código de ejemplo
+
+Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -46,7 +47,7 @@ Compruebe `Internet (Client & Server)` para obtener acceso entrante y saliente a
 
 ### <a name="set-up-the-app-framework"></a>Instalación del marco de la aplicación
 
-Es necesario configurar un diseño básico para adjuntar la lógica. Para hacer una llamada saliente, se necesita un elemento `TextBox` para proporcionar el identificador de usuario del destinatario. También se necesita un botón `Start Call` y un botón `Hang Up`. Abra `MainPage.xaml` del proyecto y agregue el nodo `StackPanel` a `Page`: 
+Es necesario configurar un diseño básico para adjuntar la lógica. Para hacer una llamada saliente, se necesita un elemento `TextBox` para proporcionar el id. de usuario del destinatario. También se necesita un botón `Start Call` y un botón `Hang Up`. Abra `MainPage.xaml` del proyecto y agregue el nodo `StackPanel` a `Page`: 
 
 ```C#
 <Page
@@ -123,7 +124,11 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Inicialice una instancia de `CallAgent` con un token de acceso de usuario que nos permita realizar y recibir llamadas. Agregue el siguiente código a la función `InitCallAgent`. 
+Inicialice una instancia de `CallAgent` con un token de acceso de usuario que nos permita realizar y recibir llamadas. 
+
+En el código siguiente, reemplace `<USER_ACCESS_TOKEN>` por un token de acceso de usuario. Consulte la documentación relativa al [token de acceso de usuario](../../../access-tokens.md) si aún no tiene ningún token disponible.
+
+Agregue el siguiente código a la función `InitCallAgent`. 
 
 ```C#
 CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
@@ -167,7 +172,3 @@ Puede compilar y ejecutar el código en Visual Studio. Tenga en cuenta que para
 Para hacer una llamada saliente, proporcione un identificador de usuario en el campo de texto y haga clic en el botón `Start Call`. La llamada a `8:echo123` le conecta a un bot de eco; esto es excelente como introducción y para comprobar que los dispositivos de audio funcionan.
 
 :::image type="content" source="../../media/windows/run-the-app.png" alt-text="Captura de pantalla que muestra la ejecución de la aplicación de inicio rápido":::
-
-## <a name="sample-code"></a>Código de ejemplo
-
-Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling).

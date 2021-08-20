@@ -5,13 +5,13 @@ ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/18/2021
-ms.openlocfilehash: 6c7bfaf6bd6ca11593a986ca8d929faf063be720
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 07/05/2021
+ms.openlocfilehash: 927d913122203383b4279d68059040b6bf4be5e7
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905781"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436773"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carga incremental de datos de Instancia administrada de Azure SQL a Azure Blob Storage mediante la captura de datos modificados (CDC)
 
@@ -127,11 +127,12 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
    ![La captura de pantalla muestra un mensaje que indica que la implementación ha finalizado y una opción para ir a recurso.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
 
-   ![La captura de pantalla muestra la factoría de datos que ha implementado.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
-10. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
-11. En la página de **introducción**, cambie a la pestaña **Edit** (Editar) del panel izquierdo tal como se muestra en la siguiente imagen:
+      :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono Abrir Azure Data Factory Studio.":::
 
-    ![Botón Create pipeline (Crear canalización)](./media/tutorial-incremental-copy-change-data-capture-feature-portal/get-started-page.png)
+10. Seleccione **Abrir** en el icono **Abrir Azure Data Factory Studio** para iniciar la aplicación de interfaz de usuario (IU) de Azure Data Factory en una pestaña independiente.
+11. En la página principal, cambie a la pestaña **Administrar** del panel de la izquierda como se muestra en la siguiente imagen:
+
+    ![Captura de pantalla en la que se muestra el botón Administrar.](media/doc-common-process/get-started-page-manage-button.png)
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En esta sección, creará servicios vinculados a la cuenta de Azure Storage e Instancia administrada de Azure SQL.

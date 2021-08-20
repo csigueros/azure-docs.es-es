@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: d70a15456ecc688b6bc8137223d36164545c0123
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 5d473ad0409fcdd301490348659f183d15905cf2
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956227"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585850"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implementación y recorrido por una plantilla de aplicación del centro de micrologística
 
@@ -42,7 +42,7 @@ Para crear una nueva aplicación de Azure IoT Central:
 1. Seleccione **Retail** (Comercio minorista).  En la página de comercio minorista se muestran varias plantillas de aplicación de venta al por menor.
 
 Para crear una nueva aplicación del centro de micrologística que usa las características de la versión preliminar:  
-1. Seleccione la plantilla de aplicación **Micro-fulfillment center** (Centro de micrologística). Esta plantilla incluye plantillas de dispositivo para todos los dispositivos usados en el tutorial. La plantilla también proporciona un panel de operador para la supervisión tanto de las condiciones del centro de logística, como de los operadores robóticos. 
+1. Seleccione la plantilla de aplicación **Micro-fulfillment center** (Centro de micrologística). Esta plantilla incluye plantillas de dispositivo para todos los dispositivos usados en el tutorial. La plantilla también proporciona un panel para la supervisión tanto de las condiciones del centro de logística, como de los operadores robóticos. 
 
     ![Captura de pantalla de la página Build your IoT application (Compilar aplicación de IoT) de Azure IoT Central](./media/tutorial-micro-fulfillment-center-app/iotc-retail-homepage-mfc.png)
     
@@ -61,7 +61,7 @@ Para crear una nueva aplicación del centro de micrologística que usa las carac
 
 ## <a name="walk-through-the-application"></a>Recorrido por la aplicación. 
 
-Después de implementar correctamente la plantilla de aplicación, verá al **panel del centro de micrologística de Northwind Traders**. Northwind Traders es un minorista ficticio que tiene un centro de micrologística que se administrando en esta aplicación de Azure IoT Central. En este panel de operador, se ve información y datos de telemetría de los dispositivos de esta plantilla junto con un conjunto de comandos, trabajos y acciones que se pueden realizar. El panel se divide lógicamente en dos secciones. A la izquierda, es posible supervisar las condiciones del entorno dentro de la estructura logística y, a la derecha, se puede supervisar el estado de un operador robótico dentro de la instalación.  
+Después de implementar correctamente la plantilla de aplicación, verá al **panel del centro de micrologística de Northwind Traders**. Northwind Traders es un minorista ficticio que tiene un centro de micrologística que se administrando en esta aplicación de Azure IoT Central. En este panel se ven información y datos de telemetría de los dispositivos de esta plantilla junto con un conjunto de comandos, trabajos y acciones que se pueden realizar. El panel se divide lógicamente en dos secciones. A la izquierda, es posible supervisar las condiciones del entorno dentro de la estructura logística y, a la derecha, se puede supervisar el estado de un operador robótico dentro de la instalación.  
 
 Desde el panel se puede:
    * Consultar los datos de telemetría de dispositivos, como el número de recogidas, el número de pedidos procesados y propiedades como el estado del sistema de la estructura.  

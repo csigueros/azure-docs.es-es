@@ -6,17 +6,18 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dadc8bd00e87b149b32515551886b2a8129b78d4
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 18ac7ba882f82e1c5de29367e3cd27f0f5a260c0
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560847"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114339835"
 ---
 En este inicio rápido aprenderá a iniciar una llamadas con Calling SDK de Azure Communication Services para Android.
 
-> [!NOTE]
-> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)
+## <a name="sample-code"></a>Código de ejemplo
+
+Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -175,9 +176,10 @@ package com.contoso.acsquickstart;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
+import android.media.AudioManager;
 import android.Manifest;
 import android.content.pm.PackageManager;
+
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -207,6 +209,8 @@ public class MainActivity extends AppCompatActivity {
         // Bind call button to call `startCall`
         Button callButton = findViewById(R.id.call_button);
         callButton.setOnClickListener(l -> startCall());
+        
+        setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
     }
 
     /**
@@ -271,7 +275,9 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Creación de un agente a partir del token de acceso de usuario
 
-Con el token de usuario, se puede crear una instancia del agente de llamadas autenticado. Por lo general, este token se generará a partir de un servicio con autenticación específica de la aplicación. Para obtener más información sobre los tokens de acceso de usuario, consulte la guía [Tokens de acceso de usuario](../../../access-tokens.md). En el inicio rápido, reemplace `<User_Access_Token>` por un token de acceso de usuario generado para el recurso de Azure Communication Service.
+Con un token de usuario, se puede crear una instancia del agente de llamadas autenticado. Por lo general, este token se generará a partir de un servicio con autenticación específica de la aplicación. Para obtener más información sobre los tokens de acceso de usuario, consulte la guía [Tokens de acceso de usuario](../../../access-tokens.md). 
+
+En el inicio rápido, reemplace `<User_Access_Token>` por un token de acceso de usuario generado para el recurso de Azure Communication Service.
 
 ```java
 
@@ -318,7 +324,3 @@ private void startCall() {
 Ahora se puede iniciar la aplicación con el botón "Ejecutar aplicación" de la barra de herramientas (Mayús + F10). Para verificar que puede realizar llamadas, llame a `8:echo123`. Se reproducirá un mensaje grabado previamente y, luego, se repetirá su mensaje.
 
 :::image type="content" source="../../media/android/quickstart-android-call-echobot.png" alt-text="Captura de pantalla que muestra la aplicación completada.":::
-
-## <a name="sample-code"></a>Código de ejemplo
-
-Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling).

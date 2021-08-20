@@ -13,165 +13,135 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/15/2020
+ms.date: 07/07/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdef3e1f1a60c9eb0c751855837e9cbe77e015e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30ec59a2b74ffb1a9de8bbf03271bf4699c98b6b
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98572296"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113552657"
 ---
 # <a name="what-is-the-sign-in-diagnostic-in-azure-ad"></a>¿Qué es el diagnóstico de inicio de sesión en Azure AD?
 
-Azure Active Directory (Azure AD) proporciona un modelo de seguridad flexible para controlar qué pueden hacer los usuarios con los recursos administrados. El acceso a estos recursos no solo lo controla *quién* accede a ellos, sino también *cómo* se accede a ellos. Normalmente, un modelo flexible conlleva un cierto grado de complejidad debido al número de opciones de configuración que tiene. La complejidad hace que pueda aumentar el riesgo de errores.
+Determinar el motivo de un inicio de sesión con errores puede convertirse rápidamente en una tarea complicada. Para resolver el problema, debe analizar lo que ha ocurrido durante el intento de inicio de sesión e investigar las recomendaciones disponibles. Lo ideal podría ser resolver el problema sin implicar a otros usuarios, como el soporte técnico de Microsoft. Si se encuentra en una situación como esta, puede usar el diagnóstico de inicios de sesión en Azure AD, que es una herramienta que le ayuda a investigar los inicios de sesión en Azure AD. 
 
-Como administrador de TI, necesita una solución que le ofrezca una perspectiva de las actividades del sistema. Esta visibilidad puede permitirle diagnosticar y resolver los problemas cuando se produzcan. El diagnóstico de inicio de sesión de Azure AD es un ejemplo de este tipo de solución. Puede usarlo para analizar lo que ha sucedido durante un intento de inicio de sesión y obtener recomendaciones para solucionar problemas sin necesidad de que intervenga el servicio de soporte técnico de Microsoft.
+En este artículo se proporciona información general sobre qué es el diagnóstico y cómo se puede usar para solucionar errores relacionados con el inicio de sesión. 
 
-En este artículo se proporciona información general no solo sobre las funciones de la solución, sino también sobre cómo se puede usar.
 
-## <a name="requirements"></a>Requisitos
+## <a name="how-it-works"></a>Cómo funciona  
 
-El diagnóstico del inicio de sesión está disponible en todas las ediciones de Azure AD.
+En Azure AD, los intentos de inicio de sesión se controlan mediante:
 
-Para usarlo, es preciso ser administrador global de Azure AD.
+- **Quién**: el usuario que realiza un intento de inicio de sesión.
+- **Cómo**: cómo se realizó un intento de inicio de sesión.
 
-## <a name="how-it-works"></a>Funcionamiento
+Por ejemplo, puede configurar directivas de acceso condicional que permitan a los administradores configurar todos los aspectos del inquilino cuando inician sesión desde la red corporativa. Sin embargo, el mismo usuario podría estar bloqueado cuando inicia sesión en la misma cuenta desde una red que no es de confianza. 
 
-En Azure AD, la respuesta a un intento de inicio de sesión está ligada a *quién* inicia sesión y *cómo* se accede al inquilino. Por ejemplo, un administrador normalmente puede configurar todos los aspectos del inquilino cuando inicia sesión desde la red corporativa. Sin embargo, el mismo usuario podría estar bloqueado cuando inicia sesión con la misma cuenta desde una red que no es de confianza.
+Dada la mayor flexibilidad del sistema para responder a un intento de inicio de sesión, podría acabar en escenarios en los que tenga que solucionar problemas de inicios de sesión. El diagnóstico de inicio de sesión es una herramienta diseñada para habilitar el autodiagnóstico de los problemas de inicio de sesión mediante las siguientes operaciones:  
 
-Dada la mayor flexibilidad del sistema para responder a un intento de inicio de sesión, podrían acabar en escenarios en los que tengan que solucionar problemas de inicio de sesión. El diagnóstico de inicio de sesión es una característica que:
+- Analizar datos de los eventos de inicio de sesión.  
 
-- Analiza los datos de los eventos de inicio de sesión.
+- Mostrar información de lo que ha ocurrido.  
 
-- Muestra lo que ha sucedido.
+- Proporcionar recomendaciones para resolver problemas.  
 
-- Proporciona recomendaciones sobre cómo resolver los problemas.
+Para iniciar y completar el proceso de diagnóstico, es preciso:   
 
-El diagnóstico de inicio de sesión de Azure AD está diseñado para habilitar el diagnóstico automático de errores en el inicio de sesión. Para completar el proceso de diagnóstico, es preciso:
+1. **Identificar evento**: escriba información sobre el evento de inicio de sesión. 
 
-![Diagrama que muestra el diagnóstico de inicio de sesión.](./media/overview-sign-in-diagnostics/process.png)
+2. **Seleccionar evento**: seleccione un evento en función de la información compartida. 
 
-1. Definir el ámbito de los eventos de inicio de sesión que le interesan.
+3. **Tomar medidas**: revise los resultados del diagnóstico y dé los pasos necesarios.
 
-2. Seleccionar el inicio de sesión que se quiere revisar.
 
-3. Examinar el resultado del diagnóstico.
+### <a name="identify-event"></a>Identificar evento 
 
-4. Emprender acciones.
+Para identificar los eventos adecuados, puede filtrarlos en función de las siguientes opciones:
 
-### <a name="define-scope"></a>Definición del ámbito
+- Nombre del usuario
+- Application 
+- Identificador de correlación o identificador. de solicitud 
+- Fecha y hora
 
-El objetivo de este paso es definir el ámbito de los eventos de inicio de sesión que se van a investigar. Dicho ámbito se basa en un usuario o un identificador (correlationId, requestId) y en un intervalo de tiempo. Para reducir aún más el ámbito, puede especificar un nombre de aplicación. Azure AD usa la información del ámbito para buscar los eventos adecuados.  
+![Captura de pantalla que muestra el filtro.](./media/overview-sign-in-diagnostics/sign-in-diagnostics.png)
 
-### <a name="select-sign-in"></a>Selección de inicio de sesión  
 
-En función de los criterios de búsqueda, Azure AD recupera todos los eventos de inicio de sesión coincidentes y los presenta en una vista de lista de resumen de autenticación.
 
-![Captura de pantalla parcial que muestra la sección de resumen de autenticación.](./media/overview-sign-in-diagnostics/authentication-summary.png)
+### <a name="select-event"></a>Seleccionar evento  
 
-Las columnas que se muestran en esta vista se pueden personalizar.
+En función de los criterios de búsqueda, Azure AD recupera todos los eventos de inicio de sesión coincidentes y los presenta en una vista de lista de resumen de autenticación.  
 
-### <a name="review-diagnostic"></a>Revisión del diagnóstico
+![Captura de pantalla que muestra la lista resumen de la autenticación.](./media/overview-sign-in-diagnostics/review-sign-ins.png)
 
-Azure AD proporciona los resultados de diagnóstico del evento de inicio de sesión seleccionado.
+Puede cambiar el contenido que se muestra en las columnas para ajustarlo a sus preferencias. Algunos ejemplos son:
 
-![Captura de pantalla parcial que muestra la sección de resultados del diagnóstico.](./media/overview-sign-in-diagnostics/diagnostics-results.png)
-
-Estos resultados comienzan con una evaluación, que explica lo que sucedió en unas cuentas oraciones. Dicha explicación le ayuda a comprender el comportamiento del sistema.
-
-A continuación, recibirá un resumen de las directivas de acceso condicional relacionadas que se aplicaron al inicio de sesión seleccionado. Los resultados de diagnóstico también incluyen los pasos de corrección recomendados para resolver el problema. Como no siempre es posible resolver problemas sin ayuda adicional, un paso recomendado podría ser abrir una incidencia de soporte técnico.
+- Detalle del riesgo
+- Estado de acceso condicional
+- Location
+- Id. de recurso
+- Tipo de usuario
+- Detalles de la autenticación
 
 ### <a name="take-action"></a>Realizar acción
 
-En este momento, debe tener la información necesaria para corregir el problema.
+En el caso del evento de inicio de sesión seleccionado, se obtienen los resultados de un diagnóstico. Lea los resultados para identificar las acciones que puede realizar para corregir el problema. Estos resultados agregan los pasos recomendados y arrojan luz sobre información relevante, como las directivas relacionadas, los detalles de inicio de sesión y la documentación de apoyo. Como no siempre es posible resolver problemas sin ayuda adicional, un paso recomendado podría ser abrir una incidencia de soporte técnico. 
 
-## <a name="scenarios"></a>Escenarios
 
-Los siguientes escenarios están incluidos en el diagnóstico de inicio de sesión:
+![Captura de pantalla que muestra los resultados del diagnóstico.](./media/overview-sign-in-diagnostics/diagnostic-results.png)
 
-- Bloqueado por acceso condicional
 
-- Acceso condicional con error
 
-- Autenticación multifactor (MFA) del acceso condicional
+## <a name="how-to-access-it"></a>Acceso
 
-- Autenticación multifactor de otros requisitos
+Para usar el diagnóstico, debe haber iniciado sesión en el inquilino como administrador global o lector global. Si no tiene este nivel de acceso, use [Privileged Identity Management, PIM](../privileged-identity-management/pim-resource-roles-activate-your-roles.md), para elevar el acceso a administrador o lector globales dentro del inquilino. Esto le permitirá tener acceso temporal al diagnóstico.  
 
-- Se requiere una prueba de autenticación multifactor
+Con el nivel de acceso correcto, puede encontrar el diagnóstico en varios lugares: 
 
-- Prueba de MFA requerida (ubicación de inicio de sesión de riesgo)
+**Opción A**: diagnóstico y solución de problemas 
 
-- Inicio de sesión correcto
+![Captura de pantalla que muestra cómo iniciar diagnósticos de inicios de sesión desde el acceso condicional.](./media/overview-sign-in-diagnostics/troubleshoot-link.png)
 
-### <a name="blocked-by-conditional-access"></a>Bloqueado por acceso condicional
 
-En este escenario, una directiva de acceso condicional ha bloqueado un intento de inicio de sesión.
+1. Abra **Azure Active Directory o el acceso condicional a Azure AD**. 
 
-![Captura de pantalla que muestra la configuración de acceso con Bloquear acceso seleccionado.](./media/overview-sign-in-diagnostics/block-access.png)
+2. En el menú principal, haga clic en **Diagnosticar y solucionar problemas**.  
 
-La sección de diagnóstico de este escenario muestra detalles sobre el evento de inicio de sesión del usuario y las directivas aplicadas.
+3. En **Solucionadores de problemas**, hay un icono de diagnóstico de inicios de sesión. 
 
-### <a name="failed-conditional-access"></a>Acceso condicional con error
+4. Haga clic en el botón **Solucionar problemas**.  
 
-Este escenario suele ser el resultado de un error de intento de inicio de sesión debido a que no se cumplieron los requisitos de una directiva de acceso condicional. Los ejemplos comunes son:
+ 
 
-![Captura de pantalla que muestra la configuración de acceso con ejemplos de directivas comunes y Conceder acceso seleccionado.](./media/overview-sign-in-diagnostics/require-controls.png)
+ 
 
-- Requerir un dispositivo unido a Azure AD híbrido
+**Opción B**: eventos de inicio de sesión 
 
-- Requerir aplicación cliente aprobada
+![Captura de pantalla que muestra cómo iniciar diagnósticos de inicios de sesión desde Azure AD.](./media/overview-sign-in-diagnostics/sign-in-logs-link.png)
 
-- Requerir la directiva de protección de aplicaciones
 
-En la sección de diagnóstico de este escenario se muestran detalles sobre el intento de inicio de sesión del usuario y las directivas aplicadas.
 
-### <a name="mfa-from-conditional-access"></a>Autenticación multifactor de acceso condicional
 
-En este escenario, una directiva de acceso condicional tiene el requisito de iniciar sesión con el conjunto de autenticación multifactor.
+1. Abra Azure Active Directory. 
 
-![Captura de pantalla que muestra la configuración de acceso con Require multifactor authentication (Exigir la autenticación multifactor) seleccionada.](./media/overview-sign-in-diagnostics/require-mfa.png)
+2. En el menú principal, en la sección **Supervisión**, seleccione **Inicios de sesión**. 
 
-En la sección de diagnóstico de este escenario se muestran detalles sobre el intento de inicio de sesión del usuario y las directivas aplicadas.
+3. En la lista de inicios de sesión, seleccione alguno cuyo estado sea **Error**. Puede filtrar la lista por estado para facilitar la búsqueda de inicios de sesión con errores. 
 
-### <a name="mfa-from-other-requirements"></a>Autenticación multifactor de otros requisitos
+4. Se abrirá la pestaña **Detalles de actividad: Inicios de sesión** del inicio de sesión seleccionado. Haga clic en el icono de puntos para ver más iconos de menú. Seleccione la pestaña **Solución de problemas y soporte técnico**. 
 
-En este escenario, una directiva de acceso condicional no aplicó un requisito de autenticación multifactor. Por ejemplo, la autenticación multifactor a cada usuario.
+5. Haga clic en el vínculo para **iniciar el diagnóstico de inicios de sesión**. 
 
-![Captura de pantalla que muestra la configuración de autenticación multifactor por usuario.](./media/overview-sign-in-diagnostics/mfa-per-user.png)
+ 
 
-La intención de este escenario de diagnóstico es proporcionar más detalles sobre:
+**Opción C**: caso de soporte técnico 
 
-- El origen de la interrupción de la autenticación multifactor.
-- El resultado de la interacción del cliente.
+El diagnóstico también se puede encontrar al crear un caso de soporte técnico para ofrecerle la oportunidad de realizar un autodiagnóstico antes de recurrir al envío de un caso. 
 
-También puede ver todos los detalles del intento de inicio de sesión del usuario.
 
-### <a name="mfa-proof-up-required"></a>Se requiere una prueba de autenticación multifactor
-
-En este escenario, las solicitudes para configurar la autenticación multifactor interrumpieron los intentos de inicio de sesión. Esta configuración se conoce también como prueba.
-
-La prueba de autenticación multifactor se produce cuando se exige a un usuario que utilice la autenticación multifactor, pero aún no se ha configurado, o un administrador ha solicitado al usuario que la configure.
-
-La intención de este escenario de diagnóstico es revelar que la interrupción de la autenticación multifactor se debe a la falta de configuración del usuario. La solución recomendada es que el usuario realice la prueba.
-
-### <a name="mfa-proof-up-required-risky-sign-in-location"></a>Prueba de MFA requerida (ubicación de inicio de sesión de riesgo)
-
-En este escenario, los intentos de inicio de sesión se interrumpieron mediante una solicitud para configurar la autenticación multifactor a partir de una ubicación de inicio de sesión de riesgo.
-
-La intención de este escenario de diagnóstico es revelar que la interrupción de la autenticación multifactor se debe a la falta de configuración del usuario. La solución recomendada es que el usuario realice la prueba, en concreto desde una ubicación de red que no parezca arriesgada.
-
-Por ejemplo, si una red corporativa se define como una ubicación con nombre, el usuario debe intentar realizar la prueba desde la red corporativa.
-
-### <a name="successful-sign-in"></a>Inicio de sesión correcto
-
-En este escenario, los eventos de inicio de sesión no se interrumpieron con el acceso condicional o la autenticación multifactor.
-
-En este escenario de diagnóstico se proporcionan detalles sobre los eventos de inicio de sesión de usuario que se prevé que se interrumpan debido a las directivas de acceso condicional o a la autenticación multifactor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué son los informes de Azure Active Directory?](overview-reports.md)
-- [¿Qué es la supervisión de Azure Active Directory?](overview-monitoring.md)
+- [Diagnósticos de inicios de sesión para escenarios de Azure AD](concept-sign-in-diagnostics-scenarios.md)

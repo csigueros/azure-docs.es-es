@@ -12,12 +12,12 @@ metadata:
   ms.author: dfurman
   ms.reviewer: mathoma
   ms.date: 03/31/2021
-  ms.openlocfilehash: 993254f838af70c62292844991ba72c6977dfd99
-  ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+  ms.openlocfilehash: b173b2ce8de29a4a605e7223bc46130155b81b3d
+  ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/24/2021
-  ms.locfileid: "112574803"
+  ms.lasthandoff: 07/24/2021
+  ms.locfileid: "114668767"
 title: Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 summary: >
   [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -126,7 +126,7 @@ sections:
   - question: >
       ¿Para qué tipo de cargas de trabajo está diseñado el nivel de servicio Hiperescala?
     answer: >
-      Hiperescala es compatible con todas las cargas de trabajo de SQL Server, pero está optimizado principalmente para OLTP. Puede traer también cargas de trabajo híbridas (HTAP) y analíticas (data mart).
+      Hiperescala admite todos los tipos de cargas de trabajo, incluidas las cargas de trabajo OLTP, híbridas (HTAP) y analíticas (data mart).
   - question: >
       ¿Cómo puedo elegir entre Azure Synapse Analytics e Hiperescala de Azure SQL Database?
     answer: "Si actualmente está ejecutando consultas de análisis interactivas mediante SQL°Server como almacenamiento de datos, Hiperescala es una excelente opción porque se pueden hospedar almacenamientos de datos pequeños y medianos (desde unos pocos TB hasta 100 TB) a un menor costo y puede migrar sus cargas de trabajo del almacenamiento de datos de SQL Server a Hiperescala con el mínimo de cambios en el código T-SQL.\n\nSi va a ejecutar análisis de datos a gran escala con consultas complejas y tasas de ingesta sostenidas que superen los 100 MB/s o mediante el almacenamiento de datos paralelos (PDW), Teradata o cualquier otro almacenamiento de datos con procesamiento paralelo masivo (MPP), Azure Synapse Analytics puede ser la mejor opción.\n  \n"
@@ -143,11 +143,11 @@ sections:
   - question: >
       ¿Puedo aprovisionar varias réplicas de proceso de diferentes tamaños?
     answer: >
-      No.
+      Sí. Esto puede lograrse usando [réplicas con nombre](service-tier-hyperscale-replicas.md#named-replica-in-preview).
   - question: >
       ¿Cuántas réplicas de escalado horizontal de lectura se admiten?
     answer: >
-      De manera predeterminada, las bases de datos de Hiperescala se crean con una réplica de escalado horizontal de lectura (dos réplicas, incluida la primaria). Puede escalar el número de réplicas de solo lectura entre 0 y 4 mediante [Azure Portal ](https://portal.azure.com) o la [API REST](/rest/api/sql/databases/createorupdate).
+      De manera predeterminada, las bases de datos de Hiperescala se crean con una réplica de escalado horizontal de lectura (dos réplicas, incluida la primaria). Puede escalar el número de réplicas de solo lectura entre 0 y 4 mediante [Azure Portal ](https://portal.azure.com) o la [API REST](/rest/api/sql/databases/createorupdate). Además, muchos escenarios de escalado de lectura horizontal se pueden habilitar mediante [réplicas con nombre](service-tier-hyperscale-replicas.md#named-replica-in-preview).
   - question: >
       ¿Tengo que aprovisionar réplicas de proceso adicionales para lograr una alta disponibilidad?
     answer: >
@@ -170,7 +170,7 @@ sections:
   - question: >
       ¿Escala mi `tempdb` a medida que crece mi base de datos?
     answer: >
-      La base de datos `tempdb` está ubicada en el almacenamiento SSD local y tiene un tamaño proporcional al tamaño de proceso que aprovisione. La `tempdb` se ha optimizado para proporcionar ventajas de rendimiento máximo. No puede configurar el tamaño de `tempdb` porque no es usted quien lo administra.
+      La base de datos `tempdb` está ubicada en el almacenamiento SSD local y tiene un tamaño proporcional al tamaño de proceso que aprovisione. La `tempdb` se ha optimizado para proporcionar ventajas de rendimiento máximo. No puede configurar el tamaño de `tempdb` porque no es usted quien lo administra. Para determinar el tamaño máximo de `tempdb` de la base de datos, consulte [Tamaños de proceso y almacenamiento de Hiperescala](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
   - question: >
       ¿Crece automáticamente el tamaño de mi base de datos o tengo que administrar el tamaño de los archivos de datos?
     answer: >
@@ -222,7 +222,7 @@ sections:
   - question: >
       ¿Pierdo alguna funcionalidad al migrar al nivel de servicio Hiperescala?
     answer: >
-      Sí. Algunas características de Azure SQL Database todavía no se admiten en Hiperescala, incluida la retención de copias de seguridad a largo plazo, entre otras. Después de migrar las bases de datos a Hiperescala, esas características dejan de funcionar.  Esperamos que estas limitaciones sean temporales.
+      Sí. Algunas características de Azure SQL Database todavía no se admiten en Hiperescala, incluida la retención de copias de seguridad a largo plazo, entre otras. Después de migrar las bases de datos a Hiperescala, esas características dejan de funcionar.  Esperamos que estas limitaciones sean temporales. Para más información, consulte las [limitaciones conocidas](service-tier-hyperscale.md#known-limitations).
   - question: >
       ¿Puedo mover mi base de datos de SQL Server local o mi base de datos de SQL Server en una máquina virtual de nube a Hiperescala?
     answer: >
@@ -272,7 +272,7 @@ sections:
   - question: >
       ¿Con qué frecuencia se realizan las copias de seguridad de las bases de datos?
     answer: >
-      No hay copias de seguridad de registros tradicionales, completas y diferenciales para las bases de datos de Hiperescala. En su lugar, hay instantáneas de almacenamiento normales de archivos de datos. El registro que se genera simplemente se conserva tal cual durante el período de retención configurado, lo que permite la restauración a cualquier punto en el tiempo dentro del período de retención.
+      No hay copias de seguridad de registros tradicionales, completas y diferenciales para las bases de datos de Hiperescala. En su lugar, hay instantáneas de almacenamiento normales de archivos de datos. El registro que se genera se conserva tal cual durante el período de retención configurado, lo que permite la restauración a cualquier punto en el tiempo dentro del período de retención.
   - question: >
       ¿Admite Hiperescala la restauración a un momento dado?
     answer: >
@@ -280,7 +280,7 @@ sections:
   - question: >
       ¿Cuál es el objetivo de punto de recuperación (RPO) y el objetivo de tiempo de recuperación (RTO) para la restauración de base de datos en Hiperescala?
     answer: >
-      El RPO es 0 minutos. La mayoría de las operaciones de restauración se completan en 60 minutos independientemente del tamaño de la base de datos. El tiempo de restauración puede ser mayor para las bases de datos de mayor tamaño, y si la base de datos ha experimentado una actividad de escritura importante antes y hasta el punto de restauración en el tiempo.
+      El RPO para la restauración puntual es de 0 minutos. La mayoría de las operaciones de restauración puntual se completan en 60 minutos, independientemente del tamaño de la base de datos. El tiempo de restauración puede ser mayor para las bases de datos de mayor tamaño, y si la base de datos ha experimentado una actividad de escritura importante antes y hasta el punto de restauración en el tiempo.
   - question: >
       ¿La copia de seguridad de bases de datos afecta al rendimiento de proceso en mis réplicas principales o secundarias?
     answer: >
@@ -292,7 +292,7 @@ sections:
   - question: >
       ¿Puedo configurar la replicación geográfica con una base de datos de Hiperescala?
     answer: >
-      La [replicación geográfica](active-geo-replication-overview.md) de bases de datos de Hiperescala está en versión preliminar pública.
+      Sí. La [replicación geográfica](active-geo-replication-overview.md) de bases de datos de Hiperescala está en versión preliminar pública.
   - question: >
       ¿Puedo realizar una copia de seguridad de una base de datos de Hiperescala y restaurarla en mi servidor local o en SQL Server en una máquina virtual?
     answer: >
@@ -302,7 +302,7 @@ sections:
   - question: >
       ¿Pierdo alguna funcionalidad al migrar al nivel de servicio Hiperescala?
     answer: >
-      Sí. Algunas características de Azure SQL Database no se admiten en Hiperescala, incluida la retención de copias de seguridad a largo plazo, entre otras. Después de migrar las bases de datos a Hiperescala, esas características dejan de funcionar.
+      Sí. Algunas características de Azure SQL Database no se admiten en Hiperescala, incluida la retención de copias de seguridad a largo plazo, entre otras. Después de migrar las bases de datos a Hiperescala, esas características dejan de funcionar. Para más información, consulte las [limitaciones conocidas](service-tier-hyperscale.md#known-limitations).
   - question: >
       ¿Funcionará PolyBase con Hiperescala?
     answer: >
@@ -324,7 +324,7 @@ sections:
   - question: >
       ¿Cuántas IOPS obtengo en el proceso más grande?
     answer: >
-      Las IOPS y la latencia de E/S variarán según los patrones de carga de trabajo. Si los datos a los que se accede se almacenan en caché en la réplica de proceso, verá un rendimiento similar de E/S que con el almacenamiento SSD local.
+      Las IOPS y la latencia de E/S variarán según los patrones de carga de trabajo. Si los datos a los que se accede se almacenan en caché en RBPEX en la réplica de proceso, verá un rendimiento de E/S similar al de los niveles de servicio Crítico para la empresa o Premium.
   - question: >
       ¿Afectan las copias de seguridad a mi rendimiento?
     answer: >
@@ -350,14 +350,14 @@ sections:
   - question: >
       ¿Se puede esperar una interrupción de la conexión cuando las operaciones de escalado están en curso?
     answer: >
-      El escalado o la reducción vertical hace que las conexiones existentes se bloqueen cuando se produce una conmutación por error al final de la operación de escalado. La incorporación de réplicas secundarias no genera interrupciones de conexión.
+      El escalado o la reducción vertical hace que las conexiones existentes se bloqueen cuando se produce una conmutación por error al final de la operación de escalado. La adición o eliminación de réplicas secundarias no da lugar a que la conexión se elimine en la réplica principal.
   - question: >
       ¿Se produce el escalado y reducción vertical de las réplicas de proceso de forma automática o se trata de una operación desencadenada por el usuario final?
     answer: "Por el usuario final. No es una operación automática.  \n"
   - question: >
       ¿El tamaño de la base de datos de `tempdb` y el caché de RBPEX también aumenta a medida que el proceso se escala verticalmente?
     answer: >
-      Sí. El tamaño de la base de datos de `tempdb` y la [caché RBPEX](service-tier-hyperscale.md#distributed-functions-architecture) de los nodos de proceso se escalarán verticalmente de forma automática a medida que aumenta el número de núcleos.
+      Sí. El tamaño de la base de datos de `tempdb` y la [caché RBPEX](service-tier-hyperscale.md#distributed-functions-architecture) de los nodos de proceso se escalarán verticalmente de forma automática a medida que aumenta el número de núcleos. Para más información, consulte [Tamaños de almacenamiento y proceso de Hiperescala](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
   - question: >
       ¿Puedo aprovisionar varias réplicas de proceso principales como un sistema de arquitectura multimaestro en los que los nodos principales pueden impulsar un mayor nivel de simultaneidad?
     answer: >

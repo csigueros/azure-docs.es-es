@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Personalización del panel del operador en Azure IoT Central'
-description: En este tutorial se muestra cómo personalizar el panel del operador en una aplicación de IoT Central y cómo administrar dispositivos.
+title: 'Tutorial: Personalización del panel en Azure IoT Central'
+description: En este tutorial se muestra cómo personalizar el panel en una aplicación de IoT Central y cómo administrar dispositivos.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -11,17 +11,17 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: cea5ed5d75bbba4e2e6cdc8793bf5ce7503a5912
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d8655251d22f82b6ff6171514cdd48506c5cc895
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755358"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585987"
 ---
-# <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial:  Personalización del panel del operador y administración de dispositivos en Azure IoT Central
+# <a name="tutorial-customize-the-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial: Personalización del panel y administración de dispositivos en Azure IoT Central
 
 
-En este tutorial obtendrá información sobre cómo personalizar el panel del operador en una aplicación de análisis en la tienda de Azure IoT Central. Los operadores de la aplicación pueden usar el panel personalizado para ejecutar la aplicación y administrar los dispositivos conectados.
+En este tutorial aprenderá a personalizar el panel en una aplicación de análisis en la tienda de Azure IoT Central. Los operadores de la aplicación pueden usar el panel personalizado para ejecutar la aplicación y administrar los dispositivos conectados.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -39,7 +39,7 @@ El desarrollador debe realizar el primer tutorial para crear la aplicación de a
 * [Creación de una aplicación de análisis en tienda en Azure IoT Central](./tutorial-in-store-analytics-create-app.md) (requerido)
 
 ## <a name="change-the-dashboard-name"></a>Cambiar el nombre del panel
-Para personalizar el panel del operador, tiene que editar el panel predeterminado en la aplicación. También puede crear nuevos paneles adicionales. El primer paso para personalizar el panel en la aplicación es cambiar el nombre.
+Para personalizar el panel, tiene que editar el panel predeterminado en la aplicación. También puede crear nuevos paneles adicionales. El primer paso para personalizar el panel en la aplicación es cambiar el nombre.
 
 1. Vaya al sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral).
 

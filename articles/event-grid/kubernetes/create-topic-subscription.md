@@ -4,53 +4,78 @@ description: En este artículo se describe cómo crear un tema de Event Grid en 
 author: jfggdl
 ms.subservice: kubernetes
 ms.author: jafernan
-ms.date: 05/25/2021
+ms.date: 06/17/2021
 ms.topic: quickstart
-ms.openlocfilehash: d29583cecb1498c10320a844923067a48693480a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 5060d8e3022d98c31d11ea570555b7c5bba3d062
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030312"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415649"
 ---
 # <a name="route-cloud-events-to-webhooks-with-azure-event-grid-on-kubernetes"></a>Enrutar eventos en la nube a webhooks con Azure Event Grid en Kubernetes
 En este inicio rápido, creará un tema en Event Grid en Kubernetes, creará una suscripción para el tema y, a continuación, enviará un evento de ejemplo al tema para probar el escenario. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 1. [Conexión del clúster de Kubernetes a Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 1. [Instalación de la extensión de Event Grid en el clúster de Kubernetes](install-k8s-extension.md). Esta extensión implementa Event Grid en un clúster de Kubernetes. 
-1. [Creación de una ubicación personalizada](../../azure-arc/kubernetes/custom-locations.md). Una ubicación personalizada representa un espacio de nombres del clúster y es el lugar donde se implementan los temas y las suscripciones de eventos.
+
+
+## <a name="create-a-custom-location"></a>Creación de una ubicación personalizada
+Como extensión de ubicación de Azure, una ubicación personalizada le permite usar el clúster de Kubernetes habilitado para Azure Arc como ubicación de destino para implementar recursos, por ejemplo, temas de Event Grid. Una ubicación personalizada representa un espacio de nombres del clúster y es el lugar donde se implementan los temas y las suscripciones de eventos. En esta sección, creará una ubicación personalizada. 
+
+1. Declare las siguientes variables para contener los valores del clúster Azure Arc, el grupo de recursos y los nombres de ubicación personalizados. Copie estas instrucciones en un editor, reemplace los valores y, luego, cópielos y péguelos en la ventana de bash.  
+
+    ```azurecli-interactive
+    resourcegroupname="<AZURE RESOURCE GROUP NAME>"
+    arcclustername="<AZURE ARC CLUSTER NAME>"
+    customlocationname="<CUSTOM LOCATION NAME>"
+    ```
+1. Obtenga el identificador de recurso del clúster conectado de Azure Arc. Actualice los valores de los parámetros de nombre de clúster y grupo de recursos de Azure Arc antes de ejecutar el comando. 
+
+    ```azurecli-interactive
+    hostresourceid=$(az connectedk8s show -n $arcclustername -g $resourcegroupname --query id -o tsv)    
+    ```
+1. Obtenga el identificador de recurso de la extensión de Event Grid. En este paso se da por supuesto que el nombre que agregó para la extensión de Event Grid es **eventgrid-ext**. Actualice los nombres de clúster y grupo de recursos de Azure Arc antes de ejecutar el comando. 
+
+    ```azurecli-interactive
+    clusterextensionid=$(az k8s-extension show --name eventgrid-ext --cluster-type connectedClusters -c $arcclustername -g $resourcegroupname  --query id -o tsv)    
+    ```
+1. Cree una ubicación personalizada con los dos valores anteriores. Actualice los nombres de ubicación y grupo de recursos personalizados antes de ejecutar el comando. 
+
+    ```azurecli-interactive
+    az customlocation create -n $customlocationname -g $resourcegroupname --namespace arc --host-resource-id $hostresourceid --cluster-extension-ids $clusterextensionid    
+    ```
+1. Obtenga el identificador de recurso del recurso personalizado. Actualice el nombre de ubicación personalizado antes de ejecutar el comando. 
+
+    ```azurecli-interactive
+    customlocationid=$(az customlocation show -n $customlocationname -g $resourcegroupname --query id -o tsv)    
+    ```
+
+    Para más información sobre la creación de ubicaciones personalizadas, consulte [Creación y administración de ubicaciones personalizadas en Kubernetes habilitado para Azure Arc](../../azure-arc/kubernetes/custom-locations.md). 
 
 ## <a name="create-a-topic"></a>de un tema
+En esta sección, creará un tema en la ubicación personalizada que creó en el paso anterior. Actualice los nombres de los temas del grupo de recursos y de Event Grid antes de ejecutar el comando. Actualice la ubicación si usa una ubicación que no sea Este de EE. UU. 
 
-### <a name="azure-cli"></a>Azure CLI
-Ejecute el comando de la CLI de Azure siguiente para crear un tema:
+1. Declare una variable para contener el nombre del tema. 
 
-```azurecli-interactive
-az eventgrid topic create --name <EVENT GRID TOPIC NAME> \
-                        --resource-group <RESOURCE GROUP NAME> \
-                        --location <REGION> \
-                        --kind azurearc \
-                        --extended-location-name /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ExtendedLocation/customLocations/<CUSTOM LOCATION NAME> \
-                        --extended-location-type customlocation \
-                        --input-schema CloudEventSchemaV1_0
-```
-Especifique valores para los marcadores de posición antes de ejecutar el comando:
-- Nombre del grupo de recursos de Azure en el que quiere que se cree el tema de Event Grid. 
-- Nombre del tema. 
-- Región del tema.
-- En el identificador de recurso de la ubicación personalizada, especifique los valores siguientes:
-    - Identificador de la suscripción de Azure en la que existe la ubicación personalizada.
-    - Nombre del grupo de recursos que contiene la ubicación personalizada.
-    - Nombre de la ubicación personalizada
+    ```azurecli-interactive
+    topicname="<TOPIC NAME>"
+    ```
+4. Para crear el tema, ejecute el siguiente comando. 
 
-Para obtener más información sobre el comando de la CLI, consulte [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
+    ```azurecli-interactive
+    az eventgrid topic create -g $resourcegroupname --name $topicname --kind azurearc --extended-location-name $customlocationid --extended-location-type customlocation --input-schema CloudEventSchemaV1_0 --location $region    
+    ```
+
+    Para obtener más información sobre el comando de la CLI, consulte [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
+
 Antes de crear una suscripción para el tema personalizado, cree un punto de conexión para el mensaje de evento. Normalmente, el punto de conexión realiza acciones en función de los datos del evento. Para simplificar esta guía de inicio rápido, se implementa una [aplicación web pregenerada](https://github.com/Azure-Samples/azure-event-grid-viewer) que muestra los mensajes de los eventos. La solución implementada incluye un plan de App Service, una aplicación web de App Service y el código fuente desde GitHub.
 
 1. En la página del artículo, seleccione **Implementar en Azure** para implementar la solución en su suscripción. En Azure Portal, proporcione valores para los parámetros.
@@ -66,38 +91,26 @@ Antes de crear una suscripción para el tema personalizado, cree un punto de con
 ## <a name="create-a-subscription"></a>una suscripción
 Los suscriptores pueden registrarse en eventos publicados en un tema. Para recibir cualquier evento, deberá crear una suscripción de Event Grid para un tema de interés. Una suscripción de eventos define el destino al que se envían esos eventos. Para obtener información sobre todos los destinos o controladores que se admiten, consulte [Controladores de eventos](event-handlers.md).
 
-
-### <a name="azure-cli"></a>Azure CLI
-Para crear una suscripción de eventos con un destino de WebHook (punto de conexión HTTPS), ejecute el comando de la CLI de Azure siguiente:
+Para crear una suscripción de eventos con un destino de WebHook (punto de conexión HTTPS), escriba un nombre para ella, actualice el nombre del sitio web y ejecute el siguiente comando.
 
 ```azurecli-interactive
-az eventgrid event-subscription create --name <EVENT SUBSCRIPTION NAME> \
-                                    --source-resource-id /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<TOPIC'S RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAme> \
-                                    --endpoint https://<SITE NAME>.azurewebsites.net/api/updates
+topicid=$(az eventgrid topic show --name $topicname --resource-group $resourcegroupname --query id -o tsv)
+az eventgrid event-subscription create --name <EVENT SUBSCRIPTION NAME> --source-resource-id $topicid --endpoint https://<SITE NAME>.azurewebsites.net/api/updates
 ```
 
-Especifique valores para los marcadores de posición antes de ejecutar el comando:
-- Nombre de la suscripción de eventos que se va a crear. 
 
-- En el **identificador de recurso del tema**, especifique los valores siguientes:
-    - Identificador de la suscripción de Azure en la que quiere crear la suscripción. 
-    - Nombre del grupo de recursos que contiene el tema.
-    - Nombre del tema. 
-- Para el punto de conexión, especifique el nombre del sitio web del visor de Event Grid.
-    
 Para obtener más información sobre el comando de la CLI, consulte [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
-
 
 ## <a name="send-events-to-the-topic"></a>Envío de eventos al tema
 1. Ejecute el comando siguiente para obtener el **punto de conexión** para el tema: Después de copiar y pegar el comando, actualice el **nombre del tema** y el **nombre del grupo de recursos** antes de ejecutar el comando. Publicará eventos de ejemplo en este punto de conexión del tema. 
 
     ```azurecli
-    az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv
+    az eventgrid topic show --name $topicname -g $resourcegroupname --query "endpoint" --output tsv
     ```
 2. Ejecute el siguiente comando para obtener la **clave** para el tema personalizado: Después de copiar y pegar el comando, actualice el **nombre del tema** y el **nombre del grupo de recursos** antes de ejecutar el comando. Es la clave principal del tema. Para obtener esta clave en Azure Portal, cambie a la pestaña **Claves de acceso** de la página **Tema de Event Grid**. Para poder publicar un evento en un tema personalizado, necesita la clave de acceso. 
 
     ```azurecli
-    az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv
+    az eventgrid topic key list --name $topicname -g $resourcegroupname --query "key1" --output tsv
     ```
 1. Ejecute el comando de **CURL** siguiente para publicar el evento. Especifique la dirección URL y la clave del punto de conexión de los pasos 1 y 2 antes de ejecutar el comando. 
 
@@ -125,24 +138,15 @@ Para obtener más información sobre el comando de la CLI, consulte [`az eventgr
     
         ```yml
         apiVersion: v1
-        dnsPolicy: ClusterFirstWithHostNet
-        hostNetwork: true
         kind: Pod
-        metadata: 
-          name: test-pod
-        spec: 
-          containers: 
-            - 
-              name: nginx
-          emptyDir: {}
-          image: nginx
-          volumeMounts: 
-            - 
-              mountPath: /usr/share/nginx/html
-              name: shared-data
-          volumes: 
-            - 
-              name: shared-data  
+        metadata:
+            name: test-pod2
+        spec:
+            containers:
+              - name: nginx
+                image: nginx
+            hostNetwork: true
+            dnsPolicy: ClusterFirstWithHostNet       
         ```
     1. Cree el pod.
         ```bash

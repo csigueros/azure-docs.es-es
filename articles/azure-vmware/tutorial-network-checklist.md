@@ -2,13 +2,13 @@
 title: 'Tutorial: Lista de comprobación del planeamiento de red'
 description: Obtenga información sobre los requisitos de red en relación con la conectividad de red y los puertos de red para Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 06/08/2021
-ms.openlocfilehash: 5719ec1a2495c6a225c35ec46cdf19506a10ba6f
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.date: 07/01/2021
+ms.openlocfilehash: 42400011d1dab9b1e5d869a5d96255cf67ea632c
+ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017278"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113640580"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de comprobación del planeamiento de red para Azure VMware Solution 
 
@@ -23,7 +23,7 @@ En este tutorial, aprenderá:
 > * Consideraciones sobre DHCP y DNS en Azure VMware Solution
 
 ## <a name="prerequisite"></a>Requisito previo
-Asegúrese de que todas las puertas de enlace, incluido el servicio del proveedor de ExpressRoute, admitan el número de sistema autónomo (ASN) de 4 bytes. Azure VMware Solution utiliza ASN públicos de 4 bytes para anunciar rutas.
+Asegúrese de que todas las puertas de enlace, incluido el servicio del proveedor de ExpressRoute, admitan un número de sistema autónomo (ASN) de 4 bytes. Azure VMware Solution utiliza ASN públicos de 4 bytes para anunciar rutas.
 
 ## <a name="virtual-network-and-expressroute-circuit-considerations"></a>Consideraciones sobre la red virtual y el circuito ExpressRoute
 Al crear una conexión de red virtual en la suscripción, el circuito ExpressRoute se establece por medio del emparejamiento, usa una clave de autorización y un identificador de emparejamiento que se solicita en Azure Portal. El emparejamiento es una conexión privada de uno a uno entre la nube privada y la red virtual.
@@ -33,7 +33,10 @@ Al crear una conexión de red virtual en la suscripción, el circuito ExpressRou
 
 Al implementar una nube privada, se reciben direcciones IP de vCenter y NSX-T Manager. Para acceder a esas interfaces de administración, deberá crear más recursos en la red virtual de la suscripción. En los tutoriales puede encontrar los procedimientos para crear esos recursos y establecer el [emparejamiento privado de ExpressRoute](tutorial-expressroute-global-reach-private-cloud.md).
 
-Las redes lógicas de nube privada incluyen NSX-T previamente aprovisionado. Se aprovisionan previamente de forma automática una puerta de enlace de nivel 0 y una de nivel 1. Puede crear un segmento y asociarlo a la puerta de enlace de nivel 1 existente o hacerlo a una nueva puerta de enlace de nivel 1 que puede definir. Los componentes de redes lógicas NSX-T proporcionan conectividad horizontal de derecha a izquierda entre cargas de trabajo y proporcionan conectividad vertical de arriba abajo a Internet y a los servicios de Azure.
+Las redes lógicas de nube privada incluyen NSX-T previamente aprovisionado. Se aprovisionan previamente de forma automática una puerta de enlace de nivel 0 y una de nivel 1. Puede crear un segmento y asociarlo a la puerta de enlace de nivel 1 existente o hacerlo a una nueva puerta de enlace de nivel 1 que puede definir. Los componentes de redes lógicas NSX-T proporcionan conectividad horizontal de derecha a izquierda entre cargas de trabajo y proporcionan conectividad vertical de arriba abajo a Internet y a los servicios de Azure.
+
+>[!IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] 
 
 ## <a name="routing-and-subnet-considerations"></a>Consideraciones sobre el enrutamiento y la subred
 La nube privada de Azure VMware Solution se conecta a la red virtual de Azure mediante una conexión de Azure ExpressRoute. Esta conexión de alto ancho de banda y baja latencia permite acceder a los servicios que se ejecutan en la suscripción de Azure desde el entorno de nube privada. El enrutamiento se basa en el Protocolo de puerta de enlace de borde (BGP), que se aprovisiona y habilita automáticamente de forma predeterminada para cada implementación de nube privada. 

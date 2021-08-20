@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 07/16/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: aefaf2ca96ac697a74561ff3df68bacbadf1ec99
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d52903efad4b788c3ec4fcafb11053c7826ae4c2
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067212"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114402307"
 ---
 ::: zone target="docs"
 
@@ -214,6 +214,8 @@ C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicem
     Bytes :     3.9 k     3.9 k         0         0         0         0
 C:\Users>
 ```
+
+Para escenarios más específicos, como el uso de `robocopy` para enumerar, copiar o eliminar archivos en Data Box, consulte [Uso de robocopy para enumerar, copiar y modificar archivos en Data Box](data-box-file-acls-preservation.md#use-robocopy-to-list-copy-modify-files-on-data-box).
 
 Para optimizar el rendimiento, use los siguientes parámetros de robocopy al copiar los datos.
 

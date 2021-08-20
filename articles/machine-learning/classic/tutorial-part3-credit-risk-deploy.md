@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial 3 de ML Studio (clásico): Implementación de los modelos de riesgo crediticio: Azure'
-description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio (clásico). Se trata de la tercera parte de un tutorial de tres. Muestra cómo se implementa un modelo como servicio web.
+description: Este tutorial es la tercera parte de una serie de tutoriales de tres partes para Machine Learning Studio (clásico). Muestra cómo se implementa un modelo como servicio web.
 keywords: credit risk, predictive analytics solution,risk assessment, deploy, web service
 author: likebupt
 ms.author: keli19
@@ -9,22 +9,22 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 68a5f6773543b922d024336556e4de24dd96fd33
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: c60c511840d6591009064ba6b3f27cd6cdb89856
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517389"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580717"
 ---
-# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implementación de un modelo de riesgo crediticio: Azure Machine Learning Studio (clásico)
+# <a name="tutorial-3-deploy-credit-risk-model---machine-learning-studio-classic"></a>Tutorial 3: Implementación de un modelo de riesgo crediticio: Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio (clásico).  Después puede implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Se trata de la **tercera parte de un tutorial de tres**.
+En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio (clásico).  Después puede implementar el modelo como un servicio web de Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Se trata de la **tercera parte de un tutorial de tres**.
 
 Suponga que necesita predecir el riesgo de crédito de un individuo en función de la información que se proporcionó en una solicitud de crédito.  
 
-La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. Se utilizará como ejemplo de cómo puede crear una solución de análisis predictivo con Microsoft Azure Machine Learning Studio (clásico). En esta solución se usará Azure Machine Learning Studio (clásico) y un servicio web Machine Learning. 
+La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. Se utilizará como ejemplo de cómo puede crear una solución de análisis predictivo con Machine Learning Studio (clásico). En esta solución se usará Machine Learning Studio (clásico) y un servicio web Machine Learning. 
 
 En este tutorial de tres partes, vamos a comenzar con los datos de riesgo crediticio disponibles públicamente.  Después, desarrollaremos y entrenaremos un modelo predictivo.  Finalmente, vamos a implementar el modelo como servicio web.
 
@@ -90,7 +90,7 @@ Para tener este modelo listo para la implementación, tenemos que convertir este
 Se puede hacer manualmente, pero afortunadamente, para realizar estos tres pasos, basta con hacer clic en la opción **Set Up Web Service** (Configurar servicio web) de la parte inferior del lienzo del experimento (y seleccionar la opción **Predictive web Service** [Servicio web predictivo]).
 
 > [!TIP]
-> Si desea más detalles sobre lo que ocurre cuando convierte un experimento de entrenamiento en uno de predicción, consulte el artículo sobre la [preparación del modelo de implementación en Azure Machine Learning Studio (clásico)](deploy-a-machine-learning-web-service.md).
+> Si desea más detalles sobre lo que ocurre cuando convierte un experimento de entrenamiento en uno de predicción, consulte el artículo sobre la [preparación del modelo de implementación en Machine Learning Studio (clásico)](deploy-a-machine-learning-web-service.md).
 
 Al hacer clic en **Set Up Web Service**(Configurar servicio web), pasa lo siguiente:
 
@@ -142,11 +142,11 @@ Puede configurar el servicio haciendo clic en la pestaña **CONFIGURACIÓN** . A
 ### <a name="deploy-as-a-new-web-service"></a>Implementación como servicio web nuevo
 
 > [!NOTE] 
-> Para implementar un servicio web nuevo, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md). 
+> Para implementar un servicio web nuevo, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Machine Learning](manage-new-webservice.md). 
 
 Para implementar un servicio web nuevo derivado del experimento:
 
-1. Haga clic en **Deploy Web Service** (Implementar servicio web) debajo del lienzo y seleccione **Deploy Web Service [New]** (Implementar servicio web [nuevo]). Machine Learning Studio (clásico) le transfiere a la página **Deploy Experiment** (Implementar experimento) del portal de servicios web de Azure Machine Learning.
+1. Haga clic en **Deploy Web Service** (Implementar servicio web) debajo del lienzo y seleccione **Deploy Web Service [New]** (Implementar servicio web [nuevo]). Machine Learning Studio (clásico) le transfiere a la página **Implementar experimento** del portal Servicios web Machine Learning.
 
 1. Escriba un nombre para el servicio web. 
 
@@ -179,7 +179,7 @@ Puede probar el servicio web clásico en **Machine Learning Studio (clásico)** 
 Puede probar un servicio web nuevo en el portal **Servicios web Machine Learning**.
 
 > [!TIP]
-> Al realizar pruebas en el portal Servicios web Azure Machine Learning, puede habilitar el portal para que cree datos de ejemplo que se puedan usar para probar el servicio de solicitud-respuesta. En la página **Configurar**, seleccione "Yes" (Sí) para **Sample Data Enabled?** (¿Datos de ejemplo habilitados?). Al abrir la pestaña Solicitud-respuesta en la página **Probar**, el portal rellena los datos de ejemplo obtenidos del conjunto de datos de riesgo de crédito original.
+> Al realizar pruebas en el portal Servicios web Machine Learning, puede habilitar el portal para que cree datos de ejemplo que se puedan usar para probar el servicio de solicitud-respuesta. En la página **Configurar**, seleccione "Yes" (Sí) para **Sample Data Enabled?** (¿Datos de ejemplo habilitados?). Al abrir la pestaña Solicitud-respuesta en la página **Probar**, el portal rellena los datos de ejemplo obtenidos del conjunto de datos de riesgo de crédito original.
 
 ### <a name="test-a-classic-web-service"></a>Prueba de un servicio web clásico
 
@@ -193,7 +193,7 @@ Puede probar el servicio web clásico en Machine Learning Studio (clásico) o en
 
 #### <a name="test-in-the-machine-learning-web-services-portal"></a>Prueba en el portal Servicios web Machine Learning
 
-1. En la página **PANEL** del servicio web, haga clic en el botón **Test preview** (Vista preliminar de la prueba) de **Default Endpoint** (Punto de conexión predeterminado). La página de prueba del portal Servicios web Azure Machine Learning para el punto de conexión del servicio web se abrirá y le pedirá los datos de entrada para el servicio. Se trata de las mismas columnas que aparecieron en el conjunto de datos original de riesgo de crédito original.
+1. En la página **PANEL** del servicio web, haga clic en el botón **Test preview** (Vista preliminar de la prueba) de **Default Endpoint** (Punto de conexión predeterminado). La página de prueba del portal Servicios web Machine Learning para el punto de conexión del servicio web se abrirá y le pedirá los datos de entrada para el servicio. Se trata de las mismas columnas que aparecieron en el conjunto de datos original de riesgo de crédito original.
 
 2. Haga clic en **Test Request-Response** (Probar solicitud-respuesta). 
 
@@ -201,7 +201,7 @@ Puede probar el servicio web clásico en Machine Learning Studio (clásico) o en
 
 Puede probar un servicio web nuevo en el portal Servicios web Machine Learning.
 
-1. En el portal [Servicios web Azure Machine Learning](https://services.azureml.net/quickstart), haga clic en **Probar** en la parte superior de la página. Se abrirá la página **Prueba** y podrá escribir datos para el servicio. Los campos de entrada que se muestran corresponden a las columnas que aparecieron en el conjunto de datos original de riesgo de crédito. 
+1. En el portal [Servicios web Machine Learning](https://services.azureml.net/quickstart), haga clic en **Probar** en la parte superior de la página. Se abrirá la página **Prueba** y podrá escribir datos para el servicio. Los campos de entrada que se muestran corresponden a las columnas que aparecieron en el conjunto de datos original de riesgo de crédito. 
 
 1. Escriba un conjunto de datos y, después, haga clic en **Test Request-Response**(Probar solicitud-respuesta).
 
@@ -210,11 +210,11 @@ Los resultados de la prueba se muestran en el lado derecho de la página en la c
 
 ## <a name="manage-the-web-service"></a>Administración del servicio web
 
-Cuando se haya implementado el servicio web, ya sea clásico o nuevo, podrá administrarlo desde el portal [Servicios web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart).
+Cuando se haya implementado el servicio web, ya sea clásico o nuevo, podrá administrarlo desde el [portal Servicios web Machine Learning](https://services.azureml.net/quickstart).
 
 Para supervisar el rendimiento del servicio web, siga estos pasos:
 
-1. Inicie sesión en el portal [Servicios web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart).
+1. Inicie sesión en el portal [Servicios web Machine Learning](https://services.azureml.net/quickstart)
 1. Haga clic en **Servicios web**.
 1. Haga clic en el servicio web.
 1. Haga clic en **Panel**.
@@ -231,7 +231,7 @@ El servicio web es un servicio web de Azure que puede recibir y devolver datos c
 > [!NOTE]
 > Los nombres de las columnas de características en Studio (clásico) **distinguen mayúsculas de minúsculas**. Asegúrese de que los datos de entrada para invocar el servicio web tengan los mismos nombres de columna que en el conjunto de datos de entrenamiento.
 
-Para más información acerca el acceso y consumo del servicio web, consulte [Consumo de un servicio web de Azure Machine Learning con una plantilla de aplicación web](./consume-web-services.md).
+Para más información acerca del acceso y consumo del servicio web, consulte [Consumo de un servicio web Machine Learning con una plantilla de aplicación web](./consume-web-services.md).
 
 
 
@@ -253,7 +253,7 @@ En este tutorial ha completado estos pasos:
 También puede desarrollar una aplicación personalizada para acceder al servicio web con código de inicio proporcionado en los lenguajes de programación R, C# y Python.
 
 > [!div class="nextstepaction"]
-> [Consumo de un servicio web Azure Machine Learning](consume-web-services.md)
+> [Consumo de un servicio web Machine Learning](consume-web-services.md)
 
 <!-- Module References -->
 [evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 013a59c703d5275278e905314357f32acc211f93
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a8eb9ec2b71495011dfa7ebe9dbf1dcf8cd5d19e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067769"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449424"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutorial: Examen de la factura de una suscripción individual a Azure
 
@@ -103,6 +103,8 @@ La sección de **cargos de uso** de la factura muestra el valor total (costo) de
 ![Cargos de uso de la factura](./media/review-individual-bill/invoice-usage-charges.png)
 
 En el archivo de uso de CSV, filtre por *MeterName* para el recurso correspondiente que se muestra en la factura. A continuación, sume el valor de *Costo* de los elementos de la columna. Este es un ejemplo que se centra en el nombre del medidor (discos P10) que corresponde al mismo elemento de línea de la factura.
+
+Para conciliar los cargos de compra de reserva, en el archivo CSV de uso, filtre por *ChargeType* como Compra, y se mostrarán todos los cargos de compras de reserva del mes. Puede comparar estos cargos mediante la observación de *MeterName* y *MeterSubCategory* en el archivo de uso con Recurso y Tipo respectivamente en la factura.
 
 ![Suma de los valores del archivo de uso para MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 

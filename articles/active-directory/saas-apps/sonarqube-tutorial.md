@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 06/25/2021
 ms.author: jeedes
-ms.openlocfilehash: f756e738989775bf9c06b44a03f002c14f42e3ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85c59b42532b56d2f61cbd3a7f7e2f9e7aeb557a
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182365"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988164"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Sonarqube
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Sonarqube con Azure Active Directory (
 * Permitir que los usuarios inicien sesión automáticamente en Sonarqube con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -42,7 +42,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
-## <a name="adding-sonarqube-from-the-gallery"></a>Adición de Sonarqube desde la galería
+## <a name="add-sonarqube-from-the-gallery"></a>Adición de Sonarqube desde la galería
 
 Para configurar la integración de Sonarqube en Azure AD, deberá agregar Sonarqube desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -72,13 +72,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de aplicaciones de **Sonarqube**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL:
+    a. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://servicessonar.<YOUR_ORGANIZATION>.com`
+
+    b. En el cuadro de texto **URL de inicio de sesión**, escriba una de las siguientes direcciones URL:
 
     * **Para un entorno de producción**
 
@@ -87,6 +89,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     * **Para un entorno de desarrollo**
 
         `https://servicescode-dev.westus.cloudapp.azure.com`
+
+    > [!NOTE]
+    > Este valor no es real. Actualice el valor con la dirección URL de respuesta real, que se explica más adelante en el tutorial.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -118,7 +123,6 @@ En esta sección, va a permitir que B.Simon acceda a Sonarqube mediante el inici
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
-
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-sonarqube-sso"></a>Configuración del inicio de sesión único en Sonarqube
@@ -131,12 +135,14 @@ En esta sección, va a permitir que B.Simon acceda a Sonarqube mediante el inici
     1. IdP Entity ID (Identificador de entidad de IdP)
     2. URL de inicio de sesión
     3. Certificado X.509 
+
 1. Guarde todos los detalles.
-    ![IDP del complemento SAML](./media/sonarqube-tutorial/sso-idp-metadata.png)
+
+    ![IDP del complemento SAML](./media/sonarqube-tutorial/metadata.png)
 
 1. En la página **SAML** , realice los siguientes pasos:
 
-    ![Configuración de Sonarqube](./media/sonarqube-tutorial/config01.png)
+    ![Configuración de Sonarqube](./media/sonarqube-tutorial/configuration.png)
 
     a. Cambie la opción **Enabled** (Habilitado) a **yes** (sí).
 
@@ -166,11 +172,11 @@ En esta sección, creará un usuario llamado B.Simon en Sonarqube. Trabaje con e
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Sonarqube, donde puede iniciar el flujo de inicio de sesión. 
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Sonarqube, donde puede iniciar el flujo de inicio de sesión. 
 
-2. Vaya directamente a la dirección URL de inicio de sesión de Sonarqube e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Sonarqube e inicie el flujo de inicio de sesión desde allí.
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Sonarqube en el Panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de Sonarqube. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Sonarqube en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Sonarqube. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

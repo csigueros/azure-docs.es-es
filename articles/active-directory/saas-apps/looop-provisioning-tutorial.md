@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Looop para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y desaprovisionar automáticamente cuentas de usuario en Looop.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
-ms.author: Zhchia
-ms.openlocfilehash: 528003ac482da6f254bf437321c70c389d23844b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c17c56651dda65d5bd151f0f274af6ed377fb7df
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94835091"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114229801"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutorial: Configuración de Looop para aprovisionar usuarios automáticamente
 
@@ -53,13 +53,13 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 Antes de configurar Looop para el aprovisionamiento automático de usuarios con Azure AD, debe recuperar alguna información de aprovisionamiento de Looop.
 
-1. Inicie sesión en la [consola de administración de Looop](https://app.looop.co/#/login) y seleccione **Cuenta**. En **Configuración de la cuenta** seleccione **Autenticación**.
+1. Inicie sesión en la [consola de administración de Looop](https://app.looop.co/#/login) y seleccione **Cuenta**. En **Configuración de la cuenta**, seleccione **Autenticación**.
 
-    :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Captura de pantalla de la consola de administración de Looop. La pestaña Cuenta está resaltada y abierta. En Configuración de la cuenta, se resalta Autenticación." border="false":::
+    ![Administrador de Looop](media/looop-provisioning-tutorial/admin.png)
 
 2. Para generar un nuevo token, haga clic en **Reset Token** (Restablecer token) en **SCIM Integration** (Integración de SCIM).
 
-    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Captura de pantalla de la sección de integración SCIM de una página en la consola de administración de Looop. El botón Reset token (Restablecer token) está resaltado." border="false":::
+    ![Token de Looop](media/looop-provisioning-tutorial/resettoken.png)
 
 3. Copie los valores de **SCIM Endpoint** (Punto de conexión SCIM) y **Token**. Estos valores se escriben en el campo **URL de inquilino** y **Token secreto** de la pestaña Aprovisionamiento de la aplicación Looop en Azure Portal. 
 
@@ -143,12 +143,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |name.givenName|String|
    |name.familyName|String|
    |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:area|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_1|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_2|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_3|String|
-   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:location|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:position|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:startAt|String|
@@ -184,7 +185,12 @@ Esta operación inicia la sincronización inicial de todos los usuarios o grupos
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Recursos adicionales
+## <a name="change-log"></a>Registro de cambios
+
+* 15/07/2021: Se han agregado los atributos de usuario de extensión empresarial **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department**, **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber** y **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager**.
+* 15/07/2021: Se han eliminado los atributos de usuario de extensión personalizados **urn:ietf:params:scim:schemas:extension:Looop:2.0:User:department** y **urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id**.
+
+## <a name="more-resources"></a>Más recursos
 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

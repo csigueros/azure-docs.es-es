@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: fec8e3c9c0922b0b6137bbf93502663890b8bc8c
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: b62f531c355852dd8a66f8186d4bd73a875e6948
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112991548"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371626"
 ---
 # <a name="what-is-azure-virtual-wan"></a>¿Qué es Azure Virtual WAN?
 
@@ -121,7 +121,7 @@ Para obtener información de las ubicaciones, consulte el de ubicación, consult
 
 Las tablas de rutas ahora tienen características para la asociación y propagación. Una tabla de rutas preexistente es una tabla de enrutamiento que no tiene estas características. Si tiene rutas preexistentes en el enrutamiento del centro y desea usar las nuevas funcionalidades, tenga en cuenta lo siguiente:
 
-* **Clientes de la versión Estándar de Virtual WAN con rutas preexistentes en un centro virtual**: Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, luego, intentar crear tablas de rutas nuevas (disponibles en la sección Tablas de rutas del centro de Azure Portal). Se recomienda encarecidamente realizar el paso de la eliminación de todos los centros de una instancia de Virtual WAN.
+* **Clientes de la versión Estándar de Virtual WAN con rutas preexistentes en un centro virtual**: si tiene rutas preexistentes en la sección Enrutamiento del centro en Azure Portal, primero debe eliminarlas y, después, intentar crear tablas de rutas nuevas (disponibles en la sección Tablas de rutas del centro en Azure Portal). Se recomienda encarecidamente realizar el paso de la eliminación de todos los centros de una instancia de Virtual WAN.
 
 * **Clientes de la versión Básica de Virtual WAN con rutas preexistentes en un centro virtual**: Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, después, **actualizar** la versión Básica de Virtual WAN a la versión Estándar. Consulte [Actualización de una virtual WAN de Básica a Estándar](upgrade-virtual-wan.md). Se recomienda encarecidamente realizar el paso de la eliminación de todos los centros de una instancia de Virtual WAN.
 
@@ -135,4 +135,6 @@ Suscríbase a la fuente RSS y vea las actualizaciones más recientes de las cara
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de una conexión de sitio a sitio mediante Virtual WAN](virtual-wan-site-to-site-portal.md)
+- [Tutorial: Creación de una conexión de sitio a sitio mediante Virtual WAN](virtual-wan-site-to-site-portal.md)
+- [Módulo de Learn: Introducción a Azure Virtual WAN](/learn/modules/introduction-azure-virtual-wan/)
+

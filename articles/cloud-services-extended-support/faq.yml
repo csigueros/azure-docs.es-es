@@ -1,0 +1,154 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre Azure Cloud Services (soporte extendido)
+  description: Preguntas frecuentes sobre Azure Cloud Services (soporte extendido)
+  ms.topic: conceptual
+  ms.service: cloud-services-extended-support
+  author: gachandw
+  ms.author: gachandw
+  ms.reviewer: mimckitt
+  ms.date: 10/13/2020
+  ms.custom: references_regions
+  ms.openlocfilehash: 4b8cd236bad28c93949610dd26f45042bc0debc7
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114481774"
+title: Preguntas más frecuentes sobre Azure Cloud Services (soporte extendido)
+summary: En este artículo se tratan las preguntas frecuentes relacionadas con Azure Cloud Services (soporte extendido).
+sections:
+- name: General
+  questions:
+  - question: >
+      ¿Cuál es el nombre del recurso de Cloud Services (clásico) y Cloud Services (soporte extendido)?
+    answer: >
+      - Cloud Services (clásico): `microsoft.classiccompute/domainnames`
+
+      - Cloud Services (soporte extendido): `microsoft.compute/cloudservices`
+  - question: >
+      ¿Qué ubicaciones están disponibles para implementar Cloud Services (soporte extendido)?
+    answer: >
+      Cloud Services (soporte extendido) está disponible en todas las regiones de la nube pública.
+  - question: "¿Cómo cambia mi cuota? \n"
+    answer: >
+      Los clientes tendrán que solicitar la cuota usando los mismos procesos que para cualquier otro producto de Azure Resource Manager. La cuota de Azure Resource Manager es regional y se necesitará una solicitud de cuota distinta para cada región.
+  - question: >
+      ¿Por qué ya no aparece un espacio de ensayo y producción?
+    answer: >
+      Cloud Services (soporte extendido) no admite el concepto lógico de servicio hospedado, que incluía dos espacios (producción y ensayo). Cada implementación es una implementación de Cloud Services (soporte extendido) independiente. Para probar y ensayar una nueva versión de un servicio en la nube, implemente un servicio en la nube (soporte extendido) y etiquételo como "con intercambio de VIP" con otro servicio en la nube (soporte extendido)
+  - question: >
+      ¿Por qué ya no se pueden crear instancias vacías de Cloud Services?
+    answer: >
+      Ya no existe el concepto de nombres de servicio hospedado, así que ya no se puede crear una instancia vacía de Cloud Services (soporte extendido).
+  - question: >
+      ¿Admite Cloud Services (soporte extendido) Resource Health Check (RHC)?
+    answer: >
+      No, Cloud Services (soporte extendido) no admite Resource Health Check (RHC).
+  - question: >
+      ¿Cómo cambian las métricas de las instancias de rol?
+    answer: "No hay cambios en las métricas de las instancias de rol. \n"
+  - question: >
+      ¿Cómo cambian los roles web y de trabajo?
+    answer: "No hay ningún cambio en el diseño, la arquitectura o los componentes de los roles web y de trabajo. \n"
+  - question: >
+      ¿Cómo cambian las instancias de rol?
+    answer: "No hay ningún cambio en el diseño, la arquitectura o los componentes de las instancias de rol. \n"
+  - question: >
+      ¿Cómo cambiarán las actualizaciones del sistema operativo invitado?
+    answer: No hay ningún cambio en el método de implementación. Cloud Services (clásico) y Cloud Services (soporte extendido) recibirán las mismas actualizaciones.
+  - question: >
+      ¿Cloud Services (soporte extendido) admite los estados detenido-asignado y detenido-desasignado?
+    answer: "La implementación de Cloud Services (soporte extendido) solo admite el estado detenido-asignado, que aparece como \"detenido\" en Azure Portal. El estado detenido-desasignado no se admite. \n"
+  - question: >
+      ¿Las implementaciones de Cloud Services (soporte extendido) admiten el escalado entre clústeres, zonas de disponibilidad y regiones?
+    answer: "Las implementaciones de Cloud Services (soporte extendido) no se pueden escalar entre varios clústeres, zonas de disponibilidad y regiones. \n"
+  - question: >
+      ¿Cómo se puede obtener el identificador de implementación para Cloud Services (soporte extendido)?
+    answer: >
+      Se puede acceder al identificador de implementación, conocido como identificador privado, mediante la API [CloudServiceInstanceView](/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview). También está disponible en Azure Portal en la hoja Rol e instancias de Cloud Services (soporte extendido).
+  - question: >
+      ¿Existen diferencias de precio entre Cloud Services (clásico) y Cloud Services (soporte extendido)?
+    answer: "Cloud Services (soporte extendido) utiliza direcciones IP públicas de Azure Key Vault y básicas (ARM). Los clientes que necesiten certificados deben usar Azure Key Vault para la administración de certificados ([más información](https://azure.microsoft.com/pricing/details/key-vault/) sobre los precios de Azure Key Vault).  Cada dirección IP pública de Cloud Services (soporte extendido) se cobra por separado ([más información](https://azure.microsoft.com/pricing/details/ip-addresses/) sobre los precios de las direcciones IP públicas). \n"
+- name: Recursos
+  questions:
+  - question: >
+      ¿Qué recursos vinculados a una implementación de Cloud Services (soporte extendido) deben residir en el mismo grupo de recursos?
+    answer: "Los equilibradores de carga, los grupos de seguridad de red y las tablas de rutas deben residir en la misma región y en el mismo grupo de recursos. \n"
+  - question: >
+      ¿Qué recursos vinculados a una implementación de Cloud Services (soporte extendido) deben residir en la misma región?
+    answer: >
+      Key Vault, la red virtual, las direcciones IP públicas, los grupos de seguridad de red y las tablas de rutas deben residir en la misma región.
+  - question: >
+      ¿Qué recursos vinculados a una implementación de Cloud Services (soporte extendido) deben residir en la misma red virtual?
+    answer: "Las direcciones IP públicas, los equilibradores de carga, los grupos de seguridad de red y las tablas de rutas deben residir en la misma red virtual. \n"
+- name: Archivos de implementación
+  questions:
+  - question: >
+      ¿Cómo puedo usar una plantilla para implementar o administrar mi implementación?
+    answer: "Los archivos de plantilla y de parámetro se pueden pasar como parámetro mediante REST, PowerShell y la CLI. También se pueden cargar mediante Azure Portal.  \n"
+  - question: >
+      ¿Es necesario mantener cuatro archivos ahora? (plantilla, parámetro, csdef, cscfg)
+    answer: >
+      Los archivos de plantilla y de parámetro solo se usan para la automatización de la implementación. Al igual que con Cloud Services (clásico), puede crear manualmente recursos dependientes en primer lugar y después una implementación de Cloud Services (soporte extendido) con PowerShell, comandos de la CLI o mediante el portal con los archivos csdef y cscfg existentes.
+  - question: >
+      ¿Cómo cambia el código de la aplicación en Cloud Services (soporte extendido)?
+    answer: "No se requieren cambios en el código de aplicación empaquetado en cspkg. Las aplicaciones existentes seguirán funcionando como de costumbre. \n"
+  - question: >
+      ¿Permite Cloud Services (soporte extendido) el formato de paquete CTP?
+    answer: >
+      El formato de paquete CTP no se admite en Cloud Services (soporte extendido). Sin embargo, permite un límite de tamaño de paquete mejorado, de 800 MB.
+- name: Migración
+  questions:
+  - question: >
+      ¿Cloud Services (soporte extendido) puede mitigar los errores de asignación?
+    answer: "No, las implementaciones de Cloud Services (soporte extendido) están vinculadas a un clúster, lo mismo que sucede con Cloud Services (clásico). Por lo tanto, los errores de asignación seguirán existiendo si el clúster está lleno. \n"
+  - question: "¿Cuándo es necesario migrar? \n"
+    answer: >
+      La estimación del tiempo necesario y la complejidad de la migración depende de una serie de variables. La planificación es el paso más eficaz para comprender el ámbito del trabajo, los inhibidores y la complejidad de la migración.
+- name: Redes
+  questions:
+  - question: >
+      ¿Por qué no se puede crear una implementación sin una red virtual?
+    answer: "Las redes virtuales son un recurso necesario para cualquier implementación en Azure Resource Manager. La implementación de Cloud Services (soporte extendido) debe residir en una red virtual. \n"
+  - question: "¿Por qué ahora me aparecen tantos recursos de red? \n"
+    answer: >
+      En Azure Resource Manager, los componentes de la implementación de Cloud Services (soporte extendido) se exponen como un recurso para mejorar la visibilidad y el control. En Cloud Services (clásico) se usaban recursos del mismo tipo, pero estaban ocultos. Un ejemplo de este tipo de recurso es Load Balancer público, que ahora es un recurso explícito de "solo lectura" creado automáticamente por la plataforma.
+  - question: >
+      ¿Qué restricciones se aplican a una subred con respecto a Cloud Services (soporte extendido)?
+    answer: >
+      Una subred que contenga implementaciones de Cloud Services (soporte extendido) no se puede compartir con implementaciones de otros productos de proceso, como Virtual Machines, Virtual Machine Scale Sets, Service Fabric, etc.
+  - question: >
+      ¿Qué métodos de asignación de IP se admiten en Cloud Services (soporte extendido)?
+    answer: >
+      Cloud Services (soporte extendido) es compatible con los métodos de asignación de IP estática y dinámica. En el archivo cscfg se hace referencia a las direcciones IP estáticas como direcciones IP reservadas.
+  - question: >
+      ¿Por qué me cobran las direcciones IP?
+    answer: "A los clientes se les factura el uso de la dirección IP en Cloud Services (soporte extendido) del mismo modo que se factura a los usuarios las direcciones IP asociadas a las máquinas virtuales. \n"
+  - question: >
+      ¿Se puede actualizar la dirección IP reservada después de una implementación correcta?
+    answer: >
+      No se puede agregar, quitar o cambiar una dirección IP reservada durante una actualización de la implementación. Si es necesario cambiar las direcciones IP, use un servicio en la nube intercambiable o implemente dos instancias de Cloud Services con un registro CNAME en Azure DNS\Traffic Manager para que la dirección IP pueda apuntar a cualquiera de ellas.
+  - question: "¿Puedo usar un nombre DNS con Cloud Services (soporte extendido)? \n"
+    answer: >
+      Sí. También se puede asignar un nombre DNS a Cloud Services (soporte extendido). Con Azure Resource Manager, la etiqueta DNS es una propiedad opcional de la dirección IP pública que se asigna al servicio en la nube. El formato del nombre DNS en las implementaciones basadas en Azure Resource Manager es `<userlabel>.<region>.cloudapp.azure.com`.
+  - question: "¿Puedo actualizar o cambiar la referencia de red virtual de una instancia existente de Cloud Services (soporte extendido)? \n"
+    answer: "No. La referencia de red virtual es obligatoria durante la creación de un servicio en la nube. Para un servicio en la nube existente, no se puede cambiar la referencia de red virtual. El espacio de direcciones de red virtual mismo se puede modificar mediante las API de red virtual. \n"
+- name: Certificados y Key Vault
+  questions:
+  - question: >
+      ¿Por qué es necesario administrar mis certificados en Cloud Services (soporte extendido)?
+    answer: "Cloud Services (soporte extendido) ha adoptado el mismo proceso que otras ofertas de proceso en las que los certificados residen en los almacenes de claves administrados por el cliente. Esto permite a los clientes tener un control completo sobre sus secretos y certificados. \n"
+  - question: >
+      ¿Puedo usar una instancia de Key Vault en todas las implementaciones en todas las regiones?
+    answer: >
+      No. Key Vault es un recurso regional, así que los clientes necesitan una instancia de Key Vault en cada región. Sin embargo, se puede usar una instancia de Key Vault en todas las implementaciones realizadas dentro de una región determinada.
+  - question: >
+      Al especificar los secretos o certificados que se instalarán en una instancia de Cloud Services, ¿debe el recurso de KeyVault estar en la misma suscripción de Azure que el recurso de Cloud Services?
+    answer: >
+      Sí. No se permiten referencias entre almacenes de claves de suscripción en Cloud Services para protegerse contra la escalación de ataques de privilegios a través de CS-ES. La suscripción no es un límite que CS-ES cruce para las referencias a secretos.  La razón por la que no se permiten referencias entre suscripciones es como un paso final importante para evitar que usuarios malintencionados usen CS-ES como mecanismo de escalación de privilegios para acceder a los secretos de otros usuarios. La suscripción no es un límite de seguridad, pero la defensa en profundidad es un requisito. Sin embargo, puede usar la extensión de Key Vault para obtener compatibilidad entre suscripciones y regiones para los certificados. Consulte la documentación [aquí](./enable-key-vault-virtual-machine.md).
+  - question: >
+      Al especificar secretos o certificados que se instalarán en una instancia de Cloud Services, ¿debe el recurso de KeyVault estar en la misma región que el recurso de Cloud Services?
+    answer: >
+      Sí. La razón por la que aplicamos límites de región es impedir que los usuarios creen arquitecturas que tengan dependencias entre regiones. El aislamiento regional es un principio de diseño clave de aplicaciones basadas en la nube. Sin embargo, puede usar la extensión de Key Vault para obtener compatibilidad entre suscripciones y regiones para los certificados. Consulte la documentación [aquí](./enable-key-vault-virtual-machine.md).
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nPara empezar a usar Cloud Services (soporte extendido), consulte [Implementación de una instancia de Cloud Services (soporte extendido) mediante PowerShell](deploy-powershell.md)."

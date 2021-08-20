@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: fb11033e0f4fcff171825d579e62e071f66b1cea
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: e389992b04556107d5c22c56fa39a5912b949b38
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745896"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459009"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutorial: Examen de datos con Azure Purview (versión preliminar)
 
@@ -147,6 +147,9 @@ Una vez completada la configuración del catálogo, ejecute los siguientes scrip
    ```
 
    Al ejecutar el comando, puede aparecer una ventana emergente para que inicie sesión con sus credenciales de Azure Active Directory.
+
+    > [!TIP]
+    > Si MFA está habilitado en el inquilino, puede encontrar un error de MFA en este paso. Si es el caso, deshabilite MFA un momento para la cuenta que ejecuta este script y vuelva a ejecutarlo.
 
 
 1. Use el siguiente comando para ejecutar el Starter Kit. Reemplace los marcadores de posición `CatalogName`, `TenantID`, `SubscriptionID`, `NewResourceGroupName` y `CatalogResourceGroupName`. Para `NewResourceGroupName`, use un nombre único (solo con caracteres alfanuméricos en minúscula) para el grupo de recursos que contendrá el patrimonio de datos.

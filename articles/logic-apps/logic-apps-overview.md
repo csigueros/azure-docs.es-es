@@ -5,18 +5,18 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: overview
-ms.custom: mvc
-ms.date: 05/07/2021
-ms.openlocfilehash: c971f184aad7bfaf6d36a00ec1fb95f474c3a61c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.custom: mvc, contperf-fy21q4
+ms.date: 06/22/2021
+ms.openlocfilehash: 032723c66d3263019447e231064f8846b44afe1d
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376957"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728681"
 ---
 # <a name="what-is-azure-logic-apps"></a>¿Qué es Azure Logic Apps?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) es una plataforma basada en la nube para crear y ejecutar [*flujos de trabajo*](#logic-app-concepts) automatizados que integren sus aplicaciones, datos, servicios y sistemas. Esta plataforma permite desarrollar rápidamente soluciones de integración altamente escalables para escenarios intraempresariales y de negocio a negocio (B2B). Logic Apps forma parte de [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), por lo que simplifica la forma de conectar sistemas heredados, modernos y vanguardistas a través de entornos híbridos, locales y en la nube.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) es una plataforma basada en la nube para crear y ejecutar [*flujos de trabajo*](#workflow) automatizados que integren sus aplicaciones, datos, servicios y sistemas. Esta plataforma permite desarrollar rápidamente soluciones de integración altamente escalables para escenarios intraempresariales y de negocio a negocio (B2B). Logic Apps forma parte de [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), por lo que simplifica la forma de conectar sistemas heredados, modernos y vanguardistas a través de entornos híbridos, locales y en la nube.
 
 En la lista siguiente se describen solo algunas tareas, procesos empresariales y cargas de trabajo de ejemplo que puede automatizar con el servicio Logic Apps:
 
@@ -29,7 +29,7 @@ En la lista siguiente se describen solo algunas tareas, procesos empresariales y
 
 En función del tipo de recurso de aplicación lógica que elija y cree, las aplicaciones lógicas se ejecutan en un Entorno del servicio de integración dedicado, multiinquilino o de inquilino único. Por ejemplo, al crear en contenedores aplicaciones lógicas basadas en inquilino único, puede implementar las aplicaciones como contenedores y ejecutarlas en cualquier lugar que Azure Functions pueda ejecutar. Para obtener más información, consulte [Diferencias entre el tipo de recurso y el entorno de host para las aplicaciones lógicas](#resource-environment-differences).
 
-Para acceder y ejecutar operaciones de forma segura en tiempo real en varios orígenes de datos, puede elegir [*conectores administrados*](#logic-app-concepts) de un [ecosistema de más de 400 conectores de Azure y cada vez mayor](/connectors/connector-reference/connector-reference-logicapps-connectors) para usarlos en los flujos de trabajo, por ejemplo:
+Para acceder y ejecutar operaciones de forma segura en tiempo real en varios orígenes de datos, puede elegir [*conectores administrados*](#managed-connector) de un [ecosistema de más de 400 conectores de Azure y cada vez mayor](/connectors/connector-reference/connector-reference-logicapps-connectors) para usarlos en los flujos de trabajo, por ejemplo:
 
 * Servicios de Azure, como Blob Storage y Service Bus
 * Servicios de Office 365, como Outlook, Excel y SharePoint
@@ -37,9 +37,9 @@ Para acceder y ejecutar operaciones de forma segura en tiempo real en varios or�
 * Sistemas empresariales, como SAP e IBM MQ
 * Recursos compartidos de archivos, como FTP y SFTP
 
-Para comunicarse con cualquier punto de conexión de servicio, ejecutar su propio código, organizar el flujo de trabajo o manipular los datos, puede usar desencadenadores y acciones [*integrados*](#logic-app-concepts), que se ejecutan de forma nativa dentro del servicio Logic Apps. Por ejemplo, los desencadenadores integrados incluyen Solicitud, HTTP y Periodicidad. Las acciones integradas incluyen Condición, Bucle For each, Ejecutar código JavaScript y operaciones que llaman a funciones de Azure, aplicaciones web o aplicaciones de API hospedadas en Azure y otros flujos de trabajo de Logic Apps.
+Para comunicarse con cualquier punto de conexión de servicio, ejecutar su propio código, organizar el flujo de trabajo o manipular los datos, puede usar desencadenadores y acciones [*integrados*](#built-in-operations), que se ejecutan de forma nativa dentro del servicio Logic Apps. Por ejemplo, los desencadenadores integrados incluyen Solicitud, HTTP y Periodicidad. Las acciones integradas incluyen Condición, Bucle For each, Ejecutar código JavaScript y operaciones que llaman a funciones de Azure, aplicaciones web o aplicaciones de API hospedadas en Azure y otros flujos de trabajo de Logic Apps.
 
-Para escenarios de integración B2B, Logic Apps incluye funcionalidades de [BizTalk Server](/biztalk/core/introducing-biztalk-server). Para definir artefactos de negocio a negocio (B2B), cree una [*cuenta de integración*](#logic-app-concepts) donde almacene estos artefactos. Después de vincular esta cuenta a la aplicación lógica, los flujos de trabajo pueden usar estos artefactos B2B e intercambiar mensajes que cumplan con los estándares de intercambio electrónico de datos (EDI) y Enterprise Application Integration (EAI).
+Para escenarios de integración B2B, Logic Apps incluye funcionalidades de [BizTalk Server](/biztalk/core/introducing-biztalk-server). Para definir artefactos de negocio a negocio (B2B), cree una [*cuenta de integración*](#integration-account) donde almacene estos artefactos. Después de vincular esta cuenta a la aplicación lógica, los flujos de trabajo pueden usar estos artefactos B2B e intercambiar mensajes que cumplan con los estándares de intercambio electrónico de datos (EDI) y Enterprise Application Integration (EAI).
 
 Para más información sobre las formas en las que los flujos de trabajo pueden acceder y trabajar con aplicaciones, datos, servicios y sistemas, consulte la siguiente documentación:
 
@@ -52,35 +52,61 @@ Para más información sobre las formas en las que los flujos de trabajo pueden 
 
 ## <a name="key-terms"></a>Términos clave
 
-* *Aplicación lógica*: recurso de Azure que se va a crear cuando se desea desarrollar un flujo de trabajo. En función de las necesidades del escenario y de los requisitos de la solución, puede crear aplicaciones lógicas que se ejecuten en el entorno de Azure Logic Apps multiinquilino o de inquilino único, o bien que se ejecuten en un Entorno del servicio de integración (ISE). Para obtener más información, consulte [Diferencias entre el tipo de recurso y el entorno de host para las aplicaciones lógicas](#resource-environment-differences).
+Los términos siguientes son conceptos importantes en el servicio Logic Apps.
 
-* *Flujo de trabajo*: una serie de pasos que definen una tarea o proceso, empezando por un único desencadenador y seguido de una o varias acciones.
+### <a name="logic-app"></a>Aplicación lógica
 
-* *Desencadenador*: el primer paso que inicia cada flujo de trabajo y especifica la condición que se debe cumplir antes de ejecutar cualquier acción en el flujo de trabajo. Por ejemplo, un evento de desencadenador podría recibir un correo electrónico en la bandeja de entrada o detectar un nuevo archivo en una cuenta de almacenamiento.
+Una *aplicación lógica* es un recurso de Azure que se crea cuando se quiere desarrollar un flujo de trabajo. Hay [varios tipos de recursos de aplicación lógica que se ejecutan en entornos diferentes](#resource-environment-differences).
 
-* *Acción*: cada paso posterior que sigue después del desencadenador y ejecuta alguna operación en un flujo de trabajo.
+### <a name="workflow"></a>Flujo de trabajo
 
-* *Desencadenador o acción integrados*: una operación de Logic Apps que se ejecuta de forma nativa que proporciona una manera de controlar la programación o estructura del flujo de trabajo, ejecutar su propio código, administrar o manipular datos o completar otras tareas del flujo de trabajo. La mayoría de las operaciones integradas no están asociadas a ningún servicio o sistema. Muchas tampoco requieren que primero cree una conexión desde el flujo de trabajo y autentique su identidad. Sin embargo, las operaciones integradas también están disponibles para algunos servicios, sistemas y protocolos usados frecuentemente, como Azure Functions, Azure API Management, Azure App Service, etc.
+Un *flujo de trabajo* es una serie de pasos que definen una tarea o un proceso. Cada flujo de trabajo comienza con un único desencadenador, después del cual debe agregar una o varias acciones.
 
-  Por ejemplo, puede iniciar casi cualquier flujo de trabajo según una programación mediante el desencadenador Periodicidad. O bien, puede hacer que el flujo de trabajo espere hasta que se le llame mediante el desencadenador Solicitud. Para más información, consulte [Desencadenadores y acciones integrados para Logic Apps](../connectors/built-in.md).
+### <a name="trigger"></a>Desencadenador 
 
-* *Conector administrado*: un proxy o contenedor creado previamente en torno a una API REST que proporciona desencadenadores y acciones precompilados para que el flujo de trabajo acceda a una aplicación, datos, servicio o sistema específicos. Para poder crear la mayoría de los conectores administrados, primero debe crear una conexión desde el flujo de trabajo y autenticar su identidad.
+Un *desencadenador* es siempre el primer paso de cualquier flujo de trabajo y especifica la condición para ejecutar los demás pasos de ese flujo de trabajo. Por ejemplo, un evento de desencadenador podría recibir un correo electrónico en la bandeja de entrada o detectar un nuevo archivo en una cuenta de almacenamiento.
 
-  Por ejemplo, puede iniciar un flujo de trabajo con un desencadenador o agregar una acción que trabaje con Azure Blob Storage, Office 365, Salesforce o servidores SFTP. Microsoft se encarga de hospedar y administrar los conectores administrados. Para más información, consulte [Conectores administrados para Logic Apps](../connectors/managed.md).
+### <a name="action"></a>Acción
 
-* *Cuenta de integración*: recurso de Azure que se va a crear cuando desee definir y almacenar artefactos B2B para su uso en los flujos de trabajo. Después de vincular esta cuenta a la aplicación lógica, los flujos de trabajo pueden usar estos artefactos B2B e intercambiar mensajes que cumplan con los estándares de intercambio electrónico de datos (EDI) y Enterprise Application Integration (EAI).
+Una *acción* es cada paso de un flujo de trabajo después del desencadenador. Cada acción ejecuta alguna operación en un flujo de trabajo.
 
-  Por ejemplo, puede definir socios comerciales, contratos, esquemas, mapas y otros artefactos B2B. Puede crear flujos de trabajo que usen estos artefactos e intercambiar mensajes a través de protocolos como AS2, EDIFACT, X12 y RosettaNet. Para más información, consulte [Creación y administración de cuentas de integración para la integración empresarial B2B](logic-apps-enterprise-integration-create-integration-account.md).
+### <a name="built-in-operations"></a>Operaciones integradas
+
+Un desencadenador o una acción *integrados* son una operación que se ejecuta de forma nativa en Azure Logic Apps. Por ejemplo, las operaciones integradas proporcionan maneras de controlar la programación o estructura del flujo de trabajo, ejecutar su propio código, administrar y manipular datos, enviar o recibir solicitudes en un punto de conexión y llevar a cabo otras tareas del flujo de trabajo.
+
+La mayoría de las operaciones integradas no están asociadas a ningún servicio o sistema, pero algunas operaciones integradas están disponibles para servicios específicos, como Azure Functions o Azure App Service. Muchas tampoco requieren que primero cree una conexión desde el flujo de trabajo y autentique su identidad. Para obtener más información y ejemplos, consulte [Desencadenadores y acciones integrados para Logic Apps](../connectors/built-in.md).
+
+Por ejemplo, puede iniciar casi cualquier flujo de trabajo según una programación mediante el desencadenador Periodicidad. O bien, puede hacer que el flujo de trabajo espere hasta que se le llame mediante el desencadenador Solicitud. 
+ 
+
+### <a name="managed-connector"></a>Conector administrado
+
+Un *conector administrado* es un proxy o contenedor precompilado para una API REST que puede usar para acceder a una aplicación, datos, un servicio o un sistema específicos. Para poder crear la mayoría de los conectores administrados, primero debe crear una conexión desde el flujo de trabajo y autenticar su identidad. Microsoft se encarga de publicar, hospedar y administrar los conectores administrados. Para más información, consulte [Conectores administrados para Logic Apps](../connectors/managed.md).
+
+Por ejemplo, puede iniciar un flujo de trabajo con un desencadenador o ejecutar una acción que funcione con un servicio como Office 365, Salesforce o servidores de archivos.
+
+### <a name="integration-account"></a>cuenta de integración
+
+Una *cuenta de integración* es un recurso de Azure que se crea cuando se desea definir y almacenar artefactos B2B para usarlos en flujos de trabajo. Después de [crear y vincular una cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) con la aplicación lógica, los flujos de trabajo pueden usar estos artefactos B2B. Los flujos de trabajo también pueden intercambiar mensajes que sigan los estándares de intercambio electrónico de datos (EDI) e integración de aplicaciones empresariales (EAI).
+
+Por ejemplo, puede definir socios comerciales, contratos, esquemas, mapas y otros artefactos B2B. Puede crear flujos de trabajo que usen estos artefactos e intercambiar mensajes a través de protocolos como AS2, EDIFACT, X12 y RosettaNet.
 
 <a name="how-do-logic-apps-work"></a>
 
 ## <a name="how-logic-apps-work"></a>Cómo funcionan las aplicaciones lógicas
 
-En una aplicación lógica, cada flujo de trabajo siempre se inicia con un único [desencadenador](#logic-app-concepts). Un desencadenador se desencadena cuando se cumple una condición, por ejemplo, cuando se produce un evento específico o cuando los datos cumplen criterios específicos. Muchos desencadenadores incluyen [funcionalidades de programación](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) que controlan la frecuencia con la que se ejecuta el flujo de trabajo. Después del desencadenador, hay una o varias [acciones](#logic-app-concepts) que ejecutan operaciones que, por ejemplo, procesan, controlan o convierten datos que recorren el flujo de trabajo, o que avanzan el flujo de trabajo al paso siguiente.
+En una aplicación lógica, cada flujo de trabajo siempre se inicia con un único [desencadenador](#trigger). Un desencadenador se desencadena cuando se cumple una condición, por ejemplo, cuando se produce un evento específico o cuando los datos cumplen criterios específicos. Muchos desencadenadores incluyen [funcionalidades de programación](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) que controlan la frecuencia con la que se ejecuta el flujo de trabajo. Después del desencadenador, hay una o varias [acciones](#action) que ejecutan operaciones que, por ejemplo, procesan, controlan o convierten datos que recorren el flujo de trabajo, o que avanzan el flujo de trabajo al paso siguiente.
 
-Por ejemplo, el flujo de trabajo siguiente comienza con un desencadenador de Dynamics que tiene una condición integrada llamada **Cuando se actualiza un registro**. Las acciones incluyen la transformación de código XML, la llamada a una aplicación web que actualiza los datos, la evaluación de una condición que controla qué acciones realizar y el envío de una notificación por correo electrónico con los resultados. Cuando el desencadenador detecta un evento que cumple la condición, el desencadenador se activa y las acciones del flujo de trabajo comienzan a ejecutarse. Cada vez que el desencadenador se activa, Azure Logic Apps crea una instancia del flujo de trabajo que ejecuta la aplicación lógica.
+En la siguiente captura de pantalla, se muestra parte de un flujo de trabajo empresarial de ejemplo. Este flujo de trabajo usa condiciones y modificadores para determinar la acción siguiente. Supongamos que tiene un sistema de pedidos y el flujo de trabajo procesa los pedidos entrantes. Quiere revisar manualmente los pedidos que estén por encima de un costo determinado. El flujo de trabajo ya tiene pasos anteriores que determinan cuánto cuesta un pedido entrante. Por tanto, crea una condición inicial basada en ese valor del costo. Por ejemplo:
 
-![Diseñador de Logic Apps: ejemplo de flujo de trabajo](./media/logic-apps-overview/azure-logic-apps-designer.png)
+- Si el pedido está por debajo de una cantidad determinada, la condición es false. En este caso, el flujo de trabajo procesa el pedido.
+- Si la condición es true, el flujo de trabajo envía un correo electrónico para su revisión manual. Un modificador determina el paso siguiente. 
+  - Si el revisor lo aprueba, el flujo de trabajo continúa procesando el pedido.
+  - Si el revisor remite el pedido a otra instancia, el flujo de trabajo envía un correo electrónico de remisión para obtener más información sobre el pedido. 
+      - Si se cumplen los requisitos de la remisión, la condición de respuesta es true. Por tanto, se procesa el pedido. 
+      - Si la condición de respuesta es false, se envía un correo electrónico sobre el problema.
+
+:::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Captura de pantalla donde se muestra el diseñador de flujos de trabajo y un flujo de trabajo empresarial de ejemplo que usa modificadores y condiciones." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
 Puede crear visualmente flujos de trabajo mediante el diseñador de Logic Apps en Azure Portal, Visual Studio Code o Visual Studio. Cada flujo de trabajo también tiene una definición subyacente que se describe mediante notación de objetos JavaScript (JSON). Si lo prefiere, puede editar flujos de trabajo cambiando la definición de este JSON. Para algunas tareas de creación y administración, Logic Apps proporciona compatibilidad con comandos de Azure PowerShell y la CLI de Azure. Para la implementación automatizada, Logic Apps admite plantillas de Azure Resource Manager.
 
@@ -159,7 +185,19 @@ Todos estos servicios le ayudan a conectarse y a reunir sistemas dispares. Cada 
 
 ## <a name="get-started"></a>Primeros pasos
 
-Para poder empezar a usar Azure Logic Apps, necesita una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). Si la tiene, pruebe este [inicio rápido para crear su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md), que supervisa el nuevo contenido de un sitio web a través de una fuente RSS y envía correo electrónico cuando aparece nuevo contenido.
+Para poder empezar a usar Azure Logic Apps, necesita una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
+
+Cuando esté listo, pruebe una o varias de las siguientes guías de inicio rápido para Logic Apps. Vea cómo crear un flujo de trabajo básico que supervise una fuente RSS y envíe un correo electrónico para obtener contenido nuevo.
+
+* [Creación de un flujo de trabajo de integración con Azure Logic Apps multiinquilino en Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Creación de flujos de trabajo de integración automatizados con Azure Logic Apps multiinquilino y Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
+* [Cree y administre definiciones de flujo de trabajo de aplicación lógica con Azure Logic Apps multiinquilino y Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
+
+Quizá le interese también explorar otras guías de inicio rápido de Logic Apps:
+
+* [Creación e implementación de un flujo de trabajo de aplicaciones lógicas mediante una plantilla de ARM](quickstart-create-deploy-azure-resource-manager-template.md)
+* [Creación y administración de flujos de trabajo mediante la CLI de Azure en instancias de Azure Logic Apps multiinquilino](quickstart-create-deploy-azure-resource-manager-template.md)
+
 
 ## <a name="other-resources"></a>Otros recursos
 

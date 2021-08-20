@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 07/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 7b76f5ec2cffde60379b12a0ad7d623ebe9a06c2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 06df04167cd39b8909528b600319be810e549730
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473196"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449217"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integración de Atlassian Cloud con Azure Active Directory
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a integrar Atlassian Cloud con Azure Active Direc
 
 Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no tiene una suscripción, puede obtener la evaluación gratuita de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Atlassian Cloud.
 * Para habilitar el inicio de sesión único en Lenguaje de marcado de aserción de seguridad (SAML) para productos de Atlassian Cloud, debe configurar Atlassian Access. Más información sobre [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
@@ -44,7 +44,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Atlassian Cloud admite SSO iniciado por **SP e IDP**.
 * Atlassian Cloud admite el [aprovisionamiento y desaprovisionamiento automático de usuarios](atlassian-cloud-provisioning-tutorial.md).
 
-## <a name="adding-atlassian-cloud-from-the-gallery"></a>Incorporación de Atlassian Cloud desde la galería
+## <a name="add-atlassian-cloud-from-the-gallery"></a>Agregar Atlassian Cloud desde la galería
 
 Para configurar la integración de Atlassian Cloud en Azure AD, necesita agregar Atlassian Cloud desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -61,13 +61,13 @@ Configure y pruebe el inicio de sesión único de Azure AD con Atlassian Cloud 
 
 Para configurar y probar el inicio de sesión único de Azure AD con Atlassian Cloud, siga estos pasos:
 
-1. **[Configuración de Azure AD con el inicio de sesión único de Atlassian Cloud](#configure-azure-ad-sso)** para permitir a los usuarios utilizar el inicio de sesión único de SAML basado en Azure AD con Atlassian Cloud.
+1. **[Configuración de Azure AD con el inicio de sesión único de Atlassian Cloud](#configure-azure-ad-with-atlassian-cloud-sso)** para permitir a los usuarios utilizar el inicio de sesión único de SAML basado en Azure AD con Atlassian Cloud.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Creación de un usuario de prueba en Atlassian Cloud](#create-atlassian-cloud-test-user)** , para tener un homólogo de B.Simon en Atlassian Cloud que esté vinculado a su representación en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-with-atlassian-cloud-sso"></a>Configuración del inicio de sesión único de Azure AD con Atlassian Cloud
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
@@ -81,88 +81,77 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Si quiere configurar Atlassian Cloud manualmente, inicie sesión en el sitio de empresa de Atlassian Cloud como administrador y realice los pasos siguientes.
 
-1. Antes de empezar, vaya a la instancia de Atlassian y copie y guarde la dirección URL de la instancia
+1. Antes de empezar, vaya a la instancia de Atlassian y copie y guarde la dirección URL de la instancia.
    > [!NOTE]
-   > la dirección URL debe ajustarse al patrón `https://<instancename>.atlassian.net`
+   > la dirección URL debe ajustarse al patrón `https://<INSTANCE>.atlassian.com`.
 
-   ![nombre de instancia](./media/atlassian-cloud-tutorial/get-atlassian-instance-name.png)
+   ![Nombre de instancia](./media/atlassian-cloud-tutorial/instance.png)
 
-1. Abra el [portal de administración de Atlassian](https://admin.atlassian.com/) y haga clic en el nombre de su organización
+1. Abra el [portal de administración de Atlassian](https://admin.atlassian.com/) y haga clic en el nombre de su organización.
 
-   ![organization](./media/atlassian-cloud-tutorial/click-on-organization-in-atlassian-access.png)
+   ![Admin Portal](./media/atlassian-cloud-tutorial/organization.png)
 
 1. Debe comprobar el dominio antes de configurar el inicio de sesión único. Para más información, consulte el documento [Atlassian domain verification](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) (Comprobación del dominio Atlassian).
-1. En el portal de administración de Atlassian, seleccione **Security** (Seguridad) en el cajón de la izquierda
 
-   ![security](./media/atlassian-cloud-tutorial/click-on-security-in-atlassian-access.png)
+1. En el portal de **administración de ATLASSIAN**, vaya a la pestaña **Security** (Seguridad), seleccione **SAML single sign-on** (Inicio de sesión único de SAML) y haga clic en **Add SAML configuration** (Agregar configuración de SAML).
 
-1. En la pantalla de seguridad del portal de administración de Atlassian, seleccione **SAML single sign on** (Inicio de sesión único de SAML) en el cajón de la izquierda
+   ![Seguridad](./media/atlassian-cloud-tutorial/admin.png)
 
-   ![sso de saml](./media/atlassian-cloud-tutorial/click-on-saml-sso-in-atlassian-access-security.png)
+1. En la sección **Add SAML configuration** (Agregar configuración de SAML), rellene los campos obligatorios que ha copiado de Azure Portal y haga clic en **Save configuration** (Guardar configuración).
 
-1. Haga clic en **Add SAML Configuration** (Agregar configuración de SAML) y mantenga abierta la página
-
-   ![Add SAML Configuration (Agregar configuración de SAML)](./media/atlassian-cloud-tutorial/saml-configuration-in-atlassian-access-security-saml-sso.png)
-
-   ![Add SAML Configuration 2 (Agregar configuración de SAML 2)](./media/atlassian-cloud-tutorial/add-saml-configuration.png)
+   ![Add SAML Configuration (Agregar configuración de SAML)](./media/atlassian-cloud-tutorial/configuration.png)
 
 1. En Azure Portal, en la página de integración de la aplicación **Atlassian Cloud**, busque la sección **Administrar** y seleccione **Configurar inicio de sesión único**.
 
-   ![configuración del inicio de sesión único](./media/atlassian-cloud-tutorial/set-up-sso.png)
+   ![Configuración del inicio de sesión único](./media/atlassian-cloud-tutorial/set-up.png)
 
 1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
 
-   ![saml en azure](./media/atlassian-cloud-tutorial/saml-in-azure.png)
+   ![SAML en azure](./media/atlassian-cloud-tutorial/azure.png)
 
-1. En la página **Configuración del inicio de sesión único con SAML**, desplácese hacia abajo hasta **Configurar Atlassian Cloud**
+1. En la página **Configuración del inicio de sesión único con SAML**, desplácese hacia abajo hasta **Configurar Atlassian Cloud**.
    
-   a. Haga clic en **Direcciones URL de configuración**
+   a. Haga clic en **Direcciones URL de configuración**.
 
-   ![urls](./media/atlassian-cloud-tutorial/configuration-urls.png)
+   ![Inicio de sesión único](./media/atlassian-cloud-tutorial/configure.png)
    
-   b. Copie el valor de **Identificador de Azure AD** en Azure Portal y péguelo en el cuadro de texto **Identity Provider Entity ID** (Id. de entidad del proveedor de identidades) en Atlassian
+   b. Copie el valor de **Identificador de Azure AD** en Azure Portal y péguelo en el cuadro de texto **Identity Provider Entity ID** (Id. de entidad del proveedor de identidades) en Atlassian.
    
-   c. Copie el valor de **Dirección URL de inicio de sesión** en Azure Portal y péguelo en el cuadro de texto **Identity Provider SSO URL** (Dirección URL de inicio de sesión único del proveedor de identidades) en Atlassian
+   c. Copie el valor de **Dirección URL de inicio de sesión** en Azure Portal y péguelo en el cuadro de texto **Identity Provider SSO URL** (Dirección URL de inicio de sesión único del proveedor de identidades) en Atlassian.
 
-   ![URL de inicio de sesión único del proveedor de identidades](./media/atlassian-cloud-tutorial/configuration-urls-azure.png)
+   ![URL de inicio de sesión único del proveedor de identidades](./media/atlassian-cloud-tutorial/configuration-azure.png)
 
-   ![ss e id. de identidades](./media/atlassian-cloud-tutorial/entity-id-and-ss.png)
+   ![Entity ID (Identificador de entidad)](./media/atlassian-cloud-tutorial/login.png)
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
    ![Certificado de firma](./media/atlassian-cloud-tutorial/certificate.png)
 
-   ![Certificado 1](./media/atlassian-cloud-tutorial/certificate-1.png)
+   ![Certificado 1](./media/atlassian-cloud-tutorial/certificate-download.png)
 
-1. **Agregar o guardar** la configuración de SAML en Atlassian
+1. **Agregue** y **guarde** la configuración de SAML en Atlassian.
 
-1. Si desea configurar la aplicación en el modo iniciado por **IDP**, edite la sección de **configuración básica de SAML** de la página **Configuración del inicio de sesión único con SAML** de Azure y abra la página **Inicio de sesión único de SAML** en el portal de administración de Atlassian
+1. En la sección **Configuración básica de SAML**, siga estos pasos.
 
-   a. Copie el valor de **SP Entity ID** (Identificador de entidad del proveedor de servicios) de Atlassian, péguelo en el cuadro **Identificador (id. de entidad)** en Azure y establézcalo como predeterminado
+   a. Copie el valor de **SP Entity ID** (Identificador de entidad del proveedor de servicios) de Atlassian, péguelo en el cuadro **Identificador (id. de entidad)** en Azure y establézcalo como predeterminado.
    
-   b. Copie el valor de **SP Assertion Consumer Service URL** (URL del Servicio de consumidor de aserciones) de Atlassian, péguelo en el cuadro **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** de Azure y establézcalo como valor predeterminado
+   b. Copie el valor de **SP Assertion Consumer Service URL** (URL del Servicio de consumidor de aserciones) de Atlassian, péguelo en el cuadro **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** de Azure y establézcalo como valor predeterminado.
    
-   c. Copie el valor de **Dirección URL de la instancia**, que copió en el paso 1 y péguelo en el cuadro **Estado de la retransmisión** de Azure
+   c. Copie el valor de **Dirección URL de la instancia**, que copió en el paso 4 y péguelo en el cuadro **Estado de la retransmisión** de Azure.
 
-   ![copiar direcciones url](./media/atlassian-cloud-tutorial/copy-urls.png)
+   ![Copiar direcciones url](./media/atlassian-cloud-tutorial/values.png)
 
-   ![botón editar](./media/atlassian-cloud-tutorial/edit-button.png)
+   ![Botón](./media/atlassian-cloud-tutorial/edit-button.png)
 
-   ![imagen de direcciones url](./media/atlassian-cloud-tutorial/urls.png)
-   
-1. Si desea configurar la aplicación en el modo iniciado por **IDP**, edite la sección de **configuración básica de SAML** de la página **Configuración del inicio de sesión único con SAML** de Azure. Copie la **Dirección URL de la instancia** (del paso 1) y péguela en el cuadro **URL de inicio de sesión** de Azure
-
-   ![botón editar en direcciones url](./media/atlassian-cloud-tutorial/edit-button.png)
-
-   ![dirección url de inicio de sesión](./media/atlassian-cloud-tutorial/sign-on-URL.png)
+   ![Imagen de direcciones url](./media/atlassian-cloud-tutorial/image.png)
    
 1. La aplicación Atlassian Cloud espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. Para editar la asignación de atributos, haga clic en el icono de **edición**. 
 
    ![attributes](./media/atlassian-cloud-tutorial/edit-attribute.png)
    
-   1. Asignación de atributos para un inquilino de Azure AD con una licencia de Microsoft 365
+   1. Asignación de atributos para un inquilino de Azure AD con una licencia de Microsoft 365.
       
-      a. Haga clic en la notificación **Identificador de usuario único (id. de nombre)**
+      a. Haga clic en la notificación **Identificador de usuario único (id. de nombre)** .
 
       ![atributos y reclamaciones](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
       
@@ -172,25 +161,37 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
       
       c. Las asignaciones de atributo finales deben tener el aspecto siguiente.
 
-      ![imagen 2](./media/atlassian-cloud-tutorial/default-attributes-1.png)
+      ![imagen 2](./media/atlassian-cloud-tutorial/attributes.png)
       
-   1. Asignación de atributos para un inquilino de Azure AD sin una licencia de Microsoft 365 
+   1. Asignación de atributos para un inquilino de Azure AD sin una licencia de Microsoft 365. 
 
       a. Haga clic en la notificación `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` .
 
-      ![imagen 3](./media/atlassian-cloud-tutorial/email-address.png)
+      ![imagen 3](./media/atlassian-cloud-tutorial/claims.png)
          
       b. Aunque Azure no rellena el atributo **user.mail** de los usuarios creados en inquilinos de Azure AD sin licencias de Microsoft 365 y almacena el correo electrónico de esos usuarios en el atributo **userprincipalname**, Atlassian Cloud espera que este **id. de nombre** (**Identificador de usuario único**) se asigne al correo electrónico del usuario (**user.userprincipalname**).  Edite el **atributo de origen** y cámbielo a **user.userprincipalname**. Guarde los cambios de la notificación.
 
-      ![definición de correo electrónico](./media/atlassian-cloud-tutorial/set-email.png)
+      ![Definición de correo electrónico](./media/atlassian-cloud-tutorial/save-claims.png)
          
       c. Las asignaciones de atributo finales deben tener el aspecto siguiente.
 
-      ![imagen 4](./media/atlassian-cloud-tutorial/default-attributes-2.png)
+      ![imagen 4](./media/atlassian-cloud-tutorial/final-attributes.png)
 
- > [!NOTE]
- > Puede establecer varias directivas de seguridad si selecciona la opción **Directivas de autenticación** en el cajón izquierdo. Una directiva de autenticación permite especificar la configuración de autenticación para diferentes conjuntos de usuarios y configuraciones de su organización. Comprueba que los usuarios que acceden a la organización de Atlassian son auténticos. Para obtener más información, consulte [Directivas de autenticación](https://support.atlassian.com/security-and-access-policies/docs/understand-authentication-policies/).
-     
+1. Para aplicar el inicio de sesión único de SAML en una directiva de autenticación, realice los pasos siguientes.
+
+   a.   En el portal de **administración de Atlassian**, seleccione la pestaña **Security** (Seguridad) y haga clic en **Authentication policies** (Directivas de autenticación).
+
+   b.   Seleccione **Edit** (Editar) para la directiva que desea aplicar. 
+
+   c.   En **Settings** (Configuración), habilite **Enforce single sign-on** (Aplicar inicio de sesión único) a sus usuarios administrados para el redireccionamiento correcto de SAML. 
+
+   d.   Haga clic en **Update**(Actualizar). 
+
+      ![Directivas de autenticación](./media/atlassian-cloud-tutorial/policy.png) 
+
+   > [!NOTE]
+   > Los administradores pueden probar la configuración de SAML habilitando solo el inicio de sesión único aplicado para un subconjunto de usuarios primero en una directiva de autenticación independiente y, a continuación, habilitando la directiva para todos los usuarios si no hay ningún problema.
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -219,22 +220,13 @@ En esta sección, va a conceder acceso a B.Simon a Atlassian Cloud para que use 
 
 Para permitir que los usuarios de Azure AD inicien sesión en Atlassian Cloud, aprovisione las cuentas de usuario manualmente en Atlassian Cloud haciendo lo siguiente:
 
-1. En el panel **Administración**, seleccione **Usuarios**.
+1. Vaya a la pestaña **Products** (Productos), seleccione **Users** (Usuarios) y haga clic en **Invite users** (Invitar a usuarios).
 
-    ![Vínculo de usuarios de Atlassian Cloud](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-14.png)
+    ![Vínculo de usuarios de Atlassian Cloud](./media/atlassian-cloud-tutorial/users.png)
 
-1. Para crear un usuario en Atlassian Cloud, seleccione **Invitar usuario**.
+1. En el cuadro texto **Email address** (Dirección de correo electrónico), escriba la dirección de correo electrónico del usuario y, después, haga clic en **Invite user** (Invitar usuario).
 
-    ![Creación de un usuario de Atlassian Cloud](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-15.png)
-
-1. En el cuadro **Dirección de correo electrónico**, escriba la dirección de correo electrónico del usuario y asigne el acceso a la aplicación.
-
-    ![usuario de Atlassian Cloud](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-16.png)
-
-1. Para enviar una invitación por correo electrónico al usuario, seleccione **Invitar a usuarios**. Se envía una invitación por correo electrónico al usuario y, después de aceptar la invitación, el usuario se activa en el sistema.
-
-> [!NOTE]
-> También puede crear usuarios de forma masiva mediante la selección del botón **Bulk Create** (Crear de forma masiva) en la sección **Usuarios**.
+    ![Creación de un usuario de Atlassian Cloud](./media/atlassian-cloud-tutorial/invite-users.png)
 
 ### <a name="test-sso"></a>Prueba de SSO
 
@@ -251,7 +243,6 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 * Haga clic en **Probar esta aplicación** en Azure Portal, y debería iniciarse sesión automáticamente en la instancia de Atlassian Cloud para la que configuró el inicio de sesión único. 
 
 También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Atlassian Cloud en Aplicaciones, si se ha configurado en el modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión. Si se ha configurado en modo IDP, debería iniciarse sesión automáticamente en la instancia de Atlassian Cloud para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

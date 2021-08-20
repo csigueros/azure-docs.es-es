@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 4199e82ee5b32fe3e34df421a9ca54136b8cbfb7
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: c9f738f95e11ab29fc5163b69812037410e79e8a
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846399"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114361144"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>Tutorial: Análisis de sentimiento con Cognitive Services (versión preliminar)
 
@@ -69,7 +69,7 @@ En este tutorial, es necesario tener una tabla de Spark.
 
 ## <a name="open-the-cognitive-services-wizard"></a>Inicio del asistente de Cognitive Services
 
-1. Haga clic con el botón derecho en la tabla de Spark que creó en el procedimiento anterior. Seleccione **Machine Learning** (Aprendizaje automático) > **Enrich with existing model** (Enriquecer con modelo existente) para abrir el asistente.
+1. Haga clic con el botón derecho en la tabla de Spark que creó en el procedimiento anterior. Seleccione **Machine Learning** > **Predict with a model** (Predecir con un modelo) para abrir el asistente.
 
    ![Captura de pantalla en la que se muestran las opciones que abren el Asistente para puntuación.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00d.png)
 

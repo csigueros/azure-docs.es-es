@@ -1,23 +1,25 @@
 ---
-title: 'Inicio rápido: Configuración del inicio de sesión único (SSO) basado en SAML de una aplicación en el inquilino de Azure Active Directory (Azure AD)'
+title: 'Inicio rápido: Configuración del inicio de sesión único basado en SAML de una aplicación'
+titleSuffix: Azure AD
 description: En este inicio rápido se describe el proceso de configuración del inicio de sesión único (SSO) basado en SAML de una aplicación en el inquilino de Azure Active Directory (Azure AD).
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
-ms.author: mtillman
-ms.openlocfilehash: 81a1d2eeeb1b82c488598bc081453193e360d6d5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/23/2020
+ms.author: davidmu
+ms.reviewer: ergleenl
+ms.openlocfilehash: cded1a874c48cab43e24a19acc6707aa8de7d1e7
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077526"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669410"
 ---
-# <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Configuración del inicio de sesión único (SSO) basado en SAML de una aplicación en el inquilino de Azure Active Directory (Azure AD)
+# <a name="quickstart-set-up-saml-based-single-sign-on-for-an-application"></a>Inicio rápido: Configuración del inicio de sesión único basado en SAML de una aplicación
 
 Comience a usar inicios de sesión de usuario simplificados mediante la configuración del inicio de sesión único (SSO) para una aplicación que haya agregado al inquilino de Azure Active Directory (Azure AD). Después de configurar el inicio de sesión único, los usuarios podrán iniciar sesión en una aplicación con sus credenciales de Azure AD. El inicio de sesión único se incluye en la edición gratuita de Azure AD.
 
@@ -32,7 +34,6 @@ Para configurar el inicio de sesión único de una aplicación que haya agregado
 - Opcional: Haber finalizado el inicio rápido de [Incorporación de una aplicación](add-application-portal.md).
 - Opcional: Haber finalizado el inicio rápido de [Configuración de una aplicación](add-application-portal-configure.md).
 - Opcional: haber finalizado [Asignación de usuarios a una aplicación](add-application-portal-assign-users.md).
-
 
 >[!IMPORTANT]
 >Use un entorno que no sea de producción para probar los pasos de esta guía de inicio rápido.
@@ -49,8 +50,6 @@ Para configurar el inicio de sesión único de una aplicación:
     > [!IMPORTANT]
     > Si la aplicación usa el OpenID Connect (OIDC) estándar para el inicio de sesión único, no verá una opción de inicio de sesión único en la navegación. Consulte el inicio rápido sobre el inicio de sesión único basado en OIDC para aprender a configurarlo.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="Captura de pantalla de la página de configuración del inicio de sesión único en el portal de Azure AD":::.
-
 1. Seleccione **SAML** para abrir la página de configuración del inicio de sesión único. En este ejemplo, la aplicación que se está configurando para el inicio de sesión único es GitHub. Después de configurar GitHub, los usuarios podrán iniciar sesión en GitHub con sus credenciales desde su inquilino de Azure AD.
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Captura de pantalla de la página de configuración del inicio de sesión único en GitHub":::.
@@ -60,11 +59,8 @@ Para configurar el inicio de sesión único de una aplicación:
     > [!TIP]
     > Para más información sobre las opciones de configuración de SAML, consulte [Configuración del inicio de sesión único basado en SAML](configure-saml-single-sign-on.md).
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Captura de pantalla que muestra la opción de inicio de sesión único en la suscripción Enterprise de la página de precios de GitHub":::.
-
 > [!TIP]
 > La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](/graph/application-saml-sso-configure-api).
-
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

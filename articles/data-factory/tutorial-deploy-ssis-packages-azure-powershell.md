@@ -5,15 +5,15 @@ ms.service: data-factory
 ms.devlang: powershell
 ms.topic: tutorial
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 10/13/2020
+ms.date: 07/19/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: a0a6e115d2b76ab3f060ee1bcb197da58f2c8fa6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b8352581786cc6d9927f38fef786374072bd233
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100391293"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447745"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Configuración de un entorno de ejecución de Azure-SSIS IR en Azure Data Factory mediante PowerShell
 
@@ -22,7 +22,7 @@ ms.locfileid: "100391293"
 En este tutorial se describen los pasos necesarios para usar PowerShell para aprovisionar un entorno de ejecución de integración (IR) de Azure SQL Server Integration Services (SSIS ) en Azure Data Factory (ADF). Azure-SSIS Integration Runtime admite:
 
 - La ejecución de paquetes implementados en el catálogo de SSIS (SSISDB) hospedados por un servidor de Azure SQL Database o por Instancia administrada (modelo de implementación de proyectos)
-- La ejecución de paquetes implementados en el sistema de archivos, en Azure Files o en una base de datos de SQL Server (MSDB) hospedados por Instancia administrada de Azure SQL (modelo de implementación de paquetes).
+- La ejecución de paquetes implementados en el sistema de archivos, en Azure Files o en una base de datos de SQL Server (MSDB) hospedados por Instancia administrada de Azure SQL (modelo de implementación de paquetes)
 
 Después de aprovisionar una instancia de Azure-SSIS IR, puede usar herramientas conocidas para implementar y ejecutar los paquetes en Azure. Estas herramientas ya están habilitadas para Azure e incluyen SQL Server Data Tools (SSDT), SQL Server Management Studio (SSMS) y utilidades de la línea de comandos, como [dtutil](/sql/integration-services/dtutil-utility) y [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md).
 
@@ -39,7 +39,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Revisión del script completo.
 > * Implementación de los paquetes de SSIS.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,7 +59,7 @@ En este tutorial, aprenderá lo siguiente:
 
   - Agregue la dirección IP de la máquina cliente, o un intervalo de direcciones IP que la incluya, a la lista de direcciones IP de cliente de la configuración del firewall del servidor de bases de datos. Para más información, consulte [Reglas de firewall de nivel de base de datos y de nivel de servidor de Azure SQL Database](../azure-sql/database/firewall-configure.md).
 
-  - Puede conectarse al servidor de bases de datos mediante la autenticación de SQL con sus credenciales de administrador del servidor o por medio de la autenticación de Azure AD con la identidad administrada de la factoría de datos. En el último de los casos, debe agregar la identidad administrada de la factoría de datos a un grupo de Azure AD con permisos de acceso al servidor de bases de datos. Para más información, consulte [Creación de una instancia de Azure-SSIS IR con autenticación de Azure AD](./create-azure-ssis-integration-runtime.md).
+  - Puede conectarse al servidor de bases de datos mediante la autenticación de SQL con sus credenciales de administrador del servidor o por medio de la autenticación de Azure Active Directory con la identidad administrada asignada por el usuario o especificada por el sistema para la factoría de datos. En el último de los casos, debe agregar la identidad administrada asignada por el usuario o especificada por el sistema para la factoría de datos a un grupo de Azure AD con permisos de acceso al servidor de bases de datos. Para más información, consulte [Creación de una instancia de Azure-SSIS IR con autenticación de Azure AD](./create-azure-ssis-integration-runtime.md).
 
   - Confirme que el servidor de bases de datos no tiene aún una instancia de SSISDB. El aprovisionamiento de Azure-SSIS IR no admite el uso de una instancia de SSISDB existente.
 

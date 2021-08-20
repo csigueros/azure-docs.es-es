@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/11/2021
+ms.date: 06/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 04d93913711dc8f03e35ac811b46158dfd038c61
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: cc996384570b20d536f06bae2101987d40b1f3fc
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750704"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114363205"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Google Cloud (G Suite) Connector
 
@@ -30,17 +30,17 @@ En este tutorial, aprenderá a integrar Google Cloud (G Suite) Connector con Azu
 
 Para empezar, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD.
-- Una suscripción habilitada para el inicio de sesión único en Google Cloud (G Suite) Connector.
-- Una suscripción de Google Apps o Google Cloud Platform
+* Una suscripción de Azure AD.
+* Una suscripción habilitada para el inicio de sesión único en Google Cloud (G Suite) Connector.
+* Una suscripción de Google Apps o Google Cloud Platform
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. Este documento se creó con la nueva experiencia de inicio de sesión del usuario. Si aún usa la anterior, el programa de instalación parecerá diferente. Puede habilitar la nueva experiencia en la configuración de inicio de sesión único de la aplicación G Suite. Vaya a las **aplicaciones empresariales de Azure AD**, seleccione **Google Cloud (G Suite) Connector**, seleccione **Inicio de sesión único** y, luego, haga clic en **Probar la nueva experiencia**.
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-- No use el entorno de producción, salvo que sea necesario.
-- Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* No use el entorno de producción, salvo que sea necesario.
+* Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -80,7 +80,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Google Cloud (G Suite) Connector admite el inicio de sesión único iniciado por **SP**.
 
-* Google Cloud (G Suite) Connector admite el [aprovisionamiento de usuarios **automático**](./g-suite-provisioning-tutorial.md)
+* Google Cloud (G Suite) Connector admite el [aprovisionamiento de usuarios **automático**](./g-suite-provisioning-tutorial.md).
 
 ## <a name="adding-google-cloud-g-suite-connector-from-the-gallery"></a>Incorporación de Google Cloud (G Suite) Connector desde la galería
 
@@ -118,51 +118,53 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si desea configurar **Gmail**, realice los pasos siguientes:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`.
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con uno de los siguientes patrones:
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+    | **Identificador** |
+    |----|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `https://google.com` | 
+    | `https://google.com/a/<yourdomain.com>` |
 
-    ```http
-    google.com/a/<yourdomain.com>
-    google.com
-    https://google.com
-    https://google.com/a/<yourdomain.com>
-    ```
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con uno de los siguientes patrones: 
 
-    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: 
-
-    ```http
-    https://www.google.com/acs
-    https://www.google.com/a/<yourdomain.com>/acs
-    ```
+    | **URL de respuesta** |
+    |-----|
+    | `https://www.google.com/acs` |
+    | `https://www.google.com/a/<yourdomain.com>/acs` |
+    
+    c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
 1. En la sección **Configuración básica de SAML**, si desea configurar **Google Cloud Platform**, realice los pasos siguientes:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`.
-
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con uno de los siguientes patrones:
     
-    ```http
-    google.com/a/<yourdomain.com>
-    google.com
-    https://google.com
-    https://google.com/a/<yourdomain.com>
-    ```
+    | **Identificador** |
+    |-----|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
     
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: . 
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con uno de los siguientes patrones: 
     
-    ```http
-    https://www.google.com/acs
-    https://www.google.com/a/<yourdomain.com>/acs
-    ```
+    | **URL de respuesta** |
+    |-----|
+    | `https://www.google.com/acs` |
+    | `https://www.google.com/a/<yourdomain.com>/acs` |
+    
+    c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
 
     > [!NOTE]
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Google Cloud (G Suite) Connector no proporciona el valor de identificador de entidad/identificador en la configuración del inicio de sesión único, por lo que si desactiva la opción **domain specific issuer** (emisor de dominio específico), el valor del identificador será `google.com`. Si activa la opción **domain specific issuer** (emisor de dominio específico), la opción será `google.com/a/<yourdomainname.com>`. Para activar o desactivar la opción **domain specific issuer** (emisor de dominio específico) debe ir a la sección **Configuración del inicio de sesión único de Google Cloud (G Suite) Connector** que se explica más adelante en el tutorial. Para más información, póngase en contacto con el [equipo de soporte de cliente de Google Cloud (G Suite) Connector](https://www.google.com/contact/).
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Google Cloud (G Suite) Connector no proporciona el valor de identificador de entidad/identificador en la configuración del inicio de sesión único, por lo que si desactiva la opción **domain specific issuer** (emisor de dominio específico), el valor del identificador será `google.com`. Si activa la opción **domain specific issuer** (emisor de dominio específico), la opción será `google.com/a/<yourdomainname.com>`. Para activar o desactivar la opción **domain specific issuer** (emisor de dominio específico) debe ir a la sección **Configuración del inicio de sesión único de Google Cloud (G Suite) Connector** que se explica más adelante en el tutorial. Para más información, póngase en contacto con el [equipo de soporte de cliente de Google Cloud (G Suite) Connector](https://www.google.com/contact/).
 
 1. La aplicación Google Cloud (G Suite) Connector espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla le muestra un ejemplo de esto. El valor predeterminado de **Identificador de usuario único** es **user.userprincipalname**, pero Google Cloud (G Suite) Connector espera que este valor se asigne a la dirección de correo electrónico del usuario. Para ello, puede usar el atributo **user.mail** de la lista o usar el valor de atributo correspondiente en función de la configuración de su organización.
 
     ![imagen](common/default-attributes.png)
 
+    > [!NOTE]
+    > Asegúrese de que la respuesta SAML no incluye caracteres ASCII no estándar en los atributos DisplayName y Surname.    
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -206,30 +208,27 @@ En esta sección, permitirá que B.Simon acceda a Google Cloud (G Suite) Connect
 
 2. Haga clic en **Seguridad**. Si no ve el vínculo, puede estar oculto debajo del menú **Más controles** en la parte inferior de la pantalla.
 
-    ![Haga clic en Seguridad.][10]
+    ![Haga clic en Seguridad.](./media/google-apps-tutorial/gapps-security.png)
 
 3. En la página **Seguridad**, haga clic en **Configurar inicio de sesión único (SSO)** .
 
-    ![Haga clic en SSO.][11]
+    ![Haga clic en SSO.](./media/google-apps-tutorial/security-gapps.png)
 
 4. Realice los cambios de configuración siguientes:
 
-    ![Configuración de SSO][12]
+    ![Configurar el inicio de sesión único.](./media/google-apps-tutorial/configuration.png)
 
     a. Seleccione **Configurar SSO con un proveedor de identidades de terceros**.
 
     b. En el campo **Dirección URL de la página de inicio de sesión** de Google Cloud (G Suite) Connector, pegue el valor de la **URL de inicio de sesión** que copió de Azure Portal.
 
-    c. En el campo **Dirección URL de la página de cierre de sesión** de Google Cloud (G Suite) Connector, pegue el valor de la **URL de inicio de sesión** que copió de Azure Portal.
-
-    > [!NOTE]
-    > Google Cloud (G Suite) se basa en el protocolo de cierre de sesión de SAML. Por lo tanto, en el campo **Dirección URL de la página de cierre de sesión** debe usar la dirección URL de cierre de sesión de SAML; es decir, la dirección URL de inicio de sesión como valor para el mismo.
+    c. En el campo **Dirección URL de la página de cierre de sesión** de Google Cloud (G Suite) Connector, pegue el valor de la **URL de cierre de sesión** que copió de Azure Portal.
 
     d. En Google Cloud (G Suite) Connector, para el **certificado de verificación**, cargue el certificado que descargó de Azure Portal.   
 
     e. Active o desactive la opción **Use a domain specific issuer** (Usar un emisor de dominio específico) según la nota mencionada en la sección **Configuración básica de SAML** anterior en Azure AD.
 
-    f. En el campo **Cambiar URL de contraseña** de Google Cloud (G Suite) Connector, pegue el valor de **Cambiar URL de contraseña** que copió de Azure Portal.
+    f. En el campo **Cambiar dirección URL de contraseña** de Google Cloud (G Suite) Connector, escriba el valor como `https://account.activedirectory.windowsazure.com/changepassword.aspx`
 
     g. Haga clic en **Save**(Guardar).
 
@@ -255,13 +254,6 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Google Cloud (G Suite) Connector en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Una vez configurado Google Cloud (G Suite) Connector, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
-
-<!--Image references-->
-
-[10]: ./media/google-apps-tutorial/gapps-security.png
-[11]: ./media/google-apps-tutorial/security-gapps.png
-[12]: ./media/google-apps-tutorial/gapps-sso-config.png

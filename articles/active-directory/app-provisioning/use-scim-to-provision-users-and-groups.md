@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ddc50ab8c72017160a7032e35a69eedf85ebac95
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 11cb3ada0449559eda080cad3e9c528d60a02660
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784816"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707923"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM en Azure Active Directory
 
@@ -192,8 +192,6 @@ Dentro de la [especificación del protocolo SCIM 2.0](http://www.simplecloud.in
 |Modificar usuarios o grupos con solicitudes PATCH|[sección 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). La admisión garantiza que los grupos y usuarios se aprovisionan de forma eficaz.|
 |Recuperar un recurso conocido para un usuario o un grupo creados anteriormente|[sección 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)|
 |Consultar usuarios o grupos|[sección 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  De forma predeterminada, los usuarios se recuperan por sus `id` y se consultan por sus `username` y `externalId`, y los grupos por su `displayName`.|
-|Consultar usuario por identificador y por administrador|sección 3.4.2|
-|Consultar grupos por identificador y por miembro|sección 3.4.2|
 |El filtro [excludedAttributes=members](#get-group) al consultar el recurso de grupo|sección 3.4.2.5|
 |Aceptar un token de portador único para la autenticación y autorización de AAD en la aplicación||
 |Eliminación temporal de un usuario `active=false` y restauración del usuario `active=true`|El objeto de usuario se debe devolver en una solicitud tanto si el usuario está activo como si no. La única vez que no se debe devolver el usuario es cuando se elimina de forma permanente de la aplicación.|
@@ -201,22 +199,37 @@ Dentro de la [especificación del protocolo SCIM 2.0](http://www.simplecloud.in
 
 Al implementar un punto de conexión de SCIM para garantizar la compatibilidad con AAD, siga estas directrices generales:
 
+##### <a name="general"></a>General: 
 * `id` es una propiedad obligatoria para todos los recursos. Todas las respuestas que devuelve un recurso deben asegurarse de que cada recurso tiene esta propiedad, excepto `ListResponse` con cero miembros.
-* La respuesta a una solicitud de consulta o filtrado siempre debe ser una `ListResponse`.
-* Los grupos son opcionales, pero solo se admiten si la implementación de SCIM admite solicitudes **PATCH**.
+* Los valores enviados deben almacenarse en el mismo formato en el que se enviaron. Los valores no válidos deben rechazarse con un mensaje de error descriptivo y accionable. Las transformaciones de datos no deben producirse entre los datos enviados por Azure AD y los datos que se almacenan en la aplicación SCIM (por ejemplo, un número de teléfono enviado como 55555555555 no debe guardarse ni devolverse como +5 (555) 555-5555)
 * No es necesario incluir el recurso completo en la respuesta **PATCH**.
-* Microsoft AAD solo usa los siguientes operadores: `eq`, `and`
 * No exija una coincidencia entre mayúsculas y minúsculas en los elementos estructurales de SCIM, en particular en los valores de operación **PATCH** `op`, como se define en la [sección 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD emite los valores de `op` como **Agregar**, **Reemplazar** y **Quitar**.
 * Microsoft AAD realiza solicitudes para recuperar un usuario y un grupo al azar para tener la seguridad de que el punto de conexión y las credenciales sean válidas. También las realiza como parte del flujo de **Probar conexión** de [Azure Portal](https://portal.azure.com). 
-* El atributo en el que se pueden consultar los recursos debe establecerse como un atributo coincidente en la aplicación en [Azure Portal](https://portal.azure.com). Consulte [Personalización de las asignaciones de atributos de aprovisionamiento de usuarios](customize-application-attributes.md).
-* No se admite el atributo de derechos.
 * Compatibilidad con HTTPS en el punto de conexión de SCIM.
-* [Detección de esquemas](#schema-discovery)
-  * La detección de esquemas no se admite actualmente en la aplicación personalizada, pero se usa en determinadas aplicaciones de la galería. En el futuro, la detección de esquemas se usará como el único método para agregar atributos adicionales a un conector existente. 
-  * Si un valor no está presente, no envíe valores NULL.
-  * Los valores de propiedad deben tener mayúsculas y minúsculas (por ejemplo, readWrite).
-  * Debe devolver una respuesta de lista.
-  * El cliente de SCIM de Azure AD realizará la solicitud /schemas cada vez que alguien guarde la configuración de aprovisionamiento en Azure Portal o cada vez que un usuario llegue a la página de edición de aprovisionamiento de este portal. Los atributos adicionales detectados se mostrarán a los clientes en las asignaciones de atributos en la lista de atributos de destino. La detección de esquemas solo conduce a la incorporación de atributos de destino adicionales. No dará lugar a la eliminación de atributos. 
+* Se admiten atributos complejos y de varios valores personalizados, pero AAD no tiene muchas estructuras de datos complejas de las que extraer datos en estos casos. Los atributos complejos de tipo de nombre/valor emparejados simples se pueden asignar fácilmente, pero el flujo de datos a atributos complejos con tres o más subatributos no se admiten bien en este momento.
+
+##### <a name="retrieving-resources"></a>Recuperación de recursos:
+* La respuesta a una solicitud de consulta o filtrado siempre debe ser una `ListResponse`.
+* Microsoft AAD solo usa los siguientes operadores: `eq`, `and`
+* El atributo en el que se pueden consultar los recursos debe establecerse como un atributo coincidente en la aplicación en [Azure Portal](https://portal.azure.com). Consulte [Personalización de las asignaciones de atributos de aprovisionamiento de usuarios](customize-application-attributes.md).
+
+##### <a name="users"></a>/Users:
+* No se admite el atributo de derechos.
+* Los atributos que se tengan en cuenta por la singularidad del usuario deben usarse como parte de una consulta filtrada (p. ej., si la singularidad del usuario se evalúa tanto para userName como para emails[type eq "work"], debe permitirse una solicitud GET a /Users con un filtro tanto para una consulta _userName eq "user@contoso.com"_ como para una consulta _emails[type eq "work"] eq "user@contoso.com"_ .
+
+##### <a name="groups"></a>/Groups:
+* Los grupos son opcionales, pero solo se admiten si la implementación de SCIM admite solicitudes **PATCH**.
+* Los grupos deben tener unidad en el valor "displayName" con el fin de buscar coincidencias entre Azure Active Directory y la aplicación SCIM. Este no es un requisito del protocolo SCIM, sino que se trata de un requisito para integrar un servicio SCIM con Azure Active Directory.
+
+##### <a name="schemas-schema-discovery"></a>/Schemas (detección de esquemas):
+
+* [Solicitud/respuesta de ejemplo](#schema-discovery)
+* La detección de esquemas no se admite actualmente en la aplicación personalizada que no es de la galería, pero se usa en determinadas aplicaciones de la galería. En el futuro, la detección de esquemas se usará como el único método para agregar atributos adicionales al esquema de una aplicación SCIM de la galería existente. 
+* Si un valor no está presente, no envíe valores NULL.
+* Los valores de propiedad deben tener mayúsculas y minúsculas (por ejemplo, readWrite).
+* Debe devolver una respuesta de lista.
+* El cliente de SCIM de Azure AD realizará la solicitud /schemas cada vez que alguien guarde la configuración de aprovisionamiento en Azure Portal o cada vez que un usuario llegue a la página de edición de aprovisionamiento de este portal. Los atributos adicionales detectados se mostrarán a los clientes en las asignaciones de atributos en la lista de atributos de destino. La detección de esquemas solo conduce a la incorporación de atributos de destino adicionales. No dará lugar a la eliminación de atributos. 
+
   
 ### <a name="user-provisioning-and-deprovisioning"></a>Aprovisionamiento y desaprovisionamiento de usuarios
 
@@ -888,6 +901,8 @@ Barra mínima de conjuntos de cifrado TLS 1.2:
 ### <a name="ip-ranges"></a>Intervalos IP
 El servicio de aprovisionamiento de Azure AD actualmente opera en los intervalos IP de AzureActiveDirectory, tal y como se muestra [aquí](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Puede agregar los intervalos IP que aparecen en la etiqueta AzureActiveDirectory para permitir el tráfico desde el servicio de aprovisionamiento de Azure AD a la aplicación. Tenga en cuenta que deberá revisar detenidamente la lista de intervalos de IP para direcciones procesadas. Una dirección como «40.126.25.32» podría aparecer en la lista de intervalos IP como «40.126.0.0/18». También puede recuperar la lista de intervalos IP mediante programación con la siguiente [API](/rest/api/virtualnetwork/servicetags/list).
 
+Azure AD también admite una solución basada en agente para proporcionar conectividad a aplicaciones en redes privadas (locales, hospedadas en Azure, hospedadas en AWS, etc.). Los clientes pueden implementar un agente ligero, que proporciona conectividad a Azure AD sin abrir puertos de entrada, en un servidor de su red privada. Obtenga más información [aquí](/app-provisioning/on-premises-scim-provisioning).
+
 ## <a name="build-a-scim-endpoint"></a>Cree un punto de conexión SCIM
 
 Ahora que ha diseñado el esquema y comprendido la implementación de SCIM de Azure AD, puede empezar a desarrollar el punto de conexión de SCIM. En lugar de comenzar desde cero y compilar la implementación totalmente por su cuenta, puede confiar en una serie de bibliotecas de SCIM de código abierto publicadas por la comunidad de SCIM.
@@ -1339,7 +1354,7 @@ La especificación SCIM no define un esquema específico de SCIM para la autenti
 
 |Método de autorización|Ventajas|Desventajas|Soporte técnico|
 |--|--|--|--|
-|Nombre de usuario y contraseña (no recomendado ni compatible con Azure AD)|Fácil de implementar|No seguro: [Tu contraseña no importa](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Se admite según cada caso en las aplicaciones de la galería. No se admite para las aplicaciones que no son de la galería.|
+|Nombre de usuario y contraseña (no recomendado ni compatible con Azure AD)|Fácil de implementar|No seguro: [Tu contraseña no importa](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|No se admite para nuevas aplicaciones de la galería o que no son de la galería.|
 |Token de portador de larga duración|Los tokens de larga duración no requieren que haya un usuario presente. Son fáciles de usar para los administradores al configurar el aprovisionamiento.|Los tokens de larga duración pueden ser difíciles de compartir con un administrador sin usar métodos no seguros como el correo electrónico. |Compatibles con las aplicaciones de la galería y las que no forman parte de ella. |
 |Concesión de código de autorización de OAuth|Los tokens de acceso tienen una duración muy inferior a las contraseñas y tienen un mecanismo de actualización automatizado que los tokens de portador de larga duración no tienen.  Un usuario real debe estar presente durante la autorización inicial, lo que añade un nivel de responsabilidad. |Requiere que haya un usuario presente. Si el usuario deja la organización, el token no es válido y será necesario volver a realizar la autorización.|Compatible con aplicaciones de la galería, pero no con aplicaciones que no son de la galería. Sin embargo, puede proporcionar un token de acceso a la interfaz de usuario como el token secreto para la realización de pruebas a corto plazo. La compatibilidad con la concesión de código de OAuth en aplicaciones que no son de la galería es un trabajo pendiente, al igual que la compatibilidad con direcciones URL de token o autenticación configurables en aplicaciones de la galería.|
 |Concesión de credenciales del cliente de OAuth|Los tokens de acceso tienen una duración muy inferior a las contraseñas y tienen un mecanismo de actualización automatizado que los tokens de portador de larga duración no tienen. Tanto la concesión de código de autorización como la concesión de credenciales de cliente crean el mismo tipo de token de acceso, por lo que el cambio entre estos métodos es transparente para la API.  El aprovisionamiento se puede automatizar completamente y los nuevos tokens se pueden solicitar silenciosamente sin la interacción del usuario. ||No compatible con las aplicaciones de la galería y las que no forman parte de ella. La compatibilidad se encuentra en nuestro trabajo pendiente.|

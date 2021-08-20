@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/18/2021
+ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: b2a98e92630fcdc46228cc36579cfe9787b92daf
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: a9411d044a8c176387d8b9900ca56a7512c4a0de
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786652"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112458333"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Azure Sentinel
 
@@ -123,7 +123,15 @@ Todos los cuadernos de estrategias deben comenzar con un desencadenador. El dese
 
    Elija el desencadenador que coincida con el tipo de cuaderno de estrategias que va a crear.
 
+    > [!NOTE]
+    > Recuerde que las reglas de automatización solo pueden llamar a cuadernos de estrategias basados en el **desencadenador de incidentes**. Los cuadernos de estrategias basados en el **desencadenador de alertas** deben definirse para ejecutarse directamente en [reglas de análisis](tutorial-detect-threats-custom.md#set-automated-responses-and-create-the-rule) y también se pueden ejecutar manualmente.
+    > 
+    > Para más información sobre qué desencadenador usar, consulte [**Uso de desencadenadores y acciones en los cuadernos de estrategias de Azure Sentinel**](playbook-triggers-actions.md).
+
     :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="Elección de un desencadenador para el cuaderno de estrategias":::
+
+> [!NOTE]
+> Al elegir un desencadenador o cualquier acción posterior, se le pedirá que se autentique en el proveedor de recursos con el que interactúe. En este caso, el proveedor es Azure Sentinel. Para la autenticación existen distintos métodos. Para más información e instrucciones, consulte [**Autenticación de cuadernos de estrategias en Azure Sentinel**](authenticate-playbooks-to-sentinel.md).
 
 ### <a name="add-actions"></a>Incorporación de una acción
 
@@ -159,7 +167,7 @@ Para crear una regla de automatización:
 
 1. Elija las acciones que desea que realice esta regla de automatización. Entre las acciones disponibles se incluyen **Asignar propietario**, **Cambiar estado**, **Cambiar gravedad**, **Agregar etiquetas** y **Ejecutar cuaderno de estrategias**. Puede agregar tantas acciones como desee.
 
-1. Si agrega la acción **Ejecutar cuaderno de estrategias**, se le pedirá que elija en la lista desplegable de los cuadernos de estrategias disponibles. Solo se pueden ejecutar desde reglas de automatización los cuadernos de estrategias que comienzan por **incident trigger** (desencadenador de incidentes), por lo que solo estos aparecerán en la lista.
+1. Si agrega la acción **Ejecutar cuaderno de estrategias**, se le pedirá que elija en la lista desplegable de los cuadernos de estrategias disponibles. Solo se pueden ejecutar desde reglas de automatización los cuadernos de estrategias iniciados por el **desencadenador de incidentes**, por lo que solo estos aparecerán en la lista.<a name="permissions-to-run-playbooks"></a>
 
     > [!IMPORTANT]
     > Se deben conceder permisos explícitos a Azure Sentinel para ejecutar cuadernos de estrategias desde reglas de automatización. Si un cuaderno de estrategias aparece "atenuado" en la lista desplegable, significa que Sentinel no tiene permisos para el grupo de recursos de este cuaderno de estrategias. Haga clic en el vínculo **Manage playbook permissions** (Administrar permisos del cuaderno de estrategias) para asignar permisos.
@@ -170,6 +178,22 @@ Para crear una regla de automatización:
     >    1. En el menú de navegación de Azure Sentinel del inquilino de los cuadernos de estrategias, seleccione **Settings** (Configuración).
     >    1. En la hoja **Settings** (Configuración), seleccione la pestaña **Settings** (Configuración) y, a continuación, el expansor de **Playbook permissions** (Permisos del cuaderno de estrategias).
     >    1. Haga clic en el botón **Configure permissions** (Configurar permisos) para abrir el panel **Manage permissions** (Administrar permisos) mencionado anteriormente y continúe tal y como se describe allí.
+    > - Si, en un escenario de **MSSP**, desea [ejecutar un cuaderno de estrategias en un inquilino del cliente](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture) a partir de una regla de automatización creada con la sesión iniciada en el inquilino del proveedor de servicios, debe conceder a Azure Sentinel permiso para ejecutarlo en **_ambos inquilinos_ *. En el inquilino del* cliente**, siga las instrucciones para la implementación multiinquilino de la viñeta anterior. En el inquilino del **proveedor de servicios**, debe agregar la aplicación Azure Security Insights a la plantilla de incorporación de Azure Lighthouse:
+    >    1. En Azure Portal, vaya a **Azure Active Directory**.
+    >    1. Haga clic en **Aplicaciones empresariales**.
+    >    1. Seleccione **Tipo de aplicación** y filtre por **Aplicaciones de Microsoft**.
+    >    1. En el cuadro de búsqueda, escriba **Azure Security Insights**.
+    >    1. Copie el campo **Id. de objeto**. Deberá agregar esta autorización adicional a la delegación de Azure Lighthouse existente.
+    >
+    >    El rol de **colaborador de automatización de Azure Sentinel** tiene un identificador único fijo, que es `f4c81013-99ee-4d62-a7ee-b3f1f648599a`. Un ejemplo de autorización de Azure Lighthouse tendría este aspecto en la plantilla de parámetros:
+    >    
+    >    ```json
+    >    {
+    >        "principalId": "<Enter the Azure Security Insights app Object ID>", 
+    >        "roleDefinitionId": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
+    >        "principalIdDisplayName": "Azure Sentinel Automation Contributors" 
+    >    }
+    >    ```
 
 1. Establezca una fecha de expiración para la regla de automatización si desea que tenga una.
 

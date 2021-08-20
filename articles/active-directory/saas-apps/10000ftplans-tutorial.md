@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/03/2021
+ms.date: 07/23/2021
 ms.author: jeedes
-ms.openlocfilehash: fda0f8cfccef8d6928ca33a7e1932a7371f4d4cf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 312c275b933a487530ecae0670cf4f81b2a6104e
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956590"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669026"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Tutorial: integración de Azure Active Directory con 10,000ft Plans
 
@@ -95,7 +95,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1.En Azure Portal, en el panel **Servicios de Azure**, seleccione **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 1. En las propiedades del **usuario**, siga estos pasos:
    1. En el campo **Nombre**, escriba `B.Simon`.  
@@ -110,7 +110,7 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **10,000ft Plans**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario o grupo**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.

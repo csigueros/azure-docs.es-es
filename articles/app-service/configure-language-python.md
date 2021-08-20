@@ -5,18 +5,18 @@ ms.topic: quickstart
 ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: db1650c61ae9e70955fd945527ff049e2663a174
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 333f9572e9bf5a24e7c9ac230b10f74adf5be7de
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018070"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963805"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 
 En este artículo se describe la forma en que [Azure App Service](overview.md) ejecuta aplicaciones de Python, cómo migrar aplicaciones existentes a Azure y cómo personalizar el comportamiento de App Service cuando es necesario. Las aplicaciones de Python deben implementarse con todos los módulos [pip](https://pypi.org/project/pip/) requeridos.
 
-El motor de implementación de App Service activa automáticamente un entorno virtual y ejecuta `pip install -r requirements.txt` automáticamente cuando se implementa un [repositorio de Git](deploy-local-git.md) o un [paquete ZIP](deploy-zip.md).
+El motor de implementación de App Service activa automáticamente un entorno virtual y ejecuta `pip install -r requirements.txt` automáticamente cuando se implementa un [repositorio de Git](deploy-local-git.md) o un [paquete Zip](deploy-zip.md) [con la automatización de la compilación habilitada](deploy-zip.md#enable-build-automation).
 
 En esta guía se incluyen conceptos clave e instrucciones para los desarrolladores de Python que usan un contenedor Linux integrado en App Service. Si nunca ha usado Azure App Service, siga primero el [inicio rápido de Python](quickstart-python.md) y el [tutorial de Python con PostgreSQL](tutorial-python-postgresql-app.md).
 
@@ -65,7 +65,7 @@ Para ejecutar una versión no compatible de Python, cree una imagen de su propio
 
 ## <a name="customize-build-automation"></a>Personalización de la automatización de compilaciones
 
-El sistema de compilación de App Service, denominado Oryx, realiza los pasos siguientes al implementar la aplicación mediante paquetes Git o ZIP:
+El sistema de compilación de App Service, denominado Oryx, realiza los pasos siguientes al implementar cualquier si el valor `SCM_DO_BUILD_DURING_DEPLOYMENT` de la aplicación está establecido en `1`:
 
 1. Ejecute un script anterior a la compilación personalizado si lo especifica el valor `PRE_BUILD_COMMAND` . (El script puede a su vez ejecutar otros scripts de Python y Node.js, comandos pip y npm, y herramientas basadas en nodos como Yarn; por ejemplo, `yarn install` y `yarn build`).
 
@@ -326,7 +326,7 @@ db_server = os.environ['DATABASE_SERVER']
 
 ## <a name="detect-https-session"></a>Detección de sesión de HTTPS
 
-En App Service, la [terminación de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a su aplicación en forma de solicitudes HTTP sin cifrar. Si su aplicación lógica necesita comprobar si las solicitudes de usuario están cifradas, inspeccione el encabezado `X-Forwarded-Proto`.
+En App Service, la [terminación de TLS o SSL](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a su aplicación en forma de solicitudes HTTP sin cifrar. Si su aplicación lógica necesita comprobar si las solicitudes de usuario están cifradas, inspeccione el encabezado `X-Forwarded-Proto`.
 
 ```python
 if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto'] == 'https':
@@ -440,4 +440,4 @@ Si encuentra este error con el ejemplo de [Tutorial: Implementación de una apli
 > [Tutorial: Implementar desde el repositorio de contenedor privado](tutorial-custom-container.md?pivots=container-linux)
 
 > [!div class="nextstepaction"]
-> [P+F sobre App Service en Linux](faq-app-service-linux.md)
+> [P+F sobre App Service en Linux](faq-app-service-linux.yml)

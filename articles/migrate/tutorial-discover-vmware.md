@@ -1,18 +1,18 @@
 ---
 title: 'Detección de los servidores que se ejecutan en el entorno de VMware con Azure Migrate: Discovery and assessment'
 description: 'Aprenda a detectar los servidores locales, las aplicaciones y las dependencias de un entorno de VMware con la herramienta Azure Migrate: Discovery and assessment.'
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: 42140e61146d8682d193f89b2a691b8a13260533
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: d2b71b227500644a63eb116493abeba7576eb7eb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803704"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464957"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Detección de los servidores que se ejecutan en el entorno de VMware con Azure Migrate: Discovery and assessment
 
@@ -302,22 +302,20 @@ Si se produce un error en la validación, puede seleccionar el estado **con erro
 
 ### <a name="start-discovery"></a>Iniciar detección
 
-Para iniciar la detección de vCenter Server, seleccione **Start discovery** (Iniciar detección) en **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases** (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server). Una vez que la detección se ha iniciado correctamente, puede comprobar el estado de detección examinando la dirección IP o el FQDN de vCenter Server en la tabla de orígenes.
-
-> [!NOTE]
-> Azure Migrate cifra la comunicación entre el dispositivo de Azure Migrate y las instancias de SQL Server de origen cuando la propiedad [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) está establecida en `true`. La capa de transporte usa SSL para cifrar el canal y omitir la cadena de certificados para validar la confianza. El servidor del dispositivo se debe configurar para [confiar en la entidad de certificación raíz del certificado](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
->
-> Si no se ha aprovisionado ningún certificado en el servidor cuando se inicia, SQL Server genera un certificado autofirmado que se utiliza para cifrar los paquetes de inicio de sesión. [Más información](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
->
+Para comenzar la detección de vCenter Server, haga clic en **Start discovery** (Iniciar detección). Una vez que la detección se ha iniciado correctamente, puede comprobar el estado de detección examinando la dirección IP o el FQDN de vCenter Server en la tabla de orígenes.
 
 ## <a name="how-discovery-works"></a>Funcionamiento de la detección
 
 * El inventario de servidores detectados tarda alrededor de 15 minutos en aparecer en Azure Portal.
 * Si ha proporcionado las credenciales de los servidores, una vez que se haya completado la detección de servidores que ejecutan vCenter Server, se iniciará automáticamente el inventario de software (la detección de las aplicaciones instaladas). El inventario de software se realiza una vez cada 12 horas.
 * El [inventario de software](how-to-discover-applications.md) identifica las instancias de SQL Server que se ejecutan en los servidores. Con la información que recopila, el dispositivo intenta conectarse a las instancias de SQL Server mediante las credenciales de autenticación de Windows o las credenciales de autenticación de SQL Server proporcionadas en el dispositivo. A continuación, recopila datos de las bases de datos de SQL Server y sus propiedades. La detección de SQL Server se realiza una vez cada 24 horas.
+* El dispositivo solo se puede conectar a aquellas instancias de SQL Server a las que tiene línea de visión de red, mientras que el inventario de software por sí mismo puede no necesitar la línea de visión de red.
 * La detección de las aplicaciones instaladas puede tardar más de 15 minutos. Todo depende del número de servidores que se detecten. Para 500 servidores, el inventario detectado tarda aproximadamente una hora en aparecer en el proyecto de Azure Migrate en el portal.
-* Durante el inventario de software, las credenciales de servidor agregadas se iteran en los servidores y se validan para realizar el análisis de dependencias sin agente. Una vez completada la detección de servidores, puede habilitar desde el portal el análisis de dependencias sin agente en los servidores. Solo se pueden seleccionar los servidores en los que la validación se realiza correctamente para habilitar el análisis de dependencias sin agente.
+* Durante el inventario de software, las credenciales de servidor agregadas se iteran en los servidores y se validan para realizar el análisis de dependencias sin agente. Una vez completada la detección de servidores, puede habilitar desde el portal el análisis de dependencias sin agente en los servidores. Solo se pueden seleccionar los servidores en los que la validación se realiza correctamente para habilitar el [análisis de dependencias sin agente](how-to-create-group-machine-dependencies-agentless.md).
 * Los datos de las instancias y bases de datos de SQL Server comienzan a aparecer en el portal en un plazo de 24 horas después de iniciar la detección.
+* De manera predeterminada, Azure Migrate usa la manera más segura de conectarse a las instancias de SQL, es decir, Azure Migrate cifra la comunicación entre el dispositivo de Azure Migrate y las instancias de SQL Server de origen estableciendo la propiedad TrustServerCertificate en `true`. Además, la capa de transporte usa SSL para cifrar el canal y omitir la cadena de certificados para validar la confianza. Por lo tanto, el servidor del dispositivo se debe configurar para confiar en la entidad de certificación raíz del certificado. Sin embargo, puede modificar la configuración de conexión; para ello, seleccione **Edit SQL Server connection properties** (xxx) en el dispositivo. [Consulte este vínculo](https://go.microsoft.com/fwlink/?linkid=2158046) para saber qué elegir.
+
+    :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Captura de pantalla que muestra cómo editar las propiedades de conexión de SQL Server.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

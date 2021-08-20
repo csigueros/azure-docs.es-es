@@ -3,15 +3,15 @@ title: ¿Qué es Azure Virtual Desktop? - Azure
 description: Una introducción a Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/14/2020
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 76d6574be61b7d1cd92733496d335c64d64bf7a1
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.openlocfilehash: 773e0053512026f6a92a2981d43340b68e708186
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113031398"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113757720"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>¿Qué es Azure Virtual Desktop?
 
@@ -38,7 +38,7 @@ Vea más vídeos sobre Azure Virtual Desktop en [nuestra lista de reproducción]
 
 Con Azure Virtual Desktop, puede configurar un entorno flexible y escalable:
 
-* Cree un entorno de virtualización de escritorio completo en su suscripción de Azure sin tener que ejecutar ningún servidor de puerta de enlace adicional.
+* Cree un entorno de virtualización de escritorio completo en su suscripción de Azure sin ejecutar ningún servidor de puerta de enlace adicional.
 * Publique todos los grupos host que necesite para dar cabida a diversas cargas de trabajo.
 * Aporte su propia imagen para las cargas de trabajo de producción o de prueba desde la Galería de Azure.
 * Reduzca los costos con recursos de sesión múltiple agrupados. Con la nueva funcionalidad de sesión múltiple de Windows 10 Enterprise exclusiva de Azure Virtual Desktop y del rol de host de sesión de Escritorio remoto (RDSH) de Windows Server, puede reducir considerablemente el número de máquinas virtuales y la sobrecarga del sistema operativo (SO), mientras se proporcionan los mismos recursos a los usuarios.
@@ -54,7 +54,7 @@ Puede implementar y administrar escritorios virtuales:
 
 También puede asignar y conectar a los usuarios a los escritorios virtuales:
 
-* Una vez asignados, los usuarios pueden iniciar cualquier cliente de Azure Virtual Desktop para conectar los usuarios a sus aplicaciones y escritorios de Windows publicados. Conéctese desde cualquier dispositivo mediante una aplicación nativa de su dispositivo o por medio del cliente web HTML5 de Azure Virtual Desktop.
+* Una vez asignados, los usuarios pueden iniciar cualquier cliente de Azure Virtual Desktop para conectar a sus aplicaciones y escritorios de Windows publicados. Conéctese desde cualquier dispositivo mediante una aplicación nativa de su dispositivo o por medio del cliente web HTML5 de Azure Virtual Desktop.
 * Establezca de forma segura los usuarios mediante conexiones inversas al servicio, así nunca tendrá que dejar los puertos de entrada abiertos.
 
 ## <a name="requirements"></a>Requisitos
@@ -85,7 +85,7 @@ Requisitos de usuario para conectarse a Azure Virtual Desktop:
 
 Las máquinas virtuales de Azure que cree para Azure Virtual Desktop deben cumplir estos requisitos:
 
-* Estar [unidas a un dominio estándar](../active-directory-domain-services/compare-identity-solutions.md) o a un [dominio híbrido](../active-directory/devices/hybrid-azuread-join-plan.md). Las máquinas virtuales no pueden estar unidas a Azure AD.
+* Estar [unidas a un dominio estándar](../active-directory-domain-services/compare-identity-solutions.md) o a un [dominio híbrido](../active-directory/devices/hybrid-azuread-join-plan.md). Hay disponibles máquinas virtuales en versión preliminar [unidas a Azure AD](deploy-azure-ad-joined-vm.md).
 * Deben ejecutar una de las siguientes [imágenes de sistema operativo admitidas](#supported-virtual-machine-os-images).
 
 >[!NOTE]
@@ -93,7 +93,7 @@ Las máquinas virtuales de Azure que cree para Azure Virtual Desktop deben cumpl
 
 Para obtener una lista de direcciones URL que debe desbloquear para que la implementación de Azure Virtual Desktop funcione según lo previsto, consulte nuestra [lista de direcciones URL requeridas](safe-url-list.md).
 
-Azure Virtual Desktop consta de los escritorios y las aplicaciones de Windows que entrega a los usuarios y de la solución de administración, que Microsoft hospeda en Azure como un servicio. Se pueden implementar escritorios y aplicaciones en máquinas virtuales (VM) de cualquier región de Azure, y la solución de administración y los datos de estas VM residirán en Estados Unidos. Esto puede dar lugar a la transferencia de datos a Estados Unidos.
+Azure Virtual Desktop incluye los escritorios y las aplicaciones de Windows que entrega a los usuarios y de la solución de administración, que Microsoft hospeda en Azure como un servicio. Se pueden implementar escritorios y aplicaciones en máquinas virtuales (VM) de cualquier región de Azure, y la solución de administración y los datos de estas VM residirán en Estados Unidos. Esto puede dar lugar a la transferencia de datos a Estados Unidos.
 
 Para obtener un rendimiento óptimo, asegúrese de que la red cumple los requisitos siguientes:
 

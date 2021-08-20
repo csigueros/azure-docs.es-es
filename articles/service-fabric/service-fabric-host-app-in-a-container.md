@@ -4,12 +4,12 @@ description: Aprenda a incluir una aplicación .NET existente en un contenedor m
 ms.topic: tutorial
 ms.date: 07/08/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b0e75d4054bc814c3e826db4519f9e882964ef4e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ae7069b155266b8fc8049b9660d38acbb1103d6c
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677377"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236430"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric
 
@@ -32,14 +32,14 @@ En este tutorial, aprenderá a:
 2. Habilite las características **Hyper-V** y **Contenedores** de Windows.
 3. Instale [Docker Desktop for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) para ejecutar contenedores en Windows 10.
 4. Instale [la versión en tiempo de ejecución de Service Fabric 6.2 o posterior](service-fabric-get-started.md) y la [versión 3.1 del SDK de Service Fabric](service-fabric-get-started.md) o posterior.
-5. Instale [Visual Studio 2019 versión 16.1](https://www.visualstudio.com/) o posterior con las cargas de trabajo de **desarrollo de Azure** y de **desarrollo de ASP.NET y web**.
+5. Instale [Visual Studio](https://www.visualstudio.com/) y habilite las cargas de trabajo **Desarrollo de Azure** y **Desarrollo de ASP.NET y web**.
 6. Instale [Azure PowerShell][link-azure-powershell-install].
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Descarga y ejecución de Fabrikam Fiber CallCenter
 
-1. Descargue la aplicación de ejemplo [Fabrikam Fiber CallCenter][link-fabrikam-github].  Haga clic en el vínculo para **descargar archivo**.  Desde el directorio *sourceCode* del archivo *fabrikam.zip*, extraiga el archivo *sourceCode.zip* y, a continuación, extraiga el directorio *VS2015* en el equipo.
+1. Descargue la aplicación de ejemplo [Fabrikam Fiber CallCenter][link-fabrikam-github] en GitHub.
 
-2. Compruebe que la aplicación Fabrikam Fiber CallCenter se compila y se ejecuta sin error.  Inicie Visual Studio como **administrador** y abra el archivo [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Presione F5 para depurar y ejecutar la aplicación.
+2. Compruebe que la aplicación Fabrikam Fiber CallCenter se compila y se ejecuta sin error.  Inicie Visual Studio como **administrador** y abra el archivo [VS2015\FabrikamFiber.CallCenter.sln][link-fabrikam-github]. Presione F5 para ejecutar y depurar la aplicación.
 
    ![Captura de pantalla de la página principal de la aplicación Fabrikam Fiber CallCenter que se ejecuta en el host local. La página muestra un panel con una lista de llamadas de soporte técnico.][fabrikam-web-page]
 
@@ -309,7 +309,7 @@ En este tutorial, ha aprendido a:
 
 En la siguiente parte del tutorial aprenderá a [implementar una aplicación de contenedor con CI/CD en un clúster de Service Fabric](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
-[link-fabrikam-github]: https://aka.ms/fabrikamcontainer
+[link-fabrikam-github]: https://github.com/Azure-Samples/service-fabric-dotnet-containerize
 [link-azure-powershell-install]: /powershell/azure/install-Az-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs

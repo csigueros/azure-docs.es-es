@@ -1,166 +1,231 @@
 ---
-title: 'Tutorial: Uso de Creator (versión preliminar) de Microsoft Azure Maps para crear mapas de interiores'
-description: Tutorial sobre cómo usar Creator (versión preliminar) de Microsoft Azure Maps para crear mapas de interiores
+title: 'Tutorial: Uso de Creator de Microsoft Azure Maps para crear mapas de interiores'
+description: Tutorial sobre cómo usar Creator de Microsoft Azure Maps para crear mapas de interiores
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 5/19/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ac53dab29feddd36a95b8b2b041caaf5c3598d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73e7073b67916983ea7bd37cd6adad4ced5633c2
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101720144"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730635"
 ---
-# <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Tutorial: Uso de Creator (versión preliminar) para crear mapas de interiores
+# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutorial: Uso de Creator para crear planos interiores
 
-> [!IMPORTANT]
-> El servicio Creator de Azure Maps se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-En este tutorial verá cómo crear planos interiores. En este tutorial, aprenderá a usar la API para realizar lo siguiente:
+En este tutorial se describe cómo crear mapas de interiores. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Cargar el paquete de dibujo del plano interior.
 > * Convertir el paquete de dibujo en datos del plano.
 > * Crear un conjunto de datos a partir de los datos del plano.
 > * Crear un conjunto de mosaicos a partir de los datos del conjunto de datos.
-> * Consultar la API del servicio de características web (WFS) de Azure Maps para obtener información acerca de las características del plano.
+> * Consultar la Web Feature Service (WFS) API de Azure Maps para obtener información acerca de las características del plano.
 > * Crear un conjunto de estados de características mediante las características del plano y los datos del conjunto de datos.
 > * Actualizar el conjunto de estados de características.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para crear planos interiores:
-
 1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
-3. [Cree un recurso de Creator (versión preliminar)](how-to-manage-creator.md).
+3. [Cree un recurso de Creator](how-to-manage-creator.md)
 4. Descargue el [paquete de dibujo de ejemplo](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
-En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero puede elegir un entorno de desarrollo de API diferente.
+En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero puede usar un entorno de desarrollo de API diferente.
 
 >[!IMPORTANT]
-> Es posible que las direcciones URL de la API de este documento tengan que ajustarse según la ubicación del recurso del Creador. Para más información, consulte [Acceso a Servicios del creador](how-to-manage-creator.md#access-to-creator-services).
+> En este tutorial se usa la dirección URL geográfica `us.atlas.microsoft.com`. Si el servicio Creator no se creó en la Estados Unidos, debe usar una dirección URL geográfica diferente.  Para más información, consulte [Acceso a los servicios de Creator](how-to-manage-creator.md#access-to-creator-services). Para ver las asignaciones de región a una ubicación geográfica, [consulte el ámbito geográfico del servicio Creator](creator-geographic-scope.md).
 
 ## <a name="upload-a-drawing-package"></a>Carga de un paquete de dibujo
 
-Use [Data Upload API](/rest/api/maps/data/uploadpreview) para cargar un paquete de dibujo a los recursos de Azure Maps.
+Use [Data Upload API](/rest/api/maps/data-v2/upload-preview) para cargar un paquete de dibujo a los recursos de Azure Maps.
 
-Data Upload API es una transacción de larga duración que implementa el patrón que se define aquí. Una vez completada la operación, usaremos el valor `udid` para obtener acceso al paquete cargado y poder convertirlo. Para ello, siga estos pasos para obtener el valor `udid`.
+Data Upload API es una transacción de larga duración que implementa el patrón que se define en [Ámbito geográfico del servicio Creator](creator-long-running-operation-v2.md).
 
-1. Abra la aplicación Postman. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).  Asigne un nombre a la colección y seleccione el botón **Create** (Crear).
+Para cargar el paquete de dibujo:
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior y haga clic en **Save** (Guardar).
+1. En la aplicación Postman, seleccione **New** (Nuevo).
 
-3. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la siguiente dirección URL para cargar el paquete de dibujo en el servicio Azure Maps. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
 
-    ```http
-    https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
-    ```
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *POST Data Upload*.
 
-4. En la pestaña de **encabezados**, especifique un valor para la clave `Content-Type`. El paquete de dibujo es una carpeta comprimida, por lo que debe usar el valor `application/octet-stream`. En la pestaña **Body** (Cuerpo), seleccione **binary** (binario). Haga clic en **Select File** (Seleccionar archivo) y elija un paquete de dibujo.
+4. Seleccione el método HTTP **POST**.
 
-     ![administración de datos](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
-
-5. Haga clic en el botón azul **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta. Copie el valor de la clave **Location** (Ubicación), que es `status URL`.
-
-6. Para comprobar el estado de la llamada de API, cree una solicitud HTTP **GET** en el elemento `status URL`. Tendrá que anexar la clave de suscripción principal a la dirección URL para realizar la autenticación. La solicitud **GET** debe tener un aspecto similar a la siguiente dirección URL:
+5. Escriba la siguiente dirección URL a la [Data Upload API](/rest/api/maps/data-v2/upload-preview). La solicitud debe ser como la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=dwgzippackage&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-7. Cuando a solicitud HTTP **GET** se completa correctamente, devolverá una `resourceLocation`. El `resourceLocation` contiene el `udid` único para el contenido cargado. Opcionalmente, puede usar la dirección URL del `resourceLocation` para recuperar los metadatos de este recurso en el siguiente paso.
+6. Seleccione la pestaña **Encabezados**.
 
-    ```json
-    {
-        "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
-    }
-    ```
+7. En el campo **CLAVE**, seleccione `Content-Type`. 
 
-8. Para recuperar metadatos de contenido, cree una solicitud HTTP **GET** en la dirección URL `resourceLocation` que se recuperó en el paso 7. Asegúrese de anexar la clave de suscripción principal a la dirección URL para la autenticación. La solicitud **GET** debe ser como la siguiente dirección URL:
+8. En el campo **VALUE**, seleccione `application/octet-stream`.
+
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-header.png"alt-text="Información de la pestaña Encabezado para la carga de datos.":::
+
+9. Seleccione la pestaña **Cuerpo**.
+
+10. En la lista desplegable, seleccione **binary** (binario).
+
+11. Seleccione **Select File** (Seleccionar archivo) y elija un paquete de dibujo.
+
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="Selección de un paquete de dibujo":::
+
+12. Seleccione **Enviar**.
+
+13. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados).
+
+14. Copie el valor de la clave de **Operation-Location**, que es `status URL`. Usaremos `status URL` para comprobar el estado de la carga del paquete de dibujo.
+
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-response-header.png" alt-text="Copie la dirección URL de estado en la clave de ubicación.":::
+
+### <a name="check-the-drawing-package-upload-status"></a>Comprobación del estado de carga del paquete de dibujo
+
+Para comprobar el estado del paquete de dibujo y recuperar su identificador único (`udid`):
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *GET Data Upload Status*.
+
+4. Seleccione el método HTTP **GET**.
+
+5. Escriba la `status URL` que copió en [Upload a Drawing package](#upload-a-drawing-package) (Cargar un paquete de dibujo). La solicitud debe ser como la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```http
-   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-9. Cuando la solicitud HTTP **GET** se completa correctamente, el cuerpo de la respuesta contendrá el `udid` especificado en el `resourceLocation` del paso 7, la ubicación para obtener acceso o descargar el contenido en el futuro y otros metadatos sobre el contenido, como la fecha de creación o actualización, el tamaño, etc. Un ejemplo de la respuesta general es:
+6. Seleccione **Enviar**.
+
+7. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados).
+
+8. Copie el valor de la clave **Resource-Location**, que es `resource location URL`. `resource location URL` contiene el identificador único (`udid`) del recurso del paquete de dibujo.
+
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/resource-location-url.png" alt-text="Copie la dirección URL de la ubicación del recurso.":::
+
+### <a name="optional-retrieve-drawing-package-metadata"></a>(Opcional) Recuperación de metadatos del paquete de dibujo
+
+Puede recuperar los metadatos del recurso de paquete de dibujo. Los metadatos contienen información como la dirección URL de la ubicación del recurso, la fecha de creación, la fecha de actualización, el tamaño y el estado de carga.
+
+Para recuperar los metadatos de contenido:
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *GET Data Upload Metadata*.
+
+4. . Seleccione el método HTTP **GET**.
+
+5. Escriba la `resource Location URL` que copió en [Check Drawing package upload status](#check-the-drawing-package-upload-status) (Comprobación del estado de carga del paquete de dibujo). La solicitud debe ser como la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
+
+    ```http
+   https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+
+6. Seleccione **Enviar**.
+
+7. En la ventana de respuesta, seleccione la pestaña **Cuerpo**. Los metadatos deben ser como el siguiente fragmento JSON:
 
     ```json
     {
         "udid": "{udid}",
-        "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
-        "created": "2020-02-03T02:32:25.0509366+00:00",
-        "updated": "2020-02-11T06:12:13.0309351+00:00",
-        "sizeInBytes": 766,
+        "location": "https://us.atlas.microsoft.com/mapData/6ebf1ae1-2a66-760b-e28c-b9381fcff335?api-version=2.0",
+        "created": "5/18/2021 8:10:32 PM +00:00",
+        "updated": "5/18/2021 8:10:37 PM +00:00",
+        "sizeInBytes": 946901,
         "uploadStatus": "Completed"
     }
     ```
 
 ## <a name="convert-a-drawing-package"></a>Conversión de un paquete de dibujo
 
- Cuando se haya cargado el paquete de dibujo, usaremos `udid` en el paquete cargado con el fin de convertirlo en datos de plano. Conversion API usa una transacción de larga duración que implementa el patrón que se define [aquí](creator-long-running-operation.md). Una vez completada la operación, usaremos el valor `conversionId` para obtener acceso los datos convertidos. Siga estos pasos para obtener el valor `conversionId`.
+Cuando se haya cargado el paquete de dibujos, usaremos el `udid` para el paquete cargado con el fin de convertirlo en datos de mapa. Conversion API usa una transacción de larga duración que implementa el patrón que se define [aquí](creator-long-running-operation-v2.md).
 
-1. Seleccione **Nuevo**. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Save**(Guardar).
+Para convertir un paquete de dibujo:
 
-2. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la siguiente dirección URL para convertir el paquete de dibujo cargado en los datos del plano. Use el valor `udid` en el paquete cargado.
+1. En la aplicación Postman, seleccione **New** (Nuevo).
 
-    ```http
-    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
-    ```
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
 
-    >[!IMPORTANT]
-    > Es posible que las direcciones URL de la API de este documento tengan que ajustarse según la ubicación del recurso del Creador. Para más información, consulte [Acceso a los servicios de Creator](how-to-manage-creator.md#access-to-creator-services).
-    > Si recibe un error con el código `"RequiresCreatorResource"`, asegúrese de que ha [aprovisionado un recurso de Azure Maps Creator](how-to-manage-creator.md) en su cuenta de Azure Maps.
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *POST Convert Drawing Package*.
 
-3. Haga clic en el botón **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta y busque la clave **Location** (Ubicación). Copie el valor de la clave **Location** (Ubicación), que es `status URL` en la solicitud de conversión. Dicha clave se usará en el paso siguiente.
+4. Seleccione el método HTTP **POST**.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copia del valor de la clave de ubicación":::
-
-4. Inicie un nuevo método HTTP **GET**  en la pestaña del generador. Anexe la clave de suscripción principal de Azure Maps a `status URL`. Haga una solicitud **GET** en el valor de `status URL` que copió en el paso 3. El valor de `status URL` se parecerá a la siguiente dirección URL:
+5. Escriba la siguiente dirección URL en el [servicio de conversión](/rest/api/maps/v2/conversion/convert) (reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal y `udid` por `udid` del paquete cargado):
 
     ```http
-    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/conversions?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0
     ```
 
-    Si aún no se ha completado el proceso de conversión, puede ver algo parecido a la siguiente respuesta JSON:
+6. Seleccione **Enviar**.
 
-    ```json
-    {
-        "operationId": "<operationId>",
-        "created": "2020-04-22T19:39:54.9518496+00:00",
-        "status": "Running"
-    }
+7. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados). 
+
+8. Copie el valor de la clave de **Operation-Location**, que es `status URL`. Usaremos `status URL` para comprobar el estado de la conversión.
+
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-convert-location-url.png" border="true" alt-text="Copie el valor de la clave de ubicación para el paquete de dibujo.":::
+
+### <a name="check-the-drawing-package-conversion-status"></a>Comprobación del estado de conversión del paquete de dibujo
+
+Una vez completada la operación de conversión, devuelve un `conversionId`. Podemos acceder a `conversionId` comprobando el estado del proceso de conversión del paquete de dibujo. A continuación, se puede usar `conversionId` para acceder a los datos convertidos.
+
+Para comprobar el estado del proceso de conversión y recuperar `conversionId`:
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *GET Conversion Status*.
+
+4. Seleccione el método HTTP **GET**:
+
+5. Escriba la `status URL` que copió en [Convert a Drawing package](#convert-a-drawing-package) (Convertir un paquete de dibujo). La solicitud debe ser como la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
+
+    ```http
+    https://us.atlas.microsoft.com/conversions/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-5. Una vez que la solicitud se complete correctamente, verá un mensaje de estado correcto en el cuerpo de la respuesta.  Copie el valor `conversionId` de la dirección URL `resourceLocation` del paquete convertido. Otra API usa el valor `conversionId` para obtener acceso a los datos de plano convertidos.
+6. Seleccione **Enviar**.
 
-    ```json
-   {
-        "operationId": "<operationId>",
-        "created": "2020-04-22T19:39:54.9518496+00:00",
-        "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
-        "properties": {}
-    }
-    ```
+7. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados). 
 
->[!NOTE]
->La aplicación Postman no admite de forma nativa solicitudes de ejecución de larga duración de HTTP. Como resultado, es posible que observe un retraso largo mientras realiza una solicitud **GET** en la dirección URL del estado.  Espere unos treinta segundos y vuelva a hacer clic en el botón **Send** (Enviar) hasta que la respuesta se muestre correctamente o con errores.
+8. Copie el valor de la clave **Resource-Location**, que es `resource location URL`. `resource location URL` contiene el identificador único (`conversionId`), que pueden usar otras API para acceder a los datos de mapa convertidos.
 
-Tenga en cuenta que el paquete de dibujo de ejemplo debe convertirse sin errores ni advertencias. Sin embargo, si recibe errores o advertencias de su propio paquete de dibujo, la respuesta JSON le proporcionará un vínculo al [visualizador de errores de dibujo](drawing-error-visualizer.md). El visualizador de errores de dibujo le permitirá inspeccionar los detalles de los errores y las advertencias. Para recibir recomendaciones sobre cómo resolver errores y advertencias de conversión, consulte [Errores y advertencias en la conversión de dibujos](drawing-conversion-error-codes.md).
+      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-conversion-id.png" alt-text="Copia del identificador de conversión.":::
+
+Tenga en cuenta que el paquete de dibujo de ejemplo debe convertirse sin errores ni advertencias. Sin embargo, si recibe errores o advertencias de su propio paquete de dibujo, la respuesta JSON incluye un vínculo al [visualizador de errores de dibujo](drawing-error-visualizer.md). El visualizador de errores de dibujo le permitirá inspeccionar los detalles de los errores y las advertencias. Para recibir recomendaciones sobre cómo resolver errores y advertencias de conversión, consulte [Errores y advertencias en la conversión de dibujos](drawing-conversion-error-codes.md).
+
+El siguiente fragmento JSON muestra una advertencia de conversión de ejemplo:
 
 ```json
 {
     "operationId": "<operationId>",
-    "created": "2020-04-22T19:39:54.9518496+00:00",
-    "status": "Failed",
-    "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
+    "created": "2021-05-19T18:24:28.7922905+00:00",
+    "status": "Succeeded",
+     "warning": {
+        "code": "dwgConversionProblem",
+        "details": [
+            {
+                "code": "warning",
+                "details": [
+                    {
+                        "code": "manifestWarning",
+                        "message": "Ignoring unexpected JSON property: unitProperties[0].nonWheelchairAccessible with value False"
+                    }
+                ]
+            }
+        ]
+    },
     "properties": {
         "diagnosticPackageLocation": "https://atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=1.0"
     }
@@ -169,77 +234,135 @@ Tenga en cuenta que el paquete de dibujo de ejemplo debe convertirse sin errores
 
 ## <a name="create-a-dataset"></a>Crear un conjunto de datos
 
-Un conjunto de datos es una colección de características de plano, como edificios, niveles y salones. Para crear un conjunto de datos, use [Dataset Create API](/rest/api/maps/dataset/createpreview). Dataset Create API toma el valor `conversionId` del paquete de dibujo convertido y devuelve un valor `datasetId` del conjunto de datos creado. En los pasos siguientes se muestra cómo crear un conjunto de datos.
+Un conjunto de datos es una colección de características de plano, como edificios, niveles y salones. Para crear un conjunto de datos, use [Dataset Create API](/rest/api/maps/v2/dataset/create). Dataset Create API toma el valor `conversionId` del paquete de dibujo convertido y devuelve un valor `datasetId` del conjunto de datos creado.
 
-1. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
+Para crear un conjunto de datos
 
-2. Realice una solicitud **POST** a [Dataset Create API](/rest/api/maps/dataset/createpreview) para crear un nuevo conjunto de datos. Antes de enviar la solicitud, anexe la clave de suscripción y el valor `conversionId` con el valor `conversionId` obtenidos durante el proceso de conversión en el paso 5.  La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *POST Dataset Create*.
+
+4. Seleccione el método HTTP **POST**.
+
+5. Escriba la siguiente dirección URL para la [Dataset API](/rest/api/maps/v2/dataset). La solicitud debe tener un aspecto similar a la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{conversionId`} por el `conversionId` obtenido en la sección [Comprobación del estado de conversión del paquete de dibujo](#check-the-drawing-package-conversion-status)):
 
     ```http
-    https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/datasets?api-version=2.0&conversionId={conversionId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Obtenga el valor `statusURL` en la clave **Location** (Ubicación) de los **encabezados** de respuesta.
+6. Seleccione **Enviar**.
 
-4. Realice una solicitud **GET** en `statusURL` para obtener el valor de `datasetId`. Anexe la clave de suscripción principal de Azure Maps para realizar la autenticación. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+7. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados). 
+
+8. Copie el valor de la clave de **Operation-Location**, que es `status URL`. Usaremos `status URL` para comprobar el estado del conjunto de datos.
+
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-dataset-location-url.png" border="true" alt-text="Copia del valor de la clave de ubicación para el conjunto de datos":::
+
+### <a name="check-the-dataset-creation-status"></a>Comprobación del estado de creación del conjunto de datos
+
+Para comprobar el estado del proceso de creación del conjunto de datos y recuperar `datasetId`:
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *GET Dataset Status*.
+
+4. Seleccione el método HTTP **GET**.
+
+5. Escriba la `status URL` que copió en [Creación de un conjunto de datos](#create-a-dataset). La solicitud debe ser como la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/datasets/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-5. Cuando la solicitud HTTP **GET** se completa correctamente, el encabezado de respuesta contendrá el valor `datasetId` del conjunto de datos creado. Copie el valor de `datasetId`. Deberá usar `datasetId` para crear un conjunto de mosaicos.
+6. Seleccione **Enviar**.
 
-    ```json
-    {
-        "operationId": "<operationId>",
-        "created": "2020-04-22T19:52:38.9352189+00:00",
-        "status": "Succeeded",
-        "resourceLocation": "https://azure.microsoft.com/dataset/{datasetiId}?api-version=1.0"
-     }
-    ```
+7. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados). El valor de la clave **Resource-Location** es la `resource location URL`. La `resource location URL` contiene el identificador único (`datasetId`) del conjunto de datos. 
+
+8. Copie `datasetId`, ya que lo usará en las secciones siguientes de este tutorial.
+
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/dataset-id.png" alt-text="Copia del identificador del conjunto de datos":::
 
 ## <a name="create-a-tileset"></a>Creación de un conjunto de mosaicos
 
-Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representan en el plano. Los conjuntos de mosaicos se crean a partir de conjuntos de datos existentes. Sin embargo, un conjunto de mosaicos es independiente del conjunto de datos del que se creó. Si se elimina el conjunto de datos, el conjunto de mosaicos seguirá existiendo. Siga estos pasos para crear un conjunto de mosaicos:
+Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representan en el plano. Los conjuntos de mosaicos se crean a partir de conjuntos de datos existentes. Sin embargo, un conjunto de mosaicos es independiente del conjunto de datos del que se creó. Si se elimina el conjunto de datos, el conjunto de mosaicos seguirá existiendo.
 
-1. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
+Para crear un conjunto de mosaicos:
 
-2. Realice una solicitud **POST** en la pestaña del generador. La dirección URL de la solicitud debe tener un aspecto similar a la siguiente dirección URL:
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *POST Tileset Create*.
+
+4. Seleccione el método HTTP **POST**.
+
+5. Escriba la siguiente dirección URL para [Tileset API](/rest/api/maps/v2/tileset). La solicitud debe tener un aspecto similar a la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal) y `{datasetId`} por el `datasetId` obtenido en la sección [Comprobación del estado de creación del conjunto de datos](#check-the-dataset-creation-status):
 
     ```http
-    https://atlas.microsoft.com/tileset/create/vector?api-version=1.0&datasetID={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets?api-version=2.0&datasetID={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Realice una solicitud **GET** en `statusURL` para obtener el conjunto de mosaicos. Anexe la clave de suscripción principal de Azure Maps para realizar la autenticación. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+6. Seleccione **Enviar**.
 
-   ```http
-    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+7. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados). 
+
+8. Copie el valor de la clave de **Operation-Location**, que es `status URL`. Usaremos `status URL` para comprobar el estado del conjunto de mosaicos.
+
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-tileset-location-url.png" border="true" alt-text="Copia del valor de la dirección URL de estado del conjunto de mosaicos":::
+
+### <a name="check-the-tileset-creation-status"></a>Comprobación del estado de creación del conjunto de mosaicos
+
+Para comprobar el estado del proceso de creación del conjunto de datos y recuperar `tilesetId`:
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *GET Tileset Status*.
+
+4. Seleccione el método HTTP **GET**.
+
+5. Escriba la `status URL` que copió en [Creación de un conjunto de mosaicos](#create-a-tileset). La solicitud debe ser como la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal):
+
+    ```http
+    https://us.atlas.microsoft.com/tilesets/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. Cuando la solicitud HTTP **GET** se complete correctamente, el encabezado de respuesta contendrá el valor `tilesetId` del conjunto de mosaicos creado. Copie el valor de `tilesetId`.
+6. Seleccione **Enviar**.
 
-    ```json
-    {
-        "operationId": "<operationId>",
-        "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
-        "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/tileset/{tilesetId}?api-version=1.0"
-    }
-    ```
+7. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados). El valor de la clave **Resource-Location** es la `resource location URL`.  `resource location URL` contiene el identificador único (`tilesetId`) del conjunto de datos.
+
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/tileset-id.png" alt-text="Copia del identificador del conjunto de mosaicos":::
 
 ## <a name="query-datasets-with-wfs-api"></a>Consulta de conjuntos de datos con la API de WFS
 
- Los conjuntos de datos se pueden consultar mediante la [API de WFS](/rest/api/maps/wfs). Con la API de WFS puede consultar colecciones de características, una colección específica o una característica específica con un **id.** de característica. El **id.** de característica identifica de forma única la característica en el conjunto de datos. Se usa, por ejemplo, para identificar qué estado de la característica debe actualizarse en un conjunto de estados determinado.
+Los conjuntos de datos se pueden consultar mediante la [API de WFS](/rest/api/maps/v2/wfs). Puede usar la API de WFS para consultar todas las colecciones de características o una recopilación específica. En esta sección del tutorial, haremos ambas cosas. En primer lugar, se consultarán todas las colecciones y, a continuación, se consultará la colección `unit`.
 
-1. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
+### <a name="query-for-feature-collections"></a>Consulta de colecciones de características
 
-2. Cree una solicitud **GET** para ver una lista de las colecciones del conjunto de datos. Reemplace `<dataset-id>` con `datasetId`. Use la clave principal de Azure Maps en lugar del marcador de posición. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+Para consultar todas las colecciones del conjunto de datos:
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *GET Dataset Collections*.
+
+4. Seleccione el método HTTP **GET**.
+
+5. Escriba la siguiente dirección URL en la [API de WFS](/rest/api/maps/v2/wfs). La solicitud debe tener un aspecto similar a la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal) y `{datasetId`} por el `datasetId` obtenido en la sección [Comprobación del estado de creación del conjunto de datos](#check-the-dataset-creation-status):
 
     ```http
-    https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
+    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0
     ```
 
-3. El cuerpo de la respuesta se entregará en formato GeoJSON y contendrá todas las colecciones del conjunto de datos. Para simplificar, en este ejemplo solo se muestra la colección de `unit`. Para ver un ejemplo que contenga todas las colecciones, consulte [Describe Collections API de WFS](/rest/api/maps/wfs/collectiondescriptionpreview). Para obtener más información sobre cualquier colección, puede hacer clic en cualquiera de las direcciones URL del elemento `link`.
+6. Seleccione **Enviar**.
+
+7. El cuerpo de la respuesta se devuelve en formato GeoJSON y contendrá todas las colecciones del conjunto de datos. Para simplificar, en este ejemplo solo se muestra la colección de `unit`. Para ver un ejemplo que contenga todas las colecciones, consulte [Describe Collections API de WFS](/rest/api/maps/v2/wfs/collection-description). Para obtener más información sobre cualquier colección, puede seleccionar cualquiera de las direcciones URL del elemento `link`.
 
     ```json
     {
@@ -267,13 +390,29 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
         },
     ```
 
-4. Cree una solicitud **GET** para las colecciones de características `unit`.  Reemplace `{datasetId}` con su `datasetId`. Use la clave principal de Azure Maps en lugar del marcador de posición. El cuerpo de la respuesta contendrá todas las características de la colección `unit`. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+### <a name="query-for-unit-feature-collection"></a>Consulta de la colección de características unitarias
+
+En esta sección, se consultará la [API de WFS](/rest/api/maps/v2/wfs) para la colección `unit` de características.
+
+Para consultar la colección de unidades en el conjunto de datos:
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *GET Unit Collection*.
+
+4. Seleccione el método HTTP **GET**.
+
+5. Escriba la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal y `{datasetId`} por el `datasetId` obtenido en [Comprobación del estado de creación del conjunto de datos](#check-the-dataset-creation-status)):
 
     ```http
-    https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
+    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0
     ```
 
-5. Copie el `id` de característica correspondiente a una característica de unidad que tenga propiedades de estilo que se puedan modificar dinámicamente.  Dado que el estado de ocupación y la temperatura de la unidad se pueden actualizar dinámicamente, usaremos este `id` de característica en la sección siguiente. En el ejemplo siguiente, el `id` de la característica es "UNIT26". Haremos referencia a las propiedades de estilo de esta característica a modo de estados y usaremos la característica para crear un conjunto de estados.
+6. Seleccione **Enviar**.
+
+7. Una vez que se devuelva la respuesta, copie la característica `id` de una de las características `unit`. En el ejemplo siguiente, el `id` de la característica es "UNIT26". En este tutorial, usaremos "UNIT26" como característica `id` en la sección siguiente.
 
      ```json
     {
@@ -307,15 +446,37 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
 
 ## <a name="create-a-feature-stateset"></a>Creación de un conjunto de estados de características
 
-1. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
+Los conjuntos de estados de características definen propiedades dinámicas y valores en características específicas que los admiten. En esta sección, crearemos un conjunto de estados que define los valores booleanos y los estilos correspondientes para la propiedad **occupancy**.
 
-2. Realice una solicitud **POST** en [Create Stateset API](/rest/api/maps/featurestate/createstatesetpreview). Use el `datasetId` del conjunto de datos que contiene el estado que quiere modificar. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+Para crear un conjunto de estados:
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *POST Create Stateset*.
+
+4. Seleccione el método HTTP **POST**.
+
+5. Escriba la siguiente dirección URL para [Stateset API](/rest/api/maps/v2/feature-state/create-stateset). La solicitud debe tener un aspecto similar a la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal) y `{datasetId`} por el `datasetId` obtenido en la sección [Comprobación del estado de creación del conjunto de datos](#check-the-dataset-creation-status)):
 
     ```http
-    https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **cuerpo**, proporcione los siguientes estilos de JSON sin formato para reflejar los cambios en los *estados* `occupied` y `temperature`. Cuando haya terminado, haga clic en **Send** (Enviar).
+6. Seleccione la pestaña **Encabezados**.
+
+7. En el campo **CLAVE**, seleccione `Content-Type`. 
+
+8. En el campo **VALUE**, seleccione `application/json`.
+
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="Información de la pestaña Encabezado para la creación del conjunto de estados.":::
+
+9. Seleccione la pestaña **Cuerpo**.
+
+10. En las listas desplegables, seleccione **raw** y **JSON**.
+
+11. Copie los siguientes estilos JSON y péguelo en la ventana **Cuerpo**:
 
     ```json
     {
@@ -329,66 +490,48 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
                    "false":"#00FF00"
                 }
              ]
-          },
-          {
-             "keyname":"temperature",
-             "type":"number",
-             "rules":[
-                {
-                   "range":{
-                      "exclusiveMaximum":66
-                   },
-                   "color":"#00204e"
-                },
-                {
-                   "range":{
-                      "minimum":66,
-                      "exclusiveMaximum":70
-                   },
-                   "color":"#0278da"
-                },
-                {
-                   "range":{
-                      "minimum":70,
-                      "exclusiveMaximum":74
-                   },
-                   "color":"#187d1d"
-                },
-                {
-                   "range":{
-                      "minimum":74,
-                      "exclusiveMaximum":78
-                   },
-                   "color":"#fef200"
-                },
-                {
-                   "range":{
-                      "minimum":78,
-                      "exclusiveMaximum":82
-                   },
-                   "color":"#fe8c01"
-                },
-                {
-                   "range":{
-                      "minimum":82
-                   },
-                   "color":"#e71123"
-                }
-             ]
           }
        ]
     }
     ```
 
-4. Copie el valor de `statesetId` del cuerpo de la respuesta.
+12. Seleccione **Enviar**.
 
-5. Cree una solicitud **POST** para actualizar el estado: Pase el valor de statesetId y la característica `ID` con la clave de suscripción de Azure Maps. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+13. Una vez que la respuesta se devuelva correctamente, copie `statesetId` desde el cuerpo de la respuesta. En la sección siguiente, usaremos `statesetId` para cambiar el estado de propiedad `occupancy` de la unidad con la característica `id` "UNIT26".
+
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/response-stateset-id.png"alt-text="Respuesta del identificador del conjunto de estados":::
+
+### <a name="update-a-feature-state"></a>Actualización del estado de característica
+
+Para actualizar el estado `occupied` de la unidad con la característica `id` "UNIT26":
+
+1. En la aplicación Postman, seleccione **New** (Nuevo).
+
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
+
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *PUT Set Stateset*.
+
+4. Seleccione el método HTTP **PUT**.
+
+5. Escriba la siguiente dirección URL para [Feature Statesets API](/rest/api/maps/v2/feature-state/create-stateset). La solicitud debe tener un aspecto similar a la siguiente dirección URL (reemplace `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal) y `{statesetId`} por el `statesetId` obtenido en la sección [Creación de un conjunto de estados de características](#create-a-feature-stateset)):
 
     ```http
-    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID={featureId}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-6. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **CUERPO** de la solicitud **POST**, copie y pegue el archivo JSON del ejemplo siguiente.
+6. Seleccione la pestaña **Encabezados**.
+
+7. En el campo **CLAVE**, seleccione `Content-Type`. 
+
+8. En el campo **VALUE**, seleccione `application/json`.
+
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="Información de la pestaña Encabezado para la creación del conjunto de estados.":::
+
+9. Seleccione la pestaña **Cuerpo**.
+
+10. En las listas desplegables, seleccione **raw** y **JSON**.
+
+11. Copie el siguiente estilo JSON y péguelo en la ventana **Body**:
 
     ```json
     {
@@ -396,20 +539,22 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
             {
                 "keyName": "occupied",
                 "value": true,
-                "eventTimestamp": "2019-11-14T17:10:20"
+                "eventTimestamp": "2020-11-14T17:10:20"
             }
         ]
     }
     ```
 
     >[!NOTE]
-    > La actualización solo se guardará si la marca de tiempo registrada es posterior a la marca de tiempo de la solicitud anterior. Podemos pasar cualquier nombre de clave que haya configurado anteriormente durante la creación.
+    > La actualización solo se guardará si la marca de tiempo registrada es posterior a la marca de tiempo de la solicitud anterior.
 
-7. Tras una actualización correcta, recibirá un código de estado HTTP `200 OK`. Si tiene un [estilo dinámico implementado](indoor-map-dynamic-styling.md) en un plano interior, la actualización se mostrará en el plano representado en la marca de tiempo especificada.
+12. Seleccione **Enviar**.
 
-[Feature Get States API](/rest/api/maps/featurestate/getstatespreview) permite recuperar el estado de una característica mediante el `ID` de la característica. También puede eliminar el conjunto de estados y sus recursos mediante [Feature State Delete API](/rest/api/maps/featurestate/deletestatesetpreview).
+13. Cuando se completa la actualización, recibirá un código de estado HTTP `200 OK`. Si ha implementado un [estilo dinámico](indoor-map-dynamic-styling.md) en un mapa de interiores, la actualización se muestra en la marca de tiempo especificada en el mapa representado.
 
-Para más información sobre los diferentes servicios de Creator (versión preliminar) de Azure Maps que se describen en este artículo, consulte [Uso de Creator para planos interiores](creator-indoor-maps.md).
+Puede usar [Feature Get States API](/rest/api/maps/v2/feature-state/get-states) para recuperar el estado de una característica mediante el `id` de la característica. También puede usar [Feature State Delete State API](/rest/api/maps/v2/feature-state/delete-stateset) para eliminar el conjunto de estados y sus recursos.
+
+Para obtener más información sobre los diferentes servicios de Azure Maps Creator que se describen en este artículo, consulte [Mapas de interiores de Creator](creator-indoor-maps.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

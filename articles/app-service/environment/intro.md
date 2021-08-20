@@ -7,14 +7,19 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6fff19498e9ca70991d3190165df70a48136f502
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 990d1ca07d4cf9e66c50a22f213817dda3ae029c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92631145"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432921"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introducción a App Service Environment #
+> [!NOTE]
+> En este artículo se trata App Service Environment v2, que se usa con planes de App Service aislados
+> 
+
+
 ## <a name="overview"></a>Información general ##
 
 Azure App Service Environment es una característica de Azure App Service que proporciona un entorno completamente aislado y dedicado para ejecutar de forma segura las aplicaciones de App Service a gran escala. Esta funcionalidad puede hospedar sus:
@@ -76,7 +81,7 @@ Para más información sobre cómo funciona ASE con redes virtuales y redes loca
 
 App Service Environment tiene dos versiones: ASEv1 y ASEv2. La información anterior se basa en ASEv2. En esta sección se muestran las diferencias entre ASEv1 y ASEv2. 
 
-En ASEv1, debe administrar todos los recursos de forma manual. Esto incluye los front-end, los trabajos y las direcciones IP utilizadas para SSL basada en IP. Antes de escalar horizontalmente el plan de App Service, primero debe escalar horizontalmente el grupo de trabajo en el que desea hospedarlo.
+En ASEv1, debe administrar todos los recursos de forma manual. Esto incluye los front-end, los trabajos y las direcciones IP utilizadas para los enlaces TLS/SSL basados en IP. Antes de escalar horizontalmente el plan de App Service, primero debe escalar horizontalmente el grupo de trabajo en el que desea hospedarlo.
 
 ASEv1 utiliza un modelo de precios diferente al de ASEv2. En ASEv1, paga por cada vCPU asignada. Esto incluye las vCPU usadas por servidores front-end y trabajos que no hospedan ninguna carga de trabajo. En ASEv1, el tamaño de escala máxima predeterminada de una instancia de ASE es de 55 hosts en total. Esto incluye servidores front-end y trabajos. Una ventaja de ASEv1 es que se puede implementar en una red virtual clásica y en una red virtual de Resource Manager. Para más información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro].
 

@@ -10,20 +10,16 @@ ms.date: 06/30/2021
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 292210c12589bed6075378ba4fd38153c4fe10f1
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 898346d69b656656c93889002109bae0f15b2dbc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105352"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464344"
 ---
 # <a name="calling-recording-overview"></a>Introducción a la grabación de llamadas
 
-> [!NOTE]
-> Muchos países y estados tienen leyes y regulaciones que se aplican a la grabación de llamadas RTC, de voz y de vídeo, que a menudo requieren que los usuarios den su consentimiento para la grabación de sus comunicaciones. Es su responsabilidad usar las funcionalidades de grabación de llamadas de acuerdo con la ley. Debe obtener el consentimiento de las partes que integran la comunicación grabada de forma que cada participante cumpla las leyes aplicables.
-
-> [!NOTE]
-> La normativa sobre el mantenimiento de datos personales requiere la capacidad de exportar datos de usuario. Para cumplir con estos requisitos, la grabación de archivos de metadatos incluye el identificador participantId de cada participante de la llamada en la matriz `participants`. Puede hacer referencia cruzada a los MRI de la matriz `participants` con las identidades de usuario internas para identificar a los participantes de una llamada. A continuación se proporciona un ejemplo de un archivo de metadatos de grabación como referencia.
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 > [!NOTE]
 > La grabación de llamadas solo está disponible actualmente para los recursos de Communication Services creados en la región de EE. UU.
@@ -86,6 +82,11 @@ Se publica una notificación `Microsoft.Communication.RecordingFileStatusUpdated
     "eventTime": string // ISO 8601 date time for when the event was created
 }
 ```
+## <a name="regulatory-and-privacy-concerns"></a>Problemas normativos y de privacidad
+
+Muchos países y estados tienen leyes y regulaciones que se aplican a la grabación de llamadas RTC, de voz y de vídeo, que a menudo requieren que los usuarios den su consentimiento para la grabación de sus comunicaciones. Es su responsabilidad usar las funcionalidades de grabación de llamadas de acuerdo con la ley. Debe obtener el consentimiento de las partes que integran la comunicación grabada de forma que cada participante cumpla las leyes aplicables.
+
+La normativa sobre el mantenimiento de datos personales requiere la capacidad de exportar datos de usuario. Para cumplir con estos requisitos, la grabación de archivos de metadatos incluye el identificador participantId de cada participante de la llamada en la matriz `participants`. Puede hacer referencia cruzada a los MRI de la matriz `participants` con las identidades de usuario internas para identificar a los participantes de una llamada. A continuación se proporciona un ejemplo de un archivo de metadatos de grabación como referencia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [Inicio rápido de la API de grabación de llamadas](../../quickstarts/voice-video-calling/call-recording-sample.md) para más información.

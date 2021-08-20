@@ -7,15 +7,15 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/01/2021
+ms.date: 06/21/2021
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: a9df83535bf0ee7a6c484a7682392d2ad0ef59f7
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: bccb9427f29f9982ca70f2551c48e462cfa16e00
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107815331"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112522076"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm"></a>¿Qué es HSM administrado de Azure Key Vault?
 
@@ -34,7 +34,8 @@ HSM administrado de Azure Key Vault es un servicio en la nube que cumple los est
 
 - **Administración de claves centralizada**: administre claves críticas y de alto valor en su organización en un solo lugar. Con permisos pormenorizados por clave, controle el acceso a todas las claves en base al principio de "acceso con menos privilegios".
 - **Control de acceso aislado**: El modelo de control de acceso "RBAC local" de HSM administrado permite a los administradores de clústeres de HSM designados tener un control completo sobre los HSM que ni siquiera los administradores de grupos de administración, de suscripciones o de grupos de recursos pueden invalidar.
-- **HSM validados con FIPS 140-2 nivel 3**: Proteja sus datos y cumpla los requisitos de cumplimiento con los HSM validados con FIPS (Federal Information Protection Standard) 140-2 de nivel 3. Los HSM administrados usan adaptadores HSM de Marvell LiquidSecurity.
+- **Puntos de conexión privados**: use puntos de conexión privados para conectarse de forma segura y privada a HSM administrado desde la aplicación que se ejecuta en una red virtual.
+- **HSM validados con FIPS 3 nivel 140-2**: Proteja sus datos y cumpla los requisitos de cumplimiento con los HSM validados con FIPS (Federal Information Protection Standard) 140-2 de nivel 3. Los HSM administrados usan adaptadores HSM de Marvell LiquidSecurity.
 - **Supervisión y auditoría**: completamente integrado con Azure Monitor. Obtenga registros completos de toda la actividad a través de Azure Monitor. Use Azure Log Analytics para los análisis y las alertas.
 - **Residencia de datos**: HSM administrado no almacena ni procesa datos del cliente fuera de la región en la que el cliente implementa la instancia de HSM.
 
@@ -54,3 +55,6 @@ HSM administrado de Azure Key Vault es un servicio en la nube que cumple los est
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte [Quickstart: Aprovisionamiento y activación de un HSM administrado mediante la CLI de Azure](quick-create-cli.md) para crear y activar un HSM administrado.
 - Consulte [Procedimientos recomendados para usar Azure Key Vault Managed HSM](best-practices.md)
+- [Estado de HSM administrado](https://status.azure.com)
+- [Acuerdo de Nivel de Servicio de HSM administrado](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
+- [Disponibilidad de la región de HSM administrado](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault)

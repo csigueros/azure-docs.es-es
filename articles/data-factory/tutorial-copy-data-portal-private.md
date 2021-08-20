@@ -5,14 +5,14 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
+ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 555316ddf722e857914d5e99d7fadcd6539e1b8b
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 0159226abb904d73262011e16fbc52fe760be123
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482586"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436827"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copia de datos de forma segura desde Azure Blob Storage a SQL Database mediante puntos de conexión privados
 
@@ -94,7 +94,7 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
 1. Una vez finalizada la creación, verá el aviso en el centro de notificaciones. Seleccione **Ir al recurso** para ir a la página de **Data Factory**.
 
-1. Haga clic en **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
+1. Seleccione **Abrir** en el icono **Abrir Azure Data Factory Studio** para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
 
 ## <a name="create-an-azure-integration-runtime-in-data-factory-managed-virtual-network"></a>Creación de una instancia de Azure Integration Runtime en una red virtual administrada por Data Factory
 En este paso se crea una instancia de Azure Integration Runtime y se habilita una red virtual administrada por Data Factory.
@@ -120,9 +120,9 @@ En este paso, creará una canalización con una actividad de copia en la factor�
 
 En este tutorial, comenzará por crear una canalización. A continuación, creará servicios vinculados y conjuntos de datos cuando los necesite para configurar la canalización.
 
-1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización).
+1. En la página principal, seleccione **Orchestrate** (Organizar).
 
-   ![Captura de pantalla que muestra la creación de una canalización.](./media/doc-common-process/get-started-page.png)
+   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
 1. En el panel de propiedades de la canalización, escriba **CopyPipeline** como nombre de la canalización.
 
 1. En el cuadro de herramientas **Actividades**, expanda la categoría **Mover y transformar** y arrastre la actividad **Copiar datos** desde el cuadro de herramientas hasta la superficie de diseño de la canalización. Especifique **CopyFromBlobToSql** como nombre.

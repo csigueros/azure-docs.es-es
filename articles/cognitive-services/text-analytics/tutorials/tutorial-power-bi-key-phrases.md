@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 05/19/2021
 ms.author: aahi
-ms.openlocfilehash: e8ce559b180169468a5c53e5aa1d742dd4cdfc83
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a1c093f1933da96ec866280cf3583162891d5068
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450882"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550271"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integración de Power BI con Text Analytics de Cognitive Services
 
@@ -45,7 +45,7 @@ En este tutorial, aprenderá a:
 Para empezar, abra Power BI Desktop y cargue el archivo de valores separados por comas (CSV) `FabrikamComments.csv` que descargó en [Requisitos previos](#Prerequisites). Este archivo representa un día de actividad hipotética en el foro de soporte técnico de una pequeña empresa ficticia.
 
 > [!NOTE]
-> Power BI puede usar datos de una amplia variedad de orígenes, como Facebook o una base de datos SQL. Más información en [Integración de Facebook con Power BI](https://powerbi.microsoft.com/integrations/facebook/) e [Integración de SQL Server con Power BI](https://powerbi.microsoft.com/integrations/sql-server/).
+> Power BI puede usar datos de una amplia variedad de orígenes basados en web como, por ejemplo, bases de datos SQL. Consulte la [documentación de Power Query](/power-query/connectors/) para más información.
 
 En la ventana principal de Power BI Desktop, seleccione la cinta de opciones **Inicio**. En el grupo **Datos externos** de la cinta de opciones, abra el menú desplegable **Obtener datos** y seleccione **Texto/CSV**.
 
@@ -89,7 +89,7 @@ También podría considerar el filtrado de mensajes en blanco con el filtro Quit
 ## <a name="understand-the-api"></a>Información de la API
 <a name="UnderstandingAPI"></a>
 
-[Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/operations/KeyPhrases) del servicio Text Analytics puede procesar hasta un millar de documentos de texto por cada solicitud HTTP. Power BI prefiere trabajar con registros de uno en uno, así que en este tutorial las llamadas a la API contendrán solo un documento a la vez. Key Phrases API requiere que se procesen los siguientes campos para cada documento.
+[Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-1/operations/KeyPhrases) del servicio Text Analytics puede procesar hasta un millar de documentos de texto por cada solicitud HTTP. Power BI prefiere trabajar con registros de uno en uno, así que en este tutorial las llamadas a la API contendrán solo un documento a la vez. Key Phrases API requiere que se procesen los siguientes campos para cada documento.
 
 | Campo | Descripción |
 | - | - |
@@ -225,7 +225,7 @@ La función Análisis de sentimiento siguiente devuelve una etiqueta que indica 
 // Returns the sentiment label of the text, for example, positive, negative or mixed.
 (text) => let
     apikey = "YOUR_API_KEY_HERE",
-    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1-preview.5/sentiment",
+    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/sentiment",
     jsontext = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody = Text.ToBinary(jsonbody),
@@ -242,7 +242,7 @@ Estas son dos versiones de una función Detección de idioma. La primera devuelv
 // Returns the two-letter language code (for example, 'en' for English) of the text
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -255,7 +255,7 @@ Estas son dos versiones de una función Detección de idioma. La primera devuelv
 // Returns the name (for example, 'English') of the language in which the text is written
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -274,7 +274,7 @@ Finalmente, esta es una variante de la función Frases clave ya presentada que d
 // Returns key phrases from the text as a list object
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/keyPhrases",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -291,7 +291,7 @@ in  keyphrases
 Más información sobre el servicio Text Analytics, el lenguaje de fórmulas M de Power Query o Power BI.
 
 > [!div class="nextstepaction"]
-> [Referencia de Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0)
+> [Referencia de Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1)
 
 > [!div class="nextstepaction"]
 > [Referencia de Power Query M](/powerquery-m/power-query-m-reference)

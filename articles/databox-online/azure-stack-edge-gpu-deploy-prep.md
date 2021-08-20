@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: alkohli
-ms.openlocfilehash: e58473f5c3bc4bc6314fb0dc5c532e24daa225d6
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 81c11665db1ee1f7c73e8abee95f01b8ea62d2fe
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065708"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113504898"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro con GPU 
 
@@ -154,11 +154,11 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
     ![Creación de un recurso 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
-    También se le notifica que, durante la creación de recursos, se habilita una identidad de servicio administrada (MSI) que le permite autenticarse en los servicios en la nube. Esta identidad existe mientras exista el recurso.
+    También se le notifica que, durante la creación de recursos, se habilita una identidad administrada que le permite autenticarse en los servicios en la nube. Esta identidad existe mientras exista el recurso.
 
 11. Seleccione **Crear**.
 
-    Se tarda unos minutos en crear el recurso. También se crea una MSI que permite al dispositivo Azure Stack Edge comunicarse con el proveedor de recursos en Azure.
+    Se tarda unos minutos en crear el recurso. También se crea una identidad administrada que permite al dispositivo Azure Stack Edge comunicarse con el proveedor de recursos en Azure.
 
     Cuando el recurso se haya creado e implementado correctamente, recibirá una notificación. Haga clic en **Go to resource** (Ir al recurso).
 

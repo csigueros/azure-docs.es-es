@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: fc2667dfddf4442acaf39f6783190e8640b22a89
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6b95e471d3ac003991a131cf1e04b1384a7454e3
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561736"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296620"
 ---
-# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualización de anomalías con detección por lotes y Power BI
+# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi-univariate"></a>Tutorial: Visualización de anomalías con detección por lotes y Power BI (univariante)
 
 Use este tutorial para detectar anomalías dentro de un conjunto de datos de serie temporal como un lote. Con Power BI Desktop, puede tomar un archivo de Excel, preparar los datos para Anomaly Detector API y visualizar las anomalías estadísticas del archivo.
 
@@ -171,8 +171,3 @@ Después de hacer clic en **Aceptar**, tendrá un campo `Value for True`, en la 
 Aplique colores al gráfico haciendo clic en la herramienta **Formato** y en **Colores de datos**. El gráfico debe tener un aspecto parecido al siguiente:
 
 ![Imagen del gráfico final](../media/tutorials/final-chart.png)
-
-## <a name="next-steps"></a>Pasos siguientes
-
-> [!div class="nextstepaction"]
->[Streaming de detección de anomalías con Azure Databricks](../overview.md)

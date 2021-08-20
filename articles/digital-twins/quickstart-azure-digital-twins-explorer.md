@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d4315ff04235e4b555a201e9da7287339b0de125
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 26063c9d0c02079b2c40eb85330be499b4bb624e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450815"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462013"
 ---
 # <a name="quickstart---get-started-with-a-sample-scenario-in-azure-digital-twins-explorer"></a>Inicio rápido: introducción a un escenario de ejemplo de Azure Digital Twins Explorer
 
@@ -43,23 +43,36 @@ También deberá descargar los materiales del grafo de ejemplo usado en el inici
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png" alt-text="Captura de pantalla del archivo digital-twins-explorer/client/examples/buildingScenario.xlsx en GitHub. El botón Descargar está resaltado." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
-## <a name="set-up-azure-digital-twins-and-azure-digital-twins-explorer"></a>Configuración de Azure Digital Twins y Azure Digital Twins Explorer
+## <a name="set-up-azure-digital-twins"></a>Configuración de Azure Digital Twins
 
-El primer paso para trabajar con Azure Digital Twins es configurar una instancia de Azure Digital Twins. Después de crear una instancia del servicio, puede conectarse a la instancia de Azure Digital Twins Explorer y rellenarla con los datos de ejemplo más adelante en el inicio rápido.
+El primer paso para trabajar con Azure Digital Twins es crear una instancia de Azure Digital Twins. Después de crear una instancia del servicio, puede conectarse a la instancia en Azure Digital Twins Explorer, que utilizará para trabajar con la instancia en todo este inicio rápido.
 
 El resto de esta sección le guía a través de estos pasos.
 
-### <a name="set-up-an-azure-digital-twins-instance"></a>Configurará una instancia de Azure Digital Twins.
+### <a name="create-an-azure-digital-twins-instance"></a>Creación de una instancia de Azure Digital Twins
 
-Para trabajar con Azure Digital Twins en este artículo, antes es preciso *configurar una instancia de Azure Digital Twins* y los permisos necesarios para usarla.
+[!INCLUDE [digital-twins-setup-portal.md](../../includes/digital-twins-setup-portal.md)]
 
-Siga las instrucciones que se indican en [Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md). Las instrucciones contienen información que le ayudará a comprobar que ha completado cada paso correctamente.
+3. Rellene los campos de la pestaña **Aspectos básicos** de la configuración, incluida la suscripción, el grupo de recursos, la ubicación y un nombre de recurso para la nueva instancia. Active la casilla **Assign Azure Digital Twins Data Owner Role** (Asignar el rol Propietario de datos de Azure Digital Twins) para concederse permisos para administrar los datos de la instancia.
+
+    >[!NOTE]
+    > Si la casilla Assign Azure Digital Twins Data Owner Role (Asignar el rol Propietario de datos de Azure Digital Twins) está en gris, significa que no tiene permisos en la suscripción de Azure para administrar el acceso de los usuarios a los recursos. Puede seguir creando la instancia en esta sección y, a continuación, debe hacer que alguien con los permisos necesarios [le asigne este rol en la instancia](how-to-set-up-instance-portal.md#assign-the-role-using-azure-identity-management-iam) antes de completar el resto de esta guía de inicio rápido.
+    >
+    > Los roles comunes que cumplen este requisito son **propietario**, **administrador de cuentas** o la combinación de **administrador de acceso de usuarios** y **colaborador**.  
+
+4. Seleccione **Review + Create** (Revisar y crear) para terminar de crear la instancia.
+
+    :::image type="content" source= "media/quickstart-azure-digital-twins-explorer/create-azure-digital-twins-basics.png" alt-text="Captura de pantalla del proceso Crear recurso para Azure Digital Twins en Azure Portal. Los valores descritos aparecen rellenos.":::
+    
+5. Verá una página de resumen que muestra los detalles que ha escrito. Para confirmar y crear la instancia, seleccione **Create** (Crear).
+
+Esto le llevará a una página de información general que hace un seguimiento del estado de implementación de la instancia.
 
 ### <a name="open-instance-in-azure-digital-twins-explorer"></a>Abra la instancia en Azure Digital Twins Explorer.
 
-A continuación, abra Azure Digital Twins Explorer para su instancia en [Azure Portal](https://portal.azure.com). 
+Cuando termine la implementación de la instancia, use el botón **Go to resource** (Ir al recurso) para ir a la página de información general de la instancia en el portal.
 
-Para hacerlo, vaya a Azure Portal y escriba el nombre de su nueva instancia de Azure Digital Twins en la barra de búsqueda para encontrarla.
+:::image type="content" source= "media/quickstart-azure-digital-twins-explorer/deployment-complete.png" alt-text="Captura de pantalla de la página de implementación de Azure Digital Twins en Azure Portal. La página indica que la implementación se ha completado.":::
 
 A continuación, seleccione el botón **Azure Digital Twins Explorer (versión preliminar)** .
 
@@ -288,4 +301,4 @@ También puede que desee eliminar la carpeta del proyecto de ejemplo de la máqu
 A continuación, siga con los tutoriales de Azure Digital Twins para crear su propio escenario de Azure Digital Twins y las herramientas de interacción.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Programación de una aplicación cliente](tutorial-code.md)
+> [Programación de una aplicación cliente](tutorial-code.md)

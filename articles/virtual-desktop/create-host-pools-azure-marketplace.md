@@ -4,26 +4,33 @@ description: Creación de un grupo de hosts de Azure Virtual Desktop con Azure P
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 03/10/2021
+ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 96e5fbf825c0550001ae9b0a38517e753b3a8d0f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 34faa055eb14841d1b35d81e62c74fef92c80bac
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756264"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707067"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
 >[!IMPORTANT]
 >Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Cualquier objeto que cree con Azure Virtual Desktop (clásico) no se puede administrar con Azure Portal.
 
-Los grupos de hosts son una colección de una o varias máquinas virtuales (VM) idénticas en entornos de Azure Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
+Los grupos de hosts son una colección de una o varias máquinas virtuales (VM) idénticas, también conocidas como "hosts de sesión", en entornos de Azure Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico. Si desea obtener más información sobre la arquitectura de implementación, consulte [Entorno de Azure Virtual Desktop](environment-setup.md). Si es un desarrollador de aplicaciones que usa el streaming de aplicaciones remotas para Azure Virtual Desktop, los clientes o usuarios pueden usar las aplicaciones igual que las aplicaciones locales en un dispositivo físico. Para más información sobre cómo usar Azure Virtual Desktop como desarrollador de aplicaciones, consulte nuestra documentación[Streaming de aplicaciones remotas de Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 
-Este artículo le guía en el proceso de configuración para crear un grupo de hosts en un entorno de Azure Virtual Desktop mediante Azure Portal. El método que se ofrece proporciona una interfaz de usuario basada en explorador para crear un grupo de hosts en Azure Virtual Desktop, crear un grupo de recursos con máquinas virtuales en una suscripción de Azure, unir esas máquinas virtuales al dominio de Azure Active Directory (AD) y registrar las máquinas virtuales en Azure Virtual Desktop.
+>[!NOTE]
+>Si es un desarrollador de aplicaciones que usa el streaming de aplicaciones remotas para Azure Virtual Desktop y los usuarios de la aplicación están en la misma organización que la implementación, puede usar el inquilino de Azure existente para crear el grupo host. Si los usuarios están fuera de su organización, por motivos de seguridad deberá crear inquilinos de Azure independientes con al menos un grupo de hosts para cada organización. Obtenga más información sobre las prácticas que se recomienda seguir para proteger la implementación en [Recomendaciones de arquitectura](./remote-app-streaming/architecture-recs.md).
+
+Este artículo le guía en el proceso de configuración para crear un grupo de hosts en un entorno de Azure Virtual Desktop mediante Azure Portal. El método que se ofrece proporciona una interfaz de usuario basada en explorador para crear un grupo de hosts en Azure Virtual Desktop, crear un grupo de recursos con máquinas virtuales en una suscripción de Azure, unir esas máquinas virtuales a un dominio de Active Directory (AD) o a un inquilino de Azure Active Directory (Azure AD) y registrar las máquinas virtuales en Azure Virtual Desktop.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+Hay dos conjuntos diferentes de requisitos en función de si es un profesional de TI que configura una implementación para la organización o un desarrollador de aplicaciones que proporciona aplicaciones a los clientes.
+
+### <a name="requirements-for-it-professionals"></a>Requisitos para profesionales de TI
 
 Deberá especificar los siguientes parámetros para crear un grupo de hosts:
 
@@ -37,11 +44,21 @@ También deberá saber lo siguiente:
 - Dónde está el origen de la imagen que quiere usar. ¿Está en Azure Gallery o es una imagen personalizada?
 - Sus credenciales de unión un dominio.
 
-Asegúrese también de que ha registrado el proveedor de recursos Microsoft.DesktopVirtualization. Si aún no lo ha hecho, vaya a **Suscripciones**, seleccione el nombre de la suscripción y, a continuación, **Proveedores de recursos**. Busque DesktopVirtualization, seleccione Microsoft.DesktopVirtualization y, a continuación, seleccione Registrar.
+### <a name="requirements-for-app-developers"></a>Requisitos para desarrolladores de aplicaciones
 
-Al crear un grupo de hosts de Azure Virtual Desktop con la plantilla de Azure Resource Manager, puede crear una máquina virtual desde la galería de Azure, una imagen administrada o una imagen no administrada. Para obtener más información sobre cómo crear imágenes de máquina virtual, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) y [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
+Si es un desarrollador de aplicaciones que usa el streaming de aplicaciones remotas para Azure Virtual Desktop para entregar aplicaciones a los clientes, esto es lo que necesitará para empezar:
 
-Si aún no tiene una suscripción a Azure, asegúrese de [crear una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar a seguir estas instrucciones.
+- Si pretende proporcionar la aplicación de su organización a los usuarios finales, asegúrese de que realmente tiene esa aplicación lista. Para más información, consulte [Hospedaje de aplicaciones personalizadas con Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
+- Si las opciones de imagen existentes de la galería de Azure no satisfacen sus necesidades, también deberá crear su propia imagen personalizada para las máquinas virtuales del host de sesión. Para obtener más información sobre cómo crear imágenes de máquina virtual, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) y [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
+- Sus credenciales de unión un dominio. Si aún no tiene un sistema de administración de identidades compatible con Azure Virtual Desktop, deberá configurar la administración de identidades para el grupo de host.
+
+### <a name="final-requirements"></a>Requisitos finales
+
+Asegúrese también de que ha registrado el proveedor de recursos Microsoft.DesktopVirtualization. Si aún no lo ha hecho, vaya a **Suscripciones**, seleccione el nombre de la suscripción y, a continuación, **Proveedores de recursos**. Busque **DesktopVirtualization**, seleccione **Microsoft.DesktopVirtualization** y, luego, elija **Registrar**.
+
+Si es un profesional de TI que crea una red, al crear un grupo de hosts de Azure Virtual Desktop con la plantilla de Azure Resource Manager, puede crear una máquina virtual desde la galería de Azure, una imagen administrada o una imagen no administrada. Para obtener más información sobre cómo crear imágenes de máquina virtual, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) y [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md). (Si es desarrollador de aplicaciones, no tiene que preocuparse por esta parte).
+
+Por último, pero no menos importante, si aún no tiene una suscripción a Azure, asegúrese de [crear una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar a seguir estas instrucciones.
 
 ## <a name="begin-the-host-pool-setup-process"></a>Inicio del proceso de configuración del grupo de hosts
 
@@ -51,6 +68,8 @@ Para empezar a crear el grupo de hosts:
    
    >[!NOTE]
    > Si va a iniciar sesión en el portal de US Gov, vaya a [https://portal.azure.us/](https://portal.azure.us/) en su lugar.
+   > 
+   >Si va a acceder al portal de Azure China, vaya a [https://portal.azure.cn/](https://portal.azure.cn/).
 
 2. Escriba **Azure Virtual Desktop** en la barra de búsqueda y, luego, busque y seleccione **Azure Virtual Desktop** en Servicios.
 
@@ -82,7 +101,7 @@ Para empezar a crear el grupo de hosts:
 9.  Si elige **Pooled** (Agrupado), escriba la siguiente información:
 
      - En **Max session limit** (Límite máximo de sesiones), escriba el número máximo de usuarios entre los que desea que se equilibre la carga en un solo host de sesión.
-     - En **Load balancing algorithm** (Algoritmo de equilibrio de carga), elija equilibrio de carga en amplitud o equilibrio de carga en profundidad, según el patrón de uso.
+     - En **Load balancing algorithm** (Algoritmo de equilibrio de carga), elija equilibrio de carga en amplitud o equilibrio de carga en profundidad, según el patrón de uso. Obtenga más información sobre lo que significa cada una de estas opciones en [Métodos de equilibrio de carga para un grupo de hosts](host-pool-load-balancing.md).
 
        > [!div class="mx-imgBorder"]
        > ![Captura de pantalla del campo "Assignment Type" (Tipo de asignación) con "Pooled" (Agrupado) seleccionado. El usuario está desplazando el cursor sobre "Breadth-first" (Equilibrio de carga en amplitud) en el menú desplegable "Load Balancing" (Equilibrio de carga).](media/pooled-assignment-type.png)
@@ -103,12 +122,12 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
 2. A continuación, proporcione un **prefijo de nombre** para asignar un nombre a las máquinas virtuales que crea el proceso de configuración. El sufijo será `-` y los números comienzan a partir de 0.
 
-3. Elija la **ubicación de la máquina virtual** donde quiere crear las máquinas virtuales. Puede ser igual o diferente a la región seleccionada para el grupo de hosts.
+3. Elija la **ubicación de la máquina virtual** donde quiere crear las máquinas virtuales. Puede ser igual o diferente a la región seleccionada para el grupo de hosts. Tenga en cuenta que los precios de las máquinas virtuales varían según la región y que las ubicaciones de las mismas deben estar cerca de sus usuarios cuando sea posible para maximizar el rendimiento. Obtenga más información en [Ubicaciones de datos y metadatos para Azure Virtual Desktop](data-locations.md).
    
-4. A continuación, elija la opción de disponibilidad que mejor se adapte a sus necesidades. Para obtener más información sobre qué opción es la adecuada para usted, consulte [Opciones de disponibilidad para máquinas virtuales en Azure](../virtual-machines/availability.md) y [nuestras preguntas más frecuentes](faq.md#which-availability-option-is-best-for-me).
+4. A continuación, elija la opción de disponibilidad que mejor se adapte a sus necesidades. Para obtener más información sobre qué opción es la adecuada para usted, consulte [Opciones de disponibilidad para máquinas virtuales en Azure](../virtual-machines/availability.md) y [nuestras preguntas más frecuentes](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me).
    
    > [!div class="mx-imgBorder"]
-   > [Captura de pantalla del menú desplegable de zona de disponibilidad. La opción de "zona de disponibilidad" está resaltada.](media/availability-zone.png)
+   > ![Captura de pantalla del menú desplegable de zona de disponibilidad. La opción de "zona de disponibilidad" está resaltada.](media/availability-zone.png)
 
 5. A continuación, elija la imagen que debe usarse para crear la máquina virtual. Puede elegir entre **Gallery** (Galería) o **Storage blob** (Blob de Storage).
 
@@ -123,7 +142,7 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
       Si no ve la imagen que quiere, seleccione **Ver todas las imágenes**, lo que le permite seleccionar otra imagen de la galería o una imagen proporcionada por Microsoft y otros anunciantes. Asegúrese de que la imagen que elija es una de las [imágenes de sistema operativo compatibles](overview.md#supported-virtual-machine-os-images).
 
       > [!div class="mx-imgBorder"]
-      > ![Captura de pantalla de Marketplace que muestra una lista de imágenes de Microsoft.](media/marketplace-images.png)
+      > ![Captura de pantalla de Azure Portal que muestra una lista de imágenes de Microsoft.](media/marketplace-images.png)
 
       También puede ir a **My Items** (Mis elementos) y elegir una imagen personalizada que ya haya cargado.
 
@@ -132,9 +151,9 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
     - Si elige **Blob de almacenamiento**, puede usar su propia imagen creada mediante Hyper-V o en una máquina virtual de Azure. Todo lo que tiene que hacer es escribir la ubicación de la imagen en el blob de almacenamiento como un URI.
    
-   La ubicación de la imagen es independiente de la opción de disponibilidad, pero la resistencia de la zona de la imagen determina si esa imagen se puede usar con la zona de disponibilidad. Si selecciona una zona de disponibilidad al crear la imagen, asegúrese de que está usando una imagen de la galería con la resistencia de zona habilitada. Para obtener más información sobre la opción de resistencia de zona que debe usar, consulte [las preguntas más frecuentes](faq.md#which-availability-option-is-best-for-me).
+   La ubicación de la imagen es independiente de la opción de disponibilidad, pero la resistencia de la zona de la imagen determina si esa imagen se puede usar con la zona de disponibilidad. Si selecciona una zona de disponibilidad al crear la imagen, asegúrese de que está usando una imagen de la galería con la resistencia de zona habilitada. Para obtener más información sobre la opción de resistencia de zona que debe usar, consulte [las preguntas más frecuentes](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me).
 
-6. Después, elija el **tamaño de máquina virtual** que quiere usar. Puede mantener el tamaño predeterminado tal cual o seleccionar **Change size** (Cambiar tamaño) para cambiar el tamaño. Si selecciona **Change size** (Cambiar tamaño), en la ventana que aparece, elija el tamaño de la máquina virtual adecuado para la carga de trabajo.
+6. Después, elija el **tamaño de máquina virtual** que quiere usar. Puede mantener el tamaño predeterminado tal cual o seleccionar **Change size** (Cambiar tamaño) para cambiar el tamaño. Si selecciona **Change size** (Cambiar tamaño), en la ventana que aparece, elija el tamaño de la máquina virtual adecuado para la carga de trabajo. Para obtener más información sobre los tamaños de máquina virtual y el tamaño que debe elegir, consulte [Directrices de ajuste del tamaño de la máquina virtual](/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context).
 
 7. En **Number of VMs** (Número de máquinas virtuales), proporcione el número de máquinas virtuales que quiere crear para el grupo de hosts.
 
@@ -157,11 +176,17 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
     Si elige **Advanced** (Avanzado), seleccione un grupo de seguridad de red existente que ya haya configurado.
 
-11. Después, seleccione si quiere que las máquinas virtuales se unan a un dominio y a una unidad organizativa específicos. Si elige **Yes** (Yes), especifique el dominio al que quiere unirse. Opcionalmente, puede agregar una unidad organizativa específica en la que quiera que estén las máquinas virtuales. Si elige **No**, las máquinas virtuales se unirán al dominio que coincide con el sufijo del **nombre principal de usuario unido al dominio de AD**.
+11. Después de eso, seleccione si desea que las máquinas virtuales se unan a **Active Directory** o **Azure Active Directory** (versión preliminar).
 
-    - Al especificar una unidad organizativa, asegúrese de usar la ruta de acceso completa (nombre distintivo) y sin comillas.
+    - Para Active Directory, proporcione una cuenta para unirse al dominio y elija si desea unirse a un dominio y una unidad organizativa específicos.
 
-12. En la cuenta de administrador del dominio, escriba las credenciales del administrador del Dominio de Active Directory de la red virtual que ha seleccionado. Esta cuenta no puede tener habilitada la autenticación multifactor (MFA). Al unirse a un dominio de Azure Active Directory Domain Services (Azure AD DS), la cuenta debe formar parte del grupo administradores de Azure AD DC y la contraseña de la cuenta debe funcionar en Azure AD DS.
+        - Para el UPN de unión a un dominio de AD, escriba las credenciales del administrador del Dominio de Active Directory de la red virtual que ha seleccionado. La cuenta que use no puede tener habilitada la autenticación multifactor (MFA). Al unirse a un dominio de Azure Active Directory Domain Services (Azure AD DS), la cuenta que use debe formar parte del grupo administradores de Azure AD DC y la contraseña de la cuenta debe funcionar en Azure AD DS.
+
+        - Para especificar un dominio, seleccione **Sí** y luego escriba el nombre del dominio al que desea unirse. Si lo desea, también puede agregar una unidad organizativa específica en la que desea que las máquinas virtuales entren especificando la ruta de acceso completa (Nombre distintivo [DN]) y sin comillas. Si no desea especificar un dominio, seleccione **No**. Las máquinas virtuales se unirán automáticamente al dominio que coincida con el sufijo del **UPN de unión al dominio de AD**.
+  
+    - Para Azure Active Directory, puede seleccionar **Enroll the VM with Intune** (Inscribir la máquina virtual con Intune) para que la máquina virtual esté disponible automáticamente para su administración después de implementarla.
+
+12. En **Virtual Machine Administrator account** (Cuenta de administrador de máquina virtual), escriba las credenciales de la cuenta de administrador local que se va a agregar al crear la máquina virtual. Puede usar esta cuenta con fines de administración tanto en máquinas virtuales de AD como unidas a Azure AD.
 
 13. Seleccione **Siguiente: Workspace >** (Siguiente: Área de trabajo).
 
@@ -170,6 +195,9 @@ Ahora, estamos preparados para iniciar la siguiente fase de configuración del g
 ## <a name="workspace-information"></a>Información del área de trabajo
 
 El proceso de configuración del grupo de hosts crea un grupo de aplicaciones de escritorio de forma predeterminada. Para que el grupo de hosts funcione según lo previsto, debe publicar este grupo de aplicaciones en usuarios o grupos de usuarios, y debe registrar el grupo de aplicaciones en un área de trabajo.
+
+>[!NOTE]
+>Si es un desarrollador de aplicaciones que intenta publicar las aplicaciones de su organización, puede adjuntar dinámicamente aplicaciones MSIX a sesiones de usuario o agregar los paquetes de aplicación a una imagen de máquina virtual personalizada. Consulte Cómo proporcionar la aplicación personalizada con Azure Virtual Desktop para obtener más información.
 
 Para registrar el grupo de aplicaciones de escritorio en un área de trabajo:
 
@@ -195,7 +223,7 @@ Para registrar el grupo de aplicaciones de escritorio en un área de trabajo:
      - Un área de trabajo, si decidió crearla.
      - Si ha decidido registrar el grupo de aplicaciones de escritorio, el registro se habrá completado.
      - Máquinas virtuales, si ha decidido crearlas, que se unen al dominio y se registran en el nuevo grupo de hosts.
-     - Un vínculo de descarga de una plantilla de administración de recursos de Azure basada en la configuración.
+     - Un vínculo de descarga de una plantilla de Azure Resource Manager basada en la configuración.
 
 Y ya está.
 

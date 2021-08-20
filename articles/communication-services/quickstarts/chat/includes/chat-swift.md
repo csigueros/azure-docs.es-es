@@ -1,26 +1,26 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
+title: Archivo de inclusión
+description: Archivo de inclusión
 services: azure-communication-services
 author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 2aa1d6c474544a12154a59fa1fe12cffd1478b4f
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 1676ed849c025fc0f41aac933268e80276feeee2
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111430761"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114723693"
 ---
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
-> [!NOTE]
-> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat)
+## <a name="sample-code"></a>Código de ejemplo
+Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, compruebe lo siguiente:
@@ -49,8 +49,8 @@ Desde la línea de comandos, vaya al directorio raíz del proyecto de iOS `ChatQ
 Abra el archivo Podfile y agregue las siguientes dependencias al destino `ChatQuickstart`:
 
 ```
-pod 'AzureCommunication', '~> 1.0.0-beta.11'
-pod 'AzureCommunicationChat', '~> 1.0.0-beta.11'
+pod 'AzureCommunicationCommon', '~> 1.0'
+pod 'AzureCommunicationChat', '~> 1.0.1'
 ```
 
 Instale las dependencias con el comando siguiente: `pod install`. Tenga en cuenta que esto también crea un área de trabajo de Xcode.
@@ -66,7 +66,7 @@ En este inicio rápido, va a agregar el código a `viewController` y verá la sa
 Al principio de `viewController.swift`, importe las bibliotecas `AzureCommunication` y `AzureCommunicatonChat`:
 
 ```
-import AzureCommunication
+import AzureCommunicationCommon
 import AzureCommunicationChat
 ```
 
@@ -138,8 +138,8 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 
 | Nombre                                   | Descripción                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ChatClient` | Esta clase es necesaria para la funcionalidad de chat. Cree una instancia de esta con la información de suscripción y úsela para crear, obtener y eliminar conversaciones. |
-| `ChatThreadClient` | Esta clase es necesaria para la funcionalidad de conversación de chat. Obtenga una instancia mediante `ChatClient` y úsela para enviar, recibir, actualizar y eliminar mensajes. También puede usarla para agregar, quitar y obtener usuarios, enviar notificaciones de escritura y confirmaciones de lectura, y suscribirse a eventos de chat. |
+| `ChatClient` | Esta clase es necesaria para la funcionalidad de chat. Cree una instancia de ella con la información de la suscripción y úsela para crear, obtener y eliminar conversaciones, y para suscribirse a eventos de chat. |
+| `ChatThreadClient` | Esta clase es necesaria para la funcionalidad de conversación de chat. Obtenga una instancia mediante `ChatClient` y úsela para enviar, recibir, actualizar y eliminar mensajes. También puede usarla para agregar, quitar y obtener usuarios, y enviar notificaciones de escritura y confirmaciones de lectura. |
 
 ## <a name="start-a-chat-thread"></a>Inicio de un subproceso de chat
 
@@ -183,11 +183,15 @@ Después de crear una conversación de chat, podemos enumerar todas las conversa
 ```
 chatClient.listThreads { result, _ in
     switch result {
-    case let .success(chatThreadItems):
-        var iterator = chatThreadItems.syncIterator
-            while let chatThreadItem = iterator.next() {
-                print("Thread id: \(chatThreadItem.id)")
-            }
+    case let .success(threads):
+        guard let chatThreadItems = threads.pageItems else {
+            print("No threads returned.")
+            return
+        }
+
+        for chatThreadItem in chatThreadItems {
+            print("Thread id: \(chatThreadItem.id)")
+        }
     case .failure:
         print("Failed to list threads")
     }
@@ -264,10 +268,14 @@ Reemplace el comentario `<RECEIVE MESSAGES>` por el código siguiente:
 ```
 chatThreadClient.listMessages { result, _ in
     switch result {
-    case let .success(messages):
-        var iterator = messages.syncIterator
-        while let message = iterator.next() {
-            print("Received message of type \(message.type)")
+    case let .success(messagesResult):
+        guard let messages = messagesResult.pageItems else {
+            print("No messages returned.")
+            return
+        }
+
+        for message in messages {
+            print("Received message with id: \(message.id)")
         }
 
     case .failure:
@@ -311,9 +319,13 @@ Reemplace el comentario `<LIST USERS>` por el código siguiente:
 ```
 chatThreadClient.listParticipants { result, _ in
     switch result {
-    case let .success(participants):
-        var iterator = participants.syncIterator
-        while let participant = iterator.next() {
+    case let .success(participantsResult):
+        guard let participants = participantsResult.pageItems else {
+            print("No participants returned.")
+            return
+        }
+
+        for participant in participants {
             let user = participant.id as! CommunicationUserIdentifier
             print("User with id: \(user.identifier)")
         }
@@ -328,3 +340,5 @@ semaphore.wait()
 ## <a name="run-the-code"></a>Ejecución del código
 
 En Xcode, presione el botón Run (Ejecutar) para compilar y ejecutar el proyecto. En la consola, puede ver la salida del código y la salida del registrador de ChatClient.
+
+**Nota:** Establezca `Build Settings > Build Options > Enable Bitcode` en `No`. Actualmente, el SDK de AzureCommunicationChat para iOS no admite la habilitación de bitcode, lo cual está en seguimiento en el [problema de GitHub](https://github.com/Azure/azure-sdk-for-ios/issues/787) siguiente.

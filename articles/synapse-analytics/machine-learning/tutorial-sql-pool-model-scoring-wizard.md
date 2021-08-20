@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: d8db9257ad6eed98b39cd2c9a52351f013453365
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f21fb2d35dc7cb7383d756b4177924420961945f
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98935222"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113506384"
 ---
 # <a name="tutorial-machine-learning-model-scoring-wizard-preview-for-dedicated-sql-pools"></a>Tutorial: Asistente para puntuación de modelos de Machine Learning (versión preliminar) para grupos de SQL dedicados
 
@@ -119,7 +119,7 @@ Antes de ejecutar todas las celdas del cuaderno, compruebe si se está ejecutand
 
    ![Carga de datos en un grupo de SQL dedicado](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
 
-1. Vaya a **Datos** > **Área de trabajo**. Para abrir el asistente para puntuación de SQL, haga clic con el botón secundario en la tabla del grupo de SQL dedicado. Seleccione **Machine Learning** > **Enrich with existing model** (Enriquecer con modelo existente).
+1. Vaya a **Datos** > **Área de trabajo**. Para abrir el asistente para puntuación de SQL, haga clic con el botón secundario en la tabla del grupo de SQL dedicado. Seleccione **Machine Learning** > **Predict with a model** (Predecir con un modelo).
 
    > [!NOTE]
    > La opción de aprendizaje automático no aparece a menos que tenga un servicio vinculado creado para Azure Machine Learning. (Consulte [Requisitos previos](#prerequisites) al principio de este tutorial).

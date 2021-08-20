@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 770e0469f9c9cf8c20f0abf826a42c0584108cd9
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: b3e9332706c3bcc9d4f4cabd20d10fa099271d69
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109845949"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285333"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configuración de firewalls y redes virtuales de Azure Key Vault
 
@@ -28,7 +28,7 @@ En esta sección se tratan las distintas formas en que se puede configurar el fi
 
 ### <a name="key-vault-firewall-disabled-default"></a>Firewall de Key Vault Firewall deshabilitado (opción predeterminada)
 
-De forma predeterminada, cuando se crea un nuevo almacén de claves, el firewall de Azure Key Vault está deshabilitado. Todas las aplicaciones y los servicios de Azure pueden acceder al almacén de claves y enviarle solicitudes. Tenga en cuenta que esta configuración no significa que cualquier usuario podrá realizar operaciones en el almacén de claves. El almacén de claves todavía se restringe a los secretos, las claves y los certificados almacenados en él al requerir permisos de directiva de acceso y autenticación de Azure Active Directory. Para comprender con más detalle la autenticación del almacén de claves, consulte [aquí](./authentication-fundamentals.md) el documento sobre los aspectos básicos de la autenticación del almacén de claves. Para más información, consulte [Acceso a Azure Key Vault desde detrás de un firewall](./access-behind-firewall.md).
+De forma predeterminada, cuando se crea un nuevo almacén de claves, el firewall de Azure Key Vault está deshabilitado. Todas las aplicaciones y los servicios de Azure pueden acceder al almacén de claves y enviarle solicitudes. Tenga en cuenta que esta configuración no significa que cualquier usuario podrá realizar operaciones en el almacén de claves. El almacén de claves todavía se restringe a los secretos, las claves y los certificados almacenados en él al requerir permisos de directiva de acceso y autenticación de Azure Active Directory. Para comprender con más detalle la autenticación del almacén de claves, consulte [aquí](./authentication.md) el documento sobre los aspectos básicos de la autenticación del almacén de claves. Para más información, consulte [Acceso a Azure Key Vault desde detrás de un firewall](./access-behind-firewall.md).
 
 ### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Firewall de Key Vault habilitado (solo servicios de confianza)
 
@@ -72,7 +72,7 @@ Para saber cómo configurar una conexión de vínculo privado en el almacén de 
 
 > [!NOTE]
 > Tenga en cuenta las siguientes limitaciones de configuración:
-> * Se permite un máximo de 127 reglas de red virtual y 127 reglas de IPv4. 
+> * Se permite un máximo de 200 reglas de red virtual y 1000 reglas de IPv4. 
 > * Las reglas de red IP solo se permiten para direcciones IP públicas. No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en RFC 1918) en las reglas IP. Las redes privadas incluyen direcciones que comienzan por **10.** , **172.16-31** y **192.168.** . 
 > * Solo se admiten direcciones IPV4 en este momento.
 

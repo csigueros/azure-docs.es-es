@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 52fc504135e77ef9e32cd1b83f1186d7ddb18fcd
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: fe194101c42974e4822c088f7255bfcec5e7a65d
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112039080"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982643"
 ---
 # <a name="genome-aggregation-database-gnomad"></a>Genome Aggregation Database (gnomAD)
 
@@ -34,7 +34,7 @@ La cuenta de almacenamiento que hospeda este conjunto de datos se encuentra en l
 
 ## <a name="data-access"></a>Acceso a datos
 
-Cuenta de almacenamiento: https://azureopendatastorage.blob.core.windows.net/gnomad
+Cuenta de almacenamiento: "https://azureopendatastorage.blob.core.windows.net/gnomad"
 
 Los datos están disponibles públicamente sin restricciones y se recomienda la herramienta azcopy para realizar operaciones masivas. Por ejemplo, para ver los archivos VCF de la versión 3.0 de gnomAD:
 

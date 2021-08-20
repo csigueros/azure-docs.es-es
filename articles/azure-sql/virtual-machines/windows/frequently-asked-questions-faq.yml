@@ -15,12 +15,12 @@ metadata:
   ms.workload: iaas-sql-server
   ms.date: 08/05/2019
   ms.author: mathoma
-  ms.openlocfilehash: 426a1e7fa481f31d279870368ff5616c6ead0c4b
-  ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+  ms.openlocfilehash: afc126a44fec520f4451787c0e8b350a292c2fca
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/14/2021
-  ms.locfileid: "112082838"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114440696"
 title: Preguntas más frecuentes sobre SQL Server en VM de Azure
 summary: >
   [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -117,22 +117,6 @@ sections:
   - question: >
       ¿Qué suscripciones admiten la ventaja de recuperación ante desastres (DR)?
     answer: "Los programas completos que ofrecen derechos de suscripción equivalentes de Software Assurance como una ventaja fija admiten la ventaja de la recuperación ante desastres. Esto incluye, entre otros, Open Value (OV), suscripción de Open Value (OVS), Contrato Enterprise (EA), suscripción del Contrato Enterprise (EAS) y Server and Cloud Enrollment (SCE). Consulte los [términos del producto](https://www.microsoft.com/licensing/product-licensing/products) y hable con los contactos de licencias o con el administrador de cuenta para más información. \n"
-- name: Comprobación de actualización
-  questions:
-  - question: >
-      ¿El registro de mi VM con la nueva extensión Agente de IaaS de SQL implicará costos adicionales?
-    answer: No. La extensión Agente de IaaS de SQL simplemente hace posible una capacidad de administración adicional para SQL Server en la VM de Azure sin cargos adicionales.
-  - question: >
-      ¿Está disponible la extensión Agente de IaaS de SQL para todos los clientes?
-    answer: "Sí, siempre que se haya implementado la máquina virtual con SQL Server en la nube pública con el modelo de Resource Manager y no con el modelo clásico. Todos los demás clientes pueden registrarse con la nueva extensión Agente de IaaS de SQL. Sin embargo, solo los clientes con la ventaja de [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) pueden usar su propia licencia activando la [Ventaja híbrida de Azure (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) en una máquina virtual con SQL Server. \n"
-  - question: "¿Qué ocurre con el recurso de la extensión (\"Microsoft.SqlVirtualMachine\") si se mueve o se quita el recurso de la máquina virtual? \n"
-    answer: Cuando el recurso Microsoft.Compute/VirtualMachine se coloca o se mueve, se envía una notificación al recurso Microsoft.SqlVirtualMachine asociado para replicar de forma asincrónica la operación.
-  - question: >
-      ¿Qué ocurre con la máquina virtual si el recurso de la extensión ("Microsoft.SqlVirtualMachine") se elimina?
-    answer: El recurso Microsoft.Compute/VirtualMachine no se ve afectado cuando se coloca el recurso Microsoft.SqlVirtualMachine. Sin embargo, los cambios en las licencias devolverán el valor predeterminado al origen de la imagen original.
-  - question: >
-      ¿Es posible registrar VM de SQL Server implementadas automáticamente con la extensión Agente de IaaS de SQL?
-    answer: "Sí. Si ha implementado SQL Server desde sus propios medios e instalado la extensión IaaS de SQL, puede registrar la VM con SQL Server con la extensión para obtener las ventajas de capacidad de administración proporcionadas por la extensión IaaS de SQL.    \n"
 - name: Administración
   questions:
   - question: >
@@ -259,4 +243,20 @@ sections:
   - question: >
       ¿Cómo se quita la extensión?
     answer: "Para quitar la extensión, [anule el registro](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) de la VM con SQL Server de ella. \n"
+  - question: >
+      ¿El registro de mi VM con la nueva extensión Agente de IaaS de SQL implicará costos adicionales?
+    answer: No. La extensión Agente de IaaS de SQL simplemente hace posible una capacidad de administración adicional para SQL Server en la VM de Azure sin cargos adicionales.
+  - question: >
+      ¿Está disponible la extensión Agente de IaaS de SQL para todos los clientes?
+    answer: "Sí, siempre que se haya implementado la máquina virtual con SQL Server en la nube pública con el modelo de Resource Manager y no con el modelo clásico. Todos los demás clientes pueden registrarse con la nueva extensión Agente de IaaS de SQL. Sin embargo, solo los clientes con la ventaja de [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) pueden usar su propia licencia activando la [Ventaja híbrida de Azure (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) en una máquina virtual con SQL Server. \n"
+  - question: "¿Qué ocurre con el recurso de la extensión (\"Microsoft.SqlVirtualMachine\") si se mueve o se quita el recurso de la máquina virtual? \n"
+    answer: Cuando el recurso Microsoft.Compute/VirtualMachine se coloca o se mueve, se envía una notificación al recurso Microsoft.SqlVirtualMachine asociado para replicar de forma asincrónica la operación.
+  - question: >
+      ¿Qué ocurre con la máquina virtual si el recurso de la extensión ("Microsoft.SqlVirtualMachine") se elimina?
+    answer: El recurso Microsoft.Compute/VirtualMachine no se ve afectado cuando se coloca el recurso Microsoft.SqlVirtualMachine. Sin embargo, los cambios en las licencias devolverán el valor predeterminado al origen de la imagen original.
+  - question: >
+      ¿Es posible registrar VM de SQL Server implementadas automáticamente con la extensión Agente de IaaS de SQL?
+    answer: "Sí. Si ha implementado SQL Server desde sus propios medios e instalado la extensión IaaS de SQL, puede registrar la VM con SQL Server con la extensión para obtener las ventajas de capacidad de administración proporcionadas por la extensión IaaS de SQL.    \n"
+  - question: "¿Es posible reparar la extensión del agente IaaS de SQL? \n"
+    answer: "Sí. Vaya al recurso **Máquinas virtuales de SQL** de la máquina virtual de su servidor SQL y elija **Reparar** en **Soporte técnico y solución de problemas** para abrir la página de [reparación](sql-agent-extension-manually-register-single-vm.md#repair-extension) y reparar la extensión. \n"
 additionalContent: "\n## <a name=\"resources\"></a>Recursos\n\n**Máquinas virtuales Windows**:\n\n* [Introducción a SQL Server en máquinas virtuales Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)\n* [Aprovisionamiento de SQL Server en una VM Windows](create-sql-vm-portal.md)\n* [Migración de una base de datos a SQL Server en una máquina virtual de Azure](migrate-to-vm-from-sql-server.md)\n* [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md)\n* [Directrices de rendimiento para SQL Server en Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md)\n* [Estrategias de desarrollo y patrones de aplicación de SQL Server en Azure Virtual Machines](application-patterns-development-strategies.md)\n\n**Máquinas virtuales Linux**:\n\n* [Introducción a SQL Server en máquinas virtuales Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)\n* [Aprovisionamiento de SQL Server en una VM Linux](../linux/sql-vm-create-portal-quickstart.md)\n* [Preguntas más frecuentes (Linux)](../linux/frequently-asked-questions-faq.yml)\n* [Documentación de SQL Server en Linux](/sql/linux/sql-server-linux-overview)\n"

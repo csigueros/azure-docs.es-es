@@ -2,20 +2,20 @@
 title: 'Inicio rápido: unirse a una reunión de Teams'
 author: askaur
 ms.author: askaur
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 2fb04acd75d607772b6582882b98f9ed222f070c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 04ee9f19f23d16af9070d3366981b0690ba9ef27
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111430854"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113109"
 ---
 En este inicio rápido aprenderá a chatear en una reunión de Teams mediante el SDK de chat de Azure Communication Services para JavaScript.
 
-> [!NOTE]
-> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting)
+## <a name="sample-code"></a>Código de ejemplo
+Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
@@ -325,6 +325,12 @@ sendMessageButton.addEventListener("click", async () =>
     });
 ```
 
+El cliente de Teams no establece los nombres para mostrar de los participantes de la conversación del chat. Los nombres se devolverán como NULL en la API para enumerar participantes, en el evento `participantsAdded` y en el evento `participantsRemoved`. Los nombres para mostrar de los participantes del chat se pueden recuperar del campo `remoteParticipants` del objeto `call`. Al recibir una notificación sobre un cambio en la lista, puede usar este código para recuperar el nombre del usuario que se agregó o quitó:
+
+```
+var displayName = call.remoteParticipants.find(p => p.identifier.communicationUserId == '<REMOTE_USER_ID>').displayName;
+```
+
 ## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Obtención de un subproceso del chat de la reunión para un usuario de Communication Services
 
 El vínculo y el chat de la reunión de Teams se pueden recuperar mediante las instancias de Graph API, que se detallan en la [documentación de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). El SDK de llamada de Communication Services acepta un vínculo a toda la reunión de Teams. Este vínculo se devuelve como parte del recurso `onlineMeeting`, accesible desde la [propiedad `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). Con las instancias de [Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), también puede obtener `threadId`. La respuesta tendrá un objeto `chatInfo` que contiene el elemento `threadID`. 
@@ -348,4 +354,4 @@ Abra el explorador web y vaya a http://localhost:8080/. Verá lo siguiente:
 Inserte el vínculo de la reunión de Teams y el identificador de la conversación en los cuadros de texto. Presione *Unirse a una reunión de Teams* para unirse a dicha reunión. Una vez que el usuario de Communication Services se haya admitido en la reunión, puede chatear desde dentro de la aplicación de Communication Services. Navegue hasta el cuadro que hay en la parte inferior de la página para iniciar el chat.
 
 > [!NOTE] 
-> Actualmente, solo se admite el envío, la recepción y la edición de mensajes para los escenarios de interoperabilidad con Teams. Otras características, como los indicadores de escritura y que los usuarios de Communication Services agreguen o quiten otros usuarios de la reunión de Teams aún no se admiten.
+> Actualmente, en los escenarios de interoperabilidad con Teams solo se admiten el envío, la recepción, la edición de mensajes y el envío de notificaciones de escritura. Otras características, como las confirmaciones de lectura y que los usuarios de Communication Services agreguen o quiten otros usuarios de la reunión de Teams, aún no se admiten.

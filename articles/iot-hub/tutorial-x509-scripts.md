@@ -6,18 +6,18 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 02/26/2021
+ms.date: 06/26/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: ff4b63f49a87dd9ca6b0ef458bdcf1c285a34a18
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8170b6529ca38c54d3030514a79948678861f3bd
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378217"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214913"
 ---
 # <a name="tutorial-using-microsoft-supplied-scripts-to-create-test-certificates"></a>Tutorial: Uso de scripts proporcionados por Microsoft para crear certificados de prueba
 
@@ -61,13 +61,15 @@ Después de ejecutar el script, agregue el nuevo certificado de entidad de certi
 
 1. Escriba un nombre para mostrar para el certificado de la entidad de certificación.
 
+1. Para omitir la prueba de posesión, active la casilla situada junto a **Set certificate status to verified on upload** (Establecer el estado del certificado en comprobado en la carga).
+
 1. Cargue el certificado de la entidad de certificación.
 
 1. Seleccione **Guardar**.
 
-### <a name="step-3---prove-possession"></a>Paso 3: Demostrar la posesión
+### <a name="optional-step-3---prove-possession"></a>(Opcional) Paso 3: Demostrar la posesión
 
-Ahora que ha cargado el certificado de la entidad de certificación en la instancia de IoT Hub, deberá demostrar que realmente es de su propiedad:
+Si no optó por comprobar automáticamente el certificado durante la carga, demuestre manualmente la posesión:
 
 1. Seleccione el nuevo certificado de la entidad de certificación.
 

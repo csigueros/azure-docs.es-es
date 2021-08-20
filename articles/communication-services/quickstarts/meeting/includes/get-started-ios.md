@@ -3,17 +3,21 @@ title: 'Inicio rápido: Incorporación de la unión a una reunión de Microsoft 
 description: En este inicio rápido, aprenderá a usar la biblioteca de integración de Teams de Azure Communication Services para iOS.
 author: palatter
 ms.author: palatter
-ms.date: 01/25/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 5c2f53138d6f716d2917cff831e9b86c40b77a00
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: b960357782ef7bac6d5c3425dbf3f93aa5600640
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111545795"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113218138"
 ---
 En este inicio rápido, aprenderá cómo unirse a una reunión de Microsoft Teams mediante la biblioteca insertada de Teams de Azure Communication Services para iOS.
+
+## <a name="sample-code"></a>Código de ejemplo
+
+Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/teams-embed-ios-getting-started).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -88,10 +92,11 @@ Haga clic con el botón derecho en la entrada `Info.plist` del árbol del proyec
 
 ### <a name="add-the-teams-embed-framework"></a>Adición del marco de integración de Teams
 
-1. Descargue el paquete `MicrosoftTeamsSDK` para iOS.
+1. Descargue `Teams Embed iOS SDK Bundle` y descomprímalo.
 2. Cree la carpeta `Frameworks` en la raíz del proyecto. Por ejemplo, `\TeamsEmbedGettingStarted\Frameworks\`
-3. Copie los marcos `TeamsAppSDK.framework` y `MeetingUIClient.framework` descargados y otros marcos que se proporcionan en la agrupación de versiones en esta carpeta.
-4. Agregue los marcos al destino del proyecto en la pestaña General. Use `Add Other` -> `Add Files...` para desplazarse a los archivos del marco y agregarlos.
+3. Copie en la carpeta indicada tanto los marcos `AzureMeetingUIClient.xcframework` y `TeamsAppSDK.xcframework` descargados, como los restantes marcos que se proporcionan en la agrupación de versiones.
+4. Agregue los marcos al destino del proyecto en la pestaña General. Use `Add Other` -> `Add Files...` para desplazarse a los archivos del marco y agregarlos. 
+5. Seleccione `Embed & Sign` para todos los marcos agregados. 
 
 :::image type="content" source="../media/ios/xcode-add-frameworks.png" alt-text="Captura de pantalla que muestra los marcos agregados en Xcode.":::
 
@@ -143,6 +148,7 @@ override func viewDidLoad() {
     self.view.addSubview(button)
     button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+}
 ```
 
 Cree una salida para el botón en **ViewController.swift**.
@@ -160,7 +166,7 @@ Abra el archivo **ViewController.swift** del proyecto y agregue una declaración
 ```swift
 import UIKit
 import AzureCommunicationCommon
-import MeetingUIClient
+import AzureMeetingUIClient
 ```
 
 Reemplace la implementación de la clase `ViewController` por un sencillo botón para permitir al usuario unirse a una reunión. En este inicio rápido, asociaremos la lógica de negocios al botón.
@@ -195,22 +201,19 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 | ------------------------------------- | ------------------------------------------------------------ |
 | MeetingUIClient | MeetingUIClient es el punto de entrada principal a la biblioteca de integración de Teams. |
 | MeetingUIClientMeetingJoinOptions | MeetingUIClientMeetingJoinOptions se usa para las opciones configurables, como el nombre para mostrar. |
-| MeetingUIClientGroupCallJoinOptions | MeetingUIClientMeetingJoinOptions se usa para las opciones configurables, como el nombre para mostrar. |
+| MeetingUIClientGroupCallJoinOptions | MeetingUIClientGroupCallJoinOptions se usa para las opciones configurables, como el nombre para mostrar. |
 | MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator se usa para establecer la dirección URL de la reunión para unirse a una reunión. |
 | MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator se usa para establecer el identificador de grupo al que se va a unir. |
-| MeetingUIClientInCallScreenDelegate | MeetingUIClientInCallScreenDelegate se usa para proporcionar personalizaciones en la pantalla de llamadas principal de la interfaz de usuario. |
-| MeetingUIClientStagingScreenDelegate | MeetingUIClientStagingScreenDelegate se usa para proporcionar personalizaciones en la pantalla de llamadas provisional de la interfaz de usuario. |
-| MeetingUIClientConnectingScreenDelegate | MeetingUIClientConnectingScreenDelegate se usa para proporcionar personalizaciones en la pantalla de conexión de llamadas de la interfaz de usuario. |
-| MeetingUIClientIconType | MeetingUIClientIconType se usa para especificar qué iconos se podrían reemplazar por los iconos de una aplicación específica. |
-| MeetingUIClientCall | MeetingUIClientCall describe la llamada y proporciona valores de API para controlarla. |
+| MeetingUIClientIconType | MeetingUIClientIconType se usa para especificar qué iconos se pueden reemplazar por el icono específico de una aplicación. |
+| MeetingUIClientCall | MeetingUIClientCall describe la llamada y proporciona API para controlarla. |
 | MeetingUIClientCallState | MeetingUIClientCallState se utiliza para notificar los cambios en el estado de la llamada. Estas son las opciones: `connecting`, `waitingInLobby`, `connected` y `ended`. |
-| MeetingUIClientUserRole | MeetingUIClientUserRole se usa para establecer los roles de usuario en una llamada grupal. |
 | MeetingUIClientAudioRoute | MeetingUIClientAudioRoute se usa para las rutas de audio locales, como `Earpiece` o `SpeakerOn`. |
 | MeetingUIClientLayoutMode | MeetingUIClientLayoutMode se usa para que sea posible seleccionar diferentes modos de llamada entrante en la interfaz de usuario. |
-| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize se usa para notificar qué tamaño de avatar solicita un delegado. |
+| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize es una enumeración para indicar diferentes tamaños de avatar que puede solicitar MeetingUIClientCallIdentityProvider. |
 | MeetingUIClientCallDelegate | MeetingUIClientDelegate se usa para recibir eventos, como cambios en el estado de la llamada. |
 | MeetingUIClientCallIdentityProviderDelegate | MeetingUIClientIdentityProviderDelegate se usa para asignar los detalles del usuario a los usuarios de una reunión. |
 | MeetingUIClientCallUserEventDelegate | MeetingUIClientUserEventDelegate proporciona información sobre las acciones del usuario en la interfaz de usuario. |
+| MeetingUIClientCallRosterDelegate | MeetingUIClientCallRosterDelegate proporciona información sobre la lista de llamadas. |
 
 ## <a name="create-and-authenticate-the-client"></a>Creación y autenticación del cliente
 
@@ -252,7 +255,7 @@ El método `join` se establece como la acción que se llevará a cabo cuando se 
 
 ```swift
 private func joinMeeting() {
-    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true)
+    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: false, enableNamePlateOptionsClickDelegate: false, enableCallStagingScreen: false, enableCallRosterDelegate: false)
     let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: "<MEETING_URL>")
     meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
         if (error != nil) {
@@ -272,7 +275,7 @@ El controlador de finalización devolverá un error en caso de que se produzca u
 
 ### <a name="get-a-microsoft-teams-meeting-link"></a>Obtención de un vínculo de reunión de Microsoft Teams
 
-Se puede recuperar un vínculo a la reunión de Teams mediante instancias de Graph API. Esto se detalla en la [documentación de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+Se puede recuperar un vínculo a la reunión de Teams mediante instancias de Graph API. Este proceso se detalla en la [documentación de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
 El SDK de llamadas de Communication Services acepta un vínculo completo a la reunión de Microsoft Teams. Este vínculo se devuelve como parte del recurso `onlineMeeting`, al que se accede bajo la propiedad [`joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). También puede obtener la información necesaria de la reunión de la dirección URL **Unirse a la reunión** de la propia invitación a la reunión de Teams.
 
 ## <a name="run-the-code"></a>Ejecución del código
@@ -295,8 +298,3 @@ El SDK de Microsoft Teams admite más de 100 cadenas y recursos. El paquete del 
 1. Determine el tipo de localizaciones que admite la aplicación. Para ello, vaya al proyecto de Xcode de la aplicación, seleccione la pestaña de información y consulte la lista de localizaciones.
 2. Descomprima el archivo Localizations.zip incluido con el paquete.
 3. Copie las carpetas de localización de la carpeta descomprimida en función de lo que admita la aplicación en la raíz de TeamsAppSDK.framework.
-
-
-## <a name="sample-code"></a>Código de ejemplo
-
-Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/teams-embed-ios-getting-started).
