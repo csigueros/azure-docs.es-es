@@ -1,0 +1,39 @@
+### YamlMime:FAQ
+metadata:
+  title: 'Preguntas más frecuentes: Computer Vision'
+  titleSuffix: Azure Cognitive Services
+  description: Obtenga respuestas a las preguntas más frecuentes sobre Computer Vision API en Azure Cognitive Services.
+  services: cognitive-services
+  author: KellyDF
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: computer-vision
+  ms.topic: conceptual
+  ms.date: 04/17/2019
+  ms.author: kefre
+  ms.custom: seodec18
+  ms.openlocfilehash: f03dd44b1ea37f5103ca9aa4eff26b3b7b080312
+  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/06/2021
+  ms.locfileid: "113311632"
+title: Preguntas frecuentes sobre Computer Vision API
+summary: >
+  > [!TIP]
+
+  > Si no puede encontrar respuestas a sus preguntas en estas P+F, puede plantearlas en la comunidad de Computer Vision API en [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) o ponerse en contacto con Ayuda y soporte técnico en [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743).
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Puedo entrenar a Computer Vision API para usar etiquetas personalizadas?  Por ejemplo, me gustaría introducir imágenes de razas de gatos para "entrenar" a AI y luego recibir el valor de raza en una solicitud de AI.
+    answer: >
+      Esta función no está disponible actualmente. Sin embargo, nuestros ingenieros están trabajando para incorporar esta funcionalidad a Computer Vision.
+  - question: >
+      ¿Puedo implementar la funcionalidad OCR (Read) en el entorno local?
+    answer: >
+      Sí, la API en la nube de OCR (Read) también está disponible como contenedor de Docker para la implementación local. Aprenda [cómo implementar los contenedores de OCR](./computer-vision-how-to-install-containers.md).
+  - question: >
+      ¿Se puede usar Computer Vision para leer matrículas de entidad de almacén?
+    answer: Vision API incluye las funcionalidades de OCR con tecnología de aprendizaje profundo con la característica Read más reciente. Nos esforzamos constantemente por mejorar nuestros servicios para que funcionen en todos los escenarios.

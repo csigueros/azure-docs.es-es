@@ -5,12 +5,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 6e389cf58b5761d4069cf8a8b1e336d58db7a787
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ff65a473391f8a2435b20b88cacb6a0e18b90ba3
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459303"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360747"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor
 
@@ -53,7 +53,7 @@ SecurityEvent
 La consulta anterior devuelve 10 resultados de la tabla *SecurityEvent*, sin orden específico. Se trata de una forma muy común para echar un vistazo a una tabla y comprender su estructura y contenido. Vamos a examinar su estructura:
 
 * La consulta comienza por el nombre de la tabla, *SecurityEvent*; esta parte define el ámbito de la consulta.
-* El carácter de barra vertical (|) separa los comandos,de manera que la salida del primero sea la entrada del siguiente. Puede agregar cualquier cantidad de elementos canalizados.
+* El carácter de barra vertical (|) separa los comandos,de manera que la salida del primero es la entrada del siguiente. Puede agregar cualquier cantidad de elementos canalizados.
 * Después de la canalización se encuentra el comando **take**, que devuelve un número concreto de registros arbitrarios de la tabla.
 
 En realidad podríamos ejecutar la consulta incluso sin agregar `| take 10`, seguiría siendo válida, pero podría devolver hasta 10 000 resultados.
@@ -89,7 +89,7 @@ SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-El criterio de ordenación descendente es el valor predeterminado, por lo que se suele omitir el argumento **desc**. La salida tendrá este aspecto:
+El criterio de ordenación descendente es el valor predeterminado, por lo que se suele omitir el argumento **desc**. El resultado tendrá un aspecto similar al siguiente:
 
 ![Los 10 principales](media/get-started-queries/top10.png)
 
@@ -180,7 +180,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** mantiene todas las columnas originales en el conjunto de resultados y define otras adicionales. La consulta siguiente usa **extend** para agregar la columna *EventCode*. Tenga en cuenta que es posible que esta columna no se muestre al final de los resultados de la tabla, en cuyo caso sería necesario expandir los detalles de un registro para verlo.
+**extend** mantiene todas las columnas originales en el conjunto de resultados y define otras adicionales. La consulta siguiente usa **extend** para agregar la columna *EventCode*. Tenga en cuenta que es posible que esta columna no se muestre al final de los resultados de la tabla, en cuyo caso sería necesario expandir los detalles de un registro para verla.
 
 ```Kusto
 SecurityEvent

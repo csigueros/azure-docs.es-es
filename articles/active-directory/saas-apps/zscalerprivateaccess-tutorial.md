@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 06/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 58e2a19f2d57eafc7d2967141d584dc7a22fe76c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c086440cce663f6c22b05b9a52c33b526106355
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955676"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559741"
 ---
 # <a name="tutorial-integrate-zscaler-private-access-zpa-with-azure-active-directory"></a>Tutorial: Integración de Zscaler Private Access (ZPA) con Azure Active Directory
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Zscaler Private Access (ZPA) con Azure 
 * Permitir que los usuarios inicien sesión automáticamente en Zscaler Private Access (ZPA) con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -41,6 +41,9 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. 
 
 * Zscaler Private Access (ZPA) admite el inicio de sesión único iniciado por **SP**.
+* Zscaler Private Access (ZPA) admite el [aprovisionamiento de usuarios **automatizado**](zscaler-private-access-provisioning-tutorial.md).
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
 ## <a name="add-zscaler-private-access-zpa-from-the-gallery"></a>Incorporación de Zscaler Private Access (ZPA) desde la galería
 
@@ -53,7 +56,7 @@ Para configurar la integración de Zscaler Private Access (ZPA) con Azure AD, de
 1. En la sección **Agregar desde la galería**, escriba **Zscaler Private Access (ZPA)** en el cuadro de búsqueda.
 1. Seleccione **Zscaler Private Access (ZPA)** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-zscaler-private-access-zpa"></a>Configuración y prueba del inicio de sesión único de Azure AD para Zscaler Private Access (ZPA)
 
 Configure y pruebe el inicio de sesión único de Azure AD con Zscaler Private Access (ZPA) con un usuario de prueba llamado **B.Simon**. Para que el SSO funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Zscaler Private Access (ZPA).
 
@@ -76,11 +79,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la página **Configuración básica de SAML**, especifique los valores de los siguientes campos:
-
-    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
+1. En la página **Configuración básica de SAML**, siga estos pasos:
 
     1. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `https://samlsp.private.zscaler.com/auth/metadata`.
+
+    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://samlsp.private.zscaler.com/auth/login?domain=<DOMAIN_NAME>`
 
     > [!NOTE]
     > El valor de la **dirección URL de inicio de sesión** no es real. Actualice el valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de Zscaler Private Access (ZPA)](https://help.zscaler.com/zpa-submit-ticket) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -154,6 +157,8 @@ En esta sección va a permitir que B.Simon acceda a Zscaler Private Access (ZPA)
 ### <a name="create-zscaler-private-access-zpa-test-user"></a>Creación de un usuario de prueba en Zscaler Private Access (ZPA)
 
 En esta sección, creará un usuario llamado Britta Simon en Zscaler Private Access (ZPA). Trabaje con el [equipo de soporte técnico de Zscaler Private Access (ZPA)](https://help.zscaler.com/zpa-submit-ticket) para agregar los usuarios a la plataforma de Zscaler Private Access (ZPA).
+
+Zscaler Private Access (ZPA) también admite el aprovisionamiento automático de usuarios. [Aquí](zscaler-private-access-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
 
 ## <a name="test-sso"></a>Prueba de SSO
 

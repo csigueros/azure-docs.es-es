@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 3f66da38d3303b47c2a9b6cefeee19af6bf64ec1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ec27f6605d2f6f63f0493bb08a27a5b3af85832
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98725513"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201839"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workplace by Facebook
 
@@ -43,7 +43,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Workplace by Facebook admite el inicio de sesión único iniciado por **SP**.
 * Workplace by Facebook admite el **aprovisionamiento Just-In-Time**.
-* Workplace by Facebook admite el **[aprovisionamiento automático de usuarios](workplacebyfacebook-provisioning-tutorial.md)**.
+* Workplace by Facebook admite el **[aprovisionamiento automático de usuarios](workplacebyfacebook-provisioning-tutorial.md)** .
 * Ahora se puede configurar la aplicación Workplace by Facebook con Azure AD para habilitar el inicio de sesión único. En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 
@@ -139,19 +139,21 @@ En esta sección, habilitará a B. Simon para usar el inicio de sesión único 
     > [!NOTE]
     > Como parte del proceso de autenticación SAML, es posible que Workplace use cadenas de consulta de hasta 2,5 kilobytes de tamaño para pasar parámetros a Azure AD.
 
-1. En el panel de navegación izquierdo, vaya a la pestaña **Security** > **Authentication** (Seguridad > Autenticación).
+1. Vaya a la pestaña **Panel de administración** > **Seguridad** > **Autenticación**.
 
-    ![Panel de administración](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
+    ![Panel de administración](./media/workplacebyfacebook-tutorial/security.png)
 
     a. Active la opción **Single-sign on (SSO)** (Inicio de sesión único [SSO]).
+
+    b. Seleccione **SSO** valor como predeterminado para los nuevos usuarios.
     
-    b. Haga clic en **+ Add new SSO Provider** (+ Agregar nuevo proveedor de SSO).
+    c. Haga clic en **+ Add new SSO Provider** (+ Agregar nuevo proveedor de SSO).
     > [!NOTE]
     > Asegúrese de activar también la casilla Password login (Inicio de sesión con contraseña). Los administradores pueden necesitar esta opción para el inicio de sesión mientras realizan la sustitución del certificado para evitar quedarse bloqueados.
 
-1. En la pestaña **Autenticación**, seleccione **Inicio de sesión único (SSO)** y realice los pasos siguientes:
+1. En la ventana emergente **Configuración del inicio de sesión único (SSO)** , siga estos pasos:
 
-    ![Pestaña Autenticación](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
+    ![Pestaña Autenticación](./media/workplacebyfacebook-tutorial/single-sign-on-setup.png)
 
     a. En **Name of the SSO Provider** (Nombre del proveedor de SSO), escriba el nombre de la instancia de inicio de sesión único, como Azureadsso.
 
@@ -159,7 +161,7 @@ En esta sección, habilitará a B. Simon para usar el inicio de sesión único 
 
     c. En el cuadro de texto **SAML Issuer URL** (Dirección URL del emisor de SAML), pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
 
-    d. Abra el **certificado codificado en Base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado SAML**.
+    d. Abra el **Certificado (Base64)** que ha descargado de Azure Portal en el Bloc de notas, copie el contenido en el Portapapeles y péguelo en el cuadro de texto **Certificado SAML**.
 
     e. Copie el valor de **Audience URL** (URL de público) de su instancia y péguela en el cuadro de texto **Identifier (Entity ID)** [Identificador (Id. de entidad)] de la sección **Configuración de SAML básica** de Azure Portal.
 

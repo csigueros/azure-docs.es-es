@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Aprovisionamiento de Azure Spring Cloud con una plantilla de Azure Resource Manager (plantilla de ARM)'
-description: En este inicio rápido se muestra cómo implementar un clúster de Spring Cloud en una red virtual existente.
+description: En este inicio rápido se muestra cómo usar una plantilla de ARM para implementar un clúster de Spring Cloud en una red virtual existente.
 services: azure-resource-manager
 author: ryhud
 ms.service: spring-cloud
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-java
 ms.author: rhudson
 ms.date: 05/27/2021
-ms.openlocfilehash: f57e3d6d1f3f562e35d38e45a3e0ca1703730d04
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 73c24f62e2c4333cb1e8ea826792626591aa1c68
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949218"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895893"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-an-arm-template"></a>Inicio rápido: Aprovisionamiento de Azure Spring Cloud con una plantilla de ARM
 
@@ -27,7 +27,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-cloud-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploy.json)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción, cree [una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * Dos subredes dedicadas para el clúster de Azure Spring Cloud, una para el entorno de ejecución del servicio y otra para las aplicaciones de microservicios de Spring Boot. Puede encontrar los requisitos de la subred y la red virtual en la sección [Requisitos de red virtual](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements) de [Implementación de Azure Spring Cloud en una red virtual](how-to-deploy-in-azure-virtual-network.md).
@@ -40,7 +40,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido es de la [arquitectura de referencia de Azure Spring Cloud](reference-architecture.md).
+La plantilla que se usa en este inicio rápido proviene de la [arquitectura de referencia de Azure Spring Cloud](reference-architecture.md).
 
 :::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploy.json":::
 
@@ -103,8 +103,8 @@ Write-Host "Press [ENTER] to continue..."
 En este inicio rápido, ha implementado una instancia de Azure Spring Cloud en una red virtual existente mediante una plantilla de ARM y, luego, ha validado la implementación. Para más información sobre Azure Spring Cloud y Azure Resource Manager, continúe con los artículos siguientes.
 
 - Implemente una de las siguientes aplicaciones de ejemplo desde las ubicaciones siguientes:
-   * [Aplicación Pet Clinic con integración de MySQL](https://github.com/azure-samples/spring-petclinic-microservices) (microservicios con back-end de MySQL).
-   * [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
+   - [Aplicación Pet Clinic con integración de MySQL](https://github.com/azure-samples/spring-petclinic-microservices) (microservicios con back-end de MySQL).
+   - [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
 - Use [dominios personalizados](tutorial-custom-domain.md) con Azure Spring Cloud.
 - Exponga aplicaciones de Azure Spring Cloud en Internet mediante [Azure Application Gateway](expose-apps-gateway-azure-firewall.md).
 - Vea la [arquitectura de referencia de Azure Spring Cloud](reference-architecture.md) completa, que se basa en [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).

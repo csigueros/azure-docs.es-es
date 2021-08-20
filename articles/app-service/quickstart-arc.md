@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de una aplicación web en Azure Arc'
 description: Introducción a App Service en Azure Arc para la implementación de la primera aplicación web
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: b9292af90c50712ef99496ce6078c4c34b5e5d01
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 4002ef3d66eaae05881da0dd8d95cc82ffeb916d
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984885"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112377015"
 ---
 # <a name="create-an-app-service-app-on-azure-arc-preview"></a>Creación de una aplicación de App Service en Azure Arc (versión preliminar)
 
@@ -49,7 +49,7 @@ El ejemplo siguiente crea una aplicación Node.js. Reemplace `<app-name>` por un
 
 ```azurecli-interactive
  az webapp create \
-    --plan myPlan
+    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
@@ -75,7 +75,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 > [!NOTE]
 > Para usar Log Analytics, debe haberlo habilitado previamente al [instalar la extensión de App Service](manage-create-arc-environment.md#install-the-app-service-extension). Si instaló la extensión sin Log Analytics, omita este paso.
 
-Vaya al [área de trabajo de Log Analytics configurada con la extensión de App Service](manage-create-arc-environment.md#install-the-app-service-extension) y, a continuación, haga clic en Registros en el panel de navegación izquierdo. Ejecute la consulta de ejemplo siguiente para mostrar los registros de las últimas 72 horas. Reemplace `<app-name>` por el nombre de la aplicación web. 
+Vaya al [área de trabajo de Log Analytics configurada con la extensión de App Service](manage-create-arc-environment.md#install-the-app-service-extension) y, a continuación, haga clic en Registros en el panel de navegación izquierdo. Ejecute la consulta de ejemplo siguiente para mostrar los registros de las últimas 72 horas. Reemplace `<app-name>` por el nombre de la aplicación web. Si se produce un error al ejecutar una consulta, inténtelo de nuevo después de 10-15 minutos (puede haber un retraso hasta que Log Analytics empiece a recibir registros de la aplicación). 
 
 ```kusto
 let StartTime = ago(72h);
@@ -98,7 +98,8 @@ Para crear una aplicación de contenedor personalizado, ejecute [az webapp creat
 Por ejemplo, pruebe lo siguiente:
 
 ```azurecli-interactive
-az webapp create 
+az webapp create \
+    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \

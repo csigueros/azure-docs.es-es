@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 384eb565882cf5f62cec1c6d38769647a82ec712
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: e5bad3f24d5692bbebb668e29b5ea229294b46f9
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112039116"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982751"
 ---
 # <a name="clinvar-annotations"></a>ClinVar Annotations
 
@@ -36,9 +36,9 @@ Este conjunto de datos se almacena en las regiones Oeste de EE. UU. 2 y Centro
 
 ## <a name="data-access"></a>Acceso a datos
 
-Oeste de EE. UU. 2: https://datasetclinvar.blob.core.windows.net/dataset
+Oeste de EE. UU. 2: "https://datasetclinvar.blob.core.windows.net/dataset"
 
-Centro-oeste de EE. UU.: https://datasetclinvar-secondary.blob.core.windows.net/dataset
+Centro-oeste de EE. UU.: "https://datasetclinvar-secondary.blob.core.windows.net/dataset"
 
 [Token de SAS](../storage/common/storage-sas-overview.md): sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=qFPPwPba1RmBvaffkzkLuzabYU5dZstSTgMwxuLNME8%3D
 
@@ -64,7 +64,7 @@ Si tiene alguna pregunta o comentario sobre este conjunto de datos, póngase en 
 
 Varios datos de genómica públicos se han cargado como un conjunto de datos de Azure Open Datasets [aquí](https://azure.microsoft.com/services/open-datasets/catalog/). Creamos un servicio de blob vinculado a este conjunto de datos abierto. Puede encontrar ejemplos del procedimiento de llamada a datos de Azure Open Datasets para conjunto de datos `ClinVar` a continuación:
 
-Los usuarios pueden llamar a la ruta de acceso siguiente con este cuaderno y descargarla: https://datasetclinvar.blob.core.windows.net/dataset/ClinVarFullRelease_00-latest.xml.gz.md5.
+Los usuarios pueden llamar a la ruta siguiente y descargarla con este cuaderno: "https://datasetclinvar.blob.core.windows.net/dataset/ClinVarFullRelease_00-latest.xml.gz.md5"
 
 > [!NOTE]
 > Los usuarios deben iniciar sesión en su cuenta de Azure mediante la CLI de Azure para ver los datos con el SDK de Azure ML. Por otro lado, no necesitan realizar ninguna acción para descargar los datos.

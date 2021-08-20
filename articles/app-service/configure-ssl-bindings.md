@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 0759a3fce2d056bbe5d9234e25b45525874faf4e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c67dfe6295a62a464d1a7a5eeb7a9ba7afd88ced
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670571"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113128775"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service
 
@@ -129,7 +129,7 @@ La dirección IP de entrada puede cambiar al eliminar un enlace, incluso si est
 
 De forma predeterminada, cualquier usuario puede acceder todavía a su aplicación mediante HTTP. Puede redirigir todas las solicitudes HTTP al puerto HTTPS.
 
-En la página de la aplicación, en el panel de navegación izquierdo, seleccione **Configuración de SSL**. A continuación, en **Solo HTTPS**, seleccione **On**.
+En la página de la aplicación, en el panel de navegación de la izquierda, seleccione **Configuración de TLS/SSL**. A continuación, en **Solo HTTPS**, seleccione **On**.
 
 ![Aplicación de HTTPS](./media/configure-ssl-bindings/enforce-https.png)
 
@@ -143,7 +143,7 @@ Una vez completada la operación, vaya a cualquiera de las direcciones URL HTTP 
 
 La aplicación permite [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 de forma predeterminada, que es el nivel TLS recomendado por los estándares del sector, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Para exigir versiones diferentes de TLS, siga estos pasos:
 
-En la página de la aplicación, en el panel de navegación izquierdo, seleccione **Configuración de SSL**. A continuación, en **TLS version** (Versión de TLS), seleccione la versión mínima de TLS que desee. Esta configuración controla solo las llamadas entrantes. 
+En la página de la aplicación, en el panel de navegación de la izquierda, seleccione **Configuración de TLS/SSL**. A continuación, en **TLS version** (Versión de TLS), seleccione la versión mínima de TLS que desee. Esta configuración controla solo las llamadas entrantes. 
 
 ![Exigir aplicación de TLS 1.1 o 1.2](./media/configure-ssl-bindings/enforce-tls1-2.png)
 
@@ -168,4 +168,4 @@ Guías de configuración específicas del lenguaje, como la guía [Configuració
 ## <a name="more-resources"></a>Más recursos
 
 * [Uso de un certificado TLS/SSL en el código de Azure App Service](configure-ssl-certificate-in-code.md)
-* [Preguntas más frecuentes: Certificados de App Service](./faq-configuration-and-management.md)
+* [Preguntas más frecuentes: Certificados de App Service](./faq-configuration-and-management.yml)

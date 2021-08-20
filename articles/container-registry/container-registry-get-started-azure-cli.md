@@ -4,16 +4,16 @@ description: Aprenda rápidamente a crear un registro de contenedor privado de D
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli
-ms.openlocfilehash: 5c313ab43fd3dc18acf8261730686a4d6657291d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ba0bb7ec21a26603db261a949566186e3c4469e7
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783798"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112894255"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Inicio rápido: Creación de un registro de contenedor privado con la CLI de Azure
 
-Azure Container Registry es un servicio de registro de contenedores de Docker administrado usado para almacenar imágenes de contenedor de Docker privadas. En esta guía se detalla la creación de una instancia de Azure Container Registry mediante la CLI de Azure. A continuación, utilice los comandos de Docker para insertar una imagen de contenedor en el registro y, finalmente, extraiga y ejecute la imagen desde el registro.
+Azure Container Registry es un servicio de registro privado para compilar, almacenar y proporcionar imágenes de contenedor y artefactos relacionados. En este inicio rápido, creará una instancia de Azure Container Registry con la CLI de Azure. A continuación, utilice los comandos de Docker para insertar una imagen de contenedor en el registro y, finalmente, extraiga y ejecute la imagen desde el registro.
 
 En este inicio rápido es preciso que ejecute la CLI de Azure (se recomienda la versión 2.0.55 u otra posterior). Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli].
 
@@ -67,9 +67,11 @@ Cuando se crea el registro, el resultado es similar al siguiente:
 
 Tome nota de `loginServer` en la salida, que es el nombre de registro completo (todo en minúsculas). En el resto de este inicio rápido, `<registry-name>` es el marcador de posición del nombre del registro de contenedor y `<login-server>` es el marcador de posición del nombre del servidor de inicio de sesión del registro.
 
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
+
 ## <a name="log-in-to-registry"></a>Iniciar sesión en el registro
 
-Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en el registro. Para ello, utilice el comando [az acr login][az-acr-login]. Especifique solo el nombre del registro al iniciar sesión con la CLI de Azure. No use el nombre del servidor de inicio de sesión, que incluye un sufijo de dominio como `azurecr.io`. 
+Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en el registro. Para ello, utilice el comando [az acr login][az-acr-login]. Especifique solo el nombre del recurso de registro al iniciar sesión con la CLI de Azure. No use el nombre completo del servidor de inicio de sesión. 
 
 ```azurecli
 az acr login --name <registry-name>

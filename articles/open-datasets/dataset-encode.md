@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 921f04b4f874fd83403a613823df0f2bd600feb8
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 0dc10b580d1a7c6fed8559f15a11e7c54737692d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112039195"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285151"
 ---
 # <a name="encode-encyclopedia-of-dna-elements"></a>ENCODE: Encyclopedia of DNA Elements
 
@@ -36,11 +36,11 @@ Este conjunto de datos se almacena en las regiones Oeste de EE. UU. 2 y Centro
 
 ## <a name="data-access"></a>Acceso a datos
 
-Oeste de EE. UU. 2: https://datasetencode.blob.core.windows.net/dataset
+Oeste de EE. UU. 2: "https://datasetencode.blob.core.windows.net/dataset"
 
-Centro-oeste de EE. UU.: https://datasetencode-secondary.blob.core.windows.net/dataset
+Centro-oeste de EE. UU.: "https://datasetencode-secondary.blob.core.windows.net/dataset"
 
-[Token de SAS](/azure/storage/common/storage-sas-overview): ?sv=2019-10-10&si=prod&sr=c&sig=9qSQZo4ggrCNpybBExU8SypuUZV33igI11xw0P7rB3c%3D
+[Token de SAS](../storage/common/storage-sas-overview.md): ?sv=2019-10-10&si=prod&sr=c&sig=9qSQZo4ggrCNpybBExU8SypuUZV33igI11xw0P7rB3c%3D
 
 ## <a name="use-terms"></a>Términos de uso
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: c49409472c8ce9c5b9dab25cbb66df8e1b30f410
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e8bc2d0ed29cbac171e1d03bc9a6806b1ef64f1f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695161"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465320"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con PowerShell
 > [!div class="op_single_selector"]
@@ -102,6 +102,12 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
    ```
+      
+   Si tiene previsto usar el emparejamiento privado basado en IPv6 por medio de ExpressRoute, establezca la SKU de IP en Estándar y AllocationMethod en Estático:
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard
+   ```
+   
 1. Cree la configuración para su puerta de enlace. La configuración de puerta de enlace define la subred y la dirección IP pública. En este paso, se especifica la configuración que se utilizará al crear la puerta de enlace. Use el ejemplo siguiente para crear la configuración de la puerta de enlace.
 
    ```azurepowershell-interactive
@@ -113,7 +119,7 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
 > [!IMPORTANT]
-> Si tiene previsto usar el emparejamiento privado basado en IPv6 en ExpressRoute, asegúrese de seleccionar una SKU AZ (ErGw1AZ, ErGw2AZ, ErGw3AZ) para **-GatewaySku**.
+> Si tiene previsto usar el emparejamiento privado basado en IPv6 por medio de ExpressRoute, asegúrese de seleccionar una SKU AZ (ErGw1AZ, ErGw2AZ, ErGw3AZ) para **-GatewaySku**, o bien use una SKU que no sea AZ (Standard, HighPerformance, UltraPerformance) para -GatewaySKU con una IP pública estándar y estática.
 > 
 > 
 
