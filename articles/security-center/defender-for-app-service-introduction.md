@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 75d9c649b245878e1f10c1aca9b9dd9956741fca
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 4ab8f3eb36e254a9b98444ecf85904fc574bcc65
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113002640"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487388"
 ---
 # <a name="protect-your-web-apps-and-apis"></a>Protección de las API y las aplicaciones web
 
@@ -36,7 +36,7 @@ Para proteger el plan de Azure App Service con Azure Defender para App Service, 
 | Estado de la versión:               | Disponibilidad general (GA)                                                                                                                                                                      |
 | Precios:                     | [Azure Defender para App Service](azure-defender.md) se factura como se indica en [Precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).<br>La facturación se realiza en función de las instancias de proceso totales en todos los planes.       |
 | Planes de App Service admitidos: | Se admiten [todos los planes de App Service](https://azure.microsoft.com/pricing/details/app-service/plans/) excepto [Azure Functions en el plan de consumo](../azure-functions/functions-scale.md). |
-| Nubes:                      | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, Azure China)                                                     |
+| Nubes:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (US Gov, Azure China)                                                     |
 |                              |                                                                                                                                                                                                |
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>¿Cuáles son las ventajas de Azure Defender para App Service?

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, low code chat bots, multi-turn conversations
-ms.openlocfilehash: 84678e0472284f6a9acfec53fbe31ff550775446
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b3e780393b911697d17ca1873201720c0bc628be
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292673"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112322609"
 ---
 # <a name="what-is-qna-maker"></a>¿Qué es QnA Maker?
 
@@ -21,6 +21,13 @@ QnA Maker es un servicio de Procesamiento de lenguaje natural (NLP) basado en la
 QnA Maker se usa normalmente para crear aplicaciones cliente de conversación, entre las que se incluyen aplicaciones de medios sociales, bots de chat y aplicaciones de escritorio habilitadas para voz.
 
 QnA Maker no almacena datos de clientes. Todos los datos de clientes (respuestas de preguntas y registros de chat) se almacenan en la región en la que el cliente implementa las instancias de servicio dependientes. Para más información acerca de los servicios dependientes, consulte [aquí](../concepts/plan.md?tabs=v1).
+
+Esta documentación contiene los siguientes tipos de artículos:
+
+* Los [inicios rápidos](../quickstarts/create-publish-knowledge-base.md) son instrucciones paso a paso que permiten realizar llamadas al servicio y obtener los resultados en un breve período de tiempo. 
+* Las [guías paso a paso](../how-to/set-up-qnamaker-service-azure.md) contienen instrucciones para usar el servicio de maneras más específicas o personalizadas.
+* Los [artículos conceptuales](../concepts/plan.md) proporcionan explicaciones detalladas de la funcionalidad y las características del servicio.
+* Los [**tutoriales**](../tutorials/create-faq-bot-with-azure-bot-service.md) son guías más largas que muestran cómo usar el servicio como un componente en soluciones empresariales más amplias.
 
 ## <a name="when-to-use-qna-maker"></a>Cuándo usar QnA Maker
 

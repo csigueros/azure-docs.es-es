@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a crear rápidamente un clúster de Kubernetes, implementar una aplicación y supervisar el rendimiento en Azure Kubernetes Service (AKS) mediante Azure Portal.
 services: container-service
 ms.topic: quickstart
-ms.date: 03/15/2021
+ms.date: 07/01/2021
 ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3
-ms.openlocfilehash: 28ba2ffd2007aeb45081cf66b05395a2b8456bf7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4c695b3214cebb601e53810ea8d6f3402bcf2e94
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779712"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463138"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante Azure Portal
 
@@ -41,13 +41,17 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
         * Seleccione una **suscripción** de Azure.
         * Seleccione o cree un **grupo de recursos** de Azure, como *myResourceGroup*.
     - **Detalles del clúster**: 
+        * Asegúrese de que el valor de **Configuración preestablecida** es *Estándar ($$)* . Para obtener más información sobre las configuraciones preestablecidas, vea [Valores preestablecidos de configuración de clúster en Azure Portal][preset-config].
         * Escriba un **Nombre del clúster de Kubernetes**, como *myAKSCluster*. 
         * En **Región** y **Versión de Kubernetes**, seleccionelos valores adecuados para el clúster de AKS.
     - **Grupo de nodos principal**: 
-        * Seleccione un **tamaño de nodo** de máquina virtual para los nodos de AKS. El tamaño de VM *no* puede cambiarse una vez que se ha implementado un clúster de AKS.
-        * Seleccione el número de nodos que se van a implementar en el clúster. En esta guía de inicio rápido, establezca **Número de nodos** en *1*. El número de nodos *puede* ajustarse después de implementar el clúster.
+        * Deje los valores predeterminados seleccionados.
     
     ![Creación de un clúster de AKS: proporcionar información básica](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+
+    > [!NOTE]
+    > Puede cambiar la configuración preestablecida al crear el clúster si selecciona *View all preset configurations* (Ver todas las configuraciones preestablecidas) y elige otra opción.
+    > ![Creación de un clúster de AKS: opciones preestablecidas del portal](media/kubernetes-walkthrough-portal/cluster-preset-options.png)
 
 4. Seleccione **Siguiente: Grupos de nodos** cuando haya terminado.
 
@@ -103,8 +107,9 @@ Para administrar un clúster de Kubernetes, use [kubectl][kubectl], el cliente d
     La salida muestra el nodo único creado en los pasos anteriores. Asegúrese de que el estado del nodo es *Listo*:
 
     ```output
-    NAME                       STATUS    ROLES     AGE       VERSION
-    aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-agentpool-12345678-vmss000000   Ready    agent   23m   v1.19.11
+    aks-agentpool-12345678-vmss000001   Ready    agent   24m   v1.19.11
     ```
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
@@ -273,7 +278,7 @@ Se muestran los contenedores `azure-vote-back` y `azure-vote-front`, como se ilu
 
 ![Visualización del estado de ejecución de contenedores en AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Para ver los registros del pod `azure-vote-front`, seleccione el vínculo **Ver registros del contenedor** en el menú desplegable de la lista de contenedores. Estos registros incluyen los flujos *stdout* y *stderr* del contenedor.
+Para ver los registros del pod `azure-vote-front`, seleccione **Ver en Log Analytics** en la parte superior del área *azure-vote-front | Información general* en el lado derecho. Estos registros incluyen los flujos *stdout* y *stderr* del contenedor.
 
 ![Visualización de los registros de contenedores en AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
@@ -318,4 +323,5 @@ Para más información sobre AKS con un recorrido por un ejemplo completo, con l
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[preset-config]: ./quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
 [sp-delete]: kubernetes-service-principal.md#additional-considerations

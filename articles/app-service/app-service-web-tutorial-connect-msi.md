@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 465e5c3c1f95004ec8fc3e46bd24274f18330e2a
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: dcdb702cb3c4c4dfb26f4ad1c21bbc89373227a6
+ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110576509"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113516301"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada
 
@@ -144,29 +144,63 @@ Escriba `Ctrl+F5` para ejecutar la aplicación de nuevo. Ahora, la misma aplicac
 En Visual Studio, abra la consola del administrador de paquetes y agregue el paquete NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
+Install-Package Microsoft.Data.SqlClient -Version 2.1.2
+Install-Package Azure.Identity -Version 1.4.0
 ```
 
 En el [tutorial de ASP.NET Core y SQL Database](tutorial-dotnetcore-sqldb-app.md), la cadena de conexión `MyDbConnection` no se usa porque el entorno de desarrollo local utiliza un archivo de base de datos de SQLite y el entorno de producción de Azure usa una cadena de conexión de App Service. Con la autenticación de Active Directory, es conveniente que ambos entornos usen la misma cadena de conexión. En *appsettings.json*, reemplace el valor de la cadena de conexión `MyDbConnection` por:
 
 ```json
-"Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
+"Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Device Code Flow; Database=<database-name>;"
 ```
 
-A continuación, proporcione el contexto de base de datos de Entity Framework con el token de acceso para la base de datos SQL Database. En *Data\MyDatabaseContext.cs*, agregue el código siguiente dentro de las llaves del constructor `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` vacío:
+> [!NOTE]
+> Se usa el tipo de autenticación `Active Directory Device Code Flow` porque es lo más parecido a una opción personalizada. Idealmente, estaría disponible un tipo `Custom Authentication`. Sin un término mejor para usar en este momento, se usa `Device Code Flow`.
+>
+
+A continuación, debe crear una clase de proveedor de autenticación personalizado para adquirir y proporcionar el token de acceso para SQL Database al contexto de base de datos de Entity Framework. En el directorio *Data\\* , agregue una nueva clase `CustomAzureSQLAuthProvider.cs` que contenga el código siguiente:
 
 ```csharp
-var connection = (SqlConnection)Database.GetDbConnection();
-connection.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+public class CustomAzureSQLAuthProvider : SqlAuthenticationProvider
+{
+    private static readonly string[] _azureSqlScopes = new[]
+    {
+        "https://database.windows.net//.default"
+    };
+
+    private static readonly TokenCredential _credential = new DefaultAzureCredential();
+
+    public override async Task<SqlAuthenticationToken> AcquireTokenAsync(SqlAuthenticationParameters parameters)
+    {
+        var tokenRequestContext = new TokenRequestContext(_azureSqlScopes);
+        var tokenResult = await _credential.GetTokenAsync(tokenRequestContext, default);
+        return new SqlAuthenticationToken(tokenResult.Token, tokenResult.ExpiresOn);
+    }
+
+    public override bool IsSupported(SqlAuthenticationMethod authenticationMethod) => authenticationMethod.Equals(SqlAuthenticationMethod.ActiveDirectoryDeviceCodeFlow);
+}
+```
+
+En *Startup.cs*, actualice el método `ConfigureServices()` por el código siguiente:
+
+```csharp
+services.AddControllersWithViews();
+services.AddDbContext<MyDatabaseContext>(options =>
+{
+    SqlAuthenticationProvider.SetProvider(
+        SqlAuthenticationMethod.ActiveDirectoryDeviceCodeFlow, 
+        new CustomAzureSQLAuthProvider());
+    var sqlConnection = new SqlConnection(Configuration.GetConnectionString("MyDatabaseContext"));
+    options.UseSqlServer(sqlConnection);
+});
 ```
 
 > [!NOTE]
 > Este código de demostración es sincrónico para mayor claridad y simplicidad.
 
-Eso es todo lo que necesita para conectarse a SQL Database. Al depurar en Visual Studio, el código utiliza el usuario de Azure AD que configuró en [Configuración de Visual Studio.](#set-up-visual-studio) Después, configurará SQL Database para permitir la conexión desde la identidad administrada de la aplicación App Service. La `AzureServiceTokenProvider` clase almacena el token en la memoria y lo recupera de Azure AD justo antes de que expire. Para actualizar el token no es necesario ningún código personalizado.
+En el código anterior se usa la biblioteca `Azure.Identity` para que pueda autenticarse y recuperar un token de acceso para la base de datos, independientemente de dónde se ejecute el código. Si la ejecución se realiza en el equipo local, `DefaultAzureCredential()` recorre en bucle varias opciones para buscar una cuenta válida que haya iniciado sesión. Puede leer más sobre la [clase DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
-> [!TIP]
-> Si el usuario de Azure AD que ha configurado tiene acceso a varios inquilinos, llame a `GetAccessTokenAsync("https://database.windows.net/", tenantid)` con el identificador de inquilino que desee para recuperar el token de acceso adecuado.
+Eso es todo lo que necesita para conectarse a SQL Database. Al depurar en Visual Studio, el código utiliza el usuario de Azure AD que configuró en [Configuración de Visual Studio.](#set-up-visual-studio) Después, configurará SQL Database para permitir la conexión desde la identidad administrada de la aplicación App Service. La `DefaultAzureCredential` clase almacena el token en la memoria y lo recupera de Azure AD justo antes de que expire. Para actualizar el token no es necesario ningún código personalizado.
 
 Escriba `Ctrl+F5` para ejecutar la aplicación de nuevo. Ahora, la misma aplicación CRUD del explorador se conectará a Azure SQL Database directamente con la autenticación de Azure AD. Esta configuración permite ejecutar migraciones de base de datos desde Visual Studio.
 

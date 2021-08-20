@@ -7,13 +7,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/29/2021
-ms.openlocfilehash: 73162ebdb28f8b8fa743ea4bb310b92b64f27557
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/06/2021
+ms.openlocfilehash: 4d3e767b14ad60f703cde59ab69cfea3f60b3759
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076761"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436899"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copia masiva de varias tablas mediante Azure Data Factory en Azure Portal
 
@@ -83,7 +83,7 @@ Para comprobar y activar esta configuración, vaya al servidor > Seguridad > Fir
 1. Haga clic en **Crear**.
 1. Una vez que finalice la creación, seleccione **Ir al recurso** para ir a la página de **Data Factory**. 
    
-1. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de la interfaz de usuario de Data Factory en una pestaña independiente.
+1. Seleccione **Abrir** en el icono **Abrir Azure Data Factory Studio** para iniciar la aplicación de interfaz de usuario de Data Factory en una pestaña independiente.
 
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
@@ -254,7 +254,7 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
     1. Haga clic en el cuadro de entrada **Script previo a la copia** -> seleccione el vínculo **Agregar contenido dinámico** que aparece a continuación -> escriba la siguiente expresión como script -> seleccione **Finalizar**. 
 
         ```sql
-        IF EXISTS (SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}) TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
+        IF EXISTS (SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]) TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
         ![Copia de la configuración del receptor](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)

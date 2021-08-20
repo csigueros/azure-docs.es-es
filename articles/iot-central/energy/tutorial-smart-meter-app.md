@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d9b5af45ab9a1003cc25e8b1ea2059b83bc715c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42e88d322bd4d2b174d7a52e4892970caf5b1a5e
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99833310"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963246"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Creación y recorrido de la plantilla de aplicación de supervisión de medidores inteligentes 
 
@@ -27,7 +27,7 @@ Este tutorial le guía por el proceso de creación de la aplicación de supervis
 
 Si no tiene ninguna suscripción, [cree una cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 - None
 - Le recomendamos que use una suscripción a Azure para la aprueba, aunque no es obligatorio.
 
@@ -63,7 +63,7 @@ Para verificar la creación de la aplicación y la simulación de datos, vaya al
 Una vez que implemente la plantilla de la aplicación correctamente, esta incluirá un dispositivo de ejemplo de medidores inteligentes, un modelo de dispositivo y un panel. 
 
 Adatum es una compañía energética ficticia que supervisa y administra los medidores inteligentes. En el panel de supervisión de medidores inteligentes, verá propiedades, datos y comandos de ejemplo de los medidores inteligentes. Este permite que los operadores y los equipos de soporte técnico realicen de forma proactiva las actividades siguientes antes de que se produzcan incidentes de soporte técnico: 
-* Revisar la información más reciente del medidor y la ubicación de su instalación en el mapa
+* Revisar la información más reciente del medidor y la [ubicación](../core/howto-use-location-data.md) de su instalación en el mapa
 * Comprobar de manera proactiva la red del medidor y el estado de la conexión 
 * Supervisar las lecturas de voltaje mínimas y máximas para el estado de la red 
 * Revisar las tendencias de energía, alimentación y voltaje para detectar cualquier patrón anómalo 

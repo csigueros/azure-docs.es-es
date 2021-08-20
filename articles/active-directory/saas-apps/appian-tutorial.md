@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/17/2020
+ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: aef8eb429bf772dff4d4b0de629cb1118b140e10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c2ac93e198dc9f8f3e7f2d2e5038e6ad25003e6
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180394"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457613"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-appian"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Appian
 
@@ -26,12 +26,15 @@ En este tutorial, aprenderá a integrar Appian con Azure Active Directory (Azure
 * Permitir que los usuarios inicien sesión automáticamente en Appian con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Appian.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -50,7 +53,6 @@ Para configurar la integración de Appian en Azure AD, es preciso agregar la ap
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Appian** en el cuadro de búsqueda.
 1. Seleccione **Appian** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-appian"></a>Configuración y prueba del inicio de sesión único de Azure AD para Appian
 
@@ -71,11 +73,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **Appian**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.appiancloud.com`
 
@@ -95,6 +97,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar Appian**, copie las direcciones URL adecuadas en función de sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -145,7 +148,6 @@ En esta sección va a permitir que B.Simon acceda a Appian mediante el inicio de
 
 1.  Después de comprobar que puede iniciar sesión, haga clic en **Save Changes** (Guardar cambios).
 
-
 ### <a name="create-appian-test-user"></a>Creación de un usuario de prueba de Appian
 
 En esta sección, se creará una usuaria llamado Britta Simon en Appian. Appian admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe en Appian, se creará uno después de la autenticación.
@@ -162,10 +164,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 
-* Haga clic en **Probar esta aplicación** en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de Appian para la que configuró el inicio de sesión único. 
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Appian para la que ha configurado el inicio de sesión único. 
 
-También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Cuando haga clic en el icono de Appian en el panel de acceso, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si está configurado en modo IDP, debería iniciarse sesión automáticamente en la instancia de Appian para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
-
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Appian en Mis aplicaciones, si ha realizado la configuración en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión. Si ha realizado la configuración en modo IDP, debería iniciar sesión automáticamente en la instancia de Appian para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

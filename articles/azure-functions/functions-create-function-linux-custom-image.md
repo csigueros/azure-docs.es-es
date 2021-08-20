@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: 3eb0c54fda14711e45af3974638d53807994df91
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f3f4af97309326fe761ea58a7927df19522e4f60
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459617"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486758"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creación de una función en Linux con un contenedor personalizado
 
@@ -116,7 +116,7 @@ El parámetro `-DjavaVersion` indica al entorno de ejecución de Functions qué 
 Maven le pide los valores necesarios para finalizar la generación del proyecto en la implementación.   
 Indique los siguientes valores cuando se le solicite:
 
-| Prompt | Valor | Descripción |
+| Prompt | Value | Descripción |
 | ------ | ----- | ----------- |
 | **groupId** | `com.fabrikam` | Un valor que identifica de forma única su proyecto entre todos los demás y que sigue las [reglas de nomenclatura de paquetes](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de Java. |
 | **artifactId** | `fabrikam-functions` | Un valor que es el nombre del archivo jar, sin un número de versión. |
@@ -407,6 +407,9 @@ Una aplicación de funciones en Azure administra la ejecución de las funciones 
     ::: zone-end
     
     El parámetro *deployment-container-image-name* especifica la imagen que se va a usar para la aplicación de funciones. Puede usar el comando [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) para ver información sobre la imagen que se utilizó en la implementación. También puede usar el comando [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) para realizar la implementación desde una imagen diferente.
+    
+    > [!TIP]  
+    > Puede usar el [valor `DisableColor`](functions-host-json.md#console) del archivo host.json para evitar que se escriban caracteres de control ANSI en los registros de contenedor. 
 
 1. Muestre la cadena de conexión para la cuenta de almacenamiento que creó mediante el comando [az storage account show-connection-string](/cli/azure/storage/account). Reemplace `<storage-name>` por el nombre de la cuenta de almacenamiento que creó anteriormente:
 

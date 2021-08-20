@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: ecbad0a8c23bd2781373923ffa470a06509ee852
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 29a7865a06fd96ce4d27892775fb5af728633a02
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112038990"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982481"
 ---
 # <a name="microsoft-news-recommendation"></a>Recomendaciones de Microsoft News
 
@@ -102,7 +102,7 @@ Por algunos motivos, al extraer la inserción del subgráfico, algunas entidades
 
 ## <a name="storage-location"></a>Ubicación de almacenamiento
 
-Los datos se almacenan en blobs en el centro de datos Oeste/Este de EE. UU., en el siguiente contenedor de blobs: https://mind201910small.blob.core.windows.net/release/.
+Los datos se almacenan en blobs en el centro de datos Oeste/Este de EE. UU., en el siguiente contenedor de blobs: "https://mind201910small.blob.core.windows.net/release/".
 
 Dentro del contenedor, los conjuntos de entrenamiento y validación se comprimen en los archivos MINDlarge_train.zip y MINDlarge_dev.zip, respectivamente.
 

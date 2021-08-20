@@ -6,13 +6,13 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 310182a3b46f0682efe420387bba0da311707e8a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 07/05/2021
+ms.openlocfilehash: a7730a12f6e017c23e5007b030cb4b6b05be4761
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606606"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436285"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carga de datos incremental de Azure SQL Database a Azure Blob Storage mediante Azure Portal
 
@@ -170,15 +170,16 @@ END
 8. Haga clic en **Crear**.      
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono de creación y supervisión":::
-10. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono Abrir Azure Data Factory Studio.":::
+
+10. Seleccione **Abrir** en el icono **Abrir Azure Data Factory Studio** para iniciar la aplicación de interfaz de usuario (IU) de Azure Data Factory en una pestaña independiente.
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 En este tutorial, creará una canalización con dos actividades de búsqueda, una actividad de copia y un procedimiento almacenado encadenada en una canalización.
 
-1. En la página de **introducción** de la interfaz de usuario de Data Factory, haga clic en el icono **Create pipeline** (Crear canalización).
+1. En la página principal de la interfaz de usuario de Data Factory, haga clic en el icono **Orquestar.**
 
-   ![Página de introducción de la interfaz de usuario de Data Factory](./media/doc-common-process/get-started-page.png)    
+   ![Captura de pantalla en la que se muestra la página principal de la interfaz de usuario de Data Factory.](./media/doc-common-process/get-started-page.png)    
 3. En el panel General, en **Propiedades**, especifique **IncrementalCopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 
 4. Agreguemos la primera actividad de búsqueda para recuperar el valor de marca de agua anterior. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones. Cambie el nombre de la actividad a **LookupOldWaterMarkActivity**.

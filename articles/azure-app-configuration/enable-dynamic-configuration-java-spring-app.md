@@ -9,27 +9,27 @@ ms.topic: tutorial
 ms.date: 12/09/2020
 ms.custom: devx-track-java
 ms.author: mametcal
-ms.openlocfilehash: 590f221b0a4980d462267dd8c3a73ca7d02583fd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 22214c6113d182363ccd86d9e79dac971eb0e432
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625524"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465823"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de Java Spring
 
-App Configuration tiene dos bibliotecas para Spring. `spring-cloud-azure-appconfiguration-config` requiere Spring Boot y tiene una dependencia de `spring-cloud-context`. `spring-cloud-azure-appconfiguration-config-web` requiere Spring Web junto con Spring Boot. Ambas bibliotecas admiten el desencadenamiento manual para comprobar los valores de configuración actualizados. `spring-cloud-azure-appconfiguration-config-web` también agrega compatibilidad con la comprobación automática de la actualización de la configuración.
+App Configuration tiene dos bibliotecas para Spring. `azure-spring-cloud-appconfiguration-config` requiere Spring Boot y tiene una dependencia de `spring-cloud-context`. `azure-spring-cloud-appconfiguration-config-web` requiere Spring Web junto con Spring Boot. Ambas bibliotecas admiten el desencadenamiento manual para comprobar los valores de configuración actualizados. `azure-spring-cloud-appconfiguration-config-web` también agrega compatibilidad con la comprobación automática de la actualización de la configuración.
 
-La actualización permite actualizar los valores de configuración sin tener que reiniciar la aplicación, aunque hará que se vuelvan a crear todas los beans de `@RefreshScope`. La biblioteca de cliente almacena en memoria caché un identificador hash de las configuraciones cargadas actualmente para evitar demasiadas llamadas al almacén de configuración. La operación de actualización no actualiza el valor hasta que haya expirado el valor almacenado en caché, incluso cuando el valor cambia en el almacén de configuración. El tiempo de expiración predeterminado de cada solicitud es de 30 segundos. Si es necesario, se puede invalidar.
+La actualización permite actualizar los valores de configuración sin tener que reiniciar la aplicación, aunque hará que se vuelvan a crear todas los beans de `@RefreshScope`. La biblioteca de cliente almacena en caché un identificador hash de las configuraciones cargadas actualmente para evitar demasiadas llamadas al almacén de configuración. La operación de actualización no actualiza el valor hasta que haya expirado el valor almacenado en caché, incluso cuando el valor cambia en el almacén de configuración. El tiempo de expiración predeterminado de cada solicitud es de 30 segundos. Si es necesario, se puede invalidar.
 
-La actualización automatizada de `spring-cloud-azure-appconfiguration-config-web` se desencadena en función de la actividad, específicamente de `ServletRequestHandledEvent` de Spring Web. Si no se desencadena un evento `ServletRequestHandledEvent`, la actualización automatizada de `spring-cloud-azure-appconfiguration-config-web` no desencadenará una actualización aunque haya expirado la fecha de expiración de la caché.
+La actualización automatizada de `azure-spring-cloud-appconfiguration-config-web` se desencadena en función de la actividad, específicamente de `ServletRequestHandledEvent` de Spring Web. Si no se desencadena un evento `ServletRequestHandledEvent`, la actualización automatizada de `azure-spring-cloud-appconfiguration-config-web` no desencadenará una actualización aunque haya expirado la fecha de expiración de la caché.
 
 ## <a name="use-manual-refresh"></a>Uso de la actualización manual
 
 App Configuration expone `AppConfigurationRefresh` que se puede usar para comprobar si la memoria caché ha expirado y, si ha expirado, desencadenar una actualización.
 
 ```java
-import com.microsoft.azure.spring.cloud.config.AppConfigurationRefresh;
+import com.azure.spring.cloud.config.AppConfigurationRefresh;
 
 ...
 
@@ -49,29 +49,37 @@ public void myConfigurationRefreshCheck() {
 
 Para usar la actualización automatizada, comience con una aplicación de Spring Boot que usa App Configuration, como la aplicación que se crea siguiendo las indicaciones del [inicio rápido de Spring Boot con App Configuration](quickstart-java-spring-app.md).
 
-Abra el archivo *pom.xml* en un editor de texto y agregue `<dependency>` para `spring-cloud-azure-appconfiguration-config-web`.
+Después, abra el archivo *pom.xml* en un editor de texto y agregue `<dependency>` para `azure-spring-cloud-appconfiguration-config-web` mediante el código siguiente.
 
-**Spring Cloud 1.1.x**
-
-```xml
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.1.5</version>
-</dependency>
-```
-
-**Spring Cloud 1.2.x**
+**Spring Boot**
 
 ```xml
 <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.2.7</version>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
+    <version>2.0.0</version>
 </dependency>
 ```
 
-## <a name="run-and-test-the-app-locally"></a>Ejecución y prueba local de la aplicación
+> [!NOTE]
+> Si necesita admitir dependencias anteriores, vea nuestra [biblioteca anterior](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md).
+
+1. Actualización de `bootstrap.properties` para habilitar las métricas
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled=true
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key=sentinel
+    ```
+
+1. Abra **Azure Portal** y vaya al recurso de App Configuration asociado a la aplicación. Seleccione **Explorador de configuración** en **Operaciones** y, después, **+ Crear** > **Par clave-valor** para crear un par clave-valor y agregar los parámetros siguientes:
+
+    | Clave | Value |
+    |---|---|
+    | centinela | 1 |
+
+    Deje **Etiqueta** y **Tipo de contenido** en blanco, por ahora.
+
+1. Seleccione **Aplicar**.
 
 1. Compile la aplicación de Spring Boot con Maven y ejecútela.
 
@@ -82,8 +90,8 @@ Abra el archivo *pom.xml* en un editor de texto y agregue `<dependency>` para `s
 
 1. Abra una ventana del explorador y vaya a la dirección URL: `http://localhost:8080`.  Verá el mensaje asociado con la clave.
 
-    También puede usar *curl* para probar la aplicación, por ejemplo: 
-    
+    También puede usar *curl* para probar la aplicación, por ejemplo:
+
     ```cmd
     curl -X GET http://localhost:8080/
     ```
@@ -92,7 +100,13 @@ Abra el archivo *pom.xml* en un editor de texto y agregue `<dependency>` para `s
 
     | Clave | Value |
     |---|---|
-    | application/config.message | Hello: actualizado |
+    | /application/config.message | Hello: actualizado |
+
+1. Actualice a un nuevo valor la clave de Sentinel que ha creado antes. Este cambio hará que la aplicación actualice todas las claves de configuración una vez que haya transcurrido el intervalo de actualización.
+
+    | Clave | Value |
+    |---|---|
+    | centinela | 2 |
 
 1. Actualice la página del explorador para ver el nuevo mensaje que se muestra.
 

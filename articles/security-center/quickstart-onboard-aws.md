@@ -7,12 +7,12 @@ ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8721b9d25ce8d512dae31352db343af6385dadda
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 6450907ca888a01acaed90abeb6c3cdd02e32834
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113005535"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486938"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Conexión de las cuentas de AWS a Azure Security Center
 
@@ -42,7 +42,7 @@ En la captura de pantalla siguiente puede ver que se muestran cuentas de AWS en 
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
 |Roles y permisos necesarios:|**Propietario** en la suscripción de Azure en cuestión<br>Un **colaborador** también puede conectar una cuenta de AWS si un propietario proporciona los detalles de la entidad de servicio.|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, Azure China)|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (US Gov, Azure China)|
 |||
 
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: fdedffff216368857d485c22a0f1afe8861ffc42
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 51908deb8e24ce7106b937450683309046440ae7
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003573"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487316"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Introducción a Azure Defender para Key Vault
 
@@ -27,7 +27,7 @@ Habilite **Azure Defender para Key Vault** para la protección frente a amenazas
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|**Azure Defender para Key Vault** se factura como se indica en [Precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, Azure China)|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (US Gov, Azure China)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-key-vault"></a>¿Cuáles son las ventajas de Azure Defender para Key Vault?

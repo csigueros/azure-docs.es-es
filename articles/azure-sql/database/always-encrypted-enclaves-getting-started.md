@@ -1,7 +1,6 @@
 ---
-title: 'Tutorial: Introducción a Always Encrypted con enclaves seguros en Azure SQL Database'
+title: 'Tutorial: Introducción a Always Encrypted con enclaves seguros'
 description: En este tutorial aprenderá a crear un entono básico de Always Encrypted con enclaves seguros en Azure SQL Database, a cifrar los datos en contexto y a emitir consultas confidenciales enriquecidas en columnas cifradas mediante SQL Server Management Studio (SSMS).
-keywords: cifrar datos, cifrado sql, cifrado de base de datos, datos confidenciales, Always Encrypted, enclaves seguros, SGX, atestación
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,20 +9,17 @@ ms.topic: tutorial
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 05/01/2021
-ms.openlocfilehash: 71e90e0afc3bc976ed65eb0ef59c76781490bdc1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 07/14/2021
+ms.openlocfilehash: dd8fc18b8f24a6164830dda6044c1b03151eb180
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457263"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727371"
 ---
 # <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>Tutorial: Introducción a Always Encrypted con enclaves seguros en Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Always Encrypted con enclaves seguros para Azure SQL Database está actualmente en **versión preliminar pública**.
 
 En este tutorial se explica cómo empezar a trabajar con [Always Encrypted con enclaves seguros](/sql/relational-databases/security/encryption/always-encrypted-enclaves) en Azure SQL Database. En él encontrará:
 
@@ -71,7 +67,7 @@ Para seguir interactuando con la Galería de PowerShell, ejecute el siguiente co
 
 ## <a name="step-1-create-and-configure-a-server-and-a-dc-series-database"></a>Paso 1: Creación y configuración de un servidor y una base de datos de la serie DC
 
-En este paso, creará un nuevo servidor lógico y una nueva base de datos de Azure SQL Database con la generación de hardware de la serie DC, requerida para Always Encrypted con enclaves seguros. Para más información, consulte [Serie DC](service-tiers-vcore.md#dc-series).
+En este paso, creará un nuevo servidor lógico y una nueva base de datos de Azure SQL Database con la generación de hardware de la serie DC, requerida para Always Encrypted con enclaves seguros. Para más información, consulte [Serie DC](service-tiers-sql-database-vcore.md#dc-series).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -90,7 +86,7 @@ En este paso, creará un nuevo servidor lógico y una nueva base de datos de Azu
    - **Contraseña**: escriba una contraseña que cumpla los requisitos y escríbala de nuevo en el campo **Confirmar contraseña**.
    - **Ubicación**: Seleccione una ubicación en la lista desplegable.
       > [!IMPORTANT]
-      > Debe seleccionar una ubicación (una región de Azure) que admita la generación de hardware de la serie DC y Microsoft Azure Attestation. Para obtener la lista de regiones que admiten la serie DC, consulte [Disponibilidad de la serie DC](service-tiers-vcore.md#dc-series-1). [Esta](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) es la disponibilidad regional de Microsoft Azure Attestation.
+      > Debe seleccionar una ubicación (una región de Azure) que admita la generación de hardware de la serie DC y Microsoft Azure Attestation. Para obtener la lista de regiones que admiten la serie DC, consulte [Disponibilidad de la serie DC](service-tiers-sql-database-vcore.md#dc-series). [Esta](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) es la disponibilidad regional de Microsoft Azure Attestation.
 
    Seleccione **Aceptar**.
 1. Deje **¿Quiere usar un grupo elástico de SQL?** establecido en **No**.
@@ -135,7 +131,7 @@ En este paso, creará un nuevo servidor lógico y una nueva base de datos de Azu
 1. Crear un grupo de recursos.
 
    > [!IMPORTANT]
-   > Debe crear el grupo de recursos en una región (ubicación) que admita la generación de hardware de la serie DC y Microsoft Azure Attestation. Para obtener la lista de regiones que admiten la serie DC, consulte [Disponibilidad de la serie DC](service-tiers-vcore.md#dc-series-1). [Esta](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) es la disponibilidad regional de Microsoft Azure Attestation.
+   > Debe crear el grupo de recursos en una región (ubicación) que admita la generación de hardware de la serie DC y Microsoft Azure Attestation. Para obtener la lista de regiones que admiten la serie DC, consulte [Disponibilidad de la serie DC](service-tiers-sql-database-vcore.md#dc-series). [Esta](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) es la disponibilidad regional de Microsoft Azure Attestation.
 
    ```powershell
    $resourceGroupName = "<your new resource group name>"
@@ -436,6 +432,6 @@ Después de completar este tutorial, puede ir a uno de los siguientes tutoriales
 - [Tutorial: Desarrollo de una aplicación de .NET Framework mediante Always Encrypted con enclaves seguros](/sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps)
 - [Tutorial: Creación y uso de índices en columnas basadas en enclave mediante cifrado aleatorio](/sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption)
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 - [Configuración y uso de Always Encrypted con enclaves seguros](/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)

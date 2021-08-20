@@ -7,13 +7,13 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 04/07/2021
-ms.openlocfilehash: 5f0552e09464a6b571a665cfe3895f48c3aa8c41
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.date: 07/09/2021
+ms.openlocfilehash: 1e0f7c133a0ac0091355cba20d251333e6402212
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258459"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463546"
 ---
 # <a name="preview-features-for-postgresql---hyperscale-citus"></a>Características en versión preliminar de Hiperescala (Citus) de PostgreSQL
 
@@ -32,9 +32,11 @@ Estas son las características disponibles actualmente para la versión prelimin
   Almacene las columnas de las tablas seleccionadas (en lugar de las filas) de forma contigua en el disco. Se admite la compresión en disco. Adecuado para cargas de trabajo de análisis y almacenamiento de datos.
 * **[Réplicas de lectura](howto-hyperscale-read-replicas-portal.md)** (actualmente solo en la misma región). Los cambios que se realicen en el grupo de servidores principal se reflejarán en su réplica y las consultas en la réplica no provocarán ninguna carga adicional en el original.
   Las réplicas son una herramienta útil para mejorar el rendimiento de las cargas de trabajo de solo lectura.
-* **[PgBouncer administrado](concepts-hyperscale-limits.md#managed-pgbouncer-preview)** .
+* **[PgBouncer administrado](concepts-hyperscale-connection-pool.md)** .
   Un agrupador de conexiones que permite a muchos clientes conectarse al grupo de servidores a la vez, a la vez que limita el número de conexiones activas. Satisface las solicitudes de conexión y mantiene el nodo de coordinación con una ejecución sin problemas.
 * **[pgAudit](concepts-hyperscale-audit.md)** . Proporciona un registro detallado de auditoría de objetos y sesiones mediante la utilidad de registro estándar de PostgreSQL. Genera los registros de auditoría necesarios para pasar determinadas auditorías de certificación gubernamentales, financieras o ISO.
+* **[UDF create_extension()](concepts-hyperscale-extensions.md#use-postgresql-extensions)** .
+  Permite crear extensiones para cuya instalación se necesita acceso administrativo.
 
 ### <a name="available-regions-for-preview-features"></a>Regiones disponibles para las características en versión preliminar
 

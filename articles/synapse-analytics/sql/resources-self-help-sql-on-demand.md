@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 848f5f13218fde513bf48575c2f9bb298521d3ad
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: f6f653478dea84ecb3951b4c313f0f7604733b88
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113214756"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292895"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Autoayuda para grupos de SQL sin servidor
 
@@ -42,7 +42,7 @@ Si el problema continúa, cree una [incidencia de soporte técnico](../../azure-
 ### <a name="query-fails-because-file-cannot-be-opened"></a>Se produce un error en la consulta porque no se puede abrir el archivo
 
 Si aparece en la consulta un error que indica que no se puede abrir el archivo porque no existe o porque lo está usando otro proceso, y está seguro de que el archivo existe y que no lo usa ningún otro proceso, significa que el grupo de SQL sin servidor no puede acceder al archivo. Este problema suele ocurrir porque la identidad de Azure Active Directory no tiene derechos para acceder al archivo o porque un firewall bloquea el acceso al archivo. De forma predeterminada, el grupo de SQL sin servidor intenta acceder al archivo mediante su identidad de Azure Active Directory. Para resolver este problema, debe tener los derechos adecuados para acceder al archivo. La manera más fácil es concederse el rol "Colaborador de datos de blobs de almacenamiento" en la cuenta de almacenamiento que está intentando consultar. 
-- [Visite la guía completa sobre el control de acceso de Azure Active Directory para el almacenamiento para más información](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Visite la guía completa sobre el control de acceso de Azure Active Directory para el almacenamiento para más información](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visite Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 #### <a name="alternative-to-storage-blob-data-contributor-role"></a>Alternativa al rol Colaborador de datos de Storage Blob
@@ -86,6 +86,12 @@ Si la consulta no se puede ejecutar y aparece un mensaje de error en el que se i
 - Si la consulta se dirige a archivos CSV, considere la posibilidad de [crear estadísticas](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Para optimizar la consulta, visite [los procedimientos recomendados para mejorar el rendimiento en los grupos de SQL sin servidor](./best-practices-serverless-sql-pool.md).  
+
+### <a name="could-not-allocate-tempdb-space-while-transferring-data-from-one-distribution-to-another"></a>No se pudo asignar espacio de tempdb al transferir datos de una distribución a otra.
+
+Este error es un caso especial de un [error en la consulta porque no se puede ejecutar debido a las restricciones de recursos actuales](#query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints). Este error se devuelve cuando los recursos asignados a la base de datos `tempdb` no son suficientes para ejecutar la consulta. 
+
+Aplique la misma mitigación y los procedimientos recomendados antes de presentar una incidencia de soporte técnico.
 
 ### <a name="query-fails-with-error-while-handling-an-external-file"></a>Se produce un error en la consulta al controlar un archivo externo. 
 
@@ -446,6 +452,25 @@ Cree una base de datos independiente y haga referencia a las [tablas](../metadat
 
 ## <a name="cosmos-db"></a>Cosmos DB
 
+En la tabla siguiente se enumeran los posibles errores y las acciones para solucionar problemas.
+
+| Error | Causa principal |
+| --- | --- |
+| Errores de sintaxis:<br/> - Sintaxis incorrecta cerca de `Openrowset`<br/> - `...` no es una opción de proveedor `BULK OPENROWSET` reconocida.<br/> - Sintaxis incorrecta cerca de `...` | Posibles causas principales:<br/> - No se usa CosmosDB como el primer parámetro.<br/> - Se usa un literal de cadena, en lugar de un identificador en el tercer parámetro.<br/> - No se especifica el tercer parámetro (nombre del contenedor). |
+| Se produjo un error en la cadena de conexión de CosmosDB. | - No se ha especificado la cuenta, la base de datos ni la clave. <br/> - Hay una opción en una cadena de conexión que no se reconoce.<br/> - Un signo de punto y coma (`;`) se coloca al final de la cadena de conexión. |
+| Error al resolver la ruta de acceso de CosmosDB: "Nombre de cuenta incorrecto" o "Nombre de base de datos incorrecto". | No se encuentra el nombre de cuenta, el nombre de la base de datos o el contenedor especificados, o bien no se han habilitado el almacenamiento analítico para la colección especificada.|
+| Error al resolver la ruta de acceso de CosmosDB: "Valor de secreto incorrecto" o "El secreto es nulo o está vacío". | La clave de cuenta falta o no es válida. |
+| La columna `column name` del tipo `type name` no es compatible con el tipo de datos externo `type name`. | El tipo de columna especificado en la cláusula `WITH` no coincide con el tipo del contenedor de Azure Cosmos DB. Intente cambiar el tipo de columna como se describe en la sección [Asignaciones de Azure Cosmos DB a tipos de SQL](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings) o use el tipo `VARCHAR`. |
+| La columna contiene valores `NULL` en todas las celdas. | Es posible que el nombre de columna o la expresión de la ruta de acceso sean incorrectos en la cláusula `WITH`. El nombre de columna, o la expresión de la ruta de acceso después del tipo de columna, de la cláusula `WITH` debe coincidir con el nombre de alguna propiedad de la colección de Azure Cosmos DB. La comparación *distingue mayúsculas de minúsculas*. Por ejemplo, `productCode` y `ProductCode` son propiedades diferentes. |
+
+Puede informar sugerencias y problemas en la [página de comentarios de Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
+
+### <a name="utf-8-collation-warning-is-returned-while-reading-cosmosdb-string-types"></a>Se devuelve una advertencia de intercalación de UTF-8 al leer los tipos de cadena de CosmosDB
+
+Un grupo de SQL sin servidor devolverá una advertencia en tiempo de compilación si la intercalación de columnas `OPENROWSET` no tiene codificación UTF-8. Puede cambiar fácilmente la intercalación predeterminada de todas las funciones `OPENROWSET` que se ejecutan en la base de datos actual mediante la instrucción T-SQL `alter database current collate Latin1_General_100_CI_AS_SC_UTF8`.
+
+La [intercalación Latin1_General_100_BIN2_UTF8](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) ofrece el mejor rendimiento al filtrar los datos mediante predicados de cadena.
+
 ### <a name="some-rows-are-not-returned"></a>No se devuelven algunas filas
 
 - Hay un retraso en la sincronización entre el almacén transaccional y analítico. El documento que escribió en el almacén transaccional de Cosmos DB podría aparecer en el almacén analítico al cabo de 2 o 3 minutos.
@@ -464,7 +489,7 @@ Synapse SQL devolverá `NULL` en lugar de los valores que ve en el almacén de t
 
 El valor especificado en la cláusula `WITH` no coincide con los tipos de Cosmos DB subyacentes en el almacenamiento analítico y no se puede convertir implícitamente. Use el tipo `VARCHAR` en el esquema.
 
-### <a name="performance-issues"></a>Problemas de rendimiento
+### <a name="cosmosdb-performance-issues"></a>Incidencias de rendimiento de CosmosDB
 
 Si experimenta algunos problemas de rendimiento inesperados, asegúrese de aplicar los procedimientos recomendados, como:
 - Asegúrese de que ha colocado la aplicación cliente, el grupo sin servidor y el almacenamiento analítico de Cosmos DB en [la misma región](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool).
@@ -480,8 +505,8 @@ La compatibilidad con Delta Lake se encuentra actualmente en versión preliminar
   - No especifique caracteres comodín para describir el esquema de partición. La consulta de Delta Lake identificará automáticamente las particiones de Delta Lake. 
 - Las tablas de Delta Lake creadas en los grupos de Apache Spark no se sincronizan en el grupo de SQL sin servidor. No se pueden consultar tablas de Delta Lake de grupos de Apache Spark mediante el lenguaje T-SQL.
 - Las tablas externas no admiten la creación de particiones. Use [vistas con particiones](create-use-views.md#delta-lake-partitioned-views) en la carpeta de Delta Lake para aprovechar la eliminación de particiones. Consulte a continuación los problemas conocidos y las soluciones alternativas.
-- Los grupos de SQL sin servidor no admiten consultas de viaje en el tiempo. Puede votar por esta característica en el [sitio de comentarios de Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake).
-- Los grupos de SQL sin servidor no admiten la actualización de archivos de Delta Lake. Puede usar el grupo de SQL sin servidor para consultar la versión más reciente de Delta Lake. Use grupos de Apache Spark en Azure Synapse Analytics [para actualizar Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) o [leer datos históricos](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Los grupos de SQL sin servidor no admiten consultas de viaje en el tiempo. Puede votar por esta característica en el [sitio de comentarios de Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Use grupos de Apache Spark en Azure Synapse Analytics para [leer datos históricos](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Los grupos de SQL sin servidor no admiten la actualización de archivos de Delta Lake. Puede usar el grupo de SQL sin servidor para consultar la versión más reciente de Delta Lake. Use grupos de Apache Spark en Azure Synapse Analytics para [actualizar Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
 - La compatibilidad con Delta Lake no está disponible en grupos de SQL dedicados. Asegúrese de que usa grupos sin servidor para consultar archivos de Delta Lake.
 
 Puede proponer ideas y mejoras en el [sitio de comentarios de Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
@@ -509,14 +534,34 @@ FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0
 Si se produce un error en esta consulta, el autor de llamada no tiene permiso para leer los archivos del almacenamiento subyacente. 
 
 La manera más fácil es concederse el rol "Colaborador de datos de blobs de almacenamiento" en la cuenta de almacenamiento que está intentando consultar. 
-- [Visite la guía completa sobre el control de acceso de Azure Active Directory para el almacenamiento para más información](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Visite la guía completa sobre el control de acceso de Azure Active Directory para el almacenamiento para más información](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visite Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 ### <a name="partitioning-column-returns-null-values"></a>La columna de creación de particiones devuelve valores NULL
 
-Si usa vistas sobre la función `OPENROWSET` que lee la carpeta de Delta Lake con particiones, puede obtener el valor `NULL` en lugar de los valores de columna reales para las columnas de creación de particiones. Debido a este problema conocido, la función `OPENROWSET` con la cláusula `WITH` no puede leer columnas de creación de particiones. Las [vistas con particiones](create-use-views.md#delta-lake-partitioned-views) en Delta Lake no deben tener la función `OPENROWSET` con la cláusula `WITH`. Debe usar la función `OPENROWSET` que no tiene un esquema especificado explícitamente.
+Si usa vistas sobre la función `OPENROWSET` que lee la carpeta de Delta Lake con particiones, puede obtener el valor `NULL` en lugar de los valores de columna reales para las columnas de creación de particiones. En el ejemplo siguiente se muestra un ejemplo de una vista que hace referencia a las columnas de partición `Year` y `Month`:
 
-**Solución alternativa:** quite la cláusula `WITH` de la función `OPENROWSET` que se usa en las vistas.
+```sql
+create or alter view test as
+select top 10 * 
+from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
+                format = 'delta') 
+     with (ID int, Year int, Month int, Temperature float) 
+                as rows
+```
+
+Debido a este problema conocido, la función `OPENROWSET` con la cláusula `WITH` no puede leer los valores de las columnas de partición. Las [vistas con particiones](create-use-views.md#delta-lake-partitioned-views) en Delta Lake no deben tener la función `OPENROWSET` con la cláusula `WITH`. Debe usar la función `OPENROWSET` que no tiene un esquema especificado explícitamente.
+
+**Solución alternativa**: quite la cláusula `WITH` de la función `OPENROWSET` que se usa en las vistas; ejemplo:
+
+```sql
+create or alter view test as
+select top 10 * 
+from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
+                format = 'delta') 
+   --with (ID int, Year int, Month int, Temperature float) 
+                as rows
+```
 
 ### <a name="query-failed-because-of-a-topology-change-or-compute-container-failure"></a>Error de consulta debido a un cambio de topología o a un error del contenedor de proceso
 
@@ -527,7 +572,7 @@ CREATE DATABASE mydb
     COLLATE Latin1_General_100_BIN2_UTF8;
 ```
 
-Las consultas ejecutadas mediante la base de datos maestra se ven afectadas por este problema.
+Las consultas ejecutadas mediante la base de datos maestra se ven afectadas por este problema. Esto no es aplicable a todas las consultas que leen datos con particiones. Este problema afecta a los conjuntos de datos particionados por columnas de cadena.
 
 **Solución alternativa:** ejecute las consultas en una base de datos personalizada con la intercalación de base de datos `Latin1_General_100_BIN2_UTF8`.
 
@@ -535,7 +580,7 @@ Las consultas ejecutadas mediante la base de datos maestra se ven afectadas por 
 
 Está intentando leer archivos de Delta Lake que contienen algunas columnas de tipo anidado sin especificar la cláusula WITH (mediante la inferencia automática de esquemas). La inferencia automática de esquemas no funciona con las columnas anidadas en Delta Lake.
 
-**Solución alternativa:** use la cláusula `WITH` y asigne explícitamente el tipo `VARCHAR` a las columnas anidadas.
+**Solución alternativa:** use la cláusula `WITH` y asigne explícitamente el tipo `VARCHAR` a las columnas anidadas. Tenga en cuenta que esto no funcionará si el conjunto de datos tiene particiones, debido a otro problema conocido en el que la cláusula `WITH` devuelve `NULL` para las columnas de partición. Actualmente no se admiten conjuntos de datos con particiones con columnas de tipo complejo.
 
 ### <a name="cannot-find-value-of-partitioning-column-in-file"></a>No se encuentra el valor de la columna de partición en el archivo 
 
@@ -548,6 +593,31 @@ Cannot find value of partitioning column '<column name>' in file
 ```
 
 **Solución alternativa:** pruebe a actualizar el conjunto de datos de Delta Lake mediante grupos de Apache Spark y use algún valor (cadena vacía o `"null"`) en lugar de `null` en la columna de creación de particiones.
+
+### <a name="json-text-is-not-properly-formatted"></a>El texto JSON no tiene el formato correcto
+
+Este error indica que el grupo de SQL sin servidor no puede leer el registro de transacciones de Delta Lake. Probablemente verá un error como el siguiente:
+
+```
+Msg 13609, Level 16, State 4, Line 1
+JSON text is not properly formatted. Unexpected character '{' is found at position 263934.
+Msg 16513, Level 16, State 0, Line 1
+Error reading external metadata.
+```
+En primer lugar, asegúrese de que el conjunto de datos de Delta Lake no esté dañado.
+- Compruebe que puede leer el contenido de la carpeta de Delta Lake mediante el grupo de Apache Spark en el clúster de Synapse o Databricks. De este modo, se asegurará de que el archivo `_delta_log` no esté dañado.
+- Compruebe que puede leer el contenido de los archivos de datos especificando `FORMAT='PARQUET'` y usando el carácter comodín recursivo `/**` al final de la ruta de acceso del URI. Si puede leer todos los archivos Parquet, el problema se encuentra en la carpeta del registro de transacciones `_delta_log`.
+
+**Solución alternativa**: este problema puede producirse si usa alguna intercalación de base de datos `_UTF8`. Intente ejecutar una consulta en la base de datos `master` o en cualquier otra base de datos que tenga una intercalación que no sea UTF8. Si esta solución alternativa resuelve el problema, use una base de datos sin intercalación `_UTF8`.
+
+Si el conjunto de datos es válido y la solución alternativa no sirve de ayuda, envíe una incidencia de soporte técnico y proporcione una reproducción a Soporte técnico de Azure:
+- No realice ningún cambio, como agregar o quitar las columnas u optimizar la tabla, ya que esto podría cambiar el estado de los archivos de registro de transacciones de Delta Lake.
+- Copie el contenido de la carpeta `_delta_log` en una nueva carpeta vacía. **NO** copie los archivos `.parquet data`.
+- Intente leer el contenido que copió en la nueva carpeta y compruebe que recibe el mismo error.
+- Ahora puede seguir usando la carpeta de Delta Lake con el grupo de Spark. Si tiene permiso para compartir esto, proporcionará los datos copiados al servicio de soporte técnico de Microsoft.
+- Envíe el contenido del archivo copiado `_delta_log` a Soporte técnico de Azure.
+
+El equipo de Azure investigará el contenido del archivo `delta_log` y proporcionará más información sobre los posibles errores y las soluciones alternativas.
 
 ## <a name="constraints"></a>Restricciones
 

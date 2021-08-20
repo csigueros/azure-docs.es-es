@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de TeamViewer para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a aprovisionar y desaprovisionar de forma automática las cuentas de usuario de Azure AD para TeamViewer.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2020
-ms.author: Zhchia
-ms.openlocfilehash: 0362f0d69581c252170b4f37f8564caa7acd3d29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 76d5ad2e1e025583b122fbb117ccc0d5eb4e2a63
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182247"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759063"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutorial: Configuración de TeamViewer para el aprovisionamiento automático de usuarios
 
@@ -97,7 +97,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `ttps://webapi.teamviewer.com/scim/v2` en el campo **Tentant URL** (URL de inquilino) y especifique el token de script creado anteriormente en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a TeamViewer. Si la conexión no se establece, asegúrese de que la cuenta de TeamViewer tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://webapi.teamviewer.com/scim/v2` en el campo **URL de inquilino** y escriba el token de script creado anteriormente en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a TeamViewer. Si la conexión no se establece, asegúrese de que la cuenta de TeamViewer tiene permisos de administrador y pruebe de nuevo.
 
     ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/teamViewer-provisioning-tutorial/provisioning.png)
 

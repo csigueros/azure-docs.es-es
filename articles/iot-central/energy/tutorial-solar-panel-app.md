@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 509e31919dd974da253cd0478a70f889cc060fae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 369195e8dfce2440c2e34151e7de6b2d23edbad1
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831797"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963264"
 ---
 # <a name="tutorial-create-and-explore-the-solar-panel-monitoring-app-template"></a>Tutorial: Creación y tutorial de la plantilla de aplicación de supervisión de paneles solares 
 
@@ -64,7 +64,7 @@ Para verificar la creación de la aplicación y la simulación de datos, vaya al
 Después de implementar correctamente la plantilla de la aplicación, querrá explorar la aplicación un poco más. Observe que se incluyen el dispositivo medidor inteligente de ejemplo, el modelo de dispositivo y el panel.
 
 Adatum es una compañía energética ficticia que supervisa y administra paneles solares. En el panel de supervisión de paneles solares, verá propiedades, datos y comandos de ejemplo de los paneles solares. Este panel permite al usuario o al equipo de soporte técnico realizar las siguientes actividades de forma proactiva, antes de que los problemas requieran soporte técnico adicional:
-* Revisar la información más reciente del panel y la ubicación de su instalación en el mapa.
+* Revisar la información más reciente del panel y la [ubicación](../core/howto-use-location-data.md) de su instalación en el mapa.
 * Comprobar el estado del panel y el estado de la conexión.
 * Revisar las tendencias de generación de energía y temperatura para detectar cualquier patrón anómalo.
 * Realizar un seguimiento de la generación total de energía para fines de planeamiento y facturación.

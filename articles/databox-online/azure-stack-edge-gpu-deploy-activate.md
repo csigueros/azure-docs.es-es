@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/07/2020
+ms.date: 07/14/2021
 ms.author: alkohli
-ms.openlocfilehash: 8e88fb2f6f2fc9ad50911bfda2245cd95ae33236
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: fe1397b2853e95af715e4feb8423f7db3cf548f0
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058755"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219975"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Tutorial: Activación de Azure Stack Edge Pro con GPU
 
@@ -92,6 +92,26 @@ Antes de configurar e instalar el dispositivo de Azure Stack Edge Pro con GPU, a
 La activación del dispositivo se ha completado. Ahora puede agregar recursos compartidos en el dispositivo.
 
 Si encuentra algún problema durante la activación, vaya a [Solucionar problemas de activación y errores de Azure Key Vault](azure-stack-edge-gpu-troubleshoot-activation.md#activation-errors).
+
+
+
+## <a name="deploy-workloads"></a>Implementación de cargas de trabajo
+
+Después de activar el dispositivo, el siguiente paso consiste en implementar cargas de trabajo.
+
+- Para implementar cargas de trabajo de máquina virtual, vea [ ¿Qué son las máquinas virtuales en Azure Stack Edge?](azure-stack-edge-gpu-virtual-machine-overview.md) y la documentación de implementación de máquinas virtuales asociada.
+- Para implementar funciones de red como aplicaciones administradas:
+    - Asegúrese de crear un recurso de dispositivo para Azure Network Function Manager (NFM) que esté vinculado al recurso de Azure Stack Edge. El recurso de dispositivo agrega todas las funciones de red implementadas en el dispositivo de Azure Stack Edge. Para obtener instrucciones detalladas, vea [Tutorial: Creación de un recurso de dispositivo de Network Function Manager (versión preliminar)](../network-function-manager/create-device.md). 
+    - Después, puede implementar Network Function Manager según las instrucciones del [Tutorial: Implementación de funciones de red en Azure Stack Edge (versión preliminar)](../network-function-manager/deploy-functions.md).
+- Para implementar cargas de trabajo de IoT Edge y Kubernetes:
+    - Primero tendrá que configurar el proceso como se describe en [Tutorial: Configuración del proceso en el dispositivo Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-deploy-configure-compute.md). Este paso crea un clúster de Kubernetes que actúa como plataforma de hospedaje para IoT Edge en el dispositivo. 
+    - Después de crear un clúster de Kubernetes en el dispositivo Azure Stack Edge, puede implementar las cargas de trabajo de aplicaciones en este clúster mediante cualquiera de los métodos siguientes:
+
+        - Acceso nativo mediante `kubectl`
+        - IoT Edge
+        - Azure Arc
+        
+        Para obtener más información sobre la implementación de cargas de trabajo, vea [Administración de cargas de trabajo de Kubernetes en el dispositivo de Azure Stack Edge](azure-stack-edge-gpu-kubernetes-workload-management.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
