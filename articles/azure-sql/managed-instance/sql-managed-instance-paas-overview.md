@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: c0d199678aefbf2aa08f8fcbcb27376762dd39b5
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6f47e9d43008f004bc529b0a3251bf252e0039b9
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110707278"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690798"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -155,7 +155,7 @@ Instancia administrada de Azure SQL proporciona un conjunto de características 
 - La [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security) (RLS) le permite controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (por ejemplo, la pertenencia a un grupo o el contexto de ejecución). RLS simplifica el diseño y la codificación de la seguridad de la aplicación. RLS permite implementar restricciones de acceso a filas de datos. Por ejemplo, garantiza que los empleados únicamente puedan acceder a aquellas filas de datos necesarios para su departamento o restringe el acceso solo a los datos relevantes.
 - [Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) cifra los archivos de datos de Instancia administrada de SQL, lo que se conoce como cifrado de datos en reposo. TDE realiza el cifrado y descifrado de E/S en tiempo real de los archivos de datos y de registro. El cifrado usa una clave de cifrado de base de datos (DEK), que se almacena en el registro de arranque de la base de datos de disponibilidad durante la recuperación. Puede proteger todas las bases de datos en una instancia administrada con cifrado de datos transparente. TDE es la probada tecnología de cifrado en reposo de SQL Server que requieren muchos estándares de cumplimiento normativo para proteger contra el robo de soportes de almacenamiento.
 
-Se admite la migración de una base de datos cifrada a SQL Managed Instance a través de Azure Database Migration Service o la restauración nativa. Si va a migrar una base de datos cifrada mediante la restauración nativa, la migración del certificado TDE existente desde la instancia de SQL Server a SQL Managed Instance es un paso necesario. Para obtener más información sobre las opciones de migración, vea [Migración de SQL Server a Instancia administrada de SQL](migrate-to-instance-from-sql-server.md).
+Se admite la migración de una base de datos cifrada a SQL Managed Instance a través de Azure Database Migration Service o la restauración nativa. Si va a migrar una base de datos cifrada mediante la restauración nativa, la migración del certificado TDE existente desde la instancia de SQL Server a SQL Managed Instance es un paso necesario. Para obtener más información sobre las opciones de migración, vea [Guía de SQL Server a Azure SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
 ## <a name="azure-active-directory-integration"></a>Integración de Azure Active Directory
 

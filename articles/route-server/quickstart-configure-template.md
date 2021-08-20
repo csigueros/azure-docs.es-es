@@ -8,22 +8,22 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 04/05/2021
 ms.author: duau
-ms.openlocfilehash: 80a78e7538dfe5a0cb87215b1f46cd59f5ea366b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 79ff9d8464aa15cac8928a9f5ed4d8863f27400d
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690759"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567495"
 ---
 # <a name="quickstart-create-an-azure-route-server-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Route Server mediante una plantilla de Resource Manager
 
-En este inicio rápido se describe cómo usar una plantilla de Azure Resource Manager para implementar una instancia de Azure Route Server en una red virtual nueva o existente.
+En este inicio rápido se describe cómo usar una plantilla de Azure Resource Manager (plantilla de ARM) para implementar una instancia de Azure Route Server en una red virtual nueva o existente.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-route-server%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Froute-server%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,11 +31,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-route-server).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/route-server).
 
 En este inicio rápido, implementará una instancia de Azure Route Server en una red virtual nueva o existente. Se creará una subred dedicada denominada `RouteServerSubnet` para hospedar la instancia de Route Server. Route Server también se configurará con el ASN del mismo nivel y la dirección IP del mismo nivel para establecer un emparejamiento BGP.
 
-:::code language="json" source="~/quickstart-templates/101-route-server/azuredeploy.json" range="001-145" highlight="105-142":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/route-server/azuredeploy.json" range="001-145" highlight="105-142":::
 
 En la plantilla se han definido varios recursos de Azure:
 
@@ -55,7 +55,7 @@ Para encontrar más plantillas relacionadas con ExpressRoute, consulte [Plantill
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-route-server/azuredeploy.json"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/route-server/azuredeploy.json"
 
     $resourceGroupName = "${projectName}rg"
 

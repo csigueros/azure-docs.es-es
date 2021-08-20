@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/16/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 09279e476f2d130c4938937e2c9e60df863c688d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4badad1f7e22fcb82e122a56e219fc61973634a2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450613"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114451271"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
@@ -25,7 +25,7 @@ Azure Cognitive Services son servicios basados en la nube con API REST y SDK de 
 
 ## <a name="categories-of-cognitive-services"></a>Categorías de Cognitive Services
 
-El catálogo de Cognitive Services, que facilita la comprensión cognitiva, consta de cinco pilares básicos:
+El catálogo de Cognitive Services, que facilita la comprensión cognitiva, se divide en cinco pilares principales:
 
 * Visión
 * Voz
@@ -33,7 +33,7 @@ El catálogo de Cognitive Services, que facilita la comprensión cognitiva, cons
 * Decisión
 * Search
 
-Las siguientes secciones de este artículo ofrecen una lista de los servicios que forman parte de estos cinco pilares.
+En las secciones siguientes de este artículo se ofrece una lista de los servicios que forman parte de estos cinco pilares.
 
 ## <a name="vision-apis"></a>API de visión
 
@@ -66,7 +66,7 @@ Las siguientes secciones de este artículo ofrecen una lista de los servicios qu
 
 |Nombre de servicio|Descripción del servicio|
 |:-----------|:------------------|
-|[Anomaly Detector](./anomaly-detector/index.yml "Anomaly Detector") |Anomaly Detector permite supervisar y detectar anomalías en datos de series temporales. Consulte [Inicio rápido de Anomaly Detector](./anomaly-detector/quickstarts/client-libraries.md) para empezar a trabajar con el servicio.|
+|[Anomaly Detector](./anomaly-detector/index.yml "Anomaly Detector") |Anomaly Detector permite supervisar y detectar anomalías en datos de series temporales. Vea [Inicio rápido de Anomaly Detector](./anomaly-detector/quickstarts/client-libraries.md) para empezar a trabajar con el servicio.|
 |[Content Moderator](./content-moderator/overview.md "Content Moderator")|Content Moderator proporciona la supervisión de posibles contenidos ofensivos, indeseables y peligrosos. Consulte [Inicio rápido de Content Moderator](./content-moderator/client-libraries.md) para empezar a trabajar con el servicio.|
 |[Personalizer](./personalizer/index.yml "Personalizer")|Personalizer permite elegir la mejor experiencia para mostrar a los usuarios y aprender de su comportamiento en tiempo real. Consulte [Inicio rápido de Personalizer](./personalizer/quickstart-personalizer-sdk.md) para empezar a trabajar con el servicio.|
 
@@ -84,7 +84,7 @@ Las siguientes secciones de este artículo ofrecen una lista de los servicios qu
 |[Bing Custom Search](/azure/cognitive-services/bing-custom-search "Bing Custom Search")|Bing Custom Search permite crear experiencias de búsqueda a medida de los temas que le interesan.|
 |[Bing Entity Search](/azure/cognitive-services/bing-entities-search/ "Bing Entity Search")|Bing Entity Search devuelve información sobre las entidades que Bing determina que están relacionadas con la consulta del usuario.|
 |[Bing Image Search](/azure/cognitive-services/bing-image-search "Bing Image Search")|Bing Image Search devuelve una lista de imágenes cuya relevancia se ha determinado para la consulta del usuario.|
-|[Bing Visual Search](/azure/cognitive-services/bing-visual-search "Bing Visual Search")|Bing Visual Search devuelve información sobre una imagen, como imágenes visualmente similares, orígenes de compra de productos encontrados en la imagen y búsquedas relacionadas.|
+|[Bing Visual Search](/azure/cognitive-services/bing-visual-search "Bing Visual Search")|Bing Visual Search devuelve conclusiones sobre una imagen, como imágenes visualmente similares, orígenes de compra de productos encontrados en la imagen y búsquedas relacionadas.|
 |[Bing Local Business Search](/azure/cognitive-services/bing-local-business-search/ "Bing Local Business Search")| La API Bing Local Business Search permite que las aplicaciones busquen información de ubicación y contacto sobre las empresas locales en función de las consultas de búsqueda.|
 |[Bing Spell Check](/azure/cognitive-services/bing-spell-check/ "Bing Spell Check")|Bing Spell Check permite realizar correcciones de gramática y ortografía en contexto.|
 

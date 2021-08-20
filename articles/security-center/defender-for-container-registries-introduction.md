@@ -3,22 +3,22 @@ title: 'Azure Defender para registros de contenedor: ventajas y características
 description: Obtenga información sobre las ventajas y características de Azure Defender para registros de contenedor.
 author: memildin
 ms.author: memildin
-ms.date: 04/07/2021
+ms.date: 07/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: f11a9391b0a4f467cba41724b1d15493f1393201
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: d448d0b0a67987ced1caec04557773c2f8ab33d7
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112992142"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113651816"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introducción a Azure Defender para registros de contenedor
 
 Azure Container Registry (ACR) es un servicio de registro de Docker privado y administrado que almacena y administra las imágenes de contenedor de las implementaciones de Azure en un registro central. Se basa en el registro 2.0 de Docker de código abierto.
 
-Para proteger todos los registros basados en Azure Resource Manager de su suscripción, habilite **Azure Defender para registros de contenedor** en el nivel de suscripción. A continuación, Security Center examinará las imágenes insertadas en el registro o importadas en el registro, así como las imágenes extraídas en los últimos 30 días. Esta característica se cobra por imagen.
+Para proteger los registros basados en Azure Resource Manager de la suscripción, habilite **Azure Defender para registros de contenedor** en el nivel de suscripción. Después, Azure Defender examinará las imágenes insertadas en el registro o importadas en el registro, así como las extraídas en los últimos 30 días. Se le cobrará por cada imagen que se examine, una vez por imagen.
 
 [!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 

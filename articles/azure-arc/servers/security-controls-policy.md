@@ -1,19 +1,19 @@
 ---
-title: Controles de cumplimiento normativo de Azure Policy para servidores habilitados para Azure Arc (versión preliminar)
-description: Enumera los controles de cumplimiento normativo de Azure Policy disponibles para servidores habilitados para Azure Arc (versión preliminar). Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 06/11/2021
+title: Controles de cumplimiento normativo de Azure Policy para servidores habilitados para Azure Arc (versión preliminar)
+description: Se enumeran los controles de cumplimiento normativo de Azure Policy disponibles para servidores habilitados para Azure Arc (versión preliminar). Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
+ms.date: 07/16/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 698c2df65e4a93ceb8fae60e1bad078cc30252b5
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: e2ec3117a9d60e464977ebe7d91fb729a2892242
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030449"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390311"
 ---
-# <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-enabled-servers"></a>Controles de cumplimiento normativo de Azure Policy para servidores habilitados para Azure Arc
+# <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-enabled-servers"></a>Controles de cumplimiento normativo de Azure Policy para servidores habilitados para Azure Arc
 
-[Cumplimiento normativo de Azure Policy](../../governance/policy/concepts/regulatory-compliance.md) proporciona definiciones de iniciativas creadas y administradas por Microsoft, conocidas como _integraciones_, para los **dominios de cumplimiento** y los **controles de seguridad** relativos a distintos estándares de cumplimiento. En esta página se enumeran los **dominios de cumplimiento** y los **controles de seguridad** para servidores habilitados para Azure Arc. Para que los recursos de Azure sean compatibles con el estándar específico, puede asignar las integraciones a un **control de seguridad** de manera individual.
+[Cumplimiento normativo de Azure Policy](../../governance/policy/concepts/regulatory-compliance.md) proporciona definiciones de iniciativas creadas y administradas por Microsoft, conocidas como _integraciones_, para los **dominios de cumplimiento** y los **controles de seguridad** relativos a distintos estándares de cumplimiento. En esta página se enumeran los **dominios de cumplimiento** y los **controles de seguridad** para servidores habilitados para Azure Arc. Para que los recursos de Azure sean compatibles con el estándar específico, puede asignar las integraciones a un **control de seguridad** de manera individual.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 

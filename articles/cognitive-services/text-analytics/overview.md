@@ -12,18 +12,18 @@ ms.date: 04/14/2021
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 66b5918b945c8f098e52b115f2fc74c75d953ff5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bf148645ebdd762b65d59c86e5453b83423201e9
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072359"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550614"
 ---
 # <a name="what-is-the-text-analytics-api"></a>¿Qué es Text Analytics API?
 
 Text Analytics API es un servicio basado en la nube que proporciona características de procesamiento de lenguaje natural (NLP) para minería de texto y análisis de texto, incluidos: análisis de sentimiento, minería de opiniones, detección de idiomas y reconocimiento de entidades con nombre.
 
-La API forma parte de [Azure Cognitive Services](../index.yml), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube para los proyectos de desarrollo. Puede usar estas características con la API de REST [versión 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) o [versión 3.1-preview](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/), o la [biblioteca de cliente](quickstarts/client-libraries-rest-api.md).
+La API forma parte de [Azure Cognitive Services](../index.yml), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube para los proyectos de desarrollo. Puede usar estas características con la API de REST [versión 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) o [versión 3.1](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1) o la [biblioteca de cliente](quickstarts/client-libraries-rest-api.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
@@ -35,15 +35,15 @@ Esta documentación contiene los siguientes tipos de artículos:
 
 ## <a name="sentiment-analysis"></a>análisis de opiniones
 
-Use el [análisis de sentimiento](how-tos/text-analytics-how-to-sentiment-analysis.md) para averiguar qué piensa el público de su marca o de un tema específico mediante la minería de texto, con el fin de obtener pistas acerca de si sus opiniones son positivas o negativas. 
+Use el [análisis de sentimiento](how-tos/text-analytics-how-to-sentiment-analysis.md) (SA) para averiguar qué piensa el público de su marca o de un tema específico mediante la minería de texto, con el fin de obtener pistas acerca de si sus opiniones son positivas o negativas. 
 
 La característica proporciona etiquetas de opinión (como "negative", "neutral" y "positive") basadas en la mayor puntuación de confianza que ha encontrado el servicio tanto en el nivel de oración como en el de documento. Esta característica también devuelve puntuaciones de confianza entre 0 y 1 para todos los documentos y que contiene, con el fin de indicar una opinión positiva, neutra y negativa. El servicio también se puede ejecutar de forma local, para lo que se debe [usar un contenedor](how-tos/text-analytics-how-to-install-containers.md).
 
-La minería de opiniones es una característica de Análisis de sentimiento, a partir de la versión preliminar v3.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con palabras (como los atributos de los productos o servicios) en el texto.
+La minería de opiniones (OM) es una característica de Análisis de sentimiento, a partir de la versión v3.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con palabras (como los atributos de los productos o servicios) en el texto.
 
 ## <a name="key-phrase-extraction"></a>Extracción de la frase clave
 
-Use la característica [Extracción de frases clave](how-tos/text-analytics-how-to-keyword-extraction.md) para identificar rápidamente los conceptos principales del texto. Por ejemplo, en el texto "La comida estaba deliciosa y el personal era maravilloso", Extracción de frases clave devuelve los principales puntos de conversación: "comida" y "personal maravilloso".
+Use la característica [Extracción de frases clave](how-tos/text-analytics-how-to-keyword-extraction.md) (KPE) para identificar rápidamente los conceptos principales del texto. Por ejemplo, en el texto "La comida estaba deliciosa y el personal era maravilloso", Extracción de frases clave devuelve los principales puntos de conversación: "comida" y "personal maravilloso".
 
 ## <a name="language-detection"></a>Detección de idiomas
 
@@ -53,6 +53,10 @@ Detección de idiomas puede [detectar en qué idioma está escrito el texto de e
 
 La característica Reconocimiento de entidades con nombre (NER) puede [identificar y clasificar las entidades](how-tos/text-analytics-how-to-entity-linking.md) del texto como personas, lugares, organizaciones o cantidades. Las entidades conocidas también se reconocen y se vinculan a más información en la Web.
 
+## <a name="text-analytics-for-health"></a>Text Analytics for Health
+
+Text Analytics for Health es una característica de la API Text Analytics, que extrae y etiqueta información médica pertinente de textos no estructurados, como notas del doctor, resúmenes de altas médicas, historiales clínicos y registros electrónicos de salud. 
+
 ## <a name="deploy-on-premises-using-docker-containers"></a>Implementación local mediante contenedores de Docker
 
 [Use los contenedores de Text Analytics](how-tos/text-analytics-how-to-install-containers.md) para implementar características de API de forma local. Estos contenedores de Docker permiten acercar el servicio a los datos para mejorar el cumplimiento, la seguridad o por otras razones operativas. Text Analytics ofrece los siguientes contenedores:
@@ -60,11 +64,11 @@ La característica Reconocimiento de entidades con nombre (NER) puede [identific
 * análisis de opinión
 * extracción de frases clave (versión preliminar)
 * detección de idioma (versión preliminar)
-* Text Analytics for Health (versión preliminar)
+* Text Analytics for Health
 
 ## <a name="asynchronous-operations"></a>Operaciones asincrónicas
 
-El punto de conexión de `/analyze` permite usar las características seleccionadas de la API Text Analytics [de forma asincrónica](how-tos/text-analytics-how-to-call-api.md), como NER y la extracción de frases clave.
+El punto de conexión de `/analyze` permite usar muchas características de la API Text Analytics [de forma asincrónica](how-tos/text-analytics-how-to-call-api.md). Reconocimiento de entidades con nombre (NER), extracción de frases clave (KPE), Análisis de sentimiento (SA), Minería de opiniones (OM) están disponibles como parte del punto de conexión de `/analyze`. Permite agrupar estas características en una sola llamada. Permite enviar hasta 125 000 caracteres por documento. Los precios son los mismos que los de Text Analytics.
 
 ## <a name="typical-workflow"></a>Flujo de trabajo típico
 

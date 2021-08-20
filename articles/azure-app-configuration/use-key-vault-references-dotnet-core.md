@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 57abbeefe8e3f2abe527f2b282d643db766b9dc9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e02ac9d6abd3358218f268fb3da1e99b90fac7c5
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775752"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113568089"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Uso de referencias de Key Vault en una aplicación de ASP.NET Core
 
@@ -51,20 +51,20 @@ Antes de iniciar este tutorial, instale el [SDK de .NET Core](https://dotnet.mic
 1. Seleccione la opción **Crear un recurso** en la esquina superior izquierda de Azure Portal:
 
     ![Captura de pantalla que muestra la opción Crear un recurso de Azure Portal.](./media/quickstarts/search-services.png)
-1. En el cuadro de búsqueda, escriba **Key Vault**.
+1. En el cuadro de búsqueda, escriba **Key Vault** y seleccione **Key Vault** en la lista desplegable.
 1. En la lista de resultados, seleccione **Key Vaults** a la izquierda.
 1. En **Key Vaults**, seleccione **Agregar**.
 1. En la sección **Crear almacén de claves**, a la derecha, proporcione la siguiente información:
     - Seleccione **Suscripción** para elegir una suscripción.
-    - En **Grupo de recursos**, seleccione **Crear nuevo** y escriba un nombre de grupo de recursos.
-    - En **Nombre del almacén de claves** se requiere un nombre único. Para este tutorial, escriba **Contoso-vault2**.
+    - En **Grupo de recursos**, escriba el nombre de un grupo de recursos existente o seleccione **Crear nuevo** y escriba un nombre de grupo de recursos.
+    - En **Nombre del almacén de claves** se requiere un nombre único.
     - En la lista desplegable **Región**, elija una ubicación.
 1. Deje las demás opciones de **Crear almacén de claves** con sus valores predeterminados.
-1. Seleccione **Crear**.
+1. Haga clic en **Revisar + crear**.
+1. El sistema validará y mostrará los datos que ha escrito. Haga clic en **Crear**.
 
 En este momento, su cuenta de Azure es la única autorizada para acceder a este nuevo almacén.
 
-![Captura de pantalla que muestra el almacén de claves.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Incorporación de un secreto a Key Vault
 
@@ -91,68 +91,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
     - **Suscripción**, **Grupo de recursos** y **Key Vault**: escriba los valores correspondientes a los del almacén de claves que creó en la sección anterior.
     - **Secreto**: seleccione el secreto llamado **Message** que creó en la sección anterior.
 
-## <a name="connect-to-key-vault"></a>Conexión a Key Vault
-
-1. En este tutorial usará una entidad de servicio para la autenticación en Key Vault. Para crear esta entidad de servicio, use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) de la CLI de Azure:
-
-    ```azurecli
-    az ad sp create-for-rbac -n "http://mySP" --sdk-auth
-    ```
-
-    Esta operación devuelve una serie de pares clave-valor:
-
-    ```console
-    {
-    "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
-    "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
-    "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
-    "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
-    "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-    "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-    "galleryEndpointUrl": "https://gallery.azure.com/",
-    "managementEndpointUrl": "https://management.core.windows.net/"
-    }
-    ```
-
-1. Ejecute el siguiente comando para permitir que la entidad de servicio acceda al almacén de claves:
-
-    ```cmd
-    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
-    ```
-
-1. Agregue variables de entorno para almacenar los valores de *clientId*, *clientSecret* y *tenantId*.
-
-    #### <a name="windows-command-prompt"></a>[Símbolo del sistema de Windows](#tab/cmd)
-
-    ```cmd
-    setx AZURE_CLIENT_ID <clientId-of-your-service-principal>
-    setx AZURE_CLIENT_SECRET <clientSecret-of-your-service-principal>
-    setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
-    ```
-
-    #### <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-    ```PowerShell
-    $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
-    $Env:AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
-    $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
-    ```
-
-    #### <a name="bash"></a>[Bash](#tab/bash)
-
-    ```bash
-    export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
-    export AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
-    export AZURE_TENANT_ID = <tenantId-of-your-service-principal>
-    ```
-
-    ---
-
-    > [!NOTE]
-    > Estas credenciales de Key Vault se usan solo dentro de la aplicación. La aplicación se autentica directamente en Key Vault con estas credenciales. Nunca se pasan al servicio App Configuration.
-
-1. Reinicie el terminal para cargar estas nuevas variables de entorno.
+![Captura de pantalla de la creación de un formulario de referencia de Key Vault](./media/create-key-vault-reference.png)
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Actualización del código para usar una referencia de Key Vault
 
@@ -170,12 +109,13 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
 1. Actualice el método `CreateWebHostBuilder` para usar App Configuration; para ello, llame al método `config.AddAzureAppConfiguration`. Incluya la opción `ConfigureKeyVault` y pase las credenciales correctas a Key Vault.
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+     #### <a name="net-core-5x"></a>[.NET Core 5.x](#tab/core5x)
 
     ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
 
@@ -188,7 +128,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
                             });
                 });
             })
-            .UseStartup<Startup>();
+            .UseStartup<Startup>());
     ```
 
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
@@ -211,6 +151,27 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
                 });
             })
             .UseStartup<Startup>());
+    ```
+    
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(new DefaultAzureCredential());
+                            });
+                });
+            })
+            .UseStartup<Startup>();
     ```
 
 1. Al inicializar la conexión a App Configuration, configura la conexión a Key Vault llamando al método `ConfigureKeyVault`. Después de la inicialización, puede acceder a los valores de las referencias de Key Vault de la misma manera que accede a los valores de las claves normales de App Configuration.
@@ -237,6 +198,15 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
     Puede acceder al valor de la referencia de Key Vault **TestApp:Settings:KeyVaultMessage** de la misma forma que al valor de configuración **TestApp:Settings:Message**.
 
+
+## <a name="grant-your-app-access-to-key-vault"></a>Concesión a la aplicación de acceso a Key Vault
+
+Azure App Configuration no accederá al almacén de claves. La aplicación leerá directamente del almacén de claves, por lo que tendrá que conceder a la aplicación acceso de lectura a los secretos del almacén de claves. De este modo, el secreto siempre permanece con la aplicación. El acceso se puede conceder mediante una [directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md) o el [control de acceso basado en rol de Azure](../key-vault/general/rbac-guide.md).
+
+En el código anterior se usa `DefaultAzureCredential`. Se trata de una credencial de token agregada que prueba de forma automática varios tipos de credenciales, como `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential` y `VisualStudioCredential`. Para obtener más información, vea [DefaultAzureCredential (Clase)](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Puede reemplazar `DefaultAzureCredential` por cualquier tipo de credencial explícitamente. Pero el uso de `DefaultAzureCredential` permite tener el mismo código que se ejecuta en entornos locales y de Azure. Por ejemplo, concede a la credencial propia acceso al almacén de claves. `DefaultAzureCredential` vuelve automáticamente a `SharedTokenCacheCredential` o `VisualStudioCredential` cuando se usa Visual Studio para el desarrollo local.
+
+Como alternativa, puede establecer las variables de entorno AZURE_TENANT_ID, AZURE_CLIENT_ID y AZURE_CLIENT_SECRET, y `DefaultAzureCredential` usará el secreto de cliente que tiene por medio de `EnvironmentCredential` para autenticarse con el almacén de claves. Después de implementar la aplicación en un servicio de Azure con la identidad administrada habilitada, como Azure App Service, Azure Kubernetes Service o Azure Container Instance, conceda a la identidad administrada del servicio de Azure permiso para acceder al almacén de claves. `DefaultAzureCredential` usa automáticamente `ManagedIdentityCredential` cuando la aplicación se ejecuta en Azure. Puede usar la misma identidad administrada para autenticarse con App Configuration y Key Vault. Para obtener más información, vea [Uso de identidades administradas para acceder a App Configuration](howto-integrate-azure-managed-service-identity.md).
+
 ## <a name="build-and-run-the-app-locally"></a>Compilación y ejecución de la aplicación en un entorno local
 
 1. Para compilar la aplicación mediante la CLI de .NET Core, ejecute el siguiente comando en el shell de comandos:
@@ -255,13 +225,21 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
     ![Inicio de la aplicación local del inicio rápido](./media/key-vault-reference-launch-local.png)
 
+
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha creado una clave de App Configuration que hace referencia a un valor almacenado en Key Vault. Para aprender a agregar una identidad de servicio administrada por Azure que optimice el acceso a App Configuration y Key Vault, continúe con el siguiente tutorial.
+En este tutorial ha creado una clave de App Configuration que hace referencia a un secreto almacenado en Key Vault.
+Para obtener información sobre cómo volver a cargar automáticamente secretos y certificados desde Key Vault, continúe con el siguiente tutorial:
+
+> [!div class="nextstepaction"]
+> [Volver a cargar secretos y certificados desde Key Vault automáticamente](./reload-key-vault-secrets-dotnet.md)
+
+Para obtener información sobre cómo usar Identidad administrada para simplificar el acceso a App Configuration y Key Vault, consulte el siguiente tutorial:
 
 > [!div class="nextstepaction"]
 > [Integración de identidades administradas](./howto-integrate-azure-managed-service-identity.md)

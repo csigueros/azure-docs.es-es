@@ -9,12 +9,13 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 5caa41b852bf55a11489db6c0bab871b20720e05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: c0be8241b438a010a44c4b9dbabbb05d5ac290b3
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670658"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217096"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Compilación de una aplicación de aprendizaje automático con MLlib de Apache Spark y Azure Synapse Analytics
 
@@ -195,9 +196,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Ahora que hay dos marcos de datos, la siguiente tarea consiste en crear la fórmula del modelo y ejecutarla en el marco de datos de entrenamiento. Después, puede realizar la validación en la trama de datos de la prueba. Experimente con versiones diferentes de la fórmula del modelo para ver el impacto de las distintas combinaciones.
 
 > [!Note]
-> Para guardar el modelo, necesitará el rol de Azure de *colaborador de datos de Storage Blob*. En la cuenta de almacenamiento, vaya a **Access Control (IAM)** y seleccione **Agregar asignación de roles**. Asigne el rol de colaborador de datos de Storage Blob al servidor de Azure SQL Database. Solo los miembros con el privilegio de propietario pueden realizar este paso. 
->
->Para conocer los distintos roles integrados de Azure, consulte [esta guía](../../role-based-access-control/built-in-roles.md).
+> Para guardar el modelo, asigne el rol de *colaborador de datos de Storage Blob* al ámbito del recurso de servidor de Azure SQL Database. Para acceder a los pasos detallados, vea [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md). Solo los miembros con el privilegio de propietario pueden realizar este paso.
 
 ```python
 ## Create a new logistic regression object for the model

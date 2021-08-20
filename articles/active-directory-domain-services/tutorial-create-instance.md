@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/01/2021
 ms.author: justinha
-ms.openlocfilehash: d0386368b0e6e65f35ad408efc2c420aaf8f1986
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 3ff8ffe39a84f9a1eeddd7de01ad8db44f73d52c
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438493"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199185"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Creación y configuración de un dominio administrado de Azure Active Directory Domain Services
 
@@ -158,7 +158,7 @@ Para autenticar a los usuarios en el dominio administrado, Azure AD DS necesit
 >
 > La información de credenciales sincronizada en Azure AD no se puede volver a usar si posteriormente crea un dominio administrado: debe volver a configurar la sincronización de los hash de contraseña para almacenarlos de nuevo. Los usuarios o las máquinas virtuales anteriormente unidos a un dominio no podrán autenticarse de inmediato, ya que Azure AD debe generar y almacenar los hash de contraseña en el nuevo dominio administrado.
 >
-> Para más información, consulte [Proceso de sincronización de hash de contraseña para Azure AD DS y Azure AD Connect][password-hash-sync-process].
+> [Azure AD Connect Cloud Sync no es compatible con Azure AD DS] [/azure/active-directory/cloud-sync/what-is-cloud-sync#comparison-between-azure-ad-connect-and-cloud-sync]. Los usuarios locales deben sincronizarse mediante Azure AD Connect para poder acceder a las máquinas virtuales unidas a un dominio. Para más información, consulte [Proceso de sincronización de hash de contraseña para Azure AD DS y Azure AD Connect][password-hash-sync-process].
 
 Los pasos necesarios para generar y almacenar estos hash de contraseña son diferentes según se trate de cuentas de usuario solo de nube creadas en Azure AD o de las cuentas de usuarios que se sincronizan desde el directorio local mediante Azure AD Connect.
 

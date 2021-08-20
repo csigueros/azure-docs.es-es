@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 97d63598f6a9cca199779e56cc211b9622117301
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 97565e30171a529dd4d8a30916333407f5bd185c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048840"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113435711"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Ejemplos de CLI de Azure para redes virtuales
 
@@ -35,4 +35,4 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash con comandos de CL
 | [Filtrado del tráfico de red entrante y saliente de máquina virtual](./scripts/virtual-network-cli-sample-filter-network-traffic.md) | Creación de una red virtual con subredes de front-end y back-end. El tráfico de red entrante a la subred de front-end está limitado a HTTP, HTTPS y SSH. No se permite el tráfico saliente a Internet desde la subred de back-end. |
 |[Configuración de una red virtual de doble pila de IPv4 + IPv6 con Basic Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack.md)|Implementa la red virtual de doble pila (IPv4 + IPv6) con dos máquinas virtuales y una instancia de Azure Basic Load Balancer con las direcciones IP públicas IPv4 e IPv6. |
 |[Configuración de una red virtual de doble pila de IPv4 + IPv6 con Standard Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md)|Implementa la red virtual de doble pila (IPv4 + IPv6) con dos máquinas virtuales y una instancia de Azure Standard Load Balancer con las direcciones IP públicas IPv4 e IPv6. |
-|[Tutorial: Creación y prueba de una puerta de enlace de NAT: CLI de Azure](./tutorial-create-nat-gateway-cli.md)|Cree y valide una puerta de enlace NAT mediante una máquina virtual de origen y de destino. |
+|[Tutorial: Creación y prueba de una puerta de enlace de NAT: CLI de Azure](../virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md)|Cree y valide una puerta de enlace de NAT mediante una máquina virtual. |

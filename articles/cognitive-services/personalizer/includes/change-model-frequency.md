@@ -1,6 +1,6 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
+title: Archivo de inclusión
+description: Archivo de inclusión
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -8,16 +8,16 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
 ms.date: 08/25/2020
-ms.openlocfilehash: 4eacc1c4e863ad1a278a4974bb0f6c101aafe7e0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6473eeee350299ba98460f3f4f022e0514f90e69
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055412"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112255424"
 ---
 ### <a name="change-the-model-update-frequency"></a>Cambio de la frecuencia de actualización del modelo
 
-En la página **Configuración** del recurso Personalizer de Azure Portal, cambie el valor de **Model update frequency** (Frecuencia de actualización del modelo) a 10 segundos. Con esta duración breve, el modelo se entrenará rápidamente, lo que permite ver cómo cambia la acción principal en cada iteración.
+En la página **Configuración** del recurso Personalizer de Azure Portal, cambie el valor de **Frecuencia de actualización del modelo** a 30 segundos. Con esta duración breve, el modelo se entrenará rápidamente, lo que permite ver cómo cambia la acción principal en cada iteración.
 
 ![Cambiar la frecuencia de actualización del modelo](../media/settings/configure-model-update-frequency-settings.png)
 

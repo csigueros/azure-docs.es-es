@@ -4,13 +4,13 @@ metadata:
   description: Obtenga respuestas a las preguntas más frecuentes sobre Azure VMware Solution.
   ms.topic: troubleshooting
   ms.custom: contperf-fy21q4
-  ms.date: 05/25/2021
-  ms.openlocfilehash: cd72bb3dd857d91ae486555a7fae3cdce0b5eec2
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.date: 06/16/2021
+  ms.openlocfilehash: 1d3268c9f2bd35b9907ac6370598099d8d5cb9b9
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111953004"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114466405"
 title: Preguntas frecuentes sobre Azure VMware Solution
 summary: En este artículo se responden las preguntas más frecuentes sobre Azure VMware Solution.
 sections:
@@ -20,6 +20,11 @@ sections:
     answer: A medida que las empresas buscan estrategias de modernización de la TI para mejorar la agilidad empresarial, reducir costos y acelerar la innovación, las plataformas de nube híbrida han surgido como los grandes facilitadores de la transformación digital de los clientes. Azure VMware Solution combina el Centro de datos definido por software (SDDC) de VMware con el ecosistema global de servicios en la nube de Azure de Microsoft. Azure VMware Solution se administra para cumplir los requisitos de rendimiento, disponibilidad, seguridad y cumplimiento. Para obtener más información, consulte [Qué es Azure VMware Solution](introduction.md).
   - question: ¿Dónde está disponible actualmente Azure VMware Solution?
     answer: El servicio se agrega continuamente a regiones nuevas. Para obtener más información, consulte la [información de disponibilidad del servicio más reciente](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware).
+  - question: ¿Quién proporciona el soporte técnico de Azure VMware Solution?
+    answer: >-
+      Microsoft ofrece el soporte técnico para Azure VMware Solution. Puede enviar una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+      En el caso de las suscripciones administradas mediante el Proveedor de soluciones en la nube (CSP), el proveedor de soluciones proporciona el primer nivel de soporte técnico, igual que CSP lo hace para otros servicios de Azure.
   - question: ¿Pueden las cargas de trabajo que se ejecutan en una instancia de Azure VMware Solution integrarse en los servicios de Azure?
     answer: Todos los servicios de Azure estarán disponibles para los clientes de Azure VMware Solution. Las limitaciones de rendimiento y disponibilidad de los servicios específicos deberán abordarse para cada caso.
   - question: ¿Qué sistemas operativos invitados son compatibles con Azure VMware Solution?
@@ -35,7 +40,7 @@ sections:
       [!INCLUDE [customer-communications](includes/customer-communications.md)]
 - name: Instalación y configuración
   questions:
-  - question: ¿Cuánto tiempo se necesita para aprovisionar los tres nodos iniciales en un clúster?
+  - question: ¿Cuánto tiempo se tarda en aprovisionar los tres host iniciales en un clúster?
     answer: En este momento, el aprovisionamiento puede tardar aproximadamente entre 3 y 4 horas.  La adición de un nodo individual a un clúster existente o al mismo clúster tarda entre 30 y 45 minutos.
 - name: Software de VMware
   questions:
@@ -65,6 +70,8 @@ sections:
     answer: Sí.
   - question: ¿Puedo cambiar el valor predeterminado del tiempo de espera del cliente web de vSphere?
     answer: Sí. Para obtener información sobre cómo cambiar el valor del tiempo de espera, consulte [Configuración del valor del tiempo de espera del cliente web de vSphere](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
+  - question: ¿Se admite Windows 2008 como servidor de Active Directory (AD) o sistema operativo de Host de sesión de Escritorio remoto (RDSH) en NSX-T?
+    answer: No.
 - name: Migrar
   questions:
   - question: ¿Por qué no puedo ver mi pestaña Administración de Sentinel en el administrador de HCX cuando uso el servicio de dispositivos de Sentinel?
@@ -142,7 +149,7 @@ sections:
   - question: ¿Puedo cambiar el nombre de un almacén de datos o un clúster durante la creación?
     answer: No, no puede cambiar el nombre de un almacén de datos o un clúster. El nombre del clúster se puede configurar a través de mecanismos de implementación que no son del portal para clústeres no primarios.
   - question: ¿Cuál es la tolerancia a errores del hardware en vSAN?
-    answer: "FTT-1, RAID-1 (creación de reflejo) con reserva de espacio de objetos establecido en \"Aprovisionamiento grueso\" es la directiva de almacenamiento predeterminada para el SDDC.\n\n:::image type=\"content\" source=\"media/vsphere-vm-storage-policies.png\" alt-text=\"Captura de pantalla que muestra las directivas de almacenamiento de máquinas virtuales cliente de vSphere.\":::  \n"
+    answer: "FTT-1, RAID-1 (creación de reflejo) con reserva de espacio de objetos establecido en \"Aprovisionamiento grueso\" es la directiva de almacenamiento predeterminada para el SDDC.\n\n:::image type=\"content\" source=\"media/concepts/vsphere-vm-storage-policies.png\" alt-text=\"Captura de pantalla que muestra las directivas de almacenamiento de máquinas virtuales cliente de vSphere.\":::  \n"
   - question: ¿Por qué el aprovisionamiento grueso es la directiva predeterminada de vSAN en Azure VMware Solution?
     answer: El aprovisionamiento grueso es el espacio de almacenamiento reservado o asignado previamente.  Este protege los sistemas al permitirles funcionar incluso si el almacén de datos de vSAN está lleno, porque el espacio ya está reservado. Por ejemplo, supongamos que crea un disco virtual de 10 GB con aprovisionamiento grueso. En ese caso, la cantidad completa de capacidad de almacenamiento del disco virtual se asigna previamente en el almacenamiento físico del disco virtual donde este se crea, y consume todo el espacio asignado a él en el almacén de datos.  No se permitirá que otras VM compartan el espacio del almacén de datos. Un disco virtual con aprovisionamiento fino consume el espacio que necesita inicialmente y aumenta hasta la demanda del espacio de datos que se usa en el almacén de datos.
   - question: ¿Puedo crear una nueva VM en Azure VMware Solution con aprovisionamiento fino incluso si la directiva predeterminada de vSAN es un aprovisionamiento grueso?
@@ -164,7 +171,7 @@ sections:
   - question: ¿Puedo administrar una nube privada con mi instancia de vCenter local?
     answer: En un principio, Azure VMware Solution no admitirá una única experiencia de administración en entornos locales y de nube privada. Los clústeres de nube privada se administrarán con vCenter y NSX Manager de local a una nube privada.
   - question: Si un clúster se escala verticalmente y, a continuación, la demanda de carga de trabajo disminuye, ¿se puede reducir verticalmente?
-    answer: Sí, siempre y cuando tenga la cuota asignada en la nube privada, puede escalar horizontalmente los clústeres. Cuando la demanda de carga de trabajo cae, puede eliminar nodos del clúster para reducirla verticalmente. Puede hacer esto a través del portal de Azure VMware Solution.
+    answer: Sí, siempre y cuando tenga la cuota asignada en la nube privada, puede escalar horizontalmente los clústeres. Cuando la demanda de carga de trabajo cae, puede eliminar hosts del clúster para reducirla verticalmente. Puede hacer esto a través del portal de Azure VMware Solution.
   - question: ¿Se comparte la infraestructura subyacente?
     answer: No, los hosts y clústeres de nube privada son dedicados y se borran de forma segura antes y después del uso.
   - question: ¿Cuál es el número mínimo y máximo de hosts por clúster?
@@ -176,11 +183,11 @@ sections:
 - name: Administración de identidades
   questions:
   - question: ¿Qué cuentas y privilegios obtendré con mi nueva nube privada de Azure VMware Solution?
-    answer: Recibirá credenciales para un usuario cloudadmin en vCenter y acceso de administrador en NSX-T Manager. También hay un grupo CloudAdmin que se puede usar para incorporar Azure Active Directory. Para obtener más información, consulte [Conceptos de acceso y de identidad](concepts-identity.md).
+    answer: Recibirá credenciales para un usuario cloudadmin en vCenter y acceso de administrador en NSX-T Manager. También hay un grupo CloudAdmin que se puede usar para incorporar Azure Active Directory. Para obtener más información, vea [Conceptos de acceso y de identidad](concepts-identity.md).
   - question: ¿Puedo tener acceso de administrador a los hosts de ESXi?
     answer: No, el acceso de administrador a ESXi está restringido para cumplir con los requisitos de seguridad de la solución.
   - question: ¿Qué privilegios y permisos tendré en vCenter?
-    answer: Tendrá los privilegios del rol de CloudAdmin. Para obtener más información, consulte [Conceptos de acceso y de identidad](concepts-identity.md).
+    answer: Tendrá los privilegios del rol de CloudAdmin. Para obtener más información, vea [Conceptos de acceso y de identidad](concepts-identity.md).
   - question: ¿Qué privilegios y permisos tendré en NSX-T Manager?
     answer: >
       Tendrá privilegios completos de administrador en NSX-T y podrá administrar el control de acceso basado en roles de vSphere, tal como lo haría con NSX-T Data Center en el entorno local. Para obtener más información, consulte [Conceptos de acceso y de identidad](concepts-identity.md).
@@ -190,22 +197,33 @@ sections:
 
       > Se crea y configura un enrutador T0 como parte de una implementación de nube privada. Cualquier modificación en el enrutador lógico o en las VM del nodo perimetral de NSX-T podría afectar a la conectividad a la nube privada.
   - question: ¿Cómo puedo cambiar mis credenciales?
-    answer: Para obtener información sobre el restablecimiento de las credenciales, consulte [Restablecimiento de las credenciales de vSphere para Azure VMware Solution](rotate-cloudadmin-credentials.md).
+    answer: Para obtener información sobre el restablecimiento de las credenciales, vea [Rotación de las credenciales de administrador de la nube en Azure VMware Solution](rotate-cloudadmin-credentials.md).
   - question: ¿Los privilegios de extensión de tipo cloudadmin son compatibles con Azure VMware Solution?
     answer: No. Actualmente no se admiten los privilegios de la extensión cloudadmin y no tenemos ningún plan para admitirlos.
+- name: CSP y multiinquilino
+  questions:
+  - question: ¿Ofrece Azure VMware Solution una opción para que los asociados de host vuelvan a vender el servicio?
+    answer: Sí. Para obtener más información, vea [Solicitud de la cuota del host para Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
+  - question: ¿Ofrece Azure VMware Solution varios inquilinos para hospedar asociados de CSP?
+    answer: No. Actualmente, Azure VMware Solution no ofrece varios inquilinos.
+  - question: ¿Permite Azure VMware Solution que un asociado de host cree particiones de recursos dentro de la nube privada (SDDC) a fin de administrarlos para los clientes de una manera multiinquilino?
+    answer: No, una nube privada de Azure VMware Solution no se puede compartir entre los clientes finales.
+  - question: Uso Azure VMware Solution para crear aplicaciones de usuario final o cargas de trabajo a las que se accede desde varias máquinas virtuales por medio de una dirección IP pública. ¿Puedo vender esta solución a varios inquilinos?
+    answer: Los clientes pueden crear entornos multiinquilino en su nube privada de Azure VMware Solution y vender a los clientes siempre que el producto no sea una máquina virtual estándar y se haya insertado la propiedad intelectual en la máquina virtual como una aplicación.
+  - question: Como anfitrión o cliente, ¿puedo usar la instancia existente de VMware Cloud Director (VCD) o la nueva implementación de VCXD en Azure VMware Solution?
+    answer: VMware no permite que VCD en la nube o desde el entorno local tenga licencia con ninguna instancia de Hiperescala, incluido Microsoft.
+  - question: ¿Puedo conectar VMware Cloud Director Service (CDS) a la instancia de Azure VMware Solution en Azure?
+    answer: Aunque técnicamente es posible, Microsoft no permite el uso de Azure VMware Solution por medio del nuevo servicio CDS de VMware que se ejecuta en VMC.
+  - question: ¿Se puede adquirir Azure VMware Solution a través de un CSP de Microsoft?
+    answer: Sí, los clientes pueden implementar Azure VMware Solution en una suscripción de Azure administrada por un CSP.
+  - question: ¿Hay instancias reservadas disponibles para su compra a través del programa del Proveedor de soluciones en la nube (CSP)?
+    answer: Sí. El CSP puede comprar instancias reservadas para sus clientes. Para obtener más información, vea [Ahorro de costos con una instancia reservada](reserved-instance.md).
 - name: Facturación y soporte técnico
   questions:
   - question: ¿Hay un Acuerdo de Nivel de Servicio en el reemplazo del disco cuando se producen errores?
     answer: Se reemplazará cualquier host con problemas de disco. Se incluye hasta la disponibilidad del Acuerdo de Nivel de Servicio 99.9 del servicio Azure VMware Solution.
   - question: ¿Cómo se estructurará el precio de Azure VMware Solution?
     answer: Para ver las preguntas generales sobre los precios, consulte la página de [precios](https://azure.microsoft.com/pricing/details/azure-vmware) de Azure VMware Solution.
-  - question: ¿Se puede adquirir Azure VMware Solution a través de un CSP de Microsoft?
-    answer: Sí, los clientes pueden implementar Azure VMware Solution en una suscripción de Azure administrada por un CSP.
-  - question: ¿Quién proporciona el soporte técnico de Azure VMware Solution?
-    answer: >-
-      Microsoft ofrece el soporte técnico para Azure VMware Solution. Puede enviar una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-      En el caso de las suscripciones administradas mediante el Proveedor de soluciones en la nube (CSP), el proveedor de soluciones proporciona el primer nivel de soporte técnico, igual que CSP lo hace para otros servicios de Azure.
   - question: ¿Qué cuentas necesito para crear una nube privada de Azure VMware Solution?
     answer: Necesitará una cuenta de Azure en una suscripción a Azure.
   - question: ¿Las soluciones de Red Hat se admiten en Azure VMware Solution?
@@ -213,12 +231,10 @@ sections:
   - question: ¿VMware HCX Enterprise está disponible? Si es así, ¿cuánto cuesta?
     answer: VMware HCX Enterprise está disponible con Azure VMware Solution, como una función o servicio en *versión preliminar*. Aunque VMware HCX Enterprise para Azure VMware Solution esté en su versión preliminar, es una función o servicio gratuito y está sujeto a los términos y condiciones de los servicios de versión preliminar. Una vez que el servicio VMware HCX Enterprise esté disponible de forma general, recibirá un aviso de 30 días de que la facturación cambiará. Puede desactivar o no participar en el servicio.
   - question: ¿Cómo se solicita un aumento de la cuota de host para Azure VMware Solution?
-    answer: Tanto si quiere tener más hosts para una nube privada existente como si va a crear una nueva nube privada, deberá enviar una solicitud de soporte técnico para que podamos asignarle esos hosts se.  Para más información, consulte [Habilitación del recurso de Azure VMware Solution](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
-  - question: ¿Hay instancias reservadas disponibles para su compra a través del programa del Proveedor de soluciones en la nube (CSP)?
-    answer: Sí. El CSP puede comprar instancias reservadas para sus clientes. Para obtener más información, vea [Ahorro de costos con una instancia reservada](reserved-instance.md).
-  - question: ¿Ofrece Azure VMware Solution varios inquilinos para hospedar asociados de CSP?
-    answer: No. Actualmente, Azure VMware Solution no ofrece varios inquilinos.
+    answer: Tanto si quiere tener más hosts para una nube privada existente como si va a crear una nueva nube privada, deberá enviar una solicitud de soporte técnico para que podamos asignarle esos hosts se.  Para obtener más información, vea [Solicitud de la cuota del host para Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
   - question: ¿Incurre el tráfico entre el entorno local y Azure VMware Solution a través de ExpressRoute en un cargo de transferencia de datos de salida en el plan de datos según uso?
     answer: El tráfico del circuito ExpressRoute de Azure VMware Solution no se mide de ningún modo. El tráfico del circuito ExpressRoute que conecta el entorno local a Azure se cobra en función de los planes de precios de ExpressRoute.
   - question: ¿Es necesario adquirir licencias y recursos que no sean la instancia de AV36 al migrar desde el entorno de VM local con la extensión L2?
-    answer: No
+    answer: "No.        \n"
+  - question: ¿Cuándo comienza y finaliza la medición para los clústeres de prueba de Azure VMware Solution?
+    answer: Los clústeres de prueba se limitan a tres hosts que se usan para las evaluaciones de un mes de las nubes privadas de Azure VMware Solution. Después de 30 días, los clústeres se miden automáticamente según sus tarifas correspondientes. Si los clústeres de prueba se eliminan antes de la fecha de finalización de 30 días, la evaluación gratuita de Azure VMware Solution finalizará en el momento de la eliminación.

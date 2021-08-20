@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/16/2021
+ms.date: 07/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 1cab6f6f9db0650cee51b3863d521089b500bee9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: eecdead171e68915430aefe9aebeb24833485789
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461316"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114688983"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-fpga"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro con FPGA  
 
@@ -54,16 +55,32 @@ Antes de comenzar, asegúrese de que:
 
 * Su suscripción de Microsoft Azure debe estar habilitada para un recurso de Azure Stack Edge. Asegúrese de que ha usado una suscripción admitida como [Contrato Enterprise (EA) de Microsoft](https://azure.microsoft.com/overview/sales-number/), [Proveedor de soluciones en la nube (CSP)](/partner-center/azure-plan-lp) o [Patrocinio de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). No se admiten las suscripciones de pago por uso.
 
-* Tiene acceso de propietario o colaborador a nivel de grupo de recursos para los recursos de Azure Stack Edge o Data Box Gateway, IoT Hub y Azure Storage.
+* Roles RBAC: tiene las siguientes asignaciones de roles en el control de acceso basado en roles (RBAC) de Azure:
 
-  * Para conceder acceso de colaborador debe ser **Propietario** en el nivel de suscripción. Para conceder acceso de colaborador a otra persona, en Azure Portal, vaya a **Todos los servicios** > **Suscripciones** > **Control de acceso (IAM)**  >  **+ Agregar** > **Agregar asignación de roles**. Para más información, consulte el [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante Azure Portal](../role-based-access-control/quickstart-assign-role-user-portal.md).
+  * Para crear recursos de almacenamiento de Azure Stack Edge, IoT Hub y Azure, un usuario debe tener el rol Colaborador o Propietario en el ámbito del grupo de recursos.
 
-  * Para crear cualquier recurso de Azure Stack Edge o Data Box Gateway, debe tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. También tendrá que asegurarse de que el proveedor de recursos `Microsoft.DataBoxEdge` está registrado. Para obtener información sobre cómo registrar un proveedor de recursos, consulte [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-  * Para crear cualquier recurso de IoT Hub, asegúrese de que el proveedor Microsoft.Devices está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-  * Para crear un recurso de una cuenta de Storage también se necesita acceso de colaborador, o superior, con ámbito en el nivel de grupo de recursos. De forma predeterminada Azure Storage es un proveedor de recursos registrado.
+  * Para asignar el rol Colaborador a un usuario en el ámbito del grupo de recursos, debe tener el rol Propietario en el ámbito de la suscripción.
+
+  Para acceder a los pasos detallados, vea [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+
+* Proveedores de recursos: se registran los siguientes proveedores de recursos: 
+
+  * Para crear un recurso de Azure Stack Edge o Data Box Gateway, asegúrese de que el proveedor `Microsoft.DataBoxEdge` esté registrado.
+
+  * Para crear cualquier recurso de IoT Hub, asegúrese de que el proveedor `Microsoft.Devices` esté registrado.
+
+  * Para crear un recurso Azure Storage, asegúrese de que Azure Storage está registrado. El proveedor de recursos de Azure Storage (SRP) es,de forma predeterminada, un proveedor de recursos registrado, pero en algunos casos puede ser necesario el registro.
+
+  **Para registrar un proveedor de recursos, debe tener asignado el rol RBAC relacionado anterior.**
+
+  Para obtener información acerca de cómo registrarse, consulte [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+
 * Debe tener acceso de administrador o usuario a Graph API de Azure Active Directory. Para más información, vea [Graph API de Azure Active Directory](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+
 * Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
+
 * No está bloqueado por ninguna directiva de Azure configurada por el administrador del sistema. Para más información sobre las directivas, consulte [Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles](../governance/policy/assign-policy-portal.md).
+
 
 ### <a name="for-the-azure-stack-edge-pro-fpga-device"></a>Para el dispositivo de Azure Stack Edge Pro con FPGA
 
@@ -116,14 +133,14 @@ Siga estos pasos en Azure Portal para crear un recurso nuevo de Azure Stack Edge
 
    1. Escriba o seleccione los siguientes **detalles del proyecto**.
     
-       |Setting  |Valor  |
+       |Setting  |Value  |
        |---------|---------|
        |Subscription    |Este valor se rellena automáticamente según la selección anterior. La suscripción está vinculada a la cuenta de facturación. |
        |Resource group  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/management/overview.md).     |
 
    1. Escriba o seleccione los siguientes **detalles de la instancia**.
 
-       |Configuración  |Valor  |
+       |Configuración  |Value  |
        |---------|---------|
        |Nombre   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre dos y 50 caracteres, que incluyen letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
        |Region     |Para una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si usa Azure Government, todas las regiones de gobierno están disponibles como se muestra en las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|

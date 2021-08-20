@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/04/2021
+ms.date: 07/07/2021
 ms.author: alkohli
-ms.openlocfilehash: 406e31320e8f7d0d95bfef44f620505989b3ae9f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 488b6d791afe477bb1aecacd0ecb15d54dcb43da
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746706"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221325"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: Instalación de Azure Stack Edge Pro con GPU
 
@@ -228,6 +228,7 @@ Realice los pasos siguientes para realizar el cableado de los cables de alimenta
 
     - Si conecta el PUERTO 2, utilice el cable de red RJ-45 de 1 GbE.
     - Para las interfaces de red de 10/25 GbE, use cables de cobre SFP+ o fibra. Si usa fibra, utilice un adaptador de óptico a SFP.
+    - Para las implementaciones de Network Function Manager, asegúrese de que los puertos 5 y 6 están conectados. Para obtener más información, vea [Tutorial: Implementación de funciones de red en Azure Stack Edge (versión preliminar)](../network-function-manager/deploy-functions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

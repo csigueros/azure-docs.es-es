@@ -1,26 +1,28 @@
 ---
-title: 'Tutorial: Implementación de modelos de ML con el diseñador'
+title: 'Tutorial: Diseñador: implementación de modelos sin código'
 titleSuffix: Azure Machine Learning
-description: Cree una solución de análisis predictivo en el diseñador de Azure Machine Learning. Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos del tipo arrastrar y colocar.
+description: Implemente un modelo de Machine Learning para predecir los precios de los automóviles con el diseñador de Azure Machine Learning.
 author: likebupt
 ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/25/2021
-ms.custom: designer
-ms.openlocfilehash: 73cc893815cf591812c95c8d8b092a4b58697917
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 06/11/2021
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: a9fe604673ee53aa6772e6f382a4a3e3a53fb903
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457655"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115002"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador
+# <a name="tutorial-designer---deploy-a-machine-learning-model"></a>Tutorial: Diseñador: implementación de un modelo de Machine Learning
+
+Use el diseñador para implementar un modelo de Machine Learning para predecir el precio de los automóviles. Este tutorial es la segunda parte de dos.
 
 
-Puede implementar el modelo predictivo desarrollado en la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md) para que otros usuarios puedan usarlo. En la parte 1, ha entrenado el modelo. Ahora, es el momento de generar predicciones basadas en los datos especificados por el usuario. En esta parte del tutorial, va a realizar lo siguiente:
+En la [primera parte de este tutorial](tutorial-designer-automobile-price-train-score.md) ha entrenado un modelo de regresión lineal de precios de automóviles. En la segunda parte, implementará el modelo para dar a otros usuarios la oportunidad de utilizarlo. En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
 > * Crear una canalización de inferencia en tiempo real.

@@ -10,18 +10,21 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: edb21287b30f8ba77d6312ec6b456e20aa260598
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca9585ab1b6d02cec5e9addbbd8ca230745a5838
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358219"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114370903"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Configuración de Concur para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es explicar los pasos que hay que realizar en Concur y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD en Concur.
 
-## <a name="prerequisites"></a>Prerrequisitos
+> [!WARNING]
+> Esta integración de aprovisionamiento ya no es compatible. Como consecuencia, pronto se eliminará la funcionalidad de aprovisionamiento de la aplicación SAP Concur de la galería de aplicaciones empresariales de Azure Active Directory. La funcionalidad de inicio de sesión único de la aplicación permanecerá intacta. Microsoft trabaja con SAP Concur para crear una integración de aprovisionamiento modernizada, pero actualmente no hay fecha estimada del momento en que se completará.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 

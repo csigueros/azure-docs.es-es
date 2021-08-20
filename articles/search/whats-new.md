@@ -6,18 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/24/2021
+ms.date: 07/20/2021
 ms.custom: references_regions
-ms.openlocfilehash: 945a11fb8d8aef3eef2d3c43a68b8c092741436e
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 3c44db5c17d1179df03985515acc9133feca198e
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003789"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711058"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
 Conozca las novedades del servicio. Marque esta página para mantenerse actualizado con el servicio. Consulte la [lista de características en versión preliminar](search-api-preview.md) para ver todas las características que aún no están disponibles con carácter general.
+
+## <a name="july-2021"></a>Julio de 2021
+
+|Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descripción | Disponibilidad  |
+|------------------------------------|--------------|---------------|
+| [API REST Search 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Agrega compatibilidad con la API REST para las conexiones de indizador realizadas mediante [identidades administradas](search-howto-managed-identities-data-sources.md) y la autenticación de Azure Active Directory (Azure AD). | Versión preliminar pública |
+| [Autorización basada en roles (versión preliminar)](search-security-rbac.md) | Autenticación mediante Azure Active Directory y nuevos roles integrados para el acceso del plano de datos a índices e indexación, lo que elimina o reduce la dependencia de las claves de API. | Versión preliminar pública ([bajo solicitud](https://aka.ms/azure-cognitive-search/rbac-preview)). Una vez que la suscripción esté integrada, use Azure Portal o la API REST de administración versión 2021-04-01-Preview a fin de configurar un servicio de búsqueda para la autenticación del plano de datos.|
+| [API REST de administración 2021-04-01-Preview](/rest/api/searchmanagement/) | Modifica [Crear o actualizar un servicio](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) para admitir los nuevos valores [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Versión preliminar pública |
 
 ## <a name="may-2021"></a>Mayo de 2021
 

@@ -6,22 +6,24 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 02/26/2021
+ms.date: 06/25/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: b7740fa1f6a54dcfcc1181dddedcdd5fdb50402c
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 0140166ac173e51f9b9d4e9617de3b70d24e1474
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378234"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215072"
 ---
 # <a name="tutorial-proving-possession-of-a-ca-certificate"></a>Tutorial: Prueba de posesión de un certificado de CA
 
-Después de cargar un certificado de una entidad de certificación (CA) raíz o un certificado de CA subordinada en el centro de IoT, debe demostrar que posee el certificado:
+Al cargar el certificado de entidad de certificación (CA) raíz o un certificado de CA subordinada en el centro de IoT, puede establecerlo como verificado de forma automática, o bien demostrar que posee el certificado.
+
+## <a name="verify-certificate-automatically"></a>Comprobación automática del certificado 
 
 1. En Azure Portal, vaya a la instancia de IoT Hub y seleccione **Configuración > Certificados**.
 
@@ -29,17 +31,25 @@ Después de cargar un certificado de una entidad de certificación (CA) raíz o 
 
 3. Escriba un nombre para mostrar en el campo **Nombre del certificado** y seleccione el archivo de certificado PEM que va a agregar.
 
-4. Seleccione **Guardar**. El certificado se muestra en la lista de certificados con el estado **Sin comprobar**. Este proceso de comprobación determinará que es el poseedor del certificado.
+4. Para comprobar automáticamente el certificado, active la casilla situada junto a **Establecer el estado del certificado como comprobado al cargar**.
 
-5. Seleccione el certificado para ver el cuadro de diálogo **Detalles de certificado**.
+  :::image type="content" source="media/tutorial-x509-prove-possession/skip-pop.png" alt-text="Captura de pantalla en la que se muestra dónde está la casilla para omitir la prueba de posesión":::
 
-6. Seleccione **Generar código de comprobación** en el cuadro de diálogo.
+5. Seleccione **Guardar**.  El certificado se muestra en la lista de certificados con un estado **Comprobado**.
+
+## <a name="verify-certificate-manually-after-upload"></a>Comprobación manual del certificado después de la carga
+
+1. Si no ha elegido comprobar automáticamente el certificado durante la carga, el certificado se muestra en la lista de certificados con el estado **Sin comprobar**. 
+
+2. Seleccione el certificado para ver el cuadro de diálogo **Detalles de certificado**.
+
+3. Seleccione **Generar código de comprobación** en el cuadro de diálogo.
 
   :::image type="content" source="media/tutorial-x509-prove-possession/certificate-details.png" alt-text="{cuadro de diálogo Detalles de certificado}":::
 
-7. Copie este código de verificación en el portapapeles. Debe establecer el código de verificación como asunto del certificado. Por ejemplo, si el código de verificación es 75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3, agréguelo como asunto del certificado, tal como se muestra en el paso siguiente.
+4. Copie este código de verificación en el portapapeles. Debe establecer el código de verificación como asunto del certificado. Por ejemplo, si el código de verificación es 75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3, agréguelo como asunto del certificado, tal como se muestra en el paso siguiente.
 
-8. Hay tres formas de generar un certificado de verificación:
+5. Hay tres formas de generar un certificado de verificación:
 
     * Si usa el script de PowerShell proporcionado por Microsoft, ejecute `New-CACertsVerificationCert "75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3"` para crear un certificado denominado `VerifyCert4.cer`. Para más información, consulte el artículo que trata sobre el [uso de scripts proporcionados por Microsoft](tutorial-x509-scripts.md).
 
@@ -77,6 +87,6 @@ Después de cargar un certificado de una entidad de certificación (CA) raíz o 
 
     Para más información, consulte el artículo en el que se explica cómo [usar OpenSSL para crear certificados de prueba](tutorial-x509-openssl.md).
 
-10. Seleccione el nuevo certificado en la vista **Detalles de certificado**.
+6. Seleccione el nuevo certificado en la vista **Detalles de certificado**.
 
-11. Una vez que el certificado se carga, seleccione **Comprobar**. El estado del certificado de CA debe cambiar a **Comprobado**.
+7. Una vez que el certificado se carga, seleccione **Comprobar**. El estado del certificado de CA debe cambiar a **Comprobado**.

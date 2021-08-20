@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: 06a42629df1f22eeb7a90ef5ce4da2ef53162391
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 970329753d6dd6c6175c26da4288c304e27e3982
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123166"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237615"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Mejora del cumplimiento normativo
 
@@ -51,17 +51,17 @@ Utilice el panel de cumplimiento normativo para centrarse en las deficiencias re
 
     En la parte superior de la pantalla hay un panel con información general sobre su estado de cumplimiento con respecto a las normativas compatibles. Allí se indica la puntuación global de cumplimiento y el número de valoraciones aprobadas y suspendidas asociadas a cada estándar.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Panel de cumplimiento normativo" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Panel de cumplimiento normativo." lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 1. Seleccione la pestaña de la norma que le interese (1). Verá las suscripciones en las que se aplica la norma (2) y la lista de todos los controles de esa norma (3). Para saber qué controles se pueden aplicar, puede ver los detalles de las evaluaciones superadas y no superadas asociadas a ese control (4) y el número de recursos afectados (5). Algunos controles aparecen atenuados, no tienen valoraciones de Security Center asociadas. Compruebe sus requisitos y evalúelos en el entorno. Es posible que algunos de ellos estén relacionados con los procesos y no sean técnicos.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploración de los detalles de cumplimiento con una norma específica":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploración de los detalles de cumplimiento con una norma específica.":::
 
 1. Para generar un informe PDF con un resumen de su estado de cumplimiento actual en relación con un estándar concreto, seleccione **Descargar informe**.
 
     El informe proporciona un resumen general sobre el estado de cumplimiento del estándar seleccionado en función de los datos de las evaluaciones de Security Center. El informe se organiza según los controles de ese estándar determinado. El informe se puede compartir con las partes interesadas competentes y puede proporcionar evidencia a los auditores internos y externos.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Descarga del informe de cumplimiento":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Descarga del informe de cumplimiento.":::
 
 ## <a name="improve-your-compliance-posture"></a>Mejora de su estado de cumplimiento de la norma
 
@@ -75,7 +75,7 @@ El panel contiene información que le ayudará a mejorar el cumplimiento normati
 
 1. En este ejemplo, si selecciona **Realizar acción** en la página de detalles de la recomendación, accederá Azure Portal, a las páginas de la máquina virtual de Azure, donde podrá abrir la pestaña **Seguridad** y habilitar el cifrado:
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Botón Realizar acción en la página de detalles de la recomendación que conduce a las opciones de corrección":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Botón Realizar acción en la página de detalles de la recomendación que conduce a las opciones de corrección.":::
 
     Para más información sobre cómo aplicar las recomendaciones, consulte [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 
@@ -93,15 +93,15 @@ Utilice los datos de exportación continua con un centro de eventos de Azure o u
 
 - Exporte todos los datos de cumplimiento normativo en un **flujo continuo**:
 
-    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-stream.png" alt-text="Exportar ininterrumpidamente un flujo de datos de cumplimiento normativo" lightbox="media/security-center-compliance-dashboard/export-compliance-data-stream.png":::
+    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-stream.png" alt-text="Exportación ininterrumpida de un flujo de datos de cumplimiento normativo." lightbox="media/security-center-compliance-dashboard/export-compliance-data-stream.png":::
 
 - Exporte **instantáneas semanales** de los datos de cumplimiento normativo:
 
-    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Exportar ininterrumpidamente una instantánea semanal de los datos de cumplimiento normativo" lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
+    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Exportación ininterrumpida de una instantánea semanal de los datos de cumplimiento normativo." lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
 
 También puede exportar un **informe PDF/CSV** de los datos de cumplimiento directamente desde el panel:
 
-:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Exportar los datos de cumplimiento normativo como un informe PDF o CSV" lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
+:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Exportación de los datos de cumplimiento normativo como un informe PDF o CSV." lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
 
 Para más información, consulte este artículo sobre la [exportación continua de datos de Security Center](continuous-export.md).
 
@@ -112,7 +112,7 @@ La característica de automatización de flujos de trabajo de Security Center pu
 
 Por ejemplo, si quiere que Security Center envíe un correo electrónico a un usuario específico cuando no se supere una valoración de cumplimiento, primero tendrá que crear la aplicación lógica (mediante [Azure Logic Apps](../logic-apps/logic-apps-overview.md)) y después tendrá que configurar el desencadenador en una nueva automatización de flujos de trabajo, tal y como se explica en [Automatización de respuestas a desencadenadores de Security Center](workflow-automation.md).
 
-:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Uso de los cambios en las valoraciones de cumplimiento normativo para desencadenar la automatización de un flujo de trabajo" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Uso de los cambios en las evaluaciones de cumplimiento normativo para desencadenar la automatización de un flujo de trabajo." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
 
@@ -168,7 +168,7 @@ Para usar el panel de cumplimiento normativo, Azure Security Center debe tener A
 ### <a name="how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard"></a>¿Cómo puedo ver un informe de los controles superados y no superados por estándar en mi panel?
 En el panel principal, puede ver un informe de los controles superados y no superados de (1) los 4 principales estándares de cumplimiento con el resultado más bajo en el panel. Para ver todo el estado de todos los controles superados y no superados, seleccione (2) **Mostrar todo *x*** (donde x es el número de estándares de los que está realizando el seguimiento). Un plano de contexto muestra el estado de cumplimiento de cada uno de los estándares de los que se realiza el seguimiento.
 
-:::image type="content" source="media/security-center-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Sección de resumen del panel de cumplimiento normativo":::
+:::image type="content" source="media/security-center-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Sección de resumen del panel de cumplimiento normativo.":::
 
 
 ### <a name="how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf"></a>¿Cómo puedo descargar un informe con datos de cumplimiento en un formato distinto de PDF?

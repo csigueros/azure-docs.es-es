@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 4418d7866f2476d528290f99d396dcf52c47c3ec
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 52f948526b1575f43d722c856251eed83b2e66ef
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112039176"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982787"
 ---
 # <a name="1000-genomes"></a>1000 Genomes
 
@@ -42,9 +42,9 @@ Este conjunto de datos se almacena en las regiones Oeste de EE. UU. 2 y Centro
 
 ## <a name="data-access"></a>Acceso a datos
 
-Oeste de EE. UU. 2: https://dataset1000genomes.blob.core.windows.net/dataset
+Oeste de EE. UU. 2: "https://dataset1000genomes.blob.core.windows.net/dataset"
 
-Centro-oeste de EE. UU.: https://dataset1000genomes-secondary.blob.core.windows.net/dataset
+Centro-oeste de EE. UU.: "https://dataset1000genomes-secondary.blob.core.windows.net/dataset"
 
 [Token de SAS](../storage/common/storage-sas-overview.md): sv=2019-10-10&si=prod&sr=c&sig=9nzcxaQn0NprMPlSh4RhFQHcXedLQIcFgbERiooHEqM%3D
 

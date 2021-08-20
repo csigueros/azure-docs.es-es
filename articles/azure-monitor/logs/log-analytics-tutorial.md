@@ -4,13 +4,13 @@ description: Aprenda en este tutorial a usar las características de Log Analyti
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 10/07/2020
-ms.openlocfilehash: a5788e5ac64c1c74a06c94c5634a05315ee098b8
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.date: 06/28/2021
+ms.openlocfilehash: 6a78bcdb6f8f3036da4f273256d681f94f87a1bb
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799299"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356642"
 ---
 # <a name="log-analytics-tutorial"></a>Tutorial de Log Analytics
 Log Analytics es una herramienta de Azure Portal que se usa para editar y ejecutar consultas de registros en los datos que se recopilan en los registros de Azure Monitor, y analizar los resultados de forma interactiva. Puede usar consultas de Log Analytics para recuperar registros que coincidan con determinados criterios, identificar tendencias, analizar patrones y proporcionar una gran variedad de información sobre los datos. 
@@ -36,91 +36,89 @@ Abra el [entorno de demostración de Log Analytics](https://ms.portal.azure.com/
 
 Puede ver el ámbito en la esquina superior izquierda de la pantalla. Si usa su propio entorno, verá una opción para seleccionar un ámbito diferente, pero esta opción no está disponible en el entorno de demostración.
 
-[![Ámbito de la consulta](media/log-analytics-tutorial/scope.png)](media/log-analytics-tutorial/scope.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/scope.png" alt-text="Ámbito de Log Analytics" lightbox="media/log-analytics-tutorial/scope.png":::
 
 ## <a name="table-schema"></a>Esquema de tabla
-El lado izquierdo de la pantalla incluye la pestaña **Tablas**, que permite inspeccionar las tablas que están disponibles en el ámbito actual. Estas se agrupan por **Solución** de forma predeterminada, pero puede cambiar su agrupación o filtrarlas. 
+El lado izquierdo de la pantalla incluye la pestaña **Tablas**, que permite inspeccionar las tablas que están disponibles en el ámbito actual. Se agrupan por **Solución** de forma predeterminada, pero puede cambiar su agrupación o filtrarlas. 
 
-Expanda la solución **Administración del registro** y localice la tabla **AzureActivity**. Puede expandir la tabla para ver su esquema o mantener el puntero sobre su nombre para que se muestre información adicional sobre ella. 
+Expanda la solución **Administración del registro** y localice la tabla **AppRequests**. Puede expandir la tabla para ver su esquema o mantener el puntero sobre su nombre para que se muestre información adicional sobre ella. 
 
-[![Vista de tablas](media/log-analytics-tutorial/table-details.png)](media/log-analytics-tutorial/table-details.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/table-details.png" alt-text="Vista de tablas" lightbox="media/log-analytics-tutorial/table-details.png":::
 
-Haga clic en **Más información** para ir a la referencia de tabla que documenta cada tabla y sus columnas. Haga clic en **Vista previa de los datos** para echar un vistazo a algunos registros recientes de la tabla. Esto puede ser útil para asegurarse de que se trata de los datos que espera antes de ejecutar una consulta en ellos.
+Haga clic en el vínculo situado debajo de **Vínculos útiles** para ir a la referencia de tablas en la que se documentan todas las tablas y sus columnas. Haga clic en **Vista previa de los datos** para echar un vistazo a algunos registros recientes de la tabla. Esto puede ser útil para asegurarse de que se trata de los datos que espera antes de ejecutar una consulta en ellos.
 
-[![Datos de ejemplo](media/log-analytics-tutorial/sample-data.png)](media/log-analytics-tutorial/sample-data.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/sample-data.png" alt-text="Datos de ejemplo" lightbox="media/log-analytics-tutorial/sample-data.png":::
 
 ## <a name="write-a-query"></a>Escriba una consulta.
-Vamos a escribir una consulta mediante la tabla **AzureActivity**. Haga doble clic en su nombre para agregarlo a la ventana de consulta. También puede escribir directamente en la ventana e incluso obtener IntelliSense que le ayudará a completar los nombres de las tablas del ámbito actual y los comandos de KQL.
+Ahora escribirá una consulta mediante la tabla **AppRequests**. Haga doble clic en su nombre para agregarlo a la ventana de consulta. También puede escribir directamente en la ventana e incluso obtener IntelliSense que le ayudará a completar los nombres de las tablas del ámbito actual y los comandos de KQL.
 
 Esta es la consulta más sencilla que se puede escribir. Simplemente devuelve todos los registros de una tabla. Para ejecutarla, haga clic en el botón **Ejecutar** o presione Mayús + ENTRAR con el cursor situado en cualquier parte del texto de la consulta.
 
-[![Resultados de la consulta](media/log-analytics-tutorial/query-results.png)](media/log-analytics-tutorial/query-results.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results.png" alt-text="Resultados de la consulta" lightbox="media/log-analytics-tutorial/query-results.png":::
 
 Puede ver que se han obtenido unos resultados. El número de registros devueltos por la consulta aparece en la esquina inferior derecha. 
 
 ## <a name="filter"></a>Filter
 
-Vamos a agregar un filtro a la consulta para reducir el número de registros que se devuelven. En el panel izquierdo, seleccione la pestaña **Filtrar**. Esto hace que aparezcan diferentes columnas en los resultados de la consulta que puede usar para filtrar los resultados. Los valores superiores de esas columnas se muestran con el número de registros con ese valor. Haga clic en **Administrativo** en **CategoryValue** y, a continuación, en **Apply & Run** (Aplicar y ejecutar). 
+Vamos a agregar un filtro a la consulta para reducir el número de registros que se devuelven. En el panel izquierdo, seleccione la pestaña **Filtrar**. Esto hace que aparezcan diferentes columnas en los resultados de la consulta que puede usar para filtrar los resultados. Los valores superiores de esas columnas se muestran con el número de registros con ese valor. Haga clic en **200** en **ResultCode** y después en **Aplicar y ejecutar**. 
 
-[![Panel de consulta](media/log-analytics-tutorial/query-pane.png)](media/log-analytics-tutorial/query-pane.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-pane.png" alt-text="Panel de consulta" lightbox="media/log-analytics-tutorial/query-pane.png":::
 
 Se agrega una instrucción **where** a la consulta con el valor que seleccionó. Los resultados ahora incluyen solo aquellos registros con ese valor para que pueda ver que el número de registros se reduce.
 
-[![Resultados filtrados de la consulta](media/log-analytics-tutorial/query-results-filter-01.png)](media/log-analytics-tutorial/query-results-filter-01.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-filter-01.png" alt-text="Resultados filtrados de la consulta" lightbox="media/log-analytics-tutorial/query-results-filter-01.png":::
 
 
 ## <a name="time-range"></a>Intervalo de horas
 Todas las tablas de un área de trabajo de Log Analytics tienen una columna denominada **TimeGenerated** que es la hora a la que se creó el registro. Todas las consultas tienen un intervalo de tiempo que limita los resultados a los registros con un valor **TimeGenerated** que se encuentra dentro de ese intervalo. El intervalo de tiempo se puede establecer en la consulta o con el selector en la parte superior de la pantalla.
 
-De forma predeterminada, la consulta devolverá los registros de las últimas 24 horas. Seleccione el menú desplegable **Intervalo de tiempo** y cambie el valor a **7 días**. Haga clic en **Ejecutar** de nuevo para que se devuelvan los resultados. Ahora puede ver que se devuelven resultados, pero hay un mensaje que indica que no se están viendo todos los resultados. Esto se debe a que Log Analytics puede devolver un máximo de 30 000 registros y la consulta ha devuelto un número superior. 
+De forma predeterminada, la consulta devolverá los registros de las últimas 24 horas. Debería ver un mensaje en el que se indica que no se ven todos los resultados. Esto se debe a que Log Analytics puede devolver un máximo de 30 000 registros y la consulta ha devuelto un número superior. Seleccione el menú desplegable **Intervalo de tiempo** y cambie el valor a **12 horas**. Haga clic en **Ejecutar** de nuevo para que se devuelvan los resultados. 
 
-[![Intervalo de horas](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-max.png" alt-text="Intervalo de horas" lightbox="media/log-analytics-tutorial/query-results-max.png":::
 
 
 ## <a name="multiple-query-conditions"></a>Varias condiciones de consulta
-Vamos a reducir aún más los resultados agregando otra condición de filtro. Una consulta puede incluir cualquier número de filtros para conseguir exactamente el conjunto de registros que desee. Seleccione **Correcto** en **ActivityStatusValue** y haga clic en **Apply & Run** (Aplicar y ejecutar). 
+Vamos a reducir aún más los resultados agregando otra condición de filtro. Una consulta puede incluir cualquier número de filtros para conseguir exactamente el conjunto de registros que desee. Seleccione **Get Home/Index** (Obtener inicio/índice) en **Name** (Nombre) y haga clic en **Apply & Run** (Aplicar y ejecutar). 
 
-[![Resultados de consulta con varios filtros](media/log-analytics-tutorial/query-results-filter-02.png)](media/log-analytics-tutorial/query-results-filter-02.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-filter-02.png" alt-text="Resultados de consulta con varios filtros" lightbox="media/log-analytics-tutorial/query-results-filter-02.png":::
 
 
 ## <a name="analyze-results"></a>Analizar resultados
 Además de ayudarle a escribir y ejecutar consultas, Log Analytics proporciona características para trabajar con los resultados. Comience expandiendo un registro para ver los valores de todas sus columnas.
 
-[![Expandir registro](media/log-analytics-tutorial/expand-record.png)](media/log-analytics-tutorial/expand-record.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/expand-record.png" alt-text="Expandir registro" lightbox="media/log-analytics-tutorial/expand-record.png":::
 
 Haga clic en el nombre de cualquier columna para ordenar los resultados por esa columna. Haga clic en el icono de filtro situado junto a él para proporcionar una condición de filtro. Esto es similar a agregar una condición de filtro a la propia consulta, salvo que este filtro se borra si se vuelve a ejecutar la consulta. Use este método si desea analizar rápidamente un conjunto de registros como parte del análisis interactivo.
 
-Por ejemplo, establezca un filtro en la columna **CallerIpAddress** para limitar los registros a un único autor de llamada. 
+Por ejemplo, establezca un filtro en la columna **DurationMs** para limitar los registros a los que hayan tardado más de **100** milisegundos. 
 
-[![Filtro de resultados de la consulta](media/log-analytics-tutorial/query-results-filter.png)](media/log-analytics-tutorial/query-results-filter.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-filter.png" alt-text="Filtro de resultados de la consulta" lightbox="media/log-analytics-tutorial/query-results-filter.png":::
 
 En lugar de filtrar los resultados, puede agrupar los registros por una columna determinada. Borre el filtro que acaba de crear y, a continuación, active el control deslizante **Agrupar columnas**. 
 
-[![Agrupar columnas](media/log-analytics-tutorial/query-results-group-columns.png)](media/log-analytics-tutorial/query-results-group-columns.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-group-columns.png" alt-text="Agrupar columna" lightbox="media/log-analytics-tutorial/query-results-group-columns.png":::
 
-A continuación, arrastre la columna **CallerIpAddress** a la fila de agrupación. Los resultados se organizan ahora por esa columna y puede contraer cada grupo para ayudarle con el análisis.
+Ahora, arrastre la columna **Url** a la fila de agrupación. Los resultados se organizan ahora por esa columna y puede contraer cada grupo para ayudarle con el análisis.
 
-[![Resultados de la consulta agrupados](media/log-analytics-tutorial/query-results-grouped.png)](media/log-analytics-tutorial/query-results-grouped.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-grouped.png" alt-text="Resultados de la consulta agrupados" lightbox="media/log-analytics-tutorial/query-results-grouped.png":::
 
 ## <a name="work-with-charts"></a>Uso de gráficos
 Echemos un vistazo a una consulta que usa datos numéricos que se pueden ver en un gráfico. En lugar de crear una consulta, vamos a seleccionar una consulta de ejemplo.
 
 En el panel izquierdo, haga clic en **Consultas**. Este panel incluye consultas de ejemplo que se pueden agregar a la ventana de consultas. Si va a usar su propia área de trabajo, dispondrá de una gran variedad de consultas en diversas categorías, pero si va a usar el entorno de demostración, verá solo una única categoría denominada **áreas de trabajo de Log Analytics**. Expanda esa categoría para ver las consultas que incluye.
 
-Haga clic en la consulta llamada **Número de solicitudes por ResponseCode**. Esto agregará la consulta a la ventana de consultas. Observe que la nueva consulta está separada de la otra por una línea en blanco. Una consulta en KQL finaliza cuando encuentra una línea en blanco, por lo que estas se ven como consultas independientes. 
+Haga clic en la consulta denominada **Tasa de errores de función** en la categoría **Aplicaciones**. Esto agregará la consulta a la ventana de consultas. Observe que la nueva consulta está separada de la otra por una línea en blanco. Una consulta en KQL finaliza cuando encuentra una línea en blanco, por lo que estas se ven como consultas independientes. 
 
-[![Nueva consulta](media/log-analytics-tutorial/example-query.png)](media/log-analytics-tutorial/example-query.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/example-query.png" alt-text="Nueva consulta" lightbox="media/log-analytics-tutorial/example-query.png":::
 
 La consulta actual es aquella en la que está situado el cursor. Puede ver que la primera consulta está resaltada, lo que indica que es la consulta actual. Haga clic en cualquier lugar de la nueva consulta para seleccionarla y, a continuación, haga clic en el botón **Ejecutar** para ejecutarla.
 
-[![Gráfico de resultados de consulta](media/log-analytics-tutorial/example-query-output-chart.png)](media/log-analytics-tutorial/example-query-output-chart.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/example-query-output-table.png" alt-text="Tabla de resultados de consulta" lightbox="media/log-analytics-tutorial/example-query-output-table.png":::
 
-Tenga en cuenta que esta salida es un gráfico en lugar de una tabla como en la última consulta. Esto se debe a que en la consulta de ejemplo se utiliza un comando [render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) al final. Observe que hay varias opciones para trabajar con el gráfico, como cambiar a otro tipo.
+Para ver los resultados en un gráfico, seleccione **Gráfico** en el panel de resultados.  Observe que hay varias opciones para trabajar con el gráfico, como cambiar a otro tipo.
 
-Intente seleccionar **Resultados** para ver la salida de la consulta como una tabla. 
 
-[![Tabla de resultados de consulta](media/log-analytics-tutorial/example-query-output-table.png)](media/log-analytics-tutorial/example-query-output-table.png#lightbox)
-
+:::image type="content" source="media/log-analytics-tutorial/example-query-output-chart.png" alt-text="Gráfico de resultados de consulta" lightbox="media/log-analytics-tutorial/example-query-output-chart.png":::
 
 
 ## <a name="next-steps"></a>Pasos siguientes

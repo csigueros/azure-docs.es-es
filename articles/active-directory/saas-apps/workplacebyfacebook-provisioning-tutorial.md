@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/28/2020
+ms.date: 07/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 4ad66b5a5116e650983dd72ffe4875d89c390ced
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 5e4091138f51fdd5af4052895cdb75c2390f7ce5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110540530"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459738"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios
 
@@ -30,7 +30,7 @@ En este tutorial, se describen los pasos que debe realizar en Workplace by Faceb
 
 >[!VIDEO https://www.youtube.com/embed/oF7I0jjCfrY]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -167,10 +167,13 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 
 ## <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
 *  Si ve que un usuario no se ha creado correctamente y hay un evento de registro de auditoría con el código "1789003", significa que el usuario procede de un dominio sin comprobar.
+*  Hay casos en los que los usuarios obtienen el error "ERROR: Falta el campo de correo electrónico: debe proporcionar un correo electrónico Error devuelto desde Facebook: el procesamiento de la solicitud HTTP ha iniciado una excepción. Para obtener información detallada, consulte la respuesta HTTP que devolvió la propiedad "Response" de esta excepción. Esta operación se ha reintentado 0 veces. Se volverá a intentar después de esta fecha". Este error se debe a que los clientes asignan mail, en lugar de userPrincipalName, al correo electrónico de Facebook, pero algunos usuarios no tienen un atributo mail. Para evitar los errores y aprovisionar correctamente los usuarios con errores en Workplace de Facebook, cambie la asignación de atributos al atributo email en Workplace de Facebook por Coalesce([mail],[userPrincipalName]), o bien anule la asignación del usuario de Workplace de Facebook, o bien aprovisione una dirección de correo electrónico para el usuario.  
+
 
 ## <a name="change-log"></a>Registro de cambios
 
 * 10/09/2020: se ha agregado compatibilidad con los atributos empresariales "division", "organization", "costCenter" y "employeeNumber". Se ha agregado compatibilidad con los atributos personalizados "startDate", "auth_method" y "frontline"
+* 22/07/2021: se han actualizado las sugerencias de solución de problemas para los clientes con una asignación de correo electrónico al correo electrónico de Facebook, pero algunos usuarios no tienen un atributo de correo electrónico
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

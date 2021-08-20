@@ -6,13 +6,13 @@ ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
 ms.custom: seo-lt-2019
-ms.date: 03/12/2018
-ms.openlocfilehash: 20253954035798187f28c18c8207c114d27bc9c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/07/2021
+ms.openlocfilehash: e9b4d075832fde6aec81a7f8440756b4d6f32834
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374089"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215998"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Ejecución de un cuaderno de Databricks con la actividad Notebook de Databricks en Azure Data Factory
 
@@ -82,9 +82,9 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
 ### <a name="create-an-azure-databricks-linked-service"></a>Creación de un servicio vinculado de Azure Databricks
 
-1.  En la página de **introducción**, cambie a la pestaña **Edit** (Editar) del panel izquierdo.
+1.  En la página principal, cambie a la pestaña **Administrar** del panel de la izquierda.
 
-    ![Modificar el nuevo servicio vinculado](media/transform-data-using-databricks-notebook/get-started-page.png)
+    ![Modificar el nuevo servicio vinculado](media/doc-common-process/get-started-page-manage-button.png)
 
 1.  Seleccione **Connections** (Conexiones) en la parte inferior de la ventana y seleccione **+ New** (+ Nuevo).
     
@@ -154,12 +154,12 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
           ![Establecimiento de las propiedades del nuevo cuaderno](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       1. En el cuaderno "mynotebook" recién creado, agregue el código siguiente:
+       1. En el cuaderno "mynotebook&quot; recién creado, agregue el código siguiente:
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters
 
-           dbutils.widgets.text("input", "","")
+           dbutils.widgets.text(&quot;input&quot;, &quot;&quot;,&quot;")
            y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)

@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-java-uiex
-ms.openlocfilehash: 69c4129feacf36b6b98cdcd7c2f4f5f36d7839b2
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 8f52ba7008b2a7b3f7734f652c92014e110e3df4
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831931"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287805"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Java en Azure desde la línea de comandos
 
@@ -24,10 +24,12 @@ ms.locfileid: "107831931"
 
 En este artículo se usan herramientas de línea de comandos para crear una función de Java que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions.
 
-Este inicio rápido supone un pequeño costo en su cuenta de Azure.
+Si Maven no es su herramienta de desarrollo preferida, consulte nuestros tutoriales análogos para desarrolladores de Java:
++ [Gradle](./functions-create-first-java-gradle.md)
++ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)
++ [Visual Studio Code](create-first-function-vs-code-java.md)
 
-> [!NOTE]
-> Si Maven no es la herramienta de desarrollo elegida, consulte nuestros tutoriales análogos para desarrolladores de Java con [Gradle](./functions-create-first-java-gradle.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) y [Visual Studio Code](create-first-function-vs-code-java.md).
+Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 
 ## <a name="configure-your-local-environment"></a>Configuración del entorno local
 
@@ -39,7 +41,7 @@ Antes de empezar, debe disponer de lo siguiente:
 
 + La [CLI de Azure](/cli/azure/install-azure-cli), versión 2.4 o cualquier versión posterior.
 
-+ [Kit para desarrolladores de Java](/azure/developer/java/fundamentals/java-jdk-long-term-support), versión 8 u 11. La variable de entorno `JAVA_HOME` se debe establecer en la ubicación de instalación de la versión correcta del JDK.     
++ [Kit para desarrolladores de Java](/azure/developer/java/fundamentals/java-support-on-azure), versión 8 u 11. La variable de entorno `JAVA_HOME` se debe establecer en la ubicación de instalación de la versión correcta del JDK.     
 
 + [Apache Maven](https://maven.apache.org), versión 3.0 o posterior.
 
@@ -84,7 +86,7 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
 1. Maven le pide los valores necesarios para finalizar la generación del proyecto en la implementación.   
     Indique los siguientes valores cuando se le solicite:
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | **groupId** | `com.fabrikam` | Un valor que identifica de forma única su proyecto entre todos los demás y que sigue las [reglas de nomenclatura de paquetes](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de Java. |
     | **artifactId** | `fabrikam-functions` | Un valor que es el nombre del archivo jar, sin un número de versión. |

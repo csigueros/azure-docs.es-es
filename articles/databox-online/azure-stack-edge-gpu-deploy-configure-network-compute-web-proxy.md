@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 07/07/2021
 ms.author: alkohli
-ms.openlocfilehash: 38259febaed159217379ba131fb2bffb808e65e7
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: 3c3b2bc20481da45bd9345f7668382521642a074
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109838157"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221289"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Configuración de la red para Azure Stack Edge Pro con GPU
 
@@ -67,12 +67,13 @@ Siga estos pasos para configurar la red en el dispositivo.
 
     Al configurar la red, tenga en cuenta lo siguiente:
 
-   * Si DHCP está habilitado en el entorno, las interfaces de red se configuran automáticamente. Se asignan automáticamente una dirección IP, la subred, la puerta de enlace y DNS.
-   * Si DHCP no está habilitado, puede asignar direcciones IP estáticas si es necesario.
-   * Puede configurar la interfaz de red como IPv4.
-   * En las interfaces de 25 Gbps, puede establecer el modo RDMA (memoria de acceso directo remoto) en iWarp o RoCE (RDMA sobre Ethernet convergente). Si las latencias bajas son el requisito principal y la escalabilidad no es un problema, use RoCE. Cuando la latencia es un requisito clave, pero la facilidad de uso y la escalabilidad también son prioridades elevadas, iWARP es el mejor candidato.
-   * Azure Stack Edge no admite la agregación de vínculos ni la formación de equipos en las tarjetas de interfaz de red (NIC). 
-   * El número de serie de cualquier puerto corresponde al número de serie del nodo.
+    * Asegúrese de que los puertos 5 y 6 están conectados para las implementaciones de Network Function Manager. Para obtener más información, vea [Tutorial: Implementación de funciones de red en Azure Stack Edge (versión preliminar)](../network-function-manager/deploy-functions.md).
+    * Si DHCP está habilitado en el entorno, las interfaces de red se configuran automáticamente. Se asignan automáticamente una dirección IP, la subred, la puerta de enlace y DNS.
+    * Si DHCP no está habilitado, puede asignar direcciones IP estáticas si es necesario.
+    * Puede configurar la interfaz de red como IPv4.
+    * En las interfaces de 25 Gbps, puede establecer el modo RDMA (memoria de acceso directo remoto) en iWarp o RoCE (RDMA sobre Ethernet convergente). Si las latencias bajas son el requisito principal y la escalabilidad no es un problema, use RoCE. Cuando la latencia es un requisito clave, pero la facilidad de uso y la escalabilidad también son prioridades elevadas, iWARP es el mejor candidato.
+    * Azure Stack Edge no admite la agregación de vínculos ni la formación de equipos en las tarjetas de interfaz de red (NIC). 
+    * El número de serie de cualquier puerto corresponde al número de serie del nodo.
 
     Una vez configurada la red del dispositivo, la página se actualiza tal como se muestra a continuación.
 
@@ -110,7 +111,7 @@ Siga estos pasos para habilitar el proceso y configurar la red de proceso.
 1. Asigne las **IP del servicio externo de Kubernetes**. También son las direcciones IP de equilibrio de carga. Estas direcciones IP contiguas son para los servicios que desea exponer fuera del clúster de Kubernetes y debe especificar el rango de direcciones IP estáticas en función del número de servicios expuestos. 
     
     > [!IMPORTANT]
-    > Le recomendamos que especifique un mínimo de una dirección IP para que el servicio de centro de Azure Stack Edge Pro acceda a los módulos de proceso. Opcionalmente, puede especificar direcciones IP adicionales para otros módulos de servicios o IoT Edge (1 por servicio o módulo) a los que es necesario acceder desde fuera del clúster. Las direcciones IP de servicio se pueden actualizar más adelante. 
+    > Le recomendamos encarecidamente que especifique un mínimo de 1 dirección IP para que el servicio de centro de Azure Stack Edge acceda a los módulos de proceso. Opcionalmente, puede especificar direcciones IP adicionales para otros módulos de servicios o IoT Edge (1 por servicio o módulo) a los que es necesario acceder desde fuera del clúster. Las direcciones IP de servicio se pueden actualizar más adelante. 
     
 1. Seleccione **Aplicar**.
 

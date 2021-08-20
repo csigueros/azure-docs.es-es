@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 3d160649008199233fa0b676d938470569a27853
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 95f24173f584cd6ac6e97ccae053706ff5b8f2cf
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101501"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091472"
 ---
 # <a name="tutorial-migrate-an-android-app-from-google-maps"></a>Tutorial: Migración de una aplicación Android desde Google Maps
 
@@ -258,7 +258,7 @@ Para mostrar un mapa mediante el SDK de Azure Maps para Android, debe seguir est
     3. Actualice el bloque de dependencias. Agregue una nueva línea de dependencia de implementación para el Android SDK de Azure Maps más reciente:
 
         ```gradel
-        implementation "com.microsoft.azure.maps:mapcontrol:0.7"
+        implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
         > [!Note]
@@ -277,7 +277,7 @@ Para mostrar un mapa mediante el SDK de Azure Maps para Android, debe seguir est
         android:layout_height="match_parent"
         >
 
-        <com.microsoft.azure.maps.mapcontrol.MapControl
+        <com.azure.android.maps.control.MapControl
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -312,11 +312,11 @@ Para mostrar un mapa mediante el SDK de Azure Maps para Android, debe seguir est
     package com.example.myapplication;
     
     import androidx.appcompat.app.AppCompatActivity;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-    import com.microsoft.azure.maps.mapcontrol.options.MapStyle;
-    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
+    import com.azure.android.maps.control.AzureMaps;
+    import com.azure.android.maps.control.MapControl;
+    import com.azure.android.maps.control.layer.SymbolLayer;
+    import com.azure.android.maps.control.options.MapStyle;
+    import com.azure.android.maps.control.source.DataSource;
     
     public class MainActivity extends AppCompatActivity {
     
@@ -418,10 +418,10 @@ Para mostrar un mapa mediante el SDK de Azure Maps para Android, debe seguir est
 
     import androidx.appcompat.app.AppCompatActivity
     import android.os.Bundle
-    import com.microsoft.azure.maps.mapcontrol.AzureMap
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps
-    import com.microsoft.azure.maps.mapcontrol.MapControl
-    import com.microsoft.azure.maps.mapcontrol.events.OnReady
+    import com.azure.android.maps.control.AzureMap
+    import com.azure.android.maps.control.AzureMaps
+    import com.azure.android.maps.control.MapControl
+    import com.azure.android.maps.control.events.OnReady
     
     class MainActivity : AppCompatActivity() {
     
@@ -542,16 +542,16 @@ Este es un ejemplo de Google Maps con el idioma establecido en "fr".
 
 ![Localización de Google Maps](media/migrate-google-maps-android-app/google-maps-localization.png)
 
-### <a name="after-azure-maps"></a>Después: Azure Maps
+### <a name="after-azure-maps&quot;></a>Después: Azure Maps
 
-Azure Maps proporciona tres formas diferentes de establecer el idioma y la vista regional del mapa. La primera opción consiste en pasar la información del idioma y de la vista regional a la clase `AzureMaps`. Esta opción utiliza los métodos estáticos `setLanguage` y `setView` de forma global. Se establecerán así el idioma y la vista regional predeterminados en todos los controles de Azure Maps cargados en la aplicación. En este ejemplo se establece el francés con el código de idioma "fr-FR".
+Azure Maps proporciona tres formas diferentes de establecer el idioma y la vista regional del mapa. La primera opción consiste en pasar la información del idioma y de la vista regional a la clase `AzureMaps`. Esta opción utiliza los métodos estáticos `setLanguage` y `setView` de forma global. Se establecerán así el idioma y la vista regional predeterminados en todos los controles de Azure Maps cargados en la aplicación. En este ejemplo se establece el francés con el código de idioma &quot;fr-FR&quot;.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
 static {
     //Set your Azure Maps Key.
-    AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
+    AzureMaps.setSubscriptionKey(&quot;<Your Azure Maps Key>");
 
     //Set the language to be used by Azure Maps.
     AzureMaps.setLanguage("fr-FR");
@@ -585,12 +585,12 @@ companion object {
 La segunda opción consiste en pasar la información del idioma y de la vista al código XML del control de mapa.
 
 ```xml
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/myMap"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_language="fr-FR"
-    app:mapcontrol_view="Auto"
+    app:azure_maps_language="fr-FR"
+    app:azure_maps_view="Auto"
     />
 ```
 
@@ -675,14 +675,14 @@ Como se ha indicado antes, para lograr la misma área visible en Azure Maps, res
 La vista de mapa inicial se puede establecer en atributos XML en el control de mapa.
 
 ```xml
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/myMap"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_cameraLat="35.0272"
-    app:mapcontrol_cameraLng="-111.0225"
-    app:mapcontrol_zoom="14"
-    app:mapcontrol_style="satellite"
+    app:azure_maps_cameraLat="35.0272"
+    app:azure_maps_cameraLng="-111.0225"
+    app:azure_maps_zoom="14"
+    app:azure_maps_style="satellite"
     />
 ```
 
@@ -1326,7 +1326,7 @@ No hay recursos para limpiar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre la migración a Azure Maps:
+Obtenga más información sobre Android SDK de Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Migración de una aplicación de Android](migrate-from-google-maps-android-app.md)
+> [Introducción a Android SDK para Azure Maps](how-to-use-android-map-control-library.md)

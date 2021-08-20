@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Introducción a la incorporación de administradores'
+title: 'Inicio rápido: Introducción a la incorporación de administradores'
 description: En este tutorial, aprenderá a agregar un usuario administrativo a un área de trabajo.
 services: synapse-analytics
 author: saveenr
@@ -10,12 +10,13 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/02/2021
-ms.openlocfilehash: 8b854dfcff7dfb4d03038b542308b6f3ebb6d491
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 7a03715a89b5319e341d1704719b020e1b61ef1d
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553505"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113219427"
 ---
 # <a name="add-an-administrator-to-your-synapse-workspace"></a>Incorporación de un administrador a un área de trabajo de Synapse
 
@@ -27,12 +28,20 @@ Hasta ahora, en la guía de introducción nos hemos centrado en las actividades 
 
 ## <a name="azure-rbac-owner-role-for-the-workspace"></a>Azure RBAC: rol de Propietario para el área de trabajo
 
-Asigne `ryan@contoso.com` al rol de **Propietario** de Azure RBAC en el área de trabajo.
-
 1. Abra Azure Portal y abra el área de trabajo de Synapse.
-1. A la izquierda, seleccione **Access Control (IAM)** .
-1. Agregue `ryan@contoso.com` al rol **Propietario**. 
-1. Haga clic en **Guardar**.
+1. A la izquierda, seleccione **Control de acceso (IAM)** .
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | Propietario |
+    | Asignar acceso a | USER |
+    | Miembro | ryan@contoso.com |
+
+    ![Página Agregar asignación de roles en Azure Portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
+1. Seleccione **Guardar**. 
  
  
 ## <a name="synapse-rbac-synapse-administrator-role-for-the-workspace"></a>Synapse RBAC: rol de Administrador de Synapse para el área de trabajo
@@ -40,22 +49,28 @@ Asigne `ryan@contoso.com` al rol de **Propietario** de Azure RBAC en el área de
 Asigne `ryan@contoso.com` al rol de **Administrador de Synapse** de Synapse RBAC en el área de trabajo.
 
 1. Abra el área de trabajo en Synapse Studio.
-1. A la izquierda, haga clic en **Administrar** para abrir el centro de administración.
-1. En **Seguridad**, haga clic en **Control de acceso**.
-1. Haga clic en **Agregar**.
+1. A la izquierda, seleccione **Administrar** para abrir el centro de administración.
+1. En **Seguridad**, seleccione **Control de acceso**.
+1. Seleccione **Agregar**.
 1. En **Ámbito**, deje el valor **Área de trabajo**.
 1. Agregue `ryan@contoso.com` al rol **Administrador de Synapse**. 
-1. A continuación, haga clic en **Aplicar**.
+1. Luego, seleccione **Aplicar**.
  
-## <a name="azure-rbac-role-assignments-on-the-primary-storage-account"></a>Azure RBAC: asignaciones de roles en la cuenta de almacenamiento principal
-
-Asigne `ryan@contoso.com` al rol de **Propietario** en la cuenta de almacenamiento principal del área de trabajo.
-Asigne `ryan@contoso.com` al rol de **Colaborador de datos de Azure Storage Blob** en la cuenta de almacenamiento principal del área de trabajo.
+## <a name="azure-rbac-role-assignments-on-the-workspaces-primary-storage-account"></a>Azure RBAC: asignaciones de roles en la cuenta de almacenamiento principal del área de trabajo
 
 1. Abra la cuenta de almacenamiento principal del área de trabajo en Azure Portal.
-1. A la izquierda, haga clic en **Access Control (IAM)** .
-1. Agregue `ryan@contoso.com` al rol **Propietario**. 
-1. Agregue `ryan@contoso.com` al rol de **Colaborador de datos de Azure Storage Blob**.
+1. A la izquierda, seleccione **Control de acceso (IAM)** .
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Value |
+    | --- | --- |
+    | Rol 1 | Propietario |
+    | Rol 2| Colaborador de datos de Azure Storage Blob|
+    | Asignar acceso a | USER |
+    | Miembro | ryan@contoso.com |
+
+    ![Página Agregar asignación de roles en Azure Portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## <a name="dedicated-sql-pools-db_owner-role"></a>Grupos de SQL dedicados: rol de db_owner
 

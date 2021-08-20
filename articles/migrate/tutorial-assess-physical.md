@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: b1026f718c7c59e88dbf3b041c4b07cd1cfc641c
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 44d92bbf5c3767a15e600836acd23cf3055f842e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780614"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464994"
 ---
 # <a name="tutorial-assess-physical-servers-for-migration-to-azure"></a>Tutorial: Evaluación de servidores físicos para la migración a Azure
 
@@ -23,7 +23,7 @@ Este artículo muestra cómo evaluar servidores físicos locales para la migraci
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
-- Ejecutar una evaluación basada en los metadatos del servidor y en la información de la configuración.
+- Ejecutar una evaluación basada en los metadatos del servidor y en la información de configuración.
 - Ejecutar una valoración basada en los datos de rendimiento.
 
 > [!NOTE]
@@ -34,8 +34,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Antes de seguir este tutorial para evaluar los servidores para la migración a máquinas virtuales Azure, asegúrese de que ha detectado los servidores que desea evaluar:
-    - Para detectar servidores mediante el dispositivo de Azure Migrate, [siga este tutorial](tutorial-discover-physical.md). 
+- Antes de seguir este tutorial a fin de valorar los servidores para la migración a máquinas virtuales de Azure, asegúrese de haber detectado los servidores que desee valorar:
+    - Para detectar los servidores mediante el dispositivo de Azure Migrate, [siga este tutorial](tutorial-discover-physical.md). 
     - Para detectar los servidores mediante un archivo CSV importado, [siga este tutorial](tutorial-discover-import.md).
 - Asegúrese de que en los servidores físicos que desea evaluar no se ejecutan Windows Server 2003 o SUSE Linux. No se admite la valoración en estos servidores.
 
@@ -47,7 +47,7 @@ Decida si desea ejecutar una evaluación usando criterios de dimensionamiento en
 
 **Valoración** | **Detalles** | **Recomendación**
 --- | --- | ---
-**Tal cual en el entorno local** | Evaluación basada en datos o metadatos de configuración del servidor.  | El tamaño recomendado de máquina virtual de Azure se basa en el tamaño de la máquina virtual local.<br/><br> El tipo de disco recomendado de Azure se basa en lo que seleccione en la configuración de tipo de almacenamiento para la valoración.
+**Tal cual en el entorno local** | Evalúe en función de los datos o los metadatos de configuración del servidor.  | El tamaño recomendado de máquina virtual de Azure se basa en el tamaño de la máquina virtual local.<br/><br> El tipo de disco recomendado de Azure se basa en lo que seleccione en la configuración de tipo de almacenamiento para la valoración.
 **Basada en el rendimiento** | Valore en función de los datos de rendimiento dinámico recopilados. | El tamaño recomendado de máquina virtual de Azure se basa en los datos de uso de la CPU y la memoria.<br/><br/> El tipo de disco recomendado se basa en las IOPS y en el rendimiento de los discos locales.
 
 ## <a name="run-an-assessment"></a>Ejecución de una evaluación
@@ -56,7 +56,7 @@ Las evaluaciones se realizan como se indica a continuación:
 
 1. En la página **Overview** (Información general) > **Windows, Linux and SQL Server** (Windows, Linux y SQL Server), haga clic en **Assess and migrate servers** (Evaluar y migrar servidores).
 
-   ![Ubicación del botón Evaluar y migrar servidores](./media/tutorial-assess-vmware-azure-vm/assess.png)
+   ![Ubicación del botón Evaluar y migrar servidores.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. En **Azure Migrate: Discovery and assessment**, haga clic en **Assess** (Evaluar).
 
@@ -65,7 +65,7 @@ Las evaluaciones se realizan como se indica a continuación:
 3. En **Evaluar los servidores** > **Tipo de valoración**, seleccione **Máquina virtual de Azure**.
 4. En **Origen de detección**:
 
-    - Si ha detectado servidores mediante el dispositivo, seleccione **Servers discovered from Azure Migrate appliance** (Servidores detectados desde dispositivo de Azure Migrate).
+    - Si ha detectado servidores mediante el dispositivo, seleccione **Servers discovered from Azure Migrate appliance** (Servidores detectados desde el dispositivo de Azure Migrate).
     - Si ha detectado servidores mediante un archivo CSV importado, seleccione **Imported servers** (Servidores importados). 
     
 1. Haga clic en **Editar** para revisar las propiedades de la evaluación.
@@ -83,7 +83,7 @@ Las evaluaciones se realizan como se indica a continuación:
         - Si selecciona usar una instancia reservada, no puede especificar '**Descuento (%)** ni **Tiempo de actividad de la máquina virtual**. 
         - [Más información](https://aka.ms/azurereservedinstances).
  1. En **Tamaño de VM**:
-     - En **Criterio de tamaño**, selecciónelo si desea basar la evaluación en los datos o metadatos de configuración del servidor, o bien en datos del rendimiento. Si utiliza datos de rendimiento:
+     - En **Sizing criterion** (Criterio de tamaño), seleccione si desea basar la valoración en metadatos o datos de configuración del servidor, o bien en datos basados en el rendimiento. Si utiliza datos de rendimiento:
         - En **Historial de rendimiento**, indique la duración de los datos en los que desee basar la valoración.
         - En **Uso de percentil**, especifique el valor de percentil que desee utilizar para la muestra de rendimiento. 
     - En **Series de máquinas virtuales**, especifique la serie de máquinas virtuales de Azure que desea considerar.
@@ -97,7 +97,7 @@ Las evaluaciones se realizan como se indica a continuación:
         Memoria | 8 GB | 16 GB
    
 1. En **Precios**:
-    - En **Oferta**, especifique la [oferta de Azure](https://azure.microsoft.com/support/legal/offer-details/) si está inscrito. La evaluación calcula el costo de dicha oferta.
+    - En **Oferta**, especifique la [oferta de Azure](https://azure.microsoft.com/support/legal/offer-details/) si está inscrito. La evaluación calcula el costo de esa oferta.
     - En **Moneda**, seleccione la moneda de facturación para la cuenta.
     - En **Descuento (%)** , agregue cualquier descuento específico de la suscripción que reciba a partir de la oferta de Azure. La configuración predeterminada es 0 %.
     - En **Tiempo de actividad de VM**, especifique el tiempo (días por mes/hora al día) que se ejecutarán las máquinas virtuales.
@@ -123,7 +123,7 @@ Las evaluaciones se realizan como se indica a continuación:
 
 1. En **Revisar y crear valoración**, revise los detalles de la valoración y haga clic en **Crear evaluación** para crear el grupo y ejecutar la evaluación.
 
-1. Después de que se cree la evaluación, véalo en **Servidores** > **Azure Migrate: Discovery and assessment** > **Assessments** (Evaluaciones).
+1. Una vez creada la evaluación, la puede consultar en **Servers** > **Azure Migrate: Detección y evaluación** > **Assessments** (Servidores > Azure Migrate: Discovery and assessment > Evaluaciones).
 
 1. Haga clic en **Exportar la evaluación** para descargarla como un archivo de Excel.
     > [!NOTE]
@@ -139,7 +139,7 @@ Una evaluación describe:
 
 Para ver una evaluación:
 
-1. En **Windows, Linux y SQL Server** > **Azure Migrate: Discovery and assessment**, haga clic en el número que está al lado de **Assessments** (Evaluaciones).
+1. Vaya a **Windows, Linux and SQL Server** > **Azure Migrate: Discovery and assessment** (Windows, Linux y SQL Server > Azure Migrate: Discovery and assessment) y haga clic en el número que aparece **Assessments** (Evaluaciones).
 2. En **Evaluaciones**, seleccione una evaluación para abrirla. Como ejemplo (solo estimaciones y costos, por ejemplo): 
 
     ![Resumen de evaluaciones](./media/tutorial-assess-physical/assessment-summary.png)
@@ -164,7 +164,7 @@ El resumen de evaluación muestra el costo estimado de almacenamiento y proceso 
 
 1. Revise los costos totales mensuales. Los costos se agregan para todas las máquinas virtuales del grupo evaluado.
 
-    - Las estimaciones de costo se basan en las recomendaciones de tamaño de un servidor, sus discos y sus propiedades.
+    - Las estimaciones de costo se basan en las recomendaciones de tamaño de un servidor, así como de sus discos y propiedades.
     - Se muestran los costos mensuales estimados de proceso y almacenamiento.
     - La estimación de costos es para ejecutar las máquinas virtuales locales en las máquinas virtuales de Azure. La estimación no tiene en cuenta los costos de PaaS o SaaS.
 
@@ -173,7 +173,7 @@ El resumen de evaluación muestra el costo estimado de almacenamiento y proceso 
 
 ### <a name="review-confidence-rating"></a>Examen de la clasificación de confianza
 
-Azure Migrate asigna una clasificación de confianza a las valoraciones basadas en el rendimiento. La clasificación es de una estrella (más baja) a cinco estrellas (más alta).
+Azure Migrate asigna una clasificación de confianza a las evaluaciones basadas en el rendimiento. La clasificación es de una estrella (más baja) a cinco estrellas (más alta).
 
 ![Clasificación de confianza](./media/tutorial-assess-physical/confidence-rating.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cornerstone Single Sign-On | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cornerstone | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Cornerstone Single Sign-On.
 services: active-directory
 author: jeevansd
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/27/2021
+ms.date: 06/24/2021
 ms.author: jeedes
-ms.openlocfilehash: dd032056360262c95540c3147aceeea8f4566c9c
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 23abb7c3d917084d0cc9989bf19dbb76adf0a266
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110576049"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112967355"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-single-sign-on"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cornerstone Single Sign-On
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cornerstone
 
-En este tutorial, aprenderá a integrar Cornerstone Single Sign-On con Azure Active Directory (Azure AD). Al integrar Cornerstone Single Sign-On con Azure AD, podrá hacer lo siguiente:
+En este tutorial, aprenderá a configurar la integración del inicio de sesión único entre Cornerstone y Azure Active Directory (Azure AD). Al integrar Cornerstone con Azure AD, puede hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a Cornerstone Single Sign-On.
-* Permitir que los usuarios inicien sesión automáticamente en Cornerstone Single Sign-On con sus cuentas de Azure AD.
+* Controlar en Azure AD quién tiene acceso de inicio de sesión único a Cornerstone.
+* Permitir que los usuarios inicien sesión automáticamente en Cornerstone con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a integrar Cornerstone Single Sign-On con Azure Act
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Cornerstone.
+* Inicio de sesión único habilitado en Cornerstone.
 
 > [!NOTE]
 > Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
@@ -40,9 +40,9 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Cornerstone Single Sign-On admite el inicio de sesión único habilitado por **SP**.
+* Cornerstone admite el inicio de sesión único iniciado por **SP**.
 
-* Si va a integrar uno o varios productos de esta lista en particular, debe usar la aplicación Cornerstone OnDemand Single Sign-On desde la galería.
+* Si va a integrar uno o varios productos de esta lista en particular, debe usar la aplicación Cornerstone Single Sign-On de la galería.
 
     Ofrecemos soluciones para:
 
@@ -56,7 +56,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 ## <a name="adding-cornerstone-single-sign-on-from-the-gallery"></a>Incorporación de Cornerstone Single Sign-On desde la galería
 
-Para configurar la integración de Cornerstone Single Sign-On en Azure AD, debe agregar la aplicación desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración del inicio de sesión único de Azure AD con Cornerstone, es necesario...
 
 1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
@@ -65,18 +65,19 @@ Para configurar la integración de Cornerstone Single Sign-On en Azure AD, debe
 1. En la sección **Agregar desde la galería**, escriba **Cornerstone Single Sign-On** en el cuadro de búsqueda.
 1. Seleccione **Cornerstone Single Sign-On** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-sso-for-cornerstone-single-sign-on"></a>Configuración y prueba del inicio de sesión único de Azure AD para Cornerstone Single Sign-On
+## <a name="configure-and-test-azure-ad-sso-for-cornerstone"></a>Configuración y prueba del inicio de sesión único de Azure AD para Cornerstone
 
-Configure y pruebe el inicio de sesión único de Azure AD con Cornerstone Single Sign-On mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Cornerstone Single Sign-On.
+Configure y pruebe el inicio de sesión único de Azure AD con Cornerstone mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Cornerstone.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Cornerstone Single Sign-On, siga estos pasos:
+Para configurar y probar el inicio de sesión único de Azure AD con Cornerstone, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-2. **[Configuración del inicio de sesión único de Cornestone Single Sign-On](#configure-cornerstone-single-sign-on-sso)** , para establecer los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Cornerstone](#configure-cornerstone-single-sign-on)** : para configurar el inicio de sesión único en Cornerstone.
     1. **[Creación de un usuario de prueba del inicio de sesión único de Cornerstone](#create-cornerstone-single-sign-on-test-user)** : para tener un homólogo de B. Simon en Cornerstone vinculado a la representación del usuario en Azure AD.
 3. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
+4. **[Prueba del inicio de sesión único para Cornerstone (móvil)](#test-sso-for-cornerstone-mobile)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -97,7 +98,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<PORTAL_NAME>.csod.com/samldefault.aspx?ouid=<OUID>`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualícelos con la URL de respuesta, el identificador y la URL de inicio de sesión reales. Para obtener estos valores, debe comunicarse con su equipo de consultoría de Cornerstone o con su asociado. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualícelos con la URL de respuesta, el identificador y la URL de inicio de sesión reales. Póngase en contacto con el equipo del proyecto de implementación de Cornerstone para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -121,7 +122,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, va a permitir que B.Simon acceda a Cornerstone Single Sign-On mediante el inicio de sesión único de Azure.
+En esta sección, va a permitir que B.Simon acceda a Cornerstone mediante el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Cornerstone Single Sign-On**.
@@ -131,24 +132,66 @@ En esta sección, va a permitir que B.Simon acceda a Cornerstone Single Sign-On 
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-## <a name="configure-cornerstone-single-sign-on-sso"></a>Configuración de Cornerstone Single Sign-On SSO
+## <a name="configure-cornerstone-single-sign-on"></a>Configuración del inicio de sesión único de Cornerstone
 
-Para configurar el inicio de sesión único en **Cornerstone**, es necesario ponerse en contacto con su equipo de consultoría de Cornerstone o con su asociado. Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en Cornerstone, tendrá que ponerse en contacto con el equipo del proyecto de implementación de Cornerstone. Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-cornerstone-single-sign-on-test-user"></a>Creación de un usuario de prueba de Cornerstone Single Sign-On
 
-En esta sección, creará un usuario llamado Britta Simon en Cornerstone. Trabaje con el equipo de consultoría de Cornerstone o póngase en contacto con su asociado para agregar los usuarios a la plataforma de inicio de sesión único de Cornerstone. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Cornerstone. Trabaje con el equipo del proyecto de implementación de Cornerstone para agregar los usuarios a Cornerstone. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la URL de inicio de sesión de Cornerstone Single Sign-On Sign, desde donde puede comenzar el flujo de inicio de sesión. 
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Cornerstone, donde puede iniciar el flujo de inicio de sesión. 
 
-* Vaya directamente a la URL de inicio de sesión de Cornerstone Single Sign-On y comience el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Cornerstone e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Cornerstone Single Sign-On en Aplicaciones, se le redirigirá a la URL de inicio de sesión de Cornerstone Single Sign-On. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Cornerstone Single en Mis aplicaciones, se le redirigirá a la URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="test-sso-for-cornerstone-mobile"></a>Prueba del inicio de sesión único para Cornerstone (Mobile)
+
+1. En otra ventana del explorador, inicie sesión en el sitio web de Cornerstone como administrador y siga estos pasos.
+
+    a. Vaya a **Admin -> Tools -> CORE FUNCTIONS -> Core Preferences -> Authentication Preferences** (Administración > Herramientas > FUNCIONES PRINCIPALES > Preferencias principales > Preferencias de autenticación).
+
+    ![Captura de pantalla de las preferencias de autenticación de la aplicación Cornerstone (Mobile).](./media/cornerstone-ondemand-tutorial/division-mobile.png)
+
+    b. Escriba el nombre de la división en el cuadro de búsqueda para buscar **Division Name** (Nombre de la división).
+
+    c. Haga clic en **Division Name** (Nombre de la división) en los resultados.
+
+    d. En la lista desplegable SAML/IDP server URL (Dirección URL del servidor SAML/IDP), seleccione el servidor SAML/IDP adecuado que se debe usar para la autenticación de usuarios.
+
+    ![Captura de pantalla de otras credenciales validadas en el servidor SAML/IDP del cliente.](./media/cornerstone-ondemand-tutorial/other-credentials.png)
+
+    e. Haga clic en **Save**(Guardar).
+
+1. Vaya a **Admin > Tools > Core Functions > Core Preferences > Mobile** (Administración > Herramientas > Funciones principales > Preferencias principales > Dispositivos móviles).
+
+    a. Seleccione el valor **Division OU** (UO de división) apropiado.
+
+    b. Seleccione **Allow users in this OU to access the Cornerstone Learn app on their mobile and tablet device** (Permitir que los usuarios de esta unidad organizativa accedan a la aplicación Cornerstone Learn en su dispositivo móvil y tableta) y active la casilla Enable Mobile Access (Habilitar acceso móvil).
+
+    c. Haga clic en **Save**(Guardar).
+
+2. Abra la aplicación móvil **Cornerstone Learn**. En la página de inicio de sesión, escriba el nombre del portal.
+
+    ![Captura de pantalla de la aplicación móvil Cornerstone.](./media/cornerstone-ondemand-tutorial/welcome-mobile.png)
+
+3. Haga clic en **Alternative Login** (Inicio de sesión alternativo) y después en **SSO**.
+
+    ![Captura de pantalla del inicio de sesión alternativo en la aplicación móvil.](./media/cornerstone-ondemand-tutorial/sso-mobile.png)
+
+4. .  Escriba las **credenciales de Azure AD** para iniciar sesión en la aplicación Cornerstone y haga clic en **Next** (Siguiente).
+
+    ![Captura de pantalla de las credenciales de Azure AD para la aplicación móvil.](./media/cornerstone-ondemand-tutorial/credentials-mobile.png)
+
+5. Por último, después de iniciar sesión correctamente, aparecerá la página principal de la aplicación, como se muestra a continuación.
+
+    ![Captura de pantalla de la página principal de la aplicación móvil.](./media/cornerstone-ondemand-tutorial/home-page-mobile.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 07/01/2021
+ms.date: 07/15/2021
 ms.author: victorh
-ms.openlocfilehash: e87953217fe44fedc8d693a40a1f3ae942a06a39
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 0b5812b5a562b20d1e0224a038e3572767130333
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113216376"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441226"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -27,14 +27,14 @@ Puede crear, aplicar y registrar directivas de aplicaciones y de conectividad de
 
 Para obtener información sobre las características de Azure Firewall, consulte [Características de Azure Firewall](features.md).
 
-## <a name="azure-firewall-premium-preview"></a>Versión preliminar de Azure Firewall Prémium
+## <a name="azure-firewall-premium"></a>Azure Firewall Prémium
 
-La versión preliminar de Azure Firewall Prémium es un firewall de próxima generación con funcionalidades que son necesarias en entornos de alta confidencialidad y regulados. Estas funcionalidades incluyen la inspección de TLS, IDPS, filtrado de direcciones URL y categorías web.
+Azure Firewall Prémium es un firewall de próxima generación con funcionalidades que son necesarias en entornos de alta confidencialidad y regulados. Estas funcionalidades incluyen la inspección de TLS, IDPS, filtrado de direcciones URL y categorías web.
 
-Para más información sobre las características de la versión preliminar de Azure Firewall Prémium, consulte [Características de la versión preliminar de Azure Firewall Prémium](premium-features.md).
+Para obtener más información sobre las características de Azure Firewall Prémium, vea [Características de Azure Firewall Prémium](premium-features.md).
 
 
-Para ver cómo se configura la vista previa de Firewall Prémium en Azure Portal, consulte [Versión preliminar de Azure Firewall Prémium en Azure Portal](premium-portal.md).
+Para ver cómo se configura Firewall Prémium en Azure Portal, vea [Azure Firewall Prémium en Azure Portal](premium-portal.md).
 
 
 ## <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
@@ -52,7 +52,7 @@ Para obtener información sobre las novedades de Azure Firewall, consulte [Actua
 
 Azure Firewall presenta los siguientes problemas conocidos:
 
-|Problema  |Descripción  |Mitigación  |
+|Incidencia  |Descripción  |Mitigación  |
 |---------|---------|---------|
 |Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, ICMP) no funcionan con el tráfico enlazado a Internet|Las reglas de filtrado de red de protocolos que no son TCP/UDP no funcionan con la traducción SNAT a la dirección IP pública. Los protocolos que no son TCP/UDP no se admiten entre subredes de radio y redes virtuales.|Azure Firewall usa Standard Load Balancer, [que actualmente no admite SNAT para los protocolos IP](../load-balancer/load-balancer-overview.md). Se están examinando opciones para admitir este escenario en una versión futura.|
 |Falta de compatibilidad entre PowerShell y CLI con ICMP|Azure PowerShell y la CLI no admiten ICMP como protocolo válido en las reglas de red.|Aun así se puede usar ICMP como protocolo a través del portal y la API REST. Estamos trabajando para agregar pronto ICMP a PowerShell y la CLI.|
@@ -83,10 +83,11 @@ ReasonPhrase: solicitud incorrecta).|Bajo investigación.<br><br>Como solución 
 |No se admite la eliminación de elementos RuleCollectionGroup mediante plantillas de ARM.|No se admite la eliminación de elementos RuleCollectionGroup mediante plantillas de ARM y se produce un error.|No es un operación admitida.|
 |La regla DNAT para permitir *cualquiera* (*) permitirá el tráfico SNAT.|Si una regla DNAT permite *cualquiera* (*) como dirección IP de origen, una regla de red implícita coincidirá con el tráfico de red virtual a red virtual, y siempre transmitirá el tráfico mediante SNAT.|Se trata de una limitación actual.|
 |No se admite la adición de una regla DNAT a un centro virtual protegido con un proveedor de seguridad.|Esto da como resultado una ruta asincrónica para el tráfico DNAT de vuelta, que va al proveedor de seguridad.|No compatible.|
-
+| Error al crear más de 2000 colecciones de reglas. | El número máximo de colecciones de reglas de NAT/aplicación o red es 2000 (límite de Resource Manager). | Se trata de una limitación actual. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Inicio rápido: Creación de una instancia de Azure Firewall y una directiva de firewall: plantilla de Azure Resource Manager](../firewall-manager/quick-firewall-policy.md)
 - [Inicio rápido: Implementación de Azure Firewall con Availability Zones: plantilla de Resource Manager](deploy-template.md)
 - [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](tutorial-firewall-deploy-portal.md)
+- [Módulo de Learn: Introducción a Azure Firewall](/learn/modules/introduction-azure-firewall/)

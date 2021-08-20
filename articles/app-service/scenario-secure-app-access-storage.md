@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 06/16/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a37b189ae98332b2d6c557b6bdfad98266002e9e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
+ms.openlocfilehash: b6d04053d4b63552c2329a675c2557e6f1cd8fee
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833911"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290019"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutorial: Acceso a Azure Storage desde una aplicación web
 
@@ -172,11 +172,9 @@ Debe conceder a la aplicación web acceso a la cuenta de almacenamiento antes de
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento para conceder acceso a la aplicación web. Seleccione **Control de acceso (IAM)** en el panel izquierdo y, después, **Asignaciones de roles**. Verá una lista de quién tiene acceso a la cuenta de almacenamiento. Ahora quiere agregar una asignación de roles a un robot, la instancia de App Service que necesita acceso a la cuenta de almacenamiento. Seleccione **Agregar** > **Agregar asignación de roles**.
+En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento para conceder acceso a la aplicación web. Seleccione **Control de acceso (IAM)** en el panel izquierdo y, después, **Asignaciones de roles**. Verá una lista de quién tiene acceso a la cuenta de almacenamiento. Ahora quiere agregar una asignación de roles a un robot, la instancia de App Service que necesita acceso a la cuenta de almacenamiento. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página **Agregar asignación de roles**.
 
-En **Rol**, seleccione **Colaborador de datos de Storage Blob** para dar a la aplicación web acceso para leer blobs de almacenamiento. En **Asignar acceso a**, seleccione **App Service**. En **Suscripción**, seleccione su suscripción. Seleccione la instancia de App Service a la que desea proporcionar acceso. Seleccione **Guardar**.
-
-:::image type="content" alt-text="Captura de pantalla que muestra la pantalla Agregar asignación de roles." source="./media/scenario-secure-app-access-storage/add-role-assignment.png":::
+Asigne el rol **Colaborador de datos de Storage Blob** a **App Service** en el ámbito de la suscripción.  Para acceder a los pasos detallados, vea [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 Ahora, la aplicación web ya tiene acceso a la cuenta de almacenamiento.
 

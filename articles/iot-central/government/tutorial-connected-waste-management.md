@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 42a82a59483a582e0d395092558665b12e1cd5a3
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: bc83af43fab3871bf693635ddbdd446c2f4bb2e2
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684368"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586516"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>Tutorial: Creación de una aplicación de administración de residuos conectada
 
@@ -22,7 +22,7 @@ Específicamente, aprenderá sobre lo siguiente:
 
 > [!div class="checklist"]
 > * Usar la plantilla *Administración de residuos conectada* de Azure IoT Central para crear la aplicación.
-> * Explorar y personalizar el panel del operador. 
+> * Explorar y personalizar el panel. 
 > * Explorar la plantilla de dispositivo de cubo de basura conectado.
 > * Explorar los dispositivos simulados
 > * Explorar y configurar reglas
@@ -47,7 +47,7 @@ En esta sección, va a usar la plantilla Administración de residuos conectada p
 
     ![Captura de pantalla de la página de compilación de Azure IoT Central.](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
-1. Seleccione la plantilla de aplicación **Connected Waste Management** (Administración de residuos conectada). Esta plantilla incluye una plantilla de dispositivo de cubo de basura conectado de ejemplo, un dispositivo simulado, un panel del operador y reglas de supervisión preconfiguradas.    
+1. Seleccione la plantilla de aplicación **Connected Waste Management** (Administración de residuos conectada). Esta plantilla incluye una plantilla de dispositivo de cubo de basura conectado de ejemplo, un dispositivo simulado, un panel y reglas de supervisión preconfiguradas.    
 
 1. Seleccione **Create app** (Crear aplicación), lo que abre el cuadro de diálogo **New application** (Nueva aplicación). Rellene la información de los campos siguientes:
     * **Application name** (Nombre de la aplicación). De forma predeterminada, la aplicación usa **Connected waste management** (Administración de residuos conectada) seguido de una cadena de identificador única que genera Azure IoT Central. Tiene la opción de elegir un nombre descriptivo para la aplicación. También puede cambiar el nombre de la aplicación más adelante.
@@ -62,7 +62,7 @@ En esta sección, va a usar la plantilla Administración de residuos conectada p
 
  
 La aplicación recién creada incluye la siguiente configuración:
-* Paneles del operador de ejemplo.
+* Paneles de ejemplo.
 * Plantillas de dispositivo de ejemplo predefinidas de cubo de basura conectado.
 * Dispositivos simulados de cubo de basura conectado.
 * Reglas y trabajos.
@@ -70,7 +70,7 @@ La aplicación recién creada incluye la siguiente configuración:
 
 Como es su aplicación, puede modificarla en cualquier momento. Ahora, explore la aplicación y realice algunas personalizaciones.  
 
-## <a name="explore-and-customize-the-operator-dashboard"></a>Exploración y personalización del panel del operador 
+## <a name="explore-and-customize-the-dashboard"></a>Exploración y personalización del panel 
 
 Eche un vistazo al **Panel de administración de residuos Wide World**, que verá después de crear la aplicación.
 
@@ -89,7 +89,7 @@ El panel consta de diferentes iconos:
 
 * **Icono de indicador KPI de nivel de llenado**: este icono muestra el valor devuelto por un sensor de *nivel de llenado* de un cubo de basura. Fill level (Nivel de llenado) y otros sensores como *Odor meter* (Medidor de olor) o *Weight* (Peso) de un cubo de basura se pueden supervisar de forma remota. El operador puede tomar medidas, como enviar un camión de recogida de basuras. 
 
-* **Mapa del área de supervisión de residuos**: este icono usa Azure Maps y se puede configurar directamente en Azure IoT Central. El icono del mapa muestra la ubicación del dispositivo. Intente mantener el puntero sobre el mapa y pruebe los controles: acercar, alejar o ampliar.
+* **Mapa del área de supervisión de residuos**: este icono usa Azure Maps y se puede configurar directamente en Azure IoT Central. El icono del mapa muestra la [ubicación](../core/howto-use-location-data.md) del dispositivo. Intente mantener el puntero sobre el mapa y pruebe los controles: acercar, alejar o ampliar.
 
      ![Captura de pantalla del mapa del panel de la plantilla de administración de residuos conectada.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 

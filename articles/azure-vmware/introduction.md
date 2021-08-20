@@ -3,12 +3,12 @@ title: Introducción
 description: Obtenga información sobre las características y las ventajas de Azure VMware Solution para implementar y administrar las cargas de trabajo basadas en VMware en Azure. El Acuerdo de Nivel de Servicio de Azure VMware Solution garantiza la disponibilidad de las herramientas de administración de Azure VMware (vCenter Server y NSX Manager) al menos el 99,9 % del tiempo.
 ms.topic: overview
 ms.date: 04/20/2021
-ms.openlocfilehash: 8a75038d9552e62b1bc67265ff2965fea9d8b8d6
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 79739f230b057b030da7a90501e9fb3fb2630eba
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950881"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433587"
 ---
 # <a name="what-is-azure-vmware-solution"></a>¿Qué es Azure VMware Solution?
 
@@ -18,7 +18,7 @@ Azure VMware Solution es una solución validada de VMware con validación y prue
 
 En este diagrama se muestra la adyacencia entre las nubes privadas y las redes virtuales en Azure, los servicios de Azure y los entornos locales. El acceso a la red desde nubes privadas a servicios o redes virtuales de Azure proporciona una integración controlada mediante Acuerdo de Nivel de Servicio de los puntos de conexión de servicio de Azure. Global Reach de ExpressRoute conecta su entorno local y la nubes privada de Azure VMware Solution. 
 
-![Imagen de la proximidad de la nube privada de Azure VMware Solution a Azure y al entorno local](./media/adjacency-overview-drawing-final.png)
+:::image type="content" source="media/adjacency-overview-drawing-final.png" alt-text="Diagrama de la proximidad de la nube privada de Azure VMware Solution a Azure y al entorno local." border="false":::
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Hosts, clústeres y nubes privadas
 
@@ -66,5 +66,4 @@ El siguiente paso es obtener información sobre los [conceptos clave clústeres 
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
-
 

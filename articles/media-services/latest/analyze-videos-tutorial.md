@@ -6,14 +6,14 @@ author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: tutorial
-ms.date: 05/25/2021
+ms.date: 07/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: b6e1deb15f5efe8441624a3c00f72efc1ba38138
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 38586e2cc60186c929b5ca43990019e768a1ed13
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955426"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720476"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Análisis de vídeos con Media Services v3
 
@@ -34,13 +34,14 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 ## <a name="compliance-privacy-and-security"></a>Cumplimiento, privacidad y seguridad
  
-Como recordatorio importante, debe cumplir todas las leyes aplicables en el uso de Video Indexer. No debe usar Video Indexer ni ningún otro servicio de Azure de forma que infrinja los derechos de los demás. Antes de cargar los vídeos, incluidos los datos biométricos, en el servicio Video Indexer para procesarlos y almacenarlos, debe tener todos los derechos correctos (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para información sobre el cumplimiento, la privacidad y la seguridad de Video Indexer, consulte [Términos de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [Términos de los Servicios en Línea](https://www.microsoft.com/licensing/product-licensing/products) (OST) y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). Con el uso de Video Indexer, acepta estar sujeto a los términos de Cognitive Services, OST, DPA y la declaración de privacidad.
+Como recordatorio importante, debe cumplir todas las leyes aplicables cuando use Azure Video Analyzer for Media (antes, Video Indexer). No debe usar Video Analyzer for Media ni ningún otro servicio de Azure de forma que infrinja los derechos de los demás. Antes de cargar vídeos que incluyan datos biométricos en el servicio Video Analyzer for Media para procesarlos y almacenarlos, debe tener todos los derechos apropiados (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para información sobre el cumplimiento, la privacidad y la seguridad de Video Analyzer for Media, consulte [Términos de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) de Azure. En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [Términos de los Servicios en Línea](https://www.microsoft.com/licensing/product-licensing/products) (OST) y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). Con el uso de Video Analyzer for Media, acepta estar sujeto a los términos de Cognitive Services, OST, DPA y la declaración de privacidad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no tiene instalado Visual Studio, obtenga [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Cree una cuenta de Media Services](./account-create-how-to.md).<br/>Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos.
-- Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Deberá usarlas para acceder a la API.
+- Instale [Visual Studio Code para Windows, macOS o Linux](https://code.visualstudio.com/) o [Visual Studio 2019 para Windows o Mac](https://visualstudio.microsoft.com/).
+- Instale el [SDK para .NET 5.0](https://dotnet.microsoft.com/download).
+- [Cree una cuenta de Media Services](./account-create-how-to.md). Asegúrese de copiar los detalles de **acceso a la API** en formato JSON o de almacenar los valores necesarios para conectarse a la cuenta de Media Services en el formato de archivo *.env* que se usa en este ejemplo.
+- Siga los pasos que se indican en [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Las necesitará para acceder a la API de este ejemplo, o bien deberá especificarlas en el formato de archivo *.env*.
 
 ## <a name="download-and-configure-the-sample"></a>Descarga y configuración del ejemplo
 
@@ -52,7 +53,7 @@ Clone un repositorio GitHub que contenga el ejemplo de .NET en la máquina media
 
 El ejemplo se encuentra en la carpeta [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/AnalyzeVideos).
 
-Abra [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/AnalyzeVideos/appsettings.json) en el proyecto que ha descargado. Sustituya los valores por las credenciales que obtuvo al [acceder a las API](./access-api-howto.md).
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Examen del código que analiza el vídeo especificado
 

@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de una definición de directiva personalizada'
 description: En este tutorial, creará una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas a los recursos de Azure.
 ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: 1cd88481e84fd334b95a5969fb7f4fa268e30cf5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 51b1f71985bde3a405b56514078e905042340321
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752136"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362159"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
@@ -66,7 +66,7 @@ La [extensión de VS Code](../how-to/extension-for-vscode.md#search-for-and-view
 
 ### <a name="arm-templates"></a>Plantillas de ARM
 
-Hay varias maneras de examinar una [plantilla de Resource Manager](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) que incluya la propiedad que quiere administrar.
+Hay varias maneras de examinar una [plantilla de ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) que incluya la propiedad que quiere administrar.
 
 #### <a name="existing-resource-in-the-portal"></a>Recurso existente en el portal
 

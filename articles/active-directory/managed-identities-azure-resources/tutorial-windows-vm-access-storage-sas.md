@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 06/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4f8b23d8f717e430e865e391a40692773f0beace
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell, subject-rbac-steps
+ms.openlocfilehash: 7f5ae30f7bb476b5bc3c76c2a22d4dda2fc402d8
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776400"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966327"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Storage utilizando una credencial de SAS
 
@@ -75,14 +75,18 @@ Más adelante se cargará y descargará un archivo a la nueva cuenta de almacena
 Azure Storage no admite la autenticación de Azure AD de forma nativa.  No obstante, puede usar una identidad administrada para recuperar una SAS de almacenamiento de Resource Manager y usar la SAS para acceder al almacenamiento.  En este paso, va a conceder a la identidad administrada asignada por el sistema de la máquina virtual acceso a la SAS de la cuenta de almacenamiento.   
 
 1. Vuelva a la cuenta de almacenamiento recién creada.   
-2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.  
-3. Haga clic en **+ Agregar asignación de rol** en la parte superior de la página para agregar una asignación de roles nueva para la máquina virtual.
-4. Establezca **Rol** en "Colaborador de la cuenta de almacenamiento", en el lado derecho de la página.  
-5. En el menú desplegable siguiente, establezca **Asignar acceso a** en el recurso "Máquina virtual".  
-6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y después, establezca **Grupo de recursos** en "Todos los grupos de recursos".  
-7. Por último, en **Seleccionar**, elija la máquina virtual Windows en el menú desplegable y haga clic en **Guardar**. 
+1. Haga clic en **Control de acceso (IAM).**
+1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | Colaborador de la cuenta de almacenamiento |
+    | Asignar acceso a | Identidad administrada |
+    | Asignada por el sistema | Máquina virtual |
+    | Seleccionar | &lt;La máquina virtual Windows&gt; |
 
-    ![Texto alternativo de imagen](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![Página Agregar asignación de roles en Azure Portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obtención de un token de acceso utilizando la identidad de la máquina virtual y su uso para llamar a Azure Resource Manager 
 

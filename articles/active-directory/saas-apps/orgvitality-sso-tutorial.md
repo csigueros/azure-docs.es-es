@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 07/22/2021
 ms.author: jeedes
-ms.openlocfilehash: b774f50f6f136d9e7c71b5fe6fbffb725a9240a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e192249aeb5bb85d02a616950fe74b0cd239f22
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522230"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602861"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-orgvitality-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con OrgVitality SSO
 
@@ -37,9 +37,9 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* OrgVitality SSO admite el inicio de sesión único iniciado por **IDP**
+* OrgVitality SSO admite el inicio de sesión único iniciado por **IDP**.
 
-## <a name="adding-orgvitality-sso-from-the-gallery"></a>Adición de OrgVitality SSO desde la galería
+## <a name="add-orgvitality-sso-from-the-gallery"></a>Adición de OrgVitality SSO desde la galería
 
 Para configurar la integración de OrgVitality SSO en Azure AD, debe agregar OrgVitality SSO desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -50,7 +50,6 @@ Para configurar la integración de OrgVitality SSO en Azure AD, debe agregar Or
 1. En la sección **Agregar desde la galería**, escriba **OrgVitality SSO** en el cuadro de búsqueda.
 1. Seleccione **OrgVitality SSO** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-orgvitality-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD para OrgVitality SSO
 
 Configure y pruebe el inicio de sesión único de Azure AD con OrgVitality SSO con un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de OrgVitality SSO.
@@ -60,7 +59,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con OrgVitalit
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en OrgVitality SSO](#configure-orgvitality-sso-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
+1. **[Configuración de OrgVitality SSO](#configure-orgvitality-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de OrgVitality SSO](#create-orgvitality-sso-test-user)** : para tener un homólogo de B.Simon en OrgVitality SSO que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
@@ -70,11 +69,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de aplicaciones de **OrgVitality SSO**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://rpt.orgvitality.com/<COMPANY_NAME>/`
 
@@ -94,6 +93,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar OrgVitality SSO**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -118,7 +118,7 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-## <a name="configure-orgvitality-sso-sso"></a>Configuración del inicio de sesión único de OrgVitality SSO
+## <a name="configure-orgvitality-sso"></a>Configuración de OrgVitality SSO
 
 Para configurar el inicio de sesión único en **OrgVitality SSO**, es preciso enviar el **Certificado (Base64)** descargado y las direcciones URL correspondientes copiadas en Azure Portal al [equipo de soporte técnico de OrgVitality SSO](https://orgvitality.com/contact-us/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
@@ -130,10 +130,10 @@ En esta sección, creará un usuario llamado Britta Simon en OrgVitality SSO. Tr
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-1. Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de OrgVitality SSO para la que configuró el inicio de sesión único.
+* Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de OrgVitality SSO para la que ha configurado el inicio de sesión único.
 
-1. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de OrgVitality SSO en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de OrgVitality SSO para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de OrgVitality SSO en Mis aplicaciones, debería iniciar sesión automáticamente en la instancia de OrgVitality SSO para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado OrgVitality SSO, puede aplicar el control de sesión, que protege la exfiltración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado OrgVitality SSO, puede aplicar el control de sesión, que protege la exfiltración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -1,24 +1,31 @@
 ---
-title: Creación y uso de un recurso compartido de Azure Files para máquinas virtuales Windows
-description: Cree y use un recurso compartido de Azure Files en Azure Portal. Conéctelo a una máquina virtual Windows, conéctese al recurso compartido de archivos y cargue un archivo en el recurso compartido de archivos.
+title: Creación y uso de recursos compartidos de archivos de Azure para máquinas virtuales Windows
+description: Cree y use un recurso compartido de archivos de Azure en Azure Portal. Conéctelo a una máquina virtual Windows, conéctese al recurso compartido de archivos y cargue un archivo en el recurso compartido de archivos.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/15/2021
+ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5a3c664f6c6c0532ef915357cfbcbc8228202502
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 3cb97d40008a103d9de6d76018f7881764813e3c
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718306"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727193"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Inicio rápido: Creación y administración de un recurso compartido de Azure Files con Windows Virtual Machines
+# <a name="quickstart-create-and-manage-azure-file-shares-with-windows-virtual-machines"></a>Inicio rápido: Creación y administración de recursos compartidos de archivos de Azure con máquinas virtuales Windows
 
 El artículo muestra los pasos básicos para crear y usar un recurso compartido de Azure Files. Este inicio rápido se centra en la configuración rápida de un recurso compartido de Azure Files para experimentar el funcionamiento del servicio. Si necesita instrucciones más detalladas para crear y usar recursos compartidos de archivos de Azure en su propio entorno, consulte [Uso de un recurso compartido de archivos de Azure con Windows](storage-how-to-use-files-windows.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -63,13 +70,14 @@ Ya ha creado una cuenta de Azure Storage y un recurso compartido de archivos con
 ### <a name="deploy-a-vm"></a>Implementación de una máquina virtual
 
 1. A continuación, expanda el menú del lado izquierdo del portal y elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-1. En el cuadro de búsqueda que está encima de la lista de recursos de **Azure Marketplace**, busque **Windows Server 2016 Datacenter**.
+1. En **Servicios populares**, seleccione **Máquinas virtuales**.
 1. En la pestaña **Conceptos básicos**, en **Detalles del proyecto**, seleccione el grupo de recursos que creó para esta guía de inicio rápido.
 
    ![Especifique la información básica de la máquina virtual en la hoja del Portal.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. En **Detalles de la instancia**, asigne a la máquina virtual el nombre *qsVM*.
-1. Deje la configuración predeterminada en **Región**, **Opciones de disponibilidad**, **Imagen** y **Tamaño**.
+1. En **Imagen** seleccione **Windows Server 2016 Datacenter - Gen2**.
+1. Mantenga los valores predeterminados en **Región**, **Opciones de disponibilidad** y **Tamaño**.
 1. En **Cuenta de administrador**, agregue un **nombre de usuario** y escriba una **contraseña** para la máquina virtual.
 1. En **Reglas de puerto de entrada**, elija **Permitir los puertos seleccionados** y luego seleccione **RDP (3389)** y **HTTP** en la lista desplegable.
 1. Seleccione **Revisar + crear**.

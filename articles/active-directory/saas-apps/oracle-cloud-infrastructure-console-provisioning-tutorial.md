@@ -2,21 +2,21 @@
 title: 'Tutorial: Configuración de Oracle Cloud Infrastructure Console para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD en Oracle Cloud Infrastructure Console.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/16/2021
-ms.author: Zhchia
-ms.openlocfilehash: 84024ad57af3ca650c69bfda0eda672aee313793
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.author: thwimmer
+ms.openlocfilehash: 748e32a929e9681bb75a8d627eb9de11807c7c41
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814665"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114709960"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutorial: Configuración de Oracle Cloud Infrastructure Console para el aprovisionamiento automático de usuarios
 > [!NOTE]
@@ -71,7 +71,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
     ![Generación de token de Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/general-information.png)
 
-6. Para generar un token secreto Base64, codifique el identificador de cliente y el secreto de cliente en el formato **client ID:Client Secret**. Guarde el token secreto. Este valor se escribirá en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Oracle Cloud Infrastructure Console en Azure Portal.
+6. Para generar un token secreto, codifique el identificador de cliente y el secreto de cliente como Base64 en el formato **id_de_cliente:secreto_de_cliente**. Nota: Este valor se debe generar con el ajuste de línea deshabilitado (base64 -w 0). Guarde el token secreto. Este valor se escribirá en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Oracle Cloud Infrastructure Console en Azure Portal.
 
 ## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Oracle Cloud Infrastructure Console desde la galería de aplicaciones de Azure AD
 

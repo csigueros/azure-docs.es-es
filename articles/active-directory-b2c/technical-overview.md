@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/07/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29fc4028308d2d1fd9a23aa37d635f6b9fb0e68c
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 7fb3dcb07b8b868dda7bfef587b930765c4f661e
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570701"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199245"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 
@@ -28,14 +28,14 @@ En Azure Active Directory B2C (Azure AD B2C), un *inquilino* representa la or
 Los recursos principales con los que trabaja en un inquilino de Azure AD B2C son:
 
 * **Directorio**: el *directorio* es donde Azure AD B2C almacena las credenciales del usuario, los datos del perfil y los registros de aplicaciones.
-* **Registros de aplicación**: se registran las aplicaciones web, móviles y nativas en Azure AD B2C para permitir la administración de identidades. También se registran las API que quiera proteger con Azure AD B2C.
-* **Flujos de usuario** y **directivas personalizadas**: las experiencias de identidad integradas (flujos de usuario) y completamente personalizables (directivas personalizadas) de sus aplicaciones.
-  * Use *flujos de usuario* para la configuración rápida y la habilitación de tareas comunes de identidad como registro, inicio de sesión y edición de perfiles.
-  * Use *directivas personalizadas* para flujos de trabajo complejos únicos para la organización, los clientes, los empleados, los asociados y los ciudadanos.
-* **Proveedores de identidades**: configuración de federación para:
-  * Proveedores de identidades de *redes sociales*, como Facebook, LinkedIn o Twitter que quiera admitir en sus aplicaciones.
-  * Proveedores de identidades *externos* que admiten protocolos de identidad estándar, como OAuth 2.0, OpenID Connect, etc.
-  * Cuentas *locales* que permiten a los usuarios registrarse e iniciar sesión con un nombre de usuario (o una dirección de correo electrónico u otro identificador) y una contraseña.
+* **Registros de aplicación**: registre las aplicaciones web, para dispositivos móviles y nativas en Azure AD B2C para permitir la administración de identidades. También puede registrar las API que quiera proteger con Azure AD B2C.
+* **Flujos de usuario** y **directivas personalizadas**: cree experiencias de identidad para las aplicaciones con flujos de usuario integrados y directivas completamente personalizables:
+  * Los **flujos de usuario** le ayudan a habilitar rápidamente tareas comunes de identidad, como el registro, el inicio de sesión y la edición de perfiles.
+  * Las **directivas personalizadas** permiten crear flujos de trabajo de identidad complejos únicos para la organización, los clientes, los empleados, los asociados y los ciudadanos.
+* **Opciones de inicio de sesión**: Azure AD B2C ofrece varias [opciones de registro e inicio de sesión](sign-in-options.md) para los usuarios de las aplicaciones:
+  * **Nombre de usuario, correo electrónico e inicio de sesión por teléfono**: configure las cuentas locales de Azure AD B2C para permitir el registro y el inicio de sesión con un nombre de usuario, una dirección de correo electrónico, un número de teléfono o una combinación de métodos.
+  * **Proveedores de identidades sociales**: realice la federación con proveedores de redes sociales como Facebook, LinkedIn o Twitter.
+  * **Proveedores de identidades externos**: realice la federación con protocolos de identidad estándar, como OAuth 2.0, OpenID Connect, etc.
 * **Claves**: agregue y administre claves de cifrado para la firma y la validación de los tokens, secretos de cliente, certificados y contraseñas.
 
 El primer recurso que debe crear para empezar a trabajar con este servicio es un inquilino de Azure AD B2C. Obtenga información sobre cómo:
@@ -72,7 +72,7 @@ Para más información, consulte [Introducción a las cuentas de usuario en Azur
 
 Azure AD B2C proporciona varias maneras en las que los usuarios pueden autenticar a un usuario. Los usuarios pueden iniciar sesión en una cuenta local con el nombre de usuario y la contraseña, la comprobación por teléfono (también conocida como autenticación sin contraseña). El registro de correo electrónico se habilita de forma predeterminada en la configuración del proveedor de identidades de la cuenta local.
 
-Para obtener más información, vea [Configuración del proveedor de identidades de la cuenta local](identity-provider-local.md).
+Obtenga más información sobre las [opciones de inicio de sesión](sign-in-options.md) o cómo [configurar el proveedor de identidades de la cuenta local](identity-provider-local.md).
 
 ## <a name="user-profile-attributes"></a>Atributos de perfil de usuario
 

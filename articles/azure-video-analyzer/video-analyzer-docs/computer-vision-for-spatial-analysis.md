@@ -5,13 +5,13 @@ author: Juliako
 ms.author: juliako
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 04/01/2021
-ms.openlocfilehash: 82edf5b282f7b68a7d4d1d7909cfe653a65c175b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/01/2021
+ms.openlocfilehash: 0f0ee0a7288a3ef07f0aa8fa3c04660cac1ad0b5
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746576"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604175"
 ---
 # <a name="tutorial-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Tutorial: Vídeo en directo con Computer Vision para análisis espacial (versión preliminar)
 
@@ -49,7 +49,7 @@ Estos son los requisitos previos para conectar el módulo de análisis espacial 
 
 ## <a name="set-up-azure-resources"></a>Configuración de los recursos de Azure
 
-1. Para ejecutar el contenedor de análisis espacial se necesita un dispositivo de proceso con una [GPU NVIDIA Tesla T4](https://www.nvidia.com/data-center/tesla-t4/). Se recomienda usar [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) con aceleración de GPU; sin embargo, el contenedor se ejecuta en cualquier otra máquina de escritorio que tenga [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) instalado en el equipo host.
+1. Para ejecutar el contenedor de análisis espacial se necesita un dispositivo de proceso con una [GPU NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). Se recomienda usar [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) con aceleración de GPU; sin embargo, el contenedor se ejecuta en cualquier otra máquina de escritorio que tenga [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) instalado en el equipo host.
 
    #### <a name="azure-stack-edge-device"></a>[Dispositivo Azure Stack Edge](#tab/azure-stack-edge)
 
@@ -125,7 +125,7 @@ El nodo de `CognitiveServicesVisionProcessor` desempeña el rol de un servidor p
 
 ## <a name="create-the-computer-vision-resource"></a>Creación del recurso de Computer Vision
 
-Es necesario crear un recurso de Azure de tipo Computer Vision en [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) o mediante la CLI de Azure. El recurso se puede crear una vez que se haya aprobado la solicitud de acceso al contenedor y se haya registrado su identificador de suscripción de Azure. Vaya a https://aka.ms/csgate para enviar el caso de uso y el identificador de suscripción de Azure. El recurso de Azure se debe crear con la misma suscripción de Azure que se ha proporcionado en el formulario de solicitud de acceso.
+Es necesario crear un recurso de Azure de tipo Computer Vision en [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) o mediante la CLI de Azure. 
 
 ### <a name="gathering-required-parameters"></a>Recopilación de los parámetros obligatorios
 
@@ -492,9 +492,16 @@ Salida de ejemplo para personZoneEvent (desde la operación `SpatialAnalysisPers
 ```
 
 ### <a name="more-operations"></a>Más operaciones:
+El módulo `spatialAnalysis` ofrece diferentes operaciones:
 
+- **personCount**
+- **personDistance**
+- **personCrossingLine**
+- **personZoneCrossing**
+- **customOperation**
+<br></br>
 <details>
-  <summary>Hacer clic para expandir</summary>
+  <summary>Haga clic para expandir y ver las distintas opciones de configuración para cada una de las operaciones.</summary>
 
 ### <a name="person-line-crossing"></a>Cruce de línea de personas
 
@@ -734,8 +741,7 @@ Para examinar el recurso de vídeo de Video Analyzer que se ha creado con la can
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Icono del rectángulo de selección":::
 
-> [!NOTE]
-> Puesto que el origen del vídeo era un contenedor que simula una fuente de cámara, las marcas de tiempo del vídeo son relativas a cuándo activó y desactivó la canalización en directo.
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -819,7 +825,7 @@ Spatialanalysis es un contenedor grande y su tiempo de inicio puede ser de hasta
 Pruebe las distintas operaciones `spatialAnalysis` que ofrece el módulo; consulte las siguientes topologías pipelineTopologies:
 
 - [personCount](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json)
-- [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-pperation-topology.json)
+- [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-operation-topology.json)
 - [personCrossingLine](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json)
 - [personZoneCrossing](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json)
 - [customOperation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json)

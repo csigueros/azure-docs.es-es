@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: f81446111ab87b280d50caceb93beefc7aedef3b
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 0ab04c21cb904baf7ede72fd69f6d6b8375b07cc
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110332"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289882"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
 > [!div class="op_single_selector"]
@@ -76,7 +76,7 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
 1. En el portal, a la izquierda, seleccione **Crear un recurso** y escriba "Virtual Network Gateway" en la búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y seleccione la entrada. En la página **Puerta de enlace de red virtual**, seleccione **Crear**.
 1. En la página **Crear puerta de enlace de red virtual**, escriba o seleccione estos valores:
 
-    | Parámetro | Valor |
+    | Parámetro | Value |
     | --------| ----- |
     | Suscripción | compruebe que se selecciona la suscripción correcta. |
     | Grupo de recursos | El grupo de recursos se elegirá automáticamente una vez seleccionada la red virtual. | 
@@ -89,7 +89,7 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
     | Nombre de la dirección IP pública | Proporcione un nombre para la dirección IP pública. |
 
     > [!IMPORTANT]
-    > Si tiene previsto usar el emparejamiento privado basado en IPv6 a través de ExpressRoute, asegúrese de seleccionar una SKU de zona de disponibilidad (ErGw1AZ, ErGw2AZ, ErGw3AZ) en **SKU**.
+    > Si planea usar el emparejamiento privado basado en IPv6 a través de ExpressRoute, consulte la [documentación de PowerShell](./expressroute-howto-add-gateway-resource-manager.md) para crear la puerta de enlace con una dirección IP pública de tipo Estándar, Estática.
     > 
     > 
 

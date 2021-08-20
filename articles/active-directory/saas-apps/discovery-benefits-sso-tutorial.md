@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 0e5d67e00ee56b5c4006a8422c713e3cabb32bfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66f384a36274bdae2085f3b5288265e82fd1f5e1
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92454769"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201378"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Discovery Benefits SSO
 
@@ -25,8 +25,6 @@ En este tutorial aprenderá a integrar Discovery Benefits SSO con Azure Active�
 * Controlar en Azure AD quién tiene acceso a Discovery Benefits SSO.
 * Permitir que los usuarios inicien sesión automáticamente en Discovery Benefits SSO con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
-
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,23 +37,23 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Discovery Benefits SSO admite el inicio de sesión único iniciado por **IDP**
+* Discovery Benefits SSO admite el inicio de sesión único iniciado por **IDP**.
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
-## <a name="adding-discovery-benefits-sso-from-the-gallery"></a>Incorporación de Discovery Benefits SSO desde la galería
+## <a name="add-discovery-benefits-sso-from-the-gallery"></a>Adición de Discovery Benefits SSO desde la galería
 
 Para configurar la integración de Discovery Benefits SSO en Azure AD, tiene que agregar Discovery Benefits SSO desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Discovery Benefits SSO** en el cuadro de búsqueda.
 1. Seleccione **Discovery Benefits SSO** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-discovery-benefits-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD para Discovery Benefits SSO
+## <a name="configure-and-test-azure-ad-sso-for-discovery-benefits-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD para Discovery Benefits SSO
 
 Configure y pruebe el inicio de sesión único de Azure AD con Discovery Benefits SSO mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Discovery Benefits SSO.
 
@@ -64,7 +62,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Discovery 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en Discovery Benefits SSO](#configure-discovery-benefits-sso-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
+1. **[Configuración del inicio de sesión único en Discovery Benefits SSO](#configure-discovery-benefits-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Discovery Benefits SSO](#create-discovery-benefits-sso-test-user)** , para tener un homólogo de B.Simon en Discovery Benefits SSO que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
@@ -72,9 +70,9 @@ Para configurar y probar el inicio de sesión único de Azure AD con Discovery 
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Discovery Benefits SSO**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Discovery Benefits SSO**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -86,9 +84,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Identificador de usuario único (id. de nombre)** .
 
-    ![Captura de pantalla que muestra la sección "User Attributes & Claims" (Atributos y reclamaciones del usuario) con los puntos suspensivos de "Required claim" (Notificación requerida) en el lado derecho seleccionados.](./media/discovery-benefits-sso-tutorial/attribute01.png)
+    ![Captura de pantalla que muestra la sección "User Attributes & Claims" (Atributos y reclamaciones del usuario) con los puntos suspensivos de "Required claim" (Notificación requerida) en el lado derecho seleccionados.](./media/discovery-benefits-sso-tutorial/user-attribute.png)
 
-    ![Configuración del inicio de sesión único de Discovery Benefits SSO](./media/discovery-benefits-sso-tutorial/attribute02.png)
+    ![Configuración del inicio de sesión único de Discovery Benefits SSO](./media/discovery-benefits-sso-tutorial/add-attribute.png)
 
     b. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Administración de la transformación**.
 
@@ -101,9 +99,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Discovery Benefits SSO requiere que se pase un valor de cadena fijo en el campo **Identificador de usuario único (id. de nombre)** para que esta integración funcione. Actualmente, Azure AD no es compatible con esta característica por lo que, como solución alternativa, puede usar transformaciones **ToUpper** o **ToLower** de NameID para establecer un valor de cadena fijo tal como se mostró antes en la captura de pantalla.
 
-    f. Hemos rellenado automáticamente las notificaciones adicionales que se requieren para la configuración del inicio de sesión único (`SSOInstance` y `SSOID`). Use el icono de **Editar** para asignar los valores en función de su organización.
+    f. Hemos rellenado automáticamente las notificaciones adicionales que se requieren para la configuración del inicio de sesión único (`SSOInstance` y `SSOID`). Use el icono de **lápiz** para asignar los valores correspondientes a la organización.
 
-    ![Captura de pantalla que muestra "User Attributes & Claims" (Atributos y reclamaciones del usuario) con los valores "SSO Instance" (Instancia de SSO) y "SSO ID" (Id. de SSO) resaltados.](./media/discovery-benefits-sso-tutorial/attribute03.png)
+    ![Captura de pantalla que muestra "User Attributes & Claims" (Atributos y reclamaciones del usuario) con los valores "SSO Instance" (Instancia de SSO) y "SSO ID" (Id. de SSO) resaltados.](./media/discovery-benefits-sso-tutorial/new-attribute.png)
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -132,18 +130,12 @@ En esta sección, va a permitir que B.Simon acceda a Discovery Benefits SSO medi
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Discovery Benefits SSO**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-## <a name="configure-discovery-benefits-sso-sso"></a>Configuración del inicio de sesión único de Discovery Benefits SSO
+## <a name="configure-discovery-benefits-sso"></a>Configuración de Discovery Benefits SSO
 
 Para configurar el inicio de sesión único en **Discovery Benefits SSO**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Discovery Benefits SSO](mailto:Jsimpson@DiscoveryBenefits.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
@@ -153,16 +145,12 @@ En esta sección, creará un usuario llamado Britta Simon en Discovery Benefits 
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-Al hacer clic en el icono de Discovery Benefits SSO en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Discovery Benefits SSO para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en Probar esta aplicación en Azure Portal y debería iniciar sesión automáticamente en la instancia de Discovery Benefits SSO para la que ha configurado el inicio de sesión único.
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Discovery Benefits SSO en Mis aplicaciones, debería iniciar sesión automáticamente en la instancia de Discovery Benefits SSO para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Pruebe Discovery Benefits SSO con Azure AD](https://aad.portal.azure.com/)
+Una vez que haya configurado Discovery Benefits SSO, podrá aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -6,15 +6,15 @@ ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
-ms.date: 11/20/2020
+ms.date: 7/9/2021
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: aaf0aab2ef600b269b9b47182aeb096ca13c7a87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1472336e5244103175ec2ad837d4b503a1e5348
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943529"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721602"
 ---
 # <a name="tutorial-train-a-machine-learning-model-without-code"></a>Tutorial: Entrenamiento de modelos de Machine Learning sin código
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un [área de trabajo de Azure Synapse Analytics](../get-started-create-workspace.md). Asegúrese de que tiene una cuenta de almacenamiento de Azure Data Lake Storage Gen2 configurada como almacenamiento predeterminado. En el caso del sistema de archivos Data Lake Storage Gen2 con el que trabaja, asegúrese de ser el *colaborador de datos de blobs de almacenamiento*.
-- Un grupo de Apache Spark en el área de trabajo de Azure Synapse Analytics. Para más información, consulte [Inicio rápido: Creación de un grupo de SQL dedicado mediante Synapse Studio](../quickstart-create-sql-pool-studio.md).
+- Un grupo de Apache Spark (versión 2.4) en el área de trabajo de Azure Synapse Analytics. Para obtener más información, vea [Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Synapse Studio](../quickstart-create-apache-spark-pool-studio.md).
 - Un servicio vinculado de Azure Machine Learning en el área de trabajo de Azure Synapse Analytics. Para más información, consulte [Inicio rápido: Creación de un servicio vinculado de Azure Machine Learning en Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
@@ -55,8 +55,8 @@ Para este tutorial, necesitará una tabla de Spark. El siguiente cuaderno crea u
 
 Para abrir el asistente:
 
-1. Haga clic con el botón derecho en la tabla de Spark creada en el paso anterior. A continuación, seleccione **Machine Learning** > **Enrich with new model** (Enriquecer con nuevo modelo).
-![Captura de pantalla de la tabla de Spark, con Machine Learning y Enrich with new model (Enriquecer con un nuevo modelo) resaltado.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
+1. Haga clic con el botón derecho en la tabla de Spark creada en el paso anterior. Después, seleccione **Machine Learning** > **Train a new model** (Entrenar un modelo nuevo).
+![Captura de pantalla de la tabla de Spark, con Machine Learning y Train a new model (Entrenar un modelo nuevo) resaltados.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
 
 1. Proporcione los detalles de configuración para crear una ejecución del experimento de aprendizaje automático automatizado en Azure Machine Learning. En esta ejecución se entrenan varios modelos. El mejor modelo de una ejecución correcta se registra en el registro de modelos de Azure Machine Learning.
 
@@ -80,7 +80,7 @@ Para abrir el asistente:
 
 Seleccione el tipo de modelo de Machine Learning para el experimento en función de la pregunta a la que intenta responder. Como `fareAmount` es la columna de destino y es un valor numérico, se recomienda que seleccione **Regression** (Regresión) aquí. Después, seleccione **Continuar**.
 
-![Captura de pantalla de Enrich with new model (Enriquecer con un nuevo modelo), con Regression (Regresión) resaltado.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
+![Captura de pantalla de Train a new model (Entrenar un modelo nuevo), con Regression (Regresión) resaltado.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
 
 ## <a name="additional-configurations"></a>Configuraciones adicionales
 

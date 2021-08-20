@@ -6,13 +6,13 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 01/04/2018
-ms.openlocfilehash: 4c8ae67720cf6ac9d577286898b95cdd10f38152
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/07/2021
+ms.openlocfilehash: 90166f1a6716d9ed6b30ca002836d03d26c1ee3b
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377965"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215908"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Transformación de datos en Azure Virtual Network mediante la actividad de Hive en Azure Data Factory con Azure Portal
 
@@ -31,7 +31,7 @@ En este tutorial, se usa Azure Portal para crear una canalización de Data Facto
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -99,9 +99,9 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
    
     ![Página principal Factoría de datos](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Haga clic en **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
-11. En la página de **introducción**, cambie a la pestaña **Edit** (Editar) del panel izquierdo tal como se muestra en la siguiente imagen: 
+11. En la página principal, cambie a la pestaña **Administrar** del panel de la izquierda como se muestra en la siguiente imagen: 
 
-    ![Pestaña Edit (Editar)](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
+    ![Captura de pantalla en la que se muestra la pestaña Administrar.](media/doc-common-process/get-started-page-manage-button.png)
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
 Como el clúster de Hadoop está dentro de una red virtual, debe instalar un entorno de ejecución de integración (IR) autohospedado en la misma red virtual. En esta sección, va a crear una nueva máquina virtual, se unirá a la misma red virtual e instalará un entorno de ejecución de integración autohospedado en ella. El entorno de ejecución de integración autohospedado permite al servicio Data Factory enviar solicitudes de proceso a un servicio de proceso como HDInsight en una red virtual. También permite mover datos hacia los almacenes de datos de una red virtual y, desde estos, a Azure. Puede usar un entorno de ejecución de integración autohospedado cuando el almacén de datos o de procesos está también en un entorno local. 

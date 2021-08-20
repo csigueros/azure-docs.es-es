@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 06/29/2021
 ms.author: jeedes
-ms.openlocfilehash: e5c6bf41e1a3bf92c9141c0d3b54dd58ead2bf3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5f43467a281f9c7fdca20f49750a0ac81307237
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98727306"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114363143"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-learning"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con LinkedIn Learning
 
@@ -37,11 +37,10 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* LinkedIn Learning admite el inicio de sesión único iniciado por **SP y IDP**
-* LinkedIn Learning admite el aprovisionamiento de usuario **Just In Time**
+* LinkedIn Learning admite el inicio de sesión único iniciado por **SP e IDP**.
+* LinkedIn Learning admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-
-## <a name="adding-linkedin-learning-from-the-gallery"></a>Agregar LinkedIn Learning desde la galería
+## <a name="add-linkedin-learning-from-the-gallery"></a>Adición de LinkedIn Learning desde la galería
 
 Para configurar la integración de LinkedIn Learning en Azure AD, deberá agregar esta solución desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -51,7 +50,6 @@ Para configurar la integración de LinkedIn Learning en Azure AD, deberá agrega
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **LinkedIn Learning** en el cuadro de búsqueda.
 1. Seleccione **LinkedIn Learning** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-linkedin-learning"></a>Configuración y prueba del inicio de sesión único de Azure AD para LinkedIn Learning
 
@@ -63,7 +61,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con LinkedIn L
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de LinkedIn Learning](#configure-linkedin-learning-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de LinkedIn Learning](#create-linkedin-learning-test-user)** , para tener un homólogo de B.Simon en LinkedIn Learning que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Asignación de licencias](#assign-licenses)** : para tener un homólogo de B.Simon en LinkedIn Learning que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -76,9 +74,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-     a. En el cuadro de texto **Identificador**, escriba el **Id.de entidad** que copió de LinkedIn Portal. 
+    a. En el cuadro de texto **Identificador**, escriba el **Id.de entidad** que copió de LinkedIn Portal. 
 
     b. En el cuadro de texto **URL de respuesta**, escriba la **Assertion Consumer Service (ACS) Url** (URL de Servicio de consumidor de aserciones [ACS]) que copió de LinkedIn Portal.
 
@@ -86,10 +84,8 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de LinkedIn Learning](common/metadata-upload-additional-signon.png)
-
     > [!NOTE]
-    > Estos valores no son reales. Los valores se actualizan con el identificador y la dirección URL de respuesta reales, lo que se explica más adelante en la sección **Configuración del inicio de sesión único de LinkedIn Learning** del tutorial.
+    > Estos valores no son reales. Los valores se actualizarán con el identificador, la dirección URL de respuesta y la dirección URL de inicio de sesión reales, lo que se explica más adelante en la sección **Configuración del inicio de sesión único de LinkedIn Learning** del tutorial.
 
 1. La aplicación LinkedIn Learning espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde **nameidentifier** se asigna con **user.userprincipalname**. La aplicación LinkedIn Learning espera que **nameidentifier** se asigne con **user.mail**, por lo que debe editar la asignación de atributos haciendo clic en el icono **Editar** y cambiar dicha asignación.
 
@@ -129,29 +125,61 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
 
 ## <a name="configure-linkedin-learning-sso"></a>Configuración del inicio de sesión único de LinkedIn Learning
 
-1. En otra ventana del explorador web, inicie sesión como administrador en el inquilino LinkedIn Learning.
+1. Inicie sesión en el sitio de la empresa de LinkedIn Learning como administrador.
 
-2. En **Account Center** (Centro de cuentas), haga clic en **Global Settings** (Configuración global) en **Settings** (Configuración). Seleccione también **Learning - Default** (Learning - Predeterminado) en la lista desplegable.
+1. Seleccione **Go to Admin** > **Me** > **Authenticate** (Ir a administración > Yo > Autenticar). 
 
-    ![Captura de pantalla que muestra Global Settings (Configuración global), donde puede seleccionar Default (Predeterminado).](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![Cuenta](./media/linkedinlearning-tutorial/welcome-back-authenticate.png "Cuenta") 
 
-3. Haga clic en **OR Click Here to load and copy individual fields from the form** (O haga clic aquí para cargar y copiar campos individuales del formulario) y copie el **Id.de entidad** y la **Assertion Consumer Access (ACS) Url** (Url de Acceso de consumidor de aserciones [ACS]) en la sección **Configuración básica de SAML** de Azure Portal.
+1. Seleccione **Configure single sign-on** (Configurar inicio de sesión único) en **Authenticate** (Autenticar) y haga clic en **Add new SSO** (Agregar nuevo inicio de sesión único).    
 
-    ![Captura de pantalla que muestra Inicio de sesión único donde puede escribir los valores descritos.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![Configuración del inicio de sesión único](./media/linkedinlearning-tutorial/admin.png "Configurar inicio de sesión único")
 
-4. Vaya a la sección **LinkedIn Admin Settings** (Configuración de administrador de LinkedIn). Cargue el archivo XML que ha descargado de Azure Portal haciendo clic en la opción **Upload XML file** (Cargar archivo XML).
+1. Seleccione **SAML** en la lista desplegable **Add new SSO** (Agregar nuevo inicio de sesión único).
 
-    ![Captura de pantalla que muestra la sección Configure the LinkedIn service provider S S O settings (Configurar valores de inicio de sesión único del proveedor de servicios de LinkedIn) donde puede cargar un archivo X M L.](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
+    ![SAML Authentication (Autenticación SAML)](./media/linkedinlearning-tutorial/new-method.png "Autenticación SAML")
 
-5. Haga clic en **On** (Activar) para habilitar SSO. El estado de SSO cambiará de **Not Connected** (No conectado) a **Connected** (Conectado).
+1. En la pestaña **Basics** (Datos básicos), escriba **SAML Connection Name** (Nombre de la conexión SAML) y haga clic en **Next** (Siguiente).
 
-    ![Captura de pantalla que muestra la opción Single Sign-On (Inicio de sesión único), donde puede habilitar Authenticate users with S S O (Autenticar usuarios con el inicio de sesión único).](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
+    ![Conexión de SSO](./media/linkedinlearning-tutorial/users.png "Conexión de SSO")
 
-### <a name="create-linkedin-learning-test-user"></a>Creación de un usuario de prueba de LinkedIn Learning
+1. Vaya a la pestaña **Identity provider settings** (Configuración del proveedor de identidades), haga clic en **Download file** (Descargar archivo) para descargar el archivo de metadatos y guardarlo en el equipo. y haga clic en **Next** (Siguiente).
 
-La aplicación LinkedIn Learning admite aprovisionamiento de usuarios Just-In-Time y, tras la autenticación, los usuarios se crean automáticamente en la aplicación. En la página de configuración del administrador del portal de LinkedIn Learning, invierta el conmutador **Automatically Assign licenses** (Asignar licencias automáticamente) a aprovisionamiento Just-In-Time activo, y este también asignará una licencia al usuario.
+    ![Configuración del proveedor de identidades](./media/linkedinlearning-tutorial/download-file.png "Configuración del proveedor de identidades")
 
-   ![Creación de un usuario de prueba de Azure AD](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
+    > [!NOTE]    
+    > Es posible que no pueda importar este archivo en el proveedor de identidades. Por ejemplo, Okta no tiene esta funcionalidad. Si este caso coincide con los requisitos de configuración, continúe con Trabajo con campos individuales.
+
+1. En la pestaña **Identity provider settings** (Configuración del proveedor de identidades), haga clic en **Load and copy information from fields** (Cargar y copiar información de los campos) para copiar los campos necesarios y pegarlos en la sección **Configuración básica de SAML** de Azure Portal y haga clic en **Siguiente**.
+
+    ![Configuración](./media/linkedinlearning-tutorial/fields.png "Configuración")
+
+1. Vaya a la pestaña **SSO settings** (Configuración de SSO), haga clic en **Upload XML file** (Cargar archivo XML) para cargar el archivo **XML de metadatos de federación** que ha descargado de Azure Portal.
+
+    ![Archivo de certificado](./media/linkedinlearning-tutorial/upload-file.png "Archivo de certificado")
+
+1. Rellene manualmente los campos obligatorios que ha copiado de Azure Portal en la pestaña **SSO settings** (Configuración de SSO).
+
+    ![Especificar valores](./media/linkedinlearning-tutorial/certificate.png "Especificar valores")
+
+1. En **SSO settings** (Configuración de SSO), seleccione las opciones de SSO que necesite y haga clic en **Save** (Guardar).
+
+    ![Configuración de SSO](./media/linkedinlearning-tutorial/options.png "Configuración de SSO")
+
+#### <a name="enabling-single-sign-on"></a>Habilitación del inicio de sesión único
+
+Después de completar la configuración, seleccione **Active** (Activar) en la lista desplegable de estado de SSO para habilitar el inicio de sesión único.
+
+  ![Habilitación del inicio de sesión único](./media/linkedinlearning-tutorial/configuration.png "Habilitación del inicio de sesión único")
+
+### <a name="assign-licenses"></a>Asignar licencias
+
+Una vez que habilite el inicio de sesión único, puede asignar automáticamente licencias a los empleados si cambia **Automatically provision licenses** (Aprovisionamiento automático de licencias) a **On** (Activado) y hace clic en **Save** (Guardar). Al habilitar esta opción, se concede automáticamente una licencia a los usuarios cuando se autentican por primera vez.
+
+   ![Asignación de licencias](./media/linkedinlearning-tutorial/license.png "Asignación de licencias")
+
+> [!NOTE]   
+> Si no habilita esta opción, un administrador debe agregar usuarios manualmente en la pestaña People (Personas). LinkedIn Learning identifica a los usuarios por su dirección de correo electrónico.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
@@ -165,10 +193,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 
-* Haga clic en **Probar esta aplicación** en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de LinkedIn Learning para la que haya configurado el inicio de sesión único. 
+* Haga clic en **Probar esta aplicación** en Azure Portal y debería iniciar sesión automáticamente en la instancia de LinkedIn Learning para la que ha configurado el inicio de sesión único. 
 
 También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de LinkedIn Learning en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de LinkedIn Learning para la que haya configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

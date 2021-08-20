@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6241f6156b01c3c90f00578ae5416e4e77270930
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2263b27cd2f505bc76f02f24e17d54ec5f6475b2
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386805"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578854"
 ---
 # <a name="tutorial-migrate-from-google-maps-to-azure-maps"></a>Tutorial: Migración de Google Maps a Azure Maps
 
@@ -34,7 +34,7 @@ En este artículo se proporciona información sobre cómo migrar aplicaciones we
 
 ## <a name="azure-maps-platform-overview"></a>Introducción a la plataforma Azure Maps
 
-Azure Maps proporciona a todos los desarrolladores, independientemente de cuál sea su sector, una funcionalidades geoespaciales eficaces. Las funcionalidades se empaquetan con datos de mapas actualizados periódicamente para proporcionar un contexto geográfico a las aplicaciones web y móviles. Azure Maps tiene un conjunto de API REST compatible con Azure One API. Estas API REST ofrecen representación de mapas, búsqueda, enrutamiento, tráfico, zonas horarias, geolocalización, geovallas, datos de mapas, climatología, movilidad y operaciones espaciales. Las operaciones vienen acompañadas de los SDK web y para Android para hacer el desarrollo sencillo, flexible y portátil entre varias plataformas.
+Azure Maps proporciona a todos los desarrolladores, independientemente de cuál sea su sector, una funcionalidades geoespaciales eficaces. Las funcionalidades se empaquetan con datos de mapas actualizados periódicamente para proporcionar un contexto geográfico a las aplicaciones web y móviles. Azure Maps tiene un conjunto de API REST compatible con Azure One API. Las API REST ofrecen representación de mapas, búsqueda, enrutamiento, tráfico, zonas horarias, geolocalización, geovallas, datos de mapas, climatología, y operaciones espaciales. Las operaciones vienen acompañadas de los SDK web y para Android para hacer el desarrollo sencillo, flexible y portátil entre varias plataformas.
 
 ## <a name="high-level-platform-comparison"></a>Comparación general de las plataformas
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 05/08/2021
-ms.openlocfilehash: 3ead96a49e2bacca526cd9ee3b8c8e00abbba426
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 655314720975738ebdbddb009d6d31ad7a322e72
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656297"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552286"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registro y examen de una Instancia administrada de Azure SQL Database
 
@@ -25,10 +25,6 @@ El origen de datos de la Instancia administrada de Azure SQL Database admite la 
 - **Exámenes completos e incrementales** para capturar metadatos y su clasificación en la Instancia administrada de Azure SQL Database.
 
 - **Linaje** entre los recursos de datos de las actividades de copia y flujo de datos de ADF.
-
-### <a name="known-limitations"></a>Restricciones conocidas
-
-Azure Purview no admite el examen de [vistas](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true) en la Instancia administrada Azure SQL.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -125,7 +121,35 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 
     Por ejemplo, `foobar.public.123.database.windows.net,3342`
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+
+Para crear y ejecutar un nuevo examen, siga estos pasos:
+
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+
+1. Seleccione el origen de Instancia administrada de Azure SQL Database que ha registrado.
+
+1. Seleccione **New scan** (Nuevo examen).
+
+1. Seleccione la credencial para conectarse al origen de datos.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-scan-sql-mi.png" alt-text="Configurar examen":::
+
+1. Elija los elementos adecuados de la lista para limitar el ámbito del examen a tablas específicas.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scope-your-scan.png" alt-text="Ámbito del examen":::
+
+1. A continuación, seleccione un conjunto de reglas de examen. Puede elegir entre los valores predeterminados del sistema, los conjuntos de reglas personalizadas existentes o la creación de un conjunto de reglas en línea.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scan-rule-set.png" alt-text="Conjunto de reglas de examen":::
+
+1. Elija el desencadenador del examen. Puede configurar una programación o ejecutar el examen una vez.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/trigger-scan.png" alt-text="trigger":::
+
+1. Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 > [!NOTE]
 > Al eliminar el examen, no se eliminan los recursos de los exámenes de Instancia administrada de Azure SQL Database anteriores.

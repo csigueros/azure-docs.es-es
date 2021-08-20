@@ -2,13 +2,13 @@
 title: Detectar si los objetos cruzan una línea virtual en un vídeo en directo con Azure Video Analyzer
 description: En este inicio rápido se muestra cómo usar Azure Video Analyzer para detectar si los objetos cruzan una línea a partir de una fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
-ms.date: 05/18/2021
-ms.openlocfilehash: 8cca0aca44f2cb2ebdbee7869d189b0cd2b2451f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 06/01/2021
+ms.openlocfilehash: 0b87d80c5dcc7a72bf940cac3573ee5e68964022
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465667"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604651"
 ---
 # <a name="tutorial-detect-when-objects-cross-a-virtual-line-in-a-live-video"></a>Tutorial: Detectar si los objetos cruzan una línea virtual en un vídeo en directo
 
@@ -98,11 +98,11 @@ En Visual Studio Code, vaya a la carpeta src/cloud-to-device-console-app. Aquí
 1. Edite el archivo operations.json:
     
     * Cambie el vínculo a la topología de la canalización:
-    * "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/line-crossing/topology.json"
-    * En livePipelineSet, edite el nombre de la topología para que coincida con el valor del vínculo anterior:
-    * "topologyName": "LineCrossingWithHttpExtension"
+    * `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/line-crossing/topology.json"`
+    * En `livePipelineSet`, edite el nombre de la topología para que coincida con el valor del vínculo anterior:
+    * `"topologyName" : "LineCrossingWithHttpExtension"`
     * En `pipelineTopologyDelete`, edite el nombre:
-    * "name": "LineCrossingWithHttpExtension"
+    * `"name" : "LineCrossingWithHttpExtension"`
     
 Abra la dirección URL de la topología de canalización en un explorador y examine la configuración del nodo de extensión HTTP.
 
@@ -113,7 +113,7 @@ Abra la dirección URL de la topología de canalización en un explorador y exam
    }
 ```
 
-En este caso, `skipSamplesWithoutAnnotation` se establece en `false` porque el nodo de extensiones debe pasar por todos los fotogramas, tanto si tienen resultados de inferencia como si no, hasta el nodo de seguimiento de objetos de nivel inferior. El seguimiento de objetos tiene capacidad para realizar un seguimiento de objetos de más de 15 fotogramas, aproximadamente. Si el vídeo en directo se ejecuta a una velocidad de 30 fotogramas por segundo, significa que se deben enviar al menos dos fotogramas por segundo al servidor HTTP para la inferencia; por lo tanto, `maximumSamplesPerSecond` se establece en 2. De hecho, serán 15 fotogramas por segundo.
+En este caso, `skipSamplesWithoutAnnotation` se establece en `false` porque el nodo de extensiones debe pasar por todos los fotogramas, tanto si tienen resultados de inferencia como si no, hasta el nodo de seguimiento de objetos de nivel inferior. El seguimiento de objetos tiene capacidad para realizar un seguimiento de objetos de más de 15 fotogramas, aproximadamente. Si el vídeo en directo se ejecuta a una velocidad de 30 fotogramas por segundo, significa que se deben enviar al menos 2 fotogramas por segundo al servidor HTTP para la inferencia. El modelo de IA tiene un valor de FPS máximo para el procesamiento, que es el valor más alto en el que se debe establecer `maximumSamplesPerSecond`.
 
 Observe también los marcadores de posición de los parámetros `linecrossingName` y `lineCoordinates` del nodo de detección de cruce de líneas. Hemos proporcionado valores predeterminados para estos parámetros, pero se pueden sobrescribir mediante el uso del archivo operations.json. Observe cómo se pasan otros parámetros del archivo operations.json a una topología (es decir, dirección URL de RTSP).  
 

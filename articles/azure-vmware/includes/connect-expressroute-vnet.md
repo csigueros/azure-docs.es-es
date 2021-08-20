@@ -3,12 +3,12 @@ title: Conexión de ExpressRoute a la puerta de enlace de red virtual
 description: Pasos para conectar ExpressRoute a la puerta de enlace de red virtual.
 ms.topic: include
 ms.date: 12/08/2020
-ms.openlocfilehash: 115e8829723c25fb1644f3f5652fbace529a05cb
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: a3e759c12496613848f6f0bc8de596a5099b904b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945702"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438209"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
@@ -21,7 +21,7 @@ ms.locfileid: "107945702"
 
 1. En la página **Agregar conexión**, proporcione valores para los campos y seleccione **Aceptar**. 
 
-   | Campo | Valor |
+   | Campo | Value |
    | --- | --- |
    | **Nombre**  | Escriba un nombre para la conexión.  |
    | **Tipo de conexión**  | seleccione **ExpressRoute**.  |
@@ -30,8 +30,8 @@ ms.locfileid: "107945702"
    | **Clave de autorización**  | Pegue la clave de autorización que copió anteriormente. |
    | **URI de circuito del mismo nivel**  | Pegue el identificador de ExpressRoute que copió anteriormente.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/expressroute-add-connection.png" alt-text="Captura de pantalla del panel Agregar conexión para conectar ExpressRoute a la puerta de enlace de red virtual.":::
+   :::image type="content" source="../media/tutorial-configure-networking/add-connection.png" alt-text="Captura de pantalla en la que se muestra la página Agregar conexión para conectar ExpressRoute a la puerta de enlace de red virtual.":::
 
 Se crea la conexión entre el circuito ExpressRoute y la red virtual.
 
-:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="Captura de pantalla de las conexiones de puerta de enlace de red virtual.":::
+:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="Captura de pantalla en la que se muestra una conexión de puerta de enlace de red virtual correcta.":::

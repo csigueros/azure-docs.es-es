@@ -2,18 +2,18 @@
 title: 'Administración de claves en un HSM administrado: Azure Key Vault | Microsoft Docs'
 description: Use este artículo para administrar las claves en un HSM administrado.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.author: ambapat
-ms.openlocfilehash: 8d0cbd35b53bc8460ac8a19e5197d1f560657263
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: mbaldwin
+ms.openlocfilehash: 418bc82a503822a79f138fc71213f9ec5c9b5266
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212049"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471316"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Administración de un HSM administrado mediante la CLI de Azure
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar los pasos de este artículo, debe tener los siguientes elementos:
 
 * Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
-* La CLI de Azure, versión 2.12.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+* La CLI de Azure, versión 2.25.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 * Un HSM administrado en la suscripción. Consulte [Quickstart: Aprovisionamiento y activación de un HSM administrado mediante la CLI de Azure](quick-create-cli.md) para aprovisionar y activar un HSM administrado.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -48,6 +48,9 @@ Para más información sobre las opciones de inicio de sesión mediante la CLI, 
 > Todos los comandos siguientes muestran dos métodos de uso. Uno que usa los parámetros **--hsm-name** y **--name** (para el nombre de clave) y otro que usa el parámetro **--id**, donde puede especificar la dirección URL completa, incluido el nombre de clave si corresponde. El último método es útil cuando el autor de la llamada (un usuario o una aplicación) no tiene acceso de lectura en el plano de control y solo tiene acceso restringido en el plano de datos.
 
 ## <a name="create-an-hsm-key"></a>Creación de una clave de HSM
+
+> [!NOTE]
+> La clave generada o importada en Managed HSM no se puede exportar. Consulte los procedimientos recomendados para la portabilidad y durabilidad de claves.
 
 Utilice el comando `az keyvault key create` para crear una clave.
 

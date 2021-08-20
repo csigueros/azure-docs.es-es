@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/21/2021
 ms.author: raynew
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3489d7359b7557f0a2305a30ff3d28f05863504d
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 865b4e7f93d70b9ba77e773dd3a599e8eed01376
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702252"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112467166"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Movimiento de recursos entre regiones en PowerShell
 
@@ -49,7 +49,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La mayoría de las operaciones de movimiento de recursos son las mismas, independientemente de si se usa Azure Portal o PowerShell, con un par de excepciones.
 
-**Operación** | **PowerShell** | **Portal**
+**Operación** | **Portal** | **PowerShell**
 --- | --- | ---
 **Crear una colección de transferencia de recursos** | Se crea automáticamente una colección de transferencia de recursos (una lista de todos los recursos que se van a mover). El portal asigna los permisos de identidad necesarios en el back-end. | Puede utilizar cmdlets de PowerShell para:<br/><br/> - Crear un grupo de recursos para la colección de transferencia de recursos y especificar su ubicación.<br/><br/> - Asignar una identidad administrada a la colección.<br/><br/> - Agregar recursos a la colección.
 **Eliminar una colección de transferencia de recursos** | No se puede eliminar directamente una colección de transferencia de recursos en el portal. | Utilice un cmdlet de PowerShell para eliminar una colección de transferencia de recursos.
@@ -404,7 +404,7 @@ Invoke-AzResourceMoverDiscard -ResourceGroupName "RG-MoveCollection-demoRMS" -Mo
 
 ## <a name="delete-source-resources"></a>Eliminación de los recursos de origen
 
-Después de confirmar el movimiento y comprobar que los recursos funcionan según lo previsto en la región de destino, puede eliminar cada uno de los recursos de origen mediante [Azure Portal](../azure-resource-manager/management/manage-resources-portal.md#delete-resources), [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md#delete-resources) o la [CLI de Azure](../azure-resource-manager/management/manage-resources-cli.md#delete-resources).
+Después de confirmar el movimiento y comprobar que los recursos funcionan según lo previsto en la región de destino, puede eliminar cada uno de los recursos de origen mediante [Azure Portal](../azure-resource-manager/management/manage-resources-portal.md#delete-resources), [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md#delete-resources) o usando la [CLI de Azure](../azure-resource-manager/management/manage-resources-cli.md#delete-resources).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

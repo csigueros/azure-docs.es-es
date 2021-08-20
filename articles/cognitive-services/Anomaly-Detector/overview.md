@@ -12,14 +12,14 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 52ed294146edbd70f21af4f706ad68f3aa6662dc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 30764913ae92670a9034f709f9bb3f50a309374f
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076823"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296890"
 ---
-# <a name="what-is-the-anomaly-detector-api"></a>¿Qué es Anomaly Detector API?
+# <a name="what-is-the-anomaly-detector-univariate-api"></a>¿Qué es la API univariante Anomaly Detector?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
@@ -99,7 +99,6 @@ No es necesaria ninguna configuración de parte del cliente para habilitar la re
 ## <a name="join-the-anomaly-detector-community"></a>Únase a la comunidad de Anomaly Detector
 
 * Únase al [grupo de asesores de Anomaly Detector en Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
-* Vea el [contenido generado por usuarios](user-generated-content.md) seleccionado
 
 ## <a name="next-steps"></a>Pasos siguientes
 

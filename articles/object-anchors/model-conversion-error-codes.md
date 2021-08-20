@@ -7,12 +7,12 @@ ms.author: jastenze
 ms.date: 04/20/2021
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 747551dcc400f399e5c36e6a851fdb0f25aaf65b
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: e47e4e9f784e51c646da22063ee954d9b60a4e11
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109755098"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202678"
 ---
 # <a name="model-conversion-error-codes"></a>Código de error de la conversión de modelos
 
@@ -34,3 +34,10 @@ Para los modos comunes de error de conversión de modelo, el objeto `Azure.Mixed
 | ASSET_CANNOT_BE_CONVERTED | El recurso proporcionado estaba dañado, tenía un formato incorrecto o, de lo contrario, no se podía convertir en el formato proporcionado. | Asegúrese de que el recurso es un archivo construido de forma válida del tipo especificado y consulte las directrices de tamaño de los recursos antes de enviar un recurso para su conversión para garantizar la conformidad: aka.ms/aoa/faq |
 
 Los errores que se produzcan fuera de los trabajos de conversión de recursos reales aparecerán como excepciones. En particular, el `Azure.RequestFailedException` se puede realizar para llamadas de servicio que reciben un código de respuesta HTTP incorrecto (4xx o 5xx) o inesperado. Para más información sobre estas excepciones, analice los campos `Status`, `ErrorCode` o `Message` de la excepción.
+
+| Excepción                  | Causa                       |
+| ---                      | ---                               |
+| ArgumentException |  <ul><li>Se produce cuando se usa un id. de cuenta con solo ceros o construido de forma no válida para construir una solicitud con ObjectAnchorsConversionClient.</li><li>Se produce al intentar inicializar ObjectAnchorsConversionClient mediante un dominio de cuenta de espacio en blanco no válido.</li><li>Se produce cuando se proporciona una versión de servicio no compatible a ObjectAnchorsConversionClient a través de ObjectAnchorsConversionClientOptions.</li></ul> |
+| ArgumentNullException | <ul><li>Se produce al intentar inicializar ObjectAnchorsConversionClient mediante un dominio de cuenta nulo no válido.</li><li>Se produce al intentar inicializar ObjectAnchorsConversionClient mediante un dominio de cuenta nulo no válido.</li></ul> |
+| RequestFailedException | <ul><li>Se produce para todos los demás problemas resultantes de un código de estado HTTP no válido (no relacionado con el estado de un trabajo que se va a ejecutar), como una cuenta que no se encuentra, un URI de carga no válido detectado por el servicio front-end, un error de servicio front-end, etc.</li></ul> |
+| UnsupportedAssetFileTypeException | <ul><li>Se produce al intentar enviar un trabajo con un recurso con una extensión o un tipo de archivo especificado que no es compatible con el servicio de conversión de Azure Object Anchors.</li></ul> |

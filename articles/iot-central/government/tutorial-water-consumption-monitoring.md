@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 959289de2fa10e9ce31ce71c8ea3fcb9e33d0951
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: df5752760dcb9968b44243fb4c2d2412698267df
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789304"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113589000"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Tutorial: Creación de una aplicación de supervisión del consumo de agua con Azure IoT Central
 
@@ -23,7 +23,7 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Usar la plantilla de supervisión del consumo de agua de Azure IoT Central para crear la aplicación de supervisión del consumo de agua.
-> * Explorar y personalizar el panel del operador.
+> * Explorar y personalizar el panel.
 > * Explorar las plantillas de dispositivo.
 > * Explorar los dispositivos simulados
 > * Explorar y configurar reglas
@@ -49,7 +49,7 @@ Para crear una aplicación de supervisión del consumo de agua de Azure IoT Cent
   
 
 1. Seleccione la plantilla de aplicación **Water consumption monitoring**.
-Esta plantilla incluye una plantilla de dispositivo de consumo de agua de ejemplo, un dispositivo simulado, un panel del operador y reglas de supervisión preconfiguradas.
+Esta plantilla incluye una plantilla de dispositivo de consumo de agua de ejemplo, un dispositivo simulado, un panel y reglas de supervisión preconfiguradas.
 
 1. Haga clic en **Crear aplicación** para abrir el formulario de creación **Nueva aplicación** con los siguientes campos:
     * **Nombre de la aplicación**: De forma predeterminada, la aplicación usa *Water consumption monitoring* seguido de una cadena de identificación única que genera Azure IoT Central. Tiene la opción de elegir un nombre descriptivo para la aplicación. También puede cambiar el nombre de la aplicación más adelante.
@@ -66,7 +66,7 @@ Ahora ha creado una aplicación de supervisión del consumo de agua mediante la 
 
 La aplicación de supervisión del consumo de agua trae los siguientes elementos preconfigurados:
 
-* Paneles del operador de ejemplo.
+* Paneles de ejemplo.
 * Plantillas de dispositivo predefinidas de ejemplo de caudal de agua y válvula.
 * Dispositivos simulados de caudal de agua y válvula inteligente.
 * Reglas y trabajos.
@@ -74,7 +74,7 @@ La aplicación de supervisión del consumo de agua trae los siguientes elementos
 
 Como es su aplicación, puede modificarla en cualquier momento. A continuación, explore la aplicación y realice algunas personalizaciones.
 
-## <a name="explore-and-customize-the-operator-dashboard"></a>Exploración y personalización del panel del operador
+## <a name="explore-and-customize-the-dashboard"></a>Exploración y personalización del panel
 
 Después de crear la aplicación, se abre el panel de ejemplo **Wide World water consumption dashboard**.
   
@@ -92,7 +92,7 @@ El panel consta de diferentes tipos de iconos:
 * **Icono Average water flow KPI** (KPI de caudal de agua promedio): el icono de KPI está configurado para mostrar como ejemplo *el caudal medio en los últimos 30 minutos*. Puede personalizar el icono de KPI y establecerlo en un tipo y un intervalo de tiempo diferentes.
 * **Iconos de comando de dispositivo**: estos iconos incluyen los iconos **Close valve** (Cerrar válvula), **Open valve** (Abrir válvula) y **Set valve position** (Establecer posición de la válvula). Al seleccionar los comandos, irá a la página de comandos del dispositivo simulado. In Azure IoT Central, un *comando* es un tipo de *funcionalidad del dispositivo*. Explorará este concepto más adelante en la sección [Plantilla de dispositivo](../government/tutorial-water-consumption-monitoring.md#explore-the-device-template) de este tutorial.
 
-* **Mapa de área de distribución de agua**: el mapa usa Azure Maps, que puede configurar directamente en Azure IoT Central. El icono del mapa muestra la ubicación del dispositivo. Mantenga el puntero sobre el mapa y pruebe los controles del mapa, como *acercar*, *alejar* o *ampliar*.
+* **Mapa de área de distribución de agua**: el mapa usa Azure Maps, que puede configurar directamente en Azure IoT Central. El icono del mapa muestra la [ubicación](../core/howto-use-location-data.md) del dispositivo. Mantenga el puntero sobre el mapa y pruebe los controles del mapa, como *acercar*, *alejar* o *ampliar*.
 
     :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboard-map.png" alt-text="Mapa del panel de supervisión del consumo de agua":::
 
@@ -109,7 +109,7 @@ Puede personalizar las vistas del panel para los operadores.
 
     :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-edit-dashboard.png" alt-text="Editar panel":::
 
-Para más información, consulte [Creación y personalización de paneles](../core/howto-create-personal-dashboards.md).
+Para más información, consulte [Creación y personalización de paneles](../core/howto-manage-dashboards.md).
 
 ## <a name="explore-the-device-template"></a>Exploración de la plantilla de dispositivo
 
@@ -146,7 +146,7 @@ Para personalizar la plantilla de dispositivo:
     En Azure IoT Central, puede agregar una propiedad que sea pertinente para el dispositivo. Por ejemplo, una propiedad en la nube podría ser un umbral de alerta específico de un área de la instalación, información de recursos u otra información de mantenimiento.
 1. Para guardar los cambios, seleccione **Guardar**.
 
-Para más información, consulte [Propiedades de la nube](../core/quick-create-simulated-device.md#add-cloud-properties).
+Para más información, consulte [Propiedades de la nube](../core/concepts-device-templates.md#cloud-properties).
 
 
 ### <a name="views"></a>Vistas
@@ -155,20 +155,20 @@ La plantilla de dispositivo de supervisión del consumo de agua incluye vistas p
 
   ![Vistas de la plantilla de dispositivo](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-views.png)
 
-Para más información, consulte [Vistas](../core/quick-create-simulated-device.md#views).
+Para más información, consulte [Vistas](../core/concepts-device-templates.md#views).
 
 ### <a name="publish-the-device-template"></a>Publicación de la plantilla de dispositivo
 
 Vaya a la página de plantillas de dispositivo y seleccione **Publicar** para guardar los cambios realizados en la plantilla de dispositivo.
 
-Para más información, consulte [Publicación de plantillas](../core/quick-create-simulated-device.md#publish-device-template).
+Para más información, consulte [Publicación de plantillas](../core/howto-set-up-template.md#publish-a-device-template).
 
 ### <a name="create-a-new-device-template"></a>Creación de una nueva plantilla de dispositivo
 
 Seleccione **+ New** (+ Nueva) para crear una plantilla de dispositivo y siga el proceso de creación.
 Puede crear una plantilla de dispositivo personalizada desde el principio o elegir una del catálogo de dispositivos de Azure.
 
-Para más información, consulte [Adición de plantillas de dispositivo](../core/quick-create-simulated-device.md#add-a-device-template).
+Para más información, consulte [Adición de plantillas de dispositivo](../core/howto-set-up-template.md).
 
 ## <a name="explore-simulated-devices"></a>Explorar los dispositivos simulados
 
@@ -195,7 +195,7 @@ En Azure IoT Central, puede crear dispositivos simulados para probar la aplicac
 
 Para agregar nuevos dispositivos, seleccione **(+ Nuevo)** en la pestaña **Dispositivos**.
 
-Para más información, consulte [Adición de nuevos dispositivos](../core/quick-create-simulated-device.md#add-a-simulated-device).
+Para obtener más información, vea [Administración de dispositivos](../core/howto-manage-devices-individually.md).
 
 ## <a name="explore-rules"></a>Exploración de reglas
 
@@ -243,7 +243,7 @@ En Azure IoT Central, los trabajos permiten desencadenar actualizaciones de pro
 1. Seleccione **Trabajos** en el panel izquierdo.
 1. Seleccione **+ Nuevo** y configure uno o varios trabajos.
 
-Para más información, consulte [Ejecución de un trabajo](../core/howto-run-a-job.md).
+Para más información, consulte [Ejecución de un trabajo](../core/howto-manage-devices-in-bulk.md).
 
 ## <a name="customize-your-application"></a>Personalización de la aplicación
 

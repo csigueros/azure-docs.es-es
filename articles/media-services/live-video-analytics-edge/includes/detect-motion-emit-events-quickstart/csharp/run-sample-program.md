@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 766dd13f58268c044435a22fb30c1de816d4d151
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b173a5fe639ff21cc8a475edd16d0e3885dacef
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97532155"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113280191"
 ---
 Para ejecutar el código de ejemplo, siga estos pasos:
 
@@ -26,6 +26,14 @@ Para ejecutar el código de ejemplo, siga estos pasos:
     `"topologyName" : "MotionDetection"`
     
 1. Para iniciar una sesión de depuración, seleccione la tecla F5. La ventana **TERMINAL** mostrará algunos mensajes.
+
+    Al iniciar una sesión de depuración con F5, la primera vez se le pedirá el tipo de entorno y el proyecto. Esto crea y configura el archivo launch.json la carpeta. Use lo siguiente para los fines de esta demostración:
+    * Entorno: .Net Core
+    * Proyecto: c2d-console-app
+    
+    Edite el archivo launch.json después de crearlo. Cambie la configuración de la consola a "integratedTeminal".
+    
+    `"console": "integratedTerminal"`
 1. El archivo *operations.json* se inicia con llamadas a `GraphTopologyList` y `GraphInstanceList`. Si ha limpiado los recursos tras haber finalizado los inicios rápidos anteriores, este proceso devolverá listas vacías y, después, se pausará. Para continuar, seleccione la tecla Entrar.
 
     ```

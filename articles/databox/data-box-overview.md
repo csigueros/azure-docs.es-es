@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 07/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 6da5dfcded067420fd6d43f4a5b2841da060898a
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7ecd8cf1330cec20131e5015a62691d7cf704f03
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738129"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114688544"
 ---
 # <a name="what-is-azure-data-box"></a>¿Qué es Azure Data Box?
 
@@ -71,7 +71,7 @@ El dispositivo Data Box tiene las siguientes características en esta versión.
 | Peso                                                  | < 50 libras                |
 | Dimensions                                              | Dispositivo: Ancho: 309 mm Alto: 430,4 mm Fondo: 502 mm |            
 | Espacio en bastidor                                              | 7 U cuando se coloca en el bastidor en su lado (no se puede montar en bastidor)|
-| Se necesitan cables                                         | 1 cable de alimentación (incluido) <br> 2 cables RJ45 <br> 2 cables de cobre X SFP + Twinax|
+| Se necesitan cables                                         | 1 cable de alimentación (incluido) <br> 2 cables RJ45 (no incluidos)<br> 2 cables de cobre SFP+ Twinax (no incluidos)|
 | Capacidad de almacenamiento                                        | Un dispositivo de 100 TB que tenga 80 TB, de capacidad utilizable tras aplicar la protección de RAID 5|
 | Potencia eléctrica                                            | La unidad de fuente de alimentación tiene una potencia nominal de 700 w. <br> Normalmente, la unidad utiliza 375 w.|
 | Interfaces de red                                      | Dos interfaces de 1 GbE: MGMT y DATA 3. <br> MGMT: para la administración, no es configurable por el usuario y se usar para la configuración inicial <br> Data3: para los datos, es configurable por el usuario y es dinámico de forma predeterminada <br> MGMT y DATA 3 también pueden funcionar como 10 GbE <br> Dos interfaces de 10 GbE: DATA 1 y DATA 2 <br> Ambas son para los datos, se pueden configurar como estáticas o dinámicas (valor predeterminado) |
@@ -119,7 +119,7 @@ Un flujo de importación habitual incluye los siguientes pasos:
 
 1. **Solicitar**: cree un pedido en Azure Portal, proporcione la información de envío y la cuenta de almacenamiento de Azure de destino para los datos. Si el dispositivo está disponible, Azure lo prepara y lo envía con un identificador de seguimiento del envío.
 
-2. **Recibir**: una vez entregado el dispositivo, conéctelo a la red y enciéndalo con los cables especificados. Active el dispositivo y conéctese a él. Configure la red del dispositivo y monte los recursos compartidos en el equipo host desde donde desea copiar los datos.
+2. **Recibir**: una vez entregado el dispositivo, conéctelo a la red y enciéndalo con los cables especificados. (El cable de alimentación se incluye con el dispositivo. Tendrá que comprar los cables de datos). Encienda el dispositivo y conéctese. Configure la red del dispositivo y monte los recursos compartidos en el equipo host desde donde desea copiar los datos.
 
 3. **Copiar los datos**: copie los datos en los recursos compartidos de Data Box.
 
@@ -134,7 +134,7 @@ Un flujo de exportación habitual incluye los siguientes pasos:
 
 1. **Pedido**: cree un pedido de exportación en Azure Portal, especifique la información de envío y la cuenta de Azure Storage de origen de los datos. Si el dispositivo está disponible, Azure prepara un dispositivo. Los datos se copian de la cuenta de Azure Storage a Data Box. Una vez completada la copia de datos, Microsoft envía el dispositivo con un identificador de seguimiento de envío.
 
-2. **Recibir**: una vez entregado el dispositivo, conéctelo a la red y enciéndalo con los cables especificados. Active el dispositivo y conéctese a él. Configure la red del dispositivo y monte los recursos compartidos en el equipo host en el que quiere copiar los datos.
+2. **Recibir**: una vez entregado el dispositivo, conéctelo a la red y enciéndalo con los cables especificados. (El cable de alimentación se incluye con el dispositivo. Tendrá que comprar los cables de datos). Encienda el dispositivo y conéctese. Configure la red del dispositivo y monte los recursos compartidos en el equipo host en el que quiere copiar los datos.
 
 3. **Copia de los datos**: copie los datos desde los recursos compartidos de Data Box hasta los servidores de datos locales.
 

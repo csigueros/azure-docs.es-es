@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 05/26/2021
+ms.date: 07/15/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2752d437800840181062f7a9c07d37620e06677a
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 8fb3734e1975254442fa2aff57ba60847bbfac04
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578313"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362265"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -23,6 +23,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Creación de una instancia de Virtual WAN
 > * Crear un concentrador
+> * Crear una puerta de enlace de VPN de sitio a sitio
 > * Crear un sitio
 > * Conectar un sitio a un centro de conectividad
 > * Conectar un sitio VPN a un centro de conectividad
@@ -48,9 +49,13 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 ## <a name="create-a-hub"></a><a name="hub"></a>Creación de un centro de conectividad
 
-Un centro de conectividad es una red virtual que puede contener puertas de enlace para las funcionalidades de sitio a sitio, ExpressRoute o de punto a sitio. Cuando se crea el concentrador, se le cobrará por él, aunque no esté asociado a ningún sitio. La creación de la puerta de enlace de VPN de sitio a sitio en el centro de conectividad virtual tarda 30 minutos.
+Un centro de conectividad es una red virtual que puede contener puertas de enlace para las funcionalidades de sitio a sitio, ExpressRoute o de punto a sitio. Cuando se crea el concentrador, se le cobrará por él, aunque no esté asociado a ningún sitio.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
+
+## <a name="create-a-site-to-site-vpn-gateway"></a><a name="gateway"></a>Creación de una puerta de enlace de VPN de sitio a sitio
+
+[!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
 ## <a name="create-a-site"></a><a name="site"></a>Creación de un sitio
 

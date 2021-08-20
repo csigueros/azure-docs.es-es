@@ -5,18 +5,21 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 5d146305a1bd5dcde80c29892ef5e7512eca74b7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 24bc9b0f92a82354f511f534eb9b0e86d59d336b
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967102"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201273"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para reglas de recopilación de datos en Azure Monitor
 En este artículo se incluyen [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) de ejemplo para crear una asociación entre una [regla de recopilación de datos](data-collection-rule-overview.md) y el [agente de Azure Monitor](./azure-monitor-agent-overview.md). Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
+## <a name="create-rule-sample"></a>Creación de una regla (ejemplo)
+
+Vea [formato de plantilla](/azure/templates/microsoft.insights/datacollectionrules)
 
 ## <a name="create-association-with-azure-vm"></a>Creación de una asociación con una máquina virtual de Azure
 
@@ -112,7 +115,7 @@ En el siguiente ejemplo se crea una asociación entre un servidor habilitado par
     "resources": [
         {
             "type": "Microsoft.HybridCompute/machines/providers/dataCollectionRuleAssociations",
-            "name": "[concat(parameters('machineName'),'/microsoft.insights/', parameters('associationName'))]",
+            "name": "[concat(parameters('vmName'),'/microsoft.insights/', parameters('associationName'))]",
             "apiVersion": "2019-11-01-preview",
             "properties": {
                 "description": "Association of data collection rule. Deleting this association will break the data collection for this Arc server.",

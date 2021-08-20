@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Inicio rápido para controlar un dispositivo desde Azure IoT Hub (Android) | Microsoft Docs'
+title: Controlar un dispositivo desde Azure IoT Hub (Android) | Microsoft Docs
 description: En este inicio rápido, ejecuta dos aplicaciones de Java de muestra. Una aplicación es una aplicación de servicio que puede controlar dispositivos conectados al centro de manera remota. La otra aplicación se ejecuta en un dispositivo físico o simulado conectado al centro que se puede controlar de manera remota.
 author: wesmc7777
 manager: philmea
@@ -14,16 +14,14 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 5946220a688206a35d0d68cd4efd4c356d27d7ee
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 9225c53d4271622b0276dadb1d0a526199602d62
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868553"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727946"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Inicio rápido: Control de un dispositivo conectado a IoT Hub (Android)
-
-[!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
+# <a name="control-a-device-connected-to-an-iot-hub-android"></a>Control de un dispositivo conectado a IoT Hub (Android)
 
 En este inicio rápido, se usa un método directo para controlar un dispositivo simulado conectado a Azure IoT Hub. IoT Hub es un servicio de Azure que permite administrar dispositivos de IoT desde la nube e ingerir grandes volúmenes de datos de telemetría desde los dispositivos en la nube para su almacenamiento o procesamiento. Puede usar métodos directos para cambiar el comportamiento de un dispositivo conectado a IoT Hub de manera remota. En este inicio rápido se usan dos aplicaciones: una aplicación de un dispositivo simulado que responde a métodos directos llamados desde una aplicación de servicio de back-end y una aplicación de servicio que llama al método directo en el dispositivo Android.
 
@@ -47,13 +45,13 @@ En este inicio rápido, se usa un método directo para controlar un dispositivo 
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-Si ha completado la anterior [Guía de inicio rápido: Envío de datos de telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-android.md), puede omitir este paso y usar el centro de IoT que ya ha creado.
+Si ha completado la anterior [Guía de inicio rápido: Envío de datos de telemetría desde un dispositivo a IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md), puede omitir este paso y usar el centro de IoT que ya ha creado.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 
-Si ha completado la anterior [Guía de inicio rápido: Envío de datos de telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-android.md), puede omitir este paso y usar el mismo dispositivo que se registró en la guía anterior.
+Si ha completado la anterior [Guía de inicio rápido: Envío de datos de telemetría desde un dispositivo a IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md), puede omitir este paso y usar el mismo dispositivo que se registró en la guía anterior.
 
 Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta guía de inicio rápido, usará Azure Cloud Shell para registrar un dispositivo simulado.
 

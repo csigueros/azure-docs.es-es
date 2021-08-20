@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 9200c669df4e9ca756a037f7dd05823e9caf21df
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 56918491f2fad1357f565ed5c07942d0c65c4114
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062732"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552449"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integración de Azure Active Directory con Procore SSO
 
@@ -32,6 +32,9 @@ Para configurar la integración de Azure AD con Procore SSO, necesita lo siguien
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único en Procore SSO.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -115,7 +118,7 @@ En esta sección, va a permitir que B.Simon acceda a Pantheon mediante el inicio
 
     ![Captura de pantalla que muestra el sitio de la compañía Procore con la opción de directorio seleccionada.](./media/procoresso-tutorial/admin.png)
 
-3. Pegue los valores en los cuadros tal y como se describe a continuación:
+3. Pegue los valores en los cuadros tal y como se describe a continuación.
 
     ![Captura de pantalla que muestra el cuadro de diálogo para agregar una persona.](./media/procoresso-tutorial/setting.png)   
 
@@ -139,7 +142,7 @@ Siga estos pasos para crear un usuario de prueba en Procore del lado de Procore 
 
     ![Captura de pantalla que muestra el sitio de la compañía Procore con la opción de directorio seleccionada en el cuadro de herramientas.](./media/procoresso-tutorial/directory.png)
 
-3. Haga clic en la opción **Add a Person** (Agregar una persona) para abrir el formulario y especificar la ejecución de las opciones siguientes:
+3. Haga clic en la opción **Add a Person** (Agregar una persona) para abrir el formulario y especificar la ejecución de las opciones siguientes.
 
     ![En la captura de pantalla se muestra la sección para agregar una persona a Boylan Construction, donde puede especificar información de usuario.](./media/procoresso-tutorial/user.png)
 

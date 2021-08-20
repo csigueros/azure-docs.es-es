@@ -3,17 +3,18 @@ title: Implementación de Azure Monitor para soluciones de SAP con Azure PowerSh
 description: Implementación de Azure Monitor para soluciones de SAP con Azure PowerShell
 author: sameeksha91
 ms.author: sakhare
-ms.date: 09/08/2020
 ms.topic: quickstart
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
+ms.date: 07/08/2021
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell - devx-track-azurepowershell - mode-api
-ms.openlocfilehash: 24a8d3a893b5c3c988be25ae55be06f7fc934c8d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 62f1cdcc51779351d743c5e3be5b8405a0bee2d1
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110667568"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567657"
 ---
 # <a name="quickstart-deploy-azure-monitor-for-sap-solutions-with-azure-powershell"></a>Inicio rápido: Implementación de Azure Monitor para soluciones de SAP con Azure PowerShell
 
@@ -26,7 +27,7 @@ En este artículo se describe cómo puede crear recursos de Azure Monitor para s
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-Si decide usar PowerShell de forma local, para este artículo es preciso que instale el módulo Az PowerShell y que se conecte a su cuenta de Azure con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para más información sobre cómo instalar el módulo Az PowerShell, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). Si decide usar Cloud Shell, consulte [Introducción a Azure Cloud Shell](../../../cloud-shell/overview.md) para más información.
+Si decide usar PowerShell de forma local, para este artículo necesita instalar el módulo Az de PowerShell. También tendrá que conectarse a la cuenta de Azure mediante el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para más información sobre cómo instalar el módulo Az PowerShell, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). Como alternativa, puede optar por usar Cloud Shell. Para obtener más información sobre Cloud Shell, vea [Introducción a Azure Cloud Shell](../../../cloud-shell/overview.md).
 
 > [!IMPORTANT]
 > Aunque el módulo de PowerShell **Az.HanaOnAzure** está en versión preliminar, se debe instalar por separado mediante el cmdlet `Install-Module`. Una vez que este módulo de PowerShell esté disponible con carácter general, formará parte de las futuras versiones del módulo Az PowerShell y estará disponible de forma nativa en Azure Cloud Shell.
@@ -98,7 +99,11 @@ $SapProviderParams = @{
 New-AzSapMonitorProviderInstance @SapProviderParams
 ```
 
-Para recuperar las propiedades de una instancia de proveedor, use el cmdlet [Get-AzSapMonitorProviderInstance](/powershell/module/az.hanaonazure/get-azsapmonitorproviderinstance). En el ejemplo siguiente se obtienen las propiedades de una instancia de proveedor para la suscripción, el grupo de recursos, el nombre de monitor de SAP y el nombre de recurso especificados.
+Para recuperar las propiedades de una instancia de proveedor, use el cmdlet [Get-AzSapMonitorProviderInstance](/powershell/module/az.hanaonazure/get-azsapmonitorproviderinstance). En el ejemplo siguiente se obtienen las propiedades de: 
+- Una instancia de proveedor para la suscripción especificada
+- El grupo de recursos
+- El nombre de SapMonitor
+- El nombre del recurso
 
 ```azurepowershell-interactive
 Get-AzSapMonitorProviderInstance -ResourceGroupName myResourceGroup -SapMonitorName ps-spamonitor-t01
@@ -136,4 +141,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre [Azure Monitor para soluciones de SAP](azure-monitor-overview.md).
+Más información sobre Azure Monitor para soluciones de SAP.
+
+> [!div class="nextstepaction"]
+> [Azure Monitor para soluciones de SAP](azure-monitor-overview.md)

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 678f35ffd6d37d8d2dd16665902ebf85d91b633b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8dd140b65e1ad4940d207011014f4e6d4e28bc7d
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92521567"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603066"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zeroheight"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con zeroheight
 
@@ -39,7 +39,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * zeroheight admite el inicio de sesión único iniciado por **SP**.
 
-## <a name="adding-zeroheight-from-the-gallery"></a>Incorporación de zeroheight desde la galería
+## <a name="add-zeroheight-from-the-gallery"></a>Incorporación de zeroheight desde la galería
 
 Para configurar la integración de zeroheight en Azure AD, es preciso agregar zeroheight desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -50,12 +50,11 @@ Para configurar la integración de zeroheight en Azure AD, es preciso agregar z
 1. En la sección **Agregar desde la galería**, escriba **zeroheight** en el cuadro de búsqueda.
 1. Seleccione **zeroheight** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-zeroheight"></a>Configuración y prueba del inicio de sesión único de Azure AD para zeroheight
 
 Configure y pruebe el inicio de sesión único de Azure AD con zeroheight mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de zeroheight.
 
-Para configurar y probar el inicio de sesión único de Azure AD con zeroheight, complete los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con zeroheight, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -70,17 +69,17 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **zeroheight**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://zeroheight.com/sso`
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba un valor con el siguiente patrón: `zeroheight:<CUSTOM_ID>`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `zeroheight:<CUSTOM_ID>`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://zeroheight.com/sso/acs/<CUSTOM_ID>`
 
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://zeroheight.com/sso/acs/<CUSTOM_ID>`
+    c. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://zeroheight.com/sso`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico al cliente de zeroheight](mailto:support@zeroheight.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -135,11 +134,11 @@ En esta sección, creará un usuario llamado Britta Simon en zeroheight. Trabaje
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de zeroheight, donde puede iniciar el flujo de inicio de sesión. 
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de zeroheight, donde puede iniciar el flujo de inicio de sesión. 
 
-2. Vaya directamente a la dirección URL de inicio de sesión de zeroheight e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de zeroheight e inicie el flujo de inicio de sesión desde allí.
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de zeroheight en el Panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de zeroheight. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de zeroheight en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de zeroheight. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

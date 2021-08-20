@@ -4,20 +4,20 @@ description: En este artículo, encontrará los pasos necesarios para administra
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 10/16/2020
+ms.date: 07/26/2021
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93375f6047fbe4eda2132e024dab0e067e83ccf1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36690973f441c80f71c1941c63cd40d91c1efd08
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95999068"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114719882"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-logic-apps"></a>Tutorial: Respuesta a eventos de Azure Service Bus recibidos mediante Azure Event Grid utilizando Azure Logic Apps
 En este tutorial, aprenderá a responder a eventos de Azure Service Bus recibidos mediante Azure Event Grid utilizando Azure Logic Apps. 
 
-[!INCLUDE [service-bus-event-grid-prerequisites](../../includes/service-bus-event-grid-prerequisites.md)]
+[!INCLUDE [service-bus-event-grid-prerequisites](./includes/service-bus-event-grid-prerequisites.md)]
 
 ## <a name="receive-messages-by-using-logic-apps"></a>Recepción de mensajes mediante Logic Apps
 En este paso, va a crear una aplicación lógica de Azure que recibe eventos de Service Bus mediante Azure Event Grid. 
@@ -31,6 +31,8 @@ En este paso, va a crear una aplicación lógica de Azure que recibe eventos de 
     6. Seleccione **Revisar + crear**. 
     1. En la página **Revisar y crear**, seleccione **Crear** para crear la aplicación lógica. 
 1. En la página **Diseñador de aplicaciones lógicas**, seleccione **Aplicación lógica en blanco** en **Plantillas**. 
+
+### <a name="add-a-step-receive-messages-from-service-bus-via-event-grid"></a>Agregue un paso para recibir mensajes de Service Bus a través de Event Grid
 1. En el diseñador, realice los pasos siguientes:
     1. Busque **Event Grid**. 
     2. Seleccione **When a resource event occurs: Azure Event Grid** (Cuando se produzca un evento de recursos: Azure Event Grid). 
@@ -60,8 +62,44 @@ En este paso, va a crear una aplicación lógica de Azure que recibe eventos de 
     8. Seleccione su **tema** y **suscripción**. 
     
         ![Captura de pantalla que muestra dónde se seleccionan el tema y la suscripción.](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
-7. Seleccione **+New step** (+Nuevo paso) y realice los siguientes pasos: 
-    1. Seleccione **Service Bus**.
+
+### <a name="add-a-step-to-process-and-complete-received-messages"></a>Agregar un paso para procesar y completar los mensajes recibidos
+En este paso, agregará pasos para enviar el mensaje recibido en un correo electrónico y, a continuación, completará el mensaje. En un escenario real, procesará un mensaje en la aplicación lógica antes de completar el mensaje.
+
+#### <a name="add-a-foreach-loop"></a>Agregar un bucle loop
+1. Seleccione **+ New step**(+ Nuevo paso).
+1. Busque y seleccione **Control**.  
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-control.png" alt-text="Imagen que muestra la selección de la categoría Control":::
+1. En la lista **Acciones**, seleccione **Para cada**.
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-for-each.png" alt-text="Imagen que muestra la selección del control Para cada":::    
+1. En **Seleccionar una salida de los pasos anteriores** (haga clic dentro del cuadro de texto si es necesario), seleccione **Cuerpo** en **Obtener mensajes de una suscripción de tema (peek-lock)** . 
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-input-for-each.png" alt-text="Imagen que muestra la selección de entrada en Para cada":::    
+
+#### <a name="add-a-step-inside-the-foreach-loop-to-send-an-email-with-the-message-body"></a>Agregue un paso dentro del bucle Para cada para enviar un correo electrónico con el cuerpo del mensaje.
+
+1. En el bucle **Para cada**, seleccione **Agregar una acción**. 
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-add-action.png" alt-text="Imagen que muestra la selección de agregar un botón de acción dentro del bucle Para cada":::        
+1. En el cuadro de texto **Buscar conectores y acciones**, escriba **Office 365**. 
+1. Busque **Office 365 Outlook** en el cuadro de texto y selecciónelo. 
+1. En la lista de acciones, seleccione **Enviar un correo electrónico (V2)** . 
+1. Seleccione dentro del cuadro de texto de **Cuerpo** y siga estos pasos:
+    1. Cambie a **Expresión**.
+    1. Escriba `base64ToString(items('For_each')?['ContentData'])`. 
+    1. Seleccione **Aceptar**. 
+    
+        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/specify-expression-email.png" alt-text="Imagen que muestra la expresión del cuerpo de la actividad Enviar un correo electrónico":::
+1. En **Asunto**, escriba **Mensaje recibido de suscripción del tema de Service Bus**.  
+1. En **Para**, escriba una dirección de correo electrónico. 
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/send-email-configured.png" alt-text="Imagen que muestra la actividad Enviar correo electrónico configurada":::
+
+#### <a name="add-another-action-in-the-foreach-loop-to-complete-the-message"></a>Agregue otra acción en el bucle Para cada para completar el mensaje.         
+1. En el bucle **Para cada**, seleccione **Agregar una acción**. 
+    1. Seleccione **Service Bus** en la lista **Recientes**.
     2. Seleccione **Complete the message in a topic subscription** (Completar el mensaje en una suscripción de tema) en la lista de acciones. 
     3. Seleccione el **tema** de Service Bus.
     4. Seleccione la segunda **suscripción** al tema.
@@ -71,13 +109,16 @@ En este paso, va a crear una aplicación lógica de Azure que recibe eventos de 
 8. Seleccione **Save** (Guardar) en la barra de herramientas del diseñador de aplicaciones lógicas para guardar la aplicación lógica. 
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/save-logic-app.png" alt-text="Guardar una aplicación lógica":::
+
+## <a name="test-the-app"></a>Pruebas de la aplicación
 1. Si aún no ha enviado mensajes de prueba al tema, siga las instrucciones de la sección [Envío de mensajes al tema de Service Bus](#send-messages-to-the-service-bus-topic) para hacerlo. 
 1. Cambie a la página **Información general** de la aplicación lógica. Verá que la aplicación lógica se ejecuta en el **historial de ejecuciones** de los mensajes enviados. Podrían pasar unos minutos antes de que se ejecute la aplicación lógica. Seleccione **Actualizar** en la barra de herramientas para actualizar la página. 
 
     ![Diseñador de aplicaciones lógicas: ejecuciones de aplicación lógica](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 1. Seleccione una ejecución de la aplicación lógica para ver los detalles. Observe que se han procesado cinco mensajes en el bucle for. 
     
-    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/logic-app-run-details.png" alt-text="Detalles de la ejecución de una aplicación lógica":::    
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/logic-app-run-details.png" alt-text="Detalles de la ejecución de una aplicación lógica"::: 
+2. Debe recibir un correo electrónico para cada mensaje recibido por la aplicación lógica.    
 
 ## <a name="troubleshoot"></a>Solución de problemas
 Si no ve ninguna invocación después de esperar un tiempo y de actualizar, siga estos pasos: 

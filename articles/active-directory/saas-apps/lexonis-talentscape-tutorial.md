@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: f321b18e498cf0b1f12c921feed8e0d95c410874
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11c681989d84063816decd6de0c08086327dae24
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953432"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112553791"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lexonis-talentscape"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Lexonis TalentScape
 
@@ -26,12 +26,15 @@ En este tutorial aprenderá a integrar Lexonis TalentScape con Azure Active Dire
 * Permitir que los usuarios inicien sesión automáticamente en Lexonis TalentScape con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Lexonis TalentScape.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -40,7 +43,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Lexonis TalentScape admite el inicio de sesión único iniciado por **SP e IDP**.
 * Lexonis TalentScape admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-lexonis-talentscape-from-the-gallery"></a>Adición de Lexonis TalentScape desde la galería
+## <a name="add-lexonis-talentscape-from-the-gallery"></a>Adición de Lexonis TalentScape desde la galería
 
 Para configurar la integración de Lexonis TalentScape en Azure AD, deberá agregar Lexonis TalentScape desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -50,7 +53,6 @@ Para configurar la integración de Lexonis TalentScape en Azure AD, deberá agr
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Lexonis TalentScape** en el cuadro de búsqueda.
 1. Seleccione **Lexonis TalentScape** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-lexonis-talentscape"></a>Configuración y prueba del inicio de sesión único de Azure AD para Lexonis TalentScape
 
@@ -75,7 +77,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<CUSTOMER_NAME>.lexonis.com/`
 
@@ -105,6 +107,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
