@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con iProva | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e iProva.
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zenya | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Zenya.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 06/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 8a59e7be93481b8e5da9cc46e473e4a68e8f8e97
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 71a2ad9d9a9b3c4f8c2be23859782cdb7a38e13f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110464028"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112464888"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iprova"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con iProva
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zenya"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zenya
 
-En este tutorial, aprenderá a integrar iProva con Azure Active Directory (Azure AD). Al integrar iProva con Azure AD, puede hacer lo siguiente:
+En este tutorial aprenderá a integrar Zenya con Azure Active Directory (Azure AD). Al integrar Zenya con Azure AD, puede hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a iProva.
-* Permitir que los usuarios puedan iniciar sesión automáticamente en iProva con sus cuentas de Azure AD.
+* Controlar en Azure AD quién tiene acceso a Zenya.
+* Permitir que los usuarios inicien sesión automáticamente en Zenya con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -31,47 +31,50 @@ En este tutorial, aprenderá a integrar iProva con Azure Active Directory (Azure
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único (SSO) en iProva.
+* Suscripción habilitada para el inicio de sesión único (SSO) en Zenya.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* iProva admite el inicio de sesión único iniciado por **SP**.
+* Zenya admite el inicio de sesión único iniciado por **SP**.
 
-## <a name="add-iprova-from-the-gallery"></a>Incorporación de iProva desde la galería
+## <a name="add-zenya-from-the-gallery"></a>Agregar Zenya desde la galería
 
-Para configurar la integración de iProva en Azure AD, tendrá que agregar iProva desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de Zenya en Azure AD, es preciso agregar Zenya desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **iProva** en el cuadro de búsqueda.
-1. Seleccione **iProva** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
+1. En la sección **Agregar desde la galería**, escriba **Zenya** en el cuadro de búsqueda.
+1. Seleccione **Zenya** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-sso-for-iprova"></a>Configuración y prueba del inicio de sesión único de Azure AD para iProva
+## <a name="configure-and-test-azure-ad-sso-for-zenya"></a>Configuración y prueba del inicio de sesión único de Azure AD para Zenya
 
-Configure y pruebe el inicio de sesión único (SSO) de Azure AD con iProva mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de iProva.
+Configure y pruebe el inicio de sesión único de Azure AD con Zenya mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Zenya.
 
-Para configurar y probar el inicio de sesión único de Azure AD con iProva, haga lo siguiente:
+Para configurar y probar el inicio de sesión único de Azure AD con Zenya, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en iProva](#configure-iprova-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de iProva](#create-iprova-test-user)** : para tener un homólogo de B.Simon en iProva que esté vinculado a la representación del usuario en Azure AD.
+1. **[Configuración del inicio de sesión único en Zenya](#configure-zenya-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Zenya](#create-zenya-test-user)** : para tener un homólogo de B.Simon en Zenya que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-## <a name="retrieve-configuration-information-from-iprova"></a>Recuperación de la información de configuración desde iProva
+## <a name="retrieve-configuration-information-from-zenya"></a>Recuperación de la información de configuración desde Zenya
 
-En esta sección, va a recuperar información de iProva para configurar el inicio de sesión único en Azure AD.
+En esta sección, va a recuperar información de Zenya para configurar el inicio de sesión único en Azure AD.
 
-1. Abra un explorador web y vaya a la página **SAML2 info** (Información de SAML2) en iProva, con los siguientes patrones de dirección URL:
+1. Abra un explorador web y vaya a la página **SAML2 info** (Información de SAML2) en Zenya, con los siguientes patrones de dirección URL:
     
-     `https://<SUBDOMAIN>.iprova.nl/saml2info` `https://<SUBDOMAIN>.iprova.be/saml2info` 
+     `https://<SUBDOMAIN>.zenya.work/saml2info`   
+     `https://<SUBDOMAIN>.iprova.nl/saml2info`  
+     `https://<SUBDOMAIN>.iprova.be/saml2info`  
+     `https://<SUBDOMAIN>.iprova.eu/saml2info` 
 
-    ![Visualización de la página de información de SAML2 de iProva](media/iprova-tutorial/information.png)
+    ![Ver la página de información de SAML2 de Zenya](media/iprova-tutorial/information.png)
 
 1. Deje abierta la pestaña del explorador mientras continúa con los pasos siguientes en otra pestaña.
 
@@ -79,7 +82,7 @@ En esta sección, va a recuperar información de iProva para configurar el inici
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En Azure Portal, en la página de integración de aplicaciones de **iProva**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Zenya**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
@@ -87,17 +90,17 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. Rellene el campo **URL de inicio de sesión** con el valor que se muestra detrás de la etiqueta **URL de inicio de sesión** de la página de **información de SAML2 de iProva**. Esta página sigue abierta en la otra pestaña del explorador.
+    a. Rellene el campo **URL de inicio de sesión** con el valor que se muestra detrás de la etiqueta **URL de inicio de sesión** de la página de **información de SAML2 de Zenya**. Esta página sigue abierta en la otra pestaña del explorador.
 
-    b. Rellene el campo **Identifier** (Identificador) con el valor que se muestra detrás de la etiqueta **EntityID** (Identificador de la entidad) de la **página de información de SAML2 de iProva**. Esta página sigue abierta en la otra pestaña del explorador.
+    b. Rellene el campo **Identifier** (Identificador) con el valor que se muestra detrás de la etiqueta **EntityID** (Identificador de la entidad) de la **página de información de SAML2 de Zenya**. Esta página sigue abierta en la otra pestaña del explorador.
 
-    c. Rellene el campo **URL de respuesta** con el valor que se muestra detrás de la etiqueta **URL de respuesta** de la página de **información de SAML2 de iProva**. Esta página sigue abierta en la otra pestaña del explorador.
+    c. Rellene el campo **URL de respuesta** con el valor que se muestra detrás de la etiqueta **URL de respuesta** de la página de **información de SAML2 de Zenya**. Esta página sigue abierta en la otra pestaña del explorador.
 
-1. La aplicación iProva espera las aserciones de SAML en un formato específico que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
+1. La aplicación Zenya espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
     ![imagen](common/default-attributes.png)
 
-1. Además de lo anterior, la aplicación iProva espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
+1. Además de lo anterior, la aplicación Zenya espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
     | Nombre | Atributo de origen| Espacio de nombres  |
     | ---------------| -------- | -----|
@@ -121,19 +124,19 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
 
 ## <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, va a permitir que B.Simon acceda a iProva mediante el inicio de sesión único de Azure.
+En esta sección, va a permitir que B.Simon acceda a Zenya mediante el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **iProva**.
+1. En la lista de aplicaciones, seleccione **Zenya**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-## <a name="configure-iprova-sso"></a>Configuración del inicio de sesión único de iProva
+## <a name="configure-zenya-sso"></a>Configuración del inicio de sesión único de Zenya
 
-1. Inicie sesión en iProva con la cuenta de **Administrador**.
+1. Inicie sesión en Zenya con la cuenta de **Administrador**.
 
 2. Abra el menú **Ir a**.
 
@@ -145,7 +148,7 @@ En esta sección, va a permitir que B.Simon acceda a iProva mediante el inicio d
 
 6. Desplácese hacia abajo hasta **Control de acceso**.
 
-    ![Configuración del control de acceso de iProva](media/iprova-tutorial/access-control.png)
+    ![Configuración del control de acceso de Zenya](media/iprova-tutorial/access-control.png)
 
 7. Busque la opción **Users are automatically logged on with their network accounts** (Los usuarios inician sesión automáticamente con sus cuentas de red) y cámbiela a **Yes, authentication via SAML** (Sí, autenticación vía SAML). Ahora aparecen otras opciones.
 
@@ -153,7 +156,7 @@ En esta sección, va a permitir que B.Simon acceda a iProva mediante el inicio d
 
 9. Seleccione **Next** (Siguiente).
 
-10. iProva le pregunta si quiere descargar datos de federación desde una dirección URL o cargarlos desde un archivo. Seleccione la opción **From URL** (Desde dirección URL).
+10. Zenya le pregunta si quiere descargar datos de federación desde una dirección URL o cargarlos desde un archivo. Seleccione la opción **From URL** (Desde dirección URL).
 
     ![Descarga de metadatos de Azure AD](media/iprova-tutorial/metadata.png)
 
@@ -173,9 +176,9 @@ En esta sección, va a permitir que B.Simon acceda a iProva mediante el inicio d
 
 18. Ahora vuelva a la pantalla **Edit general settings** (Editar la configuración general). Desplácese hasta el final de la página y seleccione **Aceptar** para guardar la configuración.
 
-## <a name="create-iprova-test-user"></a>Creación de un usuario de prueba para iProva
+## <a name="create-zenya-test-user"></a>Crear usuario de prueba de Zenya
 
-1. Inicie sesión en iProva con la cuenta de **Administrador**.
+1. Inicie sesión en Zenya con la cuenta de **Administrador**.
 
 2. Abra el menú **Ir a**.
 
@@ -199,12 +202,12 @@ En esta sección, va a permitir que B.Simon acceda a iProva mediante el inicio d
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de iProva, donde puede poner en marcha el flujo de inicio de sesión. 
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la URL de inicio de sesión de Zenya, desde donde podrá comenzar el flujo de inicio de sesión. 
 
-* Vaya directamente a la dirección URL de inicio de sesión de iProva y ponga en marcha el flujo de inicio de sesión desde allí.
+* Acceda directamente a la URL de inicio de sesión de Zenya y ponga en marcha el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de iProva en Aplicaciones, se le redirigirá a la URL de inicio de sesión de esta aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zenya en Aplicaciones, se le redirigirá a la URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que ha configurado iProva, puede aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones e infiltraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Zenya, puede aplicar el control de sesión, que protege la exfiltración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 267dc7c7d89bbecfbed127f4a46adb7cd9044bc4
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 56115e977603e1f2148f84569373dcf4d351e0c4
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309380"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113038217"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Análisis de datos con grupos de SQL dedicados
 
@@ -78,12 +78,13 @@ Los grupos de SQL dedicados consumen recursos facturables mientras están activo
         )
     GO
 
-    --Uncomment the 4 lines below to create a stored procedure for data pipeline orchestration
-    --CREATE PROC bulk_load_NYCTaxiTripSmall
-    --AS
-    --BEGIN
     COPY INTO dbo.NYCTaxiTripSmall
-    (DateID 1, MedallionID 2, HackneyLicenseID 3, PickupTimeID 4, DropoffTimeID 5, PickupGeographyID 6, DropoffGeographyID 7, PickupLatitude 8, PickupLongitude 9, PickupLatLong 10, DropoffLatitude 11, DropoffLongitude 12, DropoffLatLong 13, PassengerCount 14, TripDurationSeconds 15, TripDistanceMiles 16, PaymentType 17, FareAmount 18, SurchargeAmount 19, TaxAmount 20, TipAmount 21, TollsAmount 22, TotalAmount 23)
+    (DateID 1, MedallionID 2, HackneyLicenseID 3, PickupTimeID 4, DropoffTimeID 5,
+    PickupGeographyID 6, DropoffGeographyID 7, PickupLatitude 8, PickupLongitude 9, 
+    PickupLatLong 10, DropoffLatitude 11, DropoffLongitude 12, DropoffLatLong 13, 
+    PassengerCount 14, TripDurationSeconds 15, TripDistanceMiles 16, PaymentType 17, 
+    FareAmount 18, SurchargeAmount 19, TaxAmount 20, TipAmount 21, TollsAmount 22, 
+    TotalAmount 23)
     FROM 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet'
     WITH
     (
@@ -93,7 +94,7 @@ Los grupos de SQL dedicados consumen recursos facturables mientras están activo
     )
     ```
 1. Haga clic en el botón Ejecutar para ejecutar el script.
-1. Este script finalizará en menos de 60 segundos. Carga dos millones filas de datos de NYC Taxi en una tabla denominada **dbo.Trip**.
+1. Este script finalizará en menos de 60 segundos. Carga dos millones filas de datos de NYC Taxi en una tabla denominada **dbo.NYCTaxiTripSmall**.
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Exploración de los datos de NYC Taxi en el grupo de SQL dedicado
 

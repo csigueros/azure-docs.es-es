@@ -5,14 +5,14 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 06/22/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 11c0a621375cfa57c8b25f0bdd5ed4651dffa853
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f634cb35590a428613858a88a71db1d0792ceb06
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949419"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112967509"
 ---
 # <a name="tutorial-create-your-project"></a>Tutorial: Creación de un proyecto
 
@@ -26,7 +26,6 @@ En este tutorial, aprenderá a:
 > * Especificar los detalles básicos del dispositivo asociado al proyecto
 
 ## <a name="prerequisites"></a>Requisitos previos
-
 
 - Una [cuenta de Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) profesional o educativa que sea válida.
 - Una cuenta comprobada de Microsoft Partner Network (MPN). Si no tiene una cuenta de MPN, [únase a la red de asociados](https://partner.microsoft.com/) antes de empezar. 
@@ -65,6 +64,10 @@ A continuación, proporcione la información básica del dispositivo. Puede edit
     | Tipo de dispositivo            | Especificación del producto terminado o del kit de desarrolladores preparado para la solución.     Para obtener más información sobre la terminología, consulte el [glosario de certificación](./resources-glossary.md).                                                                     |
     | Clase de dispositivo           | Puerta de enlace, sensor u otro dispositivo.  Para obtener más información sobre la terminología, consulte el [glosario de certificación](./resources-glossary.md).                                                                    |
     | URL del código fuente del dispositivo | Obligatorio si va a certificar un kit de desarrollo preparado para la solución. En caso contrario, es opcional. La URL debe dirigir a una ubicación de GitHub para el código del dispositivo. |
+
+    > [!Note]
+    > Si va a comercializar un servicio de Microsoft (por ejemplo, Azure Sphere), asegúrese de que el nombre del dispositivo cumpla las [directrices de personalización de marca](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks) de Microsoft.
+
 1. Seleccione el botón `Next` para continuar en la pestaña `Certifications`.
 
     ![Imagen del formulario para crear un nuevo proyecto en la pestaña de certificaciones](./media/images/create-new-project-certificationswindow.png)

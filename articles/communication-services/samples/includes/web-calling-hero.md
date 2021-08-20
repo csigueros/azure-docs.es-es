@@ -1,21 +1,21 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: azure-communication-services
 author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: a015ba06be6a10985a4771e842a6d910dd4cd9ab
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a6fc7a8419c3c4b6173771c898a1a4331d3c5874
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108157666"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114200911"
 ---
 En el **ejemplo de elementos principales de llamada grupal** de Azure Communication Services se muestra cómo se puede usar el SDK web de llamadas de Communication Services para crear una experiencia de llamada grupal.
 
@@ -23,7 +23,7 @@ En esta guía de inicio rápido de ejemplo, veremos cómo funciona el ejemplo an
 
 ## <a name="download-code"></a>Descarga de código
 
-Busque el proyecto de este ejemplo en [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). Se puede encontrar una versión del ejemplo con la [interoperabilidad de Teams](../../concepts/teams-interop.md) en una [rama](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop) independiente.
+Busque el proyecto de este ejemplo en [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). Se puede encontrar una versión de la muestra que incluye características que se encuentran en versión preliminar pública actualmente, como [Interoperabilidad de equipos](../../concepts/teams-interop.md) y [Grabación de llamadas](../../concepts/voice-video-calling/call-recording.md), en otra [rama](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
 
 ## <a name="overview"></a>Información general
 
@@ -58,7 +58,7 @@ A continuación encontrará más información sobre los requisitos previos y los
 - [Node.js (12.18.4 y posterior)](https://nodejs.org/en/download/)
 - [Visual Studio (2019 y posterior)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (asegúrese de instalar la versión que se corresponda con su instancia de Visual Studio, 32 o 64 bits)
-- Un recurso de Azure Communication Services. Para obtener más información, consulte [Creación de un recurso de Azure Communication Services](../../quickstarts/create-communication-resource.md). Deberá registrar la **cadena de conexión** del recurso para esta guía de inicio rápido.
+- Un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](../../quickstarts/create-communication-resource.md). Deberá registrar la **cadena de conexión** del recurso para esta guía de inicio rápido.
 
 ## <a name="locally-deploy-the-service--client-applications"></a>Implementación local del servicio y las aplicaciones cliente
 

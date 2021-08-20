@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/28/2021
+ms.date: 06/21/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: 3413c1a3f27b48c60ae730ad230c653928702faa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff35dc6211992bd3d89161dede2745c2e366ee8f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99063389"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463826"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Tutorial: Acceso a Microsoft Graph desde una aplicación segura como usuario
 
@@ -58,19 +58,76 @@ La aplicación web ya tiene los permisos necesarios para acceder a Microsoft Gra
 > [!IMPORTANT]
 > Si no configura App Service para que devuelva un token de acceso utilizable, recibirá un error ```CompactToken parsing failed with error code: 80049217``` al llamar a Microsoft Graph API en el código.
 
-Vaya a [Azure Resource Explorer](https://resources.azure.com/) y, mediante el árbol de recursos, busque la aplicación web. La dirección URL del recurso debe ser similar a `https://resources.azure.com/subscriptions/subscription-id/resourceGroups/SecureWebApp/providers/Microsoft.Web/sites/SecureWebApp20200915115914`.
+# <a name="azure-resource-explorer"></a>[Azure Resource Explorer](#tab/azure-resource-explorer)
+Vaya a [Azure Resource Explorer](https://resources.azure.com/) y, mediante el árbol de recursos, busque la aplicación web. La dirección URL del recurso debe ser similar a `https://resources.azure.com/subscriptions/subscriptionId/resourceGroups/SecureWebApp/providers/Microsoft.Web/sites/SecureWebApp20200915115914`.
 
 Se abre ahora Azure Resource Explorer con la aplicación web seleccionada en el árbol de recursos. En la parte superior de la página, seleccione **Read/Write** (Lectura/escritura) para permitir la edición de los recursos de Azure.
 
-En el explorador izquierdo, explore en profundidad hasta **config** > **authsettings**.
+En el explorador izquierdo, explore en profundidad hasta **config** > **authsettingsV2**.
 
-En la vista **authsettings**, seleccione **Editar**. Establezca ```additionalLoginParams``` en la siguiente cadena JSON, utilizando el identificador de cliente que copió.
+En la vista **authsettingsV2**, seleccione **Editar**. Busque la sección **login** (iniciar sesión) de **identityProviders** -> **azureActiveDirectory** y agregue la siguiente configuración de **loginParameters**: `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]`.
 
 ```json
-"additionalLoginParams": ["response_type=code id_token","resource=00000003-0000-0000-c000-000000000000"],
+"identityProviders": {
+    "azureActiveDirectory": {
+      "enabled": true,
+      "login": {
+        "loginParameters":[
+          "response_type=code id_token",
+          "resource=00000003-0000-0000-c000-000000000000"
+        ]
+      }
+    }
+  }
+},
 ```
 
 Seleccione **PUT** para guardar la configuración. Puede que esta configuración tarde varios minutos en surtir efecto. La aplicación web ya está configurada para acceder a Microsoft Graph con un token de acceso adecuado. Si no lo hace, Microsoft Graph devuelve un error que indica que el formato del token compacto no es correcto.
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Use la CLI de Azure para llamar a las API de REST de la aplicación web de App Service para [obtener](/rest/api/appservice/web-apps/get-auth-settings) y [actualizar](/rest/api/appservice/web-apps/update-auth-settings) la configuración de autenticación a fin de que la aplicación web pueda llamar a Microsoft Graph. Abra una ventana de comandos e inicie sesión en la CLI de Azure:
+
+```azurecli
+az login
+```
+
+Obtenga la configuración 'config/authsettingsv2’ existente y guárdela en el archivo *authsettings.json* local.
+
+```azurecli
+az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2/list?api-version=2020-06-01' > authsettings.json
+```
+
+Abra el archivo authsettings.json con el editor de texto que prefiera. Busque la sección **login** (iniciar sesión) de **identityProviders** -> **azureActiveDirectory** y agregue la siguiente configuración de **loginParameters**: `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]`.
+
+```json
+"identityProviders": {
+    "azureActiveDirectory": {
+      "enabled": true,
+      "login": {
+        "loginParameters":[
+          "response_type=code id_token",
+          "resource=00000003-0000-0000-c000-000000000000"
+        ]
+      }
+    }
+  }
+},
+```
+
+Guardar los cambios en el archivo *authsettings.json* y cargue la configuración local a la aplicación web:
+
+```azurecli
+az rest --method PUT --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2?api-version=2020-06-01' --body @./authsettings.json
+```
+---
+
+## <a name="update-the-issuer-url"></a>Actualizar la dirección URL del emisor
+En [Azure Portal](https://portal.azure.com), vaya a App Service y, a continuación, a la hoja **Autenticación**.
+
+Haga clic en el vínculo **Edición** junto al proveedor de identidades de Microsoft.
+
+Haga clic en la **dirección URL del emisor** en la pestaña **Básico**. Si la **dirección URL del emisor** contiene "/v2.0" al final, quítelo y haga clic en **Guardar**. Si no quita "/v2.0", obtiene *AADSTS901002: No se admite el parámetro de solicitud "resource"* al iniciar sesión en la aplicación web.
 
 ## <a name="call-microsoft-graph-net"></a>Llamada a Microsoft Graph (.NET)
 

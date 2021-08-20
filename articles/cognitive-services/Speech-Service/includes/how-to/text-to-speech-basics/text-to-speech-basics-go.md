@@ -2,14 +2,14 @@
 author: yulin-li
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/17/2021
+ms.date: 07/02/2021
 ms.author: yulili
-ms.openlocfilehash: 759fca1d323c72fe5e336a3211a9fb68fc1804b9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 54647867ab0a0d2c1333f80121aeab49a2efc959
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085503"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113280241"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz.
 
@@ -29,7 +29,7 @@ En primer lugar, deberá instalar el [SDK de Voz para Go](../../../quickstarts/s
 ## <a name="text-to-speech-to-speaker"></a>Texto a voz para altavoz
 
 Use el siguiente ejemplo de código para ejecutar la síntesis de voz para el dispositivo de salida de audio predeterminado.
-Reemplace las variables `subscription` y `region` por sus claves de suscripción y región.
+Reemplace las variables `subscription` y `region` por la clave de voz y la suscripción o región.
 La ejecución del script generará el texto de entrada hablado para el altavoz predeterminado.
 
 ```go
@@ -68,8 +68,8 @@ func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
 }
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription := "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
     audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
     if err != nil {
@@ -167,7 +167,7 @@ Esta vez se guarda el resultado en una variable [`SpeechSynthesisResult`](https:
 La propiedad `AudioData` devuelve un `[]byte` de los datos de salida. Puede trabajar con `[]byte` manualmente, o bien puede usar la clase [`AudioDataStream`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#AudioDataStream) para administrar la secuencia en memoria.
 En este ejemplo, se usa la función estática `NewAudioDataStreamFromSpeechSynthesisResult()` para obtener una secuencia del resultado.
 
-Reemplace las variables `subscription` y `region` por sus claves de suscripción y región.
+Reemplace las variables `subscription` y `region` por la clave de voz y la suscripción o región.
 
 ```go
 package main
@@ -184,8 +184,8 @@ import (
 )
 
 func main(subscription string, region string) {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription := "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
     config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
     if err != nil {

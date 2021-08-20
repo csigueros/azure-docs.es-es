@@ -5,13 +5,13 @@ author: dcstwh
 ms.author: weetok
 ms.service: data-factory
 ms.topic: overview
-ms.date: 09/30/2019
-ms.openlocfilehash: f5259294734b3b0c33835759beadb2ad4e1089a9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/08/2021
+ms.openlocfilehash: 0a11f8954637fe93aa8d0dc5ee8266347d822ded
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744726"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362476"
 ---
 # <a name="what-is-azure-data-factory"></a>¿Qué es Azure Data Factory?
 
@@ -37,11 +37,11 @@ Además, puede publicar los datos transformados en almacenes de datos, como Azur
 
 Data Factory contiene una serie de sistemas interconectados que proporcionan una plataforma completa de un extremo a otro para los ingenieros de datos.
 
-En esta guía visual se proporciona información general de alto nivel de la arquitectura de Data Factory:
+En esta guía visual se proporciona información general de la arquitectura de Data Factory:
 
 :::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="Una guía visual detallada de la arquitectura completa del sistema para Azure Data Factory, que se presenta en una sola imagen de alta resolución." lightbox="media\introduction\data-factory-visual-guide.png":::
 
-Para obtener más detalles, haga clic en la imagen anterior para acercar o vaya a la [imagen de alta resolución](/azure/data-factory/media/introduction/data-factory-visual-guide.png#lightbox). 
+Para obtener más detalles, haga clic en la imagen anterior para acercar o vaya a la [imagen de alta resolución](/azure/data-factory/media/introduction/data-factory-visual-guide.png). 
 
 ### <a name="connect-and-collect"></a>Conectar y recopilar
 
@@ -96,6 +96,9 @@ Los servicios vinculados se utilizan con dos fines en Data Factory:
 - Para representar un **almacén de datos** que incluye, entre otros, una base de datos de SQL Server, una base de datos de Oracle, un recurso compartido de archivos o una cuenta de Azure Blob Storage. Para obtener una lista de almacenes de datos compatibles, consulte el artículo [actividad de copia](copy-activity-overview.md).
 
 - Para representar un **recurso de proceso** que puede hospedar la ejecución de una actividad. Por ejemplo, la actividad HDInsightHive se ejecuta en un clúster de Hadoop para HDInsight. Consulte el artículo sobre [transformación de datos](transform-data.md) para ver una lista de los entornos de proceso y las actividades de transformación admitidos.
+
+### <a name="integration-runtime"></a>Integration Runtime
+En Data Factory, una actividad define la acción que se realizará. Un servicio vinculado define un almacén de datos o un servicio de proceso de destino. Una instancia de Integration Runtime proporciona el puente entre la actividad y los servicios vinculados.  La actividad o el servicio vinculado hace referencia a él, y proporciona el entorno de proceso donde se ejecuta la actividad o desde donde se distribuye. De esta manera, la actividad puede realizarse en la región más cercana posible al almacén de datos o servicio de proceso de destino de la manera con mayor rendimiento, a la vez que se satisfacen las necesidades de seguridad y cumplimiento.
 
 ### <a name="triggers"></a>Desencadenadores
 Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Existen diferentes tipos de desencadenadores para diferentes tipos de eventos.

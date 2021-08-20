@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: b30fee5d269a633173b8524ed6c902517063b2a2
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: d4139ddc0d0befce228e18a65ecfb83065c740dc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986001"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443166"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Inicio rápido: Incorporación de Azure Sentinel
 
@@ -26,7 +26,7 @@ Para incorporarse a Azure Sentinel, primero debe habilitarlo y, después, conect
 Después de conectar los orígenes de datos, puede elegir de una galería de libros creados de forma experta que exponen información basada en los datos. Estos libros se pueden personalizar fácilmente en función de sus necesidades.
 
 >[!IMPORTANT] 
-> Para obtener información sobre los cargos que se producen al usar Azure Sentinel, consulte los [precios de Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+> Para obtener información sobre los cargos en los que se incurre al usar Azure Sentinel, consulte los [precios de Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) y los [costos y facturación de Azure Sentinel](azure-sentinel-billing.md).
 
 ## <a name="global-prerequisites"></a>Requisitos previos globales
 
@@ -47,13 +47,20 @@ Después de conectar los orígenes de datos, puede elegir de una galería de lib
 
     | Geografía/región del área de trabajo | Geografía/región de datos generados por Azure Sentinel |
     | --- | --- |
-    | Estados Unidos<br>India<br>Brasil<br>África<br>Corea<br>Emiratos Árabes Unidos | Estados Unidos |
-    | Europa<br>Francia<br>Suiza | Europa |
+    | Estados Unidos<br>India<br>África | Estados Unidos |
+    | Europa<br>Francia | Europa |
     | Australia | Australia |
     | Reino Unido | Reino Unido |
     | Canadá | Canadá |
     | Japón | Japón |
     | Sudeste Asiático (Singapur) | Sudeste Asiático (Singapur)* |
+    | Brasil | Brasil |
+    | Noruega | Noruega |
+    | Sudáfrica | Sudáfrica |
+    | Corea | Corea |
+    | Alemania | Alemania |
+    | Emiratos Árabes Unidos | Emiratos Árabes Unidos |
+    | Suiza | Suiza |
     |
     
     \* No hay ninguna región emparejada para Sudeste Asiático.
@@ -103,7 +110,17 @@ Por ejemplo, si selecciona el origen de datos **Azure Active Directory**, que pe
 Una vez conectados los orígenes de datos, los datos comienzan a transmitirse a Azure Sentinel y podrá comenzar a trabajar con ellos. Puede ver los registros en los [libros integrados](quickstart-get-visibility.md) y comenzar a crear consultas en Log Analytics para [investigar los datos](tutorial-investigate-cases.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido a incorporar y conectar orígenes de datos en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Transmita datos desde [dispositivos de formato de evento común](connect-common-event-format.md) a Azure Sentinel.
+
+Para más información, consulte:
+
+- **Opciones de implementación alternativas**:
+
+    - [Implementación de Azure Sentinel mediante API](/rest/api/securityinsights/)
+    - [Implementación de Azure Sentinel mediante PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
+    - [Implementación de Azure Sentinel mediante una plantilla de ARM](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
+
+- **Introducción**:
+    - [Introducción a Azure Sentinel](quickstart-get-visibility.md)
+    - [Creación de reglas de análisis personalizadas para detectar amenazas](tutorial-detect-threats-custom.md)
+    - [Conexión de su solución externa con Common Event Format](connect-common-event-format.md)
+

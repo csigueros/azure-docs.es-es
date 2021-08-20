@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/11/2021
 ms.author: aapowell
-ms.openlocfilehash: 5257d57221e946ac63559b324e7032e1ba78041e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: cc117859c911d9b2c1df6c03fc6cd9738e5de1ec
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069659"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988326"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps"></a>Tutorial: Publicación de un sitio de Hugo en Azure Static Web Apps
 
@@ -56,7 +56,13 @@ Cree una aplicación de Hugo mediante la interfaz de la línea de comandos (CLI
 1. Inicialice un repositorio de Git.
 
    ```bash
-    git init
+   git init
+   ```
+
+1. Asegúrese de que la rama se denomina `main`.
+
+   ```bash
+   git branch -M main
    ```
 
 1. A continuación, agregue un tema al sitio; para ello, instale un tema como submódulo de Git y, luego, especifíquelo en el archivo de configuración de Hugo.
@@ -104,7 +110,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 1. Seleccione **Crear**
 1. En la pestaña _Datos básicos_, especifique los valores siguientes.
 
-    | Propiedad | Valor |
+    | Propiedad | Value |
     | --- | --- |
     | _Suscripción_ | El nombre de la suscripción de Azure. |
     | _Grupos de recursos_ | **my-hugo-group**  |
@@ -117,7 +123,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 
 1. Escriba los siguientes valores de GitHub.
 
-    | Propiedad | Valor |
+    | Propiedad | Value |
     | --- | --- |
     | _Organización_ | Seleccione la organización de GitHub que quiera. |
     | _Repositorio_ | Seleccione **hugo-static-app**. |
@@ -156,7 +162,7 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig

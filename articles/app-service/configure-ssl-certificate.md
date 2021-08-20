@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c087533958665eb71e046d3bab1f03265adbd3ba
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 011461b1ecba9c5ce8cf636980a97d26f2228a98
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111853575"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113128847"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Incorporación de un certificado TLS/SSL en Azure App Service
 
@@ -125,7 +125,7 @@ Use la tabla siguiente para obtener ayuda para configurar el certificado. Cuando
 |-|-|
 | Nombre | Nombre descriptivo para el certificado de App Service. |
 | Nombre de host de dominio desnudo | Especifique aquí el dominio raíz. El certificado emitido protege *al mismo tiempo* el dominio raíz y el subdominio `www`. En el certificado emitido, el campo Nombre común contiene el dominio raíz, mientras que el campo Nombre alternativo del firmante contiene el dominio `www`. Para proteger cualquier subdominio solamente, especifique el nombre de dominio completo del subdominio aquí (por ejemplo, `mysubdomain.contoso.com`).|
-| Subscription | La suscripción que contendrá el certificado. |
+| Suscripción | La suscripción que contendrá el certificado. |
 | Resource group | El grupo de recursos que contendrá el certificado. Puede usar un nuevo grupo de recursos o seleccionar el mismo grupo de recursos que la aplicación de App Service, por ejemplo. |
 | SKU de certificado | Determine el tipo de certificado a crear, ya sea un certificado estándar o un [certificado comodín](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Términos legales | Haga clic para confirmar que está de acuerdo con los términos legales. Los certificados se obtienen de GoDaddy. |
@@ -220,7 +220,7 @@ Use la tabla siguiente como ayuda para seleccionar el certificado.
 
 | Configuración | Descripción |
 |-|-|
-| Subscription | Suscripción a la que pertenece la instancia de Key Vault. |
+| Suscripción | Suscripción a la que pertenece la instancia de Key Vault. |
 | Key Vault | Almacén que incluye el certificado que desea importar. |
 | Certificado | Seleccione en la lista de certificados PKCS12 del almacén. Se enumeran todos los certificados PKCS12 del almacén con sus huellas digitales, pero no todos se admiten en App Service. |
 
@@ -341,6 +341,9 @@ Una vez que se complete la operación de regeneración de claves, haga clic en *
 
 ### <a name="renew-certificate"></a>Renovar un certificado
 
+> [!NOTE]
+> El proceso de renovación requiere que [la entidad de servicio conocida para App Service tenga los permisos necesarios en el almacén de claves](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). Este permiso se configura automáticamente al importar un App Service Certificate a través del portal y no se debe quitar del almacén de claves.
+
 Para activar la renovación automática del certificado en cualquier momento, seleccione el certificado en la página [Certificados de App Service](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) y, después, haga clic en **Configuración de renovación automática** en el panel de navegación izquierdo. De forma predeterminada, los certificados de App Service tienen un período de validez de un año.
 
 Seleccione **Activar** y luego haga clic en **Guardar**. Los certificados pueden comenzar a renovarse automáticamente 30 días antes del vencimiento si tiene activada la renovación automática.
@@ -389,11 +392,11 @@ Busque el bloqueo en el certificado con el tipo de bloqueo **Eliminar**. A la de
 
 Ahora puede eliminar el certificado de App Service. En el panel de navegación izquierdo, seleccione **Información general** > **Eliminar**. En el cuadro de diálogo de confirmación, escriba el nombre del certificado y seleccione **Aceptar**.
 
-## <a name="automate-with-scripts"></a>Automatizar con scripts
+## <a name="automate-with-scripts&quot;></a>Automatizar con scripts
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name=&quot;azure-cli&quot;></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 &quot;Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
@@ -405,4 +408,4 @@ Ahora puede eliminar el certificado de App Service. En el panel de navegación i
 * [Aplicación de HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Aplicación de TLS 1.1 y 1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [Uso de un certificado TLS/SSL en el código de Azure App Service](configure-ssl-certificate-in-code.md)
-* [Preguntas más frecuentes: Certificados de App Service](./faq-configuration-and-management.md)
+* [Preguntas más frecuentes: Certificados de App Service](./faq-configuration-and-management.yml)

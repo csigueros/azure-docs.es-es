@@ -6,21 +6,22 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 06/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de1cc69b3cfdac307edf6dfe999a5d538c2cb811
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 202cbca5795ef877794c42f1fcc57c51835e5118
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89263185"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966399"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure Storage
 
@@ -85,14 +86,18 @@ Los archivos requieren almacenamiento de blobs, por lo que es necesario crear un
 En esta sección se muestra cómo conceder acceso a un contenedor de Azure Storage para la máquina virtual. Puede usar la identidad administrada asignada por el sistema de la máquina virtual para recuperar los datos en Azure Storage Blob.
 
 1. Vuelva a la cuenta de almacenamiento recién creada.
-2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.
-3. Haga clic en **+ Agregar asignación de rol** en la parte superior de la página para agregar una asignación de roles nueva para la máquina virtual.
-4. En la lista desplegable de **Rol**, seleccione **Lector de datos de blobs de almacenamiento**.
-5. En la lista desplegable siguiente, en **Asignar acceso a**, elija **Máquina virtual**.
-6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y establezca **Grupo de recursos** en **Todos los grupos de recursos**.
-7. En **Seleccionar**, elija la máquina virtual y haga clic en **Guardar**.
+1. Haga clic en **Control de acceso (IAM).**
+1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | Lector de datos de blobs de almacenamiento |
+    | Asignar acceso a | Identidad administrada |
+    | Asignada por el sistema | Máquina virtual |
+    | Seleccionar | &lt;la máquina virtual&gt; |
 
-    ![Asignación de permisos](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
+    ![Página Agregar asignación de roles en Azure Portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## <a name="access-data"></a>Acceso a los datos 
 

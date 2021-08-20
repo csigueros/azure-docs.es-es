@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 06/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 8b1203693b67bb1a8b9699b84dd3a437027e4c3d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2b63b496fb06c2987161661ddbbfcfe74580e3bf
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055321"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356624"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-with-gpu"></a>Tutorial: Configuración de certificados para Azure Stack Edge Pro con GPU
 
@@ -32,12 +32,12 @@ En este tutorial, obtendrá información sobre lo siguiente:
 
 Antes de configurar e instalar el dispositivo de Azure Stack Edge Pro con GPU, asegúrese de que:
 
-* Ha instalado el dispositivo físico como se detalla en [Instalación de Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
+* Ha instalado el dispositivo físico tal y como se describe en [Instalación de Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-deploy-install.md).
 * Si tiene previsto aportar sus propios certificados:
     - Debe tener los certificados preparados en el formato adecuado, incluido el certificado de la cadena de firma. Para obtener más información sobre el certificado, vaya a [Administración de certificados](azure-stack-edge-gpu-manage-certificates.md).
 
-<!--    - If your device is deployed in Azure Government or Azure Government Secret or Azure Government top secret cloud and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
-    For details on certificate, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).-->
+    - Si el dispositivo se implementa en Azure Government y no se implementa en la nube pública de Azure, se requerirá un certificado de cadena de firma para poder activar el dispositivo. 
+    Para más detalles sobre el certificado, consulte [Administración de certificados](azure-stack-edge-gpu-manage-certificates.md).
 
 
 ## <a name="configure-certificates-for-device"></a>Configuración de certificados para el dispositivo
@@ -58,9 +58,9 @@ Antes de configurar e instalar el dispositivo de Azure Stack Edge Pro con GPU, a
 
         Esto se debe a que los certificados no reflejan el nombre del dispositivo y el dominio DNS actualizados (que se usan en el nombre del firmante y el nombre alternativo del firmante). Para activar correctamente el dispositivo, elija una de las siguientes opciones: 
     
-        - **Generación de todos los certificados del dispositivo**. Estos certificados de dispositivo solo se deben usar para las pruebas, y no para las cargas de trabajo de producción. Para más información, vaya a [Generación de certificados de dispositivo en su instancia de Azure Stack Edge Pro](#generate-device-certificates).
+        - **Generación de todos los certificados del dispositivo**. Estos certificados de dispositivo solo se deben usar para las pruebas, y no para las cargas de trabajo de producción. Para más información, vaya a [Generación de certificados de dispositivo en su instancia de Azure Stack Edge Pro con GPU](#generate-device-certificates).
 
-        - **Aportación de sus propios certificados**. Puede aportar sus propios certificados de punto de conexión firmados y las cadenas de firma correspondientes. Primero debe agregar la cadena de firma y, a continuación, cargar los certificados de punto de conexión. **Se recomienda que siempre aporte sus propios certificados para cargas de trabajo de producción.** Para más información, vaya a [Aportación de sus propios certificados en el dispositivo de Azure Stack Edge Pro](#bring-your-own-certificates).
+        - **Aportación de sus propios certificados**. Puede aportar sus propios certificados de punto de conexión firmados y las cadenas de firma correspondientes. Primero debe agregar la cadena de firma y, a continuación, cargar los certificados de punto de conexión. **Se recomienda que siempre aporte sus propios certificados para cargas de trabajo de producción.** Para más información, vaya a [Aportación de sus propios certificados en un dispositivo de Azure Stack Edge Pro con GPU](#bring-your-own-certificates).
     
         - Puede aportar algunos de sus propios certificados y generar algunos certificados de dispositivo. La opción **Generar certificados** solo volverá a generar los certificados del dispositivo.
 
@@ -71,7 +71,7 @@ Antes de configurar e instalar el dispositivo de Azure Stack Edge Pro con GPU, a
 
 Siga estos pasos para generar certificados de dispositivo.
 
-Siga estos pasos para volver a generar y descargar los certificados de dispositivo de Azure Stack Edge Pro:
+Siga estos pasos para volver a generar y descargar los certificados de dispositivo de Azure Stack Edge Pro con GPU:
 
 1. En la interfaz de usuario local del dispositivo, vaya a **Configuración > Certificados**. Seleccione **Generar certificados**.
 
@@ -117,9 +117,9 @@ Siga estos pasos para volver a generar y descargar los certificados de dispositi
 
     `<Device name>_<Endpoint name>.cer`. Estos certificados contienen la clave pública para los certificados correspondientes instalados en el dispositivo. 
 
-Deberá instalar estos certificados en el sistema cliente que usa para acceder a los puntos de conexión en el dispositivo ASE. Estos certificados establecen confianza entre el cliente y el dispositivo.
+Deberá instalar estos certificados en el sistema cliente que usa para acceder a los puntos de conexión en el dispositivo Azure Stack Edge. Estos certificados establecen confianza entre el cliente y el dispositivo.
 
-Para importar e instalar estos certificados en el cliente que usa para acceder al dispositivo, siga los pasos descritos en [Importación de certificados en los clientes que tienen acceso al dispositivo de Azure Stack Edge Pro](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
+Para importar e instalar estos certificados en el cliente que usa para acceder al dispositivo, siga los pasos descritos en [Importación de certificados en los clientes que tienen acceso al dispositivo de Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
 
 Si usa el Explorador de Azure Storage, tendrá que instalar los certificados en el cliente en formato PEM y deberá convertir los certificados generados por el dispositivo a formato PEM. 
 
@@ -130,7 +130,14 @@ Si usa el Explorador de Azure Storage, tendrá que instalar los certificados en 
 
 ### <a name="bring-your-own-certificates"></a>Aportación de sus propios certificados
 
-Siga estos pasos para agregar sus propios certificados, incluida la cadena de firma.
+Puede aportar sus propios certificados. 
+
+- Para empezar, comprenda los [tipos de certificados que se pueden usar con un dispositivo de Azure Stack Edge](azure-stack-edge-gpu-certificates-overview.md).
+- A continuación, revise los [requisitos de certificado para cada tipo de certificado](azure-stack-edge-gpu-certificate-requirements.md).
+- Luego puede [crear los certificados mediante Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md) o [crear los certificados mediante la herramienta Readiness Checker](azure-stack-edge-gpu-create-certificates-tool.md).
+- Por último, [convierta los certificados al formato adecuado](azure-stack-edge-gpu-prepare-certificates-device-upload.md) para que estén listos para cargarlos en el dispositivo.
+
+Siga estos pasos para cargar sus propios certificados, incluida la cadena de firma.
 
 1. Para cargar el certificado, en la página **Certificado**, seleccione **+ Agregar certificado**.
 
@@ -176,7 +183,7 @@ En este tutorial, obtendrá información sobre lo siguiente:
 > * Requisitos previos
 > * Configuración de certificados para el dispositivo físico
 
-Para aprender a administrar el dispositivo de Azure Stack Edge Pro, consulte:
+Para obtener información sobre cómo activar el dispositivo Azure Stack Edge Pro con GPU, consulte:
 
 > [!div class="nextstepaction"]
-> [Activación del dispositivo de Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-activate.md)
+> [Activación del dispositivo Azure Stack Edge Pro con GPU](./azure-stack-edge-gpu-deploy-activate.md)

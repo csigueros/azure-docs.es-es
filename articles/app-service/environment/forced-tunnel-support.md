@@ -7,14 +7,17 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 95a4d00a27a0da363561f469b4c5e9e2ad16463c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d05b4f8e69023e1ecec7002f394141fff008f0d
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97510505"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432975"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configuración de App Service Environment con tunelización forzada
+> [!NOTE]
+> En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados
+> 
 
 App Service Environment (ASE) es una implementación de Azure App Service en Azure Virtual Network de un cliente. Muchos clientes configuran sus redes virtuales de Azure como extensiones de sus redes locales con redes privadas virtuales o con conexiones de Azure ExpressRoute. La tunelización forzada se produce al redirigir el tráfico de Internet a una VPN o a una aplicación virtual en su lugar. Las aplicaciones virtuales se usan a menudo para inspeccionar y auditar el tráfico de red saliente. 
 

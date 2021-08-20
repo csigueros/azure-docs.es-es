@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 07/06/2021
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, translator service, translate text, transliterate text, language detection
-ms.openlocfilehash: 6d10b954bbb5663d5e63f4b38fc49d8a3953f10a
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 10e879df320d527ab6c853a03e9eb49d1b4d50de
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537552"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113355901"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Inicio rápido: Introducción a Translator
 
@@ -33,8 +33,11 @@ En este inicio rápido, aprenderá a usar el servicio Translator a través de RE
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 * Una vez que tenga una suscripción a Azure, [cree un recurso de Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) en Azure Portal para obtener la clave y el punto de conexión. Tras su implementación, seleccione **Ir al recurso**.
-  * Para conectar la aplicación al servicio Translator, necesitará la clave y el punto de conexión del recurso. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
-  * Puede usar el plan de tarifa gratis (F0) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+  * Para conectar la aplicación al servicio Translator, necesitará la clave y el punto de conexión del recurso. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente. Puede encontrar estos valores en la página **Claves y punto de conexión** de Azure Portal:
+
+    :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Captura de pantalla: página Claves y punto de conexión de Azure Portal.":::
+
+* Puede usar el plan de tarifa gratis (F0) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 
 ## <a name="platform-setup"></a>Configuración de la plataforma
 
@@ -2820,9 +2823,19 @@ Si realiza una llamada correcta, debería ver la siguiente respuesta. Para más 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
+### <a name="common-http-status-codes"></a>Códigos de estado HTTP comunes
+
+| Código de estado HTTP | Descripción | Posible motivo |
+|------------------|-------------|-----------------|
+| 200 | Aceptar | La solicitud fue correcta. |
+| 400 | Bad Request | Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo. |
+| 401 | No autorizado | La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta. *Consulte también* [Autenticación](reference/v3-0-reference.md#authentication).|
+| 429 | Demasiadas solicitudes | Ha superado la cuota o la tasa de solicitudes permitidas para su suscripción. |
+| 502 | Puerta de enlace incorrecta    | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
+
 ### <a name="java-users"></a>Usuarios de Java
 
-Si tiene problemas de conexión, puede ser debido a que el certificado SSL ha expirado. Para resolver este problema, instale [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) en su almacén privado. 
+Si tiene problemas de conexión, puede ser debido a que el certificado SSL ha expirado. Para resolver este problema, instale [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) en su almacén privado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

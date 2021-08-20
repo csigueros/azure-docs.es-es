@@ -4,16 +4,16 @@ description: Tutorial paso a paso que explica cómo configurar NAT para una func
 ms.topic: tutorial
 ms.author: kyburns
 ms.date: 2/26/2021
-ms.openlocfilehash: 5bb491e367ed813f09197a193745c231261c88c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9b91ccd725fbd6ae1e3a974ecb70b4c01201adb4
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104658245"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432273"
 ---
 # <a name="tutorial-control-azure-functions-outbound-ip-with-an-azure-virtual-network-nat-gateway"></a>Tutorial: Control de la IP de salida de Azure Functions mediante un servicio NAT Gateway de Azure Virtual Network
 
-La traducción de direcciones de red (NAT) virtual simplifica la conectividad de Internet solo saliente para las redes virtuales. Cuando se configura en una subred, todas las conexiones salientes usan las direcciones IP públicas estáticas que se hayan especificado. El proceso NAT puede ser útil para instancias de Azure Functions o Web Apps que necesitan consumir un servicio de terceros que use una lista de permitidos para direcciones IP como medida de seguridad. Para más información, consulte [¿Qué es Virtual Network NAT?](../virtual-network/nat-overview.md).
+La traducción de direcciones de red (NAT) virtual simplifica la conectividad de Internet solo saliente para las redes virtuales. Cuando se configura en una subred, todas las conexiones salientes usan las direcciones IP públicas estáticas que se hayan especificado. El proceso NAT puede ser útil para instancias de Azure Functions o Web Apps que necesitan consumir un servicio de terceros que use una lista de permitidos para direcciones IP como medida de seguridad. Para más información, consulte [¿Qué es Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
 
 En este tutorial se muestra cómo usar el servicio Virtual Network NAT para enrutar el tráfico saliente desde una función desencadenada por HTTP. Esta función le permite comprobar su propia dirección IP saliente. En este tutorial, aprenderá a:
 
@@ -48,7 +48,7 @@ Si ya ha completado el tutorial sobre la [integración de Azure Functions con Az
 
     | Configuración | Value |
     | ------- | ----- |
-    | Subscription | Seleccione su suscripción.|
+    | Suscripción | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Nombre | Escriba *myResourceGroup-vnet*. |
     | Location | Seleccione **Este de EE. UU**.|
@@ -66,6 +66,8 @@ Si ya ha completado el tutorial sobre la [integración de Azure Functions con Az
 A continuación, cree una aplicación de funciones en el [plan Prémium](functions-premium-plan.md). Este plan ofrece escala sin servidor, al mismo tiempo que admite la integración de red virtual.
 
 ## <a name="create-a-function-app-in-a-premium-plan"></a>Creación de una aplicación de funciones en un plan Premium
+
+En este tutorial se muestra cómo crear la aplicación de función en un [plan Premium](functions-premium-plan.md). La misma funcionalidad también está disponible cuando se usa un [plan dedicado (App Service)](dedicated-plan.md).
 
 > [!NOTE]  
 > Para conseguir una experiencia óptima con este tutorial, elija .NET para la pila en tiempo de ejecución; y elija Windows como sistema operativo. Además, cree la aplicación de funciones en la misma región que la red virtual.

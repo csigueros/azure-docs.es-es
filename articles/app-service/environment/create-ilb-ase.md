@@ -7,14 +7,17 @@ ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: be936bf8799d3e16679cf337e2425543163fe8f3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 331a91f645c64f0b70ff6c4de922b455eb344ce2
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110063305"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433263"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creación y uso de un entorno de una instancia de Azure App Service Environment de Load Balancer 
+> [!NOTE]
+> En este artículo se trata App Service Environment v2, que se usa con planes de App Service aislados
+> 
 
 Azure App Service Environment es una implementación de Azure App Service en una subred de Azure Virtual Network (VNet). Hay dos maneras de implementar una instancia de App Service Environment (ASE): 
 
@@ -40,7 +43,7 @@ Con una instancia de ASE de ILB, puede hacer cosas como las siguientes:
 
 Sin embargo, cuando utilice un ASE con un ILB, no podrá realizar algunas operaciones:
 
--   Use SSL basada en IP.
+-   Use el enlace TLS/SSL basado en IP.
 -   Asigne direcciones IP a aplicaciones específicas.
 -   Compre y use un certificado con una aplicación a través de Azure Portal. Puede obtener certificados directamente en una entidad de certificación y usarlos con sus aplicaciones. No puede obtenerlas a través de Azure Portal.
 
@@ -119,7 +122,7 @@ Para configurar DNS en las zonas privadas de Azure DNS:
 
 La configuración de DNS para el sufijo de dominio predeterminado de ASE no restringe las aplicaciones para que solo puedan acceder a ellas esos nombres. Puede establecer un nombre de dominio personalizado sin ninguna validación en las aplicaciones de un ASE con un ILB. Si desea crear una zona denominada contoso.net, puede hacerlo y hacer que apunte a la dirección IP de ILB. El nombre de dominio personalizado funciona para las solicitudes de aplicación, pero no para el sitio SCM. El sitio SCM solo está disponible en &lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net.
 
-La zona denominada .&lt;asename&gt;.appserviceenvironment.net es globalmente única. Antes de mayo de 2019, los clientes podían especificar el sufijo de dominio del ASE con ILB. Si quería usar .contoso.com como sufijo de dominio, podía hacerlo y eso incluiría el sitio SCM. Había problemas con ese modelo, entre los que se incluían la administración del certificado SSL predeterminado, la falta de inicio de sesión único con el sitio SCM y la obligatoriedad de usar un certificado comodín. El proceso de actualización de certificados predeterminados del ASE con ILB también se ha interrumpido y ha provocado el reinicio de la aplicación. Para solucionar estos problemas, el comportamiento del ASE con ILB se ha modificado para que use un sufijo de dominio basado en el nombre del ASE y un sufijo propiedad de Microsoft. El cambio en el comportamiento del ASE con ILB solo afecta a aquellos ASE creados después de mayo de 2019. Los ASE con ILB existentes anteriormente deben todavía administrar el certificado predeterminado del ASE y su configuración de DNS.
+La zona denominada .&lt;asename&gt;.appserviceenvironment.net es globalmente única. Antes de mayo de 2019, los clientes podían especificar el sufijo de dominio del ASE con ILB. Si quería usar .contoso.com como sufijo de dominio, podía hacerlo y eso incluiría el sitio SCM. Había problemas con ese modelo, entre los que se incluían la administración del certificado TLS/SSL predeterminado, la falta de inicio de sesión único con el sitio SCM y la obligatoriedad de usar un certificado comodín. El proceso de actualización de certificados predeterminados del ASE con ILB también se ha interrumpido y ha provocado el reinicio de la aplicación. Para solucionar estos problemas, el comportamiento del ASE con ILB se ha modificado para que use un sufijo de dominio basado en el nombre del ASE y un sufijo propiedad de Microsoft. El cambio en el comportamiento del ASE con ILB solo afecta a aquellos ASE creados después de mayo de 2019. Los ASE con ILB existentes anteriormente deben todavía administrar el certificado predeterminado del ASE y su configuración de DNS.
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicación con un ASE con un ILB
 

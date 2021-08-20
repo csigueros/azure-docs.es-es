@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 05/05/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd278968eeb430bf57f279bb8b7e5d4ee9248ce1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a50ef779dd65696ae62b6b08b04e65ca19291944
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965722"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113233419"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutorial: Archivo de los registros de Azure AD en una cuenta de Azure Storage
 
@@ -40,38 +40,38 @@ Para usar esta característica, necesita:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
-2. Seleccione **Azure Active Directory** > **Actividad** > **Registros de auditoría**. 
+2. Seleccione **Azure Active Directory** > **Supervisión** > **Registros de auditoría**. 
 
-3. Seleccione **Exportar configuración**. 
+3. Seleccione **Exportar configuración de datos**. 
 
 4. En el panel **Configuración de diagnóstico**, realice una de las siguientes acciones:
-   * Para cambiar la configuración existente, seleccione **Editar configuración**.
-   * Para agregar la nueva configuración, seleccione **Agregar configuración de diagnóstico**.  
-     Puede tener un máximo de tres configuraciones. 
+    1. Para cambiar la configuración existente, seleccione **Editar configuración** junto a la configuración de diagnóstico que quiere actualizar.
+    1. Para agregar la nueva configuración, seleccione **Agregar configuración de diagnóstico**.  
+
+    Puede tener un máximo de tres configuraciones.
 
      ![Exportar configuración](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
-5. Escriba un nombre descriptivo para la configuración que le recuerde su propósito (por ejemplo, *Enviar a la cuenta de Azure Storage*). 
+5. Una vez en el panel **Configuración de diagnóstico**, si va a crear una nueva configuración, escriba un nombre para la configuración para recordar su propósito (por ejemplo, *Enviar a la cuenta de almacenamiento de Azure*). No se puede cambiar el nombre de una configuración existente.
 
-6. Active la casilla **Archivar en una cuenta de almacenamiento** y, a continuación, seleccione **Cuenta de almacenamiento**. 
+6. En **Detalles del destino**, seleccione la casilla **Archivar en una cuenta de almacenamiento**. 
 
-7. Seleccione la suscripción de Azure y la cuenta de almacenamiento a la que desee enrutar los registros.
- 
-8. Seleccione **Aceptar** para salir de la configuración.
+7. Seleccione la suscripción de Azure en el menú desplegable **Suscripción**, y la cuenta de almacenamiento en el menú desplegable **Cuenta de almacenamiento** a la que quiere enrutar los registros.
 
-9. Realice alguna de las siguientes acciones o ambas:
-    * Para enviar los registros de auditoría a la cuenta de almacenamiento, seleccione la casilla **AuditLogs**. 
-    * Para enviar los registros de inicio de sesión a la cuenta de almacenamiento, seleccione la casilla **SignInLogs**.
+8. Seleccione todas las categorías pertinentes en **Detalles de la categoría**:
 
-10. Use el control deslizante para establecer la retención de los datos del registro. De forma predeterminada, este valor es *0*, lo que significa que los registros se conservarán en la cuenta de almacenamiento de forma indefinida. Si establece un valor diferente, los eventos que tengan más días de los seleccionados se eliminarán de forma automática.
-
-11. Seleccione **Guardar** para guardar la configuración.
+    Realice alguna de las siguientes acciones o ambas:
+    1. Seleccione la casilla **AuditLogs** para enviar los registros de auditoría a la cuenta de almacenamiento.
+    
+    1. Seleccione la casilla **SignInLogs** para enviar los registros de inicio de sesión a la cuenta de almacenamiento.
 
     ![Configuración de diagnóstico](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. A los 15 minutos, compruebe que los registros se han insertado en la cuenta de almacenamiento. Vaya a [Azure Portal](https://portal.azure.com), seleccione **Cuentas de almacenamiento**, seleccione la cuenta de almacenamiento que usó anteriormente y seleccione **Blobs**. En **Registros de auditoría**, seleccione **insights-log-audit**. En **Registros de inicio de sesión**, seleccione **insights-log-audit**.
+9. Una vez seleccionadas las categorías, en el campo **Días de retención**, escriba el número de días de retención que necesita para los datos de registro. De forma predeterminada, este valor es *0*, lo que significa que los registros se conservarán en la cuenta de almacenamiento de forma indefinida. Si establece un valor diferente, los eventos que tengan más días de los seleccionados se eliminarán de forma automática.
+ 
+10. Seleccione **Guardar** para guardar la configuración.
 
-    ![Cuenta de almacenamiento](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
+11. Cierre la ventana para volver al panel Configuración de diagnóstico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

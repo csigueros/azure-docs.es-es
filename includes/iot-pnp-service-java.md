@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 8d3f35a733a0f78fabc33df857d911ba3cd222f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fa30a56b3fb6e8b16a50bff7fda4c9349348633
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102244992"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403632"
 ---
 IoT Plug and Play simplifica IoT, ya que permite interactuar con las funcionalidades de un dispositivo sin tener que conocer la implementación subyacente del mismo. En este inicio rápido se muestra cómo usar Java para conectarse y controlar un dispositivo IoT Plug and Play que esté conectado a la solución.
 
@@ -24,7 +24,7 @@ Para completar este inicio rápido en Windows, instale el siguiente software en 
 
 ### <a name="clone-the-sdk-repository-with-the-sample-code"></a>Clonación del repositorio de SDK con el código de ejemplo
 
-Si ha completado [Inicio rápido: conexión a IoT Hub (Java) de una aplicación de ejemplo del dispositivo IoT Plug and Play que se ejecuta en Windows](../articles/iot-pnp/quickstart-connect-device.md), ya tendrá clonado el repositorio.
+Si completó [Tutorial: Conexión a IoT Hub (Java) de una aplicación de ejemplo del dispositivo IoT Plug and Play que se ejecuta en Windows](../articles/iot-develop/tutorial-connect-device.md), ya ha clonado el repositorio.
 
 Abra un símbolo del sistema en el directorio que prefiera. Ejecute el siguiente comando para clonar el repositorio de GitHub de los [SDK de Microsoft Azure IoT para Java](https://github.com/Azure/azure-iot-sdk-java) en esta ubicación:
 
@@ -60,7 +60,7 @@ El dispositivo ya está listo para recibir comandos y actualizaciones de propied
 
 ## <a name="run-the-sample-solution"></a>Ejecución de la solución de ejemplo
 
-En el artículo sobre la [configuración del entorno para los inicios rápidos y tutoriales de IoT Plug and Play](../articles/iot-pnp/set-up-environment.md) se crearon dos variables de entorno para configurar el ejemplo para conectarse a su instancia de IoT Hub y al dispositivo:
+En el artículo sobre la [configuración del entorno para los inicios rápidos y tutoriales de IoT Plug and Play](../articles/iot-develop/set-up-environment.md) se crearon dos variables de entorno para configurar el ejemplo para conectarse a su instancia de IoT Hub y al dispositivo:
 
 * **IOTHUB_CONNECTION_STRING**: la cadena de conexión de IoT Hub que anotó anteriormente.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
@@ -68,7 +68,7 @@ En el artículo sobre la [configuración del entorno para los inicios rápidos y
 En este inicio rápido, se usa una solución de IoT de ejemplo escrita en Java para interactuar con el dispositivo de ejemplo que acaba de configurar.
 
 > [!NOTE]
-> En este ejemplo se usa el espacio de nombres **com.microsoft.azure.sdk.iot.service** del **cliente del servicio IoT Hub**. Para más información sobre las API, incluida la API de gemelos digitales, consulte la [guía para desarrolladores de servicios](../articles/iot-pnp/concepts-developer-guide-service.md).
+> En este ejemplo se usa el espacio de nombres **com.microsoft.azure.sdk.iot.service** del **cliente del servicio IoT Hub**. Para más información sobre las API, incluida la API de gemelos digitales, consulte la [guía para desarrolladores de servicios](../articles/iot-develop/concepts-developer-guide-service.md).
 
 1. Abra otra ventana de terminal para utilizarla como terminal de **servicio**.
 

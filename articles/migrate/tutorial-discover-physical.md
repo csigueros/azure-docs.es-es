@@ -1,18 +1,18 @@
 ---
 title: 'Detección de servidores físicos con Azure Migrate: Discovery and assessment'
 description: 'Aprenda a detectar servidores físicos locales con Azure Migrate: Discovery and assessment.'
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 7ff8a7739c0018d415ad503e888d63d04e641153
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 0878911bdd3caa2202ef993142aa89e4eabfe33c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751210"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464884"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Detección de servidores físicos con Azure Migrate: Discovery and assessment
 
@@ -79,11 +79,42 @@ Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripc
 
 Configure una cuenta que el dispositivo pueda usar para acceder a los servidores físicos.
 
-- En **Servidores Windows**, use una cuenta de dominio para los servidores que se hayan unido a un dominio y una cuenta local para el servidor que no se haya unido a un dominio. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
-    > [!Note]
-    > En Windows Server 2008 y 2008 R2, asegúrese de que WMF 3.0 esté instalado en los servidores y de que el dominio o la cuenta local usados para acceder a los servidores se hayan agregado a estos grupos: Usuarios del monitor de sistema, Usuarios del registro de rendimiento y WinRMRemoteWMIUsers.
+**Servidores Windows**
 
-- Con **servidores Linux**, necesita una cuenta raíz en los servidores Linux que quiera detectar. Como alternativa, puede establecer una cuenta que no sea raíz con las funcionalidades necesarias mediante los siguientes comandos:
+- En el caso de servidores Windows, use una cuenta de dominio para los servidores que se hayan unido a un dominio y una cuenta local para los que no. 
+- Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento. 
+- Si el grupo Usuarios de administración remota no está presente, agregue la cuenta de usuario al grupo: **WinRMRemoteWMIUsers_** .
+- La cuenta necesita estos permisos para que el dispositivo cree una conexión CIM con el servidor y extraiga los metadatos de configuración y rendimiento necesarios de las clases WMI enumeradas aquí.
+- En algunos casos, es posible que agregar la cuenta a estos grupos no devuelva los datos necesarios de las clases WMI, ya que la cuenta podría estar filtrada por [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). Para superar el filtrado de UAC, la cuenta de usuario debe tener los permisos necesarios en el espacio de nombres CIMV2 y en los subespacios de nombres en el servidor de destino. Puede seguir [estos](troubleshoot-appliance.md) pasos para habilitar los permisos obligatorios.
+
+    > [!Note]
+    > En el caso de Windows Server 2008 y 2008 R2, asegúrese de que WMF 3.0 esté instalado en los servidores.
+
+**Servidores Linux**
+
+- Necesita una cuenta raíz en los servidores que desee detectar. Como alternativa, puede proporcionar permisos sudo a una cuenta de usuario.
+- La compatibilidad para agregar una cuenta de usuario con acceso sudo se proporciona de manera predeterminada con el nuevo script del instalador del dispositivo descargado del portal después del 20 de julio de 2021.
+- En el caso de dispositivos anteriores, puede seguir estos pasos para habilitar la funcionalidad:
+    1. En el servidor que ejecuta el dispositivo, abra el Editor del Registro.
+    1. Vaya a HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+    1. Cree una clave del Registro "isSudo" con un valor de DWORD de 1.
+
+    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Captura de pantalla que muestra cómo habilitar la compatibilidad con sudo.":::
+
+- Para detectar los metadatos de configuración y rendimiento del servidor de destino, debe habilitar el acceso sudo para los comandos enumerados [aquí](migrate-appliance.md#linux-server-metadata). Asegúrese de que ha habilitado "NOPASSWD" para que la cuenta ejecute los comandos necesarios sin solicitar una contraseña cada vez que se invoque el comando sudo.
+- Las siguientes distribuciones del sistema operativo Linux son compatibles con la detección de Azure Migrate mediante una cuenta con acceso sudo:
+
+    Sistema operativo | Versiones 
+    --- | ---
+    Red Hat Enterprise Linux | 6,7,8
+    Cent OS | 6.6, 8.2
+    Ubuntu | 14.04,16.04,18.04
+    SUSE Linux | 11.4, 12.4
+    Debian | 7, 10
+    Amazon Linux | 2.0.2021
+    CoreOS Container | 2345.3.0
+
+- Si no puede proporcionar acceso sudo a la cuenta raíz o a la cuenta de usuario, puede establecer la clave del Registro "isSudo" en el valor "0" en el Registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance y proporcionar una cuenta no raíz con las funcionalidades necesarias mediante los siguientes comandos:
 
 **Comando** | **Propósito**
 --- | --- |
@@ -91,7 +122,6 @@ setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEA
 setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Recopilar datos de rendimiento del disco
 setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Recopilar el número de serie del BIOS
 chmod a+r /sys/class/dmi/id/product_uuid | Recopilar el GUID del BIOS
-
 
 ## <a name="set-up-a-project"></a>Configuración de un proyecto
 
@@ -122,7 +152,7 @@ Para configurar el dispositivo:
 1. Proporcione un nombre de dispositivo y genere una clave de proyecto en el portal.
 2. Descargue un archivo comprimido con el script del instalador de Azure Migrate desde Azure Portal.
 3. Extraiga el contenido del archivo comprimido. Inicie la consola de PowerShell con privilegios administrativos.
-4. Ejecute el script de PowerShell para iniciar la aplicación web del dispositivo.
+4. Ejecute el script de PowerShell para iniciar el administrador de configuración del dispositivo.
 5. Configure el dispositivo por primera vez y regístrelo en el proyecto mediante la clave del proyecto.
 
 ### <a name="1-generate-the-project-key"></a>1. Generación de la clave del proyecto
@@ -133,6 +163,8 @@ Para configurar el dispositivo:
 1. Haga clic en **Generar clave** para iniciar la creación de los recursos de Azure necesarios. No cierre la página Detectar servidores durante la creación de los recursos.
 1. Después de la creación correcta de los recursos de Azure, se genera una **clave de proyecto**.
 1. Copie la clave, ya que la necesitará para completar el registro del dispositivo durante su configuración.
+
+  [ ![Selecciones para Generar clave.](./media/tutorial-assess-physical/generate-key-physical-inline-1.png)](./media/tutorial-assess-physical/generate-key-physical-expanded-1.png#lightbox)
 
 ### <a name="2-download-the-installer-script"></a>2. Descarga del script del instalador
 
@@ -145,50 +177,45 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 1. En el servidor en el que descargó el archivo, abra una ventana de comandos de administrador.
 2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Ejemplo de uso para la nube pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - Ejemplo de uso para la nube gubernamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
-3.  Compruebe las versiones más recientes del dispositivo y los valores hash:
-    - Para la nube pública:
+    - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+3.  Compruebe la versión más reciente del dispositivo y el valor hash:
 
-        **Escenario** | **Descargar*** | *Valor hash**
-        --- | --- | ---
-        Físico (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
+    **Descargar** | **Valor del código hash**
+    --- | ---
+    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140334) | 15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
 
-    - Para Azure Government:
+> [!NOTE]
+> El mismo script se puede usar para configurar el dispositivo físico para la nube de Azure Government o pública de Azure con conectividad de punto de conexión privado o público.
 
-        **Escenario** | **Descargar*** | *Valor hash**
-        --- | --- | ---
-        Físico (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
- 
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Ejecución del script del instalador de Azure Migrate
-El script del instalador hace lo siguiente:
-
-- Instala los agentes y una aplicación web para la detección y evaluación de los servidores físicos.
-- Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
-- Descarga e instala un módulo de reescritura de IIS.
-- Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
-- Crea los siguientes archivos en la ruta de acceso:
-    - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config
-    - **Archivos de registro**:%Programdata%\Microsoft Azure\Logs
-
-Ejecute el script como se indica a continuación:
 
 1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
 2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
 3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
 4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
 
-    - Para la nube pública: 
     
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - Para Azure Government: 
-    
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-    El script iniciará la aplicación web del dispositivo cuando finalice correctamente.
+5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo y evalúa **servidores físicos** _(o servidores que se ejecutan en otras nubes, como AWS, GCP, Xen, etc.)_ en un proyecto de Azure Migrate con la conectividad **predeterminada _(punto de conexión público)_**  en la **nube pública de Azure**.
 
-En caso de que surja algún problema, puede acceder a los registros de script en C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para solucionarlo.
+    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Captura de pantalla que muestra cómo configurar un dispositivo con la configuración deseada" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
+
+6. El script del instalador hace lo siguiente:
+
+ - Instala agentes y una aplicación web.
+ - Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
+ - Descarga e instala un módulo de reescritura de IIS.
+ - Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
+ - Crea los siguientes archivos en la ruta de acceso:
+    - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config
+    - **Archivos de registro**:%Programdata%\Microsoft Azure\Logs
+
+Una vez que el script se haya ejecutado correctamente, el administrador de configuración del dispositivo se iniciará automáticamente.
+
+> [!NOTE]
+> En caso de que surja algún problema, puede acceder a los registros de script en C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para solucionarlo.
 
 ### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 

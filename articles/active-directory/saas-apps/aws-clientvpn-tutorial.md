@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/29/2020
+ms.date: 06/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 794934e9c3e45f2aeed9310636a0f3ec30daf7de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ecd18c6ce50308eba3767e880972e35d142e62be
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98735350"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112467516"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-clientvpn"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AWS ClientVPN
 
@@ -41,7 +41,10 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * AWS ClientVPN admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-aws-clientvpn-from-the-gallery"></a>Adición de AWS ClientVPN desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
+## <a name="add-aws-clientvpn-from-the-gallery"></a>Adición de AWS ClientVPN desde la galería
 
 Para configurar la integración de AWS ClientVPN en Azure AD, es preciso agregar AWS ClientVPN desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -51,7 +54,6 @@ Para configurar la integración de AWS ClientVPN en Azure AD, es preciso agrega
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **AWS ClientVPN** en el cuadro de búsqueda.
 1. Seleccione **AWS ClientVPN** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-aws-clientvpn"></a>Configuración y prueba del inicio de sesión único de Azure AD para AWS ClientVPN
 
@@ -72,11 +74,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de aplicaciones de **AWS ClientVPN**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<LOCALHOST>`
 
@@ -116,6 +118,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar AWS ClientVPN**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -142,7 +145,7 @@ En esta sección va a permitir que B.Simon acceda a AWS ClientVPN mediante el in
 
 ## <a name="configure-aws-clientvpn-sso"></a>Configuración del inicio de sesión único en AWS ClientVPN
 
-Para configurar el inicio de sesión único en **AWS ClientVPN**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de AWS ClientVPN](https://aws.amazon.com/contact-us/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Siga las instrucciones indicadas en el [vínculo](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html#federated-authentication) para configurar el inicio de sesión único en AWS ClientVPN.
 
 ### <a name="create-aws-clientvpn-test-user"></a>Creación de un usuario de prueba de AWS ClientVPN
 

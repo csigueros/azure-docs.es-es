@@ -6,7 +6,7 @@ author: msmimart
 ms.author: mimart
 manager: celestedg
 ms.reviewer: mal
-ms.date: 08/05/2020
+ms.date: 06/18/2020
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
@@ -15,12 +15,12 @@ ms.custom:
 - seo-update-azuread-jan
 - mode-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7326a35d07715eae75f70f2f33763f82946c589c
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 242f5a721959246b8d0159598cc86ab3b5194641
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529856"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112422613"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Inicio rápido: Incorporación de usuarios invitados a su directorio en Azure Portal
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar el escenario de este tutorial, necesita:
 
- - Un rol que le permite crear usuarios en el directorio de inquilino, como el rol de administrador global o cualquiera de los roles de directorio de administrador limitado.
+ - Un rol que le permite crear usuarios en el directorio de inquilino, como el rol de administrador global o cualquiera de los roles de directorio de administrador limitado, como invitador de invitados o administrador de usuarios.
  - Una cuenta de correo electrónico válida que puede agregar a su directorio de inquilino y que puede usar para recibir el correo electrónico de invitación de prueba.
 
 ## <a name="add-a-new-guest-user-in-azure-ad"></a>Incorporación de un nuevo usuario invitado en Azure AD

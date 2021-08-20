@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: 689a9f38199184d56c9442aabae01ba7c60e4842
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 2c274ffa263ac2313171ac7adc08f2ea2120c57c
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951815"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234670"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Creación de una tabla de clasificación cache-aside en ASP.NET
 
@@ -725,7 +725,7 @@ Seleccionar algunas de las acciones y experimente con la recuperación de los da
 Cuando haya terminado con la aplicación del tutorial de ejemplo, puede eliminar los recursos de Azure para ahorrar costos y recursos. Todos los recursos deben estar en el mismo grupo de recursos. Puede eliminarlos en conjunto en una sola operación mediante la eliminación del grupo de recursos. En las instrucciones de este artículo se usa un grupo de recursos denominado *TestResources*.
 
 > [!IMPORTANT]
-> La eliminación de un grupo de recursos es irreversible y el grupo de recursos y todos los recursos que contiene se eliminarán de forma permanente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado los recursos para hospedar este ejemplo en un grupo de recursos existente que contenga recursos que desee mantener, puede eliminar cada uno de los recursos individualmente en sus hojas respectivas.
+> La eliminación de un grupo de recursos es irreversible y el grupo de recursos y todos los recursos que contiene se eliminarán de forma permanente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado los recursos para hospedar este ejemplo en un grupo de recursos existente que contenga recursos que desee mantener, puede eliminar cada recurso individual de la izquierda.
 >
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Grupos de recursos**.

@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/26/2019
+ms.date: 06/25/2021
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dc101eac5d3829d8f4bcb84c79481b2053f82965
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92077837"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037659"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Uso de marcas de características en una aplicación Spring Boot
 
@@ -51,25 +51,16 @@ Es recomendable que mantenga las marcas de características fuera de la aplicaci
 
 La manera más fácil de conectar la aplicación de Spring Boot con App Configuration es mediante el proveedor de configuración:
 
-### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
-
 ```xml
 <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>1.1.2</version>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-cloud-feature-management-web</artifactId>
+    <version>2.0.0</version>
 </dependency>
 ```
 
-### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
-
-```xml
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>1.2.2</version>
-</dependency>
-```
+> [!NOTE]
+> Si necesita compatibilidad con una versión anterior de Spring Boot, consulte la [biblioteca antigua](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-azure-feature-management/README.md).
 
 ## <a name="feature-flag-declaration"></a>Declaración de la marca de características
 
@@ -183,7 +174,7 @@ public String getOldFeature() {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a implementar marcas de características en la aplicación de Spring Boot mediante el uso de bibliotecas `spring-cloud-azure-feature-management-web`. Consulte los siguientes recursos para más información sobre la compatibilidad de la administración de características en Spring Boot y App Configuration:
+En este tutorial, ha aprendido a implementar marcas de características en la aplicación de Spring Boot mediante el uso de bibliotecas `azure-spring-cloud-feature-management-web`. Consulte los siguientes recursos para más información sobre la compatibilidad de la administración de características en Spring Boot y App Configuration:
 
 * [Spring Boot feature flag sample code](./quickstart-feature-flag-spring-boot.md) (Código de ejemplo de marca de características de Spring Boot)
 * [Administración de marcas de características](./manage-feature-flags.md)

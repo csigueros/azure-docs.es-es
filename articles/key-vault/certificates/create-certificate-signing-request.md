@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: a4d079855e5aa05adb84b62d686d9f386608f7bb
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 77a46beceda451d456dfc4f576f855ebf7312e50
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752145"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463520"
 ---
 # <a name="create-and-merge-a-csr-in-key-vault"></a>Creación y combinación de solicitudes de firma de certificado en Key Vault
 
@@ -140,6 +140,8 @@ Ejemplo
 
      Este error puede producirse si **SubjectName** incluye algún carácter especial. Consulte las notas de Azure Portal y las instrucciones de PowerShell.
 
+- Tipo de error **La CSR usada para obtener el certificado ya se ha usado. Intente generar un nuevo certificado con una nueva CSR.**
+     Vaya a la sección "Directiva avanzada" del certificado y compruebe si la opción reuse key on renewal (usar clave al renovar) está desactivada.
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes

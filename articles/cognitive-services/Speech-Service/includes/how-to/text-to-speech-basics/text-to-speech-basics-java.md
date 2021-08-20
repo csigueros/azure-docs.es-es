@@ -2,15 +2,15 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 07/02/2021
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: cb1c6588dc6c770c809b786982ece1c9f0b1b1b5
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: f5f5ab8d353e0f20405a6cc4dccda38dbb0625a8
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108851"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279997"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
@@ -52,25 +52,25 @@ import java.util.Scanner;
 
 ## <a name="create-a-speech-configuration"></a>Creación de una configuración de voz
 
-Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig). Esta clase incluye información sobre la suscripción, como la clave, la región asociada, el punto de conexión, el host o el token de autorización.
+Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig). Esta clase incluye información sobre la suscripción, como la clave de voz y la región o ubicación asociada, el punto de conexión, el host, o el token de autorización.
 
 > [!NOTE]
 > Debe crear siempre una configuración, independientemente de si va a realizar reconocimiento de voz, síntesis de voz, traducción o reconocimiento de intenciones.
 
 Existen diversas maneras para inicializar un elemento [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig):
 
-* Con una suscripción: pase una clave y la región asociada.
-* Con un punto de conexión: pase un punto de conexión del servicio de voz. La clave y el token de autorización son opcionales.
-* Con un host: pase una dirección de host. La clave y el token de autorización son opcionales.
-* Con un token de autorización: pase el token de autorización y la región asociada.
+* Con una suscripción: pase una clave de voz y la región o ubicación asociadas.
+* Con un punto de conexión: pase un punto de conexión del servicio de voz. La clave de voz y el token de autorización son opcionales.
+* Con un host: pase una dirección de host. La clave de voz y el token de autorización son opcionales.
+* Con un token de autorización: pase el token de autorización y la región o ubicación asociadas.
 
-En este ejemplo, se crea un elemento [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) mediante una clave de suscripción y una región. Para obtener estas credenciales, siga los pasos descritos en [Prueba gratuita del servicio Voz](../../../overview.md#try-the-speech-service-for-free). Cree también código reutilizable básico para usarlo en el resto del artículo y que modificará cuando realice distintas personalizaciones.
+En este ejemplo, se crea un elemento [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) mediante una clave de voz y una región o ubicación. Para obtener estas credenciales, siga los pasos descritos en [Prueba gratuita del servicio Voz](../../../overview.md#try-the-speech-service-for-free). Cree también código reutilizable básico para usarlo en el resto del artículo y que modificará cuando realice distintas personalizaciones.
 
 ```java
 public class Program
 {
     public static void main(String[] args) {
-        SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     }
 }
 ```
@@ -83,7 +83,7 @@ Para empezar, cree un objeto `AudioConfig` para escribir automáticamente la sal
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 }
 ```
@@ -92,7 +92,7 @@ Luego, cree una instancia de `SpeechSynthesizer` y use los objetos `speechConfig
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
@@ -108,7 +108,7 @@ En algunos casos, puede que desee enviar la voz sintetizada directamente a un al
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     AudioConfig audioConfig = AudioConfig.fromDefaultSpeakerOutput();
 
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
@@ -133,7 +133,7 @@ Esta vez se guarda el resultado en una variable [`SpeechSynthesisResult`](/java/
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
 
     SpeechSynthesisResult result = synthesizer.SpeakText("Getting the response as an in-memory stream.");
@@ -160,7 +160,7 @@ En este ejemplo, se especifica un formato RIFF de alta fidelidad `Riff24Khz16Bit
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
 
     // set the output format
     speechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
@@ -211,7 +211,7 @@ Desde aquí, el objeto del resultado es exactamente el mismo que el de los ejemp
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
 
     String ssml = xmlToString("ssml.xml");

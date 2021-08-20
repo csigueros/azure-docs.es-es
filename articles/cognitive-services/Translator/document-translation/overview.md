@@ -5,29 +5,30 @@ ms.topic: overview
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 05/20/2021
-ms.openlocfilehash: 7359be792d8a832f6dcddc2c4d3caaf000930e83
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 06/20/2021
+ms.openlocfilehash: 267109bcacd8fcb9ff7d44ca6f9a74ca4dc39fda
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453569"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582949"
 ---
 # <a name="what-is-document-translation"></a>¿Qué es la traducción de documentos?
 
-La traducción de documentos es una característica basada en la nube del servicio [Azure Translator](../translator-info-overview.md) y forma parte de la familia de Azure Cognitive Services de las API de REST. La API de traducción de documentos traduce documentos a y desde 90 idiomas y dialectos manteniendo la estructura del documento y el formato de los datos.
+La traducción de documentos es una característica basada en la nube del servicio [Azure Translator](../translator-info-overview.md) y forma parte de la familia de Azure Cognitive Services de las API de REST. La API de traducción de documentos traduce documentos entre todos los [idiomas y dialectos admitidos](../../language-support.md) manteniendo la estructura del documento y el formato de los datos. 
 
 Esta documentación contiene los siguientes tipos de artículos:  
 
 * Los [**inicios rápidos**](get-started-with-document-translation.md) son instrucciones de inicio que le guiarán a la hora de hacer solicitudes al servicio.
-* Las [**guías de procedimientos**](create-sas-tokens.md) contienen instrucciones para usar la característica de una manera más específica o personalizada.  
+* Las [**guías de procedimientos**](create-sas-tokens.md) contienen instrucciones para usar la característica de una manera más específica o personalizada. 
+* [**La referencia**](reference/rest-api-guide.md) proporciona la configuración, los valores, las palabras clave y la configuración de la API REST.
 
 ## <a name="document-translation-key-features"></a>Características clave de la traducción de documentos
 
 | Característica | Descripción |
 | ---------| -------------|
 | **Traducir archivos grandes**| Traducir documentos completos de forma asincrónica.|
-|**Traducir numerosos archivos**|Traducir varios archivos a y desde 90 idiomas y dialectos.|
+|**Traducir numerosos archivos**|Traduzca varios archivos entre todos los idiomas y dialectos admitidos manteniendo la estructura del documento y el formato de los datos.|
 |**Conservar la presentación del archivo de origen**| Traducir archivos conservando el diseño y el formato originales.|
 |**Aplicar traducción personalizada**| Traducir documentos con modelos de [traducción personalizada](../customization.md#custom-translator) y general.|
 |**Aplicar glosarios personalizados**|Traducir documentos mediante glosarios personalizados.|
@@ -54,6 +55,8 @@ Los siguientes tipos de archivo de documento son compatibles con la traducción 
 |Valores separados por comas |.csv| Archivo de datos sin formato delimitados por comas que usan los programas de hoja de cálculo.|
 |HTML|.html, .htm|Lenguaje de marcado de hipertexto|
 |Formato de archivo de intercambio de localización|.xlf. , xliff| Formato de documento paralelo que se exporta desde los sistemas de memoria de traducción. Los idiomas utilizados se definen dentro del archivo.|
+|Markdown| .markdown, .mdown, .mkdn, .md, .mkd, .mdwn, .mdtxt, .mdtext, .rmd| Lenguaje de incremento ligero para crear texto con formato.|
+|MHTML|.mthml, .mht| Formato de archivo de página web que se usa para combinar código HTML y sus recursos complementarios.|
 |Microsoft Excel|.xls, .xlsx|Archivo de hoja de cálculo para el análisis de datos y la documentación|
 |Microsoft Outlook|.msg|Mensaje de correo electrónico creado o guardado en Microsoft Outlook|
 |Microsoft PowerPoint|.ppt, .pptx| Archivo de presentación utilizado para mostrar contenido en formato de presentación|
@@ -71,8 +74,9 @@ Los siguientes tipos de archivo de glosario son compatibles con la traducción d
 
 | Tipo de archivo| Extensión de archivo|Descripción|
 |---|---|--|
+|Valores separados por comas| .csv |Archivo de datos sin formato delimitados por comas que usan los programas de hoja de cálculo.|
 |Formato de archivo de intercambio de localización|.xlf. , xliff| Formato de documento paralelo que se exporta desde los sistemas de memoria de traducción. Los idiomas utilizados se definen dentro del archivo.|
-|Valores separados por tabulaciones/TAB|.tsv/.tab| Archivo de datos sin formato delimitado por tabulaciones que usan los programas de hoja de cálculo.|
+|Valores separados por tabulaciones/TAB|.tsv, .tab| Archivo de datos sin formato delimitado por tabulaciones que usan los programas de hoja de cálculo.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

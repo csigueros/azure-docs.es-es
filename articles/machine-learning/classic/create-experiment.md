@@ -9,21 +9,21 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 843845e6099bdf43f7cd37b0f3e6f82d3ed50b4c
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 68741d273cc0461bc2c0d362c1a859146d696cad
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520619"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582481"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Inicio rápido: Creación del primer experimento de ciencia de datos en Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-En este inicio rápido se crea un experimento de aprendizaje de automático en [Azure Machine Learning Studio (clásico)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) que predice el precio de un coche en función de diferentes variables, como la marca y las especificaciones técnicas.
+En este inicio rápido se crea un experimento de aprendizaje de automático en [Machine Learning Studio (clásico)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) que predice el precio de un coche en función de diferentes variables, como la marca y las especificaciones técnicas.
 
 Si no está familiarizado con el aprendizaje automático, la serie de vídeos [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) (Ciencia de datos para principiantes) le puede brindar una excelente introducción al aprendizaje automático con un lenguaje y conceptos de uso diario.
 

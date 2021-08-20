@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 183693963d66a5df13cbb4dd1e561b26f5495f08
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 224e48bad96340554fa3667d990c29d681963109
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685700"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585994"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Creación de una aplicación de análisis en tienda en Azure IoT Central
 
@@ -64,7 +64,7 @@ Para crear una nueva aplicación de Azure IoT Central:
 
 Para crear una nueva aplicación de análisis en tienda de finalización de la compra:  
 
-1. Seleccione la plantilla de aplicación **In-store analytics - checkout** (Análisis en tienda: finalización de la compra). Esta plantilla incluye plantillas de dispositivo para todos los dispositivos usados en el tutorial, excepto los sensores RuuviTag. La plantilla también proporciona un panel del operador para la supervisión de la zona de cajas, las condiciones ambientales y el estado del dispositivo. 
+1. Seleccione la plantilla de aplicación **In-store analytics - checkout** (Análisis en tienda: finalización de la compra). Esta plantilla incluye plantillas de dispositivo para todos los dispositivos usados en el tutorial, excepto los sensores RuuviTag. La plantilla también proporciona un panel para la supervisión de la zona de cajas, las condiciones ambientales y el estado del dispositivo. 
 
 1. Opcionalmente, elija un valor descriptivo para **Application name** (Nombre de la aplicación). Esta aplicación se basa en una tienda al por menor ficticia llamada Contoso. El tutorial usa el **Nombre de aplicación** *Contoso checkout*. La plantilla de la aplicación se basa en la compañía ficticia Northwind. En este tutorial, usará Contoso para aprender a personalizar la aplicación.
 
@@ -155,11 +155,11 @@ Para agregar una plantilla de dispositivo RuuviTag a la aplicación:
 ## <a name="customize-device-templates"></a>Personalización de plantillas de dispositivo
 Puede personalizar las plantillas de dispositivo en la aplicación de tres maneras. En primer lugar, puede personalizar las interfaces nativas integradas en los dispositivos cambiando para ello las funcionalidades del dispositivo. Por ejemplo, con un sensor de temperatura, puede cambiar detalles como el nombre para mostrar de la interfaz de temperatura, el tipo de datos, las unidades de medida y los intervalos de funcionamiento mínimo y máximo. 
 
-En segundo lugar, puede personalizar las plantillas de dispositivo mediante la adición de propiedades en la nube. Las propiedades en la nube no forman parte de las funcionalidades integradas del dispositivo. Las propiedades en la nube son datos personalizados que la aplicación de Azure IoT Central crea, almacena y asocia a los dispositivos. Un ejemplo de una propiedad en la nube podría ser un valor calculado o metadatos, como una ubicación que desea asociar a un conjunto de dispositivos. 
+En segundo lugar, puede personalizar las plantillas de dispositivo mediante la adición de propiedades en la nube. Las propiedades en la nube no forman parte de las funcionalidades integradas del dispositivo. Las propiedades en la nube son datos personalizados que la aplicación de Azure IoT Central crea, almacena y asocia a los dispositivos. Un ejemplo de una propiedad en la nube podría ser un valor calculado o metadatos, como una ubicación que desea asociar a un conjunto de dispositivos.
 
 En tercer lugar, puede personalizar las plantillas de dispositivo mediante la creación de vistas personalizadas. Las vistas proporcionan una manera para que los operadores visualicen los datos de telemetría y los metadatos de los dispositivos, como las métricas del dispositivo y el estado.
 
-Aquí se usan los dos primeros métodos para personalizar la plantilla de dispositivo de los sensores RuuviTag. Para obtener información sobre la creación de vistas para los sensores, consulte la guía de inicio rápido [Adición de un dispositivo simulado a la aplicación de IoT Central](../core/quick-create-simulated-device.md).
+Aquí se usan los dos primeros métodos para personalizar la plantilla de dispositivo de los sensores RuuviTag.
 
 Para personalizar las interfaces integradas de la plantilla del dispositivo RuuviTag:
 
@@ -289,4 +289,4 @@ En este tutorial, ha aprendido a:
 Ahora que ha creado una aplicación de supervisión de las condiciones de Azure IoT Central, este es el siguiente paso sugerido:
 
 > [!div class="nextstepaction"]
-> [Personalización del panel del operador](./tutorial-in-store-analytics-customize-dashboard.md)
+> [Personalización del panel](./tutorial-in-store-analytics-customize-dashboard.md)
