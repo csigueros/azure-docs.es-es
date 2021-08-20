@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 55cd7c86ae4f0110618745459cea48abe5e144d0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 75b818382102642ecc8380b257c9c31382b8283d
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084581"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588424"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
 
@@ -30,8 +30,14 @@ Además de permitir que los dispositivos de nivel inferior se comuniquen con la 
 * Responder a las actualizaciones de propiedades de escritura que realiza un operador. Por ejemplo, un operador podría cambiar el intervalo de envío de datos de telemetría.
 * Responder a comandos como, por ejemplo, el reinicio del dispositivo.
 
+En este tutorial aprenderá a:
+
 > [!div class="checklist"]
-> Crear plantillas de dispositivo de bajada Crear una plantilla de dispositivo de puerta de enlace Publicar la plantilla de dispositivo Crear los dispositivos simulados
+>
+> * Creación de plantillas de dispositivo de nivel inferior
+> * Creación de una plantilla de dispositivo de puerta de enlace
+> * Publicación de la plantilla de dispositivo
+> * Creación de los dispositivos simulados
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -92,7 +98,6 @@ Para agregar una nueva plantilla de dispositivo de puerta de enlace a la aplicac
 
 1. Seleccione **Guardar**.
 
-
 ### <a name="add-relationships"></a>Adición de relaciones
 
 A continuación, agregue relaciones a las plantillas para las plantillas de dispositivo de nivel inferior:
@@ -129,7 +134,7 @@ Para agregar propiedades de la nube a la plantilla **Dispositivo de puerta de en
 Como desarrollador, puede personalizar la aplicación para mostrar información pertinente sobre el dispositivo sensor ambiental a un operador. Las personalizaciones permiten al operador administrar estos dispositivo conectados a la aplicación. Puede crear dos tipos de vistas para que un operador interactúe con los dispositivos:
 
 * Formularios para ver y editar las propiedades del dispositivo y la nube
-* Paneles para visualizar los dispositivos
+* Vistas para visualizar dispositivos.
 
 Para generar las vistas predeterminadas para la plantilla **Dispositivo de puerta de enlace de edificio inteligente**:
 
@@ -207,6 +212,33 @@ Los dispositivos simulados de nivel inferior ahora están ya conectados al dispo
 
 ![Vista Dispositivos de bajada](./media/tutorial-define-gateway-device-type/downstream-device-view.png)
 
+## <a name="connect-real-downstream-devices"></a>Conexión de dispositivos de bajada reales
+
+En el tutorial [Creación y conexión de una aplicación cliente a la aplicación de Azure IoT Central](tutorial-connect-device.md), el código de ejemplo muestra cómo incluir el identificador de modelo de la plantilla de dispositivo en la carga de aprovisionamiento que envía el dispositivo. El identificador del modelo de IoT Central asocia el dispositivo con la plantilla de dispositivo correcta. Por ejemplo:
+
+```python
+async def provision_device(provisioning_host, id_scope, registration_id, symmetric_key, model_id):
+  provisioning_device_client = ProvisioningDeviceClient.create_from_symmetric_key(
+    provisioning_host=provisioning_host,
+    registration_id=registration_id,
+    id_scope=id_scope,
+    symmetric_key=symmetric_key,
+  )
+
+  provisioning_device_client.provisioning_payload = {"modelId": model_id}
+  return await provisioning_device_client.register()
+```
+
+Al conectar un dispositivo de bajada, puede modificar la carga de aprovisionamiento para incluir el identificador del dispositivo de puerta de enlace. El identificador del modelo de IoT Central asocia el dispositivo con la plantilla de dispositivo de bajada correcta. El identificador de puerta de enlace permite que IoT Central establezca la relación entre el dispositivo de bajada y su puerta de enlace. En este caso, la carga de aprovisionamiento que envía el dispositivo es similar al siguiente JSON:
+
+```json
+{
+  "modelId": "dtmi:rigado:S1Sensor;2",
+  "iotcGateway":{
+    "iotcGatewayId": "gateway-device-001"
+  }
+}
+```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

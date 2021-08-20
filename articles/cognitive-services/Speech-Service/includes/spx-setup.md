@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 268f248c879d1a6872713159bfb1aa44879d21ad
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 364ceacaea122e7ffda58ef0c7d4db072c8fee13
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730373"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122263581"
 ---
 ## <a name="download-and-install"></a>Descargar e instalar
 
@@ -68,8 +68,11 @@ Escriba `spx` para ver la ayuda de la CLI de Voz.
 
 #### <a name="docker-install-windows-linux-macos"></a>[Instalación de Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 
-> [!WARNING]
+> [!IMPORTANT]
 > No puede usar el micrófono del equipo al ejecutar la CLI de Voz dentro de un contenedor de Docker. Sin embargo, puede leer y guardar archivos de audio en el directorio montado local. 
+
+> [!NOTE]
+> En el ejemplo siguiente se extrae una imagen de contenedor público de Docker Hub. Se recomienda autenticarse primero con la cuenta de Docker Hub (`docker login`) en lugar de realizar una solicitud de extracción anónima. Para mejorar la confiabilidad al usar contenido público, importe y administre la imagen en un registro de contenedor privado de Azure. [Más información sobre cómo trabajar con imágenes públicas](../../../container-registry/buffer-gate-public-content.md).
 
 Siga estos pasos para instalar la CLI de Voz en un contenedor de Docker:
 

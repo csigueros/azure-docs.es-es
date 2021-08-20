@@ -7,12 +7,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
-ms.openlocfilehash: 10ac677fb65428e8b8855c43b319bbebe7bbbb71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f429c6feda62c6572c25e4f8e2513123ff6ef03
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101701439"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287787"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de una función de Java con Visual Studio Code
 
@@ -27,10 +27,12 @@ ms.locfileid: "101701439"
 
 En este artículo se usa Visual Studio Code para crear una función de Java que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions.
 
-Este inicio rápido supone un pequeño costo en su cuenta de Azure.
+Si Visual Studio Code no es su herramienta de desarrollo preferida, consulte nuestros tutoriales análogos para desarrolladores de Java:
++ [Gradle](./functions-create-first-java-gradle.md)
++ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)
++ [Maven](create-first-function-cli-java.md)
 
-> [!NOTE]
-> Si Visual Studio Code no es su herramienta de desarrollo preferida, consulte nuestros tutoriales análogos para desarrolladores de Java con [Maven](create-first-function-cli-java.md), [Gradle](./functions-create-first-java-gradle.md) e [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
+Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 
 ## <a name="configure-your-environment"></a>Configurar su entorno
 
@@ -38,7 +40,7 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos:
 
 + Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Kit para desarrolladores de Java](/azure/developer/java/fundamentals/java-jdk-long-term-support), versión 8 u 11.
++ [Kit para desarrolladores de Java](/azure/developer/java/fundamentals/java-support-on-azure), versión 8 u 11.
 
 + [Apache Maven](https://maven.apache.org), versión 3.0 o posterior.
 
