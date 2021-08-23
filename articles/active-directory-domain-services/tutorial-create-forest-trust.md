@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/21/2021
+ms.date: 07/26/2021
 ms.author: justinha
-ms.openlocfilehash: e381c80dddc4484d541f5f81de6b5df712cff69b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 027217ab5963f084fca7678c9e51f7188d39a191
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673474"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707897"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutorial: Creación de una confianza de bosque de salida en un dominio local de Azure Active Directory Domain Services
 
@@ -51,7 +51,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-En este tutorial creará y configurará la confianza de bosque de salida de Azure AD DS mediante Azure Portal. Para empezar a trabajar, primero inicie sesión en [Azure Portal](https://portal.azure.com).
+En este tutorial creará y configurará la confianza de bosque de salida de Azure AD DS mediante Azure Portal. Para empezar a trabajar, primero inicie sesión en [Azure Portal](https://portal.azure.com). Se requieren permisos de administrador global para modificar una instancia de Azure AD DS. 
 
 ## <a name="networking-considerations"></a>Consideraciones sobre redes
 

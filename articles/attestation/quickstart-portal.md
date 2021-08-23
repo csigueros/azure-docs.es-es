@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d1310e3c4b4a56a27219cce613e8f6109d32c8c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6130b49244a0fe7f8cbe377706f45634efce3639
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729406"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220283"
 ---
 # <a name="quickstart-set-up-azure-attestation-by-using-the-azure-portal"></a>Inicio rápido: Configuración de Azure Attestation con Azure Portal
 
@@ -90,7 +90,7 @@ Siga los pasos de esta sección para ver, agregar y eliminar firmantes de direct
 1. Vaya al menú de Azure Portal o a la página principal y seleccione **Todos los recursos**.
 1. En el cuadro de filtro, escriba el nombre del proveedor de atestación.
 1. Seleccione el proveedor de atestación y vaya a la página de información general.
-1. Seleccione **Policy signer certificates** (Firmantes de directivas de atestación) en el menú de recursos del lado izquierdo de la ventana o del panel inferior. Verá un mensaje para seleccionar el certificado para la autenticación. Elija la opción adecuada para continuar.
+1. Seleccione **Policy signer certificates** (Firmantes de directivas de atestación) en el menú de recursos del lado izquierdo de la ventana o del panel inferior. Si ve una mensaje para seleccionar el certificado para la autenticación, haga clic en Cancelar o elija un certificado válido para continuar.
 1. Seleccione **Download policy signer certificates** (Descargar firmantes de directivas de atestación). El botón estará deshabilitado para los proveedores de atestación creados sin el requisito de firma de directivas.
 1. El archivo de texto descargado tendrá todos los certificados en formato JWS.
 1. Compruebe el número de certificados y los certificados descargados.
@@ -100,7 +100,7 @@ Siga los pasos de esta sección para ver, agregar y eliminar firmantes de direct
 1.  Vaya al menú de Azure Portal o a la página principal y seleccione **Todos los recursos**.
 1.  En el cuadro de filtro, escriba el nombre del proveedor de atestación.
 1.  Seleccione el proveedor de atestación y vaya a la página de información general.
-1.  Seleccione **Policy signer certificates** (Firmantes de directivas de atestación) en el menú de recursos del lado izquierdo de la ventana o del panel inferior.
+1.  Seleccione **Policy signer certificates** (Firmantes de directivas de atestación) en el menú de recursos del lado izquierdo de la ventana o del panel inferior. Si ve una mensaje para seleccionar el certificado para la autenticación, haga clic en Cancelar o elija un certificado válido para continuar.
 1.  Seleccione **Add** (Agregar) en el menú superior. El botón estará deshabilitado para los proveedores de atestación creados sin el requisito de firma de directivas.
 1.  Cargue el archivo del firmante de directivas de atestación y seleccione **Add** (Agregar). [Consulte los ejemplos de certificado de firma de directivas](./policy-signer-examples.md).
 
@@ -109,7 +109,7 @@ Siga los pasos de esta sección para ver, agregar y eliminar firmantes de direct
 1.  Vaya al menú de Azure Portal o a la página principal y seleccione **Todos los recursos**.
 1.  En el cuadro de filtro, escriba el nombre del proveedor de atestación.
 1.  Seleccione el proveedor de atestación y vaya a la página de información general.
-1.  Seleccione **Policy signer certificates** (Firmantes de directivas de atestación) en el menú de recursos del lado izquierdo de la ventana o del panel inferior.
+1.  Seleccione **Policy signer certificates** (Firmantes de directivas de atestación) en el menú de recursos del lado izquierdo de la ventana o del panel inferior. Si ve una mensaje para seleccionar el certificado para la autenticación, haga clic en Cancelar o elija un certificado válido para continuar.
 1.  Seleccione **Delete** (Eliminar) en el menú superior. El botón estará deshabilitado para los proveedores de atestación creados sin el requisito de firma de directivas.
 1.  Cargue el archivo del firmante de directivas de atestación y seleccione **Delete** (Eliminar). [Consulte los ejemplos de certificado de firma de directivas](./policy-signer-examples.md). 
 
@@ -122,7 +122,7 @@ En esta sección se describe cómo ver una directiva de atestación y cómo conf
 1.  Vaya al menú de Azure Portal o a la página principal y seleccione **Todos los recursos**.
 1.  En el cuadro de filtro, escriba el nombre del proveedor de atestación.
 1.  Seleccione el proveedor de atestación y vaya a la página de información general.
-1.  Seleccione **Directiva** en el menú de recursos del lado izquierdo de la ventana o en el panel inferior. Verá un mensaje para seleccionar el certificado para la autenticación. Elija la opción adecuada para continuar.
+1.  Seleccione **Directiva** en el menú de recursos del lado izquierdo de la ventana o en el panel inferior. Si ve una mensaje para seleccionar el certificado para la autenticación, haga clic en Cancelar o elija un certificado válido para continuar.
 1.  Seleccione el valor que prefiera para **Tipo de atestación** y visualice el campo **Directiva actual**.
 
 ### <a name="configure-an-attestation-policy"></a>Configuración de la directiva de atestación
@@ -132,7 +132,7 @@ Siga estos pasos para cargar una directiva en formato JWT o de texto si el prove
 1. Vaya al menú de Azure Portal o a la página principal y seleccione **Todos los recursos**.
 1. En el cuadro de filtro, escriba el nombre del proveedor de atestación.
 1. Seleccione el proveedor de atestación y vaya a la página de información general.
-1. Seleccione **Directiva** en el menú de recursos del lado izquierdo de la ventana o en el panel inferior.
+1. Seleccione **Directiva** en el menú de recursos del lado izquierdo de la ventana o en el panel inferior. Si ve una mensaje para seleccionar el certificado para la autenticación, haga clic en Cancelar o elija un certificado válido para continuar.
 1. En el menú superior, seleccione **Configurar**.
 1. En **Policy Format** (Formato de la directiva), seleccione **JWT** o **Texto**.
 

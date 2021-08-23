@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/25/2021
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 08868a6ab3a3755d7bc9c2e7af4ab6c9116831d0
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ac364950b78aeb61bd74fcc918a4dae2a31a6ffa
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791816"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690311"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Uso del cifrado dinámico de DRM y el servicio de entrega de licencias
 
@@ -58,9 +58,9 @@ Los siguientes elementos son necesarios para completar el tutorial:
 * Instalación de Visual Studio Code o Visual Studio.
 * Cree una cuenta de Azure Media Services tal como se describe en [este inicio rápido](./account-create-how-to.md).
 * Obtener las credenciales necesarias para usar las instancias de Media Services API siguiendo las instrucciones de [Acceso a API](./access-api-howto.md).
-* Establezca los valores adecuados en el archivo de configuración de la aplicación (appsettings.json).
+* Establezca los valores adecuados en el archivo de configuración de la aplicación (archivo appsettings.json o .env).
 
-## <a name="download-code"></a>Descarga de código
+## <a name="download-the-code-and-configure-the-sample"></a>Descarga del código y configuración del ejemplo
 
 Clone en la máquina un repositorio GitHub que contenga el ejemplo de .NET completo que se explica en este artículo, con el siguiente comando:
 
@@ -69,6 +69,8 @@ Clone en la máquina un repositorio GitHub que contenga el ejemplo de .NET compl
  ```
  
 El ejemplo "Encrypt with DRM" se encuentra en la carpeta [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM).
+
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 > [!NOTE]
 > En el ejemplo se crean recursos únicos cada vez que se ejecuta la aplicación. Normalmente, se volverán a usar los recursos existentes, como las transformaciones y las directivas (si los recursos existentes tienen las configuraciones necesarias).

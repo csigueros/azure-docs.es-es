@@ -5,13 +5,13 @@ author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: quickstart
-ms.date: 06/04/2021
-ms.openlocfilehash: d78b915fc9efffd52f31b75edcb35d91fb529e4a
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.date: 07/05/2021
+ms.openlocfilehash: 75b33003a62bd9a686ab8e0f2a8934333a4430ff
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113219796"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436989"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Inicio rápido: Uso de la herramienta Copy Data para copiar datos
 
@@ -55,9 +55,9 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 
 1. Seleccione **Crear**.
 
-1. Una vez completada la creación, verá la página **Data Factory**. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de interfaz de usuario de Azure Data Factory en una pestaña independiente.
+1. Una vez completada la creación, verá la página **Data Factory**. Seleccione **Abrir** en el icono **Abrir Azure Data Factory Studio** para iniciar la aplicación de interfaz de usuario (IU) de Azure Data Factory en una pestaña independiente.
    
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono de creación y supervisión":::
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono Abrir Azure Data Factory Studio.":::
     
 ## <a name="start-the-copy-data-tool"></a>Inicio de la herramienta Copy Data
 

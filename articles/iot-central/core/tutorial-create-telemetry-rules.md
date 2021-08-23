@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0d59f50d6fa4f21676cef01ffe0dde8ed1fa4441
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ce10143be81da9ad797ba0ccd68837b647aeb7a7
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768776"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301979"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Creación de una regla y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -29,13 +29,52 @@ En este tutorial, aprenderá a:
 > * Crear una regla
 > * Adición de una acción de correo electrónico
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, complete los inicios rápidos [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) y [Adición de un dispositivo simulado a una aplicación de IoT Central](./quick-create-simulated-device.md) para crear la plantilla de dispositivo **Sensor Controller** con la que va a trabajar.
+Para completar los pasos de este tutorial, necesitará lo siguiente:
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+
+## <a name="add-and-customize-a-device-template"></a>Incorporación y personalización de una plantilla de dispositivo
+
+Agregue una plantilla de dispositivo desde el catálogo de dispositivos. En este tutorial se usa la plantilla de dispositivo **ESP32-Azure IoT Kit**:
+
+1. Para agregar una nueva plantilla de dispositivo, seleccione **+ New** (+ Nuevo) en la página **Device templates** (Plantillas de dispositivo).
+
+1. En la página **Select type** (Seleccionar tipo), desplácese hacia abajo hasta que encuentre el icono de **ESP32-Azure IoT Kit** en la sección **Use a preconfigured device template** (Usar una plantilla de dispositivo preconfigurada).
+
+1. Seleccione el icono **ESP32-Azure IoT Kit** y **Next: Revisión**.
+
+1. En la página **Revisar**, seleccione **Crear**.
+
+El nombre de la plantilla que creó es **Sensor Controller**. El modelo incluye componentes como **Sensor Controller**, **SensorTemp** y **Device Information interface** (Interfaz de información del dispositivo). Los componentes definen las funcionalidades de un dispositivo ESP32, como la telemetría, las propiedades y los comandos.
+
+Agregue dos propiedades de la nube a la plantilla de dispositivo **Sensor Controller**:
+
+1. Seleccione **Cloud Properties** (Propiedades de la nube) y, luego, **+ Add cloud property** (+ Agregar propiedad de la nube). Use la información de la tabla siguiente para agregar dos propiedades de la nube a la plantilla de dispositivo:
+
+    | Display Name (Nombre para mostrar)      | Semantic Type (Tipo semántico) | Schema |
+    | ----------------- | ------------- | ------ |
+    | Fecha de la última revisión | None          | Date   |
+    | Nombre del cliente     | None          | String |
+
+1. Haga clic en **Guardar** para guardar los cambios.
+
+Agregue un nuevo formulario a la plantilla de dispositivo para administrar el dispositivo:
+
+1. Seleccione el nodo **Views** (Vistas) y, después, seleccione el icono **Editing device and cloud data** (Editar datos del dispositivo y de la nube) para agregar una vista.
+
+1. Cambie el nombre del formulario a **Manage device** (Administrar dispositivo).
+
+1. Seleccione las propiedades de la nube **Customer Name** (Nombre del cliente) y **Last Service Date** (Fecha de la última revisión), así como la propiedad **Target Temperature** (Temperatura objetivo). Después, seleccione **Add section** (Agregar sección).
+
+1. Seleccione **Save** (Guardar) para guardar la configuración.
+
+Ahora publique la plantilla de dispositivo.
 
 ## <a name="create-a-rule"></a>Crear una regla
 
-Para crear una regla de telemetría, la plantilla de dispositivo debe incluir al menos un valor de telemetría. En este tutorial se usa un dispositivo **Sensor Controller** simulado que envía datos de telemetría de temperatura y humedad. Ha agregado esta plantilla de dispositivo y creado un dispositivo simulado en el inicio rápido [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-simulated-device.md). La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 70 grados.
+Para crear una regla de telemetría, la plantilla de dispositivo debe incluir al menos un valor de telemetría. En este tutorial se usa un dispositivo **Sensor Controller** simulado que envía datos de telemetría de temperatura y humedad. La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 70 grados.
 
 > [!NOTE]
 > Hay un límite de 50 reglas por aplicación.
@@ -120,4 +159,4 @@ En este tutorial, ha aprendido a:
 Ahora que ha definido una regla basada en umbral, el siguiente paso que se recomienda dar es:
 
 > [!div class="nextstepaction"]
-> [Creación de webhooks en reglas](./howto-create-webhooks.md).
+> [Configuración de reglas](howto-configure-rules.md)

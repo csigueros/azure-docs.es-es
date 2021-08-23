@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 41b627259d84539c868f95eb3cf33db5dbdab52c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8562acbf0b7dc6cac0ef03e6d0ca41691f752cdf
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97862404"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729803"
 ---
 # <a name="introduction-to-azure-functions"></a>Introducción a Azure Functions
 
@@ -46,7 +46,7 @@ A continuación se incluye un conjunto de escenarios habituales de Azure Functio
 | **Procesar cargas de archivos** | Ejecute código cuando se cargue o se cambie un archivo en el [almacenamiento de blobs](./functions-bindings-storage-blob.md) |
 | **Compilar un flujo de trabajo sin servidor** | Encadene una serie de funciones mediante [Durable Functions](./durable/durable-functions-overview.md) |
 | **Responder a cambios en una base de datos** | Ejecute una lógica personalizada cuando se cree o actualice un documento en [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
-| **Ejecutar tareas programadas** | Ejecute código a [horas establecidas](./functions-bindings-timer.md) |
+| **Ejecutar tareas programadas** | Ejecución de código en [intervalos de tiempo predefinidos](./functions-bindings-timer.md) |
 | **Crear sistemas de cola de mensajes confiables** | Procese colas de mensajes mediante [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md) o [Event Hubs](./functions-bindings-event-hubs.md) |
 | **Analizar flujos de datos de IoT** | Recopile y procese [datos de dispositivos IoT](./functions-bindings-event-iot.md) |
 | **Procesar datos en tiempo real** | Use [Functions y SignalR](./functions-bindings-signalr-service.md) para responder a los datos en el momento. |

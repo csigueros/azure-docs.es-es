@@ -2,24 +2,22 @@
 title: 'Inicio rápido: Creación de una máquina virtual de computación confidencial de Azure en Azure Portal'
 description: Para empezar a trabajar con sus implementaciones, aprenda a crear rápidamente una máquina virtual de computación confidencial en Azure Portal.
 author: JBCook
-ms.author: JenCook
-ms.date: 04/23/2020
-ms.topic: quickstart
 ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.subservice: workloads
 ms.workload: infrastructure
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 1ae6631c3f6ee71d7a09832956c7e687ceca22b6
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.topic: quickstart
+ms.date: 06/13/2021
+ms.author: JenCook
+ms.openlocfilehash: 8fb93b7697e2dd9077995572fc91b6e82a7d8512
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819059"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107225"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Inicio rápido: Implementación de una máquina virtual de computación confidencial de Azure en Azure Portal
 
-Empiece a trabajar con la computación confidencial de Azure mediante Azure Portal para crear una máquina virtual con el respaldo de Intel SGX. A continuación, instalará el kit de desarrollo de software (SDK) de Open Enclave para configurar el entorno de desarrollo. 
+Empiece a trabajar con la computación confidencial de Azure mediante Azure Portal para crear una máquina virtual con el respaldo de Intel SGX. A continuación, podrá ejecutar aplicaciones de enclave.
 
 Se recomienda este tutorial si está interesado en implementar una máquina virtual de computación confidencial con una configuración personalizada. En caso contrario, le recomendamos que siga los [pasos de implementación de la máquina virtual de computación confidencial del marketplace comercial de Microsoft](quick-create-marketplace.md).
 
@@ -62,7 +60,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
 
 1. Configure la imagen del sistema operativo que le gustaría usar para la máquina virtual.
 
-    * **Elija una imagen**: en este tutorial, seleccione Ubuntu 18.04 LTS. También puede seleccionar Windows Server 2019, Windows Server 2016 y Ubuntu 20.04 LTS. Si decide hacerlo, se le proporcionará la información adecuada en este tutorial.
+    * **Elija una imagen**: en este tutorial, seleccione Ubuntu 18.04 LTS. También puede seleccionar Windows Server 2019, Windows Server 2016 y Ubuntu 16.04 LTS. Si decide hacerlo, se le proporcionará la información adecuada en este tutorial.
     
     * **Alterne la imagen de Gen 2**: las máquinas virtuales de computación confidencial solo se ejecutan en imágenes de la [Generación 2](../virtual-machines/generation-2.md). Asegúrese de que la imagen que selecciona es una imagen de esta generación. Haga clic en la pestaña **Avanzado** que está encima de donde está configurando la máquina virtual. Desplácese hacia abajo hasta que encuentre la sección denominada "Generación de VM". Seleccione Gen 2 y, a continuación, vuelva a la pestaña **Básico**.
     
@@ -79,7 +77,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
     ![Máquinas virtuales de la serie DCsv2](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > Debería ver los tamaños **DC1s_v2**, **DC2s_v2**, **DC4s_V2** y **DC8_v2**. Estos son los únicos tamaños de máquina virtual que admiten actualmente la computación confidencial de Intel SGX. [Más información](virtual-machine-solutions.md).
+    > Debería ver los tamaños **DC1s_v2**, **DC2s_v2**, **DC4s_V2** y **DC8_v2**. Estos son los únicos tamaños de máquina virtual que admiten actualmente la computación confidencial. [Más información](virtual-machine-solutions.md).
 
 1. Rellene la información siguiente:
 
@@ -94,7 +92,10 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
     
     * **Contraseña**: Si procede, escriba la contraseña para la autenticación.
 
-    * **Puertos de entrada públicos**: Elija **Permitir los puertos seleccionados** y seleccione **SSH (22)** y **HTTP (80)** en la lista **Seleccionar puertos de entrada públicos**. Si va a implementar una máquina virtual Windows, seleccione **HTTP (80)** y **RDP (3389)** . En este inicio rápido, este paso es necesario para conectarse a la máquina virtual y completar la configuración del SDK de Open Enclave. 
+    * **Puertos de entrada públicos**: Elija **Permitir los puertos seleccionados** y seleccione **SSH (22)** y **HTTP (80)** en la lista **Seleccionar puertos de entrada públicos**. Si va a implementar una máquina virtual Windows, seleccione **HTTP (80)** y **RDP (3389)** .  
+
+    >[!Note]
+    > No se recomienda permitir puertos RDP/SSH para implementaciones de producción.  
 
      ![Puertos de entrada](media/quick-create-portal/inbound-port-virtual-machine.png)
 
@@ -146,58 +147,16 @@ Para más información acerca de cómo conectarse a máquinas virtuales Linux, c
 > [!NOTE]
 > Si ve una alerta de seguridad de PuTTY que indique que la clave de host del servidor no se almacena en la caché del registro, elija entre las opciones siguientes. Si confía en este host, seleccione **Sí** para agregar la clave a la caché de PuTTY y siga conectándose. Si quiere conectarse solo una vez, sin agregar la clave a la caché, seleccione **No**. Si no confía en este host, seleccione **Cancelar** para abandonar la conexión.
 
-## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Instalación del SDK de Open enclave (SDK de OE) <a id="Install"></a>
+## <a name="intel-sgx-drivers"></a>Controladores de Intel SGX
+
+> [!NOTE]
+> Los controladores de Intel SGX que ya forman parte de las imágenes de la galería de Microsoft Azure y Ubuntu. No se requiere ninguna instalación especial de los controladores. Opcionalmente, también puede actualizar los controladores existentes incluidos en las imágenes mediante el examen de la [lista de controladores DCAP de Intel SGX](https://01.org/intel-software-guard-extensions/downloads).
+
+## <a name="optional-testing-enclave-apps-built-with-open-enclave-sdk-oe-sdk"></a>Opcional: prueba de aplicaciones de enclave creadas con el SDK de Open Enclave (SDK de OE) <a id="Install"></a>
 
 Siga las instrucciones detalladas para instalar el [SDK de OE](https://github.com/openenclave/openenclave) en la máquina virtual de la serie DCsv2 con una imagen de Ubuntu 18.04 LTS Gen 2. 
 
 Si la máquina virtual se ejecuta en Ubuntu 18.04 LTS Gen 2, deberá seguir las [instrucciones de instalación de Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md).
-
-#### <a name="1-configure-the-intel-and-microsoft-apt-repositories"></a>1. Configure los repositorios de Intel y Microsoft APT
-
-```bash
-echo 'deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic main' | sudo tee /etc/apt/sources.list.d/intel-sgx.list
-wget -qO - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | sudo apt-key add -
-
-echo "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-7 main" | sudo tee /etc/apt/sources.list.d/llvm-toolchain-bionic-7.list
-wget -qO - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-
-echo "deb [arch=amd64] https://packages.microsoft.com/ubuntu/18.04/prod bionic main" | sudo tee /etc/apt/sources.list.d/msprod.list
-wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-```
-
-#### <a name="2-install-the-intel-sgx-dcap-driver"></a>2. Instale el controlador Intel SGX DCAP
-Es posible que algunas versiones de Ubuntu ya tengan instalado el controlador Intel SGX. Puede comprobarlo con el comando siguiente: 
-
-```bash
-dmesg | grep -i sgx
-[  106.775199] sgx: intel_sgx: Intel SGX DCAP Driver {version}
-``` 
-Si la salida está en blanco, instale el controlador: 
-
-```bash
-sudo apt update
-sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.7/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.35.bin -O sgx_linux_x64_driver.bin
-chmod +x sgx_linux_x64_driver.bin
-sudo ./sgx_linux_x64_driver.bin
-```
-
-> [!WARNING]
-> Use el controlador Intel SGX DCAP más reciente del [sitio web de Intel SGX](https://01.org/intel-software-guard-extensions/downloads).
-
-#### <a name="3-install-the-intel-and-open-enclave-packages-and-dependencies"></a>3. Instale los paquetes y dependencias de Intel y Open Enclave
-
-
-```bash
-sudo apt -y install clang-8 libssl-dev gdb libsgx-enclave-common libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
-```
-
-> [!NOTE] 
-> En este paso también se instala el paquete [az-dcap-client](https://github.com/microsoft/azure-dcap-client), el cual es necesario para realizar la atestación remota en Azure.
-
-#### <a name="4-verify-the-open-enclave-sdk-install"></a>4. **Compruebe la instalación del SDK de Open Enclave**
-
-Consulte [Uso del SDK de Open Enclave](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Linux_using_oe_sdk.md) en GitHub para comprobar y usar el SDK instalado.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

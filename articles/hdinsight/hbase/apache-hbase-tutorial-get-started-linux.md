@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/22/2021
-ms.openlocfilehash: 89988579c847250938db71844b1bbafa4965e7df
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: fa1ac05766a95754631c5a6c78f80b9abdc4e3a7
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004572"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112573677"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Uso de Apache HBase in Azure HDInsight
 
@@ -209,7 +209,7 @@ Puede consultar datos en las tablas de HBase mediante [Apache Hive](https://hive
 No es necesario ejecutar la consulta de Hive para acceder a los datos de HBase desde el clúster de HBase. Cualquier clúster que incluya Hive (incluidos Spark, Hadoop, HBase o Interactive Query) se puede usar para consultar datos de HBase, siempre que se hayan completado los siguientes pasos:
 
 1. Ambos clústeres deben estar conectados a la misma red virtual y subred.
-2. Copie `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` desde los nodos principales del clúster de HBase a los nodos principales del clúster de Hive.
+2. Copie `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` desde los nodos principales del clúster de HBase a los nodos principales y de trabajo del clúster de Hive.
 
 ### <a name="secure-clusters"></a>Protección de los clústeres
 
@@ -217,7 +217,7 @@ También se pueden consultar los datos de HBase desde Hive mediante HBase habili
 
 1. Cuando se sigue un patrón de varios clústeres, ambos clústeres deben estar habilitados para ESP. 
 2. Para permitir que Hive consulte los datos de HBase, asegúrese de que el usuario `hive` tiene permisos para acceder a los datos de HBase mediante el complemento Apache Ranger de HBase.
-3. Cuando se usan clústeres independientes habilitados para ESP, el contenido del archivo `/etc/hosts` de los nodos principales del clúster de HBase se debe anexar al archivo `/etc/hosts` de los nodos principales del clúster de Hive. 
+3. Cuando se usan clústeres independientes habilitados para ESP, el contenido del archivo `/etc/hosts` de los nodos principales del clúster de HBase se debe anexar al archivo `/etc/hosts` de los nodos principales y de trabajo del clúster de Hive. 
 > [!NOTE]
 > Después de escalar los clústeres, se debe anexar de nuevo el archivo `/etc/hosts`.
 

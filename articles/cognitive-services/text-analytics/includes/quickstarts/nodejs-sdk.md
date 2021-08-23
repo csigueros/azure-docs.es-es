@@ -6,22 +6,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 07/15/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 98e8d7862f1270977ed3eb3ab71605e440d53520
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e58a42809933092499bbd7132c76c0a6e10f9971
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112083865"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593034"
 ---
 <a name="HOLTop"></a>
 
-# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
-[Documentación de referencia de v3](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-preview) | [Código fuente de la biblioteca v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Paquete v3 (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0-beta.6) | [Ejemplos de v3](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/ai-text-analytics_5.1.0-beta.6/sdk/textanalytics/ai-text-analytics/samples)
+[Documentación de referencia de v3](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-preview) | [Código fuente de la biblioteca v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Paquete v3 (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [Ejemplos de v3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples)
 
 
 # <a name="version-30"></a>[Versión 3.0](#tab/version-3)
@@ -59,12 +59,12 @@ npm init
 ```
 ### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
 
-# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 Instale los paquetes NPM `@azure/ai-text-analytics`:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0-beta.6
+npm install --save @azure/ai-text-analytics@5.1.0
 ```
 
 > [!TIP]
@@ -87,7 +87,7 @@ npm install --save @azure/ai-text-analytics@5.0.0
 el archivo `package.json` de la aplicación se actualizará con las dependencias.
 Cree un archivo llamado `index.js` y agregue los siguientes elementos:
 
-# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 ```javascript
 "use strict";
@@ -135,7 +135,7 @@ El objeto de respuesta es una lista que contiene la información de análisis pa
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 Cree un objeto `TextAnalyticsClient` con el punto de conexión y la clave como parámetros.
 
@@ -155,7 +155,7 @@ const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCrede
 
 ## <a name="sentiment-analysis"></a>análisis de opiniones
 
-# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `analyzeSentiment()` del cliente y obtenga el objeto `SentimentBatchResult` devuelto. Recorra en iteración la lista de resultados e imprima el identificador de cada documento y la opinión de nivel de documento con puntuaciones de confianza. El resultado contiene, para cada documento, un sentimiento de nivel de oración junto con las puntuaciones de desplazamientos, longitud y confianza.
 
@@ -251,7 +251,7 @@ ID: 0
 
 ## <a name="opinion-mining"></a>Minería de opiniones
 
-# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 Para realizar el análisis de sentimiento con la minería de opiniones, cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `analyzeSentiment()` del cliente con la marca de opción de adición `includeOpinionMining: true` y obtenga el objeto `SentimentBatchResult` devuelto. Recorra en iteración la lista de resultados e imprima el identificador de cada documento y la opinión de nivel de documento con puntuaciones de confianza. Para cada documento, el resultado contiene la opinión de nivel de oración, así como el aspecto y el sentimiento de nivel de opinión.
 
@@ -339,7 +339,7 @@ Esta característica no está disponible en la versión 3.0.
 
 ## <a name="language-detection"></a>Detección de idiomas
 
-# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `detectLanguage()` del cliente y obtenga el objeto `DetectLanguageResultCollection` devuelto. Luego, recorra en iteración los resultados e imprima el identificador de cada documento y el idioma principal respectivo.
 
@@ -401,7 +401,7 @@ ID: 0
 
 ## <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
 
-# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `recognizeEntities()` del cliente y obtenga el objeto `RecognizeEntitiesResult`. Recorra en iteración la lista de resultados e imprima el nombre, el tipo, el subtipo, el desplazamiento, la longitud y la puntuación de la entidad.
 
@@ -448,7 +448,7 @@ Document ID: 1
         Score: 0.25
 ```
 
-### <a name="personally-identifying-information-pii-recognition"></a>Reconocimiento de información de identificación personal (DCP)
+## <a name="personally-identifying-information-pii-recognition"></a>Reconocimiento de información de identificación personal (DCP)
 
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `recognizePiiEntities()` del cliente y obtenga el objeto `RecognizePIIEntitiesResult`. Recorra en iteración la lista de resultados e imprima el nombre, el tipo y la puntuación de la entidad.
 
@@ -538,7 +538,7 @@ Document ID: 1
 
 ## <a name="entity-linking"></a>Vinculación de entidad
 
-# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `recognizeLinkedEntities()` del cliente y obtenga el objeto `RecognizeLinkedEntitiesResult`. Recorra en iteración la lista de resultados e imprima el nombre, el identificador, el origen de datos, la dirección URL y las coincidencias de la entidad. Cada objeto de la matriz `matches` contendrá el desplazamiento, la longitud y la puntuación de esa coincidencia.
 
@@ -650,7 +650,7 @@ Document ID: 0
 
 ## <a name="key-phrase-extraction"></a>Extracción de la frase clave
 
-# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `extractKeyPhrases()` del cliente y obtenga el objeto `ExtractKeyPhrasesResult` devuelto. Itere los resultados e imprima el identificador de cada documento y todas las frases clave detectadas.
 
@@ -711,9 +711,97 @@ ID: 0
 
 ---
 
+## <a name="extract-health-entities"></a>Extracción de entidades de mantenimiento
+
+[!INCLUDE [health operation pricing](../health-operation-pricing-caution.md)]
+
+Puede usar Text Analytics para realizar una solicitud asincrónica para extraer entidades de atención sanitaria del texto. En el ejemplo siguiente se muestra un ejemplo básico. Puede encontrar un ejemplo más avanzado [en GitHub](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeHealthcareEntities.js).
+
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
+
+```javascript
+async function healthExample(client) {
+    console.log("== Recognize Healthcare Entities Sample ==");
+
+    const documents = [
+        "Prescribed 100mg ibuprofen, taken twice daily."
+      ];
+    const poller = await client.beginAnalyzeHealthcareEntities(documents, "en", {
+      includeStatistics: true
+    });
+  
+    poller.onProgress(() => {
+      console.log(
+        `Last time the operation was updated was on: ${poller.getOperationState().lastModifiedOn}`
+      );
+    });
+    console.log(
+      `The analyze healthcare entities operation was created on ${
+        poller.getOperationState().createdOn
+      }`
+    );
+    console.log(
+      `The analyze healthcare entities operation results will expire on ${
+        poller.getOperationState().expiresOn
+      }`
+    );
+  
+    const results = await poller.pollUntilDone();
+  
+    for await (const result of results) {
+      console.log(`- Document ${result.id}`);
+      if (!result.error) {
+        console.log("\tRecognized Entities:");
+        for (const entity of result.entities) {
+          console.log(`\t- Entity "${entity.text}" of type ${entity.category}`);
+        }
+        if (result.entityRelations && (result.entityRelations.length > 0)) {
+          console.log(`\tRecognized relations between entities:`);
+          for (const relation of result.entityRelations) {
+            console.log(
+              `\t\t- Relation of type ${relation.relationType} found between the following entities:`
+            );
+            for (const role of relation.roles) {
+              console.log(`\t\t\t- "${role.entity.text}" with the role ${role.name}`);
+            }
+          }
+        }
+      } else console.error("\tError:", result.error);
+    }
+  }
+  
+  healthExample(textAnalyticsClient).catch((err) => {
+    console.error("The sample encountered an error:", err);
+  });
+```
+
+### <a name="output"></a>Resultados
+
+```console
+- Document 0
+    Recognized Entities:
+    - Entity "100mg" of type Dosage
+    - Entity "ibuprofen" of type MedicationName
+    - Entity "twice daily" of type Frequency
+    Recognized relations between entities:
+        - Relation of type DosageOfMedication found between the following entities:   
+                - "100mg" with the role Dosage
+                - "ibuprofen" with the role Medication
+        - Relation of type FrequencyOfMedication found between the following entities:
+                - "ibuprofen" with the role Medication
+                - "twice daily" with the role Frequency
+```
+
+# <a name="version-30"></a>[Versión 3.0](#tab/version-3)
+
+Esta característica no está disponible en la versión 3.0.
+
+---
+
+
 ## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Uso de la API de forma asincrónica con la operación Analyze
 
-# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+# <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 Puede usar la operación Analyze para realizar solicitudes por lotes asincrónicas para: NER, extracción de frases clave, análisis de sentimiento y detección de información de identificación personal. En el ejemplo siguiente se muestra un ejemplo básico sobre una operación. Puede encontrar ejemplos más avanzados de [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeActions.js) y [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src/beginAnalyzeActions.ts) en GitHub.
 
@@ -723,55 +811,75 @@ Cree una nueva función llamada `analyze_example()`, que llame a la función `be
 
 ```javascript
 async function analyze_example(client) {
-  const documents = [
-    "Microsoft was founded by Bill Gates and Paul Allen.",
-  ];
+    const documents = [
+        "Microsoft was founded by Bill Gates and Paul Allen.",
+    ];
 
-  const actions = {
-    recognizeEntitiesActions: [{ modelVersion: "latest" }],
-  };
-  const poller = await client.beginAnalyzeActions(documents, actions, "en");
+    const actions = {
+        recognizeEntitiesActions: [{ modelVersion: "latest" }],
+        extractKeyPhrasesActions: [{ modelVersion: "latest" }]
+    };
+    const poller = await client.beginAnalyzeActions(documents, actions, "en");
 
-  console.log(
-    `The analyze batch actions operation was created on ${poller.getOperationState().createdOn}`
-  );
-  console.log(
-    `The analyze batch actions operation results will expire on ${
-      poller.getOperationState().expiresOn
-    }`
-  );
-  const resultPages = await poller.pollUntilDone();
-  for await (const page of resultPages) {
-    const entitiesAction = page.recognizeEntitiesResults[0];
-    if (!entitiesAction.error) {
-      for (const doc of entitiesAction.results) {
-        console.log(`- Document ${doc.id}`);
-        if (!doc.error) {
-          console.log("\tEntities:");
-          for (const entity of doc.entities) {
-            console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
-          }
-        } else {
-          console.error("\tError:", doc.error);
+    console.log(
+        `The analyze batch actions operation was created on ${poller.getOperationState().createdOn}`
+    );
+    console.log(
+        `The analyze batch actions operation results will expire on ${poller.getOperationState().expiresOn
+        }`
+    );
+    const resultPages = await poller.pollUntilDone();
+    for await (const page of resultPages) {
+        const entitiesAction = page.recognizeEntitiesResults[0];
+        if (!entitiesAction.error) {
+            for (const doc of entitiesAction.results) {
+                console.log(`- Document ${doc.id}`);
+                if (!doc.error) {
+                    console.log("\tEntities:");
+                    for (const entity of doc.entities) {
+                        console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
+                    }
+                } else {
+                    console.error("\tError:", doc.error);
+                }
+            }
         }
-      }
     }
-  }
+    for await (const page of resultPages) {
+        const keyPhrasesAction = page.extractKeyPhrasesResults[0];
+        if (!keyPhrasesAction.error) {
+            for (const doc of keyPhrasesAction.results) {
+                console.log(`- Document ${doc.id}`);
+                if (!doc.error) {
+                    console.log("\tKey phrases:");
+                    for (const phrase of doc.keyPhrases) {
+                        console.log(`\t- ${phrase}`);
+                    }
+                } else {
+                    console.error("\tError:", doc.error);
+                }
+            }
+        }
+    }
 }
-
-analyze_example(textAnalyticsClient);
+analyze_example(textAnalyticsClient)
 ```
 
 ### <a name="output"></a>Output
 
 ```console
-The analyze batch actions operation was created on Fri Mar 12 2021 09:53:49 GMT-0800 (Pacific Standard Time)
-The analyze batch actions operation results will expire on Sat Mar 13 2021 09:53:49 GMT-0800 (Pacific Standard Time)
+The analyze batch actions operation was created on Fri Jun 18 2021 12:34:52 GMT-0700 (Pacific Daylight Time)
+The analyze batch actions operation results will expire on Sat Jun 19 2021 12:34:52 GMT-0700 (Pacific Daylight Time)
 - Document 0
         Entities:
         - Entity Microsoft of type Organization
         - Entity Bill Gates of type Person
         - Entity Paul Allen of type Person
+- Document 0
+        Key phrases:
+        - Bill Gates
+        - Paul Allen
+        - Microsoft
 ```
 
 También puede usar la operación Analyze para ejecutar NER, la extracción de frases clave, el análisis de sentimiento y la detección de información de identificación personal. Consulte los ejemplos de Analyze para [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeActions.js) y [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) en GitHub.

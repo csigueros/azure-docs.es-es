@@ -2,38 +2,40 @@
 title: Emparejamiento de entornos locales con Azure VMware Solution
 description: Aprenda a emparejar ExpressRoute Global Reach con una nube privada en Azure VMware Solution.
 ms.topic: tutorial
-ms.custom: contperf-fy21q4
-ms.date: 05/14/2021
-ms.openlocfilehash: 2b2fdf739b8e690b3210e1ba975ef14125e51c11
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: contperf-fy22q1
+ms.date: 06/21/2021
+ms.openlocfilehash: 7e3542dbd91204688b39eddcdbdb5f374a1b35d2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110086867"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464520"
 ---
 # <a name="peer-on-premises-environments-to-azure-vmware-solution"></a>Emparejamiento de entornos locales con Azure VMware Solution
 
 En este paso del inicio rápido, conectará Azure VMware Solution a un entorno local. Global Reach de ExpressRoute conecta su entorno local y la nubes privada de Azure VMware Solution. La conexión de Global Reach de ExpressRoute se establece entre el circuito ExpressRoute de la nube privada y una conexión existente de ExpressRoute con los entornos locales. 
 
-
->[!NOTE]
->Puede conectarse mediante VPN, pero ese tema no se detalla en este documento de inicio rápido.
-
-En este tutorial se produce una conexión como se muestra en el diagrama.
-
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="Diagrama que muestra la conectividad de red local de ExpressRoute Global Reach." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
 
+>[!NOTE]
+>Puede conectarse mediante VPN, pero ese tema no se detalla en esta guía de inicio rápido.
 
-## <a name="before-you-begin"></a>Antes de empezar
-
-Antes de habilitar la conectividad entre dos circuitos ExpressRoute mediante Global Reach, consulte la documentación sobre cómo [habilitar la conectividad en distintas suscripciones de Azure](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+- Revise la documentación sobre cómo [habilitar la conectividad en distintas suscripciones de Azure](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  
 - Un circuito de ExpressRoute independiente y funcional utilizado para conectar entornos locales con Azure, que es el _circuito 1_ a efectos de emparejamiento.
 - Asegúrese de que todas las puertas de enlace, incluido el servicio del proveedor de ExpressRoute, admitan un número de sistema autónomo (ASN) de 4 bytes. Azure VMware Solution utiliza ASN públicos de 4 bytes para anunciar rutas.
 
+>[!NOTE]
+> Si anuncia una ruta predeterminada a Azure (0.0.0.0/0), asegúrese de que se anuncia una ruta más específica que contenga las redes locales además de la ruta predeterminada para habilitar el acceso de administración a AVS. La red de administración de Azure VMware Solution descartará una única ruta 0.0.0.0/0 para garantizar un funcionamiento correcto del servicio.
 
 ## <a name="create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit"></a>Creación de una clave de autorización de ExpressRoute en el circuito local de ExpressRoute
+
+El propietario del circuito crea una autorización, que crea una clave de autorización que puede usar un usuario del circuito para conectar sus puertas de enlace de red virtual al circuito ExpressRoute. Una autorización solo es válida para una conexión.
+
+> [!NOTE]
+> Cada conexión requiere una autorización independiente.
 
 1. En la hoja **Circuitos de ExpressRoute**, en Configuración, seleccione **Autorizaciones**.
 
@@ -43,7 +45,7 @@ Antes de habilitar la conectividad entre dos circuitos ExpressRoute mediante Glo
 
    Una vez creada, la nueva clave aparece en la lista de claves de autorización del circuito.
 
-1. Tome nota de la clave de autorización y el identificador de ExpressRoute. Los usará en el paso siguiente para completar el emparejamiento.
+1. Copie la clave de autorización y el identificador de ExpressRoute. Los usará en el paso siguiente para completar el emparejamiento.
 
 ## <a name="peer-private-cloud-to-on-premises"></a>Emparejamiento de una nube privada con el entorno local 
 Ahora que ha creado una clave de autorización para el circuito ExpressRoute de la nube privada, puede emparejarlo con el circuito ExpressRoute local. El emparejamiento se lleva a cabo desde el circuito local de ExpressRoute en **Azure Portal**. Utilizará el identificador de recurso (id. de circuito de ExpressRoute) y la clave de autorización del circuito ExpressRoute de la nube privada para finalizar el emparejamiento.
@@ -54,14 +56,14 @@ Ahora que ha creado una clave de autorización para el circuito ExpressRoute de 
 
 1. Escriba el identificador de ExpressRoute y la clave de autorización creada en la sección anterior.
 
-   :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo para especificar información de conexión.":::   
+   :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo para especificar la información de conexión.":::   
 
 1. Seleccione **Crear**. La nueva conexión se muestra en la lista de conexiones de la nube local.
 
 >[!TIP]
 >Para eliminar o desconectar una conexión de la lista, seleccione **Más**.  
 >
->:::image type="content" source="./media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Desconexión o eliminación de una conexión local":::
+>:::image type="content" source="./media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Captura de pantalla que muestra cómo desconectar o eliminar una conexión local en Azure VMware Solution.":::
 
 
 ## <a name="verify-on-premises-network-connectivity"></a>Comprobación de la conectividad de red local

@@ -2,18 +2,20 @@
 title: 'Tutorial: Configuración de redes para la nube privada de VMware en Azure'
 description: Aprenda a crear y configurar las redes necesarias para implementar una nube privada en Azure.
 ms.topic: tutorial
-ms.custom: contperf-fy21q4
+ms.custom: contperf-fy22q1
 ms.date: 04/23/2021
-ms.openlocfilehash: 13f74c6120bd78127a2989218b3d535989bb7861
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 10326a07e5838dd5fe2264029c857f5ad49f5811
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945703"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114442027"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutorial: Configuración de redes para la nube privada de VMware en Azure
 
-Una nube privada de Azure VMware Solution requiere una instancia de Azure Virtual Network. Dado que Azure VMware Solution no admite su instancia de vCenter local, se necesitan pasos adicionales para la integración con el entorno local. También es necesario configurar un circuito de ExpressRoute y una puerta de enlace de red virtual.
+Una nube privada de Azure VMware Solution requiere una instancia de Azure Virtual Network. Dado que Azure VMware Solution no admite su instancia de vCenter local, es preciso realizar varios pasos adicionales para la integración con el entorno local. También es necesario configurar un circuito de ExpressRoute y una puerta de enlace de red virtual.
+
+[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
 
 En este tutorial, aprenderá a:
 
@@ -46,7 +48,7 @@ En este tutorial, aprenderá a:
 
 1. Seleccione **Revisar + crear**.
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Seleccionar Revisar y crear." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Captura de pantalla que muestra la configuración de la nueva red virtual." border="true":::
 
 1. Compruebe la información y seleccione **Crear**. Una vez completada la implementación, verá la red virtual en el grupo de recursos.
 
@@ -62,7 +64,7 @@ Una vez creada una red virtual, creará una puerta de enlace de red virtual.
 
 1. En la pestaña Aspectos básicos de la página **Crear puerta de enlace de red virtual**, proporcione valores para los campos y seleccione **Revisar y crear**. 
 
-   | Campo | Valor |
+   | Campo | Value |
    | --- | --- |
    | **Suscripción** | Valor rellenado previamente con la suscripción a la que pertenece el grupo de recursos. |
    | **Grupos de recursos** | Valor rellenado previamente para el grupo de recursos actual. El valor debe ser el grupo de recursos que creó en una prueba anterior. |
@@ -74,7 +76,7 @@ Una vez creada una red virtual, creará una puerta de enlace de red virtual.
    | **Intervalo de direcciones de subred de puerta de enlace** | Este valor se rellena cuando se selecciona la red virtual. No cambie el valor predeterminado. |
    | **Dirección IP pública** | Seleccione **Crear nuevo**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Proporcione valores para los campos y, a continuación, seleccione Revisar y crear." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Captura de pantalla que muestra los detalles de la puerta de enlace de red virtual." border="true":::
 
 1. Compruebe que los detalles son correctos y seleccione **Crear** para iniciar la implementación de la puerta de enlace de red virtual. 
 1. Una vez finalizada la implementación, vaya a la siguiente sección para conectar ExpressRoute a la puerta de enlace de red virtual que contiene la nube privada de Azure VMware Solution.
@@ -99,4 +101,4 @@ En este tutorial, ha aprendido a:
 Continúe con el siguiente tutorial para aprender a crear los segmentos de red NSX-T que se usan para las máquinas virtuales en vCenter.
 
 > [!div class="nextstepaction"]
-> [Creación de segmentos de red de NSX-T](tutorial-nsx-t-network-segment.md)
+> [Creación de segmentos de red de NSX-T](./tutorial-nsx-t-network-segment.md)

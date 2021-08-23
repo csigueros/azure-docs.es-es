@@ -3,18 +3,18 @@ title: 'Tutorial: Migración de servicios web desde Google Maps | Microsoft Azu
 description: Tutorial sobre cómo migrar servicios web desde Google Maps a Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/19/2020
+ms.date: 06/23/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: caed40f91ef6a6c1e8bdb353c6548aee699dbc07
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: f1220d7368eb0bca48364dc239944a95d29be276
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110795435"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578890"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Tutorial: Migración de un servicio web desde Google Maps
 
@@ -60,7 +60,7 @@ Las siguientes API de servicio no están disponibles actualmente en Azure Maps:
 - Carreteras más cercanas: esto se puede conseguir mediante el SDK web, tal como se muestra [aquí](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic), pero no está disponible como servicio actualmente.
 - Vista de calle estática
 
-Azure Maps tiene varios servicios web REST extra que pueden ser de su interés:
+Azure Maps tiene otros servicios web REST que pueden ser de interés:
 
 - [Operaciones espaciales](/rest/api/maps/spatial): descargue operaciones y cálculos espaciales complejos (como geovallas) en un servicio.
 - [Tráfico](/rest/api/maps/traffic): acceda a datos de incidencias y de flujo circulatorio en tiempo real.
@@ -121,7 +121,7 @@ En esta tabla se establecen referencias cruzadas entre los parámetros de API de
 
 Consulte [Procedimientos recomendados de búsqueda](how-to-use-best-practices-for-search.md).
 
-La API de geocodificación inversa de Azure Maps tiene algunas características adicionales que no están disponibles en Google Maps. Estas características pueden ser útiles para realizar la integración con su aplicación cuando la migre:
+La API de geocodificación inversa de Azure Maps tiene otras características que no están disponibles en Google Maps. Estas características pueden ser útiles para realizar la integración con su aplicación cuando la migre:
 
 * Obtención de datos de límite de velocidad.
 * Obtención de información de uso de carreteras: comarcales, arterias, accesos limitados, rampas, etc.
@@ -203,7 +203,6 @@ El servicio de enrutamiento de Azure Maps proporciona las siguientes API para c
 
 - [**Calcular ruta**](/rest/api/maps/route/getroutedirections): calcula una ruta y la solicitud se procesa inmediatamente. Esta API admite solicitudes tanto GET como POST. Las solicitudes POST son recomendables cuando se especifica un gran número de puntos de referencia o se utilizan muchas opciones de ruta para garantizar que la solicitud de dirección URL no sea demasiado larga y provoque problemas. La dirección de la ruta POST de Azure Maps tiene una opción que puede tomar miles de [puntos de apoyo](/rest/api/maps/route/postroutedirections#supportingpoints) y los usa para volver a crear una ruta lógica entre ellos (ajustar a la carretera). 
 - [**Ruta por lotes**](/rest/api/maps/route/postroutedirectionsbatchpreview): cree una solicitud que contenga hasta 1000 solicitudes de ruta y procéselas durante un período de tiempo determinado. Todos los datos se procesarán en paralelo en el servidor y, cuando la operación se complete, puede descargar el conjunto de resultados completo.
-- [**Servicios Mobility (versión preliminar)** ](/rest/api/maps/mobility): calcule rutas y direcciones si usa transporte público.
 
 En la tabla se establecen referencias cruzadas entre los parámetros de API de Google Maps y los parámetros de API similares correspondientes de Azure Maps.
 
@@ -221,21 +220,19 @@ En la tabla se establecen referencias cruzadas entre los parámetros de API de G
 | `origin`                       | `query`                            |
 | `region`                       | *No procede*: esta característica está relacionada con la geocodificación. Use el parámetro *countrySet* al usar la API de geocodificación de Azure Maps)  |
 | `traffic_model`               | *No procede* (solo puede especificar si los datos de tráfico deben usarse con el parámetro *traffic*) |
-| `transit_mode`                | Consulte la [documentación del servicio Mobility (versión preliminar)](/rest/api/maps/mobility). |
-| `transit_routing_preference` | Consulte la [documentación del servicio Mobility (versión preliminar)](/rest/api/maps/mobility). |
 | `units`                        | *No procede* (Azure Maps usa exclusivamente el sistema métrico)  |
 | `waypoints`                    | `query`                            |
 
 > [!TIP]
 > De forma predeterminada, la API de rutas de Azure Maps solo devuelve un resumen. Devuelve la distancia, el tiempo y las coordenadas de la trayectoria de la ruta. Use el parámetro `instructionsType` para obtener instrucciones paso a paso. Use también el parámetro `routeRepresentation` para filtrar el resumen y la trayectoria de la ruta.
 
-La API de rutas de Azure Maps tiene características adicionales que no están disponibles en Google Maps. Al migrar la aplicación, considere la posibilidad de usar estas características, que podrían ser de utilidad.
+La API de rutas de Azure Maps tiene otras características que no están disponibles en Google Maps. Al migrar la aplicación, considere la posibilidad de usar estas características, que podrían ser de utilidad.
 
 * Compatibilidad con el tipo de ruta: la más corta, la más rápida y la de mayor ahorro de combustible.
-* Compatibilidad con más modos de desplazamiento: autobús, motocicleta, taxi, camión y furgoneta.
+* Compatibilidad con más medios de desplazamiento: autobús, motocicleta, taxi, camión y furgoneta.
 * Compatibilidad con 150 puntos de referencia.
 * Cálculo de varias duraciones de recorrido en una misma solicitud; tráfico histórico, tráfico en directo, sin tráfico.
-* Posibilidad de descartar otros tipos de carreteras: transporte compartido, carreteras sin asfaltar, caminos ya usados.
+* Posibilidad de evitar otros tipos de carreteras: carreteras para vehículos de uso compartido, carreteras sin asfaltar, carreteras que ya se han usado.
 * Especificación de las áreas personalizadas que deben evitarse.
 * Limite la elevación a la que puede ascender la ruta.
 * Ruta basada en especificaciones del motor. Cálculo de rutas para vehículos eléctricos o de combustión en función de la carga o el combustible que queda y de las especificaciones del motor.
@@ -294,7 +291,7 @@ Agregue marcadores mediante el parámetro `markers` en la dirección URL. El par
 &markers=markerStyles|markerLocation1|markerLocation2|...
 ```
 
-Para agregar estilos adicionales, use los parámetros `markers` en la dirección URL con diferentes estilos y conjuntos de ubicaciones.
+Para agregar otros estilos, use los parámetros `markers` en la dirección URL con diferentes estilos y conjuntos de ubicaciones.
 
 Especifique las ubicaciones de los marcadores con el formato "latitud,longitud".
 
@@ -325,7 +322,7 @@ Para agregar marcadores a una imagen de mapa estático, especifique el parámetr
 &pins=iconType|pinStyles||pinLocation1|pinLocation2|...
 ```
 
-Para usar estilos adicionales, agregue parámetros `pins` en la dirección URL con diferentes estilos y conjuntos de ubicaciones.
+Para usar otros estilos adicionales, agregue más parámetros `pins` en la dirección URL con diferentes estilos y conjuntos de ubicaciones.
 
 En Azure Maps, la ubicación de la chincheta debe tener el formato "longitud latitud". Google Maps usa el formato "latitud,longitud". En el formato de Azure Maps, la longitud y la latitud se separan con un espacio, no con una coma.
 
@@ -375,7 +372,7 @@ Agregue líneas y polígonos a una imagen de mapa estático con el parámetro `p
 &path=pathStyles|pathLocation1|pathLocation2|...
 ```
 
-Para usar estilos adicionales, agregue parámetros `path` en la dirección URL con diferentes estilos y conjuntos de ubicaciones.
+Para usar otros estilos, agregue otros parámetros `path` a la dirección URL con diferentes estilos y conjuntos de ubicaciones.
 
 Las ubicaciones de la ruta se especifican con el formato `latitude1,longitude1|latitude2,longitude2|…`. Las rutas se pueden codificar o contener direcciones de puntos.
 
@@ -402,7 +399,7 @@ Para agregar líneas y polígonos a una imagen de mapa estático, especifique el
 &path=pathStyles||pathLocation1|pathLocation2|...
 ```
 
-En cuanto a las ubicaciones de la ruta, Azure Maps requiere que las coordenadas estén en formato "longitud latitud". Google Maps usa el formato "latitud,longitud". En el formato de Azure Maps, la longitud y la latitud se separan con un espacio, no con una coma. Azure Maps no admite rutas de acceso codificadas ni direcciones de puntos. Se pueden cargar conjuntos de datos más grandes, como un archivo GeoJSON, en la API de almacenamiento de datos de Azure Maps, tal y como se documenta [aquí](how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+En cuanto a las ubicaciones de la ruta, Azure Maps requiere que las coordenadas estén en formato "longitud latitud". Google Maps usa el formato "latitud,longitud". En el formato de Azure Maps, la longitud y la latitud se separan con un espacio, no con una coma. Azure Maps no admite rutas de acceso codificadas ni direcciones de puntos. Se pueden cargar conjuntos de datos más grandes, como un archivo GeoJSON, en la API de almacenamiento de datos de Azure Maps, tal y como se documenta [aquí](how-to-render-custom-data.md#upload-pins-and-path-data).
 
 Agregue estilos de ruta con el formato `optionNameValue`. Separe los distintos estilos con caracteres de barra vertical (\|), de esta manera: `optionName1Value1|optionName2Value2`. Los nombres y valores de las opciones no están separados. Use los siguientes nombres de opción de estilo para aplicar estilo a las rutas de Azure Maps:
 
@@ -468,7 +465,7 @@ En esta tabla se establecen referencias cruzadas entre los parámetros de API de
 | `location`                  | `query`             |
 | `timestamp`                 | `timeStamp`         |
 
-Además de esta API, Azure Maps proporciona varias API de zona horaria. Estas API convierten la hora en función de los nombres o los identificadores de la zona horaria:
+Además de esta API, Azure Maps proporciona muchas API de zona horaria. Estas API convierten la hora en función de los nombres o los identificadores de la zona horaria:
 
 - [**Zona horaria por identificador**](/rest/api/maps/timezone/gettimezonebyid): devuelve la información de zona horaria actual, histórica y futura relativa al identificador de zona horaria de IANA especificado.
 - [**Enumeración de zonas horarias, IANA**](/rest/api/maps/timezone/gettimezoneenumiana): devuelve una lista completa de los identificadores de zona horaria de IANA. Las actualizaciones del servicio IANA se reflejan en el sistema en el plazo de un día.

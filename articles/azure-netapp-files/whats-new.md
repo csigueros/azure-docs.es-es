@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/14/2021
+ms.date: 07/12/2021
 ms.author: b-juche
-ms.openlocfilehash: 768b2f4a9b993e4824fbcebe7a96d7f62a90c934
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a50b8eee5a45fdd496aa0e063272c1c32cf0e5a7
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078319"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113664456"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novedades de Azure NetApp Files
 
@@ -29,15 +29,13 @@ Azure NetApp Files se actualiza periódicamente. En este artículo se proporcion
 
 * [Complementos del servicio de almacenamiento de Azure NetApp Files](storage-service-add-ons.md)
 
-    La nueva opción de menú de **complementos del servicio de almacenamiento de Azure NetApp Files** proporciona un "panel de inicio" de Azure Portal para complementos de ecosistemas de terceros compatibles con el servicio de almacenamiento de Azure NetApp Files. Con esta nueva opción de menú del portal, puede entrar en una página de aterrizaje haciendo clic en un icono de complemento para acceder rápidamente al complemento.  
+    La nueva opción de menú **Storage service add-ons** (Complementos del servicio de almacenamiento) de Azure NetApp Files proporciona un "panel de inicio" de Azure Portal para complementos de ecosistemas de terceros disponibles con el servicio de almacenamiento de Azure NetApp Files. Con esta nueva opción de menú del portal, puede entrar en una página de aterrizaje haciendo clic en un icono de complemento para acceder rápidamente al complemento.  
 
     Los **complementos de NetApp** son la primera categoría de complementos que se presentan en **Storage service add-ons** (Complementos del servicio de almacenamiento). Esta categoría proporcionan acceso a **NetApp Cloud Compliance**. Al hacer clic en **NetApp Cloud Compliance**, se abre un nuevo explorador que le dirige a la página de instalación del complemento. 
 
-* Características ahora disponibles con carácter general (GA)   
+* [Grupo de capacidad de QoS manual](manual-qos-capacity-pool-introduction.md) disponible ahora con carácter general (GA)   
 
-    Las siguientes características de Azure NetApp Files ahora están disponibles con carácter general. Ya no es necesario registrarlas antes de usarlas:
-    * [Directiva de instantáneas](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
-    * [Grupo de capacidad de QoS manual](manual-qos-capacity-pool-introduction.md)
+    La característica del grupo de capacidad de QoS manual ya está disponible con carácter general. Ya no es necesario registrar la característica antes de usarla. 
 
 * [Compatibilidad de AD compartido en varias cuentas con una instancia de Active Directory por región y suscripción](create-active-directory-connections.md#shared_ad) (versión preliminar)   
 

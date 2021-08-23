@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7a095cee6b2af93358b0e76c39cfc0c04ad454fa
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ae8016251926e8afab10f1bccee8f53e204c7a7a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408054"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461115"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Inicio de sesión de usuarios y llamada a una API protegida desde una aplicación WebAssembly de Blazor
 
@@ -44,12 +44,14 @@ Todas las aplicaciones que utilizan Azure Active Directory (Azure AD) para la au
 
 Una vez que se haya registrado, en **Administrar**, seleccione **Autenticación** > **Implicit grant and hybrid flows** (Concesión implícita y flujos híbridos). Seleccione **Tokens de acceso** y **Tokens de id.** , y haga clic en **Guardar**.
 
+> Nota: Si usa .NET 6, o cualquier versión posterior, no es necesario usar la concesión implícita. La plantilla más reciente usa MSAL Browser 2.0 y admite Auth Code Flow con PKCE
+
 ## <a name="create-the-app-using-the-net-core-cli"></a>Creación de la aplicación mediante la CLI de .NET Core
 
 Para crear la aplicación, necesita las plantillas de Blazor más recientes. Puede instalarlas para la CLI de .NET Core con el siguiente comando:
 
 ```dotnetcli
-dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.6.0
+dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.9.1
 ```
 
 Después, ejecute el siguiente comando para crear la aplicación. Reemplace los marcadores de posición del comando por la información adecuada de la página de información general de la aplicación y ejecute el comando en un shell de comandos. La ubicación de salida especificada con la opción `-o|--output` crea una carpeta de proyecto si no existe y se convierte en parte del nombre de la aplicación.

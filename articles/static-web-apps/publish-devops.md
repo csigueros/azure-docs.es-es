@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: 393b8857b3602d914143787cc9ea46074ff59c05
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 17a41bd64f1bba4a5ae4d6d9d497c03afae037e7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813909"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444233"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutorial: Publicación de aplicaciones web estáticas de Azure con Azure DevOps
 
@@ -21,20 +21,21 @@ En este artículo se muestra cómo implementar [aplicaciones web estáticas de A
 En este tutorial, aprenderá a:
 
 - Configurar un sitio de Azure Static Web Apps
-- Crear una canalización de Azure DevOps para crear y publicar una aplicación web estática
+- Crear una canalización de Azure Pipeline para compilar y publicar una aplicación web estática
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Una **cuenta activa de Azure**: en caso de no tener una, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/).
-- Un **proyecto de Azure DevOps:** si no tiene uno, puede [crear un proyecto de forma gratuita](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
-- Una **canalización de Azure DevOps:** si necesita ayuda para comenzar, consulte [Creación de la primera canalización](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops).
+- Un **proyecto de Azure DevOps:** si no tiene ninguno, puede [crear un proyecto de forma gratuita](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
+  - Azure DevOps incluye **Azure Pipelines**. Si necesita ayuda para comenzar a usar Azure Pipelines, consulte [Creación de la primera canalización](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops).
+  - Actualmente, la tarea de canalización de aplicaciones web estáticas solo funciona en máquinas **Linux**. Al ejecutar la canalización mencionada a continuación, asegúrese de que se ejecuta en una máquina virtual Linux.
 
-## <a name="create-a-static-web-app-in-an-azure-devops-repository"></a>Creación de una aplicación web estática en un repositorio de Azure DevOps
+## <a name="create-a-static-web-app-in-an-azure-devops"></a>Creación de una aplicación web estática en Azure DevOps
 
   > [!NOTE]
   > Si tiene una aplicación existente en el repositorio, puede ir directamente a la sección siguiente.
 
-1. Vaya al repositorio de Azure DevOps.
+1. Vaya al repositorio en Azure Repos.
 
 1. Seleccione **Importar** para iniciar la importación de una aplicación de ejemplo.
   
@@ -56,7 +57,7 @@ En este tutorial, aprenderá a:
 
 1. Seleccione **Crear**.
 
-1. En _Detalles de la implementación_, asegúrese de que selecciona **Otro**. Esto le permite usar el código en el repositorio de Azure DevOps.
+1. En _Detalles de la implementación_, asegúrese de que selecciona **Otro**. Esto le permite usar el código en Azure Repos.
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Detalles de la implementación - Otro":::
 
@@ -73,7 +74,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="create-the-pipeline-task-in-azure-devops"></a>Creación de la tarea de canalización de Azure DevOps
 
-1. Vaya al repositorio de Azure DevOps que se creó anteriormente.
+1. Vaya al repositorio de Azure Repos que se creó anteriormente.
 
 1. Seleccione **Configurar la compilación**.
 
@@ -87,7 +88,7 @@ En este tutorial, aprenderá a:
 
     ```yaml
     trigger:
-    - main
+      - main
 
     pool:
       vmImage: ubuntu-latest
@@ -100,7 +101,6 @@ En este tutorial, aprenderá a:
           app_location: '/'
           api_location: 'api'
           output_location: ''
-        env:
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 

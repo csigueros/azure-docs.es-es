@@ -2,18 +2,18 @@
 title: 'Azure Portal: Restricción del acceso para importar o exportar discos administrados con instancias de Private Link'
 description: Habilite instancias de Private Link para los discos administrados con Azure Portal. Permite exportar e importar discos de forma segura dentro de una red virtual.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 07/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: b686eac137a0531befea6fe42c31112c46b18cc9
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: af8b44cbd229fc2bdf28d2885356e219b3a8198a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028656"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114288311"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Use Azure Portal para restringir el acceso de importación y exportación para discos administrados con Private Links
 
@@ -60,13 +60,13 @@ Ahora que tiene un recurso de acceso a disco, puede usarlo para controlar el acc
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Captura de pantalla del flujo de trabajo de creación del punto de conexión privado, primera hoja. Si no selecciona la región adecuada, puede tener problemas más adelante.":::
 
-1. En la hoja **Recurso**, seleccione **Conectarse a un recurso de Azure en mi directorio**.
+1. En el panel **Recurso**, seleccione **Conectarse a un recurso de Azure en mi directorio**.
 1. En **Tipo de recurso**, seleccione **Microsoft.Compute/diskAccesses**.
 1. En **Recurso**, seleccione el recurso de acceso a disco que creó anteriormente.
 1. Deje el campo **Subrecurso de destino** como **discos**.
 1. Seleccione **Siguiente: Configuración >** .
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Captura de pantalla del flujo de trabajo de creación del punto de conexión privado, segunda hoja. Con todos los valores resaltados (tipo de recurso, recurso, subrecurso de destino).":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Captura de pantalla del flujo de trabajo de creación del punto de conexión privado, segundo panel. Con todos los valores resaltados (tipo de recurso, recurso, subrecurso de destino).":::
 
 1. Seleccione la red virtual a la que desea limitar la exportación del disco; otras redes virtuales no podrán exportar el disco.
 
@@ -76,7 +76,7 @@ Ahora que tiene un recurso de acceso a disco, puede usarlo para controlar el acc
 1. Seleccione la subred adecuada.
 1. Seleccione **Revisar + crear**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Captura de pantalla del flujo de trabajo de creación del punto de conexión privado, tercera hoja. Red virtual y subred resaltada.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Captura de pantalla del flujo de trabajo de creación del punto de conexión privado, tercer panel. Red virtual y subred resaltada.":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Habilitación del punto de conexión privado en el disco
 
@@ -85,11 +85,13 @@ Ahora que tiene un recurso de acceso a disco, puede usarlo para controlar el acc
 1. Seleccione **Punto de conexión privado (mediante acceso al disco)** y seleccione el acceso a disco que creó anteriormente.
 1. Seleccione **Guardar**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Captura de pantalla de la hoja Redes del disco administrado. Resaltado de la selección del punto de conexión privado, así como el acceso a disco seleccionado. Al guardar, se configura el disco para este acceso.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Captura de pantalla del panel Redes del disco administrado. Resaltado de la selección del punto de conexión privado, así como el acceso a disco seleccionado. Al guardar, se configura el disco para este acceso.":::
 
 Ya ha completado la configuración de los vínculos privados que puede usar al importar o exportar el disco administrado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Carga de un disco duro virtual en Azure o copia de un disco administrado en otra región: la [CLI de Azure](linux/disks-upload-vhd-to-managed-disk-cli.md) o el [módulo de Azure PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md)
+- Descarga de un disco duro virtual [Windows](windows/download-vhd.md) o [Linux](linux/download-vhd.md)
 - [Preguntas más frecuentes sobre vínculos privados](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento en otra región con PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

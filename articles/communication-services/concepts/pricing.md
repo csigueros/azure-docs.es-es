@@ -6,15 +6,15 @@ author: nmurav
 manager: nmurav
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 038b4df78ca7f10b0ec0e9dfe224f6aca2430e82
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: ba47fd528882e1d7de45470f00316c57b966ddb5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986307"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762873"
 ---
 # <a name="pricing-scenarios"></a>Escenarios de precios
 
@@ -26,7 +26,7 @@ Azure Communication Services permite agregar llamadas de voz o vídeo a las apli
 
 ### <a name="pricing"></a>Precios
 
-Los servicios de llamadas y uso compartido de pantalla se cobran por minuto a cada participante con un costo de 0,004 USD por participante por minuto para las llamadas de grupo. Para más información sobre los distintos flujos de llamada posibles, consulte [esta página](./call-flows.md).
+Los servicios de llamadas y uso compartido de pantalla se cobran por minuto a cada participante con un costo de 0,004 USD por participante por minuto para las llamadas de grupo. Azure Communication Services no cobra por la salida de datos. Para más información sobre los distintos flujos de llamada posibles, consulte [esta página](./call-flows.md).
 
 Cada participante de la llamada se contará en la facturación por cada minuto que esté conectado a la llamada. Este principio se aplica independientemente de si el usuario está realizando llamadas por vídeo o voz, o si está compartiendo su pantalla.
 
@@ -58,12 +58,31 @@ Alice hace una llamada RTC desde una aplicación a Bob en su número de teléfon
 - Un participante en el tramo VoIP (Alice) de la aplicación a los servidores de Communication Services x 10 minutos x 0,004 USD por tramo de participante por minuto = 0,04 USD
 - Un participante en el tramo saliente PSTN (Bob) de los servidores de Communication Services a un número de teléfono de EE. UU. x 10 minutos x 0,013 USD por tramo de participante por minuto = 0,13 USD.
 
-Nota: las tarifas mixtas de Estados Unidos a `+1-425` es 0,013 USD. Consulte el vínculo siguiente para más detalles: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+> [!Note]
+> La tarifa mixta de Estados Unidos a `+1-425` es 0,013 USD. Consulte el vínculo siguiente para más detalles: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
 
 **Costo total de la llamada**: 0,04 USD + 0,13 USD = 0,17 USD
 
+### <a name="pricing-example-outbound-call-from-app-using-js-sdk-via-azure-communication-services-direct-routing"></a>Ejemplo de precios: llamada saliente de la aplicación con el SDK de JS mediante enrutamiento directo de Azure Communication Services
 
-### <a name="pricing-example-group-audio-call-using-js-sdk-and-1-pstn-leg"></a>Ejemplo de precios: llamada de audio de grupo mediante el SDK para JS y un tramo de PSTN
+Alice realiza una llamada saliente desde una aplicación de Azure Communication Services a un número de teléfono (Bob) mediante el enrutamiento directo de Azure Communication Services.
+- Alice usó el SDK para JS para compilar la aplicación.
+- La llamada va a un controlador de límites de sesión (SBC) conectado mediante el enrutamiento directo de Communication Services
+- La llamada dura un total de 10 minutos. 
+
+**Cálculos de costos**
+
+- Un participante en el tramo VoIP (Alice) de la aplicación a los servidores de Communication Services x 10 minutos x 0,004 USD por tramo de participante por minuto = 0,04 USD
+- Un participante en el tramo saliente del enrutamiento directo de Communication Services (Bob) desde los servidores de Communication Services a un SBC x 10 minutos x 0,004 USD por tramo de participante por minuto = 0,04 USD.
+
+**Costo total de la llamada**: 0,04 USD + 0,04 USD = 0,08 USD
+
+> [!Note]
+> El tramo de enrutamiento directo de Azure Communication Services es gratis hasta el 01/08/2021.
+
+
+### <a name="pricing-example-group-audio-call-using-js-sdk-and-one-pstn-leg"></a>Ejemplo de precios: llamada de audio de grupo mediante el SDK para JS y un tramo de PSTN
 
 Alice y Bob se encuentran en una llamada de VOIP. Bob escaló la llamada a Charlie en el número PSTN de Charlie, un número de teléfono de EE. UU. que comienza por `+1-425`.
 

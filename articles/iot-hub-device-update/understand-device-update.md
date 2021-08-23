@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 994dc02b0d61eff715b1368e8ea7bd592cc79d70
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 69bc44fcffd760b0c98264c43c02f8dfffd8b853
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133644"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448467"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Introducción a Device Update para IoT Hub (versión preliminar)
 

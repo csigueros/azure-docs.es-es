@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 06/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 8c1c0131a2771c843cbd636c4a80a8cb7e4d6c08
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65c743f57b715b2be89e6c5d627571b9597b8c83
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649407"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552989"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibmid"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con IBMid
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar IBMid con Azure Active Directory (Azure�
 * Permitir que los usuarios puedan iniciar sesión automáticamente en IBMid con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -38,9 +38,12 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * IBMid admite el inicio de sesión único iniciado por **SP e IDP**.
-* IBMid admite el aprovisionamiento de usuarios **Just-In-Time**
+* IBMid admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-ibmid-from-the-gallery"></a>Incorporación de IBMid desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
+## <a name="add-ibmid-from-the-gallery"></a>Incorporación de IBMid desde la galería
 
 Para configurar la integración de IBMid en Azure AD, deberá agregar IBMid desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -50,7 +53,6 @@ Para configurar la integración de IBMid en Azure AD, deberá agregar IBMid des
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **IBMid** en el cuadro de búsqueda.
 1. Seleccione **IBMid** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-ibmid"></a>Configuración y prueba del inicio de sesión único de Azure AD para IBMid
 
@@ -75,30 +77,31 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Identificador**, escriba una de las siguientes direcciones URL:
 
     | Identificador |
     | ---------- |
-    | `https://idaas.iam.ibm.com/idaas/mtfim/sps/idaas/saml20` |
+    | Producción: |
     | `https://ibmlogin.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
+    | Preproducción: |
     | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
     |
 
-    a. En el cuadro de texto **URL de respuesta**, escriba una de las siguientes direcciones URL:
+    b. En el cuadro de texto **URL de respuesta**, escriba una de las siguientes direcciones URL:
 
     | URL de respuesta |
     | ---------- |
-    | `https://idaas.iam.ibm.com/idaas/mtfim/sps/idaas/saml20/login` |
+    | Producción: |
     | `https://login.ibm.com/saml/sps/saml20sp/saml20/login` |
+    | Preproducción: |
     | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20/login` |
     |
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
     En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://myibm.ibm.com/`
-
 
 1. Haga clic en **Save**(Guardar).
 
@@ -168,7 +171,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 
-* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de IBMid para la que ha configurado el inicio de sesión único. 
+* Haga clic en **Probar esta aplicación** en Azure Portal; se debería iniciar sesión automáticamente en la instancia de IBMid para la que ha configurado el inicio de sesión único. 
 
 También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de IBMid en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de IBMid para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 

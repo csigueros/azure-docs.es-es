@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 03/30/2021
+ms.date: 06/21/2021
 ms.author: pafarley
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: 6e4be05d6b1c930c66c775d7b3c893e5bad4da7e
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: eb7aba4367b7f8ce54141613e0d1f52ded1c26bb
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714537"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284833"
 ---
 # <a name="what-is-image-analysis"></a>¿Qué es Image Analysis?
 
@@ -25,6 +25,9 @@ ms.locfileid: "109714537"
 El servicio Image Analysis de Computer Vision puede extraer una gran variedad de características visuales de sus imágenes. Por ejemplo, puede determinar si una imagen tiene contenido para adultos, buscar marcas u objetos específicos o buscar rostros humanos.
 
 Puede usar Image Analysis en la aplicación mediante el uso de un SDK de biblioteca cliente o invocar la [API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) directamente. Siga el [inicio rápido](quickstarts-sdk/image-analysis-client-library.md) para comenzar.
+
+> [!div class="nextstepaction"]
+> [Introducción](quickstarts-sdk/image-analysis-client-library.md)
 
 Esta documentación contiene los siguientes tipos de artículos:
 * Los [inicios rápidos](./quickstarts-sdk/image-analysis-client-library.md) son instrucciones paso a paso que permiten realizar llamadas al servicio y obtener los resultados en un breve período de tiempo. 
@@ -41,9 +44,15 @@ Puede analizar imágenes para detectar y proporcionar información detallada ace
 
 Identifique y etiquete las características visuales de una imagen a partir de un conjunto de miles de objetos, seres vivos, paisajes y acciones reconocibles. Cuando las etiquetas son ambiguas o no muy comunes, la respuesta de la API contiene “indicaciones” para aclarar el contexto de la etiqueta. El etiquetado no se limita al sujeto principal, como una persona en primer plano, sino que también incluye el entorno (interior o exterior), muebles, herramientas, plantas, animales, accesorios, gadgets, etc. [Etiquetar características visuales](concept-tagging-images.md)
 
+:::image type="content" source="Images/tagging.png" alt-text="Imagen de un monopatinador con etiquetas indicadas a la derecha":::
+
+
 ### <a name="detect-objects"></a>Detección de objetos
 
 La detección de objetos es similar al etiquetado, pero la API devuelve las coordenadas del rectángulo delimitador para cada etiqueta aplicada. Por ejemplo, si una imagen contiene un perro, un gato y una persona, la operación de detección mostrará estos objetos junto con sus coordenadas en la imagen. Puede usar esta funcionalidad para procesar más las relaciones entre los objetos de una imagen. También permite saber cuando hay varias instancias de la misma etiqueta en una imagen. [Detección de objetos](concept-object-detection.md)
+
+:::image type="content" source="Images/detect-objects.png" alt-text="Imagen de una oficina con un rectángulo dibujado alrededor de un portátil":::
+
 
 ### <a name="detect-brands"></a>Detección de marcas
 
@@ -56,6 +65,8 @@ Identifique y clasifique toda una imagen mediante una [taxonomía de categoría]
 ### <a name="describe-an-image"></a>Describir una imagen
 
 Genere una descripción de toda una imagen en lenguaje natural, con frases completas. Los algoritmos de Computer Vision generan varias descripciones en función de los objetos identificados en la imagen. Cada una de estas descripciones se evalúa y se genera una puntuación de confianza. Después, se devuelve una lista de puntuaciones de confianza ordenadas de más alta a más baja. [Describir una imagen](concept-describing-images.md)
+
+:::image type="content" source="Images/description.png" alt-text="Imagen de unas vacas con una descripción sencilla a la derecha":::
 
 ### <a name="detect-faces"></a>Detección de caras
 
@@ -73,15 +84,20 @@ Use los modelos de dominio para detectar e identificar el contenido específico 
 
 Analice el uso del color en una imagen. Computer Vision puede determinar si una imagen está en blanco y negro o en color, y en las imágenes de color, identificar los colores dominantes y de énfasis. [Detectar la combinación de colores](concept-detecting-color-schemes.md)
 
+
+
 ### <a name="generate-a-thumbnail"></a>Generar una miniatura
 
 Analice el contenido de una imagen para generar una miniatura adecuada de la misma. En primer lugar, Computer Vision genera una miniatura de alta calidad y, después, analiza los objetos de la imagen para determinar el *área de interés*. Luego, Computer Vision recorta la imagen para ajustarla a los requisitos del área de interés. La miniatura generada se puede presentar con una relación de aspecto diferente de la de la imagen original en función de sus necesidades. [Generar una miniatura](concept-generating-thumbnails.md)
+
+:::image type="content" source="Images/thumbnail-demo.png" alt-text="Imagen de una persona en una montaña, con versiones recortadas a la derecha":::
+
 
 ### <a name="get-the-area-of-interest"></a>Obtener el área de interés
 
 Analice el contenido de una imagen para devolver las coordenadas del *área de interés*. En lugar de recortar la imagen y generar una miniatura, Computer Vision devuelve las coordenadas del rectángulo delimitador de la región, por lo que la aplicación que realiza la llamada puede modificar la imagen original según sea necesario. [Obtener el área de interés](concept-generating-thumbnails.md#area-of-interest)
 
-## <a name="moderate-content-in-images"></a>Moderación del contenido de las imágenes
+### <a name="moderate-content-in-images"></a>Moderación del contenido de las imágenes
 
 Puede usar Computer Vision para [detectar contenido para adultos](concept-detecting-adult-content.md) en una imagen y devolver puntuaciones de confianza en las distintas clasificaciones. El umbral para el etiquetado de contenido se puede establecer en una escala deslizante, con el fin de que pueda ajustarlo a sus preferencias.
 

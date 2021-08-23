@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 1cee1a33f74b11793d9b12db0b8bc6f65fda29a3
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 1d4faa9ad8bce084fdd011fb9a79fd867f02aa27
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787692"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446914"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>Tutorial: Creación de un grafo de Azure Digital Twins mediante una aplicación cliente de ejemplo
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-En este tutorial creará un grafo en Azure Digital Twins con modelos, gemelos y relaciones. La herramienta de este tutorial es una **aplicación cliente de línea de comandos de ejemplo** para interactuar con una instancia de Azure Digital Twins. La aplicación cliente es similar a la escrita en el [Tutorial: Programación de una aplicación cliente](tutorial-code.md).
+En este tutorial creará un grafo en Azure Digital Twins con modelos, gemelos y relaciones. La herramienta de este tutorial es la **aplicación cliente de línea de comandos de ejemplo** para interactuar con una instancia de Azure Digital Twins. La aplicación cliente es similar a la escrita en [Tutorial: Programación con las API de Azure Digital Twins](tutorial-code.md).
 
 Puede usar este ejemplo para realizar acciones básicas de Azure Digital Twins, como cargar modelos, crear y modificar gemelos y crear relaciones. No obstante, si lo prefiere, también puede examinar el [código del ejemplo](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) para aprender sobre las API de Azure Digital Twins y practicar la implementación de sus propios comandos mediante la modificación del proyecto de ejemplo.
 
@@ -40,7 +40,6 @@ Ahora que la aplicación y la autenticación están configuradas, ejecute el pro
 :::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Captura de pantalla del botón de inicio de Visual Studio (proyecto SampleClientApp)." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
 
 Se abre una ventana de la consola, se lleva a cabo la autenticación y se espera un comando. 
-* La autenticación se realiza a través del explorador: el explorador web predeterminado se abrirá con un aviso de autenticación. Use este aviso para iniciar sesión con sus credenciales de Azure. Luego, puede cerrar la pestaña o la ventana del explorador.
 
 Esta es una captura de pantalla de la apariencia de la consola del proyecto:
 
@@ -49,7 +48,7 @@ Esta es una captura de pantalla de la apariencia de la consola del proyecto:
 > [!TIP]
 > Si quiere una lista de todos los comandos posibles que puede usar con este proyecto, escriba `help` en la consola del proyecto y presione Entrar.
 
-Mantenga la consola del proyecto en ejecución durante el resto de los pasos de este tutorial.
+Una vez que haya confirmado que la aplicación se ejecuta correctamente, cierre la ventana de la consola para que la aplicación deje de ejecutarse por el momento. La volverá a ejecutar más adelante en el artículo.
 
 ## <a name="model-a-physical-environment-with-dtdl"></a>Modelado de un entorno físico con DTDL
 
@@ -71,6 +70,8 @@ Seleccione *Room.json* para abrirlo en la ventana de edición y cámbielo de la 
 ### <a name="upload-models-to-azure-digital-twins"></a>Carga de modelos en Azure Digital Twins
 
 Después de diseñar los modelos, debe cargarlos en la instancia de Azure Digital Twins. De esta forma se configura la instancia del servicio Azure Digital Twins con su propio vocabulario de dominio personalizado. Cuando haya cargado los modelos, puede crear instancias gemelas que los usen.
+
+1. Después de editar el archivo Room.json en la sección anterior, vuelva a ejecutar la aplicación de consola.
 
 1. En la ventana de la consola del proyecto, ejecute el siguiente comando para cargar el modelo Room actualizado, así como un modelo Floor que también usará en la sección siguiente para crear distintos tipos de gemelos.
 
@@ -95,7 +96,7 @@ CreateModels Room
 ```
 
 Dado que los modelos no se pueden sobrescribir, esto le devolverá un error de servicio.
-Para información detallada sobre cómo eliminar modelos existentes, consulte [Procedimientos: Administración de modelos DTDL](how-to-manage-model.md).
+Para obtener información detallada sobre cómo eliminar los modelos existentes, consulte [Administración de modelos de Azure Digital Twins](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -219,7 +220,7 @@ Ejecute los siguientes comandos en la consola del proyecto en ejecución para re
     :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Captura de pantalla que muestra un resultado parcial de la consulta gemela, que incluye room0 y floor1.":::
 
     >[!NOTE]
-    >En el proyecto de ejemplo, el comando `Query` sin argumentos adicionales equivale a `Query SELECT * FROM DIGITALTWINS`. Para consultar todos los gemelos de la instancia mediante [API de consulta](/rest/api/digital-twins/dataplane/query) o [comandos de la CLI](concepts-cli.md), use el formato de consulta más largo (completo).
+    >En el proyecto de ejemplo, el comando `Query` sin argumentos adicionales equivale a `Query SELECT * FROM DIGITALTWINS`. Para consultar todos los gemelos de la instancia mediante [API de consulta](/rest/api/digital-twins/dataplane/query) o [comandos de la CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), use el formato de consulta más largo (completo).
 
 1. **¿Cuáles son todas las salas de mi entorno?** (consulta por modelo)
 
@@ -279,4 +280,4 @@ En este tutorial ha empezado a usar Azure Digital Twins mediante la creación de
 
 Continúe con el siguiente tutorial para combinar Azure Digital Twins con otros servicios de Azure con el fin de completar un escenario integral basado en datos:
 > [!div class="nextstepaction"]
-> [Tutorial: Conexión de una solución de un extremo a otro](tutorial-end-to-end.md)
+> [Conexión de una solución de un extremo a otro](tutorial-end-to-end.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/05/2021
 ms.author: jeedes
-ms.openlocfilehash: a7536cd637339cd7a73541ddee89e8d2e11df3e6
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: b73c760185e8b5d97ab03fbbee75fd399e0b0c16
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889168"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466544"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-documo"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Documo
 
@@ -78,11 +78,12 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
+1. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure. Si la cuenta de Documo tiene un dominio personalizado, también debe tener un dominio de API personalizado para que el inicio de sesión único funcione. Reemplace los valores predeterminados por el dominio de API personalizado, por ejemplo, `https://mycustomapidomain.com` y `https://mycustomapidomain.com/assert`.
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://app.documo.com/sso`
+    En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL:   
+    `https://app.documo.com/sso`
 
 1. Haga clic en **Save**(Guardar).
 
@@ -142,7 +143,7 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
     d. Escriba el valor en el cuadro de texto **Field Name in SAML Token containing Identity email** (Nombre de campo en el token SAML que contiene el correo electrónico de identidad).
 
-    e. Abra el archivo **XML de metadatos de federación** descargado de Azure Portal en el Bloc de notas, copie el contenido del XML de metadatos y péguelo en el cuadro de texto **Certificado del firmante**.
+    e. Abra el **XML de metadatos de la federación** descargado desde Azure Portal en el bloc de notas. Busque la etiqueta `<X509Certificate>` y pegue el contenido en el cuadro de texto **Certificado del firmante**.
 
     f. Haga clic en **Enviar**.
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Automation
 description: En esta guía de inicio rápido se muestra cómo crear una cuenta de Automation mediante la plantilla de Azure Resource Manager.
 services: automation
 ms.author: magoedte
-ms.date: 01/07/2021
+ms.date: 07/20/2021
 ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.custom:
 - mvc
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: effdb8ec511a6060fffb571864273a1f84901ab6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 17183bffcfe9607a774d1205180c284d49cd7503
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081305"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652017"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Inicio rápido: Creación de una cuenta de Automation mediante una plantilla de ARM
 
@@ -95,6 +95,18 @@ Si no está familiarizado con Azure Automation y Azure Monitor, es importante qu
     [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 2. Escriba los valores.
+
+    Cuando intenta ejecutar la plantilla de ARM desde PowerShell, la CLI o la característica Plantillas del portal, si el parámetro `_artifactsLocation` no está configurado correctamente, recibirá un mensaje de error parecido al siguiente:
+
+    `"message": "Deployment template validation failed: 'The template resource '_artifactsLocation' at line '96' and column '31' is not valid: The language expression property 'templateLink' doesn't exist, available properties are 'template, templateHash, parameters, mode, debugSetting, provisioningState'.. Please see https://aka.ms/arm-template-expressions for usage details.'."`
+
+    Para evitarlo, cuando se ejecute desde la característica Plantillas del portal, especifique lo siguiente para el parámetro `_artifactsLocation`: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    Si se ejecuta desde PowerShell, incluya el parámetro y su valor `-TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    Si se ejecuta desde PowerShell, incluya el parámetro y su valor `--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    Para obtener más referencias acerca del uso de PowerShell o la CLI, consulte [Creación de una cuenta de Azure Automation (microsoft.com)](https://azure.microsoft.com/resources/templates/101-automation/) en la sección **Uso de la plantilla**.
 
 3. La implementación puede tardar unos minutos en finalizar. Cuando se completa, la salida es similar a la siguiente:
 

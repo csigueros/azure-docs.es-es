@@ -6,13 +6,13 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: fe4841307ba94a7c3f8ac1d2aa13b43c07df4456
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 07/08/2021
+ms.openlocfilehash: 55ddb188abfd43dbb782beef5f99d4058004922f
+ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488454"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113515462"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copia de datos de Azure Blob Storage a SQL Database con la herramienta Copy Data
 
@@ -107,73 +107,73 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
 
 1. Una vez finalizada la creación, se muestra la página principal de **Data Factory**.
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono de creación y supervisión":::.
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono Abrir Azure Data Factory Studio.":::
 
-1. Para abrir la interfaz de usuario de Azure Data Factory en otra pestaña, seleccione el icono **Author & Monitor** (Creación y supervisión).
+1. Para iniciar la aplicación de interfaz de usuario (IU) de Azure Data Factory en una pestaña independiente del explorador, seleccione **Abrir** en el icono **Abrir Azure Data Factory Studio**.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Uso de la herramienta Copy Data para crear una canalización
 
-1. En la página **Let's get started** (Introducción), seleccione el icono **Copy Data** (Copiar datos) para iniciar la herramienta Copy Data.
+1. En la página principal de Azure Data Factory, seleccione el icono **Introducción** para iniciar la herramienta Copiar datos.
 
-   ![Icono de la herramienta Copy Data](./media/doc-common-process/get-started-page.png)
+   ![Captura de pantalla que muestra la página principal de Azure Data Factory.](./media/doc-common-process/get-started-page.png)
 
-1. En la página **Properties** (Propiedades), en **Task name** (Nombre de la tarea), escriba **CopyFromBlobToSqlPipeline**. Luego, seleccione **Siguiente**. La interfaz de usuario de Data Factory crea una canalización con el nombre de la tarea especificado.
+1. En la página **Propiedades** de la herramienta Copiar datos, elija **Tarea de copia integrada** en **Tipo de tarea** y, a continuación, seleccione **Siguiente**.
 
-   ![Crear una canalización](./media/tutorial-copy-data-tool/create-pipeline.png)
-
+     ![Captura de pantalla que muestra la página Propiedades](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
+    
 1. En la página **Almacén de datos de origen**, realice los pasos siguientes:
 
-   a. Select **+ Create new connection** (Crear conexión) para agregar una conexión
+   a. Seleccione **+ Crear nueva conexión** para agregar una conexión.
 
    b. Seleccione **Azure Blob Storage** en la galería y, a continuación, seleccione **Continue** (Continuar).
 
-   c. En la página **New Linked Service** (Nuevo servicio vinculado), seleccione la suscripción de Azure y, luego, la cuenta de almacenamiento de la lista **Storage account name** (Nombre de la cuenta de almacenamiento). Pruebe la conexión y, después, seleccione **Create** (Crear).
+   c. En la página **New connection (Azure Blob Storage)** [Nueva conexión (Azure Blob Storage)], seleccione la suscripción a Azure de la lista **Suscripción a Azure** y la cuenta de almacenamiento de la lista **Nombre de la cuenta de almacenamiento**. Pruebe la conexión y, después, seleccione **Create** (Crear).
 
-   d. Seleccione el servicio vinculado recién creado como origen y, después, seleccione **Siguiente**.
+   d. Seleccione el servicio vinculado recién creado como origen y, después, el bloque **Conexión**.
 
-   ![Selección del servicio vinculado de origen](./media/tutorial-copy-data-tool/select-source-linked-service.png)
+   e. En la sección **Archivo o carpeta**, seleccione **Examinar** para ir a la carpeta **adfv2tutorial**, luego, el archivo **inputEmp.txt** y, finalmente, **Aceptar**.
 
-1. En la página **Choose the input file or folder** (Elegir el archivo o la carpeta de entrada), complete los siguientes pasos:
+   f. Seleccione **Siguiente** para ir al siguiente paso.
 
-   a. Seleccione **Examinar** para ir a la carpeta **adfv2tutorial/input**, seleccione el archivo **inputEmp.txt** y, finalmente, seleccione **Elegir**.
+   :::image type="content" source="./media/tutorial-copy-data-tool/source-data-store.png" alt-text="Configuración del origen.":::
 
-   b. Seleccione **Siguiente** para ir al siguiente paso.
-
-1. En la página **File format settings** (Configuración del formato de archivo), active la casilla para *First row as header* (Primera fila como encabezado). Observe que la herramienta detecta automáticamente los delimitadores de columna y fila. Seleccione **Next** (Siguiente). También puede obtener una vista previa de los datos y ver el esquema de los datos de entrada en esta página.
+1. En la página **File format settings** (Configuración del formato de archivo), active la casilla para *First row as header* (Primera fila como encabezado). Observe que la herramienta detecta automáticamente los delimitadores de columna y fila; puede obtener una vista previa de los datos y ver el esquema de los datos de entrada seleccionando el botón **Vista previa de datos** de esta página. Luego, seleccione **Siguiente**. 
 
    ![Configuración del formato de archivo](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 
 1. En la página **Almacén de datos de destino**, realice los pasos siguientes:
 
-   a. Select **+ Create new connection** (Crear conexión) para agregar una conexión
+   a. Seleccione **+ Crear nueva conexión** para agregar una conexión.
 
    b. Seleccione **Azure SQL Database** en la galería y, luego, elija **Continuar**.
 
-   c. En la página **New Linked Service** (Nuevo servicio vinculado), seleccione el nombre del servidor y el de la base de datos en la lista desplegable, y especifique el nombre de usuario y la contraseña y, después, seleccione **Create** (Crear).
+   c. En la página **New connection (Azure SQL Database)** [Nueva conexión (Azure SQL Database)], seleccione la suscripción de Azure, el nombre del servidor y el nombre de la base de datos en la lista desplegable. A continuación, seleccione **Autenticación de SQL** en **Tipo de autenticación**, y especifique el nombre de usuario y la contraseña. Pruebe la conexión y seleccione **Crear**.
 
-      ![Configurar Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
+   ![Configurar Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
    d. Seleccione el servicio vinculado recién creado como receptor y, después, seleccione **Siguiente**.
 
-1. En la página **Table mapping** (Asignación de tabla), seleccione la tabla **[dbo].[ emp]** y, a continuación, seleccione **Next** (Siguiente).
+1. En la página **Almacén de datos de destino**, seleccione **Usar tablas existentes** y la tabla **dbo.emp**. Luego, seleccione **Siguiente**.
 
 1. En la página **Column mapping** (Asignación de columnas), observe que las columnas segunda y tercera del archivo de entrada se asignan a las columnas **FirstName** y **LastName** de la tabla **emp**. Ajuste la asignación para asegurarse de que no haya ningún error y, después, seleccione **Next** (Siguiente).
 
    ![Página de asignación de columnas](./media/tutorial-copy-data-tool/column-mapping.png)
 
-1. En la página **Settings** (Configuración), seleccione **Next** (Siguiente).
+1. En la página **Configuración**, en **Nombre de tarea**, escriba **CopyFromBlobToSqlPipeline** y, a continuación, seleccione **Siguiente**.
+
+   :::image type="content" source="./media/tutorial-copy-data-tool/settings.png" alt-text="Configuración de los valores.":::
 
 1. En la página **Summary** (Resumen), revise la configuración y seleccione **Next** (Siguiente).
 
-1. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización (tarea).
+1. En la página **Implementación**, seleccione **Monitor** para supervisar la canalización (tarea).
 
    ![Supervisión de la canalización](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
-1. En la página Pipeline runs (Ejecuciones de canalización), seleccione **Refresh** (Actualizar) para actualizar la lista. Seleccione el vínculo en **PIPELINE NAME** (NOMBRE DE CANALIZACIÓN) para ver los detalles de la ejecución de actividad o volver a ejecutar la canalización. 
+1. En la página Pipeline runs (Ejecuciones de canalización), seleccione **Refresh** (Actualizar) para actualizar la lista. Seleccione el vínculo en **Nombre de canalización** para ver los detalles de la ejecución de actividad o volver a ejecutar la canalización. 
 
    ![Ejecución de la canalización](./media/tutorial-copy-data-tool/pipeline-run.png)
 
-1. En la página Activity runs (Ejecuciones de actividad), seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna **ACTIVITY NAME** (NOMBRE DE ACTIVIDAD) para obtener más detalles sobre la operación de copia. Para volver a la vista Pipeline Runs (Ejecuciones de canalización), seleccione el vínculo **ALL pipeline runs** (Todas las ejecuciones de canalizaciones) en el menú de la ruta de navegación. Para actualizar la vista, seleccione **Refresh** (Actualizar).
+1. En la página "Ejecuciones de actividad", seleccione el vínculo **Detalles** (icono de gafas) en la columna **Nombre de actividad** para obtener más detalles sobre la operación de copia. Para volver a la vista "Ejecuciones de canalización", seleccione el vínculo **Todas las ejecuciones de la canalización** en el menú de la ruta de navegación. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
    ![Supervisión de las ejecuciones de actividad](./media/tutorial-copy-data-tool/activity-monitoring.png)
 

@@ -4,16 +4,16 @@ description: Aprenda rápidamente a crear un registro privado de Docker en Azure
 ms.date: 06/03/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell - mvc - devx-track-azurepowershell - mode-api
-ms.openlocfilehash: 794b82817ce092fac34512c0faec097ecab53dc5
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: b774e75c5df86b35efb466bfffcb8f9afa1961d6
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439951"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112893831"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Inicio rápido: Creación de un registro de contenedor privado con Azure PowerShell
 
-Azure Container Registry es un servicio privado y administrado de registro de contenedores de Docker, que se usa para compilar, almacenar y proporcionar imágenes de contenedor de Docker. Gracias a esta guía de inicio rápido, aprenderá a crear un registro de contenedor de Azure mediante PowerShell. A continuación, utilice los comandos de Docker para insertar una imagen de contenedor en el registro y, finalmente, extraiga y ejecute la imagen desde el registro.
+Azure Container Registry es un servicio de registro privado para compilar, almacenar y proporcionar imágenes de contenedor y artefactos relacionados. En este inicio rápido, creará una instancia de Azure Container Registry con Azure PowerShell. A continuación, utilice los comandos de Docker para insertar una imagen de contenedor en el registro y, finalmente, extraiga y ejecute la imagen desde el registro.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -51,7 +51,7 @@ El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 c
 $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-En este inicio rápido se crea un registro *Básico*, que es una opción rentable para los desarrolladores que aprenden sobre Azure Container Registry. Para más información sobre los niveles de servicio disponibles, consulte [SKU de Azure Container Registry][container-registry-skus].
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
 
 ## <a name="log-in-to-registry"></a>Iniciar sesión en el registro
 

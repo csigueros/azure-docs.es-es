@@ -4,14 +4,14 @@ description: Se realizan actualizaciones significativas de la documentación de 
 services: automation
 ms.subservice: ''
 ms.topic: overview
-ms.date: 06/09/2021
+ms.date: 07/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: bd2bd39839645aa0511a00cc7a6c87c711e33e2b
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 6b91b9bb4e1bc871ecd8cb7909718329f5c5c014
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112294758"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729575"
 ---
 # <a name="whats-new-in-azure-automation"></a>Novedades de Azure Automation
 
@@ -22,6 +22,22 @@ Azure Automation recibe mejoras de forma continua. Para mantenerse al día de lo
 - Corrección de errores
 
 Esta página se actualiza mensualmente, por lo que se recomienda visitarla con frecuencia.
+
+## <a name="july-2021"></a>Julio de 2021
+
+### <a name="preview-support-for-user-assigned-managed-identities"></a>Compatibilidad con la versión preliminar para identidades administradas asignadas por el usuario
+
+**Tipo:** Nueva característica
+
+Azure Automation ahora admite [identidades administradas asignadas por el usuario](automation-secure-asset-encryption.md) para trabajos en la nube en las regiones públicas, gubernamentales y de China de Azure. Para más información, lea este [anuncio](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/).
+
+### <a name="general-availability-of-customer-managed-keys-for-azure-automation"></a>Disponibilidad general de claves administradas por el cliente para Azure Automation
+
+**Tipo:** Nueva característica
+
+Los clientes pueden administrar y proteger el cifrado de los recursos de Azure Automation mediante sus propias claves administradas. Con la introducción de las claves administradas por el cliente puede complementar el cifrado predeterminado con una capa de cifrado adicional mediante una clave que se crea y administra en Azure Key Vault. Este cifrado adicional debería ayudarle a satisfacer las necesidades normativas o de cumplimiento de su organización.
+
+Para más información, consulte [Uso de claves administradas por el cliente](automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account).
 
 ## <a name="june-2021"></a>Junio de 2021
 
@@ -111,7 +127,7 @@ Se han agregado dos nuevos scripts al [repositorio de GitHub](https://github.com
 
 **Tipo:** Nueva característica
 
-Para más información, consulte [Uso de un webhook de una plantilla de ARM](./automation-webhooks.md#use-a-webhook-from-an-arm-template).
+Para más información, consulte [Uso de un webhook de una plantilla de ARM](./automation-webhooks.md#create-runbook-and-webhook-with-arm-template).
 
 ### <a name="azure-update-management-now-supports-centos-8x-red-hat-enterprise-linux-server-8x-and-suse-linux-enterprise-server-15"></a>Azure Update Management ahora admite Centos 8.x, Red Hat Enterprise Linux Server 8.x y SUSE Linux Enterprise Server 15
 

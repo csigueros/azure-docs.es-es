@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9315e6fd7dd9880d20108e3f0ed28cd32904f1a3
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4cea156f52538a58ba5eea86ace6272848a05ae9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791542"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467177"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Tutorial: Implementación de una aplicación Django en AKS con Servidor flexible de Azure Database for PostgreSQL
 
@@ -27,20 +27,12 @@ En este inicio rápido se implementa una aplicación Django en el clúster de Az
 ## <a name="pre-requisites"></a>Requisitos previos
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- Use [Azure Cloud Shell](../../cloud-shell/quickstart.md) con el entorno de Bash.
-
-   [![Insertar inicio](https://shell.azure.com/images/launchcloudshell.png "Inicio de Azure Cloud Shell")](https://shell.azure.com)  
-- Si lo prefiere, [instale](/cli/azure/install-azure-cli) la CLI de Azure para ejecutar los comandos de referencia de la CLI.
-  - Si usa una instalación local, inicie sesión con la CLI de Azure mediante el comando [az login](/cli/azure/reference-index#az_login).  Siga los pasos que se muestran en el terminal para completar el proceso de autenticación.  Para ver otras opciones de inicio de sesión, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli).
-  - Cuando se le solicite, instale las extensiones de la CLI de Azure la primera vez que la use.  Para más información, consulte [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview).
-  - Ejecute [az version](/cli/azure/reference-index?#az_version) para buscar cuál es la versión y las bibliotecas dependientes que están instaladas. Para realizar la actualización a la versión más reciente, ejecute [az upgrade](/cli/azure/reference-index?#az_upgrade). En este artículo se necesita la versión más reciente de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
-
-> [!NOTE]
-> Si los comandos de este inicio rápido se ejecutan localmente (en lugar de en Azure Cloud Shell), asegúrese de ejecutarlos como administrador.
+- Inicie [Azure Cloud Shell](https://shell.azure.com) en una nueva ventana del explorador. También puede [instalar la CLI de Azure](/cli/azure/install-azure-cli#install) en la máquina local. Si utiliza una instalación local, inicie sesión con la CLI de Azure mediante el comando [az login](/cli/azure/reference-index#az_login).  Siga los pasos que se muestran en el terminal para completar el proceso de autenticación. 
+- Ejecute [az version](/cli/azure/reference-index?#az_version) para buscar cuál es la versión y las bibliotecas dependientes que están instaladas. Para realizar la actualización a la versión más reciente, ejecute [az upgrade](/cli/azure/reference-index?#az_upgrade). En este artículo se necesita la versión más reciente de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Vamos a crear un grupo de recursos, *django-project*, mediante el comando [az group create][az-group-create] en la ubicación *eastus*.
+Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Vamos a crear un grupo de recursos, *django-project*, mediante el comando [az-group-create](/cli/azure/group#az_group_create) en la ubicación *eastus*.
 
 ```azurecli-interactive
 az group create --name django-project --location eastus
@@ -80,20 +72,16 @@ Transcurridos unos minutos, el comando se completa y devuelve información en fo
 
 ## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
-Para administrar un clúster de Kubernetes, usará [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), el cliente de línea de comandos de Kubernetes. Si usa Azure Cloud Shell, `kubectl` ya está instalado. Para instalar `kubectl` localmente, use el comando [az aks install-cli](/cli/azure/aks#az_aks_install_cli):
+Para administrar un clúster de Kubernetes, usará [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), el cliente de línea de comandos de Kubernetes. Si usa Azure Cloud Shell, `kubectl` ya está instalado. 
 
-```azurecli-interactive
-az aks install-cli
-```
+> [!NOTE] 
+> Si ejecuta la CLI de Azure de manera local, ejecute el comando [az aks install-cli](/cli/azure/aks#az_aks_install_cli) para instalar `kubectl`.
 
 Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials). Con este comando se descargan las credenciales y se configura la CLI de Kubernetes para usarlas.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group django-project --name djangoappcluster
 ```
-
-> [!NOTE]
-> El comando anterior usa la ubicación predeterminada para el [archivo de configuración de Kubernetes](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), `~/.kube/config`. Puede especificar otra ubicación para el archivo de configuración de Kubernetes con la opción *--file*.
 
 Para comprobar la conexión al clúster, use el comando [kubectl get]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) para devolver una lista de los nodos del clúster.
 
@@ -112,20 +100,22 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 Cree un servidor flexible con el comando [az postgreSQL flexible-server create](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create). El siguiente comando crea un servidor con los valores predeterminados de servicio y los valores del contexto local de la CLI de Azure:
 
 ```azurecli-interactive
-az postgres flexible-server create --public-access <YOUR-IP-ADDRESS>
+az postgres flexible-server create --public-access all
 ```
 
 El servidor creado tiene los siguientes atributos:
 - Una nueva base de datos vacía, ```postgres``` se crea cuando se aprovisiona el servidor por primera vez. En este inicio rápido, vamos a utilizar esta base de datos.
 - Nombre del servidor generado automáticamente, nombre de usuario de administrador, contraseña de administrador, nombre del grupo de recursos (si aún no se ha especificado en el contexto local) y en la misma ubicación que el grupo de recursos.
-- Valores predeterminados de servicio para las configuraciones de servidor restantes: nivel de proceso (De uso general), tamaño de proceso/SKU (Standard_D2s_v3 que usa 2 núcleos virtuales), período de retención de copia de seguridad (7 días) y versión de PostgreSQL (12)
-- El uso de un argumento de acceso público le permite crear un servidor con acceso público protegido por reglas de firewall. Al proporcionar su dirección IP para agregar la regla de firewall, permite el acceso desde la máquina cliente.
+- El uso del argumento public-access le permite crear un servidor con acceso público en cualquier cliente con el nombre de usuario y la contraseña correctos.
 - Como el comando utiliza el contexto local, creará el servidor en el grupo de recursos ```django-project``` y en la región ```eastus```.
 
 
 ## <a name="build-your-django-docker-image"></a>Compilación de la imagen de Docker de Django
 
-Cree una [aplicación Django](https://docs.djangoproject.com/en/3.1/intro/) o use el proyecto Django existente. Asegúrese de que el código se encuentra en esta estructura de carpetas.
+Cree una [aplicación Django](https://docs.djangoproject.com/en/3.1/intro/) o use el proyecto Django existente. Asegúrese de que el código se encuentra en esta estructura de carpetas. 
+
+> [!NOTE] 
+> Si no tiene una aplicación, puede ir directamente a [**Creación del archivo de manifiesto de Kubernetes**](./tutorial-django-aks-database.md#create-kubernetes-manifest-file) para usar nuestra imagen de ejemplo, [mksuni/django-aks-app:latest](https://hub.docker.com/r/mksuni/django-aks-app). 
 
 ```
 └───my-djangoapp
@@ -223,12 +213,11 @@ Inserte la imagen en [Docker hub](https://docs.docker.com/get-started/part3/#cre
 
 ## <a name="create-kubernetes-manifest-file"></a>Creación del archivo de manifiesto de Kubernetes
 
-Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se van a ejecutar. Vamos a crear un archivo de manifiesto denominado ```djangoapp.yaml``` y a copiarlo en la siguiente definición de YAML.
+Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se van a ejecutar. Vamos a crear un archivo de manifiesto denominado ```djangoapp.yaml``` y a copiarlo en la siguiente definición de YAML. 
 
 >[!IMPORTANT]
-> - Reemplace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` por el nombre y la etiqueta de la imagen real de Docker de Django, por ejemplo ```docker-hub-user/myblog:latest```.
+> - Reemplace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` por el nombre y la etiqueta de la imagen real de Docker de Django, por ejemplo ```docker-hub-user/myblog:latest```.  Puede usar la aplicación de ejemplo de demostración ```mksuni/django-aks-app:latest``` en el archivo de manifiesto.
 > - Actualice la sección ```env``` siguiente con ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` del servidor flexible de Postgres.
-
 
 ```yaml
 apiVersion: apps/v1

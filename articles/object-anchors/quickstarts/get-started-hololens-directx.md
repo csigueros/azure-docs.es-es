@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 05c131abf23ac060db24b19b6affbeb5e632468b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: eee130b0736c87b118b38f19e7523c07a431e5c9
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004770"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202893"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>Inicio rápido: Creación de una aplicación HoloLens con Azure Object Anchors en C++/WinRT y DirectX
 
@@ -37,13 +37,29 @@ Para completar esta guía de inicio rápido, asegúrese de que dispone de lo sig
 * Un dispositivo HoloLens 2 actualizado y con el [modo de desarrollador](/windows/mixed-reality/using-visual-studio#enabling-developer-mode) habilitado.
   * Para actualizar a la versión más reciente en HoloLens, abra la aplicación **Settings** (Configuración), vaya a **Update & Security** (Actualización y seguridad) y seleccione **Check for updates** (Buscar actualizaciones).
 
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
+
 ## <a name="open-the-sample-project"></a>Apertura del proyecto de ejemplo
 
 [!INCLUDE [Clone Sample Repo](../../../includes/object-anchors-clone-sample-repository.md)]
 
 Abra `quickstarts/apps/directx/DirectXAoaSampleApp.sln` en Visual Studio.
 
-Cambie **Configuración de la solución** a **Versión**, cambie **Plataforma de la solución** a **ARM64** y seleccione **Dispositivo** en las opciones de destino de implementación. A continuación, compile el proyecto **AoaSampleApp**. Para ello, haga clic con el botón derecho en el proyecto y seleccione **Compilar**.
+Cambie **Configuración de la solución** a **Versión**, cambie **Plataforma de la solución** a **ARM64** y seleccione **Dispositivo** en las opciones de destino de implementación.
+
+## <a name="configure-the-account-information"></a>Configuración de la información de una cuenta
+
+El paso siguiente es configurar la aplicación para que use la información de su cuenta. Ha tomado nota de los valores de **Clave de cuenta**, **Id. de cuenta** y **Dominio de cuenta**, en la sección ["Crear una cuenta de Object Anchors"](#create-an-object-anchors-account).
+
+Abra `Assets\ObjectAnchorsConfig.json`.
+
+Busque el campo `AccountId` y reemplace `Set me` por el Id. de su cuenta.
+
+Busque el campo `AccountKey` y reemplace `Set me` por la Clave de su cuenta.
+
+Busque el campo `AccountDomain` y reemplace `Set me` por el Dominio de su cuenta.
+
+Ahora, compile el proyecto **AoaSampleApp**. Para ello, haga clic con el botón derecho en el proyecto y seleccione **Compilar**.
 
 :::image type="content" source="./media/vs-deploy-to-device.png" alt-text="Configuración del proyecto de Visual Studio que se va a implementar":::
 
@@ -94,4 +110,4 @@ La aplicación alinea estrechamente un modelo 3D con su homólogo físico. Para
 > [P+F](../faq.md)
 
 > [!div class="nextstepaction"]
-> [SDK de conversión](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+> [Biblioteca cliente de Azure Object Anchors para .NET: versión 0.3.0-beta.1](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

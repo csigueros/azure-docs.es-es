@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: 618074d696804171ee5e05655c1e15557789fac9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3c624a9dcdf61796dc4ce4396a0b309f84ceddaf
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110165986"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279857"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 
@@ -27,7 +27,7 @@ En primer lugar, deberá instalar el [SDK de Voz para Go](../../../quickstarts/s
 
 ## <a name="speech-to-text-from-microphone"></a>Conversión de voz en texto desde un micrófono
 
-Use el siguiente ejemplo de código para ejecutar el reconocimiento de voz desde el micrófono del dispositivo predeterminado. Reemplace las variables `subscription` y `region` por sus claves de suscripción y región. Al ejecutar el script, se iniciará una sesión de reconocimiento en el micrófono y el texto de salida predeterminados.
+Use el siguiente ejemplo de código para ejecutar el reconocimiento de voz desde el micrófono del dispositivo predeterminado. Reemplace las variables `subscription` y `region` por la clave de voz y la suscripción o región. Vea la página [Búsqueda de claves y región o ubicación](../../../overview.md#find-keys-and-locationregion) para encontrar el par clave-región o ubicación. Al ejecutar el script, se iniciará una sesión de reconocimiento en el micrófono y el texto de salida predeterminados.
 
 ```go
 package main
@@ -67,8 +67,8 @@ func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
 }
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription :=  "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
     audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
     if err != nil {
@@ -117,7 +117,7 @@ Vea los documentos de referencia para obtener información detallada sobre las c
 
 ## <a name="speech-to-text-from-audio-file"></a>Conversión de voz en texto desde un archivo de audio
 
-Use el ejemplo siguiente para ejecutar el reconocimiento de voz desde un archivo de audio. Reemplace las variables `subscription` y `region` por sus claves de suscripción y región. Además, reemplace la variable `file` por una ruta de acceso a un archivo .wav. Al ejecutar el script, se reconocerá la voz del archivo y se generará el resultado del texto.
+Use el ejemplo siguiente para ejecutar el reconocimiento de voz desde un archivo de audio. Reemplace las variables `subscription` y `region` por la clave de voz y la suscripción o región. Vea la página [Búsqueda de claves y región o ubicación](../../../overview.md#find-keys-and-locationregion) para encontrar el par clave-región o ubicación. Además, reemplace la variable `file` por una ruta de acceso a un archivo .wav. Al ejecutar el script, se reconocerá la voz del archivo y se generará el resultado del texto.
 
 ```go
 package main
@@ -131,8 +131,8 @@ import (
 )
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription :=  "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
     file := "path/to/file.wav"
 
     audioConfig, err := audio.NewAudioConfigFromWavFileInput(file)

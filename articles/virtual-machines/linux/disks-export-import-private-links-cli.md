@@ -2,18 +2,18 @@
 title: 'CLI de Azure: Restricción del acceso para importar o exportar discos administrados con instancias de Private Link'
 description: Habilite instancias de Private Link para los discos administrados con la CLI de Azure. Permite exportar e importar discos de forma segura solo dentro de la red virtual.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: overview
-ms.date: 08/11/2020
+ms.date: 07/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: e1b1852521164b264376f10ce8ade85f415a0a91
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 05cff1385ee4e606a3d5ecae3f04139a67be699a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026604"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289258"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>CLI de Azure: restricción del acceso de importación y exportación de discos administrados con instancias de Private Link
 
@@ -154,5 +154,7 @@ az snapshot create -n $snapshotNameSecuredWithPL \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas más frecuentes sobre vínculos privados](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
+- Carga de un disco duro virtual en Azure o copia de un disco administrado en otra región: la [CLI de Azure](disks-upload-vhd-to-managed-disk-cli.md) o el [módulo de Azure PowerShell](../windows/disks-upload-vhd-to-managed-disk-powershell.md)
+- Descarga de un disco duro virtual [Windows](../windows/download-vhd.md) o [Linux](download-vhd.md)
+- [Preguntas más frecuentes sobre vínculos privados](/azure/virtual-machines//faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento de otra región con CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)

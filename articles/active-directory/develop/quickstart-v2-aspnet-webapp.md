@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Incorporación del inicio de sesión con Microsoft a una aplicación web ASP.NET | Azure'
+title: 'Inicio rápido: Aplicación web ASP.NET que inicia la sesión de los usuarios'
 titleSuffix: Microsoft identity platform
-description: En este inicio rápido, aprenderá a implementar el inicio de sesión de Microsoft en una aplicación web de ASP.NET mediante OpenID Connect.
+description: Descargue y ejecute un ejemplo de código que muestre cómo una aplicación web de ASP.NET puede hacer que usuarios de Azure AD inicien sesión.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 87948ed04f7b50820d94993d4c4fbcf2dfd94b31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08c53f816b151026c03068451aa440f12a2cbc15
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578692"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112677811"
 ---
-# <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Inicio rápido: Adición del inicio de sesión de la plataforma de identidad de Microsoft a una aplicación web de ASP.NET
+# <a name="quickstart-aspnet-web-app-that-signs-in-azure-ad-users"></a>Inicio rápido: aplicación web de ASP.NET que hace que usuarios de Azure AD inicien sesión
 
-En este inicio rápido, descargará y ejecutará un código de ejemplo que muestra cómo una aplicación web de ASP.NET puede realizar el inicio de sesión de los usuarios desde cualquier organización de Azure Active Directory. 
+En este inicio rápido, descargará y ejecutará un ejemplo de código que muestra cómo una aplicación web de ASP.NET puede realizar el inicio de sesión de usuarios con cuentas de Azure Active Directory (Azure AD).
 
 > [!div renderon="docs"]
 > El diagrama siguiente muestra cómo funciona la aplicación de ejemplo:

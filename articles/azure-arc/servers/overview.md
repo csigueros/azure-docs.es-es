@@ -1,19 +1,19 @@
 ---
-title: Información general de los servidores habilitados para Azure Arc
-description: Aprenda a usar los servidores habilitados para Azure Arc para administrar las máquinas hospedadas fuera de Azure como un recurso de Azure.
+title: Introducción a los servidores habilitados para Azure Arc
+description: Aprenda a usar los servidores habilitados para Azure Arc para administrar servidores hospedados fuera de Azure como un recurso de Azure.
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 05/26/2021
+ms.date: 07/16/2021
 ms.topic: overview
-ms.openlocfilehash: 2cf70cbf20d024d92a3a2025ca6b659ffdd8bffa
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: ed764b3eb743f29c3df033fa36893e8b3eebbc43
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112294686"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457512"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>¿Qué son los servidores habilitados para Azure Arc?
 
-Los servidores habilitados para Azure Arc permiten administrar servidores físicos y máquinas virtuales Windows y Linux hospedados *fuera* de Azure, en la red corporativa o en otro proveedor de nube. Esta experiencia de administración está diseñada para ser coherente con el modo de administración de las máquinas virtuales nativas de Azure. Cuando una máquina híbrida se conecta a Azure, se convierte en una máquina conectada y se trata como un recurso de Azure. Cada máquina conectada tiene un identificador de recurso, se incluye en un grupo de recursos y se beneficia de las construcciones estándar de Azure como Azure Policy y la aplicación de etiquetas. Los proveedores de servicios que administran la infraestructura local de un cliente pueden administrar sus máquinas híbridas, tal como lo hacen actualmente con los recursos nativos de Azure en varios entornos de cliente, mediante [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) con Azure Arc.
+Los servidores habilitados para Azure Arc permiten administrar servidores físicos y máquinas virtuales Windows y Linux hospedados *fuera* de Azure, en la red corporativa o en otro proveedor de servicios en la nube. Esta experiencia de administración está diseñada para ser coherente con el modo de administración de las máquinas virtuales nativas de Azure. Cuando una máquina híbrida se conecta a Azure, se convierte en una máquina conectada y se trata como un recurso de Azure. Cada máquina conectada tiene un identificador de recurso, se incluye en un grupo de recursos y se beneficia de las construcciones estándar de Azure como Azure Policy y la aplicación de etiquetas. Los proveedores de servicios que administran la infraestructura local de un cliente pueden administrar sus máquinas híbridas, tal como lo hacen actualmente con los recursos nativos de Azure en varios entornos de cliente, mediante [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) con Azure Arc.
 
 Para ofrecer esta experiencia con las máquinas híbridas hospedadas fuera de Azure, el agente de Azure Connected Machine debe estar instalado en cada una de las máquinas que planea conectar con Azure. Este agente no proporciona ninguna otra funcionalidad y no reemplaza al [agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si desea supervisar de forma proactiva el sistema operativo y las cargas de trabajo que se ejecutan en la máquina, administrarlos mediante runbooks de Automation o soluciones como Update Management, o usar otros servicios de Azure como [Azure Security Center](../../security-center/security-center-introduction.md).
 
@@ -23,18 +23,18 @@ Para ofrecer esta experiencia con las máquinas híbridas hospedadas fuera de Az
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
 Al conectar una máquina a los servidores habilitados para Azure Arc, se habilita la capacidad de realizar las siguientes tareas de administración y supervisión de la configuración:
-- Asigne [configuraciones de invitado de Azure Policy](../../governance/policy/concepts/guest-configuration.md) de la misma manera que en la asignación de directivas para máquinas virtuales de Azure. En la actualidad, la mayoría de las directivas de configuración de invitado no aplican configuraciones, solo auditan la configuración dentro de la máquina. Para comprender el costo de usar las directivas de configuración de Azure Policy con servidores habilitados para Arc, consulte la [guía de precios](https://azure.microsoft.com/pricing/details/azure-policy/) de Azure Policy.
+- Asigne [configuraciones de invitado de Azure Policy](../../governance/policy/concepts/guest-configuration.md) de la misma manera que en la asignación de directivas para máquinas virtuales de Azure. En la actualidad, la mayoría de las directivas de configuración de invitado no aplican configuraciones, solo auditan la configuración dentro de la máquina. Para conocer el costo de usar las directivas de configuración de invitados de Azure Policy con servidores habilitados para Arc, consulte la [guía de precios](https://azure.microsoft.com/pricing/details/azure-policy/) de Azure Policy.
 
 - Informe de los cambios de configuración del software instalado, los servicios de Microsoft, el Registro y los archivos de Windows y los demonios de Linux en los servidores supervisados mediante [Seguimiento de cambios e inventario](../../automation/change-tracking/overview.md) de Azure Automation y [Supervisión de la integridad de los archivos de Azure Security Center](../../security-center/security-center-file-integrity-monitoring.md), en servidores habilitados con [Azure Defender para servidores](../../security-center/defender-for-servers-introduction.md).
 
 - Supervise el rendimiento del sistema operativo invitado de la máquina conectada y detecte los componentes de la aplicación para supervisar sus procesos y dependencias con otros recursos con los que la aplicación se comunica mediante [Insights para VM](../../azure-monitor/vm/vminsights-overview.md).
 
-- Simplifique la implementación con otros servicios de Azure, como el área de trabajo de Log Analytics de Azure Monitor y [State Configuration](../../automation/automation-dsc-overview.md) de Azure Automation, con las [extensiones de máquina virtual de Azure](manage-vm-extensions.md) admitidas para la máquina Windows o Linux que no sea de Azure. Esto incluye realizar la instalación de software o la configuración posterior a la implementación mediante la extensión de script personalizado.
+- Simplifique la implementación mediante otros servicios de Azure, como el área de trabajo de Log Analytics de Azure Monitor, mediante el uso de las [extensiones de máquina virtual de Azure](manage-vm-extensions.md) admitidas cualquier máquina Windows o Linux que no sea de Azure. Esto incluye realizar la instalación de software o la configuración posterior a la implementación mediante la extensión de script personalizado.
 
 - Use [Update Management](../../automation/update-management/overview.md) en Azure Automation para administrar las actualizaciones del sistema operativo de los servidores Windows y Linux.
 
     > [!NOTE]
-    > En este momento, no se admite la habilitación de Update Management directamente desde un servidor habilitado para Arc. Consulte [Habilitación de Update Management desde una cuenta de Automation](../../automation/update-management/enable-from-automation-account.md) para saber más sobre los requisitos y cómo habilitarlo para el servidor.
+    > Actualmente, no se admite la habilitación de Update Management directamente desde un servidor habilitado para Arc. Consulte [Habilitación de Update Management desde una cuenta de Automation](../../automation/update-management/enable-from-automation-account.md) para saber más sobre los requisitos y cómo habilitarlo para el servidor.
 
 - Incluya los servidores que no son de Azure para la detección de amenazas avanzado y supervisar proactivamente las posibles amenazas de seguridad mediante [Azure Security Center](../../security-center/security-center-introduction.md) o [Azure Defender](../../security-center/azure-defender.md).
 
@@ -46,7 +46,7 @@ Los datos de registro recopilados y almacenados en un área de trabajo de Log An
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Para obtener una lista definitiva de las regiones admitidas con servidores habilitados para Azure Arc, consulte la página [Productos de Azure por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
+Para obtener una lista definitiva de las regiones que admiten los servidores habilitados para Azure Arc, consulte la página de [productos de Azure por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
 En la mayoría de los casos, la ubicación que seleccione al crear el script de instalación debe ser la región de Azure más cercana geográficamente a la ubicación de la máquina. Los datos en reposo se almacenan en la ubicación geográfica de Azure que contiene la región que especifique, lo que también puede afectar a su elección de región si tiene requisitos de residencia de datos. Si la región de Azure a la que está conectada la máquina experimente una interrupción, la máquina conectada no se verá afectada, aunque es posible que las operaciones de administración que usan Azure no se puedan completar. Si se produce una interrupción regional y se dispone de varias ubicaciones que admiten un servicio con redundancia geográfica, es mejor conectar las máquinas de cada ubicación a otra región de Azure.
 
@@ -72,4 +72,6 @@ El agente Connected Machine envía un mensaje de latido al servicio cada 5 minut
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Antes de evaluar o habilitar los servidores habilitados para Arc en varias máquinas híbridas, consulte el artículo [Información general del agente de Connected Machine](agent-overview.md) a fin de conocer los requisitos, los detalles técnicos del agente y los métodos de implementación.
+* Antes de evaluar o habilitar los servidores habilitados para Arc en varias máquinas híbridas, consulte la [introducción al agente de Connected Machine](agent-overview.md) para conocer los requisitos y detalles técnicos del agente y los métodos de implementación.
+
+* Examine la [guía de planeamiento e implementación](plan-at-scale-deployment.md) para planear la implementación de servidores habilitados para Azure Arc a cualquier escala e implementar la administración y supervisión centralizadas.

@@ -1,19 +1,19 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: storage
 author: twooley
 ms.service: storage
 ms.topic: include
-ms.date: 11/23/2019
+ms.date: 07/23/2021
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: 9e6b2dfaaccfc7d305f672a9b7d74daf3a6227b7
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 463d251cc46e0a5735b1b5146bac30b3bc506f46
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109805365"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674387"
 ---
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Copia de las credenciales desde Azure Portal
 
@@ -21,8 +21,12 @@ Cuando la aplicación de ejemplo realiza una solicitud a Azure Storage, debe est
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Busque su cuenta de almacenamiento.
-3. En la sección **Seguridad y redes** de la información general de la cuenta de almacenamiento, seleccione **Claves de acceso**. Aquí puede ver las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
-4. Busque el valor de **Cadena de conexión** en **key1** y seleccione el botón **Copiar** para copiar la cadena de conexión. En el paso siguiente, agregará el valor de la cadena de conexión a una variable de entorno.
+3. En el panel del menú de la cuenta de almacenamiento, en **Seguridad y redes**, seleccione **Claves de acceso**. Aquí puede ver las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
+
+    ![Captura de pantalla que muestra dónde se encuentra la configuración de las claves de acceso en Azure Portal](./media/storage-access-keys-portal/portal-access-key-settings.png)
+ 
+1. En el panel **Claves acceso**, seleccione **Mostrar claves**.
+1. En la sección **key1**, busque el valor de **Cadena de conexión**. Seleccione el icono **Copiar al portapapeles** para copiar la cadena de conexión. En la siguiente sección, agregará el valor de la cadena de conexión a una variable de entorno.
 
     ![Captura de pantalla que muestra cómo copiar una cadena de conexión desde Azure Portal](./media/storage-copy-connection-string-portal/portal-connection-string.png)
 

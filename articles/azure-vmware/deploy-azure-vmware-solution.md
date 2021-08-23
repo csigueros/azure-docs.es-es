@@ -2,14 +2,14 @@
 title: Implementación y configuración de Azure VMware Solution
 description: Aprenda a usar la información recopilada en la fase de planeación para implementar y configurar la nube privada de Azure VMware Solution.
 ms.topic: tutorial
-ms.custom: contperf-fy21q4, devx-track-azurecli
-ms.date: 05/19/2021
-ms.openlocfilehash: 824ab46b81a913bc7b1768e56e05025ee8208d17
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: contperf-fy22q1, devx-track-azurecli
+ms.date: 07/09/2021
+ms.openlocfilehash: 30c6360e49da2574edd87c639811aac4b66d5e9e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473775"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438208"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementación y configuración de Azure VMware Solution
 
@@ -33,7 +33,12 @@ En el diagrama se muestra el flujo de trabajo de implementación de Azure VMware
 
 ## <a name="step-3-connect-to-azure-virtual-network-with-expressroute"></a>Paso 3. Conexión a Azure Virtual Network con ExpressRoute
 
-En la fase de planeamiento, ha definido si va a usar una puerta de enlace de red virtual de ExpressRoute *nueva* o *existente*.  
+En la fase de planeamiento, ha definido si va a usar una puerta de enlace de red virtual de ExpressRoute *existente* o  *nueva*.  
+
+:::image type="content" source="media/connect-expressroute-vnet-workflow.png" alt-text="Diagrama que muestra el flujo de trabajo para conectar Azure Virtual Network a ExpressRoute en Azure VMware Solution." border="false":::
+
+>[!IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] 
 
 ### <a name="use-a-new-expressroute-virtual-network-gateway"></a>Uso de una nueva puerta de enlace de red virtual de ExpressRoute
 
@@ -42,9 +47,9 @@ En la fase de planeamiento, ha definido si va a usar una puerta de enlace de red
 
 | Si | Entonces  |
 | --- | --- |
-| Si no tiene una red virtual...     |  Cree los siguientes elementos:<ul><li><a href="tutorial-configure-networking.md#create-a-virtual-network">Red virtual</a></li><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Puerta de enlace de red virtual</a></li></ul>        |
-| Ya tiene una red virtual **sin** subred de puerta de enlace...   | Cree los siguientes elementos: <ul><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Puerta de enlace de red virtual</a></li></ul>          |
-| Ya tiene una red virtual **con** una subred de puerta de enlace... | [Creación de una puerta de enlace de red virtual](tutorial-configure-networking.md#create-a-virtual-network-gateway)   |
+| Si no tiene una red virtual...     |  Cree los siguientes elementos:<ol><li><a href="tutorial-configure-networking.md#create-a-virtual-network">Red virtual</a></li><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Puerta de enlace de red virtual</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Conexión de ExpressRoute a la puerta de enlace</a></li></ol>        |
+| Ya tiene una red virtual **sin** subred de puerta de enlace...   | Cree los siguientes elementos: <ol><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Puerta de enlace de red virtual</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Conexión de ExpressRoute a la puerta de enlace</a></li></ol>          |
+| Ya tiene una red virtual **con** una subred de puerta de enlace... | Cree los siguientes elementos: <ol><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Puerta de enlace de red virtual</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Conexión de ExpressRoute a la puerta de enlace</a></li></ol>    |
 
 
 ### <a name="use-an-existing-virtual-network-gateway"></a>Uso de una puerta de enlace de red virtual existente
@@ -59,15 +64,18 @@ Debe tener conectividad entre la instancia de Azure Virtual Network donde finali
 1. Use una [máquina virtual](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) dentro de la instancia de Azure Virtual Network en la que finaliza la instancia de ExpressRoute de Azure VMware Solution (consulte [Paso 3. Conexión a Azure Virtual Network con ExpressRoute](#step-3-connect-to-azure-virtual-network-with-expressroute)).  
 
    1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-   2. Vaya a una máquina virtual que se encuentre en estado de ejecución y, en **Configuración**, seleccione **Redes** y seleccione el recurso de la interfaz de red.
-      ![Visualización de las interfaces de red](../virtual-network/media/diagnose-network-routing-problem/view-nics.png)
-   4. A la izquierda, seleccione **Rutas eficaces**. Verá una lista de prefijos de dirección que se encuentran dentro del bloque CIDR `/22` que especificó durante la fase de implementación.
+
+   1. Vaya a una máquina virtual que se encuentre en estado de ejecución y, en **Configuración**, seleccione **Redes** y seleccione el recurso de la interfaz de red.
+
+      :::image type="content" source="../virtual-network/media/diagnose-network-routing-problem/view-nics.png" alt-text="Captura de pantalla que muestra la configuración de la interfaz de red virtual.":::
+
+   1. A la izquierda, seleccione **Rutas eficaces**. Verá una lista de prefijos de dirección que se encuentran dentro del bloque CIDR `/22` que especificó durante la fase de implementación.
 
 1. Si desea iniciar sesión en vCenter y NSX-T Manager, abra un explorador web e inicie sesión en la misma máquina virtual que se usa para la validación de rutas de red.  
 
    Puede identificar las direcciones IP y las credenciales de la consola de NSX-T Manager y vCenter en Azure Portal.  Seleccione una nube privada y, después, **Administrar** > **Identidad**.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Capturas de pantalla de las direcciones URL y las credenciales de NSX Manager y vCenter de la nube privada." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Captura de pantalla que muestra las direcciones URL y las credenciales de NSX Manager y vCenter de la nube privada." border="true":::
 
 
 ## <a name="next-steps"></a>Pasos siguientes

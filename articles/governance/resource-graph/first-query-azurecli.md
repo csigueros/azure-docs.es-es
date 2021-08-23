@@ -4,12 +4,12 @@ description: En esta guía de inicio rápido, dará los pasos necesarios para ha
 ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3cf4b75d3e2ade6803d2950fa13ee2e01d99de6d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: cbcd4185507423d488f1ffc348740647881fda81
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751938"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457422"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con la CLI de Azure
 
@@ -48,7 +48,7 @@ Para habilitar la CLI de Azure para consultar Azure Resource Graph, se debe agre
 
 ## <a name="run-your-first-resource-graph-query"></a>Ejecutar la primera consulta de Resource Graph
 
-Una vez agregada la extensión de la CLI de Azure al entorno de su elección, es el momento de probar una consulta simple de Resource Graph. La consulta devolverá los cinco primeros recursos de Azure con el **Nombre** y el **Tipo de recurso** de cada recurso.
+Una vez agregada la extensión de la CLI de Azure al entorno de su elección, es el momento de probar una consulta sencilla de Resource Graph basada en un inquilino. La consulta devolverá los cinco primeros recursos de Azure con el **nombre** y el **tipo de recurso** de cada recurso. Para hacer una consulta por [grupo de administración](../management-groups/overview.md) o suscripción, use los argumentos `--managementgroups` o `--subscriptions`.
 
 1. Ejecute la primera consulta de Azure Resource Graph mediante la extensión `graph` y el comando `query`:
 

@@ -1,11 +1,10 @@
 ---
 title: Especificaciones de hardware de Azure Kinect DK
 description: Comprenda los componentes, las especificaciones y las funcionalidades de Azure Kinect DK.
-author: tesych
-ms.author: tesych
-ms.reviewer: jarrettr
+author: qm13
+ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 02/14/2020
+ms.date: 03/18/2021
 ms.topic: article
 keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, IMU, microphone, array, depth
 ms.custom:
@@ -14,12 +13,12 @@ ms.custom:
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: e0d42a3ce1dd9deb5e73500371c367134ca852e1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: b5ec67537fe0bd8732b4068c0ed52861ed8f2c1a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619961"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "116986085"
 ---
 # <a name="azure-kinect-dk-hardware-specifications"></a>Especificaciones de hardware de Azure Kinect DK
 
@@ -42,17 +41,19 @@ Estos términos abreviados se usan en todo este artículo.
 
 El dispositivo Azure Kinect tiene las siguientes dimensiones de tamaño y peso.
 
-- **Dimensiones** 103 x 39 x 126 mm
-- **Peso**: 440 g
+- **Dimensiones**: 103 x 39 x 126 mm
+- **Peso**:440 g
 
 ![Dimensiones de Azure Kinect DK](./media/resources/hardware-specs-media/dimensions.png)
+
+Hay un archivo STEP para el dispositivo Azure Kinect disponible [aquí](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/assets). 
 
 ## <a name="operating-environment"></a>Entorno operativo
 
 Azure Kinect DK está diseñado para desarrolladores y empresas comerciales que operan en las siguientes condiciones ambientales:
 
-- **Temperatura**: De 10 a 25 ⁰C
-- **Humedad**: Humedad relativa del 8 al 90 % (sin condensación)
+- **Temperatura**: 10-25<sup>0</sup>C
+- **Humedad**: humedad relativa del 8-90 % (sin condensar)
 
 > [!NOTE]
 > El uso en otras condiciones ambientales podría provocar un error en el dispositivo o un funcionamiento incorrecto. Estas condiciones ambientales son aplicables al entorno inmediato del dispositivo en todas las condiciones operativas. Cuando se usa con un receptáculo externo, se recomienda un control activo de la temperatura u otras soluciones de enfriamiento para asegurarse de que el dispositivo se mantenga dentro de estos intervalos. El diseño del dispositivo incluye un canal de refrigeración entre la sección delantera y la cubierta trasera. Cuando implemente el dispositivo, asegúrese de que este canal de refrigeración no esté obstruido.
@@ -61,9 +62,9 @@ Consulte más [información de seguridad](https://support.microsoft.com/help/402
 
 ## <a name="depth-camera-supported-operating-modes"></a>Modos de funcionamiento admitidos en la cámara de profundidad
 
-Azure Kinect DK integra una cámara de profundidad TOF (tiempo de vuelo; del inglés, Time-of-Flight) de 1 megapíxel diseñada por Microsoft mediante el [sensor de imagen presentado en el ISSCC 2018](https://docs.microsoft.com/windows/mixed-reality/ISSCC-2018). La cámara de profundidad admite los modos que se indican a continuación:
+Azure Kinect DK integra una cámara de profundidad TOF (tiempo de vuelo; del inglés, Time-of-Flight) de 1 megapíxel diseñada por Microsoft mediante el [sensor de imagen presentado en el ISSCC 2018](/windows/mixed-reality/ISSCC-2018). La cámara de profundidad admite los modos que se indican a continuación:
 
- | Mode            | Solución | FoI       | FPS                | Intervalo de funcionamiento* | Tiempo de exposición |
+ | Modo            | Solución | FoI       | FPS                | Intervalo de funcionamiento* | Tiempo de exposición |
 |-----------------|------------|-----------|--------------------|------------------|---------------|
 | NFOV sin binning   | 640x576    | 75°x65°   | 0, 5, 15, 30       | 0,5 - 3,86 m       | 12,8 ms        |
 | NFOV 2x2 con binning (SW) | 320x288    | 75°x65°   | 0, 5, 15, 30       | 0,5 - 5,46 m       | 12,8 ms        |
@@ -86,7 +87,7 @@ Azure Kinect DK incluye un sensor de obturador CMOS OV12A10 de 12MP. Los modos 
 |       4096x3072                          |          4:3           |          MJPEG             |          0, 5, 15           |          90°x74,3°                            |
 |       2048x1536                          |          4:3           |          MJPEG             |          0, 5, 15, 30       |          90°x74,3°                            |
 
-La cámara RGB admite la clase de vídeo USB y se puede usar sin Sensor SDK. Espacio de colores de la cámara RGB: Intervalo completo BT.601 [0..255]. 
+La cámara RGB admite la clase de vídeo USB y se puede usar sin Sensor SDK. Espacio de colores de la cámara RGB: intervalo completo BT.601 [0-255]. La [submuestra de intensidad de color](https://en.wikipedia.org/wiki/Chroma_subsampling) MJPEG es 4:2:2.
 
 > [!NOTE]
 > Sensor SDK puede proporcionar imágenes de color en el formato de píxeles de BGRA. No se trata de un modo nativo que admite el dispositivo y provoca una carga adicional de la CPU cuando se usa. La CPU del host se utiliza para convertir las imágenes MJPEG recibidas del dispositivo.
@@ -99,7 +100,7 @@ A continuación se muestra la asignación de los valores aceptables de exposici�
 |----|-------|--------|--------|
 | -11|     488|    500|    500 |
 | -10|     977|   1250|   1250 |
-|  -9|    1953|   2\.500|   2\.500 |
+|  -9|    1953|   2.500|   2.500 |
 |  -8|    3906|  10000|   8330 |
 |  -7|    7813|  20000|  16670 |
 |  -6|   15625|  30000|  33330 |
@@ -113,7 +114,7 @@ A continuación se muestra la asignación de los valores aceptables de exposici�
 
 ## <a name="depth-sensor-raw-timing"></a>Tiempo sin procesar del sensor de profundidad
 
-Modo de profundidad | IR <br>Pulsos | Pulso <br>Ancho  | Inactivo <br>Períodos| Tiempo de inactividad | Exposición <br> Time
+Modo de profundidad | IR <br>Pulsos | Pulso <br>Ancho  | Inactivo <br>Puntos| Inactivo | Exposure <br> Time
 -|-|-|-|-|-
 NFOV sin binning <br>  NFOV 2xx con binning <br> WFOV 2x2 con binning | 9 | 125 us | 8 | 1450 us | 12,8 ms 
 WFOV sin binning                                            | 9 | 125 us | 8 | 2390 us | 20,3 ms
@@ -136,7 +137,7 @@ En esta imagen se muestra el campo de visión de la cámara, tal como se ve desd
 
 La unidad de medición inercial (IMU) insertada es un LSM6DSMUS e incluye un acelerómetro y un giroscopio. El acelerómetro y el giroscopio se muestrean simultáneamente a 1,6 kHz. Las muestras se envían al host en 208 Hz.
 
-## <a name="microphone-array"></a>Matriz de micrófono
+## <a name="microphone-array"></a>Varios micrófonos
 
 Azure Kinect DK inserta una matriz circular de siete micrófonos de alta calidad que se identifica como un dispositivo estándar de audio USB clase 2.0. Se puede acceder a los siete canales. Las especificaciones de rendimiento son las siguientes:
 
@@ -150,7 +151,7 @@ Azure Kinect DK inserta una matriz circular de siete micrófonos de alta calida
 
 Azure Kinect DK es un dispositivo compuesto USB3 que expone los siguientes puntos de conexión de hardware al sistema operativo:
 
-El identificador del proveedor es 0x045E (Microsoft); la tabla del identificador de productos es la siguiente:
+El identificador de proveedor es 0x045E (Microsoft). A continuación se muestra la tabla de identificadores de productos:
 
 |    Interfaz USB        |    IP de PNP    |     Notas            |
 |-------------------------|--------------|----------------------|
@@ -177,7 +178,7 @@ El LED de estado situado detrás del dispositivo indica su estado:
 
 El dispositivo se puede alimentar de dos maneras:
 
-1. Uso de la fuente de alimentación integrada. Los datos se conectan mediante un cable USB independiente de tipo C a tipo A.
+1. Uso de la fuente de alimentación integrada. El conector de alimentación tiene un diámetro exterior de 4,5 mm con un diámetro interior de 3,0 mm y un diámetro de clavija de 0,6 mm.
 2. Con un cable de tipo C a tipo C tanto para alimentación como para datos.
 
 No se incluye un cable de tipo C a tipo C con Azure Kinect DK.
@@ -190,7 +191,7 @@ No se incluye un cable de tipo C a tipo C con Azure Kinect DK.
 > Para seleccionar un buen cable de tipo C a tipo C:
 > - El [cable certificado para USB](https://www.usb.org/products) debe admitir tanto datos como alimentación.
 > - Un cable pasivo debe medir menos 1,5 m. Si es más largo, use un cable activo. 
-> - El cable debe admitir como mínimo 1,5 A. En caso contrario, debe conectar una fuente de alimentación externa.
+> - El cable debe admitir al menos 1,5 A. En caso contrario, debe conectar una fuente de alimentación externa.
 
 Compruebe el cable:
 
@@ -202,7 +203,7 @@ Compruebe el cable:
 - Compruebe que el cable puede transmitir de forma confiable en todos los sensores de Azure Kinect Viewer, con la siguiente configuración:
 
   - Cámara de profundidad: NFOV sin binning
-  - Cámara RGB: 2160 p
+  - Cámara RGB: 2160p
   - Micrófonos e IMU habilitados
 
 ## <a name="what-does-the-light-mean"></a>Significado de las luces

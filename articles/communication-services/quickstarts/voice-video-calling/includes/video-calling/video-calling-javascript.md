@@ -4,19 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 2bbff7c68b76b82bb834528124271eff69b8ad87
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: e8a00161e9619a27b371ed80a61d7b3ea5d3e9c6
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111896383"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112536153"
 ---
 Puede empezar a usar Azure Communication Services con Calling SDK de Azure Communication Services para agregar llamadas individuales de vídeo a la aplicación. Aprenderá a iniciar videollamadas y a responder a ellas con Calling SDK de Azure Communication Services para JavaScript.
 
+## <a name="sample-code"></a>Código de ejemplo
 
-> [!NOTE]
-> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)
-
+Si quiere ir directamente al final, puede descargar esta guía de inicio rápido como ejemplo desde [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Obtenga una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -135,7 +134,11 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 
 ## <a name="authenticate-the-client-and-access-devicemanager"></a>Autenticación del cliente y acceso a DeviceManager
 
-Debe reemplazar <[USER_ACCESS_TOKEN](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart)> por un token de acceso de usuario válido para el recurso. Consulte la documentación relativa al token de acceso de usuario si aún no tiene ningún token disponible. Con el `CallClient`, inicialice una instancia de `CallAgent` con un `CommunicationUserCredential` que nos permita realizar y recibir llamadas. Para acceder a `DeviceManager`, primero se debe crear una instancia de callAgent. Luego, puede usar el método `getDeviceManager` en la instancia de `CallClient` para obtener el elemento `DeviceManager`.
+**Debe reemplazar <USER_ACCESS_TOKEN> por un token de acceso de usuario válido** para el recurso. Consulte la [documentación relativa al token de acceso de usuario](../../../access-tokens.md) si aún no tiene ningún token disponible. 
+
+Con el `CallClient`, inicialice una instancia de `CallAgent` con un `CommunicationUserCredential` que nos permita realizar y recibir llamadas. 
+
+Para acceder a `DeviceManager`, primero se debe crear una instancia de callAgent. Luego, puede usar el método `getDeviceManager` en la instancia de `CallClient` para obtener el elemento `DeviceManager`.
 
 Agregue el siguiente código a `client.js`:
 
@@ -294,7 +297,7 @@ hangUpButton.addEventListener("click", async () => {
 
 ## <a name="start-and-end-video-during-the-call"></a>Inicio y finalización del vídeo durante la llamada
 Puede detener el vídeo durante la llamada actual mediante la incorporación de una escucha de eventos al botón para detener el vídeo para desechar el representador de `localVideoStream`. 
- ```JavaScript       
+ ```JavaScript
 stopVideoButton.addEventListener("click", async () => {
     await call.stopVideo(localVideoStream);
     rendererLocal.dispose();
@@ -321,7 +324,4 @@ Abra el explorador web y vaya a http://localhost:8080/. Verá lo siguiente:
 
 :::image type="content" source="../../media/javascript/1-on-1-video-calling.png" alt-text="Página para llamada de vídeo 1:1":::
 
-Para hacer una llamada de vídeo saliente 1:1, proporcione un identificador de usuario en el campo de texto y haga clic en el botón para iniciar llamada. 
-
-## <a name="sample-code"></a>Código de ejemplo
-Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
+Para hacer una llamada de vídeo saliente 1:1, proporcione un identificador de usuario en el campo de texto y haga clic en el botón para iniciar llamada.

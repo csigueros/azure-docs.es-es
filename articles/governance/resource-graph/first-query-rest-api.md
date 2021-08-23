@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Su primera consulta de API REST'
 description: En este inicio rápido, dará los pasos necesarios para llamar al punto de conexión de Resource Graph para la API REST y ejecutará su primera consulta.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: ef157eebbdd562262bb33f32e726d0d567c421d5
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 258bda8df671dac3440edef37d8ea5a1c7f362b5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324948"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460074"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph mediante la API REST
 
@@ -54,7 +54,7 @@ La variable `$response`contiene el resultado del cmdlet `Invoke-RestMethod`, que
 
 ## <a name="run-your-first-resource-graph-query"></a>Ejecutar la primera consulta de Resource Graph
 
-Una vez agregadas las herramientas de API REST al entorno elegido, es el momento de probar una consulta simple de Resource Graph. La consulta devolverá los cinco primeros recursos de Azure con el **nombre** y el **tipo de recurso** de cada recurso.
+Una vez agregadas las herramientas de API REST al entorno elegido, es el momento de probar una consulta simple de Resource Graph basada en suscripción. La consulta devolverá los cinco primeros recursos de Azure con el **nombre** y el **tipo de recurso** de cada recurso. Para realizar una consulta por [grupo de administración](../management-groups/overview.md), use `managementgroups` en lugar de `subscriptions`. Para realizar una consulta en todo el inquilino, omita las propiedades `managementgroups` y `subscriptions` del cuerpo de la solicitud.
 
 En el cuerpo de la solicitud de cada llamada a la API REST, hay una variable que se usa que debe reemplazar por su propio valor:
 
@@ -65,7 +65,7 @@ En el cuerpo de la solicitud de cada llamada a la API REST, hay una variable que
    - URI DE LA API REST
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - Cuerpo de la solicitud
@@ -87,7 +87,7 @@ En el cuerpo de la solicitud de cada llamada a la API REST, hay una variable que
    - URI DE LA API REST
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - Cuerpo de la solicitud
@@ -109,7 +109,7 @@ En el cuerpo de la solicitud de cada llamada a la API REST, hay una variable que
    - URI DE LA API REST
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - Cuerpo de la solicitud
@@ -125,7 +125,7 @@ En el cuerpo de la solicitud de cada llamada a la API REST, hay una variable que
 
 Cuando la consulta final se ejecuta varias veces, suponiendo que nada cambie en su entorno, los resultados devueltos serán coherentes y estarán ordenados por la propiedad **Nombre**, pero todavía limitados a los cinco primeros resultados.
 
-Para más ejemplos de llamadas de la API REST para Azure Resource Graph, consulte la sección de [ejemplos de REST de Azure Resource Graph](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#examples).
+Para más ejemplos de llamadas de la API REST para Azure Resource Graph, consulte la sección de [ejemplos de REST de Azure Resource Graph](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#examples).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

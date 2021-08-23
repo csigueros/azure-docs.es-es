@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: b943be684d84e1e193d9318e9f1c6423dcd38795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fb9d5be9068731607550eb904a8bf3d43044510
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648956"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469571"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>Tutorial: Integración de JFrog Artifactory con Azure Active Directory
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar JFrog Artifactory 
 * Permitir que los usuarios puedan iniciar sesión automáticamente en JFrog Artifactory con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -76,29 +76,29 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `<servername>.jfrog.io`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL que refleje la URL de Artifactory.
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
     
-    - Para Artifactory 6.x: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
-    - Para Artifactory 7.x: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+    - En el caso de Artifactory autohospedado: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
+    - En el caso de SaaS Artifactory: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
     En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
-    - Para Artifactory 6.x: `https://<servername>.jfrog.io/<servername>/webapp/`
-    - Para Artifactory 7.x: `https://<servername>.jfrog.io/ui/login`
+    - En el caso de Artifactory autohospedado: `https://<servername>.jfrog.io/<servername>/webapp/`
+    - En el caso de SaaS de Artifactory: `https://<servername>.jfrog.io/ui/login`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de cliente de JFrog Artifactory](https://support.jfrog.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. La aplicación JFrog Artifactory espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
+1. La aplicación JFrog Artifactory espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos y notificaciones de usuario.
 
     ![Captura de pantalla que muestra User Attributes (Atributos de usuario) con el control de edición seleccionado.](common/edit-attribute.png)
 
-1. Además de lo anterior, la aplicación JFrog Artifactory espera que se usen algunos atributos más en la respuesta de SAML. En la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) del cuadro de diálogo **Group Claims (Preview)** (Notificaciones de grupo [versión preliminar]), siga estos pasos:
+1. Además de lo anterior, la aplicación JFrog Artifactory espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Atributos y notificaciones de usuario**, haga clic en **Agregar una notificación de grupo** y siga estos pasos:
 
-    a. Haga clic en el **lápiz** junto a **Groups returned in claim** (Grupos devueltos en la notificación).
+    a. Haga clic en **Abrir** junto a **Groups returned in claim** (Grupos devueltos en la notificación).
 
     ![Captura de pantalla que muestra los atributos y las notificaciones del usuario con el icono de edición seleccionado.](./media/jfrog-artifactory-tutorial/configuration-4.png)
 
@@ -114,8 +114,8 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 6. Configure Artifactory (nombre del proveedor de servicios SAML) con el campo "identificador" (consulte el paso 4). En la sección **Configurar JFrog Artifactory**, copie las direcciones URL adecuadas según sus necesidades.
 
-   - Para Artifactory 6.x: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
-   - Para Artifactory 7.x: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+   - En el caso de Artifactory autohospedado: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
+   - En el caso de SaaS Artifactory: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 

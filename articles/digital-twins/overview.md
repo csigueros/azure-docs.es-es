@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 8213bd8e819e3a6c4a84a95f7c996912ac28ec2b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 519a64ac9e921624f4e8c03fc91f842eacd2672c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539450"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472962"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
@@ -40,7 +40,7 @@ Los modelos se definen en un lenguaje similar a JSON denominado [lenguaje de def
 * Los modelos definen **relaciones** semánticas entre las entidades para que pueda conectar su gemelos a un gráfico de información que refleje sus interacciones. Puede considerar los modelos como nombres en una descripción de su mundo y las relaciones como verbos.
 * También puede especializar gemelos mediante la herencia de modelos. Un modelo puede heredar de otro.
 
-DTDL se utiliza para los modelos de datos en otros servicios de Azure IoT, como [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) y [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md). Esto le ayuda a mantener la solución Azure Digital Twins conectada y compatible con otras partes del ecosistema de Azure.
+DTDL se utiliza para los modelos de datos en otros servicios de Azure IoT, como [IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) y [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md). Esto le ayuda a mantener la solución Azure Digital Twins conectada y compatible con otras partes del ecosistema de Azure.
 
 ### <a name="live-execution-environment"></a>Entorno de ejecución dinámico
 
@@ -101,6 +101,6 @@ Puede ver una lista de **términos de IoT comunes** y sus usos en los servicios 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Profundice en el tema de Azure Digital Twins con: [Inicio rápido: Introducción a Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
+* Profundice en el tema de Azure Digital Twins en [Introducción a Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
 
-* O bien, empiece a obtener información sobre los conceptos de Azure Digital Twins con [Conceptos: Modelos personalizados](concepts-models.md).
+* O bien, empiece a obtener información sobre los conceptos de Azure Digital Twins con [Modelos personalizados](concepts-models.md).

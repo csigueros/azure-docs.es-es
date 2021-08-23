@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 04b0ee4feb74553fc3b24910da338ba02864ec28
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 3d40705b5dc2b1fb3649c9acea33fc500add1c91
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109169"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768815"
 ---
 # <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>Inicio rápido: Control de eventos SMS para informes de entrega y mensajes entrantes
 
@@ -28,7 +28,7 @@ Para empezar con Azure Communication Services, use Azure Event Grid para adminis
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Un recurso de Azure Communication Services. Puede encontrar más información en la guía de inicio rápido [Creación de un recurso de Azure Communication Services](../create-communication-resource.md).
+- Un recurso de Azure Communication Services. Puede encontrar más información en el inicio rápido sobre la [creación de un recurso de Azure Communication Services](../create-communication-resource.md).
 - Un número de teléfono habilitado para SMS. [Obtener un número de teléfono](./get-phone-number.md).
 
 ## <a name="setting-up"></a>Instalación

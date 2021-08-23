@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 9f25e7ce9580ab967d1625a6ab1550bd3f535225
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 2764eede3aebd0110e2cc2de8a1813bc1f28cb86
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109020"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444352"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>Inicio rápido: Envío de mensajes SMS en Azure Logic Apps mediante Azure Communication Services
 
@@ -52,14 +52,40 @@ Para agregar la acción **Enviar SMS** como un nuevo paso en el flujo de trabajo
    :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Captura de pantalla que muestra el diseñador de aplicaciones lógicas y el conector de Azure Communication Services con la acción Enviar SMS seleccionada.":::
 
 1. A continuación, cree una conexión al recurso de Communication Services.
+    1. Dentro de la misma suscripción:
 
-   1. Proporcione un nombre para la conexión.
+       1. Proporcione un nombre para la conexión.
 
-   1. Seleccione el recurso de Azure Communication Services.
+       1. Seleccione el recurso de Azure Communication Services.
 
-   1. Seleccione **Crear**.
+       1. Seleccione **Crear**.
 
-   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Captura de pantalla que muestra la configuración de la acción Enviar SMS con información de ejemplo.":::
+       :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Captura de pantalla que muestra la configuración de la acción Enviar SMS con información de ejemplo.":::
+
+    1. Utilizando la cadena de conexión del recurso de Communication Services:
+        
+        1. Proporcione un nombre para la conexión.
+        
+        1. Seleccione ConnectionString Authentication (Autenticación de ConnectionString) en las opciones desplegables.
+        
+        1. Escriba la cadena de conexión del recurso de Communication Services.
+        
+        1. Seleccione **Crear**.
+        
+        :::image type="content" source="./media/logic-app/connection-string-auth.png" alt-text="Captura de pantalla que muestra la configuración de la autenticación de la cadena de conexión.":::
+        
+    1. Mediante la entidad de servicio ([consulte el artículo sobre la creación de entidades de servicio](../identity/service-principal-from-cli.md)):
+        1. Proporcione un nombre para la conexión.
+        
+        1. Seleccione Service principal (Azure AD application) Authentication [Autenticación de entidad de servicio (aplicación de Azure AD)] en las opciones desplegables.
+        
+        1. Escriba el identificador del inquilino, el identificador del cliente y el secreto del cliente de la entidad de servicio.
+        
+        1. Escriba el valor Dirección URL del punto de conexión de Communication Services de su recurso de Communication Services.
+        
+        1. Seleccione **Crear**.
+        
+        :::image type="content" source="./media/logic-app/service-principal-auth.png" alt-text="Captura de pantalla que muestra la configuración de autenticación de entidad de servicio.":::     
 
 1. En **Enviar SMS**, proporcione la siguiente información: 
 

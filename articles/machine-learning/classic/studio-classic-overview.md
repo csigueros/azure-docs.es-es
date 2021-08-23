@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: overview
 ms.date: 08/19/2020
-ms.openlocfilehash: ad0550dc20edfbc10fb8877ad049c27fc2edf086
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 8b9c03395f77bc33fd03cf2b14b2fb1d27bfc0f0
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517542"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579493"
 ---
 # <a name="what-can-i-do-with-machine-learning-studio-classic"></a>¿Qué se puede hacer con Azure Machine Learning Studio (clásico)?
 
-**SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -84,7 +84,7 @@ Un módulo puede tener un conjunto de parámetros que puede utilizar para config
 Si necesita ayuda para desplazarse por la gran biblioteca de algoritmos de aprendizaje automático, consulte [Elección de algoritmos para Microsoft Machine Learning Studio (clásico)](../how-to-select-algorithms.md).
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Implementación del servicio web de análisis predictivo
-Una vez que el modelo de análisis predictivo esté listo, puede implementarlo como servicio web desde Machine Learning Studio (clásico). Para más información, consulte [Implementación de un servicio web de Azure Machine Learning](deploy-a-machine-learning-web-service.md).
+Una vez que el modelo de análisis predictivo esté listo, puede implementarlo como servicio web desde Machine Learning Studio (clásico). Para más información, consulte [Implementación de un servicio web de Machine Learning](deploy-a-machine-learning-web-service.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Puede aprender lo básico del análisis predictivo y de Machine Learning mediante un [inicio rápido paso a paso](create-experiment.md) y el [uso de ejemplos](sample-experiments.md).

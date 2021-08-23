@@ -2,13 +2,13 @@
 title: Seguimiento de objetos en un vídeo en directo con Azure Video Analyzer
 description: En este inicio rápido se muestra cómo usar el módulo perimetral de Azure Video Analyzer para realizar un seguimiento de los objetos de una fuente de vídeo en directo desde una cámara IP (simulada). Verá cómo aplicar un modelo de Computer Vision para detectar objetos en un subconjunto de los fotogramas de la fuente de vídeo en directo. Luego, puede usar un nodo de seguimiento de objetos para realizar el seguimiento de esos objetos en los demás fotogramas.
 ms.topic: quickstart
-ms.date: 05/01/2021
-ms.openlocfilehash: 76723d1fb5dfff47e4ad436e1e4bd18fafa7c102
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 211b51660be74d2b2b3b024ead72c93b3a0d8449
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388627"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603907"
 ---
 # <a name="quickstart-track-objects-in-a-live-video"></a>Inicio rápido: Seguimiento de objetos en un vídeo en directo
 
@@ -105,7 +105,7 @@ Abra la dirección URL de la topología de la canalización en un explorador y e
    }
 ```
 
-En este caso, `skipSamplesWithoutAnnotation` se establece en `false` porque el nodo de extensiones debe pasar por todos los fotogramas, tanto si tienen resultados de inferencia como si no, hasta el nodo de seguimiento de objetos de nivel inferior. El seguimiento de objetos tiene capacidad para realizar un seguimiento de objetos de más de 15 fotogramas, aproximadamente. Si el vídeo en directo se ejecuta a una velocidad de 30 fotogramas por segundo, significa que se deben enviar al menos dos fotogramas por segundo al servidor HTTP para la inferencia; por lo tanto, `maximumSamplesPerSecond` se establece en 2.
+En este caso, `skipSamplesWithoutAnnotation` se establece en `false` porque el nodo de extensiones debe pasar por todos los fotogramas, tanto si tienen resultados de inferencia como si no, hasta el nodo de seguimiento de objetos de nivel inferior. El seguimiento de objetos tiene capacidad para realizar un seguimiento de objetos de más de 15 fotogramas, aproximadamente. Si el vídeo en directo se ejecuta a una velocidad de 30 fotogramas por segundo, significa que se deben enviar al menos 2 fotogramas por segundo al servidor HTTP para la inferencia. El modelo de IA tiene un valor de FPS máximo para el procesamiento, que es el valor más alto en el que se debe establecer `maximumSamplesPerSecond`.
     
 ## <a name="run-the-sample-program"></a>Ejecución del programa de ejemplo
 
@@ -162,12 +162,12 @@ En este caso, `skipSamplesWithoutAnnotation` se establece en `false` porque el n
     * Una segunda llamada a `livePipelineList` que muestra que la canalización en directo está en estado de ejecución.
 1. La salida de la ventana TERMINAL se pondrá en pausa con el mensaje Press Enter to continue (Presione Entrar para continuar). No presione Entrar todavía. Desplácese hacia arriba para ver las cargas de la respuesta JSON para los métodos directos que ha invocado.
 1. Cambie a la ventana SALIDA de Visual Studio Code. Verá los mensajes que el módulo perimetral de Video Analyzer está enviando al centro de IoT. En la siguiente sección de este inicio rápido se analizan estos mensajes.
-1. La canalización en directo continúa ejecutándose y se imprimen los resultados. El simulador RTSP sigue recorriendo el vídeo de origen. Para detener la canalización en directo, vuelva a la ventana **TERMINAL** y seleccione Entrar.
+1. Prosigue la canalización en directo y se imprimen los resultados. El simulador RTSP sigue recorriendo el vídeo de origen. Para detener la canalización en directo, vuelva a la ventana **TERMINAL** y seleccione Entrar.
 1. La siguiente serie de llamadas limpia los recursos:
 
     * Una llamada a `livePipelineDeactivate` desactiva la canalización en directo.
     * Una llamada a `livePipelineDelete` elimina la canalización en directo.
-    * Una llamada a `pipelineTopologyDelete` elimina la topología de la canalización.
+    * Una llamada a `pipelineTopologyDelete` elimina la topología de canalización.
     * Una llamada final a `pipelineTopologyList` muestra que la lista está vacía.
     
 ## <a name="interpret-results"></a>Interpretación de los resultados
@@ -178,7 +178,7 @@ En los mensajes siguientes, el módulo de Video Analyzer define las propiedades 
 
 ### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-Cuando se activa una canalización en directo, el nodo de origen RTSP intenta conectarse al servidor RTSP que se ejecuta en el contenedor rtspsim-live555. Si la conexión se realiza correctamente, se imprime el evento siguiente. El tipo de evento es **MediaSessionEstablished**.
+Cuando se activa una canalización en directo, el nodo de origen de RTSP intenta conectarse al servidor RTSP que se ejecuta en el contenedor rtspsim-live555. Si la conexión se realiza correctamente, se imprime el evento siguiente. El tipo de evento es **MediaSessionEstablished**.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [avasample-iot-edge-device/avaedge]:

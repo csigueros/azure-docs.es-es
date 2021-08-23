@@ -8,12 +8,12 @@ metadata:
   author: mathapli
   ms.author: mathapli
   ms.date: 01/18/2021
-  ms.openlocfilehash: d11988cbf65b9a66e1ada1640726f2ace5fec336
-  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+  ms.openlocfilehash: 96e8f93f38d7ba84b93fdfb4101371f426a14f37
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/10/2021
-  ms.locfileid: "113598396"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114456576"
 title: Solución de problemas de certificación de máquina virtual
 summary: >
   Cuando publica la imagen de máquina virtual (VM) en Azure Marketplace, el equipo de Azure la valida para garantizar que se puede arrancar, que es segura y que es compatible con Azure. Si la imagen de la máquina virtual produce un error en cualquiera de las pruebas de alta calidad, no se publicará. Recibirá un mensaje de error que describe el problema.
@@ -363,6 +363,11 @@ sections:
   - question: >
       Las imágenes de máquina virtual deben tener 1 MB de espacio libre.
     answer: >
+      >[!NOTE]
+
+      >A partir del **30 de septiembre de 2021**, si va a publicar imágenes en Azure (con **partición GPT**), **asegúrese de que los primeros 2048 sectores (1 MB) del disco del sistema operativo estén vacíos**. De lo contrario, se producirá un error en la publicación. Este requisito es para permitir que Azure agregue bits importantes a la imagen (por ejemplo, incluye bits para mejorar el tiempo de arranque de los clientes, la facturación y otros detalles).
+
+
       Si [crea su propia imagen](azure-vm-create-using-own-image.md), asegúrese de que los primeros 2048 sectores (1 MB) del disco del sistema operativo están vacíos. De lo contrario, se producirá un error en la publicación. Este requisito solo se aplica al disco del sistema operativo (no a discos de datos). Si crea la imagen [a partir de una base aprobada](azure-vm-create-using-approved-base.md), puede omitir este requisito.
 
 

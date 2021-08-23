@@ -6,17 +6,18 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 27d1271450715babeb94bfe929e54500c59aa664
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: de2e9fd9cb44b855dbc1db8d1d355be092d6c83e
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560859"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112536209"
 ---
 En este inicio rápido aprenderá a iniciar una llamadas con Calling SDK de Azure Communication Services para iOS.
 
-> [!NOTE]
-> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)
+## <a name="sample-code"></a>Código de ejemplo
+
+Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -128,7 +129,11 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Inicialice una instancia de `CallAgent` con un token de acceso de usuario que nos permita realizar y recibir llamadas. Agregue el código siguiente a la devolución de llamada `onAppear` en **ContentView.swift**:
+Inicialice una instancia de `CallAgent` con un token de acceso de usuario que nos permita realizar y recibir llamadas. 
+
+En el código siguiente, tendrá que reemplazar `<USER ACCESS TOKEN>` por un token de acceso de usuario válido para el recurso. Consulte la documentación relativa al [token de acceso de usuario](../../../access-tokens.md) si aún no tiene ningún token disponible.
+
+Agregue el código siguiente a la devolución de llamada `onAppear` en **ContentView.swift**:
 
 ```swift
 var userCredential: CommunicationTokenCredential?
@@ -154,7 +159,7 @@ self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, erro
 }
 ```
 
-Debe reemplazar `<USER ACCESS TOKEN>` por un token de acceso de usuario válido para el recurso. Consulte la documentación de [token de acceso de usuario](../../../access-tokens.md) si aún no tiene ningún token disponible.
+
 
 ## <a name="start-a-call"></a>Inicio de una llamada
 
@@ -207,7 +212,3 @@ Para hacer una llamada de VoIP saliente, proporcione un identificador de usuario
 
 > [!NOTE]
 > La primera vez que realice una llamada, el sistema le solicitará acceso al micrófono. En una aplicación de producción, debe usar la API `AVAudioSession` para [comprobar el estado del permiso](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) y actualizar correctamente el comportamiento de la aplicación cuando no se conceda el permiso.
-
-## <a name="sample-code"></a>Código de ejemplo
-
-Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling).

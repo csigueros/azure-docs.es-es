@@ -8,13 +8,13 @@ ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.date: 05/10/2021
-ms.openlocfilehash: 1fa01b628bb8c630716d2051a644d1e2225530f9
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 07/05/2021
+ms.openlocfilehash: 1979e5c832225483aa5309c84d3c2ce491e77f3c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372080"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436934"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Data Factory mediante una plantilla de Resource Manager
 
@@ -132,9 +132,9 @@ Mantenga abierta la página Contenedor, ya que puede usarla para verificar el re
 
 1. Vaya a la página **Factorías de datos**, y seleccione la factoría de datos que ha creado.
 
-2. Seleccione el icono **Crear y supervisar**.
+2. Seleccione **Abrir** en el icono **Azure Data Factory Studio**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Crear y supervisar":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-open-tile.png" alt-text="Crear y supervisar":::
 
 2. Seleccione la pestaña **Autor** :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::.
 

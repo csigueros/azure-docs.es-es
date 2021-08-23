@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1ff8eddef1705c8bb84488aa035b1fb44d8f726d
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 65daa2cd4681a50179ef1447ce9e4ebe6f7db717
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111813074"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438123"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Creación e implementación de módulos personalizados de IoT Edge
 
@@ -148,6 +148,9 @@ En este paso, se va a crear una solución de Azure IoT Edge con el módulo "Azur
       CONTAINER_REGISTRY_USERNAME_<your registry name>=<ACR username>
       CONTAINER_REGISTRY_PASSWORD_<your registry name>=<ACR password>
       ```
+
+      >[!NOTE]
+      >En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio. Para obtener más información, vea [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
 
 1. Haga clic con el botón derecho en el archivo deployment.template.json en el explorador de Visual Studio Code y seleccione **Build IoT Edge Solution** (Compilar la solución IoT Edge).
 

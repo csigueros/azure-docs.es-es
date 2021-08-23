@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 04/29/2021
+ms.date: 06/21/2021
 ms.author: victorh
-ms.openlocfilehash: a9f63b41afebc12566c8cc2e04664850203f1e5a
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: c5ba8ed36bc59b9b26dc854a0c1a1757f1c47266
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279935"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595334"
 ---
 # <a name="what-is-azure-firewall-manager"></a>¿Qué es Azure Firewall Manager?
 
@@ -82,7 +82,6 @@ Azure Firewall Manager presenta los siguientes problemas conocidos:
 |Un centro virtual protegido por región|No se puede tener más de un centro virtual protegido por región.|Cree varias WAN virtuales en una región.|
 |Las directivas base deben estar en la misma región que la directiva local|Cree todas las directivas locales en la misma región que la directiva de base. Puede seguir aplicando una directiva que se creó en una región de un centro seguro desde otra región.|Investigando|
 |Filtrado del tráfico entre centros en implementaciones de centros virtuales protegidos|Aún no se admite el filtrado de la comunicación entre centros virtuales protegidos. Sin embargo, la comunicación entre centros sigue funcionando si el filtrado del tráfico privado a través de Azure Firewall no está habilitado.|Investigando|
-|Radios en una región distinta a la del centro virtual|Los radios en una región distinta de la del centro virtual no se admiten.|Investigando<br><br>Cree un centro por región y redes virtuales del mismo nivel en la misma región que el centro.|
 |Tráfico de rama a rama con el filtrado de tráfico privado habilitado|El tráfico de rama a rama no se admite cuando está habilitado el filtrado de tráfico privado. |Investigando.<br><br>No proteja el tráfico privado si la conectividad de rama a rama es esencial.|
 |Todos los centros virtuales protegidos que comparten la misma WAN virtual deben estar en el mismo grupo de recursos.|Este comportamiento ya se alinea con los centros WAN virtuales en la actualidad.|Cree varias WAN virtuales para permitir que se creen centros virtuales protegidos en grupos de recursos diferentes.|
 |Error en la incorporación en masa de direcciones IP|El firewall del centro de conectividad seguro pasa al estado con errores si se agregan varias direcciones IP públicas.|Agregue incrementos menores de direcciones IP públicas. Por ejemplo, agréguelas de 10 en 10.|
@@ -91,5 +90,6 @@ Azure Firewall Manager presenta los siguientes problemas conocidos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Módulo de Learn: Introducción a Azure Firewall Manager](/learn/modules/intro-to-azure-firewall-manager/)
 - Vea [Información general sobre la implementación de Azure Firewall Manager](deployment-overview.md).
 - Información sobre [centros de conectividad virtuales protegidos](secured-virtual-hub.md).

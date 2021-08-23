@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 79e2ca71d6b8178be63c3429edba89cf3bb523e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 929bcb52f724162454fc7c65939a4cec2ffd7ca6
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96030003"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112255044"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -23,7 +23,7 @@ Debe tener un registro de contenedor de Azure en la suscripción de Azure para c
 
 ### <a name="create-a-github-personal-access-token"></a>Creación de un token de acceso personal de GitHub
 
-Para desencadenar una tarea en una confirmación en un repositorio Git, ACR Tasks necesita un token de acceso personal (PAT) para acceder al repositorio. Si aún no dispone de un PAT, siga estos pasos para generar uno en GitHub:
+Para desencadenar una tarea en una confirmación en un repositorio GIT, ACR Tasks necesita un [token de acceso personal (PAT)](../articles/container-registry/container-registry-tasks-overview.md#personal-access-token) para acceder al repositorio. Si aún no dispone de un PAT, siga estos pasos para generar uno en GitHub:
 
 1. Vaya a la página de creación del token de acceso personal en GitHub en https://github.com/settings/tokens/new
 1. Escriba una breve **descripción** para el token, por ejemplo, "ACR Tasks Demo"

@@ -1,17 +1,17 @@
 ---
 title: 'Inicio rápido: La primera consulta de Python'
 description: En este inicio rápido, dará los pasos necesarios para habilitar la biblioteca de Resource Graph para Python y ejecutará la primera consulta.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: ffb58b301e850c3887b0a554788b243f2cf262f6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: aa64fb646e45c950dcade38ee7cec189b3501f9e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751668"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457426"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con Python
 
@@ -67,7 +67,7 @@ Para que Python pueda consultar Azure Resource Graph, se debe agregar la bibliot
 
 ## <a name="run-your-first-resource-graph-query"></a>Ejecutar la primera consulta de Resource Graph
 
-Una vez agregadas las bibliotecas de Python de su elección, es el momento de probar una consulta simple de Resource Graph. La consulta devolverá los cinco primeros recursos de Azure con el **nombre** y el **tipo de recurso** de cada recurso.
+Con las bibliotecas de Python agregadas al entorno elegido, es el momento de probar una consulta simple de Resource Graph basada en suscripción. La consulta devolverá los cinco primeros recursos de Azure con el **nombre** y el **tipo de recurso** de cada recurso. Para realizar una consulta por [grupo de administración](../management-groups/overview.md), use el parámetro `management_groups` con `QueryRequest`.
 
 1. Ejecute la primera consulta de Azure Resource Graph mediante las bibliotecas instaladas y el método `resources`:
 

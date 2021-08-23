@@ -1,16 +1,19 @@
 ---
 title: Introducción a Azure Blueprint
 description: Conozca el modo en que el servicio Azure Blueprints permite crear, definir e implementar artefactos en el entorno de Azure.
-ms.date: 05/01/2021
+ms.date: 06/21/2021
 ms.topic: overview
-ms.openlocfilehash: 00fd2732f1a1176bd231675361e65ad451fd6de9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 445ecce12c9900dbae2eb4d7a3c1278c979d6cd9
+ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108761298"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112427869"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
+
+> [!IMPORTANT]
+> Azure Blueprints está actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
 Del mismo modo que un plano técnico permite a un ingeniero o a un arquitecto bosquejar los parámetros de diseño de un proyecto, Azure Blueprint permite a los grupos de arquitectos de la nube y de TI central definir un conjunto repetible de recursos de Azure que implementa y cumple los estándares de la organización, sus requisitos y sus patrones. Azure Blueprints permite a los equipos de desarrollo aprovisionar y crear rápidamente nuevos entornos sabiendo que se crean cumpliendo los estándares organizativos y que contienen un conjunto de componentes integrados, como las redes, para acelerar el desarrollo y la entrega.
 
@@ -47,7 +50,7 @@ Se puede incluir una directiva como uno de muchos _artefactos_ en una definició
 
 Un plano técnico se compone de _artefactos_. Azure Blueprints admite actualmente los siguientes recursos como artefactos:
 
-|Resource  | Opciones de la jerarquía| Descripción  |
+|Recurso  | Opciones de la jerarquía| Descripción  |
 |---------|---------|---------|
 |Grupos de recursos | Suscripción | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico. Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Resource Manager. |
 |Plantilla ARM | Suscripción, grupo de recursos | Las plantillas, incluidas las plantillas anidadas y vinculadas, se usan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |

@@ -1,21 +1,22 @@
 ---
 title: 'Inicio rápido: Creación de un registro en el portal'
 description: Aprenda rápidamente a crear un registro de contenedor privado de Azure con Azure Portal.
-ms.date: 08/04/2020
+ms.date: 06/23/2021
 ms.topic: quickstart
 ms.custom:
 - mvc
 - mode-portal
-ms.openlocfilehash: 4618a83a43d9c27f44432d5d346fdb053cee7054
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+- contperf-fy21q4
+ms.openlocfilehash: 51531b6af5babe256ec89079c7705cfea71ef52a
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773592"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895947"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Inicio rápido: Creación de un instancia de Azure Container Registry mediante Azure Portal
 
-Azure Container Registry es un registro privado de Docker en Azure donde se pueden almacenar y administrar las imágenes de contenedor privado de Docker y artefactos relacionados. En esta guía de inicio rápido, creará un registro de contenedor con Azure Portal. A continuación, utilice los comandos de Docker para insertar una imagen de contenedor en el registro y, finalmente, extraiga y ejecute la imagen desde el registro.
+Azure Container Registry es un servicio de registro privado para compilar, almacenar y proporcionar imágenes de contenedor y artefactos relacionados. En este inicio rápido, creará una instancia de Azure Container Registry con Azure Portal. A continuación, utilice los comandos de Docker para insertar una imagen de contenedor en el registro y, finalmente, extraiga y ejecute la imagen desde el registro.
 
 Para iniciar sesión en el registro y trabajar con imágenes de contenedor, este inicio rápido requiere que se ejecute la CLI de Azure (se recomienda la versión 2.0.55 o posterior). Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli].
 
@@ -37,17 +38,17 @@ En la pestaña **Aspectos básicos**, escriba valores para **Grupo de recursos**
 
 Acepte los valores predeterminados para la configuración restante. Después, seleccione **Revisar y crear**. Después de revisar la configuración, seleccione **Crear**.
 
-En este inicio rápido se crea un registro *Básico*, que es una opción rentable para los desarrolladores que aprenden sobre Azure Container Registry. Para más información sobre los niveles de servicio disponibles (SKU), consulte [SKU de Azure Container Registry][container-registry-skus].
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
 
 Cuando aparezca el mensaje **Implementación correcta**, seleccione el registro de contenedor en el portal. 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Información general del registro de contenedor en el portal":::
 
-Anote el nombre del registro y el valor del **servidor de inicio de sesión**. Estos valores se usan en los pasos siguientes cuando inserta y extrae imágenes con Docker.
+Anote el nombre del registro y el valor del **Servidor de inicio de sesión**, que es un nombre completo que termina en `azurecr.io` en la nube de Azure. Estos valores se usan en los pasos siguientes cuando inserta y extrae imágenes con Docker.
 
 ## <a name="log-in-to-registry"></a>Iniciar sesión en el registro
 
-Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la instancia del registro. [Inicie sesión en la CLI de Azure][get-started-with-azure-cli] en la máquina local y, a continuación, ejecute el comando [az acr login][az-acr-login]. Especifique solo el nombre del registro al iniciar sesión con la CLI de Azure. No use el nombre del servidor de inicio de sesión, que incluye un sufijo de dominio como `azurecr.io`.
+Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la instancia del registro. [Inicie sesión en la CLI de Azure][get-started-with-azure-cli] en la máquina local y, a continuación, ejecute el comando [az acr login][az-acr-login]. Especifique solo el nombre del recurso de registro al iniciar sesión con la CLI de Azure. No use el nombre completo del servidor de inicio de sesión.
 
 ```azurecli
 az acr login --name <registry-name>

@@ -3,16 +3,16 @@ title: ¿Qué es Azure Video Analyzer?
 description: En este tema se proporciona información general sobre Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: overview
-ms.date: 03/11/2021
-ms.openlocfilehash: c1d556662794de6127b0c455ac812b94b5a05742
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 35f13e8cd87e7e633b6836105f2d4c16911be663
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388665"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604793"
 ---
 # <a name="what-is-azure-video-analyzer-preview"></a>¿Qué es Azure Video Analyzer? (versión preliminar)
-
+ 
 Azure Video Analyzer proporciona una plataforma para compilar aplicaciones de vídeo inteligentes que abarcan el perímetro y la nube. La plataforma consta de un módulo de IoT Edge y un servicio de Azure asociado. Ofrece la funcionalidad de capturar, grabar y analizar vídeo en directo junto con la publicación de los resultados: vídeo o análisis de vídeo. El vídeo se puede publicar en el perímetro o en el servicio en la nube de Video Analyzer, mientras que el análisis de vídeo se puede publicar en los servicios de Azure (ya sea en la nube o en el perímetro). La plataforma se puede usar para mejorar las soluciones de IoT con análisis de vídeo. La funcionalidad Video Analyzer se puede combinar con otros módulos de Azure IoT Edge como Stream Analytics en IoT Edge, Cognitive Services en IoT Edge, así como servicios de Azure en la nube, como Event Hubs, Cognitive Services, etc., para compilar aplicaciones híbridas eficaces (por ejemplo, perimetrales y en la nube).
 
 El módulo perimetral de Video Analyzer está pensado para ser una plataforma ampliable, lo que le permite conectar diferentes módulos perimetrales de análisis de vídeo (por ejemplo, contenedores de Cognitive Services, módulos perimetrales personalizados creados con modelos de aprendizaje automático de código abierto o modelos personalizados entrenados con sus propios datos) y usarlos para analizar vídeo en directo sin preocuparse por la complejidad de la creación y ejecución de una canalización de vídeo en directo. El servicio en la nube de Video Analyzer le permite reproducir el vídeo y el análisis de vídeo a partir de esos flujos de trabajo.

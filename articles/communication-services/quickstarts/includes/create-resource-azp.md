@@ -2,20 +2,20 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.author: mikben
-ms.openlocfilehash: b602cbfde22cc87b42a32b007c19b626814d1660
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 1ec88e7d3727405ac3320168666d4de6dea0423a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554210"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762390"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet/).
 
-## <a name="create-azure-communication-resource"></a>Creación de un recurso de Azure Communication Services
+## <a name="create-azure-communication-services-resource"></a>Creación de un recurso de Azure Communication Services
 
 Para crear un recurso de Azure Communication Services, inicie sesión en [Azure Portal](https://portal.azure.com). En la esquina superior izquierda de la página, seleccione **+ Crear un recurso**. 
 

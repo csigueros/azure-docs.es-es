@@ -5,14 +5,14 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: aa8ccdde19dadeb1864037ed13082e42a27b8f59
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 766572462c2596856258f2f154845b940c6b5c1c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483324"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436809"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos desde Azure Blob Storage hasta una base de datos de Azure SQL Database mediante Azure Data Factory
 
@@ -96,7 +96,7 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 8. Seleccione la pestaña **Git configuration** (Configuración de Git) arriba y active la casilla **Configure Git later** (Configurar Git más tarde).
 9. Seleccione **Revisar y crear** y elija **Crear** una vez superada la validación.
 10. Una vez finalizada la creación, verá el aviso en el centro de notificaciones. Seleccione **Ir al recurso** para ir a la página de Data Factory.
-11. Seleccione **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Azure Data Factory en otra pestaña.
+11. Seleccione **Abrir** en el icono **Abrir Azure Data Factory Studio** para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
 
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
@@ -108,9 +108,9 @@ En este paso, creará una canalización con una actividad de copia en la factor�
 
 En este tutorial, comenzará a crear la canalización. A continuación, creará servicios vinculados y conjuntos de datos cuando los necesite para configurar la canalización.
 
-1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización).
+1. En la página principal, seleccione **Orchestrate** (Organizar).
 
-   ![Creación de una canalización](./media/doc-common-process/get-started-page.png)
+   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
 
 1. En el panel General, en **Propiedades**, especifique **CopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 

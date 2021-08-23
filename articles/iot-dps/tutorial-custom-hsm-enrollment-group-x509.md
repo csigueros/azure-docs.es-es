@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 8e7d024d4d5b1e058e7a0b895faae5d2e7425f44
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f2e6918e6cdc6eb87fe80e9110183ed5a0a3693b
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472134"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113106720"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Tutorial: Aprovisionamiento de varios dispositivos X.509 mediante grupos de inscripción
 
@@ -248,6 +248,10 @@ Para crear certificados de dispositivo firmados por el certificado intermedio en
 
 ## <a name="verify-ownership-of-the-root-certificate"></a>Verificación de la propiedad del certificado raíz
 
+> [!NOTE]
+> A partir del 1 de julio de 2021, puede realizar la verificación automática del certificado a través de la [verificación automática](how-to-verify-certificates.md#automatic-verification-of-intermediate-or-root-ca-through-self-attestation)
+>
+
 1. Cargue el certificado raíz (`./certs/azure-iot-test-only.root.ca.cert.pem`) y obtenga un código de verificación de DPS siguiendo las instrucciones descritas en [Registro de la parte pública de un certificado X.509 y obtención de un código de verificación](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code).
 
 2. Una vez que tenga un código de verificación de DPS para el certificado raíz, ejecute el siguiente comando desde el directorio de trabajo de los scripts de certificado para generar un certificado de verificación.
@@ -328,7 +332,7 @@ Los certificados de firma ahora son de confianza en el dispositivo basado en Win
     | **Tipo de atestación** | Seleccione **Certificado**. |
     | **Dispositivo de IoT Edge** | Seleccione **Falso**. |
     | **Tipo de certificado** | Seleccione **Certificado intermedio**. |
-    | **Archivo .pem o .cer del certificado principal** | Vaya al certificado intermedio que creó anteriormente ( *./certs/azure-iot-test-only.intermediate.cert.pem*). |
+    | **Archivo .pem o .cer del certificado principal** | Vaya al certificado intermedio que creó anteriormente ( *./certs/azure-iot-test-only.intermediate.cert.pem*). Este certificado intermedio está firmado por el certificado raíz que ya ha cargado y comprobado. DPS confía en esa raíz una vez que se comprueba. DPS puede comprobar que el intermedio proporcionado con este grupo de inscripción está firmado realmente por la raíz de confianza. DPS confiará en los intermedios firmados realmente por ese certificado raíz y, por tanto, podrá comprobar y confiar en los certificados hoja firmados por el intermedio.  |
 
 
 ## <a name="configure-the-provisioning-device-code"></a>Configuración del código del dispositivo de aprovisionamiento

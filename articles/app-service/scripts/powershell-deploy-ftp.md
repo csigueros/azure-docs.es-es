@@ -4,18 +4,18 @@ description: Aprenda a usar Azure PowerShell para automatizar la implementación
 tags: azure-service-management
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.topic: sample
-ms.date: 03/20/2017
+ms.date: 06/23/2021
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 90c4a30243569c07e1a70ad46c8b2f7e70d493b2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 83ec2fad8d4f3ec6efb1b88e1e765ebcfa0d260d
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97005586"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112575269"
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>Carga de archivos en una aplicación web con FTP
 
-Este script de ejemplo crea una aplicación web en App Service con sus recursos relacionados y, después, implementa el código de la aplicación web mediante FTP (a través de [WebClient.UploadFile()](/dotnet/api/system.net.webclient.uploadfile)).
+Este script de ejemplo crea una aplicación web en App Service con sus recursos relacionados y, después, implementa un archivo en ella mediante FTPS (a través de [System.Net.FtpWebRequest](/dotnet/api/system.net.ftpwebrequest)).
 
 Si es necesario, instale Azure PowerShell con la instrucción que se encuentra en la [Guía de Azure PowerShell](/powershell/azure/) y, luego, ejecute `Connect-AzAccount` para crear una conexión con Azure.
 

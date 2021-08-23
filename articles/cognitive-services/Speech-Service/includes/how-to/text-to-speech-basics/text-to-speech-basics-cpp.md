@@ -2,14 +2,14 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 07/02/2021
 ms.author: trbye
-ms.openlocfilehash: 7b1bc00e54abed70d4cbb769e15ff0f304c62b85
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 9c04f4dbc9a426e69040822bda5c7db581761061
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108935"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113364805"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
@@ -51,17 +51,17 @@ using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 ## <a name="create-a-speech-configuration"></a>Creación de una configuración de voz
 
-Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig). Esta clase incluye información sobre la suscripción, como la clave, la región asociada, el punto de conexión, el host o el token de autorización.
+Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig). Esta clase incluye información sobre la suscripción, como la clave de voz y la región o ubicación asociada, el punto de conexión, el host, o el token de autorización.
 
 > [!NOTE]
 > Debe crear siempre una configuración, independientemente de si va a realizar reconocimiento de voz, síntesis de voz, traducción o reconocimiento de intenciones.
 
 Existen diversas maneras para inicializar un elemento [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig):
 
-* Con una suscripción: pase una clave y la región asociada.
+* Con una suscripción: pase una clave y la región o ubicación asociada.
 * Con un punto de conexión: pase un punto de conexión del servicio de voz. La clave y el token de autorización son opcionales.
 * Con un host: pase una dirección de host. La clave y el token de autorización son opcionales.
-* Con un token de autorización: pase el token de autorización y la región asociada.
+* Con un token de autorización: pase el token de autorización y la región o ubicación asociadas.
 
 En este ejemplo, se crea un elemento [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) mediante una clave de suscripción y una región. Para obtener estas credenciales, siga los pasos descritos en [Prueba gratuita del servicio Voz](../../../overview.md#try-the-speech-service-for-free). Cree también código reutilizable básico para usarlo en el resto del artículo y que modificará cuando realice distintas personalizaciones.
 
@@ -81,7 +81,7 @@ int wmain()
 
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
 }
 ```
 
@@ -94,7 +94,7 @@ Para empezar, cree un objeto `AudioConfig` para escribir automáticamente la sal
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     auto audioConfig = AudioConfig::FromWavFileOutput("path/to/write/file.wav");
 }
 ```
@@ -104,7 +104,7 @@ Luego, cree una instancia de `SpeechSynthesizer` y use los objetos `config` y `a
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     auto audioConfig = AudioConfig::FromWavFileOutput("path/to/write/file.wav");
     auto synthesizer = SpeechSynthesizer::FromConfig(config, audioConfig);
     auto result = synthesizer->SpeakTextAsync("A simple test to write to a file.").get();
@@ -120,7 +120,7 @@ En algunos casos, puede que desee enviar la voz sintetizada directamente a un al
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     auto synthesizer = SpeechSynthesizer::FromConfig(config);
     auto result = synthesizer->SpeakTextAsync("Synthesizing directly to speaker output.").get();
 }
@@ -144,7 +144,7 @@ Esta vez se guarda el resultado en una variable [`SpeechSynthesisResult`](/cpp/c
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
 
     auto result = synthesizer->SpeakTextAsync("Getting the response as an in-memory stream.").get();
@@ -171,7 +171,7 @@ En este ejemplo, se especifica un formato RIFF de alta fidelidad `Riff24Khz16Bit
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     config->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 
     auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
@@ -204,7 +204,7 @@ A continuación, debe cambiar la solicitud de síntesis de voz para que haga ref
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
 
     std::ifstream file("./ssml.xml");

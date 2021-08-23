@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: bb40c4bdcdc61cfa3d82ea5313a1c6b084bb1514
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 870000e49e77475e8f8c7dcac84d470a853c8a76
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110681"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762864"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidad de regiones y residencia de datos
 
@@ -22,6 +22,10 @@ Azure Communication Services se compromete a ayudar a nuestros clientes a cumpli
 ## <a name="data-residency"></a>Residencia de datos
 
 Al crear un recurso de Communication Services, se especifica una **geografía** (no un centro de datos de Azure). Todos los mensajes de chat y los datos de recursos almacenados por Communication Services en reposo se conservarán en esa geografía, en un centro de datos seleccionado internamente por Communication Services. Los datos pueden estar en tránsito o procesarse en otras regiones geográficas. Estos puntos de conexión globales son necesarios para proporcionar una experiencia de alto rendimiento y baja latencia a los usuarios finales, independientemente de su ubicación.
+
+## <a name="data-collection"></a>datos, recopilación
+
+Azure Communication Services solo recopila los datos de diagnóstico necesarios para proporcionar el servicio. 
 
 ## <a name="data-residency-and-events"></a>Residencia de datos y eventos
 
@@ -76,6 +80,10 @@ El servicio procesa de forma efímera la comunicación de audio y vídeo, y no s
 ### <a name="internet-voice-and-video-calling"></a>Llamadas de voz y vídeo de Internet
 
 El servicio procesa de forma efímera la comunicación de audio y vídeo, y no se conserva ningún dato en el recurso aparte de los registros de Azure Monitor.
+
+### <a name="call-recording"></a>Grabación de llamadas
+
+Las grabaciones de llamadas se almacenan temporalmente en la misma ubicación geográfica que se ha seleccionado para ```Data Location``` al crear los recursos durante 48 horas. Después, se elimina la grabación, y es responsable de almacenar la grabación en una ubicación segura y compatible.
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor y Log Analytics
 

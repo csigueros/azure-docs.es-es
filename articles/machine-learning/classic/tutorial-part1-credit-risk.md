@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial de ML Studio (clásico): Predicción del riesgo crediticio: Azure'
-description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio (clásico). Este tutorial es el primero de una serie de tres partes.  Muestra cómo crear un área de trabajo, cargar datos y crear un experimento.
+description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo de crédito en Machine Learning Studio (clásico).
 keywords: riesgo de crédito, solución de análisis predictivo, evaluación de riesgos
 author: sdgilley
 ms.author: sgilley
@@ -9,24 +9,24 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 571925586bf3b70c38260392bae49c5352f10194
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: f6d336ae1f31ad0e62d56fa4dd24bf38eb9eab7f
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517525"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579745"
 ---
-# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Predicción del riesgo crediticio en Azure Machine Learning Studio (clásico)
+# <a name="tutorial-1-predict-credit-risk---machine-learning-studio-classic"></a>Tutorial 1: Predicción del riesgo crediticio en Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clásico)   ![Esto es una X, lo que significa que este artículo no se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio (clásico).  Después puede implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Este tutorial es el **primero de una serie de tres partes**.
+En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio (clásico).  Después puede implementar el modelo como un servicio web de Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Este tutorial es el **primero de una serie de tres partes**.
 
 Suponga que necesita predecir el riesgo de crédito de un individuo en función de la información que se proporcionó en una solicitud de crédito.  
 
-La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. Se utilizará como ejemplo de cómo puede crear una solución de análisis predictivo con Microsoft Azure Machine Learning Studio (clásico). En esta solución se usará Azure Machine Learning Studio (clásico) y un servicio web Machine Learning.  
+La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. Se utilizará como ejemplo de cómo puede crear una solución de análisis predictivo con Machine Learning Studio (clásico). En esta solución se usará Machine Learning Studio (clásico) y un servicio web Machine Learning.  
 
 En este tutorial de tres partes, vamos a comenzar con los datos de riesgo crediticio disponibles públicamente.  Después, desarrollaremos y entrenaremos un modelo predictivo.  Finalmente, vamos a implementar el modelo como servicio web.
 
@@ -43,7 +43,7 @@ Después, puede usar este experimento para [entrenar modelos en la parte 2](tuto
 
 En este tutorial, se presupone que usó Machine Learning Studio (clásico) con anterioridad al menos una vez y que tiene ciertos conocimientos sobre los conceptos de aprendizaje automático. Pero no se asume de que sea un experto.
 
-Si nunca ha utilizado **Azure Machine Learning Studio (clásico)** , sería conveniente que realizara primero el inicio rápido [Creación del primer experimento de ciencia de datos en Azure Machine Learning Studio (clásico)](create-experiment.md). Este inicio rápido lo guiará por primera vez por Machine Learning Studio (clásico). Aquí se muestran los conceptos básicos de cómo arrastrar y colocar módulos en el experimento, conectarlos, ejecutar el experimento y examinar los resultados.
+Si nunca ha utilizado **Machine Learning Studio (clásico)** , sería conveniente que realizara primero el inicio rápido [Creación del primer experimento de ciencia de datos en Machine Learning Studio (clásico)](create-experiment.md). Este inicio rápido lo guiará por primera vez por Machine Learning Studio (clásico). Aquí se muestran los conceptos básicos de cómo arrastrar y colocar módulos en el experimento, conectarlos, ejecutar el experimento y examinar los resultados.
 
 
 > [!TIP] 
@@ -53,9 +53,9 @@ Si nunca ha utilizado **Azure Machine Learning Studio (clásico)** , sería conv
 
 ## <a name="create-a-machine-learning-studio-classic-workspace"></a>Creación de un área de trabajo de Machine Learning Studio (clásico)
 
-Para usar Machine Learning Studio (clásico), debe tener un área de trabajo de Microsoft Azure Machine Learning Studio. Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.  
+Para usar Machine Learning Studio (clásico), debe tener un área de trabajo de Machine Learning Studio (clásico). Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.  
 
-Para crear un área de trabajo, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning Studio (clásico)](create-workspace.md).
+Para crear un área de trabajo, consulte [Creación y uso compartido de un área de trabajo de Machine Learning Studio (clásico)](create-workspace.md).
 
 Una vez haya creado el área de trabajo, abra Machine Learning Studio (clásico) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Si tiene más de un área de trabajo, puede seleccionar la que desee en la barra de herramientas de la esquina superior derecha de la ventana.
 
@@ -146,7 +146,7 @@ Para administrar los conjuntos de datos que cargó en Studio (clásico), haga cl
 
 ![Administración de conjuntos de datos](./media/tutorial-part1-credit-risk/dataset-list.png)
 
-Para más información sobre la importación de diversos tipos de datos a un experimento, consulte [Importación de datos de entrenamiento en Azure Machine Learning Studio (clásico)](import-data.md).
+Para más información sobre la importación de diversos tipos de datos a un experimento, consulte [Importación de datos de entrenamiento en Machine Learning Studio (clásico)](import-data.md).
 
 ## <a name="create-an-experiment"></a>Creación de un experimento
 

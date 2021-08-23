@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 095f2c3ed17042bb616fb091d1af52a64c913709
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9c9780a51954978935dad164c9d8c5b5a1535826
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460502"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447338"
 ---
 # <a name="getting-started"></a>Introducción
 
@@ -27,11 +27,11 @@ En este artículo, se realizarán estos pasos para ayudarlo a comenzar:
 
 ## <a name="create-a-cognitive-services-resource"></a>Creación de un recurso de Cognitive Services
 
-Para usar Cognitive Services para macrodatos, primero se debe crear un servicio cognitivo para el flujo de trabajo. Hay dos tipos principales de servicios cognitivos: los servicios en la nube hospedado en Azure y servicios en contenedores administrados por los usuarios. Se recomienda comenzar con los servicios cognitivos basados en la nube, que son los más sencillos.
+Para usar Cognitive Services para macrodatos, primero se debe crear una instancia de Cognitive Services para el flujo de trabajo. Hay dos tipos principales de servicios cognitivos: los servicios en la nube hospedado en Azure y servicios en contenedores administrados por los usuarios. Se recomienda comenzar con los servicios cognitivos basados en la nube, que son los más sencillos.
 
 ### <a name="cloud-services"></a>Servicios en la nube
 
-Cognitive Services basado en la nube es un conjunto de algoritmos inteligentes hospedados en Azure. Estos servicios se pueden usar sin necesidad de entrenamiento, solo hace falta una conexión a Internet. Puede [crear un servicio cognitivo en Azure Portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows) o con la [CLI de Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows).
+Los servicios cognitivos basados en la nube son algoritmos inteligentes que se hospedan en Azure. Estos servicios se pueden usar sin necesidad de entrenamiento, solo hace falta una conexión a Internet. Puede [crear un servicio cognitivo en Azure Portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows) o con la [CLI de Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ### <a name="containerized-services-optional"></a>Servicios en contenedores (opcional)
 
@@ -86,9 +86,9 @@ Para empezar a usar Azure Kubernetes Service, siga estos pasos:
 
 ## <a name="try-a-sample"></a>Prueba de un ejemplo
 
-Después de configurar el entorno y el clúster de Spark, podemos ejecutar un pequeño ejemplo. En esta sección se muestra cómo usar Cognitive Services para macrodatos en Azure Databricks.
+Después de configurar el entorno y el clúster de Spark, puede ejecutar un ejemplo corto. En esta sección se muestra cómo usar Cognitive Services para macrodatos en Azure Databricks.
 
-Primero, cree un cuaderno en Azure Databricks. En el caso de otros proveedores de clústeres de Spark, use sus cuadernos o Spark Submit.
+Primero, puede crear un cuaderno en Azure Databricks. En el caso de otros proveedores de clústeres de Spark, use sus cuadernos o Spark Submit.
 
 1. Cree un cuaderno de Databricks; para ello, elija **New notebook** (Nuevo cuaderno) en el menú de **Azure Databricks**.
 

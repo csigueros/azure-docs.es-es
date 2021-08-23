@@ -1,0 +1,91 @@
+### YamlMime:FAQ
+metadata:
+  title: 'Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX de Azure Virtual Desktop: Azure'
+  description: Preguntas más frecuentes sobre la asociación de aplicaciones en formato MSIX para Azure Virtual Desktop.
+  services: virtual-desktop
+  author: Heidilohr
+  ms.service: virtual-desktop
+  ms.topic: conceptual
+  ms.date: 08/17/2020
+  ms.author: helohr
+  manager: femila
+  ms.openlocfilehash: 5d78c3f85067e0a8e3a2da7ff1388d229116dade
+  ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/27/2021
+  ms.locfileid: "114713200"
+title: Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX
+summary: En este artículo se responden las preguntas más frecuentes sobre la asociación de aplicaciones en formato MSIX para Azure Virtual Desktop.
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Cuál es la diferencia entre MSIX y la conexión de aplicaciones en formato MSIX ?
+    answer: >
+      MSIX es un formato de empaquetado de aplicaciones, mientras que la conexión de aplicaciones en formato MSIX es la característica que proporciona paquetes MSIX a la implementación.
+  - question: >
+      ¿La asociación de aplicaciones en formato MSIX usa FSLogix?
+    answer: >
+      La asociación de aplicaciones en formato MSIX no utiliza FSLogix. Sin embargo, la asociación de aplicaciones en formato MSIX y FSLogix están diseñados para trabajar conjuntamente con el fin de proporcionar una experiencia de usuario sin problemas.
+  - question: >
+      ¿Puedo usar la asociación de aplicaciones con formato MSIX fuera de Azure Virtual Desktop?
+    answer: >
+      Las API que permiten el funcionamiento de la conexión de aplicaciones en formato MSIX están disponibles para Windows 10 Enterprise. Estas se pueden usar fuera de Azure Virtual Desktop. Sin embargo, no hay ningún plano de administración para la asociación de aplicaciones en formato MSIX fuera de Azure Virtual Desktop.
+  - question: >
+      ¿Cómo se obtiene un paquete MSIX?
+    answer: >
+      Su proveedor de software le proporcionará un paquete MSIX. También puede convertir paquetes que no sean MSIX en MSIX. Obtenga más información en [Cómo trasladar los instaladores existentes a MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix).
+  - question: >
+      ¿Qué sistemas operativos admiten la asociación de aplicaciones en formato MSIX?
+    answer: >
+      Windows 10 Enterprise y sesión múltiple de Windows 10 Enterprise, versión 2004 o posterior
+  - question: >
+      ¿La conexión de aplicaciones en formato MSIX está disponible con carácter general actualmente?
+    answer: "La conexión de aplicaciones en formato MSIX forma parte de Windows 10 Enterprise y la sesión múltiple de Windows 10 Enterprise, versión 2004 o una posterior. Ambos sistemas operativos están disponibles actualmente con carácter general. \n"
+  - question: >
+      ¿Puedo usar la asociación de aplicaciones con formato MSIX fuera de Azure Virtual Desktop?
+    answer: >
+      Las API de la conexión de aplicaciones en formato MSIX y MSIX forman parte de Windows 10 Enterprise y la sesión múltiple de Windows 10 Enterprise, versión 2004 y las posteriores. Actualmente, no ofrecemos ningún software de administración para la conexión de aplicaciones en formato MSIX fuera de Azure Virtual Desktop.
+  - question: >
+      ¿Puedo ejecutar dos versiones de la misma aplicación al mismo tiempo?
+    answer: >
+      Para que dos versiones de las mismas aplicaciones MSIX se ejecuten simultáneamente, la familia de paquetes MSIX definida en el archivo appxmanifest.xml debe ser diferente para cada aplicación.
+  - question: >
+      ¿Debo deshabilitar la actualización automática cuando uso la conexión de aplicaciones en formato MSIX?
+    answer: >
+      Sí. La conexión de aplicaciones en formato MSIX no admite la actualización automática para aplicaciones de MSIX.
+  - question: >
+      ¿Cómo funcionan los permisos con la conexión de aplicaciones en formato MSIX?
+    answer: >
+      Todas las máquinas virtuales (VM) de un grupo de hosts que usa la conexión de aplicaciones en formato MSIX deben tener permisos de lectura en el recurso compartido de archivos en el que se almacenan las imágenes de MSIX. Si también usa Azure Files, deberán tener permisos de control de acceso basado en rol (RBAC) y de New Technology File System (NTFS).
+  - question: >
+      ¿Cuántos usuarios pueden usar un identificador de imagen de MSIX?
+    answer: "La asociación de aplicaciones con formato MSIX monta imágenes de MSIX por máquina, no por usuario. La cantidad de usuarios que pueden usar un identificador de imagen de MSIX se basa en el tamaño del sistema de archivos de la máquina y el rendimiento de la red. Además, Azure Files un límite de 2000 identificadores abiertos por archivo. \n"
+  - question: >
+      ¿Puedo usar Azure Active Directory Domain Services (Azure AD DS) con la asociación de aplicaciones en formato MSIX?
+    answer: >
+      La asociación de aplicaciones en formato MSIX no admite actualmente Azure AD DS. Dado que los objetos de equipo de Azure AD DS no se sincronizan con Azure Active Directory (Azure AD), el administrador no puede proporcionar los permisos de control de acceso basado en roles (RBAC) necesarios para Azure Files.
+  - question: >
+      ¿Puedo usar la conexión de aplicaciones en formato MSIX para HTTP o HTTPS?
+    answer: >
+      Actualmente, no se admite la conexión de aplicaciones en formato MSIX a través de HTTP o HTTPS.
+  - question: >
+      ¿Puedo realizar una copia intermedia de la misma aplicación MSIX?
+    answer: >
+      Sí. Puede realizar una copia intermedia de las aplicaciones para las que ya la ha hecho y esto no debería producir ningún error.
+  - question: >
+      ¿La conexión de aplicaciones en formato MSIX admite certificados autofirmados?
+    answer: >
+      Sí. Debe instalar el certificado autofirmado en todas las máquinas virtuales de host de sesión donde se usa la asociación de aplicaciones en formato MSIX para hospedar la aplicación autofirmada. Para aprender a crear un certificado autofirmado, consulte el artículo sobre cómo [crear un certificado para la firma de un paquete](/windows/msix/package/create-certificate-package-signing).
+  - question: >
+      ¿Qué aplicaciones puedo volver a empaquetar en MSIX?
+    answer: "Cada aplicación usa características diferentes del sistema operativo, de los lenguajes de programación y de los marcos. Para volver a empaquetar la aplicación, siga las instrucciones de [Traslado de los instaladores existentes a MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix). Puede encontrar una lista de las cosas que necesita para volver a empaquetar una aplicación en [Preparación del empaquetado de una aplicación de escritorio](/windows/msix/desktop/desktop-to-uwp-prepare). \n\nAlgunas aplicaciones no pueden dividirse en capas de aplicación, lo que significa que no se pueden volver a empaquetar en un archivo MSIX. Esta es una lista de las aplicaciones que no se pueden volver a empaquetar:\n\n- Controladores \n- Active-X o Silverlight\n- Clientes VPN\n- Programas antivirus\n"
+  - question: >
+      ¿Cuántas aplicaciones MISX puedo agregar a cada host de sesión?
+    answer: >
+      Cada host de sesión tiene límites diferentes en función de su CPU, memoria y sistema operativo. Superar estos límites puede afectar al rendimiento de la aplicación y a la experiencia general del usuario. Pero la asociación de aplicaciones MSIX no tiene ningún límite en cuanto al número de aplicaciones que se pueden usar.
+  - question: >
+      ¿Cuántos archivos .VHD o .VHDX puedo montar en un grupo de hosts?
+    answer: "La asociación de aplicaciones MSIX no tiene un límite en cuanto al número de archivos que se pueden montar. Pero el propio grupo de hosts puede estar limitado por los siguientes factores:\n\n- La capacidad del sistema operativo para administrar volúmenes montados.\n- El número máximo de archivos abiertos que puede contener la solución de almacenamiento o el sistema de archivos.\n- El uso de memoria y CPU del host de sesión del grupo de hosts.\n\nEs decir, los límites del grupo de hosts serían los mismos que si instalara y ejecutara las aplicaciones localmente.          \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nSi quiere obtener más información sobre la conexión de aplicaciones en formato MSIX, consulte nuestra [introducción](what-is-app-attach.md) y [glosario](app-attach-glossary.md). De lo contrario, empiece a trabajar con [Configuración de la conexión de aplicaciones](app-attach.md)."

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 63740e6d3f6df757cc7cc8847ed10a03b8831fd5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: dfb71802b0aa0fae1bb853823b054ae49d700edf
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060191"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438285"
 ---
 # <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Tutorial: Desarrollo de módulos IoT Edge para contenedores de Linux
 
@@ -157,13 +157,16 @@ Cuando la nueva solución se cargue en la ventana de Visual Studio Code, dedique
 El archivo del entorno almacena las credenciales del registro de contenedor y las comparte con el runtime de IoT Edge. El entorno de ejecución necesita estas credenciales para extraer las imágenes de contenedor e insertarlas en el dispositivo IoT Edge.
 
 >[!NOTE]
->Si no ha reemplazado el valor **localhost:5000** por el valor del servidor de inicio de sesión de Azure Container Registry, en el paso [**Creación de una plantilla de proyecto**](#create-a-project-template), el archivo **.env** y la sección registryCredentials del manifiesto de implementación no estarán disponibles. 
+>Si no ha reemplazado el valor **localhost:5000** por el valor del servidor de inicio de sesión de Azure Container Registry, en el paso [**Creación de una plantilla de proyecto**](#create-a-project-template), el archivo **.env** y la sección registryCredentials del manifiesto de implementación no estarán disponibles.
 
 La extensión de IoT Edge intenta extraer de Azure las credenciales del registro del contenedor y rellenar con ellas el archivo de entorno. Compruebe si las credenciales ya están incluidas. Si no lo están, agréguelas ahora:
 
 1. Abra el archivo **.env** en la solución del módulo.
 2. Agregue los valores de **nombre de usuario** y **contraseña** que ha copiado del registro de contenedor de Azure.
 3. Guarde los cambios en el archivo .env.
+
+>[!NOTE]
+>En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio. Para más información, consulte [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Selección de la arquitectura de destino
 

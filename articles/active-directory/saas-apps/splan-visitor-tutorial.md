@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/14/2020
+ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 20f49c174dde90bc7f1a9b34f3dea3132e9b177e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de00b869aef2d1429740d75829da9a5c3e79de15
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644704"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465954"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Splan Visitor
 
@@ -33,11 +33,14 @@ Para empezar, necesitará lo siguiente:
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Splan Visitor.
 
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
+
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-Splash Visitor admite el inicio de sesión único iniciado por IDP.
+* Splash Visitor admite el inicio de sesión único iniciado por IDP.
 
 ## <a name="add-splan-visitor-from-the-gallery"></a>Incorporación de Splan Visitor desde la galería
 
@@ -69,7 +72,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de aplicaciones de **Splan Visitor**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el icono de **edición (con forma de lápiz)** para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono con forma de **lápiz** para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Captura de pantalla que resalta el icono de edición (con forma de lápiz) de Configuración básica de SAML.](common/edit-urls.png)
 

@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a generar una definición de aplicaci�
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 995291a783d14a6d2db8ed8319c720f55c009d91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 611409b7588f231bb09c3fe57ef4fc29199e0367
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92738853"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202497"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empaquetamiento e implementación de contenedores como aplicación de Service Fabric mediante Yeoman
 
@@ -91,7 +91,7 @@ Las entradas usadas para la adición del servicio son las que se muestran a cont
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: alpine:redis
+? Input the Image Name: redis:alpine
 ? Commands:
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -270,7 +270,7 @@ Use el script de instalación proporcionado en el directorio **TestContainer** p
 ./install.sh
 ```
 
-Abra un explorador y vaya a Service Fabric Explorer en http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expanda el nodo Applications y observe que hay una entrada para su tipo de aplicación y otra para la instancia.
+Abra un explorador y vaya a Service Fabric Explorer en https:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expanda el nodo Applications y observe que hay una entrada para su tipo de aplicación y otra para la instancia.
 
 ![Service Fabric Explorer][sfx]
 
@@ -375,7 +375,6 @@ Para eliminar la instancia de aplicación del clúster y anular el registro del 
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>alpine:redis</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>

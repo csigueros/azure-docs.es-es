@@ -1,31 +1,31 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
+title: Archivo de inclusión
+description: Archivo de inclusión
 services: azure-communication-services
 author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: b6f53a7c67ac9eeaf103541c471741f24f0302ce
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 63653bb72c278a330101503dbaf2959b7e0eb39f
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111593494"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201183"
 ---
-> [!NOTE]
-> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat)
+## <a name="sample-code"></a>Código de ejemplo
+Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, compruebe lo siguiente:
 
 - Cree de una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Instale las versiones Active LTS y Maintenance LTS de [Node.js](https://nodejs.org/en/download/).
-- Cree un recurso de Azure Communication Services. Para obtener más información, consulte [Creación de un recurso de Azure Communication Services](../../create-communication-resource.md). Para este inicio rápido, tendrá que **registrar el punto de conexión del recurso**.
+- Cree un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](../../create-communication-resource.md). Para este inicio rápido, tendrá que **registrar el punto de conexión del recurso**.
 - Cree *tres* usuarios de ACS y genéreles un token de acceso de usuario [Token de acceso de usuario](../../access-tokens.md). Asegúrese de establecer el ámbito en **chat** y **anote la cadena del token, así como la cadena userId**. La demo completa crea una conversación con dos participantes iniciales y, después, agrega un tercer participante a la misma.
 
 ## <a name="setting-up"></a>Instalación
@@ -129,7 +129,7 @@ let userAccessToken = '<USER_ACCESS_TOKEN>';
 let chatClient = new ChatClient(endpointUrl, new AzureCommunicationTokenCredential(userAccessToken));
 console.log('Azure Communication Chat client created!');
 ```
-- Reemplace **endpointUrl** por el punto de conexión de recurso de Communication Services y consulte [Creación de un recurso de comunicación de Azure](../../create-communication-resource.md) si aún no lo ha hecho.
+- Reemplace **endpointUrl** por el punto de conexión de recurso de Communication Services y consulte [Creación de un recurso de Communication Services](../../create-communication-resource.md) si aún no lo ha hecho.
 - Reemplace **userAccessToken** por el token que ha emitido.
 
 
@@ -151,8 +151,8 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 
 | Nombre                                   | Descripción                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ChatClient | Esta clase es necesaria para la funcionalidad de chat. Cree una instancia de esta con la información de suscripción y úsela para crear, obtener y eliminar subprocesos. |
-| ChatThreadClient | Esta clase es necesaria para la funcionalidad de subproceso de chat. Obtiene una instancia de a través de la clase ChatClient y la usa para enviar, recibir, actualizar o eliminar mensajes, agregar, quitar u obtener usuarios, enviar notificaciones de escritura y confirmaciones de lectura, y suscribirse a eventos de chat. |
+| ChatClient | Esta clase es necesaria para la funcionalidad de chat. Cree una instancia de ella con la información de la suscripción y úsela para crear, obtener y eliminar conversaciones, y para suscribirse a eventos de chat. |
+| ChatThreadClient | Esta clase es necesaria para la funcionalidad de subproceso de chat. Obtiene una instancia de a través de la clase ChatClient y la usa para enviar, recibir, actualizar o eliminar mensajes, agregar, quitar u obtener usuarios, enviar notificaciones de escritura y confirmaciones de lectura. |
 
 
 ## <a name="start-a-chat-thread"></a>Inicio de un subproceso de chat

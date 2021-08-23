@@ -1,26 +1,27 @@
 ---
-title: 'Tutorial: Predicción de los precios de los automóviles con el diseñador'
+title: 'Tutorial: Diseñador (entrenamiento de un modelo de regresión sin código)'
 titleSuffix: Azure Machine Learning
-description: Entrene modelos de Machine Learning para predecir los precios de los automóviles mediante regresión lineal. Este tutorial es la primera de una serie de dos partes.
+description: Entrene un modelo de regresión que prediga los precios de los automóviles mediante el diseñador de Azure Machine Learning.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.custom: designer
-ms.openlocfilehash: 7f602f82063e2a8092eecf533a75449231c1e900
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.date: 06/11/2021
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: f8e544681f940e649e1d04d148caafb875c69952
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660991"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472927"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Predicción del precio de un automóvil con el diseñador
+# <a name="tutorial-designer---train-a-no-code-regression-model"></a>Tutorial: Diseñador (entrenamiento de un modelo de regresión sin código)
 
+Entrene un modelo de regresión lineal que prediga los precios de los automóviles mediante el diseñador de Azure Machine Learning. Este tutorial es la primera de una serie de dos partes.
 
-En este tutorial de dos partes aprenderá a usar el diseñador de Azure Machine Learning para entrenar e implementar un modelo de Machine Learning que predice el precio de cualquier automóvil. El diseñador es una herramienta de arrastrar y colocar que le permite crear modelos de Machine Learning sin una sola línea de código.
+En este tutorial se usa el diseñador de Azure Machine Learning; para más información, consulte [¿Qué es el diseñador de Azure Machine Learning?](concept-designer.md)
 
 En la primera parte del tutorial, aprenderá a:
 
@@ -31,7 +32,7 @@ En la primera parte del tutorial, aprenderá a:
 > * Entrenar un modelo de Machine Learning.
 > * Evaluar un modelo de Machine Learning.
 
-En la [segunda parte](tutorial-designer-automobile-price-deploy.md) del tutorial implementará el modelo como punto de conexión de inferencia en tiempo real para predecir el precio de cualquier automóvil en función de las especificaciones técnicas que envíe. 
+En la [segunda parte](tutorial-designer-automobile-price-deploy.md) del tutorial se implementa el modelo como punto de conexión de inferencia en tiempo real para predecir el precio de cualquier automóvil en función de las especificaciones técnicas que envíe. 
 
 > [!NOTE]
 >Está disponible una versión completa de este tutorial como una canalización de ejemplo.
@@ -195,7 +196,7 @@ La división de los datos es una tarea común en el aprendizaje automático. Div
 1. Conecte al puerto izquierdo del módulo **Clean Missing Data**(Limpiar datos que faltan) al módulo **Split Data** (Dividir datos).
 
     > [!IMPORTANT]
-    > Asegúrese de que el puerto de salida izquierdo de **Clean Missing Data** (Limpiar datos que faltan) se conecta a **Split Data** (Dividir datos). El puerto izquierdo contiene los datos limpios. El puerto izquierdo contiene los datos descartados.
+    > Asegúrese de que el puerto de salida izquierdo de **Clean Missing Data** (Limpiar datos que faltan) se conecta a **Split Data** (Dividir datos). El puerto izquierdo contiene los datos limpios. El puerto derecho contiene los datos descartados.
 
 1. Seleccione el módulo **Split Data** (Dividir datos).
 

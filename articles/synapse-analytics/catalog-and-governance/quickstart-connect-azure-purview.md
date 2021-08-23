@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/16/2020
 ms.author: jejiang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f0af3b571b1a6d793668c33d0c76e19a3d0c9e62
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 827f1a4cd518d33ea67749482349cad9d4540c82
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716067"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117375"
 ---
 # <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>Inicio rápido: Conexión de una cuenta de Azure Purview a un área de trabajo de Synapse. 
 
@@ -22,7 +22,7 @@ En este inicio rápido, registrará una cuenta de Azure Purview en un área de t
 
 Puede realizar las siguientes tareas en Synapse: 
 - Usar el cuadro de búsqueda de la parte superior para buscar recursos de Purview basados en palabras clave. 
-- Comprender los datos en función de los metadatos, linaje y anotaciones. 
+- Descripción de los datos basados en metadatos, [linaje](../../purview/catalog-lineage-user-guide.md) y anotaciones 
 - Conectar esos datos al área de trabajo con servicios vinculados o conjuntos de datos de integración. 
 - Analizar esos conjuntos de datos con Synapse Apache Spark, Synapse SQL y Data Flow 
 
@@ -50,3 +50,9 @@ Vaya a  [https://web.azuresynapse.net](https://web.azuresynapse.net) e inicie 
 [Registro y análisis de recursos de Azure Synapse en Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
 
 [Detección, conexión y exploración de datos en Synapse con Azure Purview](how-to-discover-connect-analyze-azure-purview.md)   
+
+[Conexión de Azure Data Factory y Azure Purview](../../purview/how-to-link-azure-data-factory.md)
+
+[Conexión de Azure Data Share y Azure Purview](../../purview/how-to-link-azure-data-share.md)
+
+[Obtención de linaje de Power BI a Azure Purview](../../purview/how-to-lineage-powerbi.md)

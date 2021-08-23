@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Migración de servicios web desde Mapas de Bing | Microsoft Azure Maps'
+title: 'Tutorial: Migración de servicios web de Mapas de Bing a Microsoft Azure Maps.'
 description: Tutorial sobre cómo migrar servicios web desde Mapas de Bing a Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 07fbe0cff104c25eca6db2750c2db692429ada65
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 605d30a6e209b8da9e772a95f6318a4aa679c704
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786521"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578944"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutorial: Migración de servicios web desde Mapas de Bing
 
@@ -199,7 +199,6 @@ El servicio de enrutamiento de Azure Maps proporciona las siguientes API para el
 
 -   [Calcular ruta](/rest/api/maps/route/getroutedirections): calcula una ruta y la solicitud se procesa inmediatamente. Esta API admite solicitudes tanto GET como POST. Se recomienda usar solicitudes POST cuando se especifique un gran número de puntos de referencia o al usar muchas opciones de ruta para asegurarse de que la solicitud de dirección URL no se eternice y cause problemas.
 -   [Ruta por lotes](/rest/api/maps/route/postroutedirectionsbatchpreview): cree una solicitud que contenga hasta 1000 solicitudes de ruta y procéselas durante un período de tiempo determinado. Todos los datos se procesarán en paralelo en el servidor y, cuando la operación se complete, puede descargar el conjunto de resultados completo.
--   [Servicio Mobility (versión preliminar)](/rest/api/maps/mobility): calcula rutas y direcciones según el transporte público.
 
 En la siguiente tabla se contrastan los parámetros de API de Mapas de Bing con los parámetros de API comparables de Azure Maps.
 
@@ -451,7 +450,7 @@ En Azure Maps, también se pueden agregar líneas y polígonos a una imagen de m
 
 > `&path=pathStyles||pathLocation1|pathLocation2|...`
 
-En lo referente a las ubicaciones de los trazados, en Azure Maps es necesario que las coordenadas tengan el formato `longitude latitude`, mientras que en Mapas de Bing se usa el formato `latitude,longitude`. Fíjese también en que hay un **espacio (y no una coma)** entre la longitud y la latitud en Azure Maps. En la actualidad, Azure Maps no admite trazados codificados. Se pueden cargar conjuntos de datos más grandes como un objeto GeoJSON en la API de almacenamiento de datos de Azure Maps, como se documenta [aquí](./how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+En lo referente a las ubicaciones de los trazados, en Azure Maps es necesario que las coordenadas tengan el formato `longitude latitude`, mientras que en Mapas de Bing se usa el formato `latitude,longitude`. Fíjese también en que hay un **espacio (y no una coma)** entre la longitud y la latitud en Azure Maps. En la actualidad, Azure Maps no admite trazados codificados. Se pueden cargar conjuntos de datos más grandes como un objeto GeoJSON en la API de almacenamiento de datos de Azure Maps, como se documenta [aquí](./how-to-render-custom-data.md#upload-pins-and-path-data).
 
 Los estilos de ruta en Azure Maps se agregan con el formato `optionNameValue`, con cada estilo separado por un carácter de barra vertical (`|`), así: `optionName1Value1|optionName2Value2`. Fíjese en que los nombres de opción y los valores no se separan. Se pueden usar los siguientes nombres de opción de estilo para aplicar estilo a las rutas de Azure Maps:
 

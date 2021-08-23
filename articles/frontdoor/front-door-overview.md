@@ -8,12 +8,12 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 0ba34b298fad21656a63c813057ed0c69db6c7f1
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 11e01d9d61a3a446be1135a212ae6cadcd1eea42
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064892"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595280"
 ---
 # <a name="what-is-azure-front-door"></a>¿Qué es Azure Front Door?
 
@@ -75,5 +75,6 @@ Suscríbase a la fuente RSS y vea las actualizaciones más recientes de las cara
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [crear una instancia de Front Door](quickstart-create-front-door.md).
+- [Inicio rápido: Cree una instancia de Front Door](quickstart-create-front-door.md).
+- [Módulo de aprendizaje: Introducción a Azure Front Door](/learn/modules/intro-to-azure-front-door/).
 - Más información acerca de cómo [funciona Front Door](front-door-routing-architecture.md).

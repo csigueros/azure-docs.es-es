@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 69b900d8695b9fa9f237411d75f0c77856f6d0eb
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cfce86e74a5e32f266dd0bbad84a179d8158a687
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378067"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303695"
 ---
 # <a name="create-and-use-native-external-tables-using-sql-pools-in-azure-synapse-analytics"></a>Creación y uso de tablas externas nativas mediante grupos de SQL en Azure Synapse Analytics
 
@@ -148,6 +148,8 @@ CREATE EXTERNAL TABLE Covid (
         FILE_FORMAT = DeltaLakeFormat
 );
 ```
+
+Delta Lake está en versión preliminar pública y hay algunos problemas conocidos y limitaciones. Revise los problemas conocidos en la [página de autoayuda del grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## <a name="use-an-external-table"></a>Uso de una tabla externa
 

@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a configurar una tarea de Azure Contain
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 6d83fb7796cecab686d52d561266bd41daef9e01
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 18716171b72fd266fda1aff06b67850159627b34
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780810"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983669"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatización de compilaciones de imágenes de contenedor al actualizarse una imagen base en una instancia de Azure Container Registry 
 
@@ -222,7 +222,11 @@ docker stop updatedapp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a usar una tarea para desencadenar automáticamente compilaciones de imágenes de contenedor cuando se actualiza la imagen base de la imagen. Ahora, pase al siguiente tutorial para aprender a desencadenar tareas según una programación definida.
+En este tutorial, ha aprendido a usar una tarea para desencadenar automáticamente compilaciones de imágenes de contenedor cuando se actualiza la imagen base de la imagen.
+
+Para obtener un flujo de trabajo completo a fin de administrar imágenes base con un origen público, consulte [Consumo y mantenimiento de contenido público con Azure Container Registry Tasks](tasks-consume-public-content.md). 
+
+Ahora, pase al siguiente tutorial para aprender a desencadenar tareas según una programación definida.
 
 > [!div class="nextstepaction"]
 > [Ejecutar una tarea según una programación](container-registry-tasks-scheduled.md)

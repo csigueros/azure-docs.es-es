@@ -4,13 +4,13 @@ description: Plantillas de ejemplo de Azure Resource Manager para implementar al
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 6d76631313f425785b692c34629a6d408278e76b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/12/2021
+ms.openlocfilehash: 0da91eedca9bbe1d44e129bf3d3e9574524b8f65
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949438"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687540"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para reglas de alertas de registros en Azure Monitor
 Este artículo incluye ejemplos de [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para crear y configurar alertas de consulta de registros en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
@@ -204,7 +204,7 @@ En el ejemplo siguiente se crea una [regla de alerta de medición de métricas](
 }
 ```
 
-## <a name="template-for-all-resource-types-from-version-2020-05-01-preview"></a>Plantilla para todo tipo de recursos (a partir de la versión 2020-05-01-preview)
+## <a name="template-for-all-resource-types-from-version-2021-02-01-preview"></a>Plantilla para todo tipo de recursos (a partir de la versión 2021-02-01-preview)
 En el ejemplo siguiente se crea una regla que puede tener como destino cualquier recurso.
 
 ```json
@@ -252,6 +252,20 @@ En el ejemplo siguiente se crea una regla que puede tener como destino cualquier
             "defaultValue": true,
             "metadata": {
                 "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "autoMitigate": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert will automatically resolve"
+            }
+        },
+        "checkWorkspaceAlertsStorageConfigured": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies whether to check linked storage and fail creation if the storage was not found"
             }
         },
         "resourceId": {
@@ -332,7 +346,7 @@ En el ejemplo siguiente se crea una regla que puede tener como destino cualquier
         },
         "windowSize": {
             "type": "string",
-            "defaultValue": "PT5M",
+            "defaultValue": null,
             "allowedValues": [
                 "PT1M",
                 "PT5M",
@@ -390,7 +404,7 @@ En el ejemplo siguiente se crea una regla que puede tener como destino cualquier
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2020-05-01-preview",
+            "apiVersion": "2021-02-01-preview",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -417,11 +431,15 @@ En el ejemplo siguiente se crea una regla que puede tener como destino cualquier
                     ]
                 },
                 "muteActionsDuration": "[parameters('muteActionsDuration')]",
-                "actions": [
-                    {
-                        "actionGroupId": "[parameters('actionGroupId')]"
+                "autoMitigate": "[parameters('autoMitigate')]",
+                "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
+                "actions": {
+                    "actionGroups": "[parameters('actionGroupId')]",
+                    "customProperties": {
+                        "key1": "value1",
+                        "key2": "value2"
                     }
-                ]
+                }
             }
         }
     ]

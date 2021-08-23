@@ -1,20 +1,20 @@
 ---
-title: Implementación de un tutorial de C++ nativo en HoloLens
-description: Inicio rápido que muestra cómo ejecutar el tutorial de C++ nativo en HoloLens
+title: Implementación de un tutorial de WMR de C++ nativo en HoloLens
+description: Inicio rápido que muestra cómo ejecutar el tutorial de HolographicApp de C++ nativo en HoloLens
 author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: b340a180927b3df9ad51295383b09b03dbbb2d98
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: eabade94b06d8689026548d6e09d6098e8da9f59
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530593"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666814"
 ---
-# <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Inicio rápido: Implementación de un ejemplo de C++ nativo en HoloLens
+# <a name="quickstart-deploy-native-c-wmr-sample-to-hololens"></a>Inicio rápido: Implementación de un ejemplo de WMR de C++ nativo en HoloLens
 
-En este inicio rápido se explica cómo implementar y ejecutar la aplicación del tutorial de C++ nativo en HoloLens 2.
+En este inicio rápido se explica cómo implementar y ejecutar la aplicación del tutorial de WMR (Windows Mixed Reality) de C++ nativo en HoloLens 2.
 
 En este artículo de inicio rápido aprenderá lo siguiente:
 
@@ -51,11 +51,11 @@ git clone https://github.com/Azure/azure-remote-rendering
 
 El último comando crea un subdirectorio en el directorio ARR que contiene los diversos proyectos de ejemplo para Azure Remote Rendering.
 
-El tutorial de C++ en HoloLens puede encontrarse en el subdirectorio *NativeCpp/HoloLens*.
+El tutorial de C++ en HoloLens puede encontrarse en el subdirectorio *NativeCpp/HoloLens-Wmr*.
 
-## <a name="build-the-project"></a>Compilación del proyecto
+## <a name="build-the-project"></a>Compilar el proyecto
 
-Abra el archivo de solución *HolographicApp.sln* ubicado en el subdirectorio *NativeCpp/HoloLens* con Visual Studio 2019.
+Abra el archivo de solución *HolographicApp.sln* ubicado en el subdirectorio *NativeCpp/HoloLens-Wmr* con Visual Studio 2019.
 
 Cambie la configuración de compilación a *Depurar* (o *Liberar*) y *ARM64*. Asegúrese también de que el modo del depurador está establecido en *Dispositivo*, en lugar de en *Máquina remota*:
 
@@ -80,7 +80,7 @@ Puesto que las credenciales de la cuenta están codificadas de forma rígida en 
 
 En concreto, cambie los valores siguientes:
 * `init.AccountId`, `init.AccountKey` e `init.AccountDomain` para usar los datos de la cuenta. Consulte el párrafo sobre cómo [recuperar información de una cuenta](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* Especifique dónde desea crear la sesión de representación remota; para ello, modifique la parte correspondiente a la región de la cadena `init.RemoteRenderingDomain` para otras regiones distintas a `westus2`, por ejemplo `"westeurope.mixedreality.azure.com"`.
+* Especifique dónde desea crear la sesión de representación remota; para ello, modifique la parte correspondiente a la región de la cadena `init.RemoteRenderingDomain` para otras [regiones](../../../reference/regions.md) distintas a `westus2`, por ejemplo `"westeurope.mixedreality.azure.com"`.
 * Además, `m_sessionOverride` se puede cambiar a un identificador de sesión existente. Se pueden crear sesiones fuera de este ejemplo, por ejemplo, mediante [el script de PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) o mediante la [API REST de la sesión](../../../how-tos/session-rest-api.md) directamente.
 Se recomienda crear una sesión fuera del ejemplo cuando este deba ejecutarse varias veces. Si no se devuelve ninguna sesión, el ejemplo creará una en cada inicio, lo que puede tardar varios minutos.
 

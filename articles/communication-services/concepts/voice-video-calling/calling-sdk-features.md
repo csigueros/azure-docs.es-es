@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7173c625ef56ea9e4d4d43d90adc18ba4fe167ab
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 320ef1b523615894910d277fcc155104b4b297bc
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109294"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766554"
 ---
 # <a name="calling-sdk-overview"></a>Información general de Calling SDK
 
@@ -111,7 +111,7 @@ En la tabla siguiente se representa el conjunto de exploradores compatibles que 
 | Plataforma     | Chrome | Safari | Edge (Chromium) | Notas                                                                                                                                                                                                       |
 | ------------ | ------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Android      | ✔️      | ❌      | ❌               | No se admite el uso compartido de pantalla saliente.                                                                                                                                                                   |
-| iOS          | ❌      | ✔️      | ❌               | Las aplicaciones iOS en Safari no pueden enumerar ni seleccionar dispositivos de micrófono y altavoz (por ejemplo, Bluetooth); se trata de una limitación del sistema operativo y siempre hay un único dispositivo. No se admite el uso compartido de pantalla saliente. |
+| iOS          | ❌      | ✔️      | ❌               | [Las aplicaciones iOS en Safari no pueden enumerar ni seleccionar dispositivos de micrófono y altavoz](https://docs.microsoft.com/azure/communication-services/concepts/known-issues#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (por ejemplo, Bluetooth); se trata de una limitación del sistema operativo y siempre hay un solo dispositivo, el sistema operativo controla la selección predeterminada del dispositivo. No se admite el uso compartido de pantalla saliente. |
 | macOS        | ✔️      | ✔️      | ❌               | Son necesarios Safari 14+ y macOS 11+ para la compatibilidad con vídeo saliente.                                                                                                                                                     |
 | Windows      | ✔️      | ❌      | ✔️               |                                                                                                                                                                                                             |
 | Ubuntu/Linux | ✔️      | ❌      | ❌               |                                                                                                                                                                                                             |

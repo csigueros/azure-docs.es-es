@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d840d2ea518ede320990eb8da23b96129310bcbc
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 6e470aaaad9879116460180b15f45b1419f51418
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111430639"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201297"
 ---
 > [!NOTE]
 > Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/PhoneNumbers)
@@ -67,7 +67,7 @@ static async Task Main(string[] args)
 Los clientes de PhoneNumbers se pueden autenticar mediante la cadena de conexión adquirida de los recursos de Azure Communication Services en [Azure Portal][azure_portal].
 
 ```csharp
-// Get a connection string to our Azure Communication resource.
+// Get a connection string to our Azure Communication Services resource.
 var connectionString = "<connection_string>";
 var client = new PhoneNumbersClient(connectionString);
 ```
@@ -75,7 +75,7 @@ var client = new PhoneNumbersClient(connectionString);
 Los clientes de PhoneNumbers también tienen la opción de autenticarse con la autenticación de Azure Active Directory. Con esta opción, las variables de entorno `AZURE_CLIENT_SECRET` `AZURE_CLIENT_ID` y `AZURE_TENANT_ID` deben configurarse para la autenticación.
 
 ```csharp
-// Get an endpoint to our Azure Communication resource.
+// Get an endpoint to our Azure Communication Services resource.
 var endpoint = new Uri("<endpoint_url>");
 TokenCredential tokenCredential = new DefaultAzureCredential();
 client = new PhoneNumbersClient(endpoint, tokenCredential);

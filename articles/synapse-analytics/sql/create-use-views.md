@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: da026012c4084783d30f548cbdffc8951d74bcd6
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d1b7f941fbd7d9c6a6b654992e86ab0379e11e28
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751224"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303821"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creación y uso de vistas mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -81,6 +81,8 @@ from openrowset(
            ) as rows
 ```
 
+Delta Lake está en versión preliminar pública, y hay algunos problemas conocidos y limitaciones. Revise los problemas conocidos en la página de autoayuda del [grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
+
 ## <a name="partitioned-views"></a>Vistas con particiones
 
 Si tiene un conjunto de archivos con particiones en la estructura jerárquica de carpetas, puede describir el patrón de partición mediante los caracteres comodín en la ruta de acceso del archivo. Use la función `FILEPATH` para exponer partes de la ruta de acceso de carpeta como columnas de partición.
@@ -120,7 +122,9 @@ El nombre de la carpeta en la función `OPENROWSET` (`yellow` en este ejemplo) q
 > [!div class="mx-imgBorder"]
 >![Carpeta Yellow Taxi de Delta Lake](./media/shared/yellow-taxi-delta-lake.png)
 
-No use la cláusula `WITH` en la función `OPENROWSET` al consultar datos de Delta Lake con particiones. Debido al problema conocido en la versión preliminar, la cláusula `WITH` no devolverá correctamente los valores de las columnas de partición subyacentes. La eliminación de particiones funciona bien si usa directamente la función `OPENROWSET` con la cláusula `WITH` (sin vistas).  
+No use la cláusula `WITH` en la función `OPENROWSET` al consultar datos de Delta Lake con particiones. Debido al problema conocido en la versión preliminar, la cláusula `WITH` [no devolverá correctamente los valores de las columnas de partición subyacentes](resources-self-help-sql-on-demand.md#partitioning-column-returns-null-values). La eliminación de particiones funciona bien si usa directamente la función `OPENROWSET` con la cláusula `WITH` (sin vistas).  
+
+Delta Lake está en versión preliminar pública, y hay algunos problemas conocidos y limitaciones. Revise los problemas conocidos en la página de autoayuda del [grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## <a name="use-a-view"></a>Uso de una vista
 

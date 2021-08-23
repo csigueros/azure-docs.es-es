@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 07/23/2021
 ms.author: jeedes
-ms.openlocfilehash: 4ff8196ff4e30aa6ed036cabe00a72bfa8a5c51f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c665a3c6a990f81c654f3acb7389c3c95435810
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92515328"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689836"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Prezi
 
@@ -26,9 +26,7 @@ En este tutorial aprenderá a integrar Prezi con Azure Active Directory (Azure�
 * Permitir que los usuarios inicien sesión automáticamente en Prezi con sus cuentas de Azure AD.
 * Administrar las cuentas en Azure Portal.
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -41,7 +39,6 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Prezi admite el inicio de sesión único iniciado por SP e IDP.
 * Prezi admite el aprovisionamiento de usuarios Just-In-Time.
-* Una vez configurado Prezi, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. Para más información, consulte [Cómo aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -50,7 +47,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 Para configurar la integración de Prezi en Azure AD, será preciso agregar Prezi desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel izquierdo, seleccione **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
@@ -61,7 +58,7 @@ Para configurar la integración de Prezi en Azure AD, será preciso agregar Pre
 
 Configure y pruebe el inicio de sesión único de Azure AD con Prezi mediante un usuario de prueba llamado B.Simon. Para que el inicio de sesión único funcione, establezca una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Prezi.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Prezi, es preciso completar estos bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Prezi, siga estos pasos:
 
 1. [Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso), para permitir que los usuarios puedan utilizar esta característica.
     1. [Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user), para probar el inicio de sesión único de Azure AD con el usuario B.Simon.
@@ -74,9 +71,9 @@ Para configurar y probar el inicio de sesión único de Azure AD con Prezi, es 
 
 Para habilitar el inicio de sesión único de Azure AD en Azure Portal:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Prezi**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de aplicaciones de **Prezi**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el icono **Editar** para editar los valores de **Configuración básica de SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el icono de lápiz para editar los valores de **Configuración básica de SAML**.
 
    ![Edición de los valores de Configuración básica de SAML](common/edit-urls.png)
 
@@ -84,7 +81,7 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal:
 
 1. Seleccione **Establecer direcciones URL adicionales** y lleve a cabo el siguiente paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://prezi.com/login/sso/`.
+    En el cuadro **URL de inicio de sesión**, escriba la dirección URL: `https://prezi.com/login/sso/`.
 
 1. Seleccione **Guardar**.
 
@@ -126,13 +123,7 @@ En esta sección, va a permitir que B.Simon acceda a Prezi mediante el inicio de
 1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Prezi**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo Usuarios y grupos](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Vínculo Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista de usuarios y haga clic en **Seleccionar** en la parte inferior de la pantalla.
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
@@ -147,7 +138,7 @@ En esta sección, va a permitir que B.Simon acceda a Prezi mediante el inicio de
 
 1. Vaya a la sección **Single Sign-On (SSO)** (Inicio de sesión único [SSO]) y active el conmutador para habilitar el inicio de sesión único.
     
-    ![Conmutador de inicio de sesión único (SSO)](./media/prezi-tutorial/single-signon.png)
+    ![Conmutador de inicio de sesión único (SSO)](./media/prezi-tutorial/single-sign-on.png)
 
 1. En la sección **Single sign-on (SSO)** (Inicio de sesión único [SSO]), siga estos pasos:
 
@@ -167,15 +158,20 @@ En esta sección, se crea el usuario B.Simon en Prezi. Prezi admite el aprovisio
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al seleccionar el icono de Prezi en el Panel de acceso, debería iniciar sesión automáticamente en la cuenta de Prezi para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Prezi, donde puede poner en marcha el flujo de inicio de sesión.  
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-- [Pruebe Prezi con Azure AD](https://aad.portal.azure.com/)
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-- [Protección de Prezi con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)
+* Acceda directamente a la dirección URL de inicio de sesión de Prezi y ponga en marcha el flujo de inicio de sesión desde allí.
+
+#### <a name="idp-initiated"></a>Iniciado por IDP:
+
+* Haga clic en **Probar esta aplicación** en Azure Portal; se debería iniciar sesión automáticamente en la instancia de Prezi para la que ha configurado el inicio de sesión único. 
+
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Prezi en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Prezi para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez configurado Prezi, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

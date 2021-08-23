@@ -3,18 +3,18 @@ title: 'Tutorial: Creación y administración de presupuestos de Azure'
 description: Este tutorial le ayuda a planear y tener en cuenta los costos de los servicios de Azure que usted consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2021
+ms.date: 06/17/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 916abcb702f46e5b18a403369bd2ed4dfe5b8473
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1531b6bf591d2fb859dbd680c41d51a5835347a1
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695295"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112320737"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 > * Creación y edición de presupuestos con PowerShell
 > * Crear un presupuesto con una plantilla de Azure Resource Manager
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Se admiten los presupuestos para los siguientes tipos de cuentas y ámbitos de Azure:
 
@@ -165,7 +165,12 @@ La integración de presupuesto con los grupos de acciones solo funciona para los
 
 ## <a name="create-and-edit-budgets-with-powershell"></a>Creación y edición de presupuestos con PowerShell
 
-Los clientes de EA pueden crear y editar los presupuestos mediante programación con el módulo de Azure PowerShell. Para descargar la versión más reciente de Azure PowerShell ejecute el siguiente comando:
+Los clientes de EA pueden crear y editar los presupuestos mediante programación con el módulo de Azure PowerShell. 
+
+>[!Note]
+>Los clientes con un Contrato de cliente de Microsoft deben utilizar la [API REST de presupuestos](/rest/api/consumption/budgets/create-or-update) para crear presupuestos mediante programación, ya que PowerShell y la CLI aún no están admitidos.
+
+Para descargar la versión más reciente de Azure PowerShell ejecute el siguiente comando:
 
 ```azurepowershell-interactive
 install-module -name Az
@@ -189,6 +194,7 @@ $ActionGroupId = (Set-AzActionGroup -ResourceGroupName YourResourceGroup -Name T
 
 #Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
 
+Get-AzContext
 New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
 

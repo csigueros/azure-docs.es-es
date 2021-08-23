@@ -10,12 +10,12 @@ ms.date: 09/15/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 5e2458ebcdcc1b2dba598b5d443b8eab12312e7d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: e9e211fe3039b85e2807fec159537d32380e9799
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788969"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113664996"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Interacción con Azure Cosmos DB mediante Apache Spark en Azure Synapse Link
 
@@ -28,7 +28,7 @@ Al interactuar con Azure Cosmos DB, se admiten las siguientes funcionalidades:
 * Apache Spark de Synapse también le permite ingerir datos en Azure Cosmos DB. Es importante tener en cuenta que los datos siempre se ingieren en contenedores de Azure Cosmos DB a través del almacén transaccional. Cuando el Synapse Link está habilitado, las nuevas inserciones, actualizaciones y eliminaciones se sincronizan automáticamente con el almacén analítico.
 * Apache Spark de Synapse también admite Spark Structured Streaming con Azure Cosmos DB como origen y receptor. 
 
-Las secciones siguientes le guiarán por la sintaxis de las funcionalidades anteriores. Los gestos en el área de trabajo de Azure Synapse Analytics están diseñados para proporcionarle una experiencia de introducción fácil de usar. Los gestos se muestran al hacer clic con el botón derecho en un contenedor de Azure Cosmos DB en la pestaña **Datos** del área de trabajo de Synapse. Con ellos, puede generar código rápidamente y adaptarlo a sus necesidades. También son ideales para detectar datos con un solo clic.
+Las secciones siguientes le guiarán por la sintaxis de las funcionalidades anteriores. También puede consultar el módulo de información sobre cómo consultar [Azure Cosmos DB con Apache Spark para Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/). Los gestos en el área de trabajo de Azure Synapse Analytics están diseñados para proporcionarle una experiencia de introducción fácil de usar. Los gestos se muestran al hacer clic con el botón derecho en un contenedor de Azure Cosmos DB en la pestaña **Datos** del área de trabajo de Synapse. Con ellos, puede generar código rápidamente y adaptarlo a sus necesidades. También son ideales para detectar datos con un solo clic.
 
 > [!IMPORTANT]
 > Debe tener en cuenta algunas restricciones en el esquema analítico que podrían provocar un comportamiento inesperado en las operaciones de carga de datos.
@@ -213,3 +213,4 @@ query.awaitTermination()
 * [Ejemplos para empezar a trabajar con Azure Synapse Link en GitHub](https://aka.ms/cosmosdb-synapselink-samples)
 * [Más información sobre características admitidas de Azure Synapse Link para Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
 * [Conexión a Synapse Link para Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
+* Consulte el módulo de aprendizaje en el que se explica cómo [consultar Azure Cosmos DB con Apache Spark para Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/).

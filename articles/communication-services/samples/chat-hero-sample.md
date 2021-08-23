@@ -9,16 +9,14 @@ ms.author: dademath
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 02246f02226aaac1b7d9dbfd035a0479908f52cc
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: ef518b5dd3ee0e3657be1bf01873763eafdd221b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111553"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471845"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introducción al ejemplo de elementos principales de un chat grupal
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include-chat.md)]
 
 > [!IMPORTANT]
 > [Este ejemplo está disponible **en GitHub**.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
@@ -59,7 +57,7 @@ A continuación encontrará más información sobre los requisitos previos y los
 - [Node.js (8.11.2 y posterior)](https://nodejs.org/en/download/)
 - [Visual Studio (2017 y posterior)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (asegúrese de instalar la versión que se corresponda con su instancia de Visual Studio, 32 o 64 bits)
-- Cree un recurso de Azure Communication Services. Para obtener más información, consulte [Creación de un recurso de Azure Communication Services](../quickstarts/create-communication-resource.md). Deberá registrar la **cadena de conexión** del recurso para esta guía de inicio rápido.
+- Cree un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](../quickstarts/create-communication-resource.md). Deberá registrar la **cadena de conexión** del recurso para esta guía de inicio rápido.
 
 ## <a name="locally-deploying-the-service--client-app"></a>Implementación local del servicio y la aplicación cliente
 
@@ -73,7 +71,7 @@ Para probar el ejemplo localmente, puede abrir varias sesiones del explorador co
 
 1. Abra una instancia de PowerShell, Terminal Windows, símbolo del sistema o equivalente y navegue hasta el directorio donde le gustaría clonar el ejemplo.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
-3. Obtenga `Connection String` de Azure Portal. Para obtener más información sobre las cadenas de conexión, consulte [Creación de un recurso de Azure Communication Services](../quickstarts/create-communication-resource.md).
+3. Obtenga `Connection String` de Azure Portal. Para más información sobre las cadenas de conexión, consulte [Creación de recursos de Azure Communication Services](../quickstarts/create-communication-resource.md).
 4. Una vez que obtenga `Connection String`, agregue la cadena de conexión al archivo **Chat/appsettings.json** que se encuentra en la carpeta Chat. Escriba la cadena de conexión en la variable: `ResourceConnectionString`.
 
 ### <a name="local-run"></a>Ejecución local

@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: f5f931ce1aa6c06f151241b6136470d494dbcd48
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 3c3dae7cb64dd6c2e13c77c061c770bd787e2f06
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218760"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438141"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-using-linux-containers"></a>Tutorial: Desarrollo de un módulo IoT Edge con Java mediante contenedores Linux
 
@@ -58,7 +58,7 @@ Antes de comenzar este tutorial, debe haber realizado el anterior para configura
 Para desarrollar un módulo de IoT Edge en Java, instale los siguientes requisitos previos adicionales en la máquina de desarrollo:
 
 * [Paquete de extensiones de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) para Visual Studio Code.
-* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-jdk-long-term-support) y [ establecer la variable de entorno `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para que apunte a la instalación de JDK.
+* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-support-on-azure) y [ establecer la variable de entorno `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para que apunte a la instalación de JDK.
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
@@ -106,6 +106,9 @@ La extensión de IoT Edge intenta extraer de Azure las credenciales del registr
 1. En el explorador de VS Code, abra el archivo .env.
 2. Actualice los campos con los valores de **nombre de usuario** y **contraseña** que ha copiado del Registro de contenedor de Azure.
 3. Guarde este archivo.
+
+>[!NOTE]
+>En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio. Para obtener más información, vea [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Selección de la arquitectura de destino
 

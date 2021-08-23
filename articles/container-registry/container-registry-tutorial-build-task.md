@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a configurar una tarea de Azure Contai
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: b4806ed30319ff058df6dfae0340a73ad4cb6132
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8f05b982294c82323daf141793a04d6f6266e26f
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780792"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983687"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatización de las compilaciones de imágenes de contenedor en la nube al confirmar código fuente
 
@@ -45,7 +45,9 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Ahora, cree la tarea mediante la ejecución del siguiente comando [az acr task create][az-acr-task-create]:
+Ahora, cree la tarea mediante la ejecución del siguiente comando [az acr task create][az-acr-task-create].
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
 az acr task create \
@@ -89,7 +91,7 @@ La salida de un comando [az acr task create][az-acr-task-create] que se ha ejecu
     ],
     "isPushEnabled": true,
     "noCache": false,
-    "type&quot;: &quot;Docker"
+    "type": "Docker"
   },
   "tags": null,
   "timeout": 3600,
@@ -97,7 +99,7 @@ La salida de un comando [az acr task create][az-acr-task-create] que se ha ejecu
     "baseImageTrigger": {
       "baseImageTriggerType": "Runtime",
       "name": "defaultBaseimageTriggerName",
-      "status&quot;: &quot;Enabled"
+      "status": "Enabled"
     },
     "sourceTriggers": [
       {
@@ -106,16 +108,16 @@ La salida de un comando [az acr task create][az-acr-task-create] que se ha ejecu
           "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node#main",
           "sourceControlAuthProperties": null,
-          "sourceControlType&quot;: &quot;GitHub"
+          "sourceControlType": "GitHub"
         },
         "sourceTriggerEvents": [
           "commit"
         ],
-        "status&quot;: &quot;Enabled"
+        "status": "Enabled"
       }
     ]
   },
-  "type&quot;: &quot;Microsoft.ContainerRegistry/registries/tasks"
+  "type": "Microsoft.ContainerRegistry/registries/tasks"
 }
 ```
 

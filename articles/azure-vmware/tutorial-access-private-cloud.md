@@ -3,12 +3,12 @@ title: 'Tutorial: Acceso a la nube privada'
 description: Aprenda a acceder a una nube privada de Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: d2046acaf483022f977559fe74254ca58b8c42ea
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 81927e9ad0362ba340bb704d2d7e8b9c0927efbe
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945654"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605407"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Tutorial: Acceso a una nube privada de Azure VMware Solution
 
@@ -26,13 +26,13 @@ En este tutorial aprenderá a:
 
 1. En el grupo de recursos, seleccione **+ Agregar**, busque y seleccione **Microsoft Windows 10** y, a continuación, seleccione **Crear**.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Captura de pantalla que muestra cómo agregar una nueva máquina virtual Windows 10 para un jumpbox." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Captura de pantalla que muestra cómo agregar una nueva máquina virtual Windows 10 para un jumpbox.":::
 
 1. Escriba la información requerida en los campos y seleccione **Revisar y crear**. 
 
    Para más información sobre los campos, consulte la tabla siguiente.
 
-   | Campo | Valor |
+   | Campo | Value |
    | --- | --- |
    | **Suscripción** | El valor se rellena previamente con la suscripción a la que pertenece el grupo de recursos. |
    | **Grupos de recursos** | El valor se rellena previamente para el grupo de recursos actual que creó en el tutorial anterior.  |
@@ -58,7 +58,7 @@ En este tutorial aprenderá a:
 
    Se muestran las direcciones URL y las credenciales de usuario para vCenter y NSX-T Manager de la nube privada.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Mostrar las direcciones URL y las credenciales del administrador de NSX y vCenter de la nube privada" border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::.
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Captura de pantalla que muestra las direcciones URL y las credenciales de NSX Manager y vCenter de la nube privada." lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 1. Vaya a la máquina virtual que creó en el paso anterior y conéctese a ella. 
 
@@ -68,13 +68,13 @@ En este tutorial aprenderá a:
 
 1. En la pestaña de vCenter, escriba las credenciales del usuario `cloudadmin@vmcp.local` del paso anterior.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Inicio de sesión en vCenter de la nube privada" border="true":::.
+   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Captura de pantalla que la página de inicio de sesión de VMware vSphere." border="true":::
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Portal de vCenter" border="true":::.
+   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Captura de pantalla que muestra un resumen del clúster 1 en el cliente de vSphere." border="true":::
 
 1. En la segunda pestaña del explorador, inicie sesión en el administrador de NSX-T.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="En la segunda pestaña del explorador, inicie sesión en el administrador de NSX-T." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Captura de pantalla de la página de información general de NSX-T Manager" border="true":::.
 
 
 
@@ -90,5 +90,4 @@ Continúe con el siguiente tutorial para aprender a crear una red virtual a fin 
 
 > [!div class="nextstepaction"]
 > [Creación de una red virtual](tutorial-configure-networking.md)
-
 

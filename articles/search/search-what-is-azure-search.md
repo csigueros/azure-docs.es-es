@@ -7,36 +7,34 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/26/2021
+ms.date: 07/21/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: b08fe34e7ac5eede8d1435e3de3817224fafdbc6
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 803916184fb79c1db249b195dde0ed0b95c5c547
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560176"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459650"
 ---
 # <a name="what-is-azure-cognitive-search"></a>¿Qué es Azure Cognitive Search?
 
-Azure Cognitive Search ([anteriormente conocido como "Azure Search"](whats-new.md#new-service-name)) es un servicio de búsqueda en la nube que proporciona a los desarrolladores la arquitectura, las API y herramientas necesarias para crear una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para aplicaciones móviles y empresariales. 
+Azure Cognitive Search ([anteriormente conocido como "Azure Search"](whats-new.md#new-service-name)) es un servicio de búsqueda en la nube que proporciona a los desarrolladores la infraestructura, las API y herramientas necesarias para crear una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para aplicaciones móviles y empresariales.
 
-La búsqueda es fundamental para cualquier aplicación que represente contenido para los usuarios, con escenarios comunes como la búsqueda de catálogos o documentos, la búsqueda de sitios de comercio electrónico o la minería de conocimientos para la ciencia de datos.
+La búsqueda es fundamental para cualquier aplicación que represente contenido de texto para los usuarios, con escenarios comunes como la búsqueda de catálogos o documentos, la búsqueda de productos comerciales o la minería de conocimientos para la ciencia de datos.
 
 Al crear un servicio de búsqueda, trabajará con las siguientes funcionalidades:
 
-+ Un motor de búsqueda para buscar texto completo.
-+ Almacenamiento persistente de contenido propiedad del usuario en un índice de búsqueda.
-+ Indexación enriquecida, con análisis de texto y [enriquecimiento de IA](cognitive-search-concept-intro.md) opcional para extracción y transformación de contenido.
++ Un motor de búsqueda para la búsqueda de texto completo con almacenamiento para contenido propiedad del usuario en un índice de búsqueda.
++ Indexación enriquecida, con análisis de texto y [enriquecimiento de IA](cognitive-search-concept-intro.md) opcional para extracción y transformación avanzadas de contenido.
 + Funcionalidades de consulta enriquecidas, incluida la sintaxis simple, la sintaxis completa de Lucene y la búsqueda de escritura anticipada.
 + Programación a través de las API REST y las bibliotecas cliente en los SDK de Azure para .NET, Python, Java y JavaScript.
 + Integración de Azure en la capa de datos, la capa de aprendizaje automático y la IA (Cognitive Services)
-+ Algoritmos de clasificación de última generación a través de la [búsqueda semántica (versión preliminar)](semantic-search-overview.md).
 
 En cuanto a la arquitectura, un servicio de búsqueda se coloca entre los almacenes de datos externos que contienen los datos no indexados y su aplicación cliente que envía solicitudes de consulta a un índice de búsqueda y controla la respuesta.
 
 ![Arquitectura de Azure Cognitive Search](media/search-what-is-azure-search/azure-search-diagram.svg "Arquitectura de Azure Cognitive Search")
 
-Externamente, la búsqueda se puede integrar con otros servicios de Azure en forma de *indexadores* que automatizan la ingesta y recuperación de datos de orígenes de datos de Azure, y de *conjuntos de aptitudes* que incorporan una inteligencia artificial consumible de Cognitive Services, como el análisis de imágenes y texto, o la inteligencia artificial personalizada que se crea en Azure Machine Learning o se encapsula dentro de Azure Functions.
+Cognitive Search se puede integrar con otros servicios de Azure en forma de *indexadores* que automatizan la ingesta y recuperación de datos de orígenes de datos de Azure, y de *conjuntos de aptitudes* que incorporan una inteligencia artificial consumible de Cognitive Services, como el análisis de imágenes y texto, o la inteligencia artificial personalizada que se crea en Azure Machine Learning o se encapsula dentro de Azure Functions.
 
 ## <a name="inside-a-search-service"></a>Dentro de un servicio de búsqueda
 
@@ -52,11 +50,11 @@ En el servicio de búsqueda en sí, las dos cargas de trabajo principales son la
 
 La funcionalidad se expone a través de [API de REST](/rest/api/searchservice/) o [SDK de .NET](search-howto-dotnet-sdk.md) sencillos que enmascaran la complejidad inherente de la recuperación de información. También puede usar Azure Portal para la administración de servicios y de contenido, con herramientas para la creación de prototipos y la consulta de índices y conjuntos de aptitudes. Como el servicio se ejecuta en la nube, Microsoft administra la infraestructura y la disponibilidad.
 
-## <a name="why-use-cognitive-search"></a>Por qué usar Cognitive Search
+## <a name="why-use-cognitive-search"></a>Motivos para usar Cognitive Search
 
 Azure Cognitive Search es adecuado en los siguientes escenarios de aplicación:
 
-+ Consolidación de contenido heterogéneo en un índice de búsqueda privado definido por el usuario.
++ Consolidación de contenido heterogéneo en un índice de búsqueda privado definido por el usuario. Descarga de cargas de trabajo de indexación y consulta en un servicio de búsqueda dedicado.
 
 + Implementación con facilidad de características relacionadas con la búsqueda: ajuste de relevancia, navegación por facetas, filtros (incluida la búsqueda espacial geográfica), asignación de sinónimos y Autocompletar.
 
@@ -108,6 +106,6 @@ Entre nuestros clientes, los que son capaces de utilizar la gama más amplia de 
 
 ## <a name="watch-this-video"></a>Vea este vídeo
 
-En este vídeo de 15 minutos, el administrador de programas Luis Cabrera presenta Azure Cognitive Search.
+En este vídeo de 15 minutos, puede ver las principales funcionalidades de Azure Cognitive Search.
 
 >[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

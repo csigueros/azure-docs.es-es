@@ -7,13 +7,13 @@ ms.reviewer: douglasl, jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
-ms.date: 02/18/2021
-ms.openlocfilehash: 182d9d08041b2d32253b935a5171be6d399c80a6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 07/05/2021
+ms.openlocfilehash: ae7f83e397822eb52a9fdfca7011d4228cb3b625
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679071"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436350"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carga incremental de datos de varias tablas de SQL Server en Azure SQL Database mediante PowerShell
 
@@ -815,10 +815,11 @@ La canalización toma una lista de tablas como un parámetro. La **actividad For
 
 3. Busque su factoría de datos en la lista y selecciónela para abrir la página **Factoría de datos**. 
 
-4. En la página **Factoría de datos**, seleccione **Author & Monitor** (Creación y supervisión) para iniciar Azure Data Factory en otra pestaña.
+4. En la página de **Data Factory**, seleccione **Abrir** en el icono **Abrir Azure Data Factory Studio** para iniciar la aplicación de Azure Data Factory en una pestaña independiente.
 
-5. En la página **Let's get started** (Introducción), seleccione **Monitor** (Supervisar) en el lado izquierdo. 
-![La captura de pantalla muestra la página de introducción de Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
+5. En la página principal de Azure Data Factory, seleccione **Monitor** (Supervisar) a la izquierda. 
+
+    ![Captura de pantalla que muestra la página principal de Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. Puede ver todas las ejecuciones de canalización y sus estados. Tenga en cuenta que, en el ejemplo siguiente, el estado de ejecución de la canalización es **Correcto**. Para comprobar los parámetros pasados a la canalización, seleccione el vínculo en la columna **Parámetros**. Si se ha producido un error, verá un vínculo en la columna **Error**.
 

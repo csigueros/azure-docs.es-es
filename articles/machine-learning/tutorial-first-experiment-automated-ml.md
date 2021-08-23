@@ -9,28 +9,28 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 06/11/2021
-ms.custom: automl
-ms.openlocfilehash: e088184cadea64b769faf75c6455b720f45d91cc
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.date: 07/01/2021
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: 69cbb3923f3a29085b0999bdce44efe99245b3eb
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028728"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113491378"
 ---
 # <a name="tutorial-train-a-classification-model-with-no-code-automl-in-the-azure-machine-learning-studio"></a>Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático automatizado sin código en el Estudio de Azure Machine Learning
 
 Aprenda a entrenar un modelo de clasificación con aprendizaje automático automatizado sin código en el Estudio de Azure Machine Learning. Este modelo de clasificación predice si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
 
-Con el aprendizaje automático, puede automatizar las tareas que requieren mucho tiempo. El aprendizaje automático recorre en iteración rápidamente muchas combinaciones de algoritmos e hiperparámetros para ayudarle a encontrar el mejor modelo según una métrica de éxito de su elección.
+Con el aprendizaje automático automatizado, puede automatizar las tareas que requieren mucho tiempo. El aprendizaje automático recorre en iteración rápidamente muchas combinaciones de algoritmos e hiperparámetros para ayudarle a encontrar el mejor modelo según una métrica de éxito de su elección.
 
 En este tutorial no escribirá absolutamente nada de código, usará la interfaz de Estudio de Azure Machine Learning para realizar el entrenamiento.  Aprenderá a realizar las siguientes tareas:
 
 > [!div class="checklist"]
 > * Cree un área de trabajo de Azure Machine Learning.
 > * Ejecución de un experimento de aprendizaje automático automatizado.
-> * Visualización de los detalles del experimento.
-> * Se implementa el modelo.
+> * Explore los detalles del modelo.
+> * Implemente el modelo recomendado.
 
 Pruebe también el aprendizaje automático automatizado para estos otros tipos de modelos:
 
@@ -39,7 +39,7 @@ Pruebe también el aprendizaje automático automatizado para estos otros tipos d
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree).
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
 
 * Descargue el archivo de datos [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv). La columna **y** indica si un cliente se ha suscrito a un depósito a plazo fijo, que se identifica más adelante como la columna de destino para las predicciones de este tutorial. 
 
@@ -92,7 +92,7 @@ Antes de configurar el experimento, cargue el archivo de datos en el área de tr
 
     1. Seleccione **Next** (Siguiente) en la parte inferior izquierda para cargarlo en el contenedor predeterminado que se configuró automáticamente durante la creación del área de trabajo.  
     
-       Una vez completada la carga, el formulario de configuración y vista previa se rellena de forma inteligente en función del tipo de archivo. 
+       Una vez completada la carga, el formulario de **configuración y vista previa** se rellena de forma inteligente en función del tipo de archivo. 
        
     1. Compruebe que el formulario **Settings y Preview** (Configuración y vista previa) se rellenan como se indica a continuación y seleccione **Next** (Siguiente).
         
@@ -142,7 +142,7 @@ Una vez cargados y configurados los datos, puede configurar el experimento. Este
             ----|---|---
             Nombre del proceso |  Un nombre único que identifique el contexto del proceso. | automl-compute
             Nodos mín./máx.| Para generar perfiles de datos, debe especificar uno o más nodos.|Número mínimo de nodos: 1<br>Número máximo de nodos: 6
-            Segundos de inactividad antes de la reducción vertical | Tiempo de inactividad antes de que el clúster se escale automáticamente hasta el número mínimo de nodos.|120 (valor predeterminado)
+            Segundos de inactividad antes de la reducción vertical | Tiempo de inactividad antes de que el clúster se escale automáticamente hasta el número mínimo de nodos.|1800 (valor predeterminado)
             Configuración avanzada | Valores para configurar y autorizar una red virtual para el experimento.| None               
 
         1. Seleccione **Crear** para crear el destino de proceso. 
@@ -155,7 +155,7 @@ Una vez cargados y configurados los datos, puede configurar el experimento. Este
 
     1. Seleccione **Next** (Siguiente).
 
-1. En el formulario **Task type and settings** (Configuración y tipo de tarea), realice la configuración del experimento de aprendizaje automático automatizado especificando el tipo de tarea de aprendizaje automático y los valores de configuración.
+1. En el formulario **Select task and settings** (Configuración y selección de tarea), realice la configuración del experimento de aprendizaje automático automatizado especificando el tipo de tarea de aprendizaje automático y los valores de configuración.
     
     1.  Seleccione **Classification** (Clasificación) como tipo de tarea de aprendizaje automático.
 

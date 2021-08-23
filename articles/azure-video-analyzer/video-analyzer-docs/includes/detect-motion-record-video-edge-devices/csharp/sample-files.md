@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: juliako
-ms.openlocfilehash: 9d997a377096058321b0b09881ffa7549bd8ea27
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d86ad88e122909225b5b64861623ce9b5b2df8af
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110486358"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444567"
 ---
 Como parte de los requisitos previos, ha descargado el código de ejemplo en una carpeta. Siga estos pasos para examinar y editar los archivos de ejemplo.
 
@@ -23,11 +23,10 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
     * **Program.cs**: el código del programa de ejemplo. Este código:
 
         * Carga la configuración de la aplicación.
-        * Invoca a [métodos directos](../../../direct-methods.md)<!--add a link--> que el módulo perimetral de Video Analyzer expone.
+        * Invoca [métodos directos](../../../direct-methods.md) que expone el módulo perimetral de Video Analyzer.
         * Se pone en pausa para que pueda examinar la salida del programa en la ventana **TERMINAL** y los eventos generados por el módulo en la ventana **SALIDA**.
         * Invoca los métodos directos para limpiar los recursos.
 1. Edite el archivo **operations.json**:
-    
-    * Cambie el vínculo a la canalización: <br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-file-sink/topology.json" `
+    * Cambie el vínculo a la canalización: <br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-file-sink/topology.json" `
     * En livePipelineSet, edite el nombre de la topología de la canalización para que coincida con el valor del vínculo anterior: <br/>`"topologyName" : "EVRToFilesOnMotionDetection" `
     * En PipelineTopologyDelete, edite el nombre: <br/>`"name": "EVRToFilesOnMotionDetection" `

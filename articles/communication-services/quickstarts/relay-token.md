@@ -1,27 +1,27 @@
 ---
-title: 'Inicio rápido: Obtención de un token de retransmisión de red'
+title: 'Inicio rápido: Acceso a retransmisiones mediante el protocolo TURN'
 description: Obtenga información sobre cómo recuperar un token STUN/TURN mediante Azure Communication Services
 author: shahen
 manager: anvalent
 services: azure-communication-services
 ms.author: shahen
-ms.date: 05/21/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: acs-js-csharp
-ms.openlocfilehash: 2fc0bfeaef1d3e0e49d1597f41582b6d79d9a3db
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 88bdfe85dbd2905ff060498003b23909abe7a855
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026932"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471477"
 ---
-# <a name="quickstart-get-a-network-relay-token"></a>Inicio rápido: Obtención de un token de retransmisión de red
+# <a name="quickstart-access-turn-relays"></a>Inicio rápido: Acceso a retransmisiones mediante el protocolo TURN
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-En esta guía de inicio rápido se muestra cómo recuperar un token de retransmisión de red para acceder a los servidores TURN de Azure Communication Services
+En este inicio rápido se muestra cómo recuperar un token de retransmisión de red para acceder a los servidores TURN de Azure Communication Services.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

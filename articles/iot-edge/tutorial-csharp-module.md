@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: e24c04152911f976907e6bdc433c33e035ade639
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 1384fbc79e052bfc2b0fdf29b7087de0949c5095
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874754"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438339"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>Tutorial: Desarrollo de un módulo IoT Edge con C# con Java mediante contenedores Linux
 
@@ -95,6 +95,9 @@ La extensión de IoT Edge intenta extraer de Azure las credenciales del registr
 1. En el explorador de VS Code, abra el archivo **.env**.
 2. Actualice los campos con los valores de **nombre de usuario** y **contraseña** del registro de contenedor de Azure.
 3. Guarde este archivo.
+
+>[!NOTE]
+>En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio. Para más información, consulte [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Selección de la arquitectura de destino
 

@@ -7,15 +7,15 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: article
-  ms.date: 05/11/2021
+  ms.date: 07/21/2021
   ms.author: alkohli
   ms.custom: references_regions
-  ms.openlocfilehash: 85b2abd58f55e75a4b560b4cdbcc792693d1a2a3
-  ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+  ms.openlocfilehash: 47d941b1c6e6ce7b0f383e977f227db65fa86871
+  ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113095218"
+  ms.lasthandoff: 07/23/2021
+  ms.locfileid: "114653430"
 title: 'Azure Data Box: Preguntas más frecuentes'
 summary: >
   La solución híbrida Microsoft Azure Data Box le permite enviar terabytes de datos a Azure de forma rápida, económica y confiable, mediante un dispositivo de transferencia. En este documento encontrará las preguntas más frecuentes que pueden surgir al usar Data Box en Azure Portal, y las respuestas a dichas preguntas.
@@ -234,6 +234,10 @@ sections:
       Realicé el pedido de un Data Box en la zona este de EE. UU. pero recibí un dispositivo que se envió desde una ubicación de la zona oeste de EE. UU. ¿A dónde debo devolver el dispositivo?
     answer: >
       Intentaremos que el dispositivo Data Box le llegue lo antes posible. A la hora de realizar el envío damos prioridad a los centros de datos más cercanos a la ubicación de la cuenta de almacenamiento, pero podemos enviarlo desde cualquier centro de disponibilidad de Azure que lo tenga disponible en su inventario. El Data Box se debe devolver a la misma ubicación desde la que se envió, que se muestra en la etiqueta de envío.
+  - question: >
+      Necesito enviar un Data Box a Puerto Rico. ¿Hay algún requisito especial?
+    answer: >
+      Si necesita mandar un dispositivo a Puerto Rico, envíe un mensaje de correo electrónico a [adbops@microsoft.com](mailto:adbops@microsoft.com) para obtener instrucciones. Se le pedirá que cree un pedido con una dirección de Estados Unidos, pero que proporcione al equipo de operaciones una dirección de Puerto Rico por correo electrónico. El envío de un dispositivo a Puerto Rico no supone ningún costo de envío adicional por servicios de mensajería UPS.
   - question: >
       La pantalla E-Ink no muestra la etiqueta del envío de devolución. ¿Cuál debo hacer?
     answer: "Si la pantalla E-Ink no muestra la etiqueta del envío de devolución, realice los siguientes pasos:\n- Retire la etiqueta del envío anterior y cualquier etiqueta que tenga que ver con el mismo.\n- Vaya a su pedido en el portal de Azure. Vaya a la opción **Información general** y **Descargar la etiqueta de envío**. Para obtener más información, vaya a [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Descargar la etiqueta de envío).\n- Imprima la etiqueta de envío e insértela en la funda transparente de plástico que se adjunta al dispositivo. \n- Asegúrese de que la etiqueta de envío se vea con claridad. \n"

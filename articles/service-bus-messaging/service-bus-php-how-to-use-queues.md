@@ -5,17 +5,20 @@ services: service-bus-messaging
 ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: a7e0d1fa321f1b7c1295b5a640fe78b46adf1c72
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 46f2f4a532b8b2e3001ec7f0411498f74919a36b
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85341122"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302577"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Inicio rápido: Uso de colas de Service Bus con PHP
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
 
 En este tutorial, obtendrá información sobre cómo crear aplicaciones de PHP para enviar mensajes a una cola Service Bus y recibir mensajes de una cola de Service Bus. 
+
+> [!IMPORTANT]
+> A partir de febrero de 2021, Azure SDK para PHP ha entrado en una fase de retirada y ya no es compatible oficialmente con Microsoft. Para más información, consulte este [anuncio](https://github.com/Azure/azure-sdk-for-php#important-annoucement) en GitHub. Este artículo se retirará pronto. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 1. Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).

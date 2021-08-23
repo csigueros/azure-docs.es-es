@@ -2,14 +2,14 @@
 title: 'Tutorial: Creación rápida de imagen de contenedor'
 description: En este tutorial, aprenderá a compilar una imagen de contenedor de Docker en Azure con Azure Container Registry Tasks (ACR Tasks) para, después, implementarla en Azure Container Instances.
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 07/20/2021
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 282e6ea56835fba679510a29af936c1fbcb3ead2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: be722812c5d3991da6bbc2458770798ded2039d4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775356"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448922"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Compilación e implementación de imágenes de contenedor en la nube con Azure Container Registry Tasks
 
@@ -74,7 +74,7 @@ Para facilitar la ejecución de comandos de ejemplo, los tutoriales de esta seri
 ACR_NAME=<registry-name>
 ```
 
-Con la variable de entorno del registro de contenedor rellena, ya puede copiar y pegar el resto de los comandos del tutorial sin necesidad de editar ningún valor. Ejecute los siguientes comandos para crear un grupo de recursos y un registro de contenedor:
+Con la variable de entorno del registro de contenedor rellena, ya puede copiar y pegar el resto de los comandos del tutorial sin necesidad de editar ningún valor. Ejecute los siguientes comandos para crear un grupo de recursos y un registro de contenedor.
 
 ```azurecli
 RES_GROUP=$ACR_NAME # Resource Group name
@@ -83,7 +83,9 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Ahora que tiene un registro, utilice ACR Tasks para compilar una imagen de contenedor desde el código de ejemplo. Ejecute el comando [az acr build][az-acr-build] para efectuar una *tarea rápida*:
+Ahora que tiene un registro, utilice ACR Tasks para compilar una imagen de contenedor desde el código de ejemplo. Ejecute el comando [az acr build][az-acr-build] para efectuar una *tarea rápida*.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -184,7 +186,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 Ahora debe crear una entidad de servicio y almacenar sus credenciales en el almacén de claves.
 
-Use el comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para crear la entidad de servicio y [az keyvault secret set][az-keyvault-secret-set] para almacenar la **contraseña** de la entidad de servicio en el almacén:
+Use el comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para crear la entidad de servicio y [az keyvault secret set][az-keyvault-secret-set] para almacenar la **contraseña** de la entidad de servicio en el almacén. Use la CLI de Azure versión **2.25.0** o posterior para estos comandos:
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -208,7 +210,7 @@ A continuación, almacene el *appId* de la entidad de servicio en el almacén, q
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
-    --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
+    --value $(az ad sp list --display-name $ACR_NAME-pull --query [].appId --output tsv)
 ```
 
 Ha creado una instancia de Azure Key Vault y almacenado dos secretos en ella:

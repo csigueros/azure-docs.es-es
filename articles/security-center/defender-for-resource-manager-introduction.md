@@ -3,16 +3,16 @@ title: 'Azure Defender para Resource Manager: ventajas y características'
 description: Obtenga información sobre las ventajas y características de Azure Defender para Resource Manager
 author: memildin
 ms.author: memildin
-ms.date: 05/12/2021
+ms.date: 07/14/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 7d564d3d3a27d4ddba50ab05644d612e9bb63645
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 1acf785021f83605db2f8bfe3188e0e2ac874d4e
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113002583"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113761888"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Introducción a Azure Defender para Resource Manager
 
@@ -28,7 +28,7 @@ Azure Defender para Resource Manager supervisa automáticamente las operaciones 
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|**Azure Defender para Resource Manager** se factura como se muestra en [Precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov, otros gobiernos<br>![No](./media/icons/no-icon.png) Azure China|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-resource-manager"></a>¿Cuáles son las ventajas de Azure Defender para Resource Manager?

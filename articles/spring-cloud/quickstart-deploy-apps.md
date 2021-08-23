@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Compilación e implementación de aplicaciones en Azure Spring Cloud'
 description: Describe la implementación de aplicaciones en Azure Spring Cloud.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: fc005e8d94a0c6ddb7f21de05872f12bdb7f2177
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b82e36b798611aad20044592cd3bec60cdf2e871
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965125"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469264"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Inicio rápido: Compilación e implementación de aplicaciones en Azure Spring Cloud
 
@@ -213,7 +213,6 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
 
     ```azurecli
     az configure --defaults group=<resource group name> spring-cloud=<service name>  
-    az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
     ```
 
 1. Cree los 2 microservicios principales para PetClinic: puerta de enlace de API y customers-service.
@@ -245,7 +244,7 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
 
 ## <a name="verify-the-services"></a>Comprobación de los servicios
 
-Acceda a la puerta de enlace de API y a customers-service desde el explorador con la **dirección URL pública** mostrada anteriormente, con el formato "https://<service name>-api-gateway.azuremicroservices.io".
+Acceda a la puerta de enlace de la aplicación y al servicio a los clientes desde el explorador con la **dirección URL pública** mostrada anteriormente, con el formato `https://<service name>-api-gateway.azuremicroservices.io`.
 
 ![Acceso a customers-service de PetClinic](media/build-and-deploy/access-customers-service.png)
 
@@ -282,7 +281,7 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
 1. Genere configuraciones mediante la ejecución del siguiente comando en la carpeta raíz de PetClinic que contiene el POM primario. Si ya ha iniciado sesión con la CLI de Azure, el comando tomará automáticamente las credenciales. Si no lo ha hecho, le proporcionará instrucciones para iniciar sesión. Para obtener más información, consulte nuestra [página wiki](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.5.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.6.0:config
     ```
     
     Se le pedirá que seleccione:
@@ -298,7 +297,7 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
             <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-spring-cloud-maven-plugin</artifactId>
-                <version>1.5.0</version>
+                <version>1.6.0</version>
                 <configuration>
                     <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                     <clusterName>v-spr-cld</clusterName>
@@ -317,7 +316,7 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
     
 ## <a name="verify-the-services"></a>Comprobación de los servicios
 
-Un comando de implementación correcto devolverá una dirección URL con el formato: "https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io". Úsela para ir al servicio en ejecución.
+Un comando de implementación correcto devolverá una dirección URL con el formato: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Úsela para ir al servicio en ejecución.
 
 ![Acceso a PetClinic](media/build-and-deploy/access-customers-service.png)
 

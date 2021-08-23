@@ -3,18 +3,18 @@ title: 'Tutorial: Creación y administración de datos exportados desde Azure Co
 description: En este artículo se muestra cómo crear y administrar datos de Azure Cost Management para utilizarlos en sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/06/2021
+ms.date: 07/26/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9f9afe0b7c27fb2199f9bdcd1fa5edbe4da01602
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 592ef54b359c84309da350bf53da6bb0a4152374
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517647"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708648"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -247,7 +247,7 @@ Cada exportación crea un nuevo archivo, por lo que las exportaciones anteriores
 
 #### <a name="create-an-export-for-multiple-subscriptions"></a>Creación de una exportación para varias suscripciones
 
-Si tiene un Contrato Enterprise, puede usar un grupo de administración para agregar información de costos de suscripción en un solo contenedor. Después, puede exportar los datos de administración de costos para el grupo de administración.
+Si tiene un Contrato Enterprise, puede usar un grupo de administración para agregar información de costos de suscripción en un solo contenedor. Después, puede exportar los datos de administración de costos para el grupo de administración. Las exportaciones de grupos de administración solo admiten costos reales.
 
 No se admiten las exportaciones de grupos de administración de otros tipos de suscripciones.
 

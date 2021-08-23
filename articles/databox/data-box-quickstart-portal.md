@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 03/05/2021
+ms.date: 07/22/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 3359152455df2701d897689a1f177bf63051b94b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: b87af97dd99fa88dc5aaa0cd5bdd8a2a23032104
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440724"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690425"
 ---
 # <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Introducción a Azure Data Box para importar datos en Azure
 
@@ -47,7 +47,7 @@ Antes de empezar:
 - Revise las [directrices de seguridad para su Data Box](data-box-safety.md).
 - Tiene un equipo host con los datos que desea copiar en su dispositivo Data Box. El equipo host debe:
     - Ejecutar un [sistema operativo admitido](data-box-system-requirements.md).
-    - Estar conectado a una red de alta velocidad. Es muy recomendable tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión 10 GbE, se puede usar un vínculo de datos de 1 GbE, pero las velocidades de copia se verán afectadas. 
+    - Estar conectado a una red de alta velocidad. Es muy recomendable tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión de 10 GbE, se puede usar un vínculo de datos de 1 GbE, pero las velocidades de copia resultarán afectadas. 
 - Debe tener acceso a una superficie plana en la que puede colocar su dispositivo Data Box. Si quiere colocar el dispositivo en un bastidor estándar, necesitará una ranura de 7U en el bastidor del centro de datos. Puede colocar el dispositivo en posición horizontal o vertical en el bastidor.
 - Cuenta con los cables siguientes para conectar su dispositivo Data Box al equipo host.
     - Dos cables de cobre 10 GbE SFP+ Twinax (se usa con las interfaces de red DATA 1, DATA 2)
@@ -102,9 +102,9 @@ Cuando reciba su Data Box, siga los pasos a continuación para cablear, conectar
 2. Antes de cablear el dispositivo, asegúrese de tener los cables siguientes:
     
     - Cable de alimentación con tierra (incluido) con calificación de 10 A o más, con un conector IEC60320 C-13 en un extremo para conectar al dispositivo.
-    - Un cable de red RJ-45 CAT 6 (se usa con la interfaz de red MGMT)
-    - Dos cables de cobre 10 GbE SFP+ Twinax (uso con las interfaces de red DATA 1, DATA 2 de 10 Gbps)
-    - Un cable de red RJ-45 CAT 6A o RJ-45 CAT 6 (se usa con la interfaz de red DATA 3 configurada como 10 Gbps o 1 Gbps, respectivamente)
+    - (No incluido) Un cable de red RJ-45 CAT 6 (se usa con la interfaz de red MGMT)
+    - (No incluidos) Dos cables de cobre SFP+ Twinax de 10-GbE (se usa con las interfaces de red DATA 1, DATA 2 de 10 Gbps)
+    - (No incluido) Un cable de red RJ-45 CAT 6A o RJ-45 CAT 6 (se usa con la interfaz de red DATA 3 configurada como 10 Gbps o 1 Gbps, respectivamente)
 
 3. Retire el dispositivo y colóquelo en una superficie plana. 
     

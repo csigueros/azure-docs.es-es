@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 9dc3c9154eeacb452d3df72e43d8fa773f282c65
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fb054bf82e6f4e55dfcd6f23575fa35e40400845
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110486702"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114400166"
 ---
 En este tutorial se muestra cómo compilar una aplicación de dispositivo IoT Plug and Play de ejemplo con componentes, cómo conectarla a un centro de IoT y cómo usar la herramienta Azure IoT Explorer para ver la información que envía al centro. La aplicación de ejemplo está escrita en C y se incluye en el SDK de dispositivo IoT de Azure para C. Un generador de soluciones puede usar la herramienta Azure IoT Explorer para comprender las funcionalidades de cualquier dispositivo IoT Plug and Play sin necesidad de ver nada de código del dispositivo.
 
@@ -61,7 +61,7 @@ Para completar este tutorial en Windows, instale el siguiente software en el ent
 
 ## <a name="download-the-code"></a>Descargar el código
 
-Si ha completado el [Inicio rápido: conexión a IoT Hub (C) de una aplicación de ejemplo del dispositivo IoT Plug and Play que se ejecuta en Linux o Windows](../articles/iot-pnp/quickstart-connect-device.md), ya tendrá descargado el código.
+Si ha completado el [Tutorial: conexión a IoT Hub (C) de una aplicación de ejemplo del dispositivo IoT Plug and Play que se ejecuta en Linux o Windows](../articles/iot-develop/tutorial-connect-device.md), ya tendrá descargado el código.
 
 En este tutorial, se prepara un entorno de desarrollo que se puede usar para clonar y compilar el SDK de dispositivos de Azure IoT Hub para C.
 
@@ -84,7 +84,7 @@ Puede compilar y ejecutar el código con Visual Studio o usar `cmake` en la lí
 1. Abra la carpeta raíz del repositorio clonado. Al cabo de unos segundos, la compatibilidad de **CMake** en Visual Studio crea todo lo que necesita para ejecutar y depurar el proyecto.
 1. Cuando Visual Studio esté listo, en el **Explorador de soluciones**, desplácese hasta el ejemplo *iothub_client/samples/PNP/pnp_temperature_controller/* .
 1. Haga clic con el botón derecho en el archivo *pnp_temperature_controller.c* y seleccione **Add Debug Configuration** (Agregar configuración de depuración). Seleccione **Predeterminado**.
-1. Visual Studio abre el archivo *launch.vs.json*. Edite este archivo como se muestra en el siguiente fragmento de código para establecer las variables de entorno necesarias. Anotó el identificador de ámbito y la clave principal de inscripción cuando completó [Configuración del entorno para las guías de inicio rápido y los tutoriales de IoT Plug and Play](../articles/iot-pnp/set-up-environment.md):
+1. Visual Studio abre el archivo *launch.vs.json*. Edite este archivo como se muestra en el siguiente fragmento de código para establecer las variables de entorno necesarias. Anotó el identificador de ámbito y la clave principal de inscripción cuando completó [Configuración del entorno para las guías de inicio rápido y los tutoriales de IoT Plug and Play](../articles/iot-develop/set-up-environment.md):
 
     ```json
     {
@@ -162,7 +162,7 @@ Una vez iniciado el ejemplo de cliente de dispositivo, compruebe que funciona co
 
 ## <a name="review-the-code"></a>Revisión del código
 
-En este ejemplo se implementa un dispositivo controlador de temperatura IoT Plug and Play. En este ejemplo se implementa un modelo con [varios componentes](../articles/iot-pnp/concepts-modeling-guide.md). El [archivo de modelo del lenguaje de definición de gemelos digitales (DTDL) del dispositivo de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) define los datos de telemetría, las propiedades y los comandos que implementa el dispositivo.
+En este ejemplo se implementa un dispositivo controlador de temperatura IoT Plug and Play. En este ejemplo se implementa un modelo con [varios componentes](../articles/iot-develop/concepts-modeling-guide.md). El [archivo de modelo del lenguaje de definición de gemelos digitales (DTDL) del dispositivo de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) define los datos de telemetría, las propiedades y los comandos que implementa el dispositivo.
 
 ### <a name="iot-plug-and-play-helper-functions"></a>Funciones auxiliares de IoT Plug and Play
 

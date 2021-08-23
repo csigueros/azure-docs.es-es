@@ -1,21 +1,21 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: azure-communication-services
 author: lakshmans
 manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/11/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: 86f26e7fbe96284dee5eb606ede22ae63701f309
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 9e44cc1f631a56d1948c744a1ecb912208bad11e
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111430511"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113659490"
 ---
 Introducción a Azure Communication Services con SMS SDK de Communication Services para Python para enviar mensajes de texto.
 
@@ -84,8 +84,7 @@ Cree una instancia de la clase **SmsClient** con la cadena de conexión. Aprenda
 # Create the SmsClient object which will be used to send SMS messages
 sms_client = SmsClient.from_connection_string(<connection_string>)
 ```
-Para simplificar, en este inicio rápido usamos cadenas de conexión, pero en entornos de producción se recomiendan las [identidades administradas](../../../quickstarts/managed-identity.md), ya que son más seguras y se administran a escala.
-
+Para simplificar, en este inicio rápido usamos cadenas de conexión, pero en entornos de producción se recomienda utilizar [entidades de servicio](../../../quickstarts/identity/service-principal.md).
 
 ## <a name="send-a-11-sms-message"></a>Envío de un SMS de un remitente a un solo destinatario
 

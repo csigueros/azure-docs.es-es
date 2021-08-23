@@ -9,21 +9,21 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 8a848f6589902c2eabf5b4e14a4d000dc4ed081e
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 815b43e88118a67f4e1c0f86ab0e7a10dcc70407
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518443"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583493"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Uso de los conjuntos de datos de ejemplo en Azure Machine Learning Studio (clásico)
+# <a name="use-the-sample-datasets-in-machine-learning-studio-classic"></a>Uso de los conjuntos de datos de ejemplo en Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [top]: #machine-learning-sample-datasets
 
-Cuando se crea un área de trabajo en Azure Machine Learning Studio (clásico), de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de ejemplo. Los modelos de ejemplo de la [Galería de Azure AI](https://gallery.azure.ai/) utilizan muchos de estos conjuntos de datos de ejemplo. Otros se incluyen como ejemplos de distintos tipos de datos que se usan normalmente en el aprendizaje automático.
+Cuando se crea un área de trabajo en Machine Learning Studio (clásico), de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de ejemplo. Los modelos de ejemplo de la [Galería de Azure AI](https://gallery.azure.ai/) utilizan muchos de estos conjuntos de datos de ejemplo. Otros se incluyen como ejemplos de distintos tipos de datos que se usan normalmente en el aprendizaje automático.
 
 Algunos de estos conjuntos de datos están disponibles en Azure Blob Storage. Para dichos conjuntos de datos, la tabla siguiente proporciona un vínculo directo. Puede usar estos conjuntos de datos en sus experimentos mediante el módulo [Import Data][import-data] (Importar datos).
 
@@ -172,7 +172,7 @@ Colección de perfiles energéticos simulados, con base en 12 formas de edificio
   <td>
 Datos de rendimiento sobre puntualidad en vuelos de pasajeros recopilados en TranStats por el Departamento  de Transporte de EE.UU. (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).
 <p></p>
-El conjunto de datos abarca el periodo comprendido entre abril y octubre de 2013. Antes de cargarlo en Azure Machine Learning Studio (clásico), el conjunto de datos se ha procesado de la manera siguiente:
+El conjunto de datos abarca el periodo comprendido entre abril y octubre de 2013. Antes de cargarlo en Machine Learning Studio (clásico), el conjunto de datos se ha procesado como se indica a continuación:
 <ul>
   <li>Se filtró el conjunto de datos para centrarse en los 70 aeropuertos con más tráfico del territorio continental de EE. UU.</li>
   <li>Los vuelos cancelados se etiquetaron como retrasados más de 15 minutos.</li>
@@ -332,7 +332,7 @@ Además, tenga en cuenta que el número de eventos de fondo (h, para las duchas 
   <td>
 Observaciones meteorológicas en tierra por hora de la NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">datos combinados del 201304 al 201310</a>).
 <p></p>
-Los datos meteorológicos abarcan las observaciones de las estaciones meteorológicas de los aeropuertos, durante el período que comprende desde abril hasta octubre de 2013. Antes de cargarlo en Azure Machine Learning Studio (clásico), el conjunto de datos se ha procesado de la manera siguiente:
+Los datos meteorológicos abarcan las observaciones de las estaciones meteorológicas de los aeropuertos, durante el período que comprende desde abril hasta octubre de 2013. Antes de cargarlo en Machine Learning Studio (clásico), el conjunto de datos se ha procesado como se indica a continuación:
 <ul>
   <li>Se asignaron los identificadores de las estaciones meteorológicas a los identificadores de aeropuerto correspondientes.</li>
   <li>Se excluyeron las estaciones meteorológicas no asociadas a los 70 aeropuertos con mayor tráfico.</li>
@@ -347,7 +347,7 @@ Los datos meteorológicos abarcan las observaciones de las estaciones meteoroló
   <td>
 Los datos se han extraído de Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) y se basan en artículos de cada empresa del índice S&P 500, almacenados como datos XML.
 <p></p>
-Antes de cargarlo en Azure Machine Learning Studio (clásico), el conjunto de datos se ha procesado de la manera siguiente:
+Antes de cargarlo en Machine Learning Studio (clásico), el conjunto de datos se ha procesado como se indica a continuación:
 <ul>
   <li>Se extrajo el contenido de texto para cada empresa específica.</li>
   <li>Se eliminó el formato wiki.</li>

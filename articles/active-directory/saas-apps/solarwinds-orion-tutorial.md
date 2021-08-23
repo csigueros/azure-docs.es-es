@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 06/29/2021
 ms.author: jeedes
-ms.openlocfilehash: b503697972bfe7fbd8fc18b77d6e0206dc055b67
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ae73974a65ca13c76fc374bf0544d67fa2a524c3
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206140"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107323"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-solarwinds-orion"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SolarWinds Orion
 
@@ -98,6 +98,17 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | Nombre | user.givenname |
     | Apellidos | user.surname |
     | Email |user.mail |
+
+1. En la sección **User Attributes & Claims** (Atributos de usuario y notificaciones), haga clic en el icono del lápiz para editar y haga clic en **Add a group claim** (Agregar una notificación de grupo).
+
+    ![Captura de pantalla que muestra la sección Atributos y notificaciones de usuario.](./media/solarwinds-orion-tutorial/group-claim.png)
+
+1. Elija **Grupos de seguridad**.
+1. Si ha sincronizado Azure AD con su AD local, cambie el **Atributo de origen** a **sAMAccountName**. De lo contrario, déjelo como Id. de grupo.
+
+1. En **Opciones avanzadas**, marque **Personalizar el nombre de la notificación de grupo** y asigne OrionGroups como nombre.
+
+1. Haga clic en **Save**(Guardar).
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 

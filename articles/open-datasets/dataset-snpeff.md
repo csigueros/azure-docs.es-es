@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 3cc23edff82dce0c14a795e1b3b0a29975cb96e4
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 8072d3a48e0bcc0fea040a964aac579dc2061deb
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112038970"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982391"
 ---
 # <a name="snpeff-genomic-variant-annotations-and-functional-effect-prediction-toolbox"></a>SnpEff: cuadro de herramientas para predicciones de efectos funcionales y anotaciones de variantes genómicas
 
@@ -36,14 +36,14 @@ Este conjunto de datos se almacena en las regiones Oeste de EE. UU. 2 y Centro
 
 ## <a name="data-access"></a>Acceso a datos
 
-Oeste de EE. UU. 2: https://datasetsnpeff.blob.core.windows.net/dataset
+Oeste de EE. UU. 2: "https://datasetsnpeff.blob.core.windows.net/dataset"
 
-Centro-oeste de EE. UU.: https://datasetsnpeff-secondary.blob.core.windows.net/dataset
+Centro-oeste de EE. UU.: "https://datasetsnpeff-secondary.blob.core.windows.net/dataset"
 
 [Token de SAS](../storage/common/storage-sas-overview.md): sv=2019-10-10&st=2020-09-01T00%3A00%3A00Z&se=2050-09-01T00%3A00%3A00Z&si=prod&sr=c&sig=isafOa9tGnYBAvsXFUMDGMTbsG2z%2FShaihzp7JE5dHw%3D
 
 ## <a name="use-terms"></a>Términos de uso
-Los datos están disponibles sin restricciones. Para más información y detalles de cita, consulte [Uso de datos y acceso a estos en ClinVar](https://pcingola.github.io/SnpEff/SnpEff_manual.html#intro).
+Los datos están disponibles sin restricciones. Para más información y detalles de cita, consulte [Uso de datos y acceso a estos en ClinVar](https://pcingola.github.io/SnpEff/se_introduction/).
 
 ## <a name="contact"></a>Contacto
 

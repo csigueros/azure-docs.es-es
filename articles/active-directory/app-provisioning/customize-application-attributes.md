@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 07/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 78e2b01da1b47a51309a9e26500514aea396190b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 79f001ef1483ccdc8b9a4f2e2bfde9ca87db705f
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783016"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113507079"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -151,15 +151,14 @@ En el caso de las aplicaciones de SCIM, el nombre del atributo debe seguir el pa
 
 Estas instrucciones solo se aplican a las aplicaciones habilitadas para SCIM. Las aplicaciones como ServiceNow y Salesforce no se integran con Azure AD mediante SCIM y, por lo tanto, no requieren este espacio de nombres específico al agregar un atributo personalizado.
 
-Los atributos personalizados no pueden ser atributos referenciales, atributos de varios valores ni atributos de tipos complejos. Los atributos de extensión personalizados de varios valores y de tipos complejos solo se admiten actualmente para las aplicaciones de la galería.  
+Los atributos personalizados no pueden ser atributos referenciales, atributos de varios valores ni atributos de tipos complejos. Los atributos de extensión personalizados de varios valores y de tipos complejos solo se admiten actualmente para las aplicaciones de la galería. El encabezado de esquema de extensión personalizado se omite en el ejemplo siguiente, ya que no se envía en las solicitudes del cliente SCIM de Azure AD. Esta incidencia se solucionará en el futuro y el encabezado se enviará en la solicitud.  
  
 **Representación de ejemplo de un usuario con un atributo de extensión:**
 
 ```json
    {
      "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
      "userName":"bjensen",
      "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",

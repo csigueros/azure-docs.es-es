@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 3dbb6ca64451cb60d5a8ec67ecdc528865a4438c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff3486ae1ff34485dbae47d33d089367515664f8
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719090"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964309"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: implementación y recorrido de la plantilla de aplicación de administración inteligente
 
@@ -57,7 +57,7 @@ Después de implementar correctamente la plantilla de la aplicación, el panel p
 El panel se divide lógicamente entre dos operaciones diferentes de administración de dispositivos de la puerta de enlace. 
    * El almacén se implementa con una puerta de enlace BLE fija y etiquetas BLE en los palés para realizar un seguimiento y localizar el inventario en instalaciones más grandes.
    * La tienda de venta minorista está implementada con una puerta de enlace RFID fija y etiquetas RFID en un nivel de elemento individual para realizar el seguimiento y localizar las existencias en un punto de venta.
-   * Visualización de la ubicación de la puerta de enlace, el estado y los detalles relacionados. 
+   * Visualización de la [ubicación](../core/howto-use-location-data.md) de la puerta de enlace, el estado y los detalles relacionados 
 
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla que muestra la mitad superior del panel de administración inteligente del inventario](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)

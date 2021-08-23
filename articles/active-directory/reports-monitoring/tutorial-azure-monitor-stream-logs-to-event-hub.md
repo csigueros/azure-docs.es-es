@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 06/23/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f7a35faa75af5a6205609e7afd40225d960d132
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: cff544e3d9ba2851db02e0e4440ba9f97b240e68
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964609"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580843"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Transmisión de registros de Azure Active Directory a un centro de eventos de Azure
 
@@ -59,13 +59,19 @@ Para usar esta característica, necesita:
 
 7. Seleccione **Aceptar** para salir de la configuración del centro de eventos.
 
-8. Realice alguna de las siguientes acciones o ambas:
-    * Para enviar los registros de auditoría al centro de eventos, seleccione la casilla **AuditLogs**. 
-    * Para enviar los registros de inicio de sesión al centro de eventos, seleccione la casilla **SignInLogs**.
+8. Realice cualquier combinación de las siguientes acciones:
+    - Para enviar los registros de auditoría al centro de eventos, seleccione la casilla **AuditLogs**. 
+    - Para enviar los registros de inicio de sesión del usuario interactivos al centro de eventos, active la casilla **SignInLogs**.
+    - Para enviar los registros de inicio de sesión del usuario no interactivos al centro de eventos, seleccione la casilla **NonInteractiveUserSignInLogs**. 
+    - Para enviar los registros de inicio de sesión de la entidad de servicio al centro de eventos, seleccione la casilla **ServicePrincipalSignInLogs**.
+    - Para enviar los registros de inicio de sesión de la entidad administrada al centro de eventos, seleccione la casilla **ManagedIdentitySignInLogs**.
+    - Para enviar registros de aprovisionamiento al centro de eventos, active la casilla **ProvisioningLogs**.
+    - Para enviar inicios de sesión enviados a Azure AD por un agente de AD FS Connect Health, active la casilla **ADFSSignInLogs**.
+
+    >[!Note]
+    >Algunas categorías de inicio de sesión contienen grandes cantidades de datos de registro en función de la configuración del inquilino. En general, los inicios de sesión de usuario no interactivos y los inicios de sesión de entidad de servicio pueden ser entre 5 y 10 veces mayores que los inicios de sesión de usuario interactivos.
 
 9. Seleccione **Guardar** para guardar la configuración.
-
-    ![Configuración de diagnóstico](./media/quickstart-azure-monitor-stream-logs-to-event-hub/DiagnosticSettings.png)
 
 10. Quince minutos después, compruebe que los eventos se muestran en el centro de eventos. Para ello, vaya al centro de eventos desde el portal y compruebe que el número de **mensajes entrantes** es mayor que cero. 
 
