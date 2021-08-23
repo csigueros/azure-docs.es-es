@@ -4,12 +4,12 @@ description: En este artículo de referencia se explica cómo agregar un widget 
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 05/11/2021
-ms.openlocfilehash: 12565f2ca1a86d3a9e57fef652abab9564cb7b5e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f4c2d3f7d13002d0de231859bc31a74b72b1c7fd
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388648"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555135"
 ---
 # <a name="using-the-azure-video-analyzer-player-widget"></a>Uso del widget del reproductor de Azure Video Analyzer
 
@@ -44,7 +44,7 @@ En esta sección, crearemos un token JWT que usaremos más adelante en el docume
 > [!NOTE] 
 > Si está familiarizado con cómo generar un token JWT basado en un certificado RSA o ECC, puede omitir esta sección.
 
-1. Descargue la aplicación JWTTokenIssuer que puede encontrar [aquí](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/jwt-token-issuer/readme.md).
+1. Descargue la aplicación JWTTokenIssuer que puede encontrar [aquí](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/jwt-token-issuer/).
 
    > [!NOTE] 
    > Para más información sobre cómo configurar los valores de audiencia, consulte este [artículo](./access-policies.md).
@@ -260,10 +260,15 @@ El paquete que se usa para obtener el código en la aplicación es un paquete NP
 npm install @azure/video-analyzer/widgets
 ```
 
-O bien, puede importarlo dentro del código de la aplicación mediante:
+También puede importarlo dentro del código de la aplicación de esta forma para TypeScript:
 
 ```typescript
 import { Player } from '@video-analyzer/widgets';
+```
+
+O bien de esta forma para JavaScript, si quiere crear un widget de reproductor de forma dinámica:
+```javascript
+<script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets@latest/dist/global.min.js"></script>
 ```
 
 Si usa este método para importar, deberá crear el objeto del reproductor mediante programación una vez completada la importación.  En el ejemplo anterior, agregó el módulo a la página mediante la etiqueta HTML `ava-player`.  Para crear un objeto de reproductor mediante código, puede hacer lo siguiente en JavaScript:

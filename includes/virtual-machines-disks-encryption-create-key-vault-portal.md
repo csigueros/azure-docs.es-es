@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/23/2020
+ms.date: 05/17/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a967777b65c06cf23239a47e8e691fb3a29231b4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f6cf40e7b384c9b0e88db679f9de8ac9bbba1607
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "88815477"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "112078783"
 ---
 La configuración de claves administradas por el cliente para los discos requerirá la creación de recursos en un orden determinado, si lo hace por primera vez. En primer lugar, tendrá que crear y configurar una instancia de Azure Key Vault.
 
@@ -49,6 +49,13 @@ La configuración de claves administradas por el cliente para los discos requeri
 
     ![Captura de pantalla de la hoja Crear una clave que aparece cuando se selecciona el botón Generar/importar](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
 
+### <a name="add-an-azure-rbac-role"></a>Adición de un rol RBAC de Azure
+
+Ahora que ha creado el almacén de Azure Key Vault y una clave, debe agregar un rol RBAC de Azure para poder usar la instancia de Azure Key Vault con el conjunto de cifrado de disco.
+
+1. Seleccione **Control de acceso (IAM)** y agregue un rol.
+1. Agregue los roles **Administrador de Key Vault**, **Propietario** o **Colaborador**.
+
 ## <a name="set-up-your-disk-encryption-set"></a>Configuración del conjunto de cifrado de disco
 
 1. Busque **conjuntos de cifrado de disco** y seleccione la opción.
@@ -68,11 +75,3 @@ La configuración de claves administradas por el cliente para los discos requeri
 1. Seleccione **Revisar y crear** y, a continuación, **Crear**.
 
     ![Captura de pantalla de la hoja de creación del cifrado de disco. Se muestra la suscripción, el grupo de recursos, el nombre del conjunto de cifrado de disco, la región y el selector de claves y de almacenes de claves.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
-
-1. Abra el conjunto de cifrado de disco una vez que termine de crear y seleccione la alerta que aparece.
-
-    ![Captura de pantalla del elemento emergente de alertas: "Para asociar un disco, una imagen o una instantánea a este conjunto de cifrado de disco, debe conceder permisos al almacén de claves". Seleccione esta alerta para continuar](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-alert-fix.png)
-
-    Dos notificaciones deberían aparecer y completarse correctamente. Esto le permite usar el conjunto de cifrado de disco con el almacén de claves.
-
-    ![Captura de pantalla de la asignación de roles y permisos correctos para el almacén de claves.](./media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)

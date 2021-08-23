@@ -7,12 +7,12 @@ ms.topic: how-to
 author: aarathin
 ms.author: aarathin
 ms.date: 05/21/2021
-ms.openlocfilehash: 8ab847eee55eb9f2fc4d0d4ee7de1fa9eef3bcf0
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 4804d1b315ce70a3ee145616f9fecbc1edc5e293
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112294308"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540582"
 ---
 # <a name="prepare-iot-edge-module-technical-assets"></a>Preparación de recursos técnicos del módulo de IoT Edge
 
@@ -66,11 +66,11 @@ Copie este texto HTML o use las funciones de texto enriquecido correspondientes 
 
 ### <a name="configuration"></a>Configuración
 
-El módulo debe incluir la configuración predeterminada para que la implementación en un dispositivo IoT Edge se realice de la manera más simple posible. Esta información se puede proporcionar en la página **Configuración técnica** del plan en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290). Es posible que el contenedor también incluya el SDK del módulo IoT Edge para habilitar la comunicación con EdgeHub e IoT Hub.
+El módulo debe incluir la configuración predeterminada para que la implementación en un dispositivo IoT Edge se realice de la manera más simple posible. Esta información se puede proporcionar en la página **Configuración técnica** del plan en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace). Es posible que el contenedor también incluya el SDK del módulo IoT Edge para habilitar la comunicación con EdgeHub e IoT Hub.
 
 #### <a name="default-configuration"></a>Configuración predeterminada
 
-Los módulos IoT Edge deben poder iniciarse con la configuración predeterminada proporcionada en la página **Configuración técnica** del plan en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290). Están disponibles los siguientes valores predeterminados:
+Los módulos IoT Edge deben poder iniciarse con la configuración predeterminada proporcionada en la página **Configuración técnica** del plan en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace). Están disponibles los siguientes valores predeterminados:
 
 - **Rutas** predeterminadas
 - **Propiedades deseadas del módulo gemelo** predeterminado
@@ -85,7 +85,7 @@ ServerIPAddress = <MY_SERVER_IP_ADDRESS>
 
 #### <a name="configuration-documentation"></a>Documentación de configuración
 
-Toda la configuración de un módulo IoT Edge debe documentarse con claridad. Por ejemplo, debe documentar cómo usar sus rutas, las propiedades deseadas de dispositivos gemelos, las variables de entorno, createOptions, etc. Debe proporcionar un vínculo a la documentación o convertirla en parte de la descripción del plan o la oferta. Puede proporcionar esta información en la página **Descripción de la oferta** y **Lista del plan** del [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290).
+Toda la configuración de un módulo IoT Edge debe documentarse con claridad. Por ejemplo, debe documentar cómo usar sus rutas, las propiedades deseadas de dispositivos gemelos, las variables de entorno, createOptions, etc. Debe proporcionar un vínculo a la documentación o convertirla en parte de la descripción del plan o la oferta. Puede proporcionar esta información en la página **Descripción de la oferta** y **Lista del plan** del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace).
 
 #### <a name="tags-and-versioning"></a>Etiquetas y control de versiones
 
@@ -133,7 +133,7 @@ Los asociados reciben una notificación siempre que hay un cambio importante que
 - Entorno de tiempo de ejecución de IoT Edge
 - Directrices de certificación de módulo IoT Edge
 
-Los asociados deben actualizar y volver a certificar sus ofertas volviendo a publicarlas en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290).
+Los asociados deben actualizar y volver a certificar sus ofertas volviendo a publicarlas en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace).
 
 La oferta también se volverá a certificar si se actualiza, por ejemplo, al agregar nuevas etiquetas de imagen.
 

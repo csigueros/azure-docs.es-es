@@ -6,27 +6,27 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 06/01/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7b62265d75aa7c7c09f1f6e55632dcbe98efc411
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1b45af43c9a5c76169deaef08c91ea7a9e8670c1
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128948"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371711"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Requisito de transferencia segura para garantizar conexiones seguras
 
 Puede configurar la cuenta de almacenamiento para que acepte solicitudes de conexiones seguras solo si establece la propiedad **Se requiere transferencia segura** para la cuenta de almacenamiento. Cuando se requiere una transferencia segura, se rechazan todas las solicitudes que se originan en una conexión no segura. Microsoft recomienda que siempre se requiera una transferencia segura para todas las cuentas de almacenamiento.
 
-Cuando se requiere una transferencia segura, se debe realizar una llamada a una operación de API REST de Azure Storage a través de HTTPS. Se rechaza cualquier solicitud realizada a través de HTTP.
+Cuando se requiere una transferencia segura, se debe realizar una llamada a una operación de API REST de Azure Storage a través de HTTPS. Se rechaza cualquier solicitud realizada a través de HTTP. De forma predeterminada, la propiedad **Se requiere transferencia segura** se habilita al crear una cuenta de almacenamiento.
 
-Se produce un error al establecer conexión con un recurso compartido de archivos de Azure a través de SMB sin cifrado cuando se requiere la transferencia segura para la cuenta de almacenamiento. Entre los ejemplos de conexiones no seguras se incluyen las realizadas a través de SMB 2.1, SMB 3.0 sin cifrado o algunas versiones del cliente SMB de Linux.
+Azure Policy proporciona una directiva integrada para garantizar que se requiere una transferencia segura para las cuentas de almacenamiento. Para obtener más información, consulte la sección **Almacenamiento** de las [definiciones de directivas integradas de Azure Policy](../../governance/policy/samples/built-in-policies.md#storage).
 
-De forma predeterminada, la propiedad **Se requiere transferencia segura** se habilita al crear una cuenta de almacenamiento.
+Se produce un error al establecer conexión con un recurso compartido de archivos de Azure a través de SMB sin cifrado cuando se requiere la transferencia segura para la cuenta de almacenamiento. Entre los ejemplos de conexiones no seguras se incluyen las realizadas a través de SMB 2.1 o SMB 3.x sin cifrado.
 
 > [!NOTE]
 > Dado que Azure Storage no admite HTTPS para los nombres de dominio personalizados, esta opción no se aplica cuando se utiliza un nombre de dominio personalizado. Y las cuentas de almacenamiento clásico no se admiten.

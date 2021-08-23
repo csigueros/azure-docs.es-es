@@ -1,18 +1,18 @@
 ---
 title: Creación de un host bastión con Azure PowerShell | Microsoft Docs
-description: En este artículo aprenderá a crear un host de Azure Bastion.
+description: Aprenda a crear un host de Azure Bastion con PowerShell.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8abd4c417181b46fbf4d5c139c157044b329ea2a
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: f08ffdafdbca4e406e0bf7d6e23fa3218ccccfe4
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580155"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110538036"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Creación de un host Azure Bastion con Azure PowerShell
 

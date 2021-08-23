@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 3d427d80e502eed0825165e640acc0755515c5b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bdf5f2708daee0a3dc05ec8bc3d861633a3b7b7f
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99222055"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590583"
 ---
 # <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>Uso de la IA para procesar y analizar el contenido de los blobs en Azure Cognitive Search
 
-El contenido de Azure Blob Storage que se compone de imágenes o texto largo no diferenciado puede someterse a análisis de aprendizaje profundo para mostrar y extraer información valiosa útil para las aplicaciones de nivel inferior. Mediante el [enriquecimiento con IA](cognitive-search-concept-intro.md), puede hacer lo siguiente:
+El contenido de Azure Blob Storage que se compone de imágenes o texto largo no diferenciado puede someterse a análisis de aprendizaje profundo para mostrar y extraer información valiosa útil para las aplicaciones de nivel inferior. Mediante el [enriquecimiento con IA](cognitive-search-concept-intro.md), puede hacer lo siguiente:
 
 + Extracción de texto de imágenes mediante reconocimiento óptico de caracteres (OCR)
 + Generación de una descripción de la escena o etiquetas de una foto
@@ -34,7 +34,7 @@ En este artículo, vemos el enriquecimiento con inteligencia artificial a travé
 
 El *enriquecimiento con IA* forma parte de la arquitectura de indexación de Azure Cognitive Search que integra modelos de Machine Learning de Microsoft o modelos de aprendizaje personalizado proporcionados por el usuario. Ayuda a implementar escenarios de un extremo a otro en los que es necesario procesar los blobs (tanto los existentes como los nuevos a medida que se incluyen o se actualizan), descifrar todos los formatos de archivo para extraer imágenes y texto, extraer la información deseada con diversas funcionalidades de IA e indexarlos en un índice de búsqueda para operaciones rápidas de búsqueda, recuperación y exploración. 
 
-Las entradas son los blobs, en un solo contenedor, de Azure Blob Storage. Los blobs pueden ser casi cualquier tipo de datos de texto o de imagen. 
+Las entradas son los blobs, en un solo contenedor, de Azure Blob Storage. Los blobs pueden ser casi cualquier tipo de datos de texto o de imagen. 
 
 La salida siempre es un índice de búsqueda, que se usa para la búsqueda rápida, la recuperación y la exploración de texto en aplicaciones cliente. Además, la salida también puede ser un [*almacén de conocimiento*](knowledge-store-concept-intro.md) que proyecta documentos enriquecidos en blobs o tablas de Azure para el análisis descendente en herramientas como Power BI o en cargas de trabajo de ciencia de datos.
 
@@ -42,7 +42,7 @@ En medio, está la propia arquitectura de la canalización. La canalización se 
 
 ## <a name="required-resources"></a>Recursos necesarios
 
-Aparte de Azure Blob Storage y Azure Cognitive Search, necesita un tercer servicio o mecanismo que proporcione la IA:
+Aparte de Azure Blob Storage y Azure Cognitive Search, necesita un tercer servicio o mecanismo que proporcione la IA:
 
 + En el caso de la inteligencia artificial integrada, Cognitive Search se integra con las API de procesamiento de lenguaje natural y Azure Cognitive Services. Puede [incorporar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) para agregar reconocimiento óptico de caracteres (OCR), análisis de imágenes o procesamiento de lenguaje natural (detección de lenguaje, traducción de texto, reconocimiento de entidades y extracción de frases clave). 
 
@@ -96,7 +96,7 @@ En Azure Storage, un almacén de conocimiento tiene dos manifestaciones: un cont
 
 + Un contenedor de blobs captura documentos enriquecidos en su totalidad, lo que resulta útil si desea utilizarlos en otros procesos. 
 
-+ En cambio, Table Storage puede incluir proyecciones físicas de documentos enriquecidos. Puede crear segmentos o capas de documentos enriquecidos que incluyan o excluyan partes específicas. Para su análisis en Power BI, las tablas de Azure Table Storage se convierten en el origen de datos para una posterior visualización y exploración.
++ En cambio, Table Storage puede incluir proyecciones físicas de documentos enriquecidos. Puede crear segmentos o capas de documentos enriquecidos que incluyan o excluyan partes específicas. Para su análisis en Power BI, las tablas de Azure Table Storage se convierten en el origen de datos para una posterior visualización y exploración.
 
 El documento enriquecido al final de la canalización difiere de la versión de entrada original por la presencia de campos adicionales que contienen información nueva que se ha extraído o generado durante el enriquecimiento. Como tal, puede trabajar con una combinación de contenido original y creado, con independencia de la estructura de salida que use.
 
@@ -104,7 +104,7 @@ El documento enriquecido al final de la canalización difiere de la versión de 
 
 Hay muchas más cosas que puede hacer con el enriquecimiento con inteligencia artificial para sacar el máximo partido de los datos en Azure Storage, incluida la combinación de servicios de Cognitive Services de distintas maneras y la creación de aptitudes personalizadas para los casos en los que no haya ningún servicio de Cognitive Services en el escenario. Para más información, siga los vínculos que aparecen a continuación.
 
-+ [Carga, descarga y enumeración de blobs con Azure Portal (Azure Blob Storage)](../storage/blobs/storage-quickstart-blobs-portal.md)
++ [Carga, descarga y enumeración de blobs con Azure Portal (Azure Blob Storage)](../storage/blobs/storage-quickstart-blobs-portal.md)
 + [Configuración de un indexador de blobs (Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md) 
 + [Información general sobre el enriquecimiento de AI (Azure Cognitive Search)](cognitive-search-concept-intro.md) 
 + [Crear un conjunto de aptitudes (Azure Cognitive Search)](cognitive-search-defining-skillset.md)

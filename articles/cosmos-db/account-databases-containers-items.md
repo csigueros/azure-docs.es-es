@@ -7,17 +7,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4ed881b74f240946d98d9868344c898d3e9a9dad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f714a70a0d9eb971498fc2f9fe648804a59b5136
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99627355"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475020"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Modelo de recursos de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB es una plataforma como servicio (PaaS) totalmente administrada. Para empezar a usar Azure Cosmos DB, debe crear primero una cuenta de Azure Cosmos en su suscripción de Azure que contenga bases de datos, contenedores y elementos. En este artículo se describe el modelo de recursos de Azure Cosmos DB y las distintas entidades de la jerarquía del modelo de recursos.
+Azure Cosmos DB es una plataforma como servicio (PaaS) totalmente administrada. Para empezar a usar Azure Cosmos DB, debe crear primero una cuenta de Azure Cosmos en su grupo de recursos de Azure en la suscripción necesaria y, a continuación, incluir en esta bases de datos, contenedores y elementos. En este artículo se describe el modelo de recursos de Azure Cosmos DB y las distintas entidades de la jerarquía del modelo de recursos.
 
 La cuenta de Azure Cosmos es la unidad fundamental de distribución global y alta disponibilidad. La cuenta de Azure Cosmos contiene un nombre DNS único y se puede administrar mediante Azure Portal, la CLI de Azure o por medio de diferentes SDK específicos del idioma. Para más información, consulte [cómo administrar su cuenta de Azure Cosmos](how-to-manage-database-account.md). Para distribuir globalmente los datos y el rendimiento entre varias regiones de Azure, puede agregar y quitar regiones de Azure en su cuenta en cualquier momento. Puede configurar la cuenta para que tenga una única región de escritura o varias. Para más información, consulte [como agregar y quitar regiones de Azure en la cuenta](how-to-manage-database-account.md). Puede configurar el [nivel de coherencia predeterminado](consistency-levels.md) de la cuenta.
 

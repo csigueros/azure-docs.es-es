@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 339bbd7edf48737113de360812165dc8148c5b93
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: cbc5ff51a576cf2c784192bc33b06018c6f116c8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375872"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472099"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Reglas de salida en Azure Load Balancer
 
@@ -45,6 +45,9 @@ Las reglas de salida permiten controlar:
      * Si hay conexiones de larga ejecución con Keepalives, reserve puertos inactivos para las conexiones de larga ejecución durante un máximo de 120 minutos. Suponga que las conexiones obsoletas se han abandonado y libere los puertos en 4 minutos para las conexiones nuevas. 
 * **Si quiere enviar un restablecimiento de TCP en caso de tiempo de espera de inactividad.**
      * Al agotarse el tiempo de espera de las conexiones inactivas, ¿se envía un RST de TCP al cliente y al servidor para que sepan que se ha abandonado el flujo?
+
+>[!Important]
+> Cuando un grupo de back-end se configure mediante una dirección IP, se comportará como un equilibrador de carga básico con la salida predeterminada habilitada. Para proteger de forma predeterminada la configuración y las aplicaciones con necesidades de salida exigentes, configure el grupo de back-end mediante NIC.
 
 ## <a name="outbound-rule-definition"></a>Definición de la regla de salida
 

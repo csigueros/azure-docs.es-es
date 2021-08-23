@@ -3,12 +3,12 @@ title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
 ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: a1f7d8584aada19e565aa4eff40c44f94b1bbaba
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6025451779ba04b3a20307d35ca8a939c7762d64
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752982"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474376"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 

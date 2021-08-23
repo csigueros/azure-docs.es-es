@@ -1,17 +1,17 @@
 ---
-title: Preguntas frecuentes sobre Iniciar VM al establecer la conexión de Windows Virtual Desktop - Azure
+title: 'Preguntas frecuentes sobre Iniciar VM al establecer la conexión de Azure Virtual Desktop: Azure'
 description: Preguntas frecuentes y procedimientos recomendados para usar la característica Iniciar VM al establecer la conexión.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0a35d0541358af2f5fac5e4c7486a1be93797922
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: c973b3a78e90786fa46db858de00ecf63bace5fd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445591"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755778"
 ---
 # <a name="start-vm-on-connect-faq-preview"></a>Preguntas frecuentes sobre Iniciar VM al establecer la conexión (versión preliminar)
 
@@ -19,7 +19,7 @@ ms.locfileid: "106445591"
 > La característica Iniciar VM al establecer la conexión se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-En este artículo se tratan las preguntas frecuentes sobre la característica Iniciar máquina virtual (VM) al establecer la conexión (versión preliminar) para los grupos host de Windows Virtual Desktop.
+En este artículo se tratan las preguntas frecuentes sobre la característica Iniciar máquina virtual (VM) al establecer la conexión (versión preliminar) para los grupos de hosts de Azure Virtual Desktop.
 
 ## <a name="are-vms-automatically-deallocated-when-a-user-stops-using-them"></a>¿Se desasignan automáticamente las VM cuando un usuario deja de usarlas?
 
@@ -48,4 +48,4 @@ Sí. Los usuarios pueden apagar una VM mediante el menú Inicio dentro de su ses
 
 Para obtener información sobre cómo configurar Iniciar VM al establecer la conexión, consulte [Iniciar máquina virtual al establecer la conexión(versión preliminar)](start-virtual-machine-connect.md).
 
-Si tiene preguntas más generales sobre Windows Virtual Desktop, consulte nuestras [preguntas frecuentes](faq.md).
+Si tiene preguntas más generales sobre Azure Virtual Desktop, consulte nuestras [preguntas frecuentes](faq.md).

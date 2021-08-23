@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: ff7c2b6ced87c8254283923a9163e51f06ae6ef6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 2aefa7ed7ce63b1ecbe735f21d372133ba4c7825
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114298180"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592419"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Uso de identidades administradas para acceder a App Configuration
 
@@ -164,9 +164,9 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
 ## <a name="deploy-your-application"></a>Implementación de aplicación
 
-El uso de identidades administradas requiere que implemente la aplicación en un servicio de Azure. Las identidades administradas no se pueden usar para la autenticación de aplicaciones que se ejecutan localmente. Para implementar la aplicación de .NET Core que creó en el inicio rápido [Creación de una aplicación de ASP.NET Core con App Configuration](./quickstart-aspnet-core-app.md) y modificó para usar identidades administradas, siga las instrucciones que se indican en [Publicación de la aplicación web](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=netcore31#publish-your-web-app).
+El uso de identidades administradas requiere que implemente la aplicación en un servicio de Azure. Las identidades administradas no se pueden usar para la autenticación de aplicaciones que se ejecutan localmente. Para implementar la aplicación de .NET Core que creó en el inicio rápido [Creación de una aplicación de ASP.NET Core con App Configuration](./quickstart-aspnet-core-app.md) y modificó para usar identidades administradas, siga las instrucciones que se indican en [Publicación de la aplicación web](/azure/app-service/quickstart-dotnetcore?tabs=netcore31&pivots=development-environment-vs#publish-your-web-app).
 
-Además de App Service, muchos otros servicios de Azure admiten identidades administradas. Para más información, vea [Servicios que admiten identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+Además de App Service, muchos otros servicios de Azure admiten identidades administradas. Para más información, vea [Servicios que admiten identidades administradas para recursos de Azure](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -1,27 +1,27 @@
 ---
 title: Administración de resúmenes y comprobación de la base de datos
 description: En este artículo se proporciona información sobre la administración de resúmenes y la verificación de la base de datos de una base de datos de libro de contabilidad en Azure SQL Database.
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.custom: ''
+ms.date: 05/25/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 8e6fbbdcb4b6db8ed7e9549b8776010cf01894e4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e133ee1c8492bf63cbfd4702e795743009abfdc7
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744869"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080100"
 ---
 # <a name="digest-management-and-database-verification"></a>Administración de resúmenes y comprobación de la base de datos
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Actualmente, el libro de contabilidad de Azure SQL Database se encuentra en versión preliminar pública y está disponible en el Oeste de Europa, Sur de Brasil y Centro-oeste de EE. UU.
+> Actualmente, el libro de contabilidad de Azure SQL Database está en versión preliminar pública y está disponible en el Centro-oeste de EE. UU.
 
 El libro de contabilidad de Azure SQL Database proporciona un formulario de integridad de datos denominado *integridad hacia delante*, que proporciona pruebas de alteración de los datos de las tablas de su libro de contabilidad. Por ejemplo, si se produce una transacción bancaria en una tabla del libro de contabilidad en la que un saldo se ha actualizado al valor `x` y un atacante posteriormente modifica los datos cambiando el saldo de `x` a `y`, la verificación de la base de datos detectará esta actividad de alteración.  
 
@@ -39,14 +39,14 @@ El proceso de verificación y la integridad de la base de datos dependen de la i
 
 ### <a name="automatic-generation-and-storage-of-database-digests"></a>Generación automática y almacenamiento de resúmenes de base de datos
 
-El libro de contabilidad de Azure SQL Database se integra con la [característica de almacenamiento inmutable de Azure Blob Storage](../../storage/blobs/immutable-storage-overview.md) y [Azure Confidential Ledger](../../confidential-ledger/index.yml). Esta integración proporciona servicios de almacenamiento seguros en Azure para ayudar a proteger los resúmenes de la base de datos frente a posibles alteraciones. Esta integración proporciona una manera sencilla y rentable para que los usuarios automaticen la administración de los resúmenes sin tener que preocuparse por su disponibilidad y replicación geográfica. 
+El libro de contabilidad de Azure SQL Database se integra con la [característica de almacenamiento inmutable de Azure Blob Storage](../../storage/blobs/storage-blob-immutable-storage.md) y [Azure Confidential Ledger](../../confidential-ledger/index.yml). Esta integración proporciona servicios de almacenamiento seguros en Azure para ayudar a proteger los resúmenes de la base de datos frente a posibles alteraciones. Esta integración proporciona una manera sencilla y rentable para que los usuarios automaticen la administración de los resúmenes sin tener que preocuparse por su disponibilidad y replicación geográfica. 
 
 Puede configurar la generación y el almacenamiento automáticos de resúmenes de bases de datos a través de Azure Portal, PowerShell o la CLI de Azure. Al configurar la generación y el almacenamiento automáticos, los resúmenes de base de datos se generan en un intervalo predefinido de 30 segundos y se cargan en el servicio de almacenamiento seleccionado. Si no se producen transacciones en el sistema en el intervalo de 30 segundos, no se generará ni cargará ningún resumen de la base de datos. Este mecanismo garantiza que los resúmenes de la base de datos solo se generan cuando los datos se han actualizado en la base de datos.
 
 :::image type="content" source="media/ledger/automatic-digest-management.png" alt-text="Captura de pantalla que muestra las selecciones para habilitar el almacenamiento de resumen."::: 
 
 > [!IMPORTANT]
-> Configure una [directiva de inmutabilidad](../../storage/blobs/immutable-policy-configure-version-scope.md) en el contenedor después del aprovisionamiento para asegurarse de que los resúmenes de la base de datos están protegidos frente a alteraciones.
+> Configure una [directiva de inmutabilidad](../../storage/blobs/storage-blob-immutability-policies-manage.md) en el contenedor después del aprovisionamiento para asegurarse de que los resúmenes de la base de datos están protegidos frente a alteraciones.
 
 ### <a name="manual-generation-and-storage-of-database-digests"></a>Generación y almacenamiento manual de resúmenes de base de datos
 
@@ -134,7 +134,6 @@ EXECUTE sp_verify_database_ledger N'
         "digest_time":  "2020-11-12T18:43:30.4701575"
     }
 ]
-'
 ```
 
 Los códigos de devolución para `sp_verify_database_ledger` y `sp_verify_database_ledger_from_digest_storage` son `0` (correcto) o `1` (error).
@@ -143,5 +142,5 @@ Los códigos de devolución para `sp_verify_database_ledger` y `sp_verify_databa
 
 - [Introducción al libro de contabilidad de Azure SQL Database](ledger-overview.md)
 - [Tablas de libro de contabilidad actualizables](ledger-updatable-ledger-tables.md)   
-- [Tablas de solo adición del libro de contabilidad](ledger-append-only-ledger-tables.md)   
+- [Tablas de libro de contabilidad de solo anexión](ledger-append-only-ledger-tables.md)   
 - [Libro de contabilidad de base de datos](ledger-database-ledger.md)

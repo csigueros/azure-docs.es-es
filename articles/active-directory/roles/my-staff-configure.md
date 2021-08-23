@@ -13,12 +13,12 @@ ms.date: 03/11/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 106f44bd33fff88d93e0a4abfe678df4bdf9ca59
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f6e683977781b7522eb23a10fcdb997c3e65938d
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108761730"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783327"
 ---
 # <a name="manage-your-users-with-my-staff"></a>Administración de los usuarios con Mi personal
 

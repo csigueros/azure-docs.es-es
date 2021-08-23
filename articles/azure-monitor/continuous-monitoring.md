@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 6c181b456dd4fe5ea49a3888dce7efbc22981167
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 550e3bf40a8b1ebb65fc351c4f3a049638b4ebfd
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289230"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080473"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervisión continua con Azure Monitor
 
@@ -26,7 +26,7 @@ Para obtener observabilidad en todo su entorno, debe habilitar la supervisión e
 
 - [Azure DevOps Projects](../devops-project/overview.md) ofrece una experiencia simplificada con su código existente y el repositorio de Git, o elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
 - [La supervisión continua en su canalización de versión de DevOps](./app/continuous-monitoring.md) le permite programar o revertir su implementación en función de los datos de supervisión.
-- [Monitor de estado](./app/status-monitor-v2-overview.md) le permite instrumentar una aplicación de .NET activa en Windows con Azure Application Insights sin tener que modificar ni volver a implementar el código.
+- [Monitor de estado](./app/monitor-performance-live-website-now.md) le permite instrumentar una aplicación de .NET activa en Windows con Azure Application Insights sin tener que modificar ni volver a implementar el código.
 - Si tiene acceso al código de su aplicación, habilite la supervisión completa con [Application Insights](./app/app-insights-overview.md) mediante la instalación del SDK de Application Insights de Azure Monitor para [.NET](./app/asp-net.md), [.NET Core](./app/asp-net-core.md), [Java](./app/java-in-process-agent.md), [Node.js](./app/nodejs-quick-start.md) o [cualquier otro lenguaje de programación](./app/platforms.md). Esto le permite especificar eventos, métricas o vistas de página personalizados que son pertinentes para su aplicación y su empresa.
 
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 22923742e5389ac2bd6e5268e6dcd9055c23a703
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 61f10707231e88130cffbfffa1c06f33084bfbbd
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656093"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792150"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciales para la autenticación de origen en Azure Purview
 
@@ -25,6 +25,17 @@ En este artículo se describe cómo se pueden crear credenciales en Azure Purvie
 ## <a name="introduction"></a>Introducción
 
 Una credencial es información de autenticación que Azure Purview puede usar para autenticarse en los orígenes de datos registrados. Se puede crear un objeto de credencial para varios tipos de escenarios de autenticación, como la autenticación básica que requiere el nombre de usuario y la contraseña. La credencial captura información específica necesaria para autenticarse, en función del tipo de método de autenticación elegido. Las credenciales usan los secretos existentes de Azure Key Vault para recuperar información confidencial de autenticación durante el proceso de creación de la credencial.
+
+En Azure Purview, hay algunas opciones que se pueden usar como método de autenticación para examinar orígenes de datos, como las siguientes opciones:
+
+- Identidad administrada de Azure Purview
+- Clave de cuenta (mediante Key Vault)
+- Autenticación de SQL (mediante Key Vault)
+- Entidad de servicio (mediante Key Vault)
+
+Antes de crear credenciales, tenga en cuenta los tipos de origen de datos y los requisitos de red para decidir qué método de autenticación es necesario para su escenario. Revise el siguiente árbol de decisión para encontrar qué credencial es la más adecuada:
+
+   :::image type="content" source="media/manage-credentials/manage-credentials-decision-tree-small.png" alt-text="Árbol de decisión de administración de credenciales" lightbox="media/manage-credentials/manage-credentials-decision-tree.png":::
 
 ## <a name="use-purview-managed-identity-to-set-up-scans"></a>Uso de una identidad administrada de Purview para configurar exámenes
 
@@ -76,7 +87,7 @@ Siga estos pasos solo si el modelo de permisos del recurso de Azure Key Vault es
 
 3. Seleccione **Agregar directiva de acceso**.
 
-   :::image type="content" source="media/manage-credentials/add-msi-to-akv.png" alt-text="Incorporación de Purview MSI a AKV.":::
+   :::image type="content" source="media/manage-credentials/add-msi-to-akv-2.png" alt-text="Incorporación de Purview MSI a AKV.":::
 
 4. En el menú desplegable **Secrets permissions** (Permisos de secretos), seleccione los permisos **Obtener** y **Enumerar**.
 

@@ -1,25 +1,25 @@
 ---
-title: Implementación de máquinas virtuales en Azure Stack Edge Pro mediante Azure Portal
-description: Aprenda a crear y administrar máquinas virtuales en el dispositivo Azure Stack Edge Pro a través de Azure Portal.
+title: Implementación de máquinas virtuales en Azure Stack Edge Pro con GPU mediante Azure Portal
+description: Aprenda a crear y administrar máquinas virtuales en el dispositivo de Azure Stack Edge Pro con GPU a través de Azure Portal.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 05/14/2021
 ms.author: alkohli
-ms.openlocfilehash: 68f0ee86d0882f0a8e44f5af926af4a92d824082
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 79cc482d5bbd32cd4ba4efbce692d32ecc0cad8e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758308"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081324"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU a través de Azure Portal
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Puede crear y administrar máquinas virtuales en un dispositivo Azure Stack Edge mediante Azure Portal, plantillas y cmdlets de Azure PowerShell y a través de scripts de Python o de la CLI de Azure. En este artículo se describe cómo crear y administrar una máquina virtual en un dispositivo Azure Stack Edge mediante Azure Portal. 
+Puede crear y administrar máquinas virtuales (VM) en un dispositivo de Azure Stack Edge con GPU mediante Azure Portal, plantillas y cmdlets de Azure PowerShell y a través de scripts de Python o de la CLI de Azure. En este artículo se describe cómo crear y administrar una máquina virtual en su dispositivo de Azure Stack Edge Pro con GPU mediante Azure Portal. 
 
 > [!IMPORTANT] 
 > Se recomienda habilitar la autenticación multifactor para el usuario que administra las máquinas virtuales que se implementan en el dispositivo desde la nube.
@@ -48,28 +48,30 @@ El resumen general del flujo de trabajo de implementación es el siguiente:
 
 Antes de empezar a crear y administrar máquinas virtuales en el dispositivo a través de Azure Portal, debe asegurarse de lo siguiente:
 
-1. Ha completado la configuración de red en el dispositivo Azure Stack Edge Pro como se describe en [Paso 1: Configuración de un dispositivo Azure Stack Edge Pro](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
+1. Ha completado la configuración de red en el dispositivo de Azure Stack Edge Pro con GPU como se describe en el [Paso 1: Configuración de un dispositivo de Azure Stack Edge Pro con GPU](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
     1. Ha habilitado una interfaz de red para el proceso. Esta dirección IP de la interfaz de red se utiliza para crear un conmutador virtual para la implementación de la máquina virtual. En la interfaz de usuario local del dispositivo, vaya a **Proceso**. Seleccione la interfaz de red que va a usar para crear un conmutador virtual.
 
         > [!IMPORTANT] 
         > Solo puede configurar un puerto por proceso.
 
-    1. Habilite Proceso en la interfaz de red. Azure Stack Edge Pro crea y administra el conmutador virtual correspondiente a esa interfaz de red.
+    1. Habilite Proceso en la interfaz de red. Azure Stack Edge Pro GPU crea y administra un conmutador virtual correspondiente a esa interfaz de red.
 
 1. Tiene acceso a un disco duro virtual de Windows o Linux que usará para crear la imagen de la máquina virtual que quiere crear.
 
 ## <a name="deploy-a-vm"></a>Implementación de una máquina virtual
 
-Siga estos pasos para crear una máquina virtual en el dispositivo Azure Stack Edge.
+Siga estos pasos para crear una máquina virtual en el dispositivo Azure Stack Edge Pro con GPU.
 
 ### <a name="add-a-vm-image"></a>Incorporación de una imagen de máquina virtual
 
-1. Cargue un VHD en una cuenta de Azure Storage. Siga los pasos descritos en [Carga de un disco duro virtual con el Explorador de Azure Storage](../devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md).
+1. Cargue un VHD en una cuenta de Azure Storage. Siga los pasos descritos en [Uso del Explorador de Storage para la carga](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload).
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge correspondiente a su dispositivo de Azure Stack Edge. Vaya a **Proceso perimetral** > **Máquinas virtuales**.
+   Para obtener información sobre cómo preparar el VHD, vea [Preparación de una imagen generalizada a partir de un VHD de Windows](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md).
 
-    ![Captura de pantalla que muestra el proceso perimetral y las máquinas virtuales.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
+1. En Azure Portal, vaya al recurso de Azure Stack Edge correspondiente a su dispositivo. Vaya a **Servicios perimetrales** > **Máquinas virtuales**.
+
+    ![Captura de pantalla que muestra los servicios perimetrales y las máquinas virtuales.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
 
 1. Seleccione **Máquinas virtuales** para ir a la página de **información general**. Seleccione **Habilitar** para habilitar la administración en la nube de máquinas virtuales.
 
@@ -131,7 +133,7 @@ Siga estos pasos para crear una máquina virtual después de crear una imagen de
     |Size     | Elija entre los [tamaños de VM compatibles](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Nombre de usuario     | Use el nombre de usuario predeterminado **azureuser** para que el administrador inicie sesión en la máquina virtual.        |
     |Tipo de autenticación    | Elija una clave pública SSH o una contraseña definida por el usuario.       |
-    |Contraseña     | Escriba una contraseña para iniciar sesión en la máquina virtual. La contraseña debe tener al menos 12 caracteres y cumplir los [requisitos de complejidad](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) definidos.        |
+    |Contraseña     | Escriba una contraseña para iniciar sesión en la máquina virtual. La contraseña debe tener al menos 12 caracteres y cumplir los [requisitos de complejidad](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-) definidos.        |
     |Confirmar contraseña    | Vuelva a escribir la contraseña.        |
 
 
@@ -189,9 +191,11 @@ Siga estos pasos para crear una máquina virtual después de crear una imagen de
 
     ![Captura de pantalla que muestra la selección de la nueva máquina virtual.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
 
-    Seleccione la máquina virtual para ver los detalles. 
+    Seleccione la máquina virtual para ver los detalles.
 
     ![Captura de pantalla que muestra los detalles de la máquina virtual.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
+
+    Usará la dirección IP de la interfaz de red para conectarse a la máquina virtual.
 
 ## <a name="connect-to-a-vm"></a>Conexión a una máquina virtual
 
@@ -211,4 +215,4 @@ Siga estos pasos para conectarse a una máquina virtual Windows.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a administrar el dispositivo Azure Stack Edge Pro, consulte [Uso de la interfaz de usuario web local para administrar Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).
+Para aprender a administrar el dispositivo de Azure Stack Edge Pro con GPU, consulte [Uso de la interfaz de usuario web local para administrar un dispositivo de Azure Stack Edge Pro con GPU](azure-stack-edge-manage-access-power-connectivity-mode.md).

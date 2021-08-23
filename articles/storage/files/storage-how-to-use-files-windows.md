@@ -1,6 +1,6 @@
 ---
 title: Uso de un recurso compartido de archivos de Azure con Windows | Microsoft Docs
-description: Aprenda a usar un recurso compartido de archivos de Azure con Windows y Windows Server. Use recursos compartidos de archivos de Azure con SMB 3.0 en instalaciones de Windows que se ejecuten de forma local o en máquinas virtuales de Azure.
+description: Aprenda a usar un recurso compartido de archivos de Azure con Windows y Windows Server. Use recursos compartidos de archivos de Azure con SMB 3.x en instalaciones de Windows que se ejecuten de forma local o en máquinas virtuales de Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,34 +8,35 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e864dcaa2a611746ae813a4f0adf8409fbc50871
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 31df90823591298a13dba725b7215031cad4bf8d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789796"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064817"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
 
-Para usar un recurso compartido de archivos de Azure fuera de la región de Azure en la que se hospeda, bien sea de forma local o en una región distinta de Azure, el sistema operativo debe admitir SMB 3.0. 
+Para usar un recurso compartido de archivos de Azure fuera de la región de Azure en la que se hospeda, bien sea de forma local o en otra región de Azure, el sistema operativo debe admitir SMB 3.x. 
 
 Puede usar recursos compartidos de archivos de Azure en una instalación de Windows que se ejecute en una máquina virtual de Azure o en el entorno local. En la tabla siguiente se ilustran las versiones del sistema operativo que admiten el acceso a recursos compartidos de archivos en cada entorno:
 
 | Versión de Windows        | Versión de SMB | Se puede montar en una máquina virtual de Azure | Se puede montar en el entorno local |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | Sí | Sí |
-| Windows 10<sup>1</sup> | SMB 3.0 | Sí | Sí |
-| Canal semestral de Windows Server<sup>2</sup> | SMB 3.0 | Sí | Sí |
-| Windows Server 2016 | SMB 3.0 | Sí | Sí |
+| Windows Server 2019 | SMB 3.1.1 | Sí | Sí |
+| Windows 10<sup>1</sup> | SMB 3.1.1 | Sí | Sí |
+| Canal semestral de Windows Server<sup>2</sup> | SMB 3.1.1 | Sí | Sí |
+| Windows Server 2016 | SMB 3.1.1 | Sí | Sí |
+| Windows 10, versión 1507 | SMB 3.0 | Sí | Sí |
 | Windows 8.1 | SMB 3.0 | Sí | Sí |
 | Windows Server 2012 R2 | SMB 3.0 | Sí | Sí |
 | Windows Server 2012 | SMB 3.0 | Sí | Sí |
 | Windows 7<sup>3</sup> | SMB 2.1 | Sí | No |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sí | No |
 
-<sup>1</sup>Windows 10, versiones 1507, 1607, 1803, 1809, 1903, 1909 y 2004.  
-<sup>2</sup>Windows Server, versiones 1809, 1903, 1909, 2004.  
+<sup>1</sup>Windows 10, versiones 1607, 1809, 1909, 2004 y 20H2  
+<sup>2</sup>Windows Server, versiones 2004 y 20H2.  
 <sup>3</sup>Finalizó el soporte técnico habitual de Microsoft para Windows 7 y Windows Server 2008 R2. Es posible adquirir soporte técnico adicional para las actualizaciones de seguridad solo a través del programa [Actualización de seguridad extendida (ESU)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). Se recomienda encarecidamente migrar de estos sistemas operativos.
 
 > [!Note]  

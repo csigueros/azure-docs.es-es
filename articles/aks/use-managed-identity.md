@@ -3,13 +3,13 @@ title: Uso de identidades administradas en Azure Kubernetes Service
 description: Aprenda a utilizar identidades administradas en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/16/2020
-ms.openlocfilehash: c87b6dbde14c8b736301846faa8471dd518a98a4
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.date: 05/12/2021
+ms.openlocfilehash: a5bf71a654afd122aad682df732e5a6c9dcd9538
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289775"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476200"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Uso de identidades administradas en Azure Kubernetes Service
 
@@ -21,7 +21,7 @@ Las *identidades administradas* son básicamente un contenedor relacionado con l
 
 Debe tener instalado el siguiente recurso:
 
-- La CLI de Azure, versión 2.15.1 o posterior
+- La CLI de Azure, versión 2.23.0 o posterior
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -74,32 +74,12 @@ Por último, obtenga credenciales para acceder al clúster:
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 
-## <a name="update-an-aks-cluster-to-managed-identities-preview"></a>Actualización de un clúster de AKS a identidades administradas (versión preliminar)
+## <a name="update-an-aks-cluster-to-managed-identities"></a>Actualización de un clúster de AKS a identidades administradas
 
 Ahora puede actualizar un clúster de AKS que trabaja actualmente con entidades de servicio para trabajar con identidades administradas mediante los siguientes comandos de la CLI.
 
-En primer lugar, registre la marca de características para la identidad asignada por el sistema:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
-```
-
-Actualice la identidad asignada por el sistema:
-
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
-```
-
-Registre la marca de características para la identidad asignada por el usuario:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
-```
-
-Actualice la identidad asignada por el usuario:
-
-```azurecli-interactive
-az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
 > Una vez que se hayan actualizado las identidades asignadas por el sistema o por el usuario, realice una operación `az aks nodepool upgrade --node-image-only` en los nodos para completar la actualización a la identidad administrada.
@@ -223,7 +203,6 @@ Una identidad de kubelet permite que se conceda acceso a la identidad existente 
 ### <a name="limitations"></a>Limitaciones
 
 - Solo funciona con un clúster administrado asignado por el usuario.
-- Azure Government no se admite actualmente.
 - Azure China 21Vianet no se admite actualmente.
 
 En primer lugar, registre la marca de características para la identidad de Kubelet:

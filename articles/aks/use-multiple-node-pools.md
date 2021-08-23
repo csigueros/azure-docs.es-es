@@ -4,12 +4,12 @@ description: Aprenda a crear y administrar grupos de varios nodos para un clúst
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: af2766d5692f232970c3c7c735d4c34abebe9c3c
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: ef6b23cf7564cff57f398c76162f9c25efac7075
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070396"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081287"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -611,6 +611,109 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+## <a name="add-a-fips-enabled-node-pool-preview"></a>Adición de un grupo de nodos habilitado para FIPS (versión preliminar)
+
+El Estándar federal de procesamiento de información (FIPS) 140-2 es un estándar del gobierno de EE. UU. que define los requisitos mínimos de seguridad para los módulos criptográficos en sistemas y productos de tecnologías de la información. AKS permite crear grupos de nodos basados en Linux con FIPS 140-2 habilitado. Las implementaciones que se ejecutan en grupos de nodos habilitados para FIPS pueden usar esos módulos criptográficos para proporcionar mayor seguridad y ayudar a cumplir los controles de seguridad como parte del cumplimiento de FedRAMP. Para más información sobre FIPS 140-2, consulte [Estándar federal de procesamiento de información (FIPS) 140-2][fips].
+
+Los grupos de nodos con el estándar FIPS habilitado están actualmente en versión preliminar.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Necesitará la versión *0.5.11* de la extensión *aks-preview* de la CLI de Azure. Instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add]. También puede instalar las actualizaciones disponibles mediante el comando [az extension update][az-extension-update].
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+Para usar la característica, también debe habilitar la marca de característica `FIPSPreview` en la suscripción.
+
+Registre la marca de la característica `FIPSPreview` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "FIPSPreview"
+```
+
+Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/FIPSPreview')].{Name:name,State:properties.state}"
+```
+
+Cuando haya terminado, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Los grupos de nodos con FIPS habilitado tienen las siguientes limitaciones:
+
+* Actualmente, solo puede tener grupos de nodos basados en Linux con FIPS habilitado que se ejecutan en Ubuntu 18.04.
+* Los grupos de nodos con FIPS habilitado requieren la versión 1.19 de Kubernetes, y cualquier versión posterior.
+* Para actualizar los paquetes o módulos subyacentes que se usan para FIPS, debe utilizar [Node Image Upgrade][node-image-upgrade].
+
+> [!IMPORTANT]
+> La imagen de Linux con FIPS habilitado es una imagen diferente de la imagen de Linux predeterminada que se usa para los grupos de nodos basados en Linux. Para habilitar FIPS en un grupo de nodos, debe crear un grupo de nodos basado en Linux. FIPS no se puede habilitar en grupos de nodos existentes.
+> 
+> Las imágenes de nodos con FIPS habilitado pueden tener números de versión diferentes, como la versión del kernel, que las imágenes que no están habilitadas para FIPS. Además, el ciclo de actualización de los grupos de nodos con FIPS habilitado y las imágenes de nodo pueden diferir de los grupos de nodos y las imágenes que no tengan FIPS habilitado.
+
+Para crear un grupo de nodos con FIPS habilitado, use [az aks nodepool add][az-aks-nodepool-add] con el parámetro *--enable-fips-image* al crear un grupo de nodos.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name fipsnp \
+    --enable-fips-image
+```
+
+> [!NOTE]
+> También puede usar el *parámetro --enable-fips-image* con [az aks create][az-aks-create] al crear un clúster para habilitar FIPS en el grupo de nodos predeterminado. Al agregar grupos de nodos a un clúster creado de esta forma, debe seguir utilizando el parámetro *--enable-fips-image* al agregar grupos de nodos para crear un grupo de nodos con FIPS habilitado.
+
+Para comprobar que el grupo de nodos tiene FIPS habilitado, use [az aks show][az-aks-show] para comprobar el valor *enableFIPS* en *agentPoolProfiles*.
+
+```azurecli-interactive
+az aks show --resource-group myResourceGroup --cluster-name myAKSCluster --query="agentPoolProfiles[].{Name:name enableFips:enableFips}" -o table
+```
+
+La siguiente salida de ejemplo muestra que el grupo de nodos *fipsnp* tiene FIPS habilitado, pero *nodepool1* no.
+
+```output
+Name       enableFips
+---------  ------------
+fipsnp     True
+nodepool1  False  
+```
+
+También puede comprobar que las implementaciones tienen acceso a las bibliotecas criptográficas de FIPS mediante `kubectl debug` en un nodo del grupo de nodos con FIPS habilitado. Use `kubectl get nodes` para enumerar los nodos:
+
+```output
+$ kubectl get nodes
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-fipsnp-12345678-vmss000000      Ready    agent   6m4s    v1.19.9
+aks-fipsnp-12345678-vmss000001      Ready    agent   5m21s   v1.19.9
+aks-fipsnp-12345678-vmss000002      Ready    agent   6m8s    v1.19.9
+aks-nodepool1-12345678-vmss000000   Ready    agent   34m     v1.19.9
+```
+
+En el ejemplo anterior, los nodos que empiezan por `aks-fipsnp` forman parte del grupo de nodos con FIPS habilitado. Use `kubectl debug` para ejecutar una implementación con una sesión interactiva en uno de los nodos del grupo de nodos con FIPS habilitado.
+
+```azurecli-interactive
+kubectl debug node/aks-fipsnp-12345678-vmss000000 -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+```
+
+Desde la sesión interactiva, puede comprobar que las bibliotecas criptográficas de FIPS están habilitadas:
+
+```output
+root@aks-fipsnp-12345678-vmss000000:/# cat /proc/sys/crypto/fips_enabled
+1
+```
+
+Los grupos de nodos con FIPS habilitado también tienen la etiqueta *kubernetes.azure.com/fips_enabled=true*, que las implementaciones pueden usar para dirigirse a esos grupos de nodos.
+
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Administración de grupos de nodos con una plantilla de Resource Manager
 
 Cuando usa una plantilla de Azure Resource Manager para crear y administrar recursos, normalmente puede actualizar la configuración de la plantilla y volver a implementarla para actualizar el recurso. Con grupos de nodos de AKS, el perfil del grupo de nodos inicial no se podrá actualizar una vez que se haya creado el clúster de AKS. Este comportamiento significa que no se puede actualizar una plantilla de Resource Manager existente, realizar un cambio en los grupos de nodos y volver a implementar. En su lugar, debe crear una plantilla de Resource Manager independiente que actualice solo los grupos de nodos de un clúster de AKS existente.
@@ -631,33 +734,33 @@ Edite estos valores para actualizar, agregar o eliminar grupos de nodos según s
         "clusterName": {
             "type": "string",
             "metadata": {
-                "description": "The name of your existing AKS cluster."
+                "description&quot;: &quot;The name of your existing AKS cluster."
             }
         },
         "location": {
             "type": "string",
             "metadata": {
-                "description": "The location of your existing AKS cluster."
+                "description&quot;: &quot;The location of your existing AKS cluster."
             }
         },
         "agentPoolName": {
             "type": "string",
             "defaultValue": "myagentpool",
             "metadata": {
-                "description": "The name of the agent pool to create or update."
+                "description&quot;: &quot;The name of the agent pool to create or update."
             }
         },
         "vnetSubnetId": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "The Vnet subnet resource ID for your existing AKS cluster."
+                "description&quot;: &quot;The Vnet subnet resource ID for your existing AKS cluster."
             }
         }
     },
     "variables": {
         "apiVersion": {
-            "aks": "2020-01-01"
+            "aks&quot;: &quot;2020-01-01"
         },
         "agentPoolProfiles": {
             "maxPods": 30,
@@ -665,7 +768,7 @@ Edite estos valores para actualizar, agregar o eliminar grupos de nodos según s
             "agentCount": 3,
             "agentVmSize": "Standard_DS2_v2",
             "osType": "Linux",
-            "vnetSubnetId": "[parameters('vnetSubnetId')]"
+            "vnetSubnetId&quot;: &quot;[parameters('vnetSubnetId')]"
         }
     },
     "resources": [
@@ -833,8 +936,12 @@ Use [grupos con ubicación por proximidad][reduce-latency-ppg] para disminuir la
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_upgrade
 [az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_scale
 [az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_delete
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [az-extension-add]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_add
 [az-extension-update]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [az-group-create]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create
 [az-group-delete]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete
 [az-deployment-group-create]: /cli/azure/deployment/group?view=azure-cli-latest&preserve-view=true#az_deployment_group_create
@@ -854,3 +961,5 @@ Use [grupos con ubicación por proximidad][reduce-latency-ppg] para disminuir la
 [reduce-latency-ppg]: reduce-latency-ppg.md
 [public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md#why-create-a-public-ip-address-prefix
 [az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest&preserve-view=true#az_network_public_ip_prefix_create
+[node-image-upgrade]: node-image-upgrade.md
+[fips]: /azure/compliance/offerings/offering-fips-140-2

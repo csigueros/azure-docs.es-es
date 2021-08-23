@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 4d7123aa22d95e3e4c3850be775ddad96f28d280
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ff5d891b4374a61c8806666a48505a2ee4682a67
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785314"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094481"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -31,7 +31,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="file-access-options"></a>
    **¿Cuáles son las diferentes formas de obtener acceso a los archivos de Azure Files?**  
-    Los recursos compartidos de archivos SMB se pueden montar en la máquina local mediante el protocolo SMB 3.0, o bien puede usar herramientas como [Explorador de Storage](https://storageexplorer.com/) para obtener acceso a los archivos en el recurso compartido de archivos. Los recursos compartidos de archivos NFS se pueden montar en la máquina local mediante la copia y posterior pegado del script proporcionado por Azure Portal. Desde la aplicación, puede usar las bibliotecas de cliente de almacenamiento, las API de REST, PowerShell o la CLI de Azure para obtener acceso a los archivos en el recurso compartido de archivos de Azure.
+    Los recursos compartidos de archivos SMB se pueden montar en una máquina local mediante el protocolo SMB 3.x, o bien se pueden usar herramientas como [Explorador de Storage](https://storageexplorer.com/) para acceder a los archivos del recurso compartido de archivos. Los recursos compartidos de archivos NFS se pueden montar en la máquina local mediante la copia y posterior pegado del script proporcionado por Azure Portal. Desde la aplicación, puede usar las bibliotecas de cliente de almacenamiento, las API de REST, PowerShell o la CLI de Azure para obtener acceso a los archivos en el recurso compartido de archivos de Azure.
 
 * <a id="what-is-afs"></a>
    **¿Qué es Azure File Sync?**  
@@ -335,7 +335,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="backup-nfs-data"></a>
  **¿Cómo hago una copia de seguridad de los datos almacenados en recursos compartidos NFS?**
 
-    La realización de copias de seguridad de los datos en recursos compartidos NFS se puede organizar mediante herramientas conocidas, como rsync, o productos de uno de nuestros asociados para la copia de seguridad. Varios asociados para la copia de seguridad, entre los que se incluyen [CommVault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438) y [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001), formaron parte de nuestra versión preliminar inicial y han ampliado sus soluciones para que funcionen con SMB 3.0 y NFS 4.1 para Azure Files.
+    La realización de copias de seguridad de los datos en recursos compartidos NFS se puede organizar mediante herramientas conocidas, como rsync, o productos de uno de nuestros asociados para la copia de seguridad. Varios asociados para la copia de seguridad, entre los que se incluyen [Commvault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438) y [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001), formaron parte de nuestra versión preliminar inicial y han ampliado sus soluciones para que funcionen con SMB 3.x y NFS 4.1 para Azure Files.
 
 * <a id="migrate-nfs-data"></a>
  **¿Puedo migrar datos existentes a un recurso compartido NFS?**
@@ -347,7 +347,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="port-445-blocked"></a>
 **Mi ISP o TI bloquean el puerto 445 e impiden que se monte Azure Files, ¿qué debo hacer?**
 
-    Puede obtener información sobre [diversos métodos para solucionar el bloqueo del puerto 445 aquí](./storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked). Azure Files solo permite conexiones con SMB 3.0 (con compatibilidad con el cifrado) desde fuera de la región o el centro de datos. El protocolo SMB 3.0 presenta muchas características de seguridad, incluido el cifrado de canal, que es muy seguro para usar a través de Internet. No obstante, es posible que el puerto 445 se haya bloqueado por motivos históricos de vulnerabilidades que se encuentran en versiones inferiores de SMB. En el caso ideal, el puerto debería bloquearse solo para el tráfico de SMB 1.0, y debería desactivarse SMB 1.0 en todos los clientes.
+    Puede obtener información sobre [diversos métodos para solucionar el bloqueo del puerto 445 aquí](./storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked). Azure Files solo permite conexiones que usan SMB 3.x (con compatibilidad con el cifrado) desde fuera de la región o del centro de datos. El protocolo SMB 3.x ha introducido muchas características de seguridad, entre las que se incluye el cifrado de canal, que es muy seguro para usar a través de Internet. No obstante, es posible que el puerto 445 se haya bloqueado por motivos históricos de vulnerabilidades que se encuentran en versiones inferiores de SMB. En el caso ideal, el puerto debería bloquearse solo para el tráfico de SMB 1.0, y debería desactivarse SMB 1.0 en todos los clientes.
 
 * <a id="expressroute-not-required"></a>
  **¿Tengo que usar Azure ExpressRoute para conectarme a Azure Files o debo usar Azure File Sync en un entorno local?**  
@@ -357,7 +357,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="mount-locally"></a>
  **¿Cómo puedo montar un recurso compartido de archivos de Azure en mi máquina local?**  
 
-    Puede montar el recurso compartido de archivos a través del protocolo SMB, siempre y cuando el puerto 445 (salida TCP) esté abierto y el cliente admita el protocolo SMB 3.0 (por ejemplo, si usa Windows 10 o Windows Server 2016). Si el puerto 445 está bloqueado por una directiva de su organización o por su ISP, puede usar Azure File Sync para obtener acceso al recurso compartido de archivos de Azure.
+    El recurso compartido de archivos se puede montar mediante el protocolo SMB, siempre y cuando el puerto 445 (TCP de salida) esté abierto y el cliente admita el protocolo SMB 3.x (por ejemplo, si usa Windows 10 o Windows Server 2016). Si el puerto 445 está bloqueado por una directiva de su organización o por su ISP, puede usar Azure File Sync para obtener acceso al recurso compartido de archivos de Azure.
 
 ## <a name="backup"></a>Copia de seguridad
 * <a id="backup-share"></a>

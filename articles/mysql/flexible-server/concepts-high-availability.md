@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 5b5e1491d7f76cd4cff76d0c9a1af4daa49fa483
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: e25412e502f10c80a55aeab215fddfd0cfc3f41b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813009"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471927"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceptos de alta disponibilidad en el servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -59,6 +59,9 @@ Las aplicaciones se conectan al servidor principal mediante el nombre del servid
 
 ## <a name="failover-process"></a>Proceso de conmutación por error 
 Para la continuidad empresarial, debe tener un proceso de conmutación por error para eventos planeados y no planeados. 
+
+>[!NOTE]
+> Use siempre el nombre de dominio completo (FQDN) para conectarse al servidor principal y evite usar la dirección IP para conectarse. En caso de conmutación por error, después de cambiar los roles de servidor principal y en espera, el registro de DNS A también podría cambiar, lo que impedirá que la aplicación se conecte al nuevo servidor principal si se usa la dirección IP en la cadena de conexión. 
 
 ### <a name="planned-events"></a>Eventos planeados
 

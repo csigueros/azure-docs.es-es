@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 10/14/2020
-ms.author: akjosh
+ms.date: 6/8/2021
+ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6c39a7ef0404a0e78e5b8ed0b41bf54156b488a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609148"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032670"
 ---
 # <a name="shared-image-galleries-overview"></a>Información general de Shared Image Galleries
 
@@ -64,7 +64,7 @@ Los siguientes parámetros determinan qué tipos de versiones de imagen pueden c
 
 - Estado del sistema operativo: puede establecer el estado del sistema operativo en [generalizado o especializado](#generalized-and-specialized-images). Este campo es obligatorio.
 - Sistema operativo: puede ser Windows o Linux. Este campo es obligatorio.
--   Generación de Hyper-V: especifique si la imagen se creó a partir de un disco duro virtual de Hyper-V de generación 1 o [generación 2](generation-2.md). El valor predeterminado es la generación 1.
+- Generación de Hyper-V: especifique si la imagen se creó a partir de un disco duro virtual de Hyper-V de generación 1 o [generación 2](generation-2.md). El valor predeterminado es la generación 1.
 
 
 Los siguientes son otros parámetros que se pueden establecer en la definición de la imagen para que pueda realizar un seguimiento más sencillo de sus recursos:
@@ -72,7 +72,7 @@ Los siguientes son otros parámetros que se pueden establecer en la definición 
 - Descripción: la descripción de uso para proporcionar información más detallada sobre por qué existe la definición de la imagen. Por ejemplo, podría tener una definición de la imagen para el servidor front-end que tenga la aplicación preinstalada.
 - CLUF: puede utilizarse para señalar un contrato de licencia de usuario final específico para la definición de la imagen.
 - Declaración de privacidad y Notas de la versión: almacene las notas de la versión y las declaraciones de privacidad en el almacenamiento Azure y proporcione un identificador URI para acceder a ellas como parte de la definición de imagen.
-- Fecha del final de la duración: adjunte una fecha del final de la duración a la definición de imagen para poder utilizar la automatización y eliminar las definiciones de imagen antiguas.
+- Fecha final del ciclo de vida: establezca una fecha final del ciclo de vida predeterminada para todas las versiones de la imagen en la definición de la imagen. Las fechas finales del ciclo de vida son informativas; los usuarios seguirán teniendo la posibilidad de crear máquinas virtuales a partir de imágenes y versiones tras alcanzarse la fecha final del ciclo de vida.
 - Etiqueta: puede agregar etiquetas al crear la definición de imagen. Para más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos](../azure-resource-manager/management/tag-resources.md).
 - Número mínimo y máximo de vCPU y recomendaciones de memoria: si la imagen tiene vCPU y recomendaciones de memoria, puede adjuntar esa información a la definición de imagen.
 - Tipos de disco no permitidos: puede proporcionar información acerca de las necesidades de almacenamiento para la máquina virtual. Por ejemplo, si la imagen no es adecuada para los discos HDD estándar, agréguelos a la lista de no permitidos.
@@ -88,7 +88,7 @@ Las propiedades de una versión de imagen son las siguientes:
 - Número de versión. Se usa como nombre de la versión de la imagen. Siempre se plasma con el siguiente formato: VersiónPrincipal.VersiónSecundaria.Revisión. Cuando se especifica que se use la versión **más reciente** al crear una VM, la imagen más reciente se elige en función del valor de VersiónPrincipal más alto, seguido del valor de VersiónSecundaria y de Revisión. 
 - Origen. El origen puede ser una VM, un disco administrado, una instantánea, una imagen administrada u otra versión de la imagen. 
 - Excluir de la versión más reciente. Puede evitar que se use una versión como la versión más reciente de la imagen. 
-- Fecha final del ciclo de vida. Fecha después de la cual no se pueden crear VMs a partir de esta imagen.
+- Fecha final del ciclo de vida. Indique la fecha final del ciclo de vida de la versión de la imagen. Las fechas finales del ciclo de vida son informativas; los usuarios seguirán teniendo la posibilidad de crear máquinas virtuales a partir de versiones tras alcanzarse la fecha final del ciclo de vida.
 
 
 ## <a name="generalized-and-specialized-images"></a>Imágenes generalizadas y especializadas
@@ -159,8 +159,8 @@ Las imágenes también se pueden compartir, a escala, incluso entre inquilinos m
 
 ## <a name="billing"></a>Facturación
 No hay ningún cargo adicional por usar el servicio de la galería de imágenes compartidas. Se le cobrará por los siguientes recursos:
--   Costos del almacenamiento de cada réplica. El costo de almacenamiento se cobra como una instantánea y se basa en el tamaño ocupado de la versión de la imagen, el número de réplicas de la versión de la imagen y el número de regiones en que se replica la versión. 
--   Cargos de salida de red para la replicación de la primera versión de la imagen desde la región de origen a las regiones replicadas. Las réplicas subsiguientes se tratan dentro de la región, por lo que no habrá ningún cargo adicional. 
+- Costos del almacenamiento de cada réplica. El costo de almacenamiento se cobra como una instantánea y se basa en el tamaño ocupado de la versión de la imagen, el número de réplicas de la versión de la imagen y el número de regiones en que se replica la versión. 
+- Cargos de salida de red para la replicación de la primera versión de la imagen desde la región de origen a las regiones replicadas. Las réplicas subsiguientes se tratan dentro de la región, por lo que no habrá ningún cargo adicional. 
 
 Por ejemplo, supongamos que tiene una imagen de un disco de sistema operativo de 127 GB, que solo ocupa 10 GB de almacenamiento, y un disco de datos vacío de 32 GB. El tamaño ocupado de cada imagen solo sería de 10 GB. La imagen se replica en tres regiones y cada una de ellas tiene dos réplicas. Habrá un total de seis instantáneas, y cada una de ellas usará 10 GB. Se le cobrará el costo de almacenamiento de cada instantánea en función del tamaño ocupado de 10 GB. Pagará los cargos de salida de red por la primera réplica que se copie en las dos regiones adicionales. Para más información sobre los precios de las instantáneas de cada región, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Para más información sobre la salida de la red, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -198,10 +198,10 @@ Los siguientes SDK admiten la creación de galerías de imágenes compartidas:
 
 Puede crear recursos de galería de imágenes compartidas con plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
 
-- [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes 
 

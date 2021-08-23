@@ -1,7 +1,7 @@
 ---
 title: Novedades de Azure Active Directory de negocio a cliente (B2C)
 description: Documentación nueva y actualizada de Azure Active Directory de negocio a cliente (B2C).
-ms.date: 06/04/2021
+ms.date: 06/02/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,33 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: ee4e371a17a717bbb3a520301478b92e65deecc2
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 1c68040022da094090e3fcd870b8a615fc045dcd
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802259"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409422"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: Novedades
 
 Novedades de la documentación de Azure Active Directory B2C. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio B2C, consulte [Novedades de Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="may-2021"></a>Mayo de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Definición de un perfil técnico de error personalizado de OAuth2 en una directiva personalizada en Azure Active Directory B2C](oauth2-error-technical-profile.md)
+- [Configuración de la autenticación en una aplicación web de ejemplo mediante Azure Active Directory B2C](configure-authentication-sample-web-app.md)
+- [Configuración de la autenticación en una aplicación web de ejemplo mediante opciones de Azure Active Directory B2C](enable-authentication-web-application-options.md)
+- [Habilitación de la autenticación en su propia aplicación web mediante Azure Active Directory B2C](enable-authentication-web-application.md)
+- [Requisitos de TLS y del conjunto de cifrado de Azure Active Directory B2C](https-cipher-tls-requirements.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Adición del acceso condicional a los flujos de usuario en Azure AD B2C](conditional-access-user-flow.md)
+- [Mitigación de ataques de credenciales en Azure AD B2C](threat-management.md)
+- [Restricciones y límites del servicio Azure Active Directory B2C](service-limits.md)
+
 
 ## <a name="april-2021"></a>Abril de 2021
 

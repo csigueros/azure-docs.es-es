@@ -17,12 +17,12 @@ ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c15bc161874d9c09423fe4070958538ec2148ca
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: cce8adf65eba2586440d490860f13a6c5aa1f626
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795103"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088181"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Instrucciones: Administración de cuentas de usuario inactivas en Azure AD
 
@@ -75,7 +75,7 @@ Para acceder a esta propiedad, necesita una edición de Azure Active Directory P
 Para leerla, debe conceder los siguientes derechos: 
 
 - AuditLogs.Read.All
-- Organisation.Read.All  
+- Organization.Read.All  
 
 
 ### <a name="when-does-azure-ad-update-the-property"></a>¿Cuándo actualiza Azure AD la propiedad?
@@ -95,3 +95,4 @@ Para generar la marca de tiempo de lastSignInDateTime, se necesita un inicio de 
 * [Obtención de datos mediante la API de generación de informes de Azure Active Directory con certificados](tutorial-access-api-with-certificates.md)
 * [Referencia de la API de auditoría](/graph/api/resources/directoryaudit) 
 * [Referencia de la API de generación de informes de actividad de inicio de sesión](/graph/api/resources/signin)
+

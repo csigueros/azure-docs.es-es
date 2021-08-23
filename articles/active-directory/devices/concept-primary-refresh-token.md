@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46cc8ef1158c02190f905cbe8eb1d12ea7be50a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c2a687dc1165b2eca52213811721b35e998a6d9
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644942"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033291"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>¿Qué es un token de actualización principal?
 
@@ -122,7 +122,7 @@ Un PRT puede recibir una notificación de autenticación multifactor (MFA) en es
 * **MFA durante el inicio de sesión interactivo de WAM**: durante una solicitud de token a través de WAM, si a un usuario se le exige MFA para acceder a la aplicación, el PRT que se renueva durante esta interacción se graba con una notificación de MFA.
    * En este caso, la notificación de MFA no se actualiza continuamente, por lo que la duración de MFA se basa en la duración establecida en el directorio.
    * Cuando se usan un PRT y un RT anteriores existentes para acceder a una aplicación, estos se consideran como la primera prueba de autenticación. Se requiere un nuevo AT con una segunda prueba y una notificación de MFA impresa. Este además emite un nuevo PRT y RT.
-* **MFA durante el registro del dispositivo**: si un administrador ha configurado su dispositivo en Azure AD para [exigir MFA para registrar los dispositivos](device-management-azure-portal.md#configure-device-settings), el usuario necesita realizar MFA para completar el registro. Durante este proceso, el PRT emitido para el usuario tiene la notificación de MFA obtenida durante el registro. Esta funcionalidad solo se aplica al usuario que realizó la operación de unión, no a otros usuarios que inicien sesión en ese dispositivo.
+* **MFA durante el registro del dispositivo**: si un administrador ha configurado su dispositivo en Azure AD para [exigir MFA para registrar los dispositivos](device-management-azure-portal.md#configure-device-settings), el usuario necesita realizar MFA para completar el registro. Durante este proceso, el PRT emitido para el usuario tiene la notificación de MFA obtenida durante el registro. Esta funcionalidad solo se aplica al propietario registrado del dispositivo, no a otros usuarios que inicien sesión en ese dispositivo.
    * Al igual que el inicio de sesión interactivo de WAM, la notificación de MFA no se actualiza continuamente, por lo que la duración de MFA se basa en la duración establecida en el directorio.
 
 Windows 10 mantiene una lista separada de los PRT de cada credencial. Por lo tanto, hay un PRT para cada una de las credenciales de Windows Hello para empresas, contraseñas o tarjetas inteligentes. Esta separación garantiza que las notificaciones de MFA están aisladas en función de la credencial usada, y no se mezclan durante las solicitudes de token.

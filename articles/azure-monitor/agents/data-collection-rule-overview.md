@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: a52d6dca423565e7b5e4b6ac059bcf21b637c87c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: references_region
+ms.openlocfilehash: e7da31ec80153fe2d2bd6923850a4342886fa9be
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586342"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495576"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Reglas de recopilación de datos en Azure Monitor (versión preliminar)
 Las reglas de recopilación de datos (DCR) definen los datos que entran en Azure Monitor y especifican dónde se deben enviar los datos o almacenarlos. En este artículo se proporciona información general sobre las reglas de recopilación de datos, incluido su contenido y su estructura, y cómo puede crearlas y trabajar con ellas.
@@ -50,6 +51,10 @@ Cada origen de datos tiene un tipo de origen de datos. Cada tipo define un conju
 ## <a name="limits"></a>Límites
 Para obtener información sobre los límites que se aplican a cada regla de recopilación de datos, consulte los [límites de servicio de Azure Monitor](../service-limits.md#data-collection-rules).
 
+## <a name="data-residency"></a>Residencia de datos 
+Las reglas de recopilación de datos como servicio se implementan de forma regional. Una regla se crea y se almacena en la región que se especifica, y se hace una copia de seguridad en la [región emparejada](../../best-practices-availability-paired-regions.md#azure-regional-pairs) dentro de la misma geoárea.  
+
+**Residencia de datos en una sola región**: la característica en versión preliminar que permite almacenar los datos de clientes en una única región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico y en la región Sur de Brasil (Estado de São Paulo) de la geoárea Brasil. La residencia en una sola región está habilitada de forma predeterminada en estas regiones.
 
 ## <a name="create-a-dcr"></a>Creación de una regla de recopilación de datos
 Actualmente, puede usar cualquiera de los métodos siguientes para crear una regla de recopilación de datos:

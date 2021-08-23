@@ -1,7 +1,7 @@
 ---
 title: Configuración de un punto de conexión privado
 titleSuffix: Azure Machine Learning
-description: Use Azure Private Link para acceder de forma segura al área de trabajo de Azure Machine Learning desde una red virtual.
+description: Use un punto de conexión privado para acceder de forma segura al área de trabajo de Azure Machine Learning desde una red virtual.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,34 +10,45 @@ ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/06/2021
-ms.openlocfilehash: 894e25d0ee44bd057c95efba3b6389ec116c8e07
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 06/10/2021
+ms.openlocfilehash: 9a8e4351b88c1b9c4f166dff71fe906177870d9a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486258"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984705"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configuración de Azure Private Link para un área de trabajo de Azure Machine Learning
+# <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Configuración de un punto de conexión privado para un área de trabajo de Azure Machine Learning
 
-En este documento, aprenderá a usar Azure Private Link con el área de trabajo de Azure Machine Learning. Para obtener más información sobre la creación de una red virtual para Azure Machine Learning, consulte [Información general sobre la privacidad y el aislamiento de la red virtual](how-to-network-security-overview.md).
+En este documento, aprenderá a configurar un punto de conexión privado para el área de trabajo de Azure Machine Learning. Para obtener más información sobre la creación de una red virtual para Azure Machine Learning, consulte [Información general sobre la privacidad y el aislamiento de la red virtual](how-to-network-security-overview.md).
 
-Azure Private Link le permite conectarse a su área de trabajo mediante un punto de conexión privado. El punto de conexión privado es un conjunto de direcciones IP privadas dentro de la red virtual. Después, puede limitar el acceso al área de trabajo para que solo se produzca en las direcciones IP privadas. Private Link ayuda a reducir el riesgo de una filtración de datos. Para más información sobre los puntos de conexión privados, consulte el artículo [Azure Private Link](../private-link/private-link-overview.md).
+Azure Private Link le permite conectarse a su área de trabajo mediante un punto de conexión privado. El punto de conexión privado es un conjunto de direcciones IP privadas dentro de la red virtual. Después, puede limitar el acceso al área de trabajo para que solo se produzca en las direcciones IP privadas. Un punto de conexión privado ayuda a reducir el riesgo de una filtración de datos. Para más información sobre los puntos de conexión privados, consulte el artículo [Azure Private Link](../private-link/private-link-overview.md).
 
-> [!IMPORTANT]
-> Azure Private Link no afecta al plano de control de Azure (operaciones de administración), como la eliminación del área de trabajo o la administración de los recursos de proceso. Por ejemplo, crear, actualizar o eliminar un destino de proceso. Estas operaciones se realizan sobre la red pública de Internet como de costumbre. Las operaciones del plano de datos, como el uso de Azure Machine Learning Studio, las API (incluidas las canalizaciones publicadas) o el SDK usan el punto de conexión privado.
+> [!WARNING]
+> La protección de un área de trabajo con puntos de conexión privados no garantiza la seguridad de un extremo a otro por sí misma. Debe proteger todos los componentes individuales de la solución. Por ejemplo, si usa un punto de conexión privado para el área de trabajo, pero la cuenta de Azure Storage no está detrás de la red virtual, el tráfico entre el área de trabajo y el almacenamiento no usa la red virtual por motivos de seguridad.
 >
-> Si usa Mozilla Firefox, puede encontrar problemas al intentar acceder al punto de conexión privado del área de trabajo. Este problema puede estar relacionado con DNS a través de HTTPS en Mozilla. Como solución alternativa, se recomienda usar Microsoft Edge o Google Chrome.
+> Para obtener más información sobre cómo proteger los recursos usados por Azure Machine Learning, consulte los artículos siguientes:
+>
+> * [Información general sobre la privacidad y el aislamiento de la red virtual](how-to-network-security-overview.md).
+> * [Protección de los recursos de un área de trabajo](how-to-secure-workspace-vnet.md).
+> * [Protección de entornos de entrenamiento](how-to-secure-training-vnet.md).
+> * [Protección de entornos de inferencia](how-to-secure-inferencing-vnet.md).
+> * [Uso de Estudio de Azure Machine Learning en una red virtual](how-to-enable-studio-virtual-network.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Si planea usar un área de trabajo compatible con un vínculo privado con una clave administrada por el cliente, debe solicitar esta característica mediante una incidencia de soporte técnico. Para obtener más información, consulte [Administración y configuración de cuotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
+
+* Si planea usar un área de trabajo compatible con un punto de conexión privado con una clave administrada por el cliente, debe solicitar esta característica mediante una incidencia de soporte técnico. Para obtener más información, consulte [Administración y configuración de cuotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 * Debe tener una red virtual existente en la cual crear el punto de conexión privado. También tiene que [deshabilitar las directivas de red para los puntos de conexión privados](../private-link/disable-private-endpoint-network-policy.md) antes de agregar el punto de conexión privado.
+
 ## <a name="limitations"></a>Limitaciones
 
-* El uso de un área de trabajo de Azure Machine Learning con Private Link no está disponible en las regiones de Azure Government.
-* Si habilita el acceso público para un área de trabajo protegida mediante un vínculo privado y usa Estudio de Azure Machine Learning a través de la red pública de Internet, es posible que algunas características como el diseñador no tengan acceso a sus datos. Este problema se produce cuando los datos se almacenan en un servicio protegido detrás de la red virtual. Por ejemplo, una cuenta de Azure Storage.
+* El uso de un área de trabajo de Azure Machine Learning con un punto de conexión privado no está disponible en las regiones de Azure Government.
+* Si habilita el acceso público para un área de trabajo protegida mediante un punto de conexión privado y usa Estudio de Azure Machine Learning a través de la red pública de Internet, es posible que algunas características como el diseñador no tengan acceso a sus datos. Este problema se produce cuando los datos se almacenan en un servicio protegido detrás de la red virtual. Por ejemplo, una cuenta de Azure Storage.
+* Si usa Mozilla Firefox, puede encontrar problemas al intentar acceder al punto de conexión privado del área de trabajo. Este problema puede estar relacionado con DNS a través de HTTPS en Mozilla. Como solución alternativa, se recomienda usar Microsoft Edge o Google Chrome.
+* El uso de un punto de conexión privado no afecta al plano de control de Azure (operaciones de administración), como la eliminación del área de trabajo o la administración de los recursos de proceso. Por ejemplo, crear, actualizar o eliminar un destino de proceso. Estas operaciones se realizan sobre la red pública de Internet como de costumbre. Las operaciones del plano de datos, como el uso de Azure Machine Learning Studio, las API (incluidas las canalizaciones publicadas) o el SDK usan el punto de conexión privado.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Creación de un área de trabajo que usa un punto de conexión privado
 
@@ -66,7 +77,7 @@ ws = Workspace.create(name='myworkspace',
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-La [extensión de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace create](/cli/azure/ml/workspace#az_ml_workspace_create). Los siguientes parámetros para este comando se pueden usar para crear un área de trabajo con una red privada, pero se requiere una red virtual existente:
+La [extensión 1.0 de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace create](/cli/azure/ml/workspace#az_ml_workspace_create). Los siguientes parámetros para este comando se pueden usar para crear un área de trabajo con una red privada, pero se requiere una red virtual existente:
 
 * `--pe-name`: nombre del punto de conexión privado creado.
 * `--pe-auto-approval`: indica si las conexiones de punto de conexión privado al área de trabajo se deben aprobar automáticamente.
@@ -116,7 +127,7 @@ Para obtener más información sobre las clases y los métodos usados en este ej
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-La [extensión de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace private-endpoint add](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_add).
+La [extensión 1.0 de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace private-endpoint add](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_add).
 
 ```azurecli
 az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval --pe-vnet-name myvnet
@@ -153,7 +164,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-La [extensión de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace private-endpoint delete](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_delete).
+La [extensión 1.0 de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace private-endpoint delete](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_delete).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -166,7 +177,7 @@ Desde el área de trabajo de Azure Machine Learning en el portal, seleccione __C
 Dado que la comunicación con el área de trabajo solo se permite desde la red virtual, cualquier entorno de desarrollo que use el área de trabajo debe ser miembro de la red virtual. Por ejemplo, una máquina virtual en la red virtual.
 
 > [!IMPORTANT]
-> Para evitar la interrupción temporal de la conectividad, Microsoft recomienda vaciar la memoria caché de DNS en las máquinas que se conectan al área de trabajo después de habilitar Private Link. 
+> Para evitar la interrupción temporal de la conectividad, Microsoft recomienda vaciar la memoria caché de DNS en las máquinas que se conectan al área de trabajo después de habilitar un punto de conexión privado. 
 
 Para más información sobre Azure Virtual Machines, consulte [Documentación sobre Virtual Machines](../virtual-machines/index.yml).
 
@@ -177,7 +188,7 @@ En algunas situaciones, puede que desee permitir que alguien se conecte al área
 > [!WARNING]
 > Al conectarse mediante el punto de conexión público, algunas características de Estudio de Azure Machine Learning no podrán acceder a los datos. Este problema se produce cuando los datos se almacenan en un servicio protegido detrás de la red virtual. Por ejemplo, una cuenta de Azure Storage. Además, tenga en cuenta que la funcionalidad Jupyter/JupyterLab/RStudio de la instancia de proceso y los cuadernos en ejecución no van a funcionar.
 
-Para habilitar el acceso público a un área de trabajo con el vínculo privado habilitado, siga estos pasos:
+Para habilitar el acceso público a un área de trabajo con el punto de conexión privado habilitado, siga estos pasos:
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -192,7 +203,7 @@ ws.update(allow_public_access_when_behind_vnet=True)
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-La [extensión de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update). Para habilitar el acceso público al área de trabajo, agregue el parámetro `--allow-public-access true`.
+La [extensión 1.0 de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update). Para habilitar el acceso público al área de trabajo, agregue el parámetro `--allow-public-access true`.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

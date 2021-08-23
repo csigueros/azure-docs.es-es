@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 06/01/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: fa7d17b208c4a950e82a8bdc4db243ebb44e4c41
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 21ea2dcb6f7ffc70a1ed5db15117b39b5b0016bd
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896286"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796565"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Características de la versión preliminar de Azure Firewall Prémium
 
@@ -54,7 +54,7 @@ Para más información sobre los requisitos de los certificados de la entidad de
 
 Sistema de detección y prevención de intrusiones en la red (IDPS) que permite supervisar la actividad malintencionada de la red, registrar información sobre esta actividad, notificarla y, opcionalmente, intentar bloquearla. 
 
-La versión preliminar de Azure Firewall Premium proporciona un IDPS basado en firma que permite detectar ataques rápidamente mediante la búsqueda de patrones específicos, como secuencias de bytes en el tráfico de red o las secuencias de instrucciones malintencionadas conocidas que utiliza el malware. Las firmas de IDP son totalmente administradas y se actualizan de forma continua.
+La versión preliminar de Azure Firewall Premium proporciona un IDPS basado en firma que permite detectar ataques rápidamente mediante la búsqueda de patrones específicos, como secuencias de bytes en el tráfico de red o las secuencias de instrucciones malintencionadas conocidas que utiliza el malware. Las firmas de IDP son totalmente administradas y se actualizan de forma continua. IDPS se puede aplicar al tráfico entrante, al tráfico de radio a radio (Este-Oeste) y al tráfico saliente.
 
 Las firmas y los conjuntos de reglas de Azure Firewall incluyen:
 - Énfasis en la aplicación de la huella digital al malware real, comando y control, kits de vulnerabilidad de seguridad y en la actividad malintencionada descontrolada que se omiten en los métodos de prevención tradicionales.

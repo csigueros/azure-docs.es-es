@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 0cb5c9cebc97f7afa0156550f70cd78c07b7b410
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 7e29bd82f9f72651ca0383c680c0b05860fe29b4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906231"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062243"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variables del sistema compatibles con Azure Data Factory
 
@@ -33,6 +33,9 @@ Se puede hacer referencia a estas variables del sistema en cualquier JSON de la 
 | @pipeline().TriggerId|Id. del desencadenador que ha invocado la canalización. |
 | @pipeline().TriggerName|Nombre del desencadenador que ha invocado la canalización. |
 | @pipeline().TriggerTime|Hora de la ejecución de desencadenador que ha invocado la canalización. Esta es la hora a la que el desencadenador **realmente** se activó para invocar la ejecución de la canalización y puede diferir ligeramente de la hora programada del desencadenador.  |
+| @pipeline().GroupId | Identificador del grupo al que pertenece la ejecución de canalización. |
+| @pipeline() __?__ .TriggeredByPipelineName | Nombre de la canalización que ejecuta la ejecución de canalización. Se puede aplicar cuando una actividad ExecutePipeline desencadena la ejecución de canalización. Se evalúa como _NULL_ cuando se usa en otras circunstancias. Observe el signo de interrogación después de @pipeline() |
+| @pipeline() __?__ .TriggeredByPipelineRunId | Identificador de la ejecución de la canalización que ejecuta la ejecución de canalización. Se puede aplicar cuando una actividad ExecutePipeline desencadena la ejecución de canalización. Se evalúa como _NULL_ cuando se usa en otras circunstancias. Observe el signo de interrogación después de @pipeline() |
 
 >[!NOTE]
 >Las variables del sistema de fecha y hora relacionadas con el desencadenador (en los ámbitos de la canalización y el desencadenador) devuelven las fechas locales en formato ISO 8601; por ejemplo, `2017-06-01T22:20:00.4061448Z`.

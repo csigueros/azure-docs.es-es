@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/29/2021
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b6e600fcaf32a115af14be2444144fee099d635
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: a362e99e9da7cf4c41f042364792a05a27b1aa6a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075345"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892695"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticación y autorización en Azure App Service y Azure Functions
 
@@ -138,7 +138,7 @@ Para [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincip
 
 Para más información, consulte [Access user claims](app-service-authentication-how-to.md#access-user-claims) (Acceso a las notificaciones de usuario).
 
-En la actualidad, ASP.NET Core no admite el rellenado del usuario actual con la característica de autenticación o autorización. Sin embargo, existen [componentes de middleware de código abierto de terceros](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) que ayudan a enmendar las carencias.
+Para .NET Core, [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) admite rellenar el usuario actual con la característica Autenticación y autorización. Para más información, vea la [wiki de Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb) o consulte una demostración en este [tutorial para una aplicación web que accede a Microsoft Graph](./scenario-secure-app-access-microsoft-graph-as-user.md?tabs=command-line#install-client-library-packages).
 
 #### <a name="token-store"></a>Almacén de tokens
 
