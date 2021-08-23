@@ -4,14 +4,14 @@ description: Aprenda a configurar el control de acceso basado en roles con Azure
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/08/2021
 ms.author: thweiss
-ms.openlocfilehash: 35e3d4668fc3a5eb260bc187ec1cb6177f91911b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 246f21bb0cd4718b08c8d8a872b1707a1fea5994
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378480"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958917"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Configuración del control de acceso basado en roles con Azure Active Directory para la cuenta de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -113,9 +113,9 @@ Al crear una definición de roles, debe proporcionar lo siguiente:
     - `/dbs/<database-name>/colls/<container-name>` (nivel de contenedor).
 
 > [!NOTE]
-> Las operaciones que se describen a continuación están disponibles actualmente en:
-> - Azure PowerShell: [Az.CosmosDB, versión 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
-> - CLI de Azure: [extensión "cosmosdb-preview", versión 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+> Las operaciones que se describen a continuación están disponibles en:
+> - Azure PowerShell: [Az.CosmosDB, versión 1.2.0-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/1.2.0) o superior
+> - [CLI de Azure](/cli/azure/install-azure-cli): versión 2.24.0 o superior.
 
 ### <a name="using-azure-powershell"></a>Uso de Azure PowerShell
 
@@ -278,7 +278,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
 
-Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroledefinition) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear definiciones de roles.
+Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/createupdatesqlroledefinition) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear definiciones de roles.
 
 ## <a name="create-role-assignments"></a><a id="role-assignments"></a> Creación de asignaciones de roles
 
@@ -299,9 +299,9 @@ Puede asociar definiciones de roles integrados o personalizados con sus identida
 > Si desea crear una asignación de roles para una entidad de servicio, asegúrese de usar el **identificador de objeto** que se encuentra en la sección **Aplicaciones empresariales** de la hoja del portal de **Azure Active Directory**.
 
 > [!NOTE]
-> Las operaciones que se describen a continuación están disponibles actualmente en:
-> - Azure PowerShell: [Az.CosmosDB, versión 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
-> - CLI de Azure: [extensión "cosmosdb-preview", versión 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+> Las operaciones que se describen a continuación están disponibles en:
+> - Azure PowerShell: [Az.CosmosDB, versión 1.2.0-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/1.2.0) o superior
+> - [CLI de Azure](/cli/azure/install-azure-cli): versión 2.24.0 o superior.
 
 ### <a name="using-azure-powershell"></a>Uso de Azure PowerShell
 
@@ -310,12 +310,12 @@ Asigne un rol a una identidad:
 ```powershell
 $resourceGroupName = "<myResourceGroup>"
 $accountName = "<myCosmosAccount>"
-$readOnlyRoleDefinitionId = "<roleDefinitionId>" // as fetched above
+$readOnlyRoleDefinitionId = "<roleDefinitionId>" # as fetched above
 $principalId = "<aadPrincipalId>"
 New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
     -RoleDefinitionId $readOnlyRoleDefinitionId `
-    -Scope $accountName `
+    -Scope "/" `
     -PrincipalId $principalId
 ```
 
@@ -326,14 +326,14 @@ Asigne un rol a una identidad:
 ```azurecli
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
-readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
+readOnlyRoleDefinitionId = '<roleDefinitionId>' # as fetched above
 principalId = '<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
 ### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
 
-Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroleassignment) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear asignaciones de roles.
+Consulte [esta página](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/createupdatesqlroleassignment) para obtener una referencia y ejemplos del uso de plantillas de Azure Resource Manager para crear asignaciones de roles.
 
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Inicialización del SDK con Azure AD
 
@@ -400,9 +400,12 @@ El rol RBAC de Azure Cosmos DB actualmente es compatible con la versión `2021-
 ## <a name="use-data-explorer"></a>Uso del Explorador de datos
 
 > [!NOTE]
-> El explorador de datos expuesto en Azure Portal todavía no es compatible con RBAC de Azure Cosmos DB. Para usar la identidad de Azure AD al explorar los datos, debe usar el [Explorador de Azure Cosmos DB](https://cosmos.azure.com/) en su lugar.
+> El explorador de datos expuesto en Azure Portal todavía no es compatible con RBAC de Azure Cosmos DB. Para usar la identidad de Azure AD al explorar los datos, debe usar el [Explorador de Azure Cosmos DB](https://cosmos.azure.com/?feature.enableAadDataPlane=true) en su lugar.
 
-Al examinar los datos almacenados en su cuenta, el [Explorador de Azure Cosmos DB](https://cosmos.azure.com/) inicialmente intenta capturar la clave principal de la cuenta en nombre del usuario que ha iniciado sesión y usar esta clave para acceder a los datos. Si ese usuario no puede capturar la clave principal, se usará la identidad de Azure AD de dicho usuario en lugar para acceder a los datos.
+Al acceder al [Explorador de Azure Cosmos DB](https://cosmos.azure.com/?feature.enableAadDataPlane=true) con el parámetro de consulta específico `?feature.enableAadDataPlane=true` e iniciar sesión, se usa la siguiente lógica para acceder a los datos:
+
+1. Se intenta obtener la clave principal de la cuenta en nombre de la identidad que ha iniciado sesión. Si esta solicitud se realiza correctamente, se usa la clave principal para acceder a los datos de la cuenta.
+1. Si no se permite que la identidad que ha iniciado sesión obtenga la clave principal de la cuenta, esta identidad se usará directamente para autenticar el acceso a los datos. En este modo, la identidad debe [asignarse con definiciones de roles adecuadas](#role-assignments) para garantizar el acceso a los datos.
 
 ## <a name="audit-data-requests"></a>Auditoría de solicitudes de datos
 

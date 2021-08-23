@@ -1,7 +1,7 @@
 ---
-title: Búsqueda en el contenido de almacenamiento de tablas de Azure
+title: Búsqueda en Azure Table Storage
 titleSuffix: Azure Cognitive Search
-description: Aprenda a indexar datos almacenados en Azure Table Storage con un indizador de Azure Cognitive Search.
+description: Aprenda a indexar datos almacenados en Azure Table Storage con un indizador de Azure Cognitive Search.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,20 +9,20 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 2c67cd4d071660da2ca5714623695ca434329263
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3994ee7e87670adb6ffbe2aa6f7279d11afa146
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91275190"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557061"
 ---
-# <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Indexación de documentos en Azure Blob Storage con Azure Cognitive Search
+# <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Indexación de tablas de Azure Table Storage con Azure Cognitive Search
 
-En este artículo se muestra cómo usar Azure Cognitive Search para indexar datos almacenados en Azure Table Storage.
+En este artículo se muestra cómo usar Azure Cognitive Search para indexar datos almacenados en Azure Table Storage.
 
-## <a name="set-up-azure-table-storage-indexing"></a>Configuración de la indexación de Azure Table Storage
+## <a name="set-up-azure-table-storage-indexing"></a>Configuración de la indexación de Azure Table Storage
 
-Puede configurar un indexador de Azure Table Storage mediante estos recursos:
+Puede configurar un indexador de Azure Table Storage mediante estos recursos:
 
 * [Azure Portal](https://ms.portal.azure.com)
 * [API REST](/rest/api/searchservice/Indexer-operations) de Azure Cognitive Search

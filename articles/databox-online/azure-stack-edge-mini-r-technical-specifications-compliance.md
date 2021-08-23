@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 05/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 8f48a007069c243442888f47ed75deb75b271df6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1f57e7f25a9e34a88c9ae279083a2cf1d9be2ff1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759840"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099431"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Especificaciones técnicas de Azure Stack Edge Mini R
 
@@ -54,7 +54,7 @@ El dispositivo de Azure Stack Edge Mini R tiene un disco de datos y un disco de 
 |    Capacidad total (solo datos)              |    1 TB                                                |
 |    Capacidad total utilizable*                  |    ~ 750 GB                                            |
 
-**Parte del espacio está reservado para uso interno.*
+*Parte del espacio está reservado para uso interno.*
 
 ## <a name="network"></a>Red
 
@@ -62,15 +62,11 @@ El dispositivo de Azure Stack Edge Mini R tiene las siguientes especificaciones 
 
 |Especificación         |Value                                                               |
 |----------------------|--------------------------------------------------------------------|
-|Interfaces de red    |2 x 10 Gbps SFP+ <br> Se muestran como PUERTO 3 y PUERTO 4 en la interfaz de usuario local     |
-|Interfaces de red    |2 x 1 Gbps RJ45 <br> Se muestran como PUERTO 1 y PUERTO 2 en la interfaz de usuario local      |
+|Interfaces de red    |2 x 10 Gbps SFP+ <br> Se muestran como PUERTO 3 y PUERTO 4 en la interfaz de usuario local    |
+|Interfaces de red    |2 x 1 Gbps RJ45 <br> Se muestran como PUERTO 1 y PUERTO 2 en la interfaz de usuario local     |
 |Wi-Fi                 |802.11ac                                                            |
 
-|Especificación  |Value  |
-|---------|---------|
-|Interfaces de red    |2 SFP+ de 10 GbE <br> Se muestran como PUERTO 3 y PUERTO 4 en la interfaz de usuario local           |
-|Interfaces de red    |2 RJ45 de 1 GbE <br> Se muestran como PUERTO 1 y PUERTO 2 en la interfaz de usuario local          |
-|Wi-Fi   |802.11ac         |
+## <a name="routers-and-switches"></a>Enrutadores y conmutadores
 
 Los siguientes enrutadores y conmutadores son compatibles con las interfaces de red 10 Gbps SPF+ (puerto 3 y puerto 4) en los dispositivos de Azure Stack Edge Mini R:
 
@@ -85,7 +81,7 @@ Los siguientes enrutadores y conmutadores son compatibles con las interfaces de 
 
 ## <a name="transceivers-cables"></a>Transceptores y cables
 
-Los siguientes cables y transceptores de cobre SFP+ (10 Gbps) se recomiendan encarecidamente para su uso con dispositivos de Azure Stack Edge Mini R. Los cables de fibra óptica compatibles se pueden usar con interfaces de red SFP+ (puerto 3 y puerto 4), pero no se han probado. 
+Los siguientes cables y transceptores de cobre SFP+ (10 Gbps) se recomiendan encarecidamente para su uso con dispositivos de Azure Stack Edge Mini R. Los cables de fibra óptica compatibles se pueden usar con interfaces de red SFP+ (puerto 3 y puerto 4), pero no se han probado.
 
 |Tipo de transceptor SFP+ |Cables compatibles    | Notas |
 |----------------------|--------------------|-------|
@@ -108,7 +104,6 @@ En la tabla siguiente se muestran las especificaciones de la fuente de alimentac
 El dispositivo de Azure Stack Edge Mini R también incluye una batería incorporada que se carga mediante la fuente de alimentación.
 
 Se puede usar una [batería de tipo 2590](https://www.bren-tronics.com/bt-70791ck.html) adicional junto con la batería incorporada para extender el uso del dispositivo entre cargas. Esta batería debe ser compatible con todas las normativas ambientales, de seguridad y de transporte en el país de uso.
-
 
 | Especificación            | Value      |
 |--------------------------|------------|

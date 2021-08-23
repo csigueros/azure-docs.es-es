@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 05/16/2021
-ms.openlocfilehash: 8e377ae50d19df3b9c86b05cbe207479c2b0597d
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: ce3526f824d34e69cf33d41ba591a8ae6a634ea5
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113664186"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985315"
 ---
 # <a name="access-to-azure-virtual-networks-from-azure-logic-apps-using-an-integration-service-environment-ise"></a>Acceso a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -112,13 +112,13 @@ Al crear el ISE, puede seleccionar la SKU de desarrollador o SKU Premium. La opc
   > [!IMPORTANT]
   > Esta SKU no tiene ningún Acuerdo de Nivel de Servicio (SLA), funcionalidad de escalado vertical o redundancia durante el reciclaje, lo que significa que puede experimentar retrasos o tiempos de inactividad. Las actualizaciones de back-end pueden interrumpir el servicio de forma intermitente.
 
-  Para información sobre los límites y la capacidad, consulte [Límites de ISE en Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). Para saber cómo funciona la facturación para los ISE, consulte el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#ise-pricing).
+  Para información sobre los límites y la capacidad, consulte [Límites de ISE en Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). Para saber cómo funciona la facturación para los ISE, consulte el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 * **Premium**
 
   Proporciona un ISE que puede usar para producción y para pruebas de rendimiento. La SKU Premium incluye soporte de SLA, desencadenadores y acciones integrados, conectores estándar, conectores empresariales, una sola cuenta de integración de [nivel Estándar](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), funcionalidad de escalado vertical y redundancia durante el reciclaje para un [precio fijo al mes](https://azure.microsoft.com/pricing/details/logic-apps).
 
-  Para información sobre los límites y la capacidad, consulte [Límites de ISE en Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). Para saber cómo funciona la facturación para los ISE, consulte el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#ise-pricing).
+  Para información sobre los límites y la capacidad, consulte [Límites de ISE en Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). Para saber cómo funciona la facturación para los ISE, consulte el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 <a name="endpoint-access"></a>
 
@@ -156,13 +156,13 @@ Para determinar si el ISE usa un punto de conexión de acceso interno o externo,
 
 ## <a name="pricing-model"></a>Modelo de precios
 
-Las aplicaciones lógicas, los desencadenadores y las acciones integrados, y los conectores que se ejecutan en el ISE usan un plan de tarifa fijo diferente al plan de tarifa basado en el consumo. Para obtener más información, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#ise-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+Las aplicaciones lógicas, los desencadenadores y las acciones integrados, y los conectores que se ejecutan en el ISE usan un plan de tarifa fijo diferente al plan de tarifa basado en el consumo. Para obtener más información, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="integration-accounts-with-ise"></a>Cuentas de integración con ISE
 
-Puede usar cuentas de integración con aplicaciones lógicas dentro de un entorno de servicio de integración (ISE). Sin embargo, esas cuentas de integración deben usar el *mismo ISE* que las aplicaciones lógicas vinculadas. Las aplicaciones lógicas de una instancia de ISE solo pueden hacer referencia a aquellas cuentas de integración que se encuentran en la misma instancia de ISE. Cuando se crea una cuenta de integración, puede seleccionar la instancia de ISE como la ubicación de la cuenta de integración. Para saber cómo funcionan los precios y la facturación de las cuentas de integración con un ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#ise-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Para información sobre los límites, consulte los [límites de la cuenta de integración](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+Puede usar cuentas de integración con aplicaciones lógicas dentro de un entorno de servicio de integración (ISE). Sin embargo, esas cuentas de integración deben usar el *mismo ISE* que las aplicaciones lógicas vinculadas. Las aplicaciones lógicas de una instancia de ISE solo pueden hacer referencia a aquellas cuentas de integración que se encuentran en la misma instancia de ISE. Cuando se crea una cuenta de integración, puede seleccionar la instancia de ISE como la ubicación de la cuenta de integración. Para saber cómo funcionan los precios y la facturación de las cuentas de integración con un ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Para información sobre los límites, consulte los [límites de la cuenta de integración](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

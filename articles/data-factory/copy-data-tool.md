@@ -4,14 +4,14 @@ description: Se proporciona información sobre la herramienta Copy Data en la in
 author: dearandyxu
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 06/01/2021
 ms.author: yexu
-ms.openlocfilehash: 18d61c7f51547a524e64fc44c98e70e0f5bc2752
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68bfa62817d971ce8c8127f44f43576431a499fc
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373001"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372010"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Herramienta Copy Data en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +54,7 @@ Puede obtener una vista previa de parte de los datos del almacén de datos de or
 
 ![Configuración de archivo](./media/copy-data-tool/file-format-settings.png)
 
-Después de la detección:
+Después de la detección, seleccione **Vista previa de los datos**:
 
 ![Configuración de archivo detectado y vista previa](./media/copy-data-tool/after-detection.png)
 
@@ -88,7 +88,7 @@ Supongamos que tiene carpetas de entrada con el siguiente formato:
 
 Haga clic en el botón **Examinar** de **Archivo o carpeta**, vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Elegir**. En el cuadro de texto, debe aparecer 2016/03/01/02. 
 
-A continuación, sustituya **2016** por **{year}** , **03** por **{month}** , **01** por **{day}** y **02** por **{hour}** y presione la tecla **Tabulación**. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
+A continuación, sustituya **2016** por **{year}** , **03** por **{month}** , **01** por **{day}** y **02** por **{hour}** y presione la tecla **Tabulación**. Al seleccionar **Incremental load: time-partitioned folder/file names** (Carga incremental: nombres de archivos o carpetas con particiones de tiempo) en la sección **File loading behavior** (Comportamiento de la carga de archivos) y seleccionar **Programación** o **Tumbling window** (Ventana de saltos de tamaño constante) en la página **Propiedades**, debería ver listas desplegables para seleccionar el formato de estas cuatro variables:
 
 ![Filtrado de archivos o carpetas](./media/copy-data-tool/filter-file-or-folder.png)
 

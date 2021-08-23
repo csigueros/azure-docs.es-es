@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: b2c6ee6e1bc494f0bef4a04b07115c400c8ce1ec
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 7019a1cde8548083834d467031a09ae0072ee478
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112914056"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460537"
 ---
-# <a name="azure-stack-edge-security-and-data-protection"></a>Seguridad y protección de datos de Azure Stack Edge
+# <a name="azure-stack-edge-pro-fpga-security-and-data-protection"></a>Seguridad y protección de datos de Azure Stack Edge Pro con FPGA
 
-La seguridad es una gran preocupación para cualquiera que adopte una tecnología nueva, en especial cuando se utiliza la tecnología con información confidencial o de su propiedad. Azure Stack Edge le ayuda a asegurarse de que solo las entidades autorizadas puedan ver, modificar o eliminar sus datos.
+La seguridad es una gran preocupación para cualquiera que adopte una tecnología nueva, en especial cuando se utiliza la tecnología con información confidencial o de su propiedad. Azure Stack Edge Pro con FPGA le ayuda a asegurarse de que solo las entidades autorizadas puedan ver, modificar o eliminar sus datos.
 
-En este artículo se describen las características de seguridad de Azure Stack Edge que ayudan a proteger cada uno de los componentes de la solución y los datos almacenados en ellos.
+En este artículo se describen las características de seguridad de Azure Stack Edge Pro con FPGA que ayudan a proteger cada uno de los componentes de la solución y los datos almacenados en ellos.
 
-Azure Stack Edge consta de cuatro componentes principales que interactúan entre sí:
+Azure Stack Edge Pro con FPGA consta de cuatro componentes principales que interactúan entre sí:
 
 - El **servicio Azure Stack Edge hospedado en Azure**. El recurso de administración que se usa para crear el pedido del dispositivo, configurar el dispositivo y, a continuación, supervisar el pedido hasta que se realiza.
 - **Dispositivo FPGA de Azure Stack Edge Pro**. El dispositivo de transferencia que se envía para que pueda importar los datos del entorno local a Azure.
@@ -34,9 +34,9 @@ Azure Stack Edge es un servicio de administración que se hospeda en Azure. El s
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
 
-## <a name="azure-stack-edge-device-protection"></a>Protección del dispositivo Azure Stack Edge
+## <a name="azure-stack-edge-pro-fpga-device-protection"></a>Protección del dispositivo FPGA de Azure Stack Edge Pro
 
-El dispositivo Azure Stack Edge es un dispositivo local que ayuda a transformar los datos al procesarlos localmente y, a continuación, enviarlos a Azure. El dispositivo:
+El dispositivo FPGA de Azure Stack Edge Pro es un dispositivo local que ayuda a transformar los datos, ya que los procesa localmente y, después, los envía a Azure. El dispositivo:
 
 - Necesita una clave de activación para acceder al servicio Azure Stack Edge.
 - Está protegido en todo momento mediante una contraseña de dispositivo.
@@ -46,7 +46,7 @@ El dispositivo Azure Stack Edge es un dispositivo local que ayuda a transformar 
 
 ### <a name="protect-the-device-via-activation-key"></a>Protege el dispositivo con una clave de activación
 
-Solo se permite que un dispositivo Azure Stack Edge autorizado se una al servicio Azure Stack Edge que crea en su suscripción de Azure. Si quiere autorizar un dispositivo, debe usar una clave de activación para activarlo con el servicio Azure Stack Edge.
+Solo se permite que un dispositivo FPGA de Azure Stack Edge Pro autorizado se una al servicio Azure Stack Edge que crea en su suscripción de Azure. Si quiere autorizar un dispositivo, debe usar una clave de activación para activarlo con el servicio Azure Stack Edge.
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
 
@@ -54,7 +54,7 @@ Para obtener más información, consulte [Obtención de la clave de activación]
 
 ### <a name="protect-the-device-via-password"></a>Protección del dispositivo con una contraseña
 
-Las contraseñas garantizan que solo los usuarios autorizados puedan acceder a sus datos. Los dispositivos Azure Stack Edge arrancan en un estado bloqueado.
+Las contraseñas garantizan que solo los usuarios autorizados puedan acceder a sus datos. Los dispositivos FPGA de Azure Stack Edge Pro arrancan en un estado bloqueado.
 
 Puede:
 

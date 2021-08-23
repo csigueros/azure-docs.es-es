@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 13becdf8c49d9affe8c2946d6147707fbe954437
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: bf4a019c9f40475750fd508a56f7f8903e0a2876
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889329"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538874"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Habilitación de Azure Machine Learning Studio en una Azure Virtual Network
 
@@ -68,6 +68,13 @@ Studio admite la lectura de datos de los siguientes tipos de almacén de datos e
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
+### <a name="firewall-settings"></a>Configuración de firewall
+
+La configuración del firewall de algunos servicios de almacenamiento, como las cuentas de almacenamiento de Azure, se aplica al punto de conexión público para esa instancia del servicio específica. Normalmente, con esta configuración puede permitir o impedir el acceso desde direcciones IP concretas de la red pública de Internet. __Esto no se admite__ cuando se usa Estudio de Azure Machine Learning, pero sí cuando se usa la CLI o el SDK de Azure Machine Learning.
+
+> [!TIP]
+> Estudio de Azure Machine Learning se admite cuando se usa el servicio Azure Firewall. Para obtener más información, consulte el artículo sobre [Uso de áreas de trabajo detrás de un firewall](how-to-access-azureml-behind-firewall.md).
+
 ### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configuración de almacenes de datos para usar una identidad administrada del área de trabajo
 
 Después de agregar una cuenta de Azure Storage a la red virtual con un [punto de conexión de servicio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [punto de conexión privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), debe configurar el almacén de datos para usar la autenticación de [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md). Esto permite que Studio tenga acceso a los datos de la cuenta de almacenamiento.
@@ -84,7 +91,7 @@ Azure Machine Learning usa [almacenes de datos](concept-data.md#datastores) para
 
     ![Captura de pantalla que muestra cómo habilitar la identidad administrada del área de trabajo](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
 
-En estos pasos se agrega la identidad administrada del área de trabajo como __Lector__ al servicio de almacenamiento mediante el control de acceso basado en roles de Azure RBAC. El acceso __Lector__ permite que el área de trabajo recupere la configuración del firewall para asegurarse de que los datos no salgan de la red virtual. Los cambios pueden tardar hasta 10 minutos en surtir efecto.
+En estos pasos se agrega la identidad administrada del área de trabajo como __Lector__ al servicio de almacenamiento mediante el control de acceso basado en roles de Azure RBAC. El acceso de __Lector__ permite al área de trabajo ver el recurso, pero no realizar cambios.
 
 ### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>Habilitación de la autenticación de identidad administrada para cuentas de almacenamiento predeterminadas
 
@@ -134,7 +141,7 @@ Puede usar RBAC de Azure y listas de control de acceso (ACL) de tipo POSIX para 
 
 Para usar RBAC de Azure, agregue la identidad administrada del área de trabajo al rol [Lector de datos de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Para obtener más información, consulte [Control de acceso basado en roles de Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
-Para usar ACL, se puede asignar el acceso de la identidad administrada del área de trabajo como cualquier otra entidad de seguridad. Para obtener más información, vea [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+Para usar las ACL, se puede asignar el acceso de la identidad administrada del área de trabajo como cualquier otra entidad de seguridad. Para obtener más información, vea [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
 ### <a name="azure-data-lake-storage-gen1-access-control"></a>Control de acceso de Azure Data Lake Storage Gen1
 

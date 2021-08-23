@@ -7,12 +7,12 @@ ms.topic: how-to
 author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: e44fcd6261a4d9b866896dc91e7f1edb1fd8b30a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: c885f7e953849825c9a0ef87f68df6e9e2d3360a
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112285137"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528583"
 ---
 # <a name="test-a-virtual-machine-image"></a>Prueba de una imagen de máquina virtual
 
@@ -280,4 +280,4 @@ En este ejemplo, se usará curl para realizar una llamada de API POST a Azure Ac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002).
+- Inicie sesión en el [Centro de partners](https://partner.microsoft.com/).

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b69daf9e9fbbb3f6d6597a8e8349dc8bec61fbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5513aff9bed85293978061f8989c1389e9e7a9c4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008781"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954963"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
 Use el logotipo de la organización y combinaciones de colores personalizadas para proporcionar un aspecto coherente en las páginas de inicio de sesión de Azure Active Directory (Azure AD). Las páginas de inicio de sesión aparecen cuando los usuarios inician sesión en las aplicaciones web de su organización, como Microsoft 365, que usan Azure AD como proveedor de identidades.
@@ -66,13 +66,16 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 
            Puede personalizar el texto de la página de inicio de sesión que ingresó. Para comenzar un párrafo nuevo, use la tecla Intro dos veces. También puede cambiar el formato del texto para incluir negrita, cursiva, un subrayado o un enlace en el que se pueda hacer clic. Use la siguiente sintaxis para agregar formato al texto: 
 
-          > Hipervínculo: ```[text](link)``` 
+          > Hipervínculo: `[text](link)` 
           
-          > Negrita: ``` **text** ``` o ``` __text__ ``` 
+          > Negrita: `**text**` o `__text__` 
           
-          > Cursiva: ``` *text* ``` o ``` _text_ ``` 
+          > Cursiva: `*text*` o `_text_` 
           
-          > Subrayado: ``` ++text++ ``` 
+          > Subrayado: `++text++` 
+         
+          > [!IMPORTANT]
+          > Los hipervínculos que se agregan con texto de página de inicio de sesión se representan como texto en entornos nativos, como en aplicaciones móviles y de escritorio.
 
     - **Configuración avanzada**
             

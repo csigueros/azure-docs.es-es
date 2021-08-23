@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/18/2021
+ms.date: 09/28/2020
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 875407e07af1059c98a2adb6bb0f7b075d78fe02
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 1b4394c7338aabb63654a1462a97518aaff9ada3
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462734"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408522"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configuración y envío de ejecuciones de entrenamiento
 
@@ -28,7 +28,7 @@ Todo lo que debe hacer es definir el entorno de cada destino de proceso con una 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
+* Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 * El [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/install) (>= 1.13.0)
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md), `ws`
 * Un destino de proceso, `my_compute_target`.  [Creación de un destino de proceso](how-to-create-attach-compute-studio.md) 
@@ -77,9 +77,7 @@ Seleccione el destino de proceso en el que se ejecutará el script de entrenamie
 El código de ejemplo de este artículo da por sentado que ya ha creado un destino de proceso `my_compute_target` en la sección "Requisitos previos".
 
 >[!Note]
->Azure Databricks no se admite como destino de proceso para el entrenamiento de modelos. Puede usar Azure Databricks para la preparación de datos y las tareas de implementación.
-
-[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+>Azure Databricks no se admite como destino de proceso para el entrenamiento de modelos. Puede usar Azure Databricks para la preparación de datos y las tareas de implementación. 
 
 ## <a name="create-an-environment"></a>Creación de un entorno
 Los [entornos](concept-environments.md) de Azure Machine Learning son una encapsulación del entorno en el que se produce el entrenamiento del aprendizaje automático. Especifican los paquetes, la imagen de Docker, las variables de entorno y la configuración de software de Python en torno a los scripts de entrenamiento y puntuación. También especifican los entornos de ejecución (Python, Spark o Docker).

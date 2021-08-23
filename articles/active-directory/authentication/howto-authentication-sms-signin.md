@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b84d55e2d3a2f49a870c1e57eeed3c5c0caeba4a
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 25ee91482ac17ac5e91715f5dfe6191c6ed4007a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530420"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982711"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configuración y habilitación de los usuarios para la autenticación basada en SMS mediante Azure Active Directory 
 
@@ -38,14 +38,15 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
     * [Enterprise Mobility + Security (EMS) E3 o E5][ems-licensing] o [Microsoft 365 (M365) E3 o E5][m365-licensing]
     * [Office 365 F3][o365-f3]
 
-## <a name="limitations"></a>Limitaciones
+## <a name="known-issues"></a>Problemas conocidos
 
-Las siguientes limitaciones se aplican a la autenticación basada en SMS:
+A continuación se enumeran algunos problemas conocidos:
 
 * La autenticación basada en SMS no es compatible actualmente con Multi-Factor Authentication de Azure AD.
 * A excepción de los Teams, la autenticación basada en SMS no es compatible con las aplicaciones de Office nativas.
 * No se recomienda la autenticación basada en SMS para las cuentas B2B.
 * Los usuarios federados no se autenticarán en el inquilino principal. Solo se autentican en la nube.
+* Si el método de inicio de sesión predeterminado de un usuario es un mensaje de texto o una llamada al número de teléfono, el código SMS o la llamada de voz se envía automáticamente durante la autenticación multifactor. A partir de junio de 2021, algunas aplicaciones pedirán a los usuarios que elijan **Texto** o **Llamada** primero. Esta opción evita el envío de demasiados códigos de seguridad para diferentes aplicaciones. Si el método de inicio de sesión predeterminado es la aplicación Microsoft Authenticator ([la cual recomendamos encarecidamente](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)), la notificación de la aplicación se enviará automáticamente.
 
 ## <a name="enable-the-sms-based-authentication-method"></a>Habilitación del método de autenticación basado en SMS
 

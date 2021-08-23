@@ -8,12 +8,12 @@ ms.date: 05/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 78dff59e1cd902b6f503d9dc75213d0bd4822baa
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 0ab6ddcf3566164746dce8e0b9ff4b4a2aa32b84
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634732"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537989"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Solución de problemas del dispositivo IoT Edge
 
@@ -267,11 +267,17 @@ En Windows:
 
 Cuando el demonio de seguridad de IoT Edge se esté ejecutando, examine los registros de los contenedores para detectar problemas. Empiece por los contenedores implementados y, luego, examine los contenedores que componen el runtime de IoT Edge: edgeAgent y edgeHub. Los registros del agente de IoT Edge normalmente proporcionan información sobre el ciclo de vida de cada contenedor. Los registros del centro de IoT Edge proporcionan información sobre mensajería y enrutamiento.
 
-```cmd
-iotedge logs <container name>
-```
+Puede recuperar los registros de contenedor desde varios lugares:
 
-También puede usar una llamada de [método directo](how-to-retrieve-iot-edge-logs.md#upload-module-logs) a un módulo en el dispositivo para cargar los registros de ese módulo en Azure Blob Storage.
+* En el dispositivo IoT Edge, ejecute el siguiente comando para ver los registros:
+
+  ```cmd
+  iotedge logs <container name>
+  ```
+
+* En Azure Portal, use la herramienta de solución de problemas integrada. [Supervisión y solución de problemas de dispositivos IoT Edge desde Azure Portal](troubleshoot-in-portal.md)
+
+* Use el [método directo UploadModuleLogs](how-to-retrieve-iot-edge-logs.md#upload-module-logs) para cargar los registros de un módulo en Azure Blob Storage.
 
 ## <a name="clean-up-container-logs"></a>Limpieza de registros de contenedor
 
@@ -357,7 +363,9 @@ También puede comprobar los mensajes que se envían entre IoT Hub y los disposi
 
 ## <a name="restart-containers"></a>Reinicio de los contenedores
 
-Después de investigar los registros y mensajes para obtener información, puede intentar reiniciar los contenedores:
+Después de investigar los registros y mensajes en busca de información, puede intentar reiniciar los contenedores.
+
+En el dispositivo IoT Edge, use los siguientes comandos para reiniciar los módulos:
 
 ```cmd
 iotedge restart <container name>
@@ -368,6 +376,8 @@ Reinicie los contenedores del entorno de ejecución de IoT Edge:
 ```cmd
 iotedge restart edgeAgent && iotedge restart edgeHub
 ```
+
+También puede reiniciar los módulos de forma remota desde Azure Portal. Para más información, consulte [Supervisión y solución de problemas de dispositivos IoT Edge desde Azure Portal](troubleshoot-in-portal.md).
 
 ## <a name="check-your-firewall-and-port-configuration-rules"></a>Comprobación de las reglas de configuración de los puertos y el firewall
 

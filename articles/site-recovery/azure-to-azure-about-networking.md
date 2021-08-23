@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 8627a8989a4fbd64c66d8af7299baacacee22b56
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 0e1d7bba91ca9283b00432a06e24d1b8beaa49fc
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114285047"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111811322"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Acerca de las redes para la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -59,7 +59,7 @@ login.microsoftonline.com | Se requiere para la autorización y la autenticació
 
 ## <a name="outbound-connectivity-using-service-tags"></a>Conectividad saliente mediante etiquetas de servicio
 
-Además de controlar las direcciones URL, también puede usar las etiquetas de servicio para controlar la conectividad. Para ello, primero debe crear un [grupo de seguridad de red](../virtual-network/network-security-group-how-it-works.md) en Azure. Una vez creado, deberá utilizar las etiquetas de servicio existentes y crear una regla de NSG para permitir el acceso a los servicios de Azure Site Recovery. 
+Además de controlar las direcciones URL, también puede usar las etiquetas de servicio para controlar la conectividad. Para ello, primero debe crear un [grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/network-security-group-how-it-works) en Azure. Una vez creado, deberá utilizar las etiquetas de servicio existentes y crear una regla de NSG para permitir el acceso a los servicios de Azure Site Recovery. 
 
 Las ventajas de usar etiquetas de servicio para controlar la conectividad, en comparación con controlar la conectividad mediante direcciones IP, es que no habrá ninguna dependencia rígida de una dirección IP determinada para mantenerse conectado a nuestros servicios. En este escenario, si cambia la dirección IP de uno de nuestros servicios, la replicación en curso no se verá afectada para las máquinas. Mientras tanto, una dependencia de direcciones IP codificadas de forma rígida hará que el estado de replicación sea crítico y ponga en riesgo los sistemas. Además, las etiquetas de servicio garantizan una mejor seguridad, estabilidad y resistencia que las direcciones IP codificadas de forma rígida.
 

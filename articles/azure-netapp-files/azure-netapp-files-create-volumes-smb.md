@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: e32480a8b5e76cf0a3a8e287c0f318aa7ff445a6
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: dab6415e27239e9140cce7c03bae9a2e3a95ca7d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753421"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072134"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -88,12 +88,19 @@ Debe crear una conexión de Active Directory antes de crear un volumen SMB. Si n
         ![Mostrar la sección avanzada](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Haga clic en **Protocolo** y complete la siguiente información:  
-    * Seleccione **SMB** como tipo de protocolo para el volumen. 
-    * Seleccione la conexión de **Active Directory** en la lista desplegable.
-    * Especifique el nombre del volumen compartido en **Nombre del recurso compartido**.
+    * Seleccione **SMB** como tipo de protocolo para el volumen.  
+
+    * Seleccione la conexión de **Active Directory** en la lista desplegable.  
+    
+    * Especifique un **nombre del recurso compartido** exclusivo para el volumen. Este nombre del recurso compartido se usa al crear destinos de montaje. Los requisitos del nombre del recurso compartido son los siguientes:   
+        - Debe ser único dentro de cada subred de la región. 
+        - Debe comenzar con un carácter alfabético.
+        - Solo puede contener letras, números o guiones (`-`). 
+        - La longitud no debe superar los 80 caracteres.   
+        
     * Si desea habilitar el cifrado para SMB3, seleccione **Habilitar cifrado del protocolo SMB3**.   
         Esta característica habilita el cifrado para los datos SMB3 en proceso. Los clientes SMB que no usen el cifrado SMB3 no podrán acceder a este volumen.  Los datos en reposo se cifrarán al margen de esta configuración.  
-        Consulte [Preguntas frecuentes sobre el cifrado SMB](azure-netapp-files-faqs.md#smb-encryption-faqs) para obtener información adicional. 
+        Consulte [Cifrado SMB](azure-netapp-files-smb-performance.md#smb-encryption) para más información. 
 
         La característica **Cifrado del protocolo SMB3** está actualmente en su versión preliminar. Si es la primera vez que usa esta característica, regístrela antes de usarla: 
 
@@ -169,7 +176,7 @@ Puede establecer permisos para un archivo o carpeta con la pestaña **Seguridad*
 * [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configuración de ADDS LDAP sobre TLS para Azure NetApp Files](configure-ldap-over-tls.md) 
 * [Conversión de volúmenes SMB existentes para usar la disponibilidad continua](convert-smb-continuous-availability.md)
-* [Preguntas más frecuentes de SMB](azure-netapp-files-faqs.md#smb-faqs)
+* [Cifrado de SMB](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Solución de problemas de SMB o de volúmenes de dos protocolos](troubleshoot-dual-protocol-volumes.md)
 * [Obtenga información sobre la integración de redes virtuales para los servicios de Azure](../virtual-network/virtual-network-for-azure-services.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm) (Instalación de un nuevo bosque de Active Directory en la CLI de Azure)

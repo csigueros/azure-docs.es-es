@@ -1,40 +1,56 @@
 ---
-title: 'Ubicaciones de datos para Windows Virtual Desktop: Azure'
-description: Una breve introducción a las ubicaciones en las que se almacenan los datos y metadatos de Windows Virtual Desktop.
+title: 'Ubicaciones de datos para Azure Virtual Desktop: Azure'
+description: Una breve introducción a las ubicaciones en las que se almacenan los datos y metadatos de Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 02/17/2021
+ms.date: 06/08/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: eeba3cb579c6ef9158379403a3206f99a2cfb060
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: ef72214cf0a5a5d0d65cc13dba88a4776b4240ad
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830635"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745302"
 ---
-# <a name="data-and-metadata-locations-for-windows-virtual-desktop"></a>Ubicaciones de datos y metadatos para Windows Virtual Desktop
+# <a name="data-locations-for-azure-virtual-desktop"></a>Ubicaciones de datos para Azure Virtual Desktop
 
->[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos para Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/data-locations-2019.md).
-
-Windows Virtual Desktop está disponible actualmente para todas las ubicaciones geográficas. Los administradores pueden elegir la ubicación para almacenar los datos de usuario cuando creen las máquinas virtuales del grupo de hosts y los servicios asociados, como los servidores de archivos. Obtenga más información sobre las ubicaciones geográficas de Azure en el [mapa de centros de datos de Azure](https://azuredatacentermap.azurewebsites.net/).
+Azure Virtual Desktop está disponible actualmente para todas las ubicaciones geográficas. Los administradores pueden elegir la ubicación para almacenar los datos de usuario cuando creen las máquinas virtuales del grupo de hosts y los servicios asociados, como los servidores de archivos. Obtenga más información sobre las ubicaciones geográficas de Azure en el [mapa de centros de datos de Azure](https://azuredatacentermap.azurewebsites.net/).
 
 >[!NOTE]
 >Microsoft no controla ni limita las regiones en las que usted o sus usuarios pueden acceder a los datos específicos de la aplicación o del usuario.
 
 >[!IMPORTANT]
->Windows Virtual Desktop almacena información de metadatos globales, como nombres de área de trabajo, nombres de grupos de hosts, nombres de grupos de aplicaciones y nombres principales de usuario de un centro de datos. Cada vez que un cliente crea un objeto de servicio, debe especificar una ubicación para él. La ubicación que especifique determina el lugar en que se almacenarán los metadatos del objeto. El cliente elegirá una región de Azure y los metadatos se almacenarán en la zona geográfica relacionada. Para obtener una lista de todas las regiones de Azure y las zonas geográficas relacionadas, consulte [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
+>Azure Virtual Desktop almacena varios tipos de información, como nombres de grupos de hosts, nombres de grupos de aplicaciones, nombres de áreas de trabajo y nombres principales de usuario de un centro de datos. Al crear cualquiera de los objetos de servicio, el cliente tiene que especificar la ubicación en la que se debe crear el objeto. La ubicación de este objeto determina el lugar en que se almacenará la información del objeto. El cliente elegirá una región de Azure y la información relacionada se almacenará en la geografía asociada. Visite [https://azure.microsoft.com/global-infrastructure/geographies/](https://azure.microsoft.com/global-infrastructure/geographies/) si desea una lista de todas las regiones de Azure y las geografías relacionadas.
 
-Actualmente se admite el almacenamiento de metadatos en las siguientes zonas geográficas:
+En este artículo se describe qué información almacena el servicio Azure Virtual Desktop. Para más información sobre las definiciones de datos del cliente, consulte [Cómo categoriza Microsoft los datos para servicios en línea](https://www.microsoft.com/trust-center/privacy/customer-data-definitions).
 
-- Estados Unidos (EE. UU.) (disponible con carácter general)
-- Europa (EU) (versión preliminar pública) 
+## <a name="customer-input"></a>Entrada del cliente
 
->[!NOTE]
-> Al seleccionar una región en la que crear objetos de servicio de Windows Virtual Desktop, verá regiones en las zonas geográficas de EE. UU. y de la UE. Para asegurarse de que sabe qué región sería mejor para su implementación, eche un vistazo a [nuestro mapa de la infraestructura global de Azure](https://azure.microsoft.com/global-infrastructure/geographies/#geographies).
+Para configurar el servicio Azure Virtual Desktop, el cliente debe crear grupos de hosts y otros objetos de servicio. Durante la configuración, el cliente debe proporcionar información como el nombre del grupo de hosts, el nombre del grupo de aplicaciones, y mucho más. Esta información se considera como la entrada del cliente. La entrada del cliente se almacena en la geografía asociada a la región en la que se crea el objeto. Las rutas de acceso a los objetos de Azure Resource Manager se consideran información de la organización, por lo que la residencia de datos no se aplica a ellos. Los datos sobre las rutas de acceso de Azure Resource Manager se almacenarán fuera de la geografía elegida.
 
-Los metadatos almacenados se cifran en reposo y los reflejos con redundancia geográfica se mantienen en la zona geográfica. Todos los datos del cliente, como la configuración de la aplicación y los datos de usuario, residen en la ubicación que el cliente elige y no los administra el servicio. A medida que crezca el servicio, habrá más zonas geográficas disponibles.
+## <a name="customer-data"></a>Datos del cliente
 
-Los metadatos del servicio se replican dentro de la zona geográfica con fines de recuperación ante desastres.
+El servicio no almacena directamente ninguna información relacionada con los usuarios o las aplicaciones, sino que almacena datos de clientes como nombres de aplicaciones y nombres principales de usuario, porque forman parte del proceso de configuración del objeto. Esta información se almacena en la geografía asociada a la región en la que el cliente creó el objeto.
+
+## <a name="diagnostic-data"></a>Datos de diagnóstico
+
+Azure Virtual Desktop recopila datos de diagnóstico generados por el servicio cada vez que el cliente o usuario interactúa con el servicio. Estos datos solo se usan para solucionar problemas, brindar soporte y comprobar el estado del servicio de forma agregada. Por ejemplo, desde el lado del host de sesión, cuando una máquina virtual se registra en el servicio, generamos información que incluye el nombre de la máquina virtual (VM), el grupo de hosts al que pertenece la máquina virtual, y así sucesivamente. Esta información se almacena en la geografía asociada a la región en la que se crea el grupo de hosts. Además, cuando un usuario se conecta al servicio e inicia un escritorio remoto, generamos información de diagnóstico que incluye el nombre principal de usuario, la ubicación del cliente, la dirección IP del cliente, el grupo de hosts al que se conecta el usuario, y mucho más. Esta información se envía a dos ubicaciones diferentes:
+
+- La ubicación más cercana al usuario donde se encuentra la infraestructura de servicio (seguimientos de cliente, seguimientos de usuario, datos de diagnóstico).
+- La ubicación donde se encuentra el grupo de hosts.
+
+## <a name="service-generated-data"></a>Datos generados por el servicio
+
+Para que Azure Virtual Desktop siga siendo confiable y escalable, agregamos patrones de tráfico y uso para comprobar el estado y el rendimiento del plano de control de infraestructura. Por ejemplo, para comprender cómo aumentar la capacidad de la infraestructura regional a medida que aumenta el uso del servicio, procesamos los datos del registro de uso del servicio. Luego, se revisan los registros de las horas punta y se decide qué centros de datos se van a agregar para satisfacer esta capacidad. Agregamos esta información desde todas las ubicaciones en las que se encuentra la infraestructura de servicio y, a continuación, la enviamos a la región de EE. UU. Los datos enviados a la región de EE. UU. incluyen datos limpios, pero no datos de clientes.
+
+Por el momento, se admite el almacenamiento de los datos mencionados anteriormente en estas ubicaciones:
+
+- Estados Unidos (EE. UU.) (disponible con carácter general)
+- Europa (UE) (disponible con carácter general)
+- Reino Unido (RU) (versión preliminar pública)
+
+A medida que el servicio crezca, se agregarán más geografías. Los metadatos almacenados se cifran en reposo y los reflejos con redundancia geográfica se mantienen en la geografía. Los datos del cliente, como la configuración de la aplicación y los datos de usuario, residen en la ubicación que el cliente elige y no los administra el servicio.
+
+Los datos descritos se replican dentro de la geografía de Azure con fines de recuperación ante desastres.

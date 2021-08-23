@@ -8,14 +8,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: MashaMSFT
+ms.reviewer: cawrites
 ms.date: 11/06/2020
-ms.openlocfilehash: 2133f3da926dfd1e92d911004393893f58d27db6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d7c315694b5b25597abdacce74813b3578682f89
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136460"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111972045"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-virtual-machines"></a>Guía de migración: Oracle a SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -265,6 +265,7 @@ Para obtener más ayuda a fin de completar este escenario de migración, vea los
 | [Automatización de la recopilación y consolidación de evaluaciones de SSMA para Oracle](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | Este conjunto de recursos usa un archivo .csv como entrada (sources.csv en las carpetas del proyecto) para generar los archivos XML necesarios para ejecutar la evaluación de SSMA en modo de consola. El archivo source.csv se proporciona al realizar un inventario de las instancias de Oracle existentes. Los archivos de salida son AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml y VariableValueFile.xml.|
 | [Problemas de SSMA y posibles soluciones al migrar bases de datos de Oracle](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Con Oracle, puede asignar una condición no escalar en una cláusula WHERE. SQL Server no admite este tipo de condición. Por tanto, SSMA para Oracle no convierte las consultas que tienen una condición no escalar en la cláusula WHERE, sino que genera un error: O2SS0001. Estas notas del producto proporcionan detalles sobre el problema y maneras de resolverlo.          |
 | [Manual de migración de Oracle a SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Este documento se centra en las tareas asociadas a la migración de un esquema de Oracle a la versión más reciente de SQL Server. Si la migración requiere cambios en las características o la funcionalidad, se debe considerar cuidadosamente el posible efecto de cada cambio en las aplicaciones que usan la base de datos.                                                     |
+|[Utilidad Comparación de bases de datos de Oracle a SQL Server](https://www.microsoft.com/download/details.aspx?id=103016)|SSMA para Oracle Tester es la herramienta recomendada para validar automáticamente la conversión de objetos de base de datos y la migración de datos. Se trata de un superconjunto de la funcionalidad Comparación de bases de datos.<br /><br />Si busca una opción alternativa de validación de datos, puede usar la utilidad Comparación de bases de datos para comparar los datos hasta el nivel de fila o de columna en todas las tablas, filas y columnas o únicamente en las seleccionadas.|
 
 
 El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es desbloquear y acelerar la modernización compleja de proyectos de migración de una plataforma de datos a la plataforma de datos de Microsoft Azure.

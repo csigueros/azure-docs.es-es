@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 9cb46ef11ab7cc86efa0842fe5952b92170aa648
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 966b471efc7fcadbb4207fe94bb11e5333bfb0a0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737409"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095453"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
 Una instancia de proceso de Azure Machine Learning es una estación de trabajo administrada basada en la nube para científicos de datos.
 
-Las instancias de proceso permiten que sea fácil comenzar a desarrollar con Azure Machine Learning y proporcionan funcionalidades de administración y preparación empresarial para los administradores de TI.  
+Las instancias de proceso permiten que sea fácil comenzar a desarrollar con Azure Machine Learning y proporcionan funcionalidades de administración y preparación empresarial para los administradores de TI.
 
-Use una instancia de proceso como el entorno de desarrollo completamente configurado y administrado en la nube para el aprendizaje automático. También se pueden usar como destino de proceso para el entrenamiento y la inferencia con fines de desarrollo y pruebas.  
+Use una instancia de proceso como el entorno de desarrollo completamente configurado y administrado en la nube para el aprendizaje automático. También se pueden usar como destino de proceso para el entrenamiento y la inferencia con fines de desarrollo y pruebas.
 
 Para el entrenamiento del modelo de nivel de producción, use un [clúster de proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md) con funcionalidades de escalado de varios nodos. Para la implementación del modelo de calidad de producción, use el [clúster de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
@@ -47,15 +47,16 @@ También puede **[usar un script de configuración (versión preliminar)](how-to
 
 > [!IMPORTANT]
 > Los elementos marcados (versión preliminar) en este artículo se encuentran actualmente en versión preliminar pública.
-> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 La estancia de proceso Azure Machine Learning permite crear, formar e implementar modelos en una experiencia de cuaderno completamente integrada en el área de trabajo.
 
 Puede ejecutar cuadernos de Jupyter en [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) mediante la instancia de proceso como el servidor remoto sin necesidad de SSH. También puede habilitar la integración de VS Code a través de la [extensión de SSH remota](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
 
-Puede [instalar paquetes](how-to-access-terminal.md#install-packages) y [agregar kernels](how-to-access-terminal.md#add-new-kernels) a su instancia de proceso.  
+Puede [instalar paquetes](how-to-access-terminal.md#install-packages) y [agregar kernels](how-to-access-terminal.md#add-new-kernels) a su instancia de proceso.
 
-Las herramientas y los entornos siguientes ya están instalados en la instancia de proceso: 
+Las herramientas y los entornos siguientes ya están instalados en la instancia de proceso:
 
 |Herramientas y entornos generales|Detalles|
 |----|:----:|
@@ -66,7 +67,7 @@ Las herramientas y los entornos siguientes ya están instalados en la instancia 
 |Docker||
 |Nginx||
 |NCCL 2.0 ||
-|Protobuf|| 
+|Protobuf||
 
 |Herramientas y entornos de **R**|Detalles|
 |----|:----:|
@@ -98,9 +99,9 @@ Se puede tener acceso a los archivos del recurso compartido de archivos desde to
 
 También puede clonar los ejemplos de Azure Machine Learning más recientes en la carpeta situada en el directorio de archivos de usuario del recurso compartido de archivos del área de trabajo.
 
-La escritura de archivos pequeños puede ser más lenta en las unidades de red que la escritura en el propio disco local de la instancia de proceso.  Si escribe muchos archivos pequeños, pruebe usar un directorio directamente en la instancia de proceso, como un directorio`/tmp`. Tenga en cuenta que estos archivos no serán accesibles desde otras instancias de proceso. 
+La escritura de archivos pequeños puede ser más lenta en las unidades de red que la escritura en el propio disco local de la instancia de proceso.  Si escribe muchos archivos pequeños, pruebe usar un directorio directamente en la instancia de proceso, como un directorio`/tmp`. Tenga en cuenta que estos archivos no serán accesibles desde otras instancias de proceso.
 
-No almacene los datos de entrenamiento en el recurso compartido de archivos de los cuadernos. Puede usar el directorio `/tmp` en la instancia de proceso para los datos temporales.  Pero no escriba archivos de datos muy grandes en el disco del sistema operativo de la instancia de proceso. El disco del sistema operativo de la instancia de proceso tiene una capacidad de 128 GB. También puede almacenar los datos de entrenamiento temporales en un disco temporal montado en /mnt. El tamaño del disco temporal se puede configurar en función del tamaño de máquina virtual elegido y puede almacenar grandes cantidades de datos si se elige una máquina virtual de mayor tamaño. También puede montar [almacenes de datos y conjuntos de datos](concept-azure-machine-learning-architecture.md#datasets-and-datastores). 
+No almacene los datos de entrenamiento en el recurso compartido de archivos de los cuadernos. Puede usar el directorio `/tmp` en la instancia de proceso para los datos temporales.  Pero no escriba archivos de datos muy grandes en el disco del sistema operativo de la instancia de proceso. El disco del sistema operativo de la instancia de proceso tiene una capacidad de 128 GB. También puede almacenar los datos de entrenamiento temporales en un disco temporal montado en /mnt. El tamaño del disco temporal se puede configurar en función del tamaño de máquina virtual elegido y puede almacenar grandes cantidades de datos si se elige una máquina virtual de mayor tamaño. También puede montar [almacenes de datos y conjuntos de datos](concept-azure-machine-learning-architecture.md#datasets-and-datastores).
 
 ## <a name="managing-a-compute-instance"></a>Administración de una instancia de proceso
 
@@ -112,27 +113,27 @@ Consulte [Creación y administración de una instancia de proceso de Azure Machi
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Crear de una instancia de proceso
 
-Como administrador, puede **[crear una instancia de proceso para otros usuarios en el área de trabajo (versión preliminar)](how-to-create-manage-compute-instance.md#on-behalf)** .  
+Como administrador, puede **[crear una instancia de proceso para otros usuarios en el área de trabajo (versión preliminar)](how-to-create-manage-compute-instance.md#on-behalf)** .
 
 También puede **[usar un script de configuración (versión preliminar)](how-to-create-manage-compute-instance.md#setup-script)** para disponer de una manera automatizada de personalizar y configurar la instancia de proceso.
 
-Para crear por sí mismo una instancia de proceso, utilice el área de trabajo de Estudio de Azure Machine Learning y [cree una nueva instancia de proceso](how-to-create-attach-compute-studio.md#compute-instance) desde la sección **Proceso** o en la sección **Cuadernos** cuando esté listo para ejecutar uno de sus cuadernos. 
+Para crear por sí mismo una instancia de proceso, utilice el área de trabajo de Estudio de Azure Machine Learning y [cree una nueva instancia de proceso](how-to-create-attach-compute-studio.md#compute-instance) desde la sección **Proceso** o en la sección **Cuadernos** cuando esté listo para ejecutar uno de sus cuadernos.
 
 Usted también puede crear una instancia
 * Directamente de la [experiencia de cuadernos integrados](tutorial-train-models-with-aml.md#azure)
 * En Azure Portal
-* A partir de una plantilla de Azure Resource Manager. Para ver una plantilla de ejemplo, consulte [Creación una plantilla de instancia de proceso de Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
+* A partir de una plantilla de Azure Resource Manager. Para ver una plantilla de ejemplo, consulte [Creación una plantilla de instancia de proceso de Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 * Con [SDK de Azure Machine Learning](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
 * Desde la extensión de la [CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
-Los núcleos dedicados por región por cuota de familia de máquinas virtuales y cuota regional total, que se aplica a la creación de instancias de proceso, se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning. La detención de la instancia de proceso no libera la cuota para garantizar que pueda reiniciar la instancia de proceso.
+Los núcleos dedicados por región por cuota de familia de máquinas virtuales y cuota regional total, que se aplica a la creación de instancias de proceso, se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning. La detención de la instancia de proceso no libera la cuota para garantizar que pueda reiniciar la instancia de proceso. No detenga la instancia de proceso mediante el terminal del sistema operativo con un apagado sudo.
 
 La instancia de proceso viene con el disco del sistema operativo P10. El tipo de disco temporal depende del tamaño de VM elegido. Actualmente, no es posible cambiar el tipo de disco del sistema operativo.
 
 
 ## <a name="compute-target"></a>Destino de proceso
 
-Las instancias de proceso se pueden usar como [destino de proceso de entrenamiento](concept-compute-target.md#train) de forma similar a los clústeres de entrenamiento de Azure Machine Learning. 
+Las instancias de proceso se pueden usar como [destino de proceso de entrenamiento](concept-compute-target.md#train) de forma similar a los clústeres de entrenamiento de Azure Machine Learning.
 
 Una instancia de proceso:
 * Tiene una cola de trabajo.

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 04/28/2021
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 5cc99acf303b99e138edd0418d2d49824bbf27fe
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 905bfa7093fc21dfe472742e03d938cbfcaee43a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108294176"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407586"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group-from-the-azure-portal"></a>Creación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc desde Azure Portal
 
@@ -63,20 +63,51 @@ Para implementar y operar un grupo de servidores de Hiperescala de Postgres habi
 > [!IMPORTANT]
 > No puede operar un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc desde Azure Portal si lo implementó en un controlador de datos de Azure Arc configurado para usar el modo de conectividad *indirecta*. 
 
-Después de implementar un controlador de datos de Arc habilitado para el modo de conectividad directa:
-1. Abra un explorador con la siguiente dirección URL [https://portal.azure.com](https://portal.azure.com).
+Después de implementar un controlador de datos de Arc habilitado para el modo de conectividad directa, puede elegir una de las tres opciones siguientes para implementar un grupo de servidores de Hiperescala de Postgres habilitada para Azure Arc:
+
+### <a name="option-1-deploy-from-the-azure-marketplace"></a>Opción 1: Implementación desde Azure Marketplace
+1. Abra un explorador en la dirección URL siguiente [https://portal.azure.com](https://portal.azure.com)
 2. En la ventana de búsqueda de la parte superior de la página, busque "*azure arc postgres*" en Azure Market Place y seleccione **Grupos de servidores de Azure Database for PostgreSQL: Azure Arc**.
 3. En la página que se abre, haga clic en **+ Crear** en la esquina superior izquierda. 
 4. Rellene el formulario como si fuera a implementar otro recurso de Azure.
 
+### <a name="option-2-deploy-from-the-azure-database-for-postgresql-deployment-option-page"></a>Opción 2: Implementación desde la página de la opción de implementación de Azure Database for PostgreSQL
+1. Abra un explorador en la dirección URL siguiente https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer.
+2. Haga clic en el icono de la parte inferior derecha. Se titula: Hiperescala de PostgreSQL habilitada para Azure Arc (versión preliminar).
+3. Rellene el formulario como si fuera a implementar otro recurso de Azure.
 
-### <a name="important-parameters-you-should-consider-are"></a>Los parámetros importantes que debe tener en cuenta son los siguientes:
+### <a name="option-3-deploy-from-the-azure-arc-center"></a>Opción 3: Implementación desde el centro de Azure Arc
+1. Abra un explorador en la dirección URL siguiente https://ms.portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/overview
+1. En el centro de la página, haga clic en [Implementar] en el icono titulado *Implemente los servicios de Azure* y, a continuación, haga clic en [Implementar] en el icono titulado Hiperescala de PostgreSQL (versión preliminar).
+2. o bien, en el panel de navegación de la izquierda de la página, en la sección Servicios, haga clic en [Hiperescala de PostgreSQL (versión preliminar)] y, a continuación, haga clic en [+ Crear] en la parte superior izquierda del panel.
 
-- **Número de nodos de trabajo** que quiere implementar para escalar horizontalmente y lograr un mejor rendimiento. Antes de continuar, consulte los [conceptos sobre Hiperescala de Postgres](concepts-distributed-postgres-hyperscale.md). Por ejemplo, si implementa un grupo de servidores con dos nodos de trabajo, la implementación creará tres pods, uno para la instancia o nodo de coordinación y dos para las instancias o nodos de trabajo (uno para cada uno de los nodos de trabajo).
+
+#### <a name="important-parameters-you-should-consider"></a>Parámetros importantes que debe tener en cuenta:
+
+- **el número de nodos de trabajo** que quiere implementar para escalar horizontalmente y lograr mejores rendimientos; Antes de continuar, lea los [conceptos sobre Hiperescala de Postgres](concepts-distributed-postgres-hyperscale.md). En la tabla siguiente se indica el intervalo de valores admitidos y qué forma de implementación de Postgres obtiene con ellos. Por ejemplo, si quiere implementar un grupo de servidores con 2 nodos de trabajo, indique 2. Se crean tres pods, uno para el nodo o la instancia de coordinación y dos para los nodos o las instancias de trabajo (uno para cada uno de los trabajos).
+
+
+
+|Necesita:   |Forma del grupo de servidores que se va a implementar   |Número de nodos de trabajo que se deben indicar   |Nota   |
+|---|---|---|---|
+|Una forma de Postgres de escalado horizontal para satisfacer las necesidades de escalabilidad de las aplicaciones.   |3 o más instancias de Postgres, 1 es el coordinador, n son los trabajos con n >=2.   |n, con n>=2.   |Se carga la extensión Citus que proporciona la funcionalidad de Hiperescala.   |
+|Una forma básica de Hiperescala de Postgres para que realice la validación funcional de la aplicación con un coste mínimo. No es válido para la validación del rendimiento y la escalabilidad. Para ello, debe usar el tipo de implementaciones descritas anteriormente.   |1 instancia de Postgres que es el coordinador y el trabajo.   |0 y agregue Citus a la lista de extensiones que se deben cargar.   |Se carga la extensión Citus que proporciona la funcionalidad de Hiperescala.   |
+|Una instancia sencilla de Postgres que está lista para escalar horizontalmente cuando la necesite.   |1 instancia de Postgres. Todavía no es consciente de la semántica para el coordinador y el trabajo. Para escalarla horizontalmente después de la implementación, edite la configuración, aumente el número de nodos de trabajo y distribuya los datos.   |0   |La extensión Citus que proporciona la funcionalidad Hiperescala está presente en la implementación, pero aún no está cargada.   |
+|   |   |   |   |
+
+Aunque indicar 1 trabajo funciona, no se recomienda su uso. Esta implementación no le proporcionará mucho valor. Con ella, se obtienen 2 instancias de Postgres: 1 coordinador y 1 trabajo. Con esta configuración, los datos no se escalan horizontalmente en realidad, ya que se implementa un único trabajo. Por lo tanto, no verá un aumento del nivel de rendimiento y escalabilidad. Quitaremos la compatibilidad de esta implementación en una versión futura.
+
+- **las clases de almacenamiento** que quiere que use el grupo de servidores. Es importante que establezca la clase de almacenamiento justo en el momento de implementar un grupo de servidores, ya que no se puede cambiar después. Si va a cambiar la clase de almacenamiento después de la implementación, deberá extraer los datos, eliminar el grupo de servidores, crear otro grupo de servidores e importar los datos. Puede especificar las clases de almacenamiento que se usarán para los datos, los registros y las copias de seguridad. De forma predeterminada, si no indica las clases de almacenamiento, se usarán las clases de almacenamiento del controlador de datos.
+    - Para establecer la clase de almacenamiento para los datos, indique el parámetro `--storage-class-data` o `-scd` seguido del nombre de la clase de almacenamiento.
+    - Para establecer la clase de almacenamiento para los registros, indique el parámetro `--storage-class-logs` o `-scl` seguido del nombre de la clase de almacenamiento.
+    - Para establecer la clase de almacenamiento para las copias de seguridad: en esta versión preliminar de Hiperescala de PostgreSQL habilitada para Azure Arc hay dos maneras de establecer las clases de almacenamiento en función de los tipos de operaciones de copia de seguridad o restauración que quiera realizar. Estamos trabajando para simplificar esta experiencia. Indicará una clase de almacenamiento o un montaje de notificación de volumen. Un montaje de notificación de volumen es un par formado por una notificación de volumen persistente existente (en el mismo espacio de nombres) y el tipo de volumen (y metadatos opcionales según el tipo de volumen) separados por dos puntos. El volumen persistente se montará en cada pod del grupo de servidores de PostgreSQL.
+        - Si quiere planear solo restauraciones completas de bases de datos, establezca el parámetro `--storage-class-backups` o `-scb` seguido del nombre de la clase de almacenamiento.
+        - Si planea realizar restauraciones completas de la base de datos y restauraciones a un momento dado, establezca el parámetro `--volume-claim-mounts` o `-vcm` seguido del nombre de una notificación de volumen y un tipo de volumen.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Conéctese a su instancia de Hiperescala de PostgreSQL habilitada para Azure Arc: lea [Obtención de puntos de conexión y cadenas de conexión](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
+- Conéctese a su Hiperescala de PostgreSQL habilitada para Azure Arc: lea [Obtención de puntos de conexión y cadenas de conexión](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
 - Lea los conceptos y las guías paso a paso de Hiperescala de Azure Database for PostgreSQL para distribuir los datos entre varios nodos de Hiperescala de PostgreSQL y poder beneficiarse de posibles mejores rendimientos:
     * [Nodos y tablas](../../postgresql/concepts-hyperscale-nodes.md)
     * [Determinar el tipo de aplicación](../../postgresql/concepts-hyperscale-app-type.md)
@@ -88,7 +119,7 @@ Después de implementar un controlador de datos de Arc habilitado para el modo d
 
     > \* En los documentos anteriores, omita las secciones **Inicio de sesión en Azure Portal** y **Creación de una instancia de Azure Database for PostgreSQL: Hiperescala (Citus)** . Implemente los pasos restantes en la implementación de Azure Arc. Esas secciones son específicas de Hiperescala (Citus) de Azure Database for PostgreSQL que se ofrece como un servicio PaaS en la nube de Azure, pero las demás partes de los documentos se aplican directamente a Hiperescala de PostgreSQL habilitada para Azure Arc.
 
-- [Escalado horizontal del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc](scale-out-postgresql-hyperscale-server-group.md)
+- [Escalado horizontal del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Conceptos de almacenamiento de Kubernetes y configuración de almacenamiento](storage-configuration.md)
 - [Expansión de notificaciones de volúmenes persistentes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modelo de recursos de Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

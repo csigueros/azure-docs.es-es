@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: ad0391b91def898d252c429040380eab40522cd8
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 324fcb85bfe1be87dc10736c8b5c233432e07146
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378473"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111026988"
 ---
 # <a name="convert-template-gallery-in-portal-to-template-specs"></a>Conversión de la galería de plantillas en el portal en especificaciones de plantilla
 
@@ -22,7 +22,7 @@ Para ver si tiene plantillas para convertir, vea la [galería de plantillas en e
 
 Para simplificar la conversión de plantillas en la galería de plantillas, use un script de PowerShell del repositorio de plantillas de inicio rápido de Azure. Al ejecutar el script, podrá crear una nueva especificación de plantilla para cada plantilla o descargar una plantilla que cree la especificación de plantilla. El script no elimina la plantilla de la galería de plantillas.
 
-1. Copie el [script de migración](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.resources/templatespec-migrate-create/Migrate-GalleryItems.ps1). Guarde una copia local con el nombre *Migrate-GalleryItems.ps1*.
+1. Copie el [script de migración](https://github.com/Azure/azure-quickstart-templates/blob/master/201-templatespec-migrate-create/Migrate-GalleryItems.ps1). Guarde una copia local con el nombre *Migrate-GalleryItems.ps1*.
 1. Para crear nuevas especificaciones de plantilla, proporcione valores para los parámetros `-ResourceGroupName` y `-Location`.
 
    Establezca `ItemsToExport` en `MyGalleryItems` para exportar las plantillas. Establezca el valor en `AllGalleryItems` para exportar todas las plantillas a las que tiene acceso.
@@ -43,7 +43,7 @@ Para simplificar la conversión de plantillas en la galería de plantillas, use 
 
    Para información sobre cómo implementar la plantilla que crea la especificación de plantilla, consulte [Inicio rápido: Creación e implementación de especificaciones de plantilla](quickstart-create-template-specs.md).
 
-Para obtener más información sobre el script y sus parámetros, consulte [Creación de TemplateSpecs desde plantillas de la galería de plantillas](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/templatespec-migrate-create).
+Para obtener más información sobre el script y sus parámetros, consulte [Creación de TemplateSpecs desde plantillas de la galería de plantillas](https://github.com/Azure/azure-quickstart-templates/tree/master/201-templatespec-migrate-create).
 
 ## <a name="manually-convert-through-portal"></a>Conversión manual a través del portal
 
