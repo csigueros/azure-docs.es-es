@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2021
+ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 7a445eefa31e741562105e89fa105d404ccc0c7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97b8efe9ad614e3b243954eee4a319da778b82c8
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646357"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutorial: Integración de Azure Active Directory con ArcGIS Online
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar ArcGIS Online con Azure Active Directory
 * Permitir que los usuarios inicien sesión automáticamente en ArcGIS Online con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -123,29 +123,29 @@ En esta sección, va a permitir que B.Simon acceda a ArcGIS Online mediante el i
 
 1. Si quiere configurar ArcGIS Online manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de ArcGIS Online como administrador y realice los pasos siguientes:
 
-2. Haga clic en **EDITAR CONFIGURACIÓN**.
+2. Vaya a **Organización** -> **Configuración**. 
 
     ![Edit Settings](./media/arcgis-tutorial/settings.png "Edit Settings") (Editar configuración)
 
-3. Haga clic en **Seguridad**.
+3. En el menú de la izquierda, haga clic en **Seguridad** y seleccione **New SAML login** (Nuevo inicio de sesión SAML) en la pestaña Inicios de sesión.
 
-    ![Seguridad](./media/arcgis-tutorial/secure.png "Seguridad")
+    ![captura de pantalla de Seguridad](./media/arcgis-tutorial/security.png)
 
-4. En **Inicios de sesión de la empresa**, haga clic en **ESTABLECER PROVEEDOR DE IDENTIDADES**.
+4. En la ventana **Set SAML login** (Establecer inicio de sesión SAML), elija la configuración como **One identity provider** (Un proveedor de identidades) y haga clic en **Siguiente**.
 
-    ![Enterprise Logins (Inicios de sesión de la empresa)](./media/arcgis-tutorial/enterprise.png "Enterprise Logins (Inicios de sesión de la empresa)")
+    ![Enterprise Logins (Inicios de sesión de la empresa)](./media/arcgis-tutorial/identity-provider.png "Enterprise Logins (Inicios de sesión de la empresa)")
 
-5. En la sección **Configurar proveedor de identidades** , realice los pasos siguientes:
+5. En la pestaña **Specify properties** (Especificar propiedades), siga los pasos a continuación:
 
-    ![Set Identity Provider (Establecer proveedor de identidades)](./media/arcgis-tutorial/identity-provider.png "Establecer proveedor de identidades")
+    ![Set Identity Provider (Establecer proveedor de identidades)](./media/arcgis-tutorial/set-saml-login.png "Establecer proveedor de identidades")
 
     a. En el cuadro de texto **Nombre**, escriba el nombre de la organización.
 
-    b. En **Metadata for the Enterprise Identity Provider will be supplied using** (Los metadatos para el proveedor de identidades de la empresa se proporcionarán con), seleccione **A File** (Un archivo).
+    b. En **Metadata source for Enterprise Identity Provider** (Origen de metadatos para proveedor de identidades empresariales), seleccione **Archivo**.
 
-    c. Haga clic en **Choose file**(Elegir archivo) para cargar el archivo de metadatos descargado.
+    c. Haga clic en **Elegir archivo** para cargar el archivo **XML de metadatos de federación** que descargó de Azure Portal.
 
-    d. Haga clic en **ESTABLECER PROVEEDOR DE IDENTIDADES**.
+    d. Haga clic en **Save**(Guardar).
 
 ### <a name="create-arcgis-online-test-user"></a>Creación de un usuario de prueba de ArcGIS Online
 
@@ -156,22 +156,25 @@ En el caso de ArcGIS Online, el aprovisionamiento es una tarea manual.
 
 1. Inicie sesión en su inquilino de **ArcGIS** .
 
-2. Haga clic en **INVITAR A MIEMBROS**.
+2. Vaya a **Organización** -> **Miembros** y haga clic en **Invitar a miembros**.
 
     ![Invite Members (Invitar a miembros)](./media/arcgis-tutorial/invite.png "Invitar a miembros")
 
-3. Seleccione **Agregar miembros automáticamente sin enviar un correo electrónico** y luego haga clic en **SIGUIENTE**.
+3. Seleccione el método **Add members without sending invitations** (Agregar miembros sin enviar invitaciones) y luego haga clic en **Siguiente**.
 
-    ![Add Members Automatically (Agregar miembros automáticamente)](./media/arcgis-tutorial/members.png "Agregar miembros automáticamente")
+    ![Add Members Automatically (Agregar miembros automáticamente)](./media/arcgis-tutorial/add-members.png "Agregar miembros automáticamente")
 
-4. En la página de diálogo **Miembros** , realice los pasos siguientes:
+1. En **Compile member list** (Compilar lista de miembros), seleccione **Nuevo miembro** y haga clic en **Siguiente**.
+
+4. Rellene los campos obligatorios en la página siguiente y haga clic en **Siguiente**.
 
     ![Add and review (Agregar y revisar)](./media/arcgis-tutorial/review.png "Agregar y revisar")
 
-     a. Escriba los valores para **Email** (Correo electrónico), **First name** (Nombre) y **Last name** (Apellidos) de una cuenta de Azure AD válida que quiera aprovisionar.
+5. En la página siguiente, seleccione el miembro que quiere agregar y haga clic en **Siguiente**. 
 
-     b. Haga clic en **AGREGAR Y REVISAR**.
-5. Revise los datos que ha escrito y luego haga clic en **AGREGAR MIEMBROS**.
+1. Establezca las propiedades de miembro obligatorias en la página siguiente y haga clic en **Siguiente**.
+
+1. En la pestaña **Confirm and complete** (Confirmar y completar) haga clic en **Agregar miembros**.
 
     ![Add members (Agregar miembros)](./media/arcgis-tutorial/add.png "Agregar miembro")
 

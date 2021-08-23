@@ -3,17 +3,21 @@ title: 'Inicio rápido: Adición de la posibilidad de incorporar una reunión de
 description: En este inicio rápido, aprenderá a usar la biblioteca de integración de Teams de Azure Communication Services para Android.
 author: palatter
 ms.author: palatter
-ms.date: 01/25/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: cbf56f6567c3c7857afcd71ed9f6dc67be48f9d1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0340135bf17f31ccc1dd00507a1c57426a3c641d
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108792383"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113218160"
 ---
 En este inicio rápido, aprenderá cómo unirse a una reunión de Microsoft Teams mediante la biblioteca insertada de Teams de Azure Communication Services para Android.
+
+## <a name="sample-code"></a>Código de ejemplo
+
+Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/teams-embed-android-getting-started).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -55,7 +59,7 @@ android {
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-common:1.0.0-beta.8'
+    implementation 'com.azure.android:azure-communication-common:1.0.0'
     ...
 }
 ```
@@ -76,7 +80,7 @@ Actualice los valores del archivo `build.gradle`.
 
 ### <a name="install-the-teams-embed-package"></a>Instalación del paquete de inserción de Teams
 
-Descargue el paquete [`MicrosoftTeamsSDK`.](https://github.com/Azure/communication)
+Descargue el paquete `MicrosoftTeamsSDK`.
 
 Luego, descomprima la carpeta `MicrosoftTeamsSDK` en la carpeta de la aplicación del proyecto. Por ejemplo, `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
 
@@ -86,7 +90,7 @@ En el archivo `build.gradle` de nivel de aplicación, agregue la siguiente líne
 
 ```groovy
 apply from: 'MicrosoftTeamsSDK/MicrosoftTeamsSDK.gradle'
-```
+ ```
 
 Sincronice el proyecto con archivos de Gradle.
 
@@ -158,7 +162,7 @@ Agregue `.TeamsEmbedAndroidGettingStarted` a `android:name`, `android:name` a `t
 
 ### <a name="set-up-the-layout-for-the-app"></a>Configuración del diseño de la aplicación
 
-Cree un botón con el identificador `join_meeting`. Vaya al archivo de diseño (`app/src/main/res/layout/activity_main.xml`) y reemplace el contenido del archivo por lo siguiente:
+Cree un botón con el identificador `join_meeting`. Vaya al archivo de diseño (`app/src/main/res/layout/activity_main.xml`) y reemplace el contenido del archivo por el código siguiente:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -185,7 +189,7 @@ Cree un botón con el identificador `join_meeting`. Vaya al archivo de diseño (
 
 Con el diseño creado, se puede el scaffolding básico de la actividad junto con los enlaces necesarios. La actividad controlará la solicitud de los permisos en tiempo de ejecución, la creación del cliente de la reunión y la incorporación a una reunión cuando se presiona el botón. Cada proceso se tratará en su propia sección. 
 
-El método `onCreate` se reemplazará para invocar a `getAllPermissions` y `createAgent`, y para agregar los enlaces para el botón `Join Meeting`. Solo se producirá una vez cuando se cree la actividad. Para obtener más información sobre `onCreate`, consulte la guía [Descripción del ciclo de vida de la actividad](https://developer.android.com/guide/components/activities/activity-lifecycle).
+El método `onCreate` se reemplazará para agregar los enlaces para el botón `Join Meeting`. Solo se producirá una vez cuando se cree la actividad. Para obtener más información sobre `onCreate`, consulte la guía [Descripción del ciclo de vida de la actividad](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
 Vaya a **MainActivity.java** y reemplace el contenido por el siguiente código:
 
@@ -214,29 +218,21 @@ public class MainActivity extends AppCompatActivity {
 
     private final String displayName = "John Smith";
 
-    private MeetingUIClient meetingUIClient;
-    private MeetingUIClientJoinOptions meetingJoinOptions;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
         
-        getAllPermissions();
-        createMeetingClient();
-
-        Button joinMeeting = findViewById(R.id.join_meeting);
-        joinMeeting.setOnClickListener(l -> joinMeeting());
+        Button joinMeetingButton = findViewById(R.id.join_meeting);
+        joinMeetingButton.setOnClickListener(l -> joinMeeting());
     }
-
-    private void createMeetingClient() {
-        // See section on creating meeting client
-    }
-
+    
     private void joinMeeting() {
-        // See section on joining a meeting
+    // See section on joining a meeting
+    }
+
+    private MeetingUIClient createMeetingUIClient() {
+        // See section on creating meeting ui client
     }
 
     private void getAllPermissions() {
@@ -247,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### <a name="request-permissions-at-runtime"></a>Solicitud de permisos en tiempo de ejecución
 
-Para Android 6.0 y las versiones posteriores (nivel de API 23) y `targetSdkVersion` 23 o las versiones posteriores, los permisos se conceden en tiempo de ejecución en lugar de cuando se instala la aplicación. Para admitir esto, se puede implementar `getAllPermissions` para llamar a `ActivityCompat.checkSelfPermission` y `ActivityCompat.requestPermissions` para cada permiso necesario.
+Para Android 6.0 y las versiones posteriores (nivel de API 23) y `targetSdkVersion` 23 o las versiones posteriores, los permisos se conceden en tiempo de ejecución en lugar de cuando se instala la aplicación. Para solicitar permisos, se puede implementar `getAllPermissions` para llamar a `ActivityCompat.checkSelfPermission` y `ActivityCompat.requestPermissions` para cada permiso necesario.
 
 ```java
 /**
@@ -274,34 +270,39 @@ private void getAllPermissions() {
 
 Las siguientes clases e interfaces controlan algunas de las características principales de la biblioteca de integración de Teams de Azure Communication Services:
 
-| Nombre                                  | Descripción                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-| MeetingUIClient| MeetingUIClient es el punto de entrada principal a la biblioteca de integración de Teams. |
-| MeetingUIClientJoinOptions | MeetingUIClientJoinOptions se usa para las opciones configurables, como el nombre para mostrar. |
-| MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator se usa para establecer la dirección URL de la reunión para unirse a una reunión. |
-| MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator se usa para establecer el identificador de grupo al que se va a unir. |
-| MeetingUIClientCallState | MeetingUIClientCallState se utiliza para notificar los cambios en el estado de la llamada. Estas son las opciones: `connecting`, `waitingInLobby`, `connected` y `ended`. |
-| MeetingUIClientEventListener | MeetingUIClientEventListener se usa para recibir eventos, como cambios en el estado de la llamada. |
-| MeetingUIClientIdentityProvider | MeetingUIClientIdentityProvider se usa para asignar los detalles del usuario a los usuarios de una reunión. |
-| MeetingUIClientUserEventListener | MeetingUIClientUserEventListener se usa para proporcionar información sobre las acciones del usuario en la interfaz de usuario. |
+| Nombre                                    | Descripción                                                                                                                                                       |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MeetingUIClient                         | MeetingUIClient es el punto de entrada principal a la biblioteca de integración de Teams.                                                                                           |
+| MeetingUIClientJoinOptions              | MeetingUIClientJoinOptions se usa para las opciones configurables, como el nombre para mostrar.                                                                                |
+| MeetingUIClientTeamsMeetingLinkLocator  | MeetingUIClientTeamsMeetingLinkLocator se usa para establecer la dirección URL de la reunión para unirse a una reunión.                                                                      |
+| MeetingUIClientGroupCallLocator         | MeetingUIClientGroupCallLocator se usa para establecer el identificador de grupo al que se va a unir.                                                                                         |
+| MeetingUIClientIconType                 | MeetingUIClientIconType se usa para especificar qué iconos se pueden reemplazar por el icono específico de una aplicación.                                                                  |
+| MeetingUIClientCall                     | MeetingUIClientCall describe la llamada y proporciona las API para controlarla.                                                                                           |
+| MeetingUIClientCallState                | MeetingUIClientCallState se utiliza para notificar los cambios en el estado de la llamada. Estas son las opciones: `CONNECTING`, `WAITING_IN_LOBBY`, `CONNECTED` y `ENDED`. |
+| MeetingUIClientAudioRoute               | MeetingUIClientAudioRoute se usa para las rutas de audio locales, como `Earpiece` o `SpeakerOn`.                                                                          |
+| MeetingUIClientLayoutMode               | MeetingUIClientLayoutMode se usa para que sea posible seleccionar diferentes modos de llamada entrante en la interfaz de usuario.                                                                              |
+| MeetingUIClientAvatarSize               | MeetingUIClientAvatarSize es una enumeración para indicar diferentes tamaños de avatar que puede solicitar MeetingUIClientCallIdentityProvider.                                |
+| MeetingUIClientCallEventListener        | MeetingUIClientCallEventListener se usa para recibir eventos, como cambios en el estado de la llamada.                                                                    |
+| MeetingUIClientCallIdentityProvider     | MeetingUIClientCallIdentityProvider se usa para asignar los detalles del usuario a los usuarios de una reunión.                                                                    |
+| MeetingUIClientCallUserEventListener    | MeetingUIClientCallUserEventListener proporciona información sobre las acciones del usuario en la interfaz de usuario.                                                                       |
 
 ## <a name="create-a-meetingclient-from-the-user-access-token"></a>Creación de una instancia de MeetingClient a partir del token de acceso de usuario
 
 Se puede crear una instancia de un cliente de reunión autenticado con un token de acceso de usuario. Normalmente, este token lo genera un servicio con autenticación específica de la aplicación. Para más información sobre los tokens de acceso de usuario, consulte la guía [Tokens de acceso de usuario](../../access-tokens.md). En el inicio rápido, reemplace `<USER_ACCESS_TOKEN>` por un token de acceso de usuario generado para el recurso de Azure Communication Service.
 
 ```java
-private void createMeetingClient() { 
+private MeetingUIClient createMeetingUIClient() { 
     try {
         CommunicationTokenRefreshOptions refreshOptions = new CommunicationTokenRefreshOptions(tokenRefresher, true, "<USER_ACCESS_TOKEN>");
         CommunicationTokenCredential credential = new CommunicationTokenCredential(refreshOptions);
-        meetingUIClient = new MeetingUIClient(credential);
+        return new MeetingUIClient(credential);
     } catch (Exception ex) {
-        Toast.makeText(getApplicationContext(), "Failed to create meeting client: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Failed to create meeting ui client: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
 
-## <a name="setup-token-refreshing"></a>Actualización del token de instalación
+### <a name="setup-token-refreshing"></a>Actualización del token de instalación
 
 Cree un método Callable `tokenRefresher`. Luego, cree un método `fetchToken` para obtener el token del usuario. [Aquí puede encontrar las instrucciones necesarias para hacerlo](../../access-tokens.md?pivots=programming-language-java)
 
@@ -316,28 +317,35 @@ public String fetchToken() {
 }
 ```
 
-## <a name="get-the-teams-meeting-link"></a>Obtención del vínculo de la reunión de Teams
-
-El vínculo de la reunión de Teams se puede recuperar mediante las Graph API. Esto se detalla en la [documentación de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
-El SDK de llamada de Communication Services acepta un vínculo a toda la reunión de Teams. Este vínculo se devuelve como parte del recurso `onlineMeeting`, al que se accede bajo la propiedad [`joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). También puede obtener la información necesaria de la reunión de la dirección URL **Unirse a la reunión** de la propia invitación a la reunión de Teams.
-
 ## <a name="start-a-meeting-using-the-meeting-client"></a>Inicio de una reunión con el cliente de reunión
 
-La incorporación a una reunión se puede realizar a través de `MeetingUIClient` y solo requiere `MeetingUIClientTeamsMeetingLinkLocator` y `MeetingUIClientJoinOptions`. Reemplace `<MEETING_URL>` por la dirección URL de la reunión de Teams.
+El método `joinMeeting` se establece como la acción que se llevará a cabo cuando se pulse el botón *Unirse a la reunión*. La incorporación a una reunión se puede realizar a través de `MeetingUIClient` y solo requiere `MeetingUIClientTeamsMeetingLinkLocator` y `MeetingUIClientJoinOptions`.
+Recuerde reemplazar `<MEETING_URL>` por un vínculo a la reunión de Microsoft Teams.
 
 ```java
 /**
  * Join a meeting with a meetingURL.
  */
 private void joinMeeting() {
+    getAllPermissions();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
+    
+    MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
+    
+    MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
+    
     try {
-        MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
         meetingUIClient.join(meetingUIClientTeamsMeetingLinkLocator, meetingJoinOptions);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
+
+### <a name="get-a-microsoft-teams-meeting-link"></a>Obtención de un vínculo de reunión de Microsoft Teams
+
+Se puede recuperar un vínculo a la reunión de Teams mediante instancias de Graph API. Los pasos para recuperar un vínculo de reunión se detallan en la [documentación de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+El SDK de llamada de Communication Services acepta un vínculo a toda la reunión de Teams. Este vínculo se devuelve como parte del recurso `onlineMeeting`, al que se accede bajo la propiedad [`joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). También puede obtener la información necesaria de la reunión de la dirección URL **Unirse a la reunión** de la propia invitación a la reunión de Teams.
 
 ## <a name="launch-the-app-and-join-a-meeting"></a>Inicio de la aplicación e incorporación a una reunión
 
@@ -347,6 +355,12 @@ Ahora se puede iniciar la aplicación con el botón "Ejecutar aplicación" de la
 
 :::image type="content" source="../media/android/quickstart-android-joined-meeting.png" alt-text="Captura de pantalla que muestra la aplicación completa después de incorporarse a la reunión.":::
 
-## <a name="sample-code"></a>Código de ejemplo
+## <a name="add-localization-support-based-on-your-app"></a>Adición de compatibilidad con la localización en función de la aplicación
 
-Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/teams-embed-android-getting-started).
+El SDK de Microsoft Teams admite más de 100 cadenas en más de 50 idiomas. De manera predeterminada, solo está habilitado el inglés. El resto se puede habilitar en el archivo gradle.
+
+#### <a name="add-localizations-to-the-sdk-based-on-what-your-app-supports"></a>Agregue localizaciones al SDK en función de lo que admita la aplicación.
+
+1. Determinación de la lista de idiomas que admite una aplicación
+2. Abra el archivo MicrosoftTeamsSDK.gradle.
+3. En el bloque defaultConfig, la propiedad resConfigs se establece en "en" de manera predeterminada. Agregue los idiomas que necesite la aplicación. Referencia: [Documentación de Android](https://developer.android.com/studio/build/shrink-code#unused-alt-resources)

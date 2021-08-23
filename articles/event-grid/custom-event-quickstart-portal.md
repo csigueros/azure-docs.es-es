@@ -1,18 +1,25 @@
 ---
-title: 'Inicio rápido: Envío de eventos personalizados al punto de conexión web (Event Grid y Azure Portal)'
+title: Envío de eventos personalizados al punto de conexión web (Event Grid y Azure Portal)
 description: 'Inicio rápido: Use Azure Event Grid y Azure Portal para publicar un tema personalizado y suscribirse a eventos de ese tema. Los eventos se controlan mediante una aplicación web.'
-ms.date: 04/22/2021
+ms.date: 07/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 91ac5cfd65910a6297f78f34943331d5b911559b
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: a2d259707e6bfbcc5216b345107507413da71523
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107895752"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113232455"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados a puntos de conexión web con Azure Portal y Event Grid
+# <a name="route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Enrutamiento de eventos personalizados a puntos de conexión web con Azure Portal y Event Grid
+Event Grid es un servicio totalmente administrado que le permite administrar fácilmente eventos en muchos servicios y aplicaciones de Azure diferentes. Simplifica la creación de aplicaciones controladas por eventos y sin servidor. Para obtener información general sobre el servicio, consulte [¿Qué es Azure Event Grid?](overview.md)
 
-Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa Azure Portal para crear un tema personalizado, suscribirse al tema y desencadenar el evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
+En este artículo, se usa Azure Portal para realizar las siguientes tareas: 
+
+1. Cree un tema personalizado.
+1. Suscríbase a un tema personalizado.
+1. Desencadene el evento.
+1. Vea el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
@@ -20,16 +27,13 @@ Azure Event Grid es un servicio de eventos para la nube. En este artículo, se u
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## <a name="create-a-custom-topic"></a>Creación de un tema personalizado
-
 Un tema de cuadrícula de eventos proporciona un punto de conexión definido por el usuario en el que se registran los eventos. 
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).
 2. En la barra de búsqueda del tema, escriba **Temas de Event Grid** y, a continuación, seleccione **Temas de Event Grid** en la lista desplegable. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Búsqueda y selección de temas de Event Grid":::
-3. En la página **Temas de Event Grid**, seleccione **+ Agregar** en la barra de herramientas. 
-
-    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Incorporación del botón Tema de Event Grid":::
+3. En la página **Temas de Event Grid**, seleccione **+ Crear** en la barra de herramientas. 
 4. En la página **Crear tema**, siga estos pasos:
     1. Selección la **suscripción** de Azure.
     2. Seleccione un grupo de recursos existente o **Crear nuevo** y escriba un **nombre** para el **grupo de recursos**.
@@ -41,14 +45,9 @@ Un tema de cuadrícula de eventos proporciona un punto de conexión definido por
     6. En la pestaña **Revisar y crear** de la página **Crear tema**, seleccione **Crear**. 
     
         :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Revisión de la configuración y creación":::
-5. Una vez finalizada la implementación, escriba **Temas de Event Grid** en la barra de búsqueda de nuevo y seleccione **Temas de Event Grid** en la lista desplegable como hizo anteriormente. 
-6. Seleccione en la lista el tema que creó. 
+5. Una vez que la implementación se haya realizado correctamente, seleccione **Ir al recurso** para ver la página **Tema de Event Grid** para su tema. Mantenga esta página abierta. La usará más adelante en este inicio rápido. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selección del tema en la lista":::
-
-7. Ahora verá la página **Tema de Event Grid** del tema. Mantenga esta página abierta. La usará más adelante en este inicio rápido. 
-
-    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Página principal Tema de Event Grid":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Captura de pantalla que muestra la página principal de Tema de Event Grid":::
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
 Antes de crear una suscripción para el tema personalizado, cree un punto de conexión para el mensaje de evento. Normalmente, el punto de conexión realiza acciones en función de los datos del evento. Para simplificar esta guía de inicio rápido, se implementa una [aplicación web pregenerada](https://github.com/Azure-Samples/azure-event-grid-viewer) que muestra los mensajes de los eventos. La solución implementada incluye un plan de App Service, una aplicación web de App Service y el código fuente desde GitHub.
@@ -56,12 +55,27 @@ Antes de crear una suscripción para el tema personalizado, cree un punto de con
 1. En la página del artículo, seleccione **Implementar en Azure** para implementar la solución en su suscripción. En Azure Portal, proporcione valores para los parámetros.
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
-1. La implementación puede tardar unos minutos en completarse. Después de que la implementación se haya realizado correctamente, puede ver la aplicación web para asegurarse de que se está ejecutando. En un explorador web, vaya a: `https://<your-site-name>.azurewebsites.net`
+2. En la página **Implementación personalizada**, siga estos pasos: 
+    1. En **Grupo de recursos**, seleccione el grupo de recursos que usó para crear la cuenta de almacenamiento. Cuando acabe el tutorial elimine el grupo de recursos.  
+    2. En **Nombre del sitio**, escriba el nombre de la aplicación web.
+    3. En **Nombre del plan de hospedaje**, escriba el nombre del plan de App Service que se va a usar para hospedar la aplicación web.
+    5. Seleccione **Revisar + crear**. 
 
-    Si se produce un error en la implementación, compruebe el mensaje de error. Puede deberse a que ya se ha utilizado el nombre del sitio web. Vuelva a implementar la plantilla y elija un nombre diferente para el sitio. 
-1. Verá el sitio, pero aún no se ha publicado en él ningún evento.
+        :::image type="content" source="./media/blob-event-quickstart-portal/template-deploy-parameters.png" alt-text="Captura de pantalla que muestra la página Implementación personalizada.":::
+1. En la página **Revisar y crear**, seleccione **Crear**. 
+1. La implementación puede tardar unos minutos en completarse. Seleccione Alertas (el icono de la campana) en el portal y, después, seleccione **Ir al grupo de recursos**. 
 
-   ![Visualización del nuevo sitio](./media/custom-event-quickstart-portal/view-site.png)
+    ![Alerta: ir al grupo de recursos.](./media/blob-event-quickstart-portal/navigate-resource-group.png)
+4. En la página **Grupo de recursos**, en la lista de recursos, seleccione la aplicación web que ha creado. En esta lista también se ven el plan de App Service y la cuenta de almacenamiento. 
+
+    ![Selección de un sitio web.](./media/blob-event-quickstart-portal/resource-group-resources.png)
+5. En la página **App Service** de la aplicación web, seleccione la dirección URL para ir al sitio web. La dirección URL debe tener este formato: `https://<your-site-name>.azurewebsites.net`.
+    
+    ![Ir al sitio web.](./media/blob-event-quickstart-portal/web-site.png)
+
+6. Confirme que ve el sitio, pero que aún no se han publicado eventos en él.
+
+   ![Visualización del nuevo sitio.](./media/blob-event-quickstart-portal/view-site.png)
 
 ## <a name="subscribe-to-custom-topic"></a>Suscripción a un tema personalizado
 

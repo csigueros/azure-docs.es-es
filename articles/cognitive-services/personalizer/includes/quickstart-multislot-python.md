@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: Archivo de inclusión
 services: cognitive-services
 manager: nitinme
@@ -8,12 +8,12 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 03/23/2021
-ms.openlocfilehash: e772182cfd1ba656c730f423a7b4b8f0a5d709a7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: da6a271275c0b3b4f8d412bf622e6171609b3128
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382333"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112255667"
 ---
 [Personalización conceptual de varias ranuras](..\concept-multi-slot-personalization.md) | [Ejemplos](https://aka.ms/personalizer/ms-python)
 
@@ -31,6 +31,8 @@ ms.locfileid: "110382333"
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
+[!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
+
 ### <a name="create-a-new-python-application"></a>Creación de una nueva aplicación de Python
 
 Cree un archivo de Python y variables para el punto de conexión y la clave de suscripción del recurso.
@@ -38,22 +40,22 @@ Cree un archivo de Python y variables para el punto de conexión y la clave de s
 [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
 
 ```python
-import datetime, json, os, time, uuid, requests
+import json, uuid, requests
 
 # The endpoint specific to your personalization service instance; 
 # e.g. https://<your-resource-name>.cognitiveservices.azure.com
-PERSONALIZATION_BASE_URL = "https://<REPLACE-WITH-YOUR-PERSONALIZER-ENDPOINT>.cognitiveservices.azure.com"
+PERSONALIZATION_BASE_URL = "<REPLACE-WITH-YOUR-PERSONALIZER-ENDPOINT>"
 # The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
 RESOURCE_KEY = "<REPLACE-WITH-YOUR-PERSONALIZER-KEY>"
 ```
 
 ## <a name="object-model"></a>Modelo de objetos
 
-Con el fin de solicitar el mejor elemento de contenido para cada ranura, cree una solicitud [rank_request] y, a continuación, envíe una solicitud POST al punto de conexión [multislot/rank] ( https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Rank). A continuación, la respuesta se analiza en otra respuesta [rank_response].
+Con el fin de solicitar el mejor elemento de contenido para cada ranura, cree una solicitud **rank_request** y, después, envíe una solicitud POST a [multislot/rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Rank). Luego la respuesta se analiza en **rank_response**.
 
-Para enviar una puntuación de recompensa a Personalizer, cree una llamada [reward] y, a continuación, envíe una solicitud POST a [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Events_Reward).
+Para enviar una puntuación de recompensa a Personalizer, cree una llamada **rewards** y, a continuación, envíe una solicitud POST a [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Events_Reward).
 
-La determinación de la puntuación de recompensa en este inicio rápido no es importante. En un sistema de producción, la determinación de lo que afecta a la [puntuación de recompensa](../concept-rewards.md) y cuánto le afecta, puede ser un proceso complejo que decida cambiar con el tiempo. Esta debe ser una de las decisiones de diseño principales en la arquitectura de Personalizer.
+En este artículo de inicio rápido, determinar la puntuación de recompensa no es importante. En un sistema de producción, la determinación de lo que afecta a la [puntuación de recompensa](../concept-rewards.md), y cuánto le afecta, puede ser un proceso complejo que decida cambiar con el tiempo. Esta debe ser una de las decisiones de diseño principales en la arquitectura de Personalizer.
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -65,17 +67,13 @@ Estos fragmentos de código muestran cómo realizar las siguientes tareas envian
 
 ## <a name="create-base-urls"></a>Creación de direcciones URL base
 
-En esta sección, hará dos cosas:
-* Crear las direcciones URL Rank y Reward.
-* Crear los encabezados de las solicitudes Rank o Reward.
-
-Cree las direcciones URL Rank o Reward usando la dirección URL base y los encabezados de solicitud usando la clave de recurso.
+En esta sección creará las direcciones URL Rank o Reward mediante la dirección URL base y los encabezados de solicitud con la clave de recurso.
 
 ```python
 MULTI_SLOT_RANK_URL = '{0}personalizer/v1.1-preview.1/multislot/rank'.format(PERSONALIZATION_BASE_URL)
 MULTI_SLOT_REWARD_URL_BASE = '{0}personalizer/v1.1-preview.1/multislot/events/'.format(PERSONALIZATION_BASE_URL)
 HEADERS = {
-    'ocp-apim-subscription-key.': RESOURCE_KEY,
+    'ocp-apim-subscription-key': RESOURCE_KEY,
     'Content-Type': 'application/json'
 }
 ```
@@ -201,12 +199,14 @@ def get_slots():
 
 ## <a name="make-http-requests"></a>Realización de solicitudes HTTP
 
-Envíe solicitudes POST al punto de conexión de Personalizer para realizar llamadas Rank y Reward de varias ranuras.
+Agregue estas funciones para enviar solicitudes POST al punto de conexión de Personalizer a fin de realizar llamadas de clasificación y recompensa de varias ranuras.
 
 ```python
 def send_multi_slot_rank(rank_request):
-    multi_slot_response = requests.post(MULTI_SLOT_RANK_URL, data=json.dumps(rank_request), headers=HEADERS )
-    return json.loads(multi_slot_response.text)
+multi_slot_response = requests.post(MULTI_SLOT_RANK_URL, data=json.dumps(rank_request), headers=HEADERS)
+if multi_slot_response.status_code != 201:
+    raise Exception(multi_slot_response.text)
+return json.loads(multi_slot_response.text)
 ```
 
 ```python
@@ -289,7 +289,7 @@ Agregue los siguientes métodos, que [obtienen las opciones de contenido selecci
 
 ## <a name="request-the-best-action"></a>Solicitud de la mejor acción
 
-Para completar la solicitud Rank, el programa solicita las preferencias del usuario para crear opciones de contenido. El cuerpo de la solicitud contiene las características de contexto, las acciones y sus características, las ranuras y sus características, y un id. de evento único, con el fin de recibir la respuesta. El método `send_multi_slot_rank` necesita el objeto rank_request para enviar la solicitud Rank de varias ranuras.
+Para completar la solicitud Rank, el programa solicita las preferencias del usuario para crear opciones de contenido. El cuerpo de la solicitud contiene el contexto, las acciones y las ranuras con sus respectivas características. El método `send_multi_slot_rank` toma un objeto rankRequest y ejecuta la solicitud de clasificación de varias ranuras.
 
 Esta guía de inicio rápido tiene características de contexto sencillas de hora del día y dispositivo del usuario. En los sistemas de producción, la determinación y [evaluación](../concept-feature-evaluation.md) de [acciones y características](../concepts-features.md) no es una cuestión trivial.
 
@@ -313,7 +313,7 @@ multi_slot_rank_response = send_multi_slot_rank(rank_request)
 
 ## <a name="send-a-reward"></a>Envío de una recompensa
 
-Para obtener la puntuación de recompensa que se enviará en la solicitud Reward, el programa obtiene la selección del usuario mediante la línea de comandos, asigna un valor numérico a la selección y, después, envía el id. de evento único y la puntuación de recompensa para cada ranura como valor numérico al método `send_multi_slot_reward`. No es necesario definir una recompensa para cada ranura.
+Para obtener la puntuación de recompensa de la solicitud Reward, el programa obtiene la selección del usuario en cada ranura mediante la línea de comandos, asigna un valor numérico (puntuación de recompensa) a la selección y, después, envía el identificador de evento único, el identificador de ranura y la puntuación de recompensa para cada ranura al método `send_multi_slot_reward`. No es necesario definir una recompensa para cada ranura.
 
 En este inicio rápido se asigna un número simple como puntuación de recompensa: 0 o 1. En sistemas de producción, determinar cuándo y qué enviar a la llamada [Reward](../concept-rewards.md) puede ser más complicado, en función de las necesidades específicas.
 
@@ -343,4 +343,4 @@ python sample.py
 ![El programa del inicio rápido realiza dos preguntas para recopilar las preferencias del usuario, conocidas como características, y, después, proporciona la acción principal.](../media/csharp-quickstart-commandline-feedback-loop/multislot-quickstart-program-feedback-loop-example-1.png)
 
 
-El [código fuente de este inicio rápido](https://aka.ms/personalizer/ms-python) está disponible.
+El [código fuente de este inicio rápido](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer/multislot-quickstart) está disponible.

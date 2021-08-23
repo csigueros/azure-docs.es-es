@@ -9,12 +9,12 @@ ms.date: 06/24/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: a2a73c081a24d0efc8197a2d6808f4dfee94481a
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 9aa776b52d3303d7721d900476f606c3ab38d7a5
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591681"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378716"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carga de datos de imagen en la nube con Azure Storage
 
@@ -51,26 +51,48 @@ Para instalar y usar la CLI localmente, ejecute la versión 2.0.4 de la CLI de A
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.  
-
 En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup`.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Cree un grupo de recursos con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+
+```powershell
+New-AzResourceGroup -Name myResourceGroup -Location southeastasia
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 ```azurecli
 az group create --name myResourceGroup --location southeastasia
 ```
 
-```powershell
-az group create --name myResourceGroup --location southeastasia
-```
+---
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-En el ejemplo se cargan imágenes en un contenedor de blobs en una cuenta de Azure Storage. Una cuenta de almacenamiento proporciona un espacio de nombres único para almacenar y tener acceso a los objetos de datos de almacenamiento de Azure. Cree una cuenta de almacenamiento en el grupo de recursos que ha creado con el comando [az storage account create](/cli/azure/storage/account).
+En el ejemplo se cargan imágenes en un contenedor de blobs en una cuenta de Azure Storage. Una cuenta de almacenamiento proporciona un espacio de nombres único para almacenar y tener acceso a los objetos de datos de almacenamiento de Azure.
 
 > [!IMPORTANT]
 > En la parte 2 del tutorial, usará Azure Event Grid con Blob Storage. Asegúrese de crear la cuenta de almacenamiento en una región de Azure que admita Event Grid. Para obtener una lista de las regiones admitidas, consulte [Productos de Azure por región](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 En el siguiente comando, sustituya su propio nombre único global por la cuenta de Blob Storage donde vea el marcador de posición `<blob_storage_account>`.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Cree una cuenta de almacenamiento en el grupo de recursos que ha creado con el comando [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
+
+```powershell
+$blobStorageAccount="<blob_storage_account>"
+
+New-AzStorageAccount -ResourceGroupName myResourceGroup -Name $blobStorageAccount -SkuName Standard_LRS -Location southeastasia -Kind StorageV2 -AccessTier Hot
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Cree una cuenta de almacenamiento en el grupo de recursos que ha creado con el comando [az storage account create](/cli/azure/storage/account).
 
 ```azurecli
 blobStorageAccount="<blob_storage_account>"
@@ -79,22 +101,31 @@ az storage account create --name $blobStorageAccount --location southeastasia \
   --resource-group myResourceGroup --sku Standard_LRS --kind StorageV2 --access-tier hot
 ```
 
-```powershell
-$blobStorageAccount="<blob_storage_account>"
-
-az storage account create --name $blobStorageAccount --location southeastasia `
-  --resource-group myResourceGroup --sku Standard_LRS --kind StorageV2 --access-tier hot
-```
+---
 
 ## <a name="create-blob-storage-containers"></a>Creación de contenedores de almacenamiento de blobs
 
-La aplicación usa dos contenedores en la cuenta de Blob Storage. Los contenedores son similares a las carpetas y almacenan blobs. El contenedor de *imágenes* es donde la aplicación carga imágenes a alta resolución. En una parte posterior de la serie, una aplicación de función de Azure carga imágenes en miniatura cambiadas de tamaño en el contenedor *thumbnails*.
-
-Obtenga la clave de la cuenta de almacenamiento mediante el comando [az storage account keys list](/cli/azure/storage/account/keys). A continuación, use esta clave para crear dos contenedores con el comando [az storage container create](/cli/azure/storage/container).
+La aplicación usa dos contenedores en la cuenta de Blob Storage. Los contenedores son similares a las carpetas y almacenan blobs. El contenedor de *imágenes* es donde la aplicación carga imágenes a alta resolución. En una parte posterior de la serie, una función de Azure carga imágenes en miniatura con tamaño cambiado en *thumbnails.
 
 El acceso público del contenedor de *imágenes* está establecido en `off`. El acceso público del contenedor de *miniaturas* está establecido en `container`. La configuración de acceso público `container` permite ver las miniaturas a los usuarios que visitan la página web.
 
-```bash
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Obtenga la clave de la cuenta de almacenamiento mediante el comando [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey). A continuación, use esta clave para crear dos contenedores con el comando [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer).
+
+```powershell
+$blobStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName myResourceGroup -Name $blobStorageAccount).Key1
+$blobStorageContext = New-AzStorageContext -StorageAccountName $blobStorageAccount -StorageAccountKey $blobStorageAccountKey
+
+New-AzStorageContainer -Name images -Context $blobStorageContext
+New-AzStorageContainer -Name thumbnails -Permission Container -Context $blobStorageContext
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Obtenga la clave de la cuenta de almacenamiento mediante el comando [az storage account keys list](/cli/azure/storage/account/keys). A continuación, use esta clave para crear dos contenedores con el comando [az storage container create](/cli/azure/storage/container).
+
+```azurecli
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
   -n $blobStorageAccount --query "[0].value" --output tsv)
 
@@ -107,18 +138,7 @@ az storage container create --name thumbnails \
   --account-key $blobStorageAccountKey --public-access container
 ```
 
-```powershell
-$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
-  -n $blobStorageAccount --query "[0].value" --output tsv)
-
-az storage container create --name images `
-  --account-name $blobStorageAccount `
-  --account-key $blobStorageAccountKey
-
-az storage container create --name thumbnails `
-  --account-name $blobStorageAccount `
-  --account-key $blobStorageAccountKey --public-access container
-```
+---
 
 Anote el nombre y la clave de la cuenta de almacenamiento de blobs. La aplicación de ejemplo usa esta configuración para conectarse a la cuenta de almacenamiento y cargar las imágenes. 
 
@@ -126,23 +146,45 @@ Anote el nombre y la clave de la cuenta de almacenamiento de blobs. La aplicaci�
 
 Un [plan de App Service](../../app-service/overview-hosting-plans.md) especifica la ubicación, el tamaño y las características de la granja de servidores web que hospeda la aplicación.
 
-Cree un plan de App Service con el comando [az appservice plan create](/cli/azure/appservice/plan).
-
 En el siguiente ejemplo se crea un plan de App Service denominado `myAppServicePlan` con el plan de tarifa **Gratis**:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Cree un plan de App Service con el comando [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan).
+
+```powershell
+New-AzAppServicePlan -ResourceGroupName myResourceGroup -Name myAppServicePlan -Tier "Free"
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Cree un plan de App Service con el comando [az appservice plan create](/cli/azure/appservice/plan).
 
 ```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
-```powershell
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
-```
+---
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
-La aplicación web proporciona un espacio de hospedaje para el código de la aplicación de ejemplo que se implementó desde el repositorio de ejemplo de GitHub. Cree una [aplicación web](../../app-service/overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp).  
+La aplicación web proporciona un espacio de hospedaje para el código de la aplicación de ejemplo que se implementó desde el repositorio de ejemplo de GitHub.
 
 En el siguiente comando, reemplace `<web_app>` por un nombre único. Los caracteres válidos son `a-z`, `0-9` y `-`. Si el valor de `<web_app>` no es único, recibirá el mensaje de error: Ya existe un *sitio web con el nombre especificado `<web_app>`.* La dirección URL predeterminada de la aplicación web es `https://<web_app>.azurewebsites.net`.  
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Cree una [aplicación web](../../app-service/overview.md) en el plan de App Service `myAppServicePlan` con el comando [New-AzWebApp](/powershell/module/az.websites/new-azwebapp).  
+
+```powershell
+$webapp="<web_app>"
+
+New-AzWebApp -ResourceGroupName myResourceGroup -Name $webapp -AppServicePlan myAppServicePlan
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Cree una [aplicación web](../../app-service/overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp).  
 
 ```azurecli
 webapp="<web_app>"
@@ -150,11 +192,7 @@ webapp="<web_app>"
 az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-```powershell
-$webapp="<web_app>"
-
-az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
-```
+---
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>Implementación de la aplicación de ejemplo desde el repositorio de GitHub
 
@@ -198,7 +236,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
-La aplicación web de ejemplo usa las [API de Azure Storage para .NET](/dotnet/api/overview/azure/storage) para cargar imágenes. Las credenciales de la cuenta de Storage se establecen en la configuración de aplicación de la aplicación web. Agregue la configuración de aplicación a la aplicación implementada con el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
+La aplicación web de ejemplo usa las [API de Azure Storage para .NET](/dotnet/api/overview/azure/storage) para cargar imágenes. Las credenciales de la cuenta de Storage se establecen en la configuración de aplicación de la aplicación web. Agregue la configuración de aplicación a la aplicación implementada con el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) o [New-AzStaticWebAppSetting](/powershell/module/az.websites/new-azstaticwebappsetting).
 
 ```azurecli
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
@@ -218,7 +256,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 
 # <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
-La aplicación web de ejemplo usa la [biblioteca cliente de Azure Storage para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage) para cargar imágenes. Las credenciales de la cuenta de almacenamiento se establecen en la configuración de la aplicación web. Agregue la configuración de aplicación a la aplicación implementada con el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
+La aplicación web de ejemplo usa la [biblioteca cliente de Azure Storage para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage) para cargar imágenes. Las credenciales de la cuenta de almacenamiento se establecen en la configuración de la aplicación web. Agregue la configuración de aplicación a la aplicación implementada con el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) o [New-AzStaticWebAppSetting](/powershell/module/az.websites/new-azstaticwebappsetting).
 
 ```azurecli
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \

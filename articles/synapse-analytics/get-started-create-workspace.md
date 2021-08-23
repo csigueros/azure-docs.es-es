@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 4b7251be220c012ca51970863ac2eed55d46d711
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: cb00337446df3062fe640127a37adfb522e45345
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751155"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113300995"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creación de un área de trabajo de Synapse
 
@@ -65,8 +65,14 @@ Seleccione **Revisar y crear** > **Crear**. El área de trabajo estará lista en
 
 Una vez creada el área de trabajo de Azure Synapse, hay dos maneras de abrir Synapse Studio:
 
-* Abra el área de trabajo de Synapse en [Azure Portal](https://portal.azure.com) y, en la sección **Información general** del área de trabajo de Synapse, seleccione **Abrir** en el cuadro Abrir Synapse Studio.
-* Vaya a `https://web.azuresynapse.net` e inicie sesión en el área de trabajo.
+1. Abra el área de trabajo de Synapse en [Azure Portal](https://portal.azure.com) y, en la sección **Información general** del área de trabajo de Synapse, seleccione **Abrir** en el cuadro Abrir Synapse Studio.
+1. Vaya a `https://web.azuresynapse.net` e inicie sesión en el área de trabajo.
+
+    ![Inicio de sesión en el área de trabajo](./security/media/common/login-workspace.png)
+
+> [!NOTE]
+> Para iniciar sesión en el área de trabajo, hay dos **Métodos de selección de cuenta**. Uno corresponde a la **Suscripción de Azure**, y la otra a **Escribir manualmente**. Si tiene el rol de Azure Synapse o roles de Azure de nivel superior, puede usar ambos métodos para iniciar sesión en el área de trabajo. Si no tiene los roles de Azure relacionados y se le concedió el rol RBAC de Synapse, **Escribir manualmente** es la única manera de iniciar sesión en el área de trabajo. Para más información sobre RBAC de Synapse, consulte [¿Qué es el control de acceso basado en rol de Synapse?](./security/synapse-workspace-synapse-rbac.md)
+
 
 ## <a name="place-sample-data-into-the-primary-storage-account"></a>Colocación de datos de ejemplo en la cuenta de almacenamiento principal
 Vamos a usar un pequeño conjunto de datos de ejemplo de 100 000 filas de datos de taxis de Nueva York para muchos ejemplos de esta guía de introducción. Comenzaremos por colocarlo en la cuenta de almacenamiento principal que creó para el área de trabajo.
@@ -78,7 +84,7 @@ Vamos a usar un pequeño conjunto de datos de ejemplo de 100 000 filas de dato
 * Seleccione el contenedor denominado **users (Primary)** (usuarios [Principal]).
 * Seleccione **Cargar** y seleccione el archivo `NYCTripSmall.parquet` que ha descargado.
 
-Se carga uno de los archivos en formato parquet y está disponible a través de dos identificadores URI equivalentes:
+Una vez que se cargue el archivo de Parquet, está disponible a través de dos URI equivalentes:
 * `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
 * `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
 
