@@ -1,26 +1,26 @@
 ---
-title: 'Inicio rápido: Creación de una cuenta de Automation: plantilla de Azure'
+title: 'Creación de una cuenta de Automation: plantilla de Azure'
 titleSuffix: Azure Automation
-description: En esta guía de inicio rápido se muestra cómo crear una cuenta de Automation mediante la plantilla de Azure Resource Manager.
+description: En este artículo se muestra cómo crear una cuenta de Automation mediante la plantilla de Azure Resource Manager.
 services: automation
 ms.author: magoedte
 ms.date: 07/20/2021
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.custom:
 - mvc
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 17183bffcfe9607a774d1205180c284d49cd7503
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: b17bb61230fa06acc988129bd593ab5c25332e84
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652017"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727375"
 ---
-# <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Inicio rápido: Creación de una cuenta de Automation mediante una plantilla de ARM
+# <a name="create-an-automation-account-by-using-arm-template"></a>Creación de una cuenta de Automation mediante una plantilla de ARM
 
-Azure Automation ofrece un servicio de configuración y de automatización basado en la nube que facilita una administración coherente en los entornos que se encuentren dentro y fuera de Azure. En esta guía de inicio rápido se muestra cómo implementar una plantilla de Azure Resource Manager (plantilla de ARM) que crea una cuenta de Automation. El uso de una plantilla de ARM requiere menos pasos que otros métodos de implementación.
+Azure Automation ofrece un servicio de configuración y de automatización basado en la nube que facilita una administración coherente en los entornos que se encuentren dentro y fuera de Azure. En este artículo se muestra cómo implementar una plantilla de Azure Resource Manager que crea una cuenta de Automation. El uso de una plantilla de ARM requiere menos pasos que otros métodos de implementación.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -46,7 +46,7 @@ En esta plantilla de ejemplo se realiza lo siguiente:
 
 Después de completar estos pasos, debe [Configurar las opciones de diagnóstico](automation-manage-send-joblogs-log-analytics.md) para que la cuenta de Automation envíe el estado del trabajo de runbook y los flujos de trabajo al área de trabajo de Log Analytics vinculada.
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-automation/).
+La plantilla usada en este artículo forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-automation/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.automation/101-automation/azuredeploy.json":::
 
@@ -132,7 +132,7 @@ Cuando ya no las necesite, desvincule la cuenta de Automation del área de traba
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado una cuenta de Automation y un área de trabajo de Log Analytics y las ha vinculado.
+En este artículo, ha creado una cuenta de Automation y un área de trabajo de Log Analytics y las ha vinculado.
 
 Para más información, continúe con los tutoriales de Azure Automation.
 

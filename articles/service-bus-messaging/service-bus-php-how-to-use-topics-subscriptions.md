@@ -1,19 +1,17 @@
 ---
 title: Uso de temas de Azure Service Bus con PHP
-description: En este tutorial, va a aprender a usar los temas de Azure Service Bus y las suscripciones de una aplicación PHP.
+description: En este artículo, aprenderá a usar los temas de Azure Service Bus y las suscripciones de una aplicación PHP.
 ms.devlang: PHP
-ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: 706f523fdfb3c710bb16b048cfc68ce98875adb1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.topic: how-to
+ms.date: 07/27/2021
+ms.openlocfilehash: 0265b138b2f6f44961d085ca8492ba125b9a36b2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88066209"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725112"
 ---
-# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Inicio rápido: Uso de temas y suscripciones de Service Bus con PHP
-
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Uso de temas y suscripciones de Service Bus con PHP
 
 En este artículo se muestra cómo usar los temas y las suscripciones de Service Bus. Los ejemplos están escritos en PHP y utilizan el [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php). Los escenarios descritos incluyen:
 
@@ -23,12 +21,16 @@ En este artículo se muestra cómo usar los temas y las suscripciones de Service
 - Recepción de mensajes de una suscripción
 - Eliminación de temas y suscripciones
 
-## <a name="prerequisites"></a>Prerrequisitos
-1. Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+> [!IMPORTANT]
+> A partir de febrero de 2021, Azure SDK para PHP ha entrado en una fase de retirada y ya no es compatible oficialmente con Microsoft. Para más información, consulte este [anuncio](https://github.com/Azure/azure-sdk-for-php#important-annoucement) en GitHub. Este artículo se retirará pronto. 
+ 
+
+## <a name="prerequisites"></a>Requisitos previos
+1. Suscripción a Azure. Para completar los pasos de este artículo, necesitará una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Siga los pasos de [Inicio rápido: Uso de Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](service-bus-quickstart-topics-subscriptions-portal.md) para crear un **espacio de nombres** de Service Bus y obtener la **cadena de conexión**.
 
     > [!NOTE]
-    > En este inicio rápido, creará un **tema** y una **suscripción** al tema mediante **PHP**. 
+    > En este artículo, creará un **tema** y una **suscripción** al tema mediante **PHP**. 
 
 ## <a name="create-a-php-application"></a>Creación de una aplicación PHP
 El único requisito a la hora de crear una aplicación PHP para obtener acceso a Azure Blob service es que se haga referencia a clases de [Azure SDK para PHP](https://github.com/Azure/azure-sdk-for-php) dentro del código. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, o bien el Bloc de notas.

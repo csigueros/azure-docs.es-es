@@ -1,21 +1,21 @@
 ---
 title: Uso de colas de Azure Service Bus con PHP
-description: En este tutorial, obtendrá información sobre cómo crear aplicaciones de PHP para enviar mensajes a una cola Service Bus y recibir mensajes de una cola de Service Bus.
+description: En este artículo, aprenderá a crear aplicaciones PHP para enviar mensajes a una cola Service Bus y recibir mensajes de una cola de Service Bus.
 services: service-bus-messaging
 ms.devlang: PHP
-ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: 46f2f4a532b8b2e3001ec7f0411498f74919a36b
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.topic: how-to
+ms.date: 07/23/2021
+ms.openlocfilehash: d0909c4e2ea5ef53a1438ce05f5ddad485c80248
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113302577"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725125"
 ---
-# <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Inicio rápido: Uso de colas de Service Bus con PHP
+# <a name="how-to-use-service-bus-queues-with-php"></a>Uso de colas de Service Bus con PHP
 [!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
 
-En este tutorial, obtendrá información sobre cómo crear aplicaciones de PHP para enviar mensajes a una cola Service Bus y recibir mensajes de una cola de Service Bus. 
+En este artículo, aprenderá a crear aplicaciones PHP para enviar mensajes a una cola Service Bus y recibir mensajes de una cola de Service Bus. 
 
 > [!IMPORTANT]
 > A partir de febrero de 2021, Azure SDK para PHP ha entrado en una fase de retirada y ya no es compatible oficialmente con Microsoft. Para más información, consulte este [anuncio](https://github.com/Azure/azure-sdk-for-php#important-annoucement) en GitHub. Este artículo se retirará pronto. 
@@ -28,7 +28,7 @@ En este tutorial, obtendrá información sobre cómo crear aplicaciones de PHP p
     3. Obtenga la **cadena de conexión**. 
 
         > [!NOTE]
-        > Creará una **cola** en el espacio de nombres de Service Bus con PHP en este tutorial. 
+        > En este artículo creará una **cola** en el espacio de nombres de Service Bus con PHP. 
 3. [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php)
 
 ## <a name="create-a-php-application"></a>Creación de una aplicación PHP
