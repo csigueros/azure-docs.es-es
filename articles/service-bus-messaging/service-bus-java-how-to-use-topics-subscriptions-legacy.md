@@ -1,8 +1,8 @@
 ---
 title: Uso de temas y suscripciones de Azure Service Bus con Java
-description: En esta guía de inicio rápido, puede escribir código de Java para enviar mensajes a un tema de Azure Service Bus y, luego, recibir mensajes provenientes de suscripciones a ese tema.
-ms.date: 06/23/2020
-ms.topic: quickstart
+description: En este artículo, puede escribir código de Java para enviar mensajes a un tema de Azure Service Bus y, luego, recibir mensajes provenientes de suscripciones a ese tema.
+ms.date: 07/27/2021
+ms.topic: how-to
 ms.devlang: Java
 ms.custom:
 - seo-java-july2019
@@ -10,23 +10,23 @@ ms.custom:
 - seo-java-september2019
 - devx-track-java
 - mode-api
-ms.openlocfilehash: c20a9372ddc951b7d4184a7abeda9537006c4865
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f6f0520797a5c221f1c3e1ea60c22d1576bad07e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533373"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736249"
 ---
-# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Inicio rápido: Uso de temas y suscripciones de Service Bus con Java
-En esta guía de inicio rápido, puede escribir código de Java para enviar mensajes a un tema de Azure Service Bus y, luego, recibir mensajes provenientes de suscripciones a ese tema. 
+# <a name="use-service-bus-topics-and-subscriptions-with-java-old-package"></a>Uso de temas y suscripciones de Service Bus con Java (paquete anterior)
+En este artículo, puede escribir código de Java para enviar mensajes a un tema de Azure Service Bus y, luego, recibir mensajes provenientes de suscripciones a ese tema. 
 
 > [!WARNING]
->  En este inicio rápido se usan los paquetes azure-servicebus antiguos. Para usar el paquete azure-messaging-servicebus más reciente, consulte el inicio rápido [Envío y recepción de mensajes mediante azure-messaging-servicebus](service-bus-java-how-to-use-topics-subscriptions.md).
+>  En este artículo se usa el paquete azure-servicebus anterior. Para usar el paquete azure-messaging-servicebus más reciente, consulte el artículo [Envío y recepción de mensajes mediante azure-messaging-servicebus](service-bus-java-how-to-use-topics-subscriptions.md).
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-1. Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. Suscripción a Azure. Para completar los pasos de este artículo, necesitará una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Siga los pasos de [Inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones al tema ](service-bus-quickstart-topics-subscriptions-portal.md) para realizar las siguientes tareas:
     1. Cree un **espacio de nombres** de Service Bus.
     2. Obtenga la **cadena de conexión**.

@@ -1,14 +1,14 @@
 ---
 title: Información general de las características de Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporcionan detalles acerca de las características y la terminología de Azure Event Hubs.
-ms.topic: article
-ms.date: 03/15/2021
-ms.openlocfilehash: e75e8fe3b405652e245119cafa828e752436095b
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.topic: overview
+ms.date: 08/03/2021
+ms.openlocfilehash: 79773db042aacc6805bb2c4081815248bc6cb076
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422136"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733906"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -25,7 +25,9 @@ Este artículo se basa en el contenido del [artículo de información general](.
 
 
 ## <a name="namespace"></a>Espacio de nombres
-Los espacios de nombres de Event Hubs proporcionan puntos de conexión de red integrados de DNS y una variedad de características de administración de control de acceso e integración de red, como [filtrado de IP](event-hubs-ip-filtering.md), [punto de conexión de red virtual](event-hubs-service-endpoints.md) y [Private Link](private-link-service.md), y son contenedor de administración de una de numerosas instancias de Event Hubs (o temas, en el lenguaje Kafka).
+Un espacio de nombres de Event Hubs es un contenedor de administración de centros de eventos (o temas, en la terminología de Kafka). Proporciona puntos de conexión de red integrados de DNS y una variedad de características de administración de control de acceso e integración de red, como [filtrado de IP](event-hubs-ip-filtering.md), [punto de conexión de servicio de red virtual](event-hubs-service-endpoints.md) y [Private Link](private-link-service.md). 
+
+:::image type="content" source="./media/event-hubs-features/namespace.png" alt-text="Imagen que muestra un espacio de nombres de Event Hubs":::
 
 ## <a name="event-publishers"></a>Publicadores de eventos
 
@@ -85,8 +87,14 @@ No tiene que crear nombres de publicador con antelación, pero deben coincidir c
 
 [Event Hubs Capture](event-hubs-capture-overview.md) permite capturar automáticamente los datos de transmisión de Event Hubs y guardarlos en una cuenta de Blob Storage o en una cuenta de servicio de Azure Data Lake. Puede habilitar Capture desde Azure Portal y especificar una ventana de tiempo y de tamaño mínimos para realizar la captura. Event Hubs Capture permite especificar una cuenta y un contenedor propios de Azure Blob Storage, o una cuenta de servicio de Azure Data Lake, uno de los cuales se usa para almacenar los datos capturados. Los datos capturados se escriben en el formato de Apache Avro.
 
+:::image type="content" source="./media/event-hubs-features/capture.png" alt-text="Imagen que muestra la captura de datos de Event Hubs en Azure Storage o Azure Data Lake Storage":::
+
+Los archivos que genera Event Hubs Capture tienen el siguiente esquema de Avro:
+
+:::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture3.png" alt-text="Imagen que muestra la estructura de los datos capturados":::
+
 ## <a name="partitions"></a>Particiones
-[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
+[!INCLUDE [event-hubs-partitions](./includes/event-hubs-partitions.md)]
 
 
 ## <a name="sas-tokens"></a>Tokens de SAS
@@ -137,7 +145,7 @@ Si se desconecta un lector de una partición, cuando se vuelve a conectar comien
 > Si usa Azure Blob Storage como el almacén de puntos de comprobación en un entorno que admite una versión diferente del SDK de blobs de almacenamiento que las que normalmente están disponibles en Azure, tendrá que utilizar código para cambiar la versión de la API del servicio de almacenamiento a la versión admitida por ese entorno. Por ejemplo, si ejecuta [Event Hubs en una instancia de Azure Stack Hub versión 2002](/azure-stack/user/event-hubs-overview), la versión más alta disponible para el servicio Storage es 2017-11-09. En este caso, tendrá que usar código para establecer como destino la versión de la API del servicio Storage en 2017-11-09. Para obtener un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea estos ejemplos en GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/) 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) o [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript) o [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ### <a name="common-consumer-tasks"></a>Tareas comunes del consumidor

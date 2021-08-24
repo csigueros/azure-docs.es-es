@@ -1,28 +1,28 @@
 ---
-title: Introducción a las colas de Azure Service Bus | Microsoft Docs
-description: En este tutorial, creará aplicaciones de consola de .NET Core para enviar mensajes a una cola de Service Bus y recibir mensajes desde ella.
-ms.topic: quickstart
+title: Uso de colas de Azure Service Bus con .NET (versión anterior)
+description: En este artículo, creará aplicaciones de consola de .NET Core para enviar mensajes a una cola de Service Bus y recibir mensajes desde ella.
+ms.topic: how-to
 ms.tgt_pltfrm: dotnet
-ms.date: 09/01/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d92a5e0b0d1a6953d0043f85ff98f6740aaacebb
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 86ff3608a0575413b6c5c30eec05ec0bb898247e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864021"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748056"
 ---
-# <a name="get-started-with-service-bus-queues"></a>Introducción a las colas de Service Bus
-En este tutorial, creará aplicaciones de consola de .NET Core para enviar mensajes a una cola de Service Bus y recibir mensajes desde ella.
+# <a name="send-and-receive-messages-from-azure-service-bus-queues-using-net-old-package"></a>Envío y recepción de mensajes de colas de Azure Service Bus mediante .NET (paquete anterior)
+En este artículo, creará aplicaciones de consola de .NET Core para enviar mensajes a una cola de Service Bus y recibir mensajes desde ella.
 
 > [!WARNING]
-> En esta guía de inicio rápido se usa el paquete Microsoft.Azure.ServiceBus anterior. Para ver una guía de inicio rápido que use el paquete Azure.Messaging.ServiceBus más reciente, consulte [Envío y recepción de eventos mediante el paquete Azure.Messaging.ServiceBus](service-bus-dotnet-get-started-with-queues.md). 
+> En este artículo se usa el paquete Microsoft.Azure.ServiceBus anterior. Para ver un artículo que use el paquete Azure.Messaging.ServiceBus más reciente, consulte [Envío y recepción de eventos mediante el paquete Azure.Messaging.ServiceBus](service-bus-dotnet-get-started-with-queues.md). 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://dotnet.microsoft.com/download), versión 2.0 o posterior.
-- Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Suscripción a Azure. Para completar los pasos de este artículo, necesitará una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Si no tiene una cola con la que trabajar, siga los pasos del artículo [Uso de Azure Portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) para crear una.
 
   - Lea la información general rápida de las colas de Service Bus.

@@ -1,29 +1,29 @@
 ---
-title: Introducción a los temas y las suscripciones de Azure Service Bus | Microsoft Docs
+title: Uso de temas y suscripciones de Azure Service Bus con .NET (versión anterior)
 description: Escriba una aplicación de consola de .NET Core en C# que use los temas y las suscripciones de mensajería de Service Bus.
-ms.topic: quickstart
+ms.topic: how-to
 ms.tgt_pltfrm: dotnet
-ms.date: 09/02/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a64ccec49248f48a85782cfe9537513a97b2bdfc
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 4644cc6ed4c3f668c7a53ad963e7779740f0b771
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868166"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736266"
 ---
-# <a name="get-started-with-service-bus-topics"></a>Introducción a las colas de Service Bus
-En este tutorial se describen los pasos siguientes:
+# <a name="use-service-bus-topics-and-subscriptions-with-net-old-package"></a>Uso de temas y suscripciones de Service Bus con .NET (paquete anterior)
+En este artículo se tratan los siguientes pasos:
 
 1. Escriba una aplicación de consola de .NET Core para enviar un conjunto de mensajes al tema.
 2. Escriba una aplicación de consola de .NET Core para recibir esos mensajes de la suscripción.
 
 > [!WARNING]
-> En esta guía de inicio rápido se usa el paquete Microsoft.Azure.ServiceBus anterior. Para ver una guía de inicio rápido que use el paquete Azure.Messaging.ServiceBus más reciente, consulte [Envío y recepción de mensajes mediante el paquete Azure.Messaging.ServiceBus](service-bus-dotnet-how-to-use-topics-subscriptions.md). Para que la aplicación use la biblioteca nueva en lugar de la anterior, consulte la [Guía para migrar de Microsoft.Azure.ServiceBus a Azure.Messaging.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
+> En este artículo se usa el paquete Microsoft.Azure.ServiceBus anterior. Para ver un artículo que use el paquete Azure.Messaging.ServiceBus más reciente, consulte [Envío y recepción de mensajes mediante el paquete Azure.Messaging.ServiceBus](service-bus-dotnet-how-to-use-topics-subscriptions.md). Para que la aplicación use la biblioteca nueva en lugar de la anterior, consulte la [Guía para migrar de Microsoft.Azure.ServiceBus a Azure.Messaging.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-1. Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. Suscripción a Azure. Para completar los pasos de este artículo, necesitará una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Siga los pasos de [Inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones al tema ](service-bus-quickstart-topics-subscriptions-portal.md) para realizar las siguientes tareas:
     1. Cree un **espacio de nombres** de Service Bus.
     2. Obtenga la **cadena de conexión**.
