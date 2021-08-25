@@ -9,17 +9,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: f90ce603f745937d4d7f6253f54228fb2a20dbff
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 7b0a0a91d3251e41c9964cf43ca9a29dde77b609
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113086161"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823512"
 ---
 # <a name="azure-cloud-services-classic-definition-webrole-schema"></a>Esquema WebRole de definición de Azure Cloud Services (clásico)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 El rol web de Azure es un rol que se personaliza para la programación de aplicaciones web compatibles con IIS 7, como ASP.NET, PHP, Windows Communication Foundation y FastCGI.
 

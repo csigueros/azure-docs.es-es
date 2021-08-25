@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 08/24/2021
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 040e49ee870704107e1d4118f1484119d98a9ebf
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 71384446b37841513bbd362b6398e0cd892167ab
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781218"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778022"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de cierre de sesión único
 
@@ -72,5 +72,5 @@ Azure AD establece este valor en `https://login.microsoftonline.com/<TenantIdGUI
 
 Para evaluar el valor del elemento `Issuer` , utilice el valor del identificador **URI de id. de aplicación** proporcionado durante el registro de la aplicación.
 
-### <a name="status"></a>Status
+### <a name="status"></a>Estado
 Azure AD usa el elemento `StatusCode` en `Status` para indicar que el cierre de sesión ha sido satisfactorio o que se ha producido algún error. Cuando se produce un error en el intento de cierre de sesión, el elemento `StatusCode` también puede contener mensajes de error personalizados.

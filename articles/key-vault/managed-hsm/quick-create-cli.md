@@ -2,19 +2,19 @@
 title: 'Inicio rápido: aprovisionamiento y activación de un HSM administrado de Azure'
 description: Inicio rápido que muestra cómo aprovisionar y activar un HSM administrado mediante la CLI de Azure
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 06/21/2021
 ms.author: mbaldwin
-ms.openlocfilehash: be8c28f736e58ebcbe95d4b8a4042b79fa1cf9f7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f47ce2ea3d805bfc5e5cdd4fd328195c12fe516d
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443598"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821593"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>Inicio rápido: Aprovisionamiento y activación de un HSM administrado mediante la CLI de Azure
 
@@ -28,7 +28,6 @@ Para completar los pasos de este artículo, debe tener los siguientes elementos:
 
 * Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
 * La CLI de Azure, versión 2.25.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
-* Un HSM administrado en la suscripción. Consulte [Quickstart: Aprovisionamiento y activación de un HSM administrado mediante la CLI de Azure](quick-create-cli.md) para aprovisionar y activar un HSM administrado.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

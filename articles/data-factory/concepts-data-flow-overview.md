@@ -4,15 +4,16 @@ description: Introducción a los flujos de datos de asignación en Azure Data Fa
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 05/20/2021
-ms.openlocfilehash: ef0639637736b0a8b4f41d6fd038de81a8e94a69
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8e10ede945f60ee693738ab7230a2c50b5bcb972
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454966"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638638"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flujos de datos de asignación en Azure Data Factory
 
@@ -32,11 +33,11 @@ Los flujos de datos se crean desde el panel Factory Resources (Recursos de fábr
 
 Con esta acción, accederá al lienzo de flujo de datos, donde podrá crear la lógica de transformación. Seleccione **Agregar origen** para comenzar a configurar la transformación de origen. Para más información, consulte [Transformación de origen](data-flow-source.md).
 
-## <a name="authoring-data-flows&quot;></a>Creación de flujos de datos
+## <a name="authoring-data-flows"></a>Creación de flujos de datos
 
 El flujo de datos de asignación tiene un lienzo de creación único diseñado para facilitar la creación de lógica de transformación. El lienzo de flujo de datos está dividido en tres partes: la barra superior, el gráfico y el panel de configuración. 
 
-![Captura de pantalla que muestra el lienzo del flujo de datos con la barra superior, el gráfico y el panel de configuración marcados.](media/data-flow/canvas-1.png &quot;Lienzo")
+![Captura de pantalla que muestra el lienzo del flujo de datos con la barra superior, el gráfico y el panel de configuración marcados.](media/data-flow/canvas-1.png "Lienzo")
 
 ### <a name="graph"></a>Grafo
 

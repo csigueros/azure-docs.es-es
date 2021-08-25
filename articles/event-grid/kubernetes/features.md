@@ -6,15 +6,15 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2eea263517d718effc03382e3d8209a9a11f17e7
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 3e8d2259c4ae41f5f0433151cef8c6f447e49418
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112415865"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768108"
 ---
 # <a name="event-grid-on-kubernetes-with-azure-arc-features"></a>Características de Event Grid en Kubernetes con Azure Arc
-Event Grid en Kubernetes ofrece un amplio conjunto de características que le ayudan a integrar las cargas de trabajo de Kubernetes y a llevar a cabo arquitecturas híbridas. Comparte la misma [API REST](/rest/api/eventgrid/version2020-10-15-preview/topics) (a partir de la versión 2020-10-15-preview), la [CLI de Event Grid](/cli/azure/eventgrid), la experiencia de Azure Portal, los [SDK de administración](../sdk-overview.md#management-sdks) y los [SDK del plano de datos](../sdk-overview.md#data-plane-sdks) con Azure Event Grid, la otra edición del mismo servicio. Cuando esté listo para publicar eventos, puede usar los [ejemplos del SDK del plano de datos proporcionados en distintos lenguajes](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/) que funcionan para ambas ediciones de Event Grid.
+Event Grid en Kubernetes ofrece un amplio conjunto de características que le ayudan a integrar las cargas de trabajo de Kubernetes y a llevar a cabo arquitecturas híbridas. Comparte la misma [API REST](/rest/api/eventgrid/version2021-06-01-preview/topics) (a partir de la versión 2020-10-15-preview), la [CLI de Event Grid](/cli/azure/eventgrid), la experiencia de Azure Portal, los [SDK de administración](../sdk-overview.md#management-sdks) y los [SDK del plano de datos](../sdk-overview.md#data-plane-sdks) con Azure Event Grid, la otra edición del mismo servicio. Cuando esté listo para publicar eventos, puede usar los [ejemplos del SDK del plano de datos proporcionados en distintos lenguajes](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/) que funcionan para ambas ediciones de Event Grid.
 
 Aunque Event Grid en Kubernetes y Azure Event Grid comparten muchas características y el objetivo es proporcionar la misma experiencia de usuario, hay algunas diferencias dadas las necesidades únicas que buscan cumplir y la fase en la que están en su ciclo de vida de software. Por ejemplo, el único tipo de tema disponible en Event Grid en Kubernetes son los temas de Event Grid, que a veces también se conocen como temas personalizados. Otros tipos de temas (consulte a continuación) no son aplicables o la compatibilidad con ellos aún no está disponible. En la tabla siguiente se presentan las principales diferencias entre las dos ediciones de Event Grid.
 
@@ -25,7 +25,7 @@ Aunque Event Grid en Kubernetes y Azure Event Grid comparten muchas característ
 
 | Característica | Event Grid en Kubernetes | Azure Event Grid |
 |:--|:-:|:-:|
-| [Temas de Event Grid](/rest/api/eventgrid/version2020-10-15-preview/topics) | ✔ | ✔ |
+| [Temas de Event Grid](/rest/api/eventgrid/version2021-06-01-preview/topics) | ✔ | ✔ |
 | [Esquema de eventos en la nube de CNCF](https://github.com/cloudevents/spec/blob/master/spec.md) | ✔ | ✔ |
 | Event Grid y esquemas personalizados | ✘* | ✔ |
 | Entrega confiable | ✔ | ✔ |
@@ -41,7 +41,7 @@ Aunque Event Grid en Kubernetes y Azure Event Grid comparten muchas característ
 | Conexiones híbridas de Azure Relay como destino | ✘ | ✔ |
 | [Filtrado avanzado](filter-events.md) | ✔*** | ✔ |
 | [AuthN y AuthZ de webhooks con AAD](../secure-webhook-delivery.md) | ✘ | ✔ |
-| [Entrega de eventos con una identidad de recurso](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#deliverywithresourceidentity) | ✘ | ✔ |
+| [Entrega de eventos con una identidad de recurso](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update) | ✘ | ✔ |
 | El mismo conjunto de SDK del plano de datos | ✔ | ✔ |
 | El mismo conjunto de SDK de administración | ✔ | ✔ |
 | La misma CLI de Event Grid | ✔ | ✔ |

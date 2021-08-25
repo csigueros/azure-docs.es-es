@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2021
+ms.date: 07/29/2021
 ms.author: jeedes
-ms.openlocfilehash: 06df04167cd39b8909528b600319be810e549730
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a6f647e7aed23766e62546497a6065efd7bd3985
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449217"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730775"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integración de Atlassian Cloud con Azure Active Directory
 
@@ -96,10 +96,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En el portal de **administración de ATLASSIAN**, vaya a la pestaña **Security** (Seguridad), seleccione **SAML single sign-on** (Inicio de sesión único de SAML) y haga clic en **Add SAML configuration** (Agregar configuración de SAML).
 
    ![Seguridad](./media/atlassian-cloud-tutorial/admin.png)
-
-1. En la sección **Add SAML configuration** (Agregar configuración de SAML), rellene los campos obligatorios que ha copiado de Azure Portal y haga clic en **Save configuration** (Guardar configuración).
-
-   ![Add SAML Configuration (Agregar configuración de SAML)](./media/atlassian-cloud-tutorial/configuration.png)
 
 1. En Azure Portal, en la página de integración de la aplicación **Atlassian Cloud**, busque la sección **Administrar** y seleccione **Configurar inicio de sesión único**.
 

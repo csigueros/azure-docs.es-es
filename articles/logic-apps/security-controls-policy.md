@@ -1,18 +1,18 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Logic Apps
 description: En este artículo se muestran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Logic Apps. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 07/16/2021
+ms.date: 08/20/2021
 ms.topic: sample
 author: ecfan
 ms.author: estfan
 ms.service: logic-apps
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f73cb808de1abfde25c7219ae32ad76e38a2552d
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 386ff03dca77cab3d68b4dec2ffbd83eb03e97d3
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114400996"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122604027"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-logic-apps"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Logic Apps
 

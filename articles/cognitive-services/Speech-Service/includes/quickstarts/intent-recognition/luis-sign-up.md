@@ -1,18 +1,18 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/04/2021
-ms.author: trbye
-ms.openlocfilehash: 2ffcb79bb2bb192566e7f6b7e0f933cacce84a77
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.author: lajanuar
+ms.openlocfilehash: da985c405dde8b66e8562abd8689acaba405b60f
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114594609"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071889"
 ---
-Para completar el inicio rápido de reconocimiento de la intención, deberá crear una cuenta de LUIS y un proyecto mediante el portal de la versión preliminar de LUIS. Este inicio rápido requiere una suscripción de LUIS [en una región donde el reconocimiento de intenciones esté disponible](/azure/cognitive-services/speech-service/regions#intent-recognition). *No* se requiere una suscripción al servicio de voz.
+Para completar el inicio rápido de reconocimiento de la intención, deberá crear una cuenta de LUIS y un proyecto mediante el portal de la versión preliminar de LUIS. Este inicio rápido requiere una suscripción de LUIS [en una región donde el reconocimiento de intenciones esté disponible](../../../regions.md#intent-recognition). *No* se requiere una suscripción al servicio de voz.
 
 Lo primero que debe hacer es crear una cuenta y una aplicación de LUIS mediante el portal de vista previa de LUIS. La aplicación de LUIS que cree usará un dominio precompilado para la automatización doméstica, que proporciona intenciones, entidades y expresiones de ejemplo. Cuando termine, tendrá un punto de conexión de LUIS que se ejecuta en la nube al que puede llamar mediante el SDK de Voz. 
 

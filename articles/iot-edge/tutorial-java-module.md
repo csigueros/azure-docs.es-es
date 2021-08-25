@@ -3,7 +3,6 @@ title: 'Tutorial: Personalización del módulo de Java mediante Azure IoT Edge'
 description: En este tutorial se muestra la creación de un módulo IoT Edge con código Java y su implementación en un dispositivo perimetral.
 services: iot-edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 3c3dae7cb64dd6c2e13c77c061c770bd787e2f06
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 437cb7c751b5cbc4c7f85dc3c20da3de28f29d1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438141"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726433"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-using-linux-containers"></a>Tutorial: Desarrollo de un módulo IoT Edge con Java mediante contenedores Linux
 
@@ -108,7 +107,7 @@ La extensión de IoT Edge intenta extraer de Azure las credenciales del registr
 3. Guarde este archivo.
 
 >[!NOTE]
->En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio. Para obtener más información, vea [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
+>En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio. Para más información, consulte [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Selección de la arquitectura de destino
 
