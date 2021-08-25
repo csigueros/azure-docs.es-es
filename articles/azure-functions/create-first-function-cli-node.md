@@ -4,12 +4,12 @@ description: Aprenda a crear una función de JavaScript desde la línea de coman
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: eb162bcff647e9e1dbced19ddea33a8f3c54b58e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 64f01af6f14bb34aac93fd1aa805e4aceb564608
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831949"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751496"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de JavaScript en Azure desde la línea de comandos
 
@@ -76,7 +76,7 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
     cd LocalFunctionProj
     ```
 
-    Esta carpeta contiene varios archivos del proyecto, incluidos los archivos de configuración [local.settings.json](functions-run-local.md#local-settings-file) y [host.json](functions-host-json.md). Como *local.settings.json* puede contener secretos descargados de Azure, el archivo se excluye del control de código fuente de forma predeterminada en el archivo *.gitignore*.
+    Esta carpeta contiene varios archivos del proyecto, incluidos los archivos de configuración [local.settings.json](functions-develop-local.md#local-settings-file) y [host.json](functions-host-json.md). Como *local.settings.json* puede contener secretos descargados de Azure, el archivo se excluye del control de código fuente de forma predeterminada en el archivo *.gitignore*.
 
 1. Agregue una función al proyecto mediante el comando siguiente, donde el argumento `--name` es el nombre único de la función (HttpExample) y el argumento `--template` especifica el desencadenador de esta (HTTP).
 

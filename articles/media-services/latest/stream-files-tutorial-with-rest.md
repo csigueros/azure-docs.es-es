@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 92f89bafe1b96b575d12e8a09289a05c2379d837
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 126a7222b88c7925ec0e6ef1386e5b087d598f46
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280027"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122643644"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: REST
 
@@ -25,7 +25,10 @@ ms.locfileid: "106280027"
 
 Azure Media Services permite codificar los archivos multimedia en formatos que se pueden reproducir en una gran variedad de exploradores y dispositivos. Por ejemplo, puede que quiera transmitir su contenido en los formatos HLS o MPEG DASH de Apple. Antes de la transmisión, primero debe codificar su archivo de medios digitales de alta calidad. Para obtener instrucciones acerca de la codificación, consulte [El concepto de codificación](encode-concept.md).
 
-En este tutorial se muestra cómo codificar un archivo según una dirección URL y transmitir el vídeo con Azure Media Services mediante REST. 
+En este tutorial se muestra cómo codificar un archivo según una dirección URL y transmitir el vídeo con Azure Media Services mediante REST.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
 
 ![Reproducción del vídeo](./media/stream-files-tutorial-with-api/final-video.png)
 

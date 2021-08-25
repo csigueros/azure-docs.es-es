@@ -3,16 +3,17 @@ title: Uso de Azure Portal para crear una canalización de factoría de datos
 description: En este tutorial se proporcionan instrucciones paso a paso para usar Azure Portal para crear una factoría de datos con una canalización. La canalización usa la actividad de copia para copiar datos desde Azure Blob Storage hasta Azure SQL Database.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 766572462c2596856258f2f154845b940c6b5c1c
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: ed91fcaf566e31df2a1c9b57178c2e60d9206ad5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436809"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637717"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos desde Azure Blob Storage hasta una base de datos de Azure SQL Database mediante Azure Data Factory
 

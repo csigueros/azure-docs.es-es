@@ -7,14 +7,13 @@ ms.date: 06/21/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 31e122b3d65598c0e6a3dbfcf3aa65a9fd339609
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: d911f5f0ee1670177e6de23b7afd647582253a8a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114405913"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748776"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: Implementación del análisis espacial de IoT mediante Azure Maps
 
