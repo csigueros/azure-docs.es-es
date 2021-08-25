@@ -3,18 +3,17 @@ title: 'Tutorial: Implementación de un clasificador de Custom Vision en un disp
 description: En este tutorial, aprenderá cómo hacer que un modelo de Computer Vision se ejecute como un contenedor con Custom Vision y IoT Edge.
 services: iot-edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fbddd48e0e8007aa08619a3861dafe780f3b6be6
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: e407b430d73e43454a71f897184b29e5c12fee44
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438357"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740576"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Clasificación de imágenes en el perímetro con Custom Vision Service
 

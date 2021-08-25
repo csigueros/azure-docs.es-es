@@ -3,19 +3,19 @@ title: 'Opciones de configuración de la CLI de Voz: Servicio Voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a crear y administrar archivos de configuración para su uso con la CLI de Voz de Azure.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
-ms.author: erhopf
-ms.openlocfilehash: aa8551e49c8ef16984783c4e9735c987174b180a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.author: lajanuar
+ms.openlocfilehash: eeff86e7955f2e8e32059ba1acb220d0dd2a567f
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540247"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071526"
 ---
 # <a name="speech-cli-configuration-options"></a>Opciones de configuración de la CLI de Voz
 

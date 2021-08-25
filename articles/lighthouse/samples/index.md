@@ -2,13 +2,13 @@
 title: Ejemplos y plantillas de Azure Lighthouse
 description: Estos ejemplos y plantillas de Azure Resource Manager le ayudan a incorporar clientes y a admitir escenarios de Azure Lighthouse.
 ms.topic: sample
-ms.date: 05/11/2021
-ms.openlocfilehash: 356b929749e9098dbb618dfd7a484c87ae3d69a5
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.date: 08/13/2021
+ms.openlocfilehash: eee538dfa0b7a4d4de22790f7925986bcaae4d26
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785878"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178175"
 ---
 # <a name="azure-lighthouse-samples"></a>Ejemplos de Azure Lighthouse
 

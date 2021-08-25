@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 0dda9cb110592c9fd9325f607b455d16c32da7f3
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: 272b23b326aa98d57558425a8cd2c09745b4fbf3
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101658019"
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121745467"
 landingContent:
 - title: Información acerca de Azure Cosmos DB
   linkLists:
@@ -81,85 +81,85 @@ landingContent:
   - linkListType: overview
     links:
     - text: ¿Qué es Azure Cosmos DB API para MongoDB?
-      url: mongodb-introduction.md
+      url: mongodb/mongodb-introduction.md
   - linkListType: quickstart
     links:
     - text: Administración de datos mediante una aplicación .NET
-      url: create-mongodb-dotnet.md
+      url: mongodb/create-mongodb-dotnet.md
     - text: Administración de datos mediante una aplicación de GoLang
-      url: create-mongodb-go.md
+      url: mongodb/create-mongodb-go.md
   - linkListType: concept
     links:
     - text: Compatibilidad del protocolo de conexión con MongoDB
-      url: mongodb-feature-support-40.md
+      url: mongodb/feature-support-40.md
     - text: Comandos de extensión de MongoDB
-      url: mongodb-custom-commands.md
+      url: mongodb/custom-commands.md
     - text: Cambio de flujos
-      url: mongodb-change-streams.md
+      url: mongodb/change-streams.md
   - linkListType: tutorial
     links:
     - text: Consulta de datos con el shell de MongoDB
-      url: tutorial-query-mongodb.md
+      url: mongodb/tutorial-query-mongodb.md
   - linkListType: how-to-guide
     links:
     - text: Administración de la indexación de datos
-      url: mongodb-indexing.md
+      url: mongodb/mongodb-indexing.md
     - text: Conexión con Robo 3T
-      url: mongodb-robomongo.md
+      url: mongodb/connect-using-robomongo.md
 - title: Uso de Gremlin API para Azure Cosmos DB
   linkLists:
   - linkListType: overview
     links:
     - text: ¿Qué es Gremlin API para Azure Cosmos DB?
-      url: graph-introduction.md
+      url: graph/graph-introduction.md
   - linkListType: quickstart
     links:
     - text: Administración de datos mediante la consola de Gremlin
-      url: create-graph-gremlin-console.md
+      url: graph/create-graph-console.md
     - text: Administración de datos mediante una aplicación .NET
-      url: create-graph-dotnet.md
+      url: graph/create-graph-dotnet.md
   - linkListType: concept
     links:
     - text: Compatibilidad del protocolo de conexión con Tinkerpop’s Gremlin
-      url: gremlin-support.md
+      url: graph/gremlin-support.md
     - text: Límites de servicio de Gremlin API
-      url: gremlin-limits.md
+      url: graph/gremlin-limits.md
   - linkListType: how-to-guide
     links:
     - text: Modelado de datos de Graph
-      url: graph-modeling.md
+      url: graph/graph-modeling.md
     - text: Procedimientos recomendados para la creación de particiones de datos de Graph
-      url: graph-partitioning.md
+      url: graph/graph-partitioning.md
     - text: Optimización de consultas de Gremlin
-      url: graph-execution-profile.md
+      url: graph/graph-execution-profile.md
 - title: Uso de Cassandra API para Azure Cosmos DB
   linkLists:
   - linkListType: overview
     links:
     - text: ¿Qué es Cassandra API para Azure Cosmos DB?
-      url: cassandra-introduction.md
+      url: cassandra/cassandra-introduction.md
   - linkListType: quickstart
     links:
     - text: Administración de datos mediante una aplicación .NET Core
-      url: create-cassandra-dotnet-core.md
+      url: cassandra/manage-data-dotnet-core.md
     - text: Administración de datos mediante una aplicación de Java
-      url: create-cassandra-java-v4.md
+      url: cassandra/manage-data-java-v4-sdk.md
   - linkListType: concept
     links:
     - text: Compatibilidad del protocolo de conexión con Apache Cassandra
-      url: cassandra-support.md
+      url: cassandra/cassandra-support.md
     - text: Escalado elástico
-      url: manage-scale-cassandra.md
+      url: cassandra/scale-account-throughput.md
     - text: Índices secundarios
-      url: cassandra-secondary-index.md
+      url: cassandra/secondary-indexing.md
     - text: Creación de particiones
-      url: cassandra-partitioning.md
+      url: cassandra/cassandra-partitioning.md
   - linkListType: how-to-guide
     links:
     - text: Conexión con Cassandra API desde Spark
-      url: cassandra-spark-generic.md
+      url: cassandra/connect-spark-configuration.md
     - text: Compatibilidad con la fuente de cambios con predicados de consulta
-      url: cassandra-change-feed.md?tabs=java
+      url: cassandra/cassandra-change-feed.md?tabs=java
 - title: Migración de los datos a Cosmos DB
   linkLists:
   - linkListType: tutorial
@@ -167,21 +167,21 @@ landingContent:
     - text: 'Herramienta de migración de datos: API de SQL'
       url: import-data.md
     - text: 'Shell de CQL, Spark: Cassandra API'
-      url: cassandra-import-data.md
+      url: cassandra/migrate-data.md
     - text: 'Azure Database Migration Service: API de MongoDB'
       url: ../dms/tutorial-mongodb-cosmos-db.md
     - text: 'AzCopy, herramienta de migración de datos: Table API'
-      url: table-import.md
+      url: table/table-import.md
   - linkListType: how-to-guide
     links:
     - text: Oracle DB a API de SQL de Cosmos DB mediante Striim
       url: cosmosdb-sql-api-migrate-data-striim.md
     - text: Oracle DB a Cassandra API de Cosmos DB mediante Striim
-      url: cosmosdb-cassandra-api-migrate-data-striim.md
+      url: cassandra/migrate-data-striim.md
     - text: Oracle DB a Cassandra API de Cosmos DB mediante Blitzz
-      url: oracle-migrate-cosmos-db-blitzz.md
+      url: cassandra/oracle-migrate-cosmos-db-blitzz.md
     - text: Apache Cassandra a Cosmos DB con Blitzz
-      url: cassandra-migrate-cosmos-db-blitzz.md
+      url: cassandra/migrate-data-blitzz.md
     - text: Migración de 100 TB de datos
       url: migrate-cosmosdb-data.md
 - title: Análisis con Azure Synapse Link
@@ -203,10 +203,10 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Administración de datos mediante una aplicación .NET
-      url: create-table-dotnet.md
+      url: table/create-table-dotnet.md
     - text: Administración de datos mediante una aplicación de Java
-      url: create-table-java.md
+      url: table/create-table-java.md
   - linkListType: concept
     links:
     - text: Diferencias entre Table API y Azure Table Storage
-      url: table-support.md
+      url: table/table-support.md

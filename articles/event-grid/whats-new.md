@@ -3,12 +3,12 @@ title: Novedades Azure Event Grid
 description: Obtenga información acerca de las novedades de Azure Event Grid, como, por ejemplo, las notas de la versión más recientes, los problemas conocidos, las correcciones de errores, las funcionalidades en desuso y los próximos cambios.
 ms.topic: overview
 ms.date: 04/27/2021
-ms.openlocfilehash: a8c39338b43dfb1ddde173c3560faeb977b0148f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: f516a9896f98c96e6f9cd2c651d9edac86474d14
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112466673"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122068207"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Novedades de Azure Event Grid
 
@@ -85,14 +85,14 @@ En Azure Event Grid se realizan mejoras de forma continua. Para mantenerse al d�
 - Esta versión corresponde a la versión de API `2019-06-01`.
 - Agrega compatibilidad con las siguientes funcionalidades nuevas:
     * [Dominios](event-domains.md)
-    * Paginación y filtro de búsqueda para las operaciones de lista de recursos. Para obtener un ejemplo, consulte [Temas: Lista por suscripción](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
+    * Paginación y filtro de búsqueda para las operaciones de lista de recursos. Para obtener un ejemplo, consulte [Temas: Lista por suscripción](/rest/api/eventgrid/version2021-06-01-preview/partner-namespaces/list-by-subscription).
     * [Cola de Service Bus como destino](handler-service-bus.md)
     * [Filtrado avanzado](event-filtering.md#advanced-filtering)
 
 ## <a name="410-preview-2019-03"></a>4.1.0-preview (2019-03)
 - Esta versión corresponde a la versión de API 2019-02-01-preview.
 - Agrega compatibilidad con las siguientes funcionalidades nuevas:
-    * Paginación y filtro de búsqueda para las operaciones de lista de recursos. Para obtener un ejemplo, consulte [Temas: Lista por suscripción](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
+    * Paginación y filtro de búsqueda para las operaciones de lista de recursos. Para obtener un ejemplo, consulte [Temas: Lista por suscripción](/rest/api/eventgrid/version2021-06-01-preview/partner-namespaces/list-by-subscription).
     * [Temas de creación y eliminación manual de dominios](how-to-event-domains.md)
     * [Cola de Service Bus como destino](handler-service-bus.md)
 

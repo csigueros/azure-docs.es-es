@@ -8,19 +8,16 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: 1fb7373842e7edfdede482d83fdc7e27da0e6965
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 540b9021af6961cf873b6b6503905a94e1138a64
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107778"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738423"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>Inicio rápido: Incorporación de una aplicación de llamadas a una reunión de Teams
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
-> [!IMPORTANT]
-> Para habilitar o deshabilitar la [interoperabilidad de los inquilinos de equipos](../../concepts/teams-interop.md), complete [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
 Comience a usar Azure Communication Services mediante la conexión de la solución de llamada a Microsoft Teams con el SDK para JavaScript.
 
