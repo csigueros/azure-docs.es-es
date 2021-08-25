@@ -2,19 +2,19 @@
 title: Introducción al control de acceso del área de trabajo de Azure Synapse
 description: En este artículo se describen los mecanismos que se usan para controlar el acceso a las áreas de trabajo de Synapse, así como a los recursos y artefactos de código que contienen.
 services: synapse-analytics
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
 ms.date: 12/03/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 574211bc426d97c5bd734dcf348b66ecce1b3ff8
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: b92603e5aa9f7c42a2e4789353077058b1fc6ea9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217816"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730923"
 ---
 # <a name="azure-synapse-access-control"></a>Control de acceso de Azure Synapse 
 

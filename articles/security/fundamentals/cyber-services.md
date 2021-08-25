@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 14ff56c32fb1fb6ef2fef862e50277e8ef3e5b81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1dc7a4c1afc6c63415027fee3f1c1844104abbe8
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94412891"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662351"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Servicios de Microsoft en ciberseguridad
 
@@ -33,10 +33,10 @@ Nuestro equipo de profesionales técnicos está formado por expertos altamente c
 Aprenda más acerca de los servicios proporcionados por Servicios de Microsoft:
 
 * [Security Risk Assessment](https://download.microsoft.com/download/5/D/0/5D06F4EA-EAA1-4224-99E2-0C0F45E941D0/Microsoft%20Security%20Risk%20Asessment%20Datasheet.pdf)
-* [Dynamic Identity Framework Assessment](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/dynamic-identity-framework-identity-assessment-datasheet.pdf)
+* Dynamic Identity Framework Assessment
 * [Offline Assessment for Active Directory Services](https://download.microsoft.com/download/1/C/1/1C15BA51-840E-498D-86C6-4BD35D33C79E/Prerequisites_Offline_AD.pdf)
 * [Enhanced Security Administration Environment](https://download.microsoft.com/download/A/C/5/AC5D21A6-E04B-4DC4-B1F2-AE060319A4D7/Premier_Support_for_Security/Popis/Enhanced-Security-Admin-Environment-Solution-Datasheet-%5BEN%5D.pdf)
-* [Azure AD Implementation Services](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
+* Azure AD Implementation Services
 * [Securing Against Lateral Account Movement](/azure-advanced-threat-protection/use-case-lateral-movement-path)
 * [Incident Response and Recovery](/microsoft-365/compliance/gdpr-breach-microsoft-support-professional-services#data-protection-incident-response-overview)
 

@@ -50,7 +50,7 @@
     - name: Tipos y comprobaciones de Resource Health
       href: resource-health-checks-resource-types.md
     - name: Preguntas frecuentes de Resource Health
-      href: resource-health-faq.md
+      href: resource-health-faq.yml
 - name: Recursos
   items:
     - name: Azure Roadmap

@@ -12,15 +12,15 @@ ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/07/2020
+ms.date: 06/01/2021
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7d91d6e528127740039e1e21ca0b4cb8635e7e10
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: d26a95a5db616be89eac89e140e20bd371088716
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569645"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580915"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -138,5 +138,5 @@ Como alternativa, puede implementar un [grupo de disponibilidad sin clúster](av
 
 Para obtener más información, consulte:
 
-- [Clúster de conmutación por error de Windows Server con SQL Server en VM de Azure](hadr-windows-server-failover-cluster-overview.md)
-- [Información general de los grupos de disponibilidad AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)

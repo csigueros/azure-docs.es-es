@@ -1,19 +1,21 @@
 ---
 title: Transformación de clasificación en el flujo de datos de asignación
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Cómo usar la transformación de clasificación del flujo de datos de asignación de Azure Data Factory para generar una columna de clasificación
 author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 10/05/2020
-ms.openlocfilehash: bc0a4d8701f8d53f0acff362713054269378a88a
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 6577425827668f0eaddb19b276e940fff7dafa1a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903747"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638888"
 ---
 # <a name="rank-transformation-in-mapping-data-flow"></a>Transformación de clasificación en el flujo de datos de asignación 
 

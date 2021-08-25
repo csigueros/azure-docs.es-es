@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Tutorial para crear un escenario de Azure Digital Twins mediante una aplicación de línea de comandos de ejemplo
 author: baanders
 ms.author: baanders
-ms.date: 5/8/2020
+ms.date: 6/1/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 1d4faa9ad8bce084fdd011fb9a79fd867f02aa27
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: e795b8d34b46fc3df0e31e12a1de0bccdab74e6a
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446914"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252712"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>Tutorial: Creación de un grafo de Azure Digital Twins mediante una aplicación cliente de ejemplo
 

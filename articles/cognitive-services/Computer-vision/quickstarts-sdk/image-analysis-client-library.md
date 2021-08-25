@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/29/2021
+ms.date: 07/30/2021
 ms.author: pafarley
 ms.custom:
 - devx-track-python
@@ -17,12 +17,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-computer-vision
 keywords: computer vision, computer vision service
-ms.openlocfilehash: 0ed8116ec1f40ab6ef5fcc4bef426c3b65f38c45
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: cd3e5eb167c146dadf3a24fedea96ea236878020
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728179"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750040"
 ---
 # <a name="quickstart-use-the-image-analysis-client-library-or-rest-api"></a>Inicio rápido: Uso de la biblioteca cliente o API REST Image Analysis
 

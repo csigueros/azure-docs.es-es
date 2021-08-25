@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 keywords: cognitive services, inteligencia cognitiva, soluciones cognitivas, servicios de inteligencia artificial, servicios de IA
 ms.topic: quickstart
-ms.date: 3/22/2021
+ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: 26e3b264b7268f7a9ffdb592beef7d76844646f5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1c838a9b805eed20fec9f9feabf4aa24c58b1cd5
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789148"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429945"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Inicio rápido: Creación de un recurso de Cognitive Services mediante la interfaz de la línea de comandos (CLI) de Azure
 
@@ -33,6 +33,8 @@ En este artículo de inicio rápido, aprenderá a suscribirse a Azure Cognitive 
 
 * Una suscripción de Azure válida: [cree una de forma gratuita](https://azure.microsoft.com/free/cognitive-services).
 * [Interfaz de la línea de comandos (CLI) de Azure](/cli/azure/install-azure-cli)
+* [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
+* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Instale la CLI de Azure e inicie sesión.
 
@@ -78,51 +80,10 @@ az group create \
 
 Al crear un nuevo recurso, deberá conocer el "tipo" de servicio que quiere usar, junto con el [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/) (o sku) que quiere. Usará esta y otra información como parámetros al crear el recurso.
 
-### <a name="multi-service"></a>Varios servicios
-
-| Servicio                    | Clase                      |
-|----------------------------|---------------------------|
-| Varios servicios Consulte la página de [precios](https://azure.microsoft.com/pricing/details/cognitive-services/) para más información.            | `CognitiveServices`     |
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 
-> [!NOTE]
-> Muchas de las instancias siguientes de Cognitive Services tienen un nivel gratuito que puede usar para probar el servicio. Para usar el nivel gratuito, use `F0` como sku del recurso.
-
-### <a name="vision"></a>Visión
-
-| Servicio                    | Clase                      |
-|----------------------------|---------------------------|
-| Computer Vision            | `ComputerVision`          |
-| Custom Vision: Prediction | `CustomVision.Prediction` |
-| Custom Vision: Training   | `CustomVision.Training`   |
-| Caras                       | `Face`                    |
-| Form Recognizer            | `FormRecognizer`          |
-| Ink Recognizer             | `InkRecognizer`           |
-
-### <a name="speech"></a>Voz
-
-| Servicio            | Clase                 |
-|--------------------|----------------------|
-| Speech Services    | `SpeechServices`     |
-| Reconocimiento de voz | `SpeakerRecognition` |
-
-### <a name="language"></a>Idioma
-
-| Servicio            | Clase                |
-|--------------------|---------------------|
-| Descripción del formulario | `FormUnderstanding` |
-| LUIS               | `LUIS`              |
-| QnA Maker          | `QnAMaker`          |
-| Text Analytics     | `TextAnalytics`     |
-| Traducción del texto   | `TextTranslation`   |
-
-### <a name="decision"></a>Decisión
-
-| Servicio           | Clase               |
-|-------------------|--------------------|
-| Anomaly Detector  | `AnomalyDetector`  |
-| Content Moderator | `ContentModerator` |
-| Personalizer      | `Personalizer`     |
+[!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
 Puede encontrar una lista de "tipos" de Cognitive Services disponibles con el comando [az cognitiveservices list-types](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_list_kinds):
 
@@ -193,6 +154,8 @@ Para eliminar el grupo de recursos y sus recursos asociados, use el comando az g
 ```azurecli-interactive
 az group delete --name cognitive-services-resource-group
 ```
+
+Si necesita recuperar un recurso eliminado, consulte el artículo sobre la [recuperación de recursos de Cognitive Services eliminados](manage-resources.md).
 
 ## <a name="see-also"></a>Consulte también
 

@@ -4,12 +4,12 @@ description: Este artículo es un tutorial para crear una aplicación de .NET Co
 ms.topic: quickstart
 ms.date: 06/10/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 948bacd1506bc65c97c84ea5fa9d3f5b4ad95503
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 3f8a0c2d9021f0a084025dbca661e37af421c9d1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730268"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749702"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Envío y recepción de eventos desde Azure Event Hubs: .NET (Azure.Messaging.EventHubs) 
 En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro de eventos mediante la biblioteca de .NET **Azure.Messaging.EventHubs**. 
@@ -109,7 +109,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
             {
                 // Use the producer client to send the batch of events to the event hub
                 await producerClient.SendAsync(eventBatch);
-                Console.WriteLine($"A batch of {numEvents} events has been published.");
+                Console.WriteLine($"A batch of {numOfEvents} events has been published.");
             }
             finally
             {
