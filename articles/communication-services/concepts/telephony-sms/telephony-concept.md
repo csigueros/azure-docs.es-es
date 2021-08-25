@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ef77648a87a22eda950704a6d86b2e699dc61ebe
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: c2d6f3ebe3d11c304efe57141db3d8935611bf72
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762738"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743540"
 ---
 # <a name="telephony-concepts"></a>Conceptos de telefonía
 
@@ -77,7 +77,7 @@ Esta opción requiere:
 ### <a name="conceptual-documentation"></a>Documentación conceptual
 
 - [Tipos de número de teléfono en Azure Communication Services](./plan-solution.md)
-- [Planeamiento del enrutamiento directo de Azure](./sip-interface-infrastructure.md)
+- [Planeamiento del enrutamiento directo de Azure](./direct-routing-infrastructure.md)
 - [Controladores de límites de sesión certificados para enrutamiento directo de Azure Communication Services](./certified-session-border-controllers.md)
 - [Precios](../pricing.md)
 

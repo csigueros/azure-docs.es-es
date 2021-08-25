@@ -3,18 +3,17 @@ title: 'Tutorial: Almacenamiento de datos con el módulo de SQL mediante Azure I
 description: En este tutorial se indica cómo almacenar datos localmente en el dispositivo IoT Edge con un módulo de SQL Server
 services: iot-edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 50a2555bfd86e074da16daf4866d79f506ecd964
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 4a45cb97d4565eac279f054bcd862329311f4d8c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438051"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726340"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Almacenamiento de datos en el perímetro con bases de datos de SQL Server
 
@@ -88,7 +87,7 @@ La extensión de IoT Edge intenta extraer de Azure las credenciales del registr
 3. Guarde este archivo.
 
 >[!NOTE]
->En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio. Para obtener más información, vea [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
+>En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio. Para más información, consulte [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Selección de la arquitectura de destino
 

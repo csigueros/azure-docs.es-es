@@ -1,17 +1,20 @@
 ---
 title: Transformación de datos con cuadernos de Databricks
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Aprenda a procesar o transformar datos mediante la ejecución de un cuaderno de Databricks en Azure Data Factory.
 ms.service: data-factory
+ms.subservice: tutorials
+ms.custom: synapse
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: fea572c2e75f62b5e7e7b4634e37da348bdcdaf1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d4db58e70c31724bac3678eb0f692e13d26211c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183495"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638012"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformación de datos mediante la ejecución de blocs de notas de Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

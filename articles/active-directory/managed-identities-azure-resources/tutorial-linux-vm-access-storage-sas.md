@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47278f47d3f66e79ed980d752fb7a383bd995c07
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: a383ef8597c2017b233296c3a6854e3ea805bfc1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113087349"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727637"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Uso de una identidad asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage con las credenciales de SAS
 
@@ -76,7 +76,7 @@ Azure Storage admite la autenticación de Azure AD de manera nativa, por lo que
 Para acceder a los pasos detallados, vea [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 >[!NOTE]
-> Para más información sobre los distintos roles que puede usar para conceder permisos de almacenamiento, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+> Para más información sobre los distintos roles que puede usar para conceder permisos de almacenamiento, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights).
 
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obtención de un token de acceso utilizando la identidad de la máquina virtual y su uso para llamar a Azure Resource Manager

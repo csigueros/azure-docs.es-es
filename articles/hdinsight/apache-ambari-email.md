@@ -4,12 +4,12 @@ description: En este artículo se describe cómo usar SendGrid con Apache Ambari
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 5b344c0c4b1db9159d0223c861e5d371cb225f5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e9c7e9e44cd09460ede9046cadb1800871b5052d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104867209"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726730"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Tutorial: Configuración de notificaciones por correo electrónico de Apache Ambari en Azure HDInsight
 
@@ -23,7 +23,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Una cuenta de correo electrónico de SendGrid. Para obtener instrucciones, consulte [Envío de correos electrónicos mediante SendGrid con Azure](../sendgrid-dotnet-how-to-send-email.md).
+* Una cuenta de correo electrónico de SendGrid. Para obtener instrucciones, consulte [Envío de correos electrónicos mediante SendGrid con Azure](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account).
 
 * Un clúster de HDInsight. Consulte [Creación de clústeres de Apache Hadoop mediante Azure Portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
 

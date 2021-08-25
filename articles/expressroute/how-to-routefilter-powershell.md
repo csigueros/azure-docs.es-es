@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 08/02/2021
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 8321e3e78702d95936fa46bdbdac4b59f17d8a84
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: dca4a74ea7ba345a6ca56b72eb933563abc831bf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695887"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749654"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-powershell"></a>Tutorial: Configuración de filtros de ruta para el emparejamiento de Microsoft mediante PowerShell
 
@@ -95,7 +95,7 @@ Un filtro de ruta puede tener una única regla y la regla debe ser de tipo "Perm
 1. Ejecute el siguiente comando para agregar la regla de filtro al filtro de ruta:
  
     ```azurepowershell-interactive
-    $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+    $routefilter = Get-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
     $routefilter.Rules.Add($rule)
     Set-AzRouteFilter -RouteFilter $routefilter
     ```
@@ -105,7 +105,7 @@ Un filtro de ruta puede tener una única regla y la regla debe ser de tipo "Perm
 Ejecute el siguiente comando para asociar el filtro de ruta al circuito ExpressRoute (se da por hecho que solo tiene emparejamiento de Microsoft):
 
 ```azurepowershell-interactive
-$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "MyResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
@@ -119,12 +119,12 @@ Para obtener las propiedades de un filtro de ruta, siga estos pasos:
 1. Ejecute el comando siguiente para obtener el recurso de filtro de ruta:
 
    ```azurepowershell-interactive
-   $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   $routefilter = Get-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
    ```
 2. Obtenga las reglas de filtro de la ruta para el recurso de filtro de ruta mediante la ejecución del comando siguiente:
 
    ```azurepowershell-interactive
-   $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   $routefilter = Get-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
    $rule = $routefilter.Rules[0]
    ```
 
@@ -133,7 +133,7 @@ Para obtener las propiedades de un filtro de ruta, siga estos pasos:
 Si el filtro de ruta ya está asociado a un circuito, las actualizaciones de la lista de la comunidad de BGP propagan automáticamente los cambios en los anuncios de prefijos mediante las sesiones BGP establecidas. Puede actualizar la lista de la comunidad de BGP de su filtro de ruta con el comando siguiente:
 
 ```azurepowershell-interactive
-$routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+$routefilter = Get-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 $routefilter.rules[0].Communities = "12076:5030", "12076:5040"
 Set-AzRouteFilter -RouteFilter $routefilter
 ```

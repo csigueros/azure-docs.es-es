@@ -4,14 +4,15 @@ description: Azure Data Factory admite ahora intervalos de direcciones IP estát
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 904b1506bfc8d975cad101329e1fcd15844aa284
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: dd52d74ab4b5be261e6c170d897e15f14a332d9c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481632"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638964"
 ---
 # <a name="data-access-strategies"></a>Estrategias de acceso a datos
 
@@ -47,7 +48,7 @@ Para obtener más información sobre los mecanismos de seguridad de red admitido
 
     | Almacenes de datos                  | Mecanismo de seguridad de red compatible con almacenes de datos | Private Link     | Servicio de confianza     | Rango de direcciones IP estáticas | Etiquetas de servicio | Permitir servicios de Azure |
     |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
-    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                     | Sí              | -                   | Sí             | -            | Sí                  |
+    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                     | Sí              | -                   | Sí             | -            | Sí                  |
     |                              | Explorador de datos de Azure                                 | -                | -                   | Sí*            | Sí*         | -                    |
     |                              | Azure Data Lake Gen1                                | -                | -                   | Sí             | -            | Sí                  |
     |                              | Azure Database for MariaDB, MySQL y PostgreSQL       | -                | -                   | Sí             | -            | Sí                  |
@@ -65,7 +66,7 @@ Para obtener más información sobre los mecanismos de seguridad de red admitido
     
     | Almacenes de datos                  | Mecanismo de seguridad de red compatible con almacenes de datos         | IP estática | Servicios de confianza  |
     |--------------------------------|---------------------------------------------------------------|-----------|---------------------|
-    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                               | Sí       | -                   |
+    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                               | Sí       | -                   |
     |                                | Explorador de datos de Azure                                           | -         | -                   |
     |                                | Azure Data Lake Gen1                                          | Sí       | -                   |
     |                                | Azure Database for MariaDB, MySQL y PostgreSQL               | Sí       | -                   |

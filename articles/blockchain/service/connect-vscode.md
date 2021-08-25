@@ -4,16 +4,18 @@ description: Conexión a una red de consorcio de Azure Blockchain Service median
 ms.date: 12/04/2020
 ms.topic: quickstart
 ms.reviewer: caleteet
-ms.openlocfilehash: 6e94d93d91f25c15743c4c467e31de49fd9da41d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 157aaab52c64bcbbf2ae6e378cbb354df56e2464
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96763339"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122643530"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Inicio rápido: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service
 
 En este inicio rápido, se instala y usa la extensión de Visual Studio Code (VS Code) kit de desarrollo de Azure Blockchain para Ethereum para realizar la asociación a un consorcio en Azure Blockchain Service. El kit de desarrollo de Azure Blockchain simplifica la creación, conexión, compilación e implementación de contratos inteligentes en libros de contabilidad de una cadena de bloques de Ethereum.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

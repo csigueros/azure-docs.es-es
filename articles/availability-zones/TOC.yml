@@ -3,11 +3,9 @@
     - name: Página de características de la resistencia de Azure
       href: 'https://azure.microsoft.com/features/resiliency'
     - name: Diseño de aplicaciones resistentes de Azure
-      href: /azure/architecture/resiliency/
+      href: /azure/architecture/framework/resiliency/app-design
 - name: Alta disponibilidad
   items:
-    - name: Alta disponibilidad para aplicaciones de Azure
-      href: /azure/architecture/resiliency/high-availability-azure-applications
     - name: Regiones y zonas de disponibilidad
       href: az-overview.md
     - name: Documentación acerca de las zonas de disponibilidad
