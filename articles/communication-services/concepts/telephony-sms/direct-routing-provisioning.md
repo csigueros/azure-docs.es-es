@@ -8,19 +8,19 @@ ms.author: bobazile
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 15e6c2383539a1b7c119346ea0624a01964f2364
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 27b1b08196ef76bba92bf1f2ff518585c896178a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762762"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743536"
 ---
 # <a name="session-border-controllers-and-voice-routing"></a>Controladores de límites de sesión y enrutadores de voz
 El enrutamiento directo de Azure Communication Services le permite conectar la infraestructura de telefonía existente a Azure. En el artículo se enumeran los pasos de alto nivel necesarios para conectar un controlador de límites de sesión (CLS) compatible con enrutamiento directo y cómo funciona el enrutamiento de voz para el recurso de comunicación habilitado. 
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
  
-Para saber si el enrutamiento directo de Azure Communication Services es la solución adecuada para su organización, consulte [Conceptos de telefonía de Azure](./telephony-concept.md). Para obtener información sobre los requisitos previos y la planificación de la implementación, consulte [Requisitos de infraestructura de enrutamiento directo de Azure Communication Services](./sip-interface-infrastructure.md).
+Para saber si el enrutamiento directo de Azure Communication Services es la solución adecuada para su organización, consulte [Conceptos de telefonía de Azure](./telephony-concept.md). Para obtener información sobre los requisitos previos y la planificación de la implementación, consulte [Requisitos de infraestructura de enrutamiento directo de Azure Communication Services](./direct-routing-infrastructure.md).
 
 ## <a name="connect-the-sbc-with-azure-communication-services"></a>Conectar el CLS con Azure Communication Services
 
@@ -32,7 +32,7 @@ Si usa Office 365, asegúrese de que la parte del dominio del nombre de dominio 
 - Por ejemplo, si `contoso.com` es un dominio registrado en O365, no puede usar `sbc.contoso.com` para Communication Services. Pero puede usar un dominio de nivel superior si no existe en O365: puede crear un dominio `acs.contoso.com` y usar el nombre de dominio completo `sbc.acs.contoso.com` como nombre del CLS.
 - El certificado CLS debe coincidir con el nombre; se admiten certificados comodín.
 - El dominio *.onmicrosoft.com no se puede usar para el nombre de dominio completo del CLS.
-Para obtener la lista completa de requisitos, consulte [Requisitos de infraestructura de enrutamiento directo de Azure](./sip-interface-infrastructure.md).
+Para obtener la lista completa de requisitos, consulte [Requisitos de infraestructura de enrutamiento directo de Azure](./direct-routing-infrastructure.md).
 
    :::image type="content" source="../media/direct-routing-provisioning/add-session-border-controller.png" alt-text="Adición del controlador de límites de sesión.":::
 - Cuando termine, haga clic en Siguiente.

@@ -151,6 +151,9 @@
           href: batch-sig-images.md
         - name: Creación de un grupo con un recurso de imagen administrada
           href: batch-custom-images.md
+        - name: Creación de un grupo en Availability Zones
+          displayName: 'region, zonal policy'
+          href: create-pool-availability-zones.md
         - name: Creación de un grupo con el cifrado de disco habilitado
           href: disk-encryption.md
         - name: Creación de un grupo en una red virtual
@@ -162,6 +165,8 @@
         - name: Creación de un grupo sin direcciones IP públicas
           displayName: private
           href: batch-pool-no-public-ip-address.md
+        - name: Uso de extensiones con grupos
+          href: create-pool-extensions.md
         - name: Configuración de identidades administradas
           displayName: user-assigned
           href: managed-identity-pools.md

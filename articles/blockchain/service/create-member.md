@@ -7,16 +7,18 @@ ms.topic: quickstart
 ms.custom:
 - references_regions
 - mode-portal
-ms.openlocfilehash: 9fe8b7856a99930c16b4173e432fa0b30642582c
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 27193b1e18b13c405ad34478da1ed57dd0a243b2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536190"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122643529"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante Azure Portal
 
 En este inicio rápido se implementan un nuevo miembro de una cadena de bloques y el consorcio en Azure Blockchain Service mediante Azure Portal.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -26,7 +28,9 @@ Ninguno.
 
 ## <a name="create-a-blockchain-member"></a>Creación de un miembro de cadena de bloques
 
-Un miembro de Azure Blockchain Service es un nodo de la cadena de bloques en una red de cadenas de bloques del consorcio privado. Al aprovisionar un miembro, puede crear una red de consorcio o unirse a ella. Necesita al menos un miembro para una red de consorcio. El número de miembros de la cadena de bloques que necesitan los participantes depende de su escenario. Los participantes del consorcio pueden tener uno o varios miembros de la cadena de bloques o pueden compartir miembros con otros participantes. Para más información sobre los consorcios, consulte [Consorcio de Azure Blockchain Service](consortium.md).
+Un miembro de Azure Blockchain Service es un nodo de la cadena de bloques en una red de cadenas de bloques del consorcio privado.
+
+Al aprovisionar un miembro, puede crear una red de consorcio o unirse a ella. Necesita al menos un miembro para una red de consorcio. El número de miembros de la cadena de bloques que necesitan los participantes depende de su escenario. Los participantes del consorcio pueden tener uno o varios miembros de la cadena de bloques o pueden compartir miembros con otros participantes. Para más información sobre los consorcios, consulte [Consorcio de Azure Blockchain Service](consortium.md).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.

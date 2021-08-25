@@ -3,18 +3,17 @@ title: Tutorial de desarrollo del módulo Node.js para Linux en Azure IoT Edge |
 description: En este tutorial se muestra cómo crear un módulo de IoT Edge con código de Node.js e implementarlo en un dispositivo perimetral.
 services: iot-edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 640e80cb3b97a0aefdec2039747307c471138612
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: a2bd76a30a7737e18eb82cd81bb2b20cf126a514
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438082"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740509"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-using-linux-containers"></a>Tutorial: Desarrollo e implementación de un módulo de Node.js de IoT Edge con contenedores de Linux
 
@@ -103,7 +102,7 @@ La extensión de IoT Edge intenta extraer de Azure las credenciales del registr
 3. Guarde este archivo.
 
 >[!NOTE]
->En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio. Para obtener más información, vea [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
+>En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio. Para más información, consulte [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Selección de la arquitectura de destino
 

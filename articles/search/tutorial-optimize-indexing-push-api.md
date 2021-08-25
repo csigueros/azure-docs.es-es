@@ -2,19 +2,18 @@
 title: 'Tutorial: Optimización de la indexación mediante la API de inserción'
 titleSuffix: Azure Cognitive Search
 description: Aprenda a indexar datos de forma eficaz mediante la API de inserción de Azure Cognitive Search. Este tutorial y el código de ejemplo están en C#.
-manager: luisca
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 1/29/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f97a99bf2d055805ee665ab51aff8cff12dc5a69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddba4249eb6b635fdc90c798c565a8a41d88ff54
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99094199"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178347"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutorial: Optimización de la indexación mediante la API de inserción
 
@@ -33,7 +32,7 @@ En este tutorial, usará C# y el [SDK de .NET](/dotnet/api/overview/azure/search
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Este tutorial requiere los siguientes servicios y herramientas:
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 16493cf44ba3666b900b34e18acd90f5ac73baca
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 9d0f1fbe81c8d221b1dd83b1f15b3ea099769043
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112282770"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638498"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Tutorial: Migración de PostgreSQL a Azure DB for PostgreSQL en línea mediante DMS a través de Azure Portal
 
@@ -113,20 +113,7 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
    > [!NOTE]
    > El servicio de migración controla internamente la habilitación o deshabilitación de claves externas y desencadenadores para garantizar una migración de datos confiable y sólida. Como resultado, no tiene que preocuparse por realizar modificaciones en el esquema de la base de datos de destino.
 
-
-## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registro del proveedor de recursos Microsoft.DataMigration
-
-1. Inicie sesión en Azure Portal, seleccione **Todos los servicios** y, después, **Suscripciones**.
-
-   ![Mostrar suscripciones en el portal](media/tutorial-postgresql-to-azure-postgresql-online-portal/portal-select-subscriptions.png)
-
-2. Seleccione la suscripción en la que quiere crear la instancia de Azure Database Migration Service y después seleccione **Proveedores de recursos**.
-
-    ![Mostrar los proveedores de recursos](media/tutorial-postgresql-to-azure-postgresql-online-portal/portal-select-resource-provider.png)
-
-3. Busque la migración y después, a la derecha de **Microsoft.DataMigration**, seleccione **Registrar**.
-
-    ![Registro del proveedor de recursos](media/tutorial-postgresql-to-azure-postgresql-online-portal/portal-register-resource-provider.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## <a name="create-a-dms-instance"></a>Creación de una instancia de DMS
 

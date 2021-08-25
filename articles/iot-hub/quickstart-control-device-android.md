@@ -2,7 +2,6 @@
 title: Controlar un dispositivo desde Azure IoT Hub (Android) | Microsoft Docs
 description: En este inicio rápido, ejecuta dos aplicaciones de Java de muestra. Una aplicación es una aplicación de servicio que puede controlar dispositivos conectados al centro de manera remota. La otra aplicación se ejecuta en un dispositivo físico o simulado conectado al centro que se puede controlar de manera remota.
 author: wesmc7777
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -14,12 +13,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 9225c53d4271622b0276dadb1d0a526199602d62
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 929f402a2beb9de7e9537647542199ff68f0d32f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114727946"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747277"
 ---
 # <a name="control-a-device-connected-to-an-iot-hub-android"></a>Control de un dispositivo conectado a IoT Hub (Android)
 

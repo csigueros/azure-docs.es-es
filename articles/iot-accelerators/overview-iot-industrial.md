@@ -7,13 +7,12 @@ ms.date: 11/26/2018
 ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
-manager: philmea
-ms.openlocfilehash: 3df10c9d7630e9db76994e8e508f30adb986e0d5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d99d9d07ae13f38d05d297111401f4760b2a9d82
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645932"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748375"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>¿Qué es IoT industrial (IIoT)?
 
@@ -52,4 +51,4 @@ OPC Vault es una implementación del servidor de detección global (GDS) de OPC 
 
 Después de esta introducción a IoT industrial y sus componentes, este es el siguiente paso sugerido:
 
-[¿Qué es OPC Twin?](overview-opc-twin.md)
+[¿Qué es OPC Twin?](/previous-versions/azure/iot-accelerators/overview-opc-twin)

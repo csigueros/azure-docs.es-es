@@ -3,19 +3,19 @@ title: ¿Qué es Speech Service?
 titleSuffix: Azure Cognitive Services
 description: El Servicio de voz es la unificación de las funcionalidades de conversión de voz a texto, conversión de texto a voz y traducción de voz en una sola suscripción de Azure. Es fácil agregar voz a sus aplicaciones, herramientas y dispositivos con el SDK de Voz, el SDK de dispositivos de voz o las API de REST.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
-ms.author: nitinme
-ms.openlocfilehash: 8e173f8f11f45fc61ee412c7241a5f9297c807bb
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.author: lajanuar
+ms.openlocfilehash: cde397674a60c040f1db30fc3b9276563427c468
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708222"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122067952"
 ---
 # <a name="what-is-the-speech-service"></a>¿Qué es Speech Service?
 

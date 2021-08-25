@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 04/05/2021
 ms.author: mametcal
-ms.openlocfilehash: 9f9f5bff0cc0c1e70178cab1e1b0e29ffbd8fc90
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 1b4dbe38c1b70bb44eb1c280e56954c150a5a23a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114479709"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739902"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-java-spring-app"></a>Tutorial: Uso de la configuración dinámica mediante una actualización de inserción en una aplicación de Java Spring
 
@@ -27,7 +27,7 @@ La biblioteca cliente de Java Spring de App Configuration admite la actualizaci�
 
 - Modelo de sondeo: este es el comportamiento predeterminado, que usa el sondeo para detectar los cambios en la configuración. Una vez que el valor almacenado en caché de una configuración expira, la siguiente llamada a `AppConfigurationRefresh` o `refreshConfigurations` envía una solicitud al servidor para comprobar si la configuración ha cambiado y extrae la configuración actualizada si es necesario.
 
-- Modo de inserción: este modo utiliza [eventos de App Configuration](./concept-app-configuration-event.md) para detectar los cambios en la configuración. Una vez que App Configuration está configurado para enviar eventos de cambio de valor de clave a Event Grid con un [webhook](/azure/event-grid/handler-event-hubs), la aplicación puede usar estos eventos para optimizar el número total de solicitudes necesarias para mantener la configuración actualizada.
+- Modo de inserción: este modo utiliza [eventos de App Configuration](./concept-app-configuration-event.md) para detectar los cambios en la configuración. Una vez que App Configuration está configurado para enviar eventos de cambio de valor de clave a Event Grid con un [webhook](../event-grid/handler-event-hubs.md), la aplicación puede usar estos eventos para optimizar el número total de solicitudes necesarias para mantener la configuración actualizada.
 
 Este tutorial le muestra cómo puede implementar las actualizaciones de configuración dinámica en el código mediante una actualización de inserción. Se basa en la aplicación que se introdujo en los inicios rápidos. Antes de continuar, termine [Creación de una aplicación de Java Spring con Azure App Configuration](./quickstart-java-spring-app.md).
 
@@ -68,7 +68,7 @@ En este tutorial, aprenderá a:
            </dependency>
    ```
 
-1. Configure la [implementación de Maven en App Service](/azure/app-service/quickstart-java?tabs=javase) de manera que la aplicación se pueda implementar en Azure App Service mediante Maven.
+1. Configure la [implementación de Maven en App Service](../app-service/quickstart-java.md?tabs=javase) de manera que la aplicación se pueda implementar en Azure App Service mediante Maven.
 
    ```console
    mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
@@ -95,7 +95,7 @@ Se agrega un retraso aleatorio antes de que el valor almacenado en caché se mar
 
 ## <a name="build-and-run-the-app-locally"></a>Compilación y ejecución de la aplicación en un entorno local
 
-Al crease los webhooks de Event Grid deben validarse. Puede realizar la validación siguiendo esta [guía](/azure/event-grid/webhook-event-delivery)o iniciando la aplicación con la biblioteca web de Spring de Azure App Configuration ya configurada, lo cual registrará la aplicación automáticamente. Para usar una suscripción a eventos, siga los pasos de las dos secciones siguientes.
+Al crease los webhooks de Event Grid deben validarse. Puede realizar la validación siguiendo esta [guía](../event-grid/webhook-event-delivery.md)o iniciando la aplicación con la biblioteca web de Spring de Azure App Configuration ya configurada, lo cual registrará la aplicación automáticamente. Para usar una suscripción a eventos, siga los pasos de las dos secciones siguientes.
 
 1. Establezca la variable de entorno en la cadena de conexión de la instancia de App Configuration:
 
@@ -152,7 +152,7 @@ Al crease los webhooks de Event Grid deben validarse. Puede realizar la validaci
     :::image type="content" source="./media/event-subscription-view-webhook.png" alt-text="El webhook se muestra en una tabla en la parte inferior de la página." :::
 
 > [!NOTE]
-> Al suscribirse a los cambios de configuración, se pueden usar uno o varios filtros para reducir el número de eventos que se envían a la aplicación. Se pueden configurar como [filtros de suscripción de Event Grid](/azure/event-grid/event-filtering.md) o [filtros de suscripción de Service Bus](/azure/service-bus-messaging/topic-filters.md). Por ejemplo, un filtro de suscripción se puede utilizar para suscribirse solo a eventos de cambios en una clave que empieza por una cadena específica.
+> Al suscribirse a los cambios de configuración, se pueden usar uno o varios filtros para reducir el número de eventos que se envían a la aplicación. Se pueden configurar como [filtros de suscripción de Event Grid](../event-grid/event-filtering.md) o [filtros de suscripción de Service Bus](../service-bus-messaging/topic-filters.md). Por ejemplo, un filtro de suscripción se puede utilizar para suscribirse solo a eventos de cambios en una clave que empieza por una cadena específica.
 
 ## <a name="verify-and-test-application"></a>Comprobación y prueba de la aplicación
 

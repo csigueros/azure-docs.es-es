@@ -2,19 +2,18 @@
 title: 'Tutorial: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante una plantilla de Azure Resource Manager'
 description: 'Tutorial: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante una plantilla de Azure Resource Manager'
 author: robinsh
-manager: philmeagit st
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 202ee16088e1f3b80751443d6ba5c39074e5589c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1d96bb01cde5edbe4bff06de43d66b785da9cd98
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689520"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748395"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de una plantilla de Azure Resource Manager para configurar el enrutamiento de mensajes de IoT Hub
 

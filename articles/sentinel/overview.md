@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 39b21a849f13af39731c31590cf92f8ffc12cd7d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 2c37f49478e5c762e72fd8569828853e29ba07f5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783611"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737577"
 ---
 # <a name="what-is-azure-sentinel"></a>¿Qué es Azure Sentinel?
 
@@ -57,7 +57,7 @@ Después de que haya[conectado los orígenes de datos](quickstart-onboard.md) a 
 
 ## <a name="analytics"></a>Análisis
 
-Para reducir el ruido y minimizar el número de alertas que tiene que revisar e investigar, Azure Sentinel usa [análisis para correlacionar las alertas con los incidentes](tutorial-detect-threats-built-in.md). Los **incidentes** son grupos de alertas relacionadas que, juntas, crean una posible amenaza procesable que se puede investigar y resolver. Use las reglas de correlación integrada tal cual, o úselas como punto de partida para crear las suyas propias. Azure Sentinel también proporciona reglas de aprendizaje automático para asignar el comportamiento de red y buscar luego anomalías en los recursos. Estos análisis conectan los puntos, al combinar alertas de baja fidelidad sobre distintas entidades en posibles incidentes de seguridad de alta fidelidad.
+Para reducir el ruido y minimizar el número de alertas que tiene que revisar e investigar, Azure Sentinel usa [análisis para correlacionar las alertas con los incidentes](detect-threats-built-in.md). Los **incidentes** son grupos de alertas relacionadas que, juntas, crean una posible amenaza procesable que se puede investigar y resolver. Use las reglas de correlación integrada tal cual, o úselas como punto de partida para crear las suyas propias. Azure Sentinel también proporciona reglas de aprendizaje automático para asignar el comportamiento de red y buscar luego anomalías en los recursos. Estos análisis conectan los puntos, al combinar alertas de baja fidelidad sobre distintas entidades en posibles incidentes de seguridad de alta fidelidad.
 
 ![Incidentes](./media/tutorial-investigate-cases/incident-severity.png)
 
@@ -73,7 +73,7 @@ Por ejemplo, si usa el sistema de vales de ServiceNow, puede usar las herramient
 
 ## <a name="investigation"></a>Investigación
 
-Las herramientas de [investigación profunda](tutorial-investigate-cases.md) de Azure Sentinel están actualmente en versión preliminar y le ayudan a conocer el ámbito y a encontrar la causa principal de una posible amenaza de seguridad. Puede elegir una entidad en el gráfico interactivo para hacer preguntas interesantes sobre ella y explorar en profundidad esa entidad y sus conexiones para llegar a la causa principal de la amenaza. 
+Las herramientas de [investigación profunda](investigate-cases.md) de Azure Sentinel están actualmente en versión preliminar y le ayudan a conocer el ámbito y a encontrar la causa principal de una posible amenaza de seguridad. Puede elegir una entidad en el gráfico interactivo para hacer preguntas interesantes sobre ella y explorar en profundidad esa entidad y sus conexiones para llegar a la causa principal de la amenaza. 
 
 ![Investigación](./media/tutorial-investigate-cases/map-timeline.png)
 
@@ -93,4 +93,4 @@ La comunidad Azure Sentinel es un recurso muy eficaz para la detección y la aut
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para empezar a trabajar con Azure Sentinel, necesita una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
-- Aprenda a [incorporar los datos en Azure Sentinel](quickstart-onboard.md), [obtenga visibilidad sobre ellos y aprenda a defenderse de posibles amenazas](quickstart-get-visibility.md).
+- Aprenda a [incorporar los datos en Azure Sentinel](quickstart-onboard.md), [obtenga visibilidad sobre ellos y aprenda a defenderse de posibles amenazas](get-visibility.md).

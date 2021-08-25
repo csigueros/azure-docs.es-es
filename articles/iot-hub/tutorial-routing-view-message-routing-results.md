@@ -2,19 +2,18 @@
 title: 'Tutorial: Visualización de los resultados de enrutamiento de mensajes de Azure IoT Hub (.NET) | Microsoft Docs'
 description: 'Tutorial: Después de configurar todos los recursos que usan la parte 1 del tutorial, agregue la capacidad de enrutar mensajes a Azure Stream Analytics y ver los resultados en Power BI.'
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: d8d7d42b7c459b1414fbce6e0fa70a1577d55327
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 0ba5032d13e41702064aa1502bc9f7930624fc11
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689614"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742232"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2: Visualización de los mensajes enrutados
 
