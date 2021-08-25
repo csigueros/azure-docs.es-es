@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
 ms.custom: devx-track-js
-ms.openlocfilehash: f8ffa90ba0f1ac32d4691165fabf3d8eb9fb7605
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f158064b68de37c68dc0c01d3c6539f8c95736a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91335456"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752334"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creación de su primera función durable en JavaScript
 
@@ -49,14 +49,14 @@ En esta sección se usa Visual Studio Code para crear un proyecto local en Azur
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar el lenguaje para el proyecto de la aplicación de funciones | JavaScript | Cree un proyecto local de Functions en Node.js. |
     | Selección de una versión | Azure Functions v3 | Esta opción solo se ve si las herramientas principales no estén instaladas. En este caso, las herramientas principales se instalan la primera vez que se ejecuta la aplicación. |
     | Seleccionar una plantilla para la primera función de su proyecto | Omitir por ahora | |
     | Seleccionar cómo desea que se abra el proyecto | Abrir en la ventana actual | Vuelve a abrir VS Code en la carpeta seleccionada. |
 
-Visual Studio Code instala Azure Functions Core Tools, en caso de que sea necesario. También crea el proyecto de una aplicación de funciones en una carpeta. Este proyecto contiene los archivos de configuración [host.json](../functions-host-json.md) y [local.settings.json](../functions-run-local.md#local-settings-file).
+Visual Studio Code instala Azure Functions Core Tools, en caso de que sea necesario. También crea el proyecto de una aplicación de funciones en una carpeta. Este proyecto contiene los archivos de configuración [host.json](../functions-host-json.md) y [local.settings.json](../functions-develop-local.md#local-settings-file).
 
 También se crea un archivo package.json en la carpeta raíz.
 
@@ -84,7 +84,7 @@ Se usa una plantilla para crear el código de la función de Durable Functions d
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar una plantilla para la función | Orquestador de Durable Functions | Crear una orquestación de Durable Functions |
     | Proporcionar un nombre de función | HelloOrchestrator | Nombre de la función de Durable Functions |
@@ -99,7 +99,7 @@ A continuación, agregará la función de actividad `Hello` a la que se hace ref
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar una plantilla para la función | Actividad de Durable Functions | Crear una función de actividad |
     | Proporcionar un nombre de función | Hola | Nombre de la función de actividad |
@@ -114,7 +114,7 @@ Por último, agregará una función desencadenada por HTTP que inicie la orquest
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar una plantilla para la función | Inicio de HTTP de Durable Functions | Crear una función de inicio de HTTP |
     | Proporcionar un nombre de función | DurableFunctionsHttpStart | Nombre de la función de actividad |
@@ -139,7 +139,7 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
 
 1. Siga las indicaciones y proporcione la siguiente información para crear una nueva cuenta de almacenamiento en Azure.
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar suscripción | *nombre de la suscripción* | Selección de su suscripción a Azure |
     | Seleccione una cuenta de almacenamiento | Creación de una cuenta de almacenamiento nueva |  |

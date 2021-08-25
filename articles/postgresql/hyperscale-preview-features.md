@@ -7,13 +7,13 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 07/09/2021
-ms.openlocfilehash: 1e0f7c133a0ac0091355cba20d251333e6402212
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 08/03/2021
+ms.openlocfilehash: fd0fdd25b3dbaed8c9e98ecaf686e95f235375e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463546"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743188"
 ---
 # <a name="preview-features-for-postgresql---hyperscale-citus"></a>Características en versión preliminar de Hiperescala (Citus) de PostgreSQL
 
@@ -23,34 +23,7 @@ Hiperescala (Citus) de Azure Database for PostgreSQL ofrece versiones preliminar
 
 Estas son las características disponibles actualmente para la versión preliminar:
 
-* **[Nivel Básico](concepts-hyperscale-tiers.md)** . Ejecute un grupo de servidores solo con un nodo de coordinación y sin nodos de trabajo. Una manera económica de realizar pruebas y desarrollos iniciales, y de controlar pequeñas cargas de trabajo de producción.
-* **[PostgreSQL 12 y 13](concepts-hyperscale-versions.md)** .
-  Use la versión más reciente de la base de datos en el grupo de servidores.
-* **[Citus 10](concepts-hyperscale-versions.md#citus-and-other-extension-versions)** .
-  Se instala automáticamente en los grupos de servidores que ejecutan PostgreSQL 13.
-* **[Almacenamiento en columnas](concepts-hyperscale-columnar.md)** .
-  Almacene las columnas de las tablas seleccionadas (en lugar de las filas) de forma contigua en el disco. Se admite la compresión en disco. Adecuado para cargas de trabajo de análisis y almacenamiento de datos.
-* **[Réplicas de lectura](howto-hyperscale-read-replicas-portal.md)** (actualmente solo en la misma región). Los cambios que se realicen en el grupo de servidores principal se reflejarán en su réplica y las consultas en la réplica no provocarán ninguna carga adicional en el original.
-  Las réplicas son una herramienta útil para mejorar el rendimiento de las cargas de trabajo de solo lectura.
-* **[PgBouncer administrado](concepts-hyperscale-connection-pool.md)** .
-  Un agrupador de conexiones que permite a muchos clientes conectarse al grupo de servidores a la vez, a la vez que limita el número de conexiones activas. Satisface las solicitudes de conexión y mantiene el nodo de coordinación con una ejecución sin problemas.
 * **[pgAudit](concepts-hyperscale-audit.md)** . Proporciona un registro detallado de auditoría de objetos y sesiones mediante la utilidad de registro estándar de PostgreSQL. Genera los registros de auditoría necesarios para pasar determinadas auditorías de certificación gubernamentales, financieras o ISO.
-* **[UDF create_extension()](concepts-hyperscale-extensions.md#use-postgresql-extensions)** .
-  Permite crear extensiones para cuya instalación se necesita acceso administrativo.
-
-### <a name="available-regions-for-preview-features"></a>Regiones disponibles para las características en versión preliminar
-
-La extensión pgAudit está disponible en todas las [regiones admitidas por Hiperescala (Citus)](concepts-hyperscale-configuration-options.md#regions).
-Las otras características en versión preliminar solo están disponibles en la región **Este de EE. UU.** .
-
-## <a name="does-my-server-group-have-access-to-preview-features"></a>¿Mi grupo de servidores tiene acceso a las características en versión preliminar?
-
-Para determinar si el grupo de servidores Hiperescala (Citus) tiene habilitadas las características en versión preliminar, vaya a la página **Información general** del grupo de servidores en Azure Portal.
-Si ve la propiedad **Nivel: Básico (versión preliminar)** o **Nivel: Estándar (versión preliminar)** , el grupo de servidores tiene acceso a las características en versión preliminar.
-
-### <a name="how-to-get-access"></a>Cómo obtener acceso
-
-Al crear un nuevo grupo de servidores Hiperescala (Citus), active la casilla **Habilitar características de vista previa**.
 
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: bd013bc6e0c41865f0c2f47559f024a42c3f7462
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f1b3e1b0b2734e54bdf8f63981a80848662cda64
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461263"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747383"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro-fpga"></a>Tutorial: Transferencia de datos con Azure Stack Edge Pro FPGA
 
@@ -61,7 +61,7 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
     c. Proporcione una cuenta de almacenamiento donde residirá el recurso compartido. 
 
     > [!IMPORTANT]
-    > Asegúrese de que la cuenta de Azure Storage que usa no tenga directivas de inmutabilidad establecidas si va a usarla con un dispositivo Azure Stack Edge Pro FPGA o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
+    > Asegúrese de que la cuenta de Azure Storage que usa no tenga directivas de inmutabilidad establecidas si va a usarla con un dispositivo Azure Stack Edge Pro FPGA o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/immutable-policy-configure-version-scope.md).
     
     d. En la lista desplegable **Servicio de almacenamiento**, seleccione **Blob en bloques**, **Blob en páginas** o **Archivos**.  
     El tipo de servicio que seleccione dependerá del formato que quiere que usen los datos en Azure. En este ejemplo, como queremos almacenar los datos como blobs en bloques en Azure, seleccionamos **Blob en bloques**. Si selecciona **Blob en páginas**, asegúrese de que los datos tienen una alineación de 512 bytes. Por ejemplo, un VHDX siempre tiene una alineación de 512 bytes.

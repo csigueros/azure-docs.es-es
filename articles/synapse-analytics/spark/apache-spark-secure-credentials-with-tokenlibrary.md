@@ -10,12 +10,12 @@ ms.date: 11/19/2020
 ms.author: martinle
 ms.reviewer: nirav
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: a5355a449cb55f671c59da55ba4d038e9b4b2ec5
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 1290fdb907272d4a47e4b11430fc47955a259951
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803429"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860866"
 ---
 # <a name="secure-credentials-with-linked-services-using-the-tokenlibrary"></a>Protección de credenciales con servicios vinculados mediante TokenLibrary
 
@@ -25,7 +25,7 @@ Synapse usa el acceso directo de Azure Active Directory (AAD) de forma predeterm
 
 Al recuperar secretos de Azure Key Vault, se recomienda crear un servicio vinculado a Azure Key Vault.  Asegúrese de que la identidad de servicio administrada (MSI) del área de trabajo de Synapse tenga privilegios para la obtención de secretos en Azure Key Vault.  Synapse se autenticará en Azure Key Vault mediante la identidad de servicio administrada del área de trabajo de Synapse. Si se conecta directamente a Azure Key Vault sin un servicio vinculado, se autenticará con su credencial de Azure Active Directory de usuario.
 
-Para más información, consulte la información sobre los [servicios vinculados](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para más información, consulte la información sobre los [servicios vinculados](../../data-factory/concepts-linked-services.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="usage"></a>Uso
 

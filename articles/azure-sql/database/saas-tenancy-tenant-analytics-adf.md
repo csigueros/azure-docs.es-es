@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e6d06cb63b3fa52e83605abf565afdb7eb9e167b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: dc5240d3b0d4e2fa7b209d5f1a3b8b3f9acd01c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691745"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738476"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Exploración del análisis de SaaS con Azure SQL Database, Azure Synapse Analytics, Data Factory y Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -164,7 +164,7 @@ Hay también tres servicios relacionados con parámetros que vinculan la factor�
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
 A los tres servicios vinculados les corresponden tres conjuntos de datos que hacen referencia a los datos que se utilizan en las actividades de la canalización como entradas o salidas. Explore cada uno de los conjuntos de datos para observar las conexiones y los parámetros utilizados. _AzureBlob_ apunta al archivo de configuración que contiene las columnas y tablas de origen y destino, así como la columna de seguimiento de cada origen.
-  
+
 ### <a name="data-warehouse-pattern-overview"></a>Introducción al patrón de almacenamiento de datos
 
 Azure Synapse se utiliza como almacenamiento de análisis que lleva a cabo la agregación con los datos de inquilino. En este ejemplo, se cargan los datos en el almacenamiento de datos con PolyBase. Los datos sin procesar se cargan en tablas de almacenamiento provisional que tienen una columna de identidad para realizar un seguimiento de las filas que se han transformado en tablas con esquema de estrella. En la imagen siguiente se muestra el modelo de carga: ![En el diagrama se muestra el modelo de carga de las tablas de base de datos.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
@@ -208,7 +208,7 @@ Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteri
 
     ![Inicio de sesión en Power BI](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
-5. Seleccione **Base de datos** en el panel izquierdo y escriba los valores de user name = *developer* y password = *P\@ssword1*. Haga clic en **Conectar**.  
+5. Seleccione **Base de datos** en el panel izquierdo y escriba los valores de user name = *developer* y password = *P\@ssword1*. Haga clic en **Conectar**.
 
     ![Inicio de sesión en la base de datos](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 
@@ -244,7 +244,7 @@ La información de los patrones de venta de entradas pueden permitir a Wingtip T
 
 Mientras tanto, algunos clientes de Wingtip Tickets se quejan de que tienen dificultades para vender las suficientes entradas como para cubrir el costo del servicio. Quizá en esta información se ofrece la oportunidad de impulsar las ventas de entradas para los lugares que presentan déficit de rendimiento. Un aumento de las ventas aumentaría el valor percibido del servicio. Haga clic con el botón derecho en fact_Tickets y seleccione **Nueva medida**. Escriba la siguiente expresión para la nueva medida denominada **AverageTicketsSold**:
 
-```sql
+```DAX
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
 ```
 

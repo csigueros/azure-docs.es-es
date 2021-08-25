@@ -12,7 +12,7 @@
       href: whats-new.md
       displayName: 'release notes, service updates, videos'
     - name: Preguntas frecuentes sobre Personalizer
-      href: frequently-asked-questions.md
+      href: frequently-asked-questions.yml
       displayName: 'frequently asked questions, troubleshooting, questions'
 - name: Guía de inicio rápido
   href: ./quickstart-personalizer-sdk.md

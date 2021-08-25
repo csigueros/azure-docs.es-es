@@ -1,15 +1,15 @@
 ---
 title: Consultas de ejemplo de Azure Resource Graph para Azure Arc
 description: Consultas de ejemplo de Azure Resource Graph para Azure Arc en las que se muestra el uso de tipos de recursos y tablas para acceder a recursos y propiedades relacionados con Azure Arc.
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: a95df46566a419a290990f1bac6992f85c1b18d3
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: d89e63239fb24502cf30a8942143ea7e63986561
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669995"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861410"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-arc"></a>Consultas de ejemplo de Azure Resource Graph para Azure Arc
 
