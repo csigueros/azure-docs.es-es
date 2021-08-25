@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 35fff49a53f5a0a9532fd0dff841356c5deaf3ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52e9ba6dcf0a8f6f987206cac2881ada098a8bcc
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97724789"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635189"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Uso de Azure Storage para la copia de seguridad y la restauración de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +50,7 @@ Cuando se realiza una copia de seguridad en Azure Blob Storage, se utilizan los 
 
 | Componente | Descripción |
 | --- | --- |
-| **Cuenta de almacenamiento** |La cuenta de almacenamiento es el punto de partida para todos los servicios de almacenamiento. Para acceder a Azure Blob Storage, primero debe crear una cuenta de Azure Storage. Para obtener más información acerca de Azure Blob Storage, consulte [Uso de Azure Blob Storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
+| **Cuenta de almacenamiento** |La cuenta de almacenamiento es el punto de partida para todos los servicios de almacenamiento. Para acceder a Azure Blob Storage, primero debe crear una cuenta de Azure Storage. SQL Server es independiente del tipo de redundancia de almacenamiento que se usa. La copia de seguridad en blobs en páginas y blobs en bloques se admite para cada redundancia de almacenamiento (LRS, ZRS, GRS, RA-GRS, RA-GZRS, etc.). Para obtener más información acerca de Azure Blob Storage, consulte [Uso de Azure Blob Storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Contenedor** |Un contenedor ofrece la agrupación de un conjunto de blobs y puede almacenar un número ilimitado de ellos. Para realizar una copia de seguridad de SQL Server en Azure Blob Storage, debe haber creado un contenedor raíz como mínimo. |
 | **Blob** |Un archivo de cualquier tipo y tamaño. Los blobs son direccionables mediante el siguiente formato de dirección URL: `https://<storageaccount>.blob.core.windows.net/<container>/<blob>`. Para más información sobre los blobs en páginas, consulte la [descripción de los blobs en bloques y en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
 

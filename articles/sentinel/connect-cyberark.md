@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: 3f18481821361feff525e3357543036784b21495
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 0b8db5dfa399aaef087adb0ec5c2d67b91fceab9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253480"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694048"
 ---
 # <a name="connect-cyberark-enterprise-password-vault-epv-to-azure-sentinel"></a>Conexión de CyberArk Enterprise Password Vault (EPV) con Azure Sentinel
 
@@ -42,7 +42,7 @@ Los registros de CyberArk EPV se envían desde el almacén a un servidor de reen
 
 1. Siga las [instrucciones de CyberArk EPV](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm) para configurar el envío de datos de syslog al servidor de reenvío de registros.
 
-1. Valide la conexión y compruebe la ingesta de datos con [estas instrucciones](connect-cef-verify.md). Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir hasta 20 minutos.
+1. Valide la conexión y compruebe la ingesta de datos con [estas instrucciones](troubleshooting-cef-syslog.md#validate-cef-connectivity). Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir hasta 20 minutos.
 
 ## <a name="find-your-data"></a>Búsqueda de sus datos
 

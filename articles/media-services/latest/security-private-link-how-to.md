@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: inhenkel
-ms.openlocfilehash: 43997810798322a628490aa72db74944f2fc38c7
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: b618396edb60e1a2092ecd4aa6ce134227220df5
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589859"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429172"
 ---
 # <a name="create-a-media-services-and-storage-account-with-a-private-link"></a>Creación de una cuenta de Media Services y una cuenta de almacenamiento con un vínculo privado
 
@@ -24,7 +24,7 @@ Cree una cuenta de Media Services y una cuenta de almacenamiento con vínculos p
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+Consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -42,6 +42,8 @@ La plantilla crea:
   - Vínculos entre vínculos (para conectar las zonas DNS privadas a la red virtual)
   - Grupos de zona DNS privada (para desencadenar la creación automática de registros DNS en las zonas DNS privadas)
 - Una máquina virtual (con la dirección IP pública asociada y una interfaz de red)
+
+[!INCLUDE [Azure Policy Media Services](includes/security-azure-policy-private-links.md)]
 
 ## <a name="azure-resource-manager-arm-template-for-private-link"></a>Plantilla de Azure Resource Manager (ARM) para vínculo privado
 
