@@ -1,17 +1,17 @@
 ---
 title: Definiciones de directivas integradas para Azure Monitor
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Monitor. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 08/13/2021
+ms.date: 08/20/2021
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8648ec036c05022bc9d54b22d48becc90653190e
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 89348fe2ba16d2100eb1e1e80cc06b481b0c9b13
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179290"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607297"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-monitor"></a>Definiciones integradas de Azure Policy para Azure Monitor
 

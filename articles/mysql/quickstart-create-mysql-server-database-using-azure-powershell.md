@@ -8,14 +8,16 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: d12d447acb3b6bf2b6f84e9768e9f063a9a36b03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9a84cb45f793aa7037f5eb64ab64e3db4a6d3bf
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542327"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643578"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Inicio rápido: Creación de un servidor de Azure Database for MySQL mediante PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 En este inicio rápido se describe cómo usar PowerShell para crear un servidor de Azure Database for MySQL en un grupo de recursos de Azure. Puede usar PowerShell para crear y administrar recursos de Azure de forma interactiva o en scripts.
 

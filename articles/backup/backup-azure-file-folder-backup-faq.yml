@@ -2,14 +2,15 @@
 metadata:
   title: 'Agente de Microsoft Azure Recovery Services (MARS): Preguntas frecuentes'
   description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
   ms.date: 04/05/2021
-  ms.openlocfilehash: a26ed95843e93323a31c25e6b894b070cf3837aa
-  ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+  ms.openlocfilehash: ff157a3d8e744dffd314525a053b8c3ca1ab8999
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/07/2021
-  ms.locfileid: "111907928"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252502"
 title: 'Preguntas más frecuentes: agente de Microsoft Azure Recovery Services (MARS)'
 summary: >
   En este artículo se da respuesta a preguntas habituales sobre la copia de seguridad de datos con el agente de Microsoft Azure Recovery Services (MARS) del servicio [Azure Backup](backup-overview.md).

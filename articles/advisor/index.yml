@@ -5,15 +5,16 @@ metadata:
   title: Documentación de Azure Advisor
   description: Asistente de Azure es un consultor en la nube personalizado que le ayudará a realizar procedimientos recomendadas para optimizar las implementaciones de Azure. Analiza la telemetría de uso y configuración de los recursos y, posteriormente, recomienda soluciones que ayudan a mejorar el rendimiento, la seguridad y la alta disponibilidad de los recursos, al mismo tiempo que busca oportunidades para reducir el gasto general de Azure.
   ms.topic: landing-page
+  ms.service: advisor
   author: rboucher
   ms.author: robb
   ms.date: 10/16/2019
-  ms.openlocfilehash: 41198ef3e8026bd8de9e55a0e75b23f0cd357e4e
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+  ms.openlocfilehash: 5bf8d8651e10ba003529d8182a3434fed9558e18
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102508799"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253471"
 landingContent:
 - title: Acerca de Azure Advisor
   linkLists:

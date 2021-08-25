@@ -1,19 +1,21 @@
 ---
 title: Transformación Existe en flujo de datos de asignación
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Busque filas existentes mediante la transformación Existe en el flujo de datos de asignación de Azure Data Factory.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/07/2020
-ms.openlocfilehash: 805b51bf4e6d8feab9539f660dfc72ca78b82d5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ad68638862c8ff348538b2cf9d73a533854f984
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82982639"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638075"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Transformación Existe en flujo de datos de asignación
 

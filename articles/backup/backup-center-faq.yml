@@ -3,13 +3,14 @@ metadata:
   title: 'Centro de copias de seguridad: preguntas más frecuentes'
   description: En este artículo se responde a las preguntas más frecuentes sobre el Centro de copias de seguridad.
   ms.date: 01/12/2021
-  ms.topic: conceptual
-  ms.openlocfilehash: 34665180ab089151e3ab6cc0b818fac645b9842b
-  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.topic: article
+  ms.service: backup
+  ms.openlocfilehash: be0289e19d17dd4aa100c6898d53fc3d55b42dcc
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/15/2021
-  ms.locfileid: "111907450"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252698"
 title: 'Centro de copias de seguridad: preguntas más frecuentes'
 summary: En este artículo se responde a las preguntas más frecuentes sobre el Centro de copias de seguridad.
 sections:

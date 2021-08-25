@@ -1,17 +1,20 @@
 ---
 title: Comprobación de la coherencia de los datos en la actividad de copia
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre cómo habilitar la comprobación de la coherencia de datos en la actividad de copia en Azure Data Factory.
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: b71657f67c1b9c623d6d48f33b986ac43533cca6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e2bcf4e267a93c9504dfc22e1308f0a4dba890d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373023"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637915"
 ---
 #  <a name="data-consistency-verification-in-copy-activity"></a>Comprobación de la coherencia de los datos en la actividad de copia
 

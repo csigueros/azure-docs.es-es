@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: eaee16d865a0d208dbf0c41665d590e7ecb14e89
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 309d2cfb47c61d516be19d110cb7ade1f3c63e18
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253593"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695177"
 ---
 # <a name="connect-your-citrix-waf-to-azure-sentinel"></a>Conexión de Citrix WAF a Azure Sentinel
 
@@ -42,7 +42,7 @@ Citrix WAF envía mensajes de Syslog en formato CEF a un servidor de reenvío de
 
 1. Siga las instrucciones proporcionadas por Citrix para [configurar WAF](https://support.citrix.com/article/CTX234174), [configurar el registro de CEF](https://support.citrix.com/article/CTX136146) y [configurar el envío de registros al reenviador de registros](https://docs.citrix.com/en-us/citrix-adc/13/system/audit-logging/configuring-audit-logging.html). Asegúrese de enviar los registros al puerto TCP 514 en la dirección IP de la máquina reenviadora de registros.
 
-1. Valide la conexión y compruebe la ingesta de datos con [estas instrucciones](connect-cef-verify.md). Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir hasta 20 minutos.
+1. Valide la conexión y compruebe la ingesta de datos con [estas instrucciones](troubleshooting-cef-syslog.md#validate-cef-connectivity). Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir hasta 20 minutos.
 
 ## <a name="find-your-data"></a>Búsqueda de sus datos
 

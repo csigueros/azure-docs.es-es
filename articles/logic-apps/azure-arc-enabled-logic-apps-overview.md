@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
 ms.topic: overview
 ms.date: 05/25/2021
-ms.openlocfilehash: dcaa0e9fe10d26bb6b1e7d014e0b6e50f09a81f2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 880e194fefdf49b05f2b531699a83d1f0e3e70cc
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388476"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429482"
 ---
 # <a name="what-is-azure-arc-enabled-logic-apps-preview"></a>¿Qué es Logic Apps habilitado para Azure Arc? (versión preliminar)
 
 > [!NOTE]
 > Esta funcionalidad está en versión preliminar y está sujeta a las [Condiciones de uso complementarias para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Con Logic Apps habilitado para Azure Arc, puede desarrollar y ejecutar aplicaciones lógicas basadas en un solo inquilino en cualquier lugar donde se pueda ejecutar Kubernetes. Por ejemplo, puede ejecutar los flujos de trabajo de su aplicación lógica en Azure, Azure Kubernetes Service, de forma local e incluso en otros proveedores de la nube. Esta oferta le proporciona una plataforma de administración centralizada de panel único a través de Azure Arc y Azure Portal para las siguientes funcionalidades: 
+Con Logic Apps habilitado para Azure Arc, puede desarrollar y ejecutar aplicaciones lógicas basadas en un solo inquilino en cualquier lugar donde se pueda ejecutar Kubernetes. Por ejemplo, puede ejecutar los flujos de trabajo de su aplicación lógica en Azure, Azure Kubernetes Service, de forma local e incluso en otros proveedores de la nube. Esta oferta le proporciona una plataforma de administración centralizada de panel único a través de Azure Arc y Azure Portal para las siguientes funcionalidades:
 
 - Use Azure Logic Apps como plataforma de integración.
 - Conecte los flujos de trabajo a todos sus servicios sin importar dónde estén hospedados.

@@ -4,15 +4,16 @@ description: En este tutorial se proporcionan instrucciones paso a paso para el 
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 04/16/2021
-ms.openlocfilehash: 4a88ed2df74d3eebb96c42e2cdc87b14153419cd
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.date: 06/04/2021
+ms.openlocfilehash: dff3972bfc9da83312a1fdf4fc7c6169f932c410
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565379"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638538"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>Transformación de datos en Delta Lake mediante flujos de datos de asignación
 
@@ -53,9 +54,9 @@ En este paso, creará una factoría de datos y abrirá la interfaz de usuario de
 
 En este paso, creará una canalización que contiene una actividad de flujo de datos.
 
-1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización).
+1. En la página principal, seleccione **Orchestrate** (Organizar).
 
-   ![Creación de una canalización](./media/doc-common-process/get-started-page.png)
+   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
 
 1. En la pestaña **General** de la canalización, escriba **DeltaLake** en el campo **Nombre** de la canalización.
 1. En el panel **Actividades** expanda el acordeón **Movimiento y transformación**. Arrastre y coloque la actividad **Data Flow** del panel al lienzo de la canalización.
