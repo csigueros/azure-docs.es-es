@@ -12,18 +12,24 @@ ms.date: 05/24/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image identifier, image recognition app, custom vision
-ms.openlocfilehash: e245c4882a06d5053e8781a48469d104bcaced23
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ff90aedd43622c3f6fb696c15b3034b2a133322d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454793"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322289"
 ---
 # <a name="what-is-custom-vision"></a>¿Qué es Custom Vision?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Custom Vision es un servicio de reconocimiento de imágenes que permite crear, implementar y mejorar sus propios identificadores de imágenes. Un identificador de imágenes aplica etiquetas (que representan clases u objetos) a las imágenes, en función de sus características visuales. A diferencia del servicio [Computer Vision](../computer-vision/overview.md), Custom Vision te permite especificar las etiquetas y entrenar modelos personalizados para detectarlas.
+
+Esta documentación contiene los siguientes tipos de artículos:
+* Los [inicios rápidos](./getting-started-build-a-classifier.md) son instrucciones paso a paso que permiten realizar llamadas al servicio y obtener los resultados en un breve período de tiempo.
+* Las [guías paso a paso](./test-your-model.md) contienen instrucciones para usar el servicio de maneras más específicas o personalizadas.
+* Los [tutoriales](./iot-visual-alerts-tutorial.md) son guías más largas que muestran cómo usar este servicio como componente en soluciones empresariales más amplias.
+<!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.-->
 
 ## <a name="what-it-does"></a>Qué hace
 

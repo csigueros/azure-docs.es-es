@@ -3,12 +3,12 @@ title: '¿Qué es Azure Event Hubs? : un servicio de ingesta de macrodatos | Mic
 description: Obtenga más información sobre Azure Event Hubs, un servicio de streaming de macrodatos que ingiere millones de eventos por segundo.
 ms.topic: overview
 ms.date: 05/25/2021
-ms.openlocfilehash: 54a37a61a8bb845d60da999e091fdf6657b961a2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: fa32e26439cfd7f2e4319fdb7dc631bfadb023d4
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373552"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322153"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs: una plataforma de streaming de macrodatos y un servicio de ingesta de eventos
 Azure Event Hubs es una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. Puede recibir y procesar millones de eventos por segundo. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento.
@@ -23,8 +23,6 @@ Los siguientes escenarios son algunos de los casos donde se puede usar Event Hub
 - Procesamiento de transacciones
 - Procesamiento de telemetría de usuario
 - Streaming de telemetría de dispositivo
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/45wgY-VSk9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## <a name="why-use-event-hubs"></a>¿Por qué usar Event Hubs?
 Los datos solo son valiosos si existe una forma sencilla de procesarlos y de obtener información oportuna a partir de los orígenes de datos. Event Hubs ofrece una plataforma distribuida de procesamiento de secuencias con baja latencia e integración perfecta, con servicios de datos y análisis dentro y fuera de Azure para crear una canalización de macrodatos completa.

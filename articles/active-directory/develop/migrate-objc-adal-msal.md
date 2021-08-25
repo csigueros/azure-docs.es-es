@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
-ms.custom: aaddev
-ms.openlocfilehash: 7dc3241198fbc6eeddba059251f28c6dc35c8a29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: aaddev, has-adal-ref
+ms.openlocfilehash: ad76cbfbcdb365908a10d37bd1ffeb22aea5d37e
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98754932"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418764"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migración de aplicaciones a MSAL para iOS y macOS
 

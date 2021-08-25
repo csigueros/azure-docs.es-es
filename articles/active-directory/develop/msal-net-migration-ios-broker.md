@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b4eff5910ff5230902d497b55b2afbe6d605365a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp, aaddev, has-adal-ref
+ms.openlocfilehash: e77a0c3ccfbd6c1b11948724083c896a5d192a65
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89177438"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419014"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migración de aplicaciones de iOS que usan Microsoft Authenticator de ADAL.NET a MSAL.NET
 

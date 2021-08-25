@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 2ef29f6fe3403809d01fcea382474c514319b7c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: aaddev, has-adal-ref
+ms.openlocfilehash: bbf36b67c59e1ec00bb10c748f86d95cf0c4b700
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98063763"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418543"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Aplicación cliente públicas y confidenciales
 La Biblioteca de autenticación de Microsoft (MSAL) define dos tipos de clientes: clientes públicos y clientes confidenciales. Los dos tipos de cliente se distinguen por su capacidad de autenticar de forma segura con el servidor de autorización y mantener la confidencialidad de sus credenciales de cliente. En cambio, la Biblioteca de autenticación de Azure AD (ADAL) usa lo que se denomina *contexto de autenticación* (que es una conexión a Azure AD).

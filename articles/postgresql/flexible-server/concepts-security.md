@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 07/26/2021
-ms.openlocfilehash: 79e308605a0d6262e95dc6ff673d74a5a1eaaec7
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 489ae3e9593ed5fa0865fb6f3fbe2eb617113d71
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114732256"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181498"
 ---
 # <a name="security-in-azure-database-for-postgresql---flexible-server"></a>Seguridad en Azure Database for PostgreSQL: Servidor flexible
 
@@ -43,7 +43,7 @@ Las reglas de firewall de IP otorgan acceso a los servidores según la direcci�
 El servidor flexible se puede implementar en Azure Virtual Network. Las redes virtuales de Azure proporcionan una comunicación de red privada y segura. Para más información, consulte el [servidor flexible](concepts-networking.md)
 
 ### <a name="network-security-groups-nsg"></a>Grupos de seguridad de red (NSG)
-Las reglas de seguridad de grupos de seguridad de red permiten filtrar el tipo de tráfico de red que puede fluir dentro y fuera de las interfaces de red y las subredes de redes virtuales.  Para más información, consulte [Introducción a los grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview).
+Las reglas de seguridad de grupos de seguridad de red permiten filtrar el tipo de tráfico de red que puede fluir dentro y fuera de las interfaces de red y las subredes de redes virtuales.  Para más información, consulte [Introducción a los grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md).
 
 ## <a name="access-management"></a>Administración de acceso
 
@@ -54,7 +54,7 @@ También se puede conectar al servidor a través de la [autenticación de Azure�
 
 ### <a name="azure-defender-protection"></a>Protección de Azure Defender
 
- Azure Database for PostgreSQL: Servidor flexible actualmente no admite la [protección de Azure Defender](https://docs.microsoft.com/azure/security-center/azure-defender). 
+ Azure Database for PostgreSQL: Servidor flexible actualmente no admite la [protección de Azure Defender](../../security-center/azure-defender.md). 
 
 
 Existe un [registro de auditoría](../concepts-audit.md) disponible para realizar un seguimiento de las actividades en las bases de datos. 

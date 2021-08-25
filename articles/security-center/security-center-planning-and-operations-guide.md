@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 058a60758e20a36d3490e40ea96a35c21b3db563
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 1c8f31642f79654e2ba17625df70889fa41ca040
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112237225"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181956"
 ---
 # <a name="planning-and-operations-guide"></a>Guía de planeamiento y operaciones
 Esta guía está destinada a profesionales de tecnología de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube que planean usar Azure Security Center.
@@ -135,7 +135,7 @@ Azure Security Center usa el agente de Log Analytics, que es el mismo agente que
 
 ### <a name="agent"></a>Agente
 
-Cuando el aprovisionamiento automático está habilitado en la directiva de seguridad, el agente de Log Analytics (para [Windows](../azure-monitor/agents/agent-windows.md) o [Linux](../azure-monitor/vm/quick-collect-linux-computer.md)) se instala en todas las máquinas virtuales de Azure admitidas y en las nuevas que se creen. Si la máquina virtual o el equipo ya tienen instalado el agente de Log Analytics, Azure Security Center aprovechará el agente instalado actual. El proceso del agente está diseñado para que no sea invasivo y tenga un impacto mínimo sobre el rendimiento de la máquina virtual.
+Cuando el aprovisionamiento automático está habilitado en la directiva de seguridad, el agente de Log Analytics (para [Windows](../azure-monitor/agents/agent-windows.md) o [Linux](../azure-monitor/vm/monitor-virtual-machine.md)) se instala en todas las máquinas virtuales de Azure admitidas y en las nuevas que se creen. Si la máquina virtual o el equipo ya tienen instalado el agente de Log Analytics, Azure Security Center aprovechará el agente instalado actual. El proceso del agente está diseñado para que no sea invasivo y tenga un impacto mínimo sobre el rendimiento de la máquina virtual.
 
 El agente de Log Analytics para Windows requiere el uso del puerto TCP 443. Para más información, consulte el [artículo de solución de problemas](security-center-troubleshooting-guide.md).
 

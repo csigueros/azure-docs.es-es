@@ -3,12 +3,12 @@ title: 'Inicio rápido: Instalación del microagente de Defender para IoT (versi
 description: En este inicio rápido, aprenderá a instalar y autenticar el microagente de Defender.
 ms.date: 06/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 040fb547baf201d9d699cfac21c1407c707fb8f9
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: e77ebaf3ab99fc88d3d0138edf3c815b63507e6c
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011490"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195555"
 ---
 # <a name="quickstart-install-defender-for-iot-micro-agent-preview"></a>Inicio rápido: Instalación del microagente de Defender para IoT (versión preliminar)
 
@@ -90,7 +90,7 @@ Para obtener la cadena de conexión de la identidad de módulo desde IoT Hub:
 
    :::image type="content" source="media/quickstart-standalone-agent-binary-installation/module-identities.png" alt-text="Seleccione las pestaña de identidades de módulo.":::
 
-1. En la página **Detalles de identidad de módulo**, copie la cadena de conexión (clave principal); para ello, seleccione el botón de **copia**.
+1. En la página **Detalles de identidad de módulo**, copie la cadena de conexión (clave principal) seleccionando el botón **Copiar**.
 
    :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="Selección del botón de copia para copiar la cadena de conexión (clave principal).":::
 
@@ -173,4 +173,4 @@ sudo apt-get install defender-iot-micro-agent=<version>
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación del microagente de Defender a partir de código fuente](quickstart-building-the-defender-micro-agent-from-source.md)
+> [Inicio rápido: Creación de un módulo gemelo del microagente de Defender para IoT (versión preliminar)](quickstart-create-micro-agent-module-twin.md)

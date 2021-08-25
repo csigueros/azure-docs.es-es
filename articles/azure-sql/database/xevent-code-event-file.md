@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 06/06/2020
-ms.openlocfilehash: 869f2c8ca5f0cbfb422c1aaa65907a2ad941e86a
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+ms.openlocfilehash: 9523a28ca191402ca4f1ec4bfb174edce359bf67
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112678149"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722870"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Código de destino del archivo de evento para eventos extendidos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,12 +43,12 @@ En este tema se presenta un ejemplo de código de dos fases:
 
 - Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Cualquier base de datos donde pueda crear una tabla.
-  
+
   - De manera opcional, puede [crear una base de datos de **AdventureWorksLT** de demostración](single-database-create-quickstart.md) en cuestión de minutos.
 
 - SQL Server Management Studio (ssms.exe), idealmente la versión de actualización mensual más reciente.
   Puede descargar la versión más reciente de ssms.exe desde:
-  
+
   - El tema titulado [Descarga de SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   - [Un vínculo directo a la descarga.](https://go.microsoft.com/fwlink/?linkid=616025)
 
@@ -442,9 +442,11 @@ GO
 Si el destino no se adjunta cuando ejecuta el script, debe detener la sesión de evento y reiniciarla:
 
 ```sql
-ALTER EVENT SESSION ... STATE = STOP;
+ALTER EVENT SESSION gmeventsessionname240b
+    ON DATABASE STATE = STOP;
 GO
-ALTER EVENT SESSION ... STATE = START;
+ALTER EVENT SESSION gmeventsessionname240b
+    ON DATABASE STATE = START;
 GO
 ```
 
@@ -508,7 +510,7 @@ Suponga que desea ejecutar el ejemplo de Transact-SQL anterior en Microsoft SQL 
 - Para mantener la simplicidad, desearía reemplazar completamente el uso del contenedor de Azure Storage por un archivo simple como *C:\myeventdata.xel*. El archivo se escribiría en el disco duro local del equipo donde se hospeda SQL Server.
 - No necesitaría ningún tipo de instrucción Transact-SQL para **CREATE MASTER KEY** y **CREATE CREDENTIAL**.
 - En la instrucción **CREATE EVENT SESSION**, en su cláusula **ADD TARGET**, reemplazaría el valor Http asignado en **filename=** por una cadena de ruta de acceso completa como *C:\myfile.xel*.
-  
+
   - No es necesario utilizar ninguna cuenta de Azure Storage.
 
 ## <a name="more-information"></a>Más información

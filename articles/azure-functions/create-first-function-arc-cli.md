@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de una aplicación de función en Azure Arc'
 description: Para empezar a trabajar con Azure Functions en Azure Arc, implemente su primera aplicación de funciones.
 ms.topic: quickstart
 ms.date: 05/10/2021
-ms.openlocfilehash: da00cc070e14490bcd3f4661d30b65bd97553c2e
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 3a9c92e500e79b68688ec526baa2a77b8df2ccef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528475"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723008"
 ---
 # <a name="create-your-first-function-on-azure-arc-preview"></a>Creación de la primera función en Azure Arc (versión preliminar)
 
@@ -96,7 +96,7 @@ En Azure Functions, un proyecto de función es la unidad de implementación y ej
     cd LocalFunctionProj
     ```
 
-    Esta carpeta contiene varios archivos del proyecto, incluidos los archivos de configuración [local.settings.json](functions-run-local.md#local-settings-file) y [host.json](functions-host-json.md). De forma predeterminada, el archivo *local.settings.json* se ha excluido del control de código fuente en el archivo *.gitignore*. Esta exclusión se debe a que el archivo puede contener secretos que se descargan de Azure.
+    Esta carpeta contiene varios archivos del proyecto, incluidos los archivos de configuración [local.settings.json](functions-develop-local.md#local-settings-file) y [host.json](functions-host-json.md). De forma predeterminada, el archivo *local.settings.json* se ha excluido del control de código fuente en el archivo *.gitignore*. Esta exclusión se debe a que el archivo puede contener secretos que se descargan de Azure.
 
 1. Agregue una función al proyecto mediante el comando siguiente, donde el argumento `--name` es el nombre único de la función (HttpExample) y el argumento `--template` especifica el desencadenador de esta (HTTP).
 

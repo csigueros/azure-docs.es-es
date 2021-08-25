@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 11cb3ada0449559eda080cad3e9c528d60a02660
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 0d7a139588ac2ab507e4b4d4ef2061e42de41e35
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707923"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122180591"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM en Azure Active Directory
 
@@ -901,7 +901,7 @@ Barra mínima de conjuntos de cifrado TLS 1.2:
 ### <a name="ip-ranges"></a>Intervalos IP
 El servicio de aprovisionamiento de Azure AD actualmente opera en los intervalos IP de AzureActiveDirectory, tal y como se muestra [aquí](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Puede agregar los intervalos IP que aparecen en la etiqueta AzureActiveDirectory para permitir el tráfico desde el servicio de aprovisionamiento de Azure AD a la aplicación. Tenga en cuenta que deberá revisar detenidamente la lista de intervalos de IP para direcciones procesadas. Una dirección como «40.126.25.32» podría aparecer en la lista de intervalos IP como «40.126.0.0/18». También puede recuperar la lista de intervalos IP mediante programación con la siguiente [API](/rest/api/virtualnetwork/servicetags/list).
 
-Azure AD también admite una solución basada en agente para proporcionar conectividad a aplicaciones en redes privadas (locales, hospedadas en Azure, hospedadas en AWS, etc.). Los clientes pueden implementar un agente ligero, que proporciona conectividad a Azure AD sin abrir puertos de entrada, en un servidor de su red privada. Obtenga más información [aquí](/app-provisioning/on-premises-scim-provisioning).
+Azure AD también admite una solución basada en agente para proporcionar conectividad a aplicaciones en redes privadas (locales, hospedadas en Azure, hospedadas en AWS, etc.). Los clientes pueden implementar un agente ligero, que proporciona conectividad a Azure AD sin abrir puertos de entrada, en un servidor de su red privada. Obtenga más información [aquí](./on-premises-scim-provisioning.md).
 
 ## <a name="build-a-scim-endpoint"></a>Cree un punto de conexión SCIM
 

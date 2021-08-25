@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: dd8a214e060f9f4ace9f310fec3ebca33d4619c0
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: fe009eec23e940377e737938ea1986f515546138
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109240"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862137"
 ---
 # <a name="quickstart-connect-an-stmicroelectronics-b-l475e-iot01a-or-b-l4s5i-iot01a-discovery-kit-to-iot-central"></a>Inicio rápido: Conexión de un dispositivo STMicroelectronics B-L475E-IOT01A o B-L4S5I-IOT01A a Azure IoT Central
 
@@ -55,7 +55,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### <a name="install-the-tools"></a>Instalar las herramientas
 
-El repositorio clonado contiene un script de instalación que instala y configura las herramientas necesarias. Si instaló estas herramientas en otro inicio rápido de dispositivo insertado, no es necesario volver a hacerlo.
+El repositorio clonado contiene un script de instalación que instala y configura las herramientas necesarias. Si ha instalado estas herramientas en otro inicio rápido de dispositivo insertado, no es necesario volver a hacerlo.
 
 > [!NOTE]
 > El script de instalación instala las siguientes herramientas:
@@ -145,7 +145,7 @@ Puede usar la aplicación **Termite** para supervisar la comunicación y confirm
 
 1. Inicie **Termite**.
     > [!TIP]
-    > Si no puede conectar Termite al kit de desarrollo, instale el [controlador ST-LINK](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) e inténtelo de nuevo. Consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md) para ver otros pasos.
+    > Si no puede conectar Termite al kit de desarrollo, instale el [controlador ST-LINK](https://www.st.com/en/development-tools/stsw-link009.html) e inténtelo de nuevo. Consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md) para ver otros pasos.
 1. Haga clic en **Configuración**.
 1. En el cuadro de diálogo **Serial port settings** (Configuración de puerto serie), compruebe los siguientes valores y actualícelos si es necesario:
     * **Baud rate** (Velocidad en baudios): 115.200
@@ -232,7 +232,7 @@ También puede usar IoT Central para llamar a un método directo que haya implem
 Para llamar a un método en el portal de IoT Central:
 
 1. Seleccione la pestaña **Comando** en la página del dispositivo.
-1. En la lista desplegable **Estado**, seleccione **Verdadero** y, a continuación, seleccione **Ejecutar**.  La luz LED debe encenderse.
+1. En la lista desplegable **Estado**, seleccione **Verdadero** y, a continuación, **Ejecutar**.  La luz LED debe encenderse.
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-invoke-method.png" alt-text="Captura de pantalla de la llamada a un método directo en un dispositivo en IoT Central":::
 

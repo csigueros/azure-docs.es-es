@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 2e9da08d11c2dffd1bdb338f7c09c7e6d2f7f820
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5767818bbba94c6c923a493a0aee14eb6b26c311
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114706378"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419560"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Uso de la autenticación de Azure AD para acceder a la API de Azure Media Services con .NET
 

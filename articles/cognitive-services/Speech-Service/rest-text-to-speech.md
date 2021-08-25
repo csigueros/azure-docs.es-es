@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/01/2021
 ms.author: lajanuar
 ms.custom: references_regions
-ms.openlocfilehash: 31d03ee9cc230412ef6fdbdcc351b7a6b5e296a6
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 7acde9107787715ffd2e88bf55833dd759083cd9
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122066284"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418908"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
@@ -63,7 +63,7 @@ El punto de conexión `voices/list` le permite obtener una lista completa de las
 | Norte de Sudáfrica | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-sur de EE. UU. | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste de Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Sur de Reino Unido 2 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sur de Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Oeste de EE. UU. | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de Europa | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de EE. UU. | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -109,11 +109,11 @@ Esta respuesta se ha truncado para ilustrar la estructura de una respuesta.
 [
 
     {
-    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
-    "DisplayName": "Aria",
-    "LocalName": "Aria",
-    "ShortName": "en-US-AriaNeural",
-    "Gender": "Female",
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)",
+    "DisplayName": "Christopher",
+    "LocalName": "Christopher",
+    "ShortName": "en-US-ChristopherNeural",
+    "Gender": "Male",
     "Locale": "en-US",
     "StyleList": [
       "chat",
@@ -293,8 +293,8 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='en-US-AriaNeural'>
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Male'
+    name='en-US-ChristopherNeural'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
