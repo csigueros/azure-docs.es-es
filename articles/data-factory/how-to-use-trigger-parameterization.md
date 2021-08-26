@@ -2,17 +2,18 @@
 title: Paso de información del desencadenador a la canalización
 description: Aprenda a hacer referencia a los metadatos de desencadenador en una canalización.
 ms.service: data-factory
+ms.subservice: orchestration
 author: chez-charlie
 ms.author: chez
 ms.reviewer: ''
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 50a9f9cd59ebeecae89580c878442eb20788f462
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4d51377daeeb16d7e3e74a77a4379b6fc13cb94b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593652"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637879"
 ---
 # <a name="reference-trigger-metadata-in-pipeline-runs"></a>Referencia a los metadatos de desencadenador en las ejecuciones de canalización
 

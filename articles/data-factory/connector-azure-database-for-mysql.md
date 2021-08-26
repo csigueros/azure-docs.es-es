@@ -1,18 +1,20 @@
 ---
 title: Copia y transformación de datos en Azure Database for MySQL
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Aprenda a copiar y transformar datos en Azure Database for MySQL mediante Azure Data Factory.
-ms.author: jianleishen
-author: jianleishen
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/10/2021
-ms.openlocfilehash: 69ed45d50c98321c68e55aa15304e6d439fe58ad
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 338405fd04617d3b1d563b7ac95d7233d23a8678
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480264"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638852"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-mysql-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Database for MySQL mediante Azure Data Factory
 

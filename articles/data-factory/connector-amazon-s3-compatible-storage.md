@@ -1,18 +1,19 @@
 ---
 title: Copia de datos de Amazon Simple Storage Service (S3) Compatible Storage
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Aprenda a copiar datos de Amazon S3 Compatible Storage a almacenes de datos de receptor compatibles mediante Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/11/2021
-ms.openlocfilehash: 96b8ac29fadc03ca6e5b374acc269d5e19210b03
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 12d7080a9f000df1f2e7469defef820cd4231e1b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110104491"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638182"
 ---
 # <a name="copy-data-from-amazon-s3-compatible-storage-by-using-azure-data-factory"></a>Copia de datos de Amazon S3 Compatible Storage mediante Azure Data Factory
 
@@ -59,7 +60,7 @@ Las siguientes propiedades se admiten en el servicio vinculado Amazon S3 Compat
 | type | La propiedad **type** debe establecerse en **AmazonS3Compatible**. | Sí |
 | accessKeyId | Id. de la clave de acceso secreta. |Sí |
 | secretAccessKey | La propia clave de acceso secreta. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. |Sí |
-| serviceUrl | Especifique el punto de conexión de S3 personalizado `https://<service url>`. | No |
+| serviceUrl | Especifique el punto de conexión S3 personalizado `https://<service url>`. | No |
 | forcePathStyle | Indica si se va a usar el [acceso de estilo ruta de acceso](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#path-style-access) de S3 en lugar del acceso de estilo hospedado virtual. Los valores permitidos son **false** (valor predeterminado) y **true**.<br> Consulte la documentación de cada almacén de datos para saber si el acceso de estilo ruta de acceso es o no necesario. |No |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos está en una red privada). Si no se especifica esta propiedad, el servicio usa el valor predeterminado de Azure Integration Runtime. |No |
 

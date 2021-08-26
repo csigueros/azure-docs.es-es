@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: b77b242d34986e423bf87d6be0eda2074cd7df36
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 5200f9548c16dc0dc0341db84601242e84e3dcc3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114689075"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638454"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: Migración de SQL Server a Instancia administrada de Azure SQL sin conexión con Database Migration Service
 
@@ -79,19 +79,7 @@ Para completar este tutorial, necesita:
     > [!NOTE]
     > Azure Database Migration Service no admite el uso de un token de SAS de nivel de cuenta al configurar la cuenta de almacenamiento durante el paso para [configurar las opciones de migración](#configure-migration-settings).
     
-## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registro del proveedor de recursos Microsoft.DataMigration
-
-1. Inicie sesión en Azure Portal, seleccione **Todos los servicios** y, después, **Suscripciones**.
-
-    ![Mostrar suscripciones en el portal](media/tutorial-sql-server-to-managed-instance/portal-select-subscriptions.png)
-
-2. Seleccione la suscripción en la que quiere crear la instancia de Azure Database Migration Service y después seleccione **Proveedores de recursos**.
-
-    ![Mostrar los proveedores de recursos](media/tutorial-sql-server-to-managed-instance/portal-select-resource-provider.png)
-
-3. Busque la migración y después, a la derecha de **Microsoft.DataMigration**, seleccione **Registrar**.
-
-    ![Registro del proveedor de recursos](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Creación de una instancia de Azure Database Migration Service
 

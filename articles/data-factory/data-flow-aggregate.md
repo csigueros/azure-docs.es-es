@@ -1,19 +1,21 @@
 ---
 title: Transformación Agregar en Asignación de Data Flow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre cómo agregar datos a escala en Azure Data Factory con la transformación Agregar en Asignación de Data Flow.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/14/2020
-ms.openlocfilehash: 71f5488b1f689e8892155b013730bcbb3c8e0e35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7723a7c404b4e2350d9396f017874df49f74d556
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90531963"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637797"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformación Agregar en Asignación de Data Flow
 

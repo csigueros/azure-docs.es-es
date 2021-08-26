@@ -1,18 +1,19 @@
 ---
 title: Consideraciones sobre la seguridad
 description: En este artículo se describe la infraestructura de seguridad básica que utilizan los servicios de movimiento de datos de Azure Data Factory para ayudar a proteger los datos.
-ms.author: abnarain
-author: nabhishek
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: security
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/03/2021
-ms.openlocfilehash: 54c96aced03853b8a3f78ff0f348eeb6459afccc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ab31c1629140a1e0f3f5a6dcbe409b6803805e34
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760331"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638893"
 ---
 # <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 
@@ -21,7 +22,7 @@ ms.locfileid: "108760331"
 > * [Versión 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Versión actual](data-movement-security-considerations.md)
 
- [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+ [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se describe la infraestructura de seguridad básica que utilizan los servicios de movimiento de datos en Azure Data Factory para ayudar a proteger los datos. Los recursos de administración de Data Factory están integrados en la infraestructura de seguridad de Azure y aplican todas las medidas de seguridad que ofrece Azure.
 

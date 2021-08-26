@@ -4,15 +4,16 @@ description: Copie, transforme y comparta datos mediante Azure Data Factory y Az
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/04/2021
-ms.openlocfilehash: 0f295a2c628a7ca931287463a75ad441bc40ee24
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 40d1970fa3e1c55fe54845478ed6c7d5abc1faf0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113214964"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637830"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integración de datos mediante Azure Data Factory y Azure Data Share
 
