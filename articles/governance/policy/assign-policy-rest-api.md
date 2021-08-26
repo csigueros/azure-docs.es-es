@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Asignación de nuevas directivas con la API REST'
 description: En este inicio rápido, se usa la API REST para crear una asignación de Azure Policy para identificar recursos no compatibles.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
-ms.openlocfilehash: 7c7657143673e773e1c4108ecb8d86ddc8d1c559
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4650a213777e30ddffb7604ab94c11fe0fd85ee7
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763134"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323507"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante la API REST
 
@@ -36,7 +36,7 @@ Ejecute el siguiente comando para crear una asignación de directiva:
    - URI DE LA API REST
 
      ```http
-     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2019-09-01
+     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2021-09-01
      ```
 
    - Cuerpo de la solicitud
@@ -113,7 +113,7 @@ Son comparables a lo que normalmente vería en **Recursos no compatibles**, en l
 Para quitar la asignación creada, ejecute el siguiente comando:
 
 ```http
-DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2019-09-01
+DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2021-09-01
 ```
 
 Reemplace `{scope}` por el ámbito que utilizó cuando creó por primera vez la asignación de directiva.

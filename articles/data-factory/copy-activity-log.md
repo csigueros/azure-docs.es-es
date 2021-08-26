@@ -3,15 +3,16 @@ title: Registro de sesión en la actividad de copia
 description: Obtenga información sobre cómo habilitar el registro de sesión en la actividad de copia en Azure Data Factory.
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: cbd2ef972753abfc9f18fed4a15c6ed0357daae0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3bca6ba77ac90b0320d3f479ed32c007147fdded
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095687"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637902"
 ---
 #  <a name="session-log-in-copy-activity"></a>Registro de sesión en la actividad de copia
 

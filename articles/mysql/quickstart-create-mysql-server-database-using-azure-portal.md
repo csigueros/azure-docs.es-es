@@ -7,14 +7,16 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: b8f3a8e06bb27051417205c4dc3141948960bb00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e1e76d9afad049d79c68db93c08c935d190fbb6
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98567806"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643583"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Inicio rápido: Creación de un servidor de Azure Database for MySQL mediante Azure Portal
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL es un servicio administrado que se usa para ejecutar, administrar y escalar bases de datos MySQL de alta disponibilidad en la nube. En esta guía de inicio rápido se explica cómo usar Azure Portal para crear un servidor único de Azure Database for MySQL. También se muestra cómo conectarse al servidor.
 
@@ -40,7 +42,7 @@ Se necesita una suscripción de Azure. Si no tiene una suscripción a Azure, cre
 
    **Configuración** | **Valor sugerido** | **Descripción**
    ---|---|---
-   Subscription | Su suscripción | Seleccione la suscripción de Azure que desee.
+   Suscripción | Su suscripción | Seleccione la suscripción de Azure que desee.
    Resource group | **myresourcegroup** | Escriba un nuevo grupo de recursos o uno existente de la suscripción.
    Nombre de servidor | **mydemoserver** | Escriba un nombre único. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
    Origen de datos |**None** | Seleccione **None** para crear un servidor desde cero. Seleccione **Copia de seguridad** solo si va a restaurar a partir de una copia de seguridad geográfica de un servidor existente.

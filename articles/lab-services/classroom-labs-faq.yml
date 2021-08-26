@@ -3,13 +3,14 @@ metadata:
   title: 'Laboratorios en Azure Lab Services: preguntas frecuentes| Microsoft Docs'
   description: En este artículo se ofrecen respuestas a las preguntas más frecuentes (P+F) sobre los laboratorios en Azure Lab Services.
   ms.topic: article
+  ms.service: lab-services
   ms.date: 06/26/2020
-  ms.openlocfilehash: d246b686febbf4fe3d5a0c1101bf3676e1afd494
-  ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+  ms.openlocfilehash: 0e129eebbc74c3f400195995e0d4bcec81c18ed2
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/17/2021
-  ms.locfileid: "112306179"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253766"
 title: 'Laboratorios clase en Azure Lab Services: preguntas más frecuentes (P+F)'
 summary: Obtenga respuestas a algunas de las preguntas más habituales sobre los laboratorios en Azure Lab Services.
 sections:

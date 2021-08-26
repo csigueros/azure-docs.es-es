@@ -20,15 +20,24 @@
           href: get-started-cli.md
 - name: Conceptos
   items:
-    - name: Compatibilidad de API con Azure Functions
-      href: apis.md
+    - name: API existentes
+      items:
+        - name: Compatibilidad de API con Azure Functions
+          href: apis.md
+        - name: Incorporación de una API
+          href: add-api.md
+        - name: Traiga sus propias funciones
+          href: functions-bring-your-own.md
     - name: Configuración
       items:
         - name: Configuración de aplicación
           href: configuration.md
           displayName: 'routing, routes'
-        - name: Creación y configuración de flujos de trabajo
+        - name: Configuración de compilación
           href: github-actions-workflow.md
+        - name: Configuración de la aplicación
+          href: application-settings.md
+          displayName: environment variables
     - name: Seguridad
       items:
         - name: Autenticación y autorización
@@ -43,14 +52,22 @@
       href: custom-domain.md
 - name: Guías paso a paso
   items:
+    - name: API existentes
+      items:
+        - name: Incorporación de una API
+          href: add-api.md
+        - name: Traiga sus propias funciones
+          href: functions-bring-your-own.md
+    - name: Seguridad
+      items:
+        - name: Configuración de un punto de conexión privado
+          href: private-endpoint.md
+        - name: Secretos de la autenticación segura
+          href: key-vault-secrets.md
     - name: Configuración del desarrollo local
       href: local-development.md
-    - name: Incorporación de una API
-      href: add-api.md
     - name: Configuración de aplicaciones
       href: application-settings.md
-    - name: Publicación con Azure DevOps
-      href: publish-devops.md
     - name: Configuración de bibliotecas y marcos de front-end
       href: front-end-frameworks.md
     - name: Habilitar supervisión
@@ -61,10 +78,6 @@
     - name: Solucionar problemas
       href: troubleshooting.md
       displayName: 'deployment, runtime, errors'
-    - name: Traiga sus propias funciones
-      href: functions-bring-your-own.md
-    - name: Secretos de la autenticación segura
-      href: key-vault-secrets.md
 - name: Tutoriales
   items:
     - name: Publicación desde un generador de sitios estáticos

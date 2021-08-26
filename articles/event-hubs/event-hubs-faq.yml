@@ -3,13 +3,14 @@ metadata:
   title: Preguntas más frecuentes sobre Azure Event Hubs | Microsoft Docs
   description: En este artículo se proporciona una lista de las preguntas más frecuentes (P+F) acerca de Azure Event Hubs y sus respuestas.
   ms.topic: article
+  ms.service: event-hubs
   ms.date: 01/20/2021
-  ms.openlocfilehash: 75179e8ab3b418de773ceac5dbd35c446421a790
-  ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+  ms.openlocfilehash: 57f2f7c6cbb1cb502339d7fa87509672cef69e41
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/16/2021
-  ms.locfileid: "114286135"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252641"
 title: Preguntas frecuentes sobre Event Hubs
 summary: ''
 sections:
@@ -225,7 +226,7 @@ sections:
   - question: >
       Registros de diagnóstico
     answer: >
-      Event Hubs admite dos tipos de [registros de diagnóstico](event-hubs-diagnostic-logs.md): los registros de errores de Capture y los registros operativos. Ambos, se representan en JSON y se pueden activar a través de Azure Portal.
+      Event Hubs admite dos tipos de [registros de diagnóstico](monitor-event-hubs-reference.md#resource-logs): los registros de errores de Capture y los registros operativos. Ambos, se representan en JSON y se pueden activar a través de Azure Portal.
   - question: >
       SLA y soporte técnico
     answer: >

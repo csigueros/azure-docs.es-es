@@ -3,14 +3,15 @@ metadata:
   title: Preguntas frecuentes sobre Azure Backup Server y DPM
   description: En este artículo, encontrará respuestas a preguntas habituales sobre Microsoft Azure Backup Server (MABS) y DPM (Data Protection Manager).
   ms.reviewer: srinathv
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
   ms.date: 07/05/2019
-  ms.openlocfilehash: 2868dd20cb791e8ebe9bb97de4b8a9ce2876dda4
-  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.openlocfilehash: edd3ad16f6fc223ec08a99e4bf2a992cbd69c6e5
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/15/2021
-  ms.locfileid: "111907426"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252162"
 title: Preguntas frecuentes sobre Azure Backup Server y DPM
 summary: ''
 sections:
