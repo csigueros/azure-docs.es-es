@@ -8,19 +8,19 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c8a7b357efc2e30d1ca93d0b45fd2563c980045
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 5520dbcc82dc45af987ec329a3be711fec04ee27
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752757"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735137"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Creación de una definición de SAS y captura de tokens de firma de acceso compartido en el código
 
 Puede administrar su cuenta de almacenamiento con los tokens de Firma de acceso compartido (SAS) almacenados en el almacén de claves. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con SAS](../../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
-> Se recomienda usar el [control de acceso basado en rol de Azure (RBAC de Azure)](../../storage/common/storage-auth-aad.md) para proteger la cuenta de almacenamiento y lograr una mayor seguridad y facilidad de uso mediante la autorización de claves compartidas.
+> Se recomienda usar el [control de acceso basado en rol de Azure (RBAC de Azure)](../../storage/blobs/authorize-access-azure-active-directory.md) para proteger la cuenta de almacenamiento y lograr una mayor seguridad y facilidad de uso mediante la autorización de claves compartidas.
 
 En este artículo se proporcionan ejemplos de código .NET que crea una definición de SAS y captura tokens de SAS. Consulte el ejemplo de [ShareLink](/samples/azure/azure-sdk-for-net/share-link/) para obtener información completa, incluido el cliente generado para las cuentas de almacenamiento administradas por Key Vault. Para más información sobre cómo crear y almacenar tokens de SAS, consulte [Administración de claves de cuenta de almacenamiento con Key Vault y la CLI de Azure](overview-storage-keys.md) o [Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell](overview-storage-keys-powershell.md).
 

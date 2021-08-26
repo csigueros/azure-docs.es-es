@@ -4,14 +4,14 @@ description: Los clientes que ingieren más de 1 TB al día de datos de supervi
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 09/16/2020
+ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 3b4a98e37c16feeb2ad8203caaeb5bc231761379
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: a0b33fb243c69dc86d2c14c34f45499bef47a730
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004230"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735772"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -20,8 +20,9 @@ Los clústeres dedicados de registros de Azure Monitor son una opción de implem
 Las funcionalidades que requieren clústeres dedicados son las siguientes:
 
 - **[Claves administradas por el cliente](../logs/customer-managed-keys.md)** : cifre los datos del clúster mediante las claves proporcionadas y controladas por el cliente.
-- **[Caja de seguridad](../logs/customer-managed-keys.md#customer-lockbox-preview)** : los clientes pueden controlar las solicitudes de acceso a los datos de los ingenieros de soporte técnico de Microsoft.
+- **[Caja de seguridad](../logs/customer-managed-keys.md#customer-lockbox-preview)** : permite controlar las solicitudes de acceso a sus datos de los ingenieros de soporte técnico de Microsoft.
 - **[Cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** : protege en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos.
+- **[Zona de disponibilidad](../../availability-zones/az-overview.md)** : proteja los datos frente a errores del centro de datos con la zona de disponibilidad en un clúster dedicado, limitado inicialmente a las regiones Este de EE. UU. 2 y Oeste de EE. UU. 2. Un clúster creado con la zona de disponibilidad se indica con `isAvailabilityZonesEnabled`: `true` y sus datos se almacenan protegidos en el tipo de almacenamiento ZRS. La zona de disponibilidad se define en el clúster en el momento de la creación y esta configuración no se puede modificar. Para tener un clúster en la zona de disponibilidad, debe crear un nuevo clúster en las regiones admitidas.
 - **[Varias áreas de trabajo](../logs/cross-workspace-query.md)** : si un cliente usa más de un área de trabajo para producción, puede que tenga sentido usar un clúster dedicado. Las consultas entre áreas de trabajo se ejecutarán más rápido si todas las áreas de trabajo están en el mismo clúster. Puede ser más rentable también usar un clúster dedicado, ya que los niveles de compromiso asignados tienen en cuenta toda la ingesta del clúster y se aplican a todas sus áreas de trabajo, incluso si algunas de ellas son pequeñas y no son válidas para el descuento de nivel de compromiso.
 
 Los clústeres dedicados requieren que los clientes confirmen el uso de una capacidad de al menos 1 TB de ingesta de datos al día. La migración a un clúster dedicado es sencilla. No se produce ninguna pérdida de datos ni interrupción del servicio. 
@@ -39,32 +40,32 @@ Todas las operaciones en el nivel de clúster requieren el permiso de acción `M
 
 ## <a name="cluster-pricing-model"></a>Modelo de precios de clúster
 
-Los clústeres dedicados de Log Analytics usan un modelo de precios de nivel de compromiso de al menos 1000 GB/día. Cualquier uso por encima del nivel se facturará a una tarifa efectiva por GB de ese nivel de compromiso.  La información de precios del plan de compromiso está disponible en la [página de precios de Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
+Los clústeres dedicados de Log Analytics usan un modelo de precios de nivel de compromiso de al menos 500 GB/día. Cualquier uso por encima del nivel se facturará a una tarifa efectiva por GB de ese nivel de compromiso.  La información de precios del plan de compromiso está disponible en la [página de precios de Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-El nivel de compromiso del clúster se configura mediante programación con Azure Resource Manager usando el parámetro `Capacity` en `Sku`. `Capacity` se especifica en unidades de GB y puede tener valores de 1000, 2000 o 5000 GB/día.
+El nivel de compromiso del clúster se configura mediante programación con Azure Resource Manager usando el parámetro `Capacity` en `Sku`. `Capacity` se especifica en unidades de GB y puede tener valores de 500, 1000, 2000 o 5000 GB/día.
 
 Hay dos modos de facturación para el uso en un clúster. Estos pueden especificarse mediante el parámetro `billingType` al configurar el clúster. 
 
 1. **Clúster**: en este caso (que es el modo predeterminado), la facturación de los datos ingeridos se realiza en el nivel de clúster. Las cantidades de datos ingeridas desde cada área de trabajo asociada a un clúster se suman para calcular la factura diaria del clúster. 
 
-2. **Workspaces**: los costos del nivel de compromiso del clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster, según el volumen de ingesta de datos de cada área de trabajo (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) para cada área de trabajo). Estos detalles completos de este modelo de precios se explican [aquí]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters). 
+2. **Workspaces**: los costos del nivel de compromiso del clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster, según el volumen de ingesta de datos de cada área de trabajo (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) para cada área de trabajo). Estos detalles completos de este modelo de precios se explican [aquí](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
 
 Si el área de trabajo usa el plan de tarifa heredado por nodo, cuando esté vinculado a un clúster se le facturará en función de los datos ingeridos en relación con el nivel de compromiso en lugar de por nodo. Se seguirán aplicando las asignaciones de datos por nodo de Azure Security Center.
 
-Encontrará más detalles sobre la facturación de los clústeres dedicados de Log Analytics [aquí]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
+Encontrará más detalles sobre la facturación de los clústeres dedicados de Log Analytics [aquí](./manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## <a name="asynchronous-operations-and-status-check"></a>Operaciones asincrónicas y comprobación de estado
 
 Algunos de los pasos de configuración se ejecutan de forma asincrónica porque no se pueden completar rápidamente. El estado en la respuesta puede ser uno de las siguientes: "EnCurso", "Actualizando", "Eliminando", "Correcto" o "Incorrecto", incluido el código de error. Cuando se usa REST, la respuesta devuelve inicialmente un código de estado HTTP 202 (Aceptado) y un encabezado con la propiedad Azure-AsyncOperation:
 
 ```JSON
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
 ```
 
 Puede obtener el estado de la operación asincrónica si envía una solicitud GET al valor del encabezado Azure-AsyncOperation:
 
 ```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
 
@@ -77,7 +78,7 @@ Deben especificarse las siguientes propiedades:
 - **Nombre del clúster**: Se usa con fines administrativos. Los usuarios no se exponen a este nombre.
 - **ResourceGroupName**: Como para cualquier recurso de Azure, los clústeres pertenecen a un grupo de recursos. Se recomienda usar un grupo de recursos de TI central, ya que los clústeres suelen compartirse entre muchos equipos dentro de una organización. Para más información sobre el diseño, consulte [Diseño de la implementación de registros de Azure Monitor](../logs/design-logs-deployment.md).
 - **Ubicación**: Un clúster se encuentra en una región de Azure específica. Solo las áreas de trabajo que se encuentran en esta región se pueden vincular a este clúster.
-- **SkuCapacity**: debe especificar el nivel de compromiso (SKU) al crear un recurso de clúster. El nivel de compromiso se puede establecer en 1000, 2000 o 5000 GB/día. Para obtener más información sobre los costos del clúster, consulte [Administración de costos de clústeres de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters). Tenga en cuenta que los niveles de compromiso se denominaban anteriormente "reservas de capacidad". 
+- **SkuCapacity**: debe especificar el nivel de compromiso (SKU) al crear un recurso de clúster. El nivel de compromiso se puede establecer en 500, 1000, 2000 o 5000 GB/día. Para obtener más información sobre los costos del clúster, consulte [Administración de costos de clústeres de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters). Tenga en cuenta que los niveles de compromiso se denominaban anteriormente "reservas de capacidad". 
 
 Después de crear el recurso *cluster*, puede editar propiedades adicionales, como *sku*, *keyVaultProperties o *billingType*. Vea más detalles a continuación.
 
@@ -103,7 +104,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 *Call* 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -113,12 +114,12 @@ Content-type: application/json
     },
   "sku": {
     "name": "capacityReservation",
-    "Capacity": 1000
+    "Capacity": 500
     },
   "properties": {
-    "billingType": "cluster",
+    "billingType": "Cluster",
     },
-  "location": "<region-name>",
+  "location": "<region>",
 }
 ```
 
@@ -139,44 +140,51 @@ El aprovisionamiento del clúster de Log Analytics tarda un tiempo en completars
 
 - Envíe una solicitud GET en el recurso *Clúster* y examine el valor *provisioningState*. El valor es *ProvisioningAccount* mientras se realiza el aprovisionamiento y *Succeeded* una vez que se completa.
 
-   ```rst
-   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-   Authorization: Bearer <token>
-   ```
+  ```rst
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+  Authorization: Bearer <token>
+  ```
 
-   **Respuesta**
+  **Respuesta**
 
-   ```json
-   {
-     "identity": {
-       "type": "SystemAssigned",
-       "tenantId": "tenant-id",
-       "principalId": "principal-id"
-       },
-     "sku": {
-       "name": "capacityReservation",
-       "capacity": 1000,
-       "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-       },
-     "properties": {
-       "provisioningState": "ProvisioningAccount",
-       "billingType": "cluster",
-       "clusterId": "cluster-id"
-       },
-     "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-     "name": "cluster-name",
-     "type": "Microsoft.OperationalInsights/clusters",
-     "location": "region-name"
-   }
-   ```
+  ```json
+  {
+    "identity": {
+      "type": "SystemAssigned",
+      "tenantId": "tenant-id",
+      "principalId": "principal-id"
+    },
+    "sku": {
+      "name": "capacityreservation",
+      "capacity": 500
+    },
+    "properties": {
+      "provisioningState": "ProvisioningAccount",
+      "clusterId": "cluster-id",
+      "billingType": "Cluster",
+      "lastModifiedDate": "last-modified-date",
+      "createdDate": "created-date",
+      "isDoubleEncryptionEnabled": false,
+      "isAvailabilityZonesEnabled": false,
+      "capacityReservationProperties": {
+        "lastSkuUpdate": "last-sku-modified-date",
+        "minCapacity": 500
+      }
+    },
+    "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
+    "name": "cluster-name",
+    "type": "Microsoft.OperationalInsights/clusters",
+    "location": "cluster-region"
+  }
+  ```
 
-El GUID *principalId* se genera desde el servicio de identidad administrada para el recurso *cluster*.
+El GUID *principalId* se genera desde el servicio de identidad administrada al crear el *clúster*.
 
 ## <a name="link-a-workspace-to-cluster"></a>Vinculación del área de trabajo al clúster
 
 Cuando un área de trabajo está vinculada a un clúster dedicado, los nuevos datos que se ingieren en el área de trabajo se enrutan al nuevo clúster, mientras que los datos existentes permanecen en el clúster existente. Si el clúster dedicado se cifra mediante claves administradas por el cliente (CMK), solo se cifrarán los datos nuevos con la clave. El sistema abstrae esta diferencia de los usuarios, y estos simplemente consultan el área de trabajo como de costumbre mientras el sistema realiza consultas entre clústeres en el back-end.
 
-Un clúster puede vincularse con hasta 100 áreas de trabajo. Las áreas de trabajo vinculadas se encuentran en la misma región que el clúster. Para proteger el back-end del sistema y evitar la fragmentación de los datos, un área de trabajo no se puede vincular a un clúster más de dos veces al mes.
+Un clúster puede vincularse con hasta 1000 áreas de trabajo. Las áreas de trabajo vinculadas se encuentran en la misma región que el clúster. Para proteger el back-end del sistema y evitar la fragmentación de los datos, un área de trabajo no se puede vincular a un clúster más de dos veces al mes.
 
 Para realizar la operación de vinculación, debe tener permisos de "escritura" tanto en el área de trabajo como en el recurso *cluster*:
 
@@ -215,7 +223,7 @@ Use la llamada de REST siguiente para vincular un clúster:
 *Envío*
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2021-06-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -232,9 +240,7 @@ Content-type: application/json
 
 ### <a name="check-workspace-link-status"></a>Comprobación del estado de vinculación del área de trabajo
   
-Si usa claves administrada por el cliente, los datos ingeridos se almacenan cifrados con la clave administrada después de la operación de asociación, que puede tardar hasta 90 minutos en completarse. 
-
-Puede comprobar el estado de asociación del área de trabajo de dos maneras:
+Cuando el clúster se configura con claves administradas por el cliente, los datos ingeridos en las áreas de trabajo después de finalizar la operación de vínculo se almacenan cifrados con la clave administrada. La operación de vínculo del área de trabajo puede tardar hasta 90 minutos en completarse. Puede comprobar el estado de la operación de dos maneras:
 
 - Copie el valor de la dirección URL de Azure-AsyncOperation de la respuesta y siga la comprobación del estado de operaciones asincrónicas.
 
@@ -243,7 +249,7 @@ Puede comprobar el estado de asociación del área de trabajo de dos maneras:
 **CLI**
 
 ```azurecli
-az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
+az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
 
 **PowerShell**
@@ -257,7 +263,7 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
 
@@ -289,7 +295,7 @@ Authorization: Bearer <token>
   "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
   "name": "workspace-name",
   "type": "Microsoft.OperationalInsights/workspaces",
-  "location": "region-name"
+  "location": "region"
 }
 ```
 
@@ -301,7 +307,7 @@ Después de crear el recurso *cluster* y de que esté totalmente aprovisionado, 
 - **billingType**: La propiedad *billingType* determina la atribución de facturación para el recurso *cluster* y sus datos:
   - **Cluster** (valor predeterminado): los costos para el clúster se atribuyen al recurso *cluster*.
   - **Workspaces**: los costos del nivel de compromiso para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster. En este caso, se factura una parte del uso del recurso *cluster* si el total de datos ingeridos del día está por debajo del nivel de compromiso. Vea [Clústeres dedicados de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) para obtener más información sobre el modelo de precios del clúster.
-  - **Identidad**: la identidad que se usará para autenticarse en la instancia de Key Vault. Puede ser asignada por el sistema o por el usuario.
+  - **Identidad**: identidad que se usará para autenticarse en la instancia de Key Vault. Puede ser asignada por el sistema o por el usuario.
 
 >[!IMPORTANT]
 >La actualización del clúster no debe incluir los detalles de identidad y de identificador de clave en la misma operación. Si necesita actualizar ambos valores, la actualización debe realizarse en dos operaciones consecutivas.
@@ -327,45 +333,47 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 
 *Call*
 
-  ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
-  Authorization: Bearer <token>
-  ```
+```rst
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
+Authorization: Bearer <token>
+```
 
 *Respuesta*
   
-  ```json
-  {
-    "value": [
-      {
-        "identity": {
-          "type": "SystemAssigned",
-          "tenantId": "tenant-id",
-          "principalId": "principal-Id"
-        },
-        "sku": {
-          "name": "capacityReservation",
-          "capacity": 1000,
-          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-          },
-        "properties": {
-           "keyVaultProperties": {
-              "keyVaultUri": "https://key-vault-name.vault.azure.net",
-              "keyName": "key-name",
-              "keyVersion": "current-version"
-              },
-          "provisioningState": "Succeeded",
-          "billingType": "cluster",
-          "clusterId": "cluster-id"
-        },
-        "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
-        "name": "cluster-name",
-        "type": "Microsoft.OperationalInsights/clusters",
-        "location": "region-name"
-      }
-    ]
-  }
-  ```
+```json
+{
+  "value": [
+    {
+      "identity": {
+        "type": "SystemAssigned",
+        "tenantId": "tenant-id",
+        "principalId": "principal-id"
+      },
+      "sku": {
+        "name": "capacityreservation",
+        "capacity": 500
+      },
+      "properties": {
+        "provisioningState": "Succeeded",
+        "clusterId": "cluster-id",
+        "billingType": "Cluster",
+        "lastModifiedDate": "last-modified-date",
+        "createdDate": "created-date",
+        "isDoubleEncryptionEnabled": false,
+        "isAvailabilityZonesEnabled": false,
+        "capacityReservationProperties": {
+          "lastSkuUpdate": "last-sku-modified-date",
+          "minCapacity": 500
+        }
+      },
+      "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
+      "name": "cluster-name",
+      "type": "Microsoft.OperationalInsights/clusters",
+      "location": "cluster-region"
+    }
+  ]
+}
+```
 
 ### <a name="get-all-clusters-in-subscription"></a>Obtención de todos los clústeres de una suscripción
 
@@ -386,7 +394,7 @@ Get-AzOperationalInsightsCluster
 *Call*
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
     
@@ -394,62 +402,60 @@ Authorization: Bearer <token>
     
 Lo mismo que para el "clúster de un grupo de recursos", pero en el ámbito de la suscripción.
 
-
-
 ### <a name="update-commitment-tier-in-cluster"></a>Actualización del nivel de compromiso en el clúster
 
-Cuando cambie el volumen de datos en las áreas de trabajo vinculadas con el tiempo y desee actualizar el nivel de compromiso adecuadamente. El nivel se especifica en unidades de GB y puede tener valores de 1000, 2000 GB/día o más en incrementos de 5000 GB/día. Tenga en cuenta que no tiene que proporcionar el cuerpo completo de la solicitud de REST, pero debe incluir la SKU.
+Cuando cambie el volumen de datos en las áreas de trabajo vinculadas con el tiempo y desee actualizar el nivel de compromiso adecuadamente. El nivel se especifica en unidades de GB y puede tener valores de 500, 1000, 2000 o 5000 GB/día. Tenga en cuenta que no tiene que proporcionar el cuerpo completo de la solicitud de REST, pero debe incluir la SKU.
 
 **CLI**
 
 ```azurecli
-az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 1000
+az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 500
 ```
 
 **PowerShell**
 
 ```powershell
-Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 1000
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 500
 ```
 
 **REST**
 
 *Call*
 
-  ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  Content-type: application/json
+```rst
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+Authorization: Bearer <token>
+Content-type: application/json
 
-  {
-    "sku": {
-      "name": "capacityReservation",
-      "Capacity": 2000
-    }
+{
+  "sku": {
+    "name": "capacityReservation",
+    "Capacity": 2000
   }
-  ```
+}
+```
 
 ### <a name="update-billingtype-in-cluster"></a>Actualización de billingType en el clúster
 
 La propiedad *billingType* determina la atribución de facturación para el clúster y sus datos:
-- *Clúster* (valor predeterminado): la facturación se atribuye a la suscripción que hospeda los recursos de Clúster
-- *Áreas de trabajo*: la facturación se atribuye a las suscripciones que hospedan las áreas de trabajo de forma proporcional
+- *Clúster* (valor predeterminado): la facturación se atribuye al recurso de clúster.
+- *Áreas de trabajo*: la facturación se atribuye a las áreas de trabajo vinculadas de forma proporcional. Cuando el volumen de datos de todas las áreas de trabajo está por debajo del nivel de compromiso, el volumen restante se atribuye al clúster.
 
 **REST**
 
 *Call*
 
-  ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  Content-type: application/json
+```rst
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+Authorization: Bearer <token>
+Content-type: application/json
 
-  {
-    "properties": {
-      "billingType": "cluster",
-      }  
-  }
-  ```
+{
+  "properties": {
+    "billingType": "Workspaces",
+    }  
+}
+```
 
 ### <a name="unlink-a-workspace-from-cluster"></a>Desvinculación de un área de trabajo de un clúster
 
@@ -461,7 +467,7 @@ Puede desvincular un área de trabajo de un clúster. Después de desvincular un
 **CLI**
 
 ```azurecli
-az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "MyWorkspace" --name cluster
+az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "workspace-name" --name cluster
 ```
 
 **PowerShell**
@@ -490,18 +496,18 @@ Dentro de los 14 días posteriores a la eliminación, el nombre del recurso de 
 
 Use el comando de PowerShell siguiente para eliminar un clúster:
 
-  ```powershell
-  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
-  ```
+```powershell
+Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+```
 
 **REST**
 
 Use la llamada de REST siguiente para eliminar un clúster:
 
-  ```rst
-  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  ```
+```rst
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+Authorization: Bearer <token>
+```
 
   **Respuesta**
 
@@ -524,7 +530,7 @@ Use la llamada de REST siguiente para eliminar un clúster:
 - La caja de seguridad no está disponible actualmente en China. 
 
 - El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) se configura automáticamente para los clústeres creados a partir de octubre de 2020 en las regiones compatibles. Puede comprobar si el clúster está configurado para el cifrado doble mediante el envío de una solicitud GET en el clúster y observando que el valor `isDoubleEncryptionEnabled` sea `true` para los clústeres con el cifrado doble habilitado. 
-  - Si crea un clúster y recibe un error que dice que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble agregando `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud REST.
+  - Si crea un clúster y recibe un error que indica que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble agregando `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud REST.
   - La configuración de cifrado doble no se puede cambiar después de crear el clúster.
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -546,10 +552,9 @@ Use la llamada de REST siguiente para eliminar un clúster:
   -  400: El cuerpo de la solicitud es NULL o tiene un formato incorrecto.
   -  400: El nombre de SKU no es válido. Establezca el nombre de SKU en capacityReservation.
   -  400: Se proporcionó Capacity, pero la SKU no es capacityReservation. Establezca el nombre de la SKU en capacityReservation.
-  -  400: Falta Capacity en la SKU. Establezca el valor de Capacity en 1000 o más en incrementos de 100 (GB).
-  -  400: Capacity en la SKU no está en el rango. Debe ser 1000 como mínimo y hasta la capacidad máxima permitida que está disponible en "Uso y costos estimados" en el área de trabajo.
+  -  400: Falta Capacity en la SKU. Establezca el valor de Capacity en 500, 1000, 2000 o 5000 GB/día.
   -  400: Capacity está bloqueado durante 30 días. Se permite la reducción de la capacidad 30 días después de la actualización.
-  -  400: No se estableció ninguna SKU. Establezca el nombre de la SKU en capacityReservation y el valor de Capacity en 1000 o más en incrementos de 100 (GB).
+  -  400: No se estableció ninguna SKU. Establezca el nombre de la SKU en capacityReservation y el valor de Capacity en 500, 1000, 2000 o 5000 GB/día.
   -  400: Identity es NULL o está vacío. Establezca Identity en el tipo systemAssigned.
   -  400: KeyVaultProperties se estableció en la creación. Actualice KeyVaultProperties después de la creación del clúster.
   -  400: No se puede ejecutar la operación ahora. La operación asincrónica está en un estado distinto del correcto. El clúster debe completar su operación antes de realizar cualquier operación de actualización.
