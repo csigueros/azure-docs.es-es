@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 08/19/2021
 ms.author: jeedes
-ms.openlocfilehash: 56649e47333ef95955b1afb88546be356c08991e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4fdc2c9c683376369de284035ad08ffd8bea39bf
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461476"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769915"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-draup-inc"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Draup, Inc
 
@@ -74,11 +74,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
+1. En la página **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
-
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://platform.draup.com/saml2/login/`
+    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://platform.draup.com/saml2/login/`
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (sin procesar)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 

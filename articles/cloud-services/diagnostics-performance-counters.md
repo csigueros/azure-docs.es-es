@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: f18fa4986b9a4a855af6e2b9f14c4e2367213f6e
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 101a89a2fabe61d85b8a9ee099c672c881c6efd3
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113089996"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821928"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Recopilación de contadores de rendimiento para Azure Cloud Services (clásico)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Los contadores de rendimiento le ofrecen una forma de realizar un seguimiento del rendimiento de su aplicación y host. Windows Server proporciona diferentes contadores de rendimiento relacionados con hardware, aplicaciones, sistema operativo, etc. Al recopilar y enviar información de los contadores de rendimiento a Azure, puede analizar esta información para ayudar a tomar mejores decisiones. 
 

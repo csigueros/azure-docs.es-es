@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas en Azure Spring Cloud
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy en Azure Spring Cloud. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 08/13/2021
+ms.date: 08/20/2021
 ms.topic: reference
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.custom: subject-policy-reference, devx-track-java
-ms.openlocfilehash: adb914b4543849bf04198a09b6a8595a56863870
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 054654d8c0213e64640f5f8d3ac989536160bb38
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181812"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607911"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-spring-cloud"></a>Definiciones de directivas integradas de Azure Policy para Azure Spring Cloud
 

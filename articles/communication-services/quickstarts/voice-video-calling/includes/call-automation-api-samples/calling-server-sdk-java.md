@@ -10,20 +10,20 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: dc674a7e013ed39bd04161cb7e96dc969eaf47eb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7253be0e9d7723bdb018b53e3ee655188bb3d679
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114473222"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121803211"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, compruebe lo siguiente:
 - Cree de una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/).
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install), versión 11 o posterior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Cree un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). Debe registrar la **cadena de conexión** del recurso para este ejemplo.
-- Obtenga un número de teléfono para el nuevo recurso de Azure Communication Services. Para obtener detalles, vea [Obtención de un número de teléfono](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/get-phone-number?pivots=platform-azp).
+- Cree un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](../../../create-communication-resource.md). Debe registrar la **cadena de conexión** del recurso para este ejemplo.
+- Obtenga un número de teléfono para el nuevo recurso de Azure Communication Services. Para obtener detalles, vea [Obtención de un número de teléfono](../../../telephony-sms/get-phone-number.md?pivots=platform-azp).
 - Descargue e instale [ngrok](https://www.ngrok.com/download). Cuando el ejemplo se ejecuta en local, ngrok permite la recepción de todos los eventos.
 - (Opcional) Cree un recurso de Voz de Azure para generar mensajes personalizados que la aplicación reproduzca. Siga [estas instrucciones](../../../../../cognitive-services/speech-service/overview.md#try-the-speech-service-for-free) para crear el recurso.
 

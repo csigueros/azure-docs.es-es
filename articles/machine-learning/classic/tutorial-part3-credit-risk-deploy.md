@@ -9,16 +9,18 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: c60c511840d6591009064ba6b3f27cd6cdb89856
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 3538449a9f4f25bdcfd6909e537b1c13cf35a64e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580717"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691443"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---machine-learning-studio-classic"></a>Tutorial 3: Implementación de un modelo de riesgo crediticio: Machine Learning Studio (clásico)
 
 **SE APLICA A:**  ![esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio (clásico).  Después puede implementar el modelo como un servicio web de Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Se trata de la **tercera parte de un tutorial de tres**.
 
