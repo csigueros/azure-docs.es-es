@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas en Azure Cosmos DB
 description: Se enumeran las definiciones de directivas integradas de Azure Policy en Azure Cosmos DB. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 08/13/2021
+ms.date: 08/20/2021
 ms.topic: reference
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 1e3a33d2cf76a45ef35249301122b6a788e1e648
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 3028108929350c4181ff6a5bbd64f9a41958f28b
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178819"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122604232"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cosmos-db"></a>Definiciones integradas de Azure Policy para Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

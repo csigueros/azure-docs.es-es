@@ -1,0 +1,83 @@
+### YamlMime:Landing
+title: Documentación sobre Lector inmersivo de Azure
+summary: Lector inmersivo es una herramienta que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con diferencias de aprendizaje. Puede usar Lector inmersivo en la aplicación web mediante el SDK correspondiente.
+metadata:
+  title: Documentación sobre Lector inmersivo de Azure
+  description: Lector inmersivo es una herramienta que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con diferencias de aprendizaje. Puede usar Lector inmersivo en la aplicación web mediante el SDK correspondiente.
+  services: service
+  ms.service: applied-ai-services
+  ms.subservice: immersive-reader
+  ms.topic: landing-page
+  ms.collection: collection
+  author: IEvangelist
+  ms.author: dapine
+  ms.date: 01/23/2020
+  ms.openlocfilehash: 9e18f2754fe67ac7f4d087d63d72451eec8f7ede
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121777749"
+landingContent:
+- title: Acerca del Lector inmersivo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Lector inmersivo?
+      url: overview.md
+    - text: ¿Qué son los servicios Azure Applied AI Services?
+      url: ../../applied-ai-services/what-are-applied-ai-services.md
+  - linkListType: video
+    links:
+    - text: 'Introducción: vídeos de ingeniería cortos'
+      url: https://aka.ms/ImmersiveReaderSDKVideos
+- title: Introducción
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso de C# (ASP.NET Core)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
+    - text: Uso de Node.js
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
+    - text: Uso de Java (Android)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-java-android
+    - text: Uso de Kotlin (Android)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-kotlin
+    - text: Uso de Swift (iOS)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
+- title: Exploración de Lector inmersivo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de un recurso del Lector inmersivo
+      url: how-to-create-immersive-reader.md
+    - text: Uso de varios recursos del Lector inmersivo
+      url: how-to-multiple-resources.md
+    - text: Inicio del Lector inmersivo
+      url: how-to-launch-immersive-reader.md
+    - text: Establecimiento de la directiva de cookies
+      url: how-to/set-cookie-policy.md
+    - text: Mostrar matemáticas
+      url: how-to/display-math.md
+    - text: Personalización del botón del Lector inmersivo
+      url: how-to-customize-launch-button.md
+    - text: Almacenamiento en caché del token de autenticación
+      url: how-to-cache-token.md
+    - text: Configuración de la lectura en voz alta
+      url: how-to-configure-read-aloud.md
+    - text: Configurar la traducción
+      url: how-to-configure-translation.md
+    - text: Almacenamiento de las preferencias del usuario
+      url: how-to-store-user-preferences.md
+  - linkListType: reference
+    links:
+    - text: SDK de JavaScript
+      url: reference.md
+    - text: Notas de la versión
+      url: release-notes.md
+- title: Ayuda y comentarios
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Opciones de ayuda y soporte técnico
+      url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/applied-ai-services/immersive-reader/context/context

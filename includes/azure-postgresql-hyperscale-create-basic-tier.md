@@ -1,19 +1,19 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 04/07/2021
+ms.date: 08/03/2021
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: 09eb6d9483268314febd9478a551595a059d973b
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 3f0468a55c897559a2dab3eb2f29855129fcff2b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107023913"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728712"
 ---
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -29,7 +29,6 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
 4. Rellene el formulario del nuevo servidor con la siguiente información:
    - Grupo de recursos: haga clic en el vínculo **Crear nuevo** que está debajo de este cuadro de texto para este campo. Escriba un nombre como **myresourcegroup**.
    - Nombre del grupo de servidores: escriba un nombre exclusivo para el nuevo grupo de servidores, que también se usará para un subdominio de servidor.
-   - Active la casilla **Habilitar características de vista previa**.
    - Nombre de usuario de administrador: actualmente, se necesita el valor **citus** y no se puede cambiar.
    - Contraseña: tiene que tener al menos ocho caracteres de las tres categorías siguientes: letras mayúsculas del alfabeto inglés, letras minúsculas del alfabeto inglés, números (0-9) y caracteres no alfanuméricos (!, $, # o %, entre otros)
    - Ubicación: use la ubicación más cercana a los usuarios para que puedan acceder de la forma más rápida posible a los datos.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2021
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: d1fd9daa32f37f586832932b67a0363f85f07e72
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: 2f055d8fe6608d328421e1916c5855d300c49dcc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113223559"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725491"
 ---
 1. En una nueva ventana del explorador, inicie sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -58,7 +58,7 @@ ms.locfileid: "113223559"
 1. Opcionalmente, puede configurar detalles adicionales en las pestañas siguientes:
 
    * **Redes**: configure el [acceso desde una red virtual](../how-to-configure-vnet-service-endpoint.md).
-   * **Directiva de copia de seguridad**: configure una directiva de copia de seguridad [periódica](../configure-periodic-backup-restore.md) o [continua](../continuous-backup-restore-portal.md).
+   * **Directiva de copia de seguridad**: configure una directiva de copia de seguridad [periódica](../configure-periodic-backup-restore.md) o [continua](../provision-account-continuous-backup.md).
    * **Cifrado**: use una clave administrada por el servicio o una [clave administrada por el cliente](../how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
    * **Etiquetas**: son pares nombre-valor que permiten categorizar los recursos y ver una facturación consolidada mediante la aplicación de la misma etiqueta en varios recursos y grupos de recursos.
 

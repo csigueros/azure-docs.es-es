@@ -5,15 +5,15 @@ author: craigktreasure
 manager: virivera
 services: azure-object-anchors
 ms.author: crtreasu
-ms.date: 03/02/2021
+ms.date: 08/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 5cccfb2b750e9ea1a167f8bbbddcb2621bd19b5b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: b047c293a14dcfde5c8de2f56fb5c2abeab61c69
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112008092"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254368"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity-with-mrtk"></a>Inicio rápido: Creación de una aplicación de HoloLens con Azure Object Anchors, en Unity con MRTK
 
@@ -28,7 +28,11 @@ Aprenderá a:
 
 [!INCLUDE [Unity quickstart prerequisites](../../../includes/object-anchors-quickstart-unity-prerequisites.md)]
 
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
+
 [!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]
+
+[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
 
 ## <a name="open-the-sample-project"></a>Apertura del proyecto de ejemplo
 
@@ -40,6 +44,8 @@ En Unity, abra el proyecto `quickstarts/apps/unity/mrtk`.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
 
+[!INCLUDE [Configure Account](../../../includes/object-anchors-get-started-configure-account.md)]
+
 [!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
 
 Cuando un cuadro de diálogo "TMP Importer" (Importador de TMP) le pida que importe recursos de TextMesh Pro, seleccione "Import TMP Essentials" (Importar la información esencial de TMP) para hacerlo.
@@ -49,9 +55,7 @@ Cuando un cuadro de diálogo "TMP Importer" (Importador de TMP) le pida que impo
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
-### <a name="run-the-sample-app"></a>Ejecutar la aplicación de ejemplo
-
-Encienda el dispositivo, seleccione **All Apps** (Todas las aplicaciones) y, a continuación, busque e inicie la aplicación. Después de la pantalla de presentación de Unity, debería ver un rectángulo delimitador. Puede usar la mano para moverse, escalar o girar el rectángulo delimitador. Coloque el rectángulo para cubrir el objeto que quiere detectar.
+ Después de la pantalla de presentación de Unity, debería ver un rectángulo delimitador. Puede usar la mano para moverse, escalar o girar el rectángulo delimitador. Coloque el rectángulo para cubrir el objeto que quiere detectar.
 
 Abra el <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">menú de la mano</a> y seleccione **Lock SearchArea** (Bloquear SearchArea) para evitar que el rectángulo delimitador se siga moviendo. Seleccione **Start Search** (Iniciar búsqueda) para iniciar la detección de objetos. Cuando se detecte el objeto, se representará una malla en el objeto. Los detalles de una instancia detectada se mostrarán en la pantalla, como la marca de tiempo actualizada y la relación de cobertura de superficie. Seleccione **Stop Search** (Detener búsqueda) para detener el seguimiento, con lo que se quitarán todas las instancias detectadas.
 
@@ -66,7 +70,7 @@ También puede realizar otras acciones mediante el <a href="https://microsoft.gi
 * **Tracker Settings** (Configuración de seguimiento): Alterna la activación del menú de configuración de seguimiento.
 * **Search Area Settings** (Configuración del área de búsqueda): Alterna la activación del menú de configuración del área de búsqueda.
 * **Start Tracing** (Iniciar seguimiento): Captura los datos de diagnóstico y los guarda en el dispositivo. Consulte más detalles en la sección **Depuración de problemas de detección y captura de diagnósticos**.
-* **Upload Tracing** (Cargar seguimiento): Cargue los datos de diagnóstico en el servicio Object Anchors. Un usuario debe proporcionar su cuenta de suscripción en `subscription.json` y cargarlo en la carpeta `LocalState`. A continuación encontrará un archivo `subscription.json` de ejemplo.
+* **Upload Tracing** (Cargar seguimiento): Cargue los datos de diagnóstico en el servicio Object Anchors.    
 
     :::image type="content" source="./media/mrtk-hand-menu-primary.png" alt-text="Menú principal de la mano en Unity":::
 
@@ -87,23 +91,12 @@ También puede realizar otras acciones mediante el <a href="https://microsoft.gi
 
     :::image type="content" source="./media/mrtk-hand-menu-search-area.png" alt-text="Menú de la mano del área de búsqueda en Unity":::
 
-Ejemplo `subscription.json`:
-
-```json
-{
-  "AccountId": "<your account id>",
-  "AccountKey": "<your account key>",
-  "AccountDomain": "<your account domain>"
-}
-```
-
-[!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-anchors-quickstart-unity-setup-device-portal.md)]
-
-[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
-
 [!INCLUDE [Unity troubleshooting](../../../includes/object-anchors-quickstart-unity-troubleshooting.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [Inicio rápido: Tutorial detallado de MRTK](in-depth-mrtk-walkthrough.md)
 
 > [!div class="nextstepaction"]
 > [Conceptos: Información general del SDK](../concepts/sdk-overview.md)
@@ -112,4 +105,4 @@ Ejemplo `subscription.json`:
 > [P+F](../faq.md)
 
 > [!div class="nextstepaction"]
-> [SDK de conversión](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+> [Biblioteca cliente de Azure Object Anchors para .NET: versión 0.3.0-beta.1](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
-ms.openlocfilehash: 8795007a5a38d21985d8b31884c66342b3dda7ed
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 0b920df34358c83fa69274f0d7b52f889cd15010
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792415"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724830"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Permisos para el consentimiento de aplicaciones para roles personalizados en Azure Active Directory
 
@@ -34,7 +34,7 @@ Use los permisos que se muestran en este artículo para administrar las directiv
 > [!NOTE]
 > El portal de administración de Azure AD todavía no permite incorporar los permisos enumerados en este artículo para una definición de rol de directorio personalizado. Debe [usar Azure AD PowerShell para crear un rol de directorio personalizado](custom-create.md#create-a-role-using-powershell) con los permisos enumerados en este artículo.
 
-### <a name="granting-delegated-permissions-to-apps-on-behalf-of-self-user-consent"></a>Concesión de permisos delegados a las aplicaciones en nombre propio (consentimiento del usuario)
+#### <a name="granting-delegated-permissions-to-apps-on-behalf-of-self-user-consent"></a>Concesión de permisos delegados a las aplicaciones en nombre propio (consentimiento del usuario)
 
 Para permitir a los usuarios conceder consentimiento a las aplicaciones en nombre propio (consentimiento del usuario), de acuerdo con una directiva de consentimiento de aplicaciones.
 
@@ -44,7 +44,7 @@ En donde `{id}` se reemplaza por el identificador de una [directiva de consentim
 
 Por ejemplo, para permitir a los usuarios conceder consentimiento en nombre propio, de acuerdo con la directiva de consentimiento de aplicaciones integrada con el identificador `microsoft-user-default-low`, se usaría el permiso `...managePermissionGrantsForSelf.microsoft-user-default-low`.
 
-### <a name="granting-permissions-to-apps-on-behalf-of-all-admin-consent"></a>Concesión de permisos a las aplicaciones en nombre de todos (consentimiento del administrador)
+#### <a name="granting-permissions-to-apps-on-behalf-of-all-admin-consent"></a>Concesión de permisos a las aplicaciones en nombre de todos (consentimiento del administrador)
 
 Para delegar el consentimiento de administrador a las aplicaciones para todo el inquilino, tanto permisos delegados como permisos de aplicación (roles de aplicación):
 
@@ -54,7 +54,7 @@ En donde `{id}`, se reemplaza por el identificador de una [directiva de consenti
 
 Por ejemplo, para permitir que los destinatarios del rol concedan consentimiento de administrador a las aplicaciones para todo el inquilino, de acuerdo con una [directiva de consentimiento de aplicaciones](../manage-apps/manage-app-consent-policies.md) personalizada con el identificador `low-risk-any-app`, se usaría el permiso `microsoft.directory/servicePrincipals/managePermissionGrantsForAll.low-risk-any-app`.
 
-### <a name="managing-app-consent-policies"></a>Administración de directivas de consentimiento de aplicaciones
+#### <a name="managing-app-consent-policies"></a>Administración de directivas de consentimiento de aplicaciones
 
 Para delegar la creación, actualización y eliminación de [directivas de consentimiento de aplicaciones](../manage-apps/manage-app-consent-policies.md).
 

@@ -3,7 +3,7 @@ title: Configuración del asistente de Log Analytics en Azure AD | Microsoft Do
 description: Aprenda a configurar Log Analytics.
 services: active-directory
 ms.service: active-directory
-ms.subservice: devices
+ms.subservice: report-monitor
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: markvi
@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca84fa57cb3a26337038275d1b7491154915c90e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47df90a3f4948e69206a34dbeac187c2a67074f1
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574385"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514629"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configuración del asistente de Log Analytics
 
@@ -226,7 +226,7 @@ Este procedimiento muestra cómo enviar alertas cuando se usa la cuenta de Break
 
 8. En la página **Crear regla de alertas**, compruebe que el ámbito es correcto.
 
-9. En **Condición**, haga clic en: **Siempre que la búsqueda de registros media personalizada sea mayor que el recuento de <logic undefined>**
+9. En **Condición**, haga clic en: **Siempre que la búsqueda de registros media personalizada sea mayor que el recuento de `logic undefined`**
 
     ![Condición predeterminada](./media/tutorial-log-analytics-wizard/default-condition.png)
 

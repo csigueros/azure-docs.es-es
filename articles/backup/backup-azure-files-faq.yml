@@ -3,13 +3,14 @@ metadata:
   title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
   description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
   ms.date: 04/22/2020
-  ms.topic: conceptual
-  ms.openlocfilehash: b08af97ba2dbab60fa23e35a9865ad982b913f56
-  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.topic: article
+  ms.service: backup
+  ms.openlocfilehash: ac3cc6f6fc6b6896e236fd28c4808c49616cf68a
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/15/2021
-  ms.locfileid: "111907442"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252320"
 title: Preguntas acerca de la copia de seguridad de archivos de Azure
 summary: >
   En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en la [página de preguntas y respuestas de Microsoft para su debate](/answers/topics/azure-backup.html).

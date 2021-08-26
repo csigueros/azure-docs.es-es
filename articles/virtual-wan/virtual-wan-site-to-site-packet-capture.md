@@ -2,18 +2,18 @@
 title: 'Tutorial: Captura de paquetes en conexiones sitio a sitio de Azure Virtual WAN'
 description: En este tutorial, aprenderá a capturar paquetes en puertas de enlace de VPN de sitio a sitio de Virtual WAN.
 services: virtual-wan
-author: wellee
+author: wtnlee
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: wellee
 Customer intent: As someone with a networking background using Virtual WAN, I want to perform a packet capture on my Site-to-site VPN Gateway.
-ms.openlocfilehash: bb31d6d9c19df7a914593213e98af1d7a54825a4
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 765285a8b7c2434c64d1513e510f1cf06b513291
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809533"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598066"
 ---
 # <a name="perform-packet-capture-on-the-azure-virtual-wan-site-to-site-vpn-gateway"></a>Captura de paquetes en puertas de enlace de VPN de sitio a sitio de Azure Virtual WAN 
 
@@ -47,15 +47,15 @@ Debe crear una cuenta de almacenamiento en su suscripción de Azure para almacen
 
 Después de crear la cuenta, ejecute los siguientes comandos para generar una dirección URL de firma de acceso compartido (SAS). Los resultados de la captura de paquetes se almacenarán a través de esta dirección URL.
    ```azurepowershell-interactive
-  $rgname = “<resource group name containing storage account>” 
+  $rg = “<resource group name containing storage account>” 
 $storeName = “<name of storage account> “
 $containerName = “<name of container you want to store packet capture in>
-$key = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storeNAme
+$key = Get-AzStorageAccountKey -ResourceGroupName $rg -Name $storeName
 $context = New-AzStorageContext -StorageAccountName  $storeName -StorageAccountKey $key[0].value
 New-AzStorageContainer -Name $containerName -Context $context
 $container = Get-AzStorageContainer -Name $containerName  -Context $context
 $now = get-date
-$sasurl = New-AzureStorageContainerSASToken -Name $containerName -Context $context -Permission "rwd" -StartTime $now.AddHours(-1) -ExpiryTime $now.AddDays(1) -FullUri
+$sasurl = New-AzStorageContainerSASToken -Name $containerName -Context $context -Permission "rwd" -StartTime $now.AddHours(-1) -ExpiryTime $now.AddDays(1) -FullUri
    ```
 
 ## <a name="start-the-packet-capture"></a>Inicio de la captura de paquetes
@@ -122,18 +122,18 @@ Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gatew
 ## <a name="stopping-the-packet-capture"></a>Detención de la captura de paquetes
 Se recomienda dejar que la captura de paquetes se ejecute durante al menos 600 segundos. Debido a los problemas de sincronización entre varios componentes de la ruta de acceso, es posible que las capturas de paquetes más cortas no proporcionen datos completos. Cuando sea el momento de detener la captura de paquetes, ejecute el siguiente comando.
 
-Los parámetros son parecidos a los de la sección "Iniciar una captura de paquetes". La dirección URL de SAS se generó en la sección [Creación de una cuenta de almacenamiento](#createstorage).
+Los parámetros son parecidos a los de la sección "Iniciar una captura de paquetes". La dirección URL de SAS se generó en la sección [Creación de una cuenta de almacenamiento](#createstorage). Si el parámetro `SASurl` no está configurado correctamente, es posible que se produzcan errores de almacenamiento en el seguimiento.
 
 ### <a name="gateway-level-packet-capture"></a>Captura de paquetes de nivel de puerta de enlace
 
    ```azurepowershell-interactive
-Stop-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name <GatewayName> -SasUrl $sas
+Stop-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name <GatewayName> -SasUrl $sasurl
    ```
 
 ### <a name="connection-level-packet-captures"></a>Capturas de paquetes de nivel de conexión
 
    ```azurepowershell-interactive
-Stop-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name <name of the VPN connection> -ParentResourceName "<name of VPN Gateway>" -LinkConnectionName <comma separated list of links e.g. "link1,link2">-SasUrl $sas
+Stop-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name <name of the VPN connection> -ParentResourceName "<name of VPN Gateway>" -LinkConnectionName <comma separated list of links e.g. "link1,link2">-SasUrl $sasurl
    ```
 
 ## <a name="viewing-your-packet-capture"></a>Visualización de la captura de paquetes

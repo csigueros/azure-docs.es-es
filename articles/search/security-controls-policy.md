@@ -1,22 +1,22 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Cognitive Search
 description: En este artículo se muestran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Cognitive Search. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 07/16/2021
+ms.date: 08/20/2021
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 16b801d07466152a884f09b8db14fcac9b5fadf1
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 58b45c922d2e8035d853ee05f91136e356bc56da
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114404347"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122603941"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cognitive-search"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Cognitive Search
 
-Si usa [Azure Policy](../governance/policy/overview.md) para hacer cumplir las recomendaciones de [Azure Security Benchmark](../security/benchmarks/introduction.md),es probable que sepa que puede crear directivas para identificar los servicios que no sean compatibles y repararlos. Estas directivas pueden ser personalizadas, o bien se pueden basar en definiciones integradas que proporcionan criterios de cumplimiento y soluciones apropiadas para procedimientos recomendados bien entendidos.
+Si usa [Azure Policy](../governance/policy/overview.md) para hacer cumplir las recomendaciones de [Azure Security Benchmark](/azure/security/benchmarks/introduction),es probable que sepa que puede crear directivas para identificar los servicios que no sean compatibles y repararlos. Estas directivas pueden ser personalizadas, o bien se pueden basar en definiciones integradas que proporcionan criterios de cumplimiento y soluciones apropiadas para procedimientos recomendados bien entendidos.
 
 En el caso de Azure Cognitive Search, actualmente hay una definición integrada, que se muestra a continuación, que puede usar en una asignación de directiva. La definición integrada es para el registro y la supervisión. Si usa esta definición en una [directiva que cree](../governance/policy/assign-policy-portal.md), el sistema examinará los servicios de búsqueda que no tengan [registro de diagnóstico](search-monitor-logs.md)y, después, los habilitará en consecuencia.
 

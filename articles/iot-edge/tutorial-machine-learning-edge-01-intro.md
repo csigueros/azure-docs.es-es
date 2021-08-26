@@ -2,18 +2,17 @@
 title: 'Tutorial: Tutorial detallado de Machine Learning en Azure IoT Edge'
 description: Un tutorial general que te guía por las diversas tareas necesarias para crear un escenario integral de aprendizaje automático en el borde.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 67cc470b4f7f119b7f5b86bcb82ea284ab662dfe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e2c6b7f2fbeae4ebeacca3772c22c5eeddeceb2f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463245"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726405"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutorial: Una solución integral con Azure Machine Learning y IoT Edge
 
