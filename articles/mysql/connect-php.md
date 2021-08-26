@@ -7,14 +7,16 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: f6d97417d4e1ac549c0aeb0311013455bb967a41
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f10870062ec20195419f76d40dfc22008971b58c
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071909"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643631"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de PHP para conectarse y consultar datos en Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de [PHP](https://secure.php.net/manual/intro-whatis.php). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.
 
 ## <a name="prerequisites"></a>Requisitos previos

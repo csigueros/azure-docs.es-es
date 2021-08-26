@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 2d0b9e45dc5de0cd4550cf4b9f944fd33ebd7e7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91a66240941ce18b4d898327abeac695b09d65e3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720735"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732349"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-sign-on"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AWS Single Sign-on
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar AWS Single Sign-on con Azure Active Dir
 * Permitir que los usuarios inicien sesión automáticamente en AWS Single Sign-on con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -89,7 +89,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     ![image3](common/idp-intiated.png)
 
     > [!Note]
-    > Si los valores **Identificador** y **Dirección URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades.
+    > Si los valores de **Identificador** y **URL de respuesta** no se rellenan automáticamente, hágalo manualmente a medida que lo necesite.
 
 1. Si no tiene el **archivo de metadatos del proveedor de servicios** realice los pasos siguientes en la sección **Configuración básica de SAML** y desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 

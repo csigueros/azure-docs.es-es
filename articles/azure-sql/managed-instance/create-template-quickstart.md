@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma
 ms.date: 06/22/2020
-ms.openlocfilehash: b4b19be4215f8a5bfa0b1f4eb42607c51bfe1d16
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 882613ef5b27b7021c61cabfabe3f37c3c842bd6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889039"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722826"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Azure SQL Managed Instance mediante una plantilla de Resource Manager
 
@@ -52,7 +52,7 @@ Se pueden encontrar más plantillas de ejemplo en [Plantillas de inicio rápido 
 Seleccione **Pruébelo** en el bloque de código de PowerShell siguiente para abrir Azure Cloud Shell.
 
 > [!IMPORTANT]
-> La implementación de una instancia administrada es una operación de ejecución prolongada. La implementación de la primera instancia en la subred suele tardar mucho más que la implementación en una subred en la que ya existen instancias administradas. Para conocer los tiempos de aprovisionamiento medios, consulte el apartado sobre las [operaciones de administración de Instancia administrada de SQL](sql-managed-instance-paas-overview.md#management-operations).
+> La implementación de una instancia administrada es una operación de ejecución prolongada. La implementación de la primera instancia en la subred suele tardar mucho más que la implementación en una subred en la que ya existen instancias administradas. Para conocer los tiempos de aprovisionamiento medios, consulte el apartado sobre las [operaciones de administración de Instancia administrada de SQL](management-operations-overview.md#duration).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

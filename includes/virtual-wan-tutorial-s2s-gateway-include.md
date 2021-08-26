@@ -1,19 +1,15 @@
 ---
-title: Archivo de inclusión
-description: Archivo de inclusión
-services: virtual-wan
+ms.author: cherylmc
 author: cherylmc
+ms.date: 08/17/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 07/15/2021
-ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 009b82188c52df6728aeef6c414c5f9ef0507ccc
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.openlocfilehash: dd49171093815c7f91eeebaea0c35a25bb469d3c
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114362282"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122321934"
 ---
 1. En la página **Crear centro de conectividad virtual**, haga clic en **Sitio a sitio** para abrir la pestaña **Sitio a sitio**.
 
@@ -22,8 +18,8 @@ ms.locfileid: "114362282"
 1. En la pestaña **Sitio a sitio**, rellene los campos siguientes:
 
    * Seleccione **Sí** para crear una VPN de sitio a sitio.
-   * El campo Número AS no se puede modificar.
-   * En la lista desplegable, seleccione el valor **Unidades de escalado de puerta de enlace**. La unidad de escalado permite elegir el rendimiento agregado de la puerta de enlace de VPN que se va a crear en el centro de conectividad virtual para conectar los sitios. Si elige 1 unidad de escalado = 500 Mbps, esto implica que se crearán dos instancias de redundancia, cada una con un rendimiento máximo de 500 Mbps. Por ejemplo, si tuviera cinco ramas, cada una con 10 Mbps en la rama, necesitará un agregado de 50 Mbps en el extremo principal. El planeamiento de la capacidad agregada de la puerta de enlace de VPN de Azure debe realizarse después de evaluar la capacidad necesaria para admitir el número de ramas en el centro de conectividad.
-   * Seleccione la **Preferencia de enrutamiento** adecuada. Las preferencias de enrutamiento de Azure le permiten elegir cómo se enruta el tráfico entre Azure e Internet. Puede optar por enrutar el tráfico a través de la red de Microsoft o a través de una red de ISP (Internet público). Estas opciones también se conocen como enrutamiento de tipo "cold-potato" y enrutamiento de tipo "hot-potato" respectivamente. El servicio asigna la IP pública de Virtual WAN en función de la opción de enrutamiento seleccionada. Para obtener más información sobre las preferencias de enrutamiento mediante la red de Microsoft o el ISP, vea el artículo [Preferencias de enrutamiento](../articles/virtual-network/routing-preference-overview.md).
+   * **Número AS**: el campo Número AS no se puede modificar.
+   * **Unidades de escalado de puerta de enlace**: en la lista desplegable, seleccione el valor **Unidades de escalado de puerta de enlace**. La unidad de escalado permite elegir el rendimiento agregado de la puerta de enlace de VPN que se va a crear en el centro de conectividad virtual para conectar los sitios. Si elige 1 unidad de escalado = 500 Mbps, esto implica que se crearán dos instancias de redundancia, cada una con un rendimiento máximo de 500 Mbps. Por ejemplo, si tuviera cinco ramas, cada una con 10 Mbps en la rama, necesitará un agregado de 50 Mbps en el extremo principal. El planeamiento de la capacidad agregada de la puerta de enlace de VPN de Azure debe realizarse después de evaluar la capacidad necesaria para admitir el número de ramas en el centro de conectividad.
+   * **Preferencia de enrutamiento**: seleccione la **preferencia de enrutamiento** adecuada. Las preferencias de enrutamiento de Azure le permiten elegir cómo se enruta el tráfico entre Azure e Internet. Puede optar por enrutar el tráfico a través de la red de Microsoft o a través de una red de ISP (Internet público). Estas opciones también se conocen como enrutamiento de tipo "cold-potato" y enrutamiento de tipo "hot-potato" respectivamente. El servicio asigna la IP pública de Virtual WAN en función de la opción de enrutamiento seleccionada. Para obtener más información sobre las preferencias de enrutamiento mediante la red de Microsoft o el ISP, vea el artículo [Preferencias de enrutamiento](../articles/virtual-network/routing-preference-overview.md).
 1. Seleccione **Revisar y crear** para validar.
-1. Seleccione **Crear** para crear un centro de conectividad. Una puerta de enlace VPN puede tardar hasta 30 minutos en crearse. Pasados 30 minutos haga clic en **Actualizar** para ver el centro de conectividad en la página **Centros**. Seleccione **Ir al recurso** para ir al recurso.
+1. Seleccione **Crear** para crear el centro de conectividad y la puerta de enlace. Esta operación puede tardar hasta treinta minutos. Pasados 30 minutos haga clic en **Actualizar** para ver el centro de conectividad en la página **Centros**. Seleccione **Ir al recurso** para ir al recurso.

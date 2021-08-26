@@ -8,17 +8,21 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 13baf8f033338e242610d7b8c4eec14806cd5ec5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1131b42b58e1ed751a7563b4c59e71981b722305
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770028"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643596"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Tutorial: Creación de un servidor flexible (versión preliminar) de Azure Database for MySQL con una aplicación web de App Services en una red virtual
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+
 > [!IMPORTANT]
 > El servidor flexible de Azure Database for MySQL está actualmente en versión preliminar pública.
+
 
 En este tutorial se muestra cómo crear una aplicación web de Azure App Service con el servidor flexible de MySQL (versión preliminar) dentro de una [red virtual](../../virtual-network/virtual-networks-overview.md).
 

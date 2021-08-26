@@ -90,7 +90,7 @@
               href: diagnose-vm-network-routing-problem-cli.md
         - name: Diagnóstico de problemas de conexión de salida
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: network-watcher-connectivity-portal.md
             - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md
@@ -102,7 +102,7 @@
           items:
             - name: Administración de una captura de paquetes
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: network-watcher-packet-capture-manage-portal.md
                 - name: Azure PowerShell
                   href: network-watcher-packet-capture-manage-powershell.md
@@ -209,7 +209,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/virtual-network
     - name: Node.js
-      href: /javascript/api/@azure/arm-network
+      href: /javascript/api/overview/azure/arm-network-readme
     - name: REST
       href: /rest/api/network-watcher/
 - name: Recursos

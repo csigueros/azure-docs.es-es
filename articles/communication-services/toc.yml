@@ -100,7 +100,7 @@ items:
           - name: Tipos de número de teléfono
             href: concepts/telephony-sms/plan-solution.md
           - name: Requisitos de infraestructura del enrutamiento directo de Azure
-            href: concepts/telephony-sms/sip-interface-infrastructure.md
+            href: concepts/telephony-sms/direct-routing-infrastructure.md
           - name: Controladores de límite de sesión certificados de enrutamiento directo de Azure
             href: concepts/telephony-sms/certified-session-border-controllers.md
           - name: Emparejamiento del controlador de límite de sesión y configuración del enrutamiento de voz

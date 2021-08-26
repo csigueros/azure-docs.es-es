@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/03/2021
+ms.date: 07/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 9e233e30521e5c1fa05509fa6dc42a567f6ac4e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d89a197e21185c345fe166d0e5890b125f5797dd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653106"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744003"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Tutorial: Integración de Bynder con Azure Active Directory
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Bynder con Azure Active Directory (Azu
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Bynder con sus cuentas de Azure AD
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -79,23 +79,23 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
     
-    Para un dominio predeterminado: `https://<company name>.getbynder.com`
+    Para un dominio predeterminado: `https://<COMPANY_NAME>.bynder.com`
     
-    Para un dominio personalizado: `https://<subdomain>.<domain>.com`
+    Para un dominio personalizado: `https://<SUBDOMAIN>.<DOMAIN>.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
     
-     Para un dominio predeterminado: `https://<company name>.getbynder.com/sso/SAML/authenticate/`
+     Para un dominio predeterminado: `https://<COMPANY_NAME>.bynder.com/sso/SAML/authenticate/`
     
-    Para un dominio personalizado: `https://<subdomain>.<domain>.com/sso/SAML/authenticate/`
+    Para un dominio personalizado: `https://<SUBDOMAIN>.<DOMAIN>.com/sso/SAML/authenticate/`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
     En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
     
-     Para un dominio predeterminado: `https://<company name>.getbynder.com/login/`
+     Para un dominio predeterminado: `https://<COMPANY_NAME>.bynder.com/login/`
     
-     Para un dominio personalizado: ` https://<subdomain>.<domain>.com/login/`
+     Para un dominio personalizado: ` https://<SUBDOMAIN>.<DOMAIN>.com/login/`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Bynder](https://www.bynder.com/en/support/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

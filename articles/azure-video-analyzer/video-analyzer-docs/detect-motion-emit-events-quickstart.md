@@ -3,13 +3,13 @@ title: 'Detección de movimiento y emisión de eventos desde el perímetro: Azur
 description: En este inicio rápido se muestra cómo usar Azure Video Analyzer para detectar movimiento y emitir eventos con una llamada mediante programación a métodos directos.
 ms.topic: quickstart
 ms.date: 06/01/2021
-zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 7a8e06af94ee4a0a473ef60a5920a0d3e44e685e
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+zone_pivot_groups: video-analyzer-programming-languages
+ms.openlocfilehash: 6ffcd4be2a0abde81943025866931e5aa31b9277
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605319"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748722"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Inicio rápido: Detección de movimiento y emisión de eventos
 

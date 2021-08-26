@@ -2,14 +2,14 @@
 title: Tutorial para configurar la recuperación ante desastres de máquinas virtuales de Azure con Azure Site Recovery
 description: En este tutorial, aprenderá a configurar la recuperación ante desastres en las máquinas virtuales de Azure a otra región de Azure mediante el servicio Site Recovery.
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 07/25/2021
 ms.custom: mvc
-ms.openlocfilehash: 473a264ef497cab4bd4f88372600161b33178099
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67dcbaf555de14c445f041b200ead48c4deac5ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97656876"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742981"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>Tutorial: Configuración de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Antes de comenzar este tutorial:
 
-- [Examine las regiones admitidas](azure-to-azure-support-matrix.md#region-support). Puede configurar la recuperación ante desastres de máquinas virtuales de Azure entre dos regiones cualesquiera de la misma zona geográfica.
+- [Examine las regiones admitidas](azure-to-azure-support-matrix.md#region-support). 
 - Necesita una o varias máquinas virtuales de Azure. Compruebe que se admiten máquinas virtuales [Windows](azure-to-azure-support-matrix.md#windows) o [Linux](azure-to-azure-support-matrix.md#replicated-machines---linux-file-systemguest-storage).
 - Revise los requisitos de [proceso](azure-to-azure-support-matrix.md#replicated-machines---compute-settings), [almacenamiento](azure-to-azure-support-matrix.md#replicated-machines---storage) y [red](azure-to-azure-support-matrix.md#replicated-machines---networking).
 - En este tutorial se da por supuesto que las máquinas virtuales no están cifradas. Si desea configurar la recuperación ante desastres para máquinas virtuales cifradas, [siga este artículo](azure-to-azure-how-to-enable-replication-ade-vms.md).
@@ -47,7 +47,7 @@ Su cuenta de Azure necesita permisos para crear un almacén de Recovery Services
 
 - Si acaba de crear una suscripción gratuita de Azure, es el administrador de la cuenta, por lo que no necesita realizar ninguna otra acción.
 - Si no es el administrador, solicite al administrador que le conceda los permisos que necesita.
-    - **Crear un almacén**: permisos de propietario o de administrador en la suscripción. 
+    - **Crear un almacén**: permisos de propietario o de administrador en la suscripción.
     - **Administrar operaciones de Site Recovery en el almacén**: El rol integrado de Azure *Colaborador de Site Recovery*.
     - **Crear máquinas virtuales de Azure en la región de destino**: El rol *Colaborador de máquina virtual* integrado o permisos específicos para:
         - Crear una máquina virtual en la red virtual seleccionada.
@@ -56,14 +56,14 @@ Su cuenta de Azure necesita permisos para crear un almacén de Recovery Services
 
 ### <a name="verify-target-settings"></a>Comprobación de la configuración del destino
 
-Durante la recuperación ante desastres, cuando se realiza la conmutación por error desde la región de origen, se crean máquinas virtuales en la región de destino. 
+Durante la recuperación ante desastres, cuando se realiza la conmutación por error desde la región de origen, se crean máquinas virtuales en la región de destino.
 
 Compruebe que su suscripción tiene suficientes recursos en la región de destino. Necesita poder crear máquinas virtuales con tamaños que coincidan con las máquinas virtuales de la región de origen. Cuando se configura una recuperación ante desastres, Site Recovery elige el mismo tamaño para la máquina virtual de destino (o el más cercano posible).
 
 
 ## <a name="prepare-vms"></a>Preparación de máquinas virtuales
 
-Asegúrese de que las máquinas virtuales tienen conectividad de salida y los certificados raíz más recientes. 
+Asegúrese de que las máquinas virtuales tienen conectividad de salida y los certificados raíz más recientes.
 
 
 ### <a name="set-up-vm-connectivity"></a>Configuración de la conectividad de máquinas virtuales
@@ -88,12 +88,12 @@ Si usa un proxy de firewall basado en direcciones URL para controlar la conectiv
 
 Si usa grupos de seguridad de red para controlar la conectividad, cree reglas de NSG basadas en etiquetas de servicios que HTTPS salientes al puerto 443 para estas [etiquetas de servicio](../virtual-network/service-tags-overview.md#available-service-tags):
 
-**Tag** | **Permitir** 
+**Tag** | **Permitir**
 --- | ---
-Etiqueta Storage  |Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché.   
-Etiqueta Azure AD | Permite el acceso a todas las direcciones IP que correspondan a Azure AD.   
-Etiqueta EventsHub | Permite el acceso a la supervisión de Site Recovery.  
-Etiqueta AzureSiteRecovery | Permite el acceso al servicio Site Recovery en cualquier región.   
+Etiqueta Storage  |Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché.
+Etiqueta Azure AD | Permite el acceso a todas las direcciones IP que correspondan a Azure AD.
+Etiqueta EventsHub | Permite el acceso a la supervisión de Site Recovery.
+Etiqueta AzureSiteRecovery | Permite el acceso al servicio Site Recovery en cualquier región.
 Etiqueta GuestAndHybridManagement | Úselo si desea actualizar automáticamente el agente de movilidad de Site Recovery que se ejecuta en las máquinas virtuales habilitadas para la replicación.
 
 [Más información](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) sobre las etiquetas necesarias y ejemplos de etiquetado necesarios.
@@ -126,8 +126,8 @@ Cree un almacén de Recovery Services en cualquier región, excepto en la regió
 9. En **Revisar y crear**, seleccione **Crear**.
 
 10. Comienza la implementación del almacén. Siga el progreso de las notificaciones.
-11. Una vez implementado el almacén, seleccione **Anclar al panel** para guardarlo para que sea una referencia rápida. Seleccione **Ir a recurso** para abrir el almacén nuevo. 
-    
+11. Una vez implementado el almacén, seleccione **Anclar al panel** para guardarlo para que sea una referencia rápida. Seleccione **Ir a recurso** para abrir el almacén nuevo.
+
     ![Botones para abrir el almacén después de la implementación y anclarlo al panel](./media/azure-to-azure-tutorial-enable-replication/vault-deploy.png)
 
 ### <a name="enable-site-recovery"></a>Habilitación de Site Recovery
@@ -138,7 +138,7 @@ En la configuración del almacén, seleccione **Habilitar Site Recovery**.
 
 ## <a name="enable-replication"></a>Habilitación de la replicación
 
-Seleccione la configuración del origen y habilite la replicación de la máquina virtual. 
+Seleccione la configuración del origen y habilite la replicación de la máquina virtual.
 
 ### <a name="select-source-settings"></a>Selección de la configuración del origen
 
