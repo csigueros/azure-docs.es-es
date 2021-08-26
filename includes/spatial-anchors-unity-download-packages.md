@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 03/30/2021
 ms.author: parkerra
-ms.openlocfilehash: 7faab3340483d99fa276de06f3fd7787457edb9e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 2cd6fff6cc68baa28e85fa0c17294bcfe783ae54
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076720"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121721789"
 ---
 El siguiente paso es descargar los paquetes de Azure Spatial Anchors para Unity. 
 
@@ -27,7 +27,7 @@ Para usar Azure Spatial Anchors en Unity, debe descargar el paquete principal, a
 
 # <a name="download-with-web-browser"></a>[Descarga con explorador web](#tab/unity-package-web-ui)
 
-Busque [aquí](https://aka.ms/aoa/unity-sdk/package)el paquete principal de Azure Spatial Anchors para Unity. Seleccione la versión que desee y descargue el paquete con el botón **Download** (Descargar). Repita el paso para descargar el paquete de cada plan que tenga previsto usar.
+Busque el paquete principal de Azure Spatial Anchors (com.microsoft.azure.spatial-anchors-sdk.core) para Unity [aquí](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging?_a=feed&feed=Unity-packages). Seleccione la versión que desee y descargue el paquete con el botón **Download** (Descargar). Repita el paso para descargar el paquete de cada plan que tenga previsto usar.
 
 # <a name="download-with-npm"></a>[Descarga con NPM](#tab/unity-package-npm)
 
@@ -48,8 +48,8 @@ npm pack com.microsoft.azure.spatial-anchors-sdk.core@<version_number> --registr
 
 El paquete principal de Azure Spatial Anchors se descargará en la carpeta donde se ejecutó el comando. Repita el paso para descargar el paquete de cada plan que tenga previsto usar.
 
-# <a name="install-with-mixed-reality-feature-tool-beta"></a>[Instalación con la herramienta de características de Mixed Reality (versión preliminar)](#tab/unity-package-mixed-reality-feature-tool)
+# <a name="install-with-mixed-reality-feature-tool"></a>[Instalación con la herramienta de características de Mixed Reality](#tab/unity-package-mixed-reality-feature-tool)
 
-Continúe con el paso siguiente. Usará la <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> en un paso posterior.
+Continúe con el paso siguiente. Usará la <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> en un paso posterior.
 
 ---

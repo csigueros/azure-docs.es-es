@@ -89,6 +89,8 @@
           href: troubleshoot-compression.md
         - name: Uso compartido de recursos entre orígenes
           href: troubleshoot-cross-origin-resources.md
+        - name: Ofertas de suscripción y límite de ancho de banda de red
+          href: subscription-offers.md
         - name: Entidades de certificación permitidas
           href: 'https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT'
 - name: Referencia

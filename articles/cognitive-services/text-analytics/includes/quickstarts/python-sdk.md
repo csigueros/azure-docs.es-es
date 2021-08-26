@@ -5,12 +5,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/15/2021
 ms.author: aahi
-ms.openlocfilehash: c66a17c1591f9a0070af1f6fc6b0ec6127292f6b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6ece1121244341acb8f81d11491acf27f4c9fec8
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114594304"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442466"
 ---
 <a name="HOLTop"></a>
 
@@ -28,6 +28,7 @@ ms.locfileid: "114594304"
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics </a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
@@ -91,6 +92,8 @@ Al realizar el procesamiento por lotes, el texto se envía a la API como una lis
 El objeto de respuesta es una lista que contiene la información analizada para cada documento. 
 
 ---
+
+[!INCLUDE [text-analytics-character-limits](../character-limits.md)]
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -419,7 +422,7 @@ language_detection_example(client)
 ```
 
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 Language:  French
@@ -445,7 +448,7 @@ language_detection_example(client)
 ```
 
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 Language:  French
@@ -519,7 +522,7 @@ def pii_recognition_example(client):
 pii_recognition_example(client)
 ```
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 Redacted Text: The employee's SSN is ***********.

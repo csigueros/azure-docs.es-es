@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.author: tomfitz
-ms.openlocfilehash: 157db0aa85fe086e656cfc98c7b94527416350d0
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 42e4198f2597ca3708e58bbc7a25545eab96b8c6
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027756"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634591"
 ---
 # <a name="bicep-deployment-what-if-operation"></a>Operación what-if de implementación de Bicep
 
@@ -196,7 +196,7 @@ Los resultados siguientes muestran los dos formatos de salida diferentes:
 
 ### <a name="set-up-environment"></a>Configuración de entorno
 
-Para ver cómo funciona, vamos a ejecutar algunas pruebas. En primer lugar, [implemente un archivo Bicep que cree una red virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.bicep). Usará esta red virtual para probar cómo se registran los cambios con what-if. Descargue una copia del archivo Bicep.
+Para ver cómo funciona, vamos a ejecutar algunas pruebas. En primer lugar, [implemente un archivo Bicep que cree una red virtual](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-before.bicep). Usará esta red virtual para probar cómo se registran los cambios con what-if. Descargue una copia del archivo Bicep.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -224,7 +224,7 @@ az deployment group create \
 
 ### <a name="test-modification"></a>Modificación de prueba
 
-Una vez finalizada la implementación, está listo para probar la operación hipotética. Esta vez se implementa un [archivo Bicep que cambia la red virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.bicep). Falta una de las etiquetas originales, se ha quitado una subred y el prefijo de dirección ha cambiado. Descargue una copia del archivo Bicep.
+Una vez finalizada la implementación, está listo para probar la operación hipotética. Esta vez se implementa un [archivo Bicep que cambia la red virtual](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-after.bicep). Falta una de las etiquetas originales, se ha quitado una subred y el prefijo de dirección ha cambiado. Descargue una copia del archivo Bicep.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

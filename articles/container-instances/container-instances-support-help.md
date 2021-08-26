@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: troubleshooting
 ms.date: 6/4/2021
 ms.custom: support-help-page
-ms.openlocfilehash: b6b32861fd5f99edc55b2992dd825836aa9f5c6b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d8b3829b76e31d066ccab3054613128412dfd10e
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961665"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634454"
 ---
 # <a name="support-and-troubleshooting-for-azure-container-instances"></a>Soporte técnico y solución de problemas de Azure Container Instances
 
@@ -75,19 +75,6 @@ Si necesita ayuda con el lenguaje y las herramientas que se usan para desarrolla
 | Terraform | https://github.com/Azure/terraform/issues | 
 | Ansible | https://github.com/Azure/Ansible/issues | 
 
-
-
-## <a name="submit-feature-requests-on-azure-feedback"></a>Envío de solicitudes de características en comentarios de Azure
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-Para solicitar nuevas características, publíquelo en los comentarios de Azure. Comparta sus ideas para mejorar Azure Container Instances.
-
-| Servicio                       | Dirección URL de comentarios de Azure |
-|-------------------------------|---------------|
-| Azure Container Instances  | https://feedback.azure.com/forums/602224-azure-container-instances 
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>Mantenerse informado sobre las actualizaciones y nuevas versiones
 

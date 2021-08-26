@@ -3,12 +3,12 @@ title: Preguntas comunes sobre la recuperación ante desastres de VMware con Azu
 description: Obtenga respuestas a las preguntas comunes sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 006f0a51da933336a354b275bb882e5538832741
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587799"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444312"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
@@ -96,7 +96,7 @@ Los instaladores están en la carpeta %ProgramData%\ASR\home\svsystems\pushinsta
 En cada máquina virtual que quiera replicar, instale el servicio empleando uno de estos métodos:
 
 - [Instalación de inserción](vmware-physical-mobility-service-overview.md#push-installation)
-- [Instalación manual](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) desde la interfaz de usuario o PowerShell
+- [Instalación manual](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-classic) desde la interfaz de usuario o PowerShell
 - Implementación mediante una herramienta de implementación, como [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## <a name="managed-disks"></a>Discos administrados

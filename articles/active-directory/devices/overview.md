@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo, ravenn, spunukol, jogro, jploegert
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ccb47e7600b50223ea0247c678a73ced4c86be3
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: d5115b8ce7d28e7fe3c254a1942ea035aa9db473
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113302990"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514892"
 ---
 # <a name="what-is-a-device-identity"></a>¿Qué es una identidad de dispositivo?
 
-Una [identidad de dispositivo](/graph/api/resources/device?view=graph-rest-1.0) es un objeto en Azure Active Directory (Azure AD). Este objeto de dispositivo es similar a usuarios, grupos o aplicaciones. Una identidad de dispositivo proporciona a los administradores información que pueden usar al tomar decisiones de acceso o configuración.
+Una [identidad de dispositivo](/graph/api/resources/device?view=graph-rest-1.0&preserve-view=true) es un objeto en Azure Active Directory (Azure AD). Este objeto de dispositivo es similar a usuarios, grupos o aplicaciones. Una identidad de dispositivo proporciona a los administradores información que pueden usar al tomar decisiones de acceso o configuración.
 
 ![Dispositivos que se muestran en la hoja de dispositivos de Azure AD](./media/overview/azure-active-directory-devices-all-devices.png)
 

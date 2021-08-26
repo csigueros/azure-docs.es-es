@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
-ms.author: trbye
-ms.openlocfilehash: ab791fbbedbcb18df6a43b00a40fe6fb0fbd8181
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.author: lajanuar
+ms.openlocfilehash: c3ecf5af54e9f7a184accb097e713ead96d7b9f8
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113280235"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071231"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 

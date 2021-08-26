@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 353dd6a3e41a9bd9b628c3ad48c6a606ffecd7ad
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8701d437a34d364ff6f6e2d58cbf84dc28a79798
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026812"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634216"
 ---
 # <a name="parameters-in-bicep"></a>Parámetros en Bicep
 
@@ -208,8 +208,8 @@ En los siguientes ejemplos se muestran escenarios para usar parámetros.
 
 |Plantilla  |Descripción  |
 |---------|---------|
-|[parámetros con funciones para los valores predeterminados](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.bicep) | Muestra cómo utilizar las funciones de Bicep al definir valores predeterminados para parámetros. El archivo Bicep no implementa ningún recurso. Genera valores de parámetro y devuelve dichos valores. |
-|[objeto de parámetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.bicep) | Muestra cómo utilizar un objeto para un parámetro. El archivo Bicep no implementa ningún recurso. Genera valores de parámetro y devuelve dichos valores. |
+|[parámetros con funciones para los valores predeterminados](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterswithfunctions.bicep) | Muestra cómo utilizar las funciones de Bicep al definir valores predeterminados para parámetros. El archivo Bicep no implementa ningún recurso. Genera valores de parámetro y devuelve dichos valores. |
+|[objeto de parámetro](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterobject.bicep) | Muestra cómo utilizar un objeto para un parámetro. El archivo Bicep no implementa ningún recurso. Genera valores de parámetro y devuelve dichos valores. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

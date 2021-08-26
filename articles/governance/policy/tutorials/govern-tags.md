@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Administración de gobernanza de etiquetas'
 description: En este tutorial, usará el efecto Modify de Azure Policy para crear y aplicar un modelo de gobernanza de etiquetas en los recursos nuevos y existentes.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
-ms.openlocfilehash: 0552a37566a8c057c06664cf8dedcb8084fef498
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d8f106a63ec65952a5f6a8d68d49bc07279b5be3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752118"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324997"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Administración de la gobernanza de etiquetas con Azure Policy
 

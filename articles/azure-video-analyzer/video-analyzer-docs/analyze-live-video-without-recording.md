@@ -3,12 +3,12 @@ title: 'Análisis del vídeo en directo sin grabación: Azure'
 description: Se puede usar una tipología de canalización para extraer análisis a partir de una secuencia de vídeo en directo sin tener que grabarlo en el borde ni en la nube. En este artículo se describe este concepto.
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: da9134d3fd86185c9606b297de48e843c76d4909
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 8444759d231153419873679624645a96e07058ce
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604118"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515704"
 ---
 # <a name="analyzing-live-videos-without-recording"></a>Análisis de vídeos en directo sin grabación
 
@@ -27,7 +27,7 @@ Puede usar una topología de canalización para analizar vídeo en directo, sin 
 La topología de canalización que se muestra a continuación consta de un nodo [origen RTSP](pipeline.md#rtsp-source), un nodo [procesador de detección de movimiento](pipeline.md#motion-detection-processor) y un nodo [receptor de mensajes de IoT Hub](pipeline.md#iot-hub-message-sink); puede ver la configuración utilizada en su [representación JSON](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/motion-detection/topology.json). Esta topología permite detectar movimiento en la secuencia de vídeo entrante en directo y retransmitir los eventos de movimiento a otras aplicaciones y servicios mediante el nodo receptor de mensajes de IoT Hub. Las aplicaciones o servicios externos pueden desencadenar una alerta o enviar una notificación al personal adecuado.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video-without-recording/motion-detection.svg" alt-text="Detección de movimiento en un vídeo en directo":::
+> :::image type="content" source="./media/get-started-detect-motion-emit-events/motion-detection.svg" alt-text="Detección de movimiento en un vídeo en directo":::
 
 ### <a name="analyzing-video-using-a-custom-vision-model"></a>Analizar vídeo con un modelo de visión personalizado 
 

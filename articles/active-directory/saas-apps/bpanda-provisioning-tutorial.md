@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de Bpanda para el aprovisionamiento automático
 description: Aprenda a aprovisionar y desaprovisionar de forma automática las cuentas de usuario de Azure AD en Bpanda.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 57e424f8-6fbc-4701-a312-899b562589ea
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/05/2021
-ms.author: Zhchia
-ms.openlocfilehash: 7e11f60fee0565b86fe62008f418175bce21be03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 90e2b260e59caceaca059b524c34233603959ef3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585186"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322358"
 ---
 # <a name="tutorial-configure-bpanda-for-automatic-user-provisioning"></a>Tutorial: Configuración de Bpanda para el aprovisionamiento automático de usuarios
 
@@ -51,7 +51,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 ## <a name="step-2-configure-bpanda-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Bpanda para admitir el aprovisionamiento con Azure AD
 1. Póngase en contacto con support@mid.de para obtener más información sobre la dirección URL del inquilino de autenticación.
 
-2. Un secreto de cliente para generar más tokens de acceso. Se le debe haber transmitido de forma segura. Para obtener más información, póngase en contacto con support@mid.de.
+2. Un secreto de cliente para generar más tokens de acceso. Este secreto se le debe haber transmitido de forma segura. Para obtener más información, póngase en contacto con support@mid.de.
 
 3. Para establecer una conexión correcta entre Azure AD y Bpanda, un token de acceso debe recuperarse de una de las siguientes maneras.
 
@@ -83,7 +83,7 @@ Para empezar a administrar el aprovisionamiento de Bpanda, agregue Bpanda desde 
 
 El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Al asignar usuarios y grupos a Bpanda, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
+* Al asignar usuarios y grupos a Bpanda, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de la aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar otros roles. 
 
 * Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -136,6 +136,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |phoneNumbers[type eq "mobile"].value|String|
    |externalId|String|
    |title|String|
+   |preferredLanguage|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|

@@ -1,32 +1,32 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
-services: virtual-wan
+ms.author: cherylmc
 author: cherylmc
+ms.date: 08/17/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 05/26/2021
-ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 27f3fd66527ead310eea53e9fc9aa44631b88995
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 2403ce53175457d0a433f9a6a9310f93f0165a0d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578277"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122321933"
 ---
 Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
-1. En el portal, seleccione **+ Crear un recurso**. Escriba **Virtual WAN** en el cuadro de búsqueda y seleccione **ENTRAR**.
-1. Seleccione **Virtual WAN** en los resultados. En la página Virtual WAN, seleccione **Crear** para abrir la página Crear una red WAN.
-1. Dentro de la página **Crear una red WAN**, en la pestaña **Aspectos básicos**, rellene los campos siguientes:
+1. En el portal, en la barra **Buscar recursos**, escriba **Virtual WAN** en el cuadro de búsqueda y seleccione **Entrar**.
 
-   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Captura de pantalla que muestra el panel Crear una red WAN con la pestaña Aspectos básicos seleccionada." border="false":::
+1. Seleccione **Redes WAN virtuales** de los resultados. En la página Redes WAN virtuales, seleccione **Crear** para abrir la página Crear una red WAN.
+
+1. En la página **Crear una red WAN**, en la pestaña **Aspectos básicos**, rellene los campos. Puede modificar los valores de ejemplo que se aplicarán a su entorno.
+
+   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Captura de pantalla que muestra el panel Crear una red WAN con la pestaña Aspectos básicos seleccionada.":::
 
    * **Suscripción**: seleccione la suscripción que quiere usar.
-   * **Grupo de recursos**: cree uno nuevo o utilice uno ya existente.
-   * **Ubicación del grupo de recursos**: elija una ubicación para los recursos en la lista desplegable. Una red WAN es un recurso global y no reside en una región determinada. No obstante, tiene que seleccionar una región con el fin de administrar y ubicar el recurso de WAN que cree.
-   * **Nombre**: escriba el nombre que desea dar a la WAN.
-   * **Tipo**: Básico o Estándar. Seleccione **Estándar**. Si selecciona VWAN Básico, tenga en cuenta que las instancias de VWAN Básico solo pueden contener concentradores Básicos, lo que limita el tipo de conexión a sitio a sitio.
-1. Cuando termine de rellenar los campos, haga clic en **Revisión y creación**.
+   * **Grupo de recursos**: créelo o utilice uno existente.
+   * **Ubicación del grupo de recursos**: elija una ubicación para los recursos de la lista desplegable. Una red WAN es un recurso global y no reside en una región determinada. No obstante, tiene que seleccionar una región con el fin de administrar y ubicar el recurso de WAN que cree.
+   * **Nombre**: escriba el nombre que desee para la red WAN.
+   * **Tipo**: Básico o Estándar. Seleccione **Estándar**. Si selecciona Básico, entienda que las redes WAN virtuales básicas solo pueden contener centros de conectividad básicos. Los centros de conectividad básicos solo se pueden usar para conexiones de sitio a sitio.
+
+1. Una vez rellenos los campos, en la parte inferior de la página, seleccione **Revisar y crear**.
+
 1. Una vez que se haya superado la validación, seleccione **Crear** para crear la WAN virtual.

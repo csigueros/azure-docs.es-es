@@ -2,16 +2,17 @@
 metadata:
   title: 'Preguntas más frecuentes: Solución Network Performance Monitor en Azure | Microsoft Docs'
   description: En este artículo se incluyen las preguntas más frecuentes sobre Network Performance Monitor en Azure. Network Performance Monitor (NPM) ayuda a supervisar el rendimiento de sus redes (en tiempo casi real) para detectar y localizar los cuellos de botella de rendimiento que afectan a la red.
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: azure-monitor
   author: vinynigam
   ms.author: vinigam
   ms.date: 10/12/2018
-  ms.openlocfilehash: e899e68d631dfd41ffac3fd111c3ceca86f4cb93
-  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+  ms.openlocfilehash: dcf032b47396f8e952d38ab9e2c82c8552952da6
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112034956"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253842"
 title: Preguntas más frecuentes sobre la solución Network Performance Monitor.
 summary: "\n![Símbolo de Network Performance Monitor](media/network-performance-monitor-faq/npm-symbol.png)\n\n> [!IMPORTANT]\n> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) en Azure Network Watcher antes del 29 de febrero de 2024.\n\nEn este artículo se incluyen las preguntas más frecuentes (P+f) sobre Network Performance Monitor (NPM) en Azure.\n\n[Network Performance Monitor](../../networking/network-monitoring-overview.md) es una solución de [supervisión de red](./network-performance-monitor-performance-monitor.md) híbrida basada en la nube que le ayuda a supervisar el rendimiento de red entre distintos puntos en la infraestructura de red. También le permite supervisar la conectividad de red con los [puntos de conexión del servicio y la aplicación](./network-performance-monitor-service-connectivity.md) y [supervisar el rendimiento de Azure ExpressRoute](./network-performance-monitor-expressroute.md). \n\nNetwork Performance Monitor detecta posibles problemas de red, como enrutamiento del tráfico a \"agujeros negros\", errores de enrutamiento y problemas que los métodos de supervisión de red convencionales no pueden encontrar. La solución genera alertas y le notifica cómo y cuándo se supera un umbral en un vínculo de red. También garantiza la detección oportuna de los problemas de rendimiento de red y localiza el origen del problema en un segmento o dispositivo de red determinado. \n\nHay más información sobre las diferentes funcionalidades compatibles con [Network Performance Monitor](../../networking/network-monitoring-overview.md) disponible en línea.\n"
 sections:

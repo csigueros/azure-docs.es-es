@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: dea5a005815e551edfe5fbea8f65c7b3a23171e8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a6e63a1c5bbcf8c44f46cd87463fecb5d8b82f62
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735809"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515024"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tiempo de la ingesta de datos de registro en Azure Monitor
 Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Con frecuencia se plantean preguntas sobre el tiempo necesario para que los datos de registro estén disponibles una vez que se han recopilado. En este artículo se explican los distintos factores que afectan a esta latencia.
@@ -80,7 +80,7 @@ El tiempo de ingesta puede variar para diferentes recursos en diferentes circuns
 
 | Paso | Propiedad o función | Comentarios |
 |:---|:---|:---|
-| Registro creado en el origen de datos | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Si el origen de datos no establece este valor, se establecerá en el mismo tiempo que _TimeReceived. |
+| Registro creado en el origen de datos | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>Si el origen de datos no establece este valor, se establecerá en el mismo tiempo que _TimeReceived. |
 | Registro recibido por el punto de conexión de ingesta de Azure Monitor | [_TimeReceived](./log-standard-columns.md#_timereceived) | Este campo no está optimizado para el procesamiento masivo y no debe usarse para filtrar grandes conjuntos de datos. |
 | Registro almacenado en el área de trabajo y disponible para las consultas. | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | Se recomienda usar ingestion_time () si hay necesidad de filtrar solo los registros ingeridos en un período de tiempo determinado. En tal caso, se recomienda agregar también el filtro TimeGenerated con un rango mayor. |
 

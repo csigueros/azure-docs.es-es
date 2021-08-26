@@ -3,19 +3,19 @@ title: Inicio rápido de las API de grabación de llamadas con Azure Communicati
 titleSuffix: An Azure Communication Services quickstart document
 description: Proporciona un ejemplo de inicio rápido para las API de grabación de llamadas.
 author: ravithanneeru
-manager: joseys
+manager: GrantMeStrength
 services: azure-communication-services
-ms.author: joseys
+ms.author: jken
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: 87a658c077a93d852e2a1e03faedf1fa5064e3dc
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 57a0f077b51be026a0a3fc9cdc95e65bb2c924a9
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114473134"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253784"
 ---
 # <a name="call-recording-api-quickstart"></a>Inicio rápido de las API de grabación de llamadas
 

@@ -10,12 +10,12 @@ ms.date: 07/15/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: e58a42809933092499bbd7132c76c0a6e10f9971
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: ca887f9fd1cfe79683fc7e7e92e3798cd1f985fd
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114593034"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442501"
 ---
 <a name="HOLTop"></a>
 
@@ -35,6 +35,7 @@ ms.locfileid: "114593034"
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * La versión actual de [Node.js](https://nodejs.org/).
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics </a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
@@ -121,6 +122,8 @@ El cliente de Text Analytics es un objeto `TextAnalyticsClient` que se autentica
 El texto se envía a la API como una lista de `documents`, que son objetos `dictionary` que contienen una combinación de atributos `id`, `text` y `language`, según el método utilizado. El atributo `text` almacena el texto que se va a analizar en el origen `language` y `id` puede ser cualquier valor. 
 
 El objeto de respuesta es una lista que contiene la información de análisis para cada documento. 
+
+[!INCLUDE [text-analytics-character-limits](../character-limits.md)]
 
 ## <a name="code-examples"></a>Ejemplos de código
 

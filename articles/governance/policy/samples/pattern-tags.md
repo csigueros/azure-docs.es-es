@@ -1,14 +1,14 @@
 ---
 title: 'Patrón: uso de etiquetas en una definición de directiva'
 description: En este patrón de Azure Policy se proporcionan ejemplos de cómo agregar etiquetas con parámetros o heredar etiquetas de un grupo de recursos en una definición de directiva.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: sample
-ms.openlocfilehash: 30357632e92535368505fd72d2414292da0f5ca1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 71f560c9a5eafb477f01e65d493987f8ae67bdaa
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752316"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324112"
 ---
 # <a name="azure-policy-pattern-tags"></a>Patrón de Azure Policy: etiquetas
 
