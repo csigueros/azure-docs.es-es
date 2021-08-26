@@ -12,12 +12,12 @@ ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: d65daffab7522c1ececb3383d1cf5184f906d8f9
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 54a609cb73dcbf70afa5e20c41fa734080b89cc1
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111893019"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770694"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones
 
@@ -85,7 +85,7 @@ Descargue e instale la extensión en función del explorador que utilice.
 
 - **Google Chrome**: en Chrome Web Store, vaya a la característica [Extensión de inicio de sesión seguro de mis aplicaciones](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) y, a continuación, seleccione **Agregar a Chrome**.
 
-- **Mozilla Firefox**: en la página **Complementos de Firefox**, vaya a la característica [Extensión de inicio de sesión seguro de mis aplicaciones](https://addons.mozilla.org/firefox/addon/access-panel-extension/) y, a continuación, seleccione **Agregar a Firefox**.
+- **Mozilla Firefox**: en la página **Complementos de Firefox**, vaya a la característica Extensión de inicio de sesión seguro de mis aplicaciones y, a continuación, seleccione **Agregar a Firefox**.
 
 Se ha agregado un icono a la derecha de la barra de **direcciones** que le permite iniciar sesión y personalizar la extensión.
 

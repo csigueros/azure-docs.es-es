@@ -1,17 +1,20 @@
 ---
 title: Copiar datos de Hive con Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre cómo copiar datos de Hive en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: jianleishen
-ms.openlocfilehash: 88f91ca27bad44f0b9d6235d257b141ce277b191
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: e9117ce75c17a1d45d5479520372de5bbcb47074
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485070"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637936"
 ---
 # <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Copia y transformación de datos de Hive con Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

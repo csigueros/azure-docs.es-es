@@ -1,18 +1,20 @@
 ---
 title: Copia de datos de Shopify (versión preliminar)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre cómo copiar datos desde Shopify en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 08/01/2019
-ms.openlocfilehash: 4af23500eb5ca6f8d4d30baca4932996d11d1010
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: cca45419fff17eec2672911c09cb37a7da6b17f8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482856"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637954"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copiar datos de Shopify mediante Azure Data Factory (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

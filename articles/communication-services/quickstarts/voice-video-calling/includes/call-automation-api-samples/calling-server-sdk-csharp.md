@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: 6294759038112d5ca9b87818816ab4bb24d0f613
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 1dae62ae0ab1fa03dd4c5e1128699cd43a241984
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114473205"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121801553"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -24,8 +24,8 @@ Antes de comenzar, compruebe lo siguiente:
 - Cree de una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/).
 - [Visual Studio (2019 y posterior)](https://visualstudio.microsoft.com/vs/).
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) (asegúrese de instalar la versión que se corresponda con su instancia de Visual Studio, de 32 o 64 bits).
-- Cree un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). Debe registrar la **cadena de conexión** del recurso para este ejemplo.
-- Obtenga un número de teléfono para el nuevo recurso de Azure Communication Services. Para obtener detalles, vea [Obtención de un número de teléfono](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/get-phone-number?pivots=platform-azp).
+- Cree un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](../../../create-communication-resource.md). Debe registrar la **cadena de conexión** del recurso para este ejemplo.
+- Obtenga un número de teléfono para el nuevo recurso de Azure Communication Services. Para obtener detalles, vea [Obtención de un número de teléfono](../../../telephony-sms/get-phone-number.md?pivots=platform-azp).
 - Descargue e instale [ngrok](https://www.ngrok.com/download). Cuando el ejemplo se ejecuta en local, ngrok permite la recepción de todos los eventos.
 - (Opcional) Cree un recurso de Voz de Azure para generar mensajes personalizados que la aplicación reproduzca. Siga [estas instrucciones](../../../../../cognitive-services/speech-service/overview.md#try-the-speech-service-for-free) para crear el recurso.
 

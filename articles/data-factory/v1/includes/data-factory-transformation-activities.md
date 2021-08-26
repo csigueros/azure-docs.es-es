@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: e38d7e07582fcbaa5b81e2dd694ddc39d6906be1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 79f3d2cf2e9b966d8486560efc7ec67b09c7ed4b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753249"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397689"
 ---
 Azure Data Factory admite las siguientes actividades de transformación que se pueden agregar a las canalizaciones tanto individualmente como encadenadas a otra actividad.
 
@@ -20,7 +20,7 @@ Azure Data Factory admite las siguientes actividades de transformación que se p
 | [de Hadoop](../data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](../data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Spark](../data-factory-spark.md) | HDInsight [Hadoop] |
-| [Actividades de Estudio de Azure Machine Learning (clásico): ejecución de lotes y recurso de actualización](../data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
+| [Actividades de ML Studio (clásico): ejecución de lotes y recurso de actualización](../data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [Procedimiento almacenado](../data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics o SQL Server |
 | [U-SQL de análisis con Data Lake](../data-factory-usql-activity.md) |Análisis con Azure Data Lake |
 | [DotNet](../data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Azure Batch |

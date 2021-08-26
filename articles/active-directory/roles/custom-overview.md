@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d7c0c7c5a0fe5ff3100e754c99b476676cab222
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: f376a8e5d61b9bb3fda39184f4ff0873c48c8b43
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733383"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732339"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Introducción al control de acceso basado en rol en Azure Active Directory
 
@@ -45,7 +45,7 @@ Los siguientes son los pasos de alto nivel que Azure AD usa para determinar si 
 1. Un usuario (o una entidad de servicio) adquiere un token para el punto de conexión de Microsoft Graph o Azure AD Graph.
 1. El usuario realiza una llamada API a Azure Active Directory (Azure AD) mediante Microsoft Graph o Azure AD Graph con el token emitido.
 1. En función de las circunstancias, Azure AD realiza una de las acciones siguientes:
-   - Evalúa la pertenencia del rol del usuario en función de la [notificación de wids](../../active-directory-b2c/access-tokens.md) en el token de acceso del usuario.
+   - Evalúa la pertenencia del rol del usuario en función de la [notificación de wids](../develop/access-tokens.md) en el token de acceso del usuario.
    - Recupera todas las asignaciones de roles que se aplican al usuario, ya sea directamente o mediante la pertenencia a grupos, en el recurso en el que se realiza la acción.
 1. Azure AD determina si la acción en la llamada de API se incluye en los roles que tiene el usuario para este recurso.
 1. Si el usuario no tiene un rol con la acción en el ámbito solicitado, no se le concede acceso. En caso contrario, se concede el acceso.

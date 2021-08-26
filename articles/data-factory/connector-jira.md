@@ -1,17 +1,20 @@
 ---
 title: Copiar datos de Jira con Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre cómo copiar datos de Jira en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jianleishen
-ms.openlocfilehash: 0d7fccd134fc876ebee4c0e770068abb246caae4
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 95b0a0c0d57f49f4209ae0c7e74ca1cd9a58024d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481794"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637768"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Copiar datos de Jira con Azure Data Factory
 

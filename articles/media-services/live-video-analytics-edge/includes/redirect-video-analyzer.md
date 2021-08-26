@@ -2,14 +2,14 @@
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 03/11/2021
+ms.date: 08/02/2021
 ms.author: juliako
-ms.openlocfilehash: 1976985db9543030d32bd99fcaf983acba6d4acf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9bca6e85201378fab7a6657a5d75c07635efec98
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111993691"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122336201"
 ---
 > [!NOTE]
-> Para obtener la versión más reciente del servicio, consulte [Azure Video Analyzer](../../../azure-video-analyzer/video-analyzer-docs/index.yml).
+> Live Video Analytics en IoT Edge se retirará el 1 de noviembre de 2021. Cambie a [Azure Video Analyzer](../../../azure-video-analyzer/video-analyzer-docs/pipeline.md) con la ayuda de esta [guía de migración](../migrate-to-azure-video-analyzer.md).
