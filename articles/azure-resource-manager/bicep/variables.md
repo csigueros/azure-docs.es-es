@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 99c7d945f251319bf1b655ecd02730b62e3ed2e4
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b2f696adbad88cd424f2292b333069a7b80a13b2
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026940"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634960"
 ---
 # <a name="variables-in-bicep"></a>Variables de Bicep
 
@@ -73,13 +73,13 @@ Dado que los nombres de cuenta de almacenamiento deben usar letras minúsculas, 
 
 La plantilla siguiente no implementa ningún recurso. Muestra algunas maneras de declarar variables de distintos tipos.
 
-:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/variables.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variables.bicep":::
 
 ## <a name="configuration-variables"></a>Variables de configuración
 
 Puede definir variables que contengan valores relacionados para configurar un entorno. La variable se define como un objeto con los valores. En el ejemplo siguiente se muestra un objeto que contiene valores para dos entornos: **test** y **prod**. Pase uno de estos valores durante la implementación.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variablesconfigurations.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variablesconfigurations.bicep":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

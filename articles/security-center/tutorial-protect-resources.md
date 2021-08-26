@@ -2,24 +2,19 @@
 title: 'Tutorial sobre controles de aplicaciones y acceso: Azure Security Center'
 description: En este tutorial se muestra cómo configurar una directiva de acceso a las máquinas virtuales Just-In-Time y una directiva de control de aplicaciones.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: cc88561f8882b1712648a261d1f0208a18bab26d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 399fa371de57bbd8899a7c22686196a0a54be0ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095483"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726104"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Protección de los recursos con Azure Security Center
 Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a las máquinas virtuales Just-In-Time (JIT) reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a las máquinas virtuales. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
@@ -56,9 +51,3 @@ Pase al siguiente tutorial para aprender a responder a incidentes relacionados c
 
 > [!div class="nextstepaction"]
 > [Tutorial: Respuesta a incidentes de seguridad](tutorial-security-incident.md)
-
-<!--Image references-->
-[1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png
-[2]: ./media/tutorial-protect-resources/add-port.png
-[3]: ./media/tutorial-protect-resources/adaptive-application-control-options.png
-[4]: ./media/tutorial-protect-resources/recommended-resource-groups.png

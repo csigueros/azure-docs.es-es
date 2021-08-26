@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 2261bf9f52747bee8617b4393c207703a252a1ad
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 7e168c650361bf0579b5e718a71243ee485ba9dd
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113006003"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824691"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalación y ejecución del contenedor de análisis espacial (versión preliminar)
 
@@ -24,6 +24,7 @@ El contenedor de análisis espacial permite analizar vídeo en streaming en tiem
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
+* [!INCLUDE [contributor-requirement](../includes/quickstarts/contributor-requirement.md)]
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="cree un recurso de Computer Vision"  target="_blank">creación de un recurso de Computer Vision </a> para el nivel Estándar S1 en Azure Portal con el fin de obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que se crea para ejecutar el contenedor de análisis espacial. Los usará más adelante.
 
@@ -108,39 +109,54 @@ Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, es
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Habilitación de MPS en Azure Stack Edge 
 
-1. Ejecute una sesión de Windows PowerShell como administrador. 
+Siga estos pasos para conectarse de forma remota desde un cliente de Windows.
 
-2. Asegúrese de que el servicio Administración remota de Windows se ejecuta en el cliente. En el terminal de PowerShell, use el comando siguiente: 
-    
+1. Ejecute una sesión de Windows PowerShell como administrador.
+2. Asegúrese de que el servicio Administración remota de Windows se ejecuta en el cliente. En el símbolo del sistema, escriba:
+
     ```powershell
     winrm quickconfig
     ```
-    
-    Si ve advertencias sobre una excepción del firewall, revise el tipo de conexión de red y consulte la documentación sobre la [Administración remota de Windows](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management).
 
-3. Asigne una variable a la dirección IP del dispositivo. 
-    
-    ```powershell
-    $ip = "<device-IP-address>" 
-    ```
-    
-4. Para agregar la dirección IP del dispositivo a la lista de hosts de confianza del cliente, use el comando siguiente: 
-    
-    ```powershell
-    Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force 
-    ```
+    Para más información, vea [Instalación y configuración de Administración remota de Windows](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management#quick-default-configuration).
 
-5. Inicie una sesión de Windows PowerShell en el dispositivo. 
+3. Asigne una variable a la cadena de conexión utilizada en el archivo `hosts`.
 
     ```powershell
-    Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell 
+    $Name = "<Node serial number>.<DNS domain of the device>"
+    ``` 
+
+    Reemplace `<Node serial number>` y `<DNS domain of the device>` por el número de serie del nodo y el dominio DNS del dispositivo. Puede obtener los valores del número de serie del nodo en la página **Certificates** (Certificados) y el dominio DNS en la página **Device** (Dispositivo) de la interfaz de usuario web local del dispositivo.
+
+4. Para agregar esta cadena de conexión del dispositivo a la lista de hosts de confianza del cliente, escriba el siguiente comando:
+
+    ```powershell
+    Set-Item WSMan:\localhost\Client\TrustedHosts $Name -Concatenate -Force
     ```
 
-6. Proporcione la contraseña cuando se le solicite. Use la misma contraseña que se emplea para iniciar sesión en la interfaz de usuario web local. La contraseña de la interfaz de usuario web local predeterminada es `Password1`.
+5. Inicie una sesión de Windows PowerShell en el dispositivo:
 
-Escriba `Start-HcsGpuMPS` para iniciar el servicio MPS en el dispositivo. 
+    ```powershell
+    Enter-PSSession -ComputerName $Name -Credential ~\EdgeUser -ConfigurationName Minishell -UseSSL
+    ```
 
-Si necesita ayuda para solucionar problemas con el dispositivo Azure Stack Edge, consulte [Solución de problemas del dispositivo Azure Stack Edge](spatial-analysis-logging.md#troubleshooting-the-azure-stack-edge-device). 
+    Si ve un error que tiene que ver con la relación de confianza, compruebe que la cadena de firma del certificado de nodo cargado en el dispositivo también esté instalada en el cliente que tiene acceso al dispositivo.
+
+6. Proporcione la contraseña cuando se le solicite. Use la misma contraseña que se emplea para iniciar sesión en la interfaz de usuario web local. La contraseña de la interfaz de usuario web local predeterminada es *Password1*. Cuando se conecte correctamente al dispositivo mediante PowerShell remoto, verá la siguiente salida de ejemplo:  
+
+    ```
+    Windows PowerShell
+    Copyright (C) Microsoft Corporation. All rights reserved.
+    
+    PS C:\WINDOWS\system32> winrm quickconfig
+    WinRM service is already running on this machine.
+    PS C:\WINDOWS\system32> $Name = "1HXQG13.wdshcsso.com"
+    PS C:\WINDOWS\system32> Set-Item WSMan:\localhost\Client\TrustedHosts $Name -Concatenate -Force
+    PS C:\WINDOWS\system32> Enter-PSSession -ComputerName $Name -Credential ~\EdgeUser -ConfigurationName Minishell -UseSSL
+
+    WARNING: The Windows PowerShell interface of your device is intended to be used only for the initial network configuration. Please engage Microsoft Support if you need to access this interface to troubleshoot any potential issues you may be experiencing. Changes made through this interface without involving Microsoft Support could result in an unsupported configuration.
+    [1HXQG13.wdshcsso.com]: PS>
+    ```
 
 #### <a name="desktop-machine"></a>[Máquina de escritorio](#tab/desktop-machine)
 
