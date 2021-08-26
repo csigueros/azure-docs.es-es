@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: e4a76367b65556c0f6b030eba79355382e8db0c6
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: fc8c1db006ddd8b1ca455d7e47be0d8fa8381f1c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754522"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181401"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creación y uso compartido de paneles de datos de Log Analytics
 
@@ -23,7 +23,7 @@ Los paneles de Log Analytics permiten visualizar todas las consultas de registro
 > * Agregar una consulta de registro a un panel compartido. 
 > * Personalizar un icono en un panel compartido.
 
-Para completar el ejemplo en este tutorial, debe disponer de una máquina virtual existente [conectada al área de trabajo de Log Analytics](../vm/quick-collect-azurevm.md).  
+Para completar el ejemplo en este tutorial, debe disponer de una máquina virtual existente [conectada al área de trabajo de Log Analytics](../vm/monitor-virtual-machine.md).  
  
 ## <a name="sign-in-to-azure-portal"></a>Inicio de sesión en Azure Portal
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com). 

@@ -2,14 +2,15 @@
 metadata:
   title: Preguntas frecuentes sobre Azure Disk Backup
   description: Obtenga respuestas a las preguntas más frecuentes sobre Azure Disk Backup
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
   ms.date: 05/27/2021
-  ms.openlocfilehash: 4c676d412799838193122399f50e984fbad833b2
-  ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+  ms.openlocfilehash: d53eda8e8b0f168da69dba1334feca0d4cb39524
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/28/2021
-  ms.locfileid: "111907908"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252513"
 title: Preguntas frecuentes sobre Azure Disk Backup
 summary: >
   En este artículo se responden las preguntas más frecuentes sobre Azure Disk Backup. Para más información sobre la disponibilidad de la disponibilidad de regiones, los escenarios admitidos y las limitaciones de [Azure Disk Backup](disk-backup-overview.md), consulte la [matriz de compatibilidad](disk-backup-support-matrix.md).

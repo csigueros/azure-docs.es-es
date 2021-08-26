@@ -1,15 +1,15 @@
 ---
 title: Lista de consultas de ejemplo de Azure Resource Graph por tabla
 description: Lista de consultas de ejemplo de Azure Resource Graph. Las tablas incluyen Resources, ResourceContainers, PolicyResources, etc.
-ms.date: 07/21/2021
+ms.date: 08/13/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 7284701c5272088984839db6f7b4001bcf6e636b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 11973c177f7a5b96c7d8d1544c88004d02d7aa57
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456925"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122067644"
 ---
 # <a name="azure-resource-graph-sample-queries-by-table"></a>Consultas de ejemplo de Azure Resource Graph por tabla
 
@@ -26,6 +26,10 @@ Esta página es una colección de consultas de ejemplo de Azure Resource Graph a
 ## <a name="guestconfigurationresources"></a>GuestConfigurationResources
 
 [!INCLUDE [azure-resource-graph-samples-table-guestconfigurationresources](../../../../includes/resource-graph/samples/bytable/guestconfigurationresources.md)]
+
+## <a name="healthresources"></a>HealthResources
+
+[!INCLUDE [azure-resource-graph-samples-table-healthresources](../../../../includes/resource-graph/samples/bytable/healthresources.md)]
 
 ## <a name="kubernetesconfigurationresources"></a>KubernetesConfigurationResources
 

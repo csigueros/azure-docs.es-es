@@ -3,18 +3,17 @@ title: 'Inicio rápido: Creación de una instancia de Azure Data Factory con la 
 description: En esta guía de inicio rápido se crea una instancia de Azure Data Factory, incluidos un servicio vinculado, conjuntos de datos y una canalización. Puede ejecutar la canalización para realizar una acción de copia de archivos.
 author: linda33wj
 ms.author: jingwang
-ms.service: azure-cli
+ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: quickstart
 ms.date: 03/24/2021
-ms.custom:
-- template-quickstart
-- devx-track-azurecli
-ms.openlocfilehash: c9f4b46553a119bfb7b8b639e6a28e95a2be5999
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.custom: template-quickstart, devx-track-azurecli
+ms.openlocfilehash: f12b9f785063b8fa6fec4bc8cd4011d65110b7fe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750847"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749885"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-azure-cli"></a>Inicio rápido: Creación de una instancia de Azure Data Factory con la CLI de Azure
 

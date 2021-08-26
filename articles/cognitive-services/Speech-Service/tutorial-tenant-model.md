@@ -3,20 +3,20 @@ title: 'Creación de un modelo de inquilino (versión preliminar): servicio de v
 titleSuffix: Azure Cognitive Services
 description: Genere automáticamente un modelo de inquilino compatible y seguro (Habla personalizada con datos de Microsoft 365) que use sus datos de Microsoft 365 con el fin de ofrecer reconocimiento de voz óptimo para términos específicos de una organización.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
-ms.author: erhopf
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 48cde51ee9941f705aa848d121c419a8f0c9ad1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0076364d0075573571e76cf230b4920763bb6e2c
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013712"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122072554"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Creación de un modelo de inquilino (versión preliminar)
 
