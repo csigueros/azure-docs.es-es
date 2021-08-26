@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fb68a15bb64640fd8aa18d2ee01fd4a03d809125
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: dfc82cfec8e2c356b0d2fcc3806e21a3bd01a299
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565277"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862515"
 ---
 # <a name="connection-strings-for-synapse-sql"></a>Cadenas de conexión de Synapse SQL
 
@@ -55,4 +55,4 @@ Para ejecutar consultas del **grupo de SQL sin servidor**, se recomienda usar es
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar a realizar consultas en los análisis con Visual Studio y otras aplicaciones, consulte [Consulta con Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para empezar a realizar consultas en los análisis con Visual Studio y otras aplicaciones, consulte [Consulta con Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?context=/azure/synapse-analytics/context/context).

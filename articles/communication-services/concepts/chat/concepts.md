@@ -2,19 +2,19 @@
 title: Conceptos de chat en Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Obtenga información sobre los conceptos de chat de Communication Services.
-author: mikben
+author: knvsl
 manager: jken
 services: azure-communication-services
 ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a1dc0e266fc51d9e6ac85578f248b7df5deaadaa
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: dc3647d82eff225eacdd56826639629b9d0aa838
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114451301"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731959"
 ---
 # <a name="chat-concepts"></a>Conceptos de chat 
 

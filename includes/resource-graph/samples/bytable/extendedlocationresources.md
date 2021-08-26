@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 62b17a4c8f44863074b530dfd3387d1a23323b26
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 623d8d63c309ba918054e2efb2344cb1d778a74d
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456882"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861112"
 ---
-### <a name="get-enabled-resource-types-for-azure-arc-enabled-custom-locations"></a>Obtención tipos de recursos habilitados para ubicaciones personalizadas habilitadas de Azure Arc
+### <a name="get-enabled-resource-types-for-azure-arc-enabled-custom-locations"></a>Obtención de tipos de recursos habilitados para ubicaciones personalizadas habilitadas para Azure Arc
 
-Proporciona una lista de los tipos de recursos habilitados para ubicaciones personalizadas habilitadas de Azure Arc.
+Proporciona una lista de los tipos de recursos habilitados para ubicaciones personalizadas habilitadas para Azure Arc.
 
 ```kusto
 ExtendedLocationResources

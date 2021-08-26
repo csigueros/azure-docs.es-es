@@ -1,17 +1,20 @@
 ---
 title: Formatos de archivo admitidos en Azure Data Factory (heredados)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: En este tema se describen los formatos de archivo y los códigos de compresión que admiten los conectores basados en archivos en Azure Data Factory.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 960c2a995a6e68b2f15e553121bc860f9ac29890
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 12b3b1dddfa7ff37d8d8fa80562699cf9242148e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488526"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638872"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory (heredados)
 
