@@ -1,18 +1,20 @@
 ---
 title: Copia de datos de AWS Marketplace
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre cómo copiar datos de Amazon Marketplace Web Service en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 08/01/2018
-ms.openlocfilehash: 6dae2f6e4f17149fcd543ad4c34ff6acf3d6f775
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 18eed32960a0b1ab7ab18a4ba561a4daa2870260
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482406"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637814"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Copiar datos de Amazon Marketplace Web Service con Azure Data Factory
 

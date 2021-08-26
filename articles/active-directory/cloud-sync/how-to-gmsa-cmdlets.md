@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dc0fc80061834c1f5aad8685f1caa558b5a34f9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 64eb6e15c2c53a8c82b51027471192de4e3679f2
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746094"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634326"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-agent-gmsa-powershell-cmdlets"></a>Cmdlets de PowerShell de gMSA del agente de aprovisionamiento en la nube de Azure AD
 
@@ -72,7 +72,7 @@ Los siguientes requisitos previos son indispensables para usar estos cmdlets:
 |PasswordHashSync|Consulte los permisos [PasswordHashSync](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-password-hash-synchronization) de Azure AD Connect.|
 |PasswordWriteBack|Consulte los permisos [PasswordWriteBack](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-password-writeback) de Azure AD Connect.|
 |HybridExchangePermissions|Consulte los permisos [HybridExchangePermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-hybrid-deployment) de Azure AD Connect.|
-|ExchangeMailPublicFolderPermissions| Consulte los permisos [ExchangeMailPublicFolderPermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-mail-public-folders-preview) de Azure AD Connect.|
+|ExchangeMailPublicFolderPermissions| Consulte los permisos [ExchangeMailPublicFolderPermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-mail-public-folders) de Azure AD Connect.|
 |CloudHR| Aplica "Control total" a "Descendant User objects" (Objetos de usuario descendientes) y "Creación o eliminación de objetos de usuario" a "Este objeto y todos los descendientes"|
 |All|Agrega todos los permisos anteriores.|
 

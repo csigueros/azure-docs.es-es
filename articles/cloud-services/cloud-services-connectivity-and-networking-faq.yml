@@ -9,17 +9,15 @@ metadata:
   ms.author: hirshah
   ms.reviewer: mimckitt
   ms.custom: 
-  ms.openlocfilehash: f9c453ffafddf2864eaf866b8739586b0bbe50df
-  ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+  ms.openlocfilehash: cdb0c407db3405b9ced14ca22b221b5ef120d81e
+  ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/01/2021
-  ms.locfileid: "113129440"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122823231"
 title: 'Problemas de conectividad y redes en Azure Cloud Services (Clásico): Preguntas más frecuentes (P+F)'
 summary: >
-  > [!IMPORTANT]
-
-  > [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager del producto Azure Cloud Services. Con este cambio, Azure Cloud Services ha pasado a llamarse Cloud Services (clásico) cuando se ejecute en el modelo de implementación basado en Azure Service Manager, y todas las nuevas implementaciones deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+  [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 
   Este artículo incluye preguntas frecuentes sobre conectividad y redes para [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Para obtener información del tamaño, consulte la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md).

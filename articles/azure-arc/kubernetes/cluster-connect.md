@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Uso de Conexión de clúster para conectarse de manera segura a clústeres de Kubernetes habilitados para Azure Arc
-ms.openlocfilehash: 54a462164e4b992451cc66f8a0ec229aff27f2e1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 65070f8850bb18be5c142c658190ebe9da41f7a0
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145598"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767910"
 ---
 # <a name="use-cluster-connect-to-connect-to-azure-arc-enabled-kubernetes-clusters"></a>Uso de Conexión de clúster para conectarse a clústeres de Kubernetes habilitados para Azure Arc
 
@@ -55,7 +55,7 @@ Puede encontrar información general y algunos conceptos sobre esta característ
     | Punto de conexión | Port |
     |----------------|-------|
     |`*.servicebus.windows.net` | 443 |
-    |`*.guestnotificationservice.azure.com` | 443 |
+    |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
 
 ## <a name="usage"></a>Uso
 

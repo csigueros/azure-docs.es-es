@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 0c3db80edf771b0ad34aa9260da80b43ba8c355e
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: eb95c7e6cd2c76cc35556f13025505785707ed04
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652589"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597878"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Administración segura del entorno de Python en Azure HDInsight mediante la acción de scripts
 
 HDInsight tiene dos instalaciones de Python integradas en el clúster de Spark: Anaconda Python 2.7 y Python 3.5. Es posible que los clientes tengan que personalizar el entorno de Python, por ejemplo con la instalación de paquetes de Python externos. En este artículo, se muestra el procedimiento recomendado de administración segura de entornos de Python para clústeres de Apache Spark en HDInsight.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md). Si aún no tiene un clúster de Spark en HDInsight, puede ejecutar acciones de script durante la creación del clúster. Consulte la documentación sobre [cómo usar acciones de script personalizadas](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -155,11 +155,6 @@ El clúster de HDInsight depende del entorno integrado de Python, tanto Python 2
 
     :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Comprobar la versión de Python en Jupyter Notebook" border="true":::
 
-## <a name="known-issue"></a>Problema conocido
-
-Hay un error conocido para la versión de Anaconda `4.7.11`, `4.7.12` y `4.8.0`. Si observa que las acciones de script dejan de responder en `"Collecting package metadata (repodata.json): ...working..."` y muestran el error `"Python script has been killed due to timeout after waiting 3600 secs"`. Puede descargar [este script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) y ejecutarlo como acciones de script en todos los nodos para corregir el problema.
-
-Para comprobar la versión de Anaconda, puede aplicar SSH en el nodo de encabezado del clúster y ejecutar `/usr/bin/anaconda/bin/conda --v`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

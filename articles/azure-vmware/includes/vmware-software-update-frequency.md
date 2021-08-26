@@ -3,16 +3,19 @@ title: Frecuencia de actualización de software de VMware
 description: Frecuencia de actualización de software de VMware compatible con Azure VMware Solution.
 ms.topic: include
 ms.date: 04/23/2021
-ms.openlocfilehash: 5adf381e3c27197b6791dbd389d3b7359fa30248
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
+ms.openlocfilehash: 3295ab9da93b1e1ec1cace62653670de366c880d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951019"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324322"
 ---
 <!-- Used in faq.md and concepts-private-clouds-clusters.md -->
 
-El mantenimiento y la administración del ciclo de vida no afectan la capacidad ni el rendimiento de los clústeres de la nube privada.  El software de la nube privada se actualiza según un cronograma que sigue la publicación del conjunto de productos de software de VMware. Su nube privada no requiere tiempo de inactividad para las actualizaciones.
+El mantenimiento y la administración del ciclo de vida no afectan la capacidad ni el rendimiento de los clústeres de la nube privada. Las actualizaciones del software de la nube privada se programan según un cronograma que sigue la publicación del conjunto de productos de software de VMware.  Como resultado, su nube privada no requiere tiempo de inactividad para las actualizaciones.
 
 Las actualizaciones del conjunto de productos de software de la nube privada mantienen el software dentro de una de las versiones más recientes del conjunto de productos de software de VMware. Las versiones de software de la nube privada pueden diferir de las versiones más recientes de los componentes de software individuales (ESXi, NSX-T, vCenter, vSAN). Las actualizaciones también incluyen controladores, software de los conmutadores de red y firmware de los nodos sin sistema operativo.
 

@@ -3,12 +3,12 @@ title: Uso de Bicep para implementar recursos en grupos de recursos
 description: Se describe cómo implementar recursos en un archivo Bicep. Se muestra cómo seleccionar más de un grupo de recursos como destino.
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: f32ee9ce08b447a776ae74d19c0edabba233f345
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 4d68d0d28763c21574a3fd4f2f4c57561759e51e
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026820"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634481"
 ---
 # <a name="resource-group-deployments-with-bicep-files"></a>Implementaciones de grupos de recursos con archivos de Bicep
 
@@ -87,16 +87,16 @@ Para implementar recursos en el grupo de recursos de destino, agregue esos recur
 // resource deployed to target resource group
 resource exampleResource 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   ...
-} 
+}
 ```
 
 Para ver una plantilla de ejemplo, consulte [Implementación en el grupo de recursos de destino](#deploy-to-target-resource-group).
 
 ### <a name="scope-to-different-resource-group"></a>Ámbito en un grupo de recursos diferente
 
-Para implementar recursos en un grupo de recursos que no sea el grupo de recursos de destino, agregue un [módulo](modules.md). Use la [función resourceGroup](bicep-functions-scope.md#resourcegroup) para establecer la propiedad `scope` para ese módulo. 
+Para implementar recursos en un grupo de recursos que no sea el grupo de recursos de destino, agregue un [módulo](modules.md). Use la [función resourceGroup](bicep-functions-scope.md#resourcegroup) para establecer la propiedad `scope` para ese módulo.
 
-Si el grupo de recursos está en otra suscripción, proporcione el id. de suscripción y el nombre del grupo de recursos. Si el grupo de recursos está en la misma suscripción que la implementación actual, proporcione solo el nombre del grupo de recursos. Si no especifica una suscripción en la [función resourceGroup](bicep-functions-scope.md#resourcegroup), se usa la suscripción actual. 
+Si el grupo de recursos está en otra suscripción, proporcione el id. de suscripción y el nombre del grupo de recursos. Si el grupo de recursos está en la misma suscripción que la implementación actual, proporcione solo el nombre del grupo de recursos. Si no especifica una suscripción en la [función resourceGroup](bicep-functions-scope.md#resourcegroup), se usa la suscripción actual.
 
 En el ejemplo siguiente se muestra un módulo que tiene como destino un grupo de recursos de una suscripción diferente.
 
@@ -127,9 +127,9 @@ Para ver una plantilla de ejemplo, consulte [Implementación en varios grupos de
 
 ### <a name="scope-to-subscription"></a>Ámbito de la suscripción
 
-Para implementar recursos en una suscripción, agregue un módulo. Use la [función de suscripción](bicep-functions-scope.md#subscription) para establecer su propiedad `scope`. 
+Para implementar recursos en una suscripción, agregue un módulo. Use la [función de suscripción](bicep-functions-scope.md#subscription) para establecer su propiedad `scope`.
 
-Para implementar en la suscripción actual, use la función de suscripción sin ningún parámetro. 
+Para implementar en la suscripción actual, use la función de suscripción sin ningún parámetro.
 
 ```bicep
 
@@ -191,7 +191,7 @@ Para más información, consulte [Grupo de administración](deploy-to-management
 
 Para implementar recursos en el grupo de recursos de destino, defina esos recursos en la sección `resources` de la plantilla. La plantilla siguiente crea una cuenta de almacenamiento en el grupo de recursos que se especifica en la operación de implementación.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/get-started-with-bicep-files/add-output/azuredeploy.bicep":::
 
 ## <a name="deploy-to-multiple-resource-groups"></a>Implementación de varios grupos de recursos
 
@@ -305,5 +305,5 @@ resource newRG 'Microsoft.Resources/resourceGroups@2021-01-01' = {
 Para obtener más información sobre otros ámbitos, consulte:
 
 * [Implementaciones de suscripciones](deploy-to-subscription.md)
-* [Implementaciones del grupo de administración](deploy-to-management-group.md)
+* [Implementaciones de grupos de administración](deploy-to-management-group.md)
 * [Implementaciones de inquilinos](deploy-to-tenant.md)

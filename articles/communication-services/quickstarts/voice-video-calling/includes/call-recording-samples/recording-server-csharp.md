@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: 17363ba1c41c7c5046b769c7a03b3e05b97a08e6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: f025f33a041dd40970b3ea34ff723e1270d16ea6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339737"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121801687"
 ---
 ## <a name="sample-code"></a>Código de ejemplo
 Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording).
@@ -26,9 +26,9 @@ Busque el código finalizado de este inicio rápido en [GitHub](https://github.c
 - [Node.js (12.18.4 y posterior)](https://nodejs.org/en/download/).
 - [Visual Studio (2019 y posterior)](https://visualstudio.microsoft.com/vs/).
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (asegúrese de instalar la versión que se corresponda con su instancia de Visual Studio, 32 o 64 bits).
-- Cree un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). Deberá registrar la **cadena de conexión** del recurso para esta guía de inicio rápido.
-- Un contenedor y una cuenta de Azure Storage. Para obtener más información, consulte [Crear una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). Deberá registrar la **cadena de conexión** de almacenamiento y el **nombre del contenedor** para este inicio rápido.
-- Un webhook [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+- Cree un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](../../../create-communication-resource.md). Deberá registrar la **cadena de conexión** del recurso para esta guía de inicio rápido.
+- Un contenedor y una cuenta de Azure Storage. Para obtener más información, consulte [Crear una cuenta de almacenamiento](../../../../../storage/common/storage-account-create.md?tabs=azure-portal). Deberá registrar la **cadena de conexión** de almacenamiento y el **nombre del contenedor** para este inicio rápido.
+- Un webhook [Azure Event Grid](../../../../../event-grid/overview.md).
 
 ## <a name="object-model"></a>Modelo de objetos
 

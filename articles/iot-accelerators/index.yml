@@ -9,14 +9,13 @@ metadata:
   ms.topic: landing-page
   author: dominicbetts
   ms.author: dobett
-  manager: philmea
   ms.date: 09/16/2019
-  ms.openlocfilehash: 366cd9973ff72ecf638a2bbaec69004e45552ac8
-  ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+  ms.openlocfilehash: 9ca988e573ad61316c233223c6aa6462ad89bb76
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/07/2021
-  ms.locfileid: "109480966"
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121735210"
 landingContent:
 - title: Acerca de los aceleradores de soluciones de IoT
   linkLists:
@@ -33,11 +32,11 @@ landingContent:
     - text: Introducción a IoT industrial
       url: overview-iot-industrial.md
     - text: Introducción a OPC Twin
-      url: overview-opc-twin.md
+      url: /previous-versions/azure/iot-accelerators/overview-opc-twin
     - text: Introducción a OPC Vault
-      url: overview-opc-vault.md
+      url: /previous-versions/azure/iot-accelerators/overview-opc-vault
     - text: Introducción a OPC Publisher
-      url: overview-opc-publisher.md
+      url: /previous-versions/azure/iot-accelerators/overview-opc-publisher
     - text: Qué es IoT industrial
       url: iot-accelerators-connected-factory-features.md
   - linkListType: quickstart

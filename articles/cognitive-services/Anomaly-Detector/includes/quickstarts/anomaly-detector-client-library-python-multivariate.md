@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 1d5c77ff37d2585161009f1b023634cde2876110
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 5b0dfd51ac3de7f7abea41f18f8bf43dfa14580c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339833"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121801413"
 ---
 Comience a usar la biblioteca cliente multivariante de Anomaly Detector para Python. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. Las nuevas API de detección de anomalías multivariante permiten a los desarrolladores integrar fácilmente inteligencia artificial avanzada para detectar anomalías de grupos de métricas, sin necesidad de tener conocimientos de aprendizaje automático ni usar datos etiquetados. Las dependencias y correlaciones entre distintas señales se consideran automáticamente como factores clave. De este modo, podrá proteger de forma proactiva los sistemas complejos frente a errores.
 
@@ -121,14 +121,13 @@ def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None
 En primer lugar, entrenaremos el modelo, comprobaremos el estado del modelo durante el entrenamiento para determinar cuándo se ha completado el entrenamiento y, después, recuperaremos el identificador de modelo más reciente que necesitaremos cuando pasemos a la fase de detección.
 
 ```python
-def train(self, start_time, end_time, max_tryout=500):
-
+def train(self, start_time, end_time):
     # Number of models available now
     model_list = list(self.ad_client.list_multivariate_model(skip=0, top=10000))
     print("{:d} available models before training.".format(len(model_list)))
     
     # Use sample data to train the model
-    print("Training new model...")
+    print("Training new model...(it may take a few minutes)")
     data_feed = ModelInfo(start_time=start_time, end_time=end_time, source=self.data_source)
     response_header = \
     self.ad_client.train_multivariate_model(data_feed, cls=lambda *args: [args[i] for i in range(len(args))])[-1]
@@ -139,20 +138,29 @@ def train(self, start_time, end_time, max_tryout=500):
     
     # Wait until the model is ready. It usually takes several minutes
     model_status = None
-    tryout_count = 0
-    while (tryout_count < max_tryout and model_status != "READY"):
-        model_status = self.ad_client.get_multivariate_model(trained_model_id).model_info.status
-        tryout_count += 1
-        time.sleep(2)
-    
-    assert model_status == "READY"
-    
-    print("Done.", "\n--------------------")
-    print("{:d} available models after training.".format(len(new_model_list)))
-    
+    while model_status != ModelStatus.READY and model_status != ModelStatus.FAILED:
+        model_info = self.ad_client.get_multivariate_model(trained_model_id).model_info
+        model_status = model_info.status
+        time.sleep(10)
+
+    if model_status == ModelStatus.FAILED:
+        print("Creating model failed.")
+        print("Errors:")
+        if model_info.errors:
+            for error in model_info.errors:
+                print("Error code: {}. Message: {}".format(error.code, error.message))
+        else:
+            print("None")
+        return None
+
+    if model_status == ModelStatus.READY:
+        # Model list after training
+        new_model_list = list(self.ad_client.list_multivariate_model(skip=0, top=10000))
+        print("Done.\n--------------------")
+        print("{:d} available models after training.".format(len(new_model_list)))
+
     # Return the latest model id
     return trained_model_id
-
 ```
 
 ## <a name="detect-anomalies"></a>Detección de anomalías
@@ -160,8 +168,7 @@ def train(self, start_time, end_time, max_tryout=500):
 Use `detect_anomaly` y `get_dectection_result` para determinar si existe cualquier anomalía con el origen de datos. Deberá pasar el identificador de modelo para el modelo que acaba de entrenar.
 
 ```python
-def detect(self, model_id, start_time, end_time, max_tryout=500):
-    
+def detect(self, model_id, start_time, end_time):
     # Detect anomaly in the same data source (but a different interval)
     try:
         detection_req = DetectionRequest(source=self.data_source, start_time=start_time, end_time=end_time)
@@ -171,21 +178,23 @@ def detect(self, model_id, start_time, end_time, max_tryout=500):
     
         # Get results (may need a few seconds)
         r = self.ad_client.get_detection_result(result_id)
-        tryout_count = 0
-        while r.summary.status != "READY" and tryout_count < max_tryout:
-            time.sleep(1)
+        while r.summary.status != DetectionStatus.READY and r.summary.status != DetectionStatus.FAILED:
             r = self.ad_client.get_detection_result(result_id)
-            tryout_count += 1
-    
-        if r.summary.status != "READY":
-            print("Request timeout after %d tryouts.".format(max_tryout))
+            time.sleep(2)
+
+        if r.summary.status == DetectionStatus.FAILED:
+            print("Detection failed.")
+            print("Errors:")
+            if r.summary.errors:
+                for error in r.summary.errors:
+                    print("Error code: {}. Message: {}".format(error.code, error.message))
+            else:
+                print("None")
             return None
-    
     except HttpResponseError as e:
         print('Error code: {}'.format(e.error.code), 'Error message: {}'.format(e.error.message))
     except Exception as e:
         raise e
-    
     return r
 ```
 

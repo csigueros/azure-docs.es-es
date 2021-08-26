@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: 5a4b3a574d41221718ab4b7e6c9c3424d808dc98
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 4bf732c8a22239cf37e3ab7737cec8765bd3ef19
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122206611"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770334"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Trabajo con JSON en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -118,13 +118,13 @@ Por ejemplo, este es un documento que muestra el saldo diario de la cuenta banca
       },
       {
         "checkingAccount": -10,
-        "savingsAccount": 5000,
+        "savingsAccount": 5000
       },
       {
         "checkingAccount": 5000,
-        "savingsAccount": 5000,
+        "savingsAccount": 5000
       }
-         ...
+        
   ]
 }
 ```
