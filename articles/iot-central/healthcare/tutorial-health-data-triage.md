@@ -1,23 +1,23 @@
 ---
 title: 'Tutorial: Creación de un panel de evaluación de prioridades de datos de salud con Azure IoT Central | Microsoft Docs'
 description: 'Tutorial: Aprenda a crear un panel de evaluación de prioridades de datos de salud mediante plantillas de aplicación de Azure IoT Central.'
-author: philmea
-ms.author: philmea
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: d227d934eedd31342ce419576fffe7cea17efb1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8fee85dfab72594f7a00f985d7d095b96d693e6
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743009"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597244"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Creación de un panel de proveedor de Power BI
 
-Al crear la solución de supervisión continua de pacientes, puede crear también un panel para un equipo de cuidados hospitalarios para visualizar los datos de los pacientes. En este tutorial aprenderá a crear un panel de streaming en tiempo real de Power BI a partir de la plantilla de la aplicación de supervisión continua de pacientes de IoT Central. Si el caso de uso no requiere acceso a los datos en tiempo real, puede usar el [panel de Power BI de IoT Central](../core/howto-connect-powerbi.md), que tiene un proceso de implementación simplificado. 
+Al crear la solución de supervisión continua de pacientes, puede crear también un panel para un equipo de cuidados hospitalarios para visualizar los datos de los pacientes. En este tutorial aprenderá a crear un panel de streaming en tiempo real de Power BI a partir de la plantilla de la aplicación de supervisión continua de pacientes de IoT Central.
 
 :::image type="content" source="media/dashboard-gif-3.gif" alt-text="GIF del panel":::
 
@@ -27,12 +27,11 @@ La arquitectura básica seguirá esta estructura:
 
 En este tutorial, aprenderá a:
 
-> [!div class="checklist"]
-> * Exportación de datos de Azure IoT Central a Azure Event Hubs
-> * Configuración de un conjunto de datos de streaming de Power BI
-> * Conexión de la aplicación lógica a Azure Event Hubs
-> * Transmisión de datos a Power BI desde la aplicación lógica
-> * Creación de un panel en tiempo real para las constantes vitales de los pacientes
+- Exportación de datos de Azure IoT Central a Azure Event Hubs
+- Configuración de un conjunto de datos de streaming de Power BI
+- Conexión de la aplicación lógica a Azure Event Hubs
+- Transmisión de datos a Power BI desde la aplicación lógica
+- Creación de un panel en tiempo real para las constantes vitales de los pacientes
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -49,6 +48,7 @@ En este tutorial, aprenderá a:
 
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Configuración de una exportación continua de datos a Azure Event Hubs
+
 En primer lugar, debe configurar una exportación continua de datos desde la plantilla de la aplicación de Azure IoT Central al centro de eventos de Azure de su suscripción. Para ello, siga los pasos de este tutorial de Azure IoT Central para la [Exportación a Event Hubs](../core/howto-export-data.md). Solo tendrá que exportar los datos de telemetría para los fines de este tutorial.
 
 
@@ -206,8 +206,3 @@ Si no va a seguir usando esta aplicación, puede eliminar los recursos mediante 
 
 1. Para la aplicación de IoT Central, vaya a la pestaña Administration (Administración) y seleccione **Delete** (Eliminar).
 
-
-## <a name="next-steps"></a>Pasos siguientes
-
-> [!div class="nextstepaction"]
-> [Guía de la arquitectura de supervisión de pacientes continua](concept-continuous-patient-monitoring-architecture.md)

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 4/28/2021
 ms.custom: support-help-page
-ms.openlocfilehash: 75b2dd041e4c693258c39fbf0f32f76c1085a966
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3729651cc3a97a13435b0891e135e550dc48a255
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949895"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634517"
 ---
 # <a name="support-and-troubleshooting-for-azure-vms"></a>Soporte técnico y solución de problemas de Azure Virtual Machines
 
@@ -86,19 +86,6 @@ Si necesita ayuda con el lenguaje y las herramientas que se usan para desarrolla
 | Terraform | https://github.com/Azure/terraform/issues | 
 | Ansible | https://github.com/Azure/Ansible/issues | 
 
-
-
-## <a name="submit-feature-requests-on-azure-feedback"></a>Envío de solicitudes de características en comentarios de Azure
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-Para solicitar nuevas características, publíquelo en los comentarios de Azure. Comparta sus ideas para mejorar Azure Virtual Machines.
-
-| Servicio                       | Dirección URL de comentarios de Azure |
-|-------------------------------|---------------|
-| Azure Virtual Machines  | https://feedback.azure.com/forums/216843-virtual-machines 
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>Mantenerse informado sobre las actualizaciones y nuevas versiones
 

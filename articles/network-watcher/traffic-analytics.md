@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
-ms.custom: references_regions
-ms.openlocfilehash: fab2adb932d9c74b30b1775d8fa7ab257a4f00b0
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 146c1f78ffe0b8a4061417086cf66d96d2317890
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887925"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285359"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -197,7 +197,7 @@ Si la cuenta no está asignada a uno de los roles integrados, se debe asignar a 
 - "Microsoft.Network/virtualNetworks/read"
 - "Microsoft.Network/expressRouteCircuits/read"
 
-Para información sobre cómo comprobar los permisos de acceso de usuario, consulte [Preguntas más frecuentes de Análisis de tráfico](traffic-analytics-faq.md).
+Para información sobre cómo comprobar los permisos de acceso de usuario, consulte [Preguntas más frecuentes de Análisis de tráfico](traffic-analytics-faq.yml).
 
 ### <a name="enable-network-watcher"></a>Habilitación de Network Watcher
 
@@ -271,8 +271,8 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
 **¿Qué buscar?**
 
-- ¿Qué hosts, subredes y máquinas virtuales envían o reciben la mayor parte del tráfico, recorren el máximo de tráfico malintencionado y bloquean flujos considerables?
-    - Revise el gráfico de comparación para host, subred y máquina virtual. Conocer los hosts, las subredes y las máquinas virtuales que envían o reciben más tráfico puede ayudarlo a identificar cuáles son los hosts que procesan la mayor parte del tráfico y si la distribución del tráfico se realiza correctamente.
+- ¿Qué hosts, subredes, redes virtuales y conjuntos de escalado de máquinas virtuales envían o reciben la mayor parte del tráfico, recorren el máximo de tráfico malintencionado y bloquean flujos considerables?
+    - Compruebe el gráfico comparativo de hosts, subredes, redes virtuales y conjuntos de escalado de máquinas virtuales. Conocer los hosts, las subredes, las redes virtuales y los conjuntos de escalado de máquinas virtuales que envían o reciben más tráfico puede ayudarlo a identificar cuáles son los hosts que procesan la mayor parte del tráfico y si la distribución del tráfico se realiza correctamente.
     - Puede evaluar si el volumen de tráfico es adecuado para un host. ¿Tiene el volumen de tráfico un comportamiento normal o requiere una investigación más exhaustiva?
 - ¿Cuánto tráfico entrante y saliente hay?
     -   ¿Se espera que el host reciba más tráfico de entrada que de salida, o viceversa?
@@ -281,13 +281,16 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 - Estadísticas de tráfico malintencionado permitido o bloqueado
   - ¿Por qué un host recibe tráfico malintencionado y por qué se permiten flujos provenientes de orígenes malintencionados? Este comportamiento requiere más investigación y probablemente se deba optimizar la configuración.
 
-    Seleccione **Ver todo** en **Host**, como se muestra en la imagen siguiente:
+    Seleccione **Ver todo** en **IP**, como se muestra en la imagen siguiente:
 
     ![Panel que muestra información sobre los hosts con más tráfico](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
-- En la siguiente imagen se muestran las tendencias temporales de los cinco hosts con mayor comunicación y los detalles relacionados con los flujos (flujos de entrada o salida permitidos o denegados) de un host:
+    En la siguiente imagen se muestran las tendencias temporales de los cinco hosts con mayor comunicación y los detalles relacionados con los flujos (flujos de entrada o salida permitidos o denegados) de un host:
+
+    Seleccione **Ver más**, en **Detalles de las 5 principales direcciones IP con más tráfico** como se indica en la siguiente imagen para obtener información sobre todos los hosts:
 
     ![Tendencias de los cinco hosts con mayor comunicación](media/traffic-analytics/top-five-most-talking-host-trend.png)
+    
 
 **¿Qué buscar?**
 
@@ -354,6 +357,10 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
     ![Vista de mapa geográfico que muestra una distribución del tráfico a países, regiones y continentes](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Detalles de flujos para la distribución de tráfico en búsqueda de registros](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
+    
+- La hoja **Más información** de una región de Azure también muestra el tráfico total restante dentro de esa región (es decir, con origen y destino en la misma región). Además, proporciona información sobre el tráfico intercambiado entre las zonas de disponibilidad de un centro de datos. 
+
+    ![Tráfico entre zonas y tráfico interno de la región](./media/traffic-analytics/inter-zone-and-intra-region-traffic.png)
 
 ### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Visualización de la distribución del tráfico por redes virtuales
 
@@ -413,6 +420,22 @@ La distribución del tráfico por Application Gateway y Load Balancer, la topolo
 
 ![Detalles de flujos de tráfico malintencionado en búsqueda de registros](./media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
+### <a name="view-information-about-public-ips-interacting-with-your-deployment"></a>Visualización de información sobre las IP públicas que interactúan con la implementación
+
+**¿Qué buscar?**
+
+- ¿Qué IP públicas están conversando con mi red? ¿Cuáles son los datos de WHOIS y la ubicación geográfica de todas las IP públicas?
+- ¿Qué IP malintencionadas envían tráfico a mis implementaciones? ¿Cuál es el tipo de amenaza y la descripción de la amenaza de las IP malintencionadas?
+    - La sección Información de IP pública proporciona un resumen de todos los tipos de IP públicas presentes en el tráfico de red. 
+      Seleccione el tipo de IP pública de interés para ver los detalles. Este [documento de esquema](./traffic-analytics-schema.md#public-ip-details-schema) define los campos de datos presentados.
+      
+      :::image type="content" source="./media/traffic-analytics/public-ip-information.png" alt-text="Información de IP pública" lightbox="./media/traffic-analytics/public-ip-information.png":::
+      
+    - En el panel de análisis de tráfico, haga clic en cualquier dirección IP para ver su información.   
+    
+      :::image type="content" source="./media/traffic-analytics/external-public-ip-details.png" alt-text="Información de IP externa en la información sobre herramientas" lightbox="./media/traffic-analytics/external-public-ip-details.png":::
+      
+      :::image type="content" source="./media/traffic-analytics/malicious-ip-details.png" alt-text="Información de IP malintencionada en la información sobre herramientas" lightbox="./media/traffic-analytics/malicious-ip-details.png":::
 
 ### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>Visualización de las tendencias en las coincidencias del grupo de seguridad de red o de las reglas del grupo de seguridad de red
 
@@ -435,7 +458,7 @@ La distribución del tráfico por Application Gateway y Load Balancer, la topolo
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-Para obtener respuestas a las preguntas más frecuentes, consulte [Preguntas más frecuentes de Análisis de tráfico](traffic-analytics-faq.md).
+Para obtener respuestas a las preguntas más frecuentes, consulte [Preguntas más frecuentes de Análisis de tráfico](traffic-analytics-faq.yml).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

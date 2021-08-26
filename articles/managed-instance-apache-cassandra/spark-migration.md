@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 06/02/2021
-ms.openlocfilehash: b49e1c42b3b81a548a1860a4e4e4ee1ea97a7f4c
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e85d95dcd455ea2c9f4d9a14d9b68bebf06d3df6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955994"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731215"
 ---
 # <a name="migrate-to-azure-managed-instance-for-apache-cassandra-using-apache-spark"></a>Migración a Azure Managed Instance for Apache Cassandra mediante Apache Spark
 
@@ -37,13 +37,13 @@ En este artículo se describe cómo migrar datos a Azure Managed Instance for Ap
 
 Se recomienda seleccionar el entorno de ejecución de Databricks Runtime versión 7.5, que admite Spark 3.0:
 
-:::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Captura de pantalla que muestra la búsqueda de la versión de tiempo de ejecución de Databricks":::
+:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Captura de pantalla que muestra la búsqueda de la versión de tiempo de ejecución de Databricks":::
 
 ## <a name="add-dependencies"></a>Adición de dependencias
 
 Agregue la biblioteca de conectores de Cassandra de Apache Spark a su clúster para conectarse a los puntos de conexión nativos y de Cassandra de Azure Cosmos DB. En el clúster, seleccione **Libraries** > **Install New** > **Maven** (Bibliotecas > Instalar nueva > Maven) y, después, agregue `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` en las coordenadas de Maven.
 
-:::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Captura de pantalla que muestra la búsqueda de paquetes Maven en Databricks":::
+:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Captura de pantalla que muestra la búsqueda de paquetes Maven en Databricks":::
 
 Seleccione **Install** (Instalar) y asegúrese de reiniciar el clúster cuando se complete la instalación.
 
