@@ -11,16 +11,19 @@ ms.topic: how-to
 ms.date: 04/24/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 3eea91d1cbbb8fe34dcdc8668840503e6dc9d014
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: f2b4f2e54c046ca7abc2172b8df33f14def902fd
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517359"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767901"
 ---
 # <a name="tutorial-configure-cloudflare-with-azure-active-directory-b2c"></a>Tutorial: Configuración de Cloudflare con Azure Active Directory B2C
 
 En este tutorial de ejemplo, aprenderá a habilitar la solución [Web Application Firewall (WAF) Cloudflare](https://www.cloudflare.com/waf/) para el inquilino de Azure Active Directory (AD) B2C con dominio personalizado. Cloudflare WAF ayuda a su organización a protegerse contra ataques maliciosos que tienen como objetivo explotar vulnerabilidades como SQL y XSS.
+
+>[!NOTE]
+>Esta característica está en versión preliminar pública.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

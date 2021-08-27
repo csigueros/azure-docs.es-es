@@ -1,18 +1,21 @@
 ---
 title: Actividad de filtro en Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: La actividad de filtro filtra las entradas.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 6a488fff5e5c5f75697e787cdcede4de080a04ba
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 2ec871aeb6fb7146e66c3d3124ed8bba3400d4c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906281"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638894"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Actividad de filtro en Azure Data Factory
 Puede usar una actividad de filtro en una canalización para aplicar una expresión de filtro a una matriz de entrada. 
@@ -37,7 +40,7 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 name | Nombre de la actividad `Filter`. | String | Sí
 type | Se debe establecer en **filter**. | String | Sí
-condición | Condición que se usará para filtrar la entrada. | Expression | Yes
+condición | Condición que se usará para filtrar la entrada. | Expression | Sí
 items | Matriz de entrada en la que se debe aplicar el filtro. | Expression | Sí
 
 ## <a name="example"></a>Ejemplo
