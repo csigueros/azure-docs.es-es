@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d1b7f941fbd7d9c6a6b654992e86ab0379e11e28
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 01a48da50391c6d3e826b81c4174936c95f64462
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113303821"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597221"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creación y uso de vistas mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -122,9 +122,7 @@ El nombre de la carpeta en la función `OPENROWSET` (`yellow` en este ejemplo) q
 > [!div class="mx-imgBorder"]
 >![Carpeta Yellow Taxi de Delta Lake](./media/shared/yellow-taxi-delta-lake.png)
 
-No use la cláusula `WITH` en la función `OPENROWSET` al consultar datos de Delta Lake con particiones. Debido al problema conocido en la versión preliminar, la cláusula `WITH` [no devolverá correctamente los valores de las columnas de partición subyacentes](resources-self-help-sql-on-demand.md#partitioning-column-returns-null-values). La eliminación de particiones funciona bien si usa directamente la función `OPENROWSET` con la cláusula `WITH` (sin vistas).  
-
-Delta Lake está en versión preliminar pública, y hay algunos problemas conocidos y limitaciones. Revise los problemas conocidos en la página de autoayuda del [grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
+Delta Lake está en versión preliminar pública y hay algunos problemas conocidos y limitaciones. Revise los problemas conocidos en la página de autoayuda del [grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## <a name="use-a-view"></a>Uso de una vista
 

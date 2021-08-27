@@ -5,37 +5,57 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: e25412e502f10c80a55aeab215fddfd0cfc3f41b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/10/2021
+ms.openlocfilehash: d78bb5aeb111411641508b38bd49a6f5bcbf5374
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471927"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122177851"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceptos de alta disponibilidad en el servidor flexible de Azure Database for MySQL (versión preliminar)
+
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT] 
 > Actualmente, la opción Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
 
-Servidor flexible de Azure Database for MySQL (versión preliminar) permite configurar la alta disponibilidad con conmutación automática por error mediante la opción de alta disponibilidad con **redundancia de zona**. Cuando se implementa en una configuración con redundancia de zona, el servidor flexible aprovisiona y administra de forma automática una réplica en espera en otra zona de disponibilidad. Con la replicación de nivel de almacenamiento, los datos se **replican sincrónicamente** en el servidor en espera en la zona secundaria para permitir que no haya pérdida de datos después de una conmutación por error. La conmutación por error es totalmente transparente desde la aplicación cliente y no requiere ninguna acción por parte del usuario. El servidor en espera no está disponible para las operaciones de lectura o escritura, pero es un estado de espera pasivo para habilitar la conmutación por error rápida. Los tiempos de conmutación por error suelen oscilar entre 60-120 segundos.
+Servidor flexible de Azure Database for MySQL (versión preliminar) permite configurar la alta disponibilidad con conmutación automática por error. Cuando se configura la alta disponibilidad, el servidor flexible aprovisiona y administra automáticamente una réplica en espera mediante dos opciones diferentes.
 
-La configuración de alta disponibilidad con redundancia de zona permite la conmutación por error automática durante eventos planeados, como operaciones de proceso de escalado iniciadas por el usuario, y eventos no planeados, como errores de hardware y software subyacentes, errores de red e incluso errores de zona de disponibilidad.
+* **Alta disponibilidad con redundancia de zona**: esta opción es preferible para el aislamiento completo y la redundancia de la infraestructura en varias zonas de disponibilidad. Proporciona el máximo nivel de disponibilidad, pero es necesario configurar la redundancia de la aplicación entre las zonas. La alta disponibilidad con redundancia de zona es preferible cuando se quiere lograr el máximo nivel de disponibilidad frente a cualquier error de infraestructura en la zona de disponibilidad y donde la latencia en la zona de disponibilidad sea aceptable. La alta disponibilidad con redundancia de zona está disponible en un [subconjunto de regiones de Azure](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions) donde la región admite varias zonas de disponibilidad y la alta disponibilidad con redundancia de zona está disponible.
 
-:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Vista de alta disponibilidad con redundancia de zona":::
+* **Alta disponibilidad en la misma zona**: esta opción es preferible para la redundancia de infraestructura con menor latencia de red, ya que el servidor principal y el servidor en espera estarán en la misma zona de disponibilidad. Proporciona alta disponibilidad sin configurar la redundancia de la aplicación entre zonas. Alta disponibilidad en la misma zona es preferible cuando se quiere lograr el mayor nivel de disponibilidad dentro de una sola zona de disponibilidad con la latencia de red más baja. Alta disponibilidad en la misma zona está disponible en todas las [regiones de Azure en las que está disponible el servidor flexible](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions).  
 
-## <a name="zone-redundancy-architecture"></a>Arquitectura de la redundancia de zona
+## <a name="zone-redundant-high-availability"></a>Alta disponibilidad con redundancia de zona
 
-El servidor principal se implementa en la región y en una zona de disponibilidad concreta. Cuando se elige la alta disponibilidad, se implementa de forma automática un servidor de réplica en espera con la misma configuración que el servidor principal, incluidos el nivel y el tamaño de proceso, el tamaño de almacenamiento y la configuración de red. Los datos de registro se replican sincrónicamente en la réplica en espera para garantizar que no se produzca ninguna pérdida de datos en cualquier situación de error. Las copias de seguridad automáticas, tanto las instantáneas como las de registros, se realizan desde el servidor de bases de datos principal. 
+Cuando se crea el servidor flexible con alta disponibilidad con redundancia de zona habilitada, los archivos de datos y de registro se hospedan en un [almacenamiento con redundancia de zona (ZRS)](../../storage/common/storage-redundancy.md#redundancy-in-the-primary-region). Con la replicación de nivel de almacenamiento disponible con ZRS, los archivos de datos y de registro se replican sincrónicamente en el servidor en espera para garantizar que no se pierdan datos. La conmutación por error es totalmente transparente desde la aplicación cliente y no requiere ninguna acción por parte del usuario. La recuperación del servidor en espera para conectarse durante la conmutación por error depende de la aplicación de registro binario en espera. Por tanto, se recomienda usar claves principales en todas las tablas para reducir el tiempo de conmutación por error. El servidor en espera no está disponible para las operaciones de lectura o escritura, pero es un estado de espera pasivo para habilitar la conmutación por error rápida. Los tiempos de conmutación por error suelen oscilar entre 60-120 segundos.
 
-El estado de la alta disponibilidad se supervisa y se registra de manera continuada en la página de información general.
+> [!Note]
+> Es posible que la alta disponibilidad con redundancia de zona provoque una caída de la latencia del 5 al 10 % si la aplicación se conecta al servidor de bases de datos por medio de zonas de disponibilidad donde la latencia de red es relativamente mayor, de entre 2 a 4 ms. 
 
-A continuación se enumeran los distintos estados de replicación:
+:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Alta disponibilidad con redundancia de zona":::
+
+### <a name="zone-redundancy-architecture"></a>Arquitectura de la redundancia de zona
+
+El servidor principal se implementa en la región y en una zona de disponibilidad concreta. Cuando se elige la alta disponibilidad, se implementa de forma automática un servidor de réplica en espera con la misma configuración que el servidor principal en la "zona de disponibilidad especificada", incluidos el nivel y el tamaño de proceso, el tamaño de almacenamiento y la configuración de red. Los datos de registro se replican sincrónicamente en la réplica en espera para garantizar que no se produzca ninguna pérdida de datos en cualquier situación de error. Las copias de seguridad automáticas, tanto las de instantáneas como las de registros, se realizan en un almacenamiento con redundancia de zona desde el servidor de bases de datos principal.
+
+### <a name="standby-zone-selection"></a>Selección de zona en espera
+En el escenario de alta disponibilidad con redundancia de zona, puede elegir la ubicación de la zona de servidor en espera que prefiera. La colocación de los servidores de bases de datos y las aplicaciones en espera en la misma zona reduce las latencias y permite a los usuarios prepararse mejor para situaciones de recuperación ante desastres y escenarios de "zona fuera de servicio".
+
+## <a name="same-zone-high-availability"></a>Alta disponibilidad en la misma zona
+
+Cuando se crea el servidor flexible con alta disponibilidad en la misma zona habilitada, los archivos de datos y de registro se hospedan en un [almacenamiento con redundancia local (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#locally-redundant-storage). Con la replicación de nivel de almacenamiento disponible con LRS, los archivos de datos y de registro se replican sincrónicamente en el servidor en espera para garantizar que no se pierdan datos. El servidor en espera ofrece redundancia de infraestructura con una máquina virtual independiente (proceso) que reduce el tiempo de conmutación por error y la latencia de red entre la aplicación de usuario y el servidor de bases de datos debido a la coubicación. La conmutación por error es totalmente transparente desde la aplicación cliente y no requiere ninguna acción por parte del usuario. La recuperación del servidor en espera para conectarse durante la conmutación por error depende de la aplicación de registro binario en espera. Por tanto, se recomienda usar claves principales en todas las tablas para reducir el tiempo de conmutación por error. El servidor en espera no está disponible para las operaciones de lectura o escritura, pero es un estado de espera pasivo para habilitar la conmutación por error rápida. Los tiempos de conmutación por error suelen oscilar entre 60-120 segundos.
+
+La alta disponibilidad en la misma zona permite a los usuarios colocar un servidor en espera en la misma zona que el servidor principal, lo que reduce el retraso de replicación entre el servidor principal y el que está en espera. Esto también proporciona latencias inferiores entre el servidor de aplicaciones y el servidor de bases de datos si se colocan dentro de la misma zona de disponibilidad de Azure.
+
+:::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="Alta disponibilidad en la misma zona":::
+
+## <a name="high-availability-monitoring"></a>Supervisión de la alta disponibilidad
+El estado de la alta disponibilidad se supervisa y se registra de manera continuada en la página de información general. A continuación se enumeran los distintos estados de replicación:
 
 | **Estado** | **Descripción** |
 | :----- | :------ |
 | <b>NotEnabled | La alta disponibilidad con redundancia de zona no está habilitada |
-| <b>CreatingStandby | En el proceso de crear un servidor en espera |
 | <b>ReplicatingData | Una vez que se ha creado el servidor en espera, se pone al día con el servidor principal. |
 | <b>FailingOver | El servidor de bases de datos está en proceso de conmutar por error desde el principal al de espera. |
 | <b>Correcto | La alta disponibilidad con redundancia de zona está en estado estable y es correcta. |
@@ -47,15 +67,15 @@ Estas son algunas ventajas de usar la característica de alta disponibilidad con
 
 - La réplica en espera se implementa en una configuración de máquina virtual exacta como la principal, como núcleos virtuales, almacenamiento, configuración de red (VNET, firewall), etc.
 - Se puede quitar la réplica en espera si se deshabilita la alta disponibilidad.
-- Las copias de seguridad automáticas se basan en instantáneas, se realizan desde el servidor de bases de datos principal y se almacenan en un almacenamiento con redundancia de zona.
+- Las copias de seguridad automáticas se basan en instantáneas, se realizan desde el servidor de bases de datos principal y se almacenan en un almacenamiento con redundancia de zona o con redundancia local, según la opción de alta disponibilidad.
 - En caso de conmutación por error, el servidor flexible de Azure Database for MySQL conmuta automáticamente por error a la réplica en espera si la alta disponibilidad está habilitada. La configuración de alta disponibilidad supervisa el servidor principal y lo vuelve a poner en línea.
 - Los clientes siempre se conectan al servidor de bases de datos principal.
-- Si hay un bloqueo en la base de datos o un nodo, primero se intenta reiniciar en el mismo nodo. Si se produce un error, se desencadena la conmutación automática por error.
+- Si hay un bloqueo en la base de datos o un error de nodos, la máquina virtual del servidor flexible se reinicia en el mismo nodo. Al mismo tiempo, se desencadena una conmutación automática por error. Si el reinicio de la máquina virtual del servidor flexible se realiza correctamente antes de que finalice la conmutación por error, se cancelará la operación de conmutación por error.
 - Capacidad de reiniciar el servidor para seleccionar cualquier cambio de parámetro de servidor estático.
 
 ## <a name="steady-state-operations"></a>Operaciones de estado estable
 
-Las aplicaciones se conectan al servidor principal mediante el nombre del servidor de bases de datos. La información de la réplica en espera no se expone para el acceso directo. Las operaciones de confirmación y escritura se reconocen a la aplicación solo después de que los archivos de registro se conserven en el disco del servidor principal y en la réplica en espera de forma sincrónica. Debido a este requisito de ida y vuelta adicional, las aplicaciones pueden esperar una latencia elevada para las operaciones de escritura y confirmación. Puede supervisar el estado de la alta disponibilidad en el portal.
+Las aplicaciones se conectan al servidor principal mediante el nombre del servidor de bases de datos. La información de la réplica en espera no se expone para el acceso directo. Las confirmaciones y escrituras se confirman después de vaciar los archivos de registro en el almacenamiento con redundancia de zona (ZRS) del servidor principal. Debido a la tecnología de replicación de sincronización que se usa en el almacenamiento de ZRS, las aplicaciones pueden esperar una ligera latencia para las escrituras y confirmaciones.
 
 ## <a name="failover-process"></a>Proceso de conmutación por error 
 Para la continuidad empresarial, debe tener un proceso de conmutación por error para eventos planeados y no planeados. 
@@ -63,18 +83,12 @@ Para la continuidad empresarial, debe tener un proceso de conmutación por error
 >[!NOTE]
 > Use siempre el nombre de dominio completo (FQDN) para conectarse al servidor principal y evite usar la dirección IP para conectarse. En caso de conmutación por error, después de cambiar los roles de servidor principal y en espera, el registro de DNS A también podría cambiar, lo que impedirá que la aplicación se conecte al nuevo servidor principal si se usa la dirección IP en la cadena de conexión. 
 
-### <a name="planned-events"></a>Eventos planeados
+### <a name="planned-events---forced-failover"></a>Eventos planeados: conmutación por error forzada
 
-Los eventos de tiempo de inactividad planeados incluyen actividades programadas por Azure, como actualizaciones de software periódicas, actualizaciones de versiones secundarias o iniciadas por clientes como las operaciones de escalado de proceso y almacenamiento. Todos estos cambios se aplican primero a la réplica en espera. Durante ese tiempo, las aplicaciones mantienen el acceso al servidor principal. Una vez que se actualiza la réplica en espera, se purgan las conexiones del servidor principal, se desencadena una conmutación por error que activa la réplica en espera para que sea la principal con el mismo nombre de servidor de bases de datos mediante la actualización del registro de DNS. Las conexiones de cliente se desconectan y deben volver a conectarse y reanudar sus operaciones. Se establece un nuevo servidor en espera en la misma zona que el servidor principal anterior. Se espera que el tiempo de conmutación por error global sea de 60-120 segundos. 
-
->[!NOTE]
-> En el caso de la operación de escalado de proceso, se escala el servidor de réplica secundario seguido del servidor principal. No hay ninguna conmutación por error implicada.
+La conmutación por error forzada de Azure Database for MySQL le permite forzar manualmente una conmutación por error. Esto a su vez le permite probar la funcionalidad con los escenarios de aplicación y le ayuda a estar listo en caso de que se produzcan interrupciones. La conmutación por error forzada cambia el servidor en espera para que se convierta en el servidor principal mediante el desencadenamiento de una conmutación por error que activa la réplica en espera para que se convierta en el servidor principal con el mismo nombre de servidor de base de datos mediante la actualización del registro DNS. El servidor principal original se reiniciará y se cambiará a la réplica en espera. Las conexiones de cliente se desconectan y deben volver a conectarse para reanudar sus operaciones. Según la carga de trabajo actual y el último punto de control, se medirá el tiempo total de conmutación por error. En general, se espera que oscile entre 60 y 120 s. 
 
 ### <a name="failover-process---unplanned-events"></a>Proceso de conmutación por error: eventos no planeados
 Los tiempos de inactividad del servicio no planeados incluyen errores de software o de infraestructura, como los de procesos, redes y almacenamiento, o bien interrupciones de energía que afectan a la disponibilidad de la base de datos. En caso de que la base de datos no esté disponible, la replicación en la réplica en espera se anula y la réplica en espera se activa para ser la base de datos principal. El DNS se actualiza y, después, los clientes se vuelven a conectar al servidor de bases de datos y reanudan sus operaciones. Se espera que el tiempo de conmutación por error global sea de 60-120 segundos. Pero en función de la actividad del servidor de bases de datos principal en el momento de la conmutación por error (como las transacciones de gran tamaño y el tiempo de recuperación) la conmutación por error puede tardar más.
-
-### <a name="forced-failover"></a>Conmutación por error forzada
-La conmutación por error forzada de Azure Database for MySQL le permite forzar manualmente una conmutación por error. Esto a su vez le permite probar la funcionalidad con los escenarios de aplicación y le ayuda a estar listo en caso de que se produzcan interrupciones. La conmutación por error forzada cambia el servidor en espera para que se convierta en el servidor principal mediante el desencadenamiento de una conmutación por error que activa la réplica en espera para que se convierta en el servidor principal con el mismo nombre de servidor de base de datos mediante la actualización del registro DNS. El servidor principal original se reiniciará y se cambiará a la réplica en espera. Las conexiones de cliente se desconectan y deben volver a conectarse para reanudar sus operaciones. Según la carga de trabajo actual y el último punto de control, se medirá el tiempo total de conmutación por error. En general, se espera que oscile entre 60 y 120 s.
 
 ## <a name="schedule-maintenance-window"></a>Programación de la ventana de mantenimiento 
 

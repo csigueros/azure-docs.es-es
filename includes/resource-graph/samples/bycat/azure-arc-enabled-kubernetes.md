@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 824916f3e9de2007e683ae572ccfad9401f0f50d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: eb76af4eb2721390832dd2f26d4220ddba7618c2
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457228"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861432"
 ---
 ### <a name="list-all-azure-arc-enabled-kubernetes-clusters-with-azure-monitor-extension"></a>Lista de todos los clústeres de Kubernetes habilitados para Azure Arc con la extensión Azure Monitor
 
@@ -86,9 +86,9 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Kubernetes/connected
 
 ---
 
-### <a name="list-all-azure-arc-enabled-kubernetes-resources"></a>Lista de todos recursos de Kubernetes habilitados para Azure Arc
+### <a name="list-all-azure-arc-enabled-kubernetes-resources"></a>Enumeración de todos recursos de Kubernetes habilitado para Azure Arc
 
-Devuelve una lista de cada clúster de Kubernetes habilitado para Azure Arc y los metadatos correspondientes de cada clúster.
+Devuelve una lista de cada clúster de Kubernetes habilitado para Azure Arc y los metadatos pertinentes para cada clúster.
 
 ```kusto
 Resources

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/29/2021
 ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 4d4c7fcb824d57b46df1353f30d3136e129af293
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 80841c800172c4f0f551b6437d18d437aed0536d
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765791"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634141"
 ---
 # <a name="tutorial-upload-data-and-train-a-model-part-3-of-3"></a>Tutorial: Carga de datos y entrenamiento de un modelo (parte 3 de 3)
 
@@ -270,6 +270,8 @@ El script de control es similar al de la [parte 3 de esta serie](tutorial-1st-e
 Seleccione **Save and run script in terminal** (Guardar y ejecutar script en terminal) para ejecutar el script *run-pytorch-data.py*.  Esta ejecución entrenará el modelo en el clúster de proceso utilizando los datos cargados.
 
 Este código imprimirá una dirección URL en el experimento en Azure Machine Learning Studio. Si navega a ese vínculo, podrá ver el código en ejecución.
+
+[!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
 
 
 ### <a name="inspect-the-log-file"></a><a name="inspect-log"></a> Inspección del archivo de registro
