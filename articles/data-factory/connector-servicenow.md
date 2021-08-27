@@ -1,18 +1,20 @@
 ---
 title: Copia de datos de ServiceNow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre cómo copiar datos de ServiceNow en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 08/01/2019
-ms.openlocfilehash: 95d4fe599aa36c6f3057492014afd53f063c4537
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: df7f1a37ac5b6779220595609a81b76b01952097
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482874"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637958"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copia de datos de ServiceNow con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -163,7 +165,7 @@ Si tiene un filtro en su consulta, use el esquema "Real" que tenga un mejor rend
 
 ### <a name="index"></a>Índice
 
-El índice de la tabla de ServiceNow puede ayudarle a mejorar el rendimiento de las consultas; para ello, consulte [Create a table index](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html) (Crear un índice de tabla).
+El índice de la tabla de ServiceNow puede ayudarle a mejorar el rendimiento de las consultas; para ello, consulte [Create a table index](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/table-administration/task/t_CreateCustomIndex.html) (Crear un índice de tabla).
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 

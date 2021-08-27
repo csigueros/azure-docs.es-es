@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 5d768fdc2540496769883d839cfbb4f009a2000c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: dab213cf240dd955f1aea2a545b5c25efcdef349
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077642"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751338"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Configuración de módulos y conexiones de IoT Edge
 
@@ -45,15 +45,15 @@ Ahora, especifique las credenciales del contenedor en el módulo IoT Edge.
    | _Campo_   | _Valor_       |
    | -------   | -------       |
    | Nombre      | Nombre de registro |
-   | Dirección   | Servidor de inicio de sesión  | 
-   | Nombre de usuario | Nombre de usuario      | 
-   | Contraseña  | Contraseña      | 
-  
+   | Dirección   | Servidor de inicio de sesión  |
+   | Nombre de usuario | Nombre de usuario      |
+   | Contraseña  | Contraseña      |
+
 ## <a name="build-push-and-deploy-the-data-generator-module"></a>Creación, inserción e implementación del módulo del generador de datos
 
 1. Clone los [archivos de proyecto](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) en la máquina.
 2. Abra el archivo **IronOre_Silica_Predict.sln** con Visual Studio 2019.
-3. Actualice los detalles del registro de contenedor en **deployment.template.json**. 
+3. Actualice los detalles del registro de contenedor en **deployment.template.json**.
    ```json
    "registryCredentials":{
         "RegistryName":{
@@ -70,15 +70,15 @@ Ahora, especifique las credenciales del contenedor en el módulo IoT Edge.
         "tag":
     }
    ```
-5. Ejecute el proyecto en modo de depuración o de lanzamiento para asegurarse de que el proyecto se ejecuta sin problemas. 
+5. Ejecute el proyecto en modo de depuración o de lanzamiento para asegurarse de que el proyecto se ejecuta sin problemas.
 6. Inserte el proyecto en el registro de contenedor; para ello, haga clic con el botón derecho en el nombre del proyecto y, a continuación, seleccione **Compilación e inserción de módulos IoT Edge**.
-7. Implemente el módulo del generador de datos como módulo de IoT Edge en el dispositivo perimetral. 
+7. Implemente el módulo del generador de datos como módulo de IoT Edge en el dispositivo perimetral.
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Implementación del módulo de Azure SQL Edge
 
-1. Implemente el módulo Azure SQL Edge; para ello, haga clic en **+ Agregar** y, después, en **Módulo de Marketplace**. 
+1. Implemente el módulo Azure SQL Edge; para ello, haga clic en **+ Agregar** y, después, en **Módulo de Marketplace**.
 
-2. En la hoja **Marketplace de módulos IoT Edge**, busque *Azure SQL Edge* y seleccione *Desarrollador de Azure SQL Edge*. 
+2. En la hoja **Marketplace de módulos IoT Edge**, busque *Azure SQL Edge* y seleccione *Desarrollador de Azure SQL Edge*.
 
 3. Haga clic en el módulo *Azure SQL Edge* recién agregado en **Módulos IoT Edge** para configurar el módulo Azure SQL Edge. Para obtener más información sobre las opciones de configuración, consulte [Implementación de Azure SQL Edge](./deploy-portal.md).
 
@@ -90,14 +90,14 @@ Ahora, especifique las credenciales del contenedor en el módulo IoT Edge.
 
 7. En el panel de rutas de la página **Establecer módulos en el dispositivo**, especifique las rutas del módulo para la comunicación del centro de IoT Edge como se describe a continuación. Asegúrese de actualizar los nombres de los módulos en las definiciones de ruta siguientes.
 
-   ```
+   ```syntax
    FROM /messages/modules/<your_data_generator_module>/outputs/IronOreMeasures INTO
    BrokeredEndpoint("/modules/<your_azure_sql_edge_module>/inputs/IronOreMeasures")
    ```
 
    Por ejemplo:
 
-   ```
+   ```syntax
    FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEndpoint("/modules/AzureSQLEdge/inputs/IronOreMeasures")
    ```
 
@@ -126,15 +126,15 @@ Ahora, especifique las credenciales del contenedor en el módulo IoT Edge.
 
 4. En la pestaña del menú **Archivo**, abra un cuaderno nuevo o use el método abreviado de teclado CTRL+N.
 
-5. En la nueva ventana Consulta, ejecute el siguiente script para crear el trabajo de streaming de T-SQL. Antes de ejecutar el script, asegúrese de cambiar las siguientes variables. 
-   - *SQL_SA_Password:* El valor MSSQL_SA_PASSWORD especificado durante la implementación del módulo Azure SQL Edge. 
-   
+5. En la nueva ventana Consulta, ejecute el siguiente script para crear el trabajo de streaming de T-SQL. Antes de ejecutar el script, asegúrese de cambiar las siguientes variables.
+   - *SQL_SA_Password:* El valor MSSQL_SA_PASSWORD especificado durante la implementación del módulo Azure SQL Edge.
+
    ```sql
    Use IronOreSilicaPrediction
    Go
 
    Declare @SQL_SA_Password varchar(200) = '<SQL_SA_Password>'
-   declare @query varchar(max) 
+   declare @query varchar(max)
 
    /*
    Create Objects Required for Streaming
@@ -144,22 +144,22 @@ Ahora, especifique las credenciales del contenedor en el módulo IoT Edge.
 
    If NOT Exists (select name from sys.external_file_formats where name = 'JSONFormat')
    Begin
-      CREATE EXTERNAL FILE FORMAT [JSONFormat]  
+      CREATE EXTERNAL FILE FORMAT [JSONFormat]
       WITH ( FORMAT_TYPE = JSON)
-   End 
+   End
 
 
    If NOT Exists (select name from sys.external_data_sources where name = 'EdgeHub')
    Begin
-      Create EXTERNAL DATA SOURCE [EdgeHub] 
+      Create EXTERNAL DATA SOURCE [EdgeHub]
       With(
          LOCATION = N'edgehub://'
       )
-   End 
+   End
 
    If NOT Exists (select name from sys.external_streams where name = 'IronOreInput')
    Begin
-      CREATE EXTERNAL STREAM IronOreInput WITH 
+      CREATE EXTERNAL STREAM IronOreInput WITH
       (
          DATA_SOURCE = EdgeHub,
          FILE_FORMAT = JSONFormat,
@@ -173,7 +173,7 @@ Ahora, especifique las credenciales del contenedor en el módulo IoT Edge.
        set @query = 'CREATE DATABASE SCOPED CREDENTIAL SQLCredential
                  WITH IDENTITY = ''sa'', SECRET = ''' + @SQL_SA_Password + ''''
        Execute(@query)
-   End 
+   End
 
    If NOT Exists (select name from sys.external_data_sources where name = 'LocalSQLOutput')
    Begin
@@ -183,7 +183,7 @@ Ahora, especifique las credenciales del contenedor en el módulo IoT Edge.
 
    If NOT Exists (select name from sys.external_streams where name = 'IronOreOutput')
    Begin
-      CREATE EXTERNAL STREAM IronOreOutput WITH 
+      CREATE EXTERNAL STREAM IronOreOutput WITH
       (
          DATA_SOURCE = LocalSQLOutput,
          LOCATION = N'IronOreSilicaPrediction.dbo.IronOreMeasurements'
@@ -196,7 +196,7 @@ Ahora, especifique las credenciales del contenedor en el módulo IoT Edge.
    exec sys.sp_start_streaming_job @name=N'IronOreData'
    ```
 
-6. Utilice la siguiente consulta para comprobar que los datos del módulo de generación de datos se estén transmitiendo a la base de datos. 
+6. Utilice la siguiente consulta para comprobar que los datos del módulo de generación de datos se estén transmitiendo a la base de datos.
 
    ```sql
    Select Top 10 * from dbo.IronOreMeasurements
@@ -204,7 +204,7 @@ Ahora, especifique las credenciales del contenedor en el módulo IoT Edge.
    ```
 
 
-En este tutorial, hemos implementado el módulo generador de datos y el módulo SQL Edge. Después, hemos creado un trabajo de streaming para transmitir los datos generados por el módulo de generación de datos a SQL. 
+En este tutorial, hemos implementado el módulo generador de datos y el módulo SQL Edge. Después, hemos creado un trabajo de streaming para transmitir los datos generados por el módulo de generación de datos a SQL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
