@@ -8,6 +8,10 @@
       href: core/overview-iot-central-tour.md
     - name: Actualizaciones recientes
       items:
+        - name: "Características nuevas y actualizadas de julio de\_2021"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-july-2021/'
+        - name: "Características nuevas y actualizadas de junio de\_2021"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-june-2021/'
         - name: "Características nuevas y actualizadas de mayo de\_2021"
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-may-2021/'
         - name: "Características nuevas y actualizadas de abril de\_2021"
@@ -143,48 +147,6 @@
       href: core/overview-iot-central-operator.md
     - name: ¿Qué son las plantillas de aplicación?
       href: core/concepts-app-templates.md
-    - name: Plantillas de aplicaciones del sector
-      items:
-        - name: Minoristas
-          items:
-            - name: Información general
-              href: retail/overview-iot-central-retail.md
-            - name: 'Análisis en el almacén: finalización de la compra'
-              href: retail/store-analytics-architecture.md
-            - name: Arquitectura de la plantilla de aplicación de administración inteligente de inventario
-              href: retail/architecture-smart-inventory-management.md
-            - name: Arquitectura de logística conectada
-              href: retail/architecture-connected-logistics.md
-            - name: Centro de distribución digital
-              href: retail/architecture-digital-distribution-center.md
-            - name: Arquitectura del centro de micrologística
-              href: retail/architecture-micro-fulfillment-center.md
-            - name: 'Análisis de vídeo: detección de objetos y movimiento'
-              href: retail/architecture-video-analytics.md
-        - name: Sector energético
-          items:
-            - name: Información general
-              href: energy/overview-iot-central-energy.md
-            - name: Arquitectura de aplicaciones de medidores inteligentes
-              href: energy/concept-iot-central-smart-meter-app.md
-            - name: Arquitectura de aplicaciones de paneles solares
-              href: energy/concept-iot-central-solar-panel-app.md
-        - name: Gobierno
-          items:
-            - name: Información general
-              href: government/overview-iot-central-government.md
-            - name: Arquitectura de supervisión de residuos conectados
-              href: government/concepts-connectedwastemanagement-architecture.md
-            - name: Arquitectura de supervisión del consumo de agua
-              href: government/concepts-waterconsumptionmonitoring-architecture.md
-            - name: Arquitectura de supervisión de la calidad del agua
-              href: government/concepts-waterqualitymonitoring-architecture.md
-        - name: Atención sanitaria
-          items:
-            - name: Información general
-              href: healthcare/overview-iot-central-healthcare.md
-            - name: Arquitectura de la supervisión de pacientes continua
-              href: healthcare/concept-continuous-patient-monitoring-architecture.md
     - name: ¿Qué son las plantillas de dispositivo?
       href: core/concepts-device-templates.md
     - name: Conectividad de dispositivos
@@ -243,12 +205,8 @@
           href: core/howto-create-custom-rules.md
         - name: Creación de análisis personalizado con Databricks
           href: core/howto-create-custom-analytics.md
-        - name: Visualización de datos en Power BI
-          href: core/howto-connect-powerbi.md
         - name: Conexión a otras nubes de IoT
           href: core/howto-build-iotc-device-bridge.md
-        - name: "Conexión de una aplicación de Azure IoT Central con los servicios de campo de Dynamics\_365"
-          href: government/how-to-configure-connected-field-services.md
     - name: Uso de la API de REST
       items:
         - name: Autenticación y autorización de llamadas a API REST
@@ -288,7 +246,7 @@
         - name: Conexiones de dispositivos
           href: core/troubleshoot-connection.md
     - name: Preguntas más frecuentes
-      href: core/howto-faq.md
+      href: core/howto-faq.yml
     - name: Administración de las preferencias personales
       href: core/howto-manage-preferences.md
     - name: Alternancia de chat en directo
@@ -318,7 +276,7 @@
         - name: Aceleradores de soluciones de IoT
           href: ../iot-accelerators/index.yml
         - name: IoT Plug and Play
-          href: ../iot-pnp/index.yml
+          href: ../iot-develop/index.yml
         - name: Azure Maps
           href: ../azure-maps/index.yml
         - name: Time Series Insights

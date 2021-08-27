@@ -4,15 +4,15 @@ description: En este tutorial, creará una instancia de Azure Data Factory con u
 ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 07/05/2021
-ms.openlocfilehash: 9dbeeaa10fc755b978a1819a0af181da47149921
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 7d2f32b4bb730d0c698950ecdf82283d1bf88274
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436845"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638917"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios en Azure Portal
 
@@ -179,7 +179,7 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
     ![icono implementando factoría de datos](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono Abrir Azure Data Factory Studio.":::
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono Abrir Azure Data Factory Studio.":::
 
 10. Seleccione **Abrir** en el icono **Abrir Azure Data Factory Studio** para iniciar la aplicación de interfaz de usuario (IU) de Azure Data Factory en una pestaña independiente.
 11. En la página principal, cambie a la pestaña **Administrar** del panel de la izquierda como se muestra en la siguiente imagen:

@@ -73,6 +73,9 @@
         - name: Supervisión de cambios en la delegación
           displayName: activity log
           href: ./how-to/monitor-delegation-changes.md
+        - name: Incorporación de suscripciones a un grupo de administración
+          displayName: 'mg, policy, logic app'
+          href: ./how-to/onboard-management-group.md
     - name: Visualización y administración de clientes
       displayName: my customers
       href: ./how-to/view-manage-customers.md

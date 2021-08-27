@@ -6,17 +6,17 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: b0306002ea8a77e82e0247353489761a24654e0e
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: b1052b996fd9da8452d0f23d60fc7ea53676f713
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112417368"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769827"
 ---
 # <a name="event-handlers-destinations-in-event-grid-on-kubernetes"></a>Destinos de controladores de eventos en Event Grid en Kubernetes
 Un controlador de eventos es cualquier sistema que expone un punto de conexión y es el destino de los eventos enviados por Event Grid. Un controlador de eventos que recibe un evento actúa sobre él y usa la carga del evento para ejecutar alguna lógica, lo que podría derivar en la aparición de nuevos eventos.
 
-La manera de configurar Event Grid para enviar eventos a un destino es mediante la creación de una suscripción de eventos. Se puede realizar con la [CLI de Azure](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create), el [SDK de administración](../sdk-overview.md#management-sdks) o las llamadas HTTPS directas mediante la versión [2020-10-15-preview API](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate).
+La manera de configurar Event Grid para enviar eventos a un destino es mediante la creación de una suscripción de eventos. Se puede realizar con la [CLI de Azure](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create), el [SDK de administración](../sdk-overview.md#management-sdks) o las llamadas HTTPS directas mediante la versión [2020-10-15-preview API](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update).
 
 En general, Event Grid en Kubernetes puede enviar eventos a cualquier destino mediante **webhooks**. Los webhooks son puntos de conexión HTTP(S) expuestos por un servicio o una carga de trabajo a los que Event Grid tiene acceso. El webhook puede ser una carga de trabajo hospedada en el mismo clúster, en el mismo espacio de red, en la nube, localmente o en cualquier lugar al que Event Grid puede acceder. 
 
@@ -39,15 +39,15 @@ Además de los webhooks, Event Grid en Kubernetes puede enviar eventos a los sig
 
 
 ## <a name="feature-parity"></a>Paridad de características
-Event Grid en Kubernetes ofrece un buen nivel de paridad de características mediante la compatibilidad de Azure Event Grid con las suscripciones de eventos. En la lista siguiente se enumeran las principales diferencias en la funcionalidad de suscripción de eventos. Además de tales diferencias, puede usar la [versión de la API de REST 2020-10-15-preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions) de Azure Event Grid como referencia al administrar las suscripciones de eventos en Event Grid en Kubernetes.
+Event Grid en Kubernetes ofrece un buen nivel de paridad de características mediante la compatibilidad de Azure Event Grid con las suscripciones de eventos. En la lista siguiente se enumeran las principales diferencias en la funcionalidad de suscripción de eventos. Además de tales diferencias, puede usar la [versión de la API de REST 2020-10-15-preview](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions) de Azure Event Grid como referencia al administrar las suscripciones de eventos en Event Grid en Kubernetes.
 
-1. Use la [versión de la API de REST 2020-10-15-preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions).
+1. Use la [versión de la API de REST 2020-10-15-preview](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions).
 2. El [desencadenador de Azure Event Grid para Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp%2Cconsole) no es compatible. Puede usar un tipo de destino de webhook para entregar eventos a Azure Functions.
 3. No hay compatibilidad con la [ubicación de mensajes fallidos](../manage-event-delivery.md#set-dead-letter-location). Eso significa que no puede usar ``properties.deadLetterDestination`` en la carga de la suscripción de eventos.
 4. Las conexiones híbridas de Azure Relay como destino aún no son compatibles.
-5. Solo se admite el esquema CloudEvents. El valor de esquema admitido es "[CloudEventSchemaV1_0](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#eventdeliveryschema)". El esquema de eventos en la nube es extensible y se basa en estándares abiertos.  
-6. Las etiquetas ([properties.labels](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#request-body)) no son aplicables a Event Grid en Kubernetes. Por lo tanto, no están disponibles.
-7. No se admite la [entrega con un identidad de recurso](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#deliverywithresourceidentity). Por lo tanto, no se admiten todas las propiedades de la [identidad de la suscripción de eventos](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#eventsubscriptionidentity).
+5. Solo se admite el esquema CloudEvents. El valor de esquema admitido es "[CloudEventSchemaV1_0](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update#eventdeliveryschema)". El esquema de eventos en la nube es extensible y se basa en estándares abiertos.  
+6. Las etiquetas ([properties.labels](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update#request-body)) no son aplicables a Event Grid en Kubernetes. Por lo tanto, no están disponibles.
+7. No se admite la [entrega con un identidad de recurso](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update#deliverywithresourceidentity). Por lo tanto, no se admiten todas las propiedades de la [identidad de la suscripción de eventos](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update#eventsubscriptionidentity).
 8. Todavía no se admite la [validación del punto de conexión de destino](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
 
 ## <a name="event-filtering-in-event-subscriptions"></a>Filtrado de eventos en suscripciones de eventos

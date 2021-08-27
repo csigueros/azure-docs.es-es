@@ -120,9 +120,11 @@
 - name: Conceptos
   expanded: true
   items:
-    - name: Conceptos básicos sobre autenticación
-      displayName: Auth basics
+    - name: Conceptos básicos de autenticación y autorización
+      displayName: AuthN and AuthZ basics
       items:
+        - name: Conceptos básicos de autorización
+          href: authorization-basics.md
         - name: Autenticación frente a autorización
           href: authentication-vs-authorization.md
         - name: Tokens de seguridad
@@ -137,9 +139,16 @@
         - name: Biblioteca de Microsoft Identity Web
           href: microsoft-identity-web.md
           displayName: 'auth, library, .NET Core, msal'
-    - name: Conceptos básicos de autorización
-      displayName: AuthZ basics
+    - name: Permisos y control de acceso
+      displayName: Access control
       items:
+        - name: Permisos y consentimiento
+          displayName: Scopes
+          href: v2-permissions-and-consent.md
+        - name: Acceso condicional
+          href: v2-conditional-access-dev-guide.md
+        - name: Guía al contexto de autenticación del acceso condicional
+          href: developer-guide-conditional-access-authentication-context.md
         - name: Control de acceso basado en rol para desarrolladores de aplicaciones
           href: custom-rbac-for-developers.md
     - name: Flujos de autenticación y escenarios de aplicaciones
@@ -156,13 +165,6 @@
           href: secure-least-privileged-access.md
         - name: "Procedimientos recomendados de seguridad para el registro de aplicación de Azure\_AD"
           href: security-best-practices-for-app-registration.md
-        - name: Acceso condicional
-          href: v2-conditional-access-dev-guide.md
-        - name: Contexto de autenticación
-          href: developer-guide-conditional-access-authentication-context.md
-    - name: Permisos y consentimiento
-      displayName: Scopes
-      href: v2-permissions-and-consent.md
     - name: Aprovisionamiento automático de usuarios (SCIM)
       href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: Instrucciones
@@ -515,6 +517,8 @@
           href: support-fido2-authentication.md
     - name: Autenticación de aplicaciones y servicios
       items:
+        - name: Creación de un certificado autofirmado para autenticar una aplicación
+          href: howto-create-self-signed-certificate.md
         - name: Creación de una entidad de servicio mediante Azure PowerShell
           href: howto-authenticate-service-principal-powershell.md
         - name: Creación de una entidad de servicio con Azure Portal
@@ -654,6 +658,8 @@
               href: reference-saml-tokens.md
     - name: Azure CLI
       href: /cli/azure/identity
+    - name: Azure PowerShell
+      href: /powershell/module/az.managedserviceidentity
     - name: "Tipos de aplicación y OAuth\_2.0"
       displayName: 'App types, OAuth'
       href: v2-app-types.md

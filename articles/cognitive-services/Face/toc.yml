@@ -18,16 +18,16 @@ items:
     items:
       - name: Detección y análisis de caras
         href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-      - name: Especificación de una versión del modelo de reconocimiento facial
-        href: Face-API-How-to-Topics/specify-recognition-model.md
       - name: Especificación de una versión del modelo de detección de caras
         href: Face-API-How-to-Topics/specify-detection-model.md
+      - name: Especificación de una versión del modelo de reconocimiento facial
+        href: Face-API-How-to-Topics/specify-recognition-model.md
       - name: Adición de caras a un grupo
         href: Face-API-How-to-Topics/how-to-add-faces.md
-      - name: Uso de la estructura de PersonDirectory
-        href: Face-API-How-to-Topics/use-persondirectory.md
       - name: Usar la característica a gran escala
         href: Face-API-How-to-Topics/how-to-use-large-scale.md
+      - name: Uso de la estructura de PersonDirectory
+        href: Face-API-How-to-Topics/use-persondirectory.md
       - name: Uso del atributo HeadPose
         href: Face-API-How-to-Topics/how-to-use-headpose.md
       - name: Mitigación de la latencia cuando se usa el servicio Face
@@ -59,7 +59,7 @@ items:
             href: ../authentication.md?context=/azure/cognitive-services/face/context/context
   - name: Conceptos
     items:
-      - name: Detección de caras
+      - name: Detección y análisis de caras
         href: concepts/face-detection.md
       - name: Reconocimiento facial
         href: concepts/face-recognition.md
@@ -67,9 +67,9 @@ items:
     items:
       - name: Incorporación de usuarios a un servicio de Face
         items:
-          - name: Procedimientos recomendados para agregar usuarios
+          - name: Procedimientos recomendados para inscribir usuarios
             href: enrollment-overview.md
-          - name: Compilación de una aplicación de React para agregar usuarios
+          - name: Compilación de una aplicación de React para inscribir usuarios
             href: build-enrollment-app.md
   - name: Referencia
     items:

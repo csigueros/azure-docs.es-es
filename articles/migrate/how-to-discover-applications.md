@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: d68c3729e8a63f8342cd51b62413aec3276c6165
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: c337229a8e9a4fa98e80c955c317813950c51bfb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104871017"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732655"
 ---
-# <a name="discover-installed-software-inventory-and-sql-server-instances-and-databases"></a>Detectar el inventario de software instalado y las instancias y bases de datos de SQL Server
+# <a name="discover-installed-software-inventory-web-apps-and-sql-server-instances-and-databases"></a>Detección del inventario de software instalado, las aplicaciones web y las instancias y bases de datos de SQL Server
 
-En este artículo se describe cómo detectar el inventario de software instalado y las instancias y bases de datos de SQL Server en servidores que se ejecutan en el entorno de VMware, mediante la herramienta Azure Migrate: Detección y evaluación.
+En este artículo se explica cómo detectar el inventario de software instalado, las aplicaciones web y las instancias y bases de datos de SQL Server en servidores que se ejecutan en el entorno de VMware mediante la herramienta Azure Migrate: Detección y evaluación.
 
 La realización del inventario de software ayuda a identificar y adaptar una ruta de migración a Azure para las cargas de trabajo. El inventario de software usa el dispositivo de Azure Migrate para realizar la detección, con las credenciales de servidor. Se realiza totalmente sin agente: no hay agentes instalados en los servidores para recopilar los datos.
 
@@ -24,7 +24,7 @@ La realización del inventario de software ayuda a identificar y adaptar una rut
 - Asegúrese de que ha [creado un proyecto](./create-manage-projects.md) con la herramienta Azure Migrate: Detección y evaluación agregada.
 - Revise los [requisitos de VMware](migrate-support-matrix-vmware.md#vmware-requirements) para realizar el inventario de software.
 - Revise los [requisitos del dispositivo](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) antes de configurarlo.
-- Revise los [requisitos de detección de aplicaciones](migrate-support-matrix-vmware.md#application-discovery-requirements) antes de iniciar el inventario de software en los servidores.
+- Revise los [requisitos de detección de aplicaciones](migrate-support-matrix-vmware.md#software-inventory-requirements) antes de iniciar el inventario de software en los servidores.
 
 ## <a name="deploy-and-configure-the-azure-migrate-appliance"></a>Implementación y configuración del dispositivo de Azure Migrate
 
@@ -49,7 +49,7 @@ La realización del inventario de software ayuda a identificar y adaptar una rut
 2. Navegue hasta el panel **Administrar credenciales y orígenes de detección**.
 1.  En **Step 1: Provide vCenter Server credentials** (Paso 1: Proporcionar las credenciales de vCenter Server), haga clic en **Agregar credenciales** para proporcionar las credenciales de la cuenta de vCenter Server que el dispositivo usará para detectar los servidores que se ejecutan en vCenter Server.
 1. En el **Paso 2: Proporcionar los detalles de vCenter Server**, haga clic en **Agregar origen de detección** para seleccionar el nombre descriptivo de las credenciales en la lista desplegable, especifique **Dirección IP/FQDN** de la instancia de vCenter Server. :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 del administrador de configuración del dispositivo para los detalles de vCenter Server":::
-1. En **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases** (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server), haga clic en **Agregar credenciales** para proporcionar varias credenciales de servidor a fin de iniciar el inventario de software.
+1. En **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps in your VMware environment** (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente, la detección de instancias y bases de datos de SQL Server y la detección de aplicaciones web de ASP.NET en el entorno de VMware), haga clic en **Agregar credenciales** para proporcionar varias credenciales de servidor a fin de iniciar el inventario de software.
 1. Haga clic en **Iniciar detección** para iniciar la detección de vCenter Server.
 
  Una vez completada la detección de vCenter Server, el dispositivo inicia la detección de las aplicaciones instaladas, roles y características (inventario de software). Todo depende del número de servidores que se detecten. En el caso de 500 servidores, el inventario de detección tarda aproximadamente una hora en aparecer en el portal de Azure Migrate.
@@ -58,13 +58,13 @@ La realización del inventario de software ayuda a identificar y adaptar una rut
 
 Una vez completado el inventario de software, puede revisarlo y exportarlo a Azure Portal.
 
-1. En la página **Azure Migrate: servidores Windows, Linux y SQL** > **Azure Migrate: Detección y evaluación**, haga clic en el icono que muestra la página de **Servidores detectados**.
+1. En **Azure Migrate: Servidores, bases de datos y aplicaciones web** > **Azure Migrate: Detección y evaluación**, haga clic en el recuento que se muestra para abrir la página **Servidores detectados**.
 
     > [!NOTE]
     > En esta fase también puede habilitar el análisis de dependencias de los servidores detectados, para poder visualizar las dependencias entre los servidores que quiere evaluar. [Obtener más información](concepts-dependency-visualization.md) sobre el análisis de dependencias.
 
 2. En la columna **Inventario de software**, haga clic en el recuento mostrado para revisar las aplicaciones, los roles y las características detectados.
-4. Para exportar el inventario, en **Servidores detectados**, haga clic en **Exportar el inventario de las aplicaciones**.
+4. Para exportar el inventario, en **Servidores detectados**, haga clic en **Export software inventory** (Exportar inventario de software).
 
 El inventario de software se exporta y descarga en formato de Excel. En la hoja **Inventario de software** se muestran todas las aplicaciones detectadas en todos los servidores.
 
@@ -73,9 +73,18 @@ El inventario de software se exporta y descarga en formato de Excel. En la hoja 
 - El inventario de software también identifica las instancias de SQL Server que se ejecutan en el entorno de VMware.
 - Si no ha proporcionado las credenciales de autenticación de Windows o SQL Server en el administrador de configuración del dispositivo, agregue las credenciales para que el dispositivo pueda usarlas para conectarse a las instancias de SQL Server correspondientes.
 
+    > [!NOTE]
+    > El dispositivo solo se puede conectar a aquellas instancias de SQL Server cuya red tenga en el campo de visión, mientras que el inventario de software por sí mismo puede no necesitar tener la red en el campo de visión.
+
 Una vez conectado, el dispositivo recopila datos de configuración y rendimiento de las instancias y de las bases de datos de SQL Server. Los datos de configuración de SQL Server se actualizan una vez cada 24 horas y los datos de rendimiento se capturan cada 30 segundos. Por lo tanto, cualquier cambio en las propiedades de la instancia y bases de datos de SQL Server, como el estado de la base de datos, el nivel de compatibilidad, etc. puede tardar hasta 24 horas en actualizarse en el portal.
+
+## <a name="discover-aspnet-web-apps"></a>Detección de aplicaciones web de ASP.NET
+
+El inventario de software identifica el rol de servidor web existente en los servidores detectados. Si se detecta que un servidor tiene habilitado el rol de servidor web, Azure Migrate realiza la detección de aplicaciones web en el servidor.
+El usuario puede agregar credenciales de dominio y que no son de dominio al dispositivo. Asegúrese de que la cuenta usada tenga privilegios de administrador local en los servidores de origen. Azure Migrate asigna automáticamente las credenciales a los servidores respectivos, así que no es necesario hacerlo manualmente. Lo más importante es que estas credenciales nunca se envían a Microsoft y permanecen en el dispositivo que se ejecuta en el entorno de origen.
+Una vez conectado el dispositivo, recopila datos de configuración del servidor web de IIS y las aplicaciones web de ASP.NET. Los datos de configuración de las aplicaciones web se actualizan una vez cada 24 horas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Cree una valoración](how-to-create-assessment.md) para los servidores detectados.
-- [Evaluación de instancias de SQL Server](./tutorial-assess-sql.md) para la migración a Azure SQL.
+- [Evalúe las aplicaciones web](how-to-create-azure-app-service-assessment.md) para su migración a Azure App Service.

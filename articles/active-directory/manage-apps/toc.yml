@@ -92,7 +92,9 @@
 - name: Guías paso a paso
   expanded: false
   items:
-    - name: Asignación de usuarios y administración del acceso a las aplicaciones
+    - name: Asignación de propietarios
+      href: assign-app-owners.md
+    - name: Administración del acceso
       items:
         - name: Consentimiento y permisos
           items:
@@ -112,25 +114,25 @@
               href: grant-admin-consent.md
             - name: Revisión de los permisos concedidos a las aplicaciones
               href: manage-application-permissions.md
-        - name: Administración de la asignación de usuarios para una aplicación
+        - name: Administración de la asignación de usuarios
           href: assign-user-or-group-access-portal.md
         - name: Creación de colecciones en Aplicaciones
           href: access-panel-collections.md
         - name: Uso del acceso de autoservicio a las aplicaciones
           href: access-panel-manage-self-service-access.md
-        - name: Métodos para quitar el acceso de un usuario a una aplicación
+        - name: Eliminación del acceso de usuarios
           href: methods-for-removing-user-access.md
-        - name: Ocultamiento de una aplicación a un usuario
+        - name: Ocultar una aplicación
           href: hide-application-from-user-portal.md
         - name: Deshabilitar inicio de sesión del usuario
           href: disable-user-sign-in-portal.md
-        - name: Configuración de la asignación de aplicaciones en modo autoservicio
+        - name: Configuración de la asignación en modo autoservicio
           href: manage-self-service-access.md
-        - name: Forzar la aceleración automática mediante la directiva Detección de dominio principal
+        - name: Forzar aceleración automática
           href: configure-authentication-for-federated-users-portal.md
-        - name: Impedir la aceleración automática del inicio de sesión mediante la directiva Detección de dominio principal
+        - name: Impedir la aceleración automática del inicio de sesión
           href: prevent-domain-hints-with-home-realm-discovery.md
-    - name: "Migración de la administración de identidades en Azure\_AD"
+    - name: Migración de aplicaciones
       items:
         - name: Recursos de migración
           href: migration-resources.md

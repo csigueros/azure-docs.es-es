@@ -273,3 +273,5 @@
   items:
     - name: Obtención de soporte técnico para Azure Active Directory
       href: active-directory-troubleshooting-support-howto.md
+    - name: "Opciones de ayuda y soporte técnico para Azure\_AD"
+      href: support-help-options.md

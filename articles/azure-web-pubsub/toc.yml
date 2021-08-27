@@ -1,25 +1,52 @@
 - name: Documentación del servicio Azure Web PubSub
   href: index.yml
 - name: Información general
+  expanded: true
   items:
     - name: Acerca del servicio Azure Web PubSub
       href: overview.md
-- name: Guías de inicio rápido
+    - name: 'Acerca de centros de conectividad, grupos y conexiones'
+      href: key-concepts.md
+- name: Guías de inicios rápidos
   expanded: true
   items:
-    - name: Prueba de la demostración en directo de la sala de chat
-      href: quickstart-live-demo.md
-    - name: Inicio con una sencilla aplicación sin servidor de sala de chat
-      href: quickstart-serverless.md
+    - name: Crear instancia
+      expanded: true
+      items:
+        - name: Portal
+          href: howto-develop-create-instance.md
+        - name: CLI
+          href: quickstart-cli-create.md
+    - name: Conexión a la instancia
+      expanded: true
+      items:
+        - name: Publicación y suscripción desde el explorador
+          href: quickstart-live-demo.md
+        - name: Publicación y suscripción desde la CLI
+          href: quickstart-cli-try.md
+        - name: Publicación/publicación mediante el SDK de servicio
+          href: quickstart-use-sdk.md
+- name: Tutoriales
+  expanded: true
+  items:
+    - name: Desarrollo sin servidor
+      expanded: true
+      items:
+        - name: Creación de un chat sin servidor con Azure Function
+          href: quickstart-serverless.md
+    - name: Publicación de mensajes y suscripción a ellos
+      href: tutorial-pub-sub-messages.md
+    - name: Creación de una aplicación de chat
+      href: tutorial-build-chat.md
+    - name: Streaming de cliente mediante un subprotocolo compatible con el servicio
+      href: tutorial-subprotocol.md
+    - name: Autenticación y permisos
+      href: 'https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions'
 - name: Guías paso a paso
   expanded: true
   items:
     - name: Desarrollar
       items:
-        - name: Crear instancia
-          href: howto-develop-create-instance.md
-        - name: Publicación de mensajes y suscripción a ellos
-          href: 'https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message'
         - name: Uso de subprotocolos
           href: 'https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols'
         - name: Autenticación y permisos
@@ -41,23 +68,35 @@
         - name: Capturar los registros de diagnóstico
           href: howto-troubleshoot-diagnostic-logs.md
 - name: Conceptos
+  expanded: true
   items:
-    - name: Elementos internos del servicio Azure Web PubSub
-      href: 'https://azure.github.io/azure-webpubsub/concepts/service-internals'
+    - name: Aspectos internos del servicio
+      href: concept-service-internals.md
+    - name: Introducción al protocolo del cliente
+      href: concept-client-protocols.md
+    - name: Consideraciones de rendimiento
+      href: concept-performance.md
     - name: Modelo de facturación
       href: concept-billing-model.md
 - name: Referencia
   items:
-    - name: API DE REST
-      href: /rest/api/webpubsub
-    - name: Subprotocolo WebSocket de PubSub
-      href: 'https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol'
-    - name: CloudEvents de Web PubSub
-      href: 'https://azure.github.io/azure-webpubsub/references/protocol-cloudevents'
+    - name: Subprotocolos de WebSocket
+      expanded: true
+      items:
+        - name: Subprotocolos de WebSocket de JSON
+          href: reference-json-webpubsub-subprotocol.md
+    - name: Extensión CloudEvents para Azure Web PubSub
+      href: reference-cloud-events.md
+    - name: Desencadenador y enlaces de Azure Functions
+      href: reference-functions-bindings.md
     - name: SDK de servidor
       href: choose-server-sdks.md
+    - name: API DE REST
+      href: /rest/api/webpubsub
 - name: Recursos
   items:
+    - name: Ejemplos
+      href: 'https://aka.ms/awps/samples'
     - name: Soluciones
       href: /azure/architecture/
     - name: Disponibilidad en regiones

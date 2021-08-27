@@ -72,13 +72,13 @@
               href: data-factory-amazon-simple-storage-service-connector.md
             - name: Azure Blob Storage
               href: data-factory-azure-blob-connector.md
-            - name: Azure Cosmos DB
+            - name: "Azure Cosmos\_DB"
               href: data-factory-azure-documentdb-connector.md
             - name: Azure Data Lake Storage Gen1
               href: data-factory-azure-datalake-connector.md
             - name: Azure Cognitive Search
               href: data-factory-azure-search-connector.md
-            - name: Azure SQL Database
+            - name: "Azure\_SQL\_Database"
               href: data-factory-azure-sql-connector.md
             - name: Azure Synapse Analytics
               href: data-factory-azure-sql-data-warehouse-connector.md
@@ -141,7 +141,7 @@
           href: data-factory-spark.md
         - name: Actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)
           href: data-factory-azure-ml-batch-execution-activity.md
-        - name: Actividad de actualización de recurso de Azure Machine Learning Studio (clásico)
+        - name: Actividad de actualización de recursos de ML Studio (clásico)
           href: data-factory-azure-ml-update-resource-activity.md
         - name: Actividad de procedimiento almacenado
           href: data-factory-stored-proc-activity.md
@@ -208,7 +208,7 @@
     - name: Notas de la versión de Data Management Gateway
       href: data-factory-gateway-release-notes.md
     - name: Solicitud de una característica
-      href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
+      href: /answers/topics/azure-data-factory.html
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=data-factory'
     - name: Stack Overflow

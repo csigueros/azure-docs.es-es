@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 07376647edac05384c2efc1240c2242fd5eb664b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a06a488473264a992d947ef78ad69c61776d34ae
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949822"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271210"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ Las columnas indican si la etiqueta:
 - Es compatible con el ámbito [regional](https://azure.microsoft.com/regions).
 - Se puede usar en las reglas de [Azure Firewall](../firewall/service-tags.md).
 
-De forma predeterminada, las etiquetas de servicio reflejan los intervalos de toda la nube. Algunas etiquetas de servicio también permiten un control más preciso, ya que restringen los intervalos de direcciones IP correspondientes a una región especificada. Por ejemplo, la etiqueta de servicio **Storage** representa a Azure Storage para toda la nube, pero **Storage.WestUS** limita el rango solo a los intervalos de direcciones IP de almacenamiento de la región Oeste de EE. UU. En la tabla siguiente se indica si cada etiqueta de servicio admite este ámbito regional.  
+De forma predeterminada, las etiquetas de servicio reflejan los intervalos de toda la nube. Algunas etiquetas de servicio también permiten un control más preciso, ya que restringen los intervalos de direcciones IP correspondientes a una región especificada. Por ejemplo, la etiqueta de servicio **Storage** representa a Azure Storage para toda la nube, pero **Storage.WestUS** limita el rango solo a los intervalos de direcciones IP de almacenamiento de la región Oeste de EE. UU. En la tabla siguiente se indica si cada etiqueta de servicio admite este ámbito regional. Tenga en cuenta que la dirección indicada para cada etiqueta es una recomendación. Por ejemplo, la etiqueta AzureCloud se puede usar para permitir el tráfico de entrada. Pero esto no se recomienda en la mayoría de los escenarios, ya que implica permitir el tráfico de todas las direcciones IP de Azure, incluidas las usadas por otros clientes de Azure. 
 
 | Etiqueta | Propósito | ¿Se puede usar para tráfico entrante o saliente? | ¿Puede ser regional? | ¿Se puede usar con Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
@@ -56,8 +56,8 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureActiveDirectory** | Azure Active Directory. | Salida | No | Sí |
 | **AzureActiveDirectoryDomainServices** | Tráfico de administración para las implementaciones dedicadas a Azure Active Directory Domain Services. | Ambos | No | Sí |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | Salida | No | No |
-| **AzureAPIForFHIR** | Azure API for FHIR (Recursos Rápidos de Interoperabilidad en Salud).<br/><br/> *Nota: Esta etiqueta no se puede configurar actualmente desde Azure Portal.*| Salida | No | No |
 | **AzureArcInfrastructure** | Servidores habilitados para Azure Arc, Kubernetes habilitado para Azure Arc y tráfico de configuración de invitado.<br/><br/>*Nota:* Esta etiqueta tiene una dependencia en las etiquetas **AzureActiveDirectory**,**AzureTrafficManager** y **AzureResourceManager**. *Esta etiqueta no se puede configurar actualmente desde Azure Portal*.| Salida | No | Sí |
+| **AzureAttestation** | Azure Attestation.<br/><br/>*Nota: Esta etiqueta no se puede configurar actualmente desde Azure Portal* | Salida | No | Sí | 
 | **AzureBackup** |Azure Backup.<br/><br/>*Nota:* Esta etiqueta tiene dependencia de las etiquetas **Storage** y **AzureActiveDirectory**. | Salida | No | Sí |
 | **AzureBotService** | Azure Bot Service. | Salida | No | No |
 | **AzureCloud** | Todos las [direcciones IP públicas del centro de recursos](https://www.microsoft.com/download/details.aspx?id=56519). | Salida | Sí | Sí |
@@ -74,7 +74,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureEventGrid** | Azure Event Grid. | Ambos | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Ambos | No | No |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Nota:* Esta etiqueta presenta dependencia con las etiquetas **AzureActiveDirectory**, **AzureFrontDoor.Frontend** y **AzureFrontDoor.FirstParty**. | Salida | No | No |
-| **AzureIoTHub** | Azure IoT Hub. | Salida | No | No |
+| **AzureIoTHub** | Azure IoT Hub. | Salida | Sí | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* Esta etiqueta tiene dependencia en la etiqueta **AzureActiveDirectory**. | Salida | Sí | Sí |
 | **AzureLoadBalancer** | Equilibrador de carga de la infraestructura de Azure. La etiqueta se traduce en la [dirección IP virtual del host](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) donde se originan los sondeos de mantenimiento de Azure. Aquí solo se incluye el tráfico de sondeo, no el tráfico real al recurso de back-end. Si no usa Azure Load Balancer, puede reemplazar esta regla. | Ambos | No | No |
 | **AzureMachineLearning** | Azure Machine Learning. | Ambos | No | Sí |
@@ -106,7 +106,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **PowerQueryOnline** | Power Query Online. | Ambos | No | No |
 | **Service Bus** | Tráfico de Azure Service Bus que usa el nivel de servicio Premium. | Salida | Sí | Sí |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Nota:* Esta etiqueta representa el punto de conexión de servicio de Service Fabric para el plano de control por región. Esto permite a los clientes realizar operaciones de administración para sus clústeres de Service Fabric desde la red virtual (punto de conexión, p. ej. https:// westus.servicefabric.azure.com) | Ambos | No | No |
-| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL y Azure Synapse Analytics.<br/><br/>*Nota:* Esta etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure SQL Database, pero no una cuenta de un servidor o base de datos SQL específicos. Esta etiqueta no se aplica a ninguna instancia administrada de SQL. | Salida | Sí | Sí |
+| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB y Azure Synapse Analytics.<br/><br/>*Nota:* Esta etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure SQL Database, pero no una cuenta de un servidor o base de datos SQL específicos. Esta etiqueta no se aplica a ninguna instancia administrada de SQL. | Salida | Sí | Sí |
 | **SqlManagement** | Tráfico de administración para implementaciones dedicadas de SQL. | Ambos | No | Sí |
 | **Storage** | Azure Storage. <br/><br/>*Nota:* Esta etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure Storage, pero no una cuenta de específica de este. | Salida | Sí | Sí |
 | **StorageSyncService** | Servicio de sincronización de almacenamiento. | Ambos | No | No |

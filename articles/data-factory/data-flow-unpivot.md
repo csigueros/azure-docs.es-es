@@ -1,18 +1,20 @@
 ---
 title: Transformación Anular dinamización en el flujo de datos de asignación
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Transformación Anular dinamización de flujo de datos de asignación de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 07/14/2020
-ms.openlocfilehash: ef861cdf394716a70d85e43ce9c60f46af2cc2e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5313af13d02df1ab33764bf268edd601005cb8af
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93040206"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638353"
 ---
 # <a name="unpivot-transformation-in-mapping-data-flow"></a>Transformación Anular dinamización en el flujo de datos de asignación
 

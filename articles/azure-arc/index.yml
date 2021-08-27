@@ -25,10 +25,10 @@ highlightedContent:
     - title: Kubernetes habilitado para Azure Arc
       itemType: overview
       url: ./kubernetes/overview.md
-    - title: Servicios de datos habilitados para Azure Arc (versión preliminar)
+    - title: "Servicios de datos habilitados para Azure\_Arc"
       itemType: overview
       url: ./data/overview.md
-    - title: "SQL\_Server en servidores habilitados para Azure\_Arc (versión preliminar)"
+    - title: "SQL\_Server en servidores habilitados para Azure\_Arc"
       itemType: overview
       url: /sql/sql-server/azure-arc/overview
 conceptualContent:
@@ -43,10 +43,10 @@ conceptualContent:
           text: Introducción a la seguridad
         - url: ./servers/policy-reference.md
           itemType: learn
-          text: Directivas de control de admisión mediante Azure Policy
+          text: Definiciones de directivas de control de admisión mediante Azure Policy
         - url: /sql/sql-server/azure-arc/overview
           itemType: overview
-          text: SQL Server habilitado para Azure Arc (versión preliminar)
+          text: "Conexión con SQL\_Server"
       footerLink:
         url: ./servers/index.yml
         text: Ver más
@@ -67,7 +67,7 @@ conceptualContent:
       footerLink:
         url: ./kubernetes/index.yml
         text: Ver más
-    - title: Servicios de datos habilitados para Azure Arc (versión preliminar)
+    - title: "Servicios de datos habilitados para Azure\_Arc"
       links:
         - url: ./data/install-client-tools.md
           itemType: deploy
@@ -100,11 +100,11 @@ conceptualContent:
         - url: ../automation/automation-intro.md
           itemType: overview
           text: Información general sobre Azure Automation
-    - title: "SQL\_Server en servidores habilitados para Azure\_Arc (versión preliminar)"
+    - title: "SQL\_Server en servidores habilitados para Azure\_Arc"
       links:
         - url: /sql/sql-server/azure-arc/assess
           itemType: how-to-guide
-          text: Evaluación de una instancia habilitada para Arc
+          text: Evaluación de la instancia
         - url: /sql/sql-server/azure-arc/configure-advanced-data-security
           itemType: how-to-guide
           text: Configuración de Advanced Data Security

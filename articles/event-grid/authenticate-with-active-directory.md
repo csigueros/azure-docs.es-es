@@ -3,12 +3,12 @@ title: Autenticación de clientes de publicación de Event Grid mediante Azure A
 description: En este artículo se explica cómo autenticar un cliente de publicación de Azure Event Grid mediante Azure Active Directory.
 ms.topic: conceptual
 ms.date: 08/10/2021
-ms.openlocfilehash: b15febf10316406489d3f5bad7fc1085624ee96a
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
+ms.openlocfilehash: c34ce75d02d4e3044819e5e310bdb9e74c1b0004
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662259"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780614"
 ---
 # <a name="authentication-and-authorization-with-azure-active-directory-preview"></a>Autenticación y autorización con Azure Active Directory (versión preliminar)
 En este artículo se explica cómo autenticar clientes de publicación de Azure Event Grid mediante Azure Active Directory (Azure AD).
@@ -77,7 +77,7 @@ Estos son los requisitos previos para autenticarse en Event Grid.
 - Instale el SDK en la aplicación.
    - [Java](/java/api/overview/azure/messaging-eventgrid-readme#include-the-package)
    - [.NET](/dotnet/api/overview/azure/messaging.eventgrid-readme-pre#install-the-package)
-   - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid#install-the-azureeventgrid-package)
+   - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid.md#install-the-azureeventgrid-package)
    - [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid/azure-eventgrid#install-the-package)
 - Instale la biblioteca cliente de Azure Identity. El SDK de Event Grid depende de la biblioteca cliente de Azure Identity para la autenticación. 
    - [Biblioteca cliente de Azure Identity para Java](/java/api/overview/azure/identity-readme)
@@ -148,7 +148,7 @@ New-AzResource -ResourceGroupName <ResourceGroupName> -ResourceType Microsoft.Ev
     - SDK de Java: [github](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid) | [ejemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid/src/samples/java/com/azure/messaging/eventgrid) | [guía de migración de la versión anterior del SDK](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/migration-guide.md)
     - SDK de .NET: [github](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid) | [ejemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/samples) | [guía de migración de la versión anterior del SDK](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/MigrationGuide.md)
     - SDK de Python: [github](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventgrid/azure-eventgrid) | [ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventgrid/azure-eventgrid/samples) | [guía de migración de la versión anterior del SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/migration_guide.md)
-    - SDK de JavaScript: [github](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/) | [ejemplos](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/samples) | [guía de migración de la versión anterior del SDK](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventgrid/eventgrid/MIGRATION.md)
+    - SDK de JavaScript: [github](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/) | [ejemplos](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/samples) | [guía de migración de la versión anterior del SDK](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/migration.md)
 - [Blog del SDK de Event Grid](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/)
 - Biblioteca cliente de Azure Identity
    - [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/README.md)

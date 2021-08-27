@@ -40,12 +40,16 @@
       items:
         - name: Lista de asignaciones de roles
           href: view-assignments.md
-        - name: Lista de asignaciones de roles para grupos
+        - name: Lista de las asignaciones de rol de un usuario
+          href: list-role-assignments-users.md
+        - name: Lista de asignaciones de roles de un grupo
           href: groups-view-assignments.md
     - name: Asignación de roles
       items:
         - name: Asignación de roles a usuarios
           href: manage-roles-portal.md
+        - name: Asignación de roles a un usuario en distintos ámbitos
+          href: assign-roles-different-scopes.md
         - name: Creación de un grupo al que se pueden asignar roles
           href: groups-create-eligible.md
         - name: Asignación de roles a grupos
@@ -80,7 +84,7 @@
           href: admin-units-assign-roles.md
     - name: Delegado
       items:
-        - name: Delegación del rol de administrador de aplicaciones
+        - name: Delegación del rol de administrador
           href: delegate-app-roles.md
         - name: Delegación de Mi personal
           href: my-staff-configure.md

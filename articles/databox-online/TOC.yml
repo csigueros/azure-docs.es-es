@@ -64,8 +64,6 @@
           href: azure-stack-edge-pro-r-system-requirements.md
         - name: Conocimiento de los límites
           href: azure-stack-edge-pro-r-limits.md
-        - name: Introducción a la seguridad
-          href: azure-stack-edge-pro-r-security.md
         - name: Revisión de especificaciones
           href: azure-stack-edge-pro-r-technical-specifications-compliance.md
     - name: Tutoriales
@@ -111,8 +109,6 @@
           href: azure-stack-edge-mini-r-system-requirements.md
         - name: Conocimiento de los límites
           href: azure-stack-edge-mini-r-limits.md
-        - name: Introducción a la seguridad
-          href: azure-stack-edge-pro-r-security.md
         - name: Revisión de especificaciones
           href: azure-stack-edge-mini-r-technical-specifications-compliance.md
     - name: Tutoriales
@@ -148,42 +144,126 @@
           href: azure-stack-edge-mini-r-manage-wifi.md
         - name: Uso de perfiles de Wi-Fi
           href: azure-stack-edge-mini-r-use-wifi-profiles.md
-- name: "Uso compartido de GPU Pro, Pro\_R y Mini\_R"
+- name: "Características compartidas: GPU Pro, Pro\_R y Mini\_R"
   items:
-    - name: Conceptos compartidos
+    - name: Azure Resource Manager local (versión preliminar)
       items:
-        - name: Descripción de Kubernetes
-          items:
-            - name: ¿Qué es Kubernetes?
-              href: azure-stack-edge-gpu-kubernetes-overview.md
-            - name: Almacenamiento de Kubernetes
-              href: azure-stack-edge-gpu-kubernetes-storage.md
-            - name: Redes de Kubernetes
-              href: azure-stack-edge-gpu-kubernetes-networking.md
-            - name: RBAC de Kubernetes
-              href: azure-stack-edge-gpu-kubernetes-rbac.md
-            - name: Cargas de trabajo de Kubernetes
-              href: azure-stack-edge-gpu-kubernetes-workload-management.md
-        - name: ¿Qué es el uso compartido de GPU?
-          href: azure-stack-edge-gpu-sharing.md
-        - name: Ver integración de Key Vault
-          href: azure-stack-edge-gpu-activation-key-vault.md
-        - name: Habilitación del registro proactivo
-          href: azure-stack-edge-gpu-proactive-log-collection.md
-    - name: Procedimientos compartidos
+        - name: ¿Qué es Azure Resource Manager local?
+          href: azure-stack-edge-gpu-local-resource-manager-overview.md
+        - name: Conexión mediante Azure PowerShell
+          href: azure-stack-edge-gpu-connect-resource-manager.md
+        - name: Establecimiento de la contraseña de Azure Resource Manager
+          href: azure-stack-edge-gpu-set-azure-resource-manager-password.md
+        - name: Establecer la configuración de TLS del cliente
+          href: azure-stack-edge-gpu-configure-tls-settings.md
+        - name: Solución de problemas de Azure Resource Manager
+          href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
+    - name: Certificados
       items:
-        - name: Implementación de ejemplos de IoT Edge
+        - name: ¿Qué son los certificados?
+          href: azure-stack-edge-gpu-certificates-overview.md
+        - name: Ver requisitos
+          href: azure-stack-edge-gpu-certificate-requirements.md
+        - name: Creación de certificados
           items:
-            - name: Módulo de la galería de Nvidia
-              href: azure-stack-edge-gpu-configure-gpu-modules.md
-            - name: Módulo GPU del repositorio Git
-              href: azure-stack-edge-gpu-deploy-sample-module.md
-            - name: Módulo GPU a través de Marketplace
-              href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
-            - name: Módulos de dispositivos FPGA
-              href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
-            - name: Módulo mediante Azure Portal
-              href: azure-stack-edge-gpu-deploy-compute-module-simple.md
+            - name: Mediante Azure PowerShell
+              href: azure-stack-edge-gpu-create-certificates-powershell.md
+            - name: Mediante la herramienta Azure Stack Readiness Checker
+              href: azure-stack-edge-gpu-create-certificates-tool.md
+        - name: Preparación de certificados para cargar en el dispositivo
+          href: azure-stack-edge-gpu-prepare-certificates-device-upload.md
+        - name: 'Carga, importación y visualización de la expiración'
+          href: azure-stack-edge-gpu-manage-certificates.md
+        - name: Solución de errores de certificados
+          href: azure-stack-edge-gpu-certificate-troubleshooting.md
+    - name: Máquinas virtuales
+      items:
+        - name: ¿Qué son las máquinas virtuales?
+          href: azure-stack-edge-gpu-virtual-machine-overview.md
+        - name: Visualización de máquinas virtuales admitidas
+          href: azure-stack-edge-gpu-virtual-machine-sizes.md
+        - name: Visualización de perfiles de API compatibles
+          href: azure-stack-edge-profiles-azure-resource-manager-versions.md
+        - name: ¿Qué son las máquinas virtuales de GPU?
+          href: azure-stack-edge-gpu-overview-gpu-virtual-machines.md
+        - name: Crear imagen de máquina virtual
+          items:
+            - name: Imagen personalizada de máquina virtual de Azure
+              href: azure-stack-edge-gpu-create-virtual-machine-image.md
+            - name: Imagen generalizada de Windows desde disco duro virtual
+              href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
+            - name: Imagen generalizada desde ISO
+              href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
+            - name: Uso de una imagen especializada
+              href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md
+            - name: Uso de imágenes de Azure Marketplace
+              href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md
+        - name: Implementar
+          items:
+            - name: 'Máquinas virtuales: Azure Portal'
+              href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
+            - name: 'Máquinas virtuales: Plantillas'
+              href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
+            - name: 'Máquinas virtuales: GPU'
+              href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md
+            - name: 'Máquinas virtuales: Cmdlets de Azure PowerShell'
+              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md
+            - name: 'Máquinas virtuales: Script de Azure PowerShell'
+              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
+            - name: 'Máquinas virtuales: CLI de Azure o Python'
+              href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
+        - name: Instalar extensiones
+          items:
+            - name: Extensión de script personalizado
+              href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+            - name: Extensión de GPU
+              href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
+        - name: Administrar
+          items:
+            - name: Interfaces de red
+              href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
+            - name: Discos
+              href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
+            - name: Grupos de recursos de Edge
+              href: azure-stack-edge-gpu-manage-edge-resource-groups-portal.md
+            - name: Tamaños de VM
+              href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
+            - name: Conmutadores virtuales
+              href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
+            - name: Etiquetas de máquina virtual
+              href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
+        - name: Copia de seguridad de discos de máquina virtual
+          href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
+        - name: Supervisión
+          items:
+            - name: Métricas de máquinas virtuales
+              href: azure-stack-edge-gpu-monitor-virtual-machine-metrics.md
+            - name: Actividad de máquinas virtuales
+              href: azure-stack-edge-gpu-monitor-virtual-machine-activity.md
+        - name: Solución de problemas
+          items:
+            - name: Conexión a la consola de la máquina virtual
+              href: azure-stack-edge-gpu-connect-virtual-machine-console.md
+            - name: Recopilación de registros de invitado de máquina virtual
+              href: azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md
+            - name: Carga de imagen de máquina virtual
+              href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
+            - name: Implementación de la máquina virtual
+              href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
+            - name: Problemas de extensiones de GPU
+              href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
+    - name: Kubernetes
+      items:
+        - name: ¿Qué es Kubernetes?
+          href: azure-stack-edge-gpu-kubernetes-overview.md
+        - name: Almacenamiento de Kubernetes
+          href: azure-stack-edge-gpu-kubernetes-storage.md
+        - name: Redes de Kubernetes
+          href: azure-stack-edge-gpu-kubernetes-networking.md
+        - name: RBAC de Kubernetes
+          href: azure-stack-edge-gpu-kubernetes-rbac.md
+        - name: Cargas de trabajo de Kubernetes
+          href: azure-stack-edge-gpu-kubernetes-workload-management.md
         - name: Implementación de cargas de trabajo de Kubernetes
           items:
             - name: A través de kubectl
@@ -216,116 +296,64 @@
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
                 - name: Implementación del controlador de datos de Azure Arc
                   href: azure-stack-edge-gpu-deploy-arc-data-controller.md
-        - name: Configuración de Azure Resource Manager (versión preliminar)
+    - name: IoT Edge
+      items:
+        - name: Implementación de ejemplos de IoT Edge
           items:
-            - name: ¿Qué es Azure Resource Manager local?
-              href: azure-stack-edge-gpu-local-resource-manager-overview.md
-            - name: Conexión mediante Azure PowerShell
-              href: azure-stack-edge-gpu-connect-resource-manager.md
-            - name: Establecimiento de la contraseña de Azure Resource Manager
-              href: azure-stack-edge-gpu-set-azure-resource-manager-password.md
-            - name: Establecer la configuración de TLS del cliente
-              href: azure-stack-edge-gpu-configure-tls-settings.md
-        - name: Acerca de máquinas virtuales (versión preliminar)
-          items:
-            - name: ¿Qué son las máquinas virtuales?
-              href: azure-stack-edge-gpu-virtual-machine-overview.md
-            - name: Visualización de máquinas virtuales admitidas
-              href: azure-stack-edge-gpu-virtual-machine-sizes.md
-            - name: Visualización de perfiles de API compatibles
-              href: azure-stack-edge-profiles-azure-resource-manager-versions.md
-            - name: Crear imagen de máquina virtual
-              items:
-                - name: Imagen personalizada de máquina virtual de Azure
-                  href: azure-stack-edge-gpu-create-virtual-machine-image.md
-                - name: Imagen generalizada de Windows desde disco duro virtual
-                  href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
-                - name: Imagen generalizada desde ISO
-                  href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
-                - name: Uso de una imagen especializada
-                  href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md
-                - name: Uso de imágenes de Azure Marketplace
-                  href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md
-            - name: Implementar máquinas virtuales
-              items:
-                - name: Mediante el Portal de Azure
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
-                - name: Mediante plantillas
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
-                - name: Mediante GPU
-                  href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md
-                - name: Mediante cmdlets de Azure PowerShell
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md
-                - name: Mediante script de Azure PowerShell
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
-                - name: Mediante CLI de Azure o Python
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
-            - name: Procedimientos
-              items:
-                - name: Administración de las interfaces de red
-                  href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
-                - name: Administración de discos
-                  href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
-                - name: Administración de tamaños de máquina virtual
-                  href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
-                - name: Administración de etiquetas de máquina virtual
-                  href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
-                - name: Creación de conmutadores virtuales
-                  href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
-                - name: Instalar la extensión de script personalizado
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
-                - name: Instalación de la extensión de GPU
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
-                - name: Copia de seguridad de discos de máquina virtual
-                  href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
-                - name: Solución de problemas
-                  items:
-                    - name: Conexión a la consola de la máquina virtual
-                      href: azure-stack-edge-gpu-connect-virtual-machine-console.md
-                    - name: Recopilación de registros de invitado de máquina virtual
-                      href: azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md
-                    - name: Carga de imagen de máquina virtual
-                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
-                    - name: Implementación de la máquina virtual
-                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
-                    - name: Problemas de extensiones de GPU
-                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
-        - name: Acerca de los certificados
-          items:
-            - name: ¿Qué son los certificados?
-              href: azure-stack-edge-gpu-certificates-overview.md
-            - name: Ver requisitos
-              href: azure-stack-edge-gpu-certificate-requirements.md
-            - name: Creación de certificados
-              items:
-                - name: Mediante Azure PowerShell
-                  href: azure-stack-edge-gpu-create-certificates-powershell.md
-                - name: Mediante la herramienta Azure Stack Readiness Checker
-                  href: azure-stack-edge-gpu-create-certificates-tool.md
-            - name: Preparación de certificados para cargar en el dispositivo
-              href: azure-stack-edge-gpu-prepare-certificates-device-upload.md
-            - name: 'Carga, importación y visualización de la expiración'
-              href: azure-stack-edge-gpu-manage-certificates.md
-            - name: Solución de errores de certificados
-              href: azure-stack-edge-gpu-certificate-troubleshooting.md
+            - name: Módulo de la galería de Nvidia
+              href: azure-stack-edge-gpu-configure-gpu-modules.md
+            - name: Módulo GPU del repositorio Git
+              href: azure-stack-edge-gpu-deploy-sample-module.md
+            - name: Módulo GPU a través de Marketplace
+              href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+            - name: Módulos de dispositivos FPGA
+              href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
+            - name: Módulo mediante Azure Portal
+              href: azure-stack-edge-gpu-deploy-compute-module-simple.md
+        - name: Solución de problemas de IoT Edge
+          href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
+    - name: Puerta de enlace de almacenamiento en la nube
+      items:
+        - name: 'Adición, conexión a recurso compartido'
+          href: azure-stack-edge-gpu-deploy-add-shares.md
+        - name: 'Adición, conexión a cuentas de almacenamiento'
+          href: azure-stack-edge-gpu-deploy-add-storage-accounts.md
+        - name: Recursos compartidos
+          href: azure-stack-edge-gpu-manage-shares.md
+        - name: Usuarios
+          href: azure-stack-edge-gpu-manage-users.md
+        - name: Cuentas de almacenamiento
+          href: azure-stack-edge-gpu-manage-storage-accounts.md
+        - name: Programaciones de ancho de banda
+          href: azure-stack-edge-gpu-manage-bandwidth-schedules.md
+        - name: Solución de problemas de almacenamiento en blobs
+          href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
+- name: "Dispositivo compartido: GPU Pro, Pro\_R y Mini\_R"
+  items:
+    - name: Conceptos compartidos
+      items:
+        - name: Descripción de la selección de regiones
+          href: azure-stack-edge-gpu-regions.md
+        - name: ¿Qué es el uso compartido de GPU?
+          href: azure-stack-edge-gpu-sharing.md
+        - name: Descripción de la residencia de datos
+          href: azure-stack-edge-gpu-data-residency.md
+        - name: Ver integración de Key Vault
+          href: azure-stack-edge-gpu-activation-key-vault.md
+        - name: Habilitación del registro proactivo
+          href: azure-stack-edge-gpu-proactive-log-collection.md
+    - name: Seguridad compartida
+      items:
+        - name: Introducción a la seguridad
+          href: azure-stack-edge-pro-r-security.md
+        - name: Línea de base de seguridad
+          href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
+    - name: Procedimientos compartidos
+      items:
         - name: Administración del proceso perimetral
           href: azure-stack-edge-gpu-manage-compute.md
         - name: Administración del registro de contenedor de Edge
           href: azure-stack-edge-gpu-edge-container-registry.md
-        - name: Administración de puerta de enlace de almacenamiento
-          items:
-            - name: 'Adición, conexión a recurso compartido'
-              href: azure-stack-edge-gpu-deploy-add-shares.md
-            - name: 'Adición, conexión a cuentas de almacenamiento'
-              href: azure-stack-edge-gpu-deploy-add-storage-accounts.md
-            - name: Recursos compartidos
-              href: azure-stack-edge-gpu-manage-shares.md
-            - name: Usuarios
-              href: azure-stack-edge-gpu-manage-users.md
-            - name: Cuentas de almacenamiento
-              href: azure-stack-edge-gpu-manage-storage-accounts.md
-            - name: Programaciones de ancho de banda
-              href: azure-stack-edge-gpu-manage-bandwidth-schedules.md
         - name: Administración de un dispositivo
           items:
             - name: 'Encendido, acceso y conectividad'
@@ -362,12 +390,6 @@
               href: azure-stack-edge-gpu-troubleshoot-activation.md
             - name: Registros y diagnósticos de dispositivos
               href: azure-stack-edge-gpu-troubleshoot.md
-            - name: Problemas de Azure Resource Manager
-              href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
-            - name: Problemas de blobs
-              href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
-            - name: Problemas de IoT Edge
-              href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
             - name: Ponerse en contacto con el servicio de soporte técnico de Microsoft
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Notas de la versión compartidas
@@ -392,6 +414,8 @@
           href: /rest/api/databoxedgegateway
         - name: .NET SDK
           href: /dotnet/api/overview/azure/databoxedge/databoxgateway
+        - name: Azure CLI
+          href: /cli/azure/databoxedge
         - name: Elementos integrados de Azure Policy
           displayName: 'samples, policies, definitions'
           href: ./policy-reference.md
@@ -482,19 +506,11 @@
           href: ../databox-gateway/data-box-gateway-1905-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
         - name: Disponibilidad general (GA)
           href: ../databox-gateway/data-box-gateway-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
-- name: Seguridad
-  items:
-    - name: Línea de base de seguridad
-      href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
-- name: Referencia
-  items:
-    - name: Azure CLI
-      href: /cli/azure/databoxedge
 - name: Recursos
   items:
     - name: "Ejemplos del módulo de\_C# de Azure Stack Edge Pro (.NET)"
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
-    - name: Producto Azure Stack Edge Pro/Data Box Gateway
+    - name: Producto de Azure Stack Edge
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

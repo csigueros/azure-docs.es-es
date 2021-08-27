@@ -9,12 +9,12 @@ metadata:
   ms.date: 09/22/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 612ef6ffa35988a69e6755a38e88a083d533827c
-  ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+  ms.openlocfilehash: 4ab2a940f0fdb18b60d626cb96813b708860f8ae
+  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/28/2021
-  ms.locfileid: "114726657"
+  ms.lasthandoff: 08/24/2021
+  ms.locfileid: "122779694"
 landingContent:
 - title: Acerca de un servidor flexible (versión preliminar)
   linkLists:
@@ -22,6 +22,8 @@ landingContent:
     links:
     - text: ¿Qué es un servidor flexible?
       url: overview.md
+    - text: Prueba gratuita de un servidor flexible
+      url: how-to-deploy-on-azure-free-account.md
   - linkListType: quickstart
     links:
     - text: Creación de un servidor flexible
@@ -54,6 +56,8 @@ landingContent:
       url: concepts-monitoring.md
     - text: Replicación lógica
       url: concepts-logical.md
+    - text: Ajuste inteligente
+      url: concepts-intelligent-tuning.md
   - linkListType: how-to-guide
     links:
     - text: Administración de servidor
@@ -64,7 +68,11 @@ landingContent:
       url: how-to-scale-compute-storage-portal.md
     - text: Reinicio de un servidor
       url: how-to-restart-server-portal.md
-    - text: Configuración y acceso a registros
+    - text: Configuración de red privada virtual
+      url: how-to-manage-virtual-network-portal.md
+    - text: Conexión segura mediante TLS
+      url: how-to-connect-tls-ssl.md
+    - text: Configuración y acceso a los registros
       url: howto-configure-and-access-logs.md
     - text: Programación del mantenimiento
       url: how-to-maintenance-portal.md
