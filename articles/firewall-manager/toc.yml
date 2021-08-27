@@ -13,6 +13,9 @@
     - name: 'Implementación de un firewall con una directiva: plantilla de Azure Resource Manager'
       displayName: Resource Manager
       href: quick-firewall-policy.md
+    - name: Creación y actualización de directiva
+      displayname: PowerShell
+      href: create-policy-powershell.md
 - name: Tutoriales
   items:
     - name: 'Protección de un centro virtual: Azure Portal'
@@ -63,7 +66,7 @@
       href: rule-hierarchy.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network/firewall/policy
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewallpolicy

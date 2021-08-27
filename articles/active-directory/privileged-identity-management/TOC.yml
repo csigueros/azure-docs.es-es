@@ -8,6 +8,10 @@
   items:
     - name: Requisitos de licencia
       href: subscription-requirements.md
+    - name: Grupos de acceso con privilegios
+      href: groups-features.md
+    - name: Grupos de acceso con privilegios y asignación de roles
+      href: concept-privileged-access-versus-role-assignable.md
     - name: Roles que no se pueden administrar con PIM
       href: pim-roles.md
     - name: "Protección del acceso con privilegios en Azure\_AD"
@@ -41,6 +45,8 @@
           href: pim-how-to-activate-role.md
         - name: Roles de Azure
           href: pim-resource-roles-activate-your-roles.md
+        - name: Grupos de acceso con privilegios
+          href: groups-activate-roles.md
     - name: Aprobar
       items:
         - name: Roles de Azure AD
@@ -57,11 +63,13 @@
           href: groups-discover-groups.md
     - name: Ampliación o renovación
       items:
+        - name: Roles de Azure AD
+          href: pim-how-to-renew-extend.md
         - name: Roles de Azure
           href: pim-resource-roles-renew-extend.md
         - name: Grupos de acceso con privilegios
           href: groups-renew-extend.md
-    - name: Configuración
+    - name: Establecimiento de los valores predeterminados de rol
       items:
         - name: Roles de Azure AD
           href: pim-how-to-change-default-settings.md
@@ -69,13 +77,13 @@
           href: pim-resource-roles-configure-role-settings.md
         - name: Grupos de acceso con privilegios
           href: groups-role-settings.md
-    - name: Alertas
+    - name: Configuración de alertas
       items:
         - name: Roles de Azure AD
           href: pim-how-to-configure-security-alerts.md
         - name: Roles de Azure
           href: pim-resource-roles-configure-alerts.md
-    - name: Registros de auditoría
+    - name: Auditorías
       items:
         - name: Roles de Azure AD
           href: pim-how-to-use-audit-log.md
@@ -83,7 +91,7 @@
           href: azure-pim-resource-rbac.md
         - name: Grupos de acceso con privilegios
           href: groups-audit.md
-    - name: Revisiones de acceso
+    - name: Revisar acceso
       items:
         - name: Roles de Azure AD
           items:

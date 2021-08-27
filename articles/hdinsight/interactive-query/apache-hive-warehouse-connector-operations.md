@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/22/2020
-ms.openlocfilehash: 1799aff8bff96d404ddcbefbf58a5f5014cdba6a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b876cd702a2398e8dcb0e1a0be5fffce0615e58d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871595"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750819"
 ---
 # <a name="apache-spark-operations-supported-by-hive-warehouse-connector-in-azure-hdinsight"></a>Las operaciones Apache Spark admitidas por el Hive Warehouse Connector en Azure HDInsight
 
@@ -66,7 +66,7 @@ Los resultados de la consulta son DataFrames de Spark, que se pueden usar con bi
 
 ## <a name="writing-out-spark-dataframes-to-hive-tables"></a>Escritura de DataFrames de Spark en tablas de Hive
 
-Spark no admite la escritura en tablas ACID administradas de Hive de forma nativa. Con HWC, sin embargo, puede escribir cualquier elemento DataFrame en una tabla de Hive. Puede ver como funciona esta funcionalidad en el ejemplo siguiente:
+Spark no admite la escritura en tablas ACID administradas de Hive de forma nativa. Pero con HWC puede escribir cualquier elemento DataFrame en una tabla de Hive. Puede ver como funciona esta funcionalidad en el ejemplo siguiente:
 
 1. Cree una tabla denominada `sampletable_colorado` y especifique sus columnas con el comando siguiente:
 
@@ -74,7 +74,7 @@ Spark no admite la escritura en tablas ACID administradas de Hive de forma nativ
     hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
     ```
 
-1. Filtre la tabla `hivesampletable` en que la columna `state` es igual a `Colorado`. Esta consulta de Hive devuelve un sis de trama de imágenes de Spark guardado en la tabla de Hive `sampletable_colorado` mediante la función `write`.
+1. Filtre la tabla `hivesampletable` en que la columna `state` es igual a `Colorado`. Esta consulta de Hive devuelve un elemento DataFrame de Spark y el resultado se guarda en la tabla de Hive `sampletable_colorado` mediante la función `write`.
 
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format("com.hortonworks.spark.sql.hive.llap.HiveWarehouseConnector").mode("append").option("table","sampletable_colorado").save()
@@ -106,7 +106,7 @@ En el ejemplo se ingieren datos de una secuencia de Spark en el puerto de localh
 
 1. Genere datos para el flujo de Spark que creó. Para ello, siga estos pasos:
     1. Abra una segunda sesión de SSH en el mismo clúster de Spark.
-    1. En el símbolo del sistema, escriba `nc -lk 9999`. Este comando usa la utilidad netcat para enviar datos desde la línea de comandos al puerto especificado.
+    1. En el símbolo del sistema, escriba `nc -lk 9999`. Este comando usa la utilidad `netcat` para enviar datos desde la línea de comandos al puerto especificado.
 
 1. Vuelva a la primera sesión de SSH y cree una nueva tabla de Hive para contener los datos de streaming. En spark-shell, escriba el siguiente comando:
 
@@ -137,10 +137,11 @@ En el ejemplo se ingieren datos de una secuencia de Spark en el puerto de localh
     hive.table("stream_table").show()
     ```
 
-Use **Ctrl + C** para detener netcat en la segunda sesión de SSH. Use `:q` para salir de spark-shell en la primera sesión de SSH.
+Use **Ctrl + C** para detener `netcat` en la segunda sesión de SSH. Use `:q` para salir de spark-shell en la primera sesión de SSH.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Integración de HWC con Apache Spark y Apache Hive](./apache-hive-warehouse-connector.md)
 * [Uso de Interactive Query con HDInsight](./apache-interactive-query-get-started.md)
 * [Integración de HWC con Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
+* [API compatibles con HWC](./hive-warehouse-connector-apis.md)

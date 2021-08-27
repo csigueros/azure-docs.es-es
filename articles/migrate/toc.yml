@@ -24,9 +24,9 @@
   items:
     - name: Descubra
       items:
-        - name: Detectar máquinas virtuales de VMware
+        - name: Detección de servidores en un entorno de VMware
           href: tutorial-discover-vmware.md
-        - name: Detectar máquinas virtuales de Hyper-V
+        - name: Detección de servidores en un entorno de Hyper-V
           href: tutorial-discover-hyper-v.md
         - name: Detectar servidores físicos
           href: tutorial-discover-physical.md
@@ -36,15 +36,17 @@
           href: tutorial-discover-gcp.md
     - name: Evaluar
       items:
-        - name: Evaluación de máquinas virtuales de VMware
+        - name: Evaluación servidores en un entorno de VMware
           items:
-            - name: Evaluación de máquinas virtuales de VMware para la migración a máquinas virtuales de Azure
+            - name: Evaluación de servidores para migrar a máquinas virtuales de Azure
               href: tutorial-assess-vmware-azure-vm.md
             - name: Evaluación de instancias de SQL para la migración a Azure SQL
               href: tutorial-assess-sql.md
-            - name: Evaluación de máquinas virtuales de VMware para la migración a AVS
+            - name: Evaluación de aplicaciones web de ASP.NET para la migración a App Service
+              href: tutorial-assess-webapps.md
+            - name: Evaluación de servidores para la migración a AVS
               href: tutorial-assess-vmware-azure-vmware-solution.md
-        - name: Evaluación de máquinas virtuales de Hyper-V para la migración a Azure
+        - name: Evaluación de servidores en el entorno de Hyper-V para la migración a máquinas virtuales de Azure
           href: tutorial-assess-hyper-v.md
         - name: Evaluación de servidores físicos para la migración a Azure
           href: tutorial-assess-physical.md
@@ -56,9 +58,9 @@
           href: tutorial-discover-import.md
     - name: Migrate
       items:
-        - name: Migración de máquinas virtuales VMware
+        - name: Migración de servidores en un entorno de VMware
           items:
-            - name: Opciones de migración de máquinas virtuales de VMware
+            - name: Opciones de migración en un entorno de VMware
               href: server-migrate-overview.md
             - name: Migración sin agentes (portal)
               href: tutorial-migrate-vmware.md
@@ -66,7 +68,7 @@
               href: tutorial-migrate-vmware-agent.md
             - name: Migración sin agentes (PowerShell)
               href: tutorial-migrate-vmware-powershell.md
-        - name: Migración de máquinas virtuales de Hyper-V
+        - name: Migración de servidores en un entorno de Hyper-V
           href: tutorial-migrate-hyper-v.md
         - name: Migración de servidores físicos
           href: tutorial-migrate-physical-virtual-machines.md
@@ -114,6 +116,8 @@
           href: concepts-assessment-calculation.md
         - name: Introducción a las evaluaciones (migración a Azure SQL)
           href: concepts-azure-sql-assessment-calculation.md
+        - name: Introducción a las evaluaciones (migración a App Service)
+          href: concepts-azure-webapps-assessment-calculation.md
         - name: Introducción a las evaluaciones (migración a AVS)
           href: concepts-azure-vmware-solution-assessment-calculation.md
         - name: Procedimientos recomendados de evaluación
@@ -164,13 +168,13 @@
               href: how-to-set-up-appliance-physical.md
             - name: Implementación de aplicación en Azure Government
               href: deploy-appliance-script-government.md
-        - name: Limitación del ámbito de detección en máquinas virtuales de VMware
+        - name: Limitación del ámbito de detección para servidores en el entorno de VMware
           href: set-discovery-scope.md
         - name: Procedimientos para agregar credenciales de servidor
           href: add-server-credentials.md
         - name: Detección de aplicaciones/roles/características
           href: how-to-discover-applications.md
-        - name: Detección de instancias de SQL en un proyecto existente
+        - name: Detección de instancias de SQL y aplicaciones web de ASP.NET en un proyecto existente
           href: how-to-discover-sql-existing-project.md
         - name: Análisis de las dependencias de la máquina (con agente)
           href: how-to-create-group-machine-dependencies.md
@@ -186,6 +190,8 @@
           href: how-to-create-assessment.md
         - name: Creación de una valoración de Azure SQL
           href: how-to-create-azure-sql-assessment.md
+        - name: Creación de una valoración de Azure App Service
+          href: how-to-create-azure-app-service-assessment.md
         - name: Creación de una valoración de AVS
           href: how-to-create-azure-vmware-solution-assessment.md
         - name: Evaluación de una base de datos de SQL Server
@@ -194,9 +200,9 @@
           href: how-to-modify-assessment.md
         - name: Valoración de escala
           items:
-            - name: Evaluación de un número elevado de máquinas virtuales de VMware
+            - name: Evaluación de un gran número de servidores en un entorno de VMware
               href: scale-vmware-assessment.md
-            - name: Evaluación de un número elevado de máquinas virtuales de Hyper-V
+            - name: Evaluación de un gran número de servidores en un entorno de Hyper-V
               href: scale-hyper-v-assessment.md
             - name: Evaluación de un gran número de servidores físicos
               href: scale-physical-assessment.md
@@ -244,6 +250,8 @@
       items:
         - name: Solución de problemas de dispositivos Azure Migrate
           href: troubleshoot-appliance.md
+        - name: Solución de problemas con el diagnóstico del dispositivo
+          href: troubleshoot-appliance-diagnostic.md
         - name: Solución de problemas de detección
           href: troubleshoot-discovery.md
         - name: Solución de problemas de visualización de dependencias

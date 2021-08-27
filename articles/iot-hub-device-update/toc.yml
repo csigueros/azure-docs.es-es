@@ -45,7 +45,7 @@ items:
         href: connected-cache-configure.md
       - name: Importación de actualización de dispositivo
         href: import-concepts.md
-      - name: Esquema relacionado con la importación
+      - name: Detalles de API y esquema relacionados con la importación
         href: import-schema.md
       - name: Límites de actualización de dispositivos
         href: device-update-limits.md

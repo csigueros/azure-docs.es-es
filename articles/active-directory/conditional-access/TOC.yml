@@ -96,6 +96,8 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Solución de problemas
       items:
+        - name: Solución de problemas de cambios de las directivas
+          href: troubleshoot-policy-changes-audit-log.md
         - name: Solución de problemas con el inicio de sesión
           href: troubleshoot-conditional-access.md
         - name: Solución de problemas con la herramienta What If

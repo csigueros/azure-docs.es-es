@@ -103,8 +103,8 @@
           href: how-to-manage-twin.md
         - name: Administración del grafo de gemelos y las relaciones
           href: how-to-manage-graph.md
-        - name: Configuración de una función de Azure para procesar datos
-          href: how-to-create-azure-function.md
+        - name: Configuración del control de eventos de gemelo a gemelo
+          href: how-to-send-twin-to-twin-events.md
         - name: Consulta del grafo de gemelos
           href: how-to-query-graph.md
     - name: Desarrollo de aplicaciones cliente

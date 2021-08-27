@@ -1,23 +1,23 @@
 ### YamlMime:Landing
 title: Documentación de Azure DevTest Labs
-summary: Aprenda a usar Azure DevTest Labs para configurar rápidamente un laboratorio de desarrollo, pruebas, hackathon o educativo para su equipo o grupo de alumnos en la nube.
+summary: Con el servicio Azure DevTest Labs podrá configurar rápidamente un laboratorio de desarrollo, pruebas, hackatón o educativo para un equipo o grupo de alumnos en la nube.
 metadata:
   title: Documentación de Azure DevTest Labs
-  description: Aprenda a usar Azure DevTest Labs para configurar rápidamente un laboratorio de desarrollo, pruebas, hackathon o educativo para su equipo o grupo de alumnos en la nube.
-  services: lab-services
-  ms.service: lab-services
+  description: Use Azure DevTest Labs para configurar rápidamente un laboratorio de desarrollo, pruebas, hackatón o educativo para su equipo o grupo de alumnos en la nube.
+  services: devtest-lab
+  ms.service: devtest-lab
   ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: spelluru
-  ms.author: spelluru
-  ms.date: 06/26/2020
-  ms.openlocfilehash: 9282066c8a07db07385eae90f9d87514d6592d72
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 08/26/2021
+  ms.openlocfilehash: d0cccbafdaf0fbe568add69ba17e53d985230652
+  ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "85483115"
+  ms.lasthandoff: 08/21/2021
+  ms.locfileid: "122633990"
 landingContent:
 - title: Introducción
   linkLists:
@@ -25,10 +25,6 @@ landingContent:
     links:
     - text: Acerca de DevTest Labs
       url: devtest-lab-overview.md
-    - text: Acerca de DevTest Labs y Lab Services
-      url: lab-services-overview.md
-  - linkListType: concept
-    links:
     - text: Conceptos de DevTest Labs
       url: devtest-lab-concepts.md
     - text: Escenarios populares
@@ -39,14 +35,16 @@ landingContent:
       url: tutorial-create-custom-lab.md
     - text: Acceso a un laboratorio
       url: tutorial-use-custom-lab.md
+  - linkListType: learn
+    links:
+    - text: Introducción a DevTest Labs
+      url: /learn/modules/intro-to-azure-devtest-labs/
 - title: Artefactos
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Incorporación de un artefacto a una máquina virtual
       url: add-artifact-vm.md
-    - text: Crear artefactos personalizado
-      url: devtest-lab-artifact-author.md
     - text: Especificación de artefactos obligatorios
       url: devtest-lab-mandatory-artifacts.md
     - text: Solución de errores de artefactos
@@ -63,9 +61,13 @@ landingContent:
       url: use-paas-services.md
     - text: Conexión con una red virtual de laboratorio
       url: connect-environment-lab-virtual-network.md
-    - text: Solución de problemas por errores del entorno
-      url: troubleshoot-vm-environment-creation-failures.md
-- title: Exploración de nuestro contenido de referencia
+- title: Plantillas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Imagen personalizada frente a fórmula
+      url: devtest-lab-comparing-vm-base-image-types.md
+- title: Documentos de referencia
   linkLists:
   - linkListType: reference
     links:
@@ -73,17 +75,5 @@ landingContent:
       url: /cli/azure/lab
     - text: PowerShell
       url: /powershell/module/az.devtestlabs/#devtest_labs
-    - text: REST
+    - text: API DE REST
       url: /rest/api/dtl
-- title: Plantillas
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Imagen personalizada frente a Fórmula
-      url: devtest-lab-comparing-vm-base-image-types.md
-  - linkListType: how-to-guide
-    links:
-    - text: Crear una imagen personalizada a partir de una máquina virtual
-      url: devtest-lab-create-custom-image-from-vm-using-portal.md
-    - text: Administrar fórmulas
-      url: devtest-lab-manage-formulas.md

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentación de Face
-summary: 'El 11 de junio de 2020 Microsoft anunció que no venderá tecnología de reconocimiento facial a los departamentos de policía de Estados Unidos hasta que se promulgue un reglamento estricto cimentado en los derechos humanos. Por lo tanto, es posible que algún cliente no use características de reconocimiento facial ni características incluidas en los servicios de Azure, como Face o Video Indexer, si un es un departamento de policía de Estados Unidos o permite el uso de dichos servicios por parte de cualquiera de ellos.'
+summary: El 11 de junio de 2020 Microsoft anunció que no venderá tecnología de reconocimiento facial a los departamentos de policía de Estados Unidos hasta que se promulgue un reglamento estricto cimentado en los derechos humanos. Por lo tanto, es posible que algún cliente no use características de reconocimiento facial ni características incluidas en los servicios de Azure, como Face o Video Indexer, si un es un departamento de policía de Estados Unidos o permite el uso de dichos servicios por parte de cualquiera de ellos.
 metadata:
   title: 'Documentación de Face: inicios rápidos, tutoriales, referencia de API (Azure Cognitive Services) | Microsoft Docs'
-  description: 'El servicio Face de la nube ofrece a los desarrolladores acceso a avanzados algoritmos de información facial. Los algoritmos de Microsoft Face habilitan la detección de atributos faciales y el reconocimiento facial. Aprenda a analizar el contenido de varias maneras con guías de inicio rápido, tutoriales y ejemplos.'
+  description: El servicio Face de la nube ofrece a los desarrolladores acceso a avanzados algoritmos de información facial. Los algoritmos de Microsoft Face habilitan la detección de atributos faciales y el reconocimiento facial. Aprenda a analizar el contenido de varias maneras con guías de inicio rápido, tutoriales y ejemplos.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: face-api
@@ -11,98 +11,90 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
+  ms.openlocfilehash: 579db900c31992fbb0555a8e19c9b2753f0bde2a
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121744761"
 landingContent:
-  - title: Acerca del servicio API
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: ¿Qué es el servicio API?
-            url: Overview.md
-      - linkListType: whats-new
-        links:
-          - text: Novedades del servicio Face
-            url: releasenotes.md
-  - title: Detección de caras
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Detección de caras
-            url: concepts/face-detection.md
-      - linkListType: quickstart
-        links:
-          - text: Uso del SDK de .NET
-            url: quickstarts/client-libraries.md?pivots=programming-language-csharp
-          - text: Uso del SDK de Python
-            url: quickstarts/client-libraries.md?pivots=programming-language-python
-          - text: Uso del SDK para Go
-            url: quickstarts/client-libraries.md?pivots=programming-language-go
-      - linkListType: how-to-guide
-        links:
-          - text: Especificación de un modelo de detección de caras
-            url: Face-API-How-to-Topics/specify-detection-model.md
-  - title: Reconocimiento de caras
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Reconocimiento facial
-            url: concepts/face-recognition.md
-      - linkListType: quickstart
-        links:
-          - text: Uso del SDK de .NET
-            url: quickstarts/client-libraries.md?pivots=programming-language-csharp
-          - text: Uso del SDK de Python
-            url: quickstarts/client-libraries.md?pivots=programming-language-python
-          - text: Uso del SDK para Go
-            url: quickstarts/client-libraries.md?pivots=programming-language-go
-      - linkListType: how-to-guide
-        links:
-          - text: Especificación de un modelo de reconocimiento facial
-            url: Face-API-How-to-Topics/specify-recognition-model.md
-  - title: Uso de rectángulos faciales
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Detección y análisis de caras
-            url: Face-API-How-to-Topics/howtodetectfacesinimage.md
-          - text: Uso del atributo HeadPose
-            url: Face-API-How-to-Topics/how-to-use-headpose.md
-  - title: Uso de contenedores
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Instalación y ejecución de contenedores
-            url: face-how-to-install-containers.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configuración de contenedores
-            url: face-resource-container-config.md
-      - linkListType: deploy
-        links:
-          - text: Uso de instancias de contenedores
-            url: ../containers/azure-container-instance-recipe.md
-  - title: Referencia
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: API DE REST
-            url: /rest/api/face/
-          - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/face-readme
-          - text: SDK de Python
-            url: /python/api/overview/azure/cognitiveservices/face-readme
-          - text: SDK de Java
-            url: /java/api/overview/azure/cognitiveservices/client/faceapi
-          - text: SDK de Node.js
-            url: /javascript/api/overview/azure/cognitive-services/face-readme
-          - text: Go SDK
-            url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
-          - text: Azure PowerShell
-            url: /powershell/module/az.cognitiveservices/#cognitive_services
-          - text: Interfaz de la línea de comandos (CLI) de Azure
-            url: /cli/azure/cognitiveservices
-  - title: Ayuda y comentarios
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Opciones de ayuda y soporte técnico
-            url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
+- title: Acerca del servicio API
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es el servicio API?
+      url: Overview.md
+  - linkListType: whats-new
+    links:
+    - text: Novedades del servicio Face
+      url: releasenotes.md
+- title: Reconocimiento facial
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Verificación de identidad
+      url: concepts/face-recognition.md
+  - linkListType: quickstart
+    links:
+    - text: Identificación de caras mediante un SDK de biblioteca cliente o una API REST
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
+  - linkListType: how-to-guide
+    links:
+    - text: Adición de caras a un grupo
+      url: Face-API-How-to-Topics/how-to-add-faces.md
+    - text: Usar la característica a gran escala
+      url: Face-API-How-to-Topics/how-to-use-large-scale.md
+    - text: Uso de la estructura de PersonDirectory
+      url: Face-API-How-to-Topics/use-persondirectory.md
+    - text: Especificación de una versión del modelo de reconocimiento facial
+      url: Face-API-How-to-Topics/specify-recognition-model.md
+- title: Detección y análisis
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Atributos y detección de caras
+      url: concepts/face-detection.md
+  - linkListType: quickstart
+    links:
+    - text: Detección de caras mediante un SDK de biblioteca cliente o API REST
+      url: quickstarts/client-libraries.md?pivots=programming-language-csharp
+  - linkListType: how-to-guide
+    links:
+    - text: Detección y análisis de caras
+      url: Face-API-How-to-Topics/howtodetectfacesinimage.md
+    - text: Especificación de una versión del modelo de detección de caras
+      url: Face-API-How-to-Topics/specify-detection-model.md
+- title: Rectángulos faciales
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Detección y análisis de caras
+      url: Face-API-How-to-Topics/howtodetectfacesinimage.md
+    - text: Uso del atributo HeadPose
+      url: Face-API-How-to-Topics/how-to-use-headpose.md
+- title: Referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API DE REST
+      url: /rest/api/face/
+    - text: .NET SDK
+      url: /dotnet/api/overview/azure/cognitiveservices/face-readme
+    - text: SDK de Python
+      url: /python/api/overview/azure/cognitiveservices/face-readme
+    - text: SDK de Java
+      url: /java/api/overview/azure/cognitiveservices/client/faceapi
+    - text: SDK de Node.js
+      url: /javascript/api/overview/azure/cognitive-services/face-readme
+    - text: Go SDK
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
+    - text: Azure PowerShell
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Interfaz de la línea de comandos (CLI) de Azure
+      url: /cli/azure/cognitiveservices
+- title: Ayuda y comentarios
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Opciones de ayuda y soporte técnico
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context

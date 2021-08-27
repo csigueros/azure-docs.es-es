@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 05713c5a27a8b42ce9b6967212bf1414c841788c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6307c99c0796fb4159da7563c951304ceef6ece2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474583"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750859"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de Azure Digital Twins
 
@@ -70,7 +70,7 @@ Tenga en cuenta que la información que se muestra en esta herramienta no es esp
 ## <a name="best-practices"></a>Procedimientos recomendados
 
 Para conocer los procedimientos recomendados de alta disponibilidad y recuperación ante desastres, consulte estas instrucciones de Azure sobre el tema: 
-* En el artículo de [orientación técnica de la continuidad empresarial de Azure](/azure/architecture/framework/resiliency/overview) se describe un marco general que ayuda a reflexionar sobre la continuidad empresarial y recuperación ante desastres. 
+* En el artículo [Diseño de aplicaciones de Azure confiables](/azure/architecture/framework/resiliency/app-design) se describe un marco general que ayuda a reflexionar sobre la continuidad empresarial y recuperación ante desastres. 
 * El documento [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](/azure/architecture/framework/resiliency/backup-and-recovery) proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.
 
 ## <a name="next-steps"></a>Pasos siguientes 
@@ -78,4 +78,4 @@ Para conocer los procedimientos recomendados de alta disponibilidad y recuperaci
 Obtenga más información sobre cómo empezar a utilizar las soluciones de Azure Digital Twins:
  
 * [¿Qué es Azure Digital Twins?](overview.md)
-* [Inicio rápido: Exploración de un escenario de Azure Digital Twins de ejemplo mediante Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md)
+* [Introducción a Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md)

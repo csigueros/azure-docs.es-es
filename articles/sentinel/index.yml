@@ -12,12 +12,12 @@ metadata:
   author: yelevin
   ms.author: yelevin
   ms.date: 06/25/2020
-  ms.openlocfilehash: 53ebfd52d2e55aa8f30f7638cd9998e83c257439
-  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+  ms.openlocfilehash: 32935f55897e54836ce60ddae69c4f708053c9e0
+  ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/16/2021
-  ms.locfileid: "112199437"
+  ms.lasthandoff: 08/23/2021
+  ms.locfileid: "122662447"
 landingContent:
 - title: Acerca de Azure Sentinel
   linkLists:
@@ -31,20 +31,30 @@ landingContent:
     links:
     - text: Novedades de Azure Sentinel
       url: whats-new.md
+  - linkListType: concept
+    links:
+    - text: Procedimientos recomendados
+      url: best-practices.md
 - title: Introducción
   linkLists:
   - linkListType: quickstart
     links:
     - text: Incorporación de Azure Sentinel
       url: quickstart-onboard.md
+  - linkListType: concept
+    links:
+    - text: Requisitos previos
+      url: prerequisites.md
   - linkListType: how-to-guide
     links:
     - text: Conexión de datos a Azure Sentinel
       url: connect-data-sources.md
-  - linkListType: tutorial
-    links:
+    - text: Visualización de los datos recopilados
+      url: get-visibility.md
     - text: Investigación de incidentes
-      url: tutorial-investigate-cases.md
+      url: investigate-cases.md
+    - text: Integración de Microsoft 365 Defender en Azure Sentinel
+      url: microsoft-365-defender-sentinel-integration.md
   - linkListType: learn
     links:
     - text: Creación de consultas KQL para Azure Sentinel
@@ -53,6 +63,8 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
+    - text: Procedimientos recomendados para la recopilación de datos
+      url: best-practices-data.md
     - text: Normalización y análisis de datos
       url: normalization.md
   - linkListType: how-to-guide
@@ -61,8 +73,6 @@ landingContent:
       url: connect-microsoft-365-defender.md
     - text: Creación de un conector personalizado
       url: create-custom-connector.md
-    - text: Conexión de información sobre amenazas
-      url: connect-threat-intelligence.md
     - text: Supervisión del estado del conector
       url: monitor-data-connector-health.md
     - text: Integración en Azure Data Explorer
@@ -79,24 +89,18 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Importación de inteligencia sobre amenazas en Azure Sentinel
-      url: import-threat-intelligence.md
+    - text: Descripción de la inteligencia sobre amenazas en Azure Sentinel
+      url: understand-threat-intelligence.md
     - text: Integraciones de la inteligencia sobre amenazas
       url: threat-intelligence-integration.md
-  - linkListType: tutorial
-    links:
-    - text: Uso de análisis integrados para detectar amenazas
-      url: tutorial-detect-threats-built-in.md
-    - text: Creación de reglas de detección personalizadas
-      url: tutorial-detect-threats-custom.md
   - linkListType: how-to-guide
     links:
-    - text: Conexión de información sobre amenazas
-      url: connect-threat-intelligence.md
-  - linkListType: reference
-    links:
-    - text: Referencia de entidades
-      url: entities-reference.md
+    - text: Conexión de plataformas de inteligencia sobre amenazas con Azure Sentinel
+      url: connect-threat-intelligence-tip.md
+    - text: Conexión de Azure Sentinel a fuentes STIX/TAXII
+      url: connect-threat-intelligence-taxii.md
+    - text: Uso de indicadores de amenazas
+      url: work-with-threat-indicators.md
 - title: Detección de amenazas
   linkLists:
   - linkListType: concept
@@ -105,8 +109,16 @@ landingContent:
       url: identify-threats-with-entity-behavior-analytics.md
     - text: Anomalías de SOC-ML
       url: soc-ml-anomalies.md
+  - linkListType: how-to-guide
+    links:
+    - text: Uso de análisis integrados para detectar amenazas
+      url: detect-threats-built-in.md
+    - text: Creación de reglas de detección personalizadas
+      url: detect-threats-custom.md
   - linkListType: reference
     links:
+    - text: Referencia de entidades
+      url: entities-reference.md
     - text: Enriquecimientos con UEBA
       url: ueba-enrichments.md
 - title: Búsqueda de amenazas
@@ -127,12 +139,14 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Supervisión de los datos
-      url: tutorial-monitor-your-data.md
-  - linkListType: how-to-guide
-    links:
     - text: Investigación con UEBA
       url: investigate-with-ueba.md
+  - linkListType: how-to-guide
+    links:
+    - text: Investigación de incidentes
+      url: investigate-cases.md
+    - text: Supervisión de los datos
+      url: monitor-your-data.md
   - linkListType: reference
     links:
     - text: Libros de Azure Sentinel que se usan comúnmente
@@ -151,10 +165,16 @@ landingContent:
       url: automate-incident-handling-with-automation-rules.md
     - text: Playbooks
       url: automate-responses-with-playbooks.md
-- title: Trabajo con varios inquilinos
+- title: Administración de Azure Sentinel
   linkLists:
+  - linkListType: concept
+    links:
+    - text: Procedimientos recomendados de arquitectura de áreas de trabajo
+      url: best-practices-workspace-architecture.md
   - linkListType: how-to-guide
     links:
+    - text: Diseño de la arquitectura del área de trabajo
+      url: design-your-workspace-architecture.md
     - text: Administración de varios inquilinos
       url: multiple-tenants-service-providers.md
     - text: Trabajo con incidentes en varias áreas de trabajo

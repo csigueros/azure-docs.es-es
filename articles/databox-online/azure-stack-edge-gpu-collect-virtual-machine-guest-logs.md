@@ -6,20 +6,24 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 07/30/2021
 ms.author: alkohli
-ms.openlocfilehash: 7ffb96cdc3fbb561009b7f545a3b9a1da9eef729
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: 1c25ea8c35b81169119b0f10025b36319d4dc2c9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421011"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744614"
 ---
 # <a name="collect-vm-guest-logs-on-an-azure-stack-edge-pro-gpu-device"></a>Recopilación de registros de invitado de VM en un dispositivo GPU de Azure Stack Edge Pro
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Para diagnosticar los errores de aprovisionamiento de VM en el dispositivo GPU de Azure Stack Edge Pro, revisará los registros de invitado de la máquina virtual con errores. En este artículo se describe cómo recopilar registros de invitado para las VM en un paquete de soporte técnico.
+
+> [!NOTE]
+> También puede supervisar los registros de actividad de las máquinas virtuales en Azure Portal. Para obtener más información, vea [Supervisión de la actividad de la máquina virtual en el dispositivo](azure-stack-edge-gpu-monitor-virtual-machine-activity.md).
+
 
 ## <a name="collect-vm-guest-logs-in-support-package"></a>Recopilación de registros de invitado de máquina virtual en el paquete de soporte técnico
 
@@ -48,4 +52,5 @@ Para recopilar registros de invitado para máquinas virtuales con errores en un 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Solución de problemas de aprovisionamiento de VM en un dispositivo GPU de Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
+- [Supervisión del registro de actividad de la máquina virtual](azure-stack-edge-gpu-monitor-virtual-machine-activity.md).
+- [Solución de problemas de aprovisionamiento de VM en un dispositivo GPU de Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md).

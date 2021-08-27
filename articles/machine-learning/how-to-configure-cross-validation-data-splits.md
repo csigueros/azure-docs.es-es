@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 02/23/2021
-ms.openlocfilehash: 00c3cd6f6a4e5878a3a426aa5622cc53487f2bdd
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 82ea26a5522d44bb39adc30f388f996688cb1ad5
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131411"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122180057"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configuración de las divisiones de datos y la validación cruzada en aprendizaje automático automatizado
 
@@ -44,6 +44,8 @@ Para realizar este artículo, necesitará lo siguiente
     * [Acerca de los datos de entrenamiento, validación y pruebas en el aprendizaje automático](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7).
 
     * [Descripción de la validación cruzada en el aprendizaje automático](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd). 
+
+[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
 ## <a name="default-data-splits-and-cross-validation-in-machine-learning"></a>Divisiones de datos y validación cruzada predeterminadas en el aprendizaje automático
 
@@ -74,7 +76,7 @@ Si no especifica explícitamente un parámetro `validation_data` o `n_cross_vali
 En este caso, puede empezar con un solo archivo de datos y dividirlo en conjuntos de datos de entrenamiento y validación, o bien puede proporcionar un archivo de datos independiente como conjunto de validación. En cualquier caso, el parámetro `validation_data` del objeto `AutoMLConfig` asigna los datos que se van a usar como conjunto de validación. Este parámetro solo acepta los conjuntos de datos en forma de [conjunto de datos de Azure Machine Learning](how-to-create-register-datasets.md) o un dataframe de Pandas.   
 
 > [!NOTE]
-> No se admite el parámetro `validation_size` en escenarios de previsión.
+> El parámetro `validation_data` requiere que también se establezcan los parámetros `training_data` y `label_column_name`. Solo puede establecer un parámetro de validación, es decir, solo puede especificar `validation_data` o `n_cross_validations`, no ambos.
 
 En el ejemplo de código siguiente se define de forma explícita qué parte de los datos proporcionados de `dataset` se usará para el entrenamiento y la validación.
 

@@ -165,13 +165,19 @@
       href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
     - name: Modo de orquestación (versión preliminar)
-      href: virtual-machine-scale-sets-orchestration-modes.md
+      items:
+        - name: Información general
+          href: virtual-machine-scale-sets-orchestration-modes.md
+        - name: Comparación de API
+          href: orchestration-modes-api-comparison.md
+        - name: Orquestación flexible
+          href: ../virtual-machines/flexible-virtual-machine-scale-sets.md
     - name: Mantenimiento y actualizaciones
       items:
         - name: Información general
           href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
           maintainContext: true
-        - name: Actualización automática de extensiones (versión preliminar)
+        - name: Actualización automática de extensiones
           href: ../virtual-machines/automatic-extension-upgrade.md
           maintainContext: true
     - name: Disk Storage

@@ -88,8 +88,12 @@
               href: container-registry-import-images.md
             - name: Transferencia de artefactos (versión preliminar)
               href: container-registry-transfer-images.md
-            - name: Bloqueo de imágenes de contenedor
-              href: container-registry-image-lock.md
+            - name: Protección de los datos del registro
+              items:
+                - name: Bloqueo de imágenes de contenedor
+                  href: container-registry-image-lock.md
+                - name: Deshabilitar exportación
+                  href: data-loss-prevention.md
             - name: Eliminación de imágenes de contenedor
               items:
                 - name: 'Eliminación de los datos de imagen: CLI'

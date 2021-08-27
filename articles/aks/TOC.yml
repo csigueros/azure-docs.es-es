@@ -205,11 +205,11 @@
           href: use-ultra-disks.md
         - name: Controladores de almacenamiento CSI
           items:
-            - name: Habilitación de controladores de almacenamiento CSI (versión preliminar)
+            - name: Habilitación de controladores de almacenamiento CSI
               href: csi-storage-drivers.md
-            - name: Controladores CSI de Azure Data Box Disk (versión preliminar)
+            - name: Controladores CSI para discos de Azure
               href: azure-disk-csi.md
-            - name: Controladores CSI de Azure Files (versión preliminar)
+            - name: Controladores CSI de Azure Files
               href: azure-files-csi.md
     - name: Configuración de las redes
       items:
@@ -223,7 +223,7 @@
           href: internal-lb.md
         - name: Uso de una instancia de Standard Load Balancer
           href: load-balancer-standard.md
-        - name: Uso de una dirección IP estática
+        - name: Uso de una dirección IP estática y etiqueta DNS
           href: static-ip.md
         - name: Entrada
           items:
@@ -299,13 +299,10 @@
           href: csi-secrets-store-driver.md
     - name: Supervisión y registro
       items:
-        - name: Visualización de métricas de clúster
-          href: view-metrics.md
-        - name: Container Insights
-          href: ../azure-monitor/containers/container-insights-overview.md
-          maintainContext: true
-        - name: Visualización de los registros de componentes del plano de control
-          href: view-control-plane-logs.md
+        - name: Supervisión de AKS
+          href: monitor-aks.md
+        - name: Supervisión de referencia
+          href: monitor-aks-reference.md
         - name: Visualización de los registros de kubelet
           href: kubelet-logs.md
         - name: Visualización de datos de contenedor en tiempo real
@@ -351,32 +348,12 @@
         - name: Uso de Azure API Management
           href: ../api-management/api-management-kubernetes.md
           maintainContext: true
-    - name: Selección e implementación de una malla de servicio
+    - name: Implementación de una malla de servicio
       items:
         - name: Acerca de las mallas de servicio
           href: servicemesh-about.md
         - name: Complemento Open Service Mesh (versión preliminar) de AKS
           href: servicemesh-osm-about.md
-        - name: Uso de Istio
-          items:
-            - name: Acerca de Istio
-              href: servicemesh-istio-about.md
-            - name: Instalar y configurar
-              href: servicemesh-istio-install.md
-            - name: 'Escenario: enrutamiento inteligente y versiones controladas'
-              href: servicemesh-istio-scenario-routing.md
-        - name: Uso de Linkerd
-          items:
-            - name: Acerca de Linkerd
-              href: servicemesh-linkerd-about.md
-            - name: Instalar y configurar
-              href: servicemesh-linkerd-install.md
-        - name: Uso de Consul
-          items:
-            - name: Acerca de Consul
-              href: servicemesh-consul-about.md
-            - name: Instalar y configurar
-              href: servicemesh-consul-install.md
     - name: DevOps
       items:
         - name: Uso de Ansible para crear clústeres de AKS

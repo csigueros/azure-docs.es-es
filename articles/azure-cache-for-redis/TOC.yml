@@ -110,6 +110,8 @@
           href: cache-reserved-pricing.md
         - name: Migración a Azure Cache for Redis
           href: cache-migration-guide.md
+        - name: Migración de la inserción de red virtual en Private Link
+          href: cache-vnet-migration.md
         - name: Preguntas más frecuentes de planeación
           href: cache-planning-faq.yml
     - name: Compilar

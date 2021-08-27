@@ -4,11 +4,23 @@
   items:
     - name: Acerca de Azure Arc
       href: overview.md
-- name: Servidores habilitados para Arc >
+- name: Ejemplos
+  items:
+    - name: Consultas de Azure Resource Graph
+      href: ./resource-graph-samples.md
+- name: "Servidores habilitados para Arc\_>"
   href: ./servers/overview.md
-- name: Kubernetes habilitado para Arc >
+- name: "Kubernetes habilitado para Arc\_>"
   href: ./kubernetes/overview.md
-- name: Servicios de datos habilitados para Arc (versión preliminar) >
+- name: Servicios de datos habilitados para Arc  >
   href: ./data/overview.md
-- name: "SQL\_Server en servidores habilitados para Azure\_Arc (versión preliminar)"
-  href: 'https://docs.microsoft.com/sql/sql-server/azure-arc/overview'
+- name: "SQL\_Server en servidores habilitados para Azure\_Arc >"
+  href: /sql/sql-server/azure-arc/overview
+- name: Programa de validación de Arc
+  items:
+    - name: Introducción al programa
+      href: validation-program/overview.md
+    - name: Asociados de Kubernetes validados
+      href: kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
+    - name: Asociados de servicios de datos validados
+      href: data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json

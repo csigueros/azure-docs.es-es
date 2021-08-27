@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 08/13/2021
 ms.author: tisande
-ms.openlocfilehash: 20798fc438f037ca7372822ea8bd54117b8936ee
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: c2f380e92693e6ef2d16e74001b2d22d76e6d941
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456589"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195367"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ En Azure Cosmos DB, cada contenedor tiene una directiva de indexación que deter
 En algunas situaciones, puede que quiera invalidar este comportamiento automático para ajustarse mejor a sus requerimientos. Puede personalizar la directiva de indexación de un contenedor estableciendo su *modo de indexación* e incluir o excluir las *rutas de acceso de propiedad*.
 
 > [!NOTE]
-> El método de actualización de las directivas de indexación que se describe en este artículo solo se aplica a la API de Azure Cosmos DB SQL (Core). Obtenga más información sobre la indexación en [API de Azure Cosmos DB para MongoDB](mongodb-indexing.md).
+> El método de actualización de las directivas de indexación que se describe en este artículo solo se aplica a la API de Azure Cosmos DB SQL (Core). Obtenga más información sobre la indexación en [API de Azure Cosmos DB para MongoDB](mongodb/mongodb-indexing.md).
 
 ## <a name="indexing-mode"></a>Modo de indexación
 
@@ -32,7 +32,7 @@ Azure Cosmos DB admite dos modos de indexación:
 - **Ninguna**: La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) hasta que se complete.
 
 > [!NOTE]
-> Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. Los nuevos contenedores no pueden seleccionar la indexación diferida. Puede ponerse en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar una exención (excepto si usa una cuenta de Azure Cosmos en modo [sin servidor](serverless.md), que no admite la indexación diferida).
+> Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. Los nuevos contenedores no pueden seleccionar la indexación diferida. Puede ponerse en contacto con el cosmoslazyindexing@microsoft.com para solicitar una exención (excepto si usa una cuenta de Azure Cosmos en modo [sin servidor](serverless.md), que no admite la indexación diferida).
 
 De forma predeterminada, la directiva de indexación se establece en `automatic`. Esto se consigue al establecer la propiedad `automatic` de la directiva de indexación en `true`. Al establecer esta propiedad en `true`, se permite que Azure Cosmos DB indexe automáticamente los documentos a medida que se escriben.
 
@@ -329,7 +329,7 @@ Las consideraciones siguientes se aplican al crear índices compuestos para opti
 | ```(name ASC, age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age = 25``` | `Yes` |
 | ```(age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age > 25``` | `No` |
 
-## <a name="index-transformationmodifying-the-indexing-policy"></a><index-transformation>Modificación de la directiva de indexación
+## <a name="modifying-the-indexing-policy"></a><a id=index-transformation></a>Modificación de la directiva de indexación
 
 Se puede actualizar en cualquier momento una directiva de indexación de un contenedor [mediante Azure Portal o uno de los SDK admitidos](how-to-manage-indexing-policy.md). Una actualización de la directiva de indexación desencadena una transformación del índice antiguo al nuevo, que se realiza en línea y en local (por lo que no se consume ningún espacio de almacenamiento adicional durante la operación). La directiva de indexación antigua se transforma eficientemente en la nueva directiva sin que ello afecte a la disponibilidad de escritura, la disponibilidad de lectura ni al rendimiento aprovisionado en el contenedor. La transformación del índice es una operación asincrónica, y el tiempo que tarda en completarse depende del rendimiento aprovisionado, el número de elementos y su tamaño.
 
@@ -341,9 +341,11 @@ Se puede actualizar en cualquier momento una directiva de indexación de un cont
 
 No afecta a la disponibilidad de escritura durante las transformaciones del índice. La transformación del índice usa las RU aprovisionadas, pero en una prioridad más baja que las consultas u operaciones de CRUD.
 
-No afecta a la disponibilidad de lectura al agregar un índice nuevo. Las consultas solo utilizarán nuevos índices una vez completada la transformación del índice. Durante la transformación del índice, el motor de consulta seguirá usando los índices existentes, por lo que observará un rendimiento de lectura similar durante la transformación de indexación al que observó antes de iniciar el cambio de indexación. Al agregar índices nuevos, tampoco hay riesgo de resultados de consulta incompletos o incoherentes.
+No afecta a la disponibilidad de lectura al agregar nuevas rutas de acceso indexadas. Las consultas solo usan nuevas rutas de acceso indexadas una vez que termina una transformación del índice. Es decir, al agregar una nueva ruta de acceso indexada, las consultas que se benefician de ella tienen el mismo rendimiento antes y durante la transformación del índice. Una vez terminada la transformación del índice, el motor de consultas comienza a usar las nuevas rutas de acceso indexadas.
 
-Al quitar índices y ejecutar consultas de inmediato que tienen filtros en los índices quitados, es posible que los resultados sean incoherentes e incompletos hasta que finalice la transformación del índice. Si quita varios índices y lo hace en un único cambio de directiva de indexación, el motor de consulta proporciona resultados coherentes y completos durante la transformación del índice. Sin embargo, si elimina los índices a través de varios cambios de directiva de indexación, el motor de consulta no proporcionará resultados coherentes o completos hasta que se completen todas las transformaciones del índice. La mayoría de los desarrolladores no coloca los índices e intenta ejecutar consultas que usan esos índices de inmediato, por lo que, en la práctica, esta situación es poco probable.
+Al quitar rutas de acceso indexadas, debe agrupar todos los cambios en una transformación de directiva de indexación. Si quita varios índices y lo hace en un único cambio de directiva de indexación, el motor de consulta proporciona resultados coherentes y completos durante la transformación del índice. Sin embargo, si elimina los índices a través de varios cambios de directiva de indexación, el motor de consulta no proporcionará resultados coherentes o completos hasta que se completen todas las transformaciones del índice. La mayoría de los desarrolladores no coloca los índices e intenta ejecutar consultas que usan esos índices de inmediato, por lo que, en la práctica, esta situación es poco probable.
+
+Cuando se coloca una ruta de acceso indexada, el motor de consultas deja de usarla inmediatamente y, en su lugar, realiza un examen completo.
 
 > [!NOTE]
 > Siempre que sea posible, debe intentar agrupar varios cambios de indexación en una única modificación de directiva de indexación.

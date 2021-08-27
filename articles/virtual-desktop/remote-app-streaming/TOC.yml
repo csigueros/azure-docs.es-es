@@ -24,6 +24,8 @@
   items:
     - name: Elementos esenciales del streaming de aplicaciones remotas
       items:
+        - name: Configuración de identidades administradas
+          href: identities.md
         - name: Implementación de aplicaciones con la asociación de aplicaciones MSIX
           href: msix-app-attach.md
         - name: Hospedaje de aplicaciones personalizadas
@@ -46,6 +48,12 @@
           href: ../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Habilitación de la impresión universal
           href: /universal-print/fundamentals/universal-print-getting-started?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Inicio de máquina virtual al conectar
+          items:
+            - name: Configuración del inicio de máquina virtual al conectar
+              href: ../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Preguntas frecuentes sobre el inicio de máquina virtual al conectar
+              href: ../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Otros temas
       items:
         - name: Conexión a recursos de Azure Virtual Desktop
@@ -124,12 +132,6 @@
           href: ../azure-monitor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Configuración de un plan de recuperación ante desastres
           href: ../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-        - name: Inicio de máquina virtual al conectar
-          items:
-            - name: Configuración del inicio de máquina virtual al conectar
-              href: ../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-            - name: Preguntas frecuentes sobre el inicio de máquina virtual al conectar
-              href: ../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Establecimiento del modo de purga
           href: ../drain-mode.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: Conceptos
@@ -202,6 +204,8 @@
       href: ../troubleshoot-set-up-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Identificación y diagnóstico de problemas
       href: ../diagnostics-role-service.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Característica de introducción
+      href: ../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Creación de grupos de hosts
       href: ../troubleshoot-set-up-issues.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Configuración de máquina virtual de host de sesión

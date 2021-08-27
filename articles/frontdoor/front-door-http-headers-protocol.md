@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2020
+ms.date: 08/10/2021
 ms.author: duau
-ms.openlocfilehash: 2ad97656b822bc5ffc957469842436ec84d9e812
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 807138187e37deef6f23121ce085e62f520ad335
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785764"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736667"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Admisión de protocolos para encabezados HTTP en Azure Front Door
 Este artículo describe el protocolo que admite el servicio Front Door con partes de la ruta de acceso de llamada (consulte la imagen). Las secciones siguientes proporcionan más información acerca de los encabezados HTTP admitidos por el servicio Front Door.
@@ -42,9 +42,9 @@ Front Door incluye encabezados de una solicitud entrante a menos que se quite d
 | X-Azure-RequestChain | *X-Azure-RequestChain: hops=1* </br> Un encabezado que Front Door usa para detectar bucles de solicitudes, y los usuarios no deben generar ninguna dependencia de él. |
 | X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4b06-4bf1-b40e-4638452104da* <br/> Una cadena de referencia que identifica la solicitud venía de un recurso de Front Door específico. El valor puede verse en Azure Portal o recuperarse mediante la API de administración. Puede usar este encabezado en combinación con ACL de IP para bloquear el punto de conexión y aceptar únicamente las solicitudes de un recurso de Front Door específico. Consulte las preguntas más frecuentes para obtener [información más detallada](front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-) |
 | X-Forwarded-For | *X-Forwarded-For: 127.0.0.1* </br> A menudo, el campo de encabezado X-Forwarded-For (XFF) identifica la dirección IP de origen de un cliente que se conecta a un servidor web a través de un equilibrador de carga o proxy HTTP. Si hay un encabezado XFF existente, Front Door le anexa la dirección IP de socket de cliente o agrega el encabezado XFF con la dirección IP de socket de cliente. |
-| X-Forwarded-Host | *X-Forwarded-Host: contoso.azurefd.net* </br> El campo de encabezado HTTP X-Forwarded-Host es un método común utilizado para identificar el host original solicitado por el cliente en el encabezado de solicitud HTTP del host. Esto es porque el nombre de host de Front Door puede diferir del servidor back-end que controla la solicitud. |
-| X-Forwarded-Proto | *X-Forwarded-Proto: http* </br> El campo de encabezado HTTP X-Forwarded-Proto se usa a menudo para identificar el protocolo de origen de una solicitud HTTP. Según la configuración, Front Door puede comunicarse con el back-end mediante el uso de HTTPS. Esto es cierto incluso si la solicitud para el proxy inverso es HTTP. |
-| X-FD-HealthProbe | El campo de encabezado HTTP X-FD-HealthProbe se usa para identificar el sondeo de estado de Front Door. Si este encabezado se establece en 1, la solicitud es el sondeo de estado. Puede usarse cuando desee establecer un acceso estricto desde una instancia determinada de Front Door con el campo de encabezado X-Forwarded-Host. |
+| X-Forwarded-Host | *X-Forwarded-Host: contoso.azurefd.net* </br> El campo de encabezado HTTP X-Forwarded-Host es un método común utilizado para identificar el host original solicitado por el cliente en el encabezado de solicitud HTTP del host. Esto es porque el nombre de host de Front Door puede diferir del servidor back-end que controla la solicitud. Front Door reemplaza cualquier valor anterior. |
+| X-Forwarded-Proto | *X-Forwarded-Proto: http* </br> El campo de encabezado HTTP X-Forwarded-Proto se usa a menudo para identificar el protocolo de origen de una solicitud HTTP. Según la configuración, Front Door puede comunicarse con el back-end mediante el uso de HTTPS. Esto es cierto incluso si la solicitud para el proxy inverso es HTTP. Front Door reemplaza cualquier valor anterior. |
+| X-FD-HealthProbe | El campo de encabezado HTTP X-FD-HealthProbe se usa para identificar el sondeo de estado de Front Door. Si este encabezado se establece en 1, la solicitud procede del sondeo de estado. Se puede usar para restringir el acceso desde Front Door con un valor determinado en el campo de encabezado X-Forwarded-Host. |
 | X-Azure-FDID | *Encabezado X-Azure-FDID: 437c82cd-360a-4a54-94c3-5ff707647783* </br> Este campo contiene frontdoorID, que se puede usar para identificar la instancia de Front Door de la que procede la solicitud entrante. Este campo lo rellena el servicio de Front Door. | 
 
 ## <a name="front-door-to-client"></a>Front Door al cliente
@@ -54,7 +54,7 @@ Los encabezados enviados a Front Door desde el back-end se pasan también al cl
 | Encabezado  | Ejemplo y descripción |
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Se trata de una cadena de referencia única que identifica una solicitud atendida por Front Door, lo que es fundamental para la solución de problemas, ya que se usa para buscar registros de acceso.|
-| X-Cache | *X-Cache: TCP_HIT* </br> Este encabezado describe el estado de la solicitud, que permite identificar si el contenido de la respuesta se proporciona desde la memoria caché de Front Door. |
+| X-Cache | *X-Cache*: este encabezado describe el estado de almacenamiento en caché de la solicitud. <br/> - *X-Cache: TCP_HIT*: el primer byte de la solicitud es un acierto de caché del perímetro de Front Door. <br/> - *X-Cache: TCP_REMOTE_HIT*: el primer byte de la solicitud es un acierto de caché de la caché regional (capa de escudo de origen), pero un error de la caché perimetral. <br/> - *X-Cache: TCP_MISS*: el primer byte de la solicitud es un error de caché y el contenido se sirve desde el origen. <br/> - *X-Cache: PRIVATE_NOSTORE*: la solicitud no se puede almacenar en caché, ya que el encabezado de respuesta Cache-Control está establecido en privado o sin almacén. <br/> - *X-Cache: CONFIG_NOCACHE*: la solicitud está configurada para no almacenarse en caché en el perfil de Front Door. |
 
 Debe enviar el encabezado de solicitud "X-Azure-DebugInfo: 1" para habilitar los siguientes encabezados de respuesta opcionales.
 

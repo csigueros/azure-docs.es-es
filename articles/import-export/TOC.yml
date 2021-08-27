@@ -26,7 +26,7 @@
       href: storage-import-export-encryption-key-portal.md
     - name: Supervisión
       items:
-        - name: Visualización de estado de la unidad
+        - name: Visualización del estado del trabajo y de la unidad
           href: storage-import-export-view-drive-status.md
         - name: Revisión del estado del trabajo
           href: storage-import-export-tool-reviewing-job-status-v1.md

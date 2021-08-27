@@ -4,6 +4,8 @@
   items:
     - name: ¿Qué es Video Analyzer for Media?
       href: video-indexer-overview.md
+    - name: Acerca de Video Analyzer
+      href: ../video-analyzer-docs/overview.md
 - name: Guías de inicio rápido
   expanded: true
   items:

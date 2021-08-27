@@ -1,0 +1,86 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre los clústeres administrados de Service Fabric
+  description: Preguntas frecuentes sobre los clústeres administrados de Service Fabric, incluidas las funcionalidades, los casos de uso y los escenarios comunes.
+  ms.topic: article
+  ms.author: micraft
+  author: craftyhouse
+  ms.service: service-fabric
+  ms.date: 7/14/2021
+  ms.custom: references_regions
+  ms.openlocfilehash: 6b77924cd499eec27175eba1f690c2429420c625
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253386"
+title: Preguntas más frecuentes sobre los clústeres administrados de Service Fabric
+summary: Aquí encontrará algunas preguntas frecuentes y sus respuestas sobre los clústeres administrados de Service Fabric.
+sections:
+- name: General
+  questions:
+  - question: >
+      ¿Qué son los clústeres administrados de Service Fabric?
+    answer: >
+      Los clústeres administrados de Service Fabric son una evolución del modelo de recursos de clúster de Service Fabric diseñado para facilitar la implementación y administración de los clústeres. Un clúster administrado de Service Fabric usa el modelo de encapsulación de Azure Resource Manager para que un usuario solo necesite definir e implementar un único recurso de clúster en comparación con los muchos recursos independientes que deben implementar hoy (conjunto de escalado de máquinas virtuales, Load Balancer, IP, etc.).
+  - question: >
+      ¿Qué regiones se admiten?
+    answer: >
+      Los clústeres administrados de Service Fabric se admiten en todas las regiones de la nube.
+  - question: >
+      ¿Puedo realizar una migración en contexto del clúster de Service Fabric existente a un recurso de clúster administrado?
+    answer: >
+      No. Necesitará crear un recurso de clúster de Service Fabric para usar el nuevo tipo de recurso de clúster administrado de Service Fabric.
+  - question: >
+      ¿Hay un costo adicional para los clústeres administrados de Service Fabric?
+    answer: >
+      No. No se aplica ningún costo adicional asociado con un clúster administrado de Service Fabric aparte del costo de los recursos de red, almacenamiento y proceso subyacentes necesarios para el clúster.
+  - question: >
+      ¿El recurso de clúster administrado de Service Fabric incluye algún Acuerdo de Nivel de Servicio nuevo?
+    answer: >
+      El Acuerdo de Nivel de Servicio no cambia respecto al modelo de recursos de Service Fabric actual.
+  - question: >
+      ¿Cuál es la diferencia entre un clúster de SKU Básico y Estándar?
+    answer: >
+      Un clúster de SKU Básico supone que la mayoría de las configuraciones las proporciona el proveedor de recursos de Service Fabric. Los clústeres de SKU Básico están diseñados para usarse en entornos de prueba y preproducción. Un clúster de SKU Estándar permite a los usuarios configurar el clúster para satisfacer sus necesidades de forma específica. Para más información, consulte [SKU de clúster administrado de Service Fabric](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
+  - question: >
+      ¿Dónde puedo ver características planeadas o sugerir una?
+    answer: "Vea el proyecto de GitHub sobre [clústeres administrados](https://github.com/microsoft/service-fabric/projects/17)      \n"
+- name: Implementación y administración de clústeres
+  questions:
+  - question: >
+      Ejecuto extensiones de script personalizadas en mi conjunto de escalado de máquinas virtuales, ¿puedo continuar haciendo eso con un recurso de Service Fabric administrado?
+    answer: >
+      Sí, puede especificar extensiones de máquina virtual en tipos de nodo de clúster administrado. Para más información, consulte [Incorporación de una extensión de conjunto de escalado a un tipo de nodo de clúster administrado de Service Fabric](./how-to-managed-cluster-vmss-extension.md).
+  - question: >
+      Quiero tener un equilibrador de carga solo interno, ¿es posible?
+    answer: >
+      Actualmente no es posible tener un equilibrador de carga solo interno. Se recomienda consolidar las reglas del grupo de seguridad de red (NSG) para bloquear el tráfico entrante o saliente no deseado.
+  - question: >
+      ¿Puedo escalar mi clúster automáticamente?
+    answer: >
+      Actualmente no se admite la escalabilidad automática.
+  - question: >
+      ¿Puedo implementar mi clúster en zonas de disponibilidad?
+    answer: >
+      Sí, los clústeres administrados de Service Fabric que abarcan zonas de disponibilidad se admiten en aquellas regiones de Azure que admiten zonas de disponibilidad. Para más información, consulte el artículo sobre [clústeres administrados de Service Fabric entre zonas de disponibilidad](./how-to-managed-cluster-availability-zones.md).
+  - question: "¿Se pueden implementar tipos de nodos sin estado en un clúster administrado de Service Fabric? \n"
+    answer: >
+      Sí, los clústeres administrados de Service Fabric admiten tipos de nodo sin estado para todos los tipos de nodo secundario. Para más información, consulte el artículo sobre [tipos de nodos sin estado de un clúster administrado de Service Fabric](./how-to-managed-cluster-stateless-node-type.md).
+  - question: >
+      ¿Puedo seleccionar entre actualizaciones automáticas y manuales del clúster en tiempo de ejecución?
+    answer: >
+      Sí, puede seleccionar entre actualizaciones automáticas y manuales. Para más información, consulte el artículo sobre las [actualizaciones de clústeres](./how-to-managed-cluster-upgrades.md).
+- name: Aplicaciones
+  questions:
+  - question: >
+      ¿Hay alguna experiencia de desarrollo local para los clústeres administrados de Service Fabric?
+    answer: >
+      La experiencia de desarrollo local no cambia respecto a los clústeres de Service Fabric existentes. Para más información, consulte [Configuración del entorno de desarrollo](./service-fabric-get-started.md) para obtener más detalles sobre la experiencia de desarrollo local.
+  - question: >
+      ¿Puedo implementar mis aplicaciones como un recurso de Azure Resource Manager?
+    answer: >
+      Sí. Se ha agregado compatibilidad para implementar aplicaciones como un recurso de Azure Resource Manager (además de la implementación mediante PowerShell y la CLI). Para empezar, consulte [Implementación de una aplicación de clúster administrado de Service Fabric mediante una plantilla de ARM](./how-to-managed-cluster-app-deployment-template.md).
+  - question: >
+      ¿Puedo implementar aplicaciones con identidades administradas?
+    answer: Sí, las aplicaciones con identidades administradas se pueden implementar en los clústeres administrados de Service Fabric. Para más información, consulte el artículo sobre la [protección de identidades administradas](./concepts-managed-identity.md).

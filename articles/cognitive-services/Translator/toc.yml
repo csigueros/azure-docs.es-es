@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: ¿Qué es Traductor?
-      href: translator-info-overview.md
+      href: translator-overview.md
     - name: Compatibilidad con idiomas
       href: language-support.md
     - name: Precios
@@ -16,6 +16,8 @@
 - name: Traducción del texto
   expanded: true
   items:
+    - name: ¿Qué es Traducción de texto?
+      href: text-translation-overview.md
     - name: Guía de inicio rápido
       href: quickstart-translator.md
     - name: Ejemplos
@@ -68,12 +70,12 @@
           href: tutorial-build-flask-app-translation-synthesis.md
     - name: Referencia
       items:
+        - name: API REST de Translator Text
+          href: reference/rest-api-guide.md
         - name: Referencia sobre Traductor v3
           href: reference/v3-0-reference.md
         - name: Lenguajes
           href: reference/v3-0-languages.md
-        - name: Límites de solicitud
-          href: request-limits.md
         - name: Translate
           href: reference/v3-0-translate.md
         - name: Transliterar
@@ -86,11 +88,13 @@
           href: reference/v3-0-dictionary-lookup.md
         - name: Ejemplos de diccionario
           href: reference/v3-0-dictionary-examples.md
+        - name: Límites de solicitud
+          href: request-limits.md
 - name: Traducción de documentos
   items:
     - name: ¿Qué es la traducción de documentos?
       href: document-translation/overview.md
-    - name: SDK y bibliotecas cliente
+    - name: SDK de bibliotecas cliente
       href: document-translation/client-sdks.md
     - name: Guía de inicio rápido
       href: document-translation/get-started-with-document-translation.md
@@ -102,7 +106,7 @@
           href: document-translation/managed-identity.md
     - name: Referencia
       items:
-        - name: Guía de referencia de API REST
+        - name: API REST de traducción de documentos
           href: document-translation/reference/rest-api-guide.md
         - name: Obtención de formatos de documento admitidos
           href: document-translation/reference/get-supported-document-formats.md

@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Documentación de Azure Media Services
-summary: 'Azure Media Services es una colección de servicios de flujo de trabajo multimedia de la nube y del perímetro que permite crear soluciones que requieren análisis de vídeo en directo y por lotes, transcodificación, servicios de entrega multidispositivo, protección de contenido y la difusión de eventos en directo a escala.'
+summary: 'Azure Media Services permite compilar aplicaciones multimedia mediante streaming en vivo de baja latencia, codificación por lotes, protección de contenido o DRM, y entrega de contenido de streaming a millones de espectadores en cualquier dispositivo.'
 brand: azure
 metadata:
   title: Documentación de Azure Media Services
-  description: 'Azure Media Services es una colección de servicios de flujo de trabajo multimedia de la nube y del perímetro que permite crear soluciones que requieren análisis de vídeo en directo y por lotes, transcodificación, servicios de entrega multidispositivo, protección de contenido y la difusión de eventos en directo a escala.'
+  description: 'Azure Media Services permite compilar aplicaciones multimedia mediante streaming en vivo de baja latencia, codificación por lotes, protección de contenido o DRM, y entrega de contenido de streaming a millones de espectadores en cualquier dispositivo.'
   services: media-services
   ms.service: media-services
   ms.subservice: null
@@ -12,51 +12,68 @@ metadata:
   ms.collection: collection
   author: Juliako
   ms.author: juliako
-  ms.date: 07//2020
+  ms.date: 08/18/2021
 highlightedContent:
   items:
-    - title: "Azure Media Services, versión\_3"
+    - title: "Acerca de Azure Media Services (versión\_3)"
       itemType: overview
       url: ./latest/media-services-overview.md
-    - title: "Conceptos de Azure Media Services, versión\_3"
+    - title: "Conceptos de Azure Media Services (versión\_3)"
       itemType: concept
       url: ./latest/concepts-overview.md
-    - title: Live Video Analytics on IoT Edge (versión preliminar)
-      itemType: overview
-      url: ./live-video-analytics-edge/overview.md
+    - title: Ejemplos de GitHub
+      itemType: download
+      url: ./latest/samples-overview.md
     - title: Azure Media Player
       itemType: overview
       url: ./azure-media-player/azure-media-player-overview.md
-    - title: "Acerca de Azure Media Services, versión\_2 (heredado)"
+    - title: Streaming en directo
       itemType: overview
-      url: ./previous/media-services-overview.md
-    - title: Migración de Media Services v2 a v3
-      itemType: concept
-      url: ./latest/migrate-v-2-v-3-migration-introduction.md
+      url: ./latest/stream-live-streaming-concept.md
+    - title: Encoding
+      itemType: overview
+      url: ./latest/encode-concept.md
 conceptualContent:
   items:
-    - title: Desarrollo con Media Services v3 API
+    - title: Desarrollo con el SDK de Media Services
       links:
         - url: ./latest/media-services-apis-overview.md
           itemType: concept
-          text: "Desarrollo con Media Services, versión\_3"
+          text: Desarrollo con Media Services
+        - url: ./latest/samples-overview.md
+          itemType: get-started
+          text: Ejemplos de GitHub
         - url: /samples/browse/?products=azure-media-services
           itemType: sample
-          text: Ejemplos de código
+          text: Examen de más ejemplos
         - url: ./latest/release-notes.md
-          itemType: concept
-          text: "Novedades de Media Services, versión\_3"
-    - title: Streaming en vivo
+          itemType: whats-new
+          text: Notas de la versión y anuncios
+    - title: Streaming en directo
       links:
         - url: ./latest/stream-live-streaming-concept.md
-          itemType: concept
+          itemType: overview
           text: Streaming en directo
         - url: ./latest/encode-recommended-on-premises-live-encoders.md
-          itemType: concept
+          itemType: learn
           text: Codificadores de streaming en vivo recomendados
         - url: ./latest/stream-live-tutorial-with-api.md
           itemType: tutorial
           text: Streaming en vivo
+    - title: Codificación a escala
+      links:
+        - url: ./latest/encode-concept.md
+          itemType: overview
+          text: Obtenga información sobre la codificación en la nube con Media Services
+        - url: ./latest/encode-content-aware-concept.md
+          itemType: learn
+          text: Uso de la codificación con contenido
+        - url: ./latest/encode-media-encoder-standard-formats-reference.md
+          itemType: concept
+          text: Códecs y formatos de archivo compatibles
+        - url: ./latest/encode-autogen-bitrate-ladder.md
+          itemType: concept
+          text: Generación automática de codificación por velocidad de bits adaptable
     - title: Streaming a petición
       links:
         - url: ./latest/assets-concept.md
@@ -93,7 +110,7 @@ conceptualContent:
         - url: ./latest/analyze-face-redaction-concept.md
           itemType: concept
           text: Detección y difuminado de caras
-    - title: Especificaciones de Media Services
+    - title: Protocolos y especificaciones
       links:
         - url: media-services-specifications-live-timed-metadata.md
           itemType: concept
@@ -104,14 +121,19 @@ conceptualContent:
         - url: media-services-fmp4-live-ingest-overview.md
           itemType: concept
           text: Protocolo de ingesta Smooth Streaming
-    - title: Live Video Analytics on IoT Edge (versión preliminar)
+    - title: "Migración desde la API\_v2"
       links:
-        - url: ./live-video-analytics-edge/overview.md
+        - url: ./latest/migrate-v-2-v-3-migration-introduction.md
           itemType: overview
-          text: Información general
-        - url: ./live-video-analytics-edge/use-your-model-quickstart.md
-          itemType: quickstart
-          text: Ejecución de Live Video Analytics con su propio modelo
+          text: "Introducción a la migración de la versión\_2 a la versión\_3"
+    - title: Más información sobre más servicios de Azure para elementos multimedia
+      links:
+        - url: ../azure-video-analyzer/video-analyzer-docs/overview.md
+          itemType: overview
+          text: Captura y ejecución de modelos de inteligencia artificial personalizados en vídeo de vigilancia en vivo con Azure Video Analyzer
+        - url: ../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md
+          itemType: overview
+          text: Extracción de información de los archivos de vídeo con Video Analyzer for Media (anteriormente Video Indexer)
 additionalContent:
   sections:
     - items:
@@ -124,3 +146,9 @@ additionalContent:
         - title: Event Grid
           summary: Aprenda a usar Azure Event Grid para reaccionar ante eventos pertinentes
           url: ../event-grid/index.yml
+        - title: "Azure\_Monitor"
+          summary: 'Aprenda a agregar y analizar métricas, registros y seguimientos. Active alertas y envíe notificaciones o llame a soluciones automatizadas.'
+          url: ../azure-monitor/index.yml
+        - title: Azure Event Hubs
+          summary: Aprenda a usar Event Hubs para ingerir millones de eventos por segundo desde aplicaciones y dispositivos conectados.
+          url: ../event-hubs/index.yml

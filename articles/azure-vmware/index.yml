@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 07/16/2021
-  ms.openlocfilehash: e1fa94312fa1c798a581f1792027f2a624c54a30
-  ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+  ms.date: 08/02/2021
+  ms.openlocfilehash: 0c9e3b78cac6bce3fb4a928faa76d7613d22a2dc
+  ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/27/2021
-  ms.locfileid: "114709402"
+  ms.lasthandoff: 08/16/2021
+  ms.locfileid: "122228612"
 landingContent:
 - title: Acerca de Azure VMware Solution
   linkLists:
@@ -26,26 +26,24 @@ landingContent:
       url: azure-vmware-solution-platform-updates.md
   - linkListType: concept
     links:
-    - text: Nube privada y clústeres
-      url: concepts-private-clouds-clusters.md
-    - text: Redes e interconectividad
-      url: concepts-networking.md
-    - text: Storage
-      url: concepts-storage.md
     - text: Acceso e identidad
       url: concepts-identity.md
-    - text: Supervisión y protección
-      url: concepts-monitor-protection.md
     - text: API Management
       url: concepts-api-management.md
     - text: En estrella tipo hub-and-spoke
       url: concepts-hub-and-spoke.md
+    - text: Redes e interconectividad
+      url: concepts-networking.md
+    - text: Nubes privadas y clústeres
+      url: concepts-private-clouds-clusters.md
+    - text: Storage
+      url: concepts-storage.md
 - title: Preguntas más frecuentes
   linkLists:
   - linkListType: reference
     links:
     - text: General
-      url: /azure/azure-vmware/faq
+      url: ./faq.yml
     - text: Comunicación al cliente
       url: /azure/azure-vmware/faq#customer-communication
     - text: Instalación y configuración
@@ -69,30 +67,32 @@ landingContent:
   - linkListType: deploy
     links:
     - text: 1 - Planeamiento de la implementación
-      url: production-ready-deployment-steps.md
+      url: plan-private-cloud-deployment.md
     - text: 2 - Implementación de Azure VMware Solution
       url: deploy-azure-vmware-solution.md
-    - text: 3 - Conexión al entorno local
+    - text: 3 - Conexión a entornos locales
       url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: 4 - Implementación y configuración de HCX
-      url: tutorial-deploy-vmware-hcx.md
+    - text: 4 - Instalación del conector de VMware HCX
+      url: install-vmware-hcx.md
+    - text: 5- Configuración del conector de VMware HCX local
+      url: configure-vmware-hcx.md
   - linkListType: tutorial
     links:
-    - text: Lista de comprobación de planeación de la red
+    - text: 1 - Lista de comprobación de planificación de la red
       url: tutorial-network-checklist.md
-    - text: Creación de una nube privada
+    - text: 2 - Creación de una nube privada
       url: tutorial-create-private-cloud.md
-    - text: Acceso a una nube privada
+    - text: 3 - Acceso a una nube privada
       url: tutorial-access-private-cloud.md
-    - text: Configuración de las redes
+    - text: 4 - Configuración de la red
       url: tutorial-configure-networking.md
-    - text: Creación de un segmento de red
+    - text: 5 - Creación de segmentos de red de NSX-T
       url: tutorial-nsx-t-network-segment.md
-    - text: Emparejamiento de un entorno local con una nube privada
+    - text: 6 - Emparejamiento de un entorno local con una nube privada
       url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: Expansión o reducción de clústeres en una nube privada
+    - text: 7 - Escalado de una nube privada
       url: tutorial-scale-private-cloud.md
-    - text: Eliminación de una nube privada
+    - text: 8 - Eliminación de una nube privada
       url: tutorial-delete-private-cloud.md
 - title: Administración de identidades
   linkLists:
@@ -123,7 +123,7 @@ landingContent:
     - text: Configurar la creación de reflejo del puerto
       url: configure-port-mirroring-azure-vmware-solution.md
     - text: Configuración del servidor de GitHub Enterprise
-      url: ./configure-github-enterprise-server.md
+      url: configure-github-enterprise-server.md
     - text: Habilitación del acceso a través de una red de Internet pública
       url: enable-public-internet-access.md
     - text: Configuración de una VPN de sitio a sitio en vWAN

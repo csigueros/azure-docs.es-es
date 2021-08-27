@@ -42,12 +42,20 @@
           href: tutorial-prepare-azure.md
         - name: Preparación de instancias locales de VMware
           href: vmware-azure-tutorial-prepare-on-premises.md
-        - name: Configuración de la replicación
+    - name: Configuración de la replicación
+      items:
+        - name: Clásico
           href: vmware-azure-tutorial.md
-        - name: Ejecución de un simulacro de recuperación ante desastres
+        - name: Versión preliminar
+          href: vmware-azure-set-up-replication-tutorial-preview.md
+        - name: Ejecución de una simulación de recuperación ante desastres
           href: tutorial-dr-drill-azure.md
-        - name: Conmutación por error a Azure
+    - name: Ejecución de la conmutación por error de máquinas virtuales de VMware en Azure
+      items:
+        - name: Clásico
           href: vmware-azure-tutorial-failover-failback.md
+        - name: Versión preliminar
+          href: vmware-azure-tutorial-failover-failback-preview.md
     - name: Recuperación ante desastres de Azure VMware Solution en Azure
       items:
         - name: Preparación de Azure
@@ -122,14 +130,22 @@
           href: vmware-physical-azure-config-process-server-overview.md
         - name: Requisitos de compatibilidad de los servidores de configuración y procesos
           href: vmware-azure-configuration-server-requirements.md
-        - name: Arquitectura de VMware a Azure
+        - name: Implementación del dispositivo de replicación de Azure Site Recovery (versión preliminar)
+          href: deploy-vmware-azure-replication-appliance-preview.md
+        - name: Cambio de dispositivo de replicación (versión preliminar)
+          href: switch-replication-appliance-preview.md
+    - name: Arquitectura de VMware a Azure
+      items:
+        - name: Clásico
           href: vmware-azure-architecture.md
-        - name: Acerca de la exclusión de discos de la replicación
-          href: exclude-disks-replication.md
-        - name: Opciones de ubicación de la conmutación por recuperación de Azure a VMware
-          href: concepts-types-of-failback.md
-        - name: Compatibilidad para multiinquilinos para recuperación ante desastres de VMware
-          href: vmware-azure-multi-tenant-overview.md
+        - name: Versión preliminar
+          href: vmware-azure-architecture-preview.md
+    - name: Acerca de la exclusión de discos de la replicación
+      href: exclude-disks-replication.md
+    - name: Opciones de ubicación de la conmutación por recuperación de Azure a VMware
+      href: concepts-types-of-failback.md
+    - name: Compatibilidad para multiinquilinos para recuperación ante desastres de VMware
+      href: vmware-azure-multi-tenant-overview.md
     - name: Acerca de la recuperación ante desastres de máquinas virtuales de Hyper-V
       items:
         - name: Preguntas frecuentes
@@ -159,7 +175,11 @@
         - name: Uso de direcciones IP públicas con Site Recovery
           href: concepts-public-ip-address-with-site-recovery.md
     - name: Acerca de la conmutación por error y la conmutación por recuperación
-      href: failover-failback-overview.md
+      items:
+        - name: Clásico
+          href: failover-failback-overview.md
+        - name: Versión preliminar
+          href: failover-failback-overview-preview.md
     - name: Acerca de los planes de recuperación
       href: recovery-plan-overview.md
     - name: Acerca de la migración a Azure
@@ -200,6 +220,8 @@
           items:
             - name: Habilitación de la replicación de Azure a Azure
               href: azure-to-azure-how-to-enable-replication.md
+            - name: Habilitación de la recuperación ante desastres global
+              href: azure-to-azure-enable-global-disaster-recovery.md
             - name: Habilitación de la replicación de Azure en Azure mediante Policy
               href: azure-to-azure-how-to-enable-policy.md
             - name: Habilitamiento de la replicación de Azure en Azure para máquinas virtuales cifradas
@@ -286,7 +308,7 @@
               href: vmware-azure-enable-replication.md
             - name: Excluir discos de la replicación
               href: vmware-azure-exclude-disk.md
-            - name: 'Tutorial: Configuración de una replicación con varios inquilinos y CSP para máquinas virtuales de VMWare'
+            - name: 'Tutorial: Configuración de una replicación con varios inquilinos y CSP para máquinas virtuales de VMware'
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Ejecución de una conmutación por error y una conmutación por recuperación
           items:
@@ -310,6 +332,8 @@
           items:
             - name: Administrar el agente de movilidad
               href: vmware-physical-manage-mobility-service.md
+            - name: Actualización del agente de Mobility (versión preliminar)
+              href: upgrade-mobility-service-preview.md
             - name: Administración del servidor de configuración para VMware
               href: vmware-azure-manage-configuration-server.md
             - name: Administración de servidores de proceso

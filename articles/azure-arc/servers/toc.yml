@@ -16,6 +16,10 @@
       href: ./learn/tutorial-assign-policy-portal.md
     - name: Supervisión de la máquina
       href: ./learn/tutorial-enable-vm-insights.md
+- name: Ejemplos
+  items:
+    - name: Consultas de Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Conceptos
   items:
     - name: Seguridad

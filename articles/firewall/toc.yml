@@ -115,6 +115,8 @@
       href: premium-deploy-certificates-enterprise-ca.md
     - name: Migración a Azure Firewall Prémium
       href: premium-migrate.md
+    - name: Migración a Premium con Terraform
+      href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
     - name: Escalado de puertos SNAT de salida
       href: integrate-with-nat-gateway.md
 - name: Referencia

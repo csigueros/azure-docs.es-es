@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 03/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e62e320e2fac2b34e970f983965f9809d62e2103
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102614911"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741383"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -420,7 +420,7 @@ El parámetro `tagOverrides` establece `operation_Id` en el identificador de inv
 
 ## <a name="http-triggers-and-bindings"></a>Desencadenadores y enlaces HTTP
 
-Los desencadenadores HTTP y de webhook trigger y los enlaces de salida HTTP usan objetos de solicitud y respuesta para representar la mensajería HTTP.  
+Los desencadenadores HTTP y de webhook trigger y los enlaces de salida HTTP usan objetos de solicitud y respuesta para representar la mensajería HTTP.
 
 ### <a name="request-object"></a>Objeto de solicitud
 
@@ -491,6 +491,8 @@ Cuando se trabaja con desencadenadores HTTP, hay varias maneras de acceder a los
     context.done(null, res);   
     ```  
 
+Tenga en cuenta que las claves de solicitud y respuesta están en minúsculas.
+
 ## <a name="scaling-and-concurrency"></a>Escalado y simultaneidad
 
 De forma predeterminada, Azure Functions supervisa automáticamente la carga en la aplicación y crea instancias de host adicionales para Node.js según sea necesario. Functions usa umbrales integrados (no configurables por el usuario) en diferentes tipos de desencadenadores para decidir cuándo se deben agregar instancias, como la antigüedad de los mensajes y el tamaño de la cola para QueueTrigger. Para obtener más información, consulte [Cómo funcionan los planes de consumo y Premium](event-driven-scaling.md).
@@ -522,6 +524,8 @@ En el caso de las aplicaciones de funciones de Linux, ejecute el siguiente coman
 ```bash
 az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
+
+Para obtener más información sobre la directiva de compatibilidad con el entorno de ejecución de Azure Functions, vea este [artículo](./language-support-policy.md).
 
 ## <a name="dependency-management"></a>Administración de dependencias
 Para poder utilizar bibliotecas de la comunidad en el código de JavaScript, como se muestra en el ejemplo siguiente, debe asegurarse de que todas las dependencias estén instaladas en Function App en Azure.
@@ -689,7 +693,7 @@ En este ejemplo, es importante tener en cuenta que, aunque se exporta un objeto,
 
 Cuando se inicia con el parámetro `--inspect`, un proceso de Node.js escucha un cliente de depuración en el puerto especificado. En Azure Functions 2.x, puede especificar argumentos para pasar al proceso de Node.js que ejecuta el código mediante la adición de la variable de entorno o la configuración de la aplicación `languageWorkers:node:arguments = <args>`. 
 
-Para depurar de forma local, agregue `"languageWorkers:node:arguments": "--inspect=5858"` en `Values` en su archivo [local.settings.json](./functions-run-local.md#local-settings-file) y asocie un depurador al puerto 5858.
+Para depurar de forma local, agregue `"languageWorkers:node:arguments": "--inspect=5858"` en `Values` en su archivo [local.settings.json](./functions-develop-local.md#local-settings-file) y asocie un depurador al puerto 5858.
 
 Al depurar con VS Code, el parámetro `--inspect` se agrega automáticamente mediante el valor `port` del archivo launch.json del proyecto.
 

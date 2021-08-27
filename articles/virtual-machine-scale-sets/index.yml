@@ -10,12 +10,12 @@ metadata:
   ms.author: jushiman
   ms.reviewer: mimckitt
   ms.date: 03/16/2020
-  ms.openlocfilehash: e30d136e1ebd7f0af68ae15741fe220a399d28b5
-  ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+  ms.openlocfilehash: 3b50b0bc3c25a157c3af62004d2fb34f3bb2fcef
+  ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/13/2021
-  ms.locfileid: "107312491"
+  ms.lasthandoff: 08/23/2021
+  ms.locfileid: "122691316"
 landingContent:
 - title: Acerca de los conjuntos de escalado de máquinas virtuales
   linkLists:
@@ -29,7 +29,7 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Azure portal
+    - text: Azure Portal
       url: quick-create-portal.md
     - text: Azure PowerShell
       url: quick-create-powershell.md
@@ -79,3 +79,15 @@ landingContent:
       url: /learn/modules/build-app-with-scale-sets/
     - text: " Creación de una máquina virtual Windows en Azure"
       url: /learn/modules/create-windows-virtual-machine-in-azure/
+- title: Orquestación flexible para conjuntos de escalado
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Modo de orquestación flexible
+      url: ../virtual-machines/flexible-virtual-machine-scale-sets.md
+    - text: Introducción a la CLI
+      url: ../virtual-machines/flexible-virtual-machine-scale-sets-cli.md
+    - text: Introducción a Azure Portal
+      url: ../virtual-machines/flexible-virtual-machine-scale-sets-portal.md
+    - text: Modos de orquestación de Virtual Machine Scale Sets
+      url: virtual-machine-scale-sets-orchestration-modes.md
