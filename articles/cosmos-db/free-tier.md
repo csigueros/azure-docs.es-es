@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: sngun
-ms.openlocfilehash: 77e4ccd7b651de97d3f423a72309ac08a6495fd6
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 55b37ce3f96bc187e4420fc16924b02639c9a7df
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110539815"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749941"
 ---
 # <a name="azure-cosmos-db-free-tier"></a>Nivel Gratis de Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -20,7 +20,7 @@ El nivel Gratis de Azure Cosmos DB hace que sea fácil empezar a usar, desarrol
 
 El nivel Gratis se mantiene indefinidamente durante la vigencia de la cuenta e incluye todas las [ventajas y características](introduction.md#key-benefits) de una cuenta de Azure Cosmos DB normal. Estas ventajas incluyen almacenamiento y rendimiento ilimitados (RU/s), Acuerdos de Nivel de Servicio, alta disponibilidad, distribución global inmediata en todas las regiones de Azure, etc.
 
-Puede tener una cuenta de Azure Cosmos DB de nivel Gratis por cada suscripción de Azure y debe elegir esta ventaja al crear la cuenta. Si no ve la opción para aplicar el descuento por nivel Gratis, significará que en otra cuenta de la suscripción ya se ha habilitado el nivel Gratis. Al crear una cuenta, se recomienda habilitar el descuento del nivel Gratis si está disponible.
+Puede tener una cuenta de Azure Cosmos DB de nivel Gratis por cada suscripción de Azure y debe elegir esta ventaja al crear la cuenta. Si no ve la opción para aplicar el descuento por nivel Gratis, significará que en otra cuenta de la suscripción ya se ha habilitado el nivel Gratis. Si crea una cuenta con el nivel Gratis y la elimina, puede aplicar el nivel a una nueva cuenta. Al crear una cuenta, se recomienda habilitar el descuento del nivel Gratis si está disponible.
 
 > [!NOTE]
 > El nivel Gratis no está disponible actualmente para las cuentas sin servidor.
@@ -92,6 +92,6 @@ New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
 Después de crear una cuenta de nivel Gratis, puede empezar a compilar aplicaciones con Azure Cosmos DB siguiendo estos artículos:
 
 * [Compilación de una aplicación de consola mediante el SDK de .NET V4](create-sql-api-dotnet-v4.md) para administrar recursos de Azure Cosmos DB.
-* [Compilación de una aplicación web .NET mediante la API de Azure Cosmos DB para MongoDB](create-mongodb-dotnet.md)
+* [Compilación de una aplicación web .NET mediante la API de Azure Cosmos DB para MongoDB](mongodb/create-mongodb-dotnet.md)
 * [Descargue un cuaderno de la galería](publish-notebook-gallery.md#download-a-notebook-from-the-gallery) y analice los datos.
 * Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
