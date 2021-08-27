@@ -3,16 +3,17 @@ title: Solución de problemas con la experiencia de usuario de Azure Data Factor
 description: Obtenga información acerca de la solución de problemas relacionados con la experiencia de usuario de Azure Data Factory.
 author: ceespino
 ms.service: data-factory
+ms.subservice: authoring
 ms.topic: troubleshooting
-ms.date: 06/01/2020
+ms.date: 06/01/2021
 ms.author: ceespino
 ms.reviewer: susabat
-ms.openlocfilehash: 3739fd5f758d0d41b5c6f9b5caf10edb2987073a
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 99d6116a69e6aabe080d8e46bb90f90a125d7122
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784436"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637805"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Solución de problemas con la experiencia de usuario de Azure Data Factory
 

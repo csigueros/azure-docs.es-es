@@ -4,14 +4,15 @@ description: Obtenga información sobre cómo capturar credenciales almacenadas 
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: b6e3ac551c2660cef7437ee069d3c8e4846cbd00
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 7ea57756eb272da42470fa60af2e4a0d5cd1abea
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906613"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637786"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Uso de secretos de Azure Key Vault en actividades de canalización
 

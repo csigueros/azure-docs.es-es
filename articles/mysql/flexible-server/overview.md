@@ -2,17 +2,17 @@
 title: Información general sobre el servidor flexible de Azure Database for MySQL
 description: Obtenga más información acerca del servidor flexible de Azure Database for MySQL, que es un servicio de base de datos relacional de la nube de Microsoft basado en MySQL Community Edition.
 author: savjani
-ms.service: mysql
 ms.author: pariks
+ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
-ms.date: 6/19/2021
-ms.openlocfilehash: b13dd8cb1965399d0d8ab19891a986fe2b585d4b
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.date: 08/10/2021
+ms.openlocfilehash: a215100ebc858d2f6f7e154ea81ed5e006d3d9a4
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403048"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252239"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -59,7 +59,7 @@ Para más información, consulte los [conceptos sobre la alta disponibilidad](co
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Aplicación de revisiones automatizada con la ventana de mantenimiento administrado
 
-El servicio aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. La aplicación de revisión incluye actualizaciones de seguridad y software. En el motor de MySQL, las actualizaciones de versión secundaria también se incluyen como parte de la versión de mantenimiento planeado. Los usuarios pueden configurar la programación de la aplicación de revisión para que la administre el sistema o definir su programación personalizada. Durante la programación de mantenimiento, se aplica la revisión y es posible que el servidor requiera un reinicio como parte del proceso de aplicación de revisiones para completar la actualización. Con la programación personalizada, los usuarios pueden hacer que el ciclo de aplicación de revisiones sea predecible y elegir una ventana de mantenimiento con un impacto mínimo en el negocio. En general, el servicio sigue una programación mensual de versiones como parte de la integración y publicación continuas.
+El servicio aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. La revisión incluye actualizaciones de seguridad y software. En el motor de MySQL, las actualizaciones de versión secundaria también se incluyen como parte de la versión de mantenimiento planeado. Los usuarios pueden configurar la programación de la aplicación de revisión para que la administre el sistema o definir su programación personalizada. Durante la programación de mantenimiento, se aplica la revisión y es posible que el servidor requiera un reinicio como parte del proceso de aplicación de revisiones para completar la actualización. Con la programación personalizada, los usuarios pueden hacer que el ciclo de aplicación de revisiones sea predecible y elegir una ventana de mantenimiento con un impacto mínimo en el negocio. En general, el servicio sigue una programación mensual de versiones como parte de la integración y publicación continuas.
 
 Consulte [Mantenimiento programado](concepts-maintenance.md) para más detalles. 
 
@@ -160,7 +160,7 @@ Una ventaja de ejecutar una carga de trabajo en Azure es su alcance global. El s
 | Centro de EE. UU. | :heavy_check_mark: | :x: |
 | Este de EE. UU. | :heavy_check_mark: | :heavy_check_mark: |
 | Este de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: |
-| Centro de Francia | :heavy_check_mark: | :x:|
+| Centro de Francia | :heavy_check_mark: | :heavy_check_mark:|
 | Centro-oeste de Alemania | :heavy_check_mark: | :x: |
 | Japón Oriental | :heavy_check_mark: | :heavy_check_mark: |
 | Centro de Corea del Sur | :heavy_check_mark: | :x: |
@@ -171,6 +171,11 @@ Una ventaja de ejecutar una carga de trabajo en Azure es su alcance global. El s
 | Oeste de EE. UU. | :heavy_check_mark: | :x: |
 | Oeste de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: |
 | Oeste de Europa | :heavy_check_mark: | :heavy_check_mark: |
+| Sudeste de Australia | :heavy_check_mark: | :x: |
+| Norte de Sudáfrica | :heavy_check_mark: | :x: |
+| Asia Oriental (Hong Kong) | :heavy_check_mark: | :x: |
+| Centro de la India | :heavy_check_mark: | :x: |
+
 ## <a name="contacts"></a>Contactos
 
 Para cualquier pregunta o sugerencia que pueda tener sobre el servidor flexible de Azure Database for MySQL, envíe un correo electrónico al equipo de Azure Database for MySQL ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Esta dirección de correo electrónico no es un alias de soporte técnico.

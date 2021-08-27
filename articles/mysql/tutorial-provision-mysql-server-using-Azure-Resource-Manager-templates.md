@@ -4,18 +4,19 @@ description: En este tutorial se explica cómo aprovisionar y automatizar las im
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 2219e7b31e4c6594fc5f98022151f6094853a1b1
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 81d2dc2da69f050333223dc09434b9ef82e3c9f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984687"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121786168"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Aprovisionamiento de un servidor de Azure Database for MySQL mediante las plantillas de Azure Resource Manager
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 La [API de REST de Azure Database for MySQL](/rest/api/mysql/) permite a los ingenieros de DevOps automatizar e integrar el aprovisionamiento, la configuración y las operaciones de las bases de datos y los servidores MySQL administrados en Azure.  Además, con dicha API se pueden crear, enumerar, administrar y eliminar bases de datos y servidores MySQL en el servicio Azure Database for MySQL.
 

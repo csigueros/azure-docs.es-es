@@ -2,10 +2,8 @@
 title: 'Instrucciones para buscar ayuda y abrir una incidencia de soporte técnico: Azure Active Directory | Microsoft Docs'
 description: Instrucciones sobre cómo obtener ayuda y abrir una incidencia de soporte técnico para Azure Active Directory.
 services: active-directory
-documentationcenter: na
 author: ajburnle
 manager: daveba
-editor: ''
 ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
@@ -15,15 +13,16 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e339e88bb62e81b1f873e8cf7e855f4dff8daade
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 057265ca91bdfe0e3b73eea012736e65920e62c2
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257413"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768936"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Instrucciones para buscar ayuda y abrir una incidencia de soporte técnico para Azure Active Directory
-Microsoft proporciona internacionalmente soporte técnico de preventa, facturación y suscripción para Azure Active Directory (Azure AD). El soporte técnico está disponible tanto en línea como por teléfono para las suscripciones de prueba y de pago de Microsoft Azure. El soporte técnico por teléfono y el soporte técnico para la facturación en línea están disponibles en otros idiomas. 
+
+Microsoft proporciona internacionalmente soporte técnico de preventa, facturación y suscripción para Azure Active Directory (Azure AD). El soporte técnico está disponible tanto en línea como por teléfono para las suscripciones de prueba y de pago de Microsoft Azure. El soporte técnico por teléfono y el soporte técnico para la facturación en línea están disponibles en otros idiomas.
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>Recibir ayuda sin abrir una incidencia de soporte técnico
 
@@ -32,7 +31,6 @@ Antes de crear una incidencia de soporte técnico, consulte los recursos siguien
 * Para consultar contenido como información de procedimientos o ejemplos de código para profesionales de TI y desarrolladores, vea la [documentación técnica en docs.microsoft.com](../index.yml).
 
 * La [Comunidad técnica de Microsoft](https://techcommunity.microsoft.com/) es el lugar en el que nuestros asociados profesionales de TI y los clientes colaboran, comparten información y aprenden. El [Centro de información de la Comunidad técnica de Microsoft](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) se usa para anuncios, entradas de blog, interacciones AMA ("pregunta lo que quieras") con expertos y mucho más. También puede [unirse a la comunidad para enviar sus ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
-
 
 ## <a name="open-a-support-ticket"></a>Abrir una incidencia de soporte técnico
 

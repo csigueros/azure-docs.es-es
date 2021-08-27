@@ -1,18 +1,20 @@
 ---
 title: Copia de datos de Azure File Storage como origen o destino
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre cómo copiar datos de Azure File Storage en almacenes de datos receptores o de almacenes de datos de origen compatibles en Azure File Storage mediante Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/17/2021
-ms.openlocfilehash: c81b3615160cc3e096267f01f2d09b40cb9dc360
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 26033c1d19b9025bd5dceffeaf19a1504965df33
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480348"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638756"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copia de datos con Azure File Storage como origen o destino mediante Azure Data Factory
 
