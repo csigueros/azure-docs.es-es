@@ -2,21 +2,21 @@
 title: Supervisar el rendimiento de Azure App Services | Microsoft Docs
 description: Supervisión del rendimiento de aplicaciones de Azure App Services. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento.
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-dotnet, devx-track-azurepowershell
-ms.openlocfilehash: 5557031080ddb7d625cc31be48c496bcbf30b7b4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e8197c757de4bf109e12ca3d9171e4244ed3b35b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967175"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741344"
 ---
 # <a name="application-monitoring-for-azure-app-service"></a>Supervisión de aplicaciones para Azure App Service
 
 Ahora, habilitar la supervisión en las aplicaciones web basadas en ASP.NET, ASP.NET Core, Java y Node.js que se ejecutan en [Azure App Services](../../app-service/index.yml) es más fácil que nunca. Mientras que antes era necesario instrumentar manualmente la aplicación, ahora el agente o la extensión más reciente están integrados en la imagen de App Service de manera predeterminada. En este artículo le guiaremos a través de la habilitación de la supervisión de Application Insights para Azure Monitor y proporcionaremos instrucciones preliminares para automatizar el proceso para implementaciones a gran escala.
 
 > [!NOTE]
-> Solo para .NET en Windows: agregar manualmente una extensión de sitio de Application Insights a través de **Herramientas de desarrollo** > **Extensiones** está en desuso. Este método de instalación de extensiones dependía de actualizaciones manuales para cada nueva versión. La versión estable más reciente de la extensión ahora viene [preinstalada](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte de la imagen de App Service. Los archivos se encuentran en `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` y se actualizan automáticamente con cada versión estable. Si sigue las instrucciones basadas en agentes para habilitar la supervisión a continuación, se quitará automáticamente la extensión en desuso.
+> Solo para .NET en Windows: la incorporación manual de una extensión de sitio de Application Insights mediante **Herramientas de desarrollo** > **Extensiones** está en desuso. Este método de instalación de extensiones dependía de actualizaciones manuales para cada nueva versión. La versión estable más reciente de la extensión ahora viene [preinstalada](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte de la imagen de App Service. Los archivos se encuentran en `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` y se actualizan automáticamente con cada versión estable. Si sigue las instrucciones basadas en agentes para habilitar la supervisión a continuación, se quita automáticamente la extensión en desuso.
 
 ## <a name="enable-application-insights"></a>Habilitación de Application Insights
 
@@ -27,31 +27,34 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 
 * **Instrumentación manual de la aplicación mediante código** mediante la instalación del SDK de Application Insights.
 
-    * Este enfoque es mucho más personalizable, pero requiere la [incorporación de una dependencia en los paquetes NuGet del SDK de Application Insights](./asp-net.md). Este método también implica que el usuario tiene que administrar las actualizaciones a la versión más reciente de los paquetes.
+    * Este enfoque es más fácil de personalizar, pero exige los siguientes métodos: SDK de [.NET Core](./asp-net-core.md), [.NET](./asp-net.md), [Node.js](./nodejs.md), [Python](./opencensus-python.md), y un agente independiente para [Java](./java-in-process-agent.md). Este método también implica que el usuario tiene que administrar las actualizaciones a la versión más reciente de los paquetes.
 
-    * Si necesita realizar llamadas de API personalizadas para supervisar eventos o dependencias no capturados de manera predeterminada con la supervisión basada en agentes, deberá usar este método. Consulte el [artículo API de Application Insights para eventos y métricas personalizados](./api-custom-events-metrics.md) para obtener más información. Actualmente, esta es la única opción admitida para las cargas de trabajo basadas en Linux.
+    * Si necesita realizar llamadas de API personalizadas para supervisar eventos o dependencias no capturados de manera predeterminada con la supervisión basada en agentes, deberá usar este método. Consulte el [artículo API de Application Insights para eventos y métricas personalizados](./api-custom-events-metrics.md) para obtener más información. 
 
 > [!NOTE]
-> Si se detectan tanto la supervisión basada en agentes como la instrumentación manual basada en SDK, solo se respetará la configuración de la instrumentación manual. Esto es para evitar que se envíen datos duplicados. Para más información sobre este tema, consulte la [sección de solución de problemas](#troubleshooting) que encontrará a continuación.
+> Si se detecta supervisión basada en agentes e instrumentación manual basada en SDK, en .NET solo se respeta la configuración de instrumentación manual, mientras que en Java solo la instrumentación basada en agentes emite la telemetría. Esto es para evitar que se envíen datos duplicados. Para más información sobre este tema, consulte la [sección de solución de problemas](#troubleshooting) que encontrará a continuación.
+
+> [!NOTE]
+> El depurador de instantáneas y el generador de perfiles solo están disponibles en .NET y .Net Core.
 
 ## <a name="enable-agent-based-monitoring"></a>Habilitación de la supervisión basada en agente
 
 # <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 > [!NOTE]
-> No se admite la combinación de APPINSIGHTS_JAVASCRIPT_ENABLED y urlCompression. Para más información, consulte la explicación de la [sección Solución de problemas](#troubleshooting).
-
+> No se admite la combinación de APPINSIGHTS_JAVASCRIPT_ENABLED y urlCompression. Para más información, consulte la explicación de la [sección Solución de problemas](#appinsights_javascript_enabled-and-urlcompression-is-not-supported).
 
 1. **Seleccione Application Insights** en el panel de control de Azure para el servicio de aplicaciones.
 
     ![En Configuración, elija Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
-   * Elija crear un nuevo recurso a menos que ya haya configurado un recurso de Application Insights para esta aplicación. 
+   * Cree un nuevo recurso o seleccione un recurso de Application Insights existente para esta aplicación. 
 
-     > [!NOTE]
-     > Al hacer clic en **Aceptar** para crear el nuevo recurso, se le pedirá **Aplicar la configuración de supervisión**. Con la selección de **Continuar** se vinculará el nuevo recurso de Application Insights a su servicio de aplicaciones. Al hacerlo, también se **desencadenará un reinicio del servicio de aplicaciones**. 
+    > [!NOTE]
+    > Al hacer clic en **Aceptar** para crear el nuevo recurso, se le pedirá **Aplicar la configuración de supervisión**. Con la selección de **Continuar** se vinculará el nuevo recurso de Application Insights a su servicio de aplicaciones. Al hacerlo, también se **desencadenará un reinicio del servicio de aplicaciones**. 
 
-     ![Instrumentación de la aplicación web](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![Instrumentación de la aplicación web](./media/azure-web-apps/ai-create-new.png)
 
 2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. La supervisión de aplicaciones ASP.NET está activada de manera predeterminada con dos niveles diferentes de la colección.
 
@@ -75,31 +78,55 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
+### <a name="windows"></a>Windows
 > [!IMPORTANT]
-> Se admiten las siguientes versiones de ASP.NET Core: ASP.NET Core 2.1, 3.1 y 5.0. Las versiones 2.0, 2.2 y 3.0 se han retirado y ya no se admiten. Actualice a una [versión compatible](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que la instrumentación automática funcione.
+> Se admiten las siguientes versiones de ASP.NET Core para la instrumentación automática en Windows: ASP.NET Core 3.1 y 5.0. Las versiones 2.0, 2.1, 2.2 y 3.0 se han retirado y ya no se admiten. Actualice a una [versión compatible](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que la instrumentación automática funcione.
 
-Actualmente, la orientación del marco de trabajo completo de ASP.NET Core, la implementación independiente y las aplicaciones basadas en Linux **no se admiten** con la supervisión basada en agentes o extensiones. (La [instrumentación manual](./asp-net-core.md) a través de código funcionará en todos los escenarios anteriores).
+
+En Windows **no se admite** el establecimiento como destino del marco completo desde ASP.NET Core. En su lugar, use [instrumentación manual](./asp-net-core.md) por medio de código.
+
+En Windows, solo se admite la implementación dependiente del marco.
+
+Vea la sección [Habilitar supervisión](#enable-monitoring ) a continuación para empezar a configurar Application Insights con el recurso de App Service. 
+
+### <a name="linux"></a>Linux 
+
+> [!IMPORTANT]
+> Se admiten las siguientes versiones de ASP.NET Core para la instrumentación automática en Linux: ASP.NET Core 3.1, 5.0 y 6.0 (versión preliminar). Las versiones 2.0, 2.1, 2.2 y 3.0 se han retirado y ya no se admiten. Actualice a una [versión compatible](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que la instrumentación automática funcione.
+
+> [!NOTE]
+> La instrumentación automática de Linux del portal de App Services está en versión preliminar pública. Estas versiones preliminares se proporcionan sin contrato de nivel de servicio. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+
+En Linux **no se admite** el establecimiento como destino del marco completo desde ASP.NET Core. En su lugar, use [instrumentación manual](./asp-net-core.md) por medio de código.
+
+ En Linux, se admiten la implementación dependiente del marco y la implementación autocontenida. 
+
+Vea la sección [Habilitar supervisión](#enable-monitoring ) a continuación para empezar a configurar Application Insights con el recurso de App Service. 
+
+### <a name="enable-monitoring"></a>Habilitar supervisión 
 
 1. **Seleccione Application Insights** en el panel de control de Azure para el servicio de aplicaciones.
 
     ![En Configuración, elija Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
-   * Elija crear un nuevo recurso a menos que ya haya configurado un recurso de Application Insights para esta aplicación. 
+   * Cree un nuevo recurso o seleccione un recurso de Application Insights existente para esta aplicación.
 
-     > [!NOTE]
-     > Al hacer clic en **Aceptar** para crear el nuevo recurso, se le pedirá **Aplicar la configuración de supervisión**. Con la selección de **Continuar** se vinculará el nuevo recurso de Application Insights a su servicio de aplicaciones. Al hacerlo, también se **desencadenará un reinicio del servicio de aplicaciones**. 
+    > [!NOTE]
+    > Al hacer clic en **Aceptar** para crear el nuevo recurso, se le pedirá **Aplicar la configuración de supervisión**. Con la selección de **Continuar** se vinculará el nuevo recurso de Application Insights a su servicio de aplicaciones. Al hacerlo, también se **desencadenará un reinicio del servicio de aplicaciones**. 
 
-    ![Instrumentación de la aplicación web](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![Instrumentación de la aplicación web](./media/azure-web-apps/ai-create-new.png)
 
-2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. ASP.NET Core ofrece una **recopilación recomendada** o **deshabilitada** para ASP.NET Core 2.1 y 3.1.
+2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. ASP.NET Core ofrece **recopilación recomendada** o **deshabilitada** para ASP.NET Core 3.1.
 
     ![Opciones de elección para cada plataforma.](./media/azure-web-apps/choose-options-new-net-core.png)
 
+
+
+
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-No se admite la supervisión basada en agente de Windows. Para realizar la habilitación con Linux, visite la [documentación de App Service de Node.js](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights).
-
-Puede supervisar las aplicaciones de Node.js que se ejecutan en Azure App Service sin ningún cambio de código, solo con un par de pasos sencillos. Las aplicaciones de Application Insights para Node.js se integran con App Service en Linux, en los contenedores basados en código y los personalizados, y con App Service en Windows para las aplicaciones basadas en código. La integración se encuentra en versión preliminar pública. La integración agrega el SDK de Node.js, que se encuentra en la fase de disponibilidad general. 
+Puede supervisar las aplicaciones de Node.js que se ejecutan en Azure App Service sin ningún cambio de código, solo con un par de pasos sencillos. Las aplicaciones de Application Insights para Node.js se integran con App Service en Linux, en los contenedores basados en código y los personalizados, y con App Service en Windows para las aplicaciones basadas en código.
 
 1. **Seleccione Application Insights** en el panel de control de Azure para el servicio de aplicaciones.
 
@@ -108,33 +135,37 @@ Puede supervisar las aplicaciones de Node.js que se ejecutan en Azure App Servic
 
    * Elija crear un nuevo recurso a menos que ya haya configurado un recurso de Application Insights para esta aplicación. 
 
-     > [!NOTE]
-     > Al hacer clic en **Aceptar** para crear el nuevo recurso, se le pedirá **Aplicar la configuración de supervisión**. Con la selección de **Continuar** se vinculará el nuevo recurso de Application Insights a su servicio de aplicaciones. Al hacerlo, también se **desencadenará un reinicio del servicio de aplicaciones**. 
+    > [!NOTE]
+    > Al hacer clic en **Aceptar** para crear el nuevo recurso, se le pedirá **Aplicar la configuración de supervisión**. Con la selección de **Continuar** se vinculará el nuevo recurso de Application Insights a su servicio de aplicaciones. Al hacerlo, también se **desencadenará un reinicio del servicio de aplicaciones**. 
 
-    ![Instrumente la aplicación web.](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![Instrumente la aplicación web.](./media/azure-web-apps/ai-create-new.png)
 
 2. Una vez que haya especificado qué recurso usar ya está listo para continuar. 
 
     > [!div class="mx-imgBorder"]
     > ![Opciones de elección para cada plataforma.](./media/azure-web-apps/app-service-node.png)
 
+
+
 # <a name="java"></a>[Java](#tab/java)
 
-Puede activar la supervisión de las aplicaciones Java que se ejecutan en Azure App Service con un solo clic, no se requiere ningún cambio de código. Application Insights para Java se integra con App Service en Linux, en los contenedores basados en código y los personalizados, y con App Service en Windows para las aplicaciones basadas en código. La integración se encuentra en versión preliminar pública. Es importante saber cómo se supervisará la aplicación. La integración agrega [Application Insights Java 3.0](./java-in-process-agent.md), que se encuentra en la fase de disponibilidad general. Recibirá toda la telemetría que recopila automáticamente.
+Puede activar la supervisión de las aplicaciones Java que se ejecutan en Azure App Service con un solo clic, no se requiere ningún cambio de código. Application Insights para Java se integra con App Service en Linux, en los contenedores basados en código y los personalizados, y con App Service en Windows para las aplicaciones basadas en código. Es importante saber cómo se supervisará la aplicación. La integración agrega [Application Insights Java 3.x](./java-in-process-agent.md), y se recibe toda la telemetría que recopila automáticamente.
 
 1. **Seleccione Application Insights** en el panel de control de Azure para el servicio de aplicaciones.
 
     > [!div class="mx-imgBorder"]
     > ![En Configuración, elija Application Insights.](./media/azure-web-apps/ai-enable.png)
 
-   * Elija crear un nuevo recurso a menos que ya haya configurado un recurso de Application Insights para esta aplicación. 
+   * Cree un nuevo recurso o seleccione un recurso de Application Insights existente para esta aplicación.
 
-     > [!NOTE]
-     > Al hacer clic en **Aceptar** para crear el nuevo recurso, se le pedirá **Aplicar la configuración de supervisión**. Con la selección de **Continuar** se vinculará el nuevo recurso de Application Insights a su servicio de aplicaciones. Al hacerlo, también se **desencadenará un reinicio del servicio de aplicaciones**. 
+    > [!NOTE]
+    > Al hacer clic en **Aceptar** para crear el nuevo recurso, se le pedirá **Aplicar la configuración de supervisión**. Con la selección de **Continuar** se vinculará el nuevo recurso de Application Insights a su servicio de aplicaciones. Al hacerlo, también se **desencadenará un reinicio del servicio de aplicaciones**. 
 
-    ![Instrumente la aplicación web.](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![Instrumente la aplicación web.](./media/azure-web-apps/ai-create-new.png)
 
-2. Después de especificar qué recurso usar, puede configurar el agente de Java. El [conjunto completo de configuraciones](./java-standalone-config.md) está disponible, solo tiene que pegar un archivo JSON válido sin especificar la cadena de conexión. Ya ha elegido un recurso de Application Insights al que conectarse, ¿recuerda? 
+2. Este paso no es necesario. Después de especificar qué recurso usar, puede configurar el agente de Java. Si no configura el agente de Java, se aplican las configuraciones predeterminadas. El [conjunto de configuraciones](./java-standalone-config.md) completo está disponible, solo tiene que pegar un archivo JSON válido. Excluya la cadena de conexión y las configuraciones que se encuentran en versión preliminar; puede agregarlos a medida que estén disponibles con carácter general.
 
     > [!div class="mx-imgBorder"]
     > ![Opciones de elección para cada plataforma.](./media/azure-web-apps/create-app-service-ai.png)
@@ -201,7 +232,7 @@ Con el fin de habilitar la recopilación de datos de telemetría con Application
 
 |Nombre del valor de configuración de la aplicación |  Definición | Value |
 |-----------------|:------------|-------------:|
-|ApplicationInsightsAgent_EXTENSION_VERSION | Extensión principal; controla la supervisión en el entorno en tiempo de ejecución. | `~2` |
+|ApplicationInsightsAgent_EXTENSION_VERSION | Extensión principal; controla la supervisión en el entorno en tiempo de ejecución. | `~2` para Windows o `~3` para Linux |
 |XDT_MicrosoftApplicationInsights_Mode |  En el modo predeterminado, solo están habilitadas las características esenciales para garantizar un rendimiento óptimo. | `default` o `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controla si se activa el motor `InstrumentationEngine` de reescritura binaria. Esta configuración tiene implicaciones de rendimiento y afecta a la hora de inicio o al arranque en frío. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controla si el texto de la tabla SQL y Azure se captura junto con las llamadas de dependencia. Advertencia de rendimiento: el tiempo de inicio en frío de la aplicación se verá afectado. Esta configuración requiere el elemento `InstrumentationEngine`. | `~1` |
@@ -360,7 +391,7 @@ $newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable t
 $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
 ```
 
-## <a name="upgrade-monitoring-extensionagent"></a>Actualización del agente o extensión de supervisión
+## <a name="upgrade-monitoring-extensionagent---net"></a>Actualización del agente o la extensión de supervisión: .NET 
 
 ### <a name="upgrading-from-versions-289-and-up"></a>Actualización de las versiones 2.8.9 y posteriores
 
@@ -385,28 +416,31 @@ Si se realiza la actualización desde una versión anterior a la 2.5.1, comprueb
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
+### <a name="aspnet-and-aspnet-core"></a>ASP.NET y ASP.NET CORE
+
 A continuación, se muestra nuestra guía paso a paso de solución de problemas para la supervisión basada en extensiones o agentes para aplicaciones basadas en ASP.NET y ASP.NET Core que se ejecutan en Azure App Services.
 
-
-1. Compruebe que la aplicación se supervisa a través de `ApplicationInsightsAgent`.
-    * Compruebe que la configuración de la aplicación `ApplicationInsightsAgent_EXTENSION_VERSION` se establece en un valor de "~2".
-2. Asegúrese de que la aplicación cumple los requisitos que se deben supervisar.
-    * Vaya a `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.
+#### <a name="windows-troubleshooting"></a>Solución de problemas de Windows 
+1. Compruebe que la configuración de la aplicación `ApplicationInsightsAgent_EXTENSION_VERSION` se establece en un valor de "~2".
+2. Vaya a `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.  
 
     ![Captura de pantalla de la página de resultados de https://yoursitename.scm.azurewebsites/applicationinsights](./media/azure-web-apps/app-insights-sdk-status.png)
+    
+    - Confirme que el `Application Insights Extension Status` es `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.`. 
+    
+         Si no se está ejecutando, siga las [instrucciones para habilitar la supervisión de Application Insights](#enable-application-insights).
 
-    * Confirme que el `Application Insights Extension Status` es `Pre-Installed Site Extension, version 2.8.12.1527, is running.`. 
-    * Si no se está ejecutando, siga las [instrucciones para habilitar la supervisión de Application Insights](#enable-application-insights).
+    - Confirme que el origen de estado existe y tiene el siguiente aspecto: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`.
 
-    * Confirme que el origen de estado existe y tiene el siguiente aspecto: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`.
-        * Si no está presente un valor similar, significa que la aplicación no se admite o no se está ejecutando actualmente. Para asegurarse de que la aplicación se está ejecutando, intente visitar manualmente los puntos de conexión de la aplicación o la dirección URL de la aplicación, lo que permitirá que la información del entorno en tiempo de ejecución esté disponible.
+         Si no está presente un valor similar, significa que la aplicación no se admite o no se está ejecutando actualmente. Para asegurarse de que la aplicación se está ejecutando, intente visitar manualmente los puntos de conexión de la aplicación o la dirección URL de la aplicación, lo que permitirá que la información del entorno en tiempo de ejecución esté disponible.
 
-    * Confirme que `IKeyExists` es `true`.
-        * Si es `false`, agregue `APPINSIGHTS_INSTRUMENTATIONKEY` y `APPLICATIONINSIGHTS_CONNECTION_STRING` con el GUID de ikey a la configuración de la aplicación.
+    - Confirme que `IKeyExists` es `true`. Si es `false`, agregue `APPINSIGHTS_INSTRUMENTATIONKEY` y `APPLICATIONINSIGHTS_CONNECTION_STRING` con el GUID de ikey a la configuración de la aplicación.
 
-    * Confirme que no hay ninguna entrada para `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly` y `AppContainsAspNetTelemetryCorrelationAssembly`.
-        * Si existe alguna de estas entradas, quite los siguientes paquetes de la aplicación: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource` y `Microsoft.AspNet.TelemetryCorrelation`.
-        * Solo para aplicaciones de ASP.NET Core: en caso de que la aplicación haga referencia a algún paquete de Application Insights, por ejemplo, si ya ha instrumentado (o ha intentado instrumentar) la aplicación con el [SDK de ASP.NET Core](./asp-net-core.md), es posible que la integración de App Service no surta efecto y que los datos no aparezcan en Application Insights. Para solucionar el problema, en el portal, active Interop with Application Insights SDK (Interoperabilidad con el SDK de Application Insights), y comenzará a ver los datos en Application Insights. 
+    - **Solo para aplicaciones de ASP.NET** confirme que no hay ninguna entrada para `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly` y `AppContainsAspNetTelemetryCorrelationAssembly`.
+
+         Si existe alguna de estas entradas, quite los siguientes paquetes de la aplicación: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource` y `Microsoft.AspNet.TelemetryCorrelation`.
+
+    - **Solo para aplicaciones de ASP.NET Core**: en caso de que la aplicación haga referencia a algún paquete de Application Insights, por ejemplo, si ya ha instrumentado (o ha intentado instrumentar) la aplicación con el [SDK de ASP.NET Core](./asp-net-core.md), es posible que la integración de App Service no surta efecto y que los datos no aparezcan en Application Insights. Para solucionar el problema, en el portal, active "Interop with Application Insights SDK" (Interoperabilidad con el SDK de Application Insights), y comenzará a ver los datos en Application Insights. 
         > [!IMPORTANT]
         > Esta funcionalidad está en versión preliminar. 
 
@@ -416,6 +450,96 @@ A continuación, se muestra nuestra guía paso a paso de solución de problemas 
 
         > [!IMPORTANT]
         > Si la aplicación usó el SDK de Application Insights para enviar cualquier telemetría, se deshabilitará la telemetría —es decir, la telemetría personalizada— si existe, por ejemplo, los métodos Track*(), y se deshabilitará toda configuración personalizada, como el muestreo. 
+
+#### <a name="linux-troubleshooting"></a>Solución de problemas de Linux
+
+1. Compruebe que la configuración de la aplicación `ApplicationInsightsAgent_EXTENSION_VERSION` está establecida en un valor de "~3".
+2. Vaya a */home\LogFiles\ApplicationInsights\status* y abra *status_557de146e7fa_27_1.json*.
+
+    Confirme que `AppAlreadyInstrumented` está establecido en false, `AiHostingStartupLoaded` en true y `IKeyExists` en true.
+
+    A continuación se muestra un ejemplo del archivo JSON:
+
+    ```json
+        "AppType":".NETCoreApp,Version=v6.0",
+                
+        "MachineName":"557de146e7fa",
+                
+        "PID":"27",
+                
+        "AppDomainId":"1",
+                
+        "AppDomainName":"dotnet6demo",
+                
+        "InstrumentationEngineLoaded":false,
+                
+        "InstrumentationEngineExtensionLoaded":false,
+                
+        "HostingStartupBootstrapperLoaded":true,
+                
+        "AppAlreadyInstrumented":false,
+                
+        "AppDiagnosticSourceAssembly":"System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+                
+        "AiHostingStartupLoaded":true,
+                
+        "IKeyExists":true,
+                
+        "IKey":"00000000-0000-0000-0000-000000000000",
+                
+        "ConnectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/"
+    
+    ```
+    
+    Si `AppAlreadyInstrumented` es true, indica que la extensión ha detectado que algún aspecto del SDK ya está presente en la aplicación y se interrumpirá.
+
+##### <a name="no-data-for-linux"></a>No hay datos para Linux 
+
+1. Enumere e identifique el proceso que hospeda una aplicación. Vaya al terminal y, en la línea de comandos, escriba `ps ax`. 
+    
+    La salida debe ser similar a: 
+
+   ```bash
+     PID TTY      STAT   TIME COMMAND
+    
+        1 ?        SNs    0:00 /bin/bash /opt/startup/startup.sh
+    
+       19 ?        SNs    0:00 /usr/sbin/sshd
+    
+       27 ?        SNLl   5:52 dotnet dotnet6demo.dll
+    
+       50 ?        SNs    0:00 sshd: root@pts/0
+    
+       53 pts/0    SNs+   0:00 -bash
+    
+       55 ?        SNs    0:00 sshd: root@pts/1
+    
+       57 pts/1    SNs+   0:00 -bash
+   ``` 
+
+
+1. Luego enumere las variables de entorno del proceso de la aplicación. En la línea de comandos, escriba `cat /proc/27/environ | tr '\0' '\n`.
+    
+    La salida debe ser similar a: 
+
+    ```bash
+    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=Microsoft.ApplicationInsights.StartupBootstrapper
+    
+    DOTNET_STARTUP_HOOKS=/DotNetCoreAgent/2.8.39/StartupHook/Microsoft.ApplicationInsights.StartupHook.dll
+    
+    APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/
+    
+    ```
+    
+
+1. Compruebe que `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_STARTUP_HOOKS` y `APPLICATIONINSIGHTS_CONNECTION_STRING` están definidos.
+
+
+#### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>El sitio web predeterminado implementado con las aplicaciones web no admite la supervisión automática de cliente.
+
+Cuando se crea una aplicación web con los entornos de ejecución `ASP.NET` o `ASP.NET Core` en instancias de Azure App Service, implementa una única página HTML estática como sitio web de inicio. La página web estática también carga un elemento web administrado de ASP.NET en IIS. Esto permite probar la supervisión sin código del lado servidor, pero no admite la supervisión automática de cliente.
+
+Si desea probar el servidor sin código y la supervisión de cliente para ASP.NET o ASP.NET Core en una aplicación web de Azure App Services, se recomienda seguir las guías oficiales para [crear una aplicación web ASP.NET Core](../../app-service/quickstart-dotnetcore.md) y [crear una aplicación web de ASP.NET Framework](../../app-service/quickstart-dotnetcore.md?tabs=netframework48) y después usar las instrucciones del artículo actual para habilitar la supervisión.
 
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP y WordPress no se admiten
@@ -444,11 +568,6 @@ Esto se debe a que la configuración de la aplicación APPINSIGHTS_JAVASCRIPT_EN
 
 Para obtener la información más reciente sobre la extensión o el agente de Application Insights, consulte las [notas de la versión](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
-### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>El sitio web predeterminado implementado con las aplicaciones web no admite la supervisión automática de cliente.
-
-Cuando se crea una aplicación web con los entornos de ejecución `ASP.NET` o `ASP.NET Core` en instancias de Azure App Service, implementa una única página HTML estática como sitio web de inicio. La página web estática también carga un elemento web administrado de ASP.NET en IIS. Esto permite probar la supervisión sin código del lado servidor, pero no admite la supervisión automática de cliente.
-
-Si desea probar el servidor sin código y la supervisión de cliente para ASP.NET o ASP.NET Core en una aplicación web de Azure App Services, se recomienda seguir las guías oficiales para [crear una aplicación web ASP.NET Core](../../app-service/quickstart-dotnetcore.md) y [crear una aplicación web de ASP.NET Framework](../../app-service/quickstart-dotnetcore.md?tabs=netframework48) y después usar las instrucciones del artículo actual para habilitar la supervisión.
 
 ### <a name="connection-string-and-instrumentation-key"></a>Cadena de conexión y clave de instrumentación
 

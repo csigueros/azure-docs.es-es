@@ -3,12 +3,12 @@ title: Configuración de laboratorios de Project Lead the Way con Azure Lab Serv
 description: Obtenga información sobre cómo configurar laboratorios para impartir clases de Project Lead the Way.
 ms.topic: article
 ms.date: 10/28/2020
-ms.openlocfilehash: aaaddcb2c2111ccfbf0edfc79bbefafb711b19dc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 85e8b8d55ed5a91c21c2554ce15e3ef893e30f15
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768542"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737689"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configuración de laboratorios para las clases de Project Lead the Way
 
@@ -100,7 +100,7 @@ Para obtener más información, vea [Configuración de un servidor de licencias 
 ### <a name="template-machine"></a>Máquina de plantilla
 Algunos de los archivos de instalación que necesita para PLTW tiene un tamaño grande. Al descargar los archivos en una máquina virtual de plantilla de laboratorio, podrían tardar mucho tiempo en copiarse.
 
-En lugar de descargar los archivos de instalación en la máquina de plantilla e instalarlo todo allí, se recomienda crear las imágenes de PLTW en el entorno físico.  Después, puede importar las imágenes en Shared Image Gallery y usar estas imágenes personalizadas para crear sus laboratorios.  Para obtener más información, consulte [Carga de una imagen personalizada en Shared Image Gallery](./upload-custom-image-shared-image-gallery.md).
+En lugar de descargar los archivos de instalación en la máquina de plantilla e instalarlo todo allí, se recomienda crear las imágenes de PLTW en el entorno físico.  Luego puede importar las imágenes personalizadas en una galería de imágenes personalizada a fin de poder usarlas para crear los laboratorios.  Para obtener más información, vea [Enfoques recomendados para crear imágenes personalizadas](approaches-for-custom-image-creation.md).
 
 Siguiendo esta recomendación, las siguientes son las tareas principales para configurar un laboratorio:
 

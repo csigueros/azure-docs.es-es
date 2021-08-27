@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: ddb42dde242bb9c3f33a6dc3f8f52a147367f295
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e3710613b0a2622b20329ed383d5f818b01f6fee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139118"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744640"
 ---
 # <a name="ddos-protection-reference-architectures"></a>Arquitecturas de referencia de DDoS Protection
 
@@ -66,7 +66,7 @@ Puede aprovechar la escala, la capacidad y la eficacia de Azure DDoS Protection 
 
 ![Protección de recursos locales](./media/reference-architectures/ddos-on-prem.png)
 
-Si tiene una aplicación web que recibe tráfico de Internet, puede hospedar la aplicación web detrás de Application Gateway y, luego, protegerla con WAF frente a ataques web de capa 7, como inyección de código SQL y Slowloris. Los orígenes de back-end de la aplicación estarán en el entorno local, que se conecta a través de la VPN. 
+Si tiene una aplicación web que recibe tráfico de Internet, puede hospedarla detrás de Application Gateway y luego protegerla con WAF frente a ataques web de capa 7, como inyección de código SQL. Los orígenes de back-end de la aplicación estarán en el entorno local, que se conecta a través de la VPN. 
 
 Los recursos de back-end del entorno local no estarán expuestos a la red pública de Internet. Solo la IP pública de AppGW/WAF queda expuesta a Internet, y el nombre DNS de la aplicación se asigna a esa dirección IP pública. 
 

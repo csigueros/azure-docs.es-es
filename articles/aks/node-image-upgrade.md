@@ -5,16 +5,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jpalma
-ms.openlocfilehash: 4f6ac01c1d4df288c823142abbc93e981048d8db
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 05d957fac23f1fd9d33a44fa74642eb162550880
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767536"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751511"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Actualización de la imagen de nodos de Azure Kubernetes Service (AKS)
 
-AKS admite la actualización de las imágenes de un nodo para que esté actualizado con las actualizaciones más recientes del sistema operativo y en tiempo de ejecución. AKS proporciona una nueva imagen por semana con las actualizaciones más recientes, por lo que es beneficioso actualizar las imágenes del nodo con regularidad por las características más recientes, incluidas las revisiones de Linux o Windows. En este artículo se muestra cómo actualizar las imágenes de nodo de un clúster de AKS y cómo actualizar las imágenes de grupo de nodos sin actualizar la versión de Kubernetes.
+AKS admite la actualización de las imágenes de un nodo para que esté actualizado con las actualizaciones más recientes del sistema operativo y en tiempo de ejecución. AKS proporciona una nueva imagen por semana con las actualizaciones más recientes, por lo que es beneficioso actualizar las imágenes del nodo con regularidad por las características más recientes, incluidas las revisiones de Linux o Windows. Aunque a los clientes se les notifican las actualizaciones de imágenes mediante las notas de la versión de AKS, las actualizaciones pueden tardar hasta una semana en publicarse en todas las regiones. En este artículo se muestra cómo actualizar las imágenes de nodo de un clúster de AKS y cómo actualizar las imágenes de grupo de nodos sin actualizar la versión de Kubernetes.
 
 Para más información sobre las imágenes más recientes proporcionadas por AKS, consulte las [notas de la versión de AKS](https://github.com/Azure/AKS/releases).
 

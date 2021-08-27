@@ -129,22 +129,24 @@
           href: ./security-controls-policy.md
         - name: Introducción a la seguridad
           href: overview-security.md
-    - name: Características de red
+    - name: Redes
       items:
         - name: Información general
           href: networking-features.md
-        - name: Application Gateway con puntos de conexión de servicio
-          href: networking/app-gateway-with-service-endpoints.md
+        - name: Direcciones IP de entrada y salida
+          href: overview-inbound-outbound-ips.md
         - name: Punto de conexión privado
           href: networking/private-endpoint.md
-    - name: Direcciones IP de entrada y salida
-      href: overview-inbound-outbound-ips.md
-    - name: Integración de Virtual Network
-      href: web-sites-integrate-with-vnet.md
-    - name: Conexiones híbridas
-      href: app-service-hybrid-connections.md
-    - name: Integración de Traffic Manager
-      href: web-sites-traffic-manager.md
+        - name: Conexiones híbridas
+          href: app-service-hybrid-connections.md
+        - name: Integración de Virtual Network
+          href: web-sites-integrate-with-vnet.md
+        - name: Integración de Application Gateway
+          href: networking/app-gateway-with-service-endpoints.md
+        - name: Integración de NAT Gateway
+          href: networking/nat-gateway-integration.md
+        - name: Integración de Traffic Manager
+          href: web-sites-traffic-manager.md
     - name: Caché local
       href: overview-local-cache.md
     - name: Diagnóstico
