@@ -41,8 +41,8 @@
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
     - name: Administración de licencias
       href: isv-app-license.md
-    - name: Ofertas privadas
-      href: private-offers.md
+    - name: Planes privados
+      href: private-plans.md
     - name: Planes y precios
       href: plans-pricing.md
     - name: Contrato estándar
@@ -111,6 +111,8 @@
   items:
     - name: Guía de publicación por tipo de oferta
       href: publisher-guide-by-offer-type.md
+    - name: Categorías y sectores de Marketplace
+      href: marketplace-categories-industries.md
     - name: Oferta de aplicación de Azure
       items:
         - name: Planeación de la oferta
