@@ -7,11 +7,14 @@
     - name: Notas de la versión
       href: release-notes.md
       displayName: 'Release Notes, notes, updates, announcements, deprecations'
-    - name: Cumplimiento de Media Services
+    - name: Cumplimiento normativo
       href: compliance-concept.md
+      displayName: 'compliance, regulatory, FedRamp, DOD CC SRG IL2, DOD CC SG IL 4, GDPR'
     - name: Preguntas más frecuentes
-      href: frequently-asked-questions.yml
-      displayName: 'faq, questions, frequently asked questions'
+      items:
+        - name: Preguntas más frecuentes
+          href: frequently-asked-questions.yml
+          displayName: 'faq, questions, frequently asked questions'
 - name: Guías de inicio rápido
   items:
     - name: Configurar el entorno
@@ -28,23 +31,28 @@
           displayName: 'API, SDK, Access, Authentication'
         - name: Configuración de Azure Cloud Shell
           href: ../../cloud-shell/overview.md
-        - name: Conexión con Media Services
-          items:
-            - name: Conexión con REST y Postman
-              href: setup-postman-rest-how-to.md
-            - name: Conexión con Java
-              href: configure-connect-java-howto.md
-              displayName: 'Java, SDK, client, library'
-            - name: Conexión con .NET
-              href: configure-connect-dotnet-howto.md
-              displayName: '.NET, SDK, client, library'
-            - name: Conexión con Node.js
-              href: configure-connect-nodejs-howto.md
-              displayName: 'Node, Node.js, Typescript, Javascript, SDK, client, library'
-            - name: Conexión con Python
-              href: configure-connect-python-howto.md
-              displayName: 'Python, SDK, client, library'
-    - name: Prueba de Media Services en Azure Portal
+    - name: SDK
+      items:
+        - name: Conexión con el SDK de C# (.NET)
+          href: configure-connect-dotnet-howto.md
+          displayName: '.NET, SDK, client, library, C#'
+        - name: Conexión con el SDK de Node.js o JavaScript
+          href: configure-connect-nodejs-howto.md
+          displayName: 'Node, Node.js, Typescript, Javascript, SDK, client, library'
+        - name: Conexión con el SDK de Python
+          href: configure-connect-python-howto.md
+          displayName: 'Python, SDK, client, library'
+        - name: Conexión con el SDK de Java
+          href: configure-connect-java-howto.md
+          displayName: 'Java, SDK, client, library'
+        - name: Más información sobre la API REST
+          href: setup-postman-rest-how-to.md
+    - name: Prueba de un ejemplo de SDK
+      items:
+        - name: Ejemplos de código de GitHub
+          href: samples-overview.md
+          displayName: 'samples, SDK, Tutorial'
+    - name: Prueba de Media Services en el portal
       items:
         - name: Evento en directo con Portal y Wirecast
           href: live-event-wirecast-quickstart.md
@@ -56,9 +64,9 @@
           href: asset-create-asset-upload-portal-quickstart.md
         - name: Uso del portal para cifrar contenido
           href: drm-encrypt-content-how-to.md
-    - name: Uso de una plantilla de Resource Manager
+    - name: Implementación mediante una plantilla de Resource Manager
       items:
-        - name: Creación de una cuenta con Azure Resource Manager
+        - name: Implementación de una cuenta con Azure Resource Manager
           href: media-services-arm-template-quickstart.md
           displayName: 'ARM, ARM Template, Azure Resource Manager, Azure Resource Manager Template'
 - name: Tutoriales
@@ -134,19 +142,38 @@
           displayName: 'events, event grid, log analytics, tutorial, portal, monitoring, monitor'
 - name: Ejemplos
   items:
-    - name: Introducción a los ejemplos
+    - name: Ejemplos de código de GitHub
       href: samples-overview.md
-      displayName: 'samples, SDK, Tutorial'
-    - name: "Ejemplos de Media Services\_v3"
-      displayName: '.NET, Java, samples, tutorials, SDK'
+      displayName: 'samples, SDK, tutorial, GitHub'
+    - name: "Ejemplos de GitHub para Media Services\_v3"
+      displayName: '.NET, Python, Nodejs, Java, samples, tutorials, SDK, GitHub'
       href: 'https://github.com/Azure-Samples?q=media-services&type=&language=&sort='
-    - name: Ejemplos de REST de Media Services v3
+    - name: "Ejemplos de REST en GitHub para Media Services\_v3"
       href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
 - name: Conceptos
   expanded: true
   items:
     - name: Información general
       href: concepts-overview.md
+    - name: Conceptos para desarrolladores
+      items:
+        - name: Información general
+          href: media-services-apis-overview.md
+          displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name, SDK, client, library, API, develop, developer'
+        - name: 'Paginación, filtración y ordenación de entidades'
+          href: filter-order-page-entities-how-to.md
+          displayName: 'paging, filtering, sorting, order, ordering, REST, SDK, client'
+        - name: Códigos de error
+          items:
+            - name: Códigos de error de puntos de conexión de streaming
+              href: stream-streaming-endpoint-error-codes-reference.md
+              displayName: 'error code, codes, errors, streaming error, debug, debugging, streaming endpoint, origin'
+            - name: Códigos de error de eventos en directo
+              href: live-event-error-codes-reference.md
+              displayName: 'error code, codes, errors, streaming error, debug, debugging, live event, channel, event, telemetry, origin, live, live stream error'
+            - name: Códigos de error de trabajo
+              href: job-error-codes-reference.md
+              displayName: 'error code, codes, errors, streaming error, debug, debugging, live event, channel, event, telemetry, encoding, job, job output, job error, encoding error, encoder error, transcode'
     - name: Cuentas
       items:
         - name: Cuenta de Media Services
@@ -164,43 +191,42 @@
         - name: Claves administradas por el cliente
           href: concept-use-customer-managed-keys-byok.md
           displayName: 'customer managed keys, byok, customer keys, keys, management'
+        - name: Restablecimiento de las credenciales de una cuenta
+          href: account-reset-account-credentials.md
+          displayName: 'reset, account credentials, remove credentials, security, restore, remove, credentials'
     - name: Recursos
       items:
         - name: Recursos
           href: assets-concept.md
           displayName: 'assets, containers, storage, media files, upload'
-    - name: Procesamiento de archivos
-      items:
-        - name: Transformaciones y trabajos
-          href: transform-jobs-concept.md
-          displayName: 'preset, schema, transform, job, template, encode, encoding, analyze, speech to text, captions, subtitles, transcode'
-    - name: Codificación de contenido
+    - name: Encoding
       items:
         - name: Información general
           href: encode-concept.md
           displayName: 'encode, transcode, encoding, presets, jobs, adaptive, bitrate, billing, h264, h265, aac, audio, video, MP4, HLS, DASH, Smooth'
-        - name: Formatos de codificador estándar
+        - name: Configuración de transformaciones y trabajos
+          href: transform-jobs-concept.md
+          displayName: 'preset, schema, transform, job, template, encode, encoding, analyze, speech to text, captions, subtitles, transcode'
+        - name: Formatos de archivos admitidos
           href: encode-media-encoder-standard-formats-reference.md
-          displayName: 'MP4, TS, MOV, AAC, H264, H265, H.264, H.265, HEVC, WebM, Ogg, Theora, MP3, HE-AAC, Dolby, encode, encoder, transcode, transcoder, bitrate, resolution, formats, containers, codecs, audio, video, supported formats'
-        - name: Escala de velocidad de bits adaptativa generada automáticamente
+          displayName: 'formats, codecs, MP4, TS, MOV, AAC, H264, H265, H.264, H.265, HEVC, WebM, Ogg, Theora, MP3, HE-AAC, Dolby, encode, encoder, transcode, transcoder, bitrate, resolution, formats, containers, codecs, audio, video, supported formats'
+        - name: Codificación con velocidad de bits adaptable
           href: encode-autogen-bitrate-ladder.md
           displayName: 'automatic, encode, transcode, adaptive bitrate, streaming, bitrate, resolution, ABR, HLS, DASH, Smooth'
         - name: Codificación que tiene en cuenta el contenido
           href: encode-content-aware-concept.md
           displayName: 'Content aware encoding, encode, transcode, ABR, adaptive bitrate, resolution, HLS, DASH, Smooth, per title encoding, per title, per scene encoding, scene based, QVBR, Quality Defined Variable Bitrate, Quality-Defined'
-        - name: Unidades reservadas de multimedia
+        - name: Unidades reservadas de multimedia (heredadas)
           href: concept-media-reserved-units.md
           displayName: 'MRU, reserved units, scaling, scale, encoding, media reserved units'
     - name: Análisis y difuminado
       items:
-        - name: Información general
+        - name: Análisis de vídeo y audio
           href: analyze-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs, speech to text, language, captions, subtitles'
         - name: Detección y difuminado de caras (desenfoque)
           href: analyze-face-redaction-concept.md
           displayName: 'analyze, redact, face, detect, presets, jobs, blur, faces, redaction'
-    - name: Transformaciones y trabajos
-      href: transform-jobs-concept.md
     - name: Streaming en directo
       items:
         - name: Información general
@@ -227,7 +253,7 @@
         - name: Latencia
           href: live-event-latency-reference.md
           displayName: 'latency, low latency, ultra low latency, LL-HLS, LL-DASH, low latency HLS, low latency DASH, MPEG-DASH, Smooth, interactive, WebRTC, SRT, RTMP, RTMPS'
-    - name: Empaquetado y entrega
+    - name: 'Empaquetado, origen y entrega'
       items:
         - name: Empaquetado dinámico
           displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming, audio, video, LL-HLS, LL-DASH, ultra low latency, packaging, dynamic packaging, dynamic packager, encryption, dynamic encryption'
@@ -296,30 +322,71 @@
             - name: Esquemas de Event Grid
               href: monitoring/media-services-event-schemas.md
               displayName: 'Events, Event Grid, schema, event schema, event grid schema, messages, event messages, event format, notifications, web hook, monitoring, metrics, telemetry, troubleshooting, logging, support, diagnostics, debug, debugging, charts, graphs, logs'
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: /security/benchmark/azure/baselines/media-services-security-baseline
+          displayName: 'security, baseline'
+        - name: Seguridad de la cuenta
+          items:
+            - name: ¿Qué es la plataforma de identidad de Microsoft?
+              href: ../../active-directory/develop/app-objects-and-service-principals.md
+            - name: ¿Qué es una aplicación y una entidad de servicio?
+              href: ../../active-directory/develop/app-objects-and-service-principals.md
+            - name: ¿Qué son las identidades administradas de recursos de Azure?
+              href: ../../active-directory/managed-identities-azure-resources/overview.md
+            - name: Azure RBAC
+              href: security-rbac-concept.md
+              displayName: 'RBAC, role based access, role based access control, roles, access, secure, security, authorization'
+            - name: Acceso al almacenamiento con una identidad administrada
+              href: security-access-storage-managed-identity-cli-tutorial.md
+              displayName: 'storage, managed identity, user assigned, system assigned, security, access, storage access'
+            - name: Proporcionar a una aplicación de funciones acceso a una cuenta de Media Services
+              href: security-function-app-managed-identity-cli-tutorial.md
+              displayName: 'managed identity, system assigned, user assigned, Azure Functions, Functions app, access, security, secure, authorization, roles'
+            - name: Azure Policy
+              href: security-azure-policy.md
+              displayName: 'Policy, Azure Policy, access, secure, security, public network, private link, vnet, content key, token authentication, HTTP input, HTTPS input, private DNS, DNS'
+        - name: Claves
+          items:
+            - name: Acumulación de claves de acceso de almacenamiento
+              href: security-storage-roll-access-keys-how-to.md
+              displayName: 'storage, storage account, roll, rolling keys, rotate keys, storage keys, storage access'
+            - name: Claves administradas por el cliente con la API REST
+              href: security-customer-managed-keys-rest-postman-tutorial.md
+              displayName: 'keys, security, secure, customer managed keys, key-vault, key vault, managed keys, encrypt, encryption'
+            - name: Uso de una clave de Key Vault para cifrar datos
+              href: security-encrypt-data-managed-identity-cli-tutorial.md
+              displayName: 'keys, security, secure, customer managed keys, key-vault, key vault, managed keys, encrypt, encryption'
+        - name: Almacenamiento y recursos
+          items:
+            - name: Habilitación del almacenamiento de confianza
+              href: security-trusted-storage-rest-tutorial.md
+              displayName: 'trusted storage, storage, access, storage access, security'
+        - name: Seguridad de las redes
+          items:
+            - name: Creación de una cuenta de Media Services y una cuenta de almacenamiento con un vínculo privado
+              href: security-private-link-how-to.md
+              displayName: 'security, private link, links, firewall, storage account, storage, private, links, secure'
+            - name: Lista de direcciones IP permitidas de entrega de claves
+              href: drm-content-protection-key-delivery-ip-allow.md
+              displayName: 'DRM, AES, content key, allow list, IP, whitelist, access control, IP allow list, IP restriction, key delivery, license delivery, AES Key, AES-128, common encryption, security, secure, protect, encrypt'
+        - name: Streaming seguro
+          items:
+            - name: Cifrado dinámico y entrega de claves
+              displayName: 'content protection, access control, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, AES, AES-128,custom, DRM, CENC, CBCS, secure, encrypt, protect, authorization, keys, content keys, key delivery, license, license template, Playready license, SL3000'
+              href: drm-content-protection-concept.md
+            - name: Directivas de streaming
+              href: stream-streaming-policy-concept.md
+              displayName: 'streaming policy, access control, policies, content protection, DRM, FairPlay, Widevine, PlayReady, AES, AES-128, common encryption, CENC, CBCS, security, secure, encrypt, protect, authorization, keys, content keys, key delivery, license, license template, Playready license, SL3000'
+            - name: Directivas de claves de contenido
+              href: drm-content-key-policy-concept.md
+              displayName: 'content key, policy, access control, policies, content protection, DRM, FairPlay, Widevine, PlayReady, AES, AES-128, common encryption, CENC, CBCS, security, secure, encrypt, protect, authorization, keys, content keys, key delivery, license, license template, Playready license, SL3000'
     - name: Reproductores compatibles
       items:
         - name: Reproductores multimedia para Media Services
           href: player-media-players-concept.md
           displayName: 'player, javascript, iOS, Android, playback, accessibility, streaming, web page, HTML, HTML5, AvPlayer,hls.js, shaka, video.js, Bitmovin, Theo player, azure media player, AMP,'
-    - name: Desarrollo con las API de la versión v3
-      items:
-        - name: Información general
-          href: media-services-apis-overview.md
-          displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name, SDK, client, library, API, develop, developer'
-        - name: 'Paginación, filtración y ordenación de entidades'
-          href: filter-order-page-entitites-how-to.md
-          displayName: 'paging, filtering, sorting, order, ordering, REST, SDK, client'
-        - name: Códigos de error
-          items:
-            - name: Códigos de error de puntos de conexión de streaming
-              href: stream-streaming-endpoint-error-codes-reference.md
-              displayName: 'error code, codes, errors, streaming error, debug, debugging, streaming endpoint, origin'
-            - name: Códigos de error de eventos en directo
-              href: live-event-error-codes-reference.md
-              displayName: 'error code, codes, errors, streaming error, debug, debugging, live event, channel, event, telemetry, origin, live, live stream error'
-            - name: Códigos de error de trabajo
-              href: job-error-codes-reference.md
-              displayName: 'error code, codes, errors, streaming error, debug, debugging, live event, channel, event, telemetry, encoding, job, job output, job error, encoding error, encoder error, transcode'
     - name: Alta disponibilidad
       items:
         - name: Zonas de disponibilidad
@@ -328,18 +395,10 @@
         - name: Vídeo bajo demanda
           displayName: 'failover, bcdr, HA, high availability, VOD, on-demand, fault tolerance, disaster recovery, scaling, high scale, production'
           href: architecture-high-availability-encoding-concept.md
-    - name: Arquitecturas de Media Services
+    - name: Arquitecturas
       displayName: architectures
       href: architecture-concept.md
-    - name: Solución de problemas
-      items:
-        - name: Preguntas frecuentes y sugerencias para la solución de problemas
-          href: questions-collection.md
-          displayName: 'troubleshooting, FAQ, Debug, debugging, trouble, tips, guidance, frequent questions, support'
-        - name: Restablecimiento de las credenciales de una cuenta
-          href: account-reset-account-credentials.md
-          displayName: 'reset, account credentials, remove credentials, security, restore, remove, credentials'
-    - name: Guía de migración
+    - name: "Migración de la versión\_v2 de la API"
       displayName: 'migration guide, migration, v2 api, v2, v3, v2 to v3, v3 guidance, deprecation, retirement, legacy API, older API, old API, migrate, retire, deprecate, timeline, dates'
       items:
         - name: 'Guía de migración: introducción'
@@ -450,6 +509,9 @@
         - name: Copia de vídeos sin recodificación con REST
           href: transform-create-copy-video-audio-how-to.md
           displayName: 'copy videos, copy, copy codec, copy video codec, copy audio codec, fast encoding, fast remux, remuxing, re-package, packaging, re-encoding'
+        - name: Uso del valor predeterminado de codificación en función del contenido
+          href: encode-content-aware-how-to.md
+          displayName: 'encode, encoder, transcode, custom preset, content aware, transform'
     - name: Creación de trabajos
       items:
         - name: Creación de trabajos con la CLI
@@ -545,36 +607,22 @@
           displayName: 'publish, manifest, HLS, DASH, URL, Streaming URL, Streaming Locator, CLI, how-to, how to, sample'
     - name: Seguridad
       items:
-        - name: Línea de base de seguridad
-          href: 'https://docs.microsoft.com/security/benchmark/azure/baselines/media-services-security-baseline'
-          displayName: 'security, baseline'
-        - name: Azure RBAC
-          href: security-rbac-concept.md
-          displayName: 'RBAC, role based access, role based access control, roles, access, secure, security, authorization'
-        - name: Acumulación de claves de acceso de almacenamiento
-          href: security-storage-roll-access-keys-how-to.md
-          displayName: 'storage, storage account, roll, rolling keys, rotate keys, storage keys, storage access'
-        - name: Habilitación del almacenamiento de confianza
-          href: security-trusted-storage-rest-tutorial.md
-          displayName: 'trusted storage, storage, access, storage access, security'
-        - name: Tokens de autenticación de aprobación de Azure Media Player
-          href: security-pass-authentication-tokens-how-to.md
-          displayName: 'AMP, player, Azure Media Player, authentication, tokens, auth tokens, token auth, authentication tokens'
-        - name: Claves administradas por el cliente con la API REST
-          href: security-customer-managed-keys-rest-postman-tutorial.md
-          displayName: 'keys, security, secure, customer managed keys, key-vault, key vault, managed keys, encrypt, encryption'
-        - name: Uso de una clave de Key Vault para cifrar datos
-          href: security-encrypt-data-managed-identity-cli-tutorial.md
-          displayName: 'keys, security, secure, customer managed keys, key-vault, key vault, managed keys, encrypt, encryption'
-        - name: Acceso al almacenamiento con una identidad administrada
-          href: security-access-storage-managed-identity-cli-tutorial.md
-          displayName: 'storage, managed identity, user assigned, system assigned, security, access, storage access'
-        - name: Proporcionar a una aplicación de funciones acceso a una cuenta de Media Services
-          href: security-function-app-managed-identity-cli-tutorial.md
-          displayName: 'managed identity, system assigned, user assigned, Azure Functions, Functions app, access, security, secure, authorization, roles'
-        - name: Creación de una cuenta de Media Services y una cuenta de almacenamiento con un vínculo privado
-          href: security-private-link-how-to.md
-          displayName: 'security, private link, links, firewall, storage account, storage, private, links, secure'
+        - name: Seguridad de la cuenta
+          items:
+            - name: Creación de una identidad administrada asignada por el usuario en el portal
+              href: ../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md
+            - name: Asignación del acceso de una identidad administrada a otros recursos de Azure
+              href: ../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md
+        - name: Seguridad de las redes
+          items:
+            - name: Uso de Private Link con una cuenta de almacenamiento y multimedia
+              href: security-private-link-how-to.md
+              displayName: 'security, private link, links, firewall, storage account, storage, private, links, secure'
+        - name: Streaming seguro
+          items:
+            - name: Paso de tokens de autenticación al servicio de entrega de claves
+              href: security-pass-authentication-tokens-how-to.md
+              displayName: 'AMP, player, Azure Media Player, authentication, tokens, auth tokens, token auth, authentication tokens'
     - name: Uso de reproductores multimedia
       items:
         - name: Configuración completa de Azure Media Player

@@ -4,12 +4,14 @@
   items:
     - name: ¿Qué es Event Hubs?
       href: event-hubs-about.md
+    - name: Terminología
+      href: event-hubs-features.md
 - name: Guías de inicio rápido
   expanded: true
   items:
     - name: Creación de un centro de eventos
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: event-hubs-create.md
         - name: Azure CLI
           href: event-hubs-quickstart-cli.md
@@ -73,26 +75,26 @@
       href: event-hubs-samples.md
 - name: Conceptos
   items:
-    - name: Terminología de Event Hubs
-      href: event-hubs-features.md
-    - name: Event Hubs Premium
-      href: event-hubs-premium-overview.md
+    - name: Niveles
+      items:
+        - name: Nivel Premium
+          href: event-hubs-premium-overview.md
+        - name: Nivel dedicado
+          href: event-hubs-dedicated-overview.md
+        - name: Comparación de niveles
+          href: compare-tiers.md
     - name: Event Hubs para Apache Kafka
       href: event-hubs-for-kafka-ecosystem-overview.md
     - name: Captura de Event Hubs
       href: event-hubs-capture-overview.md
-    - name: Event Hubs dedicado
-      href: event-hubs-dedicated-overview.md
-    - name: Registro de esquema de Azure en Event Hubs (versión preliminar)
+    - name: Registro de esquema de Azure en Event Hubs
       href: schema-registry-overview.md
-    - name: Host del procesador de eventos (SDK heredado)
-      href: event-hubs-event-processor-host.md
-    - name: Procesador de eventos (SDK más reciente)
-      href: event-processor-balance-partition-load.md
-    - name: Disponibilidad y coherencia
-      href: event-hubs-availability-and-consistency.md
-    - name: Escalabilidad
-      href: event-hubs-scalability.md
+    - name: Procesamiento de eventos mediante SDK
+      items:
+        - name: Host del procesador de eventos (SDK heredado)
+          href: event-hubs-event-processor-host.md
+        - name: Procesador de eventos (SDK más reciente)
+          href: event-processor-balance-partition-load.md
     - name: Federación
       items:
         - name: Federación en varios sitios y regiones
@@ -140,6 +142,10 @@
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: /security/benchmark/azure/baselines/event-hubs-security-baseline?toc=/azure/event-hubs/TOC.json
+    - name: Disponibilidad y coherencia
+      href: event-hubs-availability-and-consistency.md
+    - name: Escalabilidad
+      href: event-hubs-scalability.md
     - name: AMQP
       items:
         - name: Guía del protocolo AMQP 1.0
@@ -217,8 +223,6 @@
       items:
         - name: Supervisión de Azure Event Hubs
           href: monitor-event-hubs.md
-        - name: Configuración de registros de diagnósticos
-          href: event-hubs-diagnostic-logs.md
         - name: Transmisión de datos de Diagnósticos de Azure mediante Event Hubs
           href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md
         - name: Escalado automático de las unidades de rendimiento
@@ -233,7 +237,7 @@
           href: event-hubs-service-endpoints.md
         - name: Permitir el acceso a través de puntos de conexión privados
           href: private-link-service.md
-        - name: Configuración de claves administradas por el cliente
+        - name: Cifrado de datos mediante claves administradas por el cliente
           href: configure-customer-managed-key.md
     - name: Solución de problemas
       items:

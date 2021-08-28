@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo actualizar un clúster de Azure Ku
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 772cb9d33c9bf9307ca0dc16536933fc9123de4b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 9dcbe21ccddb13037cbd7633127880320da9ff2b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085805"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860869"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -66,7 +66,7 @@ AKS acepta valores enteros y un valor de porcentaje para la sobrecarga máxima. 
 Durante una actualización, el valor de sobrecarga máxima puede ser 1 como mínimo y un valor igual al número de nodos del grupo de nodos como máximo. Puede establecer valores mayores, pero el número máximo de nodos que se usan para la sobrecarga máxima no será mayor que el número de nodos del grupo en el momento de la actualización.
 
 > [!Important]
-> La configuración de sobrecarga máxima en un grupo de nodos es permanente.  Las actualizaciones posteriores de Kubernetes o las actualizaciones de la versión de nodo usarán esta configuración. Puede cambiar el valor de sobrecarga máxima para los grupos de nodos en cualquier momento. En el caso de los grupos de nodos de producción, se recomienda un valor de sobrecarga máxima del 33 %.
+> El valor de sobrecarga máxima en un grupo de nodos es permanente.  Las actualizaciones posteriores de Kubernetes o las actualizaciones de la versión de nodo usarán esta configuración. Puede cambiar el valor de sobrecarga máxima para los grupos de nodos en cualquier momento. En el caso de los grupos de nodos de producción, se recomienda un valor de sobrecarga máxima del 33 %.
 
 Use los siguientes comandos para establecer los valores de sobrecarga máxima para los grupos de nodos nuevos o existentes.
 
@@ -136,6 +136,12 @@ La actualización automática de un clúster sigue el mismo proceso que la manua
 La actualización automática del clúster para los clústeres de AKS es una característica en vista previa (GB).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Agregue la siguiente extensión, en `az cli`.
+
+```azurecli-interactive
+az extension add --name aks-preview
+```
 
 Registre la marca de la característica `AutoUpgradePreview` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
 

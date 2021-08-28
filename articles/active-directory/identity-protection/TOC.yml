@@ -36,6 +36,8 @@
           href: howto-identity-protection-investigate-risk.md
         - name: Corrección de detecciones de riesgos y desbloqueo
           href: howto-identity-protection-remediate-unblock.md
+        - name: Exportación de datos de riesgo
+          href: howto-export-risk-data.md
         - name: Uso de Microsoft Graph API
           href: howto-identity-protection-graph-api.md
     - name: Proporcionar comentarios sobre las detecciones de riesgos

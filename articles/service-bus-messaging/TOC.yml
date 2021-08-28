@@ -15,7 +15,7 @@
       items:
         - name: Creación de una cola de Service Bus
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -34,19 +34,11 @@
               href: service-bus-python-how-to-use-queues.md
             - name: JavaScript (@azure/service-bus)
               href: service-bus-nodejs-how-to-use-queues.md
-        - name: Envío y recepción de mensajes (versiones anteriores/paquetes)
-          items:
-            - name: .NET (Microsoft.Azure.ServiceBus)
-              href: service-bus-dotnet-get-started-with-queues-legacy.md
-            - name: Java (azure-servicebus)
-              href: service-bus-java-how-to-use-queues-legacy.md
-            - name: PHP
-              href: service-bus-php-how-to-use-queues.md
     - name: Temas y suscripciones de Service Bus
       items:
         - name: Creación de temas y suscripciones
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
             - name: Azure CLI
               href: service-bus-tutorial-topics-subscriptions-cli.md
@@ -62,14 +54,6 @@
               href: service-bus-python-how-to-use-topics-subscriptions.md
             - name: JavaScript (@azure/service-bus)
               href: service-bus-nodejs-how-to-use-topics-subscriptions.md
-        - name: Publicación y suscripción a mensajes (versiones anteriores/paquetes)
-          items:
-            - name: .NET (Microsoft.Azure.ServiceBus)
-              href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md
-            - name: Java (azure-servicebus)
-              href: service-bus-java-how-to-use-topics-subscriptions-legacy.md
-            - name: PHP
-              href: service-bus-php-how-to-use-topics-subscriptions.md
 - name: Tutoriales
   items:
     - name: Actualización de inventario
@@ -80,6 +64,8 @@
           href: service-bus-to-event-grid-integration-example.md
         - name: Azure Functions
           href: service-bus-to-event-grid-integration-function.md
+    - name: Compilación de aplicaciones empresariales orientadas a mensajes con NServiceBus
+      href: build-message-driven-apps-nservicebus.md
 - name: Ejemplos
   items:
     - name: Ejemplos de Service Bus
@@ -172,6 +158,22 @@
       items:
         - name: Creación de un espacio de nombres
           href: service-bus-create-namespace-portal.md
+        - name: Envío y recepción de mensajes (versiones anteriores/paquetes)
+          items:
+            - name: .NET (Microsoft.Azure.ServiceBus)
+              href: service-bus-dotnet-get-started-with-queues-legacy.md
+            - name: Java (azure-servicebus)
+              href: service-bus-java-how-to-use-queues-legacy.md
+            - name: PHP
+              href: service-bus-php-how-to-use-queues.md
+        - name: Publicación y suscripción a mensajes (versiones anteriores/paquetes)
+          items:
+            - name: .NET (Microsoft.Azure.ServiceBus)
+              href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md
+            - name: Java (azure-servicebus)
+              href: service-bus-java-how-to-use-topics-subscriptions-legacy.md
+            - name: PHP
+              href: service-bus-php-how-to-use-topics-subscriptions.md
         - name: Establecimiento de acciones y filtros de suscripción
           href: service-bus-filter-examples.md
         - name: Administración de mensajes
@@ -216,8 +218,6 @@
       items:
         - name: Seguimiento diagnóstico integral
           href: service-bus-end-to-end-tracing.md
-        - name: Registros de diagnóstico
-          href: service-bus-diagnostic-logs.md
         - name: Supervisión de Azure Service Bus
           href: monitor-service-bus.md
     - name: Integrate
@@ -267,7 +267,7 @@
           href: service-bus-service-endpoints.md
         - name: Permitir el acceso a través de puntos de conexión privados
           href: private-link-service.md
-        - name: Configuración de claves administradas por el cliente
+        - name: Cifrado de datos mediante claves administradas por el cliente
           href: configure-customer-managed-key.md
     - name: Solución de problemas
       items:

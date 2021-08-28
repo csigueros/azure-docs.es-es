@@ -6,14 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 883b76929ac3310dd3089ecb088a4691adbb4ca1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: references_regions
+ms.openlocfilehash: a3ef9a8f56f091e7be93e940f9e359adef15cb7f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103010361"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748212"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Copia de seguridad y restauración en Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL crea automáticamente copias de seguridad del servidor y las almacena en el almacenamiento con redundancia local o con redundancia geográfica configurado por el usuario. Las copias de seguridad pueden utilizarse para restaurar el servidor a un momento dado. Las copias de seguridad y las restauraciones son una parte esencial de cualquier estrategia de continuidad del negocio, ya que protegen los datos frente a daños o eliminaciones accidentales.
 
@@ -33,20 +36,18 @@ El almacenamiento básico es el almacenamiento de back-end que admite los [servi
 
 Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos.
 
-#### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Servidores de almacenamiento de uso general con hasta 4 TB
+#### <a name="general-purpose-storage-v1-servers-supports-up-to-4-tb-storage"></a>Servidores de almacenamiento de uso general v1 (admite hasta 4 TB de almacenamiento)
 
 El almacenamiento de uso general es el almacenamiento de back-end que admite el servidor [De uso general](concepts-pricing-tiers.md) y el servidor de [nivel Optimizado para memoria](concepts-pricing-tiers.md). En el caso de los servidores con almacenamiento de uso general de hasta 4 TB, las copias de seguridad completas se realizan cada semana. Las copias de seguridad diferenciales se realizan dos veces al día. Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos. Las copias de seguridad del almacenamiento de uso general de hasta 4 TB no se basan en instantáneas y consumen ancho de banda de E/S en el momento de la copia de seguridad. En el caso de las bases de datos de gran tamaño (> 1 TB) en el almacenamiento de 4 TB, se recomienda considerar lo siguiente:
 
 - Aprovisionamiento de más IOPS para asegurar E/S de copia de seguridad, O
 - También puede migrar a un almacenamiento de uso general que admite hasta 16 TB si la infraestructura de almacenamiento subyacente está disponible en las [regiones de Azure](./concepts-pricing-tiers.md#storage) de su preferencia. No hay ningún costo adicional para el almacenamiento de uso general que admite hasta 16 TB. Si necesita ayuda para migrar a un almacenamiento de 16 TB, abra una incidencia de soporte técnico en Azure Portal.
 
-#### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de almacenamiento de uso general con hasta 16 TB
+#### <a name="general-purpose-storage-v2-servers-supports-up-to-16-tb-storage"></a>Servidores de almacenamiento de uso general v2 (admite hasta 16 TB de almacenamiento)
 
-En un subconjunto de [regiones de Azure](./concepts-pricing-tiers.md#storage), todos los servidores recién aprovisionados pueden admitir un almacenamiento de uso general de hasta 16 TB. En otras palabras, el almacenamiento de hasta 16 TB es el almacenamiento de uso general predeterminado para todas las [regiones](concepts-pricing-tiers.md#storage) donde se admite. Las copias de seguridad de estos servidores con 16 TB almacenamiento se basan en instantáneas. La primera copia de seguridad de instantáneas completa, se programa inmediatamente después de la creación del servidor. Esa primera copia se conserva como la copia de seguridad base del servidor. Las copias de seguridad de instantáneas posteriores son solo copias de seguridad diferenciales.
+En un subconjunto de [regiones de Azure](./concepts-pricing-tiers.md#storage), todos los servidores recién aprovisionados pueden admitir un almacenamiento de uso general de hasta 16 TB. En otras palabras, el almacenamiento de hasta 16 TB es el almacenamiento de uso general predeterminado para todas las [regiones](concepts-pricing-tiers.md#storage) donde se admite. Las copias de seguridad de estos servidores con 16 TB almacenamiento se basan en instantáneas. La primera copia de seguridad de instantáneas se programa inmediatamente después de la creación de un servidor. Las copias de seguridad de instantáneas se realizan una vez al día. Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos.
 
-Las copias de seguridad de instantáneas diferenciales se producen al menos una vez al día. Las copias de seguridad de instantáneas diferenciales no se realizan según una programación fija. Las copias de seguridad de instantáneas diferenciales se producen cada 24 horas, a menos que el registro de transacciones (binlog en MySQL) supere los 50 GB desde la última copia de seguridad diferencial. En un día, se permite un máximo de seis instantáneas diferenciales.
-
-Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos.
+Para obtener más información sobre el almacenamiento de uso general y Básico, vea la [documentación sobre almacenamiento](./concepts-pricing-tiers.md#storage).
 
 ### <a name="backup-retention"></a>Retención de copias de seguridad
 
@@ -54,8 +55,8 @@ Las copias de seguridad se conservan según el valor del período de retención 
 
 El período de retención de copia de seguridad rige durante cuánto tiempo se puede realizar una restauración a un momento dado, porque se basa en las copias de seguridad disponibles. El período de retención de copia de seguridad también se puede tratar como un período de recuperación desde una perspectiva de restauración. Todas las copias de seguridad que se necesitan para realizar una restauración a un momento dado dentro del período de retención de copia de seguridad, se conservan en el almacenamiento de copia de seguridad. Por ejemplo, si el período de retención de la copia de seguridad se establece en 7 días, el período de recuperación comprendería los últimos 7 días. En este escenario, se conservan todas las copias de seguridad necesarias para restaurar el servidor en los últimos 7 días. Con un período de retención de copia de seguridad de siete días:
 
-- Los servidores con un almacenamiento de hasta 4 TB conservarán hasta 2 copias de seguridad completas de la base de datos, todas las copias de seguridad diferenciales y las copias de seguridad del registro de transacciones realizadas desde la primera copia de seguridad completa de la base de datos.
-- Los servidores con un almacenamiento de hasta 16 TB conservarán la instantánea de base de datos completa, todas las instantáneas diferenciales y las copias de seguridad del registro de transacciones de los últimos 8 días.
+- Los servidores de almacenamiento de uso general v1 (que admiten hasta 4 TB de almacenamiento) conservan hasta dos copias de seguridad completas de la base de datos, todas las copias de seguridad diferenciales y las copias de seguridad del registro de transacciones realizadas desde la primera copia de seguridad completa de la base de datos.
+- Los servidores de almacenamiento de uso general v2 (que admiten hasta 16 TB de almacenamiento) conservan las instantáneas de base de datos completas y las copias de seguridad del registro de transacciones de los últimos ocho días.
 
 #### <a name="long-term-retention"></a>Retención a largo plazo
 
@@ -64,6 +65,9 @@ Actualmente, el servicio todavía no admite de forma nativa la retención a larg
 ### <a name="backup-redundancy-options"></a>Opciones de redundancia de copia de seguridad
 
 Azure Database for MySQL permite elegir entre almacenamiento de copia de seguridad con redundancia local o con redundancia geográfica en los niveles Uso General y Memoria optimizada. Cuando las copias de seguridad se almacenan en un almacenamiento de copia de seguridad con redundancia geográfica, no solo se almacenan en la región en la que se hospeda el servidor, también se replican en un [centro de datos emparejado](../best-practices-availability-paired-regions.md). Esta redundancia geográfica proporciona una mejor protección y capacidad de restaurar el servidor en una región diferente en caso de desastre. El nivel Básico solo ofrece almacenamiento de copia de seguridad con redundancia local.
+
+> [!NOTE]
+>Para las siguientes regiones: Centro de la India, Centro de Francia, Norte de Emiratos Árabes Unidos, Norte de Sudáfrica; el almacenamiento de uso general v2 está en versión preliminar pública. Si crea un servidor de origen en el almacenamiento de uso general v2 (que admite hasta 16 TB de almacenamiento) en las regiones mencionadas anteriormente, no se admite la habilitación de la copia de seguridad con redundancia geográfica. 
 
 #### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Cambio de redundancia local a almacenamiento de copia de seguridad con redundancia geográfica
 
@@ -119,7 +123,9 @@ Quizás deba esperar a que se realice la siguiente copia de seguridad del regist
 
 ### <a name="geo-restore"></a>Geo-restore
 
-Puede restaurar un servidor en otra región de Azure donde el servicio esté disponible, si ha configurado el servidor para copias de seguridad con redundancia geográfica. Los servidores que admiten hasta 4 TB de almacenamiento se pueden restaurar en la región emparejada geográficamente o en cualquier región que admita hasta 16 TB de almacenamiento. En el caso de los servidores que admiten hasta 16 TB de almacenamiento, las copias de seguridad geográficas se pueden restaurar en cualquier región que admita también servidores de 16 TB. Revise los [planes de tarifa de Azure Database for MySQL](concepts-pricing-tiers.md) para ver la lista de regiones admitidas.
+Puede restaurar un servidor en otra región de Azure donde el servicio esté disponible, si ha configurado el servidor para copias de seguridad con redundancia geográfica. 
+- Los servidores de almacenamiento de uso general v1 (que admiten hasta 4 TB de almacenamiento) se pueden restaurar en la región emparejada geográficamente o en cualquier región de Azure que admita el servicio de servidor único de Azure Database for MySQL.
+- Los servidores de almacenamiento de uso general v2 (que admiten hasta 16 TB de almacenamiento) solo se pueden restaurar en regiones de Azure que admitan la infraestructura de servidores de almacenamiento de uso general v2. Revise los [planes de tarifa de Azure Database for MySQL](./concepts-pricing-tiers.md#storage) para ver la lista de regiones admitidas.
 
 La restauración geográfica es la opción de recuperación predeterminada cuando el servidor no está disponible debido a una incidencia en la región en la que se hospeda el servidor. Si un incidente a gran escala en una región provoca la falta de disponibilidad de una aplicación de base de datos, puede restaurar un servidor a partir de las copias de seguridad con redundancia geográfica en un servidor de cualquier otra región. La restauración geográfica usa la copia de seguridad más reciente del servidor. Hay un retraso entre momento en que se realiza una copia de seguridad y el momento en que se replica en una región diferente. Este retraso puede ser de hasta una hora; por lo tanto, si se produce un desastre, puede haber una pérdida de datos de hasta una hora.
 
