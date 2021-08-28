@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: d2479fb687bf899057fccc2441841eed5a116914
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 0d26adebc3576d6ba7aa639e0b20610dc15ea7f1
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091580"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823899"
 ---
 # <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Habilitar la comunicación para instancias de rol en Azure Cloud Services (clásico)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Los roles de servicio en la nube se comunican a través de conexiones internas y externas. Las conexiones externas se denominan **puntos de conexión de entrada** mientras que conexiones internas se denominan **puntos de conexión internos**. En este tema se describe cómo modificar la [definición de servicio](cloud-services-model-and-package.md#csdef) para crear puntos de conexión.
 

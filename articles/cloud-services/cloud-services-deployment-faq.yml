@@ -9,17 +9,16 @@ metadata:
   ms.author: hirshah
   ms.reviewer: mimckitt
   ms.custom: 
-  ms.openlocfilehash: d49e9e6f5c34ed43be05c4f16614b0eaa22f465d
-  ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+  ms.openlocfilehash: bf9d6d6616ce4a84a9457eef92b6dfe7b1e0ca39
+  ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/01/2021
-  ms.locfileid: "113129434"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122824509"
 title: 'Problemas de implementación de Azure Cloud Services (clásico): Preguntas más frecuentes (P+F)'
 summary: >
-  > [!IMPORTANT]
+  [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
-  > [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
 
   En este artículo se incluyen preguntas frecuentes sobre problemas de implementación con [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). También puede consultar la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md) para obtener información de tamaño.
 

@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: c02b7ec2cb2c8c16af3b34e4a58b978d96901774
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: b9295e5f211dc57f7c2205d6abb2b79ad657b5ed
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092534"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823974"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Roles web y de trabajo de Python con herramientas de Python para Visual Studio
 
-> [!IMPORTANT]
-> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 En este artículo se ofrece información general sobre el uso de roles web y de trabajo de Python con [herramientas de Python para Visual Studio][Python Tools for Visual Studio]. Obtenga información acerca de cómo usar Visual Studio para crear e implementar un servicio en la nube básico que usa Python.
 

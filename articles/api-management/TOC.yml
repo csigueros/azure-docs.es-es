@@ -215,6 +215,12 @@
               href: developer-portal-use-community-widgets.md
             - name: Comprobación del portal autohospedado
               href: developer-portal-testing.md
+        - name: Monetización con API
+          items:
+            - name: Monetización con Azure API Management
+              href: monetization-overview.md
+            - name: Compatibilidad de API Management con la monetización
+              href: monetization-support.md
         - name: Portal en desuso
           items:
             - name: 'Portal en desuso: personalización del portal'
@@ -308,7 +314,7 @@
           href: api-management-configuration-repository-git.md
         - name: Uso del control de acceso basado en rol
           href: api-management-role-based-access-control.md
-        - name: Migración de instancias de API Management
+        - name: Traslado de instancias entre regiones
           href: api-management-howto-migrate.md
         - name: Uso de identidades administradas para recursos de Azure
           href: api-management-howto-use-managed-service-identity.md
