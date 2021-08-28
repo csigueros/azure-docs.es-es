@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 520f3ba65a7e4bddfd52e303179ed925417537e3
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 16942b91ea999c3da84ecbc784a96575045049d1
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090140"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824061"
 ---
 # <a name="how-to-update-an-azure-cloud-service-classic"></a>Actualización de un servicio de Azure Cloud Services (clásico)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 La actualización de un servicio en la nube, incluidos sus roles y el sistema operativo invitado, es un proceso de tres pasos. En primer lugar, se deben cargar los archivos binarios y archivos de configuración para el nuevo servicio en la nube, o la versión del sistema operativo. A continuación, Azure reserva recursos informáticos y de red para el servicio en la nube según los requisitos de la nueva versión de dicho servicio. Por último, Azure lleva a cabo una actualización gradual para actualizar de forma incremental el inquilino a la nueva versión o sistema operativo invitado, conservando su disponibilidad. En este artículo se tratan los detalles de este último paso: la actualización gradual.
 

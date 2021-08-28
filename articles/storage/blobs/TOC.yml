@@ -18,7 +18,7 @@ items:
         items:
           - name: Uso de blobs
             items:
-              - name: Azure portal
+              - name: Azure Portal
                 href: storage-quickstart-blobs-portal.md
               - name: Explorador de Storage
                 href: storage-quickstart-blobs-storage-explorer.md
@@ -172,7 +172,7 @@ items:
                 href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Configuración de las preferencias de enrutamiento de red
                 href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Protección de los datos
+          - name: Protección de datos
             items:
               - name: Información general
                 href: data-protection-overview.md
@@ -188,26 +188,32 @@ items:
                 href: snapshots-overview.md
               - name: Fuente de cambios
                 href: storage-blob-change-feed.md
-              - name: Blobs inalterables
-                href: storage-blob-immutable-storage.md
+              - name: Almacenamiento inmutable de blobs
+                items:
+                  - name: Información general
+                    href: immutable-storage-overview.md
+                  - name: Directivas de retención con duración definida
+                    href: immutable-time-based-retention-policy-overview.md
+                  - name: Retenciones legales
+                    href: immutable-legal-hold-overview.md
           - name: Redundancia y recuperación ante desastres
             items:
               - name: Redundancia de datos
                 href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Conmutación por error administrada por el cliente para la recuperación ante desastres
                 href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Replicación de objetos
-            href: object-replication-overview.md
           - name: Acceso y niveles de rendimiento
             items:
               - name: Niveles de acceso
                 href: storage-blob-storage-tiers.md
               - name: Rehidratación de los datos desde el nivel de archivo
-                href: storage-blob-rehydration.md
+                href: archive-rehydrate-overview.md
               - name: Niveles de rendimiento
                 href: storage-blob-performance-tiers.md
-              - name: Automatización del ciclo de vida de los niveles de acceso
-                href: storage-lifecycle-management-concepts.md
+              - name: Directivas de administración del ciclo de vida
+                href: lifecycle-management-overview.md
+          - name: Replicación de objetos
+            href: object-replication-overview.md
           - name: 'Rendimiento, escalado y optimización de costos'
             items:
               - name: Lista de comprobación de rendimiento y escalabilidad
@@ -442,8 +448,12 @@ items:
                 href: snapshots-manage-dotnet.md
               - name: Proceso de registros de fuente de cambios
                 href: storage-blob-change-feed-how-to.md
-              - name: Establecimiento y administración de directivas de inmutabilidad
-                href: storage-blob-immutability-policies-manage.md
+              - name: Configuración de una directiva de inmutabilidad
+                items:
+                  - name: Configuración de directivas de inmutabilidad de nivel de versión
+                    href: immutable-policy-configure-version-scope.md
+                  - name: Configuración de directivas de inmutabilidad de nivel de contenedor
+                    href: immutable-policy-configure-container-scope.md
           - name: Administración de la redundancia y de la conmutación por error
             items:
               - name: Cambio de configuración de redundancia
@@ -454,6 +464,16 @@ items:
                 href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Iniciación de la conmutación por error de la cuenta
                 href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Administración de niveles y ciclo de vida de blobs
+            items:
+              - name: Configuración de directivas de administración del ciclo de vida
+                href: lifecycle-management-policy-configure.md
+              - name: Administración de datos al nivel de archivo
+                items:
+                  - name: Rehidratación de un blob archivado
+                    href: archive-rehydrate-to-online-tier.md
+                  - name: Control de un evento en la rehidratación de blobs
+                    href: archive-rehydrate-handle-event.md
           - name: Configuración de la replicación de objetos
             href: object-replication-configure.md
           - name: Administración de la simultaneidad
@@ -512,8 +532,6 @@ items:
                 href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Desarrollo con blobs
             items:
-              - name: C++
-                href: storage-c-plus-plus-how-to-use-blobs.md
               - name: iOS
                 href: storage-ios-how-to-use-blob-storage.md
               - name: Java
@@ -524,6 +542,8 @@ items:
             href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Monitor
             items:
+              - name: Escenarios y procedimientos recomendados
+                href: blob-storage-monitoring-scenarios.md
               - name: Uso de la información de Storage
                 href: ../common/storage-insights-overview.md
               - name: Supervisión (clásica)
@@ -538,7 +558,7 @@ items:
                 href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Referencia
         items:
-          - name: Referencia de Azure Blob Storage
+          - name: Referencia de Blob Storage API
             href: ../blobs/reference.md
           - name: AzCopy v10
             items:
@@ -808,7 +828,7 @@ items:
                 href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Administración del control de acceso
             items:
-              - name: Azure portal
+              - name: Azure Portal
                 href: data-lake-storage-acl-azure-portal.md
               - name: Explorador de Storage
                 href: data-lake-storage-explorer-acl.md

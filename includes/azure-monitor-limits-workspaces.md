@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: azure-monitor
 author: rboucher
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 704697a88a723182c2dbbcb2f25eb18df7be34c1
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: b8ada581eabe0a2fedda08d0fbb1fa9585da0cca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111429595"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121800882"
 ---
 **Volumen de colección de datos y retención** 
 
@@ -47,7 +47,7 @@ ms.locfileid: "111429595"
 | Tamaño máximo de una sola publicación | 30 MB | Dividir volúmenes más grandes en varias publicaciones. |
 | Tamaño máximo de los valores de campo  | 32 KB | Los campos de más de 32 KB se truncan. |
 
-**API de búsqueda**
+**API de consulta**
 
 | Category | Límite | Comentarios |
 |:---|:---|:---|
@@ -60,8 +60,8 @@ ms.locfileid: "111429595"
 
 | Category | Límite | Comentarios |
 |:---|:---|:---|
+| Tamaño máximo de los datos | Aprox. 16,7 MB (aprox. 16 MiB) | La infraestructura del conector dicta que el límite sea menor que el límite de la API de consulta. |
 | Número máximo de registros | 500.000 | |
-| Tamaño máximo de los datos devueltos | Aprox. 104 MB (aprox. 100 MiB) | |
 | Tiempo de espera máximo de las consultas | 110 segundos | |
 | Gráficos | | La visualización en la página Registros y el conector utilizan diferentes bibliotecas de gráficos y algunas funcionalidades no están disponibles en el conector actualmente. |
 

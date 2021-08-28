@@ -6,54 +6,72 @@ metadata:
   description: Aprenda cómo el servicio Azure Relay le permite exponer de forma segura servicios que se ejecutan en la red corporativa en la nube pública.
   services: service-bus-relay
   ms.service: service-bus-relay
-  ms.subservice: null
+  ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
   ms.date: 06/23/2021
+  ms.openlocfilehash: a6c367b634ece73b6071faaf02f4f92b8d7daa6b
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121741222"
 landingContent:
-  - title: Acerca de Azure Relay
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: ¿Qué es Relay de Azure?
-            url: relay-what-is-it.md
-  - title: Conexiones híbridas
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: 'Envío y recepción de mensajes mediante WebSockets: .NET'
-            url: relay-hybrid-connections-dotnet-get-started.md
-          - text: 'Envío y recepción de mensajes mediante HTTP: .NET'
-            url: relay-hybrid-connections-http-requests-dotnet-get-started.md
-          - text: 'Envío y recepción de mensajes mediante WebSockets: Node.js'
-            url: relay-hybrid-connections-node-get-started.md
-          - text: 'Envío y recepción de mensajes mediante HTTP: Node.js'
-            url: relay-hybrid-connections-http-requests-node-get-started.md
-      - linkListType: download
-        links:
-          - text: Ejemplos en GitHub
-            url: 'https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections'
-  - title: Retransmisión de WCF
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Exposición de un servicio WCF local en una aplicación web en la nube
-            url: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
-          - text: Exposición de un servicio WCF local en un servicio WCF fuera de la red
-            url: service-bus-relay-tutorial.md
-          - text: Exposición de un servicio WCF REST local en un cliente fuera de la red
-            url: service-bus-relay-rest-tutorial.md
-      - linkListType: download
-        links:
-          - text: Ejemplos en GitHub
-            url: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
-  - title: Referencias de API
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: .NET
-            url: /dotnet/api/microsoft.azure.relay
-          - text: REST
-            url: /rest/api/relay/
+- title: Acerca de Azure Relay
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Relay de Azure?
+      url: relay-what-is-it.md
+- title: Conexiones híbridas
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 'Envío y recepción de mensajes mediante WebSockets: .NET'
+      url: relay-hybrid-connections-dotnet-get-started.md
+    - text: 'Envío y recepción de mensajes mediante HTTP: .NET'
+      url: relay-hybrid-connections-http-requests-dotnet-get-started.md
+    - text: 'Envío y recepción de mensajes mediante WebSockets: Node.js'
+      url: relay-hybrid-connections-node-get-started.md
+    - text: 'Envío y recepción de mensajes mediante HTTP: Node.js'
+      url: relay-hybrid-connections-http-requests-node-get-started.md
+  - linkListType: download
+    links:
+    - text: Ejemplos en GitHub
+      url: https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections
+- title: Retransmisión de WCF
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Exposición de un servicio WCF local en una aplicación web en la nube
+      url: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+    - text: Exposición de un servicio WCF local en un servicio WCF fuera de la red
+      url: service-bus-relay-tutorial.md
+    - text: Exposición de un servicio WCF REST local en un cliente fuera de la red
+      url: service-bus-relay-rest-tutorial.md
+  - linkListType: download
+    links:
+    - text: Ejemplos en GitHub
+      url: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+- title: Seguridad
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Autenticación y autorización
+      url: relay-authentication-and-authorization.md
+    - text: Autenticación con identidades administradas (versión preliminar)
+      url: authenticate-managed-identity.md
+    - text: Autenticación de una aplicación mediante Azure Active Directory (versión preliminar)
+      url: authenticate-application.md
+    - text: Seguridad de las redes
+      url: network-security.md
+- title: Referencias de API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.relay
+    - text: REST
+      url: /rest/api/relay/

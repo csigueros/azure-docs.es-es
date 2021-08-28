@@ -55,24 +55,24 @@ conceptualContent:
         - url: bicep/overview.md
           itemType: overview
           text: Información general
-        - url: /learn/modules/deploy-azure-resources-by-using-bicep-templates
+        - url: /learn/paths/bicep-deploy
           itemType: learn
-          text: Implementación de recursos de Azure
+          text: Ruta de acceso de Learn
         - url: bicep/file.md
           itemType: reference
           text: Estructura de archivos de Bicep
-        - url: bicep/data-types.md
-          itemType: reference
-          text: Tipos de datos de Bicep
         - url: bicep/bicep-functions.md
           itemType: reference
           text: Funciones de Bicep
-        - url: bicep/operators.md
+        - url: /azure/templates/
           itemType: reference
-          text: Operadores de Bicep
+          text: Referencia del recurso
         - url: bicep/deploy-powershell.md
           itemType: how-to-guide
-          text: Implementar
+          text: Implementación
+        - url: ./bicep/best-practices.md
+          itemType: concept
+          text: Procedimientos recomendados
       footerLink:
         url: bicep/index.yml
         text: Ver más

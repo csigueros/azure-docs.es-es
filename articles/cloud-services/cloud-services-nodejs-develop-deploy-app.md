@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 084c876dce9e82997473d63a02702ef5bbd727c0
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 723dc4468e2b5ff49b82eaf91ac46f62aa961236
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093704"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823674"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service-classic"></a>Creación e implementación de una aplicación Node.js en una instancia de Azure Cloud Services (clásico)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager del producto Azure Cloud Services. Con este cambio, se ha modificado el nombre de Azure Cloud Services en ejecución en el modelo de implementación basado en Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 En este tutorial se muestra cómo crear una aplicación de Node.js simple con Servicio en la nube de Azure. Cloud Services son los bloques de compilación de aplicaciones en la nube escalables en Azure. Permiten la separación y la administración independiente de los componentes front-end y back-end de su aplicación, así como su escalación horizontal.  Cloud Services proporciona una máquina virtual dedicada y robusta para hospedar cada rol de forma fiable.
 

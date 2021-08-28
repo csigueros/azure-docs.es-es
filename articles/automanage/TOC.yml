@@ -17,7 +17,7 @@
           href: automanage-windows-server-services-overview.md
         - name: Revisión en caliente para nuevas máquinas virtuales
           href: automanage-hotpatch.md
-    - name: Automanage para servidores habilitados para Azure Arc
+    - name: Servidores habilitados para Automanage para Arc
       href: automanage-arc.md
     - name: Cuenta de Automanage
       href: automanage-account.md
