@@ -70,12 +70,16 @@
           href: create-host-pools-user-profile.md
         - name: Uso de Azure NetApp Files
           href: create-fslogix-profile-container.md
+        - name: Uso de Azure NetApp Files y asociación de aplicaciones MSIX
+          href: create-netapp-files.md
         - name: "Uso de Azure Files y Azure\_AD\_DS"
           href: create-profile-container-adds.md
         - name: "Uso de Azure Files y AD\_DS"
           href: create-file-share.md
         - name: Instalación de Office con contenedores de aplicaciones de FSLogix
           href: fslogix-office-app-rule-editor.md
+        - name: Autorización de una cuenta para usar Azure Files
+          href: azure-files-authorization.md
     - name: Configuración de los valores de un grupo de hosts
       items:
         - name: Propiedades de RDP
@@ -118,12 +122,14 @@
           href: app-attach-msixmgr.md
     - name: Uso de Microsoft Teams
       href: teams-on-avd.md
-    - name: Configuración de Azure AD Multi-Factor Authentication
+    - name: "Configuración de la autenticación multifactor de Azure\_AD"
       href: set-up-mfa.md
     - name: "Configuración del inicio de sesión único de AD\_FS"
       href: configure-adfs-sso.md
     - name: Configuración de actualizaciones automáticas
       href: configure-automatic-updates.md
+    - name: Configuración del redireccionamiento multimedia (versión preliminar)
+      href: multimedia-redirection.md
     - name: Instalación de paquetes de idioma
       href: language-packs.md
     - name: Uso de Azure Advisor
@@ -206,6 +212,8 @@
       href: troubleshoot-set-up-overview.md
     - name: Identificación y diagnóstico de problemas
       href: diagnostics-role-service.md
+    - name: Característica de introducción
+      href: troubleshoot-getting-started.md
     - name: Creación de grupos de hosts
       href: troubleshoot-set-up-issues.md
     - name: Configuración de máquina virtual de host de sesión
@@ -226,6 +234,8 @@
       href: troubleshoot-azure-ad-connections.md
     - name: Azure Monitor
       href: troubleshoot-azure-monitor.md
+    - name: Autorización de Azure Files
+      href: troubleshoot-authorization.md
 - name: Referencia
   items:
     - name: Recomendaciones de seguridad
