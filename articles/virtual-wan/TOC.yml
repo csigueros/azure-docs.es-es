@@ -41,7 +41,7 @@
           href: virtual-wan-locations-partners.md
         - name: Directrices de automatización para asociados
           href: virtual-wan-configure-automation-providers.md
-    - name: Arquitectura
+    - name: Architecture
       items:
         - name: Migración a Virtual WAN
           href: migrate-from-hub-spoke-topology.md
@@ -71,6 +71,8 @@
           href: scenario-route-through-nva.md
         - name: 'Enrutamiento a través de una aplicación virtual de red: personalizado'
           href: scenario-route-through-nvas-custom.md
+        - name: Emparejamiento de BGP con el centro de conectividad virtual
+          href: scenario-bgp-peering-hub.md
         - name: 'Azure Firewall: personalizado'
           href: scenario-route-between-vnets-firewall.md
         - name: Application Gateway y grupos de back-end
@@ -85,6 +87,8 @@
       items:
         - name: Acerca de las directivas IPsec P2S
           href: point-to-site-ipsec.md
+        - name: Acerca de los grupos de direcciones de cliente P2S
+          href: about-client-address-pools.md
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
@@ -101,6 +105,8 @@
       href: upgrade-virtual-wan.md
     - name: Creación de una aplicación virtual de red en un centro virtual
       href: How-to-nva-hub.md
+    - name: Conexión de una red virtual a un centro de conectividad virtual
+      href: howto-connect-vnet-hub.md
     - name: Creación de una conexión de red virtual entre inquilinos
       href: cross-tenant-vnet.md
     - name: ExpressRoute
@@ -123,8 +129,10 @@
           href: nat-rules-vpn-gateway.md
     - name: VPN de usuario (de punto a sitio)
       items:
-        - name: Creación de una conexión VPN de usuario
+        - name: Creación de una VPN de usuario
           href: virtual-wan-point-to-site-portal.md
+        - name: "Creación de una VPN de usuario: autenticación de Azure\_AD"
+          href: virtual-wan-point-to-site-azure-ad.md
         - name: Generación de certificados
           href: certificates-point-to-site.md
         - name: "Configuración de un inquilino de Azure\_AD"
@@ -145,7 +153,7 @@
               items:
                 - name: Windows 10
                   href: openvpn-azure-ad-client.md
-                - name: 'macOS: versión preliminar'
+                - name: macOS
                   href: openvpn-azure-ad-client-mac.md
         - name: Configuración de túneles Always-On
           items:
@@ -163,20 +171,26 @@
               href: openvpn-azure-ad-tenant-multi-app.md
     - name: Enrutamiento
       items:
-        - name: Configuración del enrutamiento de centro virtual
+        - name: Configuración del enrutamiento de centros virtuales
           href: how-to-virtual-hub-routing.md
         - name: Visualización de rutas efectivas de centro virtual
           href: effective-routes-virtual-hub.md
+        - name: Configuración de directivas y intenciones de enrutamiento
+          href: how-to-routing-policies.md
         - name: Enrutamiento del tráfico desde un centro virtual a NVA (heredado)
           items:
             - name: Azure portal
               href: virtual-wan-route-table-nva-portal.md
             - name: Azure PowerShell
               href: virtual-wan-route-table-nva.md
+        - name: Configuración del emparejamiento de BGP con el centro de conectividad virtual
+          href: create-bgp-peering-hub-portal.md
     - name: Seguridad
       items:
         - name: Instalación de Azure Firewall en un centro de conectividad
           href: howto-firewall.md
+        - name: Entre centros de conectividad y de rama a rama mediante Azure Firewall
+          href: how-to-routing-policies.md
         - name: Configuración de la conectividad de Private Link
           href: howto-private-link.md
         - name: 'Administración del acceso a los recursos: Spoke VNet P2S'

@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: d2fa47b0a4e75a0f776eaef2c0f7b0893ea1fa47
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: fb1194a9d0dd58046391ac20138d44d161c2c788
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113086467"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824151"
 ---
 # <a name="overview-of-azure-cloud-services-classic"></a>Información general de Azure Cloud Services (clásico)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Azure Cloud Services es un ejemplo de [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Al igual que [Azure App Service](../app-service/overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. En la misma manera que App Service se hospeda en máquinas virtuales (VM), así ocurre también con Azure Cloud Services. Sin embargo, tiene más control sobre las máquinas virtuales. Puede instalar su propio software en las máquinas virtuales que usan Azure Cloud Services y puede tener acceso a ellas remotamente.
 

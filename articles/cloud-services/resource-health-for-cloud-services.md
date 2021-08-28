@@ -9,17 +9,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 7f7089ea405ea74c298b93aeb69777f62b6828e3
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 6ea4875ecfa70c6c3ff07e3dc31ef71b023b44ce
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092840"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823548"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Compatibilidad de la comprobación de Resource Health (RHC) con Azure Cloud Services (clásico)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 En este artículo se habla sobre la compatibilidad de la comprobación de Resource Health (RHC) con [Microsoft Azure Cloud Services (clásico)](https://azure.microsoft.com/services/cloud-services)
 
