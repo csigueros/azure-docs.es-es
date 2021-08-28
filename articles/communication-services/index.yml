@@ -6,15 +6,15 @@ metadata:
   description: Azure Communication Services es un servicio de comunicaciones basado en la nube que permite agregar voz, vídeo, chat y telefonía a las aplicaciones.
   ms.service: azure-communication-services
   ms.topic: landing-page
-  author: mikben
-  ms.author: mikben
+  author: probableprime
+  ms.author: rifox
   ms.date: 06/30/2021
-  ms.openlocfilehash: 976407c6f842fedf0ee3d88c86b84188f745a31f
-  ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+  ms.openlocfilehash: 59c8eca23262710034c259f6b4d9840232069ed1
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113111415"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122968014"
 landingContent:
 - title: Acerca de Azure Communication Services
   linkLists:
