@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Comprenda el concepto de un gemelo digital y cómo sus relaciones forman un grafo.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 29430671cd5879f140127c94541dd50d765fa87e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1145525fe3d2e7c42204aa675153d4eb099cccce
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460282"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254243"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Explicación del concepto de gemelos digitales y su grafo gemelo
 
@@ -23,7 +23,7 @@ En una solución de Azure Digital Twins, las entidades del entorno se representa
 
 ## <a name="digital-twins"></a>Gemelos digitales
 
-Para poder crear un gemelo digital en la instancia de Azure Digital Twins, debe tener un *modelo* cargado en el servicio. Un modelo describe el conjunto de propiedades, los mensajes de telemetría y las relaciones que puede tener un gemelo determinado, entre otras cosas. Para conocer los tipos de información que se definen en un modelo, consulte [Conceptos: Modelos personalizados](concepts-models.md).
+Para poder crear un gemelo digital en la instancia de Azure Digital Twins, debe tener un *modelo* cargado en el servicio. Un modelo describe el conjunto de propiedades, los mensajes de telemetría y las relaciones que puede tener un gemelo determinado, entre otras cosas. Para conocer los tipos de información que se definen en un modelo, vea [Modelos personalizados](concepts-models.md).
 
 Después de crear y cargar un modelo, la aplicación cliente puede crear una instancia del tipo, que es un gemelo digital. Por ejemplo, después de crear un modelo de Floor, puede crear uno o varios gemelos digitales que usen este tipo (como un gemelo de tipo Floor denominado GroundFloor, otro denominado Floor2, etc.).
 
@@ -39,13 +39,15 @@ El resultado de este proceso es un conjunto de nodos (los gemelos digitales) con
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer que muestra modelos y gemelos de ejemplo." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
 ## <a name="create-with-the-apis"></a>Creación con las API
 
 En esta sección se muestra en qué se basa la creación de gemelos digitales y relaciones desde una aplicación cliente. Contiene ejemplos de código de .NET que usan las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins), para proporcionar contexto adicional sobre lo que sucede dentro de cada uno de estos conceptos.
 
 ### <a name="create-digital-twins"></a>Creación de gemelos digitales
 
-A continuación, se muestra un fragmento de código de cliente que usa las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins) para crear una instancia de un gemelo de tipo Room.
+A continuación se muestra un fragmento de código de cliente que usa las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins) para crear una instancia de un gemelo de tipo Room con un elemento `twinId` que se define durante dicha creación.
 
 Puede inicializar las propiedades de un gemelo cuando se crea o hacerlo más adelante. Para crear un gemelo con propiedades inicializadas, cree un documento JSON que proporcione los valores de inicialización necesarios.
 
@@ -162,8 +164,8 @@ A continuación se muestra un ejemplo de relación formateada como un objeto JSO
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte cómo administrar elementos de grafo con las API de Azure Digital Twins:
-* [Procedimiento: Administración de Digital Twins](how-to-manage-twin.md)
-* [Procedimiento: Administración del grafo de gemelos con relaciones](how-to-manage-graph.md)
+* [Administración de Digital Twins](how-to-manage-twin.md)
+* [Administración del grafo de gemelos y las relaciones](how-to-manage-graph.md)
 
 O bien, consulte el grafo de gemelos de Azure Digital Twins para obtener información:
-* [Conceptos: Lenguaje de consulta](concepts-query-language.md)
+* [Lenguaje de consulta](concepts-query-language.md)

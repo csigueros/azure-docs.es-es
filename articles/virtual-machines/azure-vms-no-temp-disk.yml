@@ -1,0 +1,52 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas más frecuentes sobre los tamaños de máquina virtual de Azure sin disco temporal local
+  description: En este artículo se proporcionan respuestas a las preguntas más frecuentes (P+F) sobre los tamaños de máquina virtual de Microsoft Azure que no tienen disco temporal local.
+  author: brbell
+  ms.service: virtual-machines
+  ms.topic: conceptual
+  ms.subservice: sizes
+  ms.author: brbell
+  ms.reviewer: mimckitt
+  ms.date: 06/15/2020
+  ms.openlocfilehash: 69fe7e2a56d5cdf487d195a067195c078cec074e
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253483"
+title: Tamaños de máquina virtual de Azure sin disco temporal local
+summary: >
+  > [!TIP]
+
+  > Pruebe la **[herramienta Selector de máquinas virtuales](https://aka.ms/vm-selector)** para buscar otros tamaños que se adapten a la carga de trabajo.
+
+
+  En este artículo se proporcionan respuestas a las preguntas frecuentes sobre los tamaños de máquina virtual de Azure que no tienen disco temporal local (por ejemplo, sin disco temporal local). Para más información sobre estos tamaños de máquina virtual, consulte [Especificaciones para las series Dv4 y Dsv4 (cargas de trabajo de uso general)](dv4-dsv4-series.md) o [Especificaciones para las series Ev4 y Esv4 (cargas de trabajo optimizadas para memoria)](ev4-esv4-series.md).
+sections:
+- name: Omitido
+  questions:
+  - question: "¿Qué significa que no hay disco temporal local? \n"
+    answer: >
+      Tradicionalmente, teníamos tamaños de máquina virtual (por ejemplo, Standard_D2s_v3 y Standard_E48_v3) que incluían un pequeño disco local (por ejemplo, una unidad D:). Ahora, con estos nuevos tamaños de máquina virtual, ese pequeño disco local ya no existe; sin embargo, todavía puede adjuntar discos HDD estándar, SSD Premium o SSD Ultra.
+  - question: >
+      ¿Qué ocurre si quiero un disco temporal local?
+    answer: "Si la carga de trabajo requiere un disco temporal local, también tenemos disponibles los nuevos tamaños de máquina virtual [Ddv4 y Ddsv4](ddv4-ddsv4-series.md) o [Edv4 y Edsv4](edv4-edsv4-series.md). Estos tamaños ofrecen un disco temporal un 50 % mayor en comparación con los tamaños de la serie v3 anteriores.\n\n> [!NOTE]\n> El disco temporal local no es persistente; para asegurarse de que los datos sean persistentes, use las opciones HDD estándar, SSD Premium o SSD Ultra. \n"
+  - question: "¿Cuáles son las diferencias entre estos nuevos tamaños de máquina virtual y el tamaño Dv3/Dsv3 De uso general o los tamaños de máquina virtual Ev3/Esv3 optimizados para memoria a los que estoy acostumbrado? \n"
+    answer: "| Familias de máquinas virtuales v3 con disco temporal local   | Nuevas familias v4 con disco temporal local | Nuevas familias v4 sin disco temporal local |\n|---|---|---|\n| Dv3   | Ddv4 | Dv4 |\n| Dsv3 | Ddsv4  | Dsv4 |\n| Ev3   | Edv4  | Ev4 |\n| Esv3 | Edsv4 |    Esv4 | \n"
+  - question: "¿Puedo cambiar el tamaño de un tamaño de máquina virtual que tiene un disco temporal local a un tamaño de máquina virtual sin disco temporal local?  \n"
+    answer: "No. Las únicas combinaciones permitidas para el cambio de tamaño son: \n\n1. Máquina virtual (con disco temporal local)-> máquina virtual (con disco temporal local) y \n2. Máquina virtual (sin disco temporal local)-> máquina virtual (sin disco temporal local). \n\nSi le interesa una solución alternativa, consulte la siguiente pregunta.\n\n> [!NOTE]\n> Si una imagen depende del disco de recursos o si existe un archivo de paginación o un archivo de intercambio en el disco temporal local, las imágenes sin disco no funcionarán; en su lugar, use la alternativa \"con disco\". \n"
+  - question: "¿Cómo puedo migrar de un tamaño de máquina virtual que tiene un disco temporal local a un tamaño de máquina virtual sin disco temporal local?  \n"
+    answer: "Para realizar la migración, siga estos pasos: \n\n1. Conéctese a la máquina virtual que tenga un disco temporal local (por ejemplo, una unidad D:) como administrador local.\n2. Siga las instrucciones de la sección \"Mover temporalmente pagefile.sys a la unidad C\" de [Uso de la unidad de disco D: como unidad de datos en una máquina virtual Windows](./windows/change-drive-letter.md) para mover el archivo de paginación del disco temporal local (unidad D:) a la unidad C:.\n\n   > [!NOTE]\n   > Siga las instrucciones de la sección \"Mover temporalmente el archivo pagefile.sys a la unidad C\" de Uso de la unidad de disco D: como unidad de datos en una máquina virtual Windows para mover el archivo de paginación del disco temporal local (unidad D:) a la unidad C:. **La desviación de los pasos descritos dará lugar al mensaje de error: \"No se puede cambiar el tamaño de la VM porque el cambio del tamaño de la VM de disco de recursos a disco que no es de recursos y viceversa no se permite.**\n\n3. Para realizar una instantánea de la máquina virtual, siga los pasos descritos en [Creación de una instantánea mediante el portal o la CLI de Azure](./linux/snapshot-copy-managed-disk.md). \n4. Use la instantánea para crear una nueva máquina virtual sin disco (por ejemplo, de las series Dv4, Dsv4, Ev4, Esv4) siguiendo los pasos descritos en [Creación de una máquina virtual a partir de una instantánea con la CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot). \n"
+  - question: >
+      ¿Estos tamaños de máquina virtual admiten sistemas operativos (SO) Linux y Windows?
+    answer: >
+      Sí.
+  - question: >
+      ¿Se interrumpirán mis scripts personalizados, imágenes personalizadas o imágenes de sistema operativo que tengan archivos temporales o archivos de paginación en un disco temporal local?
+    answer: >
+      Si la imagen de sistema operativo personalizada apunta al disco temporal local, es posible que la imagen no funcione correctamente con este tamaño sin disco.
+  - question: >
+      ¿Tiene preguntas o comentarios?
+    answer: "Rellene el [formulario de comentarios]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nEn este documento ha obtenido más información sobre las preguntas frecuentes relacionadas con las máquinas virtuales de Azure sin disco temporal local. Para más información sobre estos tamaños de máquina virtual, consulte los siguientes artículos:\n\n- [Especificaciones para las series Dv4 y Dsv4 (carga de trabajo de uso general)](dv4-dsv4-series.md)\n- [Especificaciones para las series Ev4 y Esv4 (carga de trabajo optimizada para memoria)](ev4-esv4-series.md)"

@@ -26,6 +26,8 @@
       href: concept-azure-ad-join.md
     - name: Dispositivos híbridos unidos a Azure AD
       href: concept-azure-ad-join-hybrid.md
+    - name: Flujos de registro de dispositivos
+      href: device-registration-how-it-works.md
     - name: Inicio de sesión único en recursos locales
       href: azuread-join-sso.md
     - name: Tokens de actualización principales

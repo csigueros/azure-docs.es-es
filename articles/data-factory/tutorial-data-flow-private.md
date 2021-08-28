@@ -1,19 +1,20 @@
 ---
 title: Transformación de datos con un flujo de datos de asignación de red virtual administrado por Azure Data Factory
 description: En este tutorial se proporcionan instrucciones detalladas para usar Azure Data Factory con el objetivo de transformar los datos con flujos de datos de asignación.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
-ms.openlocfilehash: ad101bee84256662d1436ba8d8a49304aecb9129
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 06/04/2021
+ms.openlocfilehash: e73b2a96d2b051dbb208bb9614569c423f99d8f0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518292"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749822"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformación de datos de forma segura mediante flujos de datos de asignación
 
@@ -86,7 +87,7 @@ En este paso se crea una instancia de Azure IR y se habilita una red virtual adm
 
 En este paso, creará una canalización que contiene una actividad de flujo de datos.
 
-1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización).
+1. En la página principal de Azure Data Factory, seleccione **Orchestrate** (Organizar).
 
    ![Captura de pantalla que muestra la creación de una canalización.](./media/doc-common-process/get-started-page.png)
 
