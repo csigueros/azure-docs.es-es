@@ -70,6 +70,8 @@
                   href: class-type-react-linux.md
                 - name: React (Windows)
                   href: class-type-react-windows.md
+            - name: RStudio
+              href: class-type-rstudio-linux.md
             - name: Generación de scripts en shell en Linux
               href: class-type-shell-scripting-linux.md
             - name: Diseño asistido por ordenador (CAD) de SolidWorks
@@ -106,12 +108,24 @@
           href: how-to-connect-peer-virtual-network.md
         - name: Creación de un laboratorio con un recurso compartido
           href: how-to-create-a-lab-with-shared-resource.md
-        - name: Uso de Shared Image Gallery
+        - name: Uso de la galería de imágenes compartidas para imágenes personalizadas
           items:
             - name: Asociación o desasociación de una galería de imágenes compartidas
               href: how-to-attach-detach-shared-image-gallery.md
-            - name: Carga de una imagen personalizada de Windows en Shared Image Gallery
-              href: upload-custom-image-shared-image-gallery.md
+            - name: Creación de imágenes personalizadas para laboratorios
+              href: approaches-for-custom-image-creation.md
+            - name: Windows
+              items:
+                - name: Obtención de una imagen personalizada de una máquina virtual de Azure
+                  href: how-to-bring-custom-windows-image-azure-vm.md
+                - name: Obtención de una imagen personalizada de un entorno de físico
+                  href: upload-custom-image-shared-image-gallery.md
+            - name: Linux
+              items:
+                - name: Obtención de una imagen personalizada de una máquina virtual de Azure
+                  href: how-to-bring-custom-linux-image-azure-vm.md
+                - name: Obtención de una imagen personalizada de un entorno de físico
+                  href: how-to-bring-custom-linux-image-vhd.md
         - name: Incorporación de propietarios adicionales a un laboratorio de clase
           href: how-to-add-user-lab-owner.md
         - name: Configuración del firewall
