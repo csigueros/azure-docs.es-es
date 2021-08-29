@@ -10,15 +10,12 @@
       href: whats-new.md
 - name: Guías de inicio rápido
   items:
-    - name: Creación de una cuenta de Automation
+    - name: 'Creación de una cuenta de Automation: Azure Portal'
       href: automation-quickstart-create-account.md
     - name: Creación de un runbook de PowerShell
       href: automation-quickstart-create-runbook.md
     - name: Habilitación de Desired State Configuration en una máquina
       href: automation-quickstart-dsc-configuration.md
-    - name: 'Creación de una cuenta de Automation: plantilla de Resource Manager'
-      displayName: Resource Manager
-      href: quickstart-create-automation-account-template.md
 - name: Tutoriales
   items:
     - name: Creación de un runbook gráfico
@@ -31,6 +28,8 @@
       href: learn/automation-tutorial-runbook-textual-python2.md
     - name: "Creación de un runbook de Python\_3"
       href: learn/automation-tutorial-runbook-textual-python-3.md
+    - name: Uso de una identidad administrada con un runbook de PowerShell
+      href: learn/powershell-runbook-managed-identity.md
 - name: Conceptos
   items:
     - name: Introducción a la autenticación de cuentas de Automation

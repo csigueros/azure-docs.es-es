@@ -360,6 +360,8 @@
               href: backup-mabs-system-state-and-bmr.md
             - name: Uso de scripts anteriores y posteriores a la copia de seguridad
               href: pre-backup-post-backup-scripts.md
+            - name: Copias de seguridad de datos de archivo con MABS
+              href: back-up-file-data.md
         - name: Recuperación de datos de Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
         - name: Restauración de máquinas virtuales de VMware con Azure Backup Server
@@ -491,7 +493,11 @@
         - name: Seguridad para copias de seguridad híbridas
           href: backup-azure-security-feature.md
         - name: Puntos de conexión privados
-          href: private-endpoints.md
+          items:
+            - name: Información general
+              href: private-endpoints-overview.md
+            - name: Creación y uso
+              href: private-endpoints.md
         - name: Cifrado en Azure Backup
           href: backup-encryption.md
         - name: Cifrado con claves administradas por el cliente
@@ -539,10 +545,16 @@
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
     - name: Azure CLI
       href: /cli/azure/backup
+    - name: 'Protección de datos de Azure: CLI'
+      href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
+    - name: 'Protección de datos de Azure: PowerShell'
+      href: /powershell/module/az.dataprotection/?view=azps-6.1.0&preserve-view=true
     - name: 'PowerShell: agente de Azure Backup'
       href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
+    - name: 'REST: protección de datos de Azure'
+      href: /rest/api/dataprotection/
     - name: 'REST: Backup'
       href: /rest/api/backup/
     - name: 'REST: Almacén de Recovery Services'

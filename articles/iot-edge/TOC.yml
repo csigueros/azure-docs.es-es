@@ -15,6 +15,8 @@
       href: quickstart.md
 - name: Tutoriales
   items:
+    - name: Supervisión de dispositivos y módulos
+      href: tutorial-monitor-with-workbooks.md
     - name: Configuración del entorno de desarrollo
       items:
         - name: Desarrollo con contenedores Linux
@@ -131,6 +133,8 @@
           href: how-to-manage-device-certificates.md
         - name: Configuración de la virtualización anidada para máquinas virtuales Windows
           href: nested-virtualization.md
+        - name: Creación de un conmutador virtual para Linux en Windows
+          href: how-to-create-virtual-switch.md
         - name: Configuración de la aceleración de GPU para Linux en Windows
           href: gpu-acceleration.md
     - name: Escenarios de dispositivos alternativos
@@ -171,7 +175,7 @@
       items:
         - name: Implementación en dispositivos individuales
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: how-to-deploy-modules-portal.md
             - name: Azure CLI
               href: how-to-deploy-modules-cli.md
@@ -179,7 +183,7 @@
               href: how-to-deploy-modules-vscode.md
         - name: Implementación a escala
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: how-to-deploy-at-scale.md
             - name: Azure CLI
               href: how-to-deploy-cli-at-scale.md

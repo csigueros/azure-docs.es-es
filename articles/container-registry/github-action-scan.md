@@ -8,18 +8,18 @@ ms.reviewer: jukullam
 ms.service: azure
 ms.date: 05/20/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: 984bf8f225c34f34910bc57cb019a75301778360
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: c7782349fb467ef34169f46843b3c91d182c0995
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288967"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741091"
 ---
 # <a name="scan-container-images-using-github-actions"></a>Examen de imágenes de contenedor mediante Acciones de GitHub
 
 Para empezar a trabajar con [Acciones de GitHub](https://docs.github.com/en/actions/learn-github-actions), cree un flujo de trabajo para crear y examinar una imagen de contenedor.
 
-Con Acciones de GitHub, puede acelerar el proceso de CI/CD mediante la creación, el examen y la inserción de imágenes en un [Registro de contenedor](https://azure.microsoft.com/en-in/services/container-registry/) público o privado desde los flujos de trabajo.
+Con Acciones de GitHub, puede acelerar el proceso de CI/CD mediante la creación, el examen y la inserción de imágenes en un [Registro de contenedor](https://azure.microsoft.com/services/container-registry/) público o privado desde los flujos de trabajo.
 
 En este artículo, usaremos el [Examen de imágenes de contenedor](https://github.com/marketplace/actions/container-image-scan) desde [Marketplace de GitHub](https://github.com/marketplace).
 

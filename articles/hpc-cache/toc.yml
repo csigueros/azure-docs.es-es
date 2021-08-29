@@ -67,21 +67,31 @@ items:
         href: /powershell/module/Az.HPCCache
   - name: Recursos
     items:
-      - name: Abrir una incidencia de soporte técnico
+      - name: Ponerse en contacto con soporte técnico
         href: hpc-cache-support-ticket.md
+      - name: Solución de problemas
+        items:
+          - name: Solución de problemas de creación de destinos de almacenamiento de NFS
+            href: troubleshoot-nas.md
+          - name: Solución alternativa para la configuración del firewall de la cuenta de Blob Storage
+            href: hpc-cache-blob-firewall-fix.md
+          - name: Recuperación de una interrupción regional
+            href: hpc-region-recovery.md
+      - name: Opciones de almacenamiento
+        items:
+          - name: Uso de Blob Storage montado en NFS con Azure HPC Cache
+            href: nfs-blob-considerations.md
+          - name: Uso de Azure NetApp Files con Azure HPC Cache
+            href: hpc-cache-netapp.md
       - name: Configuración de la CLI de Azure para Azure HPC Cache
         href: az-cli-prerequisites.md
-      - name: Solución alternativa para la configuración del firewall de la cuenta de Blob Storage
-        href: hpc-cache-blob-firewall-fix.md
-      - name: Solución de problemas de creación de destinos de almacenamiento de NFS
-        href: troubleshoot-nas.md
-      - name: Uso de Blob Storage montado en NFS con Azure HPC Cache
-        href: nfs-blob-considerations.md
-      - name: Recuperación de una interrupción regional
-        href: hpc-region-recovery.md
       - name: Uso de claves de cifrado administradas por el cliente
         href: customer-keys.md
-      - name: Uso de Azure NetApp Files con Azure HPC Cache
-        href: hpc-cache-netapp.md
+      - name: Información general del producto
+        href: 'https://azure.microsoft.com/services/hpc-cache/'
+      - name: Precios y opciones de compra
+        href: 'https://azure.microsoft.com/pricing/details/hpc-cache/'
+      - name: Preguntas más frecuentes sobre productos
+        href: 'https://azure.microsoft.com/services/hpc-cache/#faq'
       - name: Vídeos
         href: 'https://azure.microsoft.com/resources/videos/index/?service=hpc-cache'

@@ -2,17 +2,18 @@
 title: 'Configuración de una escucha de grupo de disponibilidad para SQL Server en máquinas virtuales de Red Hat Enterprise Linux en Azure: Linux Virtual Machines | Microsoft Docs'
 description: Información acerca de la configuración de una escucha de grupo de disponibilidad en SQL Server en máquinas virtuales RHEL en Azure
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: 5f0b300be2f1cec4ee456065455832a2dc3598be
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 935b3ea84a1e8927a80e1cf3e0ce287fa90620ba
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449512"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745771"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configuración de una escucha de grupo de disponibilidad para SQL Server en máquinas virtuales con Red Hat Enterprise Linux en Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

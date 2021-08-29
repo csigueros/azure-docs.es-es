@@ -3,12 +3,12 @@ title: Servicios y esquemas admitidos de los registros de recursos de Azure
 description: Conozca el esquema de los eventos y servicios admitidos para los registros de recurso de Azure.
 ms.topic: reference
 ms.date: 05/10/2021
-ms.openlocfilehash: 5d9ae1cd9ca1d5f71d4ad2baff95159bf0e2e7f8
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 621c606313fa68de24100e8c6214b56ee42b2f03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026442"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742605"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema específico de servicio y común para los registros de recursos de Azure
 
@@ -56,7 +56,7 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Azure Batch |[Registro de Azure Batch](../../batch/batch-diagnostics.md) |
 | Cognitive Services | [Registro para Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Instances | [Registro para Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
-| Container Registry | [Registro para Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Container Registry | [Registro para Azure Container Registry](../../container-registry/monitor-service.md) |
 | Content Delivery Network | [Registros de Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Registro de Azure Cosmos DB](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Supervisión de factorías de datos mediante Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
@@ -66,16 +66,17 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Azure Database for MySQL | [Registros de diagnóstico de Azure Database for MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Registros de Azure Database for PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Registro de diagnósticos en Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Azure Machine Learning | [Registro de diagnóstico en Azure Machine Learning](../../machine-learning/monitor-resource-reference.md) |
 | DDoS Protection | [Registro en el estándar de Azure DDoS Protection](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Azure Digital Twins | [Configuración de diagnósticos de Azure Digital Twins](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Registros de Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Esquema no disponible. |
-| Azure Firewall | Esquema no disponible. |
+| Azure Firewall | [Registro de Azure Firewall](../../firewall/logs-and-metrics.md#diagnostic-logs) |
 | Front Door | [Registro de Front Door](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [Operaciones de IoT Hub](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Registro de Azure Key Vault](../../key-vault/general/logging.md) |
-| Kubernetes Service |[Registro de Kubernetes de Azure](../../aks/view-control-plane-logs.md#log-event-schema) |
-| Load Balancer |[Log Analytics para Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
+| Kubernetes Service |[Registro de Kubernetes de Azure](../../aks/monitor-aks-reference.md#resource-logs) |
+| Load Balancer |[Log Analytics para Azure Load Balancer](../../load-balancer/monitor-load-balancer.md) |
 | Logic Apps |[Esquema de seguimiento personalizado de Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Media Services | [Esquemas de supervisión de Media Services](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |
 | Grupos de seguridad de red |[Análisis del registro para grupos de seguridad de red (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |

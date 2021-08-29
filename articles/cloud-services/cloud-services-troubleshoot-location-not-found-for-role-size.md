@@ -8,14 +8,16 @@ ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 971fffc02241a841ebbb1bc0855e8484579252e4
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: f45e28e2c7a816f923d1af579b818e546c992717
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090122"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821496"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Solución de problemas de LocationNotFoundForRoleSize al implementar un servicio en la nube (clásico) en Azure
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 En este artículo, solucionará los errores de asignación en los que un tamaño de máquina virtual no está disponible al implementar un servicio en la nube de Azure (clásico).
 

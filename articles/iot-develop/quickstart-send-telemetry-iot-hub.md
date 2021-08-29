@@ -5,15 +5,15 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: quickstart
-ms.date: 05/04/2021
+ms.date: 08/03/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 04d7883088a4f8f9c12e384b3dcc3b4c0dfa6edf
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 0ac38398f31c2256761c0f1b75d03f2fafeb65f8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730809"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744357"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-hub"></a>Inicio rápido: Envío de datos de telemetría de un dispositivo a IoT Hub
 
@@ -48,18 +48,6 @@ ms.locfileid: "114730809"
 [!INCLUDE [iot-develop-send-telemetry-iot-hub-python](../../includes/iot-develop-send-telemetry-iot-hub-python.md)]
 
 :::zone-end
-
-## <a name="view-telemetry"></a>Ver datos de telemetría
-Una vez que el dispositivo simulado se conecta al centro de IoT, comienza a enviar datos de telemetría. Puede ver las métricas de telemetría y otros detalles sobre el centro de IoT y los dispositivos en Azure Portal.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-
-1. Haga clic en el centro de IoT para abrirlo.  Lo encontrará en **Recursos recientes** o en el panel de navegación izquierdo, en **Todos los recursos**.
-
-1. En la página **Información general**, desplácese para ver las métricas de información general del centro.
-    :::image type="content" source="media/quickstart-send-telemetry-iot-hub/iot-hub-metrics.png" alt-text="Información general de las métricas de los dispositivos de IoT Hub":::
-
-1. Si lo desea, también puede consultar otras métricas y crear vistas personalizadas. Para ello, en el panel de navegación izquierdo de **Supervisión**, seleccione **Métricas**.
     
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Si ya no necesita los recursos de Azure creados en esta guía de inicio rápido, puede usar la CLI de Azure para eliminarlos.

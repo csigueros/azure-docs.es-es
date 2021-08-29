@@ -4,20 +4,20 @@ summary: Aprenda a usar el Personalizer para permitir que una aplicación elija 
 metadata:
   ms.topic: landing-page
   ms.date: 06/11/2020
-  ms.author: nitinme
-  author: nitinme
+  ms.author: jeffme
+  author: jeffmend
   ms.service: cognitive-services
   ms.subservice: personalizer
   services: cognitive-services
   title: Documentación de Personalizer
   titleSuffix: Azure Cognitive Services
   description: Azure Personalizer es un servicio de API basado en la nube que permite elegir la mejor experiencia, mostrársela a los usuarios y aprender de su comportamiento en tiempo real.
-  ms.openlocfilehash: 51d86faac37ad4131adad395d0fb52a23870e2ea
-  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+  ms.openlocfilehash: 14e66639606356517d8ec1400c681337a4023c69
+  ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/07/2021
-  ms.locfileid: "102433716"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122831587"
 landingContent:
 - title: Acerca de Personalizer
   linkLists:

@@ -7,14 +7,13 @@ ms.date: 7/06/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 89988d6cac66e347dc131f67003a69e5a91eb220
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: f9b2c74f25d5f27385b604d53530edbdb57a91fd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113358235"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750210"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -158,7 +157,7 @@ Para cargar los datos GeoJSON de geovallas:
 
 9. Seleccione **Enviar**.
 
-10. En la ventana de respuesta, seleccione la pestaña **Encabezados**.
+10. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados).
 
 11. Copie el valor de la clave de **Operation-Location**, que es `status URL`. Usaremos `status URL` para comprobar el estado de la carga de datos de GeoJSON.
 
@@ -186,7 +185,7 @@ Para comprobar el estado de los datos de GeoJSON y recuperar su identificador ú
 
 6. Seleccione **Enviar**.
 
-7. En la ventana de respuesta, seleccione la pestaña **Encabezados**.
+7. En la ventana de respuesta, seleccione la pestaña **Headers** (Encabezados).
 
 8. Copie el valor de la clave **Resource-Location**, que es `resource location URL`. `resource location URL` contiene el identificador único (`udid`) de los datos cargados. Guarde este `udid` para consultar Get Geofence API en la última sección de este tutorial.
 

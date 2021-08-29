@@ -1,102 +1,96 @@
 ### YamlMime:Hub
 title: Documentación de Azure Blockchain
-summary: Aprenda a usar Azure Blockchain para desarrollar, probar e implementar aplicaciones de cadena de bloques seguras.
+summary: 'Aprenda a usar Azure Blockchain para desarrollar, probar e implementar aplicaciones de cadena de bloques seguras.'
 brand: azure
 metadata:
   title: Documentación de Azure Blockchain
-  description: Aprenda a usar Azure Blockchain para desarrollar, probar e implementar aplicaciones de cadena de bloques seguras.
+  description: 'Aprenda a usar Azure Blockchain para desarrollar, probar e implementar aplicaciones de cadena de bloques seguras.'
   services: service
   ms.service: azure-blockchain
   ms.topic: hub-page
   author: PatAltimore
   ms.author: patricka
   ms.date: 10/23/2019
-  ms.openlocfilehash: 5c5524f6214978864b4171f5298549c7963a7bd1
-  ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 01/07/2021
-  ms.locfileid: "97963936"
 productDirectory:
   items:
-  - title: Servicio Azure Blockchain
-    imageSrc: ./media/index/blockchain-service.svg
-    links:
-    - url: ./service/overview.md
-      text: ¿Qué es Azure Blockchain Service?
-    - url: ./service/index.yml
-      text: Ver más >
-  - title: Azure Blockchain Workbench
-    imageSrc: ./media/index/blockchain-workbench.svg
-    links:
-    - url: ./workbench/overview.md
-      text: ¿Qué es Azure Blockchain Workbench?
-    - url: ./workbench/index.yml
-      text: Ver más >
+    - title: Servicio Azure Blockchain
+      imageSrc: ./media/index/blockchain-service.svg
+      links:
+        - url: ./service/overview.md
+          text: ¿Qué es Azure Blockchain Service?
+        - url: ./service/index.yml
+          text: Ver más >
+    - title: Azure Blockchain Workbench
+      imageSrc: ./media/index/blockchain-workbench.svg
+      links:
+        - url: ./workbench/overview.md
+          text: ¿Qué es Azure Blockchain Workbench?
+        - url: ./workbench/index.yml
+          text: Ver más >
 conceptualContent:
   title: Introducción
   items:
-  - title: Compilación y desarrollo mediante redes de cadena de bloques en consorcio
-    links:
-    - url: ./service/create-member.md
-      itemType: quickstart
-      text: Implementación de un miembro de la cadena de bloques de Azure Blockchain Service
-    - url: ./service/send-transaction.md
-      itemType: tutorial
-      text: Siga un tutorial y escriba un contrato inteligente
-    - url: /learn/paths/ethereum-blockchain-development
-      itemType: learn
-      text: Siga la ruta de acceso de la cadena de bloques de Microsoft Learn
-    - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
-      itemType: video
-      text: Vea cómo se implementa y configura su red
-    - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
-      itemType: video
-      text: Vea cómo se escribe un contrato inteligente con VS Code
-  - title: Creación de un prototipo de una solución de cadena de bloques
-    links:
-    - url: ./workbench/deploy.md
-      itemType: how-to-guide
-      text: Implementación de Azure Blockchain Workbench
-    - url: ./workbench/create-app.md
-      itemType: tutorial
-      text: Siga un tutorial y cree una aplicación de con Blockchain Workbench
-    - url: ./workbench/integration-patterns.md
-      itemType: concept
-      text: Aprenda a integrar soluciones con Blockchain Workbench
-    - url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
-      itemType: video
-      text: Vea cómo se crea la primera aplicación
-  - title: Publicación de datos de cadena de bloques con Blockchain Data Manager
-    links:
-    - url: ./service/data-manager.md
-      itemType: concept
-      text: ¿Qué es Blockchain Data Manager para Azure Blockchain Service?
-    - url: ./service/data-manager-portal.md
-      itemType: how-to-guide
-      text: Cree una instancia de Blockchain Data Manager con Azure Portal
-    - url: https://aka.ms/BTDataManager
-      itemType: video
-      text: Ver una introducción a Blockchain Data Manager
-  - title: Cree soluciones con el libro de contabilidad que mejor se ajuste a su caso de uso
-    links:
-    - url: ./templates/ethereum-poa-deployment.md
-      itemType: how-to-guide
-      text: Implementación de una red Ethereum de prueba de autoridad del consorcio de varios miembros en Azure
-    - url: ./templates/hyperledger-fabric-consortium-azure-kubernetes-service.md
-      itemType: how-to-guide
-      text: Implementación de una red del consorcio de Hyperledger Fabric en Azure Kubernetes Service
+    - title: Compilación y desarrollo mediante redes de cadena de bloques en consorcio
+      links:
+        - url: ./service/create-member.md
+          itemType: quickstart
+          text: "Implementación de un miembro de la cadena de bloques de Azure\_Blockchain\_Service"
+        - url: ./service/send-transaction.md
+          itemType: tutorial
+          text: Siga un tutorial y escriba un contrato inteligente
+        - url: /learn/paths/ethereum-blockchain-development
+          itemType: learn
+          text: Siga la ruta de acceso de la cadena de bloques de Microsoft Learn
+        - url: 'https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network'
+          itemType: video
+          text: Vea cómo se implementa y configura su red
+        - url: 'https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code'
+          itemType: video
+          text: "Vea cómo se escribe un contrato inteligente con VS\_Code"
+    - title: Creación de un prototipo de una solución de cadena de bloques
+      links:
+        - url: ./workbench/deploy.md
+          itemType: how-to-guide
+          text: Implementación de Azure Blockchain Workbench
+        - url: ./workbench/create-app.md
+          itemType: tutorial
+          text: Siga un tutorial y cree una aplicación de con Blockchain Workbench
+        - url: ./workbench/integration-patterns.md
+          itemType: concept
+          text: Aprenda a integrar soluciones con Blockchain Workbench
+        - url: 'https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application'
+          itemType: video
+          text: Vea cómo se crea la primera aplicación
+    - title: Publicación de datos de cadena de bloques con Blockchain Data Manager
+      links:
+        - url: ./service/data-manager.md
+          itemType: concept
+          text: ¿Qué es Blockchain Data Manager para Azure Blockchain Service?
+        - url: ./service/data-manager-portal.md
+          itemType: how-to-guide
+          text: Cree una instancia de Blockchain Data Manager con Azure Portal
+        - url: 'https://aka.ms/BTDataManager'
+          itemType: video
+          text: Ver una introducción a Blockchain Data Manager
+    - title: Cree soluciones con el libro de contabilidad que mejor se ajuste a su caso de uso
+      links:
+        - url: ./templates/ethereum-poa-deployment.md
+          itemType: how-to-guide
+          text: Implementación de una red Ethereum de prueba de autoridad del consorcio de varios miembros en Azure
+        - url: ./templates/hyperledger-fabric-consortium-azure-kubernetes-service.md
+          itemType: how-to-guide
+          text: Implementación de una red del consorcio de Hyperledger Fabric en Azure Kubernetes Service
 additionalContent:
   sections:
-  - title: Herramientas de desarrollo y ejemplos
-    summary: Ejemplos de código y herramientas de desarrollo de aplicaciones de Blockchain.
-    items:
-    - title: Azure Blockchain Development Kit para Ethereum
-      summary: Desarrolle, implemente, depure y administre su solución de Azure Blockchain Service.
-      url: https://marketplace.visualstudio.com/items?itemName=azblockchain.azure-blockchain
-    - title: Conector de cadena de bloques Ethereum
-      summary: Use Azure Logic Apps, Microsoft Flow y Microsoft PowerApps para realizar acciones en un contrato inteligente, como enviar transacciones, leer el estado del contrato y desencadenar flujos en las actualizaciones del contrato.
-      url: /connectors/blockchainethereum/
-    - title: Ejemplos de código
-      summary: Repositorio de GitHub con ejemplos de código que le ayudarán a empezar.
-      url: https://github.com/Azure-Samples/blockchain
+    - title: Herramientas de desarrollo y ejemplos
+      summary: Ejemplos de código y herramientas de desarrollo de aplicaciones de Blockchain.
+      items:
+        - title: Azure Blockchain Development Kit para Ethereum
+          summary: 'Desarrolle, implemente, depure y administre su solución de Azure Blockchain Service.'
+          url: 'https://marketplace.visualstudio.com/items?itemName=azblockchain.azure-blockchain'
+        - title: Conector de cadena de bloques Ethereum
+          summary: "Use Azure\_Logic\_Apps, Microsoft Power Automate y Microsoft\_Power Apps para realizar acciones en un contrato inteligente, como enviar transacciones, leer el estado del contrato y desencadenar flujos en las actualizaciones del contrato."
+          url: /connectors/blockchainethereum/
+        - title: Ejemplos de código
+          summary: Repositorio de GitHub con ejemplos de código que le ayudarán a empezar.
+          url: 'https://github.com/Azure-Samples/blockchain'

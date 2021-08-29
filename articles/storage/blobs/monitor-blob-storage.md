@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bd9e8c2e71f69045078111bd5a4ae7c0edf567aa
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: f38149e2259dbb6724a81e8139f46bd65a0edff0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527377"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749320"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Supervisión de Azure Blob Storage
 
@@ -67,7 +67,7 @@ Para recopilar registros de recursos, debe crear una configuración de diagnóst
 
 ## <a name="creating-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
 
-Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure o una plantilla de Azure Resource Manager. 
+Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure, una plantilla de Azure Resource Manager o Azure Policy. 
 
 Para obtener instrucciones generales, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas de la plataforma en Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
@@ -159,7 +159,7 @@ Habilite los registros mediante el cmdlet de PowerShell [Set-AzDiagnosticSetting
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log>
 ```
 
-Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio de blob. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
+Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio de blob. Para encontrar el identificador de recurso en Azure Portal, abra la página **Puntos de conexión** de la cuenta de almacenamiento.
 
 Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el parámetro **Category**.
 
@@ -223,7 +223,7 @@ Habilite los registros mediante el comando [az monitor diagnostic-settings creat
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true }]'
 ```
 
-Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio de Blob Storage. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
+Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio de Blob Storage. Para encontrar el identificador de recurso en Azure Portal, abra la página **Puntos de conexión** de la cuenta de almacenamiento.
 
 Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el valor del parámetro **category**.
 
@@ -269,6 +269,10 @@ Este es un ejemplo:
 
 Para ver una plantilla de Azure Resource Manager que crea una configuración de diagnóstico, consulte [Configuración de diagnóstico para Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
+
+Puede crear una configuración de diagnóstico mediante una definición de directiva. De este modo, puede asegurarse de que se cree una configuración de diagnóstico para cada cuenta creada o actualizada. Vea [Definiciones integradas de Azure Policy para Azure Storage](../common/policy-reference.md).
+
 ---
 
 ## <a name="analyzing-metrics"></a>Análisis de métricas
@@ -302,7 +306,7 @@ Para obtener una lista de todas las métricas compatibles de Azure Monitor, lo q
 
 Azure Monitor proporciona el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para leer la definición y los valores de las métricas. El [código de ejemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) muestra cómo utilizar el SDK con parámetros diferentes. Debe usar `0.18.0-preview` o una versión posterior para las métricas de almacenamiento.
  
-En estos ejemplos, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el servicio Blob Storage. Puede encontrar estos identificadores de recursos en las páginas **Propiedades** de su cuenta de almacenamiento en Azure Portal.
+En estos ejemplos, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el servicio Blob Storage. Puede encontrar estos identificadores de recursos en las páginas **Puntos de conexión** de la cuenta de almacenamiento en Azure Portal.
 
 Reemplace la variable `<subscription-ID>` por el identificador de la suscripción. Para obtener una guía sobre cómo obtener los valores para `<tenant-ID>`, `<application-ID>` y `<AccessKey>`, consulta [Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md). 
 
@@ -444,7 +448,7 @@ En el ejemplo siguiente se muestra cómo leer datos de métricas sobre una métr
 
 Puede mostrar la definición de la métrica de la cuenta de almacenamiento o el servicio Blob Storage. Use el cmdlet [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition).
 
-En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el identificador de recurso del servicio Blob Storage.  Puede encontrar estos identificadores de recursos en las páginas **Propiedades** de su cuenta de almacenamiento en Azure Portal.
+En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el identificador de recurso del servicio Blob Storage.  Puede encontrar estos identificadores de recursos en las páginas **Puntos de conexión** de la cuenta de almacenamiento en Azure Portal.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -466,7 +470,7 @@ Puede leer valores de métricas de nivel de cuenta de la cuenta de almacenamient
 
 Puede mostrar la definición de la métrica de la cuenta de almacenamiento o el servicio Blob Storage. Use el comando [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions).
  
-En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el identificador de recurso del servicio Blob Storage. Puede encontrar estos identificadores de recursos en las páginas **Propiedades** de su cuenta de almacenamiento en Azure Portal.
+En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el identificador de recurso del servicio Blob Storage. Puede encontrar estos identificadores de recursos en las páginas **Puntos de conexión** de la cuenta de almacenamiento en Azure Portal.
 
 ```azurecli-interactive
    az monitor metrics list-definitions --resource <resource-ID>
@@ -480,6 +484,10 @@ Puede leer los valores de métricas de la cuenta de almacenamiento o el servicio
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 ### <a name="template"></a>[Plantilla](#tab/template)
+
+N/D
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
 N/D
 
@@ -610,3 +618,4 @@ No. Azure Compute admite las métricas en discos. Para obtener más información
 - Para ver una referencia de los registros y las métricas creados por Azure Blob Storage, consulte [Referencia de datos de supervisión de Azure Blob Storage](monitor-blob-storage-reference.md).
 - Para obtener más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
 - Para obtener más información sobre la migración de métricas, consulte [Migración de las métricas de Azure Storage](../common/storage-metrics-migration.md).
+- Para conocer escenarios comunes y procedimientos recomendados, vea [Procedimientos recomendados para supervisar Azure Blob Storage](blob-storage-monitoring-scenarios.md).

@@ -1,14 +1,14 @@
 ---
 title: 'Patrón: agrupación de definiciones de directiva con iniciativas'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo agrupar definiciones de directiva en una iniciativa.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: sample
-ms.openlocfilehash: a2cc89954c34f22d5dba0ecce710a7db152ec665
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0311da9da70186cf8a244b9bcb8b4b68d3e6ccdc
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752352"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324178"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Patrón de Azure Policy: agrupación de definiciones de directiva
 

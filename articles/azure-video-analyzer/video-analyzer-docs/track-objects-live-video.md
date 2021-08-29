@@ -3,12 +3,12 @@ title: Seguimiento de objetos en un vídeo en directo con Azure Video Analyzer
 description: En este inicio rápido se muestra cómo usar el módulo perimetral de Azure Video Analyzer para realizar un seguimiento de los objetos de una fuente de vídeo en directo desde una cámara IP (simulada). Verá cómo aplicar un modelo de Computer Vision para detectar objetos en un subconjunto de los fotogramas de la fuente de vídeo en directo. Luego, puede usar un nodo de seguimiento de objetos para realizar el seguimiento de esos objetos en los demás fotogramas.
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.openlocfilehash: 211b51660be74d2b2b3b024ead72c93b3a0d8449
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 7ea51dbb59cba95825afb059e6a1845b4bbdcb95
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603907"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745697"
 ---
 # <a name="quickstart-track-objects-in-a-live-video"></a>Inicio rápido: Seguimiento de objetos en un vídeo en directo
 
@@ -105,7 +105,7 @@ Abra la dirección URL de la topología de la canalización en un explorador y e
    }
 ```
 
-En este caso, `skipSamplesWithoutAnnotation` se establece en `false` porque el nodo de extensiones debe pasar por todos los fotogramas, tanto si tienen resultados de inferencia como si no, hasta el nodo de seguimiento de objetos de nivel inferior. El seguimiento de objetos tiene capacidad para realizar un seguimiento de objetos de más de 15 fotogramas, aproximadamente. Si el vídeo en directo se ejecuta a una velocidad de 30 fotogramas por segundo, significa que se deben enviar al menos 2 fotogramas por segundo al servidor HTTP para la inferencia. El modelo de IA tiene un valor de FPS máximo para el procesamiento, que es el valor más alto en el que se debe establecer `maximumSamplesPerSecond`.
+En este caso, `skipSamplesWithoutAnnotation` se establece en `false` porque el nodo de extensiones debe pasar por todos los fotogramas, tanto si tienen resultados de inferencia como si no, hasta el nodo de seguimiento de objetos de nivel inferior. El seguimiento de objetos tiene capacidad para realizar un seguimiento de objetos de más de 15 fotogramas, aproximadamente. El modelo de IA tiene un valor de FPS máximo para el procesamiento, que es el valor más alto en el que se debe establecer `maximumSamplesPerSecond`.
     
 ## <a name="run-the-sample-program"></a>Ejecución del programa de ejemplo
 
