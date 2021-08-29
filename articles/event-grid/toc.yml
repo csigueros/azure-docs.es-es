@@ -213,7 +213,13 @@
         - name: Autenticación de la entrega de eventos en los controlador de eventos
           href: security-authentication.md
         - name: Autenticación de clientes de publicación
-          href: security-authenticate-publishing-clients.md
+          items:
+            - name: Información general
+              href: authentication-overview.md
+            - name: Autenticación mediante Azure Active Directory
+              href: authenticate-with-active-directory.md
+            - name: Autenticación mediante claves de acceso o firmas de acceso compartido
+              href: authenticate-with-access-keys-shared-access-signatures.md
         - name: Autorización del acceso a los recursos de Event Grid
           href: security-authorization.md
         - name: Seguridad de las redes
@@ -246,7 +252,7 @@
           href: auth0-how-to.md
     - name: Obtención de claves de acceso de temas o dominios
       href: get-access-keys.md
-    - name: Publicación en tema personalizado
+    - name: Publicación en temas personalizados mediante claves de acceso
       href: post-to-custom-topic.md
     - name: Recepción de eventos en un punto de conexión de HTTP
       href: receive-events.md

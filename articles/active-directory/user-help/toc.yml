@@ -20,6 +20,8 @@
       href: multi-factor-authentication-end-user-signin.md
     - name: Obtener ayuda
       href: multi-factor-authentication-end-user-troubleshoot.md
+    - name: Código recibido por error
+      href: multi-factor-authentication-change-sms-phone.md
 - name: Ayuda para el restablecimiento de contraseña
   items:
     - name: Registro para restablecer la contraseña
