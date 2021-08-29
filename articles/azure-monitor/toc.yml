@@ -21,14 +21,6 @@
         - name: Plantilla ARM
           displayName: Resource Manager
           href: essentials/quick-collect-activity-log-arm.md
-    - name: Supervisión de máquinas virtuales
-      items:
-        - name: Máquinas virtuales de Azure
-          href: vm/quick-monitor-azure-vm.md
-        - name: Equipo con Linux
-          href: vm/quick-collect-linux-computer.md
-        - name: Equipo de Windows
-          href: vm/quick-collect-windows-computer.md
     - name: Supervisión de aplicaciones
       items:
         - name: Aplicación ASP.NET Core
@@ -123,10 +115,18 @@
       items:
         - name: Datos de registro
           href: logs/data-security.md
+        - name: "Autenticación de Azure\_AD para los registros"
+          href: logs/azure-ad-authentication-logs.md
         - name: Claves administradas por el cliente
           href: logs/customer-managed-keys.md
         - name: Redes de Private Link
-          href: logs/private-link-security.md
+          items:
+            - name: Información general de Private Link
+              href: logs/private-link-security.md
+            - name: Diseño de Private Link
+              href: logs/private-link-design.md
+            - name: Configuración de Private Link
+              href: logs/private-link-configure.md
         - name: Almacenamiento privado
           href: logs/private-storage.md
         - name: Control de datos de registro personales
@@ -175,6 +175,8 @@
             - name: Supervisión de cargas de trabajo
               href: vm/monitor-virtual-machine-workloads.md
           displayname: VM
+        - name: Supervisión de Kubernetes
+          href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
     - name: Implementación
       items:
         - name: Implementación de Azure Monitor
@@ -193,7 +195,7 @@
           items:
             - name: Uso y costos estimados
               href: usage-estimated-costs.md
-            - name: Uso y costos de aplicaciones
+            - name: Uso y costos de Application Insights
               href: app/pricing.md
             - name: Registro del uso y los costos de los datos
               href: logs/manage-cost-storage.md
@@ -225,7 +227,7 @@
           items:
             - name: Crear un área de trabajo
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: logs/quick-create-workspace.md
                 - name: Azure CLI
                   href: logs/quick-create-workspace-cli.md
@@ -242,10 +244,14 @@
               href: logs/manage-access.md
             - name: Desplazamiento de un área de trabajo
               href: logs/move-workspace.md
+            - name: Traslado de un área de trabajo entre regiones
+              href: logs/move-workspace-region.md
             - name: Diseño de proveedores de servicios
               href: logs/service-providers.md
             - name: Clústeres dedicados
               href: logs/logs-dedicated-clusters.md
+            - name: Zonas de disponibilidad
+              href: logs/availability-zones.md
         - name: Log Analytics
           items:
             - name: Información general
@@ -1106,18 +1112,30 @@
               href: containers/container-insights-enable-aks-policy.md
             - name: Asignaciones de regiones
               href: containers/container-insights-region-mapping.md
-        - name: Supervisión del rendimiento
-          href: containers/container-insights-analyze.md
-        - name: Supervisión del rendimiento de GPU
-          href: containers/container-insights-gpu-monitoring.md
-        - name: Supervisión de la configuración de red
-          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
-        - name: Supervisión de implementaciones y HPA
-          href: containers/container-insights-deployment-hpa-metrics.md
-        - name: Supervisión de volúmenes persistentes (PV)
-          href: containers/container-insights-persistent-volumes.md
-        - name: Pestaña Informes
-          href: insights/container-insights-reports.md
+            - name: Administración de agentes
+              href: containers/container-insights-manage-agent.md
+            - name: Configuración del recopilación de métricas de Prometheus
+              href: containers/container-insights-prometheus-integration.md
+            - name: Configuración de los valores de colección del agente
+              href: containers/container-insights-agent-config.md
+            - name: Actualización para habilitar las métricas
+              href: containers/container-insights-update-metrics.md
+        - name: Supervisión
+          items:
+            - name: Supervisión del rendimiento
+              href: containers/container-insights-analyze.md
+            - name: Supervisión del rendimiento de GPU
+              href: containers/container-insights-gpu-monitoring.md
+            - name: Supervisión de la configuración de red
+              href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
+            - name: Supervisión de implementaciones y HPA
+              href: containers/container-insights-deployment-hpa-metrics.md
+            - name: Supervisión de volúmenes persistentes (PV)
+              href: containers/container-insights-persistent-volumes.md
+            - name: Pestaña Informes
+              href: containers/container-insights-reports.md
+        - name: Consultas de registros
+          href: containers/container-insights-log-query.md
         - name: Visualización de datos en directo
           items:
             - name: Introducción a los datos en directo
@@ -1128,22 +1146,12 @@
               href: containers/container-insights-livedata-metrics.md
             - name: Visualización de implementaciones
               href: containers/container-insights-livedata-deployments.md
-        - name: Análisis de datos con consultas de registros
-          href: containers/container-insights-log-search.md
         - name: Alertas
           items:
             - name: Creación de reglas de alertas del registro
               href: containers/container-insights-log-alerts.md
             - name: Creación de reglas de alertas de métricas
               href: containers/container-insights-metric-alerts.md
-        - name: Administración de agentes
-          href: containers/container-insights-manage-agent.md
-        - name: Configuración del recopilación de métricas de Prometheus
-          href: containers/container-insights-prometheus-integration.md
-        - name: Configuración de los valores de colección del agente
-          href: containers/container-insights-agent-config.md
-        - name: Actualización para habilitar las métricas
-          href: containers/container-insights-update-metrics.md
         - name: Administración de costo y uso
           href: containers/container-insights-cost.md
         - name: Deshabilitar la supervisión

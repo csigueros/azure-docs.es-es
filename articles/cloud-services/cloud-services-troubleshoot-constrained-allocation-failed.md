@@ -7,14 +7,16 @@ ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 2b491560af61bc0afc8696d45c32ed91b846a9e4
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 6c277fb073776a7cdbc31cd4ccc9183f8024ce1d
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090032"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823539"
 ---
 # <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-classic-to-azure"></a>Solución de problemas de ConstrainedAllocationFailed al implementar una instancia de Cloud Services (clásico) en Azure
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 En este artículo, solucionará los errores de asignación por los que Azure Cloud Services (clásico) no puede realizar la implementación debido a las restricciones de asignación.
 

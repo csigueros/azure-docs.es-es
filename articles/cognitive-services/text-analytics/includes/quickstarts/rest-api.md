@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 06/08/2021
 ms.author: aahi
-ms.openlocfilehash: f932630fe4f31026ffd7efce04b32b876ad8ab94
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 5f02799cbaf99a8f73d06d6749637d8b1b603255
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113550681"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442513"
 ---
 # <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
@@ -30,6 +30,7 @@ ms.locfileid: "113550681"
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * La versión actual de [cURL](https://curl.haxx.se/).
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics </a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.

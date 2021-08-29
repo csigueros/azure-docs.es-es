@@ -77,6 +77,8 @@
       href: pipeline-extension.md
     - name: Grabación de vídeo
       href: video-recording.md
+    - name: Introducción a la composición de la inteligencia artificial
+      href: ai-composition-overview.md
     - name: Escenarios
       items:
         - name: Grabación de vídeo basada en eventos
@@ -121,6 +123,8 @@
       items:
         - name: Desarrollo e implementación de un servidor de inferencia de gRPC
           href: develop-deploy-grpc-inference-srv.md
+        - name: Análisis mediante la composición de la inteligencia artificial
+          href: analyze-ai-composition.md
     - name: Portal
       items:
         - name: Invocación de métodos directos con el portal
@@ -129,12 +133,14 @@
       items:
         - name: Supervisión y registro
           href: monitor-log-edge.md
+    - name: Visualización
+      items:
+        - name: "Inserción del widget de reproductor en Power\_BI"
+          href: embed-player-in-power-bi.md
     - name: Solución de problemas
       href: troubleshoot.md
 - name: Referencia
   items:
-    - name: Directivas de acceso
-      href: access-policies.md
     - name: SDK para desarrolladores
       href: sdk.md
     - name: Métodos directos

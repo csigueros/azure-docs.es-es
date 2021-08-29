@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 19bff62883341947eb5290118494b8244c5476ac
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 71ca2dd856b18424d79a20db8a4c5552b2e98c53
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518259"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822943"
 ---
 # <a name="integrate-with-pipelines"></a>Integración con las canalizaciones
 
@@ -41,6 +41,7 @@ Una vez publicada la canalización, puede que quiera ejecutarla inmediatamente s
 
 1. Abra la canalización.
 1. Haga clic en **Agregar desencadenador** > **Trigger now** (Desencadenar ahora).
+1. Seleccione **Aceptar**. 
 
 ## <a name="monitor-pipeline-execution"></a>Supervisión de la ejecución de la canalización
 
