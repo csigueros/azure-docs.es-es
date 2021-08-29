@@ -282,7 +282,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Portal de Azure
+                - name: Azure Portal
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -290,8 +290,6 @@
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
                   href: ./create-first-function-vs-code-csharp.md
-                - name: "C# aislado (.NET\_5)"
-                  href: dotnet-isolated-process-developer-howtos.md
                 - name: Java con Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java con Eclipse
@@ -517,6 +515,8 @@
           href: /python/api/azure-functions/azure.functions
     - name: Referencia de configuración de aplicación
       href: functions-app-settings.md
+    - name: "Azure\_Functions\_Core\_Tools"
+      href: functions-core-tools-reference.md
     - name: Desencadenadores y enlaces
       items:
         - name: Blob Storage
@@ -533,7 +533,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md

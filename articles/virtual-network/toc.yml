@@ -85,6 +85,8 @@
           href: manage-public-ip-address-prefix.md
         - name: IPv6 para la red virtual de Azure
           href: ipv6-overview.md
+        - name: Acceso de salida predeterminado
+          href: default-outbound-access.md
         - name: Preferencia de enrutamiento
           href: routing-preference-overview.md
         - name: Preferencias de enrutamiento desmedido
@@ -126,6 +128,8 @@
           href: subnet-extension.md
         - name: Delegación de subred
           href: subnet-delegation-overview.md
+    - name: Redes de máquina virtual
+      href: network-overview.md
     - name: Implementación clásica
       href: /previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: Guías paso a paso
@@ -266,7 +270,7 @@
           items:
             - name: Creación de una dirección IP pública
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: routing-preference-portal.md
                 - name: Azure PowerShell
                   href: routing-preference-powershell.md
@@ -274,7 +278,7 @@
                   href: routing-preference-cli.md
             - name: Configuración de una máquina virtual con preferencia de enrutamiento de Internet
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: tutorial-routing-preference-virtual-machine-portal.md
                 - name: Azure PowerShell
                   href: configure-routing-preference-virtual-machine-powershell.md
@@ -288,7 +292,7 @@
       items:
         - name: Filtrado del tráfico de red
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: tutorial-filter-network-traffic.md
             - name: Azure PowerShell
               href: tutorial-filter-network-traffic-powershell.md
@@ -298,7 +302,7 @@
           items:
             - name: Uso de puntos de conexión privados
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: ../private-link/create-private-endpoint-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                 - name: Azure PowerShell
                   href: ../private-link/create-private-endpoint-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json
@@ -306,7 +310,7 @@
                   href: ../private-link/create-private-endpoint-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: Uso de puntos de conexión de servicio
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: tutorial-restrict-network-access-to-resources.md
                 - name: Azure PowerShell
                   href: tutorial-restrict-network-access-to-resources-powershell.md
@@ -314,7 +318,7 @@
                   href: tutorial-restrict-network-access-to-resources-cli.md
             - name: Uso de directivas de punto de conexión de servicio
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: virtual-network-service-endpoint-policies-portal.md
                 - name: Azure PowerShell
                   href: virtual-network-service-endpoint-policies-powershell.md
@@ -336,7 +340,7 @@
       items:
         - name: 'Creación de una máquina virtual: IP pública estática'
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: virtual-network-deploy-static-pip-arm-portal.md
             - name: Azure PowerShell
               href: virtual-network-deploy-static-pip-arm-ps.md
@@ -348,7 +352,7 @@
               href: remove-public-ip-address-vm.md
         - name: 'Creación de una máquina virtual: IP privada estática'
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: virtual-networks-static-private-ip-arm-pportal.md
             - name: Azure PowerShell
               href: virtual-networks-static-private-ip-arm-ps.md
@@ -356,7 +360,7 @@
               href: virtual-networks-static-private-ip-arm-cli.md
         - name: 'Creación de máquina virtual: Dirección IP privada estática (clásica)'
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: virtual-networks-static-private-ip-classic-pportal.md
             - name: Azure PowerShell
               href: virtual-networks-static-private-ip-classic-ps.md

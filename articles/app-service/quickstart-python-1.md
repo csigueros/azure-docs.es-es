@@ -6,12 +6,12 @@ ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
 zone_pivot_groups: python-frameworks-01
 robots: noindex
-ms.openlocfilehash: 464583f9e20d55fa351a6ae0df31b608b18dc428
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 4c218a3520b5551894785f7968a1b0920d6ecf47
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379543"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "122643518"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Python en Azure App Service en Linux
 
@@ -110,7 +110,7 @@ az webapp up --sku B1 --name <app-name>
 - Si no se reconoce el comando `webapp`, es porque la versión de la CLI de Azure es 2.0.80 o posterior. De lo contrario, [instale la versión más reciente](/cli/azure/install-azure-cli).
 - Reemplace `<app_name>` por un nombre que sea único en todo Azure (*los caracteres válidos son `a-z`, `0-9` y `-`* ). Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
 - El argumento `--sku B1` crea la aplicación web en el plan de tarifa básico, que genera un pequeño costo por hora. Omita este argumento para usar un nivel Premium más rápido.
-- Opcionalmente, incluya el argumento `--location <location-name>`, donde `<location_name>` es una región de Azure disponible. Puede recuperar una lista de las regiones permitidas para su cuenta de Azure mediante la ejecución del comando [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations).
+- Opcionalmente, incluya el argumento `--location <location-name>`, donde `<location_name>` es una región de Azure disponible. Puede recuperar una lista de las regiones permitidas para su cuenta de Azure mediante la ejecución del comando [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations).
 - Si ve el error "No se pudo detectar automáticamente la pila en tiempo de ejecución de la aplicación", asegúrese de que ejecuta el comando en la carpeta *python-docs-hello-world* (Flask) o en la carpeta *python-docs-hello-django* (Django) que contiene el archivo *requirements.txt*. (Consulte [Solución de problemas de detección automática con az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub)).
 
 El comando puede tardar varios minutos en completarse. Mientras se ejecuta, proporciona mensajes sobre cómo crear el grupo de recursos, el plan de App Service y la aplicación de hospedaje, configurar el registro y, a continuación, realizar la implementación del archivo ZIP. A continuación, se muestra el mensaje "Puede iniciar la aplicación en http://&lt;nombre_de_la_aplicación&gt;.azurewebsites.net", que es la dirección URL de la aplicación en Azure.

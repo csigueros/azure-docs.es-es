@@ -6,15 +6,15 @@ author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 08/19/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df9df0db6c93241d47baae9b33927f9a96a66eda
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461614"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597371"
 ---
 # <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Azure Portal
 
@@ -38,9 +38,11 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Desplazamiento al área de trabajo de Synapse 
 1. Vaya al área de trabajo de Synapse en la que se va a crear el grupo de Apache Spark. Para ello, escriba el nombre del servicio (o el nombre del recurso directamente) en la barra de búsqueda.
-![Barra de búsqueda de Azure Portal en la que se ha escrito "Áreas de trabajo de Synapse".](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. En la lista de áreas de trabajo, escriba el nombre (o una parte del nombre) del área que desea abrir. En este ejemplo, se usará un área de trabajo denominado **contosoanalytics**.
-![Lista de áreas de trabajo de Synapse filtradas en la que se muestran las que contienen el nombre Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
+
+    ![Barra de búsqueda de Azure Portal en la que se ha escrito "Áreas de trabajo de Synapse".](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
+
+2. En la lista de áreas de trabajo, escriba el nombre (o una parte del nombre) del área que desea abrir. En este ejemplo, se usará un área de trabajo denominado **contosoanalytics**.
+    ![Lista de áreas de trabajo de Synapse filtradas en la que se muestran las que contienen el nombre Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 
 ## <a name="create-new-apache-spark-pool"></a>Creación de un grupo de Apache Spark
@@ -58,6 +60,7 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 
     ![Flujo de creación del grupo de Apache Spark: pestaña de datos básicos.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-02.png)
+
     > [!IMPORTANT]
     > Tenga en cuenta que existen limitaciones específicas para los nombres que pueden usar los grupos de Apache Spark. Los nombres solo deben contener letras o números, deben tener 15 caracteres o menos, deben comenzar con una letra, no contener palabras reservadas y ser únicos en el área de trabajo.
 
