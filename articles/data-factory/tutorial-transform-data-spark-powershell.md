@@ -2,16 +2,17 @@
 title: 'Transformación de datos mediante Spark en Azure Data Factory '
 description: Este tutorial proporciona instrucciones detalladas para transformar los datos mediante el uso de la actividad de Spark en Azure Data Factory.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: cf425ecb1a8aebf594828bfba50e9aba8ca9dd7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec69d0d4afe96a79e421a5a89d38b2f59cd3a796
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377625"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740929"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformación de datos en la nube mediante la actividad de Spark en Azure Data Factory
 
@@ -28,7 +29,7 @@ En este tutorial, se usa Azure PowerShell para crear una canalización de Data F
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
