@@ -1,18 +1,20 @@
 ---
 title: Copia de datos hacia y desde Azure Table Storage
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Aprenda a copiar datos desde almacenes de origen compatibles a Azure Table Storage o desde Table Storage a almacenes de receptor compatibles mediante Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ms.date: 03/17/2021
-ms.openlocfilehash: 557d8755131bcc60dfe07e3d068ac37d0a5d6f44
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 366feb50ef79fc2061f589c3a227c780df258344
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675130"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638111"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Table Storage como origen o destino mediante Azure Data Factory
 

@@ -1,17 +1,20 @@
 ---
 title: Copia de datos de tabla web mediante Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre el conector de tabla web de Azure Data Factory que permite copiar datos desde una tabla web a almacenes de datos compatibles con Data Factory como receptores.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jianleishen
-ms.openlocfilehash: d3035220f719bb4afde4dec8ff8417114b6569ee
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 0ad8b60bab9448e4571bb499730bd0451629560b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484764"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638170"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copia de datos de una tabla web mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

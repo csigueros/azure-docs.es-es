@@ -84,7 +84,7 @@ conceptualContent:
         - url: /azure/architecture/best-practices/
           itemType: reference
           text: Procedimientos recomendados en la nube
-        - url: /azure/architecture/framework/resiliency/overview
+        - url: /azure/architecture/framework/resiliency/app-design
           itemType: reference
           text: Diseño de aplicaciones de Azure confiables
         - url: /azure/architecture/patterns/

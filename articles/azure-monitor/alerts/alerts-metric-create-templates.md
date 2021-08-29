@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 10/7/2020
+ms.date: 8/02/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7c0fa91b62696729cba1895f69ee1f36eb661f17
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a4c1d014e6b6c096df4e2dd943131ac6d1de7548
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111972021"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747713"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
 
@@ -95,7 +95,6 @@ Para este tutorial, guarde el archivo JSON siguiente como simplestaticmetricaler
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -1018,6 +1017,10 @@ az deployment group create \
     --parameters @multidimensionalstaticmetricalert.parameters.json
 ```
 
+> [!NOTE]
+>
+> El uso de "All" como valor de dimensión equivale a seleccionar "\*" (todos los valores actuales y futuros).
+
 
 ## <a name="template-for-a-dynamic-thresholds-metric-alert-that-monitors-multiple-dimensions"></a>Plantilla para una alerta de métrica de umbrales dinámicos que supervisa varias dimensiones
 
@@ -1319,7 +1322,6 @@ Para este tutorial, guarde el archivo JSON siguiente como customstaticmetricaler
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -1650,7 +1652,6 @@ Guarde el archivo JSON siguiente como all-vms-in-resource-group-static.json para
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -2297,7 +2298,6 @@ Guarde el archivo JSON siguiente como all-vms-in-subscription-static.json para u
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -2939,7 +2939,6 @@ Guarde el archivo JSON siguiente como list-of-vms-static.json para usarlo en est
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",

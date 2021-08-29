@@ -5,14 +5,14 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 08/01/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b372c9d8be31ab6f51d737cd00c692ac9242e4db
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c20eb75fbb248ff67fb244fde1355aae9c726d7a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605279"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745155"
 ---
 # <a name="supported-postgresql-major-versions"></a>Versiones principales de PostgreSQL admitidas
 
@@ -21,13 +21,13 @@ Consulte [Directiva de control de versiones de Azure Database for PostgreSQL](co
 Azure Database for PostgreSQL actualmente admite las siguientes versiones principales:
 
 ## <a name="postgresql-version-11"></a>PostgreSQL, versión 11
-La versión secundaria actual es la 11.6. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-6.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
+La versión secundaria actual es la 11.11. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-11.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
 
 ## <a name="postgresql-version-10"></a>PostgreSQL, versión 10
-La versión secundaria actual es la 10.11. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/10/static/release-10-11.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
+La versión secundaria actual es la 10.16. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/10/static/release-10-16.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
 
 ## <a name="postgresql-version-96"></a>PostgreSQL, versión 9.6
-La versión secundaria actual es la 9.6.16. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/9.6/static/release-9-6-16.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
+La versión secundaria actual es la 9.6.21. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/9.6/static/release-9-6-21.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
 
 ## <a name="postgresql-version-95-retired"></a>PostgreSQL versión 9.5 (retirada)
 En consonancia con la [directiva de control de versiones](https://www.postgresql.org/support/versioning/) de la comunidad de Postgres, a partir del 11 de febrero de 2021 Azure Database for PostgreSQL ha retirado la versión 9.5 de Postgres. Para más información y conocer las restricciones, consulte [Directiva de control de versiones de Azure Database for PostgreSQL](concepts-version-policy.md). Si está ejecutando esta versión principal, actualice a una versión posterior lo antes posible, preferiblemente a PostgreSQL 11.

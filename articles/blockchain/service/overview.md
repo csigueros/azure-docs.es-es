@@ -4,16 +4,20 @@ description: Introducción a Azure Blockchain Service
 ms.date: 03/15/2021
 ms.topic: overview
 ms.reviewer: patricka
-ms.openlocfilehash: 035e2c1df5912f291ad241ade25361f9cc098b22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cef30858b23f4c5e87f756e830defa3b2522add
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573632"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122643523"
 ---
 # <a name="what-is-azure-blockchain-service"></a>¿Qué es Azure Blockchain Service?
 
-Azure Blockchain Service es un servicio de libro de contabilidad totalmente administrado que permite a los usuarios crear y operar redes de cadena de bloques a escala en Azure. Al proporcionar un control unificado tanto para la administración de la infraestructura como para el gobernanza de la red de cadena de bloques, Azure Blockchain Service proporciona:
+Azure Blockchain Service es un servicio de libro de contabilidad totalmente administrado que permite a los usuarios crear y operar redes de cadena de bloques a escala en Azure.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+Al proporcionar un control unificado tanto para la administración de la infraestructura como para el gobernanza de la red de cadena de bloques, Azure Blockchain Service proporciona:
 
 * Implementación y operaciones de red sencillas
 * Administración de consorcios integrada
@@ -29,7 +33,7 @@ La implementación de Azure Blockchain Service se realiza a través de Azure Por
 
 ### <a name="performance-and-service-tiers"></a>Niveles de servicio y rendimiento
 
-Azure Blockchain Service ofrece dos niveles de servicio: *Básico* y *Estándar*. Cada nivel ofrece un rendimiento diferente y diferentes capacidades para admitir el desarrollo ligero y probar las cargas de trabajo hasta implementaciones de cadena de bloques de producción a escala masiva. Use el nivel *Básico* para desarrollo, pruebas y prueba de concepto. Use el nivel *Estándar* para las implementaciones de nivel de producción. Ambos niveles incluyen al menos un nodo de transacción y un nodo de validación (Básico) o dos nodos de validación (Estándar). 
+Azure Blockchain Service ofrece dos niveles de servicio: *Básico* y *Estándar*. Cada nivel ofrece un rendimiento diferente y diferentes capacidades para admitir el desarrollo ligero y probar las cargas de trabajo hasta implementaciones de cadena de bloques de producción a escala masiva. Use el nivel *Básico* para desarrollo, pruebas y prueba de concepto. Use el nivel *Estándar* para las implementaciones de nivel de producción. Ambos niveles incluyen al menos un nodo de transacción y un nodo de validación (Básico) o dos nodos de validación (Estándar).
 
 ![Planes de tarifa](./media/overview/pricing-tiers.png)
 

@@ -1,18 +1,20 @@
 ---
 title: Copia de datos desde SAP BW
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre cómo copiar datos desde SAP Business Warehouse a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/04/2019
-ms.openlocfilehash: ed7dbb778343bbef2ecf7c92866b8d63a123edc5
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 29f73bc445e7cf84e5ff160779c56ce599e85daf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788308"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638850"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

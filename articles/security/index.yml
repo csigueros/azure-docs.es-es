@@ -147,7 +147,7 @@ conceptualContent:
         - url: ../sentinel/quickstart-onboard.md
           itemType: quickstart
           text: Incorporación de Azure Sentinel
-        - url: ../sentinel/quickstart-get-visibility.md
+        - url: /azure/sentinel/get-visibility
           itemType: quickstart
           text: Introducción a Azure Sentinel
       footerLink:

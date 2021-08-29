@@ -3,15 +3,16 @@ title: Formato delta en Azure Data Factory
 description: Transformación y movimiento de datos desde un lago delta con el formato delta
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: makromer
-ms.openlocfilehash: 38138be8ddd6babd9740a81ffcbedb9088a412f4
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: b5f344d97813e5f8bc7099631b56760ca2115f1a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906177"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637787"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato delta en Azure Data Factory
 

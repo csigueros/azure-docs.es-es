@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 5/17/2021
 ms.author: edoyle
 ms.custom: support-help-page
-ms.openlocfilehash: a4f83d6ddf09ca449da74f163a82baf2b12adc91
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3b84f85a01ebaff9c3901672d31a135586280e13
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950064"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633546"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opciones de soporte técnico de Azure Service Fabric
 
@@ -81,20 +81,6 @@ Informe de los problemas de Azure Service Fabric en el [GitHub de Service Fabric
 </div>
 
 La etiqueta `azure-service-fabric` de [StackOverflow][stackoverflow] se usa para formular preguntas generales sobre cómo funciona la plataforma y cómo usarla para llevar a cabo determinadas tareas.
-
-## <a name="submit-feedback-on-azure-feedback"></a>Envío de comentarios sobre Azure
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-El [foro de comentarios de Azure para Service Fabric][uservoice-forum] es el mejor lugar para enviar ideas significativas sobre las características del producto. Revisamos las solicitudes más populares y las factorizamos para nuestra planeación de medio a largo plazo. Se recomienda buscar apoyo para sus sugerencias dentro de la comunidad.
-
-
-> [!Note]
-> Las **versiones preliminares de Service Fabric no se admiten para su uso en producción.** En ocasiones, creamos versiones preliminares especiales que contienen cambios significativos en las características para los que nos gustaría sondear los comentarios iniciales. Solo debe usar versiones preliminares en entornos de prueba aislados que no atiendan las cargas de trabajo de producción. El clúster de producción debe estar ejecutando siempre una versión de Service Fabric compatible y estable. No ofrecemos ninguna opción de soporte técnico de pago para estas versiones preliminares.
->
-> Una versión preliminar siempre comienza con un número de versión principal y secundaria de 255. Por ejemplo, si ve una versión 255.255.5703.949 de Service Fabric, esa versión es preliminar y solo está prevista para su uso en clústeres de prueba. Estas versiones preliminares también se anuncian en el [blog del equipo de Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) y se detallan en las características incluidas. Use una de las opciones enumeradas anteriormente para proporcionar comentarios.
-
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>Mantenerse informado sobre las actualizaciones y nuevas versiones
 

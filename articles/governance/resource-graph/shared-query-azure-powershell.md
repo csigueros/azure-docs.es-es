@@ -1,17 +1,17 @@
 ---
 title: 'Inicio rápido: Creación de una consulta compartida con Azure PowerShell'
 description: En este inicio rápido puede seguir los pasos necesarios para crear una consulta compartida de Resource Graph mediante Azure PowerShell.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: 0bd223feca24a84903bd890121102ec79ac532df
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 95057d0c1016bf030f21c9cab9281e9fe51dd897
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325848"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122325081"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-powershell"></a>Inicio rápido: Creación de una consulta compartida de Azure Resource Graph mediante Azure PowerShell
 

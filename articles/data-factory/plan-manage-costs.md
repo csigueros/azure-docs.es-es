@@ -4,14 +4,16 @@ description: Aprenda a planear y administrar los costos de Azure Data Factory me
 author: shirleywangmsft
 ms.author: shwang
 ms.service: data-factory
+ms.subservice: pricing
 ms.topic: how-to
+ms.custom: subject-cost-optimization
 ms.date: 04/28/2021
-ms.openlocfilehash: 72c212470fcfe884000665892fd092eb830c6b56
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: aba57e9ba46faef60f97819fa3de3e89fa94f00e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958938"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638130"
 ---
 # <a name="plan-to-manage-costs-for-azure-data-factory"></a>Planeamiento para administrar los costos de Azure Data Factory
 

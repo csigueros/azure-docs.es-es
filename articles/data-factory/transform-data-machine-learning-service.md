@@ -1,17 +1,20 @@
 ---
 title: Ejecución de canalizaciones de Azure Machine Learning
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Aprenda a ejecutar canalizaciones de Azure Machine Learning en las canalizaciones de Azure Data Factory.
 ms.service: data-factory
+ms.subservice: tutorials
+ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
 ms.date: 07/16/2020
-ms.openlocfilehash: d5013bf12647ababb7aa0765a13751e749dae9d8
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 19456f33e13a9a472b5c42afc0a3cb3c5041efd2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904737"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638128"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Ejecución de canalizaciones de Azure Machine Learning en Azure Data Factory
 

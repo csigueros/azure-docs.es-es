@@ -7,14 +7,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: 9987205cc4ca29aa6e00f67cb384141f62c430e9
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 85b7f9898906ffd34ce88fb2243534b5b53898de
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688075"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643608"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear una instancia de Azure Database for MySQL con la opción Servidor flexible (versión preliminar)
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Actualmente, Azure Database for MySQL: servidor flexible se encuentra en versión preliminar pública.
