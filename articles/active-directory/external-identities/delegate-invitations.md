@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 08/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fd3ef3ed0ad072bb0e9284892fa5455660d1c40
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6c6dbac365b10b7abaeea6c4ae600cef24fcd1d2
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963613"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821811"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios
 
@@ -62,20 +62,7 @@ De manera predeterminada, todos los usuarios, incluidos los invitados, pueden in
      > [!NOTE]
      > Si **Los miembros pueden invitar** está establecido en **No** y **Los administradores y los usuarios del rol de invitador de personas pueden invitar** está establecido en **Sí**, los usuarios del rol **Invitador de usuarios invitados** todavía podrán invitar a usuarios invitados.
 
-6. En **Email one-time passcode for guests** (Código de acceso de un solo uso por correo electrónico para invitados), elija la configuración adecuada. Para más información, consulte [Autenticación con código de acceso de un solo uso por correo electrónico](one-time-passcode.md):
-
-   - **Automatically enable email one-time passcode for guests in October 2021** (Habilitar automáticamente el código de acceso de un solo uso por correo electrónico a partir de octubre de 2021). Valor predeterminado. Si la característica de código de acceso de un solo uso por correo electrónico no está habilitada para el inquilino, se activará automáticamente en octubre de 2021. Si desea que la característica se habilite desde ese momento, no tiene que hacer nada más. Si ya ha habilitado o deshabilitado la característica, esta opción no estará disponible.
-
-   - **Enable email one-time passcode for guests effective now** (Habilitar el código de acceso de un solo uso por correo electrónico para invitados desde este momento). Activa la característica de código de acceso de un solo uso por correo electrónico para el inquilino.
-
-   - **Disable email one-time passcode for guests** (Deshabilitar el código de acceso de un solo uso por correo electrónico para invitados). Desactiva la característica de código de acceso de un solo uso por correo electrónico para el inquilino y evita que la característica se active en octubre de 2021.
-
-   > [!NOTE]
-   > En lugar de las opciones anteriores, verá el siguiente botón si ha habilitado o deshabilitado esta característica, o bien si ha participado previamente en la versión preliminar:
-   >
-   >![Habilitación de la participación en el código de acceso de un solo uso por correo electrónico](media/delegate-invitations/enable-email-otp-opted-in.png)
-
-7. En **Enable guest self-service sign up via user flows** (Habilitación del registro de autoservicio de invitados mediante flujos de usuario), seleccione **Yes** (Sí) si desea crear flujos de usuario que permitan a los usuarios suscribirse a las aplicaciones. Para más información sobre este valor, consulte [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación](self-service-sign-up-user-flow.md).
+6. En **Enable guest self-service sign up via user flows** (Habilitación del registro de autoservicio de invitados mediante flujos de usuario), seleccione **Yes** (Sí) si desea crear flujos de usuario que permitan a los usuarios suscribirse a las aplicaciones. Para más información sobre este valor, consulte [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación](self-service-sign-up-user-flow.md).
 
     ![Configuración de la suscripción de autoservicio a través de flujos de usuario](./media/delegate-invitations/self-service-sign-up-setting.png)
 

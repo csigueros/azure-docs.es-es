@@ -6,157 +6,152 @@ metadata:
   title: Documentación sobre Azure Container Service | Microsoft Docs
   description: Aprenda a usar Azure Container Service para administrar y desarrollar aplicaciones de contenedor basadas en la nube.
   ms.topic: hub-page
-  ms.openlocfilehash: a1ed2769438208b422907dcb8758bd6f3c130986
-  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 11/30/2020
-  ms.locfileid: "96349238"
+  ms.service: azure
 highlightedContent:
   items:
-  - itemType: whats-new
-    title: Novedades de los contenedores de Azure
-    url: https://azure.microsoft.com/updates/?category=containers
-  - itemType: concept
-    title: Enfoque de microservicios con respecto a las aplicaciones
-    url: ../service-fabric/service-fabric-overview-microservices.md
-  - itemType: concept
-    title: Descripción de Kubernetes
-    url: ../aks/concepts-clusters-workloads.md
+    - itemType: whats-new
+      title: Novedades de los contenedores de Azure
+      url: 'https://azure.microsoft.com/updates/?category=containers'
+    - itemType: concept
+      title: Enfoque de microservicios con respecto a las aplicaciones
+      url: ../service-fabric/service-fabric-overview-microservices.md
+    - itemType: concept
+      title: Descripción de Kubernetes
+      url: ../aks/concepts-clusters-workloads.md
 conceptualContent:
   items:
-  - title: Implementación de Kubernetes en Azure
-    links:
-    - url: ../aks/intro-kubernetes.md
-      itemType: overview
-      text: ¿Qué es Azure Kubernetes Service?
-    - url: ../aks/tutorial-kubernetes-prepare-app.md
-      itemType: tutorial
-      text: Preparación de una aplicación para AKS
-    - url: ../aks/kubernetes-walkthrough.md
-      itemType: tutorial
-      text: Creación de un clúster de AKS (CLI)
-    footerLink:
-      url: ../aks/index.yml
-      text: Ver más
-  - title: Prueba y desarrollo de aplicaciones de AKS
-    links:
-    - url: /visualstudio/containers/overview-local-process-kubernetes
-      itemType: concept
-      text: Funcionamiento de Proceso local con Kubernetes
-    - url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
-      itemType: how-to-guide
-      text: Uso de Proceso local con Kubernetes con Visual Studio Code
-    - url: /visualstudio/containers/bridge-to-kubernetes
-      itemType: how-to-guide
-      text: Uso de Proceso local con Kubernetes con Visual Studio
-  - title: Creación de aplicaciones web y móviles en la nube
-    links:
-    - url: ../app-service/overview.md
-      itemType: overview
-      text: ¿Qué es App Service?
-    - url: ../app-service/app-service-web-tutorial-custom-domain.md
-      itemType: get-started
-      text: Asignación de un dominio personalizado a la aplicación
-    - url: ../app-service/configure-ssl-bindings.md
-      itemType: tutorial
-      text: Protección de un dominio personalizado con un enlace SSL
-    - url: ../app-service/quickstart-custom-container.md
-      itemType: get-started
-      text: Ejecución de un contenedor de Windows personalizado
-    - url: ../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux
-      itemType: quickstart
-      text: Ejecución un contenedor Linux personalizado
-    - url: ../app-service/quickstart-multi-container.md
-      itemType: quickstart
-      text: Creación de una aplicación de Linux con varios contenedores
-    footerLink:
-      url: ../app-service/index.yml
-      text: Ver más
-  - title: Ejecución de contenedores en Azure
-    links:
-    - url: ../container-instances/container-instances-overview.md
-      itemType: overview
-      text: Introducción a Container Instances
-    - url: /learn/modules/run-docker-with-azure-container-instances/
-      itemType: learn
-      text: Ejecución de aplicaciones en contenedores mediante Docker con Azure Container Instances
-    - url: ../container-instances/container-instances-using-azure-container-registry.md
-      itemType: how-to-guide
-      text: Implementación de una imagen desde Azure Container Registry
-    - url: ../container-registry/container-registry-quickstart-task-cli.md
-      itemType: get-started
-      text: Compilación, inserción y ejecución de imágenes mediante la CLI de Azure
-    footerLink:
-      url: ../container-instances/index.yml
-      text: Ver más
-  - title: Programación de trabajos y administración de procesos
-    links:
-    - url: ../batch/batch-technical-overview.md
-      itemType: overview
-      text: ¿Qué es Batch?
-    - url: ../batch/quick-create-cli.md
-      itemType: get-started
-      text: Ejecución del primer trabajo de Batch con la CLI de Azure
-    - url: ../batch/tutorial-parallel-dotnet.md
-      itemType: tutorial
-      text: Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de .NET
-    footerLink:
-      url: ../batch/index.yml
-      text: Ver más
-  - title: Desarrollo de microservicios y orquestación de contenedores
-    links:
-    - url: ../service-fabric/service-fabric-overview.md
-      itemType: overview
-      text: ¿Qué es Azure Service Fabric?
-    - url: ../service-fabric/service-fabric-quickstart-dotnet.md
-      itemType: quickstart
-      text: Implementación de una aplicación de .NET Reliable Services en Service Fabric
-    - url: ../service-fabric/service-fabric-cluster-creation-for-windows-server.md
-      itemType: how-to-guide
-      text: Creación de un clúster independiente con Windows Server
-    footerLink:
-      url: ../service-fabric/index.yml
-      text: Ver más
-  - title: Almacenamiento y administración de imágenes de contenedor
-    links:
-    - url: ../container-registry/container-registry-intro.md
-      itemType: overview
-      text: ¿Qué es Azure Container Registry?
-    - url: ../container-registry/container-registry-get-started-azure-cli.md
-      itemType: get-started
-      text: Creación de un registro de contenedor privado con la CLI de Azure
-    - url: ../container-registry/container-registry-quickstart-task-cli.md
-      itemType: get-started
-      text: Compilación, inserción y ejecución de imágenes mediante la CLI de Azure
-    footerLink:
-      url: ../container-registry/index.yml
-      text: Ver más
-  - title: Servicio OpenShift administrado
-    links:
-    - url: ../openshift/intro-openshift.md
-      itemType: overview
-      text: ¿Qué es Red Hat OpenShift en Azure?
-    - url: ../openshift/howto-setup-environment.md
-      itemType: how-to-guide
-      text: Configuración del entorno de desarrollo de Red Hat OpenShift en Azure
-    - url: ../openshift/tutorial-create-cluster.md
-      itemType: tutorial
-      text: Creación de un clúster de Red Hat OpenShift en Azure
-    footerLink:
-      url: ../openshift/index.yml
-      text: Ver más
-  - title: Desarrollo de aplicaciones sin servidor
-    links:
-    - url: ../azure-functions/functions-overview.md
-      itemType: overview
-      text: Introducción a Azure Functions
-    - url: ../azure-functions/create-first-function-vs-code-csharp.md
-      itemType: quickstart
-      text: Crear su primera función
-    - url: ../azure-functions/functions-triggers-bindings.md
-      itemType: overview
-      text: Integración con otros servicios de Azure
-    footerLink:
-      url: ../azure-functions/index.yml
-      text: Ver más
+    - title: Implementación de Kubernetes en Azure
+      links:
+        - url: ../aks/intro-kubernetes.md
+          itemType: overview
+          text: ¿Qué es Azure Kubernetes Service?
+        - url: ../aks/tutorial-kubernetes-prepare-app.md
+          itemType: tutorial
+          text: Preparación de una aplicación para AKS
+        - url: ../aks/kubernetes-walkthrough.md
+          itemType: tutorial
+          text: Creación de un clúster de AKS (CLI)
+      footerLink:
+        url: ../aks/index.yml
+        text: Ver más
+    - title: Prueba y desarrollo de aplicaciones de AKS
+      links:
+        - url: /visualstudio/containers/overview-local-process-kubernetes
+          itemType: concept
+          text: Funcionamiento de Proceso local con Kubernetes
+        - url: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+          itemType: how-to-guide
+          text: "Uso de Proceso local con Kubernetes con Visual\_Studio Code"
+        - url: /visualstudio/containers/bridge-to-kubernetes
+          itemType: how-to-guide
+          text: "Uso de Proceso local con Kubernetes con Visual\_Studio"
+    - title: Creación de aplicaciones web y móviles en la nube
+      links:
+        - url: ../app-service/overview.md
+          itemType: overview
+          text: ¿Qué es App Service?
+        - url: ../app-service/app-service-web-tutorial-custom-domain.md
+          itemType: get-started
+          text: Asignación de un dominio personalizado a la aplicación
+        - url: ../app-service/configure-ssl-bindings.md
+          itemType: tutorial
+          text: Protección de un dominio personalizado con un enlace SSL
+        - url: ../app-service/quickstart-custom-container.md
+          itemType: get-started
+          text: Ejecución de un contenedor de Windows personalizado
+        - url: ../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux
+          itemType: quickstart
+          text: Ejecución un contenedor Linux personalizado
+        - url: ../app-service/quickstart-multi-container.md
+          itemType: quickstart
+          text: Creación de una aplicación de Linux con varios contenedores
+      footerLink:
+        url: ../app-service/index.yml
+        text: Ver más
+    - title: Ejecución de contenedores en Azure
+      links:
+        - url: ../container-instances/container-instances-overview.md
+          itemType: overview
+          text: Introducción a Container Instances
+        - url: /learn/modules/run-docker-with-azure-container-instances/
+          itemType: learn
+          text: Ejecución de aplicaciones en contenedores mediante Docker con Azure Container Instances
+        - url: ../container-instances/container-instances-using-azure-container-registry.md
+          itemType: how-to-guide
+          text: Implementación de una imagen desde Azure Container Registry
+        - url: ../container-registry/container-registry-quickstart-task-cli.md
+          itemType: get-started
+          text: 'Compilación, inserción y ejecución de imágenes mediante la CLI de Azure'
+      footerLink:
+        url: ../container-instances/index.yml
+        text: Ver más
+    - title: Programación de trabajos y administración de procesos
+      links:
+        - url: ../batch/batch-technical-overview.md
+          itemType: overview
+          text: ¿Qué es Batch?
+        - url: ../batch/quick-create-cli.md
+          itemType: get-started
+          text: Ejecución del primer trabajo de Batch con la CLI de Azure
+        - url: ../batch/tutorial-parallel-dotnet.md
+          itemType: tutorial
+          text: Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de .NET
+      footerLink:
+        url: ../batch/index.yml
+        text: Ver más
+    - title: Desarrollo de microservicios y orquestación de contenedores
+      links:
+        - url: ../service-fabric/service-fabric-overview.md
+          itemType: overview
+          text: ¿Qué es Azure Service Fabric?
+        - url: ../service-fabric/service-fabric-quickstart-dotnet.md
+          itemType: quickstart
+          text: Implementación de una aplicación de .NET Reliable Services en Service Fabric
+        - url: ../service-fabric/service-fabric-cluster-creation-for-windows-server.md
+          itemType: how-to-guide
+          text: Creación de un clúster independiente con Windows Server
+      footerLink:
+        url: ../service-fabric/index.yml
+        text: Ver más
+    - title: Almacenamiento y administración de imágenes de contenedor
+      links:
+        - url: ../container-registry/container-registry-intro.md
+          itemType: overview
+          text: ¿Qué es Azure Container Registry?
+        - url: ../container-registry/container-registry-get-started-azure-cli.md
+          itemType: get-started
+          text: Creación de un registro de contenedor privado con la CLI de Azure
+        - url: ../container-registry/container-registry-quickstart-task-cli.md
+          itemType: get-started
+          text: 'Compilación, inserción y ejecución de imágenes mediante la CLI de Azure'
+      footerLink:
+        url: ../container-registry/index.yml
+        text: Ver más
+    - title: Servicio OpenShift administrado
+      links:
+        - url: ../openshift/intro-openshift.md
+          itemType: overview
+          text: ¿Qué es Red Hat OpenShift en Azure?
+        - url: ../openshift/howto-setup-environment.md
+          itemType: how-to-guide
+          text: Configuración del entorno de desarrollo de Red Hat OpenShift en Azure
+        - url: ../openshift/tutorial-create-cluster.md
+          itemType: tutorial
+          text: Creación de un clúster de Red Hat OpenShift en Azure
+      footerLink:
+        url: ../openshift/index.yml
+        text: Ver más
+    - title: Desarrollo de aplicaciones sin servidor
+      links:
+        - url: ../azure-functions/functions-overview.md
+          itemType: overview
+          text: Introducción a Azure Functions
+        - url: ../azure-functions/create-first-function-vs-code-csharp.md
+          itemType: quickstart
+          text: Crear su primera función
+        - url: ../azure-functions/functions-triggers-bindings.md
+          itemType: overview
+          text: Integración con otros servicios de Azure
+      footerLink:
+        url: ../azure-functions/index.yml
+        text: Ver más

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 07/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 9064af6138a3dc02947b9d1de2c935afc0ad99a3
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: ad3fdca0cf15476fd13714d612d770289ced880a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113304163"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749740"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Transferencia de datos con Azure Data Box Gateway
 
@@ -57,7 +57,7 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
 
     3. Proporcione una cuenta de almacenamiento donde residirá el recurso compartido. Si todavía no existe un contenedor, se crea en la cuenta de almacenamiento con el nombre del recurso compartido recién creado. Si el contenedor ya existe, se utilizará.
        > [!IMPORTANT]
-       > Asegúrese de que la cuenta de Azure Storage que use no tenga directivas de inmutabilidad establecidas si se usa con un dispositivo Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
+       > Asegúrese de que la cuenta de Azure Storage que use no tenga directivas de inmutabilidad establecidas si se usa con un dispositivo Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/immutable-policy-configure-version-scope.md).
     
     4. Elija el **servicio de almacenamiento** entre blob en bloques, blobs en páginas o archivos. El tipo de servicio elegido depende de en qué formato desea que los datos residan en Azure. Por ejemplo, en este caso, queremos que los datos residan como blobs en bloque en Azure y, por tanto, seleccionamos esa opción. Si elige blob en páginas, debe asegurarse de que los datos tienen 512 bytes alineados. Por ejemplo, un VHDX siempre tiene una alineación de 512 bytes.
    

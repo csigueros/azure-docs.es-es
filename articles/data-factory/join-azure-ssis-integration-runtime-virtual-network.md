@@ -2,17 +2,18 @@
 title: Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
 description: Aprenda a conectar Azure-SSIS Integration Runtime a una red virtual de Azure.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0df96e2c1e238beafabb60aaa00c668f521d0c70
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 55ad870da1b89e24777647613f607038089863e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670175"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739455"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
 
@@ -55,7 +56,7 @@ Al conectar Azure-SSIS Integration Runtime a una red virtual, recuerde estos pun
 
 - Si hay una red virtual clásica conectada a la red local en una ubicación diferente a la de Azure-SSIS Integration Runtime, puede crear una [red virtual de Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) para que se conecte Azure-SSIS Integration Runtime. A continuación, configure una conexión de [red virtual clásica a Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md). 
  
-- Si hay una red virtual de Azure Resource Manager conectada a la red local en una ubicación diferente a la de Azure-SSIS Integration Runtime, puede crear primero una [red virtual de Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) para que se conecte a Azure-SSIS Integration Runtime. Luego, configure una conexión de red virtual de Azure Resource Manager a Azure Resource Manager. 
+- Si hay una red virtual de Azure Resource Manager conectada a la red local en una ubicación diferente a la de Azure-SSIS Integration Runtime, puede crear primero una [red virtual de Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) para que se conecte a Azure-SSIS Integration Runtime. Luego, configure una conexión de [red virtual de Azure Resource Manager a Azure Resource Manager](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). 
 
 ## <a name="hosting-the-ssis-catalog-in-sql-database"></a>Hospedaje del catálogo de SSIS en SQL Database
 
@@ -72,7 +73,7 @@ Si los paquetes SSIS acceden a los recursos de Azure compatibles con los [puntos
 Si los paquetes SSIS acceden a almacenes de datos o recursos que solo permiten direcciones IP públicas estáticas específicas y desea proteger el acceso a esos recursos desde Azure-SSIS IR, puede asociar [direcciones IP públicas](../virtual-network/virtual-network-public-ip-address.md) a Azure-SSIS IR y conectar este a una red virtual, y después agregar una regla de firewall de IP a los recursos pertinentes para permitir el acceso desde esas direcciones IP. Hay dos formas alternativas de hacerlo: 
 
 - Al crear Azure-SSIS IR, puede traer sus propias direcciones IP públicas y especificarlas a través de la [interfaz de usuario o el SDK de Data Factory](#join-the-azure-ssis-ir-to-a-virtual-network). Solo la conectividad de Internet de salida de Azure-SSIS IR usará las direcciones IP públicas proporcionadas y otros dispositivos de la subred no las usarán.
-- También puede configurar [Virtual Network NAT](../virtual-network/nat-overview.md) para la subred a la que se unirá Azure-SSIS IR y todas la conectividad de salida en esta subred usará las direcciones IP públicas especificadas.
+- También puede configurar [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) para la subred a la que se unirá Azure-SSIS IR y todas la conectividad de salida en esta subred usará las direcciones IP públicas especificadas.
 
 En todos los casos, la red virtual solo puede implementarse mediante el modelo de implementación de Azure Resource Manager.
 

@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/28/2021
-ms.author: alzam
-ms.openlocfilehash: ba3733f16353ad1e921430ca7699212a60d5ff2f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 08/20/2021
+ms.author: cherylmc
+ms.openlocfilehash: a004e8d7fd87cc7abdf881b355b40b59ac874ba1
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754962"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779741"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Autenticación de Azure Active Directory: Configuración de un cliente VPN para conexiones P2S de protocolo OpenVPN
 
@@ -27,13 +27,7 @@ Por cada equipo que quiera conectarse a la red virtual a través del cliente VPN
 
 ### <a name="to-download-the-azure-vpn-client"></a>Para descargar el cliente VPN de Azure
 
-1. Descargue el [Cliente VPN de Azure](https://go.microsoft.com/fwlink/?linkid=2117554) en el equipo.
-1. Compruebe que el cliente VPN de Azure tenga permiso para ejecutarse en segundo plano. Para comprobar los permisos y habilitarlos, navegue a **Inicio -> Configuración -> Privacidad -> Aplicaciones en segundo plano**.
-
-   * En **Aplicaciones en segundo plano**, asegúrese de que el valor **Permitir que las aplicaciones se ejecuten en segundo plano** sea **Activado**.
-   * En **Elegir qué aplicaciones se pueden ejecutar en segundo plano**, cambie la configuración del **Cliente VPN de Azure** a **Activado**.
-
-     ![Captura de pantalla de los permisos.](./media/openvpn-azure-ad-client/backgroundpermission.png)
+[!INCLUDE [Download Azure VPN client](../../includes/vpn-gateway-download-vpn-client.md)]
 
 ### <a name="to-create-a-certificate-based-client-profile"></a><a name="cert"></a>Para crear un perfil de cliente basado en certificados
 
