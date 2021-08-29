@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/23/2021
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f97f12f25a6ac9a42e597bcb59496511372d92aa
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 1e30af51207d525daee5cfd4806877b02b044867
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112296288"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769926"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Apertura de una sesión de SSH en un contenedor Linux en Azure App Service
 
@@ -41,7 +41,7 @@ Mediante la tunelización TCP puede crear una conexión de red entre la máquina
 
 Para empezar, es preciso instalar la [CLI de Azure](/cli/azure/install-azure-cli). Para ver cómo funciona sin instalar la CLI de Azure, abra [Azure Cloud Shell](../cloud-shell/overview.md). 
 
-Abra una conexión remota a la aplicación mediante el comando [az webapp remote-connection create](/cli/azure/webapp/remote-connection#az_webapp_remote_connection_create). Especifique _\<subscription-id>_ , _\<group-name>_ y \_\<app-name>_ de la aplicación.
+Abra una conexión remota a la aplicación mediante el comando [az webapp remote-connection create](/cli/azure/webapp#az_webapp_create_remote_connection). Especifique _\<subscription-id>_ , _\<group-name>_ y \_\<app-name>_ de la aplicación.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

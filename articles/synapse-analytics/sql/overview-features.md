@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 100da2e8b259c31daa6b0e72c8d2c4c2b0cb1d51
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 73f1eaebb60d02e27be5585a0287a702abf6df2a
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569717"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860968"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Características de Transact-SQL compatibles en Azure Synapse SQL
 
@@ -31,18 +31,18 @@ Los modelos de consumo de Synapse SQL permiten usar diferentes objetos de base d
 | **Tablas** | [Sí](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | No, el modelo sin servidor solo puede consultar datos externos colocados en [Azure Storage](#storage-options) |
 | **Vistas** | [Sí](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true). Las vistas pueden utilizar [elementos del lenguaje de consulta](#query-language) que están disponibles en el modelo dedicado. | [Sí](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true). Las vistas pueden utilizar [elementos del lenguaje de consulta](#query-language) que están disponibles en el modelo sin servidor. |
 | **Esquemas** | [Sí](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true) | [Sí](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true) |
-| **Tablas temporales** | [Sí](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | No |
+| **Tablas temporales** | [Sí](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?context=/azure/synapse-analytics/context/context) | No |
 | **Procedimientos** | [Sí](/sql/t-sql/statements/create-procedure-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Sí |
 | **Funciones** | [Sí](/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | Sí, solo funciones con valores de tabla insertadas. |
 | **Desencadenadores** | No | No |
 | **Tablas externas** | [Sí](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true). Consulte los [formatos de datos](#data-formats) compatibles. | [Sí](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true). Consulte los [formatos de datos](#data-formats) compatibles. |
 | **Almacenamiento en caché de consultas** | Sí, varios formularios (almacenamiento en caché basado en SSD, en memoria, almacenamiento en caché de un conjunto de resultados). Además, se admite la vista materializada | No |
 | **Variables de tabla** | [No](/sql/t-sql/data-types/table-transact-sql?view=azure-sqldw-latest&preserve-view=true), se usan tablas temporales | No |
-| **[Distribución de tablas](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**               | Sí | No |
-| **[Índices de tablas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                           | Sí | No |
-| **[Particiones de tablas](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | Sí | No |
+| **[Distribución de tablas](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context)**               | Sí | No |
+| **[Índices de tablas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context)**                           | Sí | No |
+| **[Particiones de tablas](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context)**                     | Sí | No |
 | **[Estadísticas](develop-tables-statistics.md)**            | Sí | Sí |
-| **[Administración de cargas de trabajo con clases de recursos en Azure Synapse Analytics](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Sí    | No |
+| **[Administración de cargas de trabajo con clases de recursos en Azure Synapse Analytics](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context)** | Sí    | No |
 | **Control de costos** | Sí, usando las acciones de escalado vertical y reducción vertical. | Sí, usando [Azure Portal o el procedimiento de T-SQL](./data-processed.md#cost-control). |
 
 ## <a name="query-language"></a>Lenguaje de consulta

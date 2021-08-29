@@ -108,7 +108,7 @@
     - name: Archivos de implementación de ejemplo
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
     - name: Módulo Az.CloudService
-      href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
+      href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.5.0'
     - name: Cmdlets de PowerShell
       href: /powershell/module/az.cloudservice/#cloudservice
     - name: Referencia de plantilla de Resource Manager
