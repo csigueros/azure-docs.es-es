@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/08/2021
+ms.date: 06/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b05d6c5cc520dd83318203b0bf6d0d7c0ab18382
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 66426b6e48c15882f884657fbf8e75f44e500eb8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127215"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467645"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -238,7 +238,7 @@ ms.locfileid: "108127215"
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
-[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
@@ -253,7 +253,7 @@ ms.locfileid: "108127215"
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
-[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
+[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]:../../../resource-manager-deployment-model.md
@@ -430,7 +430,7 @@ Si consulta la documentación, verá que se ha mejorado la funcionalidad con las
 ### <a name="azure-backup-for-sql-server-vms"></a>Azure Backup para VM con SQL Server
 Este nuevo método de copias de seguridad de SQL Server está disponible desde junio de 2018 como una versión preliminar pública en los servicios de Azure Backup. El método de copia de seguridad de SQL Server es el mismo que usan otras herramientas de terceros (la interfaz VSS/VDI de SQL Server) para transmitir copias de seguridad a una ubicación de destino. En este caso, la ubicación de destino es el almacén de Azure Recovery Services.
 
-[Aquí](../../../backup/backup-azure-sql-database.md) encontrará una descripción más detallada de este método de copia de seguridad, que presenta numerosas ventajas de configuraciones de copia de seguridad central, supervisión y administración. 
+En la página [Copia de seguridad de bases de datos de SQL Server en Azure](../../../backup/backup-azure-sql-database.md) encontrará una descripción más detallada de este método de copia de seguridad, que presenta numerosas ventajas de configuraciones de copia de seguridad central, supervisión y administración.
 
 
 ### <a name="third-party-backup-solutions"></a>Soluciones de copia de seguridad de terceros
@@ -475,7 +475,7 @@ Con Windows Server 2016, Microsoft introdujo los [espacios de almacenamiento dir
 ### <a name="sql-server-log-shipping"></a>Trasvase de registros de SQL Server
 Uno de los métodos de alta disponibilidad (HA) consiste en trasvasar los registros de SQL Server. Si las máquinas virtuales que participan en la configuración de alta disponibilidad tienen resolución de nombres de trabajo, no hay ningún problema. La configuración en Azure no difiere de ninguna configuración que se realice localmente relacionada con la configuración del trasvase de registros y los principios en torno al trasvase de registros. En el artículo [Acerca del trasvase de registros (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server) encontrará información detallada sobre el trasvase de registros de SQL Server.
 
-La funcionalidad de trasvase de registros de SQL Server apenas se usó en Azure para lograr una alta disponibilidad dentro de una región de Azure. En cambio, en los siguientes escenarios, los clientes de SAP usaban el trasvase de registros adecuadamente junto con Azure:
+La funcionalidad de trasvase de registros de SQL Server apenas se usó en Azure para lograr una alta disponibilidad dentro de una región de Azure. En cambio, en los escenarios siguientes, los clientes de SAP usaban el trasvase de registros adecuadamente con Azure:
 
 - Escenarios de recuperación ante desastres de una región de Azure a otra
 - Configuración de la recuperación ante desastres de una ubicación local a una región de Azure
@@ -513,12 +513,17 @@ A continuación encontrará documentación detallada sobre cómo implementar Alw
 >[!NOTE]
 > Si va a configurar el equilibrador de carga de Azure para la dirección IP virtual del agente de escucha de grupo de disponibilidad, asegúrese de que DirectServerReturn esté configurado. La configuración de esta opción reducirá la latencia de recorrido de ida y vuelta de red entre la capa de aplicación de SAP y la capa de DBMS. 
 
+>[!NOTE]
+>Cuando lea [Introducción a los grupos de disponibilidad Always On de SQL Server en Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/availability-group-overview.md), leerá sobre el [cliente de escucha Direct Network Name (DNN)](../../../azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md) de SQL Server. Esta funcionalidad nueva se introdujo con SQL Server 2019 CU8. Esta funcionalidad nueva hace que el uso de un equilibrador de carga de Azure que controle la dirección IP virtual del cliente de escucha del grupo de disponibilidad quede obsoleto.
+
+
 SQL Server AlwaysOn es la funcionalidad de alta disponibilidad y de recuperación ante desastres de uso más común en Azure para las implementaciones de carga de trabajo de SAP. La mayoría de los clientes usan AlwaysOn para la alta disponibilidad en una única región de Azure. Si la implementación está restringida a solo dos nodos, tiene dos opciones de conectividad:
 
-- Usar el agente de escucha de grupo de disponibilidad. Con el agente de escucha del grupo de disponibilidad, deberá implementar un equilibrador de carga de Azure. Este es el método predeterminado de implementación. Las aplicaciones de SAP se configurarían para conectarse en el agente de escucha del grupo de disponibilidad, y no en un único nodo.
-- Usar los parámetros de conectividad de creación de reflejo de la base de datos de SQL Server. En este caso, deberá configurar la conectividad de las aplicaciones de SAP de manera que se denominen ambos nombres de nodo. En la nota de SAP [#965908](https://launchpad.support.sap.com/#/notes/965908) se documenta la información exacta de dicha configuración de SAP. Con esta opción no tendría que configurar ningún agente de escucha del grupo de disponibilidad y, con eso, ningún equilibrador de carga de Azure para la alta disponibilidad de SQL Server. Como resultado, la latencia de red entre la capa de aplicación de SAP y la capa de DBMS es menor, ya que el tráfico de entrada a la instancia de SQL Server no se enruta a través del equilibrador de carga de Azure. Pero debe recordar que esta opción solo funciona si restringe el grupo de disponibilidad para que abarque dos instancias. 
+- Usar el agente de escucha de grupo de disponibilidad. Con el agente de escucha del grupo de disponibilidad, deberá implementar un equilibrador de carga de Azure. 
+- Usar SQL Server 2019 CU8 o versiones más recientes donde puede usar el [cliente de escucha DNN](../../../azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md) en su lugar. Esto eliminará el requisito de usar un equilibrador de carga de Azure.
+- Usar los parámetros de conectividad de creación de reflejo de la base de datos de SQL Server. En este caso, deberá configurar la conectividad de las aplicaciones de SAP de manera que se denominen ambos nombres de nodo. En la nota de SAP [#965908](https://launchpad.support.sap.com/#/notes/965908) se documenta la información exacta de dicha configuración de SAP. Con esta opción no tendría que configurar ningún agente de escucha del grupo de disponibilidad y, con eso, ningún equilibrador de carga de Azure para la alta disponibilidad de SQL Server. Pero debe recordar que esta opción solo funciona si restringe el grupo de disponibilidad para que abarque dos instancias. 
 
-Algunos clientes aprovechan la funcionalidad AlwaysOn de SQL Server para la funcionalidad de recuperación ante desastres entre regiones de Azure. Muchos clientes también usan la capacidad de realizar copias de seguridad desde una réplica secundaria. 
+Algunos clientes usan la funcionalidad AlwaysOn de SQL Server para la funcionalidad de recuperación ante desastres entre regiones de Azure. Muchos clientes también usan la capacidad de realizar copias de seguridad desde una réplica secundaria. 
 
 ## <a name="sql-server-transparent-data-encryption"></a>Cifrado de datos transparente de SQL Server
 Muchos clientes usan el [Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) de SQL Server al implementar sus bases de datos de SQL Server de SAP en Azure. La funcionalidad de TDE de SQL Server es totalmente compatible con SAP (consulte la nota de SAP [1380493 #](https://launchpad.support.sap.com/#/notes/1380493)). 
@@ -535,7 +540,7 @@ En casos en los que se mueven bases de datos de SQL Server de SAP desde una ubic
 Si solo trata la aplicación del cifrado de TDE con poca o ninguna carga de trabajo de SAP, debería efectuar pruebas en su configuración específica sobre si es mejor aplicar el TDE a la base de datos de SAP local o aplicarlo a Azure. En Azure sin duda tiene más flexibilidad en términos de exceso de aprovisionamiento de infraestructura y de reducir la infraestructura una vez aplicado el TDE.
 
 ### <a name="using-azure-key-vault"></a>Uso de Azure Key Vault
-Azure ofrece el servicio de un [almacén de claves](https://azure.microsoft.com/services/key-vault/) para almacenar claves de cifrado. Por otro lado, SQL Server ofrece un conector para aprovechar Azure Key Vault como almacén para los certificados de TDE.
+Azure ofrece el servicio de un [almacén de claves](https://azure.microsoft.com/services/key-vault/) para almacenar claves de cifrado. Por otro lado, SQL Server ofrece un conector para usar Azure Key Vault como almacén para los certificados de TDE.
 
 A continuación tiene más información detallada sobre cómo usar Azure Key Vault para el TDE de SQL Server:
 

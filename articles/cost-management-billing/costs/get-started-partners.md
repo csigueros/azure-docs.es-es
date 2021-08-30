@@ -3,18 +3,18 @@ title: Introducción a Azure Cost Management para los asociados
 description: En este artículo se explica cómo los asociados usan las características de Azure Cost Management y cómo permiten a sus clientes el acceso a Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2021
+ms.date: 07/01/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 7278211ee47ec4a291a7934fee4b56fae0d8dfc4
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 78a2ef8491eea5fa3df5355236f23be730062108
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790387"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752003"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -22,7 +22,7 @@ Azure Cost Management está disponible de forma nativa para los asociados direct
 
 En el caso de los asociados directos y los proveedores indirectos, tanto el administrador global como los agentes del administrador pueden acceder a Cost Management en el inquilino del asociado y administrar los costos a los precios de la factura.
 
-Tanto los revendedores como los clientes pueden acceder a Cost Management en el inquilino del cliente y ver los costos de consumo de las suscripciones, donde los costos se calculan y se muestran a precios para minoristas. Sin embargo, deben tener acceso Azure RBAC a la suscripción en el inquilino del cliente para ver los costos. El proveedor debe habilitar la directiva de visibilidad de costos para el inquilino del cliente.
+Tanto los revendedores como los clientes pueden acceder a Cost Management en el inquilino del cliente y ver los costos de consumo de cada suscripción individual, donde los costos se calculan y se muestran a precios para minoristas. Sin embargo, deben tener acceso Azure RBAC a la suscripción en el inquilino del cliente para ver los costos. El proveedor debe habilitar la directiva de visibilidad de costos para el inquilino del cliente.
 
 Los clientes pueden usar las características de Cost Management cuando su asociado de CSP lo permita.
 
@@ -99,7 +99,7 @@ Los asociados pueden usar el ámbito para conciliar las facturas. Además, usan 
 
 - Una factura filtrada específica
 - Customer
-- Subscription
+- Suscripción
 - Resource group
 - Recurso
 - Servicio de Azure
@@ -167,7 +167,7 @@ Los precios de minoristas que se usan para calcular los costos que se muestran e
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Análisis de los costos en el análisis de costos
 
-Los asociados con acceso a los ámbitos de facturación en el inquilino del asociado pueden explorar y analizar los costos facturados del análisis de costos de los clientes y centrarse en un cliente o una factura específicos. En la vista de [análisis de costos](quick-acm-cost-analysis.md), también puede [guardar las vistas](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) y exportar datos a archivos [CSV y PNG](quick-acm-cost-analysis.md#download-usage-data).
+Los asociados con acceso a los ámbitos de facturación en el inquilino del asociado pueden explorar y analizar los costos facturados del análisis de costos de los clientes y centrarse en un cliente o una factura específicos. En la vista de [análisis de costos](quick-acm-cost-analysis.md), también puede [guardar las vistas](quick-acm-cost-analysis.md#saving-and-sharing-customized-views).
 
 Los usuarios de Azure RBAC con acceso a la suscripción en el inquilino del cliente también pueden analizar los costos comerciales de las suscripciones en el inquilino del cliente, guardar vistas y exportar datos a archivos CSV y PNG.
 

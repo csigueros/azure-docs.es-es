@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 08/02/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 7aa57fa20c3a043cdb210ccd8a5ddbf61323716d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cc8d65ec4b714bbb98036c5ed3deabd4b75d3c98
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943683"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751983"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferencias de Azure Enterprise
 
@@ -59,6 +59,9 @@ Esta sección tiene solo carácter informativo, ya que el administrador de la em
 
 Cuando se solicita la transferencia de una inscripción empresarial completa a una inscripción, se producen las siguientes acciones:
 
+- El uso transferido puede tardar hasta 72 horas en reflejarse en la nueva inscripción.
+- Si se habilitaron los cargos de DA o AO en la inscripción transferida, deben habilitarse en la nueva inscripción.
+- Si usa informes de API o Power BI, genere una nueva clave de API en la nueva inscripción.
 - Todos los servicios, suscripciones, cuentas, departamentos y la estructura de inscripción de Azure completa, incluidos todos los administradores de departamento del Contrato Enterprise, se transfieren a una nueva inscripción de destino.
 - El estado de inscripción se establece en _Transferido_. La inscripción transferida solo está disponible con fines de informe de historial de uso.
 - No se pueden agregar roles o suscripciones a una inscripción transferida. El estado Transferido evita más uso en la inscripción.
@@ -85,6 +88,17 @@ Otros puntos que hay que tener en cuenta antes de una transferencia de inscripci
 - Es necesaria la aprobación de un administrador del Contrato Enterprise para la inscripción de origen y destino.
 - Si una transferencia de inscripción no cumple sus requisitos, considere la posibilidad de transferir una cuenta.
 - El estado de inscripción de origen se actualizará al estado transferido y solo estará disponible para fines de informes de uso históricos.
+- No hay ningún tiempo de inactividad durante la transferencia de la inscripción.
+- El uso puede tardar entre 24 y 48 horas en reflejarse en la inscripción de destino.
+- La configuración de la vista de costos para administradores de departamento o propietarios de la cuenta no se lleva a cabo.
+  - Si se ha habilitado previamente, la configuración debe estar habilitada para la inscripción de destino.
+- Las claves de API usadas en la inscripción de origen se deben volver a generar para la inscripción de destino.
+- Si las inscripciones de origen y destino se encuentran en instancias de nube diferentes, se producirá un error en la transferencia. Soporte técnico de Azure puede transferir solo dentro de la misma instancia de nube.
+- Para reservas (instancias reservadas):
+  - La inscripción o transferencia de cuentas entre distintas monedas afecta a las compras de reserva mensuales.
+  - Siempre que el suyo sea un cambio de moneda durante o después de una transferencia de inscripción, las reservas pagadas mensualmente se cancelan para la inscripción de origen. Esto es intencionado y solo afecta a las compras de reserva mensuales.
+  - Es posible que tenga que volver a comprar las reservas mensuales canceladas de la inscripción de origen mediante la nueva inscripción en la moneda local o nueva.
+
 
 ### <a name="auto-enrollment-transfer"></a>Transferencia de inscripción automática
 

@@ -2,17 +2,17 @@
 title: Conceptos sobre identidad y acceso
 description: Obtenga información sobre los conceptos de identidad y acceso de Azure VMware Solution
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: 832e2906656ef4da6cc9ad054927f17611fbbaf4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/29/2021
+ms.openlocfilehash: 7d6bcfc9426761615d1f9220f36834cc19eb09f8
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953171"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122069498"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceptos de identidad en Azure VMware Solution
 
-Las nubes privadas de Azure VMware Solution se aprovisionan con vCenter Server y NSX-T Manager. Puede usar vCenter para administrar cargas de trabajo de máquinas virtuales (VM), y NSX-T Manager para administrar y ampliar la nube privada. En la administración de identidades y acceso se usa el rol CloudAdmin para vCenter y derechos de administrador restringidos para NSX-T Manager. 
+Las nubes privadas de Azure VMware Solution se aprovisionan con vCenter Server y NSX-T Manager. Use vCenter para administrar cargas de trabajo de máquinas virtuales (VM) y NSX-T Manager para administrar y ampliar la nube privada. Se usan el rol CloudAdmin para vCenter y derechos de administrador restringidos para NSX-T Manager. 
 
 ## <a name="vcenter-access-and-identity"></a>Acceso e identidad de vCenter
 
@@ -22,7 +22,7 @@ En Azure VMware Solution, vCenter tiene un usuario local integrado denominado cl
 
 - En una implementación de Azure VMware Solution, el administrador no tiene acceso a la cuenta de usuario de administrador. Sin embargo, puede asignar usuarios y grupos de AD al rol CloudAdmin en vCenter.  
 
-El usuario de la nube privada no tiene acceso a componentes de administración específicos admitidos y administrados por Microsoft ni puede configurarlos. Por ejemplo, clústeres, hosts, almacenes de datos y conmutadores virtuales distribuidos.
+El usuario de nube privada no tiene acceso a los componentes de administración específicos que Microsoft admite y administra, ni tampoco puede configurarlos. Por ejemplo, clústeres, hosts, almacenes de datos y conmutadores virtuales distribuidos.
 
 > [!IMPORTANT]
 > Azure VMware Solution ofrece roles personalizados en vCenter, pero actualmente no los ofrece en el portal de Azure VMware Solution. Para obtener más información, consulte la sección [Creación de roles personalizados en vCenter](#create-custom-roles-on-vcenter) más adelante en este artículo. 
@@ -37,7 +37,7 @@ Puede ver los privilegios concedidos al rol CloudAdmin de Azure VMware Solution 
 
 1. En la lista de roles, seleccione **CloudAdmin** y luego, seleccione **Privilegios**. 
 
-   :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="Cómo ver los privilegios de rol de CloudAdmin en el cliente de vSphere":::
+   :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="Captura de pantalla en la que se muestran los roles y privilegios de CloudAdmin en el cliente de vSphere.":::
 
 El rol CloudAdmin de Azure VMware Solution tiene los siguientes privilegios en vCenter. Para más información, consulte la [documentación del producto de VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
@@ -91,27 +91,27 @@ Para evitar la creación de roles que no se pueden asignar o eliminar, clone el 
 
 1. Haga clic con el botón derecho en el objeto y seleccione **Agregar permiso**.
 
-1. En la ventana **Agregar permiso**, seleccione el origen de identidad en el menú desplegable **Usuario**, donde se puede encontrar el grupo o el usuario.
+1. Seleccione el origen de identidad en el menú desplegable **Usuario**, donde se pueden encontrar el grupo o el usuario.
 
 1. Busque el usuario o el grupo después de seleccionar el origen de identidad en la sección **Usuario**. 
 
-1. Seleccione el rol que se aplicará al usuario o grupo.
+1. Seleccione el rol que quiera aplicar al usuario o grupo.
 
 1. Marque la casilla **Propagate to children** (Propagar a elementos secundarios) si es necesario y seleccione **Aceptar**. El permiso agregado se muestra en la sección **Permisos**.
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Acceso e identidad de NSX-T Manager
 
 >[!NOTE]
->NSX-T 2.5 se admite actualmente en todas las nuevas nubes privadas.
+>NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)] se admite actualmente en todas las nuevas nubes privadas.
 
-Use la cuenta de *administrador* para acceder a NSX-T Manager. Tiene privilegios completos y le permite crear y administrar puertas de enlace, segmentos (conmutadores lógicos) y todos los servicios de nivel 1 (T1). Los privilegios proporcionan acceso a la puerta de enlace de nivel 0 (T0) de NSX-T. Un cambio en la puerta de enlace T0 podría provocar una disminución en el rendimiento de la red o una pérdida de acceso a la nube privada. Abra una solicitud de soporte técnico en Azure Portal para solicitar cambios en la puerta de enlace NSX-T T0.
+Use la cuenta de *administrador* para acceder a NSX-T Manager. Tiene privilegios completos y le permite crear y administrar puertas de enlace, segmentos (conmutadores lógicos) y todos los servicios de nivel 1 (T1). Además, los privilegios proporcionan acceso a la puerta de enlace de nivel 0 (T0) de NSX-T. Un cambio en la puerta de enlace T0 podría provocar una reducción del rendimiento de la red o la pérdida de acceso a la nube privada. Abra una solicitud de soporte técnico en Azure Portal para solicitar cambios en la puerta de enlace NSX-T T0.
 
  
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha visto los conceptos de identidad y acceso de Azure VMware Solution, puede que quiera obtener información sobre:
 
-- [Habilitación del recurso de Azure VMware Solution](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
+- [Habilitación del recurso de Azure VMware Solution](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)  
 - [Detalles de cada privilegio](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
 - [Supervisión y reparación de nubes privadas de Azure VMware Solution](./concepts-private-clouds-clusters.md#host-monitoring-and-remediation)
 

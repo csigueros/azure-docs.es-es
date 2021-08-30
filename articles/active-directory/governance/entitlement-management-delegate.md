@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/23/2020
+ms.date: 7/6/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a66b53cbcc8a072dce6b4f5f2f1f0cf1dc6322f
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: af0269d2ae698a025682929818b601cdebec06ad
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714339"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286516"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegación y roles en la administración de derechos de Azure AD
 
-De forma predeterminada, los administradores globales y los administradores de usuarios pueden crear y gestionar todos los aspectos de Administración de derechos de Azure AD. No obstante, es posible que los usuarios de estos roles no conozcan todas las situaciones en las que se requieren paquetes de acceso. Normalmente son los usuarios de los respectivos departamentos, equipos o proyectos los que saben con quién colaboran, los recursos que usan y durante cuánto tiempo lo hacen. En lugar de conceder permisos sin restricciones a los usuarios que no sean administradores, puede conceder a los usuarios los permisos mínimos que necesitan para realizar su trabajo, lo que evita la creación de derechos de acceso conflictivos o inadecuados.
+De manera predeterminada, los administradores globales y los administradores de Identity Governance pueden crear y gestionar todos los aspectos de Administración de derechos de Azure AD. No obstante, es posible que los usuarios de estos roles no conozcan todas las situaciones en las que se requieren paquetes de acceso. Normalmente son los usuarios de los respectivos departamentos, equipos o proyectos los que saben con quién colaboran, los recursos que usan y durante cuánto tiempo lo hacen. En lugar de conceder permisos sin restricciones a los usuarios que no sean administradores, puede conceder a los usuarios los permisos mínimos que necesitan para realizar su trabajo, lo que evita la creación de derechos de acceso conflictivos o inadecuados.
 
 En este vídeo se ofrece información general sobre el modo en que el administrador de TI delega la gobernanza del acceso en usuarios que no son administradores.
 
@@ -65,7 +65,7 @@ Después de la delegación, el departamento de marketing podría tener roles sim
 
 | Usuario | Rol de trabajo | Rol de Azure AD | Rol de administración de derechos |
 | --- | --- | --- | --- |
-| Hana | Administrador de TI | Administrador global, administrador de Identity Governance o administrador de usuarios |  |
+| Hana | Administrador de TI | Administrador global o administrador de Identity Governance  |  |
 | Mamta | Administrador de marketing | Usuario | Creador del catálogo y propietario del catálogo |
 | Bob | Responsable de marketing | Usuario | Propietario del catálogo |
 | Jessica | Jefe de proyecto de marketing | Usuario | Administrador de paquetes de acceso |
@@ -74,12 +74,13 @@ Después de la delegación, el departamento de marketing podría tener roles sim
 
 La administración de derechos incluye los siguientes roles específicos de administración de derechos.
 
-| Rol de administración de derechos | Descripción |
-| --- | --- |
-| Creador de catálogos | Crear y administrar catálogos. Normalmente, los administradores de TI que no son administradores globales ni propietarios de recursos en una colección de recursos. La persona que crea un catálogo se convierte automáticamente en el primer propietario del mismo y puede agregar otros propietarios. Un creador de catálogos no puede administrar o ver los catálogos que no son de su propiedad y no puede agregar recursos que no son de su propiedad a un catálogo. Si el creador del catálogo tiene que administrar otro catálogo o agregar recursos que no son de su propiedad, puede solicitar ser copropietario de ese catálogo o recurso. |
-| Propietario del catálogo | Editar y administrar catálogos existentes. Normalmente, un administrador de TI, los propietarios de recursos o un usuario que el propietario del catálogo haya elegido. |
-| Administrador de paquetes de acceso | Editar y administrar todos los paquetes de acceso existentes en un catálogo. |
-| Administrador de asignaciones de paquetes de acceso | Editar y administrar todas las asignaciones de paquetes de acceso existentes. |
+| Rol de administración de derechos | Id. de definición de roles | Descripción |
+| --- | --- | -- |
+| Creador de catálogos | `ba92d953-d8e0-4e39-a797-0cbedb0a89e8` | Crear y administrar catálogos. Normalmente, los administradores de TI que no son administradores globales ni propietarios de recursos en una colección de recursos. La persona que crea un catálogo se convierte automáticamente en el primer propietario del mismo y puede agregar otros propietarios. Un creador de catálogos no puede administrar o ver los catálogos que no son de su propiedad y no puede agregar recursos que no son de su propiedad a un catálogo. Si el creador del catálogo tiene que administrar otro catálogo o agregar recursos que no son de su propiedad, puede solicitar ser copropietario de ese catálogo o recurso. |
+| Propietario del catálogo | `ae79f266-94d4-4dab-b730-feca7e132178` | Editar y administrar catálogos existentes. Normalmente, un administrador de TI, los propietarios de recursos o un usuario que el propietario del catálogo haya elegido. |
+| Lector de catálogo | `44272f93-9762-48e8-af59-1b5351b1d6b3` | Consulte los paquetes de acceso existentes en un catálogo. |
+| Administrador de paquetes de acceso | `7f480852-ebdc-47d4-87de-0d8498384a83` | Editar y administrar todos los paquetes de acceso existentes en un catálogo. |
+| Administrador de asignaciones de paquetes de acceso | `e2182095-804a-4656-ae11-64734e9b7ae5` | Editar y administrar todas las asignaciones de paquetes de acceso existentes. |
 
 Además, el aprobador elegido y un solicitante de un paquete de acceso tienen derechos, aunque no son roles.
 
@@ -116,9 +117,12 @@ En la siguiente tabla se enumeran las tareas que pueden hacer los roles de admin
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Roles necesarios para agregar recursos a un catálogo
 
-Un administrador de empresa puede agregar o quitar cualquier grupo (grupos de seguridad creados en la nube o grupos de Microsoft 365 creados en la nube), aplicación o sitio de SharePoint Online de un catálogo. Un administrador de usuarios puede agregar o quitar cualquier grupo o aplicación de un catálogo, excepto un grupo configurado como asignable a un rol de directorio. Tenga en cuenta que un administrador de usuarios puede administrar los paquetes de acceso en un catálogo que incluya grupos configurados como asignables a un rol de directorio.  Para más información sobre los grupos no asignables, consulte [Creación de un grupo al que se pueden asignar roles en Azure Active Directory](../roles/groups-create-eligible.md).
+Un administrador de empresa puede agregar o quitar cualquier grupo (grupos de seguridad creados en la nube o grupos de Microsoft 365 creados en la nube), aplicación o sitio de SharePoint Online de un catálogo. Un administrador de usuarios puede agregar o quitar cualquier grupo o aplicación de un catálogo, excepto un grupo configurado como asignable a un rol de directorio.  Para más información sobre los grupos no asignables, consulte [Creación de un grupo al que se pueden asignar roles en Azure Active Directory](../roles/groups-create-eligible.md).
 
-Para que un usuario que no sea administrador global ni administrador de usuarios pueda agregar grupos, aplicaciones o sitios de SharePoint Online a un catálogo, ese usuario debe tener *tanto* el rol de directorio de Azure AD como el rol de administración de derechos de propietario del catálogo que se requieren. En la tabla siguiente se muestran las combinaciones de roles necesarios para agregar recursos a un catálogo. Para quitar recursos de un catálogo, hay que tener los mismos roles.
+> [!NOTE]
+> Los usuarios a los que se les haya asignado el rol Administrador de usuarios ya no podrán crear catálogos ni administrar paquetes de acceso en un catálogo que no sea de su propiedad. Si a los usuarios de la organización se les asignó el rol Administrador de usuarios para configurar catálogos, paquetes de acceso o directivas en la administración de derechos, en su lugar debe asignarles a estos usuarios el rol **Administrador de Identity Governance**.
+
+Para que un usuario que no sea administrador global pueda agregar grupos, aplicaciones o sitios de SharePoint Online a un catálogo, de tener *tanto* un rol de directorio de Azure AD o la propiedad del recurso, como un rol de administración de derechos de propiedad del catálogo correspondiente al catálogo. En la tabla siguiente se muestran las combinaciones de roles necesarios para agregar recursos a un catálogo. Para quitar recursos de un catálogo, hay que tener los mismos roles.
 
 | Rol de directorio de Azure AD | Rol de administración de derechos | Puede agregar grupos de seguridad | Puede agregar grupos de Microsoft 365 | Puede agregar aplicaciones | Puede agregar sitios de SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
@@ -134,7 +138,21 @@ Para que un usuario que no sea administrador global ni administrador de usuarios
 
 Para determinar el rol con menos privilegios de una tarea, también puede hacer referencia a los [roles de administrador por tarea de administrador en Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 
+## <a name="manage-role-assignments-programmatically-preview"></a>Administración de asignaciones de roles mediante programación (versión preliminar)
+
+También puede ver y actualizar las asignaciones de roles específicas del catálogo de administración de derechos y los creadores de catálogo mediante Microsoft Graph.  Un usuario que tenga un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a Graph API para [enumerar las definiciones de roles](/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-beta&preserve-view=true) de la administración de derechos y [enumerar las asignaciones de roles](/graph/api/rbacapplication-list-roleassignments?view=graph-rest-beta&preserve-view=true) para esas definiciones de roles.
+
+Por ejemplo, para ver los roles específicos de la administración de derechos a los que se ha asignado a un usuario o grupo determinado, use la consulta de Graph para enumerar las asignaciones de roles y proporcione el identificador del usuario o grupo como el valor del filtro de la consulta `principalId`.
+
+```http
+GET https://graph.microsoft.com/beta/roleManagement/entitlementManagement/roleAssignments?$filter=principalId eq '10850a21-5283-41a6-9df3-3d90051dd111'&$expand=roleDefinition&$select=id,appScopeId,roleDefinition
+```
+
+En el caso de un rol específico para un catálogo, el elemento `appScopeId` de la respuesta indica el catálogo en el que se asigna un rol al usuario.  Tenga en cuenta que esta respuesta solo recupera las asignaciones explícitas de esa entidad de seguridad al rol en la administración de derechos, no devuelve resultados para un usuario que tiene derechos de acceso a través de un rol de directorio o a través de la pertenencia a un grupo asignado a un rol.
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Delegación de la gobernanza del acceso en los creadores de catálogos](entitlement-management-delegate-catalog.md)
+- [Delegación de la gobernanza del acceso en administradores de paquetes de acceso](entitlement-management-delegate-managers.md)
 - [Creación y administración de un catálogo de recursos](entitlement-management-catalog-create.md)

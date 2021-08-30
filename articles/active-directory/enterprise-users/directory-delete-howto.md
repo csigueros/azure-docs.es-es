@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 07/14/2021
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edc6fb98359c5360836bc369e5ae1928464df92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7d889db98030394e27763122b3df4bdde942575
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861037"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219612"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminar un inquilino en Azure Active Directory
 
@@ -29,7 +29,7 @@ Cuando se elimina una organización (inquilino) de Azure AD, también se elimina
 
 No puede eliminar una organización de Azure AD hasta que pase varias comprobaciones. Estas comprobaciones reducen el riesgo de que la eliminación de una organización de Azure AD afecte negativamente a los usuarios; por ejemplo, en la capacidad de iniciar sesión en Microsoft 365 o de acceder a los recursos de Azure. Por ejemplo, si se elimina de forma involuntaria una organización con una suscripción, los usuarios no pueden acceder a los recursos de Azure de esa suscripción. Se comprueban las condiciones siguientes:
 
-* No puede haber ningún usuario en la organización (inquilino) de Azure AD, excepto un administrador global que eliminará la organización. Se deben eliminar los demás usuarios para poder eliminar la organización. Si los usuarios se sincronizan localmente, se deberá desactivar primero la sincronización y eliminar los usuarios de la organización en la nube mediante Azure Portal o cmdlets de Azure PowerShell.
+* No puede haber ningún usuario en el inquilino de Azure AD, excepto un administrador global que eliminará la organización. Se deben eliminar los demás usuarios para poder eliminar la organización. Si los usuarios se sincronizan localmente, se deberá desactivar primero la sincronización y eliminar los usuarios de la organización en la nube mediante Azure Portal o cmdlets de Azure PowerShell.
 * No puede haber aplicaciones en la organización. Las aplicaciones se deben eliminar antes de poder eliminar la organización.
 * No puede haber proveedores de autenticación multifactor vinculados a la organización.
 * No puede haber suscripciones a ningún servicio de Microsoft Online Services, como Microsoft Azure, Microsoft 365 o Azure AD Premium, asociadas a la organización. Por ejemplo, si se creó una organización de Azure AD predeterminada en Azure, no puede eliminar esta organización si su suscripción de Azure todavía se base en esta organización para la autenticación. De igual forma, no puede eliminar una organización si otro usuario le ha asociado una suscripción.
@@ -94,6 +94,15 @@ Puede colocar una suscripción en un estado **Desaprovisionado** para que se eli
 8. Una vez que haya eliminado una suscripción en la organización y hayan transcurrido 72 horas, puede iniciar sesión de nuevo en el centro de administración de Azure AD y no debería requerirse ninguna acción ni haber ninguna suscripción que bloquee la eliminación de la organización. Debe ser capaz de eliminar correctamente la organización de Azure AD.
   
    ![pasar la comprobación de suscripción en la pantalla de eliminación](./media/directory-delete-howto/delete-checks-passed.png)
+
+## <a name="enterprise-apps-with-no-way-to-delete"></a>Aplicaciones empresariales que no se pueden eliminar de ninguna manera
+
+Si todavía detecta aplicaciones empresariales que no puede eliminar en el portal, puede usar los siguientes comandos de PowerShell para quitarlas. Para más información sobre este comando de PowerShell, consulte [Remove-AzureADServicePrincipal](/powershell/module/azuread/remove-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true).
+
+1. Abra PowerShell como administrador.
+1. Ejecute `Connect-AzAccount -tenant <TENANT_ID>`:
+1. Inicie sesión en el rol de administrador global de Azure AD
+1. Ejecute `Get-AzADServicePrincipal | ForEach-Object { Remove-AzADServicePrincipal -ObjectId $_.Id -Force}`:
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Suscripción de prueba que bloquea la eliminación
 

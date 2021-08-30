@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 90f2a3c1fd5c065ec0d7285aa4b41744aa2d063f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 9a5191533b336d9d0cbefcf9b58f56d6648a60df
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475746"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456160"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Error en la solicitud del servicio. Estado: 403 (Prohibido)
 
@@ -29,7 +29,7 @@ A menudo, este error indica que los permisos de control de acceso basado en rol 
 
 ### <a name="cause-2"></a>Causa 2
 
-Si usa una aplicación cliente para comunicarse con Azure Digital Twins que se autentique con el [registro de aplicación](how-to-create-app-registration.md), este error puede producirse porque el registro de aplicación no tiene permisos configurados para el servicio Azure Digital Twins.
+Si usa una aplicación cliente para comunicarse con Azure Digital Twins que se autentique con el [registro de aplicación](./how-to-create-app-registration-portal.md), este error puede producirse porque el registro de aplicación no tiene permisos configurados para el servicio Azure Digital Twins.
 
 Este registro de aplicación debe tener configurados los permisos de acceso a las API de Azure Digital Twins. Después, cuando la aplicación cliente se autentique durante el registro de la aplicación, se le concederán los permisos que se hayan configurado en este.
 
@@ -86,12 +86,12 @@ A continuación, seleccione *Permisos de API* en la barra de menús para comprob
 
 #### <a name="fix-issues"></a>Corrección de problemas
 
-Si alguno de estos problemas aparece de forma diferente a lo descrito, siga las instrucciones sobre cómo configurar el registro de una aplicación en [Procedimiento: Creación de un registro de aplicación](how-to-create-app-registration.md).
+Si alguno de estos problemas aparece de forma diferente a lo descrito, siga las instrucciones sobre cómo configurar el registro de una aplicación en [Creación de un registro de aplicaciones](./how-to-create-app-registration-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Lea los pasos de configuración para crear y autenticar una nueva instancia de Azure Digital Twins:
-* [Procedimiento: Configuración de una instancia y de la autenticación (CLI)](how-to-set-up-instance-cli.md)
+* [Configuración de una instancia y de la autenticación (CLI)](how-to-set-up-instance-cli.md)
 
 Obtenga más información sobre la seguridad y los permisos de Azure Digital Twins:
-* [Conceptos: Seguridad para las soluciones de Azure Digital Twins](concepts-security.md)
+* [Seguridad para las soluciones de Azure Digital Twins](concepts-security.md)

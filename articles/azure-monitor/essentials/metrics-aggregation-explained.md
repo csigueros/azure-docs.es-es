@@ -6,12 +6,12 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 03/10/2021
-ms.openlocfilehash: c89b352954f114ec9da22cad6751bb57ef59899b
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 9c543b1bebfdeb47c1a1e1326f49247d8103191f
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381804"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861258"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Explicación de la visualización y agregación de métricas de Azure Monitor
 
@@ -97,7 +97,7 @@ Existen dos tipos de períodos de recopilación.
 
 ### <a name="granularity"></a>Granularidad
 
-El intervalo de tiempo mínimo es 1 minuto, pero el sistema subyacente puede capturar los datos más rápido en función de la métrica. Por ejemplo, se realiza un seguimiento del porcentaje de CPU cada 15 segundos en intervalos regulares. Dado que se realiza un seguimiento de los errores HTTP como transacciones, muchos pueden superar fácilmente más de un minuto. Otras métricas, como el almacenamiento de SQL, se capturan cada 20 minutos. Esta opción depende del proveedor y el tipo de recursos individuales. La mayoría intenta proporcionar el intervalo más pequeño posible.
+La granularidad mínima es de 1 minuto, pero el sistema subyacente puede capturar los datos más rápido en función de la métrica. Por ejemplo, el porcentaje de CPU de una máquina virtual de Azure se captura en un intervalo de tiempo de 15 segundos. Dado que se realiza un seguimiento de los errores HTTP como transacciones, muchos pueden superar fácilmente más de un minuto. Otras métricas, como el almacenamiento de SQL, se capturan cada 20 minutos. Esta opción depende del proveedor y el tipo de recursos individuales. La mayoría intenta proporcionar el intervalo más pequeño posible.
 
 ### <a name="dimensions-splitting-and-filtering"></a>Dimensiones, división y filtrado
 

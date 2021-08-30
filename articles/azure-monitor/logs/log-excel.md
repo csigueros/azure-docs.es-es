@@ -4,24 +4,24 @@ description: Obtenga una consulta de Log Analytics en Excel y actualice los resu
 ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
-ms.date: 11/03/2020
-ms.openlocfilehash: f2834e9bd91ecbbf32e0321179c2359862a5b605
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 06/10/2021
+ms.openlocfilehash: 7cfe8ac2badd292b73b77dd13d7e7ca4bf24a428
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041117"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114474131"
 ---
 # <a name="integrate-log-analytics-and-excel"></a>Integración de Log Analytics y Excel
 
-Puede integrar Log Analytics de Azure Monitor y Microsoft Excel mediante una consulta M y la API de Log Analytics. Esta integración permite enviar hasta 500 000 registros a Excel, siempre y cuando el volumen total de los resultados no supere el valor de 61 MiB.
+Puede integrar Log Analytics de Azure Monitor y Microsoft Excel mediante una consulta M y la API de Log Analytics. Esta integración permite enviar hasta un número determinado de registros y MB de datos. Estos límites se documentan en los [límites del área de trabajo de Log Analytics de Azure Monitor](../service-limits.md#log-analytics-workspaces) en la sección de Azure Portal. 
 
 > [!NOTE]
 > Dado que Excel es una aplicación cliente local, las limitaciones de hardware y software locales afectan al rendimiento y la capacidad de procesar grandes conjuntos de datos.
 
 ## <a name="create-your-m-query-in-log-analytics"></a>Creación de la consulta M en Log Analytics 
 
-1. **Cree y ejecute la consulta** en log Analytics como lo haría normalmente. No se preocupe si alcanza la limitación de 10 000 registros en la interfaz de usuario.  Se recomienda usar fechas relativas, como la función "ago" o el selector de tiempo de la interfaz de usuario, para que Excel actualice el conjunto de datos correcto.
+1. **Cree y ejecute la consulta** en log Analytics como lo haría normalmente. No se preocupe si alcanza la limitación de la cantidad de registros en la interfaz de usuario.  Se recomienda usar fechas relativas, como la función "ago" o el selector de tiempo de la interfaz de usuario, para que Excel actualice el conjunto de datos correcto.
   
 2. **Exporte la consulta**: una vez que esté satisfecho con la consulta y sus resultados, exporte la consulta a M mediante la opción de menú **Exportar a Power BI (M Query)** de Log Analytics del menú *Exportar*:
 

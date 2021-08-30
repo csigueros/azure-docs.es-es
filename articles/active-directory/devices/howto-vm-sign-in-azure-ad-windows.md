@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 06/30/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 834aa7643583683f7ee64abdbd1e18e0b76c6ada
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: e29ee77aa3fb9f33c5c923a49de07ffea1642a77
+ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538805"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113138456"
 ---
 # <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory
 
@@ -173,16 +173,18 @@ Hay varias maneras de configurar las asignaciones de roles para la VM:
 
 Para configurar las asignaciones de roles para las VM de Windows Server 2019 Datacenter compatibles con Azure AD:
 
-1. Vaya a la página de información general de la máquina virtual específica
-1. Seleccione **Control de acceso (IAM)** en las opciones de menú
-1. Seleccione **Agregar**, **Agregar asignación de rol** para abrir el panel Agregar asignación de rol.
-1. En la lista desplegable **Rol**, seleccione un rol, como **Inicio de sesión de administrador de máquina virtual** o **Inicio de sesión de usuario de máquina virtual**.
-1. En la lista **Seleccionar**, seleccione un usuario, grupo, entidad de servicio o identidad administrada. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro **Seleccionar** para buscar nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
-1. Seleccione **Guardar** para asignar el rol.
+1. Seleccione **Access Control (IAM)** .
 
-Transcurridos unos instantes, se asigna el rol a la entidad de seguridad en el ámbito seleccionado.
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
 
-![Asignar roles a los usuarios que accederán a la VM](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-access-control-assign-role.png)
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | **Inicio de sesión de administrador de máquina virtual** o **Inicio de sesión de usuario de máquina virtual** |
+    | Asignar acceso a | Usuario, grupo, entidad de servicio o identidad administrada |
+
+    ![Página Agregar asignación de roles en Azure Portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Mediante la experiencia de Azure Cloud Shell
 
@@ -267,14 +269,13 @@ Para que la VM complete el proceso de unión a Azure AD, la extensión AADLoginF
    
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-
-   > [!NOTE]
-   > Reemplace `<TenantID>` por el identificador de inquilino Azure AD que está asociado a la suscripción de Azure.
-
    - `curl https://enterpriseregistration.windows.net/ -D -`
    - `curl https://device.login.microsoftonline.com/ -D -`
    - `curl https://pas.windows.net/ -D -`
 
+   > [!NOTE]
+   > Reemplace `<TenantID>` por el identificador de inquilino Azure AD que está asociado a la suscripción de Azure.<br/> `enterpriseregistration.windows.net` y `pas.windows.net` deben devolver 404 No encontrado, que es el comportamiento esperado.
+            
 1. El estado del dispositivo se puede ver al ejecutar `dsregcmd /status`. El objetivo es que el estado del dispositivo se muestre como `AzureAdJoined : YES`.
 
    > [!NOTE]
@@ -302,13 +303,12 @@ Este código de salida se convierte en `DSREG_AUTOJOIN_DISC_FAILED` porque la ex
 
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-   
-   > [!NOTE]
-   > Reemplace `<TenantID>` por el identificador de inquilino Azure AD que está asociado a la suscripción de Azure. Si necesita buscar el id. de inquilino, puede mantener el mouse sobre el nombre de la cuenta para obtener el id. de directorio o inquilino, o bien seleccionar **Azure Active Directory > Propiedades > Id. de directorio** en Azure Portal.
-
    - `curl https://enterpriseregistration.windows.net/ -D -`
    - `curl https://device.login.microsoftonline.com/ -D -`
    - `curl https://pas.windows.net/ -D -`
+   
+   > [!NOTE]
+   > Reemplace `<TenantID>` por el identificador de inquilino Azure AD que está asociado a la suscripción de Azure. Si necesita buscar el id. de inquilino, puede mantener el mouse sobre el nombre de la cuenta para obtener el id. de directorio o inquilino, o bien seleccionar **Azure Active Directory > Propiedades > Id. de directorio** en Azure Portal.<br/>`enterpriseregistration.windows.net` y `pas.windows.net` deben devolver 404 No encontrado, que es el comportamiento esperado.
 
 1. Si en cualquiera de los comandos se produce el error "No se pudo resolver el host `<URL>`", intente ejecutar este comando para determinar el servidor DNS que la VM usa.
    

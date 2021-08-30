@@ -7,14 +7,18 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0931d5668835229be858a8725fd1a2d90c81081d
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95997348"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432957"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
+
+> [!NOTE]
+> En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados
+> 
 
 ## <a name="overview"></a>Información general ##
 
@@ -127,7 +131,7 @@ Un ASE tiene algunas direcciones IP que es necesario tener en cuenta. Son las si
 - **Dirección IP pública de entrada**: Se usa para el tráfico de la aplicación en una instancia de ASE externa y para el tráfico de administración tanto en una instancia de ASE externa como en una instancia de ASE de ILB.
 - **Dirección IP pública de salida**: Se usa como dirección IP "desde" para las conexiones de salida desde la instancia de ASE que dejan la red virtual y que no se enrutan hacia una VPN.
 - **Dirección IP del ILB**: La dirección IP del ILB solo existe en un ASE de ILB.
-- **Direcciones SSL basadas en IP asignadas a la aplicación**: Solo son posibles con una instancia de ASE externa y cuando hay configurada una SSL basada en IP.
+- **Direcciones TSL/SSL basadas en IP asignadas por la aplicación**: solo son posibles cuando existe un ASE externo y cuando hay configurado un enlace TLS/SSL basado en IP.
 
 Todas estas direcciones IP estarán visibles en Azure Portal desde la interfaz de usuario de ASE. Si tiene un ASE de ILB, aparece la dirección IP para el ILB.
 

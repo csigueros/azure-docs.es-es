@@ -1,5 +1,5 @@
 ---
-title: 'Guía para la migración de MySQL en el entorno local a Azure Database for MySQL: Evaluación'
+title: 'Migración de datos de un entorno local de MySQL a Azure Database for MySQL: evaluación'
 description: Antes de pasar directamente a la migración de una carga de trabajo de MySQL, existe un cierto número de tareas que se deben realizar con la debida diligencia.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 9d7dc8626e86e7ab93c7a6e76cc426c3904147c2
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 4510cbe04181da7badb10c61bd510bed084580e8
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082990"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284256"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-assessment"></a>Guía para la migración de MySQL en el entorno local a Azure Database for MySQL: Evaluación
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-assessment"></a>Migración de datos de un entorno local de MySQL a Azure Database for MySQL: evaluación
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -82,19 +84,19 @@ Para encontrar información útil sobre las tablas, use esta consulta:
 
 ```dotnetcli
     SELECT 
-        tab.table_schema,   
-        tab.table_name,   
-        tab.engine as engine_type,   
-        tab.auto_increment,   
-        tab.table_rows,   
-        tab.create_time,   
-        tab.update_time,   
-        tco.constraint_type 
-    FROM information_schema.tables tab   
-    LEFT JOIN information_schema.table_constraints tco   
-        ON (tab.table_schema = tco.table_schema   
-            AND tab.table_name = tco.table_name   
-            )   
+        tab.table_schema,
+        tab.table_name,
+        tab.engine as engine_type,
+        tab.auto_increment,
+        tab.table_rows,
+        tab.create_time,
+        tab.update_time,
+        tco.constraint_type
+    FROM information_schema.tables tab
+    LEFT JOIN information_schema.table_constraints tco
+        ON (tab.table_schema = tco.table_schema
+            AND tab.table_name = tco.table_name
+            )
     WHERE  
         tab.table_schema NOT IN ('mysql', 'information_schema', 'performance_
 schema', 'sys')  
@@ -176,7 +178,7 @@ Se pueden usar muchas herramientas y métodos para evaluar las cargas de trabajo
 
 ### <a name="azure-migrate"></a>Azure Migrate
 
-Aunque [Azure Migrate](/azure/migrate/migrate-services-overview) no admite la migración directa de cargas de trabajo de bases de datos de MySQL, se puede usar cuando los administradores no están seguros de qué usuarios y aplicaciones consumen los datos, ya sea hospedados en una máquina virtual o en una máquina basada en hardware. El [análisis de dependencias](/azure/migrate/concepts-dependency-visualization) se puede realizar instalando y ejecutando el agente de supervisión en la máquina que hospeda la carga de trabajo de MySQL. El agente recopila la información durante un período establecido como, por ejemplo, un mes. Los datos de dependencia se pueden analizar para buscar conexiones desconocidas que se realizan en la base de datos. Los datos de conexión pueden ayudar a identificar a los propietarios de aplicaciones que deben recibir una notificación de la migración pendiente.
+Aunque [Azure Migrate](../../../migrate/migrate-services-overview.md) no admite la migración directa de cargas de trabajo de bases de datos de MySQL, se puede usar cuando los administradores no están seguros de qué usuarios y aplicaciones consumen los datos, ya sea hospedados en una máquina virtual o en una máquina basada en hardware. El [análisis de dependencias](../../../migrate/concepts-dependency-visualization.md) se puede realizar instalando y ejecutando el agente de supervisión en la máquina que hospeda la carga de trabajo de MySQL. El agente recopila la información durante un período establecido como, por ejemplo, un mes. Los datos de dependencia se pueden analizar para buscar conexiones desconocidas que se realizan en la base de datos. Los datos de conexión pueden ayudar a identificar a los propietarios de aplicaciones que deben recibir una notificación de la migración pendiente.
 
 Además del análisis de dependencias de las aplicaciones y los datos de conectividad de usuario, Azure Migrate también se puede usar para analizar [Hyper-V, VMware o los servidores físicos](../../../migrate/migrate-appliance-architecture.md) para proporcionar patrones de uso de las cargas de trabajo de bases de datos que ayuden a sugerir el entorno de destino adecuado.
 
@@ -207,38 +209,38 @@ Normalmente, la toma de decisiones se centra en las necesidades de almacenamient
 |---------|------|
 | **Basic** | Máquina de desarrollo, no necesita alto rendimiento, con menos de 1 TB de almacenamiento. |
 | **Uso general** | Necesita más operaciones de entrada/salida por segundo de lo que puede proporcionar el plan Básico, pero para almacenamiento necesita menos de 16 TB y menos de 4 GB de memoria. |
-| **Memoria optimizada** | Cargas de trabajo de datos que usan una memoria alta o una caché alta, y una configuración de servidor relacionada con el búfer, como alta simultaneidad innodb_buffer_pool_instances, tamaños de BLOB grandes y sistemas con muchos servidores subordinados para la replicación. |
+| **Memoria optimizada** | Cargas de trabajo de datos que usan una memoria alta o una caché alta, y una configuración de servidor relacionada con el búfer, como alta simultaneidad innodb_buffer_pool_instances, tamaños de BLOB grandes y sistemas con muchas copias de replicación. |
 
 ### <a name="costs"></a>Costos
 
 Después de evaluar todas las cargas de trabajo de datos de MySQL en WWI, este determinó que necesitarían como mínimo 4 núcleos virtuales y 20 GB de memoria, y al menos 100 GB de espacio de almacenamiento con una capacidad de 450 IOPS. Debido al requisito de 450 IOPS, deben asignar al menos 150 GB de almacenamiento debido al [método de asignación de IOPS de Azure Database for MySQL](../../concepts-pricing-tiers.md#storage). Además, requieren al menos el 100 % del almacenamiento del servidor aprovisionado como almacenamiento de copia de seguridad y una réplica de lectura. No prevén una salida de más de 5 GB.
 
-Mediante la [calculadora de precios de Azure Database for MySQL](https://azure.microsoft.com/pricing/details/mysql/), WWI pudo determinar los costos de la instancia de Azure Database for MySQL. Desde septiembre de 2020, el costo total de propiedad (TCO) se muestra en la tabla siguiente de la base de datos de WWI Conference:
+Mediante la [calculadora de precios de Azure Database for MySQL](https://azure.microsoft.com/pricing/details/mysql/), WWI pudo determinar los costos de la instancia de Azure Database for MySQL. Desde septiembre de 2020, el costo total de propiedad (TCO) se muestra en la tabla siguiente de la base de datos de WWI Conference.
 
-| Recurso | Descripción | Cantidad | Coste |
+| Resource | Descripción | Cantidad | Coste |
 |----------|-------------|----------|------|
-| **Proceso (De uso general)** | 4 núcleos virtuales, 20 GB                   | 1 a 0,351 USD/hora                                               | 3074,76 USD/año |
-| **Storage**                   | 5 GB                              | 12 x 150 a 0,115 USD                                           | 207 USD/año     |
-| **Backup**                    | Hasta el 100 % del almacenamiento aprovisionado | Sin costo adicional hasta el 100 % del almacenamiento de servidor aprovisionado      | 0,00 USD/año    |
-| **Réplica de lectura**              | Réplica regional de 1 segundo           | Proceso y almacenamiento                                           | 3281,76 USD/año |
-| **Network**                   | Salida < 5 GB/mes                | Gratuito                                                        |               |
-| **Total**                     |                                   |                                                             | 6563,52 USD/año |
+| **Proceso (De uso general)** | 4 núcleos virtuales, 20 GB                  | 1 a 0,351 USD/hora                                              | 3074,76 USD/año |
+| **Storage**                   | 5 GB                             | 12 x 150 a 0,115 USD                                          | 207 USD/año     |
+| **Backup**                    | Hasta el 100 % del almacenamiento aprovisionado| Sin costo adicional hasta el 100 % del almacenamiento de servidor aprovisionado     | 0,00 USD/año    |
+| **Réplica de lectura**              | Réplica regional de 1 segundo          | Proceso y almacenamiento                                          | 3281,76 USD/año |
+| **Network**                   | Salida < 5 GB/mes               | Gratuito                                                       |               |
+| **Total**                     |                                  |                                                            | 6563,52 USD/año |
 
-Después de revisar los costos iniciales, el CIO de WWI confirmó que llevan en Azure mucho más de 3 años. Han decidido usar [instancias reservadas](../../concept-reserved-pricing.md) de 3 años para ahorrar unos 4000 USD por año adicionales:
+Después de revisar los costos iniciales, el CIO de WWI confirmó que llevan en Azure mucho más de 3 años. Han decidido usar [instancias reservadas](../../concept-reserved-pricing.md) de 3 años para ahorrar unos \~4000 USD por año adicionales.
 
-| Recurso | Descripción | Cantidad | Coste |
+| Resource | Descripción | Cantidad | Coste |
 |----------|-------------|----------|------|
-| **Proceso (De uso general)** | 4 núcleos virtuales                          | 1 a 0,1375 USD/hora                                               | 1204,5 USD/año |
-| **Storage**                   | 5 GB                              | 12 x 150 a 0,115 USD                                            | 207 USD/año    |
-| **Backup**                    | Hasta el 100 % del almacenamiento aprovisionado | Sin costo adicional hasta el 100 % del almacenamiento de servidor aprovisionado       | 0,00 USD/año   |
-| **Network**                   | Salida < 5 GB/mes                | Gratuito                                                         |              |
-| **Réplica de lectura**              | Réplica regional de 1 segundo           | Proceso y almacenamiento                                            | 1411,5 USD/año |
-| **Total**                     |                                   |                                                              | 2823 USD/año   |
+| **Proceso (De uso general)** | 4 núcleos virtuales                          | 1 a 0,1375 USD/hora                                              | 1204,5 USD/año |
+| **Storage**                   | 5 GB                              | 12 x 150 a 0,115 USD                                           | 207 USD/año    |
+| **Backup**                    | Hasta el 100 % del almacenamiento aprovisionado | Sin costo adicional hasta el 100 % del almacenamiento de servidor aprovisionado      | 0,00 USD/año   |
+| **Network**                   | Salida < 5 GB/mes                | Gratuito                                                        |              |
+| **Réplica de lectura**              | Réplica regional de 1 segundo           | Proceso y almacenamiento                                           | 1411,5 USD/año |
+| **Total**                     |                                   |                                                             | 2823 USD/año   |
 
 Como se muestra en la tabla anterior, las copias de seguridad, la salida de red y las réplicas de lectura deben tenerse en cuenta en el costo total de propiedad (TCO). A medida que se agregan más bases de datos, el almacenamiento y el tráfico de red generados serían el único factor adicional basado en costos que se debería tener en cuenta.
 
 > [!NOTE]
-> Las estimaciones anteriores no incluyen ningún costo de [ExpressRoute](/azure/expressroute/expressroute-introduction), [Azure Application Gateway](/azure/application-gateway/overview), [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) o [App Service](/azure/app-service/overview) para las capas de aplicaciones.
+> Las estimaciones anteriores no incluyen ningún costo de [ExpressRoute](../../../expressroute/expressroute-introduction.md), [Azure Application Gateway](../../../application-gateway/overview.md), [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) o [App Service](../../../app-service/overview.md) para las capas de aplicaciones.
 >
 > Los precios anteriores pueden cambiar en cualquier momento y varían en función de la región.
 
@@ -255,7 +257,7 @@ Por último, modifique el nombre del servidor en las cadenas de conexión de la 
 
 ## <a name="wwi-scenario"></a>Escenario de WWI
 
-WWI inició la evaluación mediante la recopilación de información sobre su patrimonio de datos de MySQL. Pudieron compilar lo siguiente:
+WWI inició la evaluación mediante la recopilación de información sobre su patrimonio de datos de MySQL, como se muestra en la tabla siguiente.
 
 | Nombre | Source | Motor de base de datos | Size | E/S | Versión | Propietario | Tiempo de inactividad |
 |------|--------|-----------|------|------|---------|-------|----------|
@@ -282,6 +284,8 @@ En la primera fase, WWI se centró únicamente en la base de datos ConferenceDB.
   - Comprenda los requisitos de tiempo de inactividad.
 
   - Prepárese para realizar cambios en la aplicación.
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Planeamiento](./04-planning.md)

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 8a1eb1c21663e0294cd384daa0ba644adf78007a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbe0fe6d0dadea6e99b406f2de6e16ed4d667741
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673219"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461544"
 ---
 # <a name="oracle-database-in-azure-linux-vm-backup-strategies"></a>Estrategias de copia de seguridad de Oracle Database en máquinas virtuales Linux de Azure
 
@@ -103,15 +103,15 @@ Los recursos compartidos de archivos de Azure también se pueden proteger a trav
 
 #### <a name="azure-files-nfs-v41-preview"></a>Azure Files NFS v4.1 (versión preliminar)
 
-Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el protocolo Network File System (NFS) v4.1. En la versión preliminar hay varias limitaciones en cuanto a las características admitidas, que se documentan [aquí](../../../storage/files/storage-files-how-to-mount-nfs-shares.md). 
+Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el protocolo Network File System (NFS) v4.1. En la versión preliminar hay varias limitaciones en cuanto a las características admitidas. Para más información, consulte [Montaje de un recurso compartido de archivos de Azure NFS (versión preliminar)](../../../storage/files/storage-files-how-to-mount-nfs-shares.md). 
 
 En la versión preliminar de Azure Files NFS v4.1 también está restringida a las siguientes [regiones](../../../storage/files/storage-files-how-to-mount-nfs-shares.md):
 - Este de EE. UU. (LRS y ZRS)
 - Este de EE. UU. 2
-- Oeste de EE. UU. 2
+- Oeste de EE. UU. 2
 - Oeste de Europa
 - Sudeste de Asia
-- Sur de Reino Unido
+- Sur de Reino Unido 2
 - Este de Australia
 
 #### <a name="azure-files-smb-30"></a>Azure Files SMB 3.0
@@ -120,7 +120,7 @@ Los recursos compartidos de archivos de Azure se pueden montar en distribuciones
 
 Azure Files SMB está disponible con carácter general en todas las regiones de Azure y muestra las mismas características de rendimiento que los protocolos NFS v3.0 y v4.1, por lo que actualmente es el método recomendado para proporcionar medios de almacenamiento de copia de seguridad a máquinas virtuales Linux de Azure.  
 
-Hay dos versiones de SMB admitidas disponibles, SMB 2.1 y SMB 3.0; se recomienda la segunda, ya que admite el cifrado en tránsito. Sin embargo, las distintas versiones de kernels de Linux tienen distintas compatibilidades con SMB 2.1 y 3.0, y debe consultar la tabla de [este vínculo](../../../storage/files/storage-how-to-use-files-linux.md) para asegurarse de que la aplicación admita SMB 3.0. 
+Hay dos versiones de SMB admitidas disponibles, SMB 2.1 y SMB 3.0; se recomienda la segunda, ya que admite el cifrado en tránsito. Sin embargo, las distintas versiones de kernels de Linux tienen una compatibilidad diferente con SMB 2.1 y 3.0. Para más información, consulte [Montaje de un recurso compartido de archivos de Azure de SMB en Linux](../../../storage/files/storage-how-to-use-files-linux.md) para asegurarse de que la aplicación admita SMB 3.0. 
 
 Ya que Azure Files está diseñado para ser un servicio de recursos compartidos de archivos multiusuario, hay ciertas características que debe ajustar para que sea más adecuado como medio de almacenamiento de copia de seguridad. Se recomienda desactivar el almacenamiento en caché y establecer los id. de usuario y de grupo para los archivos creados.
 
@@ -152,5 +152,3 @@ Azure Backup ahora proporciona un [marco de scripts previos y posteriores mejora
 - [Inicio rápido para la creación de Oracle Database](oracle-database-quick-create.md)
 - [Copia de seguridad de Oracle Database en Azure Files](oracle-database-backup-azure-storage.md)
 - [Copia de seguridad de Oracle Database con el servicio de Azure Backup](oracle-database-backup-azure-backup.md)
-
-

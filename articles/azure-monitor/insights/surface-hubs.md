@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 9d81af064b18ca8113599b460f2b9524c7288439
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50e1a5b98607046f8f57699e49be764439baa6f2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711083"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114474164"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Supervisión de Surface Hub con Azure Monitor para realizar un seguimiento de su estado
 
@@ -18,7 +18,7 @@ ms.locfileid: "101711083"
 
 En este artículo se describe cómo se puede usar la solución Surface Hub en Azure Monitor para supervisar los dispositivos Microsoft Surface Hub. La solución le ayuda a realizar un seguimiento del estado de sus dispositivos con esta solución y comprender cómo se están utilizando.
 
-Cada dispositivo Surface Hub tiene el agente de supervisión de Microsoft instalado. A través del agente se pueden enviar datos desde Surface Hub a un área de trabajo de Log Analytics en Azure Monitor. Los archivos de registro se leen desde los dispositivos Surface Hub y se envían a Azure Monitor. Los problemas (por ejemplo, que los servidores estén sin conexión, el calendario no se sincronice o la cuenta del dispositivo no pueda iniciar sesión en Skype) se muestran en Log Analytics en el panel de Azure Monitor. Mediante el uso de los datos en el panel, puede identificar los dispositivos que no se están ejecutando o que tienen otros problemas, así como, posiblemente aplicar correcciones para los problemas detectados.
+Cada dispositivo Surface Hub tiene el agente de supervisión de Microsoft instalado. A través del agente se pueden enviar datos desde Surface Hub a un área de trabajo de Log Analytics en Azure Monitor. Los archivos de registro se leen desde los dispositivos Surface Hub y luego se envían a Azure Monitor. Los problemas (por ejemplo, que los servidores estén sin conexión, el calendario no se sincronice o la cuenta del dispositivo no pueda iniciar sesión en Skype) se muestran en Log Analytics en el panel de Azure Monitor. Mediante el uso de los datos en el panel, puede identificar los dispositivos que no se están ejecutando o que tienen otros problemas, así como, posiblemente aplicar correcciones para los problemas detectados.
 
 ## <a name="install-and-configure-the-solution"></a>Instalación y configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución. Con el fin de administrar los dispositivos Surface Hub en Azure Monitor, necesitará lo siguiente:
@@ -38,14 +38,16 @@ Necesitará el identificador de área de trabajo y la clave de área de trabajo 
 
 Intune es un producto de Microsoft que permite administrar de forma centralizada la configuración del área de trabajo de Log Analytics que se aplica a uno o varios de los dispositivos. Siga estos pasos para configurar los dispositivos mediante Intune:
 
-1. Inicie sesión en Intune.
-2. Vaya a **Configuración** > **Orígenes conectados**.
-3. Cree o edite una directiva basada en la plantilla de Surface Hub.
-4. Vaya a la sección Azure Operational Insights de la directiva y agregue el *identificador de área de trabajo* y la *clave de área de trabajo* de Log Analytics a la directiva.
-5. Guarde la directiva.
-6. Asocia la directiva con el grupo de dispositivos adecuado.
+1. Inicie sesión en el [Centro de administración de Microsoft Endpoint Manager](https://endpoint.microsoft.com/).
+2. Vaya a **Dispositivos** > **Perfiles de configuración**.
+3. Cree un perfil de Windows 10 nuevo y, luego, seleccione **plantillas**.
+4. En la lista de plantillas, seleccione **Restricciones de dispositivo (Windows 10 Team)** .
+5. Escriba un nombre y una descripción para el perfil.
+6. En **Azure Operational Insights**, seleccione **Habilitar**.
+7. Escriba el **id. del área de trabajo** de Log Analytics y escriba la **Clave del área de trabajo** para la directiva.
+8. Asigne la directividad al grupo de dispositivos de Surface Hub y guarde la directiva.
 
-   ![Directiva de Intune](./media/surface-hubs/intune.png)
+    :::image type="content" source="./media/surface-hubs/intune.png" alt-text="Captura de pantalla que muestra la configuración de una directiva de Intune.":::
 
 Después, Intune sincroniza la configuración de Log Analytics con los dispositivos en el grupo de destino, con lo que se inscriben en el área de trabajo de Log Analytics.
 
@@ -58,9 +60,10 @@ Si no usa Intune para administrar su entorno, puede inscribir dispositivos manua
 2. Escriba las credenciales de administrador de dispositivos cuando se le solicite.
 3. Haga clic en **Este dispositivo** y, en **Supervisión**, haga clic en **Configuración de Log Analytics**.
 4. Seleccione **Habilitar supervisión**.
-5. En el cuadro de diálogo de configuración de Log Analytics, escriba el **identificador de área de trabajo** y la **clave de área de trabajo** de Log Analytics.  
-   ![Captura de pantalla que muestra la configuración del conjunto de aplicaciones de Microsoft Operations Manager con la opción Habilitar supervisión seleccionada y los cuadros de texto Id. de área de trabajo y Clave de área de trabajo.](./media/surface-hubs/settings.png)
-6. Haga clic en **Aceptar** para completar la configuración.
+5. En el cuadro de diálogo de configuración de Log Analytics, escriba el **identificador de área de trabajo** y la **clave de área de trabajo** de Log Analytics. 
+
+    ![Captura de pantalla que muestra la configuración del conjunto de aplicaciones de Microsoft Operations Manager con la opción Habilitar supervisión seleccionada y los cuadros de texto Id. de área de trabajo y Clave de área de trabajo.](./media/surface-hubs/settings.png)
+1. Haga clic en **Aceptar** para completar la configuración.
 
 Aparecerá una confirmación que indica si la configuración se aplicó correctamente en el dispositivo. Si es así, aparecerá un mensaje que indica que el agente se ha conectado correctamente a Azure Monitor. El dispositivo comienza a enviar datos a Azure Monitor, donde puede verlos y usarlos.
 

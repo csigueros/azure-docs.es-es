@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3bba1155ec57db67968aec95d1d3386fc6cda006
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78be2edacdcf72a6274755413810fe1308510a79
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634454"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669130"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales
 
@@ -23,7 +23,7 @@ En este artículo se ofrece información general sobre la disponibilidad regiona
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-Todas las regiones en las que ACI admita SKU de red virtual, se admiten para implementaciones de nodos virtuales.
+Todas las regiones en las que ACI admita SKU de red virtual, se admiten para implementaciones de nodos virtuales. Para más detalles, consulte [Disponibilidad de recursos para Azure Container Instances en las regiones de Azure](../container-instances/container-instances-region-availability.md).
 
 Para conocer las SKU de CPU y memoria disponibles en cada región, consulte [Disponibilidad de recursos para Azure Container Instances en las regiones de Azure: Grupos de contenedores de Linux](../container-instances/container-instances-region-availability.md#linux-container-groups).
 

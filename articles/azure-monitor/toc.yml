@@ -101,6 +101,8 @@
       href: powershell-samples.md
     - name: Consultas de Azure Resource Graph
       href: ./resource-graph-samples.md
+    - name: Alertas de métricas de la CLI de Azure
+      href: azure-cli-metrics-alert-sample.md
 - name: Conceptos
   items:
     - name: ¿Qué se puede supervisar?
@@ -227,7 +229,7 @@
           items:
             - name: Crear un área de trabajo
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: logs/quick-create-workspace.md
                 - name: Azure CLI
                   href: logs/quick-create-workspace-cli.md

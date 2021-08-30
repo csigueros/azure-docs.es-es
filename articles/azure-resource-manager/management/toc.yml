@@ -65,12 +65,20 @@
                   href: ../../app-service/manage-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Azure Automation
                   href: ../../automation/automation-managing-data.md?toc=/azure/azure-resource-manager/management/toc.json#geo-replication-in-azure-automation
+                - name: Azure Backup (almacén de Recovery Services)
+                  href: ../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Azure Batch
                   href: ../../batch/account-move.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Azure Cognitive Search
                   href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: "Azure Cosmos\_DB"
                   href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Servidor de Azure Database for MariaDB
+                  href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Servidor de Azure Database for MySQL
+                  href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Servidor de Azure Database for PostgreSQL
+                  href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Azure Event Hubs
                   href: ../../event-hubs/move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Azure IoT Hub
@@ -81,8 +89,6 @@
                   href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Base de datos e instancia administrada de Azure SQL
                   href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-                - name: SQL Server en máquina virtual de Azure
-                  href: ../../azure-sql/virtual-machines/windows/move-sql-vm-different-region.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Máquinas virtuales de Azure
                   href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Aplicaciones lógicas
@@ -99,14 +105,12 @@
                       href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
                     - name: Direcciones IP públicas
                       href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Power BI
+                  href: /power-bi/admin/service-admin-region-move
                 - name: Site Recovery (almacenes de Recovery Services)
                   href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-                - name: Servidor de Azure Database for PostgreSQL
-                  href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
-                - name: Servidor de Azure Database for MariaDB
-                  href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
-                - name: Servidor de Azure Database for MySQL
-                  href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: SQL Server en máquina virtual de Azure
+                  href: ../../azure-sql/virtual-machines/windows/move-sql-vm-different-region.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Etiquetas
       items:
         - name: Guía para la toma de decisiones
@@ -121,7 +125,7 @@
           href: ./resource-graph-samples.md
     - name: Administración de grupos de recursos
       items:
-        - name: Azure Portal
+        - name: Azure portal
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
         - name: Azure CLI
@@ -132,7 +136,7 @@
           href: manage-resource-groups-powershell.md
     - name: Administrar recursos
       items:
-        - name: Azure Portal
+        - name: Azure portal
           displayName: 'open,delete,deploy,move,lock,tag,monitor'
           href: manage-resources-portal.md
         - name: Azure CLI

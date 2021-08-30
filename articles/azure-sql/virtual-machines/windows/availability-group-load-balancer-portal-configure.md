@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8c914b2b6db65e6956db830e16351f13144ab5aa
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 4fe42db21a08a398f5518d794b897d7ce015fa66
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572207"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861826"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad de SQL Server Always On en Azure Virtual Machines
 
@@ -97,7 +97,7 @@ En Azure, el grupo de direcciones de back-end se denomina *grupo de back-end*. E
 
 4. En **Agregar grupo back-end** en **Nombre**, especifique un nombre para el grupo de back-end.
 
-5. En **Máquinas virtuales**, seleccione **Agregar una máquina virtual**. 
+5. En **Máquinas virtuales**, seleccione **Agregar una máquina virtual**. Agregue solo la dirección IP principal de la máquina virtual; no agregue ninguna dirección IP secundaria. 
 
 6. En **Elegir máquinas virtuales**, seleccione **Elegir un conjunto de disponibilidad** y, a continuación, especifique el conjunto de disponibilidad al que pertenecen las máquinas virtuales de SQL Server.
 
@@ -323,6 +323,6 @@ Si tiene un grupo de seguridad de red de Azure para restringir el acceso, asegú
 Para obtener más información, consulte:
 
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
-- [Grupos de disponibilidad Always On con SQL Server en máquinas virtuales de Azure](availability-group-overview.md)
-- [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
+- [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
 - [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)

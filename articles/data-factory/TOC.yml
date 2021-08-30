@@ -212,6 +212,8 @@ items:
               - name: Rendimiento de flujo de datos
                 href: concepts-data-flow-performance.md
                 displayName: 'merge, timeout'
+              - name: Rendimiento de Microsoft Integration Runtime
+                href: concepts-integration-runtime-performance.md
               - name: Administración de lienzos en Data Flow
                 href: concepts-data-flow-manage-graph.md
               - name: Generador de expresiones
@@ -288,7 +290,7 @@ items:
             href: connector-azure-databricks-delta-lake.md
           - name: Azure File Storage
             href: connector-azure-file-storage.md
-          - name: "Azure\_SQL\_Database"
+          - name: Azure SQL Database
             href: connector-azure-sql-database.md
             displayName: upsert
           - name: Instancia administrada de Azure SQL

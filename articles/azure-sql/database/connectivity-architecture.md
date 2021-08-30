@@ -3,21 +3,21 @@ title: Arquitectura de conectividad de Azure SQL Database
 description: En este documento se explica la arquitectura de conectividad de Azure SQL Database para las conexiones de bases de datos desde dentro o desde fuera de Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.custom: fasttrack-edit, sqldbrb=1
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: sstein, vanto
+ms.reviewer: mathoma, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: f16b77e8707c2eb8be9e693df7f3ad9f78366020
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c8994bef3babb101c7b383a609735051d5d1d464
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110097217"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214648"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -72,12 +72,12 @@ Si va a conectarse desde fuera de Azure, las conexiones tienen la directiva de c
 
 En la tabla siguiente se enumeran las direcciones IP de puerta de enlace individuales y también los intervalos de direcciones IP de puerta de enlace por región.
 
-Periódicamente, retiraremos las puertas de enlace con hardware antiguo y migraremos el tráfico a nuevas puertas de enlace según el proceso descrito en [Migración del tráfico de Azure SQL Database a puertas de enlace más recientes](gateway-migration.md). Se recomienda encarecidamente a los clientes que usen **intervalos de direcciones IP de puerta de enlace** para que no les afecte esta actividad en una región.
+Periódicamente, retiraremos las puertas de enlace con hardware antiguo y migraremos el tráfico a nuevas puertas de enlace según el proceso descrito en [Migración del tráfico de Azure SQL Database a puertas de enlace más recientes](gateway-migration.md). Se recomienda encarecidamente a los clientes que usen **subredes de direcciones IP de puerta de enlace** para que no les afecte esta actividad en una región.
 
 > [!IMPORTANT]
-> Los inicios de sesión de SQL Database o Azure Synapse pueden dirigirse a **cualquiera de las puertas de enlace de una región**. Para la conectividad constante con SQL Database o Azure Synapse, permita el tráfico de red hacia y desde **TODAS** las direcciones IP de puerta de enlace o los intervalos de direcciones IP de puerta de enlace de la región.
+> Los inicios de sesión de SQL Database o Azure Synapse pueden dirigirse a **cualquiera de las puertas de enlace de una región**. Para la conectividad constante con SQL Database o Azure Synapse, permita el tráfico de red hacia y desde **TODAS** las direcciones IP de puerta de enlace y subredes de direcciones IP de puerta de enlace de la región.
 
-| Nombre de la región          | Direcciones IP de puerta de enlace | Intervalos de direcciones de IP de puerta de enlace |
+| Nombre de la región          | Direcciones IP de puerta de enlace | Subredes de direcciones de IP de puerta de enlace |
 | --- | --- | --- |
 | Centro de Australia    | 20.36.105.0, 20.36.104.6, 20.36.104.7 | 20.36.105.32/29 |
 | Centro de Australia 2   | 20.36.113.0, 20.36.112.6 | 20.36.113.32/29 |
@@ -97,16 +97,16 @@ Periódicamente, retiraremos las puertas de enlace con hardware antiguo y migrar
 | Centro de Francia       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 | 40.79.136.32/29, 40.79.144.32/29 |
 | Sur de Francia         | 40.79.177.0, 40.79.177.10, 40.79.177.12 | 40.79.176.40/29, 40.79.177.32/29 |
 | Centro-oeste de Alemania | 51.116.240.0, 51.116.248.0, 51.116.152.0 | 51.116.152.32/29, 51.116.240.32/29, 51.116.248.32/29 |
-| India central        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 | 104.211.86.32/29, 20.192.96.32/29 |
+| India central        | 104.211.96.159, 104.211.86.30, 104.211.86.31, 40.80.48.32, 20.192.96.32  | 104.211.86.32/29, 20.192.96.32/29 |
 | Sur de la India          | 104.211.224.146    | 40.78.192.32/29, 40.78.193.32/29 |
 | Oeste de la India           | 104.211.160.80, 104.211.144.4 | 104.211.144.32/29, 104.211.145.32/29 |
-| Japón Oriental           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5, 13.78.104.32 | 13.78.104.32/29, 40.79.184.32/29, 40.79.192.32/29 |
+| Japón Oriental           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5, 13.78.104.32, 40.79.184.32 | 13.78.104.32/29, 40.79.184.32/29, 40.79.192.32/29 |
 | Japón Occidental           | 104.214.148.156, 40.74.100.192, 40.74.97.10 | 40.74.96.32/29 |
 | Centro de Corea del Sur        | 52.231.32.42, 52.231.17.22, 52.231.17.23, 20.44.24.32, 20.194.64.33 | 20.194.64.32/29,20.44.24.32/29, 52.231.16.32/29 |
 | Corea del Sur          | 52.231.200.86, 52.231.151.96 |  |
 | Centro-Norte de EE. UU     | 23.96.178.199, 23.98.55.75, 52.162.104.33, 52.162.105.9 | 52.162.105.192/29 |
 | Norte de Europa         | 40.113.93.91, 52.138.224.1, 13.74.104.113 | 13.69.233.136/29, 13.74.105.192/29, 52.138.229.72/29 |
-| Este de Noruega          | 51.120.96.0, 51.120.96.33 | 51.120.96.32/29 |
+| Este de Noruega          | 51.120.96.0, 51.120.96.33, 51.120.104.32, 51.120.208.32 | 51.120.96.32/29 |
 | Oeste de Noruega          | 51.120.216.0       | 51.120.217.32/29 |
 | Norte de Sudáfrica   | 102.133.152.0, 102.133.120.2, 102.133.152.32 | 102.133.120.32/29, 102.133.152.32/29, 102.133.248.32/29|
 | Oeste de Sudáfrica    | 102.133.24.0       | 102.133.25.32/29 |
@@ -122,6 +122,7 @@ Periódicamente, retiraremos las puertas de enlace con hardware antiguo y migrar
 | Oeste de Europa          | 40.68.37.158, 104.40.168.105, 52.236.184.163  | 104.40.169.32/29, 13.69.112.168/29, 52.236.184.32/29 |
 | Oeste de EE. UU.              | 104.42.238.205, 13.86.216.196   | 13.86.217.224/29 |
 | Oeste de EE. UU. 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  | 13.66.136.192/29, 40.78.240.192/29, 40.78.248.192/29 |
+| Oeste de EE. UU. 3            | 20.150.168.0, 20.150.184.2   | 20.150.168.32/29, 20.150.176.32/29, 20.150.184.32/29 |
 |                      |                    |                    |
 
 ## <a name="next-steps"></a>Pasos siguientes

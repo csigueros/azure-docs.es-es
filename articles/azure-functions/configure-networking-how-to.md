@@ -4,23 +4,23 @@ description: En este artículo se muestra cómo realizar ciertas tareas de redes
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c123b20e163731f9a872a969f2f1564479b6e308
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 1e04a43a7a9b2eb8b3d29be6ced0d92d8bcc8308
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718438"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202928"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>Configuración de Azure Functions con una red virtual
 
-En este artículo se muestra cómo realizar tareas relacionadas con la configuración de la aplicación de funciones para conectarse a una red virtual y ejecutarse en ella. Para obtener más información sobre Azure Functions y las redes, vea [Opciones de redes de Azure Functions](functions-networking-options.md).
+En este artículo se muestra cómo realizar tareas relacionadas con la configuración de la aplicación de funciones para conectarse a una red virtual y ejecutarse en ella. Para ver un tutorial detallado sobre cómo proteger su cuenta de almacenamiento, consulte el tutorial [Conexión a una red virtual](functions-create-vnet.md). Para obtener más información sobre Azure Functions y las redes, vea [Opciones de redes de Azure Functions](functions-networking-options.md).
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restricción de la cuenta de almacenamiento a una red virtual 
 
-Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una. Puede reemplazar esta cuenta de almacenamiento por una que esté protegida con puntos de conexión de servicio o punto de conexión privado. 
+Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una. Puede reemplazar esta cuenta de almacenamiento por una que esté protegida con puntos de conexión de servicio o puntos de conexión privados. Al configurar la cuenta de almacenamiento con puntos de conexión privados, el acceso público a la aplicación de funciones se deshabilitará automáticamente y la aplicación de funciones solo será accesible a través de la red virtual. 
 
 > [!NOTE]  
-> Esta característica funciona actualmente para todas las SKU compatibles con la red virtual de Windows en el plan dedicado (App Service) y para los planes Premium. No se admite el plan de consumo. 
+> Esta característica funciona actualmente para todas las SKU compatibles con la red virtual de Windows en el plan dedicado (App Service) y para los planes Elástico Premium de Windows. También se admite con DNS privado para SKU compatibles con la red virtual Linux. Los planes de DNS para Linux personalizados y de consumo no se admiten. 
 
 Para configurar una función con una cuenta de almacenamiento restringida a una red privada:
 

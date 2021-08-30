@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 07/06/2021
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 4197b1a5f047190872d055dc2ba8ccaa11efbe6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 155f3817b913e38e503d0a8fcaa6083922067ebd
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376350"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487622"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Recuperación de la lista de direcciones IP POP para Azure CDN
 
@@ -36,11 +36,7 @@ Para bloquear la aplicación y que solo acepte el tráfico de Azure CDN de Micro
 
 Configure la creación de listas de control de acceso de IP de los back-end para que acepten tráfico de Azure CDN solo del espacio de direcciones IP de back-end de Microsoft y de los servicios de infraestructura de Azure. 
 
-* Azure CDN del espacio IP de back-end IPv4 de Microsoft: 147.243.0.0/16
-* Azure CDN del espacio IP de back-end IPv6 de Microsoft: 2a01:111:2050::/44
-
-Para usar etiquetas de servicio con Azure CDN de Microsoft, use la etiqueta de Azure Front Door. Los intervalos IP y las etiquetas de servicio de los servicios de Microsoft se pueden encontrar [aquí](https://www.microsoft.com/download/details.aspx?id=56519).
-
+Use [etiquetas de servicio](../virtual-network/service-tags-overview.md) de Azure Front Door con Azure CDN de Microsoft para configurar intervalos IP de back-end de Microsoft. Para ver una lista completa, consulte los [intervalos IP y las etiquetas de servicio](https://www.microsoft.com/en-us/download/details.aspx?id=56519) de los servicios de Microsoft.
 
 ## <a name="typical-use-case"></a>Caso de uso típico
 

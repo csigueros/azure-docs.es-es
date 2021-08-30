@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 8bc6c76ac02de4832597c46e2d8c54081b96b216
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 1da0acf71d8f3f806ec42dcb61c4d74127892c27
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072476"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254257"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Tamaños de las máquinas virtuales Linux en Azure
+
+> [!TIP]
+> Pruebe la **[herramienta Selector de máquinas virtuales](https://aka.ms/vm-selector)** para buscar otros tamaños que se adapten mejor a la carga de trabajo.
 
 En este artículo se describen los tamaños y las opciones disponibles para Azure Virtual Machines que puede usar para ejecutar las aplicaciones y cargas de trabajo. También ofrece consideraciones de implementación que hay que tener en cuenta siempre que planee usar estos recursos. 
 

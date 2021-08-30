@@ -7,13 +7,12 @@ ms.date: 05/20/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 85b64f52fc1832ec1d25767c1cdfef8977d96fe8
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 05e169667067033428d5fc995af4d866dc46d20b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030330"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751432"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementación de estilos dinámicos para planos interiores de Creator
 
@@ -68,33 +67,27 @@ En la siguiente sección, estableceremos el *estado* de ocupación de la oficina
 
 1. En la aplicación Postman, seleccione **New** (Nuevo).
 
-2. En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).
+2. En la ventana **Create New** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP).
 
-3. Vuelva a seleccionar **Nuevo**.
+3. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *POST Data Upload*.
 
-4. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud).
-
-5. En **Nombre de solicitud**, escriba un nombre para la solicitud, como *POST Data Upload*.
-
-6. Seleccione la colección que creó anteriormente y, a continuación, seleccione **Guardar**.
-
-7. Escriba la siguiente dirección URL en [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal y `statesetId` por `statesetId`):
+4. Escriba la siguiente dirección URL en [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal y `statesetId` por `statesetId`):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-8. Seleccione la pestaña **Encabezados**.
+5. Seleccione la pestaña **Encabezados**.
 
-9. En el campo **CLAVE**, seleccione `Content-Type`. En el campo **VALUE**, seleccione `application/json`.
+6. En el campo **CLAVE**, seleccione `Content-Type`. En el campo **VALUE**, seleccione `application/json`.
 
      :::image type="content" source="./media/indoor-map-dynamic-styling/stateset-header.png"alt-text="Información de la pestaña Encabezado para la creación del conjunto de estados.":::
 
-10. Seleccione la pestaña **Cuerpo**.
+7. Seleccione la pestaña **Cuerpo**.
 
-11. En las listas desplegables, seleccione **raw** y **JSON**.
+8. En las listas desplegables, seleccione **raw** y **JSON**.
 
-12. Copie el siguiente estilo JSON y péguelo en la ventana **Body**:
+9. Copie el siguiente estilo JSON y péguelo en la ventana **Body**:
 
     ```json
     {
@@ -111,13 +104,13 @@ En la siguiente sección, estableceremos el *estado* de ocupación de la oficina
     >[!IMPORTANT]
     >La actualización se guardará solo si la marca de tiempo enviada es posterior a la marca de tiempo usada en las solicitudes de actualización de estado de características anteriores para el mismo `ID` de característica.
 
-13. Cambie la dirección URL que usó en el paso 7 reemplazando `UNIT26` por `UNIT27`:
+10. Cambie la dirección URL que usó en el paso 7 reemplazando `UNIT26` por `UNIT27`:
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-14. Copie el siguiente estilo JSON y péguelo en la ventana **Body**:
+11. Copie el siguiente estilo JSON y péguelo en la ventana **Body**:
 
     ``` json
     {

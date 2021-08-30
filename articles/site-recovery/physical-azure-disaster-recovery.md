@@ -3,13 +3,13 @@ title: Configuración de la recuperación ante desastres en servidores físicos 
 description: Aprenda a configurar la recuperación ante desastres para servidores locales de Windows y Linux en Azure con el servicio Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/12/2019
-ms.openlocfilehash: 0197d3f505edef0890ed076e15f89d14ad5ab5d4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/14/2021
+ms.openlocfilehash: 6811511cf45d342691a76ddb14b631601db56c36
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968697"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290261"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -19,7 +19,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres de servid
 
 > [!div class="checklist"]
 > * Configurar Azure y los requisitos previos locales
-> * Crear un almacén de Recovery Services para Site Recovery 
+> * Crear un almacén de Recovery Services para Site Recovery
 > * Configurar los entornos de replicación de origen y destino
 > * Creación de una directiva de replicación
 > * Habilitar la replicación para un servidor
@@ -36,7 +36,7 @@ Para completar este tutorial:
 
 Antes de empezar, tenga en cuenta lo siguiente:
 
-- Después de una conmutación por error a Azure, los servidores físicos no se pueden conmutar por recuperación en máquinas físicas locales. Solo puede realizar una conmutación por recuperación en máquinas virtuales de VMware. 
+- Después de una conmutación por error a Azure, los servidores físicos no se pueden conmutar por recuperación en máquinas físicas locales. Solo puede realizar una conmutación por recuperación en máquinas virtuales de VMware.
 - En este tutorial, se utiliza la configuración más sencilla para definir la recuperación ante desastres a Azure en servidores físicos. Si desea obtener información sobre otras opciones, consulte estas guías de procedimientos:
     - Configuración del [origen de replicación](physical-azure-set-up-source.md), incluido el servidor de configuración de Site Recovery
     - Configuración del [destino de replicación](physical-azure-set-up-target.md)
@@ -48,7 +48,7 @@ Antes de empezar, tenga en cuenta lo siguiente:
 Obtenga una [cuenta de Microsoft Azure](https://azure.microsoft.com/).
 
 - Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Obtenga información sobre los [precios de Site Recovery](/azure/site-recovery/site-recovery-faq.yml#pricing) y conozca los [detalles de los precios](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Obtenga información sobre los [precios de Site Recovery](/azure/site-recovery/site-recovery-faq#pricing) y conozca los [detalles de los precios](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Averigüe qué [regiones se admiten](https://azure.microsoft.com/pricing/details/site-recovery/) en Site Recovery.
 
 ### <a name="verify-azure-account-permissions"></a>Comprobar los permisos de cuenta de Azure
@@ -56,7 +56,7 @@ Obtenga una [cuenta de Microsoft Azure](https://azure.microsoft.com/).
 Asegúrese de que la cuenta de Azure tiene permisos para la replicación de máquinas virtuales en Azure.
 
 - Revise los [permisos](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) que necesita para replicar máquinas en Azure.
-- Compruebe y modifique los permisos de [control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md). 
+- Compruebe y modifique los permisos de [control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md).
 
 
 
@@ -102,24 +102,25 @@ Seleccione qué quiere replicar y en dónde hacerlo.
 
 Configure el servidor de configuración, regístrelo en el almacén y detecte máquinas virtuales.
 
-1. Haga clic en **Site Recovery** > **Preparar la infraestructura** > **Origen**.
-2. Si no tiene un servidor de configuración, haga clic en **+Servidor de configuración**.
-3. En **Agregar servidor**, compruebe que aparezca **Servidor de configuración** en **Tipo de servidor**.
-4. Descargue el archivo de instalación unificada de Site Recovery.
-5. Descargue la clave de registro del almacén. Se le solicitará cuando ejecute la instalación unificada. La clave será válida durante cinco días a partir del momento en que se genera.
+1. Haga clic en **Site Recovery** > **Preparar infraestructura**.
+2. Asegúrese de que ha realizado el planeamiento de la implementación y ejecute Deployment Planner para calcular varios requisitos. Haga clic en **Next**.
+3. Seleccione si sus equipos son virtuales o físicos en la opción **¿Las máquinas están virtualizadas?**
+4. Si no tiene un servidor de configuración, haga clic en **+Servidor de configuración**.
+5. Si va a habilitar la protección para máquinas virtuales, descargue la plantilla de máquina virtual del servidor de configuración.
+6. Si va a habilitar la protección para máquinas físicas, descargue el archivo de instalación Instalación unificada de Site Recovery. También deberá descargar la clave de registro del almacén. Se le solicitará cuando ejecute la instalación unificada. La clave será válida durante cinco días a partir del momento en que se genera.
 
    ![Captura de pantalla que muestra las opciones para descargar el archivo de instalación y la clave de registro.](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### <a name="register-the-configuration-server-in-the-vault"></a>Registro del servidor de configuración en el almacén
 
-Antes de empezar, haga lo siguiente: 
+Antes de empezar, haga lo siguiente:
 
 #### <a name="verify-time-accuracy"></a>Verificación de la precisión de tiempo
 En la máquina del servidor de configuración, asegúrese de que el reloj del sistema está sincronizado con un [servidor horario](/windows-server/networking/windows-time-service/windows-time-service-top). Deben ser iguales. Si hay una diferencia de 15 minutos, antes o después, se podría producir un error en la instalación.
 
 #### <a name="verify-connectivity"></a>Verificación de la conectividad
-Asegúrese de que la máquina puede acceder a estas direcciones URL según el entorno: 
+Asegúrese de que la máquina puede acceder a estas direcciones URL según el entorno:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -170,12 +171,12 @@ Habilite la replicación para cada servidor.
 3. En **Tipo de máquina**, seleccione **Máquinas físicas**.
 4. Seleccione el servidor de procesos (el servidor de configuración). A continuación, haga clic en **Aceptar**.
 5. En **Destino**, seleccione la suscripción y el grupo de recursos donde quiere crear las máquinas virtuales de Azure después de la conmutación por error. Elija el modelo de implementación que quiere usar en Azure (clásico o administración de recursos).
-6. Seleccione la cuenta de Azure Storage que desea usar para los datos de replicación. 
+6. Seleccione la cuenta de Azure Storage que desea usar para los datos de replicación.
 7. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se creen después de la conmutación por error.
-8. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** con el fin de aplicar la configuración de red a todas las máquinas que seleccione para su protección. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina. 
-9. En **Máquinas físicas**, haga clic en **+ Máquina física**. Especifique el nombre y la dirección IP. Seleccione el sistema operativo del equipo que quiere replicar. Los servidores tardan unos minutos en detectarse y mostrarse. 
+8. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** con el fin de aplicar la configuración de red a todas las máquinas que seleccione para su protección. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina.
+9. En **Máquinas físicas**, haga clic en **+ Máquina física**. Especifique el nombre y la dirección IP. Seleccione el sistema operativo del equipo que quiere replicar. Los servidores tardan unos minutos en detectarse y mostrarse.
 10. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que va a usar el servidor de procesos para instalar automáticamente Mobility Service en el equipo.
-11. En **Configuración de la replicación** > **Establecer configuración de replicación**, compruebe que se ha seleccionado la directiva de replicación correcta. 
+11. En **Configuración de la replicación** > **Establecer configuración de replicación**, compruebe que se ha seleccionado la directiva de replicación correcta.
 12. Haga clic en **Enable Replication**. Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección** .
 
 

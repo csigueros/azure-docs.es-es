@@ -3,12 +3,12 @@ title: Compatibilidad con la operación de traslado por tipo de recurso
 description: Enumera los tipos de recursos de Azure que se pueden trasladar a un nuevo grupo de recursos, suscripción o región.
 ms.topic: conceptual
 ms.date: 04/23/2021
-ms.openlocfilehash: 3a43ea09dd4986d1f2d0e2679e81f5b25b590f7e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f00acadf42c3767814850db59c64ab76b30de2ea
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968323"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297009"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 
@@ -204,14 +204,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | domainservices | No | No |  No |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | diagnosticsettings | No | No | No |
 > | diagnosticsettingscategories | No | No | No |
@@ -221,14 +221,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | supportproviders | No | No | No |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | aadsupportcases | No | No | No |
 > | addsservices | No | No | No |
@@ -243,7 +243,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | configuraciones | No | No | No |
 > | generaterecommendations | No | No | No |
@@ -254,7 +254,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | actionRules | Sí | Sí | No |
 > | alerts | No | No | No |
@@ -268,7 +268,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | servers | Sí | Sí | No |
 
@@ -278,7 +278,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Un servicio API Management establecido en la SKU de consumo no se puede mover.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | reportfeedback | No | No | No |
 > | service | Sí | Sí | Sí (con una plantilla) <br/><br/> [Migración de API Management entre regiones](../../api-management/api-management-howto-migrate.md). |
@@ -286,7 +286,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | configurationstores | Sí | Sí | No |
 > | configurationstores/eventgridfilters | No | No | No |
@@ -294,7 +294,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | spring | Sí | Sí | No |
 
@@ -304,7 +304,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Vea [Guía de movimiento de App Service](./move-limitations/app-service-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | apiapps | No | No | Sí (con una plantilla)<br/><br/> [Traslado de una aplicación de App Service a otra región](../../app-service/manage-move-across-regions.md) |
 > | appidentities | No | No | No |
@@ -313,14 +313,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | attestationproviders | Sí | Sí | No |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | classicadministrators | No | No | No |
 > | dataaliases | No | No | No |
@@ -346,7 +346,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Para obtener más información, consulte [Traslado de la cuenta de Azure Automation a otra suscripción](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | automationaccounts | Sí | Sí | Sí (con una plantilla) <br/><br/> [Uso de la replicación geográfica](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |
 > | automationaccounts/configurations | Sí | Sí | No |
@@ -355,14 +355,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | privateclouds | Sí | Sí | No |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | b2cdirectories | Sí | Sí | No |
 > | b2ctenants | No | No | No |
@@ -370,7 +370,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftazuredata"></a>Microsoft.AzureData
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | datacontrollers | No | No | No |
 > | hybriddatamanagers | No | No | No |
@@ -383,7 +383,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | cloudmanifestfiles | No | No | No |
 > | registrations | Sí | Sí | No |
@@ -391,21 +391,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftazurestackhci"></a>Microsoft.AzureStackHCI
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | No | No | No |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | batchaccounts | Sí | Sí | Las cuentas de Batch no se pueden migrar directamente de una región a otra, pero puede usar una plantilla para exportar una plantilla, modificarla e implementarla en la nueva región. <br/><br/> Más información sobre [cómo mover una cuenta de Batch entre regiones](../../batch/account-move.md). |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | billingaccounts | No | No | No |
 > | billingperiods | No | No | No |
@@ -421,21 +421,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | mapapis | No | No | No |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | biztalk | No | No | No |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | blockchainmembers | No | No | No <br/><br/> La red de cadena de bloques no puede tener nodos en regiones diferentes. |
 > | cordamembers | No | No | No |
@@ -444,14 +444,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | tokenservices | No | No | No |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | blueprintassignments | No | No | No |
 > | blueprints | No | No | No |
@@ -459,7 +459,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | botservices | Sí | Sí | No |
 
@@ -469,7 +469,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Si la instancia de Azure Redis Cache está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Consulte las [Limitaciones de movimiento de redes](./move-limitations/networking-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | redis | Sí | Sí | No |
 > | redisenterprise | No | No | No |
@@ -477,7 +477,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | appliedreservations | No | No | No |
 > | calculateexchange | No | No | No |
@@ -494,7 +494,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | cdnwebapplicationfirewallmanagedrulesets | No | No | No |
 > | cdnwebapplicationfirewallpolicies | Sí | Sí | No |
@@ -508,7 +508,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Vea [Guía de movimiento de App Service](./move-limitations/app-service-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | certificateorders | Sí | Sí | No |
 
@@ -518,7 +518,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | capabilities | No | No | No |
 > | domainnames | Sí | No | No |
@@ -533,7 +533,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | classicinfrastructureresources | No | No | No |
 
@@ -543,7 +543,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | capabilities | No | No | No |
 > | expressroutecrossconnections | No | No | No |
@@ -560,7 +560,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | disks | No | No | No |
 > | images | No | No | No |
@@ -577,14 +577,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | operaciones | No | No | No |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | Sí | Sí | No |
 > | Cognitive Search | Sí | Sí | Se admite con pasos manuales.<br/><br/> Más información sobre cómo [mover el servicio Azure Cognitive Search a otra región](../../search/search-howto-move-across-regions.md). |
@@ -592,7 +592,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | ratecard | No | No | No |
 > | usageaggregates | No | No | No |
@@ -603,7 +603,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Vea [Guía de movimiento de Virtual Machines](./move-limitations/virtual-machines-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | availabilitysets | Sí | Sí |  Sí <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover conjuntos de disponibilidad. |
 > | diskaccesses | No | No | No |
@@ -630,7 +630,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | aggregatedcost | No | No | No |
 > | balances | No | No | No |
@@ -657,7 +657,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | containergroups | No | No | No |
 > | serviceassociationlinks | No | No | No |
@@ -665,7 +665,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | registries | Sí | Sí | No |
 > | registries / agentpools | Sí | Sí | No |
@@ -677,7 +677,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | containerservices | No | No | No |
 > | managedclusters | No | No | No |
@@ -686,21 +686,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applications | No | No | No |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | No | No | No |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | alerts | No | No | No |
 > | billingaccounts | No | No | No |
@@ -724,21 +724,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | hubs | No | No | No |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | Solicitudes | No | No | No |
 
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | associations | No | No | No |
 > | resourceproviders | Sí | Sí | No |
@@ -746,14 +746,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | jobs | No | No | No |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | availableskus | No | No | No |
 > | databoxedgedevices | No | No | No |
@@ -761,14 +761,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | workspaces | No | No | No |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | catalogs | Sí | Sí | No |
 > | datacatalogs | No | No | No |
@@ -776,14 +776,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | connectionmanagers | No | No | No |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | packages | No | No | No |
 > | plans | No | No | No |
@@ -791,7 +791,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | datafactories | Sí | Sí | No |
 > | factories | Sí | Sí | No |
@@ -799,28 +799,28 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | datalakeaccounts | No | No | No |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | Sí | Sí | No |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | Sí | Sí | No |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | services | No | No | No |
 > | services/projects | No | No | No |
@@ -829,28 +829,28 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdataprotection"></a>Microsoft.DataProtection
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ---------- |
 > | backupvaults | No | No | No |
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | Sí | Sí | No |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | servers | Sí | Sí | Puede usar una réplica de lectura entre regiones para trasladar un servidor existente. [Más información](../../postgresql/howto-move-regions-portal.md).<br/><br/> Si el servicio se aprovisiona con almacenamiento de copia de seguridad con redundancia geográfica, puede usar la restauración geográfica para restaurar en otras regiones. [Más información](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | No | No | No |
 > | servers | Sí | Sí | Puede usar una réplica de lectura entre regiones para trasladar un servidor existente. [Más información](../../mysql/howto-move-regions-portal.md).
@@ -858,7 +858,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | No | No | No |
 > | servergroups | No | No | No |
@@ -869,7 +869,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | artifactsources | Sí | Sí | No |
 > | rollouts | Sí | Sí | No |
@@ -881,7 +881,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applicationgroups | Sí | Sí | No |
 > | hostpools | Sí | Sí | No |
@@ -890,7 +890,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | elasticpools | No | No | No. El recurso no está expuesto. |
 > | elasticpools/iothubtenants | No | No | No. El recurso no está expuesto. |
@@ -900,7 +900,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdevops"></a>Microsoft.DevOps
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | pipelines | Sí | Sí | No |
 > | controllers | **pendiente** | **pendiente** | No |
@@ -908,15 +908,15 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | controllers | Sí | Sí | No |
-> | Clúster de AKS | **pendiente** | **pendiente** | No<br/><br/> [Más información](../../dev-spaces/index.yml) sobre el movimiento a otra región.
+> | Clúster de AKS | **pendiente** | **pendiente** | No<br/><br/> [Más información](/previous-versions/azure/dev-spaces/) sobre el movimiento a otra región.
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | labcenters | No | No | No |
 > | labs | Sí | No | No |
@@ -928,14 +928,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | digitaltwinsinstances | No | No | Sí, se vuelven a crear los recursos en una nueva región. [Más información](../../digital-twins/how-to-move-regions.md) |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | databaseaccountnames | No | No | No |
 > | databaseaccounts | Sí | Sí | No |
@@ -943,7 +943,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | domains | Sí | Sí | No |
 > | generatessorequest | No | No | No |
@@ -953,14 +953,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | services | Sí | Sí | No |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | domains | Sí | Sí | No |
 > | eventsubscriptions | No: no se puede mover de forma independiente, sino que se hace automáticamente con el recurso suscrito. | No: no se puede mover de forma independiente, sino que se hace automáticamente con el recurso suscrito. | No |
@@ -975,7 +975,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | Sí | Sí | No |
 > | espacios de nombres | Sí | Sí | Sí (con una plantilla)<br/><br/> [Movimiento de un espacio de nombres de Event Hubs a otra región](../../event-hubs/move-across-regions.md) |
@@ -984,21 +984,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | experimentworkspaces | No | No | No |
 
 ## <a name="microsoftfalcon"></a>Microsoft.Falcon
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | espacios de nombres | Sí | Sí | No |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | featureproviders | No | No | No |
 > | features | No | No | No |
@@ -1008,14 +1008,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | No | No | No |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | automanagedaccounts | No | No | No |
 > | automanagedvmconfigurationprofiles | No | No | No |
@@ -1027,7 +1027,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | hanainstances | No | No | No |
 > | sapmonitors | No | No | No |
@@ -1035,7 +1035,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | dedicatedhsms | No | No | No |
 
@@ -1047,21 +1047,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Al mover un clúster de HDInsight a una nueva suscripción, mueva primero otros recursos (por ejemplo, la cuenta de almacenamiento). Después, mover el clúster de HDInsight.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | Sí | Sí | No |
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | services | Sí | Sí | No |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | machines | Sí | Sí | No |
 > | machines/extensions | Sí | Sí | No |
@@ -1069,14 +1069,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | datamanagers | Sí | Sí | No |
 
 ## <a name="microsofthybridnetwork"></a>Microsoft.HybridNetwork
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | devices | No | No | No |
 > | vnfs | No | No | No |
@@ -1084,7 +1084,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | components | No | No | No |
 > | networkscopes | No | No | No |
@@ -1092,7 +1092,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | jobs | Sí | Sí | No |
 
@@ -1102,9 +1102,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Asegúrese de que el movimiento a una nueva suscripción no exceda las [cuotas de suscripción](azure-subscription-service-limits.md#azure-monitor-limits).
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | Sí | Sí | No. [Más información](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
+> | accounts | Sí | Sí | No. [Más información](../../azure-monitor/faq.yml#how-do-i-move-an-application-insights-resource-to-a-new-region-). |
 > | actiongroups | Sí | Sí | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | Sí | Sí | No |
@@ -1146,7 +1146,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | apptemplates | No | No | No |
 > | iotapps | Sí | Sí | No |
@@ -1154,14 +1154,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftiothub"></a>Microsoft.IoTHub
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | iothub | Sí | Sí | Sí (clonación del centro) <br/><br/> [Clonación de una instancia de IoT Hub en otra región](../../iot-hub/iot-hub-how-to-clone.md) |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | graph | Sí | Sí | No |
 
@@ -1171,7 +1171,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Los almacenes de claves usados para el cifrado de discos no se pueden mover a grupos de recursos de la misma suscripción ni entre suscripciones.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | deletedvaults | No | No | No |
 > | hsmpools | No | No | No |
@@ -1181,7 +1181,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | connectedclusters | Sí | Sí | No |
 > | registeredsubscriptions | No | No | No |
@@ -1189,21 +1189,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftkubernetesconfiguration"></a>Microsoft.KubernetesConfiguration
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | sourcecontrolconfigurations | No | No | No |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | Sí | Sí | No |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | labaccounts | No | No | No |
 > | users | No | No | No |
@@ -1211,21 +1211,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | No | No | No |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | No | No | No, es un servicio global. |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | hostingenvironments | No | No | No |
 > | integrationaccounts | Sí | Sí | No |
@@ -1237,7 +1237,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | commitmentplans | No | No | No |
 > | webservices | Sí | No | No |
@@ -1246,14 +1246,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | operationalizationclusters | No | No | No |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | No | No | No |
 > | teamaccounts | No | No | No |
@@ -1261,21 +1261,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | No | No | No |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | workspaces | No | No | No |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | configurationassignments | No | No | Sí. [Más información](../../virtual-machines/move-region-maintenance-configuration.md) |
 > | maintenanceconfigurations | Sí | Sí | Sí. [Más información](../../virtual-machines/move-region-maintenance-configuration-resources.md) |
@@ -1284,7 +1284,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | Identidades | No | No | No |
 > | userassignedidentities | No | No | No |
@@ -1292,7 +1292,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmanagednetwork"></a>Microsoft.ManagedNetwork
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | managednetworks | No | No | No |
 > | managednetworks / managednetworkgroups | No | No | No |
@@ -1302,7 +1302,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | marketplaceregistrationdefinitions | No | No | No |
 > | registrationassignments | No | No | No |
@@ -1311,7 +1311,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | getentities | No | No | No |
 > | managementgroups | No | No | No |
@@ -1323,7 +1323,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | Sí | Sí | No, Azure Maps es un servicio geoespacial. |
 > | accounts / privateatlases | Sí | Sí | No |
@@ -1331,7 +1331,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | offers | No | No | No |
 > | offertypes | No | No | No |
@@ -1345,14 +1345,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | classicdevservices | No | No | No |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | agreements | No | No | No |
 > | offertypes | No | No | No |
@@ -1360,7 +1360,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | mediaservices | Sí | Sí | No |
 > | mediaservices/liveevents | Sí | Sí | No |
@@ -1369,14 +1369,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | appclusters | No | No | No |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | assessmentprojects | No | No | No |
 > | migrateprojects | No | No | No |
@@ -1386,7 +1386,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ---------- |
 > | holographicsbroadcastaccounts | No | No | No |
 > | objectunderstandingaccounts | No | No | No |
@@ -1396,7 +1396,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | netappaccounts | No | No | No |
 > | netappaccounts/capacitypools | No | No | No |
@@ -1410,7 +1410,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Consulte [Guía de movimiento de redes](./move-limitations/networking-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applicationgateways | No | No | No |
 > | applicationgatewaywebapplicationfirewallpolicies | No | No | No |
@@ -1471,7 +1471,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | espacios de nombres | Sí | Sí | No |
 > | namespaces/notificationhubs | Sí | Sí | No |
@@ -1479,14 +1479,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | osnamespaces | Sí | Sí | No |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | hypervsites | No | No | No |
 > | importsites | No | No | No |
@@ -1501,7 +1501,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Las áreas de trabajo que tienen una cuenta de automatización vinculada no se pueden mover. Antes de comenzar una operación de movimiento, asegúrese de desvincular todas las cuentas de automatización.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | No | No | No |
 > | deletedworkspaces | No | No | No |
@@ -1512,7 +1512,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | managementassociations | No | No | No |
 > | managementconfigurations | Sí | Sí | No |
@@ -1522,7 +1522,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | legacypeerings | No | No | No |
 > | peerasns | No | No | No |
@@ -1536,7 +1536,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | policyevents | No | No | No |
 > | policystates | No | No | No |
@@ -1546,7 +1546,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | consoles | No | No | No |
 > | dashboards | Sí | Sí | No |
@@ -1555,35 +1555,35 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | workspacecollections | Sí | Sí | No |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | capacities | Sí | Sí | No |
 
 ## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ---------- |
 > | accounts | No | No | No |
 
 ## <a name="microsoftpurview"></a>Microsoft.Purview
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ---------- |
 > | accounts | **pendiente** | **pendiente** | No |
 
 ## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | availableaccounts | No | No | No |
 > | providerregistrations | No | No | No |
@@ -1592,7 +1592,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftquantum"></a>Microsoft.Quantum
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | workspaces | No | No | No |
 
@@ -1602,7 +1602,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Vea [Guía de movimiento de Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | replicationeligibilityresults | No | No | No |
 > | vaults | Sí | Sí | No.<br/><br/> No se admite la migración de almacenes de Recovery Services para Azure Backup entre regiones de Azure.<br/><br/> En almacenes de Recovery Services para Azure Site Recovery, puede [deshabilitar y volver a crear el almacén](../../site-recovery/move-vaults-across-regions.md) en la región de destino. |
@@ -1610,21 +1610,21 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatOpenShift
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | openshiftclusters | No | No | No |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | espacios de nombres | Sí | Sí | No |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | Consultas | Sí | Sí | No |
 > | resourcechangedetails | No | No | No |
@@ -1636,7 +1636,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | childresources | No | No | No |
 > | emergingissues | No | No | No |
@@ -1647,7 +1647,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | deployments | No | No | No |
 > | deploymentscripts | No | No | Sí<br/><br/>[Mover recursos de Microsoft.Resources a nueva región](microsoft-resources-move-regions.md) |
@@ -1665,7 +1665,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applications | Sí | No | No |
 > | saasresources | No | No | No |
@@ -1676,7 +1676,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > No puede mover varios recursos de Search de regiones diferentes en una operación. En su lugar, muévalos en operaciones independientes.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | resourcehealthmetadata | No | No | No |
 > | searchservices | Sí | Sí | No |
@@ -1684,7 +1684,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | adaptivenetworkhardenings | No | No | No |
 > | advancedthreatprotectionsettings | No | No | No |
@@ -1728,7 +1728,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | aggregations | No | No | No |
 > | alertrules | No | No | No |
@@ -1747,14 +1747,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftserialconsole"></a>Microsoft.SerialConsole
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | consoleservices | No | No | No |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | gateways | No | No | No |
 > | nodes | No | No | No |
@@ -1762,7 +1762,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | espacios de nombres | Sí | Sí | No |
 > | premiummessagingregions | No | No | No |
@@ -1771,7 +1771,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applications | No | No | No |
 > | clusters | Sí | Sí | No |
@@ -1786,7 +1786,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applications | Sí | Sí | No |
 > | containergroups | No | No | No |
@@ -1798,28 +1798,28 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftservices"></a>Microsoft.Services
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | rollouts | No | No | No |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | signalr | Sí | Sí | No |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | hybridusebenefits | No | No | No |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applicationdefinitions | No | No | No |
 > | applications | No | No | No |
@@ -1831,7 +1831,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > La base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos. Este comportamiento se aplica a las bases de datos de Azure SQL Database y Azure Synapse Analytics.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | instancepools | No | No | No |
 > | locations | Sí | Sí | No |
@@ -1848,7 +1848,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | sqlvirtualmachinegroups | Sí | Sí | No |
 > | sqlvirtualmachines | Sí | Sí | No |
@@ -1856,42 +1856,42 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | storageaccounts | Sí | Sí | Sí<br/><br/> [Traslado de una cuenta de Azure Storage a otra región](../../storage/common/storage-account-move.md) |
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | caches | No | No | No |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | storagesyncservices | Sí | Sí | No |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | storagesyncservices | No | No | No |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | storagesyncservices | No | No | No |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | managers | No | No | No |
 
@@ -1901,7 +1901,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Los trabajos de Stream Analytics no se pueden mover si se encuentran en estado de ejecución.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | No | No | No |
 > | streamingjobs | Sí | Sí | No |
@@ -1909,7 +1909,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | environments | No | No | No |
 > | instances | No | No | No |
@@ -1917,14 +1917,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | subscriptions | No | No | No |
 
 ## <a name="microsoftsupport"></a>Microsoft.Support
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | services | No | No | No |
 > | supporttickets | No | No | No |
@@ -1932,7 +1932,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftsynapse"></a>Microsoft.Synapse
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | workspaces | No | No | No |
 > | workspaces / bigdatapools | No | No | No |
@@ -1941,7 +1941,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | environments | Sí | Sí | No |
 > | environments/eventsources | Sí | Sí | No |
@@ -1950,14 +1950,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsofttoken"></a>Microsoft.Token
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | almacenes | Sí | Sí | No |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | imagetemplates | No | No | No |
 
@@ -1967,7 +1967,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Para cambiar la suscripción de Azure DevOps, vea [Cambiar la suscripción de Azure usada para la facturación](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | No | No | No |
 > | account/extension | No | No | No |
@@ -1976,7 +1976,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | arczones | No | No | No |
 > | resourcepools | No | No | No |
@@ -1988,7 +1988,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | dedicatedcloudnodes | No | No | No |
 > | dedicatedcloudservices | No | No | No |
@@ -1997,7 +1997,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | devices | No | No | No |
 > | vnfs | No | No | No |
@@ -2005,7 +2005,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftvsonline"></a>Microsoft.VSOnline
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | No | No | No |
 > | plans | No | No | No |
@@ -2017,7 +2017,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Vea [Guía de movimiento de App Service](./move-limitations/app-service-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | availablestacks | No | No | No |
 > | billingmeters | No | No | No |
@@ -2045,28 +2045,28 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | multipleactivationkeys | No | No | No |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | deviceservices | No | No | No |
 
 ## <a name="microsoftworkloadbuilder"></a>Microsoft.WorkloadBuilder
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | workloads | No | No | No |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription | Movimiento de región |
+> | Tipo de recurso | Resource group | Suscripción | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
 > | components | No | No | No |
 > | componentssummary | No | No | No |
@@ -2082,4 +2082,4 @@ Actualmente los servicios de terceros no son compatibles con la operación de tr
 
 - Para ver los comandos para trasladar recursos, vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](move-resource-group-and-subscription.md).
 - [Más información](../../resource-mover/overview.md) sobre el servicio Resource Mover.
-- Para obtener los mismos datos como un archivo de valores separados por comas, descargue [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
+- Para obtener los mismos datos como un archivo de valores separados por comas, descargue [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) para la compatibilidad de traslado de suscripciones y grupos de recursos. Si desea esas propiedades y, además, la compatibilidad de traslado de regiones, descargue [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).

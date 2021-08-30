@@ -8,43 +8,55 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/24/2021
+ms.date: 07/01/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 81bdc8550f57a7c1c4992825cd231a9bb3cad4ce
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1c7d4eeaf7df1764b021cd5914d6f4f4a88a9a1c
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457482"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213478"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-## <a name="password-reset-flow"></a>Flujo de restablecimiento de contraseña
+## <a name="overview"></a>Introducción
 
-El [recorrido de registro e inicio de sesión](add-sign-up-and-sign-in-policy.md) permite a los usuarios restablecer su propia contraseña mediante el vínculo **¿Olvidó la contraseña?** El flujo de restablecimiento de contraseña consta de los siguientes pasos:
+En un [recorrido de registro e inicio de sesión](add-sign-up-and-sign-in-policy.md), los usuarios pueden restablecer su propia contraseña mediante el vínculo **¿Ha olvidado la contraseña?** El flujo de autoservicio de restablecimiento de contraseña se aplica a las cuentas locales de Azure AD B2C que usan una [dirección de correo electrónico](sign-in-options.md#email-sign-in) o un [nombre de usuario](sign-in-options.md#username-sign-in) con una contraseña para el inicio de sesión.
 
-1. En la página de registro e inicio de sesión, el usuario hace clic en el vínculo **¿Olvidó la contraseña?** Azure AD B2C inicia el flujo de restablecimiento de contraseña.
-2. El usuario proporciona su dirección de correo electrónico y selecciona **Enviar código de verificación**. Azure AD B2C enviará al usuario un código de verificación.
-
-* El usuario debe abrir el buzón de correo electrónico y copiar el código de verificación. A continuación, el usuario debe escribir el código de verificación en la página de restablecimiento de contraseña de Azure AD B2C y seleccionar **Comprobar código**.
-
-> [!NOTE]
-> Una vez comprobado el correo electrónico, el usuario todavía puede seleccionar **Cambiar correo electrónico**, escribir el otro correo electrónico y repetir la comprobación del correo electrónico desde el principio.
-3. A continuación, el usuario puede escribir una nueva contraseña.
+El flujo de restablecimiento de contraseña consta de los siguientes pasos:
 
 ![Flujo de restablecimiento de contraseña](./media/add-password-reset-policy/password-reset-flow.png)
 
-El flujo de restablecimiento de contraseña se aplica a las cuentas locales de Azure AD B2C que utilizan una [dirección de correo electrónico](identity-provider-local.md#email-sign-in) o un [nombre de usuario](identity-provider-local.md#username-sign-in) con una contraseña para el inicio de sesión.
+**1.** En la página de registro e inicio de sesión, el usuario hace clic en el vínculo **¿Ha olvidado la contraseña?** Azure AD B2C inicia el flujo de restablecimiento de contraseña.
+
+**2.** El usuario proporciona su dirección de correo electrónico y selecciona **Enviar código de verificación**. Azure AD B2C envía el código de verificación a la bandeja de entrada del usuario. A continuación, el usuario copia el código de verificación del correo electrónico, lo escribe en la página de restablecimiento de contraseña de Azure AD B2C y selecciona **Comprobar código**.
+
+**3.** A continuación, el usuario puede escribir una nueva contraseña. (Una vez comprobado el correo electrónico, el usuario puede seleccionar el botón **Cambiar correo electrónico**; vea [Ocultar el botón Cambiar correo electrónico](#hiding-the-change-email-button) a continuación).
 
 > [!TIP]
-> El flujo del autoservicio de restablecimiento de contraseña permite a los usuarios cambiar su contraseña cuando el usuario la olvida y quiere restablecerla. Considere la posibilidad de configurar un [flujo de cambio de contraseña](add-password-change-policy.md) para admitir casos en los que un usuario conoce su contraseña y quiere cambiarla.
+> El flujo del autoservicio de restablecimiento de contraseña permite a los usuarios cambiar su contraseña cuando el usuario la olvida y quiere restablecerla. 
+> - En los casos en los que un usuario conoce su contraseña y quiere cambiarla, use un [flujo de cambio de contraseña](add-password-change-policy.md). 
+> - En los casos en los que quiere forzar a los usuarios a restablecer sus contraseñas (por ejemplo, cuando inician sesión por primera vez, cuando un administrador las ha restablecido o después de que se hayan migrado a Azure AD B2C con contraseñas aleatorias), use un flujo de [restablecimiento de contraseña forzado](force-password-reset.md).
 
-Una práctica común después de migrar los usuarios a Azure AD B2C con contraseñas aleatorias es que los usuarios comprueben sus direcciones de correo electrónico y restablezcan sus contraseñas durante el primer inicio de sesión. También es habitual obligar al usuario a restablecer su contraseña después de que un administrador la cambie; consulte cómo [forzar el restablecimiento de contraseña](force-password-reset.md) para habilitar esta característica.
+### <a name="hiding-the-change-email-button"></a>Ocultar el botón Cambiar correo electrónico
+
+Una vez comprobado el correo electrónico, el usuario puede seleccionar **Cambiar correo electrónico**, escribir el otro correo electrónico y repetir la comprobación del correo electrónico desde el principio. Si prefiere ocultar el botón **Cambiar correo electrónico**, puede modificar el archivo CSS para ocultar los elementos HTML asociados en la página. Por ejemplo, puede agregar la entrada CSS siguiente a selfAsserted.HTML y [personalizar la interfaz de usuario con plantillas HTML](customize-ui-with-html.md).
+
+```html
+<style type="text/css">
+   .changeClaims
+   {
+     visibility: hidden;
+   }
+</style>
+```
+
+Tenga en cuenta que el nombre predeterminado del botón **Cambiar correo electrónico** de la página selfasserted.html es `changeclaims`. Para encontrar el nombre del botón, inspeccione el origen de la página de registro con una herramienta del explorador (por ejemplo, Inspeccionar).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -303,8 +315,10 @@ Para permitir que los usuarios de la aplicación restablezcan la contraseña, se
 1. En la página **Crear un flujo de usuario**, seleccione el flujo de usuario **Restablecer contraseña**. 
 1. En **Seleccione una versión**, elija **Recomendada** y, luego, seleccione **Crear**.
 1. Escriba un **nombre** para el flujo de usuario. Por ejemplo, *passwordreset1*.
-1. En **Proveedores de identidades**, habilite **Reset password using email address** (Restablecer contraseña mediante la dirección de correo electrónico).
-1. En **Notificaciones de la aplicación**, seleccione **Mostrar más** y elija las notificaciones que quiere que se devuelvan en los tokens de autorización enviados de vuelta a la aplicación. Por ejemplo, seleccione **Id. de objeto del usuario**.
+1. En **Proveedores de identidades**, habilite **Reset password using username** (Restablecer contraseña mediante el nombre de usuario) o **Reset password using email address** (Restablecer contraseña mediante la dirección de correo electrónico).
+1. En **Autenticación multifactor**, si quiere exigir la comprobación de la identidad de los usuarios con un segundo método de autenticación, elija el tipo de método y cuándo aplicar la autenticación multifactor (MFA). [Más información](multi-factor-authentication.md).
+1. En **Acceso condicional**, si ha configurado directivas de acceso condicional para el inquilino de Azure AD B2C y quiere habilitarlas para este flujo de usuario, active la casilla **Aplicar directivas de acceso condicional**. No es necesario especificar un nombre de directiva. [Más información](conditional-access-user-flow.md?pivots=b2c-user-flow).
+1. 1. En **Notificaciones de la aplicación**, seleccione **Mostrar más** y elija las notificaciones que quiere que se devuelvan en los tokens de autorización enviados de vuelta a la aplicación. Por ejemplo, seleccione **Id. de objeto del usuario**.
 1. Seleccione **Aceptar**.
 1. Seleccione **Crear** para agregar el flujo de usuario. El prefijo *B2C_1* se anexa automáticamente al nombre.
 

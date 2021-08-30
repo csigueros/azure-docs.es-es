@@ -4,17 +4,21 @@ description: Aprenda a implementar instancias de App Service Environment para qu
 author: ccompy
 ms.assetid: 24e3e7eb-c160-49ff-8d46-e947818ef186
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 383b5bb5c7295fe54efda883e47b9b2338286de5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 117fe7d8c624c0776c6ec6f61296101a2f844f1b
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98624732"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432813"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Compatibilidad de zonas de disponibilidad con instancias de App Service Environment
+
+> [!NOTE]
+> En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados
+> 
 
 Las instancias de App Service Environment (ASE) se pueden implementar en Availability Zones (AZ).  Los clientes pueden implementar instancias de ASE de equilibrador de carga interno (ILB) en una instancia de AZ específica dentro de una región de Azure. Si ancla la instancia de ASE de ILB en una AZ específica, los recursos que usa una instancia de ASE de ILB se anclarán a la AZ especificada o se implementarán con redundancia de zona.  
 

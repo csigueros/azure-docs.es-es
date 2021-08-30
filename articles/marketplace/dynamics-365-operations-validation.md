@@ -7,16 +7,16 @@ ms.topic: article
 author: vamahtan
 ms.author: vamahtan
 ms.date: 05/19/2021
-ms.openlocfilehash: 45bdf3e0006aeaf24b8c3ede0f7090aabfe85808
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 05b7c223823522b7c511df7cfa66c7dffa2a8b4b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483355"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281294"
 ---
 # <a name="dynamics-365-for-operations-functional-validation"></a>Validación funcional de Dynamics 365 for Operations
 
-Para publicar una oferta de Dynamics 365 for Operations en el [Centro de partners](https://partner.microsoft.com/dashboard/home), hacen falta dos validaciones funcionales:
+Para publicar una oferta de Dynamics 365 for Operations en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002), hacen falta dos validaciones funcionales:
 
 - Carga de un vídeo de demostración del entorno de Dynamics 365 que muestre la funcionalidad básica.
 - Presentación de capturas de pantalla que muestren el entorno de [Lifecycle Services](https://lcs.dynamics.com/) (LCS) de la solución.
@@ -29,7 +29,7 @@ Para publicar una oferta de Dynamics 365 for Operations en el [Centro de partner
 Hay dos opciones para la validación funcional:
 
 - Mantener una conferencia telefónica de 30 minutos con nosotros en horario comercial de la hora estándar del Pacífico (PST) para demostrar y grabar el entorno [LCS](https://lcs.dynamics.com/) y la solución, o bien
-- En el Centro de partners, ir a [Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) > **Introducción** y cargar una dirección URL de un vídeo de demostración y capturas de pantalla de LCS en la pestaña Contenido adicional de la oferta.
+- En el Centro de partners, ir a [Marketplace comercial](https://go.microsoft.com/fwlink/?linkid=2165290) y cargar una dirección URL de un vídeo de demostración y capturas de pantalla de LCS en la pestaña Contenido adicional de la oferta.
 
 El equipo de certificación de Microsoft revisa el vídeo y los archivos, y aprueba la solución o le envía un correo electrónico con los pasos a seguir.
 
@@ -70,7 +70,7 @@ Para programar una llamada de revisión final, póngase en contacto con [appsour
 3. Realice la carga en el Centro de partners.
 
     1. Cree un documento de texto que incluya la dirección del vídeo de demostración y las capturas de pantalla, o guarde las capturas de pantalla como archivos JPG independientes.
-    2. Agregue el texto y las imágenes a un archivo .zip en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) en la pestaña **Supplemental content** (Contenido adicional).
+    2. Agregue el texto y las imágenes a un archivo .zip en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290) en la pestaña **Supplemental content** (Contenido adicional).
 
     [![Muestra la ventana de biblioteca del proyecto](media/dynamics-365-operations/supplemental-content.png)](media/dynamics-365-operations/supplemental-content.png#lightbox)
 

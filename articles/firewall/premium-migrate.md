@@ -1,27 +1,37 @@
 ---
-title: Migración a la versión preliminar de Azure Firewall Prémium
-description: Aprenda a migrar de Azure Firewall Estándar a la versión preliminar de Azure Firewall Prémium.
+title: Migración a Azure Firewall Prémium
+description: Obtenga información sobre cómo migrar de Azure Firewall Estándar a Azure Firewall Premium.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 08/16/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 27125e7f635c6d8f0690ebd39fb84eb3e0fb2989
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 53587cbc54b9e59268e6ee348bb8956a0b9ca993
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110700562"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228922"
 ---
-# <a name="migrate-to-azure-firewall-premium-preview"></a>Migración a la versión preliminar de Azure Firewall Prémium
+# <a name="migrate-to-azure-firewall-premium"></a>Migración a Azure Firewall Prémium
 
-Puede migrar Azure Firewall Estándar a la versión preliminar de Azure Firewall Prémium para aprovechar las ventajas de las nuevas funcionalidades prémium. Para más información sobre las características en versión preliminar de Azure Firewall Prémium, consulte [Características en versión preliminar de Azure Firewall Prémium](premium-features.md).
+Puede migrar Azure Firewall Estándar a Azure Firewall Premium para aprovechar las ventajas de las nuevas funcionalidades premium. Para obtener más información sobre las características de Azure Firewall Premium, consulte [Características de Azure Firewall Premium](premium-features.md).
 
 En los dos ejemplos siguientes se muestra cómo:
 - Migrar una directiva estándar existente mediante Azure PowerShell
 - Migrar un firewall estándar existente (con reglas clásicas) a Azure Firewall Prémium con una directiva prémium
+
+## <a name="performance-considerations"></a>Consideraciones de rendimiento
+
+El rendimiento es un aspecto que se debe tener en cuenta al migrar desde la SKU estándar. La inspección de IDPS y TLS son operaciones que consumen numerosos recursos informáticos. La SKU premium usa una SKU de máquina virtual más potente que se escala a un rendimiento máximo de 30 Gbps comparable a la SKU estándar. El rendimiento de 30 Gbps se admite cuando se configura con IDPS en modo de alerta. El uso de IDPS en modo de denegación y la inspección de TLS aumentan el consumo de CPU. Puede producirse una degradación al máximo rendimiento. 
+
+El rendimiento del firewall puede ser inferior a 30 Gbps si tiene una o más firmas establecidas en **Alertar y denegar** o reglas de aplicación con la **inspección de TLS** habilitada. Microsoft recomienda a sus clientes realizar pruebas a escala completa en su implementación de Azure para asegurarse de que el rendimiento del servicio de firewall cumpla sus expectativas.
+
+## <a name="downtime"></a>Tiempo de inactividad
+
+Migre el firewall durante un tiempo de mantenimiento planeado, ya que habrá cierto tiempo de inactividad durante la migración.
 
 ## <a name="migrate-an-existing-policy-using-azure-powershell"></a>Migrar una directiva existente con Azure PowerShell
 
@@ -52,7 +62,7 @@ param (
     [string]
     $PolicyId,
 
-    # #new filewallpolicy name, if not specified will be the previous name with the '_premium' suffix
+     #new firewallpolicy name, if not specified will be the previous name with the '_premium' suffix
     [Parameter(Mandatory=$false)]
     [string]
     $NewPolicyName = ""
@@ -194,7 +204,7 @@ En este ejemplo se muestra cómo usar Azure Portal para migrar un firewall está
 1. Seleccione **Revisar + crear**.
 1. Seleccione **Crear**.
 
-Cuando finalice la implementación, podrá configurar todas las características en versión preliminar de Azure Firewall Prémium.
+Cuando finalice la implementación, podrá configurar todas las nuevas características de Azure Firewall Premium.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

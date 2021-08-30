@@ -1,19 +1,19 @@
 ---
 title: Conversión de JSON y XML con plantillas de Liquid
-description: Transformación de JSON y XML usando plantillas de Liquid como asignaciones en Azure Logic Apps
+description: Transformación de JSON y XML usando plantillas de Liquid como asignaciones en Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/31/2020
-ms.openlocfilehash: 0362c9ed4f736474dbd49e1bfaf1373e0f48acd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/25/2021
+ms.openlocfilehash: 01b5e9930353078406751001300a1baa3c23cf00
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94992716"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690561"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Transformación de JSON y XML usando plantillas de Liquid como asignaciones en Azure Logic Apps
 
@@ -86,7 +86,7 @@ En este artículo se muestra cómo completar estas tareas:
 
 1. En el panel **Asignaciones**, seleccione **Agregar** y proporcione estos detalles para la asignación:
 
-   | Propiedad | Value | Descripción |
+   | Propiedad | Valor | Descripción |
    |----------|-------|-------------|
    | **Nombre** | `JsonToJsonTemplate` | Nombre de la asignación, que es "JsonToJsonTemplate" en este ejemplo |
    | **Tipo de asignación** | **liquid** | Tipo de la asignación. Para la transformación de JSON a JSON, debe seleccionar **liquid**. |
@@ -132,9 +132,20 @@ En este artículo se muestra cómo completar estas tareas:
 
 ## <a name="test-your-logic-app"></a>Comprobación de la aplicación lógica
 
-Publique la entrada JSON en la aplicación lógica mediante [Postman](https://www.getpostman.com/postman) o una herramienta parecida. La salida JSON transformada de la aplicación lógica tiene este aspecto:
+1. Mediante el uso de [Postman](https://www.getpostman.com/postman) o una herramienta similar y el método `POST`, envíe una llamada a la dirección URL del desencadenador de solicitud e incluya la entrada JSON que se va a transformar, por ejemplo:
 
-![Salida de ejemplo](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+   ```json
+   {
+      "devices": "Surface, Windows Phone, Desktop computer, Monitors",
+      "firstName": "Dean",
+      "lastName": "Ledet",
+      "phone": "(111)5551111"
+   }
+   ```
+
+1. Cuando el flujo de trabajo termine de ejecutarse, vaya al historial de ejecución del flujo de trabajo y examine las entradas y salidas de la acción **Transformar de JSON a JSON**, por ejemplo:
+
+   ![Salida de ejemplo](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
 <a name="template-considerations"></a>
 

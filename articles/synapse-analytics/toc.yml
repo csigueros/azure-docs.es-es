@@ -54,7 +54,7 @@ items:
         items:
           - name: Crear un área de trabajo
             items:
-              - name: Azure portal
+              - name: Azure Portal
                 href: quickstart-create-workspace.md
                 displayName: quickstart
               - name: Azure CLI
@@ -99,7 +99,7 @@ items:
                   - name: Data Flow
                     href: concepts-data-flow-overview.md
           - name: Programación de mantenimiento
-            href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/maintenance-scheduling.md?context=/azure/synapse-analytics/context/context
           - name: Control de código fuente
             href: ./cicd/source-control.md
           - name: Integración y entrega continuas
@@ -197,6 +197,8 @@ items:
                 href: troubleshoot/workspaces-created-by-sdk.md
               - name: Solución de problemas de lectura de texto UTF-8
                 href: troubleshoot/reading-utf8-text.md
+          - name: Desplazamiento de un área de trabajo a una nueva región
+            href: how-to-move-workspace-from-one-region-to-another.md
   - name: Guías de migración
     items:
       - name: Migración a un grupo de SQL dedicado
@@ -212,14 +214,14 @@ items:
             href: sql/on-demand-workspace-overview.md
             displayname: overview
           - name: Grupo de SQL dedicado
-            href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?context=/azure/synapse-analytics/context/context
             displayname: overview
           - name: Introducción a las características
             href: sql/overview-features.md
           - name: Modelos de consumo de recursos
             href: sql/resource-consumption-models.md
           - name: Límites de capacidad
-            href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context
           - name: Administración de costos para el grupo de SQL sin servidor
             href: sql/data-processed.md
           - name: Procedimientos recomendados para un grupo de SQL sin servidor
@@ -235,14 +237,14 @@ items:
           - name: Creación de un grupo de SQL dedicado mediante Azure Portal
             href: quickstart-create-sql-pool-portal.md
           - name: Pausa y reanudación mediante Azure Portal
-            href: ./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/pause-and-resume-compute-portal.md?context=/azure/synapse-analytics/context/context
           - name: Carga de datos con grupos de SQL dedicados
             items:
               - name: Instrucción COPY
-                href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?context=/azure/synapse-analytics/context/context
                 displayname: 'bulk, load'
               - name: Ejemplos de instrucción COPY
-                href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?context=/azure/synapse-analytics/context/context
                 displayname: 'bulk, load'
               - name: Synapse Studio
                 href: quickstart-load-studio-sql-pool.md
@@ -252,15 +254,15 @@ items:
               - name: Creación de clasificador de carga de trabajo
                 items:
                   - name: Portal
-                    href: ./sql-data-warehouse/quickstart-create-a-workload-classifier-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/quickstart-create-a-workload-classifier-portal.md?context=/azure/synapse-analytics/context/context
                   - name: T-SQL
-                    href: ./sql-data-warehouse/quickstart-create-a-workload-classifier-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/quickstart-create-a-workload-classifier-tsql.md?context=/azure/synapse-analytics/context/context
               - name: Creación de aislamiento de cargas de trabajo
                 items:
                   - name: Portal
-                    href: ./sql-data-warehouse/quickstart-configure-workload-isolation-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/quickstart-configure-workload-isolation-portal.md?context=/azure/synapse-analytics/context/context
                   - name: T-SQL
-                    href: ./sql-data-warehouse/quickstart-configure-workload-isolation-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/quickstart-configure-workload-isolation-tsql.md?context=/azure/synapse-analytics/context/context
       - name: Tutoriales
         items:
           - name: Uso de un grupo de SQL sin servidor para analizar datos
@@ -272,11 +274,11 @@ items:
       - name: Conceptos
         items:
           - name: Copia de seguridad y restauración
-            href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/backup-and-restore.md?context=/azure/synapse-analytics/context/context
           - name: Ingesta y preparación de datos
             items:
               - name: Información general
-                href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context
               - name: Procedimientos recomendados
                 href: sql/data-loading-best-practices.md
               - name: Compresión de almacén de columnas
@@ -295,10 +297,10 @@ items:
                     displayname: 'materialized, view,'
                     href: sql/develop-materialized-view-performance-tuning.md
                   - name: Crear
-                    href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?context=/azure/synapse-analytics/context/context
                     displayname: 'materialized, view'
                   - name: Modificar
-                    href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: /sql/t-sql/statements/alter-materialized-view-transact-sql?context=/azure/synapse-analytics/context/context
                     displayname: 'materialized, view'
               - name: Índice de almacén de columnas agrupado ordenado
                 items:
@@ -310,15 +312,15 @@ items:
                   - name: Guía para el ajuste del rendimiento
                     href: ./sql-data-warehouse/performance-tuning-result-set-caching.md
                   - name: Configuración de una base de datos
-                    href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+                    href: /sql/t-sql/statements/alter-database-transact-sql-set-options?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest
                   - name: Configuración de una sesión
-                    href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+                    href: /sql/t-sql/statements/set-result-set-caching-transact-sql?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest
                   - name: Comprobación del tamaño de la caché
-                    href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+                    href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest
                   - name: Limpieza de la caché
-                    href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+                    href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?context=/azure/synapse-analytics/context/context&view=azure-sqldw-latest
               - name: Predicciones de Machine Learning
-                href: ./sql-data-warehouse/sql-data-warehouse-predict.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-predict.md?context=/azure/synapse-analytics/context/context
               - name: Tablas
                 items:
                   - name: Información general
@@ -326,25 +328,25 @@ items:
                   - name: CETAS
                     href: sql/develop-tables-cetas.md
                   - name: CTAS
-                    href: ./sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context
                   - name: Tipos de datos
                     href: sql/develop-tables-data-types.md
                   - name: Tablas distribuidas
-                    href: ./sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context
                   - name: Restricciones de tabla
-                    href: ./sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-table-constraints.md?context=/azure/synapse-analytics/context/context
                   - name: Tablas externas
                     href: sql/develop-tables-external-tables.md
                   - name: Índices
-                    href: ./sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context
                   - name: Identidad
-                    href: ./sql-data-warehouse/sql-data-warehouse-tables-identity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-tables-identity.md?context=/azure/synapse-analytics/context/context
                   - name: OPENROWSET
                     href: sql/develop-openrowset.md
                   - name: Particiones
-                    href: ./sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context
                   - name: Tablas replicadas
-                    href: ./sql-data-warehouse/design-guidance-for-replicated-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/design-guidance-for-replicated-tables.md?context=/azure/synapse-analytics/context/context
                   - name: Estadísticas
                     href: sql/develop-tables-statistics.md
                   - name: Temporales
@@ -387,11 +389,11 @@ items:
           - name: Supervisión
             items:
               - name: Información general
-                href: ./sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?context=/azure/synapse-analytics/context/context
               - name: Utilización de recursos y actividad de consultas
-                href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?context=/azure/synapse-analytics/context/context
               - name: Recomendaciones
-                href: ./sql-data-warehouse/sql-data-warehouse-concept-recommendations.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-concept-recommendations.md?context=/azure/synapse-analytics/context/context
           - name: Seguridad
             items:
               - name: Control de acceso a base de datos
@@ -399,9 +401,9 @@ items:
               - name: Seguridad de los datos
                 items:
                   - name: Seguridad de nivel de columna
-                    href: ./sql-data-warehouse/column-level-security.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/column-level-security.md?context=/azure/synapse-analytics/context/context
                   - name: Seguridad de nivel de fila
-                    href: /sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: /sql/relational-databases/security/row-level-security?context=/azure/synapse-analytics/context/context
               - name: Cifrado de datos
                 items:
                   - name: Introducción a Cifrado de datos transparente
@@ -412,21 +414,21 @@ items:
           - name: Administración de cargas de trabajo
             items:
               - name: Información general
-                href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?context=/azure/synapse-analytics/context/context
                 displayname: 'workload, management'
               - name: Clasificación de la carga de trabajo
-                href: ./sql-data-warehouse/sql-data-warehouse-workload-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-workload-classification.md?context=/azure/synapse-analytics/context/context
               - name: Importancia de la carga de trabajo
-                href: ./sql-data-warehouse/sql-data-warehouse-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-workload-importance.md?context=/azure/synapse-analytics/context/context
               - name: Aislamiento de cargas de trabajo
-                href: ./sql-data-warehouse/sql-data-warehouse-workload-isolation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-workload-isolation.md?context=/azure/synapse-analytics/context/context
               - name: Supervisión de la administración de cargas de trabajo
-                href: ./sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor.md?context=/azure/synapse-analytics/context/context
               - name: Límites de memoria y simultaneidad
-                href: ./sql-data-warehouse/memory-concurrency-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/memory-concurrency-limits.md?context=/azure/synapse-analytics/context/context
                 displayname: 'workload, management'
               - name: Clases de recursos
-                href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context
                 displayname: 'workload, management'
       - name: Guías paso a paso
         items:
@@ -445,42 +447,42 @@ items:
               - name: 'Grupos de SQL: Synapse Studio'
                 href: monitoring/how-to-monitor-sql-pools.md
               - name: Supervisión de la memoria caché de Gen2
-                href: ./sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md?context=/azure/synapse-analytics/context/context
               - name: 'Supervisión de la carga de trabajo: Vistas de administración dinámica'
-                href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context
               - name: 'Supervisión de la carga de trabajo: portal'
-                href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?context=/azure/synapse-analytics/context/context
               - name: Administración de cargas de trabajo
                 items:
                   - name: Análisis de la carga de trabajo
-                    href: ./sql-data-warehouse/analyze-your-workload.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/analyze-your-workload.md?context=/azure/synapse-analytics/context/context
                   - name: Configuración de la importancia de la carga de trabajo
-                    href: ./sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md?context=/azure/synapse-analytics/context/context
                   - name: Administración y supervisión de la importancia de la carga de trabajo
-                    href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?context=/azure/synapse-analytics/context/context
                   - name: Conversión de las clases de recursos en grupos de cargas de trabajo
-                    href: ./sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md?context=/azure/synapse-analytics/context/context
           - name: Ingesta y preparación de datos
             items:
               - name: En el almacenamiento de datos
                 items:
                   - name: Azure Data Lake Storage
-                    href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?context=/azure/synapse-analytics/context/context
                   - name: Data Factory
-                    href: ../data-factory/load-azure-sql-data-warehouse.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
+                    href: ../data-factory/load-azure-sql-data-warehouse.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
                   - name: Azure Databricks
                     href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
                   - name: SSIS
                     href: /sql/integration-services/load-data-to-sql-data-warehouse
                     displayname: 'integration, services'
                   - name: Datos de taxi de Nueva York
-                    href: ./sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?context=/azure/synapse-analytics/context/context
                     displayname: 'load, blob'
                   - name: Datos públicos de Contoso
-                    href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?context=/azure/synapse-analytics/context/context
                     displayname: 'load, blob'
                   - name: Carga de WideWorldImporters
-                    href: ./sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/load-data-wideworldimportersdw.md?context=/azure/synapse-analytics/context/context
                   - name: Con la actividad de copia
                     href: data-integration/data-integration-sql-pool.md
               - name: En el lago de datos
@@ -490,9 +492,9 @@ items:
           - name: Administración e implementación de cambios
             items:
               - name: Instalación de Visual Studio SSDT
-                href: ./sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?context=/azure/synapse-analytics/context/context
               - name: Integración e implementación continuas
-                href: ./sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ./sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment.md?context=/azure/synapse-analytics/context/context
           - name: Consulta de datos externos
             items:
               - name: Información general
@@ -524,7 +526,7 @@ items:
               - name: Compilación de canalizaciones de datos
                 items:
                   - name: Adición de un trabajo de Azure Stream Analytics
-                    href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?context=/azure/synapse-analytics/context/context
           - name: Conexión con herramientas y aplicaciones
             items:
               - name: Información general
@@ -540,11 +542,11 @@ items:
               - name: Consulta con Visual Studio SSDT
                 href: sql/get-started-visual-studio.md
               - name: Consulta mediante .NET Core
-                href: ../azure-sql/database/connect-query-dotnet-core.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../azure-sql/database/connect-query-dotnet-core.md?context=/azure/synapse-analytics/context/context
               - name: Consulta mediante con Visual Studio .NET
-                href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?context=/azure/synapse-analytics/context/context
               - name: Consulta mediante Python
-                href: ../azure-sql/database/connect-query-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../azure-sql/database/connect-query-python.md?context=/azure/synapse-analytics/context/context
               - name: Consulta con sqlcmd
                 href: sql/get-started-connect-sqlcmd.md
   - name: Spark de Apache
@@ -587,7 +589,7 @@ items:
                 href: ./spark/apache-spark-version-support.md
               - name: "Runtime de Azure Synapse Apache Spark\_2.4"
                 href: ./spark/apache-spark-24-runtime.md
-              - name: "Runtime de Azure Synapse Apache Spark\_3.0"
+              - name: "Runtime de Azure Synapse Apache Spark\_3.1"
                 href: ./spark/apache-spark-3-runtime.md
           - name: Machine Learning
             href: ./spark/apache-spark-machine-learning-concept.md
@@ -666,9 +668,9 @@ items:
       - name: Información general
         items:
           - name: "Synapse Link para Azure Cosmos\_DB"
-            href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ../cosmos-db/synapse-link.md?context=/azure/synapse-analytics/context/context
           - name: Synapse Link for Dataverse
-            href: /powerapps/maker/data-platform/export-to-data-lake?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: /powerapps/maker/data-platform/export-to-data-lake?context=/azure/synapse-analytics/context/context
       - name: Guías de inicio rápido
         items:
           - name: "Conexión a Synapse Link para Cosmos\_DB"
@@ -678,43 +680,43 @@ items:
           - name: Cosmos DB
             items:
               - name: Introducción analítica a Microsoft Store
-                href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../cosmos-db/analytical-store-introduction.md?context=/azure/synapse-analytics/context/context
               - name: Características que admite Synapse Link
                 href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
               - name: "Preguntas más frecuentes de Cosmos\_DB"
-                href: ../cosmos-db/synapse-link-frequently-asked-questions.yml?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../cosmos-db/synapse-link-frequently-asked-questions.yml?context=/azure/synapse-analytics/context/context
               - name: Casos de uso de Synapse Link
-                href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../cosmos-db/synapse-link-use-cases.md?context=/azure/synapse-analytics/context/context
           - name: Dataverse
             items:
               - name: ¿Qué es Dataverse?
-                href: /powerapps/maker/data-platform/data-platform-intro?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: /powerapps/maker/data-platform/data-platform-intro?context=/azure/synapse-analytics/context/context
               - name: Valores de configuración de Synapse Link
-                href: /powerapps/maker/data-platform/azure-synapse-link-advanced-configuration?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: /powerapps/maker/data-platform/azure-synapse-link-advanced-configuration?context=/azure/synapse-analytics/context/context
               - name: Preguntas frecuentes sobre Dataverse
-                href: /powerapps/maker/data-platform/export-data-lake-faq?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: /powerapps/maker/data-platform/export-data-lake-faq?context=/azure/synapse-analytics/context/context
       - name: Guías paso a paso
         items:
           - name: Cosmos DB
             items:
               - name: Configuración de Synapse Link
-                href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context
               - name: "Conexión a Azure Synapse Link para Cosmos\_DB"
                 href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
               - name: "Uso de Power\_BI y un grupo de SQL sin servidor para analizar Azure Cosmos\_DB"
-                href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../cosmos-db/synapse-link-power-bi.md?context=/azure/synapse-analytics/context/context
               - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con Apache Spark"
                 href: ./synapse-link/how-to-query-analytical-store-spark.md
               - name: Copia de datos de Synapse Link a un grupo de SQL dedicado mediante Apache Spark
                 href: ./synapse-link/how-to-copy-to-sql-pool.md
               - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con un grupo de SQL sin servidor"
-                href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: sql/query-cosmos-db-analytical-store.md?context=/azure/synapse-analytics/context/context
           - name: Dataverse
             items:
               - name: Configuración de Synapse Link for Dataverse
-                href: /powerapps/maker/data-platform/azure-synapse-link-synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: /powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context
               - name: Exportación de datos a Azure Synapse
-                href: /dynamics365/customer-insights/audience-insights/export-azure-synapse-analytics?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: /dynamics365/customer-insights/audience-insights/export-azure-synapse-analytics?context=/azure/synapse-analytics/context/context
   - name: Canalización y flujo de datos
     items:
       - name: Guías de inicio rápido
@@ -728,15 +730,15 @@ items:
       - name: Conceptos
         items:
           - name: Canalización y actividad
-            href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ../data-factory/concepts-pipelines-activities.md?context=/azure/synapse-analytics/context/context
           - name: Servicios vinculados
-            href: ../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ../data-factory/concepts-linked-services.md?context=/azure/synapse-analytics/context/context
           - name: Conjuntos de datos
-            href: ../data-factory/concepts-datasets-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ../data-factory/concepts-datasets-linked-services.md?context=/azure/synapse-analytics/context/context
           - name: Ejecución y desencadenador
-            href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ../data-factory/concepts-pipeline-execution-triggers.md?context=/azure/synapse-analytics/context/context
           - name: Tiempo de ejecución de integración
-            href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ../data-factory/concepts-integration-runtime.md?context=/azure/synapse-analytics/context/context
           - name: Diferencias con respecto a Azure Data Factory
             href: ./data-integration/concepts-data-factory-differences.md
           - name: Flujos de datos
@@ -744,390 +746,390 @@ items:
               - name: Introducción al flujo de datos
                 href: concepts-data-flow-overview.md
               - name: Modo de depuración
-                href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context
               - name: Desfase de esquema
-                href: ../data-factory/concepts-data-flow-schema-drift.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/concepts-data-flow-schema-drift.md?context=/azure/synapse-analytics/context/context
               - name: Patrones de columnas
-                href: ../data-factory/concepts-data-flow-column-pattern.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/concepts-data-flow-column-pattern.md?context=/azure/synapse-analytics/context/context
               - name: Supervisión de Data Flow
-                href: ../data-factory/concepts-data-flow-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/concepts-data-flow-monitoring.md?context=/azure/synapse-analytics/context/context
               - name: Rendimiento de flujo de datos
-                href: ../data-factory/concepts-data-flow-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context
               - name: Administración de grafo
-                href: ../data-factory/concepts-data-flow-manage-graph.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/concepts-data-flow-manage-graph.md?context=/azure/synapse-analytics/context/context
               - name: Generador de expresiones
-                href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/concepts-data-flow-expression-builder.md?context=/azure/synapse-analytics/context/context
               - name: Lenguaje de expresiones
-                href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-expression-functions.md?context=/azure/synapse-analytics/context/context
       - name: Guías paso a paso
         items:
           - name: Autor
             items:
               - name: Creación visual de factorías de datos
-                href: ../data-factory/author-visually.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/author-visually.md?context=/azure/synapse-analytics/context/context
               - name: Desarrollo y depuración iterativos
-                href: ../data-factory/iterative-development-debugging.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/iterative-development-debugging.md?context=/azure/synapse-analytics/context/context
           - name: Conectores
             items:
               - name: Introducción a los conectores
-                href: ../data-factory/connector-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-overview.md?context=/azure/synapse-analytics/context/context
               - name: Servicio Web de Amazon Marketplace
-                href: ../data-factory/connector-amazon-marketplace-web-service.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context
               - name: Amazon Redshift
-                href: ../data-factory/connector-amazon-redshift.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context
               - name: Amazon S3
-                href: ../data-factory/connector-amazon-simple-storage-service.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-amazon-simple-storage-service.md?context=/azure/synapse-analytics/context/context
               - name: "Almacenamiento compatible con Amazon\_S3"
-                href: ../data-factory/connector-amazon-s3-compatible-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-amazon-s3-compatible-storage.md?context=/azure/synapse-analytics/context/context
               - name: Formato Avro
-                href: ../data-factory/format-avro.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/format-avro.md?context=/azure/synapse-analytics/context/context
               - name: Azure Blob Storage
-                href: ../data-factory/connector-azure-blob-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-blob-storage.md?context=/azure/synapse-analytics/context/context
               - name: Azure Cognitive Search
-                href: ../data-factory/connector-azure-search.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-search.md?context=/azure/synapse-analytics/context/context
               - name: API de SQL de Azure Cosmos DB
-                href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context
               - name: API de Azure Cosmos DB para MongoDB
-                href: ../data-factory/connector-azure-cosmos-db-mongodb-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-cosmos-db-mongodb-api.md?context=/azure/synapse-analytics/context/context
               - name: Explorador de datos de Azure
-                href: ../data-factory/connector-azure-data-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-data-explorer.md?context=/azure/synapse-analytics/context/context
               - name: Azure Data Lake Storage Gen1
-                href: ../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-data-lake-store.md?context=/azure/synapse-analytics/context/context
               - name: Azure Data Lake Storage Gen2
-                href: ../data-factory/connector-azure-data-lake-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-data-lake-storage.md?context=/azure/synapse-analytics/context/context
               - name: Azure Database for MariaDB
-                href: ../data-factory/connector-azure-database-for-mariadb.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-database-for-mariadb.md?context=/azure/synapse-analytics/context/context
               - name: Azure Database for MySQL
-                href: ../data-factory/connector-azure-database-for-mysql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-database-for-mysql.md?context=/azure/synapse-analytics/context/context
               - name: Azure Database for PostgreSQL
-                href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-database-for-postgresql.md?context=/azure/synapse-analytics/context/context
               - name: Azure Databricks Delta Lake
-                href: ../data-factory/connector-azure-databricks-delta-lake.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-databricks-delta-lake.md?context=/azure/synapse-analytics/context/context
               - name: Azure File Storage
-                href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-file-storage.md?context=/azure/synapse-analytics/context/context
               - name: "Azure\_SQL\_Database"
-                href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-sql-database.md?context=/azure/synapse-analytics/context/context
               - name: Instancia administrada de Azure SQL
                 href: ../data-factory/connector-azure-sql-managed-instance.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
               - name: Azure Synapse Analytics
-                href: ../data-factory/connector-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-sql-data-warehouse.md?context=/azure/synapse-analytics/context/context
               - name: Azure Table Storage
-                href: ../data-factory/connector-azure-table-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-azure-table-storage.md?context=/azure/synapse-analytics/context/context
               - name: Formato binario
-                href: ../data-factory/format-binary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/format-binary.md?context=/azure/synapse-analytics/context/context
               - name: Cassandra
-                href: ../data-factory/connector-cassandra.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-cassandra.md?context=/azure/synapse-analytics/context/context
               - name: Formato Common Data Model
-                href: ../data-factory/format-common-data-model.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/format-common-data-model.md?context=/azure/synapse-analytics/context/context
               - name: Concur
-                href: ../data-factory/connector-concur.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-concur.md?context=/azure/synapse-analytics/context/context
               - name: Couchbase
-                href: ../data-factory/connector-couchbase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-couchbase.md?context=/azure/synapse-analytics/context/context
               - name: Dataverse
-                href: ../data-factory/connector-dynamics-crm-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context
               - name: DB2
-                href: ../data-factory/connector-db2.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-db2.md?context=/azure/synapse-analytics/context/context
               - name: Formato de texto delimitado
-                href: ../data-factory/format-delimited-text.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/format-delimited-text.md?context=/azure/synapse-analytics/context/context
               - name: Detalles
-                href: ../data-factory/connector-drill.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-drill.md?context=/azure/synapse-analytics/context/context
               - name: Dynamics 365
-                href: ../data-factory/connector-dynamics-crm-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context
               - name: Dynamics AX
-                href: ../data-factory/connector-dynamics-ax.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-dynamics-ax.md?context=/azure/synapse-analytics/context/context
               - name: Dynamics CRM
-                href: ../data-factory/connector-dynamics-crm-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context
               - name: Formato de Excel
-                href: ../data-factory/format-excel.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/format-excel.md?context=/azure/synapse-analytics/context/context
               - name: Sistema de archivos
-                href: ../data-factory/connector-file-system.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-file-system.md?context=/azure/synapse-analytics/context/context
               - name: FTP
-                href: ../data-factory/connector-ftp.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-ftp.md?context=/azure/synapse-analytics/context/context
               - name: GitHub
-                href: ../data-factory/connector-github.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-github.md?context=/azure/synapse-analytics/context/context
               - name: Google AdWords
-                href: ../data-factory/connector-google-adwords.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-google-adwords.md?context=/azure/synapse-analytics/context/context
               - name: Google BigQuery
-                href: ../data-factory/connector-google-bigquery.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-google-bigquery.md?context=/azure/synapse-analytics/context/context
               - name: Google Cloud Storage
-                href: ../data-factory/connector-google-cloud-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-google-cloud-storage.md?context=/azure/synapse-analytics/context/context
               - name: Greenplum
-                href: ../data-factory/connector-greenplum.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-greenplum.md?context=/azure/synapse-analytics/context/context
               - name: HBase
-                href: ../data-factory/connector-hbase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-hbase.md?context=/azure/synapse-analytics/context/context
               - name: HDFS
-                href: ../data-factory/connector-hdfs.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-hdfs.md?context=/azure/synapse-analytics/context/context
               - name: Hive
-                href: ../data-factory/connector-hive.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-hive.md?context=/azure/synapse-analytics/context/context
               - name: HTTP
-                href: ../data-factory/connector-http.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-http.md?context=/azure/synapse-analytics/context/context
               - name: HubSpot
-                href: ../data-factory/connector-hubspot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-hubspot.md?context=/azure/synapse-analytics/context/context
               - name: Impala
-                href: ../data-factory/connector-impala.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-impala.md?context=/azure/synapse-analytics/context/context
               - name: Informix
-                href: ../data-factory/connector-informix.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-informix.md?context=/azure/synapse-analytics/context/context
               - name: Jira
-                href: ../data-factory/connector-jira.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-jira.md?context=/azure/synapse-analytics/context/context
               - name: Formato JSON
-                href: ../data-factory/format-json.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/format-json.md?context=/azure/synapse-analytics/context/context
               - name: Magento
-                href: ../data-factory/connector-magento.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-magento.md?context=/azure/synapse-analytics/context/context
               - name: MariaDB
-                href: ../data-factory/connector-mariadb.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-mariadb.md?context=/azure/synapse-analytics/context/context
               - name: Marketo
-                href: ../data-factory/connector-marketo.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-marketo.md?context=/azure/synapse-analytics/context/context
               - name: Microsoft Access
-                href: ../data-factory/connector-microsoft-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-microsoft-access.md?context=/azure/synapse-analytics/context/context
               - name: MongoDB
-                href: ../data-factory/connector-mongodb.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-mongodb.md?context=/azure/synapse-analytics/context/context
                 items:
                   - name: MongoDB (heredado)
-                    href: ../data-factory/connector-mongodb-legacy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ../data-factory/connector-mongodb-legacy.md?context=/azure/synapse-analytics/context/context
               - name: MongoDB Atlas
-                href: ../data-factory/connector-mongodb-atlas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-mongodb-atlas.md?context=/azure/synapse-analytics/context/context
               - name: MySQL
-                href: ../data-factory/connector-mysql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-mysql.md?context=/azure/synapse-analytics/context/context
               - name: Netezza
-                href: ../data-factory/connector-netezza.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-netezza.md?context=/azure/synapse-analytics/context/context
               - name: OData
-                href: ../data-factory/connector-odata.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-odata.md?context=/azure/synapse-analytics/context/context
               - name: ODBC
-                href: ../data-factory/connector-odbc.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-odbc.md?context=/azure/synapse-analytics/context/context
               - name: Office 365
-                href: ../data-factory/connector-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-office-365.md?context=/azure/synapse-analytics/context/context
               - name: Oracle
-                href: ../data-factory/connector-oracle.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-oracle.md?context=/azure/synapse-analytics/context/context
               - name: Oracle Cloud Storage
-                href: ../data-factory/connector-oracle-cloud-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-oracle-cloud-storage.md?context=/azure/synapse-analytics/context/context
               - name: Oracle Eloqua
-                href: ../data-factory/connector-oracle-eloqua.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-oracle-eloqua.md?context=/azure/synapse-analytics/context/context
               - name: Oracle Responsys
-                href: ../data-factory/connector-oracle-responsys.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-oracle-responsys.md?context=/azure/synapse-analytics/context/context
               - name: Oracle Service Cloud
-                href: ../data-factory/connector-oracle-service-cloud.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-oracle-service-cloud.md?context=/azure/synapse-analytics/context/context
               - name: Formato ORC
-                href: ../data-factory/format-orc.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/format-orc.md?context=/azure/synapse-analytics/context/context
               - name: Formato Parquet
-                href: ../data-factory/format-parquet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/format-parquet.md?context=/azure/synapse-analytics/context/context
               - name: PayPal
-                href: ../data-factory/connector-paypal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-paypal.md?context=/azure/synapse-analytics/context/context
               - name: Phoenix
-                href: ../data-factory/connector-phoenix.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-phoenix.md?context=/azure/synapse-analytics/context/context
               - name: PostgreSQL
-                href: ../data-factory/connector-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-postgresql.md?context=/azure/synapse-analytics/context/context
               - name: Presto
-                href: ../data-factory/connector-presto.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-presto.md?context=/azure/synapse-analytics/context/context
               - name: QuickBooks Online
-                href: ../data-factory/connector-quickbooks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-quickbooks.md?context=/azure/synapse-analytics/context/context
               - name: REST
-                href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-rest.md?context=/azure/synapse-analytics/context/context
               - name: Salesforce
-                href: ../data-factory/connector-salesforce.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-salesforce.md?context=/azure/synapse-analytics/context/context
               - name: Salesforce Service Cloud
-                href: ../data-factory/connector-salesforce-service-cloud.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-salesforce-service-cloud.md?context=/azure/synapse-analytics/context/context
               - name: Nube de marketing de Salesforce
-                href: ../data-factory/connector-salesforce-marketing-cloud.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-salesforce-marketing-cloud.md?context=/azure/synapse-analytics/context/context
               - name: Centro abierto de SAP Business Warehouse
-                href: ../data-factory/connector-sap-business-warehouse-open-hub.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-sap-business-warehouse-open-hub.md?context=/azure/synapse-analytics/context/context
                 items:
                   - name: Carga de datos de SAP BW
-                    href: ../data-factory/load-sap-bw-data.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ../data-factory/load-sap-bw-data.md?context=/azure/synapse-analytics/context/context
               - name: Expresión multidimensional de SAP Business Warehouse
-                href: ../data-factory/connector-sap-business-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-sap-business-warehouse.md?context=/azure/synapse-analytics/context/context
               - name: SAP Cloud for Customer
-                href: ../data-factory/connector-sap-cloud-for-customer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-sap-cloud-for-customer.md?context=/azure/synapse-analytics/context/context
               - name: SAP ECC
-                href: ../data-factory/connector-sap-ecc.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-sap-ecc.md?context=/azure/synapse-analytics/context/context
               - name: SAP HANA
-                href: ../data-factory/connector-sap-hana.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-sap-hana.md?context=/azure/synapse-analytics/context/context
               - name: SAP Table
-                href: ../data-factory/connector-sap-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-sap-table.md?context=/azure/synapse-analytics/context/context
               - name: ServiceNow
-                href: ../data-factory/connector-servicenow.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-servicenow.md?context=/azure/synapse-analytics/context/context
               - name: SFTP
-                href: ../data-factory/connector-sftp.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-sftp.md?context=/azure/synapse-analytics/context/context
               - name: Lista de SharePoint Online
-                href: ../data-factory/connector-sharepoint-online-list.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context
               - name: Shopify
-                href: ../data-factory/connector-shopify.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-shopify.md?context=/azure/synapse-analytics/context/context
               - name: Snowflake
-                href: ../data-factory/connector-snowflake.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-snowflake.md?context=/azure/synapse-analytics/context/context
               - name: Spark
-                href: ../data-factory/connector-spark.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-spark.md?context=/azure/synapse-analytics/context/context
               - name: SQL Server
-                href: ../data-factory/connector-sql-server.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-sql-server.md?context=/azure/synapse-analytics/context/context
               - name: Square
-                href: ../data-factory/connector-square.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-square.md?context=/azure/synapse-analytics/context/context
               - name: Sybase
-                href: ../data-factory/connector-sybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-sybase.md?context=/azure/synapse-analytics/context/context
               - name: Teradata
-                href: ../data-factory/connector-teradata.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-teradata.md?context=/azure/synapse-analytics/context/context
               - name: Vertica
-                href: ../data-factory/connector-vertica.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-vertica.md?context=/azure/synapse-analytics/context/context
               - name: Tabla web
-                href: ../data-factory/connector-web-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-web-table.md?context=/azure/synapse-analytics/context/context
               - name: Xero
-                href: ../data-factory/connector-xero.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-xero.md?context=/azure/synapse-analytics/context/context
               - name: Formato XML
-                href: ../data-factory/format-xml.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/format-xml.md?context=/azure/synapse-analytics/context/context
               - name: Zoho
-                href: ../data-factory/connector-zoho.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-zoho.md?context=/azure/synapse-analytics/context/context
           - name: Mover datos
             items:
               - name: Copia de datos con la actividad de copia
-                href: ../data-factory/copy-activity-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/copy-activity-overview.md?context=/azure/synapse-analytics/context/context
               - name: Supervisión de actividad de copia
-                href: ../data-factory/copy-activity-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/copy-activity-monitoring.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Eliminación de archivos con la actividad de eliminación
-                href: ../data-factory/delete-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/delete-activity.md?context=/azure/synapse-analytics/context/context
               - name: Herramienta Copiar datos
-                href: ../data-factory/copy-data-tool.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/copy-data-tool.md?context=/azure/synapse-analytics/context/context
               - name: Compatibilidad con formato y compresión
-                href: ../data-factory/supported-file-formats-and-compression-codecs.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/supported-file-formats-and-compression-codecs.md?context=/azure/synapse-analytics/context/context
               - name: Rendimiento de actividad de copia
                 items:
                   - name: Guía de rendimiento y escalabilidad
-                    href: ../data-factory/copy-activity-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ../data-factory/copy-activity-performance.md?context=/azure/synapse-analytics/context/context
                   - name: Solución de problemas de rendimiento
-                    href: ../data-factory/copy-activity-performance-troubleshooting.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ../data-factory/copy-activity-performance-troubleshooting.md?context=/azure/synapse-analytics/context/context
                   - name: Características de rendimiento
-                    href: ../data-factory/copy-activity-performance-features.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                    href: ../data-factory/copy-activity-performance-features.md?context=/azure/synapse-analytics/context/context
               - name: Conservación de metadatos y listas de control de acceso
-                href: ../data-factory/copy-activity-preserve-metadata.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/copy-activity-preserve-metadata.md?context=/azure/synapse-analytics/context/context
               - name: Esquema y asignación de tipos
-                href: ../data-factory/copy-activity-schema-and-type-mapping.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/copy-activity-schema-and-type-mapping.md?context=/azure/synapse-analytics/context/context
               - name: Tolerancia a errores
-                href: ../data-factory/copy-activity-fault-tolerance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/copy-activity-fault-tolerance.md?context=/azure/synapse-analytics/context/context
               - name: Comprobación de la coherencia de los datos
-                href: ../data-factory/copy-activity-data-consistency.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/copy-activity-data-consistency.md?context=/azure/synapse-analytics/context/context
               - name: Compatibilidad con formato y compresión (heredado)
-                href: ../data-factory/supported-file-formats-and-compression-codecs-legacy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/supported-file-formats-and-compression-codecs-legacy.md?context=/azure/synapse-analytics/context/context
           - name: Transformación de datos
-            href: ../data-factory/transform-data.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ../data-factory/transform-data.md?context=/azure/synapse-analytics/context/context
             items:
               - name: Ejecución de una actividad de Data Flow
-                href: ../data-factory/control-flow-execute-data-flow-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-execute-data-flow-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de Synapse Notebook
                 href: synapse-notebook-activity.md
               - name: Actividad de procedimiento almacenado de grupo de Synapse SQL
                 href: ./data-integration/sql-pool-stored-procedure-activity.md
               - name: Actividad de función de Azure
-                href: ../data-factory/control-flow-azure-function-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-azure-function-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad personalizada
-                href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-using-dotnet-custom-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de Jar en Databricks
-                href: ../data-factory/transform-data-databricks-jar.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-databricks-jar.md?context=/azure/synapse-analytics/context/context
               - name: Actividad Notebook de Databricks
-                href: ../data-factory/transform-data-databricks-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-databricks-notebook.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de Python en Databricks
-                href: ../data-factory/transform-data-databricks-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-databricks-python.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de comando de Data Explorer
-                href: /azure/data-explorer/data-factory-command-activity?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: /azure/data-explorer/data-factory-command-activity?context=/azure/synapse-analytics/context/context
               - name: Actividad de U-SQL de Data Lake
-                href: ../data-factory/transform-data-using-data-lake-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-using-data-lake-analytics.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de HDInsight Hive
-                href: ../data-factory/transform-data-using-hadoop-hive.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-using-hadoop-hive.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de MapReduce de HDInsight
-                href: ../data-factory/transform-data-using-hadoop-map-reduce.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-using-hadoop-map-reduce.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de HDInsight Pig
-                href: ../data-factory/transform-data-using-hadoop-pig.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-using-hadoop-pig.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de HDInsight Spark
-                href: ../data-factory/transform-data-using-spark.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-using-spark.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de HDInsight Streaming
-                href: ../data-factory/transform-data-using-hadoop-streaming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-using-hadoop-streaming.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de ejecución de canalización de Machine Learning
-                href: ../data-factory/transform-data-machine-learning-service.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-machine-learning-service.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de ejecución por lotes de Machine Learning Studio (clásico)
-                href: ../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-using-machine-learning.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de actualización de recursos de Machine Learning Studio (clásico)
-                href: ../data-factory/update-machine-learning-models.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/update-machine-learning-models.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de procedimiento almacenado
-                href: ../data-factory/transform-data-using-stored-procedure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/transform-data-using-stored-procedure.md?context=/azure/synapse-analytics/context/context
               - name: Servicios vinculados de proceso
-                href: ../data-factory/compute-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/compute-linked-services.md?context=/azure/synapse-analytics/context/context
           - name: Flujo de control
             items:
               - name: Actividad de anexión de variables
-                href: ../data-factory/control-flow-append-variable-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-append-variable-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de ejecución de canalización
-                href: ../data-factory/control-flow-execute-pipeline-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-execute-pipeline-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de filtro
-                href: ../data-factory/control-flow-filter-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-filter-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad ForEach
-                href: ../data-factory/control-flow-for-each-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-for-each-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de obtención de metadatos
-                href: ../data-factory/control-flow-get-metadata-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-get-metadata-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad If Condition
-                href: ../data-factory/control-flow-if-condition-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-if-condition-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de búsqueda
-                href: ../data-factory/control-flow-lookup-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-lookup-activity.md?context=/azure/synapse-analytics/context/context
               - name: Establecimiento de la actividad de variable
-                href: ../data-factory/control-flow-set-variable-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-set-variable-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad Until
-                href: ../data-factory/control-flow-until-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-until-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de validación
-                href: ../data-factory/control-flow-validation-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-validation-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de espera
-                href: ../data-factory/control-flow-wait-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-wait-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad web
-                href: ../data-factory/control-flow-web-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-web-activity.md?context=/azure/synapse-analytics/context/context
               - name: Actividad de webhook
-                href: ../data-factory/control-flow-webhook-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-webhook-activity.md?context=/azure/synapse-analytics/context/context
           - name: Transformaciones de flujos de datos
             items:
               - name: Introducción a las transformaciones
-                href: ../data-factory/data-flow-transformation-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-transformation-overview.md?context=/azure/synapse-analytics/context/context
               - name: Agregado
-                href: ../data-factory/data-flow-aggregate.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-aggregate.md?context=/azure/synapse-analytics/context/context
               - name: Alteración de fila
-                href: ../data-factory/data-flow-alter-row.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-alter-row.md?context=/azure/synapse-analytics/context/context
               - name: División condicional
-                href: ../data-factory/data-flow-conditional-split.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-conditional-split.md?context=/azure/synapse-analytics/context/context
               - name: Columna derivada
-                href: ../data-factory/data-flow-derived-column.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-derived-column.md?context=/azure/synapse-analytics/context/context
               - name: Exists
-                href: ../data-factory/data-flow-exists.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-exists.md?context=/azure/synapse-analytics/context/context
               - name: Filter
-                href: ../data-factory/data-flow-filter.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-filter.md?context=/azure/synapse-analytics/context/context
               - name: Acoplar
-                href: ../data-factory/data-flow-flatten.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-flatten.md?context=/azure/synapse-analytics/context/context
               - name: Join
-                href: ../data-factory/data-flow-join.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-join.md?context=/azure/synapse-analytics/context/context
               - name: Búsqueda
-                href: ../data-factory/data-flow-lookup.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-lookup.md?context=/azure/synapse-analytics/context/context
               - name: Nueva rama
-                href: ../data-factory/data-flow-new-branch.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-new-branch.md?context=/azure/synapse-analytics/context/context
               - name: Dinamización
-                href: ../data-factory/data-flow-pivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-pivot.md?context=/azure/synapse-analytics/context/context
               - name: Rango
-                href: ../data-factory/data-flow-rank.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-rank.md?context=/azure/synapse-analytics/context/context
               - name: Seleccionar
-                href: ../data-factory/data-flow-select.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-select.md?context=/azure/synapse-analytics/context/context
               - name: Receptor
-                href: ../data-factory/data-flow-sink.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-sink.md?context=/azure/synapse-analytics/context/context
               - name: Sort
-                href: ../data-factory/data-flow-sort.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-sort.md?context=/azure/synapse-analytics/context/context
               - name: Source
-                href: ../data-factory/data-flow-source.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-source.md?context=/azure/synapse-analytics/context/context
               - name: Clave suplente
-                href: ../data-factory/data-flow-surrogate-key.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-surrogate-key.md?context=/azure/synapse-analytics/context/context
               - name: Union
-                href: ../data-factory/data-flow-union.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-union.md?context=/azure/synapse-analytics/context/context
               - name: Anulación de dinamización
-                href: ../data-factory/data-flow-unpivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-unpivot.md?context=/azure/synapse-analytics/context/context
               - name: Periodo
-                href: ../data-factory/data-flow-window.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-flow-window.md?context=/azure/synapse-analytics/context/context
           - name: Parametrizar
             items:
               - name: Parametrizar servicios vinculados
-                href: ../data-factory/parameterize-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/parameterize-linked-services.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Lenguaje de expresiones
-                href: ../data-factory/control-flow-expression-language-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-expression-language-functions.md?context=/azure/synapse-analytics/context/context
               - name: Variables del sistema
-                href: ../data-factory/control-flow-system-variables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/control-flow-system-variables.md?context=/azure/synapse-analytics/context/context
               - name: Parámetros de flujo de datos
-                href: ../data-factory/parameters-data-flow.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/parameters-data-flow.md?context=/azure/synapse-analytics/context/context
           - name: Administración y supervisión
             items:
               - name: Ejecuciones de la canalización
@@ -1135,77 +1137,95 @@ items:
           - name: Creación de tiempo de ejecución de integración
             items:
               - name: Tiempo de ejecución de integración de Azure
-                href: ../data-factory/create-azure-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/create-azure-integration-runtime.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Integration Runtime autohospedado
-                href: ../data-factory/create-self-hosted-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/create-self-hosted-integration-runtime.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Creación de desencadenadores
             items:
               - name: Creación de un desencadenador basado en eventos
-                href: ../data-factory/how-to-create-event-trigger.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/how-to-create-event-trigger.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Creación de un desencadenador de programación
-                href: ../data-factory/how-to-create-schedule-trigger.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/how-to-create-schedule-trigger.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Creación de un desencadenador de ventana de saltos de tamaño constante
-                href: ../data-factory/how-to-create-tumbling-window-trigger.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/how-to-create-tumbling-window-trigger.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante
-                href: ../data-factory/tumbling-window-trigger-dependency.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/tumbling-window-trigger-dependency.md?context=/azure/synapse-analytics/context/context
           - name: Guía de solución de problemas
             items:
               - name: Solución de problemas de actividad
-                href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/data-factory-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context
               - name: Solución de problemas del conector
-                href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/connector-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context
               - name: Integración e implementación continuas
-                href: ../data-factory/ci-cd-github-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/ci-cd-github-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context
               - name: Seguridad y control de acceso
-                href: ../data-factory/security-and-access-control-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/security-and-access-control-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context
               - name: Solución de problemas de los entornos de ejecución de integración autohospedados
-                href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
   - name: Machine Learning
     items:
       - name: Información general
         items:
           - name: ¿Qué es el aprendizaje automático en Azure Synapse?
             href: machine-learning/what-is-machine-learning.md
-          - name: Cognitive Services en Azure Synapse Analytics
-            href: machine-learning/overview-cognitive-services.md
       - name: Guías de inicio rápido
         items:
           - name: Uso de un cuaderno de ejemplo desde la galería
             href: machine-learning/quickstart-gallery-sample-notebook.md
-          - name: Creación de un servicio vinculado de Azure Machine Learning
-            href: machine-learning/quickstart-integrate-azure-machine-learning.md
+          - name: Creación de un servicio vinculado
+            items:
+              - name: Azure Machine Learning
+                displayName: linked service
+                href: machine-learning/quickstart-integrate-azure-machine-learning.md
+              - name: Cognitive Services
+                displayName: 'linked service, configure'
+                href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
       - name: Conceptos
         items:
-          - name: Entrenamiento de modelos
+          - name: Entrenamiento de modelos de Machine Learning
             href: ./spark/apache-spark-machine-learning-training.md
       - name: Tutoriales
         items:
-          - name: Visualización de data con Apache Spark
-            displayname: machine learning
-            href: ./spark/apache-spark-data-visualization-tutorial.md
-          - name: Uso del Asistente para puntuación para los grupos de SQL dedicados
-            displayname: machine learning
-            href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-          - name: Entrenamiento de un modelo sin código con AutoML
-            displayname: machine learning
-            href: ./machine-learning/tutorial-automl.md
-          - name: Entrenamiento de un modelo en Python con AutoML
-            displayname: machine learning
-            href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-          - name: Creación de un modelo con Apache Spark MLlib
-            displayname: machine learning
-            href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-          - name: Configuración de Cognitive Services para Azure Synapse
-            href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
-          - name: Análisis de sentimiento con Cognitive Services
-            href: ./machine-learning/tutorial-cognitive-services-sentiment.md
-          - name: Detección de anomalías con Cognitive Services
-            href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-          - name: Creación de aplicaciones de aprendizaje automático con Microsoft Machine Learning para Apache Spark (versión preliminar)
-            href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
-          - name: Lectura y escritura de ADLS mediante la especificación del sistema de archivos y el servicio vinculado
-            displayname: machine learning
-            href: ./machine-learning/tutorial-spark-pool-filesystem-spec.md
+          - name: Preparación y acceso a datos
+            items:
+              - name: Lectura y escritura de ADLS con especificación del sistema de archivos
+                displayName: 'data prep, data preparation'
+                href: ./machine-learning/tutorial-spark-pool-filesystem-spec.md
+              - name: Visualización de data con Apache Spark
+                displayName: 'data prep, data preparation, visualization'
+                href: ./spark/apache-spark-data-visualization-tutorial.md
+          - name: Entrenamiento de un modelo
+            items:
+              - name: Con Apache Spark MLlib
+                displayName: train model
+                href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+              - name: Con aprendizaje automático automatizado
+                items:
+                  - name: Sin código
+                    displayName: 'train model, automated machine learning, automated ml, automl'
+                    href: ./machine-learning/tutorial-automl.md
+                  - name: En Python
+                    displayName: 'train model, automated machine learning, automated ml, automl'
+                    href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+          - name: Puntuación de un modelo
+            items:
+              - name: Uso del Asistente para puntuación para los grupos de SQL dedicados
+                displayName: score model
+                href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+              - name: Con Cognitive Services
+                items:
+                  - name: Información general
+                    displayName: 'cognitive services, score model'
+                    href: machine-learning/overview-cognitive-services.md
+                  - name: Asistente de análisis de sentimiento
+                    displayName: 'cognitive services, score model'
+                    href: ./machine-learning/tutorial-cognitive-services-sentiment.md
+                  - name: Asistente de detección de anomalías
+                    displayName: 'cognitive services, score model'
+                    href: ./machine-learning/tutorial-cognitive-services-anomaly.md
+                  - name: Con Apache Spark (MMLSpark)
+                    displayName: 'cognitive services, score model, applications'
+                    href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
   - name: Data Catalog y gobernanza
     items:
       - name: Guías de inicio rápido
@@ -1225,13 +1245,13 @@ items:
       - name: Azure CLI
         href: /cli/azure/
       - name: Tipos de intercalación de base de datos
-        href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/reference-collation-types.md?context=/azure/synapse-analytics/context/context
       - name: Go
         href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/synapse@v43.3.0+incompatible'
       - name: .NET
         href: /dotnet/api/microsoft.azure.management.synapse?preserve-view=true&view=azure-dotnet-preview
       - name: Azure PowerShell
-        href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: /powershell/module/az.synapse?context=/azure/synapse-analytics/context/context
       - name: API de REST
         href: /rest/api/synapse/
       - name: Utilidades Spark para Microsoft
@@ -1239,7 +1259,7 @@ items:
       - name: Ejemplos
         href: 'https://github.com/Azure-Samples/Synapse'
       - name: Vistas del sistema
-        href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/reference-tsql-system-views.md?context=/azure/synapse-analytics/context/context
       - name: Elementos integrados de Azure Policy
         displayName: 'samples, policies, definitions'
         href: ./policy-reference.md
@@ -1248,9 +1268,9 @@ items:
           - name: Referencia completa
             href: /sql/t-sql/language-reference/
           - name: Elementos de lenguaje T-SQL de SQL de Synapse
-            href: ./sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md?context=/azure/synapse-analytics/context/context
           - name: Instrucciones T-SQL de SQL de Synapse
-            href: ./sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?context=/azure/synapse-analytics/context/context
   - name: Recursos
     items:
       - name: Azure Roadmap
@@ -1270,7 +1290,7 @@ items:
       - name: Stack Overflow
         href: 'https://stackoverflow.com/questions/tagged/azure-synapse/'
       - name: Soporte técnico
-        href: ./sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?context=/azure/synapse-analytics/context/context
       - name: Autoayuda del cliente
         items:
           - name: Grupo de SQL sin servidor
@@ -1278,14 +1298,14 @@ items:
       - name: Asociados
         items:
           - name: Business intelligence
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?context=/azure/synapse-analytics/context/context
           - name: Integración de datos
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-data-integration.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/sql-data-warehouse-partner-data-integration.md?context=/azure/synapse-analytics/context/context
           - name: Administración de datos
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-data-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/sql-data-warehouse-partner-data-management.md?context=/azure/synapse-analytics/context/context
           - name: Aprendizaje automático e inteligencia artificial
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md?context=/azure/synapse-analytics/context/context
           - name: Integración del sistema
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-system-integration.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/sql-data-warehouse-partner-system-integration.md?context=/azure/synapse-analytics/context/context
           - name: Problemas de compatibilidad con aplicaciones de terceros
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            href: ./sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md?context=/azure/synapse-analytics/context/context

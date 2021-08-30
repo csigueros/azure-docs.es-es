@@ -3,12 +3,12 @@ title: Configuración de vRealize Operations para Azure VMware Solution
 description: Aprenda a configurar vRealize Operations para una nube privada de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: 127280d22e26a88b81016aeb53432dade45dc010
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b4c854eefb11eaeb42153f39280d8251c2aa8476
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769316"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434019"
 ---
 # <a name="configure-vrealize-operations-for-azure-vmware-solution"></a>Configuración de vRealize Operations para Azure VMware Solution
 
@@ -37,7 +37,7 @@ Revise primero detenidamente las secciones [Antes de comenzar](#before-you-begin
 ## <a name="on-premises-vrealize-operations-managing-azure-vmware-solution-deployment"></a>vRealize Operations locales que administran la implementación de Azure VMware Solution
 La mayoría de los clientes tienen una implementación local existente de vRealize Operations para administrar uno o varios dominios de vCenters locales. Cuando aprovisionan una nube privada de Azure VMware Solution, conectan su entorno local con su nube privada mediante Azure ExpressRoute o una solución de VPN de nivel 3.  
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="vRealize Operations locales que administran la implementación de Azure VMware Solution" border="false":::
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="Diagrama que muestra la instancia local de vRealize Operations que administra la implementación de Azure VMware Solution." border="false":::
 
 Para ampliar las funciones de vRealize Operations a la nube privada de Azure VMware Solution, cree una [instancia de adaptador para los recursos de la nube privada](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.config.doc/GUID-640AD750-301E-4D36-8293-1BFEB67E2600.html). Recopila datos de la nube privada de Azure VMware Solution y los transfiere a la instancia local de vRealize Operations. La instancia local de vRealize Operations Manager se puede conectar directamente a vCenter y NSX-T Manager en Azure VMware Solution. Opcionalmente, puede implementar un recopilador remoto de vRealize Operations en la nube privada de Azure VMware Solution. El recopilador comprime y cifra los datos recopilados de la nube privada antes de enviarlos a través de la red VPN o de ExpressRoute a la instancia de vRealize Operations Manager que se ejecuta en el entorno local. 
 
@@ -53,7 +53,7 @@ Otra opción consiste en implementar una instancia de vRealize Operations Manage
 >[!IMPORTANT]
 >Esta opción no es compatible actualmente con VMware.
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="vRealize Operations que se ejecutan en Azure VMware Solution" border="false":::
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="Diagrama que muestra la instancia de vRealize Operations que se ejecuta en Azure VMware Solution." border="false":::
 
 Una vez que se ha implementado la instancia, puede configurar vRealize Operations para recopilar datos de vCenter, ESXi, NSX-T, vSAN y HCX. 
 
@@ -69,11 +69,11 @@ Una vez que se ha implementado la instancia, puede configurar vRealize Operation
 
 Al conectar vCenter de Azure VMware Solution a vRealize Operations Manager mediante una cuenta de nube vCenter Server, verá una advertencia:
 
-:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="La instancia del adaptador de advertencia se creó correctamente":::
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Captura de pantalla que muestra un mensaje de advertencia que indica que la instancia del adaptador se ha creado correctamente.":::
 
 La advertencia se produce porque el usuario **cloudadmin\@vsphere.local** de Azure VMware Solution no tiene privilegios suficientes para realizar todas las acciones de vCenter Server necesarias para el registro. Sin embargo, los privilegios son suficientes para que la instancia de adaptador realice la recopilación de datos, como se muestra a continuación:
 
-:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Instancia de adaptador para realizar la recopilación de datos":::
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Captura de pantalla que muestra la instancia del adaptador para recopilar datos.":::
 
 Para obtener más información, consulte [Privilegios necesarios para configurar una instancia del adaptador de vCenter](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
 

@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Descripción de cómo enrutar eventos en Azure Digital Twins y a otros servicios de Azure.
 author: baanders
 ms.author: baanders
-ms.date: 10/12/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a63390073f92625788dfbf43fc1183cc1812024a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b9038840142be64918b22f1aefc32d505252d71d
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460333"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254240"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Enrutar eventos dentro y fuera de Azure Digital Twins
 
@@ -46,7 +46,7 @@ Como alternativa, el mensaje de evento también contiene el id. de gemelo de ori
 
 El recurso de proceso también debe establecer los permisos de acceso y seguridad de forma independiente.
 
-Para recorrer el proceso de configuración de una función de Azure para procesar eventos de gemelos digitales, consulte [Procedimiento: Configuración de una función de Azure para procesar datos](how-to-create-azure-function.md).
+Para recorrer el proceso de configuración de una función de Azure para procesar eventos de gemelos digitales, consulte [Configuración del control de eventos de gemelo a gemelo con Azure Functions](how-to-send-twin-to-twin-events.md).
 
 ## <a name="create-an-endpoint"></a>Crear un punto de conexión
 
@@ -55,7 +55,7 @@ Para definir una ruta de eventos, los desarrolladores deben definir primero los 
 * Centro de eventos
 * Azure Service Bus
 
-Para crear un punto de conexión, puede usar las [API REST de Azure Digital Twins, comandos de la CLI](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins) o [Azure Portal](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins).
+Para [crear un punto de conexión](how-to-manage-routes.md#create-an-endpoint-for-azure-digital-twins), puede usar las API REST de Azure Digital Twins, comandos de la CLI o Azure Portal.
 
 Al definir un punto de conexión, debe proporcionar:
 * El nombre del punto de conexión
@@ -71,7 +71,7 @@ Las API del punto de conexión que están disponibles en el plano de control son
 
 ## <a name="create-an-event-route"></a>Crear una ruta de eventos
  
-Para crear una ruta de eventos, puede usar las [API REST de Azure Digital Twins, comandos de la CLI](how-to-manage-routes-apis-cli.md#create-an-event-route) o [Azure Portal](how-to-manage-routes-portal.md#create-an-event-route).
+Para [crear una ruta de eventos](how-to-manage-routes.md#create-an-event-route), puede usar las API REST de Azure Digital Twins, comandos de la CLI o Azure Portal.
 
 Este es un ejemplo de cómo crear una ruta de eventos dentro de una aplicación cliente mediante una llamada al [SDK de .NET (C# )](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) `CreateOrReplaceEventRouteAsync`: 
 
@@ -79,7 +79,7 @@ Este es un ejemplo de cómo crear una ruta de eventos dentro de una aplicación 
 
 1. En primer lugar, se crea un objeto `DigitalTwinsEventRoute` y el constructor toma el nombre de un punto de conexión. Este campo `endpointName` identifica un punto de conexión, como un centro de eventos, Event Grid o Service Bus. Estos puntos de conexión deben crearse en la suscripción y conectarse a Azure Digital Twins mediante las API de plano de control antes de realizar esta llamada de registro.
 
-2. El objeto de ruta de eventos también tiene un campo [Filtro](how-to-manage-routes-apis-cli.md#filter-events), que se puede usar para restringir los tipos de eventos que siguen esta ruta. Un filtro de `true` habilita la ruta sin filtrado adicional (un filtro de `false` deshabilita la ruta). 
+2. El objeto de ruta de eventos también tiene un campo [Filtro](how-to-manage-routes.md#filter-events), que se puede usar para restringir los tipos de eventos que siguen esta ruta. Un filtro de `true` habilita la ruta sin filtrado adicional (un filtro de `false` deshabilita la ruta). 
 
 3. A continuación, este objeto de ruta de eventos se pasa a `CreateOrReplaceEventRouteAsync`, junto con un nombre para la ruta.
 
@@ -99,7 +99,7 @@ Antes de establecer la ubicación de mensajes fallidos, debe tener una cuenta de
 
 Para obtener más información sobre los tokens de SAS, consulte: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md) (Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido [SAS])
 
-Para obtener información sobre cómo configurar un punto de conexión con una cola de mensajes fallidos, consulte:  [Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) 
+Para información sobre cómo configurar un punto de conexión con una cola de mensajes fallidos, consulte [Administración de puntos de conexión y rutas en Azure Digital Twins](how-to-manage-routes.md#create-an-endpoint-with-dead-lettering).
 
 ### <a name="types-of-event-messages"></a>Tipos de mensajes de eventos
 
@@ -110,7 +110,7 @@ Los distintos tipos de eventos de IoT Hub y Azure Digital Twins generan distinto
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea cómo configurar y administrar una ruta de eventos:
-* [Procedimiento: Administración de puntos de conexión y rutas](how-to-manage-routes-apis-cli.md)
+* [Administración de puntos de conexión y rutas](how-to-manage-routes.md)
 
 O bien, consulte cómo usar Azure Functions para enrutar eventos en Azure Digital Twins:
-* [Procedimiento: Configuración de una función de Azure para procesar datos](how-to-create-azure-function.md)
+* [Configuración del control de eventos de gemelo a gemelo](how-to-send-twin-to-twin-events.md).

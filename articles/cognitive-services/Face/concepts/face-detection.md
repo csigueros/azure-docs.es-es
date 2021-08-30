@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: cb005621a3439d5c7976221d816536b46efb986c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 3fe90f5c9038c37e3ac3e9fba357ea27ca089679
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745010"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747558"
 ---
 # <a name="face-detection-and-attributes"></a>Atributos y detección de caras
 
@@ -90,4 +90,4 @@ Si está detectando caras de una fuente de vídeo, puede mejorar el rendimiento 
 
 Ahora que ya está familiarizado con conceptos de detección de caras, aprenda a escribir un script que detecte caras en una imagen determinada.
 
-* [Detección de caras en una imagen](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+* [Llamada a la API de detección](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

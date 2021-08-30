@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 06/08/2021
-ms.openlocfilehash: deded6927998daa5956cff2f63a0a53d3b973b6d
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: cbfbbfaea3954afd2a77090acb140c41e0b93052
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111855132"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290651"
 ---
 # <a name="how-to-migrate-java-applications-to-jboss-eap-on-azure-vms-and-virtual-machine-scale-sets"></a>Cómo migrar aplicaciones Java a JBoss EAP en máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure
 
@@ -21,13 +21,13 @@ En esta guía se proporciona información sobre cómo migrar las aplicaciones em
 
 ## <a name="best-practice-starting-with-azure-marketplace-offers-and-quickstarts"></a>Procedimiento recomendado para comenzar con ofertas de Azure Marketplace e inicios rápidos
 
-Red Hat y Microsoft se han asociado para incorporar un conjunto de [ofertas de JBoss EAP en Azure Marketplace](https://aka.ms/AMP-JBoss-EAP) y ofrecer un punto inicial sólido para la migración a Azure. Consulte la documentación para obtener la lista de ofertas y planeamientos, y elija la que mejor se ajuste a su implementación existente. Consulte el artículo sobre [JBoss EAP en Procedimientos recomendados de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-azure-best-practices/)
+Red Hat y Microsoft se han asociado para incorporar un conjunto de [ofertas de JBoss EAP en Azure Marketplace](https://aka.ms/AMP-JBoss-EAP) y ofrecer un punto inicial sólido para la migración a Azure. Consulte la documentación para obtener la lista de ofertas y planeamientos, y elija la que mejor se ajuste a su implementación existente. Consulte el artículo sobre [JBoss EAP en Procedimientos recomendados de Azure](./jboss-eap-on-azure-best-practices.md)
 
 Si ninguna de las ofertas existentes es un buen punto inicial, puede reproducir manualmente la implementación mediante máquinas virtuales de Azure y otros recursos disponibles. Para más información, consulte [¿Qué es IaaS?](https://azure.microsoft.com/overview/what-is-iaas/)
 
 ### <a name="azure-marketplace-offers"></a>Ofertas de Azure Marketplace
 
-Red Hat en colaboración con Microsoft ha publicado las siguientes ofertas en Azure Marketplace. Puede acceder a estas ofertas en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/) o en [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Consulte el artículo sobre cómo [implementar JBoss EAP de Red Hat en máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure mediante la oferta de Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-azure-marketplace/) para obtener más detalles.
+Red Hat en colaboración con Microsoft ha publicado las siguientes ofertas en Azure Marketplace. Puede acceder a estas ofertas en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/) o en [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Consulte el artículo sobre cómo [implementar JBoss EAP de Red Hat en máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure mediante la oferta de Azure Marketplace](./jboss-eap-marketplace-image.md) para obtener más detalles.
 
 Esta oferta de Marketplace incluye varias combinaciones de versiones de JBoss EAP y RHEL con modelos de suscripción de soporte flexible. JBoss EAP está disponible en el modelo "Traiga su propia suscripción" (BYOS), pero para RHEL puede elegir entre BYOS o Pago por uso (PAYG). La oferta de Azure Marketplace incluye opciones de configuración del plan para JBoss EAP en RHEL, como máquinas virtuales independientes, máquinas virtuales en clúster o conjuntos de escalado de máquinas virtuales en clúster. Los 6 planes son:
 
@@ -46,7 +46,7 @@ Junto con las ofertas de Azure Marketplace, hay plantillas de inicio rápido dis
 - JBoss EAP en RHEL (máquinas virtuales en clúster)
 - JBoss EAP en RHEL (conjunto de escalado de máquinas virtuales en clúster).
 
-Para empezar, seleccione una de las plantillas de inicio rápido que coincidan con la combinación de la versión de JBoss EAP en RHEL. Consulte la documentación [Inicio rápido de JBoss EAP en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-on-rhel) para obtener más información. 
+Para empezar, seleccione una de las plantillas de inicio rápido que coincidan con la combinación de la versión de JBoss EAP en RHEL. Consulte la documentación [Inicio rápido de JBoss EAP en Azure](./jboss-eap-on-rhel.md) para obtener más información. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -56,7 +56,7 @@ Para empezar, seleccione una de las plantillas de inicio rápido que coincidan c
 
 - **Opciones de RHEL**: elija entre Pago por uso (PAYG) o Traiga su propia suscripción (BYOS). Con BYOS, debe activar su [imagen Gold de RHEL](https://access.redhat.com/) de [Red Hat Cloud Access](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/) antes de implementar la oferta de Marketplace con plantilla de soluciones. Siga [estas instrucciones](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access) para habilitar las imágenes Gold de RHEL y usarlas en Microsoft Azure.
 
-- **[Interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/overview)** .
+- **[Interfaz de la línea de comandos (CLI) de Azure](/cli/azure/overview)** .
 
 - **Código fuente de Java y [versión del Kit de desarrollo de Java (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html)**
 
@@ -131,11 +131,11 @@ Los dominios administrados de JBoss EAP no se admiten en Microsoft Azure. Solo s
 
 ### <a name="inventory-server-capacity"></a>Capacidad del servidor de inventario
 
-Documente el hardware (memoria, CPU, disco, etc.) de los servidores de producción actuales, así como el promedio y máximo del número de solicitudes y el uso de recursos. Necesitará esta información independientemente de la ruta de migración que elija. Para obtener información adicional sobre los tamaños, consulte [Tamaños de Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs).
+Documente el hardware (memoria, CPU, disco, etc.) de los servidores de producción actuales, así como el promedio y máximo del número de solicitudes y el uso de recursos. Necesitará esta información independientemente de la ruta de migración que elija. Para obtener información adicional sobre los tamaños, consulte [Tamaños de Cloud Services](../../../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="inventory-all-secrets"></a>Inventario de todos los secretos
 
-Antes de la llegada de las tecnologías de "configuración como servicio", como [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) o [Azure App Configuration](https://azure.microsoft.com/services/app-configuration/) no había un concepto bien definido de "secretos". En su lugar, hay un conjunto dispar de opciones de configuración que funcionaban de forma eficaz como lo que ahora llamamos "secretos". Con los servidores de aplicaciones como JBoss EAP, estos secretos se encuentran en muchos archivos y almacenes de configuración diferentes. Compruebe los secretos y las contraseñas en todas las propiedades y los archivos de configuración de los servidores de producción. Asegúrese de comprobar *jboss-web.xml* en sus archivos WAR. Los archivos de configuración que contienen contraseñas o credenciales también se pueden encontrar dentro de la aplicación. Para obtener información adicional sobre Azure Key Vault, consulte [Conceptos básicos de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts).
+Antes de la llegada de las tecnologías de "configuración como servicio", como [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) o [Azure App Configuration](https://azure.microsoft.com/services/app-configuration/) no había un concepto bien definido de "secretos". En su lugar, hay un conjunto dispar de opciones de configuración que funcionaban de forma eficaz como lo que ahora llamamos "secretos". Con los servidores de aplicaciones como JBoss EAP, estos secretos se encuentran en muchos archivos y almacenes de configuración diferentes. Compruebe los secretos y las contraseñas en todas las propiedades y los archivos de configuración de los servidores de producción. Asegúrese de comprobar *jboss-web.xml* en sus archivos WAR. Los archivos de configuración que contienen contraseñas o credenciales también se pueden encontrar dentro de la aplicación. Para obtener información adicional sobre Azure Key Vault, consulte [Conceptos básicos de Azure Key Vault](../../../key-vault/general/basic-concepts.md).
 
 ### <a name="inventory-all-certificates"></a>Inventario de todos los certificados
 
@@ -169,23 +169,23 @@ Para usar el sistema de archivos en el servidor de aplicaciones será necesario 
 
 **Contenido estático de solo lectura**
 
-Si su aplicación actualmente sirve contenido estático, necesitará una ubicación alternativa para él. Quizás quiera considerar la posibilidad de mover el contenido estático a Azure Blob Storage y agregar [Azure Content Delivery Network (CDN)](https://docs.microsoft.com/azure/cdn/) para tener descargas de alta velocidad a nivel global. Para más información, consulte [Hospedaje de sitios web estáticos en Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website) e [Inicio rápido: Integración de una cuenta de una instancia de Azure Storage con Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn).
+Si su aplicación actualmente sirve contenido estático, necesitará una ubicación alternativa para él. Quizás quiera considerar la posibilidad de mover el contenido estático a Azure Blob Storage y agregar [Azure Content Delivery Network (CDN)](../../../cdn/index.yml) para tener descargas de alta velocidad a nivel global. Para más información, consulte [Hospedaje de sitios web estáticos en Azure Storage](../../../storage/blobs/storage-blob-static-website.md) e [Inicio rápido: Integración de una cuenta de una instancia de Azure Storage con Azure CDN](../../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
 **Contenido estático publicado dinámicamente**
 
-Si su aplicación permite que haya contenido estático que la aplicación carga o produce, pero que es inmutable una vez creado, puede usar [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/) y Azure CDN con una [función de Azure](https://docs.microsoft.com/azure/azure-functions/) para controlar las cargas y la actualización de la red CDN. Hemos proporcionado una implementación de ejemplo para su uso en [Cargar y carga previa en CDN de contenido estático con Azure Functions](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
+Si su aplicación permite que haya contenido estático que la aplicación carga o produce, pero que es inmutable una vez creado, puede usar [Azure Blob Storage](../../../storage/blobs/index.yml) y Azure CDN con una [función de Azure](../../../azure-functions/index.yml) para controlar las cargas y la actualización de la red CDN. Hemos proporcionado una implementación de ejemplo para su uso en [Cargar y carga previa en CDN de contenido estático con Azure Functions](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn).
 
 **Contenido dinámico o interno**
 
-En el caso de los archivos que la aplicación lee y escribe con frecuencia (por ejemplo, los archivos de datos temporales) o los archivos estáticos que solo son visibles para la aplicación, puede montar recursos compartidos de [Azure Storage](https://docs.microsoft.com/azure/storage/) como volúmenes persistentes. Para más información, consulte [Creación dinámica y uso de un volumen persistente con Azure Files en Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/azure-files-dynamic-pv).
+En el caso de los archivos que la aplicación lee y escribe con frecuencia (por ejemplo, los archivos de datos temporales) o los archivos estáticos que solo son visibles para la aplicación, puede montar recursos compartidos de [Azure Storage](../../../storage/index.yml) como volúmenes persistentes. Para más información, consulte [Creación dinámica y uso de un volumen persistente con Azure Files en Azure Kubernetes Service](../../../aks/azure-files-dynamic-pv.md).
 
 ### <a name="determine-whether-a-connection-to-on-premises-is-needed"></a>Determinación de si se necesita una conexión al entorno local
 
-Si su aplicación necesita acceder a cualquiera de los servicios locales, deberá aprovisionar uno de los servicios de conectividad de Azure. Para más información, consulte [Connect an on-premises network to Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) (Conexión de una red local a Azure). También tendrá que refactorizar la aplicación para que use las API disponibles públicamente que exponen los recursos locales.
+Si su aplicación necesita acceder a cualquiera de los servicios locales, deberá aprovisionar uno de los servicios de conectividad de Azure. Para más información, consulte [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) (Conexión de una red local a Azure). También tendrá que refactorizar la aplicación para que use las API disponibles públicamente que exponen los recursos locales.
 
 ### <a name="determine-whether-jms-queues-or-topics-are-in-use"></a>Determinación de si las colas o los temas de JMS están en uso
 
-Si la aplicación utiliza colas o temas de JMS, deberá migrarlos a un servidor de JMS hospedado externamente. Azure Service Bus y Advanced Message Queuing Protocol (AMQP) pueden ser una estrategia de migración excelente para los usuarios que usan JMS. Para más información, consulte [Uso de JMS con Azure Service Bus y AMQP 1.0](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp) o [Envío y recepción de mensajes de colas de Azure Service Bus (Java)](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-java-how-to-use-queues)
+Si la aplicación utiliza colas o temas de JMS, deberá migrarlos a un servidor de JMS hospedado externamente. Azure Service Bus y Advanced Message Queuing Protocol (AMQP) pueden ser una estrategia de migración excelente para los usuarios que usan JMS. Para más información, consulte [Uso de JMS con Azure Service Bus y AMQP 1.0](../../../service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp.md) o [Envío y recepción de mensajes de colas de Azure Service Bus (Java)](../../../service-bus-messaging/service-bus-java-how-to-use-queues.md)
 
 Si se han configurado almacenes persistentes de JMS, debe capturar su configuración y aplicarla después de la migración.
 
@@ -209,8 +209,8 @@ Si tiene procesos que se ejecutan fuera del servidor de aplicaciones, como los d
 Para iniciar la migración, primero debe implementar la infraestructura de JBoss EAP. Existen varias opciones de implementación
 
 - [**Máquina virtual de Azure**](https://azure.microsoft.com/overview/what-is-a-virtual-machine/)
-- [**Conjunto de escalado de máquinas virtuales de Azure**](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)
-- [**Azure App Service**](https://aka.ms/jboss-app-service-overview)
+- [**Conjunto de escalado de máquinas virtuales de Azure**](../../../virtual-machine-scale-sets/overview.md)
+- [**Azure App Service**](/azure/developer/java/ee/jboss-on-azure)
 - [**Red Hat OpenShift en Azure (ARO) para contenedores**](https://azure.microsoft.com/services/openshift)
 - [**Azure Container Service**](https://azure.microsoft.com/product-categories/containers/)
 
@@ -239,22 +239,22 @@ Una vez completada la migración, revise los archivos de configuración del serv
 
 Puede exponer la aplicación mediante los métodos siguientes, lo que es adecuado para su entorno.
 
-* [Cree una dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address) para acceder al servidor y a la aplicación.
-* [Cree una máquina virtual de salto en la misma red virtual (VNet)](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine) en una subred diferente (nueva subred) en la misma red virtual y acceda al servidor a través de una máquina virtual de salto. Esta máquina virtual de salto se puede usar para exponer la aplicación.
-* [Cree una máquina virtual de salto con emparejamiento de red virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine) en una red virtual distinta, acceda al servidor y exponga la aplicación mediante [emparejamiento de red virtual](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal#peer-virtual-networks).
-* Exponga la aplicación mediante una [puerta de enlace de aplicación](https://docs.microsoft.com/azure/application-gateway/quick-create-portal#create-an-application-gateway)
-* Exponga la aplicación mediante un [equilibrador de carga externo](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal#create-a-standard-load-balancer) (ELB).
+* [Cree una dirección IP pública](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) para acceder al servidor y a la aplicación.
+* [Cree una máquina virtual de salto en la misma red virtual (VNet)](../../windows/quick-create-portal.md#create-virtual-machine) en una subred diferente (nueva subred) en la misma red virtual y acceda al servidor a través de una máquina virtual de salto. Esta máquina virtual de salto se puede usar para exponer la aplicación.
+* [Cree una máquina virtual de salto con emparejamiento de red virtual](../../windows/quick-create-portal.md#create-virtual-machine) en una red virtual distinta, acceda al servidor y exponga la aplicación mediante [emparejamiento de red virtual](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks).
+* Exponga la aplicación mediante una [puerta de enlace de aplicación](../../../application-gateway/quick-create-portal.md#create-an-application-gateway)
+* Exponga la aplicación mediante un [equilibrador de carga externo](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources) (ELB).
 
 ## <a name="post-migration"></a>Después de la migración
 
 Una vez alcanzados los objetivos de migración que se han definido antes de la migración, realice pruebas integrales de aceptación para comprobar que todo funciona según lo previsto. Entre los temas de mejoras posteriores a la migración se incluyen, entre otros:
 
-* Usar Azure Storage para servir el contenido estático montado en las máquinas virtuales. Para obtener más información, consulte [Adjuntar o desasociar un disco de datos a una máquina virtual](https://docs.microsoft.com/azure/devtest-labs/devtest-lab-attach-detach-data-disk)
-* Implementar las aplicaciones en el clúster de JBoss migrado con Azure DevOps. Para más información, consulte la [documentación de introducción a Azure DevOps](https://docs.microsoft.com/azure/devops/get-started/?view=azure-devops).
-* Considere la posibilidad de usar [Application Gateway](https://docs.microsoft.com/azure/application-gateway/).
-* Mejorar la topología de red con servicios avanzados de equilibrio de carga. Para más información, consulte [Uso de servicios de equilibrio de carga en Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure).
-* Aproveche las identidades administradas de Azure para los secretos administrados y asigne un control de acceso basado en roles (RBAC) a los recursos de Azure. Para obtener más información, consulte [¿Qué son las identidades administradas para recursos de Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-* Usar Azure Key Vault para almacenar toda la información que funcione como un "secreto". Para más información, consulte [Conceptos básicos de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts).
+* Usar Azure Storage para servir el contenido estático montado en las máquinas virtuales. Para obtener más información, consulte [Adjuntar o desasociar un disco de datos a una máquina virtual](../../../devtest-labs/devtest-lab-attach-detach-data-disk.md)
+* Implementar las aplicaciones en el clúster de JBoss migrado con Azure DevOps. Para más información, consulte la [documentación de introducción a Azure DevOps](/azure/devops/get-started/?view=azure-devops).
+* Considere la posibilidad de usar [Application Gateway](../../../application-gateway/index.yml).
+* Mejorar la topología de red con servicios avanzados de equilibrio de carga. Para más información, consulte [Uso de servicios de equilibrio de carga en Azure](../../../traffic-manager/traffic-manager-load-balancing-azure.md).
+* Aproveche las identidades administradas de Azure para los secretos administrados y asigne un control de acceso basado en roles (RBAC) a los recursos de Azure. Para obtener más información, consulte [¿Qué son las identidades administradas para recursos de Azure?](../../../active-directory/managed-identities-azure-resources/overview.md)
+* Usar Azure Key Vault para almacenar toda la información que funcione como un "secreto". Para más información, consulte [Conceptos básicos de Azure Key Vault](../../../key-vault/general/basic-concepts.md).
 
 ## <a name="resource-links-and-support"></a>Vínculos de recursos y soporte técnico
 
@@ -263,15 +263,15 @@ Para cualquier pregunta relacionada con el soporte técnico, incidencias o requi
 * Más información sobre [JBoss EAP](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/getting_started_with_jboss_eap_for_openshift_online/introduction)
 * Más información sobre el [administrador de suscripciones de Red Hat (Cloud Access)](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index)
 * Obtenga más información sobre [Azure Virtual Machines](https://azure.microsoft.com/overview/what-is-a-virtual-machine/).
-* Más información sobre los [conjuntos de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)
+* Más información sobre los [conjuntos de escalado de máquinas virtuales de Azure](../../../virtual-machine-scale-sets/overview.md)
 * Más información sobre [Red Hat OpenShift en Azure](https://azure.microsoft.com/services/openshift/)
-* Más información sobre [¿Qué es App Service en Linux?](https://docs.microsoft.com/azure/app-service/overview#app-service-on-linux)
-* Más información sobre [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
-* Más información sobre [Redes de Azure](https://docs.microsoft.com/azure/networking/networking-overview)
+* Más información sobre [¿Qué es App Service en Linux?](../../../app-service/overview.md#app-service-on-linux)
+* Más información sobre [Azure Storage](../../../storage/common/storage-introduction.md)
+* Más información sobre [Redes de Azure](../../../networking/fundamentals/networking-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Implementación de JBoss EAP en máquinas virtuales o en un conjunto de escalado de máquinas virtuales de RHEL desde Azure Marketplace](https://aka.ms/AMP-JBoss-EAP)
-* [Configuración de una aplicación Java para Azure App Service](https://docs.microsoft.com/azure/app-service/configure-language-java)
+* [Configuración de una aplicación Java para Azure App Service](../../../app-service/configure-language-java.md)
 * Tutorial [Cómo implementar JBoss EAP en Azure App Service](https://github.com/JasonFreeberg/jboss-on-app-service)
 * [Uso de la asistencia para la migración de Azure App Service](https://azure.microsoft.com/services/app-service/migration-assistant/)
 * [Uso del kit de herramientas de migración para aplicaciones de Red Hat](https://developers.redhat.com/products/mta)

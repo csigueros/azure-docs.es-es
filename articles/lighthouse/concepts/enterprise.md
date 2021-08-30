@@ -3,12 +3,12 @@ title: Azure Lighthouse en escenarios empresariales
 description: Las funcionalidades de Azure Lighthouse se pueden usar para simplificar la administración entre inquilinos en empresas que utilizan varios inquilinos de Azure AD.
 ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 139c7be2c1736841e81e70aa562ab9841fd76337
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 12a6c2f03c06fbd69e77e32b236258bc6a6c8fbe
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788722"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768292"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse en escenarios empresariales
 
@@ -38,7 +38,7 @@ En la mayoría de los escenarios empresariales, se querrá delegar una suscripci
 
 En cualquier caso, asegúrese de [seguir el principio de privilegios mínimos al definir qué usuarios tendrán acceso a los recursos delegados](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Esto ayuda a garantizar que los usuarios solo tienen los permisos necesarios para realizar las tareas necesarias y reduce la posibilidad de errores involuntarios.
 
-Azure Lighthouse solo proporciona vínculos lógicos entre el inquilino que realiza la administración y los inquilinos administrados, en lugar de mover físicamente los datos o los recursos. Además, el acceso siempre se realiza en la misma dirección, del inquilino encargado de la administración a los inquilinos administrados.  Los usuarios y grupos del encargado de la administración deben seguir usando la autenticación multifactor al realizar operaciones de administración en recursos de inquilinos administrados.
+Azure Lighthouse solo proporciona vínculos lógicos entre el inquilino que realiza la administración y los inquilinos administrados, en lugar de mover físicamente los datos o los recursos. Además, el acceso siempre se realiza en la misma dirección, del inquilino encargado de la administración a los inquilinos administrados. Los usuarios y grupos del encargado de la administración deben seguir usando la autenticación multifactor al realizar operaciones de administración en recursos de inquilinos administrados.
 
 Las empresas con protecciones internas o externas de gobernanza y cumplimiento pueden usar los [registros de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md) para cumplir sus requisitos de transparencia. Cuando los inquilinos empresariales han establecido las relaciones de inquilino entre administrador y administrado, los usuarios de cada inquilino pueden ver la actividad registrada para ver las acciones realizadas por los usuarios en el inquilino administrador.
 

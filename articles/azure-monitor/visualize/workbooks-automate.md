@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 48766e51e3408e11c264b77c43b066f3fedc6c28
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d48cefcae16829bc0a58cdb4f4a43f52d78f8460
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110080513"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751402"
 ---
 # <a name="programmatically-manage-workbooks"></a>Administración de libros mediante programación
 
@@ -193,7 +193,7 @@ Esta plantilla muestra cómo implementar un libro sencillo que muestra un '¡Hol
 | `workbookType` | La galería en la que se mostrará el libro. Los valores admitidos son libro, `tsg`, Azure Monitor, etc. |
 | `workbookSourceId` | Identificador de la instancia de recurso a la que se asociará el libro. El nuevo libro se mostrará relacionado con esta instancia de recurso, por ejemplo, en la tabla de contenido del recurso en _Libro_. Si desea que el libro aparezca en la galería de libros en Azure Monitor, use la cadena _Azure Monitor_ en lugar de un identificador de recurso. |
 | `workbookId` | El GUID único para esta instancia de libro. Use _[newGuid()]_ para crear automáticamente un nuevo GUID. |
-| `kind` | Se utiliza para especificar si el libro creado es compartido o privado. Use el valor _compartido_ para los libros compartidos y _usuario_ para los usuarios privados. |
+| `kind` | Se utiliza para especificar si el libro creado es compartido o privado. Todos los nuevos libros usarán el valor _compartido_. |
 | `location` | Ubicación de Azure donde se creará el libro. Use _[resourceGroup().location]_ para crearlo en la misma ubicación que el grupo de recursos |
 | `serializedData` | Contiene el contenido o la carga que se va a usar en el libro. Use la plantilla de Resource Manager de la interfaz de usuario de los libros para obtener el valor |
 
@@ -307,4 +307,4 @@ Por motivos técnicos, este mecanismo no se puede usar para crear instancias de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore cómo se usan los libros para potenciar la nueva [experiencia de Conclusiones de Storage](../insights/storage-insights-overview.md).
+Explore cómo se usan los libros para potenciar la nueva [experiencia de Conclusiones de Storage](../../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json).

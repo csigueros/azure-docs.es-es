@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: c206cba3b23a0bf41ce32481980aa466e869bcde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d710038c00dff56d4840f7252dcb992dcb1b8c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596304"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749272"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>Estados y facturación de Azure Virtual Machines
 
@@ -43,10 +43,10 @@ La tabla siguiente proporciona una descripción del estado de cada instancia e i
 
 | Estado de energía | Description | Facturación |  
 |---|---|---|
-| Iniciando| La máquina virtual se está iniciando. |No facturado* | 
+| Iniciando| La máquina virtual se está iniciando. | Facturado | 
 | En ejecución | La máquina virtual está totalmente activa. Este es el estado de funcionamiento estándar. | Facturado | 
 | Deteniéndose | Se trata de un estado de transición entre la ejecución y la detención. | Facturado| 
-|Detenido | La máquina virtual se ha apagado desde el sistema operativo invitado o mediante las API de PowerOff. En este estado, la máquina virtual sigue concediendo el hardware subyacente. Este estado también se conoce como *Detenido (asignado)* . | Facturado | 
+|Detenido | La máquina virtual está asignada en un host, pero no se está ejecutando. También se denomina estado Apagada o *Detenida (asignada)* . Este estado puede ser la consecuencia de invocar la operación de la API de PowerOff o de invocar un apagado desde el sistema operativo invitado. El estado Detenida también se puede observar brevemente durante la creación de una máquina virtual o al iniciarla desde el estado Desasignada.  | Facturado | 
 | Desasignando | Este es el estado de transición entre la ejecución y la desasignación. | No facturado* | 
 | Desasignado | La máquina virtual ha liberado la concesión en el hardware subyacente y está completamente apagada. Este estado también se conoce como *Detenido (desasignado)* . | No facturado* | 
 

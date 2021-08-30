@@ -2,17 +2,17 @@
 title: Autenticación en recursos de Azure con servidores habilitados para Arc
 description: En este artículo se describe la compatibilidad de Azure Instance Metadata Service con los servidores habilitados para Arc y cómo puede autenticarse en recursos de Azure y locales mediante un secreto.
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: 49b70928ae972da8e0a0d14d711e4b6f246cca6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/16/2021
+ms.openlocfilehash: 76f7174792f751322545b1d30bb51476c5339e26
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96939045"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389916"
 ---
 # <a name="authenticate-against-azure-resources-with-arc-enabled-servers"></a>Autenticación en recursos de Azure con servidores habilitados para Arc
 
-Las aplicaciones o procesos que se ejecutan directamente en servidores habilitados para Azure Arc pueden sacar partido de las identidades administradas para acceder a otros recursos de Azure que admiten la autenticación basada en Azure Active Directory. Una aplicación puede obtener un [token de acceso](../../active-directory/develop/developer-glossary.md#access-token) que represente su identidad (y que puede la asigna el sistema para servidores habilitados para Arc) y usarlo como token "portador" para autenticarse en otro servicio.
+Las aplicaciones o procesos que se ejecutan directamente en servidores habilitados para Azure Arc pueden sacar partido de las identidades administradas para acceder a otros recursos de Azure que admiten la autenticación basada en Azure Active Directory. Una aplicación puede obtener un [token de acceso](../../active-directory/develop/developer-glossary.md#access-token) que represente su identidad (y que puede la asigna el sistema para servidores habilitados para Arc) y usarlo como token de "portador" para autenticarse en otro servicio.
 
 Vea la documentación de [información general sobre las identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) para obtener una descripción detallada de las identidades administradas, así como saber distinguir las identidades asignadas por el sistema y las asignadas por el usuario.
 
@@ -46,7 +46,7 @@ La variable de entorno del sistema **IDENTITY_ENDPOINT** se usa para detectar el
 - Una instancia de Azure Key Vault para almacenar y recuperar la credencial. y asignar el acceso de identidad de Azure Arc a KeyVault.
 
     - Si no tiene una instancia de Key Vault creada, consulte [Creación de un almacén de claves](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#create-a-key-vault-).
-    - Para configurar el acceso mediante la identidad administrada usada por el servidor, consulte [Conceder acceso para Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) o [Conceder acceso para Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). En el paso 5, va a escribir el nombre del servidor habilitado para Arc. Para completar esto con PowerShell, consulte [Asignación de una directiva de acceso de Key Vault mediante Azure PowerShell](../../key-vault/general/assign-access-policy-powershell.md).
+    - Para configurar el acceso mediante la identidad administrada usada por el servidor, consulte [Conceder acceso para Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) o [Conceder acceso para Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). En el paso 5, va a escribir el nombre del servidor habilitado para Arc. Para completar esto con PowerShell, consulte [Asignación de una directiva de acceso de Key Vault mediante Azure PowerShell](../../key-vault/general/assign-access-policy-powershell.md).
 
 ## <a name="acquiring-an-access-token-using-rest-api"></a>Adquisición de un token de acceso mediante la API de REST
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 476355f41de5e0e6aaffdedea8947cab5221767a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da2f34014f3c789762cc2743b971aa76ad1049a9
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200726"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112574441"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Linaje de datos en el cliente de Azure Purview Data Catalog
 
@@ -43,7 +43,7 @@ En el ejemplo siguiente se muestra un caso de uso típico de los datos que se tr
 
 ## <a name="lineage-granularity"></a>Granularidad del linaje
 
-En esta sección se detalla la granularidad con la que se recopila la información de linaje de un catálogo de datos. Esta granularidad puede variar en función de los sistemas de datos que se estén usando.
+En la sección siguiente se detalla la granularidad con la que Purview recopila la información de linaje. Esta granularidad puede variar en función de los sistemas de datos compatibles con Purview.
 
 ### <a name="entity-level-lineage-sources--process--targets"></a>Linaje de nivel de entidad: Orígenes > Proceso > Destinos 
 

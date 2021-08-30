@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: banders
-ms.openlocfilehash: fe2f36b08f98ceb2a5f6085510b589a712ff194d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d7bb27e511d799a0afe203b8147546647cc658fd
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780468"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112989082"
 ---
 # <a name="permissions-to-view-and-manage-azure-reservations"></a>Permisos para ver y administrar reservas de Azure
 
@@ -70,14 +70,17 @@ Con acceso con privilegios elevados:
 
 Los usuarios que tienen acceso de propietario en las reservas y los administradores de facturación pueden delegar la administración de acceso para un pedido de reserva individual.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione **Todos los servicios** > **Reservations** para enumerar las reservas a las que tiene acceso.
-1. Seleccione la reserva cuyo acceso quiere delegar a otros usuarios.
-1. En Detalles de reserva, seleccione el pedido de reserva.
-1. Seleccione **Access Control (IAM)** .
-1. Seleccione **Agregar asignación de roles** > **Rol** > **Propietario**. Si desea otorgar un acceso limitado, seleccione otro rol.
-1. Escriba la dirección de correo electrónico del usuario al que desea agregar como propietario.
-1. Seleccione el usuario y, después, **Guardar**.
+Para que otras personas puedan administrar las reservas, tiene dos opciones:
+
+- Delegue la administración del acceso para un pedido de reserva individual mediante la asignación del rol Propietario a un usuario en el ámbito de recursos del pedido de reserva. Si desea otorgar un acceso limitado, seleccione otro rol.  
+     Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+
+- Agregue un usuario como administrador de facturación a un Contrato Enterprise o un Contrato de cliente de Microsoft:
+    - En el caso de un Contrato Enterprise, agregue usuarios con el rol de _Administrador de empresa_ para ver y administrar todos los pedidos de reserva que se aplican al Contrato Enterprise. Los usuarios con el rol de _Administrador de empresa (solo lectura)_ solo pueden ver la reserva. Ni los administradores de departamento ni los propietarios de cuentas no pueden ver reservas, _salvo que_ se les agreguen mediante el Control de acceso (IAM). Para más información, consulte [Administración de roles de Azure Enterprise](../manage/understand-ea-roles.md).
+
+        _Los administradores de empresa pueden tomar posesión de un pedido de reserva y pueden agregar otros usuarios a una reserva mediante el Control de acceso (IAM)._
+    - En el caso de un Contrato de cliente de Microsoft, los usuarios con el rol Propietario de perfil de facturación o el rol Colaborador de perfil de facturación pueden administrar todas las compras de reserva realizadas mediante el perfil de facturación. Los lectores del perfil de facturación y los administradores de facturas pueden ver todas las reservas que se pagan con el perfil de facturación. Sin embargo, no pueden realizar cambios en las reservas.
+    Para más información, consulte [Tareas y roles del perfil de facturación](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

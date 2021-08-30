@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 9975533e00b0ca184e7cc16c5d8ea51d4eafa0a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a176b971d830fcabf3eba1767b9ac198a4418f0b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361713"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751977"
 ---
 # <a name="azure-data-box-disk-limits"></a>Límites de Azure Data Box Disk
 
@@ -46,9 +46,10 @@ Para conocer la información más reciente sobre los límites del servicio de al
 
 - No copie los datos directamente en los discos. Copie los datos en las carpetas *BlockBlob*, *PageBlob* y *AzureFile* creadas previamente.
 - Una carpeta en las carpetas *BlockBlob* y *PageBlob* es un contenedor. Por ejemplo, los contenedores se crean como *BlockBlob/contenedor* y *PageBlob/contenedor*.
-- Si tiene un objeto existente de Azure (por ejemplo, un blob) en la nube con el mismo nombre que el objeto que se está copiando, Data Box Disk cambiará el nombre del archivo a archivo(1) en la nube.
+- Si una carpeta tiene el mismo nombre que un contenedor existente, el contenido de la carpeta se combina con el contenido del contenedor. Los archivos o blobs que aún no están en la nube se agregan al contenedor. Si un archivo o blob tiene el mismo nombre que un archivo o blob que ya está en el contenedor, se sobrescribe el archivo o blob existente.
 - Todos los archivos escritos en los recursos compartidos *BlockBlob* y *PageBlob* se cargan como blob en bloques y blob en páginas, respectivamente.
 - Todas las jerarquías de directorios vacías (sin archivos) que creó en las carpetas *BlockBlob* y *PageBlob* no se cargan.
+- Para mejorar el rendimiento durante las cargas de datos, se recomienda [habilitar recursos compartidos de archivos grandes en la cuenta de almacenamiento y aumentar la capacidad del recurso compartido a 100 TiB](../../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account). Los recursos compartidos de archivos grandes solo se admiten para las cuentas de almacenamiento con almacenamiento con redundancia local (LRS).
 - Si se han producido errores al cargar datos en Azure, se crea un registro de errores en la cuenta de almacenamiento de destino. La ruta de acceso a este registro de errores está disponible en el portal cuando se completa la carga. Puede revisar el registro para realizar acciones correctivas. No elimine los datos del origen sin comprobar los datos cargados.
 - Los metadatos de archivo y los permisos NTFS no se conservan cuando se cargan los datos en Azure Files. Por ejemplo, el atributo *Última modificación* de los archivos no se conservará cuando se copien los datos.
 - Si especificó en orden los discos administrados, revise las siguientes consideraciones adicionales:

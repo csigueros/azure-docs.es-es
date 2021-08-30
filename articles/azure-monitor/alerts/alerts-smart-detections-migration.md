@@ -3,12 +3,12 @@ title: Actualización de la detección inteligente de Azure Monitor Application 
 description: Obtenga información sobre los pasos necesarios para actualizar la detección inteligente de Application Insights de Azure Monitor a reglas de alerta.
 ms.topic: conceptual
 ms.date: 05/30/2021
-ms.openlocfilehash: 09f895af10ae6d16303ce8afb140a49c3a508cef
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: d0995c05af707c5a4fb94305ca1211e38ca59e3a
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542755"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587488"
 ---
 # <a name="migrate-azure-monitor-application-insights-smart-detection-to-alerts-preview"></a>Migración de la detección inteligente de Azure Monitor Application Insights a las alertas (versión preliminar)
 
@@ -323,7 +323,7 @@ Puede crear y administrar grupos de acciones para las nuevas reglas de alerta de
 
 ### <a name="managing-alert-rule-settings-using-azure-resource-manager-templates"></a>Administración de la configuración de reglas de alerta mediante plantillas de Azure Resource Manager
 
-Después de completar la migración, puede usar plantillas de Azure Resource Management para configurar los valores de las regla de alerta de detección inteligente.
+Después de completar la migración, puede usar plantillas de Azure Resource Manager para configurar los valores de las reglas de alerta de detección inteligente.
 
 > [!NOTE]
 > Después de completar la migración, los valores de detección inteligente deben configurarse mediante plantillas de reglas de alerta de detección inteligente, y ya no se podrán configurar mediante la [plantilla de Resource Manager para Application Insights](../app/proactive-arm-config.md#smart-detection-rule-configuration).

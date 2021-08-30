@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 06/27/2021
 ms.author: banders
-ms.openlocfilehash: 10956953f9ab3a9e32b9da4ab8a3501d38b0e2c3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b4bd2615dd99145bd75fd7c1095056961d3b2d80
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369665"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988362"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Agregar o cambiar los administradores de la suscripción de Azure
 
@@ -39,34 +39,17 @@ Para que un usuario sea administrador de una suscripción a Azure, un administra
 Si no está seguro de quién es el administrador de cuenta de la suscripción, use los pasos siguientes para averiguarlo.
 
 1. Abra la [página Suscripciones en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Seleccione la suscripción que desee comprobar y, luego, consulte **Configuración** .
-1. Seleccione **Propiedades** . El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas** .
+1. Seleccione la suscripción que desee comprobar y, luego, consulte **Configuración**.
+1. Seleccione **Propiedades**. El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas** .
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>Para asignar un usuario como administrador
 
-1. Inicie sesión en Azure Portal como administrador de la suscripción y abra [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+- Asigne el rol Propietario al usuario en el ámbito de la suscripción.  
+     Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
-1. Haga clic en la suscripción a la que quiere conceder acceso.
+## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 
-1. Haga clic en **Control de acceso (IAM).**
-
-1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles para esta suscripción.
-
-    ![Captura de pantalla que muestra las asignaciones de roles](./media/add-change-subscription-administrator/role-assignments.png)
-
-1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel **Agregar asignación de roles** .
-
-    Si no tiene permisos para asignar roles, la opción se deshabilitará.
-
-1. En la lista desplegable **Rol** , seleccione el rol **Propietario** .
-
-1. En la lista **Seleccionar** , seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar nombres para mostrar y direcciones de correo electrónico en el directorio.
-
-    ![Captura de pantalla que muestra el rol de propietario seleccionado](./media/add-change-subscription-administrator/add-role.png)
-
-1. Haga clic en **Guardar** para asignar el rol.
-
-    Transcurridos unos instantes, al usuario se le asigna el rol Propietario en el ámbito de la suscripción.
+Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -74,7 +57,3 @@ Si no está seguro de quién es el administrador de cuenta de la suscripción, u
 * [Descripción de los distintos roles en Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Permisos de roles de administrador en Azure Active Directory](../../active-directory/roles/permissions-reference.md)
-
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
-
-Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

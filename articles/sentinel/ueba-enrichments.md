@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 1f782228866d73c84409f394a014bad519d988a9
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 3253a399015e533fc299bc7a338ce091769f4c65
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809641"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721689"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Referencia de características enriquecidas de UEBA de Azure Sentinel
 
@@ -34,38 +34,42 @@ El campo [ActivityInsights](#activityinsights-field) contiene información de en
 
 <a name="baseline-explained"></a>Las actividades del usuario se analizan con respecto a una base de referencia que se compila dinámicamente cada vez que se usa. Cada actividad tiene definido un período de retrospectiva a partir del cual se deriva la base de referencia dinámica. Este período de retrospectiva se especifica en la columna [**Base de referencia**](#activityinsights-field) de esta tabla.
 
-> [!NOTE] 
+> [!NOTE]
 > La columna **Enrichment name** (Nombre de enriquecimiento) en todas las tablas de [campos de enriquecimiento de entidades](#entity-enrichments-dynamic-fields) muestra dos filas de información. 
-> 
+>
 > - La primera, en **negrita**, está el "nombre descriptivo" de la característica enriquecida.
 > - La segunda *(en cursiva y entre paréntesis)* es el nombre del campo de la característica enriquecida tal y como se almacena en la [**tabla de análisis de comportamiento**](#behavioranalytics-table).
 
+> [!IMPORTANT]
+> Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
+>
 ## <a name="behavioranalytics-table"></a>Tabla BehaviorAnalytics
 
 En la tabla siguiente se describen los datos de análisis de comportamiento que se muestran en cada [página de detalles de entidad](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) de Azure Sentinel.
 
 | Campo                     | Tipo | Descripción                                                  |
 |---------------------------|------|--------------------------------------------------------------|
-| **TenantId**              | string | Número de id. único del inquilino                             |
-| **SourceRecordId**        | string | Número de id. único del evento de EBA                          |
-| **TimeGenerated**         | datetime | Marca de tiempo de la repetición de la actividad                   |
-| **TimeProcessed**         | datetime | Marca de tiempo del procesamiento de la actividad por parte del motor de EBA |
-| **ActivityType**          | string | Categoría de alto nivel de la actividad                        |
-| **ActionType**            | string | Nombre normalizado de la actividad                            |
-| **UserName**              | string | Nombre de usuario del usuario que inició la actividad           |
-| **UserPrincipalName**     | string | Nombre de usuario completo del usuario que inició la actividad      |
-| **EventSource**           | string | Origen de datos que proporcionó el evento original               |
-| **SourceIPAddress**       | string | Dirección IP desde la que se inició la actividad               |
-| **SourceIPLocation** | string | País desde el que se inició la actividad, enriquecido a partir de la dirección IP |
-| **SourceDevice**          | string | Nombre de host del dispositivo que inició la actividad         |
-| **DestinationIPAddress**  | string | Dirección IP del destino de la actividad                   |
-| **DestinationIPLocation** | string | País del destino de la actividad, enriquecido a partir de la dirección IP |
-| **DestinationDevice**     | string | Nombre del dispositivo de destino                                  |
-| **UsersInsights**         | dinámico | Enriquecimientos contextuales de los usuarios implicados ([los detalles se encuentran a continuación](#usersinsights-field)) |
-| **DevicesInsights**       | dinámico | Enriquecimientos contextuales de los dispositivos implicados ([los detalles se encuentran a continuación](#devicesinsights-field)) |
-| **ActivityInsights**      | dinámico | Análisis contextual de la actividad basada en la generación de perfiles ([los detalles se encuentran a continuación](#activityinsights-field)) |
-| **InvestigationPriority** | int | Puntuación de anomalías, entre 0 y 10 (0=benigno, 10=muy anómalo)   |
-|
+| **TenantId**              | string | Número de id. único del inquilino.                             |
+| **SourceRecordId**        | string | Número de id. único del evento de EBA.                          |
+| **TimeGenerated**         | datetime | Marca de tiempo de la repetición de la actividad.                   |
+| **TimeProcessed**         | datetime | Marca de tiempo del procesamiento de la actividad por parte del motor de EBA. |
+| **ActivityType**          | string | Categoría de alto nivel de la actividad.                        |
+| **ActionType**            | string | Nombre normalizado de la actividad.                            |
+| **UserName**              | string | Nombre de usuario del usuario que inició la actividad.           |
+| **UserPrincipalName**     | string | Nombre de usuario completo del usuario que inició la actividad.      |
+| **EventSource**           | string | Origen de datos que proporcionó el evento original.               |
+| **SourceIPAddress**       | string | Dirección IP desde la que se inició la actividad.               |
+| **SourceIPLocation** | string | País desde el que se inició la actividad, enriquecido a partir de la dirección IP. |
+| **SourceDevice**          | string | Nombre de host del dispositivo que inició la actividad.         |
+| **DestinationIPAddress**  | string | Dirección IP del destino de la actividad.                   |
+| **DestinationIPLocation** | string | País del destino de la actividad, enriquecido a partir de la dirección IP. |
+| **DestinationDevice**     | string | Nombre del dispositivo de destino.                                  |
+| **UsersInsights**         | dinámico | Enriquecimientos contextuales de los usuarios implicados ([los detalles se encuentran a continuación](#usersinsights-field)). |
+| **DevicesInsights**       | dinámico | Enriquecimientos contextuales de los dispositivos implicados ([los detalles se encuentran a continuación](#devicesinsights-field)). |
+| **ActivityInsights**      | dinámico | Análisis contextual de la actividad en función de la generación de perfiles ([los detalles se encuentran a continuación](#activityinsights-field)). |
+| **InvestigationPriority** | int | Puntuación de anomalías, entre 0 y 10 (0=benigno, 10=muy anómalo).   |
+
+
 
 ## <a name="entity-enrichments-dynamic-fields"></a>Campos dinámicos de enriquecimiento de entidades
 
@@ -204,6 +208,67 @@ En las siguientes tablas se describen los enriquecimientos que se encuentran en 
 | **Número inusual de dispositivos eliminados**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | Un usuario eliminó un número de dispositivos inusual. | True, False |
 | **Número inusual de usuarios agregados al grupo**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | Un usuario agregó un número inusual de usuarios a un grupo. | True, False |
 |
+
+
+## <a name="identityinfo-table-public-preview"></a>Tabla IdentityInfo (versión preliminar pública)
+
+Después de [habilitar UEBA](enable-entity-behavior-analytics.md) para el área de trabajo de Azure Sentinel, los datos de Azure Active Directory se sincronizan con la tabla **IdentityInfo** de Log Analytics para su uso en Azure Sentinel. Puede insertar datos de usuario sincronizados desde Azure AD desde las reglas de análisis a fin de mejorar el análisis para ajustarlo a sus casos de uso y reducir los falsos positivos.
+
+Aunque la sincronización inicial puede tardar unos días, una vez que los datos estén totalmente sincronizados ocurre lo siguiente:
+
+- Los cambios realizados en los perfiles de usuario de Azure AD se actualizan en la tabla **IdentityInfo** en un plazo de 15 minutos.
+
+- La información de grupo y rol se sincroniza diariamente entre la tabla **IdentityInfo** y Azure AD.
+
+- Cada 21 días, Azure Sentinel se vuelve a sincronizar con toda la instancia de Azure AD para asegurarse de que los registros obsoletos se actualicen completamente.
+
+- El tiempo de retención predeterminado de la tabla **IdentityInfo** es de 30 días.
+
+
+> [!NOTE]
+> Actualmente, solo se admiten roles integrados.
+>
+> En estos momentos, no se admiten los datos sobre grupos eliminados, en los que se quitó un usuario de un grupo.
+>
+
+En la tabla siguiente se describen los datos de identidad del usuario incluidos en la tabla **IdentityInfo** en Log Analytics.
+
+| Campo                      | Tipo     | Descripción                                                                                                             |
+| --------------------------- | -------- | -------------------------------------------------------- |
+| **AccountCloudSID**             | string   | Identificador de seguridad de Azure AD de la cuenta.       |
+| **AccountCreationTime**         | datetime | Fecha en que se creó la cuenta de usuario (UTC).    |
+| **AccountDisplayName**          | string   | Nombre para mostrar de la cuenta de usuario.           |
+| **AccountDomain**               | string   | Nombre de dominio de la cuenta de usuario.  |
+| **AccountName**                 | string   | Nombre de usuario de la cuenta de usuario.      |
+| **AccountObjectId**             | string   | Identificador de objeto de Azure Active Directory para la cuenta de usuario.           |
+| **AccountSID**                  | string   | Identificador de seguridad local de la cuenta de usuario.      |
+| **AccountTenantId**             | string   | Id. de inquilino de Azure Active Directory de la cuenta de usuario.    |
+| **AccountUPN**                  | string   | Nombre principal de usuario de la cuenta de usuario.     |
+| **AdditionalMailAddresses**     | dinámico  | Direcciones de correo electrónico adicionales del usuario.   |
+| **AssignedRoles**               | dinámico  | Roles de Azure AD a los que se asigna la cuenta de usuario.    |
+| **Ciudad**                        | string   | Ciudad de la cuenta de usuario.   |
+| **País**                     | string   | País de la cuenta de usuario.   |
+| **DeletedDateTime**             | datetime | Fecha y hora en que se eliminó el usuario.       |
+| **Departamento**                  | string   | Departamento de la cuenta de usuario.    |
+| **GivenName**                   | string   | Nombre propio de la cuenta de usuario.     |
+| **GroupMembership**             | dinámico  | Grupos de Azure AD de los cuales es miembro la cuenta de usuario.      |
+| **IsAccountEnabled**            | bool     | Indicación de si la cuenta de usuario está habilitada o no en Azure AD.    |
+| **JobTitle**                    | string   | Puesto de la cuenta de usuario.    |
+| **MailAddress**                 | string   | Dirección de correo electrónico principal de la cuenta de usuario.    |
+| **Administrador**                     | string   | Alias de administrador de la cuenta de usuario.     |
+| **OnPremisesDistinguishedName** | string   | Nombre distintivo (DN) de Azure AD. Un nombre distintivo (DN) es una secuencia de nombres distintivos relativos (RDN) conectados por comas. |
+| **Teléfono**                       | string   | Número de teléfono de la cuenta de usuario.       |
+| **SourceSystem**                | string   | Sistema en el que se originaron los datos de usuario.   |
+| **State**                       | string   | Estado geográfico de la cuenta de usuario.  |
+| **StreetAddress**               | string   | Dirección postal de la oficina de la cuenta de usuario.    |
+| **Surname**                     | string   | Apellido del usuario cuenta%.      |
+| **TenantId**                    | string   |          Identificador de inquilino del usuario.   |
+| **TimeGenerated**               | datetime | Hora a la que se generó el evento (UTC).       |
+| **Tipo**                        | string   | Nombre de la tabla.          |
+| **UserState**                   | string   | Estado actual de la cuenta de usuario en Azure AD (Activo/Deshabilitado/Inactivo/Bloqueado).  |
+| **UserStateChangedOn**          | datetime | Fecha de la última vez que se cambió el estado de la cuenta (UTC).     |
+| **UserType**                    | string   | El tipo de usuario.         |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

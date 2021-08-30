@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 06/10/2021
-ms.openlocfilehash: 9a8e4351b88c1b9c4f166dff71fe906177870d9a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 07/01/2021
+ms.openlocfilehash: 1c07e96a82814e59c635a592313e461d06a6fcc3
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984705"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217474"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Configuración de un punto de conexión privado para un área de trabajo de Azure Machine Learning
 
@@ -38,8 +38,6 @@ Azure Private Link le permite conectarse a su área de trabajo mediante un punto
 ## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
-
-* Si planea usar un área de trabajo compatible con un punto de conexión privado con una clave administrada por el cliente, debe solicitar esta característica mediante una incidencia de soporte técnico. Para obtener más información, consulte [Administración y configuración de cuotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 * Debe tener una red virtual existente en la cual crear el punto de conexión privado. También tiene que [deshabilitar las directivas de red para los puntos de conexión privados](../private-link/disable-private-endpoint-network-policy.md) antes de agregar el punto de conexión privado.
 
@@ -127,7 +125,7 @@ Para obtener más información sobre las clases y los métodos usados en este ej
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-La [extensión 1.0 de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace private-endpoint add](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_add).
+La [extensión 1.0 de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace private-endpoint add](/cli/azure/ml(v1)/workspace/private-endpoint#az_ml_workspace_private_endpoint_add).
 
 ```azurecli
 az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval --pe-vnet-name myvnet
@@ -164,7 +162,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-La [extensión 1.0 de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace private-endpoint delete](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_delete).
+La [extensión 1.0 de la CLI de Azure para Machine Learning](reference-azure-machine-learning-cli.md) proporciona el comando [az ml workspace private-endpoint delete](/cli/azure/ml(v1)/workspace/private-endpoint#az_ml_workspace_private_endpoint_delete).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -186,7 +184,9 @@ Para más información sobre Azure Virtual Machines, consulte [Documentación so
 En algunas situaciones, puede que desee permitir que alguien se conecte al área de trabajo protegida mediante un punto de conexión público, en lugar de hacerlo mediante la red virtual. Después de configurar un área de trabajo con un punto de conexión privado, tiene la opción de habilitar el acceso público al área de trabajo. Al hacerlo, no se quita el punto de conexión privado. Todas las comunicaciones entre los componentes de la red virtual siguen estando protegidas. Se habilita el acceso público solo al área de trabajo, además del acceso privado mediante la red virtual.
 
 > [!WARNING]
-> Al conectarse mediante el punto de conexión público, algunas características de Estudio de Azure Machine Learning no podrán acceder a los datos. Este problema se produce cuando los datos se almacenan en un servicio protegido detrás de la red virtual. Por ejemplo, una cuenta de Azure Storage. Además, tenga en cuenta que la funcionalidad Jupyter/JupyterLab/RStudio de la instancia de proceso y los cuadernos en ejecución no van a funcionar.
+> Al conectarse a través del punto de conexión público:
+> * __Algunas características de Studio no podrán acceder a los datos__. Este problema se produce cuando los _datos se almacenan en un servicio protegido detrás de la red virtual_. Por ejemplo, una cuenta de Azure Storage. 
+> * __No se admite__ el uso de Jupyter, JupyterLab y RStudio en una instancia de proceso, incluidos los cuadernos en ejecución.
 
 Para habilitar el acceso público a un área de trabajo con el punto de conexión privado habilitado, siga estos pasos:
 

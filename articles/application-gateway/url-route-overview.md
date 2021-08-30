@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e38f590628381710afec1d7bbf1ceb0daf9f77a2
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 7a24b9631362618ee3be5e94066ac5267ac85962
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032220"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113504880"
 ---
 # <a name="url-path-based-routing-overview"></a>Información general del enrutamiento basado en URL
 
@@ -27,7 +27,7 @@ En el ejemplo siguiente, Application Gateway atiende el tráfico de contoso.com 
 Las solicitudes de http\://contoso.com/video/* se enrutan a VideoServerPool y las de http\://contoso.com/images/* a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
 
 > [!IMPORTANT]
-> En la SKU v1, las reglas se procesan en el orden en que aparecen en el portal. Si un agente de escucha básico aparece en primer lugar y coincide con una solicitud entrante, lo procesa ese agente de escucha. En el caso de la SKU v2, las coincidencias exactas tienen mayor prioridad. Sin embargo, es muy recomendable configurar a los agentes de escucha multisitio antes de configurar un agente de escucha básico. De esta forma se asegura de que el tráfico se enruta al back-end adecuado.
+> En las SKU v1 y v2, las reglas se procesan en el orden en que aparecen en el portal. Si un agente de escucha básico aparece en primer lugar y coincide con una solicitud entrante, lo procesa ese agente de escucha. Sin embargo, es muy recomendable configurar a los agentes de escucha multisitio antes de configurar un agente de escucha básico. De esta forma se asegura de que el tráfico se enruta al back-end adecuado.
 
 ## <a name="urlpathmap-configuration-element"></a>Elemento de configuración UrlPathMap
 
@@ -75,7 +75,7 @@ Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
 |Patrón de ruta de acceso de v1  |¿Se admite?  |
 |---------|---------|
 |`/images/*`     |sí|
-|`/images*`     |sí|
+|`/images*`     |Sí|
 |`/images/*.jpg`     |No|
 |`/*.jpg`     |No|
 |`/Repos/*/Comments/*`     |No|
@@ -88,7 +88,7 @@ Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
 |Patrón de ruta de acceso de v2  |¿Se admite?  |
 |---------|---------|
 |`/images/*`     |sí|
-|`/images*`     |sí|
+|`/images*`     |Sí|
 |`/images/*.jpg`     |No|
 |`/*.jpg`     |No|
 |`/Repos/*/Comments/*`     |No|

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 430af1dfcbd9c7faabfca2f3f5b80b3b3106a889
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74d5bee95ae91eb11f249518f49b711d9649db01
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675802"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467662"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de SAP ASE para la carga de trabajo de SAP
 
@@ -188,7 +188,7 @@ La guía del usuario de HADR detalla la instalación y configuración de una sol
 > La única configuración admitida en Azure es usar el administrador de errores sin la dirección IP flotante.  El método de dirección IP flotante no funcionará en Azure. 
 
 ### <a name="third-node-for-disaster-recovery"></a>Tercer nodo para la recuperación ante desastres
-Más allá del uso de SAP ASE Always-on para la alta disponibilidad local, puede que desee extender la configuración a un nodo replicado de forma asincrónica en otra región de Azure. La documentación para dicho escenario se puede encontrar [aquí](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
+Más allá del uso de SAP ASE Always-on para la alta disponibilidad local, puede que desee extender la configuración a un nodo replicado de forma asincrónica en otra región de Azure. Para más información, consulte [Procedimiento de instalación para Sybase 16. 3, nivel de revisión 3 Always-On + recuperación ante desastres en Suse 12.3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
 
 ## <a name="sap-ase-database-encryption--ssl"></a>Cifrado de base de datos y SSL de SAP ASE 
 SAP Software Provisioning Manager (SWPM) proporciona una opción para cifrar la base de datos durante la instalación.  Si desea usar el cifrado, se recomienda usar el cifrado de base de datos completo de SAP.  Consulte los detalles que se documentan en:
@@ -245,7 +245,6 @@ Si implementó la VM en un escenario solo de nube sin conectividad en varios ent
 > 
 > 
 
-Encontrará más detalles relacionados con el nombre DNS [aquí][virtual-máquinas-azurerm-frente a-azuresm].
 
 El ajuste del parámetro de perfil de SAP icm/host_name_full con el nombre DNS del vínculo de la máquina virtual de Azure puede tener este aspecto:
 

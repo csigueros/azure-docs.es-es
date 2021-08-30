@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/12/2021
 ms.author: esarroyo
-ms.openlocfilehash: 51ab68d77e6d5f7e69701b7bc36eaf58f51bf48d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 769db1b447c6f5ce31a1ed23ddf5d7ef973bcad5
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966356"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112553151"
 ---
 # <a name="troubleshoot-issues-with-diagnostics-queries"></a> Solución de problemas con las consultas de diagnóstico
 
@@ -21,7 +21,7 @@ En este artículo, explicaremos cómo escribir consultas sencillas para ayudar a
 
 En el caso de las tablas de Azure Diagnostics, todos los datos se escriben en una sola tabla y los usuarios tendrán que especificar la categoría que desean consultar.
 
-En el caso de las tablas específicas del recurso (actualmente en versión preliminar para SQL API), los datos se escriben en tablas individuales para cada categoría del recurso. Recomendamos este modo, ya que facilita el trabajo con los datos, proporciona una mejor detectabilidad de los esquemas y mejora el rendimiento tanto en la latencia de ingesta como en los tiempos de consulta.
+En el caso de las tablas específicas del recurso, los datos se escriben en tablas individuales para cada categoría del recurso (no disponible para Table API). Recomendamos este modo, ya que facilita el trabajo con los datos, proporciona una mejor detectabilidad de los esquemas y mejora el rendimiento tanto en la latencia de ingesta como en los tiempos de consulta.
 
 ## <a name="azurediagnostics-queries"></a><a id="azure-diagnostics-queries"></a> Consultas AzureDiagnostics
 
@@ -328,7 +328,7 @@ En el caso de las tablas específicas del recurso (actualmente en versión preli
    | summarize by OperationName 
    ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes 
 * Para obtener más información sobre cómo crear una configuración de diagnóstico para Cosmos DB, consulte el artículo sobre cómo [crear una configuración de diagnóstico](cosmosdb-monitor-resource-logs.md).
 
 * Para obtener información detallada sobre cómo crear una configuración de diagnóstico mediante Azure Portal, la CLI o PowerShell, consulte el artículo [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../azure-monitor/essentials/diagnostic-settings.md).

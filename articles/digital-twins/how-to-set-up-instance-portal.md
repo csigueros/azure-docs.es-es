@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2, subject-rbac-steps
-ms.openlocfilehash: 203c53daf07949e343e9aa7e5cf56e89a7b07b1f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f520ed1054c5d0d9dd6c053e22a984a813840131
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474549"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468782"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configuración de una instancia de Azure Digital Twins y autenticación (portal)
 
@@ -22,42 +22,34 @@ ms.locfileid: "110474549"
 En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins**, incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
 
 En esta versión de este artículo se realizan los pasos manualmente, uno por uno, mediante Azure Portal. Azure Portal es una consola unificada basada en web que proporciona una alternativa a las herramientas de línea de comandos.
-* Para realizar estos pasos manualmente mediante la CLI, consulte la versión de CLI de este artículo: [Procedimiento: Configuración de una instancia y autenticación (CLI)](how-to-set-up-instance-cli.md) .
-* Para ejecutar una configuración automatizada mediante un script de implementación de ejemplo, consulte la versión con scripts de este artículo: [Procedimiento: Configuración de una instancia y autenticación (con scripts)](how-to-set-up-instance-scripted.md) .
+* Para realizar estos pasos de manera manual mediante la CLI, consulte la versión de este artículo para la CLI en [Configuración de una instancia y de la autenticación (CLI)](how-to-set-up-instance-cli.md).
+* A fin de ejecutar una configuración automatizada con un ejemplo de script de implementación, consulte la versión con scripts de este artículo en [Configuración de una instancia y autenticación (con scripts)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Creación de una instancia de Azure Digital Twins
 
-En esta sección, **creará una instancia de Azure Digital Twins** mediante [Azure Portal](https://ms.portal.azure.com/). Vaya al portal e inicie sesión con sus credenciales.
+[!INCLUDE [digital-twins-setup-portal.md](../../includes/digital-twins-setup-portal.md)]
 
-Una vez en el portal, seleccione _Crear un recurso_ en el menú de la página principal de servicios de Azure, para comenzar.
+3. En la siguiente página **Crear recurso**, rellene los valores indicados a continuación:
+    * **Suscripción**: la suscripción de Azure que está usando.
+      - **Grupo de recursos**: grupo de recursos en el que implementar la instancia. Si aún no tiene un grupo de recursos existente en mente, puede crear uno aquí mediante la selección del vínculo *Crear nuevo* y la introducción de un nombre para el nuevo grupo de recursos.
+    * **Ubicación**: región habilitada para Azure Digital Twins para la implementación. Para obtener más información sobre la compatibilidad regional, visite [Productos de Azure disponibles por región (Azure Digital Twins)](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins) .
+    * **Nombre del recurso**: nombre para la instancia de Azure Digital Twins. Si su suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre especificado, se le pedirá que elija un nombre diferente.
+    * **Conceder acceso al recurso**: al marcar la casilla de esta sección se concederá permiso a la cuenta de Azure para acceder a los datos de la instancia y administrarlos. Si es quien va a administrar la instancia, debe marcar esta casilla ahora. Si está atenuada porque no tiene permiso en la suscripción, puede seguir creando el recurso y hacer que alguien con los permisos necesarios le conceda el rol más adelante. Para obtener más información sobre este rol y la asignación de roles a la instancia, consulte la sección siguiente [Configuración de permisos de acceso de usuarios](#set-up-user-access-permissions).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Captura de pantalla de Azure Portal, en la que se resalta el icono &quot;Crear un recurso&quot; de la página principal.":::
+    :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Captura de pantalla del proceso Crear recurso para Azure Digital Twins en Azure Portal. Los valores descritos aparecen rellenos.":::
 
-Busque *Azure Digital Twins* en el cuadro de búsqueda y elija el servicio **Azure Digital Twins** en los resultados. Seleccione el botón _Crear_ para crear una nueva instancia del servicio.
+4. Cuando haya terminado, puede seleccionar **Revisar y crear** si no quiere configurar más opciones para la instancia. Esta acción le llevará a una página de resumen, donde puede revisar los detalles de la instancia que ha introducido y finalizar con **Crear**. 
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Captura de pantalla de Azure Portal, en la que se resalta el botón &quot;Crear&quot; de la página del servicio Azure Digital Twins.":::
-
-En la siguiente página **Crear recurso**, rellene los valores indicados a continuación:
-* **Suscripción**: la suscripción de Azure que está usando.
-  - **Grupo de recursos**: grupo de recursos en el que implementar la instancia. Si aún no tiene un grupo de recursos existente en mente, puede crear uno aquí mediante la selección del vínculo *Crear nuevo* y la introducción de un nombre para el nuevo grupo de recursos.
-* **Ubicación**: región habilitada para Azure Digital Twins para la implementación. Para obtener más información sobre la compatibilidad regional, visite [Productos de Azure disponibles por región (Azure Digital Twins)](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins) .
-* **Nombre del recurso**: nombre para la instancia de Azure Digital Twins. Si su suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre especificado, se le pedirá que elija un nombre diferente.
-* **Conceder acceso al recurso**: al marcar la casilla de esta sección se concederá permiso a la cuenta de Azure para acceder a los datos de la instancia y administrarlos. Si es quien va a administrar la instancia, debe marcar esta casilla ahora. Si está atenuada porque no tiene permiso en la suscripción, puede seguir creando el recurso y hacer que alguien con los permisos necesarios le conceda el rol más adelante. Para obtener más información sobre este rol y la asignación de roles a la instancia, consulte la sección siguiente [Configuración de permisos de acceso de usuarios](#set-up-user-access-permissions).
-
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Captura de pantalla del proceso Crear recurso para Azure Digital Twins en Azure Portal. Los valores descritos aparecen rellenos.":::
-
-Cuando haya terminado, puede seleccionar **Revisar y crear** si no quiere configurar más opciones para la instancia. Esta acción le llevará a una página de resumen, donde puede revisar los detalles de la instancia que ha introducido y finalizar con **Crear**. 
-
-Si quiere configurar más detalles para la instancia, en la sección siguiente se describen las pestañas de configuración restantes.
+    Si quiere configurar más detalles para la instancia, en la sección siguiente se describen las pestañas de configuración restantes.
 
 ### <a name="additional-setup-options"></a>Opciones de configuración adicionales
 
 Estas son las opciones adicionales que puede configurar durante la instalación, mediante las demás pestañas del proceso **Crear recurso**.
 
-* **Redes**: en esta pestaña, puede habilitar puntos de conexión privados con [Azure Private Link](../private-link/private-link-overview.md) para eliminar la exposición de la red pública a la instancia. Para instrucciones, consulte [Procedimiento: para habilitar el acceso privado con Private Link (versión preliminar)](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation) .
-* **Avanzadas**: en esta pestaña, puede habilitar una identidad administrada por el sistema para la instancia que se puede usar al reenviar eventos a [puntos de conexión](concepts-route-events.md). Para más información sobre el uso de identidades administradas por el sistema con Azure Digital Twins, consulte [Protección de Azure Digital Twins](concepts-security.md#managed-identity-for-accessing-other-resources-preview).
+* **Redes**: en esta pestaña, puede habilitar puntos de conexión privados con [Azure Private Link](../private-link/private-link-overview.md) para eliminar la exposición de la red pública a la instancia. Para instrucciones, consulte [Habilitación del acceso privado con Private Link (versión preliminar)](./how-to-enable-private-link.md?tabs=portal#add-a-private-endpoint-during-instance-creation).
+* **Avanzadas**: en esta pestaña, puede habilitar una identidad administrada por el sistema para la instancia que se puede usar al reenviar eventos a [puntos de conexión](concepts-route-events.md). Para más información sobre el uso de identidades administradas por el sistema con Azure Digital Twins, consulte [Seguridad para las soluciones de Azure Digital Twins](concepts-security.md#managed-identity-for-accessing-other-resources-preview).
 * **Etiquetas**: en esta pestaña, puede agregar etiquetas a la instancia a fin de facilitar su organización entre los recursos de Azure. Para obtener más información sobre las etiquetas de recurso de Azure, vea [Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Comprobación de que la operación es correcta y recopilación de valores importantes
@@ -135,7 +127,7 @@ Ahora tiene lista una instancia de Azure Digital Twins y los permisos asignados 
 
 Pruebe las llamadas individuales de la API de REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
 * [Referencia de az dt](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
-* [Conceptos: Conjunto de comandos de la CLI de Azure Digital Twins](concepts-cli.md)
+* [Conjunto de comandos de la CLI de Azure Digital Twins](concepts-cli.md)
 
 O bien consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:
-* [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)
+* [Escritura de código de autenticación de aplicación](how-to-authenticate-client.md)

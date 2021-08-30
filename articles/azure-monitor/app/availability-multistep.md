@@ -2,23 +2,29 @@
 title: 'Supervisión con pruebas web de varios pasos: Azure Application Insights'
 description: Configuración de pruebas web de varios pasos para supervisar las aplicaciones web con Azure Application Insights
 ms.topic: conceptual
-ms.date: 02/14/2021
-ms.openlocfilehash: 1d3597eaf54c40fb1f986d822af0dd6b8c8a7b2e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/21/2021
+ms.openlocfilehash: d248340aa272a6a1fef386ca755ed46536668ad9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719855"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448004"
 ---
 # <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 
 Puede supervisar una secuencia registrada de direcciones URL e interacciones con un sitio web a través de pruebas web de varios pasos. En este artículo se proporciona una guía paso a paso del proceso de creación de una prueba web de varios pasos con Visual Studio Enterprise.
 
 > [!NOTE]
-> Las pruebas web de varios pasos dependen de los archivos de pruebas web de Visual Studio. Se [anunció](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que Visual Studio 2019 será la última versión con la funcionalidad de prueba web. Es importante comprender que, aunque no se agregarán nuevas características, la funcionalidad de pruebas web de Visual Studio 2019 todavía se admite y se seguirá admitiendo durante el ciclo de vida de soporte técnico del producto. El equipo de productos de Azure Monitor ha abordado las preguntas sobre el futuro de las pruebas de disponibilidad de varios pasos [aquí](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
-> </br>
 > **No se admiten** las pruebas web de varios pasos en la nube de [ Azure Government](../../azure-government/index.yml).
 
+> [!NOTE]
+> Las pruebas web de varios pasos se clasifican como pruebas clásicas y se pueden encontrar en **Add Classic Test** (Agregar prueba clásica) en el panel Disponibilidad.
+
+## <a name="multi-step-webtest-alternative"></a>Alternativa de prueba web de varios pasos
+
+Las pruebas web de varios pasos dependen de los archivos de pruebas web de Visual Studio. Se [anunció](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que Visual Studio 2019 será la última versión con la funcionalidad de prueba web. Es importante comprender que, aunque no se agregarán nuevas características, la funcionalidad de pruebas web de Visual Studio 2019 todavía se admite y se seguirá admitiendo durante el ciclo de vida de soporte técnico del producto. 
+
+Se recomienda utilizar [TrackAvailability](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) para enviar [pruebas de disponibilidad personalizadas](./availability-azure-functions.md) en lugar de pruebas web de varios pasos. Esta es la solución compatible a largo plazo para escenarios de prueba de autenticación o de varias solicitudes. Con TrackAvailability() y las pruebas de disponibilidad personalizadas, puede ejecutar pruebas en cualquier proceso que desee y utilizar C# para crear pruebas con facilidad.
 
 ## <a name="pre-requisites"></a>Requisitos previos
 
@@ -41,9 +47,10 @@ Para obtener instrucciones sobre cómo crear pruebas web de Visual Studio, cons
 
 ## <a name="upload-the-web-test"></a>Carga de la prueba web
 
-1. En el portal de Application Insights, en el panel Disponibilidad, seleccione **Crear prueba** > **Tipo de prueba** > **Prueba web de varios pasos**.
-
-2. Establezca las ubicaciones de prueba, la frecuencia y los parámetros de alerta.
+1. En el portal de Application Insights, en el panel Disponibilidad, seleccione **Add Classic test** (Agregar prueba clásica) y, luego, seleccione **Varios pasos** como la *SKU*.
+2. Cargue la prueba web de varios pasos.
+3. Establezca las ubicaciones de prueba, la frecuencia y los parámetros de alerta.
+4. Seleccione **Crear**.
 
 ### <a name="frequency--location"></a>Frecuencia y ubicación
 

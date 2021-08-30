@@ -70,7 +70,21 @@
     - name: Conmutación por error y aplicación de revisiones
       href: cache-failover.md
     - name: Procedimientos recomendados
-      href: cache-best-practices.md
+      items:
+        - name: Resistencia de la conexión
+          href: cache-best-practices-connection.md
+        - name: Administración de carga de servidor
+          href: cache-best-practices-server-load.md
+        - name: Administración de memoria
+          href: cache-best-practices-memory-management.md
+        - name: Desarrollo
+          href: cache-best-practices-development.md
+        - name: Ampliación
+          href: cache-best-practices-scale.md
+        - name: Aplicaciones cliente hospedadas por Kubernetes
+          href: cache-best-practices-kubernetes.md
+        - name: Pruebas de rendimiento
+          href: cache-best-practices-performance.md
     - name: Seguridad
       items:
         - name: Opciones de aislamiento de red

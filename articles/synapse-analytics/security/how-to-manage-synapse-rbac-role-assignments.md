@@ -1,19 +1,19 @@
 ---
 title: Cómo administrar asignaciones de Synapse RBAC en Synapse Studio
 description: En este artículo se describe cómo asignar y revocar roles de Synapse RBAC a las entidades de seguridad de AAD
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 01f923828f0b83280d033b9bc6e5c7b6bbebae35
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8bbb6185368b438376529d69409d301c0cdd9c97
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784081"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732487"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Cómo administrar asignaciones de roles de Synapse RBAC en Synapse Studio
 
@@ -33,7 +33,7 @@ En este artículo se muestra cómo agregar y eliminar asignaciones de roles de S
 
 ## <a name="open-synapse-studio"></a>Abrir Synapse Studio  
 
-Para asignar un rol a un usuario, grupo, entidad de servicio o identidad administrada, primero [abra Synapse Studio](https://web.azuresynapse.net/) y seleccione el área de trabajo. 
+Para asignar un rol a un usuario, grupo, entidad de servicio o identidad administrada, primero [abra Synapse Studio](https://web.azuresynapse.net/) e inicie sesión en el área de trabajo. 
 
 ![Inicio de sesión en el área de trabajo](./media/common/login-workspace.png) 
  

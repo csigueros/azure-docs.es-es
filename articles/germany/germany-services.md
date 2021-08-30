@@ -1,37 +1,33 @@
 ---
 title: Servicios disponibles en Azure Alemania | Microsoft Docs
-description: Proporciona información general de los servicios disponibles en Azure Alemania
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: chsieg
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: En este artículo se proporciona información general de los servicios disponibles en Azure Alemania.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/20/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 4191edf9a690e6d4aa28d93cdc6c437ed20abaa2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: 523ef05023f669c5ff37f2d5f06ecc0d410faff0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033487"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "117029014"
 ---
 # <a name="available-services-in-azure-germany"></a>Servicios disponibles en Azure Alemania
-Azure Alemania está ampliando continuamente sus servicios. Dichos servicios se implementan con el mismo código que se usa en Azure global. En este artículo se documentan los servicios que están actualmente disponibles en Azure Alemania. 
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
+Azure Alemania ya no amplía sus servicios. En este artículo se documentan los servicios que están actualmente disponibles en Azure Alemania. 
 
 >[!NOTE]
 > Para obtener la lista más reciente de servicios, consulte [Productos por región](https://azure.microsoft.com/regions/services/). 
 >
 >
 
-En las tablas siguientes, los servicios especificados como habilitados para Azure Resource Manager tienen proveedores de recursos y se pueden administrar mediante PowerShell. Para más información acerca de los proveedores de Resource Manager, las versiones de API y los esquemas, consulte [Servicios que admite Resource Manager](../azure-resource-manager/resource-manager-supported-services.md). Los servicios especificados como disponibles en el portal se pueden administrar en el [portal de Azure Alemania](https://portal.microsoftazure.de/). 
+En las tablas siguientes, los servicios especificados como habilitados para Azure Resource Manager tienen proveedores de recursos y se pueden administrar mediante PowerShell. Para más información acerca de los proveedores de Resource Manager, las versiones de API y los esquemas, consulte [Servicios que admite Resource Manager](../azure-resource-manager/management/resource-providers-and-types.md). Los servicios especificados como disponibles en el portal se pueden administrar en el [portal de Azure Alemania](https://portal.microsoftazure.de/). 
 
-## <a name="computegermany-services-computemd"></a>[Proceso](./germany-services-compute.md)
+## <a name="compute"></a>[Proceso](./germany-services-compute.md)
 
 | Servicio | Resource Manager | Portal |
 | --- | --- | --- |
@@ -40,31 +36,31 @@ En las tablas siguientes, los servicios especificados como habilitados para Azur
 | Service Fabric | Sí | Sí |
 
 
-## <a name="networkinggermany-services-networkingmd"></a>[Redes](./germany-services-networking.md)
+## <a name="networking"></a>[Redes](./germany-services-networking.md)
 
 | Servicio | Resource Manager | Portal |
 | --- | --- | --- |
 | [ExpressRoute](./germany-services-networking.md#expressroute-private-connectivity) | Sí | Sí |
 | Virtual Network | Sí | Sí |
-| [Load Balancer](./germany-services-networking.md#support-for-load-balancer) | Sí | Sí |
+| [Equilibrador de carga](./germany-services-networking.md#support-for-load-balancer) | Sí | Sí |
 | [Traffic Manager](./germany-services-networking.md#support-for-traffic-manager)  | Sí | Sí |
 |  [VPN Gateway](./germany-services-networking.md#support-for-vpn-gateway) | Sí | Sí |
 | Application Gateway | Sí | Sí |
 
 
 
-## <a name="storagegermany-services-storagemd"></a>[Storage](./germany-services-storage.md)
+## <a name="storage"></a>[Storage](./germany-services-storage.md)
 
 | Servicio | Resource Manager | Portal |
 | --- | --- | --- |
 | [Storage](./germany-services-storage.md#storage) | Sí | Sí |
-| StorSimple | Sin | Sin |
+| StorSimple | No | No |
 | Copia de seguridad | Sí | Sí |
 | Site Recovery | Sí | Sí |
 
 
 
-## <a name="web-and-mobilegermany-services-webandmobilemd"></a>[Web y dispositivos móviles](./germany-services-webandmobile.md)
+## <a name="web-and-mobile"></a>[Web y móviles](./germany-services-webandmobile.md)
 
 | Servicio | Resource Manager | Portal |
 | --- | --- | --- |
@@ -74,12 +70,12 @@ En las tablas siguientes, los servicios especificados como habilitados para Azur
 | Media Services | Sí | Sí |
 
 
-## <a name="databasesgermany-services-databasemd"></a>[Bases de datos](./germany-services-database.md)
+## <a name="databases"></a>[Bases de datos](./germany-services-database.md)
 
 | Servicio | Resource Manager | Portal |
 | --- | --- | --- |
 | [SQL Database](./germany-services-database.md#sql-database) | Sí | Sí |
-| SQL Data Warehouse | Sí | Sí |
+| Azure Synapse Analytics | Sí | Sí |
 | SQL Server Stretch Database | Sí | Sí |
 | [Azure Cache for Redis](./germany-services-database.md#azure-cache-for-redis) | Sí | Sí |
 | Azure Cosmos DB | Sí | Sí |
@@ -90,16 +86,16 @@ En las tablas siguientes, los servicios especificados como habilitados para Azur
 | Servicio | Resource Manager | Portal |
 | --- | --- | --- |
 | HDInsight | Sí | Sí |
-| Machine Learning | Sí | Sin |
+| Machine Learning | Sí | No |
 
 
-## <a name="internet-of-things-iotgermany-services-iotmd"></a>[Internet de las cosas (IoT)](./germany-services-iot.md)
+## <a name="internet-of-things-iot"></a>[Internet de las cosas (IoT)](./germany-services-iot.md)
 
 | Servicio | Resource Manager | Portal |
 | --- | --- | --- |
 | Event Hubs | Sí | Sí |
 | IoT Hub | Sí | Sí |
-| Notification Hubs | Sí | Sin |
+| Notification Hubs | Sí | No |
 | Stream Analytics | Sí | Sí |
 
 
@@ -108,18 +104,18 @@ En las tablas siguientes, los servicios especificados como habilitados para Azur
 | Servicio | Resource Manager | Portal |
 | --- | --- | --- |
 | Azure Service Bus | Sí | Sí |
-| StorSimple | Sin | Sin |
+| StorSimple | No | No |
 | SQL Server Stretch Database | Sí | Sí |
 
 
 
-## <a name="security-and-identitygermany-services-securityandidentitymd"></a>[Seguridad e identidad](./germany-services-securityandidentity.md)
+## <a name="security-and-identity"></a>[Seguridad e identidad](./germany-services-securityandidentity.md)
 
 | Servicio | Resource Manager | Portal |
 | --- | --- | --- |
 | Active Directory Free | Sí | Sí |
-| Active Directory Premium | Sin | Sin |
-|  [Key Vault](./germany-services-securityandidentity.md#key-vault)  | Sí | Sin |
+| Active Directory Premium | No | No |
+|  [Key Vault](./germany-services-securityandidentity.md#key-vault)  | Sí | No |
 
 
 
@@ -127,13 +123,12 @@ En las tablas siguientes, los servicios especificados como habilitados para Azur
 
 | Servicio | Resource Manager | Portal |
 | --- | --- | --- |
-| Automation | Sin | Sin |
+| Automation | No | No |
 | Copia de seguridad | Sí | Sí |
-| Registros de Azure Monitor | Sin | Sin |
+| Registros de Azure Monitor | No | No |
 | Site Recovery | Sí | Sí |
-| Scheduler | Sí | Sí |
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información y obtener actualizaciones suscríbase al [blog de Microsoft Azure Alemania ](https://blogs.msdn.microsoft.com/azuregermany/).
+Para más información y obtener actualizaciones suscríbase al [blog de Microsoft Azure Alemania ](/archive/blogs/azuregermany/).

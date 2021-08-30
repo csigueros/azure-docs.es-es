@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 06/18/2021
 ms.author: aahi
-ms.openlocfilehash: 37dd6eddc302062d756df79a03bd13cfc8c881e1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 5b1883b06ae234ed8a4f9adf949cf26919f7b877
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757182"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550163"
 ---
-# <a name="how-to-use-text-analytics-for-health-preview"></a>Procedimientos: Uso de Text Analytics para el estado (versión preliminar)
+# <a name="how-to-use-text-analytics-for-health"></a>Uso de Text Analytics para el sector sanitario
 
 > [!IMPORTANT] 
-> Text Analytics para el estado es una funcionalidad de versión preliminar que se proporciona "tal cual" y "con todos los errores". Como tal, no se debe implementar Text Analytics para el estado (versión preliminar) en ningún uso de producción. Text Analytics para el estado no está previsto ni está disponible para su uso como dispositivo médico, soporte clínico, herramienta de diagnóstico u otra tecnología que se pretenda usar en el diagnóstico, la cura, la mitigación, el tratamiento o la prevención de la enfermedad u otras condiciones, y Microsoft no concede ninguna licencia o derecho para usar esta funcionalidad con este fin. Esta funcionalidad no está diseñada o prevista para implementarse como un sustituto del asesoramiento médico profesional o la opinión de la atención sanitaria, el diagnóstico, el tratamiento o la opinión clínica de un profesional sanitario y no debe usarse como tal. El cliente es el único responsable de cualquier uso de Text Analytics para el estado. El cliente debe obtener una licencia por separado de todos y cada uno de los vocabularios fuente que pretende usar en los términos establecidos en el [Apéndice al contrato de licencia del metatesauro de UMLS](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) o cualquier vínculo equivalente futuro. El cliente es responsable de garantizar el cumplimiento de esos términos de licencia, incluidas las restricciones geográficas u otras restricciones aplicables.
+> Text Analytics para el sector sanitario es una funcionalidad que se proporciona "tal cual" y "con todos los errores". Text Analytics para el estado no está previsto ni está disponible para su uso como dispositivo médico, soporte clínico, herramienta de diagnóstico u otra tecnología que se pretenda usar en el diagnóstico, la cura, la mitigación, el tratamiento o la prevención de la enfermedad u otras condiciones, y Microsoft no concede ninguna licencia o derecho para usar esta funcionalidad con este fin. Esta funcionalidad no está diseñada o prevista para implementarse como un sustituto del asesoramiento médico profesional o la opinión de la atención sanitaria, el diagnóstico, el tratamiento o la opinión clínica de un profesional sanitario y no debe usarse como tal. El cliente es el único responsable de cualquier uso de Text Analytics para el estado. El cliente debe obtener una licencia por separado de todos y cada uno de los vocabularios fuente que va a usar en virtud de los términos establecidos en el [Apéndice al contrato de licencia del metatesauro de UMLS](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) o cualquier vínculo equivalente futuro. El cliente es responsable de garantizar el cumplimiento de esos términos de licencia, incluidas las restricciones geográficas u otras restricciones aplicables.
 
 
 Text Analytics for Health es una característica de la API Text Analytics, que extrae y etiqueta información médica pertinente de textos no estructurados, como notas del doctor, resúmenes de altas médicas, historiales clínicos y registros electrónicos de salud.  Hay dos maneras de utilizar este servicio: 
@@ -94,17 +94,15 @@ La versión preliminar más reciente de la biblioteca cliente de Text Analytics 
 
 ### <a name="preparation"></a>Preparación
 
-Text Analytics for Health genera un resultado de mayor calidad si se le proporcionan fragmentos de texto más pequeños en los que trabajar, algo que es totalmente opuesto a lo que sucede con otras características de Text Analytics, como la extracción de frases clave, que funciona mejor en bloques de texto más grandes. Para obtener los mejores resultados posibles en ambas operaciones, considere la posibilidad de reestructurar las entradas en consecuencia.
-
 Debe tener documentos JSON en este formato: identificador, texto e idioma. 
 
-El tamaño del documento debe ser inferior a 5120 caracteres por documento. Para conocer el número máximo de documentos permitidos en una colección, consulte el artículo sobre [límites de datos](../concepts/data-limits.md?tabs=version-3) en Conceptos. La colección se envía en el cuerpo de la solicitud.
+El tamaño del documento debe ser inferior a 5120 caracteres por documento. Para conocer el número máximo de documentos permitidos en una colección, consulte el artículo sobre [límites de datos](../concepts/data-limits.md?tabs=version-3) en Conceptos. La colección se envía en el cuerpo de la solicitud. Si el texto supera este límite, considere la posibilidad de dividirlo en solicitudes independientes. Para obtener mejores resultados, divida el texto entre oraciones.
 
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Estructura de la solicitud de API para la API web asincrónica hospedada
 
-Tanto para el contenedor como para la API web hospedada, debe crear una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md), un comando de cURL o la **consola de prueba de API** en la [referencia de la API hospedada Text Analytics for Health](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Health) para construir y enviar rápidamente una solicitud POST a la API web hospedada en la región deseada. En el punto de conexión de API v3.1-preview.5, se puede usar el parámetro de consulta booleano `loggingOptOut` para habilitar el registro con fines de solución de problemas.  El valor predeterminado es TRUE si no se especifica en la consulta de solicitud.
+Tanto para el contenedor como para la API web hospedada, debe crear una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md), un comando de cURL o la **consola de prueba de API** en la [referencia de la API hospedada Text Analytics for Health](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health) para construir y enviar rápidamente una solicitud POST a la API web hospedada en la región deseada. En el punto de conexión de API v3.1, se puede usar el parámetro de consulta booleano `loggingOptOut` para habilitar el registro con fines de solución de problemas.  El valor predeterminado es TRUE si no se especifica en la consulta de solicitud.
 
-Envíe la solicitud POST a `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/health/jobs`. A continuación hay un ejemplo de un archivo JSON adjunto al cuerpo de POST de la solicitud de la API Text Analytics for Health:
+Envíe la solicitud POST a `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/health/jobs`. A continuación hay un ejemplo de un archivo JSON adjunto al cuerpo de POST de la solicitud de la API Text Analytics for Health:
 
 ```json
 example.json
@@ -124,20 +122,20 @@ example.json
 
 Como esta solicitud POST se usa para enviar un trabajo para la operación asincrónica, no hay texto en el objeto de la respuesta.  Sin embargo, necesita el valor de KEY de operation-location en los encabezados de respuesta para realizar una solicitud GET para comprobar el estado del trabajo y la salida.  A continuación se muestra un ejemplo del valor de la KEY de operation-location en el encabezado de respuesta de la solicitud POST:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/health/jobs/<jobID>`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/health/jobs/<jobID>`
 
 Para comprobar el estado del trabajo, realice una solicitud GET a la dirección URL en el valor del encabezado KEY DE operation-Location de la respuesta POST.  Los siguientes estados se usan para reflejar el estado de un trabajo: `NotStarted`, `running`, `succeeded`, `failed`, `rejected`, `cancelling` y `cancelled`.  
 
-Puede cancelar un trabajo con los estados `NotStarted` o `running` con una llamada HTTP DELETE a la misma dirección URL que la solicitud GET.  Puede encontrar más información sobre la llamada de eliminación en la [referencia de la API hospedada Text Analytics for Health](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/CancelHealthJob).
+Puede cancelar un trabajo con los estados `NotStarted` o `running` con una llamada HTTP DELETE a la misma dirección URL que la solicitud GET.  Puede encontrar más información sobre la llamada de eliminación en la [referencia de la API hospedada Text Analytics for Health](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/CancelHealthJob).
 
 El siguiente es un ejemplo de la respuesta de una solicitud GET.  La salida está disponible para su recuperación hasta que transcurre el valor de `expirationDateTime` (24 horas desde el momento en que se creó el trabajo), tras lo cual se purga la salida.
 
 ```json
 {
-    "jobId": "be437134-a76b-4e45-829e-9b37dcd209bf",
-    "lastUpdateDateTime": "2021-03-11T05:43:37Z",
-    "createdDateTime": "2021-03-11T05:42:32Z",
-    "expirationDateTime": "2021-03-12T05:42:32Z",
+    "jobId": "69081148-055b-4f92-977d-115df343de69",
+    "lastUpdateDateTime": "2021-07-06T19:06:03Z",
+    "createdDateTime": "2021-07-06T19:05:41Z",
+    "expirationDateTime": "2021-07-07T19:05:41Z",
     "status": "succeeded",
     "errors": [],
     "results": {
@@ -219,14 +217,14 @@ El siguiente es un ejemplo de la respuesta de una solicitud GET.  La salida est�
                         "length": 13,
                         "text": "intravenously",
                         "category": "MedicationRoute",
-                        "confidenceScore": 1.0
+                        "confidenceScore": 0.99
                     },
                     {
                         "offset": 73,
                         "length": 7,
                         "text": "120 min",
                         "category": "Time",
-                        "confidenceScore": 0.94
+                        "confidenceScore": 0.98
                     }
                 ],
                 "relations": [
@@ -274,7 +272,7 @@ El siguiente es un ejemplo de la respuesta de una solicitud GET.  La salida est�
             }
         ],
         "errors": [],
-        "modelVersion": "2021-03-01"
+        "modelVersion": "2021-05-15"
     }
 }
 ```
@@ -285,7 +283,7 @@ El siguiente es un ejemplo de la respuesta de una solicitud GET.  La salida est�
 Puede [usar Postman](text-analytics-how-to-call-api.md) o la siguiente solicitud de cURL de ejemplo para enviar una consulta al contenedor que ha implementado, pero reemplace la variable `serverURL` por el valor adecuado.  Tenga en cuenta que la versión de la API en la dirección URL del contenedor no es la misma que la de la API hospedada.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.5/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -484,17 +482,17 @@ La detección de aserciones representa las entidades negadas como un valor negat
                         "category": "SymptomOrSign",
                         "confidenceScore": 0.98,
                         "assertion": {
-                            "certainty": "negative"
+                            "certainty&quot;: &quot;negative"
                         },
                         "name": "Dyspnea",
                         "links": [
                             {
                                 "dataSource": "UMLS",
-                                "id": "C0013404"
+                                "id&quot;: &quot;C0013404"
                             },
                             {
                                 "dataSource": "AOD",
-                                "id": "0000005442"
+                                "id&quot;: &quot;0000005442"
                             },
     ...
 ```

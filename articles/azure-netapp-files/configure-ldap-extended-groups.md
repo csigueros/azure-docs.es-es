@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/20/2021
+ms.date: 07/19/2021
 ms.author: b-juche
-ms.openlocfilehash: 680563e0688d11e02f79f3c184b38d5a80bafeb0
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 01d8f23331525443a9f83245b8eec2b402e92d6e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480363"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443028"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Configuración de ADDS LDAP con grupos extendidos para el acceso a volúmenes NFS
 
@@ -29,11 +29,11 @@ En este artículo se explican las consideraciones y pasos para habilitar LDAP co
 
 ## <a name="considerations"></a>Consideraciones
 
+* Puede habilitar la característica LDAP con grupos extendidos solo durante la creación del volumen. Esta característica no se puede habilitar con carácter retroactivo en volúmenes existentes.  
+
 * LDAP con grupos extendidos solo se admite con Active Directory Domain Services (ADDS) o Azure Active Directory Domain Services (AADDS). No se admite OpenLDAP ni otros servicios de directorio de LDAP de terceros. 
 
 * LDAP a través de TLS *no* se debe habilitar si usa Azure Active Directory Domain Services (AADDS).  
-
-* Si habilita la característica LDAP con grupos extendidos, los [volúmenes Kerberos](configure-kerberos-encryption.md) habilitados para LDAP no mostrarán correctamente la propiedad de los archivos para los usuarios LDAP. Un archivo o directorio que haya sido creado por un usuario LDAP tendrá establecido `root` como propietario de manera predeterminada, en lugar del usuario LDAP real. Sin embargo, la cuenta `root` puede cambiar manualmente la propiedad del archivo mediante el comando `chown <username> <filename>`. 
 
 * Una vez creado el volumen, no se puede modificar la opción LDAP (ya sea que esté habilitada o deshabilitada).  
 

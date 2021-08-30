@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 8bcf300c9e17bd809a0dc35443917dee2a908e27
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 0e252a1822d36bf1d8aecbac7f38a0d315d38351
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075590"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371851"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Uso de Azure Firewall para inspeccionar el tráfico destinado a un punto de conexión privado
 
@@ -29,7 +29,7 @@ Es posible que tenga que inspeccionar o bloquear el tráfico de los clientes a l
 Se aplican las siguientes limitaciones:
 
 * El tráfico procedente de puntos de conexión privados pasa por alto los grupos de seguridad de red (NSG)
-* El tráfico procedente de puntos de conexión privados pasa por alto las rutas definidas por el usuario (UDR)
+* El tráfico procedente de puntos de conexión privados pasa por alto las rutas definidas por el usuario (UDR). Las rutas definidas por el usuario se pueden usar para invalidar el tráfico destinado al punto de conexión privado.
 * Se puede asociar una sola tabla de rutas a una subred
 * Una tabla de rutas admite hasta 400 rutas
 
@@ -165,7 +165,7 @@ Reemplazar los siguientes parámetros de los pasos por la siguiente información
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Ha creado este grupo de recursos en la sección anterior.  |
     | **Detalles de instancia** |  |
     | Nombre de la máquina virtual | Escriba **myVM**. |
@@ -216,7 +216,7 @@ Reemplazar los siguientes parámetros de los pasos por la siguiente información
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**.  |
     | **Detalles de instancia** |  |
     | Nombre | Escriba **myAzureFirewall**. |
@@ -267,7 +267,7 @@ En esta sección, creará una instancia de SQL Database privada.
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Ha creado este grupo de recursos en la sección anterior.|
     | **Detalles de la base de datos** |  |
     | Nombre de la base de datos  | Escriba **miBaseDeDatos**.  |
@@ -302,7 +302,7 @@ En esta sección, creará un punto de conexión privado para la base de datos de
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. |
     | **Detalles de instancia** | |
     | Nombre | Escriba **SQLPrivateEndpoint**. |
@@ -315,7 +315,7 @@ En esta sección, creará un punto de conexión privado para la base de datos de
     | Configuración | Value |
     | ------- | ----- |
     | Método de conexión | Seleccione **Conectarse a un recurso de Azure en mi directorio**. |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.Sql/servers**. |
     | Resource | Seleccione **mydbserver** o el nombre del servidor que creó en el paso anterior.
     | Recurso secundario de destino | Seleccione **sqlServer**. |
@@ -491,7 +491,7 @@ La ruta envía el tráfico desde la subred **myVM** al espacio de direcciones de
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**.  |
     | **Detalles de instancia** |  |
     | Region | Seleccione **Centro-sur de EE. UU.** . |

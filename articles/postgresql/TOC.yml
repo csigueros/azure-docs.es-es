@@ -12,10 +12,6 @@
           href: concepts-certificate-rotation.md
 - name: Documentación compartida
   items:
-    - name: Implementación de bases de datos
-      items:
-        - name: Acciones de GitHub
-          href: how-to-deploy-github-action.md
     - name: Migración
       items:
         - name: Migración de datos con pg_dump y pg_restore
@@ -249,7 +245,7 @@
               displayName: 'scale server, reset password'
         - name: Reinicio del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
@@ -257,7 +253,7 @@
               href: howto-restart-server-powershell.md
         - name: Reglas de firewall
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: CLI de Azure
@@ -312,7 +308,7 @@
           displayName: 'application development, TLS'
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI
@@ -323,7 +319,7 @@
               displayName: 'application development, server parameters'
         - name: Almacenamiento de crecimiento automático
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
             - name: Azure CLI
@@ -334,7 +330,7 @@
               displayName: 'business continuity, scale , storage'
         - name: Registros de acceso
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
             - name: Azure CLI
@@ -405,6 +401,14 @@
           items:
             - name: Azure portal
               href: howto-move-regions-portal.md
+        - name: Actualizaciones y migración
+          items:
+            - name: Métodos de actualización de la versión principal
+              href: how-to-upgrade-using-dump-and-restore.md
+            - name: Actualización o migración de datos con pg_dump y pg_restore
+              href: howto-migrate-using-dump-and-restore.md
+            - name: Actualización o migración de datos con pg_dump y psql
+              href: howto-migrate-using-export-and-import.md
 - name: Servidor flexible (versión preliminar)
   expanded: true
   items:
@@ -414,6 +418,10 @@
       href: flexible-server/overview.md
     - name: Notas de la versión
       href: flexible-server/release-notes.md
+    - name: Comparación entre un servidor único y un servidor flexible
+      href: flexible-server/concepts-compare-single-server-flexible-server.md
+    - name: Pruebe un servidor flexible de forma gratuita.
+      href: flexible-server/how-to-deploy-on-azure-free-account.md
     - name: Guías de inicio rápido
       expanded: true
       items:
@@ -428,6 +436,8 @@
               href: flexible-server/quickstart-create-server-arm-template.md
         - name: Conexión y consultas
           items:
+            - name: Conexión a un servidor en una red virtual
+              href: flexible-server/quickstart-create-connect-server-vnet.md
             - name: Azure CLI
               href: flexible-server/connect-azure-cli.md
             - name: Python
@@ -501,6 +511,8 @@
                   displayName: 'query store, performance, optimize'
                 - name: Procedimientos recomendados sobre Almacén de consultas
                   href: flexible-server/concepts-query-store-best-practices.md
+                - name: Ajuste inteligente
+                  href: flexible-server/concepts-intelligent-tuning.md
         - name: Replicación
           href: flexible-server/concepts-logical.md
           displayName: logical decoding
@@ -508,12 +520,18 @@
       items:
         - name: Administración de un servicio
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-manage-server-portal.md
             - name: Azure CLI
               href: flexible-server/how-to-manage-server-cli.md
             - name: Guía de conexión y consulta
               href: flexible-server/how-to-connect-query-guide.md
+        - name: Implementación de bases de datos
+          items:
+            - name: Acciones de GitHub
+              href: how-to-deploy-github-action.md
+            - name: "Azure\_Pipelines"
+              href: flexible-server/azure-pipelines-deploy-database-task.md
         - name: Mantenimiento programado
           items:
             - name: Azure portal
@@ -540,7 +558,7 @@
                   href: flexible-server/how-to-connect-scram.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: CLI de Azure
@@ -558,7 +576,7 @@
               href: flexible-server/how-to-restart-server-cli.md
         - name: Restauración de un servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-restore-server-portal.md
             - name: CLI de Azure
               href: flexible-server/how-to-restore-server-cli.md
@@ -594,7 +612,7 @@
       items:
         - name: Creación de un grupo de servidores
           items:
-            - name: Nivel Básico (versión preliminar)
+            - name: Nivel Basic
               href: quickstart-create-hyperscale-basic-tier.md
             - name: Nivel estándar
               href: quickstart-create-hyperscale-portal.md

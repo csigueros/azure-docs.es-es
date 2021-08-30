@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 10/02/2020
-ms.openlocfilehash: aebadcbb37a91b1a908054738fc901c6e7e54ac1
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.date: 07/09/2021
+ms.openlocfilehash: d36d7e91afc4b0bade9f3da08d1324aa7f56cba9
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004482"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594146"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creación de un clúster de proceso de Azure Machine Learning
 
@@ -46,7 +46,7 @@ En este artículo, aprenderá a:
 
 ## <a name="what-is-a-compute-cluster"></a>¿Qué es un clúster de proceso?
 
-El clúster de Proceso de Azure Machine Learning es una infraestructura de proceso administrado que permite al usuario crear fácilmente un proceso de uno o varios nodos. El proceso se crea dentro de la región de su área de trabajo y es un recurso que se puede compartir con otros usuarios del área de trabajo. El proceso se escala verticalmente de forma automática cuando se envía un trabajo y se puede colocar en una instancia de Azure Virtual Network. El proceso se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un [contenedor de Docker](https://www.docker.com/why-docker).
+El clúster de Proceso de Azure Machine Learning es una infraestructura de proceso administrado que permite al usuario crear fácilmente un proceso de uno o varios nodos. El clúster de proceso es un recurso que se puede compartir con otros usuarios del área de trabajo. El proceso se escala verticalmente de forma automática cuando se envía un trabajo y se puede colocar en una instancia de Azure Virtual Network. El proceso se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un [contenedor de Docker](https://www.docker.com/why-docker).
 
 Los clústeres de proceso pueden ejecutar trabajos de manera segura en un [entorno de red virtual](how-to-secure-training-vnet.md), sin necesidad de que las empresas abran puertos SSH. El trabajo se ejecuta en un entorno en contenedor y empaqueta las dependencias del modelo en un contenedor de Docker. 
 
@@ -54,7 +54,12 @@ Los clústeres de proceso pueden ejecutar trabajos de manera segura en un [entor
 
 * Algunos de los escenarios que se enumeran en este documento se marcan como __versión preliminar__. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-* Actualmente solo se admite la creación (y no la actualización) de clústeres a través de plantillas de ARM [https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/workspaces/computes?tabs=json ]. Para actualizar el proceso, se recomienda usar el SDK, la CLI o la experiencia del usuario por ahora.
+* Los clústeres de proceso se pueden crear en una región diferente a la del área de trabajo. Esta funcionalidad está en __versión preliminar__ y solo está disponible para __clústeres de proceso__, no para instancias de proceso. Esta versión preliminar no está disponible si usa un área de trabajo habilitada para el punto de conexión privado. 
+
+    > [!WARNING]
+    > Al usar un clúster de proceso en una región diferente a la del área de trabajo o los almacenes de datos, es posible que vea un aumento de los costos de transferencia de datos y latencia de red. La latencia y los costos pueden producirse al crear el clúster y al ejecutar trabajos en él.
+
+* Actualmente solo se admite la creación (y no la actualización) de clústeres a través de [plantillas de ARM](/azure/templates/microsoft.machinelearningservices/workspaces/computes). Para actualizar el proceso, se recomienda usar por ahora el SDK, la CLI de Azure o la experiencia del usuario.
 
 * Proceso de Azure Machine Learning tiene límites predeterminados, como el número de núcleos que se pueden asignar. Para más información, consulte [Administración y solicitud de cuotas para recursos de Azure](how-to-manage-quotas.md).
 
@@ -88,15 +93,20 @@ para crear un recurso de Proceso de Azure Machine Learning persistente en Python
 
 Cuando cree una instancia de Proceso de Azure Machine Learning, puede configurar también varias propiedades avanzadas. Estas propiedades permiten crear un clúster persistente de tamaño fijo o dentro de una instancia existente de Azure Virtual Network de su suscripción.  Consulte la [clase AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) para más información.
 
+> [!WARNING]
+> Al configurar el parámetro `location`, si es una región diferente a la del área de trabajo o a la de los almacenes de datos, puede experimentar un aumento en la latencia de red y en los costos de transferencia de datos. La latencia y los costos pueden producirse al crear el clúster y al ejecutar trabajos en él.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 
 ```azurecli-interactive
-az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
+az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2 --location westus2
 ```
 
-Para más información, consulte [az ml computetarget create amlcompute](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute).
+> [!WARNING]
+> Al usar un clúster de proceso en una región diferente a la del área de trabajo o los almacenes de datos, es posible que vea un aumento de los costos de transferencia de datos y latencia de red. La latencia y los costos pueden producirse al crear el clúster y al ejecutar trabajos en él.
+
+Para más información, consulte [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_amlcompute).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
 

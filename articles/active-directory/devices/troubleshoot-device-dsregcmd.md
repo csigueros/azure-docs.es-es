@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea502deee0caf5418bf5554473180eb405792567
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: ff1c0d1e552ad26832b2c142f5ca1506654a9a0c
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287057"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219544"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Solución de problemas de dispositivos con el comando dsregcmd
 
@@ -56,7 +56,7 @@ En esta sección se enumeran los parámetros de estado de la combinación de dis
 
 ## <a name="device-details"></a>Detalles del dispositivo
 
-Solo se muestra cuando el dispositivo está unido a Azure AD o a Azure AD híbrido (no registrado en Azure AD). En esta sección se enumeran los detalles de identificación de los dispositivos almacenados en la nube.
+Solo se muestra cuando el dispositivo está unido a Azure AD o a Azure AD híbrido (no registrado en Azure AD). En esta sección se enumeran los detalles de identificación de los dispositivos almacenados en Azure AD.
 
 - **DeviceId:** Identificador único del dispositivo en el inquilino de Azure AD.
 - **Thumbprint:** Huella digital del certificado de dispositivo.
@@ -64,6 +64,14 @@ Solo se muestra cuando el dispositivo está unido a Azure AD o a Azure AD híb
 - **KeyContainerId:** ContainerId de la clave privada del dispositivo asociada con el certificado de dispositivo.
 - **KeyProvider:** Proveedor de claves (hardware/software) usado para almacenar la clave privada del dispositivo.
 - **TpmProtected:** "YES" (Sí) si la clave privada del dispositivo se almacena en un TPM de hardware.
+
+> [!NOTE]
+> El campo **DeviceAuthStatus** se agregó en **Actualización de mayo de 2021 de Windows 10 (versión 21H1)** .
+
+- **DeviceAuthStatus:** realiza una comprobación para determinar el estado del dispositivo en Azure AD.  
+"SUCCESS" si el dispositivo está presente y habilitado en Azure AD.  
+"FAILED. Device is either disabled or deleted" si el dispositivo se deshabilita o elimina, [Más información](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
+"FAILED. ERROR" si la prueba no se pudo ejecutar. Esta prueba requiere conectividad de red a Azure AD.  
 
 ### <a name="sample-device-details-output"></a>Salida de los detalles del dispositivo de muestra
 
@@ -78,6 +86,7 @@ Solo se muestra cuando el dispositivo está unido a Azure AD o a Azure AD híb
             KeyContainerId : 13e68a58-xxxx-xxxx-xxxx-a20a2411xxxx
                KeyProvider : Microsoft Software Key Storage Provider
               TpmProtected : NO
+          DeviceAuthStatus : SUCCESS
 +----------------------------------------------------------------------+
 ```
 
@@ -134,7 +143,7 @@ En esta sección se muestra el estado de varios atributos para el usuario que ha
 - **CanReset:** Indica si el usuario puede restablecer la clave de Windows Hello.
 - **Valores posibles:** DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive o Unknown, si se ha producido un error.
 - **WorkplaceJoined:** Establézcalo en "YES" (Sí) si se han agregado cuentas registradas de Azure AD al dispositivo en el contexto de NTUSER actual.
-- **WamDefaultSet:** Establézcalo en "YES" (Sí) si se creó una WebAccount predeterminada de WAM para el usuario que ha iniciado sesión. Este campo podría mostrar un error si se ejecuta dsreg /status desde un símbolo del sistema con privilegios elevados.
+- **WamDefaultSet:** Establézcalo en "YES" (Sí) si se creó una WebAccount predeterminada de WAM para el usuario que ha iniciado sesión. Este campo podría mostrar un error si se ejecuta dsregcmd /status desde un símbolo del sistema con privilegios elevados.
 - **WamDefaultAuthority:** Establézcalo en "organizations" (organizaciones) para Azure AD.
 - **WamDefaultId:** Siempre "https://login.microsoft.com" para Azure AD.
 - **WamDefaultGUID:** GUID del proveedor de WAM (cuenta de Azure AD/Microsoft) para la cuenta web predeterminada de WAM.
@@ -174,6 +183,34 @@ Esta sección se puede pasar por alto para los dispositivos registrados de Azure
 - **EnterprisePrtExpiryTime:** Establézcalo en la hora en formato UTC en que el PRT va a expirar si no se renueva.
 - **EnterprisePrtAuthority:** Dirección URL de la autoridad ADFS
 
+>[!NOTE]
+> Los siguientes campos de diagnóstico de PRT se agregaron en **Actualización de mayo de 2021 de Windows 10 (versión 21H1)**
+
+>[!NOTE]
+> La información de diagnóstico mostrada en el campo **AzureAdPrt** es para la adquisición/actualización del PRT de Azure AD, mientras que la información de diagnóstico mostrada en **EnterprisePrt** es para la adquisición/actualización del PRT empresarial, respectivamente.
+
+>[!NOTE]
+>La información de diagnóstico solo se muestra si el error de adquisición o actualización se produjo después de la última hora de actualización del PRT correcta (AzureAdPrtUpdateTime/EnterprisePrtUpdateTime).  
+>En un dispositivo compartido, esta información de diagnóstico podría provenir de un intento de inicio de sesión de otro usuario.
+
+- **AcquirePrtDiagnostics:** Establézcalo en "PRESENT" (Presente) si la adquisición de información de diagnóstico del PRT está presente en los registros.  
+Este campo se omite si no hay información de diagnóstico disponible.
+- **Intento de PRT anterior:** Hora local en UTC a la que se produjo el intento de PRT con errores.  
+- **Estado del intento:** Código de error de cliente devuelto (HRESULT).
+- **Identidad del usuario:** Nombre principal de usuario del usuario para el que se produjo el intento de PRT.
+- **Tipo de credencial:** Credencial usada para adquirir/actualizar el PRT. Los tipos de credencial comunes son contraseña y NGC (Windows Hello).
+- **Id. de correlación:** Id. de correlación enviado por el servidor para el intento de PRT con errores.
+- **URI de punto de conexión:** Último punto de conexión al que se tiene acceso antes del error.
+- **Método HTTP:** Método HTTP usado para acceder al punto de conexión.
+- **Error HTTP:** Código de error de transporte de WinHttp. Los errores de WinHttp se pueden encontrar [aquí](/windows/win32/winhttp/error-messages).
+- **Estado HTTP:** Estado HTTP devuelto por el punto de conexión.
+- **Código de error del servidor:** Código de error del servidor.  
+- **Descripción del error del servidor:** Mensaje de error del servidor.
+- **RefreshPrtDiagnostics:** Establézcalo en "PRESENT" (Presente) si la adquisición de información de diagnóstico del PRT está presente en los registros.  
+Este campo se omite si no hay información de diagnóstico disponible.
+Los campos de información de diagnóstico son los mismos que **AcquirePrtDiagnostics**
+
+
 ### <a name="sample-sso-state-output"></a>Salida del estado SSO de muestra
 
 ```
@@ -181,10 +218,20 @@ Esta sección se puede pasar por alto para los dispositivos registrados de Azure
 | SSO State                                                            |
 +----------------------------------------------------------------------+
 
-                AzureAdPrt : YES
-      AzureAdPrtUpdateTime : 2019-01-24 19:15:26.000 UTC
-      AzureAdPrtExpiryTime : 2019-02-07 19:15:26.000 UTC
+                AzureAdPrt : NO
        AzureAdPrtAuthority : https://login.microsoftonline.com/96fa76d0-xxxx-xxxx-xxxx-eb60cc22xxxx
+     AcquirePrtDiagnostics : PRESENT
+      Previous Prt Attempt : 2020-07-18 20:10:33.789 UTC
+            Attempt Status : 0xc000006d
+             User Identity : john@contoso.com
+           Credential Type : Password
+            Correlation ID : 63648321-fc5c-46eb-996e-ed1f3ba7740f
+              Endpoint URI : https://login.microsoftonline.com/96fa76d0-xxxx-xxxx-xxxx-eb60cc22xxxx/oauth2/token/
+               HTTP Method : POST
+                HTTP Error : 0x0
+               HTTP status : 400
+         Server Error Code : invalid_grant
+  Server Error Description : AADSTS50126: Error validating credentials due to invalid username or password.
              EnterprisePrt : YES
    EnterprisePrtUpdateTime : 2019-01-24 19:15:33.000 UTC
    EnterprisePrtExpiryTime : 2019-02-07 19:15:33.000 UTC

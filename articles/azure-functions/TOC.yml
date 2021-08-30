@@ -282,7 +282,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -489,8 +489,12 @@
           href: functions-hybrid-powershell.md
     - name: Solución de problemas
       items:
-        - name: Solución de problemas de almacenamiento
+        - name: Conexiones de almacenamiento
           href: functions-recover-storage-account.md
+          displayName: troubleshoot
+        - name: "Enlaces de Azure Cosmos\_DB"
+          href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          displayName: troubleshoot
         - name: Funciones de Python
           items:
             - name: Solución general de problemas

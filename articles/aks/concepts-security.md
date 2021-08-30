@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: mlearned
-ms.openlocfilehash: 7f754aa8d454949c74ccd31e3f52423f755b2fa4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bf589591ae1c4f9fa3dca2b16cc5382def0740e7
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372400"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861207"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -58,11 +58,9 @@ Cuando se crea o se escala verticalmente un clúster de AKS, los nodos se implem
 ### <a name="node-security-patches"></a>Parches de seguridad de nodo
 
 #### <a name="linux-nodes"></a>Nodos de Linux
-La plataforma Azure aplica automáticamente las revisiones de seguridad del sistema operativo a los nodos de Linux del clúster durante la noche. Si una actualización de seguridad del sistema operativo de Linux requiere un reinicio del host, no se realizará automáticamente. Puede:
-* Reiniciar manualmente los nodos de Linux.
-* Usar [Kured][kured], un demonio de reinicio de código abierto para Kubernetes. Kured se ejecuta como un elemento [DaemonSet][aks-daemonsets] y supervisa en todos los nodos un archivo que indique que hace falta un reinicio. 
+Cada noche, los nodos Linux de AKS reciben las actualizaciones de seguridad a través de su canal de actualización de seguridad de distribución. Este comportamiento se configura automáticamente cuando se implementan los nodos en un clúster de AKS. Para minimizar las interrupciones y el posible impacto sobre las cargas de trabajo en ejecución, los nodos no se reinician automáticamente si lo requiere una revisión de seguridad o una actualización de kernel. Para más información sobre cómo controlar los inicios del nodo, consulte [Aplicación de actualizaciones de kernel y de seguridad en los nodos en AKS][aks-kured].
 
-Los reinicios se administran en el clúster con el mismo [proceso de acordonar y purgar](#cordon-and-drain) que una actualización de clúster.
+Las actualizaciones nocturnas aplican actualizaciones de seguridad al sistema operativo en el nodo, pero la imagen de nodo que se usa para crear nodos para el clúster permanece sin cambios. Si se agrega un nuevo nodo de Linux al clúster, se usa la imagen original para crear el nodo. Este nuevo nodo recibirá todas las actualizaciones de seguridad y del kernel disponibles durante la comprobación automática cada noche, pero permanecerá sin revisiones hasta que se completen todas las comprobaciones y reinicios. Puede usar la actualización de la imagen de nodo para buscar y actualizar las imágenes de nodo que usa el clúster. Para más información sobre la actualización de imágenes de nodo, consulte [Actualización de la imagen de nodo de Azure Kubernetes Service (AKS)][node-image-upgrade].
 
 #### <a name="windows-server-nodes"></a>Nodos de Windows Server
 
@@ -113,7 +111,7 @@ Por motivos de conectividad y seguridad con las redes locales, puede implementar
 
 Para filtrar el flujo del tráfico de red virtual, Azure usa reglas de grupo de seguridad de red. Estas reglas definen los intervalos, los puertos y los protocolos de IP de origen y destino que tienen permitido o denegado el acceso a los recursos. Se crean reglas predeterminadas para permitir el tráfico TLS al servidor de API de Kubernetes. Los servicios se crean con equilibradores de carga, asignaciones de puertos o rutas de entrada. AKS modifica automáticamente el grupo de seguridad de red para el flujo de tráfico.
 
-Si proporciona su propia subred para el clúster de AKS, **no** modifique el grupo de seguridad de red del nivel de subred que administra AKS. En su lugar, cree más grupos de seguridad de red de nivel de subred para modificar el flujo de tráfico. Asegúrese de que no interfieran con el tráfico necesario para administrar el clúster, como el acceso al equilibrador de carga, la comunicación con el plano de control y [la salida][aks-limit-egress-traffic].
+Si proporciona su propia subred para el clúster de AKS (tanto si usa Azure CNI como Kubernetes), **no** modifique el grupo de seguridad de red de nivel de subred administrado por AKS. En su lugar, cree más grupos de seguridad de red de nivel de subred para modificar el flujo de tráfico. Asegúrese de que no interfieran con el tráfico necesario para administrar el clúster, como el acceso al equilibrador de carga, la comunicación con el plano de control y [la salida][aks-limit-egress-traffic].
 
 ### <a name="kubernetes-network-policy"></a>Directiva de red de Kubernetes
 
@@ -166,6 +164,7 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-kured]: node-updates-kured.md
 [aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
@@ -174,3 +173,4 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [authorized-ip-ranges]: api-server-authorized-ip-ranges.md
 [private-clusters]: private-clusters.md
 [network-policy]: use-network-policies.md
+[node-image-upgrade]: node-image-upgrade.md

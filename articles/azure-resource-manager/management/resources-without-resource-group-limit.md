@@ -2,13 +2,13 @@
 title: Recursos sin límite de recuento de 800
 description: Aquí se enumeran los tipos de recursos de Azure que pueden tener más de 800 instancias en un grupo de recursos.
 ms.topic: conceptual
-ms.date: 04/12/2021
-ms.openlocfilehash: f77bd964003638ca33e1f30e352b1f35a866ac6a
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.date: 07/13/2021
+ms.openlocfilehash: e9145500ade55aa8cb9061b6da125e2bd8a0f5c5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060253"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769239"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos no limitados a 800 instancias por grupo de recursos
 
@@ -28,7 +28,6 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
-* edgeSubscriptions
 * linkedSubscriptions
 * registrations
 * registrations/customerSubscriptions
@@ -119,7 +118,7 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 ## <a name="microsoftinsights"></a>microsoft.insights
 
 * metricalerts
-* scheduledQueryRules
+* scheduledqueryrules
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -137,6 +136,7 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/snapshotPolicies
 * netAppAccounts/volumeGroups
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
@@ -173,7 +173,7 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses: de forma predeterminada, con un límite de 800 instancias. Este límite se puede incrementar poniéndose en contacto con soporte técnico.
+* publicIPAddresses
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -209,20 +209,20 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 * accounts/accountQuotaPolicies
 * accounts/groupPolicies
 * accounts/jobs
+* accounts/models
 * accounts/storageContainers
-
-## <a name="microsoftstorage"></a>Microsoft.Storage
-
-* storageAccounts
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 * servers/databases
 
-## <a name="microsoftweb"></a>Microsoft.Web
+## <a name="microsoftstorage"></a>Microsoft.Storage
 
-* apiManagementAccounts/apis
-* sites
+* storageAccounts
+
+## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
+
+* streamingjobs: de forma predeterminada, con un límite de 800 instancias. Este límite se puede incrementar poniéndose en contacto con soporte técnico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

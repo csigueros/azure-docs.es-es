@@ -8,24 +8,27 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 06/18/2021
 ms.author: justinha
-ms.openlocfilehash: afa6920a36a5a7218571239b36815004d8f2d450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 935abb1a1eae362e3036c323da35aa5fd7b9b018
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619358"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707968"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administración de DNS y creación de reenviadores condicionales en un dominio administrado de Azure Active Directory Domain Services
 
-En Azure Active Directory Domain Services (Azure AD DS), un componente clave es DNS (resolución de nombres de dominio). Azure AD DS incluye un servidor DNS que proporciona la resolución de nombres para el dominio administrado. Este servidor DNS incluye registros y actualizaciones de DNS integrados para los componentes clave que permiten la ejecución del servicio.
+Azure AD DS incluye un servidor de Sistema de nombres de dominio (DNS) que proporciona la resolución de nombres para el dominio administrado. Este servidor DNS incluye registros y actualizaciones de DNS integrados para los componentes clave que permiten la ejecución del servicio.
 
 Cuando ejecute sus propias aplicaciones y servicios, podría tener que crear registros de DNS para las máquinas que no están unidas al dominio, configurar direcciones IP virtuales para los equilibradores de carga o configurar reenviadores DNS externos. Los usuarios que pertenecen al grupo *Administradores del controlador de dominio de AAD* reciben privilegios de administración de DNS en el dominio administrado con Azure AD DS y pueden crear y editar registros de DNS personalizados.
 
 En un entorno híbrido, las zonas DNS y los registros configurados en otros espacios de nombres DNS, como un entorno de AD DS local, no se sincronizan con el dominio administrado. Para resolver los recursos con nombre en otros espacios de nombres DNS, cree y use reenviadores condicionales que apunten a los servidores DNS existentes de su entorno.
 
 En este artículo se muestra cómo se instalan las herramientas del servidor DNS y cómo se usa la consola DNS para administrar registros y crear reenviadores condicionales en Azure AD DS.
+
+>[!NOTE]
+>No se admite la creación o el cambio de reenviadores DNS de nivel de servidor, lo que provocará problemas para el dominio administrado de Azure AD DS.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

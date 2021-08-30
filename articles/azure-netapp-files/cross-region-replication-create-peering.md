@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 08/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 84b10fefbfae4ca42fa96cc96f357dbfe0d25800
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 94528abaf90a94c59dd97c9a4ae0d15162914bc7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794779"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751380"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Creación de una replicación de volúmenes para Azure NetApp Files
 
@@ -105,6 +105,9 @@ Para autorizar la replicación, debe obtener el identificador de recurso del vol
     ![Autorizar replicación](../media/azure-netapp-files/cross-region-replication-authorize.png) 
 
 6. En el campo Autorizar, pegue el identificador de recurso del volumen de replicación de destino que obtuvo en el paso 3 y, después, haga clic en **Aceptar**.
+
+    > [!NOTE]
+    > Debido a varios factores, como el estado del almacenamiento de destino en un momento dado, es probable que haya una diferencia entre el espacio usado del volumen de origen y el espacio usado del volumen de destino. <!-- ANF-14038 --> 
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

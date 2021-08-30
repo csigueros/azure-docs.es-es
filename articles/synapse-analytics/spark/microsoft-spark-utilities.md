@@ -10,12 +10,13 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 557c2591b0bd5406266e5f833ca8c5c4fb581e47
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 9923a2bd2e36975fe1af77fddb4bb484a4eb87c6
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125362"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217780"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introducción a las utilidades de Spark para Microsoft
 
@@ -25,15 +26,28 @@ Las utilidades de Spark para Microsoft (MSSparkUtils) son un paquete integrado q
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configuración del acceso a Azure Data Lake Storage Gen2 
 
-Los cuadernos de Synapse usan el tránsito de Azure Active Directory (AAD) para acceder a las cuentas de ADLS Gen2. Debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2. 
+Los cuadernos de Synapse usan el tránsito de Azure Active Directory (Azure AD) para acceder a las cuentas de ADLS Gen2. Debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2. 
 
 Las canalizaciones de Synapse usan la identidad de servicio administrada (MSI) del área de trabajo para acceder a las cuentas de almacenamiento. Para usar MSSparkUtils en las actividades de canalización, la identidad del área de trabajo debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2.
 
 Siga los pasos a continuación para asegurarse de que Azure AD y la MSI del área de trabajo tienen acceso a la cuenta de ADLS Gen2:
 1. Abra [Azure Portal](https://portal.azure.com/) y la cuenta de almacenamiento a la que quiere acceder. Puede desplazarse al contenedor específico al que quiere obtener acceso.
-2. Seleccione **Control de acceso (IAM)** en el panel izquierdo.
-3. Asigne su **cuenta de Azure AD** y la **identidad de su área de trabajo** (igual que el nombre del área de trabajo) al rol de **colaborador de datos de Storage Blob** en la cuenta de almacenamiento o compruebe que ya estén asignadas. 
-4. Seleccione **Guardar**.
+1. Seleccione **Control de acceso (IAM)** en el panel izquierdo.
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | Colaborador de datos de blobs de almacenamiento |
+    | Asignar acceso a | USER y MANAGEDIDENTITY |
+    | Members | la cuenta de Azure AD y la identidad del área de trabajo |
+
+    > [!NOTE]
+    > El nombre de la identidad administrada también es el nombre del área de trabajo.
+
+    ![Página Agregar asignación de roles en Azure Portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+ 
+1. Seleccione **Guardar**.
 
 Puede acceder a los datos en ADLS Gen2 con Synapse Spark mediante la siguiente dirección URL:
 
@@ -41,7 +55,7 @@ Puede acceder a los datos en ADLS Gen2 con Synapse Spark mediante la siguiente 
 
 ### <a name="configure-access-to-azure-blob-storage"></a>Configuración del acceso a Azure Blob Storage  
 
-Synapse usa la [**firma de acceso compartido (SAS)** ](../../storage/common/storage-sas-overview.md) para acceder a Azure Blob Storage. Para evitar la exposición de las claves de SAS en el código, se recomienda crear un nuevo servicio vinculado en el área de trabajo de Synapse para la cuenta de Azure Blob Storage a la que quiere acceder.
+Synapse usa la [**firma de acceso compartido (SAS)**](../../storage/common/storage-sas-overview.md) para acceder a Azure Blob Storage. Para evitar la exposición de las claves de SAS en el código, se recomienda crear un nuevo servicio vinculado en el área de trabajo de Synapse para la cuenta de Azure Blob Storage a la que quiere acceder.
 
 Siga los pasos a continuación para agregar un nuevo servicio vinculado para una cuenta de Azure Blob Storage:
 

@@ -1,23 +1,20 @@
 ---
-title: Cohortes de uso de Azure Application Insights | Microsoft Docs
+title: Cohortes de uso de Application Insights | Microsoft Docs
 description: Análisis de conjuntos diferentes o usuarios, sesiones, eventos u operaciones que tienen algo en común
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 04/10/2018
-ms.reviewer: mbullwin
-ms.openlocfilehash: 2c35356951560b11a605334aba4c26dbc38086de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
+ms.openlocfilehash: de5a452f15cd19c97fec727307b33fc469166459
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100583544"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751417"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes de Application Insights
 
-Una cohorte es un conjuntos de usuarios, sesiones, eventos u operaciones que tienen algo en común. En Azure Application Insights las cohortes se definen mediante una consulta de análisis. En los casos en que tiene que analizar un conjunto específico de usuarios o eventos de forma repetida, las cohortes pueden proporcionarle una mayor flexibilidad para expresar exactamente el conjunto que le interesa.
-
-![Panel de cohortes](./media/usage-cohorts/001.png)
+Una cohorte es un conjuntos de usuarios, sesiones, eventos u operaciones que tienen algo en común. En Application Insights, las cohortes se definen mediante una consulta de análisis. En los casos en que tiene que analizar un conjunto específico de usuarios o eventos de forma repetida, las cohortes pueden proporcionarle una mayor flexibilidad para expresar exactamente el conjunto que le interesa.
 
 ## <a name="cohorts-versus-basic-filters"></a>Cohortes frente a filtros básicos
 
@@ -32,7 +29,7 @@ Puede definir una cohorte de usuarios en la que todos hayan probado una nueva ca
 
 El equipo define como usuario dedicado a cualquier persona que use la aplicación cinco o más veces en un mes determinado. En esta sección, definirá una cohorte de estos usuarios dedicados.
 
-1. Abra la herramienta de Cohortes.
+1. Seleccione **Crear una cohorte**.
 
 2. Seleccione la pestaña **Galería de plantillas**. Verá una colección de plantillas para varias cohortes.
 
@@ -45,8 +42,7 @@ El equipo define como usuario dedicado a cualquier persona que use la aplicació
 
 4. Cambie **UsedAtleastCustom** a **5+ días** y deje **Período** con el valor predeterminado de 28 días.
 
-    ![Usuarios dedicados](./media/usage-cohorts/003.png)
-
+  
     Esta cohorte representa todos los identificadores de usuarios que se enviaron con cualquier vista de página o evento personalizado en 5 días distintos en los últimos 28 días.
 
 5. Seleccione **Guardar**.
@@ -60,9 +56,8 @@ El equipo define como usuario dedicado a cualquier persona que use la aplicació
 
 Abra la herramienta Users (Usuarios). En la lista desplegable **Show** (Mostrar), elija la cohorte que creó en **Users who belong to** (Usuarios que pertenecen a).
 
-La herramienta de usuarios se filtra ahora con esta cohorte de usuarios:
 
-![Panel de usuarios filtrados para una determinada cohorte](./media/usage-cohorts/004.png)
+:::image type="content" source="./media/usage-cohorts/cohort-2.png" alt-text="Captura de pantalla de la lista desplegable Mostrar, en la que se muestra una cohorte.":::
 
 Hay varios aspectos importantes que se deben tener en cuenta:
 
@@ -75,13 +70,11 @@ Estos filtros admiten preguntas más sofisticadas que son imposibles de expresas
 
 También puede hacer cohortes de eventos. En esta sección, definirá una cohorte de los eventos y las vistas de página. Luego verá cómo usarlos desde las otras herramientas. Esta cohorte puede definir un conjunto de eventos que su equipo considere de _uso activo_ o un conjunto relacionado con una nueva característica específica.
 
-1. Abra la herramienta de Cohortes.
+1. Seleccione **Crear una cohorte**.
 
 2. Seleccione la pestaña **Galería de plantillas**. Verá una colección de plantillas para varias cohortes.
 
 3. Seleccione **Events Picker** (Selector de eventos).
-
-    ![Captura de pantalla del selector de eventos](./media/usage-cohorts/006.png)
 
 4. En la lista desplegable **Actividades**, seleccione los eventos que quiere incluir en la cohorte.
 
@@ -91,11 +84,10 @@ También puede hacer cohortes de eventos. En esta sección, definirá una cohort
 
 Las dos cohortes anteriores se han definido mediante listas desplegables. Pero también se pueden definir las cohortes con consultas de análisis para una flexibilidad total. Para ver cómo hacerlo, cree una cohorte de usuarios del Reino Unido.
 
-![Imagen animada con recorrido a través del uso de la herramienta de cohortes](./media/usage-cohorts/cohorts0001.gif)
 
 1. Abra la herramienta Cohortes, seleccione la pestaña **Galería de plantillas** y seleccione **Cohortes de usuarios en blanco**.
 
-    ![Cohortes de usuarios en blanco](./media/usage-cohorts/001.png)
+   :::image type="content" source="./media/usage-cohorts/cohort.png" alt-text="Captura de pantalla de la galería de plantillas para cohortes." lightbox="./media/usage-cohorts/cohort.png":::
 
     Hay tres opciones:
    * Una sección de texto Markdown donde se describe la cohorte en más detalle para otros usuarios del equipo.
@@ -107,7 +99,7 @@ Las dos cohortes anteriores se han definido mediante listas desplegables. Pero t
      En la sección de la consulta, [escriba una consulta de análisis](/azure/kusto/query). La consulta selecciona el conjunto específico de filas que describen la cohorte que desee definir. La herramienta Cohortes agrega implícitamente una cláusula "| Resumir por identificador de usuario" a la consulta. Se muestra una vista previa de estos datos debajo de la consulta en una tabla para que se asegure de que la consulta devuelve resultados.
 
      > [!NOTE]
-     > Si no ve la consulta, pruebe a cambiar el tamaño de la sección para hacerla más alta y mostrar la consulta. En el .gif animado al principio de esta sección se muestra el comportamiento de cambio de tamaño.
+     > Si no ve la consulta, pruebe a cambiar el tamaño de la sección para hacerla más alta y mostrar la consulta. 
 
 2. Copie y pegue el texto siguiente en el editor de consultas:
 

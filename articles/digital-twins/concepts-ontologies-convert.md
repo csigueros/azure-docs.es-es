@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ebe6a96c88d061138eb629f50aa37ea90fe40eb4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d432ff03290c3ce26346b99c428cd89c853ed6b7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475885"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472151"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Conversión de ontologías estándar del sector a DTDL para Azure Digital Twins
 
@@ -61,6 +61,6 @@ Este convertidor se usó para trasladar la [ontología RealStateCore](https://do
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-* Obtenga más información sobre cómo extender las ontologías estándar del sector para que satisfagan sus especificaciones: [Conceptos: Extensión de las ontologías del sector](concepts-ontologies-extend.md).
+* Obtenga más información sobre cómo extender las ontologías estándar del sector para que satisfagan las especificaciones en [Extensión de las ontologías del sector](concepts-ontologies-extend.md).
 
 * O bien, continúe el proceso de aprendizaje para desarrollar modelos basados en ontologías: [Uso de estrategias de ontología en un procedimiento de desarrollo de modelos](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

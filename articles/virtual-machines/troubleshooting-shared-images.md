@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
-ms.date: 10/27/2020
+ms.date: 7/1/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 9652e940674ec7580b006cd38df2a7d17014f939
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e8cfba3c7dc13f6e32d0dd4141832bab475cc5b8
+ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309992"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113138826"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Solución de problemas de las galerías de imágenes compartidas de Azure
 
@@ -296,6 +296,14 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Mensaje**: *Error de replicación en esta región debido a que "El tamaño 2048 del recurso de origen de GalleryImageVersion supera el tamaño máximo admitido de 1024".*  
 **Causa**: Un disco de datos del origen es mayor que 1 TB.  
 **Solución alternativa**: Cambie el tamaño del disco de datos a menos de 1 TB.
+
+**Mensaje**: *No se permite la operación "Actualizar la versión de la imagen de la galería" en <versionNumber> porque está marcada para su eliminación. Solo puede volver a intentar la operación de eliminación (o esperar a que una que esté en curso se complete).*  
+**Causa**: ha intentado actualizar una versión de la imagen de la galería que está en proceso de eliminación.  
+**Solución alternativa**: espere a que se complete el evento de eliminación y vuelva a crear la versión de la imagen.
+
+**Mensaje**: *No se admite el cifrado para el recurso de origen “<sourceID>”. Use otro tipo de recurso de origen que admita el cifrado o quite las propiedades de cifrado.*  
+**Causa**: actualmente, Shared Image Gallery solo admite el cifrado de máquinas virtuales, discos, instantáneas e imágenes administradas. Uno de los orígenes proporcionados para la versión de la imagen no está en la lista anterior de orígenes que admiten el cifrado.  
+**Solución alternativa**: quite el conjunto de cifrado de disco de la versión de la imagen y póngase en contacto con el equipo de soporte técnico.
 
 ## <a name="creating-or-updating-a-vm-or-scale-sets-from-an-image-version"></a>Creación o actualización de una máquina virtual o conjuntos de escalado a partir de la versión de imagen ##
 

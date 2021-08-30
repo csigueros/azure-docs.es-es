@@ -7,12 +7,12 @@ ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 4f3ef03e3561cf054102b5f5c15ff571c3d4d28d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 988f32cae16a026ddef0294815ffd21ba0d81760
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742632"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991746"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configuración de Azure Monitor para la aplicación de Python
 
@@ -514,6 +514,13 @@ Cada exportador acepta los mismos argumentos para la configuración, que se pasa
 - `max_batch_size`: Especifica el tamaño máximo de la telemetría que se exporta a la vez.
 - `proxies`: Especifica una secuencia de servidores proxy que se va a usar para enviar datos a Azure Monitor. Para obtener más información, consulte las [proxies](https://requests.readthedocs.io/en/master/user/advanced/#proxies).
 - `storage_path`: Una ruta de acceso a la ubicación de la carpeta de almacenamiento local (telemetría sin enviar). A partir del v1.0.3 de `opencensus-ext-azure`, la ruta de acceso predeterminada es el directorio temporal del sistema operativo + `opencensus-python` + `your-ikey`. Antes de v1.0.3, la ruta de acceso predeterminada es $USER + `.opencensus` + `.azure` + `python-file-name`.
+
+## <a name="authentication-preview"></a>Autenticación (versión preliminar)
+> [!NOTE]
+> La característica de autenticación está disponible a partir de `opencensus-ext-azure` v1.1b0
+
+Cada uno de los exportadores de Azure Monitor admite la configuración de envío seguro de cargas de telemetría mediante autenticación de OAuth con Azure Active Directory (AAD).
+Para obtener más información, consulte la documentación de [Autenticación](./azure-ad-authentication.md).
 
 ## <a name="view-your-data-with-queries"></a>Visualización de los datos con consultas
 

@@ -1,18 +1,18 @@
 ---
 title: Registro de aplicaciones estructurado para Azure Spring Cloud | Microsoft Docs
 description: En este artículo se explica cómo generar y recopilar datos de registro de aplicaciones estructurados en Azure Spring Cloud.
-author: MikeDodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/05/2021
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: ef51fc0c67c938a2d0933b6032072acc24e42dd3
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 8d84462d38c00e3788e424bd7cac6742d8b0e408
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110494635"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015580"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Registro de aplicaciones estructurado para Azure Spring Cloud
 
@@ -43,11 +43,11 @@ Para mejorar la experiencia de consulta de registros, es necesario que un regist
 
 * El campo "timestamp" es obligatorio y debe estar en formato UTC. todos los demás campos son opcionales.
 * "TraceId" y "spanId" en el campo "mdc" se usan con fines de seguimiento.
-* Coloque cada registro JSON en una sola línea. 
+* Coloque cada registro JSON en una sola línea.
 
-**Ejemplo de fila de registro** 
+**Ejemplo de fila de registro**
 
- ```
+```log
 {"timestamp":"2021-01-08T09:23:51.280Z","logger":"com.example.demo.HelloController","level":"ERROR","thread":"http-nio-1456-exec-4","mdc":{"traceId":"c84f8a897041f634","spanId":"c84f8a897041f634"},"stackTrace":"java.lang.RuntimeException: get an exception\r\n\tat com.example.demo.HelloController.throwEx(HelloController.java:54)\r\n\","message":"Got an exception","exceptionClass":"RuntimeException"}
 ```
 
@@ -57,17 +57,17 @@ Cada línea de registros JSON puede tener como máximo **16 000 bytes**. Si la
 
 Por lo general, esto sucede en el registro de excepciones con stacktrace profundo, especialmente cuando el [agente de In-Process de AppInsights](./how-to-application-insights.md) está habilitado.  Aplique la configuración de límite a la salida de stacktrace (consulte los ejemplos de configuración siguientes) para asegurarse de que la salida final se analiza correctamente.
 
-## <a name="generate-schema-compliant-json-log"></a>Generación de un registro JSON conforme al esquema  
+## <a name="generate-schema-compliant-json-log"></a>Generación de un registro JSON conforme al esquema
 
-En el caso de las aplicaciones de Spring, puede generar el formato de registro JSON esperado mediante [plataformas de registro](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration) comunes, como [logback](http://logback.qos.ch/) y [log4j2](https://logging.apache.org/log4j/2.x/). 
+En el caso de las aplicaciones de Spring, puede generar el formato de registro JSON esperado mediante [plataformas de registro](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration) comunes, como [logback](http://logback.qos.ch/) y [log4j2](https://logging.apache.org/log4j/2.x/).
 
-### <a name="log-with-logback"></a>Registro con logback 
+### <a name="log-with-logback"></a>Registro con logback
 
-Cuando se usan iniciadores de Spring Boot, se usa logback de manera predeterminada. En el caso de las aplicaciones de logback, use el codificador [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) para generar el registro con formato JSON. Este método se admite en Spring Boot versión 2.1 y posteriores. 
+Cuando se usan iniciadores de Spring Boot, se usa logback de manera predeterminada. En el caso de las aplicaciones de logback, use el codificador [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) para generar el registro con formato JSON. Este método se admite en Spring Boot versión 2.1 y posteriores.
 
 El procedimiento es el siguiente:
 
-1. Agregue la dependencia de logstash al archivo `pom.xml`. 
+1. Agregue la dependencia de logstash al archivo `pom.xml`.
 
     ```xml
     <dependency>
@@ -76,7 +76,9 @@ El procedimiento es el siguiente:
         <version>6.5</version>
     </dependency>
     ```
+
 1. Actualice el archivo de configuración `logback-spring.xml` para configurar el formato JSON.
+
     ```xml
     <configuration>
         <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
@@ -122,6 +124,7 @@ El procedimiento es el siguiente:
         </root>
     </configuration>
     ```
+
 1. Al usar el archivo de configuración de registro con un sufijo `-spring`, como `logback-spring.xml`, puede establecer la configuración de registro en función del perfil activo de Spring.
 
     ```xml
@@ -141,10 +144,10 @@ El procedimiento es el siguiente:
         </springProfile>
     </configuration>
     ```
-    
+
     Para el desarrollo local, ejecute la aplicación Spring Cloud con el argumento `-Dspring.profiles.active=dev` de JVM; así, podrá ver registros legibles para el usuario en lugar de líneas con formato JSON.
 
-### <a name="log-with-log4j2"></a>Registro con log4j2 
+### <a name="log-with-log4j2"></a>Registro con log4j2
 
 En el caso de las aplicaciones de log4j2, use [json-template-layout](https://logging.apache.org/log4j/2.x/manual/json-template-layout.html) para generar el registro con formato JSON. Este método se admite en Spring Boot versión 2.1 y posteriores.
 
@@ -216,7 +219,7 @@ El procedimiento es el siguiente:
     }
     ```
 
-3. Use esta plantilla de diseño JSON en el archivo de configuración `log4j2-spring.xml`. 
+3. Use esta plantilla de diseño JSON en el archivo de configuración `log4j2-spring.xml`.
 
     ```xml
     <configuration>
@@ -243,10 +246,10 @@ Una vez que la aplicación esté configurada correctamente, el registro de la co
 Utilice el siguiente procedimiento:
 
 1. Vaya a la página de información general del servicio de la instancia de servicio.
-2. Haga clic en la entrada `Logs` en la sección `Monitoring`.
+2. Seleccione la entrada **Registros** de la sección **Supervisión**.
 3. Ejecute esta consulta.
 
-   ```
+   ```query
    AppPlatformLogsforSpring
    | where TimeGenerated > ago(1h)
    | project AppTimestamp, Logger, CustomLevel, Thread, Message, ExceptionClass, StackTrace, TraceId, SpanId
@@ -256,29 +259,28 @@ Utilice el siguiente procedimiento:
 
    ![Presentación de registros JSON](media/spring-cloud-structured-app-log/json-log-query.png)
 
-
 ### <a name="show-log-entries-containing-errors"></a>Visualización de entradas de registro que contienen errores
 
 Para revisar las entradas del registro que tienen un error, ejecute la siguiente consulta:
 
-```
+```query
 AppPlatformLogsforSpring
-| where TimeGenerated > ago(1h) and CustomLevel == "ERROR" 
-| project AppTimestamp, Logger, ExceptionClass, StackTrace, Message, AppName 
+| where TimeGenerated > ago(1h) and CustomLevel == "ERROR"
+| project AppTimestamp, Logger, ExceptionClass, StackTrace, Message, AppName
 | sort by AppTimestamp
 ```
 
-Use esta consulta para buscar errores o modificar los términos de la consulta para encontrar clases de excepción o códigos de error específicos. 
+Use esta consulta para buscar errores o modificar los términos de la consulta para encontrar clases de excepción o códigos de error específicos.
 
 ### <a name="show-log-entries-for-a-specific-traceid"></a>Visualización de las entradas del registro de un traceId específico
 
 Para revisar las entradas del registro de un identificador de seguimiento específico "trace_id", ejecute la siguiente consulta:
 
-```
+```query
 AppPlatformLogsforSpring
 | where TimeGenerated > ago(1h)
-| where TraceId == "trace_id" 
-| project AppTimestamp, Logger, TraceId, SpanId, StackTrace, Message, AppName 
+| where TraceId == "trace_id"
+| project AppTimestamp, Logger, TraceId, SpanId, StackTrace, Message, AppName
 | sort by AppTimestamp
 ```
 

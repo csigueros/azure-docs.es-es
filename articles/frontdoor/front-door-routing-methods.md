@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 07/14/2021
 ms.author: duau
-ms.openlocfilehash: 2bc056620ff964747dfd83e7525cb5bfd2eb8e52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c692c814bf3ae71b34f1c31c8ab29a4cda968f1f
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449138"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203819"
 ---
 # <a name="front-door-routing-methods"></a>Métodos de enrutamiento de Front Door
 
@@ -26,7 +26,7 @@ En Front Door hay cuatro métodos de enrutamiento de tráfico disponibles:
 
 * **[Latencia](#latency):** el enrutamiento basado en la latencia garantiza que las solicitudes se envían a los back-ends con menor latencia aceptables dentro de un intervalo de confidencialidad. Básicamente, las solicitudes de usuario se envían al conjunto de servidores back-end "más cercanos" con respecto a la latencia de red.
 * **[Prioridad](#priority):** puede asignar prioridades a los diferentes servidores back-end cuando desee configurar un servidor back-end principal que sirva todo el tráfico. El servidor back-end secundario puede ser una copia de seguridad en caso de que el servidor back-end principal deje de estar disponible.
-* **[Ponderado](#weighted):** puede asignar peso a los servidores back-end si desea distribuir el tráfico entre un conjunto de ellos. Tanto si desea una distribución uniforme o de acuerdo con los coeficientes de peso.
+* **[Peso](#weighted)** : puede asignar pesos a sus back-ends cuando desee distribuir el tráfico entre un conjunto de back-end de manera uniforme o según los coeficientes de peso. El tráfico se distribuye según los pesos si las latencias de los back-ends están dentro del intervalo de sensibilidad a la latencia aceptable en el grupo de back-end.
 * **[Afinidad de sesión](#affinity):** puede configurar la afinidad de sesión de los hosts o dominios de front-end para asegurarse de que las solicitudes del mismo usuario final se envían al mismo back-end.
 
 Todas las configuraciones de Front Door incluyen la supervisión del estado de mantenimiento de los servidores back-end y la conmutación por error global instantánea automatizada. Para más información, consulte [Front Door Backend Monitoring](front-door-health-probes.md) (Supervisión de servidores back-end en Front Door). Front Door puede funcionar con un método de enrutamiento único. Pero en función de las necesidades de la aplicación, también puede combinar varios métodos de enrutamiento para crear una topología de enrutamiento óptima.
@@ -44,7 +44,7 @@ El siguiente es el flujo de decisión general:
 | En primer lugar, seleccione todos los servidores back-end que estén habilitados y devuelvan un estado correcto (200 OK) en el sondeo de estado. Si hay seis servidores back-end, A, B, C, D, E y F y, entre ellos, C está en mal estado y E está deshabilitado. La lista de servidores back-end disponible es A, B, D y F.  | Después, se seleccionan los servidores back-end de mayor prioridad entre los que estén disponibles. Por ejemplo, los servidores back-end A, B y D tienen prioridad 1 y el servidor back-end F tiene prioridad 2. Entonces, los servidores back-end seleccionados serán A, B y D.| Seleccione los servidores back-end con un intervalo de latencia (menos latencia menor sensibilidad a la latencia, expresada en milisegundos). Si el servidor back-end A está a 15 ms, B a 30 ms y D a 60 ms del entorno de Front Door al que llegó la solicitud, y la sensibilidad a la latencia es 30 ms, el grupo de menor latencia está formado por los servidores back-end A y B, puesto que D está a más de 30 ms del servidor back-end más cercano, que es A. | Por último, Front Door realizará una distribución round robin del tráfico entre los servidores back-end del grupo seleccionado, en la proporción especificada por su peso. Por ejemplo, si un servidor back-end tiene un peso de 5 y el servidor back-end B tiene un peso de 8, el tráfico se distribuirá en la proporción 5:8 entre el los servidores back-end A y B. |
 
 >[!NOTE]
-> De forma predeterminada, la propiedad de sensibilidad a la latencia se establece en 0 ms; es decir, la solicitud siempre se reenvía al servidor back-end más rápido disponible.
+> De forma predeterminada, la propiedad de sensibilidad a la latencia se establece en 0 ms, es decir, la solicitud siempre se reenvía al back-end más rápido disponible y los pesos de los back-ends no se harán efectivos a menos que dos back-ends tengan la misma latencia de red.
 
 ## <a name="priority-based-traffic-routing"></a><a name = "priority"></a>Enrutamiento de tráfico basado en la prioridad
 

@@ -13,16 +13,21 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2020
+ms.date: 07/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a711cca01431346896ac5d0aee5dce8524ed721f
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84783170"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202502"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Uso del streaming en vivo de búsqueda de Azure Sentinel para detectar amenazas
+
+> [!IMPORTANT]
+>
+> - La experiencia de consulta entre recursos (consulte los elementos marcados a continuación) se encuentra actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+>
 
 Use el streaming en vivo de búsqueda para crear sesiones interactivas que permitan probar las consultas recién creadas a medida que se produzcan eventos, recibir notificaciones de las sesiones cuando se encuentre una coincidencia e iniciar investigaciones si es necesario. Puede crear rápidamente una sesión de streaming en vivo mediante cualquier consulta de Log Analytics.
 
@@ -61,7 +66,10 @@ Puede crear una sesión de streaming en vivo a partir de una consulta de búsque
 1. En el panel de **Streaming en vivo**:
     
     - Si inició streaming en vivo desde una consulta, revise la consulta y realice los cambios que desee realizar.
-    - Si inició streaming en vivo desde cero, cree la consulta. 
+    - Si inició streaming en vivo desde cero, cree la consulta.
+
+    > [!NOTE]
+    > Livestream admite **consultas entre recursos** (en versión preliminar) de datos en Azure Data Explorer. [**Obtenga más información sobre las consultas entre recursos**](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md#cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer).
 
 1. En la barra de comandos, seleccione **Reproducir**.
     

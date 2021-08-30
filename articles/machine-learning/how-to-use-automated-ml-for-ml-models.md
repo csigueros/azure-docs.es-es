@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 06/11/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 3bf83c31c10245cb64a047c9d856489a4e0ce71a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 0248491ed8a2fb8459565306249f95b1af92cf09
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030762"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588905"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>Configuración del entrenamiento de AutoML sin código con la interfaz de usuario de Estudio 
 
@@ -28,9 +28,9 @@ Para obtener un ejemplo completo, pruebe el [Tutorial: Aprendizaje automático a
 
 Si prefiere una experiencia basada en código de Python, [configure sus experimentos de aprendizaje automático automatizado](how-to-configure-auto-train.md) con el SDK de Azure Machine Learning.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md). 
 
@@ -114,7 +114,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
     Seleccione **Next** (Siguiente).
 
-1. En el formulario **Task type and settings** (Tipo de tarea y configuración), seleccione el tipo de tarea: clasificación, regresión o previsión. Para más información, vea los [tipos de tareas admitidos](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
+1. En el formulario **Task type and settings** (Tipo de tarea y configuración), seleccione el tipo de tarea: clasificación, regresión o previsión. Para más información, vea los [tipos de tareas admitidos](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting).
 
     1. Para **classification** (clasificación), también puede habilitar el aprendizaje profundo.
     
@@ -175,10 +175,13 @@ La pestaña **Modelos** contiene una lista de los modelos creados ordenados por 
 
 ### <a name="view-training-run-details"></a>Ver detalles de ejecución del entrenamiento
 
-Explore en profundidad los modelos completados para ver los detalles de la ejecución de entrenamiento, como un resumen del modelo en la pestaña **Modelo** o gráficos de métricas de rendimiento en la pestaña **Métricas**. [Más información sobre los gráficos](how-to-understand-automated-ml.md).
+Explore en profundidad cualquiera de los modelos completados para ver los detalles de ejecución de entrenamiento. En la pestaña **Modelo**, puede ver detalles como un resumen del modelo y los hiperparámetros usados para el modelo seleccionado. 
 
-[![Detalles de la iteración](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+[![Detalles de hiperparámetros](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png)
 
+ También puede ver gráficos de métricas de rendimiento específicos del modelo en la pestaña **Métricas**. [Más información sobre los gráficos](how-to-understand-automated-ml.md).
+
+![Detalles de la iteración](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
 En la pestaña Transformación de datos, puede ver un diagrama del preprocesamiento de datos, la ingeniería de características, las técnicas de escalado y el algoritmo de aprendizaje automático que se aplicaron para generar este modelo.
 

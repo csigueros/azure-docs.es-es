@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: bc4af87ca560c19af47a877d05a34a33c74a67bb
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 1ae8d59934bdcd0dc2dcf2178f61f7bcaa3e5fc8
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111437935"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114205292"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copia de una imagen de otra galería mediante la CLI de Azure
 
@@ -75,7 +75,7 @@ az sig image-version show \
 
 ## <a name="create-the-image-definition"></a>Creación de una definición de imagen 
 
-Debe crear una definición de imagen que coincida con la de la versión de la imagen de origen. Puede ver toda la información necesaria para volver a crear la definición de imagen en la nueva galería mediante [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show).
+Tendrá que crear una definición de imagen que coincida con el sistema operativo, el estado del sistema operativo y la generación de Hyper-V de la definición de imagen que contiene la versión de la imagen de origen. Puede ver toda la información necesaria para volver a crear la definición de imagen en la nueva galería mediante [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show).
 
 ```azurecli-interactive
 az sig image-definition show \
@@ -129,6 +129,10 @@ az sig image-definition create \
    --hyper-v-generation V1 \
    --os-state specialized 
 ```
+
+> [!NOTE]
+> Para las definiciones de imagen que contendrán imágenes descendientes de imágenes de terceros, la información del plan debe coincidir exactamente con la información del plan de la imagen de terceros. Para incluir la información del plan en la definición de imagen, agregue `--plan-name`, `--plan-product` y `--plan-publisher` al crear la definición de imagen.
+>
 
 
 ## <a name="create-the-image-version"></a>Creación de la versión de la imagen

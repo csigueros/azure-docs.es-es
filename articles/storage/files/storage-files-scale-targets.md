@@ -7,17 +7,24 @@ ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 78ecf275a9c607273aef16e6351224709f230959
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 32ec83fb1c8de16f589d6a172a7612e5e5866647
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690526"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768232"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante los protocolos SMB y del sistema de archivos NFS. En este artículo se explican los objetivos de escalabilidad y rendimiento de Azure Files y Azure File Sync.
 
 Los objetivos de escalabilidad y rendimiento que aparecen aquí son exigentes, pero pueden verse afectados por otras variables de la implementación. Por ejemplo, el rendimiento de un archivo puede verse limitado también por el ancho de banda de red disponible, no solo los servidores que hospedan los recursos compartidos de archivos de Azure. Se recomienda probar el patrón de uso para determinar si la escalabilidad y el rendimiento de Azure Files cumplen sus requisitos. También nos comprometemos a aumentar estos límites con el tiempo. 
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 ## <a name="azure-files-scale-targets"></a>Objetivos de escalabilidad de Azure Files
 Los recursos compartidos de archivos de Azure se implementan en cuentas de almacenamiento, que son objetos de nivel superior que representan un grupo compartido de almacenamiento. Este grupo de almacenamiento se puede usar para implementar varios recursos compartidos de archivos. Por tanto, existen tres categorías que se deben tener en cuenta: cuentas de almacenamiento, recursos compartidos de archivo de Azure y archivos.
@@ -52,7 +59,7 @@ Azure admite varios tipos de cuentas de almacenamiento para los distintos escena
 | Unidad de aumento/reducción de tamaño aprovisionada | N/D | 1 GiB |
 | Tamaño máximo de un recurso compartido de archivos | <ul><li>100 TiB, con la característica de recurso compartido de archivos grande habilitada<sup>2</sup></li><li>5 TiB, valor predeterminado</li></ul> | 100 TiB |
 | Número máximo de archivos en un recurso compartido de archivos | Sin límite | Sin límite |
-| Velocidad máxima de solicitud (IOPS máx.) | <ul><li>10 000, con la característica de recurso compartido de archivos grandes habilitada<sup>2</sup></li><li>1000 o 100 solicitudes por 100 ms, valor predeterminado</li></ul> | <ul><li>IOPS base: 400 + 1 IOPS por GiB hasta 100 000</li><li>Expansión de IOPS: Máx. (4000, 3 x IOPS por GiB), hasta 100 000</li></ul> |
+| Velocidad máxima de solicitud (IOPS máx.) | <ul><li>20 000, con la característica de recurso compartido de archivos grandes habilitada<sup>2</sup></li><li>1000 o 100 solicitudes por 100 ms, valor predeterminado</li></ul> | <ul><li>IOPS base: 400 + 1 IOPS por GiB hasta 100 000</li><li>Expansión de IOPS: Máx. (4000, 3 x IOPS por GiB), hasta 100 000</li></ul> |
 | Entrada máxima para un único recurso compartido de archivos | <ul><li>Hasta 300 MiB/s, con la característica de recurso compartido de archivos grandes habilitada<sup>2</sup></li><li>Hasta 60 MiB/s, valor predeterminado</li></ul> | 40 MiB/s + 0,04 * GiB aprovisionado |
 | Salida máxima para un único recurso compartido de archivos | <ul><li>Hasta 300 MiB/s, con la característica de recurso compartido de archivos grandes habilitada<sup>2</sup></li><li>Hasta 60 MiB/s, valor predeterminado</li></ul> | 60 MiB/s + 0,06 * GiB aprovisionado |
 | Número máximo de instantáneas de recurso compartido | 200 instantáneas | 200 instantáneas |
@@ -64,7 +71,7 @@ Azure admite varios tipos de cuentas de almacenamiento para los distintos escena
 
 <sup>1</sup> Los límites de los recursos compartidos de archivos estándar se aplican a los tres niveles disponibles para dichos recursos: optimizado para transacciones, acceso frecuente y acceso esporádico.
 
-<sup>2</sup> El valor predeterminado en los recursos compartidos de archivos estándar es 5 TiB. En el artículo [Habilitación y creación de recursos compartidos de archivos grandes](./storage-files-how-to-create-large-file-share.md) encontrará más información sobre cómo aumentar el escalado vertical de los recursos compartidos de archivos estándar hasta 100 TiB.
+<sup>2</sup> El valor predeterminado de los recursos compartidos de archivos estándar es 5 TiB; consulte [Creación de un recurso compartido de archivos de Azure](./storage-how-to-create-file-share.md) para obtener más información sobre cómo crear recursos compartidos de archivos con un tamaño de 100 TiB y aumentar los recursos compartidos de archivos estándar existentes hasta 100 TiB.
 
 ### <a name="file-scale-targets"></a>Objetivos de escalabilidad de archivos
 | Atributo | Archivos en recursos compartidos de archivos estándar  | Archivos en recursos compartidos de archivos prémium  |
@@ -90,7 +97,7 @@ La tabla siguiente indica los límites de las pruebas de Microsoft y también in
 | Puntos de conexión del servidor por grupo de sincronización | 100 puntos de conexión de servidor | Sí |
 | Puntos de conexión del servidor por servidor | 30 puntos de conexión de servidor | Sí |
 | Objetos del sistema de archivos (archivos y directorios) por grupo de sincronización | 100 millones de objetos | No |
-| Número máximo de objetos del sistema de archivos (archivos y directorios) en un directorio | 5 millones de objetos | Sí |
+| Número máximo de objetos del sistema de archivos (directorios y archivos) en un directorio **(no recursivo)** | 5 millones de objetos | Sí |
 | Tamaño máximo del descriptor de seguridad de (archivos y directorios) del objeto | 64 KiB | Sí |
 | Tamaño de archivo | 100 GiB | No |
 | Tamaño mínimo de un archivo que se va a organizar en niveles | V9 y más recientes: basado en el tamaño del clúster del sistema de archivos (tamaño del clúster del sistema de archivos doble). Por ejemplo, si el tamaño del clúster del sistema de archivos es 4 KiB, el tamaño mínimo del archivo será de 8 KiB.<br> V8 y anteriores: 64 KiB  | Sí |

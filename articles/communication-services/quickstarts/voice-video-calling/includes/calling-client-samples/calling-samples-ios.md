@@ -2,16 +2,16 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.author: mikben
-ms.openlocfilehash: 8e95261da4bd8f6082d567f90e17cf236b8fe7f1
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 45123517d1f2a53a6bf023d1af6fafc528cde856
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560546"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114339906"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Un recurso de Azure Communication Services implementado. [Creación de un recurso de Communication Services](../../../create-communication-resource.md).
@@ -576,6 +576,84 @@ try! localRenderer!.createView(withOptions: CreateViewOptions(scalingMode: Scali
 // [Synchronous] dispose rendering view
 localRenderer.dispose()
 
+```
+
+## <a name="record-calls"></a>Registro de llamadas
+> [!WARNING]
+> Hasta la versión 1.1.0 y la versión beta 1.1.0-beta.1 de la llamada de ACS, el SDK de iOS tiene `isRecordingActive` como parte del objeto `Call` y `didChangeRecordingState` es parte del delegado `CallDelegate`. En el caso de las versiones beta, esas API se movieron como una característica extendida de `Call`, tal como se describe a continuación.
+> [!NOTE]
+> Esta API se ofrece a los desarrolladores como versión preliminar y puede cambiar en función de los comentarios que recibamos. No utilice esta API en un entorno de producción. Para usar esta API, utilice la versión "beta" del SDK de iOS de llamada de ACS.
+
+La grabación de llamadas es una característica extendida de la API `Call` principal. Primero debe obtener el objeto de API de la característica de grabación:
+
+```swift
+let callRecordingFeature = call.api(RecordingFeature.self)
+```
+
+Después, para comprobar si se está grabando la llamada, inspeccione la propiedad `isRecordingActive` de `callRecordingFeature`. Devuelve `Bool`.
+
+```swift
+let isRecordingActive = callRecordingFeature.isRecordingActive;
+```
+
+También puede suscribirse a los cambios de grabación mediante la implementación del delegado `RecordingFeatureDelegate` en la clase con el evento `didChangeRecordingState`:
+
+```swift
+callRecordingFeature.delegate = self
+
+// didChangeRecordingState is a member of RecordingFeatureDelegate
+public func recordingFeature(_ recordingFeature: RecordingFeature, didChangeRecordingState args: PropertyChangedEventArgs) {
+    let isRecordingActive = recordingFeature.isRecordingActive
+}
+```
+
+Si desea iniciar la grabación desde la aplicación, siga los pasos para configurar la grabación de llamadas que aparecen en [Introducción a la grabación de llamadas](../../../../concepts/voice-video-calling/call-recording.md).
+
+Una vez que configuró la grabación de llamadas en el servidor, desde la aplicación de iOS debe obtener el valor `ServerCallId` de la llamada y, luego, envíelo al servidor para iniciar el proceso de grabación. Puede encontrar el valor `ServerCallId` si usa `getServerCallId()` de la clase `CallInfo`, que se puede encontrar en el objeto de clase con `getInfo()`.
+
+```swift
+let serverCallId = call.info.getServerCallId(){ (serverId, error) in }
+// Send serverCallId to your recording server to start the call recording.
+```
+
+Cuando se inicia la grabación desde el servidor, se desencadenará el evento `didChangeRecordingState` y el valor de `recordingFeature.isRecordingActive` será `true`.
+
+Al igual que al comenzar a grabar la llamada, si desea detener esta grabación, deberá obtener `ServerCallId` y enviarlo al servidor de grabación para que pueda detener la grabación de llamadas.
+
+```swift
+let serverCallId = call.info.getServerCallId(){ (serverId, error) in }
+// Send serverCallId to your recording server to stop the call recording.
+```
+
+Cuando se detiene la grabación desde el servidor, se desencadenará el evento `didChangeRecordingState` y el valor de `recordingFeature.isRecordingActive` será `false`.
+
+## <a name="call-transcription"></a>Transcripción de llamadas
+> [!WARNING]
+> Hasta la versión 1.1.0 y la versión beta 1.1.0-beta.1 de la llamada de ACS, el SDK de iOS tiene `isTranscriptionActive` como parte del objeto `Call` y `didChangeTranscriptionState` es parte del delegado `CallDelegate`. En el caso de las versiones beta, esas API se movieron como una característica extendida de `Call`, tal como se describe a continuación.
+> [!NOTE]
+> Esta API se ofrece a los desarrolladores como versión preliminar y puede cambiar en función de los comentarios que recibamos. No utilice esta API en un entorno de producción. Para usar esta API, utilice la versión "beta" del SDK de iOS de llamada de ACS.
+
+La transcripción de llamadas es una característica extendida de la API `Call` principal. Primero debe obtener el objeto de API de la característica de transcripción:
+
+```swift
+let callTranscriptionFeature = call.api(TranscriptionFeature.self)
+```
+
+Luego, a fin de comprobar si se transcribe la llamada, revise la propiedad `isTranscriptionActive` de `callTranscriptionFeature`. Devuelve `Bool`.
+
+```swift
+let isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive;
+```
+
+También puede suscribirse a los cambios de transcripción mediante la implementación del delegado `TranscriptionFeatureDelegate` en la clase con el evento `didChangeTranscriptionState`:
+
+```swift
+callTranscriptionFeature.delegate = self
+
+// didChangeTranscriptionState is a member of TranscriptionFeatureDelegate
+public func transcriptionFeature(_ transcriptionFeature: TranscriptionFeature, didChangeTranscriptionState args: PropertyChangedEventArgs) {
+    let isTranscriptionActive = transcriptionFeature.isTranscriptionActive
+}
 ```
 
 ## <a name="subscribe-to-notifications"></a>Suscribirse a notificaciones

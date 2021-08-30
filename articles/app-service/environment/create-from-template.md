@@ -7,16 +7,19 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 654ab2aaa76de849089388ccc87b9da27278cb3e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 49ebcf06d0e01fb6b97e606bbcb5c3068eb0e727
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034567"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433317"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creación de una instancia de ASE mediante el uso de una plantilla de Azure Resource Manager
 
 ## <a name="overview"></a>Información general
+> [!NOTE]
+> En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados
+> 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -154,7 +157,7 @@ Sin embargo, al igual que las aplicaciones que se ejecutan en el servicio multii
 ## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
 App Service Environment tiene dos versiones: ASEv1 y ASEv2. La información anterior se basa en ASEv2. En esta sección se muestran las diferencias entre ASEv1 y ASEv2.
 
-En ASEv1, administra todos los recursos de forma manual. Esto incluye los front-end, los trabajos y las direcciones IP utilizadas para SSL basada en IP. Antes de escalar horizontalmente el plan de App Service, debe escalar horizontalmente el grupo de trabajo en el que desea hospedarlo.
+En ASEv1, administra todos los recursos de forma manual. Esto incluye los servidores front-end, los trabajos y las direcciones IP utilizadas para el enlace TLS/SSL basado en IP. Antes de escalar horizontalmente el plan de App Service, debe escalar horizontalmente el grupo de trabajo en el que desea hospedarlo.
 
 ASEv1 utiliza un modelo de precios diferente al de ASEv2. En ASEv1, paga por cada vCPU asignada. Esto incluye las vCPU que se usan para los servidores front-end y trabajos que no hospedan ninguna carga de trabajo. En ASEv1, el tamaño de escala máxima predeterminada de una instancia de ASE es de 55 hosts en total. Esto incluye servidores front-end y trabajos. Una ventaja de ASEv1 es que se puede implementar en una red virtual clásica y en una red virtual de Resource Manager. Para más información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro].
 
@@ -164,10 +167,10 @@ Para crear una instancia de ASEv1 mediante una plantilla de Resource Manager, co
 <!--Links-->
 [quickstartilbasecreate]: https://azure.microsoft.com/resources/templates/web-app-asev2-ilb-create
 [quickstartasev2create]: https://azure.microsoft.com/resources/templates/web-app-asev2-create
-[quickstartconfiguressl]: https://azure.microsoft.com/resources/templates/201-web-app-ase-ilb-configure-default-ssl
+[quickstartconfiguressl]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-configure-default-ssl
 [quickstartwebapponasev2create]: https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev2-create
 [examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
-[configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
+[configuringDefaultSSLCertificate]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-configure-default-ssl/
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md

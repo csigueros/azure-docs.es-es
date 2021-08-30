@@ -4,16 +4,16 @@ description: En este artículo se proporciona información acerca de la configur
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/20/2020
+ms.date: 07/06/2021
 ms.author: victorh
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e6403b1bab2bcdd6a001c5f55b34519b9447194d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 3b6042ec28e7b774f57be19809c585ad919b25b0
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668633"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432525"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Listas de exclusión y límites de tamaño de solicitud del Firewall de aplicaciones web
 
@@ -97,7 +97,12 @@ El firewall de aplicaciones web le permite configurar límites de tamaño de sol
    - 500 MB para puertas de enlace v1 grandes WAF
    - 750 MB para puertas de enlace WAF, versión 2 
 
- El valor predeterminado del límite de carga de archivo es 100 MB.
+El valor predeterminado del límite de carga de archivo es 100 MB.
+
+Para CRS 3.2 (en la SKU WAF_v2) y versiones más recientes, estos límites son los siguientes:
+   
+   - Límite de tamaño del cuerpo de la solicitud de 2 MB
+   - Límite de carga de archivos de 4 GB 
 
 El WAF también ofrece un botón configurable para activar o desactivar la inspección del cuerpo de la solicitud. De forma predeterminada, la inspección del cuerpo de la solicitud está habilitada. Si se desactiva la inspección del cuerpo de la solicitud, el WAF no evalúa el contenido del cuerpo del mensaje HTTP. En tal caso, el WAF continúa aplicando reglas de WAF en URI, cookies y encabezados. Si se desactiva la inspección del cuerpo de la solicitud, el campo de tamaño máximo del cuerpo de la solicitud no es aplicable y no se puede definir. Al desactivar la inspección del cuerpo de la solicitud, se podrán enviar mensajes de más de 128 KB al WAF, pero no se inspecciona el cuerpo de mensaje en busca de vulnerabilidades.
 

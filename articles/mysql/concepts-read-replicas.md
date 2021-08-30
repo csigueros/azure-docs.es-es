@@ -5,16 +5,18 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 06/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: c380a3edb556adb72d067cb2910c8afbf66b99a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89cb9122da21887165b2330f75dd316c184de823
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98250271"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121781076"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 La característica de réplica de lectura permite replicar datos de un servidor Azure Database for MySQL en un servidor de solo lectura. Puede crear hasta cinco réplicas desde el servidor de origen. Las réplicas se actualizan asincrónicamente mediante la tecnología de replicación basada en la posición de los archivos de registros binarios nativos (binlog) del motor de MySQL. Para obtener más información acerca de la replicación de binlog, consulte la [Introducción a la replicación de binlog de MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
@@ -48,7 +50,38 @@ Puede tener un servidor de origen en cualquier [región de Azure Database for M
 
 Puede crear una réplica de lectura en cualquiera de las siguientes regiones, con independencia de dónde se encuentre el servidor de origen. Entre las regiones de réplica universales admitidas se incluyen:
 
-Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Este de Asia, Este de EE. UU. 2, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU.
+| Region | Disponibilidad de la réplica | 
+| --- | --- | 
+| Este de Australia | :heavy_check_mark: | 
+| Sudeste de Australia | :heavy_check_mark: | 
+| Sur de Brasil | :heavy_check_mark: | 
+| Centro de Canadá | :heavy_check_mark: |
+| Este de Canadá | :heavy_check_mark: |
+| Centro de EE. UU. | :heavy_check_mark: | 
+| Este de EE. UU. | :heavy_check_mark: | 
+| Este de EE. UU. 2 | :heavy_check_mark: |
+| Este de Asia | :heavy_check_mark: | 
+| Japón Oriental | :heavy_check_mark: | 
+| Japón Occidental | :heavy_check_mark: | 
+| Centro de Corea del Sur | :heavy_check_mark: |
+| Corea del Sur | :heavy_check_mark: |
+| Norte de Europa | :heavy_check_mark: | 
+| Centro-Norte de EE. UU | :heavy_check_mark: | 
+| Centro-sur de EE. UU. | :heavy_check_mark: | 
+| Sudeste de Asia | :heavy_check_mark: | 
+| Sur de Reino Unido | :heavy_check_mark: | 
+| Oeste de Reino Unido | :heavy_check_mark: | 
+| Centro-Oeste de EE. UU. | :heavy_check_mark: | 
+| Oeste de EE. UU. | :heavy_check_mark: | 
+| Oeste de EE. UU. 2 | :heavy_check_mark: | 
+| Oeste de Europa | :heavy_check_mark: | 
+| Centro de la India* | :heavy_check_mark: | 
+| Centro de Francia* | :heavy_check_mark: | 
+| Norte de Emiratos Árabes Unidos* | :heavy_check_mark: | 
+| Norte de Sudáfrica* | :heavy_check_mark: |
+
+> [!Note] 
+> *Regiones donde Azure Database for MySQL tiene Almacenamiento de uso general v2 en la versión preliminar pública.  <br /> *Para estas regiones de Azure, tendrá la opción de crear un servidor en Almacenamiento de uso general v1 y v2. En el caso de los servidores creados con Almacenamiento de uso general v2 en versión preliminar pública, solo podrá crear un servidor de réplica solo en las regiones de Azure que admiten dicha versión.
 
 ### <a name="paired-regions"></a>Regiones emparejadas
 
@@ -141,11 +174,18 @@ Los siguientes parámetros de servidor se pueden usar para configurar GTID:
 |`enforce_gtid_consistency`|Aplica la coherencia de GTID, ya que solo permite que se ejecuten las instrucciones que se pueden registrar de una manera transaccionalmente segura. Este valor debe establecerse en `ON` antes de habilitar la replicación de GTID. |`OFF`|`OFF`: a todas las transacciones se les permite infringir la coherencia de GTID.  <br> `ON`: no se permite a ninguna transacción infringir la coherencia de GTID. <br> `WARN`: a todas las transacciones se les permite infringir la coherencia de GTID, pero se genera una advertencia. | 
 
 > [!NOTE]
-> Una vez habilitado GTID, no se puede volver a desactivar. Si necesita desactivar GTID, póngase en contacto con el servicio de soporte técnico. 
+> * Una vez habilitado GTID, no se puede volver a desactivar. Si necesita desactivar GTID, póngase en contacto con el servicio de soporte técnico. 
+>
+> * Si desea cambiar los GTID de un valor a otro, solo puede hacerlo un paso cada vez en orden ascendente de modos. Por ejemplo, si gtid_mode está establecido en OFF_PERMISSIVE, es posible cambiar a ON_PERMISSIVE, pero no a ON.
+>
+> * Para mantener la coherencia de la replicación, no se puede actualizar en el caso de un servidor maestro o de réplica.
+>
+> * Se recomienda establecer enforce_gtid_consistency en ON antes de establecer gtid_mode=ON.
+
 
 Para habilitar GTID y configurar el comportamiento de la coherencia, actualice los parámetros de servidor `gtid_mode` y `enforce_gtid_consistency` mediante [Azure Portal](howto-server-parameters.md), la [CLI de Azure](howto-configure-server-parameters-using-cli.md) o [ PowerShell](howto-configure-server-parameters-using-powershell.md).
 
-Si GTID está habilitado en un servidor de origen (`gtid_mode` = ON), las réplicas recién creadas también tendrán GTID habilitado y usarán la replicación de GTID. Para que la replicación se realice de forma consistente, no puede actualizar `gtid_mode` en los servidores de origen ni de réplica.
+Si GTID está habilitado en un servidor de origen (`gtid_mode` = ON), las réplicas recién creadas también tendrán GTID habilitado y usarán la replicación de GTID. Para garantizar la coherencia de la replicación, `gtid_mode` no se puede cambiar una vez que se crean los servidores maestros o de réplica con GTID habilitado. 
 
 ## <a name="considerations-and-limitations"></a>Consideraciones y limitaciones
 

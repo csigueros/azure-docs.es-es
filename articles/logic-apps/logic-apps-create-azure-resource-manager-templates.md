@@ -3,15 +3,15 @@ title: Creación de plantillas de aplicación lógica para implementación
 description: Aprenda a crear plantillas de Azure Resource Manager para automatizar la implementación en Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: 9bf6e9a09cfd271fb701b930eaee7b0e8bdee61f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 07/20/2021
+ms.openlocfilehash: 3378c04fd6a43d50b670767d1d3fc4f59043e1e9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961607"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456609"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creación de plantillas de Azure Resource Manager para automatizar la implementación de Azure Logic Apps
 
@@ -49,10 +49,11 @@ Por ejemplo, suponga que tiene una aplicación lógica que recibe un mensaje de 
 
 En estos ejemplos se muestra cómo crear e implementar aplicaciones lógicas mediante plantillas de Azure Resource Manager, Azure Pipelines en Azure DevOps y Azure PowerShell:
 
-* [Ejemplo: Conexión a colas de Azure Service Bus desde Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Ejemplo: Conexión a cuentas de Azure Storage desde Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Ejemplo: Configuración de una acción de Function App para Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Ejemplo: Conexión a una cuenta de integración desde Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Ejemplo: Organización de Azure Pipelines mediante Azure Logic Apps](https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration)
+* [Ejemplo: Conexión a cuentas de Azure Storage desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/storage-account-connections)
+* [Ejemplo: Conexión a colas de Azure Service Bus desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/service-bus-connections)
+* [Ejemplo: Conexión a una acción de Azure Functions para Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/function-app-actions)
+* [Ejemplo: Conexión a una cuenta de integración desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/integration-account-connections)
 
 ### <a name="install-powershell-modules"></a>Instalación de módulos PowerShell
 

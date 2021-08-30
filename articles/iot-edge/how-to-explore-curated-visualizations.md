@@ -2,25 +2,27 @@
 title: 'Exploración de las visualizaciones mantenidas: Azure IoT Edge'
 description: Uso de libros de Azure para visualizar y explorar las métricas integradas de IoT Edge
 author: veyalla
-manager: philmea
 ms.author: veyalla
-ms.date: 06/08/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0ca0d1fb7890f1a1a94419f58587f3a98957f41c
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 7be7260e993f9cc95b542406767d6794f18836f8
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904594"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015657"
 ---
 # <a name="explore-curated-visualizations-preview"></a>Exploración de visualizaciones mantenidas (versión preliminar)
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Puede visualizar y explorar las métricas recopiladas desde un dispositivo de IoT Edge directamente en Azure Portal mediante los libros de Azure Monitor. Los libros de supervisión seleccionados para IoT Edge se proporcionan en forma de plantillas públicas a las que puede acceder en la hoja **IoT Hub** de la página **Libros** (en la sección Supervisión).
+Puede visualizar y explorar las métricas recopiladas desde un dispositivo de IoT Edge directamente en Azure Portal mediante los libros de Azure Monitor. Los libros de supervisión mantenidos para IoT Edge se proporcionan en forma de plantillas públicas:
+
+* En el caso de los dispositivos conectados a IoT Hub, en la hoja **IoT Hub** de Azure Portal, vaya a la página **Libros** de la sección **Supervisión**.
+* En el caso de los dispositivos conectados a IoT Hub, en la hoja **IoT Central** de Azure Portal, vaya a la página **Libros** de la sección **Supervisión**.
 
 Los libros seleccionados usan [métricas integradas](how-to-access-built-in-metrics.md) del entorno de ejecución de IoT Edge. Estas vistas no necesitan la instrumentación de métricas de los módulos de carga de trabajo.
 
@@ -30,15 +32,15 @@ Los libros de Azure Monitor para IoT son un conjunto de plantillas que puede usa
 
 Para obtener acceso a los libros seleccionados, siga los siguientes pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a IoT Hub.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la aplicación de IoT Hub o IoT Central.
 
 1. Seleccione **Libros** en la sección **Supervisión** del menú.
 
 1. Elija el libro que quiere explorar en la lista de plantillas públicas:
 
-   * **Vista de flota de IoT Edge**: supervise la flota de dispositivos y explore en profundidad dispositivos específicos para obtener una instantánea de estado.
-   * **Detalles del dispositivo de IoT Edge:** visualice los detalles del dispositivo en torno a la mensajería, los módulos y los componentes de host en un dispositivo de IoT Edge.
-   * **Instantánea de estado de IoT Edge**: consulte el estado de un dispositivo en función de seis métricas de rendimiento comunes. Para acceder al libro de instantáneas de estado, comience en el libro de vista de flota y seleccione el dispositivo específico que quiera ver. El libro de vista de la flota pasa algunos parámetros necesarios a la vista de instantáneas de estado.
+  * **Vista de flota de IoT Edge**: supervise la flota de dispositivos y explore en profundidad dispositivos específicos para obtener una instantánea de estado.
+  * **Detalles del dispositivo de IoT Edge:** visualice los detalles del dispositivo en torno a la mensajería, los módulos y los componentes de host en un dispositivo de IoT Edge.
+  * **Instantánea de estado de IoT Edge**: consulte el estado de un dispositivo en función de seis métricas de rendimiento comunes. Para acceder al libro de instantáneas de estado, comience en el libro de vista de flota y seleccione el dispositivo específico que quiera ver. El libro de vista de la flota pasa algunos parámetros necesarios a la vista de instantáneas de estado.
 
 Puede explorar los libros por su cuenta o usar las secciones siguientes para obtener una vista previa del tipo de datos y visualizaciones que ofrece cada libro.
 
@@ -55,7 +57,7 @@ Puede cambiar entre las vistas mediante las pestañas de la parte superior del l
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif" alt-text="Sección de dispositivos del libro de vista de flota." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif":::
 
-Consulte la información general de los dispositivos activos que envían métricas en la vista **Dispositivos**. En esta vista se muestran los dispositivos asociados a la instancia actual de IoT Hub.
+Consulte la información general de los dispositivos activos que envían métricas en la vista **Dispositivos**. En esta vista se muestran los dispositivos asociados a la aplicación actual de IoT Hub o IoT Central.
 
 A la derecha encontrará la lista de dispositivos con barras compuestas, que muestran los mensajes locales y ascendentes enviados. Puede filtrar la lista por nombre de dispositivo y hacer clic en el vínculo del nombre de dispositivo para ver sus métricas detalladas.
 
@@ -65,7 +67,7 @@ A la izquierda, la visualización de celdas de subárbol muestra qué dispositiv
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif" alt-text="Sección de alertas del libro de vista de flota." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif":::
 
-Consulte las alertas generadas de las [reglas de alertas creadas previamente](how-to-create-alerts.md) en la vista **Alertas**. Esta vista le permite ver alertas de varias instancias de IoT Hub.
+Consulte las alertas generadas de las [reglas de alertas creadas previamente](how-to-create-alerts.md) en la vista **Alertas**. Esta vista le permite ver alertas de varias instancias de aplicaciones de IoT Hub o IoT Central.
 
 A la izquierda, hay una lista con las gravedades de las alertas y con su recuento. A la derecha, hay un mapa con las alertas totales por región.
 
@@ -147,7 +149,7 @@ Estas señales se miden según umbrales configurables para determinar si un disp
 
 ## <a name="customize-workbooks"></a>Personalización de libros
 
-Los [libros de Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) son muy personalizables. Puede editar las plantillas públicas para que se adapten a sus requisitos. Todas las visualizaciones están controladas por consultas [KQL](https://aka.ms/kql) centradas en recursos en la tabla [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics). Consulte el ejemplo siguiente que edita los umbrales de estado.
+Los [libros de Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) son muy personalizables. Puede editar las plantillas públicas para que se adapten a sus requisitos. Todas las visualizaciones están controladas por consultas [KQL](/azure/data-explorer/kusto/query/) centradas en recursos en la tabla [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics). Consulte el ejemplo siguiente que edita los umbrales de estado.
 
 Para empezar a personalizar un libro, primero debe entrar en el modo de edición. Seleccione el botón **Editar** en la barra de menús del libro.
 

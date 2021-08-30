@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1c458508dbf8d98349ec8549af32e3dd48bbd09b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78be49efd75db5a0bbff7f01734b418c9a0a7685
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94966435"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290768"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introducción a la captura de paquetes variable en Azure Network Watcher
 
 La captura variable de paquetes de Network Watcher permite crear sesiones de captura de paquetes para realizar el seguimiento del tráfico de entrada y salida de una máquina virtual. La captura de paquetes ayuda a diagnosticar anomalías de la red, tanto de forma activa como reactiva. Otros usos son la recopilación de estadísticas de red, la obtención de información sobre las intrusiones de red y la depuración de las comunicaciones cliente-servidor, entre otros.
 
-La captura de paquetes es una extensión de máquina virtual que se inicia de forma remota a través de Network Watcher. Esta funcionalidad reduce la carga de la ejecución manual de una captura de paquetes en el equipo deseado, lo que permite ahorrar tiempo. La captura de paquetes puede realizarse a través del portal, PowerShell, CLI o API de REST. Un ejemplo de cómo se puede activar la captura de paquetes es con las alertas de la máquina virtual. La sesión de captura cuenta con filtros para asegurar la captura del tráfico que se desea supervisar. Los filtros se basan en la información de 5-tupla (protocolo, dirección IP local, dirección IP remota, el puerto local y puerto remoto). Los datos capturados se almacenan en el disco local o en un blob de almacenamiento. Hay un límite de 10 sesiones de captura de paquetes por región y suscripción. Este límite se aplica solo a las sesiones y no a los archivos de captura de paquetes guardados localmente, en la máquina virtual, o en una cuenta de almacenamiento.
+La captura de paquetes es una extensión de máquina virtual que se inicia de forma remota a través de Network Watcher. Esta funcionalidad reduce la carga de la ejecución manual de una captura de paquetes en el equipo deseado, lo que permite ahorrar tiempo. La captura de paquetes puede realizarse a través del portal, PowerShell, CLI o API de REST. Un ejemplo de cómo se puede activar la captura de paquetes es con las alertas de la máquina virtual. La sesión de captura cuenta con filtros para asegurar la captura del tráfico que se desea supervisar. Los filtros se basan en la información de 5-tupla (protocolo, dirección IP local, dirección IP remota, el puerto local y puerto remoto). Los datos capturados se almacenan en el disco local o en un blob de almacenamiento. 
 
 > [!IMPORTANT]
 > La captura de paquetes requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/extensions/network-watcher-windows.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/extensions/network-watcher-linux.md).
@@ -46,6 +46,10 @@ Para reducir la información que se captura únicamente a la información que de
 |**Puerto local** | Este valor filtra la captura de paquetes a los paquetes en los que el puerto local coincide con este valor de filtro.|
 |**Dirección IP remota** | Este valor filtra la captura de paquetes a los paquetes en los que la dirección IP remota coincide con este valor de filtro.|
 |**Puerto remoto** | Este valor filtra la captura de paquetes a los paquetes en los que el puerto remoto coincide con este valor de filtro.|
+
+
+## <a name="considerations"></a>Consideraciones
+Hay un límite de 10 000 sesiones paralelas de captura de paquetes por región y suscripción. Este límite se aplica solo a las sesiones y no a los archivos de captura de paquetes guardados localmente, en la máquina virtual, o en una cuenta de almacenamiento. Consulte la [página de límites de servicio de Network Watcher](../azure-resource-manager/management/azure-subscription-service-limits.md#network-watcher-limits) para ver una lista completa de los límites. 
 
 ### <a name="next-steps"></a>Pasos siguientes
 

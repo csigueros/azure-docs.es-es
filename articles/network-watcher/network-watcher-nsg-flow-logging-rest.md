@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 0c2725ff58e40bc56aac528a17fe4d66a128d475
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cede3018f8922c6771f81470a714eed430cd5cdf
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146948"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291864"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configuración de registros de flujo de grupos de seguridad de red mediante la API de REST
 
@@ -115,6 +115,9 @@ La respuesta devuelta por el ejemplo anterior es la siguiente:
   }
 }
 ```
+> [!NOTE]
+> - La API [Network Watcher - Definir la configuración del registro de flujo](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) que se utilizó anteriormente es antigua y puede que pronto quede en desuso.
+> - En su lugar, se recomienda usar la API REST [Registros de flujo - Crear o actualizar](/rest/api/network-watcher/flow-logs/create-or-update).
 
 ## <a name="disable-network-security-group-flow-logs"></a>Deshabilitación de los registros de flujo de grupos de seguridad de red
 
@@ -167,6 +170,10 @@ La respuesta devuelta por el ejemplo anterior es la siguiente:
 }
 ```
 
+> [!NOTE]
+> - La API [Network Watcher - Definir la configuración del registro de flujo](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) que se utilizó anteriormente es antigua y puede que pronto quede en desuso.
+> - Se recomienda utilizar la API REST [Registros de flujo - Crear o actualizar](/rest/api/network-watcher/flow-logs/create-or-update) nueva para deshabilitar los registros de flujo y [Registros de flujo - Eliminar](/rest/api/network-watcher/flow-logs/delete) para eliminar el recurso de registros de flujo.
+
 ## <a name="query-flow-logs"></a>Consulta del estado de los registros de flujo
 
 La siguiente llamada de REST consulta el estado del flujo de registros en un grupo de seguridad de red.
@@ -204,6 +211,10 @@ El siguiente es un ejemplo de la respuesta devuelta:
   }
 }
 ```
+
+> [!NOTE]
+> - La API [Network Watcher - Obtener estado del registro de flujo](/rest/api/network-watcher/network-watchers/get-flow-log-status) que se utilizó anteriormente requiere un permiso de "lector" adicional en el grupo de recursos de Network Watcher. Además, esta API es antigua y puede que pronto quede en desuso.
+> - En su lugar, se recomienda usar la API REST [Registros de flujo - Obtener](/rest/api/network-watcher/flow-logs/get).
 
 ## <a name="download-a-flow-log"></a>Descarga de un registro de flujo
 

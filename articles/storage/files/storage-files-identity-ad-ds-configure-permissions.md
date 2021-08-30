@@ -7,18 +7,25 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 698b4ebedfc9b41e8c5732a0a81226a971d65585
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e88a8df21d1161351a97434b3bf70656a09ea2ae
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470764"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731050"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte 3: Configuración de permisos de nivel de directorio y de archivo en SMB 
 
 Antes de comenzar este artículo, asegúrese de completar el anterior, [Asignación de permisos de nivel de recurso compartido a una identidad](storage-files-identity-ad-ds-assign-permissions.md), para garantizar la vigencia de los permisos de nivel de recurso compartido.
 
 Tras asignar permisos de nivel de recurso compartido con Azure RBAC, debe configurar las ACL de Windows adecuadas a los niveles de raíz, de directorio o de archivo para sacar partido del control de acceso granular. Considere los permisos de nivel de recurso compartido de Azure RBAC como el equipo selector de alto nivel que determina si un usuario puede acceder al recurso compartido. Las ACL de Windows funcionan en un nivel más granular para determinar qué operaciones puede realizar el usuario en el directorio o archivo. Los permisos tanto de nivel de recurso compartido como de nivel de archivo o de directorio se aplican cuando un usuario intenta acceder a un archivo o directorio, de modo que, si existe alguna una diferencia entre alguno de ellos, solo se aplicará el más restrictivo. Por ejemplo, si un usuario tiene acceso de lectura y escritura en el nivel de archivo, pero solo de lectura en un nivel de recurso compartido, solo podrá leer ese archivo. Y lo mismo sucede a la inversa: si un usuario tuviera acceso de lectura y escritura en el nivel de recurso compartido, pero solo de lectura en el nivel de archivo, solo podría leer el archivo.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="azure-rbac-permissions"></a>Permisos de Azure RBAC
 
@@ -34,7 +41,7 @@ En la siguiente tabla se incluyen los permisos de RBAC de Azure relacionados con
 |     |  Leer y ejecutar |  Leer y ejecutar |
 |     |  Lectura           |  Lectura    |
 |     |  Escritura          |  Escritura   |
-|Colaborador elevado de recursos compartidos de SMB de datos de archivos de Storage | Control total  |  Modificación, lectura, escritura, edición y ejecución |
+|Colaborador elevado de recursos compartidos de SMB de datos de archivos de Storage | Control total  |  Modificar, leer, escribir, editar (modificar los permisos), ejecutar |
 |     |  Modificar          |  Modificar |
 |     |  Leer y ejecutar  |  Leer y ejecutar |
 |     |  Lectura            |  Lectura   |

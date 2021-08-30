@@ -1,6 +1,6 @@
 ---
 title: Copia de seguridad y restauración del sistema operativo de SAP HANA en Azure (instancias grandes)| Microsoft Docs
-description: Realización de la copia de seguridad y restauración del sistema operativo de SAP HANA en Azure (instancias grandes)
+description: Aprenda a realizar la copia de seguridad y la restauración del sistema operativo de SAP HANA en Azure (instancias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
 author: Ajayan1008
@@ -11,32 +11,33 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 06/22/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7cd7210ceec1297431ab5929d2733c8b4d164d71
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 5685f7932b49f8af57faf159a51a8cb634128337
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110575260"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217492"
 ---
 # <a name="os-backup-and-restore"></a>Copia de seguridad y restauración del sistema operativo
 
-En este documento se describen los pasos necesarios para realizar la copia de seguridad y restauración de archivos del sistema operativo. El procedimiento varía según determinados parámetros, como tipo I o tipo II, revisión 3 o superior, ubicación, etc. Póngase en contacto con los responsables de operaciones de Microsoft para obtener valores precisos para estos parámetros de los recursos.
+En este artículo se describen los pasos necesarios para realizar la copia de seguridad y la restauración de nivel de archivo del sistema operativo (SO). El procedimiento varía según los parámetros, como tipo I o tipo II, revisión 3 o superior, ubicación, etc. Acuda a los responsables de operaciones de Microsoft para obtener los valores de estos parámetros adecuados para sus recursos.
 
 ## <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Copia de seguridad y restauración del sistema operativo para SKU de tipo II de los sellos de revisión 3
 
-En este documento se describen los pasos necesarios para realizar la copia de seguridad y restauración de archivos del sistema operativo de las **SKU de tipo II** de HANA (instancias grandes) de la revisión 3.
+En este documento se describen los pasos necesarios para realizar la copia de seguridad y la restauración de nivel de archivo del sistema operativo de las **SKU de tipo II** de HANA (instancias grandes), revisión 3.
 
 >[!Important]
-> **Este artículo no se aplica a las implementaciones de SKU de tipo II en sellos de HANA (instancias grandes) de la revisión 4.** Se puede realizar una copia de seguridad de los LUN de arranque de las unidades de HANA (instancias grandes) de tipo II que se implementan en los sellos de HANA (instancias grandes) de la revisión 4 con instantáneas de almacenamiento, ya que este es el caso con las SKU de tipo I en sellos de la revisión 3.
+> **Este artículo no se aplica a las implementaciones de SKU de tipo II en sellos de HANA (instancias grandes) de la revisión 4.** Se puede realizar una copia de seguridad de los LUN de arranque de las unidades de HANA (instancias grandes) de tipo II que se implementan en los stamps de HANA (instancias grandes) de la revisión 4 con instantáneas de almacenamiento, ya que este es el caso de las SKU de tipo I en stamps de la revisión 3.
 
 
 >[!NOTE]
 >En los scripts de copia de seguridad del SO se usa el software ReaR, que viene preinstalado en el servidor.  
 
-Después de que el equipo de Microsoft `Service Management` haya realizado el aprovisionamiento, el servidor se configura de forma predeterminada con dos programaciones de copia de seguridad para realizar una copia de seguridad de nivel de archivo del sistema operativo. Puede comprobar las programaciones de los trabajos de copia de seguridad mediante el comando siguiente:
+Después de que el equipo de Microsoft Service Management ha realizado el aprovisionamiento, el servidor se configura con dos programaciones para realizar la copia de seguridad de nivel de sistema de archivos del sistema operativo. Puede comprobar las programaciones de los trabajos de copia de seguridad mediante el comando siguiente:
+
 ```
 #crontab –l
 ```
@@ -44,9 +45,9 @@ En cualquier momento se puede cambiar la programación de la copia de seguridad 
 ```
 #crontab -e
 ```
-### <a name="how-to-take-a-manual-backup"></a>Creación de una copia de seguridad manual
+### <a name="take-a-manual-backup"></a>Creación de una copia de seguridad manual
 
-La copia de seguridad del sistema de archivos del sistema operativo ya está programada mediante un **trabajo de cron**. Sin embargo, también puede realizar la copia de seguridad a nivel de archivo del sistema operativo de forma manual. Para realizar una copia de seguridad manual, ejecute el siguiente comando:
+La copia de seguridad del sistema de archivos del sistema operativo ya está programada mediante un **trabajo de cron**. Sin embargo, también puede realizar la copia de seguridad de nivel de archivo del sistema operativo de forma manual. Para realizar una copia de seguridad manual, ejecute el siguiente comando:
 
 ```
 #rear -v mkbackup
@@ -56,7 +57,7 @@ La siguiente pantalla muestra la copia de seguridad manual de ejemplo:
 ![¿Cómo?](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
-### <a name="how-to-restore-a-backup"></a>Restauración de una copia de seguridad
+### <a name="restore-a-backup"></a>Restaurar una copia de seguridad
 
 Puede restaurar una copia de seguridad completa o archivos individuales de una copia de seguridad. Para ello, use el siguiente comando:
 
@@ -65,20 +66,21 @@ Puede restaurar una copia de seguridad completa o archivos individuales de una c
 ```
 Después de la restauración, el archivo se recupera en el directorio de trabajo actual.
 
-El comando siguiente muestra la restauración de un archivo */etc/fstabfrom* del archivo de copia de seguridad *backup.tar.gz*.
+El comando siguiente muestra la restauración de un archivo */etc/fstab* del archivo de copia de seguridad *backup.tar.gz*.
 ```
 #tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
 ```
 >[!NOTE] 
 >Deberá copiar el archivo en la ubicación deseada después de restaurarlo de la copia de seguridad.
 
-En la captura de pantalla siguiente se muestra la restauración de una copia de seguridad completa:
+En la captura de pantalla siguiente se muestra la restauración de una copia de seguridad completa.
 
 ![Captura de pantalla que muestra una ventana del símbolo del sistema con la restauración.](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
-### <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Instalación de la herramienta ReaR y cambio de la configuración 
+### <a name="install-the-rear-tool-and-change-the-configuration"></a>Instalación de la herramienta ReaR y cambio de la configuración 
 
-Los paquetes Relax-y Recover (ReaR) se encuentra **preinstalados** en las **SKU de tipo II** de las instancias grandes de HANA, y no es necesaria ninguna acción por parte del usuario. Puede comenzar a usar directamente ReaR para la copia de seguridad del sistema operativo.
+Los paquetes Relax-y Recover (ReaR) se encuentran **preinstalados** en las **SKU de tipo II** de HANA (instancias grandes). No es necesaria ninguna acción por su parte. Puede comenzar a usar directamente la herramienta ReaR para la copia de seguridad del sistema operativo.
+
 Sin embargo, en aquellos casos en que necesite instalar los paquetes por su cuenta, puede seguir los pasos que se indican para instalar y configurar esta herramienta.
 
 Para instalar los paquetes de copia de seguridad de **ReaR**, use los siguientes comandos:
@@ -88,10 +90,12 @@ Para el sistema operativo **SLES**, use el siguiente comando:
 #zypper install <rear rpm package>
 ```
 Para el sistema operativo **RHEL**, use el siguiente comando: 
+
 ```
 #yum install rear -y
 ```
 Para configurar la herramienta ReaR, debe actualizar los parámetros **OUTPUT_URL** y **BACKUP_URL** del *archivo /etc/rear/local.conf*.
+
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso
@@ -109,33 +113,38 @@ En la captura de pantalla siguiente se muestra la restauración de una copia de 
 
 ## <a name="os-backup-and-restore-for-all-other-skus"></a>Copia de seguridad y restauración del sistema operativo de todas las demás SKU
 
-La siguiente información describe los pasos necesarios para realizar la copia de seguridad y restauración de archivos del sistema operativo de todas las **SKU de tipo II** de HANA (instancias grandes) de la revisión 3.
+La siguiente información describe los pasos necesarios para realizar la copia de seguridad y la restauración de nivel de archivo del sistema operativo de todas las **SKU de tipo II** de HANA (instancias grandes) de la revisión 3.
 
-### <a name="how-to-take-a-manual-backup"></a>Creación de una copia de seguridad manual
+### <a name="take-a-manual-backup"></a>Creación de una copia de seguridad manual
 
-Obtenga las herramientas de instantáneas de Microsoft más recientes para SAP HANA en [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md) y configúrelas para que se ejecuten con regularidad mediante `crontab` con la marca `--type=boot`. De esta forma se garantizan copias de seguridad normales del sistema operativo. En el ejemplo siguiente se muestra una programación cron en `/etc/crontab` para la copia de seguridad del sistema operativo de una SKU de tipo I:
+Obtenga las herramientas de instantáneas de Microsoft más recientes para SAP HANA como se explica en una serie de artículos que comienzan con [¿Qué es la herramienta Azure Application Consistent Snapshot?](../../../azure-netapp-files/azacsnap-introduction.md) y configúrelas y pruébelas como se describe en estos artículos:
 
-```
-30 00 * * *  ./azure_hana_backup --type=boot --boottype=TypeI --prefix=dailyboot --frequncy=15min --retention=28
-```
+- [Configuración de la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-configure.md)
+- [Prueba de la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-test.md) 
 
-En el ejemplo siguiente se muestra una programación cron en `/etc/crontab` para una copia de seguridad del sistema operativo de SKU de tipo II:
+para ejecutarlas periódicamente mediante `crontab`, como se describe en [Copias de seguridad con la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md). 
 
-```
-30 00 * * *  ./azure_hana_backup --type=boot --boottype=TypeII --prefix=dailyboot --frequency=15min --retention=28
-```
+Para más información, consulte estas referencias:
 
-Referencias adicionales
-- [Configuración de instantáneas de almacenamiento](hana-backup-restore.md#set-up-storage-snapshots)
-- Guía de herramientas de instantáneas de Microsoft para SAP HANA en [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md).
+- [Instalación de la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-installation.md)
+- [Configuración de la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-configure.md)
+- [Prueba de la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-test.md)
+- [Copias de seguridad con la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md)
+- [Obtención de detalles con la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-details.md)
+- [Eliminación con la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-delete.md)
+- [Restauración con la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-restore.md)
+- [Recuperación ante desastres con la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-disaster-recovery.md)
+- [Solución de problemas con la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-troubleshoot.md)
+- [Sugerencias y trucos de uso de la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-tips.md)
 
-### <a name="how-to-restore-a-backup"></a>Restauración de una copia de seguridad
 
-La operación de restauración no se puede realizar desde el propio sistema operativo. Para ello, envíe una incidencia de soporte técnico a los responsables de operaciones de Microsoft. La operación de restauración requiere que la instancia de HLI esté en estado apagado, por lo que debe programarla en consecuencia.
+### <a name="restore-a-backup"></a>Restaurar una copia de seguridad
+
+La operación de restauración no se puede realizar desde el propio sistema operativo. Deberá enviar una incidencia de soporte técnico a los responsables de operaciones de Microsoft. La operación de restauración requiere que la unidad de HANA (instancias grandes) esté en estado apagado, por lo que debe programarla en consecuencia.
 
 ### <a name="managed-os-snapshots"></a>Instantáneas del sistema operativo administradas
 
-Azure puede realizar automáticamente copias de seguridad del sistema operativo para los recursos de HLI. Estas copias de seguridad se realizan una vez al día y Azure conserva hasta las tres copias de seguridad más recientes. Esta opción está habilitada de forma predeterminada para todos los clientes de las siguientes regiones:
+Azure puede realizar automáticamente copias de seguridad del sistema operativo para los recursos de HLI. Estas copias de seguridad se realizan una vez al día y Azure conserva hasta las tres copias de seguridad más recientes. Estas copias de seguridad están habilitadas de forma predeterminada para todos los clientes de las siguientes regiones:
 - Oeste de EE. UU.
 - Este de Australia
 - Sudeste de Australia
@@ -147,4 +156,11 @@ Esta instalación está parcialmente disponible en las siguientes regiones:
 - Norte de Europa
 - Oeste de Europa
 
-No se puede modificar la frecuencia o el período de retención de las copias de seguridad realizadas por esta instalación. En caso de que se necesite una estrategia de copia de seguridad del sistema operativo diferente para los recursos de HLI, puede optar por no participar en esta instalación; para ello, presente una incidencia de soporte técnico a los responsables de operaciones de Microsoft y, luego, configure las herramientas de instantáneas de Microsoft para SAP HANA para realizar copias de seguridad del sistema operativo con las instrucciones proporcionadas en la sección anterior de este documento.
+No se puede modificar la frecuencia o el período de retención de las copias de seguridad realizadas por esta instalación. En caso de que se necesite una estrategia de copia de seguridad del sistema operativo diferente para los recursos de HLI, puede optar por no participar en esta instalación; para ello, presente una incidencia de soporte técnico a los responsables de operaciones de Microsoft. Luego, configure Microsoft Snapshot Tools para SAP HANA para realizar copias de seguridad del sistema operativo mediante las instrucciones proporcionadas anteriormente en la sección [Creación de una copia de seguridad manual](#take-a-manual-backup).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Aprenda a habilitar kdump para HANA (instancias grandes).
+
+> [!div class="nextstepaction"]
+> [kdump para SAP HANA en Azure (instancias grandes)](hana-large-instance-enable-kdump.md)

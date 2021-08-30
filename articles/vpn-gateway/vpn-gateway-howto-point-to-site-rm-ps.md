@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/03/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 98a8a16a4b9cdf40642e5339de63953b4175f78c
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 0d6281f0767938b8ffd00f1790a629adcb8252d6
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558681"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114722403"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-azure-certificate-authentication-powershell"></a>Configure una conexión VPN de punto a sitio a una red virtual mediante la autenticación de certificados de Azure: PowerShell
 
@@ -114,7 +114,7 @@ En este paso, configurará y creará la puerta de enlace de red virtual para la 
 * El valor de -GatewayType debe ser **Vpn** y el valor de -VpnType debe ser **RouteBased**.
 * -VpnClientProtocol se utiliza para especificar los tipos de túneles que desea habilitar. Las opciones de túnel son **OpenVPN, SSTP** y **IKEv2**. Puede habilitar una de ellas o cualquier combinación admitida. Si desea habilitar varios tipos, especifique los nombres separados por una coma. OpenVPN y SSTP no se pueden habilitar juntas. El cliente strongSwan de Linux y Android y el cliente VPN IKEv2 nativo de iOS y macOS solo usarán el túnel IKEv2 para conectarse. Los clientes Windows prueban primero el túnel IKEv2 y, si no se conecta, recurren a SSTP. Puede usar el cliente OpenVPN para conectarse al tipo de túnel OpenVPN.
 * La SKU "básica" de la puerta de enlace de red virtual no admite la autenticación de IKEv2, OpenVPN o RADIUS. Si planea que clientes Mac se conecten a su red virtual, no use la SKU de nivel Básico.
-* Una puerta de enlace de VPN puede tardar hasta 45 minutos en completarse, según la [SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md) que seleccione. Este ejemplo utiliza IKEv2.
+* Una instancia de VPN Gateway puede tardar 45 minutos o más en completarse, según la [SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md) que seleccione. 
 
 1. Configure y cree la puerta de enlace de red virtual para la red virtual. La puerta de enlace tarda aproximadamente 45 minutos en crearse.
 

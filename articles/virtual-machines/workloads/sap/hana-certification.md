@@ -11,15 +11,15 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/13/2021
+ms.date: 07/14/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ed1107d19e367c053028933559709bea33e6bec9
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: ade0e82131f65183ac9471bb77d0ab0cc92ae285
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577589"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219646"
 ---
 # <a name="certification"></a>Certificación
 
@@ -29,7 +29,15 @@ La nota fundamental de SAP sobre NetWeaver y, hasta cierto punto, sobre la certi
 
 Los registros de certificación de unidades de SAP HANA en Azure (instancias grandes) pueden encontrarse en el sitio de [plataformas IaaS certificadas para SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 
 
-Los tipos de SAP HANA en Azure (instancias grandes) mencionados en el sitio de plataformas IaaS certificadas para SAP HANA ofrecen a los clientes de Microsoft y SAP la posibilidad de implementar cargas de trabajo de gran tamaño de SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA u otras cargas de trabajo de SAP HANA en Azure. Esta solución se basa en la demarcación de hardware dedicado con certificación de SAP HANA ([Integración de centro de datos adaptado para SAP HANA o TDI](https://scn.sap.com/docs/DOC-63140)). Si ejecuta una solución configurada según SAP HANA TDI, todas las aplicaciones basadas en SAP HANA (por ejemplo, SAP Business Suite en SAP HANA, SAP BW en SAP HANA, S4/HANA y BW4/HANA) trabajan en la infraestructura de hardware.
+Los tipos de SAP HANA en Azure (instancias grandes) mencionados en el sitio de plataformas IaaS certificadas para SAP HANA ofrecen a los clientes de Microsoft y SAP la posibilidad de implementar:
+
+- Cargas de trabajo de gran tamaño de SAP Business Suite
+- SAP BW
+- S/4 HANA
+- BW/4HANA
+- Otras cargas de trabajo de SAP HANA en Azure. 
+
+Esta solución se basa en la demarcación de hardware dedicado con certificación de SAP HANA ([Integración de centro de datos adaptado para SAP HANA o TDI](https://scn.sap.com/docs/DOC-63140)). Si ejecuta una solución configurada según SAP HANA TDI, todas las aplicaciones basadas en SAP HANA anteriores funcionan en la infraestructura de hardware.
 
 En comparación con la ejecución de SAP HANA en máquinas virtuales, esta solución ofrece la ventaja de volúmenes de memoria mucho mayores. 
 
@@ -42,7 +50,12 @@ Para habilitar esta solución, debe entender los siguientes aspectos fundamental
 - La instancia de base de datos de SAP HANA para cargas de trabajo de HANA se ejecuta en SAP HANA en Azure (Instancias grandes). La demarcación de instancias grandes está conectada a las redes de Azure, por lo que el software que se ejecuta en las máquinas virtuales puede interactuar con la instancia de HANA que se ejecuta en HANA (instancias grandes).
 - El hardware de SAP HANA en Azure (instancias grandes) es hardware dedicado que se proporciona como IaaS con SUSE Linux Enterprise Server o Red Hat Enterprise Linux preinstalado. Al igual que con las máquinas virtuales, es responsabilidad suya llevar a cabo las actualizaciones y el mantenimiento del sistema operativo.
 - La instalación de HANA o de cualquier otro componente necesario para ejecutar SAP HANA en unidades de HANA (instancias grandes) es su responsabilidad. Todas las operaciones relacionadas correspondientes y la administración de SAP HANA en Azure también son responsabilidad suya.
-- Además de las soluciones descritas aquí, puede instalar otros componentes en la suscripción de Azure conectada a SAP HANA en Azure (Instancias grandes). Por ejemplo, los componentes que permiten la comunicación, directa o no, con la base de datos de SAP HANA, como los servidores de salto, servidores RDP, SAP HANA Studio, SAP Data Services para escenarios de BI de SAP o soluciones de supervisión de red.
+- También puede instalar otros componentes en la suscripción de Azure que se conectan a SAP HANA en Azure (instancias grandes). Por ejemplo, componentes que permiten la comunicación con la base de datos de SAP HANA, como:        
+    - Servidores de salto
+    - Servidores RDP
+    - SAP HANA Studio
+    - SAP Data Services para escenarios de BI de SAP
+    - Soluciones de supervisión de redes.
 - Como en Azure, HANA (instancias grandes) ofrece funcionalidades auxiliares de alta disponibilidad y recuperación ante desastres.
 
 ## <a name="next-steps"></a>Pasos siguientes

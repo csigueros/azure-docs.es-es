@@ -1,19 +1,21 @@
 ---
 title: Transformación de receptor en el flujo de datos de asignación
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Aprenda a configurar una transformación de receptor en el flujo de datos de asignación.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/06/2021
-ms.openlocfilehash: 8996e7a30756877b5329ef959b86529bdfcbd943
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 07/27/2021
+ms.openlocfilehash: ce189e0a24bb666e040268fc310b7e475c05a9c5
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789668"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014999"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -21,7 +23,7 @@ ms.locfileid: "110789668"
 
 Cuando termine de transformar los datos, escríbalos en un almacén de destino mediante la transformación del receptor. Cada flujo de datos requiere al menos una transformación de receptor, pero puede agregar tantos receptores como sea necesario para completar el flujo de transformación. Para escribir en receptores adicionales, cree nuevas secuencias a través de nuevas ramas y divisiones condicionales.
 
-Cada transformación del receptor se asocia exactamente con un servicio vinculado o un objeto de conjunto de objetos de Azure Data Factory. La transformación del receptor determina la forma y la ubicación de los datos en los que se desea escribir.
+Cada transformación de receptor se asocia exactamente con un objeto de conjunto de datos o servicio vinculado. La transformación del receptor determina la forma y la ubicación de los datos en los que se desea escribir.
 
 ## <a name="inline-datasets"></a>Conjuntos de datos insertado
 
@@ -34,6 +36,15 @@ Se recomiendan los conjuntos de datos insertados cuando se usan esquemas flexibl
 Para usar un conjunto de datos insertado, seleccione el formato que desee en el selector **Tipo de receptor**. En lugar de seleccionar un conjunto de datos de receptor, seleccione el servicio vinculado al que desee conectarse.
 
 ![Captura de pantalla que muestra la opción Insertado seleccionada.](media/data-flow/inline-selector.png "Captura de pantalla que muestra la opción Insertado seleccionada.")
+
+## <a name="workspace-db-synapse-workspaces-only"></a>Base de datos del área de trabajo (solo áreas de trabajo de Synapse)
+
+Al usar flujos de datos en áreas de trabajo de Azure Synapse, tendrá una opción adicional para recibir los datos directamente en un tipo de base de datos que se encuentra dentro del área de trabajo de Synapse. Esto mitigará la necesidad de agregar servicios o conjuntos de datos vinculados para esas bases de datos.
+
+> [!NOTE]
+> El conector Workspace DB de Azure Synapse está actualmente en versión preliminar pública y, en este momento, solo puede funcionar con bases de datos de Spark Lake.
+
+![Captura de pantalla que muestra la base de datos del área de trabajo seleccionada.](media/data-flow/syms-sink.png "Captura de pantalla que muestra la opción Insertado seleccionada.")
 
 ##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> Tipos de receptores admitidos
 
@@ -55,7 +66,7 @@ El flujo de datos de asignación sigue un enfoque de extracción, carga y transf
 
 La configuración específica de estos conectores se encuentra en la pestaña **Configuración**. La información y algunos ejemplos de script de flujo de datos sobre esta configuración se encuentran en la documentación del conector.
 
-Azure Data Factory tiene acceso a más de [90 conectores nativos](connector-overview.md). Para escribir datos en esos otros orígenes desde el flujo de datos, use la actividad de copia para cargar los datos desde un receptor compatible.
+El servicio tiene acceso a más de [90 conectores nativos](connector-overview.md). Para escribir datos en esos otros orígenes desde el flujo de datos, use la actividad de copia para cargar los datos desde un receptor compatible.
 
 ## <a name="sink-settings"></a>Configuración del receptor
 
@@ -67,7 +78,7 @@ En el siguiente vídeo se explican varias opciones de receptor diferentes para l
 
 ![Captura de pantalla que muestra la configuración del receptor.](media/data-flow/sink-settings.png "Captura de pantalla que muestra la configuración del receptor.")
 
-**Desfase de esquema**: el [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad de Data Factory de administrar de forma nativa los esquemas flexibles en los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas. Habilite **Permitir el desfase de esquema** para escribir columnas adicionales sobre lo que se define en el esquema de datos del receptor.
+**Desfase de esquema**: el [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad del servicio de administrar de forma nativa los esquemas flexibles de los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas. Habilite **Permitir el desfase de esquema** para escribir columnas adicionales sobre lo que se define en el esquema de datos del receptor.
 
 **Validar esquema**: Si se selecciona que se valide el esquema, se producirá un error en el flujo de datos si no se encuentra ninguna columna del esquema de origen entrante en la proyección de origen o si los tipos de datos no coinciden. Use esta opción para exigir que los datos de origen cumplan el contrato de la proyección definida. Es útil en escenarios de origen de base de datos para indicar que los nombres o los tipos de columna han cambiado.
 
@@ -111,11 +122,11 @@ De forma predeterminada, los datos se escriben en varios receptores en un orden 
 
 ### <a name="sink-groups"></a>Grupos de receptores
 
-Si desea agrupar receptores, puede aplicar el mismo número de pedido para una serie de receptores. ADF tratará esos receptores como grupos que se pueden ejecutar en paralelo. Las opciones para la ejecución en paralelo se mostrarán en la actividad de flujo de datos de la canalización.
+Si desea agrupar receptores, puede aplicar el mismo número de pedido para una serie de receptores. El servicio tratará esos receptores como grupos que se pueden ejecutar en paralelo. Las opciones para la ejecución en paralelo se mostrarán en la actividad de flujo de datos de la canalización.
 
 ## <a name="error-row-handling"></a>Control de filas de errores
 
-Al escribir en bases de datos, puede producirse un error en determinadas filas de datos debido a las restricciones establecidas por el destino. De forma predeterminada, la ejecución de un flujo de datos no funcionará al recibir el primer error. En algunos conectores, puede optar por **Continuar en caso de error**, que permite que el flujo de datos se complete, aunque haya filas individuales con errores. Actualmente, esta funcionalidad solo está disponible en Azure SQL Database. Para más información, consulte [Control de filas de error en Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
+Al escribir en bases de datos, puede producirse un error en determinadas filas de datos debido a las restricciones establecidas por el destino. De forma predeterminada, la ejecución de un flujo de datos no funcionará al recibir el primer error. En algunos conectores, puede optar por **Continuar en caso de error**, que permite que el flujo de datos se complete, aunque haya filas individuales con errores. Actualmente, esta funcionalidad solo está disponible en Azure SQL Database y Azure Synapse. Para más información, consulte [Control de filas de error en Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
 
 A continuación, se muestra un tutorial en vídeo sobre cómo usar el control de filas de error de base de datos automáticamente en la transformación del receptor.
 

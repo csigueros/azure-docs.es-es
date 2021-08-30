@@ -2,17 +2,27 @@
 title: 'Integración de elementos de trabajo: Application Insights'
 description: Aprenda a crear elementos de trabajo en GitHub o Azure DevOps con los datos de Application Insights insertados en ellos.
 ms.topic: conceptual
-ms.date: 04/22/2021
-ms.openlocfilehash: 57eae6b0cda7a0f77a83ecbe453aca56eaf2504b
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.date: 06/27/2021
+ms.openlocfilehash: 02fbb15f417d01d1f9c5b572fdb5553ad1127037
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930439"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112989151"
 ---
 # <a name="work-item-integration"></a>Integración de elementos de trabajo 
 
 La funcionalidad de integración de elementos de trabajo le permite crear fácilmente en GitHub o Azure DevOps elementos de trabajo que tienen datos de Application Insights pertinentes insertados en ellos.
+
+
+La nueva integración de elementos de trabajo ofrece las características siguientes respecto a la versión [clásica](#classic-work-item-integration):
+- Campos avanzados, como persona asignada, proyectos o hitos.
+- Iconos de repositorio para que pueda diferenciar entre los libros de Azure DevOps y GitHub.
+- Varias configuraciones para cualquier número de repositorios o elementos de trabajo.
+- Implementación mediante plantillas de Azure Resource Manager.
+- Consultas pregeneradas y personalizables del lenguaje de consulta de palabras clave (KQL) para agregar datos de Application Insights a los elementos de trabajo.
+- Plantillas de libro personalizables.
+
 
 ## <a name="create-and-configure-a-work-item-template"></a>Creación y configuración de una plantilla de elemento de trabajo
 
@@ -20,7 +30,7 @@ La funcionalidad de integración de elementos de trabajo le permite crear fácil
 
     :::image type="content" source="./media/work-item-integration/create-work-item-template.png" alt-text=" Captura de pantalla de la pestaña Elementos de trabajo con la opción Create a new template (Crear nueva plantilla) seleccionada." lightbox="./media/work-item-integration/create-work-item-template.png":::
 
-    Si no existe ninguna plantilla, también puede crear una plantilla de elemento de trabajo desde la pestaña Detalles de la transacción completa. Seleccione un evento y, a la derecha, elija **Crear un elemento de trabajo**; luego, seleccione **Start with a workbook template** (Empezar con una plantilla de libro).
+    Si no existe ninguna plantilla actual, también puede crear una plantilla de elemento de trabajo desde la pestaña de detalles de la transacción completa. Seleccione un evento y, a la derecha, elija **Crear un elemento de trabajo**; luego, seleccione **Start with a workbook template** (Empezar con una plantilla de libro).
 
     :::image type="content" source="./media/work-item-integration/create-template-from-transaction-details.png" alt-text=" Captura de pantalla de la pestaña Detalles de la transacción completa con Crear un elemento de trabajo < Start with a workbook template (Empezar con una plantilla de libro) seleccionadas." lightbox="./media/work-item-integration/create-template-from-transaction-details.png":::
 
@@ -55,3 +65,24 @@ Seleccione Editar ![icono Editar](./media/work-item-integration/edit-icon.png) e
 :::image type="content" source="./media/work-item-integration/edit-workbook.png" alt-text=" Captura de pantalla del libro de la plantilla de elemento de trabajo en modo de edición." lightbox="./media/work-item-integration/edit-workbook.png":::
 
 Puede crear más de una configuración de elementos de trabajo y tener un libro personalizado adecuado para cada escenario. Los libros también pueden implementarse mediante Azure Resource Manager, lo que garantiza implementaciones estándar entre los entornos.
+
+## <a name="classic-work-item-integration"></a>Integración de elementos de trabajo clásicos 
+
+1. En la opción *Configurar* del recurso de Application Insights, seleccione **Elementos de trabajo**.
+1. Seleccione **Cambiar al modo clásico**, rellene los campos con su información y realice la autorización. 
+
+    :::image type="content" source="./media/work-item-integration/classic.png" alt-text="Captura de pantalla de cómo configurar elementos de trabajo clásicos." lightbox="./media/work-item-integration/classic.png":::
+
+1. Para crear un elemento de trabajo, vaya a los detalles de la transacción completa, seleccione un evento y, a continuación, elija **Crear elemento de trabajo (clásico)** . 
+
+
+### <a name="migrate-to-new-work-item-integration"></a>Migración a una nueva integración de elementos de trabajo
+
+Para migrar, elimine la configuración de elemento de trabajo clásico y, a continuación, [cree y configure una plantilla de elemento de trabajo](#create-and-configure-a-work-item-template) para volver a crear la integración.
+
+Para eliminar, vaya al recurso de Application Insights en *Configurar*, seleccione **Elementos de trabajo** y, a continuación, seleccione **Cambiar al modo clásico** y **Eliminar* en la parte superior.
+
+
+## <a name="next-steps"></a>Pasos siguientes
+[Prueba de disponibilidad](availability-overview.md)
+

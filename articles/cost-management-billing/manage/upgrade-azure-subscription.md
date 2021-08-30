@@ -8,15 +8,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 07/15/2021
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56d0116217f8db76131ccecc884312fb5296d1ed
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: ad09c97b784dcfabfe0dfa3e531fc789ba6fc956
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331725"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297365"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Actualización de una cuenta gratuita de Azure o de una cuenta de Microsoft Azure for Students Starter
 
@@ -25,6 +25,9 @@ Las [cuentas gratuitas de Azure](https://azure.microsoft.com/free/) se pueden ac
 Si tiene una [cuenta de Microsoft Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) y es apto para una [cuenta gratuita de Azure ](https://azure.microsoft.com/free/), puede actualizar a una de estas cuentas. Obtendrá un crédito de Azure equivalente a 200 USD en la moneda de facturación y 12 meses de servicios gratuitos al efectuar la actualización. Si no puede optar a una cuenta gratuita, puede actualizar a las [tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) con una [solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 Si tiene una cuenta de [Azure for Students](https://go.microsoft.com/fwlink/?linkid=2083458), puede actualizar a las [tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0170p/) con una [solicitud de soporte técnico](https://azure.microsoft.com/offers/ms-azr-0003p/).
+
+>[!NOTE]
+>Si usa recursos que no son gratuitos y la suscripción se deshabilita porque se queda sin crédito y, a continuación, actualiza la suscripción, los recursos se habilitan después de la actualización. Esta situación dará lugar a que se le cobre por los recursos usados.
 
 <a id="freetrial"></a>
 

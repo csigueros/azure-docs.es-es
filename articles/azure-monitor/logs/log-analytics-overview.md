@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: 860085cc447b241f622c2be89038bca0014a883e
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: bcdfb35fc8bf854746b4bde0ea3af5f8cadc7989
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110493417"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217798"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Introducción a Log Analytics en Azure Monitor
 Log Analytics es una herramienta de Azure Portal que se usa para editar y ejecutar consultas de registros con los datos de los registros de Azure Monitor. Puede escribir una consulta sencilla que devuelva un conjunto de registros y, a continuación, utilizar las características de Log Analytics para ordenarlos, filtrarlos y analizarlos. O bien, puede escribir una consulta más avanzada para realizar análisis estadísticos y visualizar los resultados en un gráfico para identificar una tendencia determinada. Tanto si trabaja con los resultados de las consultas de forma interactiva como si los usa con otras características de Azure Monitor, como las alertas de consultas de registros o los libros, Log Analytics es la herramienta que va a usar para escribir y probarlos. 

@@ -1242,7 +1242,7 @@
               href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
             - name: Restauración de discos con Azure Disk Backup
               href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
-        - name: Copia de seguridad y recuperación ante desastres para discos
+        - name: Copia de seguridad y recuperación ante desastres para discos administrados
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: 'Instantánea de un disco: CLI'
           href: ./linux/snapshot-copy-managed-disk.md
@@ -1250,6 +1250,8 @@
           href: ./windows/snapshot-copy-managed-disk.md
         - name: Copia de seguridad de discos no administrados
           href: ./linux/incremental-snapshots.md
+        - name: Copia de seguridad y recuperación ante desastres para discos no administrados
+          href: page-blobs-backup-and-disaster-recovery.md
     - name: Discos de sistema operativo efímero
       href: ephemeral-os-disks.md
     - name: Migración y conversión
@@ -1409,7 +1411,7 @@
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
     - name: Filtrado del tráfico de red
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: ../virtual-network/tutorial-filter-network-traffic.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/tutorial-filter-network-traffic-powershell.md?context=/azure/virtual-machines/context/context
@@ -1417,7 +1419,7 @@
           href: ../virtual-network/tutorial-filter-network-traffic-cli.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: IP pública estática'
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md?context=/azure/virtual-machines/context/context
@@ -1429,7 +1431,7 @@
           href: ../virtual-network/remove-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: IP privada estática'
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md?context=/azure/virtual-machines/context/context

@@ -7,7 +7,7 @@
       href: overview.md
     - name: 'Acerca de centros de conectividad, grupos y conexiones'
       href: key-concepts.md
-- name: Guías de inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Crear instancia
@@ -32,7 +32,9 @@
     - name: Desarrollo sin servidor
       expanded: true
       items:
-        - name: Creación de un chat sin servidor con Azure Function
+        - name: Compilación de una aplicación de notificación con Azure Function
+          href: tutorial-serverless-notification.md
+        - name: Compilación de una aplicación de chat con Azure Function
           href: quickstart-serverless.md
     - name: Publicación de mensajes y suscripción a ellos
       href: tutorial-pub-sub-messages.md

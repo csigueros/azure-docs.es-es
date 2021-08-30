@@ -1,17 +1,15 @@
 ---
 title: Complemento de Azure Service Fabric para Eclipse
 description: Obtenga información sobre cómo empezar a usar Azure Service Fabric en Java mediante Eclipse y el complemento que Service Fabric proporciona.
-author: rapatchi
 ms.topic: conceptual
 ms.date: 04/06/2018
-ms.author: rapatchi
-ms.custom: devx-track-java
-ms.openlocfilehash: b85206f9b1e92607bba7b6f141b700922c129b65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-java, contperf-fy21q4
+ms.openlocfilehash: 19aba75dc314f9804931675702f1420aff0415e6
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97656927"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214306"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Complemento de Service Fabric para el desarrollo de aplicaciones Java de Eclipse
 Eclipse es uno de los entornos de desarrollo integrado (IDE) por los desarrolladores de Java. En este artículo se describe cómo configurar un entorno de desarrollo de Eclipse para que funcione con Azure Service Fabric. Aprenderá a instalar el complemento de Service Fabric, crear una aplicación de Service Fabric e implementarla en un clúster de Service Fabric local o remoto en Eclipse. 
@@ -36,7 +34,7 @@ Instale Neon Eclipse o una versión más reciente desde el [sitio de Eclipse](ht
 -   Para buscar actualizaciones de Eclipse e instalarlas, vaya a **Help** > **Check for Updates** (Ayuda > Buscar actualizaciones).
 
 Para instalar el complemento de Service Fabric, en Eclipse, vaya a **Help** >  (Ayuda) **Install New Software** (Instalar software nuevo).
-1. En el cuadro **Trabajar con**, escriba \//dl.microsoft.com/eclipse.
+1. En el cuadro **Work with** (Trabajar con), escriba `https://servicefabricdownloads.blob.core.windows.net/eclipse/` .
 2. Haga clic en **Agregar**.
 
    ![Complemento de Service Fabric para Eclipse][sf-eclipse-plugin-install]
@@ -49,7 +47,7 @@ Si el complemento de Service Fabric ya está instalado, instale la versión más
 3. Cuando actualiza el complemento de Service Fabric, también actualiza el proyecto de Gradle.  Haga clic con el botón derecho en **build.gradle** y, luego, seleccione **Refresh** (Actualizar).
 
 > [!NOTE]
-> Si el proceso de instalación o actualización del complemento Service Fabric se realiza lentamente, es posible que se deba a la configuración de Eclipse. Eclipse recopila metadatos de todos los cambios para actualizar los sitios que están registrados en la instancia de Eclipse. Para acelerar el proceso de búsqueda e instalación de una actualización del complemento Service Fabric, vaya a **Available Software Sites** (Sitios de software disponibles). Desactive las casillas de todos los sitios, excepto la del que apunta a la ubicación del complemento Service Fabric (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
+> Si el proceso de instalación o actualización del complemento Service Fabric se realiza lentamente, es posible que se deba a la configuración de Eclipse. Eclipse recopila metadatos de todos los cambios para actualizar los sitios que están registrados en la instancia de Eclipse. Para acelerar el proceso de búsqueda e instalación de una actualización del complemento Service Fabric, vaya a **Available Software Sites** (Sitios de software disponibles). Anule la selección de las casillas de todos los sitios, excepto del que apunta a la ubicación del complemento de Service Fabric ("https://servicefabricdownloads.blob.core.windows.net/eclipse/").
 
 > [!NOTE]
 >Si Eclipse no funciona según lo previsto en el equipo Mac (o necesita que ejecute como superusuario), vaya a la carpeta **ECLIPSE_INSTALLATION_PATH** y navegue a la subcarpeta **Eclipse.app/Contents/MacOS**. Inicie Eclipse ejecutando `./eclipse`.

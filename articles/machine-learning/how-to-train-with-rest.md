@@ -10,12 +10,13 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 05/25/2021
 ms.reviewer: peterlu
-ms.openlocfilehash: 65b7446602c8b7202ba7ccf56115edfc5de333db
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.custom: devplatv2
+ms.openlocfilehash: 89fb2c08aa76b88110bb5832f297d08d5891dda4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750738"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448328"
 ---
 # <a name="train-models-with-rest-preview"></a>Entrenamiento de modelos con REST (versión preliminar)
 
@@ -34,7 +35,7 @@ En este artículo, aprenderá a usar las nuevas API REST para:
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Una **suscripción de Azure** en la que tenga derechos administrativos Si no tiene este tipo de suscripción, pruebe la [suscripción personal gratis o de pago](https://aka.ms/AMLFree).
+- Una **suscripción de Azure** en la que tenga derechos administrativos Si no tiene este tipo de suscripción, pruebe la [suscripción personal gratis o de pago](https://azure.microsoft.com/free/).
 - Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 - Una entidad de servicio en el área de trabajo. Las solicitudes administrativas de REST usan la [autenticación de entidad de servicio](how-to-setup-authentication.md#use-service-principal-authentication).
 - Un token de autenticación de entidad de servicio. Para recuperar este token, siga los pasos que se describen en la sección [Recuperación de un token de autenticación de entidad de servicio](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). 
@@ -47,7 +48,7 @@ Un trabajo es un recurso que especifica todos los aspectos de un trabajo de cál
 - ¿Cómo se ejecuta?
 - ¿Dónde se ejecuta?
 
-Hay muchas formas de enviar un trabajo de Azure Machine Learning, entre las que se encuentran el SDK, la CLI y visualmente con Studio. En el ejemplo siguiente se envía un trabajo de entrenamiento de LightGBM con la API REST.
+Hay muchas formas de enviar un trabajo de Azure Machine Learning, entre las que se encuentran el SDK, la CLI de Azure y visualmente con Studio. En el ejemplo siguiente se envía un trabajo de entrenamiento de LightGBM con la API REST.
 
 ## <a name="create-machine-learning-assets"></a>Crear recursos de aprendizaje automático
 

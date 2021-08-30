@@ -2,13 +2,13 @@
 title: 'Azure Event Grid: Establecimiento de encabezados personalizados en eventos entregados'
 description: Describe el establecimiento de encabezados personalizados (o propiedades de entrega) en eventos entregados.
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: 515f2687781329d0f9f9648460663a0a30f7c637
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.date: 08/13/2021
+ms.openlocfilehash: de16c3b4981dc02a54a68269d4eef743d9f48c4b
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887452"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122069501"
 ---
 # <a name="custom-delivery-properties"></a>Propiedades de entrega personalizadas
 Las suscripciones a eventos permiten configurar encabezados HTTP que se incluyen en los eventos entregados. Esta capacidad permite establecer encabezados personalizados que un destino requiere. Puede configurar hasta 10 encabezados al crear una suscripción de eventos. Cada valor de encabezado no debe ser mayor que 4 096 (4 K) bytes.
@@ -33,6 +33,20 @@ Es posible que desee seleccionar la opción **¿Es secreto?** al proporcionar in
 Puede establecer el valor de un encabezado basándose en una propiedad de un evento de entrada. Use la sintaxis JsonPath para hacer referencia al valor de propiedad de un evento entrante que se va a usar como valor de un encabezado en las solicitudes salientes. Por ejemplo, para establecer el valor de un encabezado denominado **Channel** mediante el valor de la propiedad del evento entrante **system** de los datos de evento, configure la suscripción a eventos de la siguiente manera:
 
 :::image type="content" source="./media/delivery-properties/dynamic-header-property.png" alt-text="Propiedades de entrega: dinámicas":::
+
+## <a name="use-azure-cli"></a>Uso de CLI de Azure
+Use el parámetro `--delivery-attribute-mapping` al crear una suscripción mediante el comando `az eventgrid event-subscription create`. Este es un ejemplo:
+
+```azurecli
+az eventgrid event-subscription create -n es1 \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1
+    --endpoint-type storagequeue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/sa1/queueservices/default/queues/q1 \
+    --enable-advanced-filtering-on-arrays true
+    --delivery-attribute-mapping staticproperty1 static somestaticvalue2 true 
+    --delivery-attribute-mapping staticproperty2 static somestaticvalue3 false 
+    --delivery-attribute-mapping dynamicproperty1 dynamic data.key1
+```
 
 ## <a name="examples"></a>Ejemplos
 En esta sección se proporcionan algunos ejemplos del uso de propiedades de entrega.
