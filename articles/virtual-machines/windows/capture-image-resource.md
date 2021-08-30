@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: f1c67f9d4fda2e0ca26d8125f30e2f71213b0749
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: aa377267fb522de03ee181db99963498b5075fc4
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111853089"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112574351"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -22,52 +22,9 @@ Se puede crear un recurso de imagen administrado a partir de una máquina virtua
 
 Una sola imagen administrada admite hasta 20 implementaciones simultáneas. Cuando se intentan crear más de 20 máquinas virtuales simultáneamente, desde una misma imagen administrada, se pueden producir tiempos de espera de aprovisionamiento debido a las limitaciones de rendimiento de almacenamiento de un solo VHD. Para crear más de 20 máquinas virtuales simultáneamente, use una imagen de [Instancias de Shared Image Gallery](../shared-image-galleries.md) configurada con una réplica por cada 20 implementaciones simultáneas de máquina virtual.
 
-## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalización de VM con Windows mediante Sysprep
+## <a name="prerequisites"></a>Requisitos previos
 
-Sysprep elimina toda la información de seguridad y de la cuenta personal y luego prepara la máquina para usarse como imagen. Para más información acerca de Sysprep, consulte la [Introducción a Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
-
-Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Compatibilidad de Sysprep con roles de servidor](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) y [Escenarios no admitidos](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). 
-
-> [!IMPORTANT]
-> Una vez que se ha ejecutado sysprep en una máquina virtual, se considera *generalizada* y no se puede reiniciar. El proceso de generalización de una máquina virtual no es reversible. Si necesita mantener el funcionamiento original de la máquina virtual, debe crear una [copia de la máquina virtual](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) y generalizar la copia. 
->
->Sysprep requiere que las unidades se descifren por completo. Si ha habilitado el cifrado en la VM, deshabilite el cifrado de Azure antes de ejecutar Sysprep. 
->
->Para deshabilitar Azure Disk Encryption con PowerShell, use Disable-AzVMDiskEncryption seguido de Remove-AzVMDiskEncryptionExtension. Si se ejecuta Remove-AzVMDiskEncryptionExtension antes de deshabilitar el cifrado, se produce un error. Los comandos del nivel superior no solo descifran el disco de la máquina virtual, sino fuera de la máquina virtual también actualizan configuración importante de cifrado de nivel de plataforma y configuración de extensión asociada con la máquina virtual. Si la configuración no se mantiene en la alineación, la plataforma no puede informar del estado de cifrado ni aprovisionar la máquina virtual correctamente.
->
-> Si tiene pensado ejecutar Sysprep antes de cargar el disco duro virtual (VHD) en Azure por primera vez, asegúrese de que tiene [preparada la máquina virtual](prepare-for-upload-vhd-image.md).  
-> 
-> 
-
-Para generalizar la máquina virtual de Windows, siga estos pasos:
-
-1. Inicie sesión en la máquina virtual Windows.
-   
-2. Abra una ventana de símbolo del sistema como administrador. 
-
-3. Elimine el directorio de Panther (C:\Windows\Panther). Luego, sustitúyalo por %windir%\system32\sysprep, y, después, ejecute `sysprep.exe`.
-   
-4. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y active la casilla **Generalizar**.
-   
-5. En **Opciones de apagado**, seleccione **Apagar**.
-   
-6. Seleccione **Aceptar**.
-   
-    ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-
-6. Cuando Sysprep finaliza, apaga la máquina virtual. No reinicie la VM.
-
-> [!TIP]
-> **Opcional** Use [DISM](/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para optimizar la imagen y reducir el tiempo de arranque de la máquina virtual.
->
-> Para optimizar la imagen, monte el disco duro virtual; para ello, haga doble clic en él en el Explorador de Windows y, a continuación, ejecute DISM con el parámetro `/optimize-image`.
->
-> ```cmd
-> DISM /image:D:\ /optimize-image /boot
-> ```
-> D: es la ruta de acceso del VHD montado.
->
-> La ejecución de `DISM /optimize-image` debe ser la última modificación que realice en el disco duro virtual. Si realiza cambios en el disco duro virtual antes de la implementación, tendrá que volver a ejecutar `DISM /optimize-image`.
+Para crear una imagen, necesita una máquina virtual [generalizada](../generalize.md).
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Creación de una imagen administrada en el portal 
 

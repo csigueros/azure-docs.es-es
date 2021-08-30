@@ -1,7 +1,5 @@
 - name: Documentación sobre aspectos básicos
   href: index.yml
-- name: Recuperación de un riesgo de identidad sistemático
-  href: recover-from-identity-compromise.md
 - name: Información general
   items:
     - name: Introducción a la seguridad de Azure
@@ -10,6 +8,14 @@
       href: end-to-end.md
     - name: Responsabilidad compartida en la nube
       href: shared-responsibility.md
+- name: Detección y mitigación de amenazas
+  items:
+    - name: Plan de copia de seguridad y restauración por ransomware
+      href: backup-plan-to-protect-against-ransomware.md
+    - name: Recuperación de un riesgo de identidad sistemático
+      href: recover-from-identity-compromise.md
+    - name: Protección contra amenazas
+      href: threat-detection.md
 - name: Protección de cargas de trabajo en Azure
   items:
     - name: Funcionalidades técnicas de seguridad
@@ -144,8 +150,6 @@
       href: service-fabric-best-practices.md
 - name: 'Supervisión, auditoría y operaciones'
   items:
-    - name: Protección contra amenazas
-      href: threat-detection.md
     - name: Registro y auditoría de Azure
       href: log-audit.md
     - name: Administración y supervisión de seguridad

@@ -1,19 +1,19 @@
 ---
 title: Habilitación de la extensión de máquina virtual mediante la plantilla de Azure Resource Manager
-description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbrida mediante una plantilla de Azure Resource Manager.
-ms.date: 04/13/2021
+description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbrida mediante una plantilla de Azure Resource Manager.
+ms.date: 07/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ad2cd02393404b419bc7028e54571d2db285982
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: f1ea92383242cb5b1b1a1d09f33f947ff07113c5
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802457"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389813"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Habilitación de las extensiones de máquina virtual de Azure mediante la plantilla de ARM
 
-En este artículo se muestra cómo usar una plantilla de Azure Resource Manager (plantilla de ARM) para implementar extensiones de máquina virtual de Azure compatibles con los servidores habilitados para Azure Arc.
+En este artículo se muestra cómo usar una plantilla de Azure Resource Manager (plantilla de ARM) para implementar extensiones de máquina virtual de Azure compatibles con los servidores habilitados para Azure Arc.
 
 Las extensiones de máquina virtual se pueden agregar a una plantilla de Azure Resource Manager y ejecutar con la implementación de la plantilla. En el caso de las extensiones de máquina virtual compatibles con servidores habilitados para Arc, puede implementar la extensión de máquina virtual admitida en máquinas Linux o Windows mediante Azure PowerShell. Cada ejemplo a continuación incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
@@ -21,7 +21,7 @@ Las extensiones de máquina virtual se pueden agregar a una plantilla de Azure R
 >Aunque varias extensiones se pueden procesar por lotes, estas se instalan en serie. Una vez completada la instalación de la primera extensión, se intenta la instalación de la siguiente.
 
 > [!NOTE]
-> Los servidores habilitados de Azure Arc no admiten la implementación y administración de extensiones de máquina virtual en máquinas virtuales de Azure. Para las máquinas virtuales de Azure, consulte el siguiente artículo de [información general sobre la extensión de máquina virtual](../../virtual-machines/extensions/overview.md).
+> Los servidores habilitados para Azure Arc no admiten la implementación y administración de extensiones de máquina virtual en máquinas virtuales de Azure. Para las máquinas virtuales de Azure, consulte el siguiente artículo de [información general sobre la extensión de máquina virtual](../../virtual-machines/extensions/overview.md).
 
 ## <a name="deploy-the-log-analytics-vm-extension"></a>Implementación de la extensión de máquina virtual de Log Analytics
 
@@ -143,7 +143,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 Para usar la extensión de script personalizado, el siguiente ejemplo puede ejecutarse en Windows y Linux. Si no está familiarizado con la extensión de script personalizado, consulte [Extensión de script personalizado para Windows](../../virtual-machines/extensions/custom-script-windows.md) o [Extensión de script personalizado para Linux](../../virtual-machines/extensions/custom-script-linux.md). Hay un par de características distintas que debe comprender al usar esta extensión con máquinas híbridas:
 
-* La lista de sistemas operativos compatibles con la extensión de script personalizado para máquina virtual de Azure no se aplica a servidores habilitados para Azure Arc. Puede encontrar [aquí](agent-overview.md#supported-operating-systems) la lista de sistemas operativos compatibles con servidores habilitados para Arc.
+* La lista de sistemas operativos compatibles con la extensión de script personalizado para máquina virtual de Azure no se aplica a servidores habilitados para Azure Arc. Puede encontrar [aquí](agent-overview.md#supported-operating-systems) la lista de sistemas operativos compatibles con servidores habilitados para Arc.
 
 * No se aplican los detalles de configuración relacionados con Azure Virtual Machine Scale Sets o las máquinas virtuales clásicas.
 
@@ -529,7 +529,7 @@ El siguiente código JSON muestra el esquema para la extensión de máquina virt
 Guarde el archivo de plantilla en el disco. Después, puede implementar la extensión a la máquina conectada con el siguiente comando.
 
 > [!NOTE]
-> La extensión de VM requeriría la asignación de una identidad administrada por el sistema para autenticarse en Key Vault. Consulte [Autenticación en Key Vault mediante la identidad administrada](managed-identity-authentication.md) para servidores con ARC habilitado para Windows y Linux.
+> La extensión de VM requeriría la asignación de una identidad administrada por el sistema para autenticarse en Key Vault. Consulte [Autenticación en Key Vault mediante la identidad administrada](managed-identity-authentication.md) para servidores Windows y Linux habilitados para Arc.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
@@ -558,7 +558,7 @@ Para usar la extensión del detector integrado de Azure Defender, se proporciona
       },
       "resources": [
         {
-          "type": "resourceType/providers/WindowsAgent.AzureSecurityCenter",
+          "type": "Microsoft.HybridCompute/machines/providers/serverVulnerabilityAssessments",
           "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
           "apiVersion": "[parameters('apiVersionByEnv')]"
         }
@@ -595,7 +595,7 @@ Para usar la extensión del detector integrado de Azure Defender, se proporciona
       },
       "resources": [
         {
-          "type": "resourceType/providers/LinuxAgent.AzureSecurityCenter",
+          "type": "Microsoft.HybridCompute/machines/providers/serverVulnerabilityAssessments",
           "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
           "apiVersion": "[parameters('apiVersionByEnv')]"
         }

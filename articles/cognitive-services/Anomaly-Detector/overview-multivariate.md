@@ -1,7 +1,7 @@
 ---
 title: ¿Qué es la API multivariante de Anomaly Detector?
 titleSuffix: Azure Cognitive Services
-description: Información general sobre las API multivariantes de la versión preliminar pública de Anomaly Detector.
+description: Información general sobre las API multivariantes de la versión preliminar de Anomaly Detector.
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
-ms.openlocfilehash: e913cc4738b0f58a411e80f3e2b602a072f28665
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 2e74edb0f716862925bb19140a4425366ebab894
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005994"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587668"
 ---
-# <a name="multivariate-time-series-anomaly-detection-public-preview"></a>Detección de anomalías de serie temporal multivariante (versión preliminar pública)
+# <a name="multivariate-time-series-anomaly-detection-preview"></a>Detección de anomalías de serie temporal multivariante (versión preliminar)
 
 Las nuevas API de **detección de anomalías multivariante** permiten a los desarrolladores integrar fácilmente la inteligencia artificial avanzada para detectar anomalías de grupos de métricas, sin necesidad de tener conocimientos de aprendizaje automático ni datos etiquetados. Las dependencias y las correlaciones de hasta 300 señales diferentes ahora se cuentan automáticamente como factores clave. Esta nueva funcionalidad le permite proteger de forma proactiva los sistemas complejos, como aplicaciones de software, servidores, máquinas de fábrica, vehículos espaciales o incluso su empresa, frente a errores.
 
@@ -38,10 +38,9 @@ Para aprender a llamar a Anomaly Detector API (multivariante), pruebe este [cuad
 
 Para ejecutar el cuaderno, debe obtener una **clave de suscripción** de Anomaly Detector API y un **punto de conexión de API**. En el cuaderno, agregue la clave de suscripción de Anomaly Detector API válida a la variable `subscription_key` y cambie la variable `endpoint` al punto de conexión.
 
-
 ## <a name="region-support"></a>Regiones admitidas
 
-La versión preliminar pública de Anomaly Detector multivariante está disponible actualmente en seis regiones: Oeste de EE. UU. 2, Oeste de Europa, Este de EE. UU. 2, Centro-sur de EE. UU., Este de EE. UU. y Sur de Reino Unido.
+La versión preliminar de Anomaly Detector multivariante está disponible actualmente en 10 regiones de Azure: Sudeste Asiático, Este de Australia, Centro de Canadá, Norte de Europa, Oeste de Europa, Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Oeste de EE. UU. 2 y Sur de Reino Unido.
 
 ## <a name="algorithms"></a>Algoritmos
 
@@ -60,5 +59,6 @@ Consulte los siguientes documentos técnicos para obtener información acerca de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Inicios rápidos](./quickstarts/client-libraries-multivariate.md).
+- [Tutorial](./tutorials/learn-multivariate-anomaly-detection.md): este artículo es un tutorial completo de cómo usar las API multivariante.
+- [Guías de inicio rápido](./quickstarts/client-libraries-multivariate.md)
 - [Procedimientos recomendados](./concepts/best-practices-multivariate.md): este artículo trata sobre los patrones recomendados para usar con las API multivariantes.

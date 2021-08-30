@@ -61,7 +61,7 @@
   items:
     - name: Exportación de registros DNS de puntos de conexión privados
       href: private-endpoint-export-dns.md
-    - name: Deshabilitar las directivas de red de puntos de conexión privados
+    - name: Administración de directivas de red de puntos de conexión privados
       href: disable-private-endpoint-network-policy.md
     - name: Deshabilitar las directivas de red de un servicio Private Link
       href: disable-private-link-service-network-policy.md

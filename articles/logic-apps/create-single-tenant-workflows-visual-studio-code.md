@@ -1,37 +1,37 @@
 ---
-title: Creación de flujos de trabajo en Azure Logic Apps de un solo inquilino mediante Visual Studio Code
-description: Cree flujos de trabajo automatizados que integren aplicaciones, datos, servicios y sistemas mediante Azure Logic Apps de un solo inquilino y Visual Studio Code.
+title: Creación de flujos de trabajo con Azure Logic Apps (estándar) de inquilino único en Visual Studio Code
+description: Cree flujos de trabajo automatizados para integrar aplicaciones, datos, servicios y sistemas mediante instancias de Azure Logic Apps (estándar) de inquilino único en Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: 9507f8877be033772acb34fbbbe7996c38fca6ad
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 07/13/2021
+ms.openlocfilehash: 776068748b9cd7e90b9d9418bdf9a31fe36ff180
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370039"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733761"
 ---
-# <a name="create-an-integration-workflow-using-single-tenant-azure-logic-apps-and-visual-studio-code"></a>Creación de un flujo de trabajo de integración mediante Azure Logic Apps de un solo inquilino y Visual Studio Code
+# <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-visual-studio-code"></a>Creación de un flujo de trabajo de integración con Azure Logic Apps (estándar) de inquilino único en Visual Studio Code
 
-En este artículo se muestra cómo crear un flujo de trabajo de integración automatizado de ejemplo mediante el tipo de recurso **Logic Apps (estándar)** , Visual Studio Code y la extensión **Azure Logic Apps (estándar)** . Al crear este flujo de trabajo de aplicaciones lógicas en Visual Studio Code, puede ejecutar y probar el flujo de trabajo en el entorno de desarrollo *local*.
+En este artículo se muestra cómo crear un flujo de trabajo de integración automatizado de ejemplo que se ejecuta en el entorno de Azure Logic Apps de *inquilino único* mediante Visual Studio Code con la extensión **Azure Logic Apps (estándar)** . La aplicación lógica que se crea con esta extensión se basa en el tipo de recurso **Aplicación lógica (estándar)** , que proporciona las siguientes funcionalidades:
 
-Cuando esté listo, puede realizar la implementación en el *entorno de Azure Logic Apps de un único inquilino* o en cualquier lugar en el que se pueda ejecutar Azure Functions, debido al runtime contenedorizado de Azure Logic Apps rediseñado. En comparación con la extensión **Azure Logic Apps (consumo)** multiinquilino, que funciona para el entorno de Azure Logic Apps multiinquilino, la extensión **Azure Logic Apps (estándar)** de un único inquilino proporciona la funcionalidad para crear aplicaciones lógicas con los atributos siguientes:
+* Puede ejecutar y probar los flujos de trabajo de aplicaciones lógicas localmente en el entorno de desarrollo de Visual Studio Code.
 
-* El tipo de recurso **Logic Apps (estándar)** puede hospedar varios [flujos de trabajo con estado y sin estado](single-tenant-overview-compare.md#stateful-stateless) que se ejecutan localmente en el entorno de desarrollo, en el entorno de Azure Logic Apps de un único inquilino o en cualquier lugar donde se pueda ejecutar Azure Functions, como contenedores. Este atributo proporciona flexibilidad y portabilidad para los flujos de trabajo.
+* La aplicación lógica puede incluir varios [flujos de trabajo con estado y sin estado](single-tenant-overview-compare.md#stateful-stateless).
 
-* En un recurso **Logic Apps (estándar)** , los flujos de trabajo de la misma aplicación lógica y el inquilino se ejecutan en el mismo proceso que el runtime de Azure Logic Apps rediseñado, por lo que comparten los mismos recursos y proporcionan un mejor rendimiento.
+* Los flujos de trabajo de la misma aplicación lógica e inquilino se ejecutan en el mismo proceso que el entorno de ejecución de Azure Logic Apps, por lo que comparten los mismos recursos y proporcionan mayor rendimiento.
 
-* Puede implementar un recurso **Logic Apps (estándar)** directamente en Azure o en cualquier lugar donde se pueda ejecutar Azure Functions, incluidos los contenedores.
+* Puede implementar el tipo de recurso **Aplicación lógica (estándar)** directamente en el entorno de Azure Logic Apps de inquilino único o en cualquier lugar en el que se pueda ejecutar Azure Functions, incluidos los contenedores, debido al entorno de ejecución contenedorizado de Logic Apps.
 
-Para más información sobre el tipo de recurso **Logic Apps (estándar)** , y el modelo de un único inquilino, revise [Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración](single-tenant-overview-compare.md).
+Para obtener más información sobre la oferta de Azure Logic Apps de inquilino único, revise [Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración para Azure Logic Apps](single-tenant-overview-compare.md).
 
 Aunque el flujo de trabajo de ejemplo está basado en la nube y solo tiene dos pasos, puede crear flujos de trabajo a partir de cientos de operaciones que pueden conectar una amplia variedad de aplicaciones, datos, servicios y sistemas en entornos híbridos, locales y en la nube. El flujo de trabajo de ejemplo comienza con el desencadenador Solicitud integrado y sigue con una acción de Office 365 Outlook. El desencadenador crea un punto de conexión al que se puede llamar para el flujo de trabajo y espera una solicitud HTTPS entrante de cualquier autor de llamada. Cuando el desencadenador recibe una solicitud y se activa, la siguiente acción se ejecuta mediante el envío de un correo electrónico a la dirección de correo electrónico especificada junto con las salidas seleccionadas del desencadenador.
 
 > [!TIP]
 > Si no tiene ninguna cuenta de Office 365, puede usar cualquier otra acción disponible que pueda enviar mensajes desde su cuenta de correo electrónico, como, por ejemplo, Outlook.com.
-> 
+>
 > Para crear este flujo de trabajo de ejemplo mediante Azure Portal, siga los pasos descritos en [Creación de flujos de trabajo de integración mediante Azure Logic Apps de un único inquilino y Azure Portal](create-single-tenant-workflows-azure-portal.md). 
 > Ambas opciones proporcionan la funcionalidad para desarrollar, ejecutar e implementar flujos de trabajo de aplicaciones lógicas en los mismos tipos de entornos. 
 > Sin embargo, con Visual Studio Code, puede desarrollar, probar y ejecutar flujos de trabajo *localmente* en el entorno de desarrollo.
@@ -114,7 +114,7 @@ Para obtener más información, consulte la [documentación de Azurite](https://
 
 * Para ejecutar localmente las acciones y los desencadenadores basados en webhook, como el [desencadenador de webhook integrado de HTTP](../connectors/connectors-native-webhook.md), en Visual Studio Code, debe [configurar el reenvío de la dirección URL de devolución de llamada](#webhook-setup).
 
-* Para probar el flujo de trabajo de ejemplo de este artículo, necesita una herramienta que pueda enviar llamadas al punto de conexión creado por el desencadenador Solicitud. Si no dispone de esta herramienta, puede descargar, instalar y usar [Postman](https://www.postman.com/downloads/).
+* Para probar el flujo de trabajo de ejemplo de este artículo, necesita una herramienta que pueda enviar llamadas al punto de conexión creado por el desencadenador Solicitud. Si no dispone de esta herramienta, puede descargar, instalar y usar la aplicación [Postman](https://www.postman.com/downloads/).
 
 * Si crea los recursos de la aplicación lógica con una configuración que admite el uso de [Application Insights](../azure-monitor/app/app-insights-overview.md), tiene la opción de habilitar el registro de diagnóstico y el seguimiento para la aplicación lógica. Puede hacerlo al crear la aplicación lógica o después de la implementación. Debe tener una instancia de Application Insights, pero puede crear este recurso [con antelación](../azure-monitor/app/create-workspace-resource.md), al crear la aplicación lógica o después de la implementación.
 
@@ -214,43 +214,6 @@ Para poder crear una aplicación lógica, antes debe crear un proyecto local, co
 
    ![Captura de pantalla que muestra el panel del explorador con la carpeta del proyecto, la carpeta del flujo de trabajo y el archivo "workflow.json".](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
 
-1. Si usa macOS o Linux, configure el acceso a la cuenta de almacenamiento siguiendo estos pasos, que son necesarios para ejecutar el proyecto en un entorno local:
-
-   1. En la carpeta raíz del proyecto, abra el archivo **local.settings.json**.
-
-      ![Captura de pantalla que muestra el panel del explorador y el archivo "local.settings.json" en el proyecto.](./media/create-single-tenant-workflows-visual-studio-code/local-settings-json-files.png)
-
-   1. Reemplace el valor de la propiedad `AzureWebJobsStorage` por la cadena de conexión de la cuenta de almacenamiento que guardó anteriormente, por ejemplo:
-
-      Antes:
-
-      ```json
-      {
-         "IsEncrypted": false,
-         "Values": {
-            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-            "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-          }
-      }
-      ```
-
-      Después:
-
-      ```json
-      {
-         "IsEncrypted": false,
-         "Values": {
-            "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
-           "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-         }
-      }
-      ```
-
-      > [!IMPORTANT]
-      > En escenarios de producción, asegúrese de proteger estos secretos e información confidencial, por ejemplo, mediante el uso de un almacén de claves.
-
-   1. Cuando haya terminado, asegúrese de guardar los cambios.
-
 <a name="enable-built-in-connector-authoring"></a>
 
 ## <a name="enable-built-in-connector-authoring"></a>Habilitación de la creación de conectores integrados
@@ -315,7 +278,7 @@ La funcionalidad de creación solo está disponible actualmente en Visual Studi
 
    ![Captura de pantalla que muestra el panel del Explorador y el cuadro de nombre del grupo de recursos.](./media/create-single-tenant-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
-1. En la lista de ubicaciones, busque y seleccione la región de Azure que se usará al crear el grupo de recursos y los recursos. En este ejemplo se usa **Centro-oeste de EE. UU.**
+1. En la lista de ubicaciones, seleccione la región de Azure que se usará al crear el grupo de recursos y los recursos. En este ejemplo se usa **Centro-oeste de EE. UU.**
 
    ![Captura de pantalla que muestra el panel del Explorador con la lista de ubicaciones y la opción "Centro-oeste de EE. UU." seleccionada.](./media/create-single-tenant-workflows-visual-studio-code/select-azure-region.png)
 
@@ -369,7 +332,7 @@ El flujo de trabajo de este ejemplo usa este desencadenador y estas acciones:
 
    Aparece la solicitud **Elija una operación** en el diseñador, y se vuelve a abrir el panel **Agregar una acción** para que pueda seleccionar la acción siguiente.
 
-1. En el panel **Agregar una acción**, en el cuadro de búsqueda **Elegir una operación**, seleccione **Azure** para poder buscar y seleccionar una acción para un conector administrado que esté implementado en Azure.
+1. En el panel **Agregar una acción**, en el cuadro de búsqueda **Elegir una operación**, seleccione **Azure** para poder seleccionar una acción para un conector administrado que esté implementado en Azure.
 
    En este ejemplo se selecciona y usa la acción de Office 365 Outlook, **Enviar correo electrónico (V2)** .
 
@@ -469,7 +432,7 @@ Para ejecutar localmente las acciones y los desencadenadores basados en webhook 
    > Para que el mensaje vuelva a aparecer, en el nivel raíz del proyecto, abra el menú contextual del archivo **local.settings.json** y seleccione **Configure Webhook Redirect Endpoint** (Configurar punto de conexión de redireccionamiento de webhook). Ahora aparece el símbolo del sistema para que pueda especificar la dirección URL de reenvío.
 
    Visual Studio Code agrega la dirección URL de reenvío al archivo **local.settings.json** de la carpeta raíz del proyecto. En el objeto `Values`, ahora aparece la propiedad denominada `Workflows.WebhookRedirectHostUri` y se establece en la dirección URL de reenvío, por ejemplo:
-   
+
    ```json
    {
       "IsEncrypted": false,
@@ -573,7 +536,7 @@ Para probar la aplicación lógica, siga estos pasos para iniciar una sesión de
 
    1. En **All Collections** (Todas las colecciones), escriba un nombre para la colección que se va a crear para organizar las solicitudes, presione ENTRAR y, a continuación, seleccione **Save to <*nombre-de-la-colección*>** (Guardar en <nombre de la colección>). En este ejemplo se usa `Logic Apps requests` como nombre de la colección.
 
-      Se abre el panel de solicitudes de Postman para que pueda enviar una solicitud a la URL de devolución de llamada para el desencadenador Solicitud.
+      En Postman, se abre el panel de solicitudes para que pueda enviar una solicitud a la URL de devolución de llamada para el desencadenador Solicitud.
 
       ![Captura de pantalla que muestra Postman con el panel de solicitudes abierto.](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
@@ -707,7 +670,7 @@ Después de realizar actualizaciones en la aplicación lógica, puede ejecutar o
 
 <a name="firewall-setup"></a>
 
-##  <a name="find-domain-names-for-firewall-access"></a>Búsqueda de nombres de dominio para el acceso al firewall
+## <a name="find-domain-names-for-firewall-access"></a>Búsqueda de nombres de dominio para el acceso al firewall
 
 Antes de implementar y ejecutar el flujo de trabajo de la aplicación lógica en Azure Portal, si su entorno tiene estrictos requisitos de red o firewalls que limitan el tráfico, debe configurar los permisos para las conexiones de desencadenador o acción que existan en el flujo de trabajo.
 
@@ -715,7 +678,7 @@ Para buscar los nombres de dominio completos (FQDN) de estas conexiones, siga es
 
 1. En el proyecto de la aplicación lógica, abra el archivo **connections.json**, que se crea después de agregar el primer desencadenador o acción basado en conexión al flujo de trabajo, y busque el objeto `managedApiConnections`.
 
-1. Para cada conexión que ha creado, busque, copie y guarde el valor de la propiedad `connectionRuntimeUrl` en un lugar seguro para que pueda configurar el firewall con esta información.
+1. Para cada conexión que ha creado, copie y guarde el valor de la propiedad `connectionRuntimeUrl` en un lugar seguro para que pueda configurar el firewall con esta información.
 
    Este archivo **connections.json** de ejemplo contiene dos conexiones, una conexión AS2 y una conexión de Office 365, con estos valores de `connectionRuntimeUrl`:
 
@@ -796,7 +759,7 @@ La implementación para el tipo de recurso **Logic Apps (estándar)** requiere 
 
       Para más información, revise [Planes de hospedaje y planes de tarifa](logic-apps-pricing.md#standard-pricing).
 
-   1. Para obtener un rendimiento óptimo, busque y seleccione el mismo grupo de recursos que el proyecto para la implementación.
+   1. Para obtener un rendimiento óptimo, seleccione el mismo grupo de recursos que el proyecto para la implementación.
 
       > [!NOTE]
       > Aunque puede crear o usar un grupo de recursos diferente, esto podría afectar al rendimiento. Si crea o elige otro grupo de recursos, pero cancela después de que aparezca el mensaje de confirmación, la implementación también se cancelará.
@@ -955,7 +918,7 @@ En Visual Studio Code, puede ver todas las aplicaciones lógicas implementadas 
 
    ![Captura de pantalla que muestra Visual Studio Code con el panel de la extensión "Azure Logic Apps (estándar)" abierto y el flujo de trabajo implementado.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. Para ver todos los flujos de trabajo en la aplicación lógica, expándala y, después, expanda el nodo **Flujos de trabajo**.
+1. Para ver todos los flujos de trabajo de la aplicación lógica, expándala y, después, expanda el nodo llamado **Flujos de trabajo**.
 
 1. Para ver un flujo de trabajo específico, abra el menú contextual del flujo de trabajo y seleccione **Open in Designer** (Abrir en el diseñador), que abre el flujo de trabajo en modo de solo lectura.
 
@@ -963,7 +926,7 @@ En Visual Studio Code, puede ver todas las aplicaciones lógicas implementadas 
 
    * En Visual Studio Code, abra el archivo **workflow.json** del proyecto en el diseñador de flujos de trabajo, realice los cambios y vuelva a implementar la aplicación lógica en Azure.
 
-   * En Azure Portal, [busque y abra la aplicación lógica](#manage-deployed-apps-portal). Busque, edite y guarde el flujo de trabajo.
+   * En Azure Portal, [abra la aplicación lógica](#manage-deployed-apps-portal). A continuación, puede abrir, editar y guardar el flujo de trabajo.
 
 1. Para abrir la aplicación lógica implementada en Azure Portal, abra el menú contextual de la aplicación lógica y seleccione **Abrir en el portal**.
 
@@ -991,8 +954,8 @@ Detener una aplicación lógica afecta a las instancias de flujo de trabajo de l
 
   1. En Visual Studio Code, en la barra de herramientas de la izquierda, seleccione el icono Azure. 
   1. En el área **Azure: Logic Apps (estándar)** , expanda su suscripción, que muestra todas las aplicaciones lógicas implementadas para esa suscripción.
-  1. Expanda la aplicación lógica y, luego, expanda el nodo **Flujos de trabajo**.
-  1. Abra un flujo de trabajo y edite cualquier parte del desencadenador de ese flujo de trabajo.
+  1. Expanda la aplicación lógica y, a continuación, expanda el nodo llamado **Flujos de trabajo**.
+  1. Abra un flujo de trabajo y edite cualquier parte de su desencadenador.
   1. Guarde los cambios. Este paso restablece el estado actual del desencadenador.
   1. Repita el procedimiento para cada flujo de trabajo.
   1. Cuando haya terminado, reinicie la aplicación lógica.
@@ -1007,7 +970,7 @@ Eliminar una aplicación lógica afecta a las instancias de flujo de trabajo de 
 
 * El servicio Logic Apps no crea ni ejecuta nuevas instancias de flujo de trabajo.
 
-* Si elimina un flujo de trabajo y, luego, vuelve a crear el mismo flujo de trabajo, el flujo de trabajo recreado no tendrá los mismos metadatos que el flujo de trabajo eliminado. Tiene que volver a guardar todo flujo de trabajo que haya llamado al flujo de trabajo eliminado. De este modo, el autor de la llamada obtiene la información correcta para el flujo de trabajo recreado. De lo contrario, las llamadas al flujo de trabajo recreado producirán un error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a Azure Functions.
+* Si elimina un flujo de trabajo y, luego, vuelve a crear el mismo flujo de trabajo, el flujo de trabajo recreado no tendrá los mismos metadatos que el flujo de trabajo eliminado. Para actualizar los metadatos, tendrá que volver a guardar cualquier flujo de trabajo que haya llamado al que se ha eliminado. De este modo, el autor de la llamada obtiene la información correcta para el flujo de trabajo recreado. De lo contrario, las llamadas al flujo de trabajo recreado producirán un error `Unauthorized`. Este comportamiento también se aplica a los flujos de trabajo que usan artefactos en cuentas de integración y a flujos de trabajo que llaman a Azure Functions.
 
 <a name="manage-deployed-apps-portal"></a>
 
@@ -1019,7 +982,7 @@ Después de implementar una aplicación lógica en Azure Portal desde Visual St
 
    ![Captura de pantalla que muestra el cuadro de búsqueda de Azure Portal con el texto de búsqueda "logic apps".](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-resource.png)
 
-1. En el panel **Logic Apps (estándar)** , busque y seleccione la aplicación lógica que implementó desde Visual Studio Code.
+1. En el panel **Logic Apps (estándar)** , seleccione la aplicación lógica que implementó desde Visual Studio Code.
 
    ![Captura de pantalla que muestra Azure Portal y los recursos de Logic Apps (estándar) implementados en Azure.](./media/create-single-tenant-workflows-visual-studio-code/logic-app-resources-pane.png)
 
@@ -1051,7 +1014,7 @@ Después de implementar una aplicación lógica en Azure Portal desde Visual St
 
 A través de Azure Portal, puede agregar flujos de trabajo vacíos a un recurso **Logic Apps (estándar)** implementado desde Visual Studio Code y compilar esos flujos de trabajo en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com), busque y seleccione el recurso **Logic Apps (estándar)** implementado.
+1. En [Azure Portal](https://portal.azure.com), seleccione el recurso **Logic Apps (estándar)** implementado.
 
 1. En el menú de la aplicación lógica, seleccione **Flujos de trabajo**. En el panel **Flujos de trabajo**, seleccione **Agregar**.
 
@@ -1073,7 +1036,7 @@ A través de Azure Portal, puede agregar flujos de trabajo vacíos a un recurso 
 
 Para depurar un flujo de trabajo sin estado con más facilidad, puede habilitar el historial de ejecución para ese flujo de trabajo y luego deshabilitar el historial de ejecución cuando haya terminado. Siga estos pasos para Visual Studio Code, o bien, si está trabajando en Azure Portal, consulte [Creación de flujos de trabajo basados en un único inquilino en Azure Portal](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
 
-1. En el proyecto de Visual Studio Code, expanda la carpeta **workflow-designtime** y abra el archivo **local.settings.json**.
+1. En el proyecto de Visual Studio Code, expanda la carpeta llamada **workflow-designtime** y abra el archivo **local.settings.json**.
 
 1. Agregue la propiedad `Workflows.{yourWorkflowName}.operationOptions` y establezca el valor en `WithStatelessRunHistory`, por ejemplo:
 
@@ -1112,7 +1075,7 @@ Para depurar un flujo de trabajo sin estado con más facilidad, puede habilitar 
 
 Después de implementar un recurso de **Logic Apps (estándar)** desde Visual Studio Code en Azure, puede revisar cualquier historial de ejecución disponible y los detalles de un flujo de trabajo en ese recurso mediante Azure Portal y la experiencia de **Supervisión** para ese flujo de trabajo. Sin embargo, en primer lugar, debe habilitar la funcionalidad de vista **Supervisión** en ese recurso de aplicación lógica.
 
-1. En [Azure Portal](https://portal.azure.com), busque y seleccione el recurso de **Logic Apps (estándar)** implementado.
+1. En [Azure Portal](https://portal.azure.com), seleccione el recurso **Logic Apps (estándar)** implementado.
 
 1. En el menú de ese recurso, en **API**, seleccione **CORS**.
 
@@ -1268,7 +1231,7 @@ Para resolver este problema y ajustar el URI más largo, edite las claves del Re
 
 Al intentar iniciar una sesión de depuración, aparece el error **"Error exists after running preLaunchTask 'generateDebugSymbols'"** (Aparece un error al ejecutar preLaunchTask 'generateDebugSymbols). Para resolver este problema, edite el archivo **tasks.json** del proyecto para omitir la generación de símbolos.
 
-1. En el proyecto, expanda la carpeta **.vscode** y abra el archivo **tasks.json**.
+1. En el proyecto, expanda la carpeta llamada **.vscode** y abra el archivo **tasks.json**.
 
 1. En la siguiente tarea, elimine la línea, `"dependsOn: "generateDebugSymbols"`, junto con la coma del final de la línea anterior, por ejemplo:
 

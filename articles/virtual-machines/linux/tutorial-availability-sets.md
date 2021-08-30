@@ -10,12 +10,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 21f7d3e6f624c3a8e550a33293b46284bf5c5815
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 784adc6829a66269fb863cce7e1e103a45fde7d9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816303"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114455681"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Creación e implementación de máquinas virtuales en un conjunto de disponibilidad mediante la CLI de Azure
 
@@ -104,5 +104,5 @@ Avance al siguiente tutorial para informarse sobre los conjuntos de escalado de 
 > [Creación de un conjunto de escalado de máquinas virtuales](tutorial-create-vmss.md)
 
 * Para más información sobre las zonas de disponibilidad, visite la [documentación sobre zonas de disponibilidad](../../availability-zones/az-overview.md).
-* También puede encontrar más documentación sobre los conjuntos y las zonas de disponibilidad [aquí](../availability.md).
+* También hay disponible más documentación sobre conjuntos de disponibilidad y zonas de disponibilidad en [Opciones de disponibilidad para Azure Virtual Machines](../availability.md).
 * Para probar las zonas de disponibilidad, consulte [Creación de una máquina virtual Linux en una zona de disponibilidad con la CLI de Azure](./create-cli-availability-zone.md).

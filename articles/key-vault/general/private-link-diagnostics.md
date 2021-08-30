@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 03abe4e4e098d46060e33ba114872905e54a443f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85760971b8f4eb8bfbb431193636532a498d7236
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96317069"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113665608"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnóstico de problemas de configuración de vínculos privados en Azure Key Vault
 
@@ -279,7 +279,7 @@ Para que funcione la resolución de nombres del almacén de claves, debe haber u
 Asimismo, el valor del registro `A` (la dirección IP) debe ser [la dirección IP privada del almacén de claves](#find-the-key-vault-private-ip-address-in-the-virtual-network). Si encuentra el registro `A`, pero contiene la dirección IP incorrecta, debe quitar la dirección IP equivocada y agregar una nueva. Así pues, se recomienda quitar todo el registro `A` y agregar uno nuevo.
 
 >[!NOTE]
-> Cada vez que se quita o se modifica un registro `A`, es posible que la máquina siga resolviendo la dirección IP anterior porque el valor de TTL (período de vida) no ha expirado todavía. Por ello, se recomienda especificar siempre un valor de TTL inferior a 60 segundos (un minuto) y no mayor que 600 segundos (10 minutos). Si especifica un valor demasiado grande, los clientes pueden tardar demasiado tiempo en recuperarse de interrupciones.
+> Cada vez que se quita o se modifica un registro `A`, es posible que la máquina siga resolviendo la dirección IP anterior porque el valor de TTL (período de vida) no ha expirado todavía. Por ello, se recomienda especificar siempre un valor de TTL inferior a 10 segundos y no superior a 600 segundos (10 minutos). Si especifica un valor demasiado grande, los clientes pueden tardar demasiado tiempo en recuperarse de interrupciones.
 
 ### <a name="dns-resolution-for-more-than-one-virtual-network"></a>Resolución DNS para más de una instancia de Virtual Network
 

@@ -10,12 +10,13 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
-ms.openlocfilehash: e93985b6583f164e1ea497f5d8cad7352b60f556
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.custom: devx-track-azurecli, devplatv2
+ms.openlocfilehash: 53d7b42426919ec5b91821ac67fbde940972494a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755562"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745230"
 ---
 # <a name="install-set-up-and-use-the-20-cli-preview"></a>Instalación, configuración y uso de la CLI 2.0 (versión preliminar)
 
@@ -25,7 +26,7 @@ La extensión `ml` (versión preliminar) para la [CLI de Azure](/cli/azure/) es 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Para usar la CLI, debe tener una suscripción de Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+- Para usar la CLI, debe tener una suscripción de Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 - Para usar los comandos de la CLI de este documento desde su **entorno local**, necesita la [CLI de Azure](/cli/azure/install-azure-cli).
 
     > [!TIP]
@@ -60,6 +61,14 @@ Ejecute el comando de ayuda para comprobar la instalación y comprobar los subco
 Puede actualizar la extensión a la versión más reciente:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_update":::
+
+### <a name="installation-on-linux"></a>Instalación en Linux
+
+Si usa Linux, la manera más rápida de instalar la versión necesaria de la CLI y la extensión Machine Learning es la siguiente:
+
+:::code language="bash" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_install_linux":::
+
+Para obtener más información, consulte [Instalación de la CLI de Azure para Linux](/cli/azure/install-azure-cli-linux).
 
 ## <a name="set-up"></a>Configuración
 

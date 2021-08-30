@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: b7aefa537c9b822572f38501920afdaa45bc01c3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c1fa9d27bbdfe91eebb74186e69cf707166384fd
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955053"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228621"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de autenticación de Azure Active Directory
 
@@ -42,7 +42,7 @@ La administración de Azure Active Directory requiere la ejecución continua d
 | Evaluar las propiedades e investigar los usuarios marcados en informes de vulnerabilidades y riesgos desde Azure AD Identity Protection | Equipo de operaciones de InfoSec |
 
 > [!NOTE]
-> Azure AD Identity Protection requiere una licencia de Azure AD Premium P2. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Azure AD Free y Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+> Azure AD Identity Protection requiere una licencia de Azure AD Premium P2. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Azure AD Free y Azure AD Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 A medida que revise la lista, es posible que tenga que asignar un propietario a las tareas que no tienen uno o ajustar la propiedad de aquellas tareas cuyos propietarios no se ajustan a las recomendaciones anteriores.
 
@@ -249,7 +249,7 @@ El acceso condicional es una herramienta esencial para mejorar la posición de s
 - Conserve un pequeño conjunto de directivas básicas que se puedan aplicar a varias aplicaciones.
 - Defina grupos de excepciones vacíos y agréguelos a las directivas para tener una estrategia de excepción.
 - Planifique las cuentas de [emergencia ](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) sin controles MFA.
-- Asegúrese de que proporciona una experiencia coherente entre las aplicaciones cliente de Microsoft 365 (por ejemplo, Teams, OneDrive u Outlook) al implementar el mismo conjunto de controles para servicios como Exchange Online y SharePoint Online.
+- Con el fin de garantizar una experiencia coherente entre las aplicaciones cliente de Microsoft 365 (por ejemplo, Teams, OneDrive o Outlook), implemente el mismo conjunto de controles para servicios como Exchange Online y SharePoint Online.
 - Recuerde que la asignación a directivas debe implementarse a través de grupos, no de personas.
 - Realice revisiones periódicas de los grupos de excepciones que se usan en las directivas para limitar el tiempo que los usuarios no usan la posición de seguridad. Si tiene Azure AD P2, puede usar las revisiones de acceso para automatizar el proceso.
 
@@ -328,7 +328,7 @@ A continuación, se muestra la configuración de usuario y de grupo que se puede
 
 #### <a name="user-settings"></a>Configuración de usuario
 
-- **Usuarios externos**: la colaboración externa puede producirse de forma orgánica en la empresa mediante servicios como Teams, Power BI, SharePoint Online y Azure Information Protection. Si tiene restricciones explícitas para controlar cualquier colaboración externa que inicie el usuario, es recomendable que habilite usuarios externos mediante la [administración de derechos de Azure AD](../governance/entitlement-management-overview.md) o con una operación controlada como, por ejemplo, a través del departamento de soporte técnico. Si no quiere permitir la colaboración externa orgánica en los servicios, puede [impedir totalmente que los miembros inviten a usuarios externos](../external-identities/delegate-invitations.md). Como alternativa, también puede [permitir o bloquear dominios específicos](../external-identities/allow-deny-list.md) en invitaciones de usuarios externos.
+- **Usuarios externos:** la colaboración externa puede producirse de forma orgánica en la empresa mediante servicios como Teams, Power BI, SharePoint Online y Azure Information Protection. Si tiene restricciones explícitas para controlar cualquier colaboración externa que inicie el usuario, es recomendable que habilite usuarios externos mediante la [administración de derechos de Azure AD](../governance/entitlement-management-overview.md) o con una operación controlada como, por ejemplo, a través del departamento de soporte técnico. Si no quiere permitir la colaboración externa orgánica en los servicios, puede [impedir totalmente que los miembros inviten a usuarios externos](../external-identities/delegate-invitations.md). Como alternativa, también puede [permitir o bloquear dominios específicos](../external-identities/allow-deny-list.md) en invitaciones de usuarios externos.
 - **Registros de aplicaciones**: cuando la característica Registros de aplicaciones está habilitada, los usuarios finales pueden incorporar aplicaciones y conceder acceso a sus datos. Un ejemplo típico de la característica Registro de aplicaciones, son los usuarios que habilitan los complementos de Outlook o los asistentes de voz como Alexa y Siri que se usan para leer los correos electrónicos y el calendario, o para enviar correos electrónicos en su nombre. Si el cliente decide desactivar Registro de aplicaciones, los equipos de InfoSec e IAM deben participar en la administración de excepciones (esto es, registros de aplicaciones que son necesarios según los requisitos empresariales), ya que tendrán que registrar las aplicaciones con una cuenta de administrador, y lo más probable es que necesite diseñar un proceso para poner en marcha esta operación.
 - **Portal de administración**: las organizaciones pueden bloquear la hoja de Azure AD en Azure Portal para que los usuarios que no sean administradores no puedan obtener acceso a la administración de Azure AD en Azure Portal y se confundan debido a ello. Vaya a la configuración de usuario en el portal de administración de Azure AD para restringir el acceso:
 

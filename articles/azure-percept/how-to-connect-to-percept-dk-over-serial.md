@@ -7,19 +7,19 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: b1cb975c65f2234892cfef919220c68ebf5b2dca
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: a9b864f5d8341253c70fbde6d111b04a4d924f1d
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488274"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371483"
 ---
 # <a name="connect-to-your-azure-percept-dk-over-serial"></a>Conexión serie a Azure Percept DK
 
 Siga los pasos que se indican a continuación para configurar una conexión serie a Azure Percept DK mediante [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 > [!WARNING]
-> **No** intente conectar su dispositivo DevKit a través de serie excepto en casos de error extremos (por ejemplo, si su dispositivo ya no funciona). La retirada del alojamiento de la placa base para conectar el cable serie es muy complicada y podría provocar la rotura de los cables de la antena Wi-Fi.
+> **Si tiene un kit de desarrollo en versión preliminar privada**, **NO** se recomienda conectar el kit de desarrollo a través de serie, excepto en casos de errores extremos (por ejemplo, si el dispositivo está inutilizable). La conexión a través de serie requiere desensamblar el kit de desarrollo en versión preliminar privada para acceder a los conectores GPIO. Retirar el alojamiento de la placa base resulta muy difícil y podría romper los cables de la antena de Wi-Fi.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,29 +32,11 @@ Siga los pasos que se indican a continuación para configurar una conexión seri
 
 ## <a name="start-the-serial-connection"></a>Inicio de la conexión serie
 
-1. Si la placa base está conectada a un raíl de 80/20, quítela del raíl con la llave Allen (incluida en la tarjeta de bienvenida del dispositivo DevKit).
+1. Conecte el [cable serie USB a TTL](https://www.adafruit.com/product/954) a los tres conectores GPIO de la placa base, como se muestra a continuación.
 
-1. Quite los tornillos situados en la parte inferior del alojamiento de la placa base y extraiga la placa base.
+    :::image type="content" source="./media/how-to-connect-to-percept-dk-over-serial/apdk-serial-pins.jpg" alt-text="Conexiones de conectores serie de la placa base.":::
 
-    > [!WARNING]
-    > Al quitar la placa base, se romperán los cables de la antena Wi-Fi. **No** continúe con la conexión serie a menos que sea el último recurso para recuperar el dispositivo.
-
-1. Quite el disipador térmico.
-
-1. Quite la placa del jumper de los conectores GPIO.
-
-    > [!TIP]
-    > Antes de retirar la placa del jumper, fíjese en cómo está orientada. Por ejemplo, dibuje una flecha o pegue un adhesivo en la placa del jumper apuntando hacia el circuito como referencia. La placa del jumper no está codificada y puede conectarse al revés por error al volver a montar la placa base.
-
-1. Conecte el [cable serie USB a TTL](https://www.adafruit.com/product/954) a los conectores GPIO de la placa base, como se muestra a continuación.
-
-    - Conecte el cable negro (GND) al conector 6.
-    - Conecte el cable blanco (RX) al conector 8.
-    - Conecte el cable verde (TX) al conector 10.
-
-    :::image type="content" source="./media/how-to-connect-to-percept-dk-over-serial/serial-connection-carrier-board.png" alt-text="Conexiones de conectores serie de la placa base.":::
-
-1. Encienda el dispositivo DevKit y conecte el lado USB del cable serie al PC.
+1. Encienda el kit de desarrollo y conecte el lado USB del cable serie a su equipo.
 
 1. En Windows, vaya a **Inicio** -> **Configuración de Windows Update** -> **Ver actualizaciones opcionales** -> **Actualizaciones de controladores**. Busque una actualización de serie a USB en la lista, active la casilla situada junto a ella y seleccione **Descargar e instalar**.  
 

@@ -7,15 +7,15 @@ manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/07/2021
+ms.date: 06/25/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
-ms.openlocfilehash: 95ac82bfbdef8843f3eb4fc10cea7a0309d9eb89
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: e6a06c2a2a525e89fd6d7ab61f983f2b91c1cc8a
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656871"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112989010"
 ---
 # <a name="assign-azure-roles-using-the-azure-portal"></a>Asignación de roles de Azure mediante Azure Portal
 
@@ -42,8 +42,6 @@ El control de acceso basado en roles de Azure tiene una nueva experiencia para a
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el cuadro de búsqueda de la parte superior, busque el ámbito al que quiere conceder acceso. Por ejemplo, busque **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso específico.
-
-    ![Captura de pantalla de la búsqueda en Azure Portal de un grupo de recursos.](./media/shared/rg-portal-search.png)
 
 1. Haga clic en el recurso específico de ese ámbito.
 
@@ -124,8 +122,6 @@ El control de acceso basado en roles de Azure tiene una nueva experiencia para a
 
 1. En el cuadro de búsqueda de la parte superior, busque el ámbito al que quiere conceder acceso. Por ejemplo, busque **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso específico.
 
-    ![Captura de pantalla de la búsqueda en Azure Portal de un grupo de recursos en la experiencia con la versión preliminar.](./media/shared/rg-portal-search.png)
-
 1. Haga clic en el recurso específico de ese ámbito.
 
     A continuación se muestra un grupo de recursos de ejemplo.
@@ -150,7 +146,7 @@ El control de acceso basado en roles de Azure tiene una nueva experiencia para a
 
     ![Captura de pantalla del menú Agregar > Agregar asignación de roles en la experiencia con la versión preliminar.](./media/shared/add-role-assignment-menu-preview.png)
 
-    Se abre la página Asignar un rol.
+    Se abre la página Agregar asignación de roles.
 
 ## <a name="step-3-select-the-appropriate-role-preview"></a>Paso 3: Seleccionar el rol apropiado (versión preliminar)
 
@@ -158,7 +154,7 @@ El control de acceso basado en roles de Azure tiene una nueva experiencia para a
 
     Puede buscar un rol por nombre o por descripción. También puede filtrar los roles por tipo y categoría.
 
-   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Seleccionar rol en la experiencia con la versión preliminar.](./media/role-assignments-portal/roles.png)
+   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Roles de la experiencia con la versión preliminar.](./media/shared/roles.png)
 
 1. En la columna **Detalles** haga clic en **Ver** para obtener más información sobre un rol.
 
@@ -170,21 +166,21 @@ El control de acceso basado en roles de Azure tiene una nueva experiencia para a
 
 1. En la pestaña **Miembros**, seleccione **Usuario, grupo o entidad de servicio** para asignar el rol seleccionado a uno o varios usuarios, grupos o entidades de servicio (aplicaciones) de Azure AD.
 
-   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Agregar miembros de la experiencia con la versión preliminar.](./media/role-assignments-portal/members.png)
+   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Miembros de la experiencia con la versión preliminar.](./media/shared/members.png)
 
-1. Haga clic en **Agregar miembros**.
+1. Haga clic en **Seleccionar miembros**.
 
 1. Busque y seleccione los usuarios, grupos o entidades de servicio.
 
-    Puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombres para mostrar, direcciones de correo electrónico o identificadores de objeto.
+    Puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombre para mostrar o dirección de correo electrónico.
 
-   ![Captura de pantalla de la opción Agregar miembros mediante el panel Seleccionar miembros de la experiencia con la versión preliminar.](./media/role-assignments-portal/select-principal.png)
+   ![Captura de pantalla del panel Seleccionar miembros de la experiencia de versión preliminar.](./media/shared/select-members.png)
 
 1. Haga clic en **Guardar** para agregar los usuarios, grupos o entidades de servicio a la lista Miembros.
 
 1. Para asignar el rol seleccionado a una o varias identidades administradas, seleccione **Identidad administrada**.
 
-1. Haga clic en **Agregar miembros**.
+1. Haga clic en **Seleccionar miembros**.
 
 1. En el panel **Selección de identidades administradas**, seleccione si el tipo es una [identidad administrada asignada por el sistema](../active-directory/managed-identities-azure-resources/overview.md) o una [identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/overview.md).
 

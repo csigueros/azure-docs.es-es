@@ -2,36 +2,31 @@
 title: Recomendaciones de Endpoint Protection en Azure Security Center
 description: Cómo se detectan las soluciones de Endpoint Protection y cómo se determina que tienen un estado correcto.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 2730a2f5-20bc-4027-a1c2-db9ed0539532
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/29/2019
+ms.date: 07/21/2021
 ms.author: memildin
-ms.openlocfilehash: 1ce20deed8b26dc5f5bebf4656dd3f1c370d766f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 841d52b53fd492f1b9f6760deba438f68a47d004
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561235"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470718"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Valoración y recomendaciones de Endpoint Protection en Azure Security Center
 
 Azure Security Center proporciona evaluaciones de estado de las versiones [admitidas](security-center-services.md#endpoint-supported) de las soluciones de Endpoint Protection. En este artículo se explican los escenarios que llevan a Security Center a generar las dos recomendaciones siguientes:
 
-* **Instalar soluciones de Endpoint Protection en la máquina virtual**
-* **Resolver problemas de mantenimiento de Endpoint Protection en las máquinas**
+- [La protección de los puntos de conexión debe instalarse en las máquinas](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439)
+- [Los problemas de estado de protección de puntos de conexión se deben resolver en las máquinas](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000)
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** cuando se ejecuta [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) y el resultado es **AMServiceEnabled: False**
+- Security Center recomienda **La protección de los puntos de conexión debe instalarse en las máquinas** cuando se ejecuta [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) y el resultado es **AMServiceEnabled: False**
 
-* Security Center recomiendan **"Resolver problemas de mantenimiento de Endpoint Protection en las máquinas"** cuando se ejecuta [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) y ocurre algo de lo siguiente:
+- Security Center recomienda **Los problemas de estado de protección de puntos de conexión se deben resolver en las máquinas** cuando se ejecuta [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) y ocurre algo de lo siguiente:
 
   * Todas estas propiedades son false:
 
@@ -49,9 +44,9 @@ Azure Security Center proporciona evaluaciones de estado de las versiones [admit
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center Endpoint Protection
 
-* Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** cuando la importación de **SCEPMpModule ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1" )** y la ejecución de **Get-MProtComputerStatus** da como resultado **AMServiceEnabled = false**.
+* Security Center recomienda **La protección de los puntos de conexión debe instalarse en las máquinas** cuando la importación de **SCEPMpModule ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1")** y la ejecución de **Get-MProtComputerStatus** da como resultado **AMServiceEnabled = false**.
 
-* Security Center recomienda **"Resolver problemas de mantenimiento de Endpoint Protection en las máquinas"** cuando se ejecuta **Get-MprotComputerStatus** y ocurre algo de lo siguiente:
+* Security Center recomienda **Los problemas de estado de protección de puntos de conexión se deben resolver en las máquinas** cuando se ejecuta **Get-MprotComputerStatus** y ocurre algo de lo siguiente:
 
   * Al menos una de las propiedades siguientes es false:
 
@@ -69,14 +64,14 @@ Azure Security Center proporciona evaluaciones de estado de las versiones [admit
 
 ## <a name="trend-micro"></a>Trend Micro
 
-* Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** si no se satisface ninguna de las siguientes comprobaciones:
+* Security Center recomienda **La protección de los puntos de conexión debe instalarse en las máquinas** si no se satisface ninguna de las comprobaciones siguientes:
     - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** existe.
     - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** existe.
     - El archivo **dsa_query.cmd** se encuentra en la carpeta de instalación.
     - La ejecución de **dsa_query.cmd** da como resultado **Component.AM.mode: on - Trend Micro Deep Security Agent detected**.
 
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
-Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** si no se satisface ninguna de las siguientes comprobaciones:
+Security Center recomienda **La protección de los puntos de conexión debe instalarse en las máquinas** si no se satisface ninguna de las comprobaciones siguientes:
 
 - **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 - **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
@@ -86,7 +81,7 @@ Or
 - **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 - **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-Security Center recomienda **"Resolver problemas de estado de protección de puntos de conexión en las máquinas"** si no se satisface ninguna de las siguientes comprobaciones:
+Security Center recomienda **Los problemas de estado de protección de puntos de conexión se deben resolver en las máquinas** si no se satisface ninguna de las comprobaciones siguientes:
 
 - Comprobar que la versión de Symantec es >= 12: Ubicación del Registro: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 - Comprobar el estado de protección en tiempo real: **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
@@ -101,12 +96,12 @@ Rutas de acceso del Registro:
 
 ## <a name="mcafee-endpoint-protection-for-windows"></a>McAfee Endpoint Protection para Windows
 
-Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** si no se satisface ninguna de las siguientes comprobaciones:
+Security Center recomienda **La protección de los puntos de conexión debe instalarse en las máquinas** si no se satisface ninguna de las comprobaciones siguientes:
 
 - **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** existe.
 - **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-Security Center recomienda **"Resolver problemas de estado de protección de puntos de conexión en las máquinas"** si no se satisface ninguna de las siguientes comprobaciones:
+Security Center recomienda **Los problemas de estado de protección de puntos de conexión se deben resolver en las máquinas** si no se satisface ninguna de las comprobaciones siguientes:
 
 - Versión de McAfee: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 - Buscar la versión de la firma: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"**
@@ -115,12 +110,12 @@ Security Center recomienda **"Resolver problemas de estado de protección de pun
 
 ## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>McAfee Endpoint Security for Linux Threat Prevention 
 
-Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** si no se satisface ninguna de las siguientes comprobaciones:
+Security Center recomienda **La protección de los puntos de conexión debe instalarse en las máquinas** si no se satisface ninguna de las comprobaciones siguientes:
 
 - El archivo **/opt/isec/ens/threatprevention/bin/isecav** se cierra.
 - El resultado de **"/opt/isec/ens/threatprevention/bin/isecav --version"** es: **El nombre de McAfee = McAfee Endpoint Security for Linux Threat Prevention y la versión de McAfee >= 10**
 
-Security Center recomienda **"Resolver problemas de estado de protección de puntos de conexión en las máquinas"** si no se satisface ninguna de las siguientes comprobaciones:
+Security Center recomienda **Los problemas de estado de protección de puntos de conexión se deben resolver en las máquinas** si no se satisface ninguna de las comprobaciones siguientes:
 
 - **"/opt/ISEC/ENS/threatprevention/bin/isecav--listtask"** devuelve **Quick scan, Full scan** (Examen rápido, examen completo) y ambos exámenes < = 7 días
 - **"/opt/ISEC/ENS/threatprevention/bin/isecav--listtask"** devuelve **DAT and engine Update time** (Motor DAT y hora de actualización) y ambos exámenes < = 7 días
@@ -128,11 +123,11 @@ Security Center recomienda **"Resolver problemas de estado de protección de pun
 
 ## <a name="sophos-antivirus-for-linux"></a>Antivirus Sophos para Linux 
 
-Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** si no se satisface ninguna de las siguientes comprobaciones:
+Security Center recomienda **La protección de los puntos de conexión debe instalarse en las máquinas** si no se satisface ninguna de las comprobaciones siguientes:
 - El archivo **/opt/Sophos-AV/bin/savdstatus** se cierra o busca la ubicación **"readlink $(which savscan)"**
 - **"/opt/sophos-av/bin/savdstatus --version"** devuelve el nombre de Sophos = **Sophos Anti-Virus y la versión de Sophos >= 9**
 
-Security Center recomienda **"Resolver problemas de estado de protección de puntos de conexión en las máquinas"** si no se satisface ninguna de las siguientes comprobaciones:
+Security Center recomienda **Los problemas de estado de protección de puntos de conexión se deben resolver en las máquinas** si no se satisface ninguna de las comprobaciones siguientes:
 - **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"** , devuelve un valor
 - **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", devuelve un valor
 - **"/opt/sophos-av/bin/savdstatus --lastupdate"** devuelve lastUpdate, que debe ser <= 7 días 

@@ -1,14 +1,14 @@
 ---
 title: Ver y administrar clientes y recursos delegados en Azure Portal
 description: Como proveedor de servicio o empresa que usa Azure Lighthouse, puede ver todos los recursos y suscripciones delegados desde la sección Mis clientes de Azure Portal.
-ms.date: 03/12/2021
+ms.date: 08/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 78344015ee027b9844b6339fa7cd95d348488a54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a29f34983bc42d74efd65a45605bb99944897345
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419338"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861009"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources-in-the-azure-portal"></a>Ver y administrar clientes y recursos delegados en Azure Portal
 
@@ -41,6 +41,9 @@ Puede ver la siguiente información desde esta página:
 - Para ver más detalles sobre una oferta y sus delegaciones, seleccione el nombre de la oferta.
 - Para ver más detalles acerca de las asignaciones de roles en las suscripciones o grupos de recursos delegados, seleccione la entrada de la columna **Delegaciones**.
 
+> [!NOTE]
+> Si un cliente cambia el nombre de una suscripción después de delegarla, verá el nombre de la suscripción actualizado. Si cambia el nombre del inquilino, es posible que todavía vea el nombre del inquilino anterior en algunos lugares de Azure Portal.
+
 ## <a name="view-and-manage-delegations"></a>Visualización y administración de delegaciones
 
 Las delegaciones muestran el grupo de recursos o la suscripción que se ha delegado, junto con los usuarios y permisos que tienen acceso a ella. Para ver esta información, seleccione **Delegaciones** en el lado izquierdo de la página **Mis clientes**.
@@ -67,15 +70,18 @@ Para obtener más información, consulte [Visualización de cambios de delegaci�
 
 Puede trabajar directamente en el contexto de una suscripción delegada en Azure Portal sin cambiar el directorio en el que ha iniciado sesión. Para ello:
 
-1. Seleccione el icono de **directorio y suscripción** situado cerca de la parte superior de Azure Portal.
-2. En el **Filtro de suscripción predeterminado**, asegúrese de que solo está seleccionado el cuadro de la suscripción delegada. Puede usar el cuadro **directorios actuales y delegados** para mostrar solo las suscripciones de un directorio específico. (No use la **Cambiar directorio**, ya que cambia el directorio en el que ha iniciado sesión).
+1. Seleccione el icono **Directory + subscriptions** (Directorio y suscripciones) o **Configuración** cerca de la parte superior de Azure Portal.
+1. En la página de configuración de [Directories + subscriptions (Directorios y suscripciones)](../../azure-portal/set-preferences.md#directories--subscriptions), asegúrese de que el botón de alternancia **Filtros avanzados** está [desactivado](../../azure-portal/set-preferences.md#subscription-filters).
+1. En la sección **Filtro de suscripción predeterminada**, seleccione el directorio y la suscripción adecuados.
 
-Si después accede a un servicio que admite [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md), el servicio se establecerá de forma predeterminada en el contexto de la suscripción delegada que haya seleccionado. Para cambiarlo, siga los pasos anteriores y active la casilla **Seleccionar todo** (o elija una o más suscripciones para trabajar en su lugar).
+:::image type="content" source="../media/subscription-filter-delegated.png" alt-text="Captura de pantalla de un filtro que muestra una suscripción delegada.":::
+
+Si después accede a un servicio que admite [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md), el servicio adoptará de forma predeterminada el contexto de la suscripción delegada que incluyó en el filtro. Para cambiarlo, siga los pasos anteriores y active la casilla **Seleccionar todo** (o elija una o más suscripciones para trabajar en su lugar).
 
 > [!NOTE]
-> Si se le ha concedido acceso a uno o varios grupos de recursos, en lugar de acceso a una suscripción completa, seleccione la suscripción a la que pertenece ese grupo de recursos. Después, trabajará en el contexto de esa suscripción, pero solo podrá tener acceso a los grupos de recursos designados.
+> Si se le ha concedido acceso a uno o varios grupos de recursos, en lugar de acceso a una suscripción completa, seleccione la suscripción a la que pertenece ese grupo de recursos. Después, trabajará en el contexto de esa suscripción, pero solo podrá acceder a los grupos de recursos designados.
 
-También puede tener acceso a la funcionalidad relacionada con las suscripciones o grupos de recursos delegados desde los servicios que admiten experiencias de administración entre inquilinos seleccionando la suscripción o el grupo de recursos desde el servicio.
+También puede acceder a la funcionalidad relacionada con las suscripciones o grupos de recursos delegados desde los servicios que admiten experiencias de administración entre inquilinos seleccionando la suscripción o el grupo de recursos desde un servicio.
 
 ## <a name="cloud-solution-provider-preview"></a>Proveedor de soluciones en la nube (versión preliminar)
 

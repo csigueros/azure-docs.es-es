@@ -259,8 +259,9 @@
             - name: Configuración de servicios web seguros
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md
-            - name: Configurar firewall
+            - name: Configuración del tráfico de red necesario
               href: how-to-access-azureml-behind-firewall.md
+              displayName: 'firewall, user-defined route, udr'
         - name: Protección de los datos
           items:
             - name: Conmutación por error y recuperación ante desastres

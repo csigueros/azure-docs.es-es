@@ -10,12 +10,12 @@ ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 13491735f73cb1696f3c36f3434cc781a1e2b739
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80c02416f5e1fb232d84b1311d261122dc7b9a35
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99526812"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733671"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-directory-or-blob-with-net"></a>Creación de una SAS de delegación de usuarios para un contenedor, un directorio o un blob con .NET
 
@@ -27,7 +27,7 @@ En este artículo se muestra cómo usar credenciales de Azure Active Directory (
 
 ## <a name="assign-azure-roles-for-access-to-data"></a>Asignación de roles de Azure para el acceso a los datos
 
-Cuando una entidad de seguridad de Azure AD intenta acceder a los datos de blobs, dicha entidad debe tener permisos para el recurso. Si la entidad de seguridad es una identidad administrada en Azure o una cuenta de usuario de Azure AD que ejecuta código en el entorno de desarrollo, se le debe asignar un rol de Azure que conceda acceso a los datos de blobs en Azure Storage. Para información sobre la asignación de permisos a través de Azure RBAC, consulte la sección titulada **Asignación de roles de Azure para derechos de acceso** en [Autorización del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+Cuando una entidad de seguridad de Azure AD intenta acceder a los datos de blobs, dicha entidad debe tener permisos para el recurso. Si la entidad de seguridad es una identidad administrada en Azure o una cuenta de usuario de Azure AD que ejecuta código en el entorno de desarrollo, se le debe asignar un rol de Azure que conceda acceso a los datos de blobs en Azure Storage. Para obtener información sobre la asignación de permisos mediante Azure RBAC, consulte [Asignación de un rol de Azure para acceder a datos de blobs](assign-azure-role-data-access.md).
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 

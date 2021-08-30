@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 641fc76775d4aa535490d3c6f720d81777665b36
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 154680d5f62140b95e7ada3a37678ee3be1c5b24
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165288"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015493"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca del enrutamiento de centros virtuales
 
@@ -28,7 +28,30 @@ En las secciones siguientes se describen los conceptos clave del enrutamiento de
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabla de rutas del centro de conectividad
 
-Una tabla de rutas de centros virtuales puede contener una o varias rutas. Una ruta incluye su nombre, una etiqueta, un tipo de destino, una lista de prefijos de destino y la información de próximo salto de un paquete que se va a enrutar. Una **conexión** normalmente tendrá una configuración de enrutamiento que se asocia o se propaga a una tabla de rutas.
+Una tabla de rutas de centros virtuales puede contener una o varias rutas. Una ruta incluye su nombre, una etiqueta, un tipo de destino, una lista de prefijos de destino y la información de próximo salto de un paquete que se va a enrutar. Una **conexión** suele tener una configuración de enrutamiento que se asocia o se propaga a una tabla de rutas.
+
+### <a name="hub-routing-intent-and-policies"></a><a name= "hub-route"></a>Intención y directivas de enrutamiento de centros
+>[!NOTE]  
+> Las directivas de enrutamiento de centros están actualmente en versión preliminar administrada. 
+>  
+>Para obtener acceso a esta versión preliminar, envíe un correo electrónico a previewinterhub@microsoft.com con el identificador de Virtual WAN, el identificador de suscripción y la región de Azure en la que desea configurar directivas de enrutamiento. La respuesta con la confirmación de la habilitación de la característica debería llegar en un plazo de 24 a 48 horas. 
+>
+> Para obtener más información sobre cómo configurar la intención y las directivas de enrutamiento, consulte [este documento](how-to-routing-policies.md).
+
+
+Los clientes que usan Azure Firewall Manager con el fin de configurar directivas para tráfico público y privado ya pueden configurar sus redes de una manera mucho más sencilla mediante la intención y las directivas de enrutamiento.
+
+La intención y las directivas de enrutamiento permiten especificar cómo el centro de Virtual WAN reenvía el tráfico de Internet y privado (de punto a sitio, de sitio a sitio, ExpressRoute, aplicaciones virtuales de red dentro del centro de Virtual WAN y Virtual Network). Hay dos tipos de directivas de enrutamiento: de tráfico de Internet y de tráfico privado. Cada centro de Virtual WAN puede tener como máximo una directiva de enrutamiento de tráfico de Internet y otra de tráfico privado, cada una con un recurso de próximo salto. 
+
+Aunque el tráfico privado incluye prefijos de dirección de ramas y de Virtual Network, las directivas de enrutamiento los consideran una sola entidad dentro del concepto de intención de enrutamiento.
+
+
+* **Directiva de enrutamiento de tráfico de Internet**: cuando se configure una directiva de enrutamiento de tráfico de Internet en un centro de Virtual WAN, todas las conexiones de rama (VPN de usuario, VPN de punto a sitio, VPN de sitio a sitio y ExpressRoute) y de Virtual Network a dicho centro reenviarán el tráfico de Internet al recurso de Azure Firewall o al proveedor de seguridad externo que se haya especificado como parte de la directiva de enrutamiento.
+ 
+
+* **Directiva de enrutamiento de tráfico privado**: cuando se configure una directiva de enrutamiento de tráfico privado en un centro de Virtual WAN, **todo** el tráfico de rama y de Virtual Network dentro y fuera de dicho centro, incluido el tráfico entre centros, se reenviará al recurso de próximo salto de Azure Firewall que se haya especificado en la directiva de enrutamiento de tráfico privado. 
+
+Para obtener más información sobre cómo configurar la intención y las directivas de enrutamiento, consulte [este documento](how-to-routing-policies.md).
 
 ### <a name="connections"></a><a name="connection"></a>Conexiones
 
@@ -47,7 +70,7 @@ Cada conexión está asociada a una tabla de rutas. La asociación de una conexi
 
 De forma predeterminada, todas las conexiones están asociadas a una **tabla de rutas predeterminada** en un centro virtual. Cada centro virtual tiene su propia tabla de rutas predeterminada, que se puede editar para agregar una o más rutas estáticas. Las rutas agregadas estáticamente tienen prioridad sobre las rutas aprendidas de forma dinámica para los mismos prefijos.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Asociación":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Asociación"lightbox="./media/nat-rules-vpn-gateway/edit-site-bgp.png":::
 
 ### <a name="propagation"></a><a name="propagation"></a>Propagación
 
@@ -90,7 +113,7 @@ Tenga en cuenta lo siguiente al configurar el enrutamiento de Virtual WAN:
 * De momento no se admite el flujo de rama a rama a través de Azure Firewall.
 * Al usar Azure Firewall en varias regiones, todas las redes virtuales de radios deben estar asociadas a la misma tabla de rutas. Por ejemplo, no es posible tener un subconjunto de redes virtuales que pasen por Azure Firewall mientras otras redes virtuales se saltan Azure Firewall en el mismo centro virtual.
 * Se puede configurar una única dirección IP de próximo salto por cada conexión de red virtual.
-
+* Toda la información relativa a la ruta 0.0.0.0/0 se confina en la tabla de rutas de un centro local. Esta ruta no se propaga entre centros.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para configurar el enrutamiento, vea [Configuración del enrutamiento de centro virtual](how-to-virtual-hub-routing.md).

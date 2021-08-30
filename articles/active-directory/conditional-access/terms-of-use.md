@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 01/27/2020
+ms.date: 07/12/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4c8e18979ff1575e1a050244a96e7858cdce46b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 9afabe40426a5e86fdd3c6ef76969e1392a9b051
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530250"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113649590"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Términos de uso de Azure Active Directory
 
@@ -57,7 +57,7 @@ Las directivas de los términos de uso de Azure AD tienen las siguientes funcio
 Para usar y configurar las directivas de los términos de uso de Azure AD, debe cumplir los siguientes requisitos:
 
 - Suscripción a Azure AD Premium P1, P2, EMS E3 o EMS E5.
-   - Si no tiene una de estas suscripciones, puede [obtener Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) o [habilitar la evaluación gratuita de Azure AD Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
+   - Si no tiene una de estas suscripciones, puede [obtener Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) o [habilitar la evaluación gratuita de Azure AD Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Una de las siguientes cuentas de administrador para el directorio que quiera configurar:
    - Administrador global
    - Administrador de seguridad
@@ -201,16 +201,10 @@ Los usuarios solo tienen que aceptar la directiva de los términos de uso una ve
 
 Los usuarios pueden revisar y consultar las directivas de los términos de uso que han aceptado mediante el procedimiento siguiente.
 
-1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com).
-1. En la esquina superior derecha, haga clic en su nombre y seleccione **Perfil**.
-
-    ![Sitio de MyApps con el panel del usuario abierto](./media/terms-of-use/tou14.png)
-
-1. En la página Perfil, haga clic en **Review terms of use** (Revisar los términos de uso).
-
-    ![Página de perfil de un usuario que muestra el vínculo Revisión de los términos de uso](./media/terms-of-use/tou13a.png)
-
-1. Desde ahí, puede revisar las directivas de los términos de uso que ha aceptado.
+1. Inicie sesión en [https://myaccount.microsoft.com/](https://myaccount.microsoft.com/).
+1. Seleccione **Settings & Privacy** (Configuración y privacidad).
+1. Seleccione **Privacidad**.
+1. En **Organization's notice** (Aviso de la organización), seleccione **View** (Ver) junto a la declaración de las condiciones de uso que desea revisar.
 
 ## <a name="edit-terms-of-use-details"></a>Edición de los detalles de los términos de uso
 
@@ -222,7 +216,7 @@ Algunos de los detalles de las directivas de los términos de uso se pueden edit
 1. En el panel Edición de condiciones de uso, puede cambiar lo siguiente:
     - **Nombre**: es el nombre interno de las condiciones de uso que no se comparten con los usuarios finales.
     - **Nombre para mostrar**: este es el nombre que los usuarios finales pueden observar al ver las condiciones de uso.
-    - **Requerir a los usuarios que expandan los términos de uso**: si se establece en **Activo**, se forzará a que el usuario final expanda el documento de la directiva de los términos de uso antes de aceptarla.
+    - **Requerir a los usuarios que expandan las condiciones de uso**: si se **Activa** esta opción, el usuario final tendrá que expandir el documento de la directiva de las condiciones de uso antes de aceptarla.
     - (Versión preliminar) Puede **actualizar un documento de condiciones de uso ya existente**.
     - Puede agregar un idioma a un documento de condiciones de uso ya existente.
 
@@ -242,7 +236,7 @@ Algunos de los detalles de las directivas de los términos de uso se pueden edit
     ![Panel Edición de términos de uso que muestra las opciones de nombre y expansión](./media/terms-of-use/edit-terms-use.png)
 
 5.  En el panel de la derecha, cargue el PDF de la nueva versión.
-6.  También hay una opción de alternancia aquí, **Require reaccept** (Requerir nueva aceptación), en caso de que desee requerir a los usuarios que acepten esta nueva versión la próxima vez que inicien sesión. Si activa esta opción, la próxima vez que intenten acceder al recurso definido en la directiva de acceso condicional, se les pedirá que acepten esta nueva versión. Si no requiere una nueva aceptación por parte de los usuarios, su consentimiento anterior seguirá siendo el actual y solo los usuarios nuevos que no hayan dado su consentimiento anteriormente o cuyo consentimiento expire verán la nueva versión.
+6.  También hay una opción de alternancia aquí, **Require reaccept** (Requerir nueva aceptación), en caso de que desee requerir a los usuarios que acepten esta nueva versión la próxima vez que inicien sesión. Si activa esta opción, la próxima vez que intenten acceder al recurso definido en la directiva de acceso condicional, se les pedirá que acepten esta nueva versión. Si no requiere una nueva aceptación por parte de los usuarios, su consentimiento anterior seguirá siendo el actual y solo los usuarios nuevos que no hayan dado su consentimiento anteriormente o cuyo consentimiento expire verán la nueva versión. Hasta que expire la sesión, **Require reaccept** (Requerir nueva aceptación) no exige que los usuarios acepten las nuevas condiciones de uso. Si desea asegurarse de que vuelve a aceptar, elimine o vuelva a crear o cree nuevas condiciones de uso para este caso.
 
     ![Edición de condiciones de uso con la opción de nueva aceptación resaltada](./media/terms-of-use/re-accept.png)
 
@@ -402,12 +396,6 @@ A. Los recuentos de usuarios en el informe Términos de uso y quién los ha acep
 
 **P: ¿Por qué veo un número diferente de autorizaciones en el informe Términos de uso en comparación con los registros de auditoría de Azure AD?**<br />
 A. El informe Términos de uso se almacena durante toda la vigencia de dicha directiva de los términos de uso, mientras que los registros de auditoría de Azure AD se almacenan durante 30 días. Además, el informe Términos de uso solo muestra el estado de consentimiento actual de los usuarios. Por ejemplo, si un usuario manifiesta su rechazo y luego su aceptación, el informe Términos de uso solo mostrará la aceptación de ese usuario. Si necesita ver el historial, puede usar los registros de auditoría de Azure AD.
-
-**P: Si edito los detalles de una directiva de los términos de uso, ¿los usuarios tienen que volver a aceptarlos?**<br />
-A. No, si un administrador edita los detalles de una directiva de los términos de uso (nombre, nombre para mostrar, requerir a los usuarios que expandan o agregar un idioma), no requiere a los usuarios que vuelvan a aceptar los nuevos términos.
-
-**P: ¿Se puede actualizar un documento de la directiva de los términos de uso existente?**<br />
-A. Actualmente no se puede actualizar un documento de la directiva de los términos de uso existente. Para cambiar el documento de una directiva de los términos de uso, tendrá que crear una instancia de dicha directiva.
 
 **P: Si hay hipervínculos en el documento PDF de la directiva de los términos de uso, ¿los usuarios finales podrán hacer clic en ellos?**<br />
 A. Sí, los usuarios finales pueden seleccionar hipervínculos a páginas adicionales, pero no se admiten vínculos a secciones del documento. Además, los hipervínculos en los PDF de la directiva de los términos de uso no funcionan cuando se accede a ellos desde el portal MyApps/MyAccount de Azure AD.

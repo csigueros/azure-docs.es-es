@@ -1,14 +1,14 @@
 ---
 title: Vincule a un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados
 description: Asocie el identificador de asociado para recibir créditos obtenidos por el asociado (PEC) en los recursos de cliente que administra a través de Azure Lighthouse.
-ms.date: 02/12/2021
+ms.date: 07/02/2021
 ms.topic: how-to
-ms.openlocfilehash: e21fc641f421580e6f00de8036f88632cc860060
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 72a31da9cf9927de00f005ce374488c0de9eba47
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075626"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288732"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Vincule a un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados 
 
@@ -24,7 +24,7 @@ Para simplificar, se recomienda crear una cuenta de entidad de servicio en el in
 
 1. [Cree una cuenta de usuario de entidad de servicio](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) en el inquilino de administración. En este ejemplo, utilizaremos el nombre *Cuenta de Automation del proveedor* para esta cuenta de entidad de servicio.
 1. Con esa cuenta de entidad de servicio, [vincúlela a su identificador de MPN asociado](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) en el inquilino de administración. Solo tiene que hacer esto una vez.
-1. Al incorporar un cliente [mediante plantillas de ARM](onboard-customer.md) u [ofertas de servicio administrado](publish-managed-services-offers.md), asegúrese de incluir una autorización que incluya la Cuenta de automatización del proveedor como usuario con un [rol integrado de Azure que sea apto para el PEC](/partner-center/azure-roles-perms-pec).
+1. Al incorporar un cliente [mediante plantillas de ARM](onboard-customer.md) u [ofertas de servicio administrado](publish-managed-services-offers.md), asegúrese de incluir una autorización que incorpore la cuenta de automatización del proveedor como usuario con un [rol integrado de Azure que sea apto para PEC](/partner-center/azure-roles-perms-pec). Para que se aplique PEC, este rol debe concederse como asignación permanente, no como una [autorización apta](create-eligible-authorizations.md) Just-In-Time.
 
 Siguiendo estos pasos, todos los inquilinos de cliente que administre se asociarán con su identificador de asociado. No es necesario que la cuenta "Provider Automation Account" autentique o realice ninguna acción en el inquilino del cliente.
 
@@ -32,7 +32,7 @@ Siguiendo estos pasos, todos los inquilinos de cliente que administre se asociar
 
 ## <a name="add-your-partner-id-to-previously-onboarded-customers"></a>Adición del identificador de asociado a los clientes incorporados anteriormente
 
-Si ya ha incorporado un cliente, es posible que no desee realizar otra implementación para agregar la entidad de servicio de la cuenta "Provider Automation Account". En su lugar, puede vincular el **identificador de MPN asociado** a una cuenta de usuario que ya tenga acceso para trabajar en el inquilino de ese cliente. Asegúrese de que se ha concedido a la cuenta un [rol integrado de Azure que sea apto para el PEC](/partner-center/azure-roles-perms-pec).
+Si ya ha incorporado un cliente, es posible que no desee realizar otra implementación para agregar la entidad de servicio de la cuenta "Provider Automation Account". En su lugar, puede vincular el **identificador de MPN asociado** a una cuenta de usuario que ya tenga acceso para trabajar en el inquilino de ese cliente. Asegúrese de que se ha concedido a la cuenta un [rol integrado de Azure que sea apto para PEC](/partner-center/azure-roles-perms-pec) como asignación de roles permanente.
 
 Una vez que la cuenta se ha [vinculado a su identificador de MPN asociado](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) en el inquilino de administración, podrá realizar un seguimiento del reconocimiento del impacto en ese cliente.
 

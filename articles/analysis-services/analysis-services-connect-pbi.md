@@ -4,15 +4,15 @@ description: Aprenda a conectarse a un servidor de Azure Analysis Services media
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 5/25/2021
+ms.date: 06/30/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 579f97deaadf8005d7a7986ff3b032909c28972e
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: a956d5e3be0a5f92e22dcd1536339ff5244e19dc
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110496567"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213362"
 ---
 # <a name="connect-with-power-bi"></a>Conexión con Power BI
 
@@ -37,10 +37,12 @@ Una vez que se ha creado un servidor en Azure y se ha implementado un modelo tab
     
     Si tiene un modelo Power BI en [modo de almacenamiento mixto](/power-bi/transform-model/desktop-composite-models), la opción **Conectarse en directo** se reemplaza por la opción **[DirectQuery](/power-bi/connect-data/desktop-directquery-datasets-azure-analysis-services)** . Las conexiones dinámicas también se actualizan automáticamente a DirectQuery si el modelo cambia del modo de importación al modo de almacenamiento mixto.
 
-5. Escriba sus credenciales de inicio de sesión, si se le solicitan. 
+5. Cuando se le pida que escriba las credenciales, seleccione **Cuenta Microsoft** y, a continuación, haga clic en **Iniciar sesión**. 
+
+    :::image type="content" source="media/analysis-services-connect-pbi/aas-sign-in.png" alt-text="Inicio de sesión en Azure AD":::
 
    > [!NOTE]
-   > No se admiten las cuentas de código de acceso de un solo uso (OTP). 
+   > No se admiten la autenticación básica ni de Windows. 
 
 6. En **Navegador**, expanda el servidor, seleccione el modelo o la perspectiva a la que desea conectarse y haga clic en **Conectar**. Haga clic en un modelo o una perspectiva para mostrar todos los objetos de esa vista.
 
@@ -55,7 +57,7 @@ Una vez que se ha creado un servidor en Azure y se ha implementado un modelo tab
 
 Para proteger el rendimiento del sistema, se aplica un límite de memoria para todas las consultas emitidas por informes de Power BI en Azure Analysis Services, independientemente del [límite de memoria de consulta](/analysis-services/server-properties/memory-properties?view=azure-analysis-services-current&preserve-view=true) configurado en el servidor Azure Analysis Services. Los usuarios deben considerar la posibilidad de simplificar la consulta o sus cálculos si la consulta tiene un uso intensivo de memoria.
 
-|                                                           | Límite de memoria de solicitud |
+|Tipo de consulta| Límite de memoria de solicitud |
 |-----------------------------------------------------------|----------------------|
 | Conexión en vivo desde Power BI                            | 10 GB  |
 | DirectQuery desde el informe de Power BI en el área de trabajo Compartida  | 1 GB   |

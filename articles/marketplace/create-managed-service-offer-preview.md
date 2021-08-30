@@ -1,21 +1,21 @@
 ---
-title: Adición de una audiencia preliminar para la oferta de servicio administrado
-description: Aprenda a agregar una audiencia preliminar para la oferta de servicio administrado en el Centro de partners de Microsoft.
+title: Adición de una audiencia preliminar para una oferta de servicio administrado
+description: Agregue una audiencia preliminar para una oferta de servicio administrado en Azure Marketplace.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
-ms.openlocfilehash: a30265f335dd279470e6de421f83e682a304788f
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.date: 7/16/2021
+ms.openlocfilehash: 38fbf04f9e8f961cca99bd3e0b23e05e664f4848
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060514"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113649713"
 ---
-# <a name="how-to-add-a-preview-audience-for-your-managed-service-offer"></a>Adición de una audiencia preliminar para la oferta de servicio administrado
+# <a name="add-a-preview-audience-for-a-managed-service-offer"></a>Adición de una audiencia preliminar para una oferta de servicio administrado
 
 En este artículo se describe cómo configurar una audiencia preliminar para una oferta de servicio administrado en el marketplace comercial mediante el Centro de partners. La audiencia preliminar puede revisar la oferta antes de que se publique.
 
@@ -43,7 +43,8 @@ Agregue al menos un identificador de suscripción de Azure, bien de forma indivi
 5. Guarde el archivo como un archivo CSV.
 6. En la página **Preview audience** (Audiencia preliminar), seleccione el vínculo **Import Audience (csv)** (Importar audiencia [csv]).
 7. En el cuadro de diálogo **Confirmar**, seleccione **Sí** y, luego, cargue el archivo CSV.
-8. Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña.
+
+Seleccione **Guardar borrador** antes de continuar con la siguiente pestaña: **Información general del plan**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

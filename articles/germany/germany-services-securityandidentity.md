@@ -1,34 +1,30 @@
 ---
 title: Servicios de identidad y seguridad de Azure Alemania | Microsoft Docs
-description: Proporciona una comparación de los servicios de seguridad e identidad de Azure Alemania
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: En este artículo se proporciona una comparación de los servicios de seguridad e identidad de Azure Alemania.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: ee98e074b8bf21abe198506899b99be4e2908f14
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: 1d66a1f9a1fd2aea17d28d52cbcaa102ec3cb6cc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033493"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "117029017"
 ---
 # <a name="azure-germany-security-and-identity-services"></a>Servicios de identidad y seguridad de Azure Alemania
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 ## <a name="key-vault"></a>Key Vault
 Para más información acerca del servicio Azure Key Vault y cómo usarlo, consulte la [documentación global de Azure Key Vault](../key-vault/index.yml).
 
 Key Vault está disponible en Azure Alemania con carácter general. Como en Azure global, no hay ninguna extensión, por lo que solo está disponible mediante PowerShell y la CLI.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory ofrece funcionalidades de identidad y acceso para los sistemas de información que se ejecutan en Microsoft Azure. Mediante el uso de servicios de directorio, grupos de seguridad y una directiva de grupo, puede ayudar a controlar las directivas de acceso y seguridad de las máquinas que usan Azure Active Directory. Puede usar las cuentas y los grupos de seguridad, junto con el control de acceso basado en roles (RBAC), para ayudar a administrar el acceso a los sistemas de información. 
+Azure Active Directory ofrece funcionalidades de identidad y acceso para los sistemas de información que se ejecutan en Microsoft Azure. Mediante el uso de servicios de directorio, grupos de seguridad y una directiva de grupo, puede ayudar a controlar las directivas de acceso y seguridad de las máquinas que usan Azure Active Directory. Puede usar las cuentas y los grupos de seguridad, junto con el control de acceso basado en roles de Azure (Azure RBAC), para ayudar a administrar el acceso a los sistemas de información. 
 
 Azure Active Directory está disponible en Azure Alemania con carácter general.
 
@@ -47,8 +43,4 @@ Azure Active Directory está disponible en Azure Alemania con carácter general.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información complementaria y actualizaciones, suscríbase al [blog de Azure Alemania](https://blogs.msdn.microsoft.com/azuregermany/).
-
-
-
-
+Para información complementaria y actualizaciones, suscríbase al [blog de Azure Alemania](/archive/blogs/azuregermany/).

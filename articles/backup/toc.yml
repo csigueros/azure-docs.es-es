@@ -184,6 +184,8 @@
           items:
             - name: Copia de seguridad de varias máquinas virtuales con SQL Server desde el almacén
               href: backup-sql-server-database-azure-vms.md
+            - name: Copia de seguridad de grupo de disponibilidad de SQL
+              href: backup-sql-server-on-availability-groups.md
             - name: Copia de seguridad de una máquina virtual con SQL Server desde el panel de la máquina virtual
               href: backup-sql-server-vm-from-vm-pane.md
         - name: Restauración

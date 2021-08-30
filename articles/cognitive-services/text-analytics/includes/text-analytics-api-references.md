@@ -8,16 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 11/19/2019
-ms.author: assafi
-ms.openlocfilehash: f76fb36722e9239e1f27cc3a529b81f014f9c496
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/08/2021
+ms.author: aahi
+ms.openlocfilehash: 2be3209da75734d584929d1bc9a0268b4f3c8640
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084290"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550016"
 ---
 > [!Tip]
 > Para obtener documentación técnica detallada de la API y verla en acción, use los vínculos siguientes. También puede enviar solicitudes POST desde la consola de prueba de la API integrada. No se requiere ninguna configuración, simplemente pegue la clave del recurso y los documentos JSON en la solicitud:
+> - Versión estable más reciente de la API: [v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1)
 > - Versión estable más reciente de la API: [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0)
-> - Última versión preliminar de la API: [v3.1-Preview.5](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-5)
+

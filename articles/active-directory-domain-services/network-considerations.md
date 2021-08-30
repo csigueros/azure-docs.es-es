@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 08/12/2021
 ms.author: justinha
-ms.openlocfilehash: d1a3ab5face03754bf84f442ac0fa73768b0fc80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 533d663b478ddd362ef18f81528afbe1b9393095
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97615825"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015643"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Consideraciones de diseño y opciones de configuración de red virtual para Azure Active Directory Domain Services
 
@@ -94,9 +94,9 @@ Un dominio administrado crea algunos recursos de red durante la implementación.
 | Recurso de Azure                          | Descripción |
 |:----------------------------------------|:---|
 | Tarjeta de interfaz de red                  | Azure AD DS hospeda el dominio administrado en dos controladores de dominio que se ejecutan en Windows Server como máquinas virtuales de Azure. Cada máquina virtual tiene una interfaz de red virtual que se conecta a la subred de la red virtual. |
-| Dirección IP pública estándar dinámica      | Azure AD DS se comunica con el servicio de sincronización y administración mediante una dirección IP pública de SKU básica. Para obtener más información sobre las direcciones IP públicas, consulte [Tipos de direcciones IP y métodos de asignación en Azure](../virtual-network/public-ip-addresses.md). |
-| Azure Standard Load Balancer            | Azure AD DS usa un equilibrador de carga de SKU básica para la traducción de direcciones de red (NAT) y el equilibrio de carga (cuando se usa con LDAP seguro). Para obtener más información sobre los equilibradores de carga de Azure, consulte [¿Qué es Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
-| Reglas de traducción de direcciones de red (NAT) | Azure AD DS crea y usa tres reglas NAT en el equilibrador de carga: una para el tráfico HTTP seguro y dos para proteger la comunicación remota de PowerShell. |
+| Dirección IP pública estándar dinámica      | Azure AD DS se comunica con el servicio de sincronización y administración mediante una dirección IP pública de SKU estándar. Para obtener más información sobre las direcciones IP públicas, consulte [Tipos de direcciones IP y métodos de asignación en Azure](../virtual-network/public-ip-addresses.md). |
+| Azure Standard Load Balancer            | Azure AD DS usa un equilibrador de carga de SKU estándar para la traducción de direcciones de red (NAT) y el equilibrio de carga (cuando se usa con LDAP seguro). Para obtener más información sobre los equilibradores de carga de Azure, consulte [¿Qué es Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
+| Reglas de traducción de direcciones de red (NAT) | Azure AD DS crea y usa dos reglas NAT de entrada en el equilibrador de carga para proteger la comunicación remota de PowerShell. Si se usa un equilibrador de carga de SKU estándar, también tendrá una regla NAT de salida. Para el equilibrador de carga de SKU básica, no se requiere ninguna regla NAT de salida. |
 | Reglas de equilibrador de carga                     | Cuando un dominio administrado está configurado para LDAP seguro en el puerto TCP 636, se crean tres reglas y se usan en un equilibrador de carga para distribuir el tráfico. |
 
 > [!WARNING]
@@ -104,11 +104,15 @@ Un dominio administrado crea algunos recursos de red durante la implementación.
 
 ## <a name="network-security-groups-and-required-ports"></a>Grupos de seguridad de red y puertos necesarios
 
-Un [grupo de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md) contiene una lista de reglas que permiten o deniegan el tráfico de red al tráfico de una red virtual de Azure. Cuando se implementa un dominio administrado que contiene un conjunto de reglas que permiten que el servicio proporcione funciones de autenticación y administración, se crea un grupo de seguridad de red. Este grupo de seguridad de red predeterminado está asociado a la subred de la red virtual en la que se implementa el dominio administrado.
+Un [grupo de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md) contiene una lista de reglas que permiten o deniegan el tráfico de red de una red virtual de Azure. Cuando se implementa un dominio administrado, se crea un grupo de seguridad de red con un conjunto de reglas que permiten que el servicio proporcione funciones de autenticación y administración. Este grupo de seguridad de red predeterminado está asociado a la subred de la red virtual en la que se implementa el dominio administrado.
 
-Las siguientes reglas de grupo de seguridad de red son necesarias para que el dominio administrado proporcione servicios de autenticación y administración. No edite ni elimine estas reglas del grupo de seguridad de red para la subred de la red virtual en la que está implementado el dominio administrado.
+En las secciones siguientes se tratan los grupos de seguridad de red y los requisitos de puertos de entrada y salida.
 
-| Número de puerto | Protocolo | Source                             | Destination | Acción | Obligatorio | Propósito |
+### <a name="inbound-connectivity"></a>Conectividad de entrada
+
+Las siguientes reglas de entrada del grupo de seguridad de red son necesarias para que el dominio administrado proporcione servicios de autenticación y administración. No edite ni elimine estas reglas del grupo de seguridad de red para la subred de la red virtual en la que está implementado el dominio administrado.
+
+| Número de puerto de entrada | Protocolo | Source                             | Destination | Acción | Obligatorio | Propósito |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sí      | Administración del dominio. |
 | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Opcional      | Depuración con fines de compatibilidad. |
@@ -118,13 +122,29 @@ Se crea un equilibrador de carga estándar de Azure que exige la presencia de es
 Si es necesario, puede [crear el grupo de seguridad de red y las reglas necesarias con Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 > [!WARNING]
-> No edite manualmente estos recursos y configuraciones de red. Cuando asocia un grupo de seguridad de red mal configurado o una tabla de rutas definida por el usuario con la subred en la que está implementado el dominio administrado, puede interrumpir la capacidad de Microsoft para atender y administrar el dominio. También se interrumpirá la sincronización entre el inquilino de Azure AD y el dominio administrado.
+> Cuando asocia un grupo de seguridad de red mal configurado o una tabla de rutas definida por el usuario con la subred en la que está implementado el dominio administrado, puede interrumpir la capacidad de Microsoft para atender y administrar el dominio. También se interrumpirá la sincronización entre el inquilino de Azure AD y el dominio administrado. Siga todos los requisitos enumerados para evitar una configuración no admitida que podría interrumpir la sincronización, la aplicación de revisiones o la administración.
 >
 > Si usa LDAP seguro, puede agregar la regla de puerto TCP 636 necesaria para permitir el tráfico externo, si es necesario. Al agregar esta regla no se colocan las reglas del grupo de seguridad de red en un estado no admitido. Para obtener más información, consulte [Bloqueo del acceso LDAP seguro a través de Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet).
 >
-> También existen reglas predeterminadas para *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound* y *DenyAllOutBound* para el grupo de seguridad de red. No modifique ni elimine estas reglas predeterminadas.
->
-> El Acuerdo de Nivel de Servicio de Azure no se aplica a las implementaciones en las que se han aplicado grupos de seguridad de red mal configurados o tablas de rutas definidas por el usuario que impiden que Azure AD DS actualice y administre el dominio.
+> El Acuerdo de Nivel de Servicio de Azure no se aplica a las implementaciones que tienen bloqueadas las actualizaciones, ni a la administración por un grupo de seguridad de red configurado incorrectamente ni a tablas de rutas definidas por el usuario. Una configuración de red interrumpida también puede impedir que se apliquen revisiones de seguridad.
+
+### <a name="outbound-connectivity"></a>Conectividad de salida
+
+Para la conectividad saliente, puede mantener **AllowVnetOutbound** y **AllowInternetOutBound** o restringir el tráfico saliente mediante las instancias de ServiceTag que se enumeran en la tabla siguiente. ServiceTag para AzureUpdateDelivery debe agregarse a través de [PowerShell](powershell-create-instance.md).
+
+No se admite tráfico saliente filtrado en las implementaciones clásicas.
+
+
+| Número de puerto de salida | Protocolo | Source | Destination   | Acción | Obligatorio | Propósito |
+|:--------------------:|:--------:|:------:|:-------------:|:------:|:--------:|:-------:|
+| 443 | TCP   | Any    | AzureActiveDirectoryDomainServices| Allow  | Sí      | Comunicación con el servicio de administración de Azure AD Domain Services. |
+| 443 | TCP   | Any    | AzureMonitor                      | Allow  | Sí      | Supervisión de las máquinas virtuales. |
+| 443 | TCP   | Any    | Almacenamiento                           | Allow  | Sí      | Comunicación con Azure Storage.   | 
+| 443 | TCP   | Any    | AzureActiveDirectory              | Allow  | Sí      | Comunicación con Azure Active Directory.  |
+| 443 | TCP   | Any    | AzureUpdateDelivery               | Allow  | Sí      | Comunicación con Windows Update.  | 
+| 80  | TCP   | Any    | AzureFrontDoor.FirstParty         | Allow  | Sí      | Descarga de revisiones desde Windows Update.    |
+| 443 | TCP   | Any    | GuestAndHybridManagement          | Allow  | Sí      | Administración automatizada de revisiones de seguridad.   |
+
 
 ### <a name="port-5986---management-using-powershell-remoting"></a>Puerto 5986: administración mediante la comunicación remota de PowerShell
 
@@ -146,12 +166,14 @@ Si es necesario, puede [crear el grupo de seguridad de red y las reglas necesari
     * Solo se permite el acceso con justificación comercial, por ejemplo, para escenarios de administración o solución de problemas.
 * Esta regla se puede establecer en *Denegar*, y en *Permitir* solo cuando sea necesario. La mayoría de las tareas de administración y supervisión se realizan mediante la comunicación remota de PowerShell. El Protocolo de escritorio remoto (RDP) se usa únicamente en el caso excepcional de que Microsoft necesite conectarse de forma remota al dominio administrado para llevar a cabo estrategias avanzadas para solucionar problemas.
 
-> [!NOTE]
-> No puede seleccionar manualmente la etiqueta de servicio *CorpNetSaw* desde el portal si intenta editar esta regla del grupo de seguridad de red. Debe usar Azure PowerShell o la CLI de Azure para configurar manualmente una regla que use la etiqueta de servicio *CorpNetSaw*.
->
-> Por ejemplo, puede usar el script siguiente para crear una regla que permita RDP: 
->
-> `Get-AzureRmNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzureRmNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "" -DestinationPortRange "3389" -DestinationAddressPrefix "" | Set-AzureRmNetworkSecurityGroup`
+
+No puede seleccionar manualmente la etiqueta de servicio *CorpNetSaw* desde el portal si intenta editar esta regla del grupo de seguridad de red. Debe usar Azure PowerShell o la CLI de Azure para configurar manualmente una regla que use la etiqueta de servicio *CorpNetSaw*.
+
+Por ejemplo, puede usar el script siguiente para crear una regla que permita RDP: 
+
+```powershell
+Get-AzNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "*" -DestinationPortRange "3389" -DestinationAddressPrefix "*" | Set-AzNetworkSecurityGroup
+```
 
 ## <a name="user-defined-routes"></a>Rutas definidas por el usuario
 

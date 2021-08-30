@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: c9be8958dada7acc5d53e6c99c79527e10142121
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d92591e335a24aa50de081c5a001801f22c92dba
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463116"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750224"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis"></a>Incorporación de réplicas a Azure Cache for Redis
 En este artículo, aprenderá a configurar una instancia de caché de Azure con réplicas adicionales mediante Azure Portal.
@@ -43,10 +43,14 @@ Para crear una instancia de caché, siga estos pasos:
 1. En la página **Advanced** (Avanzadas), elija **Recuento de réplicas**.
    
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Recuento de réplicas.":::
+    
+    > [!NOTE]
+    > Actualmente, no se puede usar la persistencia de solo anexar archivo (AOF) ni la replicación geográfica con varias réplicas (más de una réplica).
+    >
 
 1. Deje las demás opciones con los valores predeterminados. 
 
-1. Haga clic en **Crear**.
+1. Seleccione **Crear**.
    
     La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso.
 

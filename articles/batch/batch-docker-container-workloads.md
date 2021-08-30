@@ -2,14 +2,14 @@
 title: Cargas de trabajo de contenedor
 description: Aprenda a ejecutar y escalar aplicaciones desde imágenes de contenedor en Azure Batch. Cree un grupo de nodos de proceso que admita la ejecución de tareas de contenedor.
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 08/13/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c753a6ca0566b666eb343b922bd2ea673e56d9ee
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91843454"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181501"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
@@ -32,14 +32,13 @@ Debe estar familiarizado con los conceptos de contenedor y cómo crear un trabaj
   - SDK de Java de Batch versión 3.0
   - SDK de Node.js de Batch versión 3.0
 
-- **Cuentas**: en la suscripción de Azure, debe crear una cuenta de Batch y, opcionalmente, una cuenta de Azure Storage.
+- **Cuentas**: en la suscripción de Azure, debe crear una [cuenta de Batch](accounts.md) y, opcionalmente, una cuenta de Azure Storage.
 
-- **Una imagen de VM admitidas**: los contenedores solo se admiten en grupos creados con la configuración de máquinas virtuales a partir de imágenes que se detallan en la siguiente sección, "Imágenes de máquinas virtuales admitidas". Si proporciona una imagen personalizada, consulte las consideraciones en la siguiente sección y los requisitos en [Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales](batch-custom-images.md).
+- **Una imagen de máquina virtual admitida**: los contenedores solo se admiten en grupos creados con la configuración de máquina virtual a partir de imágenes admitidas (que se enumeran en la siguiente sección). Si proporciona una imagen personalizada, consulte las consideraciones en la siguiente sección y los requisitos en [Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales](batch-custom-images.md).
 
 Tenga presentes las siguientes limitaciones:
 
 - El servicio Batch proporciona compatibilidad con RDMA solo para contenedores que se ejecutan en grupos Linux.
-
 - Para las cargas de trabajo de contenedor de Windows, se recomienda elegir un tamaño de máquina virtual multinúcleo para el grupo.
 
 ## <a name="supported-virtual-machine-images"></a>Imágenes de máquinas virtuales admitidas
@@ -71,10 +70,8 @@ En el caso de las cargas de trabajo de contenedor Linux, Batch actualmente admit
 Estas imágenes solo se admiten para su uso en grupos de Azure Batch y están orientadas a la ejecución de contenedores Docker. Cuentan con:
 
 - Un entorno de ejecución de contenedores [Moby](https://github.com/moby/moby) compatible con Docker, preinstalado.
-
 - Controladores NVIDIA GPU y entorno de ejecución de contenedores de NVIDIA, preinstalados, para agilizar la implementación en máquinas virtuales de la serie N de Azure.
-
-- Imagen preinstalada o preconfigurada compatible con los tamaños de máquina virtual de Infiniband RDMA para las imágenes con el sufijo de `-rdma`. Actualmente estas imágenes no admiten los tamaños de máquina virtual SR-IOV IB/RDMA.
+- Las imágenes de máquina virtual con el sufijo "-rdma" están preconfiguradas con compatibilidad con tamaños de máquina virtual RDMA de InfiniBand. Estas imágenes de máquina virtual no deben usarse con tamaños de máquina virtual que no sean compatibles con InfiniBand.
 
 También puede crear imágenes personalizadas a partir de máquinas virtuales que ejecutan Docker en una de las distribuciones Linux compatibles con Batch. Si elige proporcionar su propia imagen personalizada de Linux, consulte las instrucciones de [Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales](batch-custom-images.md).
 
@@ -83,7 +80,6 @@ Para la compatibilidad de una imagen personalizada con Docker, instale [Docker C
 Consideraciones adicionales para usar una imagen Linux personalizada:
 
 - Para aprovechar el rendimiento de GPU de los tamaños de la serie N de Azure al usar una imagen personalizada, instale previamente los controladores NVIDIA. Además, debe instalar la utilidad de motor de Docker para GPU NVIDIA, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
-
 - Use un tamaño de máquina virtual compatible con RDAM para acceder a la red RDMA de Azure. Los controladores RDMA necesarios están instalados en HPC de CentOS e imágenes de Ubuntu compatibles con Batch. Puede ser necesaria una configuración adicional para ejecutar cargas de trabajo MPI. Consulte [Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch](batch-pool-compute-intensive-sizes.md).
 
 ## <a name="container-configuration-for-batch-pool"></a>Configuración del contenedor de grupo de Batch
@@ -285,7 +281,7 @@ Para ejecutar una tarea de contenedor en un grupo habilitado para contenedores, 
 
 - Si ejecuta tareas en imágenes de contenedor, la [tarea en la nube](/dotnet/api/microsoft.azure.batch.cloudtask) y la [tarea del administrador de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) requieren la configuración del contenedor. Sin embargo, la [tarea de inicio](/dotnet/api/microsoft.azure.batch.starttask), la [tarea de preparación de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) y la [tarea de liberación de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) no requieren configuración del contenedor (es decir, pueden ejecutarse en un contexto de contenedor o directamente en el nodo).
 
-- En Windows, las tareas se deben ejecutar con [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) establecido en `admin`. 
+- En Windows, las tareas se deben ejecutar con [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) establecido en `admin`.
 
 - En el caso de Linux, Batch asignará el permiso de usuario o grupo al contenedor. Si el acceso a cualquier carpeta del contenedor requiere permisos de administrador, es posible que tenga que ejecutar la tarea como ámbito de grupo con el nivel de elevación de administrador. Esto garantizará que Batch ejecute la tarea como raíz en el contexto del contenedor. De lo contrario, es posible que un usuario que no sea administrador no tenga acceso a esas carpetas.
 
@@ -361,7 +357,7 @@ containerTask.ContainerSettings = cmdContainerSettings;
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Vea el kit de herramientas de [Batch Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes) para facilitar la implementación de las cargas de trabajo de contenedor en Azure Batch a través de las [recetas Shipyard](https://github.com/Azure/batch-shipyard).
+- Para facilitar la implementación de las cargas de trabajo de contenedor en Azure Batch a través de las [recetas de Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes), consulte el kit de herramientas de [Batch Shipyard](https://github.com/Azure/batch-shipyard).
 - Para obtener información sobre cómo instalar y usar Docker CE en Linux, vea la documentación de [Docker](https://docs.docker.com/engine/installation/).
 - Obtenga información sobre el [Uso de una imagen administrada para crear un grupo de imágenes personalizadas](batch-custom-images.md).
 - Más información sobre el [proyecto Moby](https://mobyproject.org/), un marco para crear sistemas basados en contenedor.

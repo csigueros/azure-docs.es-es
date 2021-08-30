@@ -2,13 +2,13 @@
 title: Uso de Bicep para implementar recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en un archivo de Bicep.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: af1ca550a6443fa7791d4f5ac496ae2d0626b176
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 07/19/2021
+ms.openlocfilehash: 3f446670cd85daa5b541cc9b5858ab768ac8411d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111371763"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453415"
 ---
 # <a name="tenant-deployments-with-bicep-file"></a>Implementaciones de inquilino con el archivo Bicep
 
@@ -146,7 +146,7 @@ resource mgName_resource 'Microsoft.Management/managementGroups@2020-02-01' = {
 
 ### <a name="scope-to-management-group"></a>Ámbito del grupo de administración
 
-Para establecer como destino un grupo de administración dentro del inquilino, agregue un módulo. Use la [función managementGroup](bicep-functions-scope.md#managementgroup) para establecer su propiedad `scope`. Proporcione el nombre del grupo de administración.
+Para establecer como destino un grupo de administración dentro del inquilino, agregue un [módulo](modules.md). Use la [función managementGroup](bicep-functions-scope.md#managementgroup) para establecer su propiedad `scope`. Proporcione el nombre del grupo de administración.
 
 ```bicep
 targetScope = 'tenant'

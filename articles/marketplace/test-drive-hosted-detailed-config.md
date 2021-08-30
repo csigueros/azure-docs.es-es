@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 04/20/2021
-ms.openlocfilehash: 85668f07512e8aaa925b924ef0e631fe89b5c3fa
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: d3458d456793a3853fc2277bc1443c6fdfbc5865
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005706"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122068337"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuración detallada de las versiones de prueba hospedadas
 
@@ -36,15 +36,29 @@ En este artículo se describe cómo configurar una versión de prueba hospedada 
 
     - **Máximo de versiones de prueba simultáneas**: número de usuarios simultáneos que pueden tener una versión de prueba activa en ejecución al mismo tiempo. Cada usuario consumirá una licencia de Dynamics mientras su versión de prueba esté activa, por lo que debe asegurarse de tener número de licencias de Dynamics disponibles para los usuarios de la versión de prueba. La cantidad recomendada es de 3 a 5.
     - **Duración de la versión de prueba**: número de horas que estará activa la versión de prueba del usuario. Una vez transcurrido este tiempo, el usuario se desaprovisionará del inquilino. Se recomiendan entre 2 y 24 horas dependiendo de la complejidad de la aplicación. El usuario siempre puede solicitar otra versión de prueba si se agota el tiempo y quiere volver a acceder a la versión de prueba.
-    - **URL de la instancia**: URL a la que se dirigirá al usuario de la versión de prueba cuando la inicie. Esta suele ser la dirección URL de la instancia de Dynamics 365 en la que se han instalado la aplicación y los datos de ejemplo. Valor de ejemplo: `https://testdrive.crm.dynamics.com`.
-    - **URL de la instancia de la API web**: dirección URL de la API web para la instancia de Dynamics 365. Para recuperar este valor, inicie sesión en la instancia de Microsoft Dynamics 365 y vaya a **Configuración** > **Personalización** > **Recursos de desarrollador** > **API web de la instancia** y copie la dirección (URL). Valor de ejemplo:
+    - **Dirección URL de la instancia**
+        - *Compromiso con el cliente*: URL a la que se dirigirá al usuario de la versión de prueba cuando la inicie. Esta suele ser la dirección URL de la instancia de Dynamics 365 en la que se han instalado la aplicación y los datos de ejemplo. Valor de ejemplo: `https://testdrive.crm.dynamics.com`.
+        - *Aplicación de lienzo (Power Apps)*
+            1. Abra la página del **portal de PowerApps** e inicie sesión.
+            2. Seleccione **Aplicaciones** y, luego, los puntos suspensivos de la aplicación.
+            4. Seleccione **Detalles**.
+            5. Copie el **vínculo web** de la pestaña **Detalles**:
 
-        :::image type="content" source="./media/test-drive/sample-web-api-url.png" alt-text="Ejemplo de API web de instancia.":::
+                :::image type="content" source="./media/test-drive/testdrive-canvas-app.png" alt-text="Muestra la ventana Aplicación de lienzo de TestDrive.":::
 
-    - **Nombre del rol**: nombre del rol de Dynamics 365 Security personalizado que creó para la versión de prueba. También puede usar un rol existente. Un nuevo rol debe tener los privilegios mínimos necesarios agregados para iniciar sesión en una instancia de Customer Engagement. Consulte [Privilegios mínimos necesarios para iniciar sesión en Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). Este es el rol que se asignará a los usuarios durante su versión de prueba. Valor de ejemplo: `testdriverole`.
+    - **Dirección URL de API web de la instancia**
+        - *Compromiso con el cliente*: la dirección URL de API web para la instancia de Dynamics 365. Para recuperar este valor, inicie sesión en la instancia de Microsoft Dynamics 365 y seleccione **Configuración** > **Personalización** > **Recursos de desarrollador** > **API web de la instancia** y copie la dirección (URL). Valor de ejemplo:
+
+            :::image type="content" source="./media/test-drive/sample-web-api-url.png" alt-text="Ejemplo de API web de instancia.":::
+
+        - *Aplicación de lienzo (Power Apps)* : si no usa CE/Dataverse como back-end para la aplicación de lienzo, utilice `https://localhost` como marcador de posición.
+
+    - **Nombre de rol**
+        - *Compromiso del cliente*: nombre del rol de seguridad personalizado de Dynamics 365 que creó para la versión de prueba. También puede usar un rol existente. Un nuevo rol debe tener los privilegios mínimos necesarios agregados para iniciar sesión en una instancia de Customer Engagement. Consulte [Privilegios mínimos necesarios para iniciar sesión en Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). Este es el rol que se asignará a los usuarios durante su versión de prueba. Valor de ejemplo: `testdriverole`.
+        - *Aplicación de lienzo (Power Apps)* : use "ND" si no usa CE/Dataverse como origen de datos de back-end.
     
-        > [!IMPORTANT]
-        > Asegúrese de que la comprobación del grupo de seguridad no está agregada. Esto permite que el usuario se sincronice con la instancia de Customer Engagement.
+    > [!IMPORTANT]
+    > Asegúrese de que la comprobación del grupo de seguridad no está agregada. Esto permite que el usuario se sincronice con la instancia de Customer Engagement.
 
     - **Id. de inquilino de Azure Active Directory**: identificador del inquilino de Azure para su instancia de Dynamics 365. Para recuperar este valor, inicie sesión en Azure Portal y vaya a **Azure Active Directory** > **Propiedades** y copie el id. de directorio. Valor de ejemplo: 172f988bf-86f1-41af-91ab-2d7cd01112341.
     - **Nombre de inquilino de Azure Active Directory**: nombre del inquilino de Azure para su instancia de Dynamics 365. Use el formato `<tenantname>.onmicrosoft.com`. Valor de ejemplo: `testdrive.onmicrosoft.com`.

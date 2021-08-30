@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/19/2021
 ms.author: azhussai
-ms.openlocfilehash: 615db7e8d53e397755ae318d171dab1eab9ec6c6
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 2e448f907e129f628c4614c9df703bf2c39ea47a
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727815"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113665104"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
@@ -52,7 +52,7 @@ Application Gateway proporciona varias métricas de temporización integradas re
 
   Promedio de tiempo que se tarda en recibir y procesar una solicitud y en enviar la respuesta. 
 
-  Este es el intervalo desde el momento en que Application Gateway recibe el primer byte de la solicitud HTTP hasta el momento en que se envía el último byte de respuesta al cliente. Esto incluye el tiempo de procesamiento que tarda Application Gateway, el *Tiempo de respuesta del último byte de back-end*, el tiempo que tarda Application Gateway en enviar toda la respuesta y el *Cliente RTT*.
+  Este es el intervalo desde el momento en que Application Gateway recibe el primer byte de la solicitud HTTP hasta el momento en que se envía el último byte de respuesta al cliente. Esto incluye el tiempo de procesamiento que tarda Application Gateway, el *Tiempo de respuesta del último byte de back-end* y el tiempo que tarda Application Gateway en enviar toda la respuesta.
 
 - **Cliente RTT**
 

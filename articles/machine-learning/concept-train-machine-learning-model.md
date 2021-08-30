@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: de3d9aa60322cc3e6e189f6f16c35d6f42c0cf61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53b4c0250e4ceb034853ab588cfb2ef93a6ae005
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102500417"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297800"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -29,11 +29,9 @@ Azure Machine Learning proporciona varias maneras de entrenar los modelos, desde
     | [Aprendizaje automático automatizado](#automated-machine-learning) | El aprendizaje automático automatizado el permite **entrenar modelos sin un amplio conocimiento de programación ni de ciencia de datos**. En el caso de las personas con conocimientos de programación y de ciencia de datos, proporciona una manera de ahorrar tiempo y recursos mediante la automatización de la selección de algoritmos y la optimización de los hiperparámetros. No tiene que preocuparse de definir una configuración de ejecución al usar el aprendizaje automático automatizado. |
     | [Canalización de aprendizaje automático](#machine-learning-pipeline) | Las canalizaciones no son un método de entrenamiento distinto, sino una **manera de definir un flujo de trabajo con pasos modulares y reutilizables**, que puede incluir el entrenamiento como parte del flujo de trabajo. Las canalizaciones de aprendizaje automático admiten el uso de aprendizaje automático automatizado y configuración de ejecución para entrenar modelos. Como las canalizaciones no se centran específicamente en el entrenamiento, las razones para usar una canalización son más variadas que los demás métodos de entrenamiento. Por lo general, puede usar una canalización cuando:<br>* Quiere **programar procesos desatendidos**, como trabajos de entrenamiento de larga duración o la preparación de los datos.<br>* Use **varios pasos** coordinados entre ubicaciones de almacenamiento y recursos de proceso heterogéneos.<br>* Use la canalización como una **plantilla reutilizable** para escenarios específicos, como el reentrenamiento o la puntuación por lotes.<br>* **Haga seguimiento y realice versiones de sus orígenes de datos, entradas y salidas** del flujo de trabajo.<br>* El flujo de trabajo **lo implementan distintos equipos que trabajan en pasos específicos de manera independiente**. Luego, los pasos se pueden reunir en una canalización para implementar el flujo de trabajo. |
 
-+ [SDK de Azure Machine Learning para R (versión preliminar)](#r-sdk-preview): el SDK para R usa el paquete de reticulate para enlazar con el SDK de Python de Azure Machine Learning. Esto permite acceder a los objetos y métodos principales implementados en el SDK de Python desde cualquier entorno de R.
-
 + **Diseñador**: el diseñador de Azure Machine Learning proporciona un punto de entrada sencillo al aprendizaje automático para crear una prueba de conceptos o para los usuarios que no tengan mucha experiencia en la codificación. Permite entrenar modelos mediante una interfaz de usuario basada en web de arrastrar y colocar. Puede usar el código de Python como parte del diseño o entrenar modelos sin necesidad de escribir nada de código.
 
-+ **CLI**: la CLI de Machine Learning proporciona comandos para tareas comunes con Azure Machine Learning y se usa a menudo para **scripting y automatizar tareas**. Por ejemplo, una vez que haya creado una canalización o un script de entrenamiento, puede usar la CLI para iniciar una ejecución de entrenamiento según una programación o cuando se actualicen los archivos de datos usados para el entrenamiento. En el caso de los modelos de entrenamiento, proporciona comandos que envían trabajos de entrenamiento. Puede enviar trabajos mediante configuraciones de ejecución o canalizaciones.
++ **CLI de Azure**: la CLI de Machine Learning proporciona comandos para tareas comunes con Azure Machine Learning y se usa a menudo para las **tareas de script y automatización**. Por ejemplo, una vez que haya creado una canalización o un script de entrenamiento, puede usar la CLI de Azure para iniciar una ejecución de entrenamiento según una programación o cuando se actualicen los archivos de datos usados para el entrenamiento. En el caso de los modelos de entrenamiento, proporciona comandos que envían trabajos de entrenamiento. Puede enviar trabajos mediante configuraciones de ejecución o canalizaciones.
 
 Cada uno de estos métodos de entrenamiento puede usar distintos tipos de recursos de proceso para el entrenamiento. En conjunto, estos recursos se conocen como [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-targets). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de proceso de Azure Machine Learning, Azure HDInsight o una máquina virtual remota.
 
@@ -90,7 +88,7 @@ El ciclo de vida de entrenamiento de Azure consta de los pasos siguientes:
 1. Compilar o descargar el Dockerfile en el nodo de proceso 
     1. El sistema calcula un valor de hash de: 
         - La imagen base 
-        - Pasos personalizados de Docker (consulte [Implementación de un modelo con una imagen base de Docker personalizada](./how-to-deploy-custom-docker-image.md))
+        - Pasos personalizados de Docker (consulte [Implementación de un modelo con una imagen base de Docker personalizada](./how-to-deploy-custom-container.md))
         - El archivo YAML de definición de Conda (consulte [Creación y uso de entornos de software en Azure Machine Learning](./how-to-use-environments.md))
     1. El sistema utiliza este valor de hash como clave en una búsqueda de la instancia de Azure Container Registry (ACR) del área de trabajo.
     1. Si no la encuentra, busca una coincidencia en la instancia de ACR global.
@@ -103,14 +101,6 @@ El ciclo de vida de entrenamiento de Azure consta de los pasos siguientes:
 
 Si elige entrenar en la máquina local ("configurar como ejecución local"), no es necesario usar Docker. Si lo prefiere, puede usar Docker localmente (consulte [Configurar de la canalización de ML](./how-to-debug-pipelines.md) para ver un ejemplo).
 
-## <a name="r-sdk-preview"></a>SDK de R (versión preliminar)
-
-El SDK de R permite usar el lenguaje R con Azure Machine Learning. El SDK usa el paquete de reticulate para enlazar con el SDK de Python de Azure Machine Learning. Esto le permite acceder a los objetos y métodos principales implementados en el SDK de Python desde cualquier entorno de R.
-
-Para más información, consulte los siguientes artículos.
-
-* [Referencia del SDK de Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/index.html)
-
 ## <a name="azure-machine-learning-designer"></a>Diseñador de Azure Machine Learning
 
 El diseñador permite entrenar modelos mediante una interfaz de arrastrar y colocar en el explorador web.
@@ -118,19 +108,7 @@ El diseñador permite entrenar modelos mediante una interfaz de arrastrar y colo
 + [¿Qué es el diseñador?](concept-designer.md)
 + [Tutorial: Predicción del precio de un automóvil](tutorial-designer-automobile-price-train-score.md)
 
-## <a name="many-models-solution-accelerator"></a>Acelerador de soluciones Many Models
-
-El [Acelerador de soluciones Many Models](https://aka.ms/many-models) (versión preliminar) se basa en Azure Machine Learning y permite entrenar, usar y administrar cientos o incluso miles de modelos de Machine Learning.
-
-Por ejemplo, la creación de un modelo __para cada instancia o individual__ en los escenarios siguientes puede dar lugar a resultados mejorados:
-
-* Predicción de ventas para cada tienda individual
-* Mantenimiento predictivo para cientos de pozos petrolíferos
-* Personalización de una experiencia para usuarios individuales
-
-Para obtener más información, vea el [Acelerador de soluciones Many Models](https://aka.ms/many-models) en GitHub.
-
-## <a name="cli"></a>CLI
+## <a name="azure-cli"></a>Azure CLI
 
 La CLI de Machine Learning es una extensión para la CLI de Azure. Proporciona comandos de la CLI multiplataforma para trabajar con Azure Machine Learning. Por lo general, se usa la CLI para automatizar las tareas, como entrenar un modelo de aprendizaje automático.
 

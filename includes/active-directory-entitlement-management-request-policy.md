@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: active-directory
 author: msaburnley
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 1bbc549a9ba457d5f515df25d6fdce0c2ede6f2e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9686cce60520895fe4a3ae7fb47e1eb0eca03599
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105582609"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112975219"
 ---
 ## <a name="for-users-in-your-directory"></a>para los usuarios del directorio
 
@@ -210,7 +210,7 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
 
 1. Haga clic en **Next**.
 
-## <a name="add-requestor-information-preview-to-an-access-package"></a>Incorporación de la información del solicitante (versión preliminar) para un paquete de acceso
+## <a name="add-requestor-information-to-an-access-package"></a>Adición de la información del solicitante para un paquete de acceso
 
 1. Vaya a la pestaña **Requestor information** (Información del solicitante) y haga clic en la subpestaña **Preguntas**.
  
@@ -218,7 +218,7 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
 
     ![Paquete de acceso: Directiva Habilitar la configuración de la información del solicitante](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. Si desea agregar sus propias opciones de localización, haga clic en **Add localization** (Agregar traducción).
+1. Si quiere encontrar las opciones de preguntas y respuestas, haga clic en **add localization** (Agregar traducción).
     1. Una vez en el panel **Add localizations for question** (Agregar traducciones para la pregunta), seleccione el **código de idioma** para el idioma en el que va a traducir la pregunta.
     1. En el idioma configurado, escriba la pregunta en el cuadro **Localized Text** (Texto traducido).
     1. Una vez que haya agregado todas las traducciones necesarias, haga clic en **Guardar**.
@@ -229,10 +229,13 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
  
     ![Paquete de acceso: Directiva Seleccionar ver y editar el formato de respuesta de opciones múltiples](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
-1. Si selecciona varias opciones, haga clic en el botón **Ver y editar** para configurar las opciones de respuesta.
-    1. Después de seleccionar Ver y editar, se abrirá el panel **View/edit question** (Ver y editar pregunta).
+1. Si selecciona varias opciones, haga clic en el botón **edit and localize** (Editar y traducir) para configurar las opciones de respuesta.
+    1. Después de seleccionar la opción para editar y traducir, se abrirá el panel **Edit/localize question** (Editar/traducir pregunta).
     1. Escriba las opciones de respuesta que desea dar al solicitante al responder a la pregunta de los cuadros **Answer values** (Valores de respuesta).
-    1. Escriba tantas respuestas como sea necesario y haga clic en **Save** (Guardar).
+    1. Escriba tantas respuestas como sea necesario.
+    1. Si quiere agregar su propia traducción para las opciones de selección múltiple, seleccione el **código de idioma opcional** para el idioma en el que desea buscar una opción específica.
+    1. En el idioma configurado, escriba la pregunta en el cuadro Localized Text (Texto traducido).
+    1. Una vez que haya agregado todas las traducciones necesarias para cada opción de selección múltiple, haga clic en **Save** (Guardar).
     
     ![Paquete de acceso: Directiva Escribir opciones múltiples](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   

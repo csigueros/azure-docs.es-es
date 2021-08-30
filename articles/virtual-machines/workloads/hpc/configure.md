@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/02/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9f80b91695af6350376d5fcd97732e1a056278a9
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 0ef3b00fe3ae68ddecc7ab93ee612e0698329c43
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413094"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460506"
 ---
 # <a name="configure-and-optimize-vms"></a>Configuración y optimización de máquinas virtuales
 
@@ -102,7 +102,7 @@ Las imágenes base de VM de Ubuntu Server 16.04 LTS, 18.04 LTS y 20.04 LTS d
 - Los scripts usados en la creación de las imágenes de máquina virtual de HPC basadas en Ubuntu 18.04 y 20.04 LTS de una imagen base de Ubuntu Marketplace se encuentran en el [repositorio azhpc-images](https://github.com/Azure/azhpc-images/tree/master/ubuntu).
 
 > [!NOTE]
-> OFED 5.1 de Mellanox y versiones posteriores no admiten tarjetas InfiniBand ConnectX3-Pro en tamaños de máquina virtual de la serie N habilitados para SR-IOV con InfiniBand FDR (por ejemplo, NCv3). Use la versión de LTS de OFED de Mellanox 4.9-0.1.7.0 o anterior en las máquinas virtuales de la serie N con tarjetas ConnectX3-Pro. Consulte más detalles [aquí](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
+> OFED 5.1 de Mellanox y versiones posteriores no admiten tarjetas InfiniBand ConnectX3-Pro en tamaños de máquina virtual de la serie N habilitados para SR-IOV con InfiniBand FDR (por ejemplo, NCv3). Use la versión de LTS de OFED de Mellanox 4.9-0.1.7.0 o anterior en las máquinas virtuales de la serie N con tarjetas ConnectX3-Pro. Para más información, consulte [Controladores InfiniBand de Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
 
 ### <a name="suse-linux-enterprise-server-vm-images"></a>Imágenes de máquina virtual de SUSE Linux Enterprise Server
 Las imágenes de máquina virtual de SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium), SLES 12 SP4 y SLES 15 de Marketplace son compatibles. Estas imágenes de VM vienen cargadas previamente con los controladores de Network Direct para RDMA (en tamaños de VM que no son compatibles con SR-IOV) y la versión 5.1 de Intel MPI. Obtenga más información sobre cómo [configurar MPI](setup-mpi.md) en las máquinas virtuales.

@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 07/03/2021
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5513aff9bed85293978061f8989c1389e9e7a9c4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 47815bcca9c6630392cb86284d8e8c3cf4d08e67
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954963"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733203"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
 Use el logotipo de la organización y combinaciones de colores personalizadas para proporcionar un aspecto coherente en las páginas de inicio de sesión de Azure Active Directory (Azure AD). Las páginas de inicio de sesión aparecen cuando los usuarios inician sesión en las aplicaciones web de su organización, como Microsoft 365, que usan Azure AD como proveedor de identidades.
 
 >[!NOTE]
->Para agregar personalización de marca personalizada se necesitan licencias de Azure Active Directory Premium 1 o Premium 2. Para obtener más información acerca de las ediciones y licencias, consulte [Suscripción a Azure AD Premium](active-directory-get-started-premium.md).<br><br>Las ediciones Azure AD Premium están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Azure AD Premium no se admiten actualmente en el servicio de Azure administrado por 21Vianet en China. Para más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>Para agregar personalización de marca, es necesario disponer de licencias de Azure Active Directory Premium 1, Premium 2 u Office 365 (para aplicaciones de Office 365). Para obtener más información acerca de las ediciones y licencias, consulte [Suscripción a Azure AD Premium](active-directory-get-started-premium.md).<br><br>Las ediciones Azure AD Premium están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Azure AD Premium no se admiten actualmente en el servicio de Azure administrado por 21Vianet en China. Para más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalización de la página de inicio de sesión de Azure AD
 Puede personalizar las páginas de inicio de sesión de Azure AD. Estas páginas aparecen cuando los usuarios inician sesión en aplicaciones específicas del inquilino de la organización, como `https://outlook.com/contoso.com`, o al pasar una variable de dominio, como `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
@@ -32,7 +32,7 @@ Puede personalizar las páginas de inicio de sesión de Azure AD. Estas página
 La personalización de marca no aparecerá inmediatamente cuando los usuarios tengan acceso a sitios como www\.office.com. En su lugar, el usuario tiene que iniciar sesión para que aparezca la personalización de marca. Una vez que el usuario ha iniciado sesión, la personalización de marca puede tardar 15 minutos o más en aparecer. 
 
 > [!NOTE]
-> Todos los elementos de personalización de marca son opcionales. Por ejemplo, si especifica un logotipo de banner sin ninguna imagen de fondo, se mostrará en la página de inicio de sesión su logotipo con una imagen de fondo predeterminada del sitio de destino (por ejemplo, Microsoft 365).<br><br>Además, la personalización de marca de la página de inicio de sesión no se incluye en las cuentas Microsoft personales. Si los usuarios o los invitados de la empresa inician sesión con una cuenta Microsoft personal, la página de inicio de sesión no reflejará la personalización de marca de la organización.
+> **Todos los elementos de personalidad de marca son opcionales y permanecerán como valores predeterminados cuando no se modifican**. Por ejemplo, si especifica un logotipo de banner sin ninguna imagen de fondo, se mostrará en la página de inicio de sesión su logotipo con una imagen de fondo predeterminada del sitio de destino, como Microsoft 365.<br><br>Además, la personalización de marca de la página de inicio de sesión no se incluye en las cuentas Microsoft personales. Si los usuarios o los invitados de la empresa inician sesión con una cuenta Microsoft personal, la página de inicio de sesión no reflejará la personalización de marca de la organización.
 
 ### <a name="to-customize-your-branding"></a>Para personalizar su marca
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador global para el directorio.
@@ -52,7 +52,7 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 
         - **Idioma**. El idioma se establece automáticamente como valor predeterminado y no se puede cambiar.
         
-        - **Imagen de fondo de la página de inicio de sesión.** Seleccione un archivo de imagen .png o .jpg para que aparezca como fondo de las páginas de inicio de sesión. La imagen se anclará al centro del explorador y se escalará según el tamaño del espacio visible. No se puede seleccionar una imagen de más de 1920 x 1080 píxeles de tamaño o con un tamaño de archivo superior a los 300 KB.
+        - **Imagen de fondo de la página de inicio de sesión.** Seleccione un archivo de imagen .png o .jpg para que aparezca como fondo de las páginas de inicio de sesión. La imagen se anclará al centro del explorador y se escalará según el tamaño del espacio visible. No se puede seleccionar una imagen de más de 1920 x 1080 píxeles de tamaño o con un tamaño de archivo superior a 300 000 bytes.
         
             Se recomienda usar imágenes sin enfoque en un sujeto definido; por ejemplo, aparece un cuadro blanco opaco en el centro de la pantalla y puede cubrir cualquier parte de la imagen según las dimensiones del espacio visible.
 
@@ -140,7 +140,9 @@ No se puede cambiar el idioma de la configuración original del idioma predeterm
     ![Contoso: página de personalización de marca de empresa, con la nueva configuración de idioma.](media/customize-branding/company-branding-french-config.png)
 
 ## <a name="add-your-custom-branding-to-pages"></a>Incorporación de la personalización de marca personalizada a páginas
-Agregue la personalización de marca personalizada a páginas mediante la modificación de la parte final de la dirección URL con el texto `?whr=yourdomainname`. Esta modificación funciona en varias páginas, incluidas la página de configuración de Multi-Factor Authentication (MFA), la página de configuración de autoservicio de restablecimiento de contraseña (SSPR) y la página de inicio de sesión.
+Agregue la personalización de marca personalizada a páginas mediante la modificación de la parte final de la dirección URL con el texto `?whr=yourdomainname`. Esta modificación específica funciona en varios tipos de páginas, incluidas la página de configuración de Multi-Factor Authentication (MFA), la página de configuración de autoservicio de restablecimiento de contraseña (SSPR) y la página de inicio de sesión.
+
+Si una aplicación admite direcciones URL personalizadas para la personalización de marca o no depende de la aplicación específica, y debe comprobarse antes de intentar agregar una personalización de marca personalizada a una página.
 
 **Ejemplos:**
 

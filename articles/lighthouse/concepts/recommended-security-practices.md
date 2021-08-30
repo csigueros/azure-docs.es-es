@@ -3,12 +3,12 @@ title: Procedimientos de seguridad recomendados
 description: Al usar Azure Lighthouse, es importante tener en cuenta la seguridad y el control de acceso.
 ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3aa50833b547882506bfad125992bb1c2f4e85bc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 897f09c41d550d6200cc3d78743bb3b010f2c402
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419310"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768258"
 ---
 # <a name="recommended-security-practices"></a>Procedimientos de seguridad recomendados
 
@@ -19,7 +19,7 @@ Al usar [Azure Lighthouse](../overview.md), es importante tener en cuenta la seg
 
 ## <a name="require-azure-ad-multi-factor-authentication"></a>Requerir Azure AD Multi-Factor Authentication
 
-[Multi-Factor Authentication de Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md) (también conocido como verificación en dos pasos) ayuda a evitar que los atacantes obtengan acceso a una cuenta, al exigir varios pasos de autenticación. Debe requerir Multi-Factor Authentication a todos los usuarios del inquilino administrador, incluidos los usuarios que tendrán acceso a los recursos delegados de cliente.
+[Multi-Factor Authentication de Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md) (también conocido como verificación en dos pasos) ayuda a evitar que los atacantes obtengan acceso a una cuenta, al exigir varios pasos de autenticación. Debe requerir Multi-Factor Authentication de Azure AD para todos los usuarios del inquilino administrador, incluidos los usuarios que tendrán acceso a los recursos delegados de cliente.
 
 Le recomendamos que pida a sus clientes que implementen también Multi-Factor Authentication de Azure AD en sus inquilinos.
 

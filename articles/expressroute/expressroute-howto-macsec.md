@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 923113610f7ea7c9a898e2a8c5481047893f5c54
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 445010e345e92913f32705fc801a6521703ba84f
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702455"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228751"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configuración de MACsec para los puertos de ExpressRoute Direct
 
@@ -73,6 +73,16 @@ Para iniciar la configuración, inicie sesión en su cuenta de Azure y seleccion
     $MACsecCAKSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CAK_name" -SecretValue $CAK
     $MACsecCKNSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CKN_name" -SecretValue $CKN
     ```
+   > [!NOTE]
+   > CKN debe ser una cadena de longitud uniforme de hasta 64 dígitos hexadecimales (0-9, A-F).
+   >
+   > La longitud de CAK depende del conjunto de cifrado especificado:
+   >
+   > * Para GcmAes128, la CAK debe ser una cadena de longitud uniforme de hasta 32 dígitos hexadecimales (0-9, A-F).
+   >
+   > * Para GcmAes256, la CAK debe ser una cadena de longitud uniforme de hasta 64 dígitos hexadecimales (0-9, A-F).
+   >
+
 4. Asigne el permiso GET a la identidad del usuario.
 
     ```azurepowershell-interactive

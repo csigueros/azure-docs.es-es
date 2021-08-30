@@ -8,16 +8,20 @@ items:
   - name: Guías de inicio rápido
     expanded: true
     items:
-      - name: 'Creación de una cuenta de Purview: Azure Portal'
-        href: create-catalog-portal.md
-      - name: 'Creación de una cuenta de Purview: Azure PowerShell'
-        href: create-catalog-powershell.md
-      - name: 'Creación de una cuenta de Purview: SDK de .NET'
-        href: create-purview-dotnet.md
-      - name: 'Creación de una cuenta de Purview: Python'
-        href: create-purview-python.md
-      - name: 'Administración de notificaciones de Kafka: .NET'
-        href: manage-kafka-dotnet.md
+      - name: Creación de una cuenta de Purview
+        items:
+          - name: 'Creación de una cuenta de Purview: Azure Portal'
+            href: create-catalog-portal.md
+          - name: 'Creación de una cuenta de Purview: Azure PowerShell'
+            href: create-catalog-powershell.md
+          - name: 'Creación de una cuenta de Purview: SDK de .NET'
+            href: create-purview-dotnet.md
+          - name: 'Creación de una cuenta de Purview: Python'
+            href: create-purview-python.md
+          - name: 'Creación de una cuenta de Purview: preguntas frecuentes de Azure Portal'
+            href: create-purview-portal-faq.md
+      - name: 'Creación de una colección: Azure Purview Studio'
+        href: quickstart-create-collection.md
   - name: Tutoriales
     items:
       - name: Incorporación de orígenes de datos de Azure a escala
@@ -50,8 +54,10 @@ items:
         href: deployment-best-practices.md
       - name: Límites de Azure Purview
         href: how-to-manage-quotas.md
-      - name: Cómo detectan los exámenes los recursos eliminados
-        href: concept-detect-deleted-assets.md
+      - name: Exámenes e ingesta
+        href: concept-scans-and-ingestion.md
+      - name: Mapa de datos elástico
+        href: concept-elastic-data-map.md
       - name: Descripción de los conjuntos de recursos
         href: concept-resource-sets.md
       - name: Linaje de datos
@@ -68,10 +74,14 @@ items:
         href: concept-insights.md
       - name: Exploradores compatibles
         href: supported-browsers.md
+      - name: Normalización de recursos
+        href: concept-asset-normalization.md
       - name: Preguntas más frecuentes
-        href: frequently-asked-questions.md
+        href: ./frequently-asked-questions.yml
   - name: Guías paso a paso
     items:
+      - name: Creación y administración de colecciones de trabajos
+        href: how-to-create-and-manage-collections.md
       - name: Registro y examen
         items:
           - name: Administrar credenciales
@@ -101,9 +111,15 @@ items:
               - name: Azure Files
                 href: register-scan-azure-files-storage-source.md
                 displayName: Register and scan Azure Files
-              - name: Azure Cosmos DB
+              - name: "Azure Cosmos\_DB"
                 href: register-scan-azure-cosmos-database.md
                 displayName: Register and scan Azure Cosmos DB
+              - name: Azure Database for MySQL
+                href: register-scan-azure-mysql-database.md
+                displayName: Register and scan an Azure database for MySQL
+              - name: Azure Database for PostgreSQL
+                href: register-scan-azure-postgresql.md
+                displayName: Register and scan an Azure database for PostgreSQL
               - name: Explorador de datos de Azure
                 href: register-scan-azure-data-explorer.md
                 displayName: Register and scan Azure Data Explorer Kusto
@@ -121,8 +137,16 @@ items:
                 displayName: Register and scan Azure SQL DB Managed Instance
               - name: "Grupo de SQL dedicado de Azure (antes denominado SQL\_DW)"
                 href: register-scan-azure-synapse-analytics.md
+              - name: Cassandra
+                href: register-scan-cassandra-source.md
+              - name: Erwin
+                href: register-scan-erwin-source.md
+              - name: Google BigQuery
+                href: register-scan-google-bigquery-source.md
               - name: Base de datos de tienda de metadatos de Hive
                 href: register-scan-hive-metastore-source.md
+              - name: Looker
+                href: register-scan-looker-source.md
               - name: SQL Server local
                 href: register-scan-on-premises-sql-server.md
               - name: Oracle
@@ -161,6 +185,8 @@ items:
             href: how-to-browse-catalog.md
           - name: Búsqueda en Data Catalog
             href: how-to-search-catalog.md
+          - name: 'Visualización, edición y eliminación de recursos del catálogo'
+            href: catalog-asset-details.md
       - name: Linaje
         items:
           - name: Guía de usuario de Lineage
@@ -169,12 +195,30 @@ items:
             href: how-to-link-azure-data-factory.md
           - name: Linaje de Azure Data Share
             href: how-to-link-azure-data-share.md
+          - name: Linaje de Azure Synapse Analytics
+            href: how-to-lineage-azure-synapse-analytics.md
+          - name: Linaje de Cassandra
+            href: how-to-lineage-cassandra.md
+          - name: Linaje de Erwin
+            href: how-to-lineage-erwin.md
+          - name: Linaje de Looker
+            href: how-to-lineage-looker.md
+          - name: Linaje de Google BigQuery
+            href: how-to-lineage-google-bigquery.md
+          - name: Linaje de Oracle
+            href: how-to-lineage-oracle.md
           - name: "Linaje de Power\_BI"
             href: how-to-lineage-powerbi.md
+          - name: Linaje de SAP S/4HANA
+            href: how-to-lineage-saps4hana.md
+          - name: Linaje de SAP ECC
+            href: how-to-lineage-sapecc.md
           - name: Linaje de Spark
             href: how-to-lineage-spark-atlas-connector.md
           - name: "Linaje de SQL\_Server Integration Services"
             href: how-to-lineage-sql-server-integration-services.md
+          - name: Linaje de Teradata
+            href: how-to-lineage-teradata.md
       - name: Supervisión
         items:
           - name: Supervisión con Azure Monitor
@@ -195,16 +239,36 @@ items:
             href: file-extension-insights.md
       - name: Seguridad y redes
         items:
-          - name: Administración de puntos de conexión privados
+          - name: Introducción a los puntos de conexión privados de Azure Purview
             href: catalog-private-link.md
+          - name: Conexión de forma privada y segura a la cuenta de Purview
+            href: catalog-private-link-account-portal.md
+          - name: Examen de los orígenes de datos de forma privada y segura
+            href: catalog-private-link-ingestion.md
+          - name: Conexión a Azure Purview y examen de los orígenes de datos de forma privada y segura
+            href: catalog-private-link-end-to-end.md
+          - name: Configuración de DNS de puntos de conexión privados de Azure Purview
+            href: catalog-private-link-name-resolution.md
+          - name: Guía de solución de problemas de puntos de conexión privados de Azure Purview
+            href: catalog-private-link-troubleshoot.md
           - name: Preguntas frecuentes sobre los puntos de conexión privados de Azure Purview
             href: catalog-private-link-faqs.md
       - name: Recuperación ante desastres
         items:
           - name: Recuperación ante desastres
             href: disaster-recovery.md
+      - name: 'Administración de notificaciones de Kafka: .NET'
+        href: manage-kafka-dotnet.md
   - name: Referencia
     items:
+      - name: Java
+        href: /samples/browse/?products=azure&languages=java&terms=purview
+      - name: .NET
+        href: /dotnet/api/overview/azure/purviewresourceprovider
+      - name: Python
+        href: /python/api/azure-mgmt-purview/
+      - name: REST
+        href: /rest/api/purview/
       - name: Clasificaciones admitidas
         href: supported-classifications.md
       - name: Glosario de productos de Azure Purview
@@ -213,8 +277,6 @@ items:
         href: abap-functions-deployment-guide.md
   - name: Recursos
     items:
-      - name: Comentarios sobre características (voz del usuario)
-        href: 'https://feedback.azure.com/forums/932437-azure-purview'
       - name: Calculadora de precios
         href: 'https://azure.microsoft.com/pricing/details/azure-purview/'
       - name: Foro de preguntas y respuestas de Microsoft

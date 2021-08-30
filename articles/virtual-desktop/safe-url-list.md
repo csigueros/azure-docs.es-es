@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7206b035724027f346fe49c8834c2fd35ec83af9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: da8cc0ea77de3b544b4bcb97d2ed699c74329e68
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752970"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113757645"
 ---
 # <a name="required-url-list"></a>Lista de direcciones URL requeridas
 
@@ -152,4 +152,4 @@ Todos los clientes de Escritorio remoto que use deben tener acceso a las siguien
 >[!IMPORTANT]
 >Para conseguir una experiencia de cliente confiable, es esencial abrir estas direcciones URL. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio.
 >
->Estas direcciones URL solo se corresponden con los sitios de cliente y los recursos. No incluyen direcciones URL para otros servicios como Azure Active Directory. Las direcciones URL de Azure Active Directory se pueden encontrar en el id. 56 en las [direcciones URL e intervalos de direcciones IP de Office 365](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
+>Estas direcciones URL solo se corresponden con los sitios de cliente y los recursos. No incluyen direcciones URL para otros servicios como Azure Active Directory. Las direcciones URL de Azure Active Directory se pueden encontrar en el id. 56, 59 y 125 en las [direcciones URL e intervalos de direcciones IP de Office 365](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).

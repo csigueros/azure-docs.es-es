@@ -4,18 +4,17 @@ description: Patrones de escalado automático en Azure para Web Apps, conjunto d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 5a49c9812848d9ef8cbe5a4499fb1430ca146855
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 42cef2578ed95e7d7935079569e34b221bdd6830
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738435"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114454171"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
 La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](../../api-management/api-management-key-concepts.md).
 
 ## <a name="autoscale-concepts"></a>Conceptos de escalado automático
-
 * Un recurso solo puede tener *una* configuración de escalado automático.
 * Una configuración de escalado automático puede tener uno o varios perfiles y cada perfil, a su vez, puede tener una o varias reglas de escalado automático.
 * Una configuración de escalado automático escala instancias *horizontalmente* aumentando las instancias y las *reduce horizontalmente* disminuyendo el número de instancias.
@@ -26,19 +25,16 @@ La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine 
 * De forma similar, todas las acciones de escalado correctas se publican en el registro de actividad. Después, puede configurar una alerta de registro de actividad de forma que pueda recibir una notificación por correo electrónico, SMS o webhook siempre que haya una acción de escalabilidad automática correcta. Puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta a través de la pestaña de notificaciones de la configuración de escalado automático.
 
 ## <a name="autoscale-best-practices"></a>Procedimientos recomendados de escalado automático
-
 Use los procedimientos recomendados al usar el escalado automático.
 
 ### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Asegúrese de que los valores máximo y mínimo son diferentes y de que hay margen suficiente entre ellos
-
 Si tiene una configuración en la que el valor mínimo es 2, el valor máximo es 2 y el número de instancias es 2, no se puede ejecutar ninguna acción de escalado. Mantenga un margen suficiente entre los números de instancias máximo y mínimo, que son inclusivos. El escalado automático siempre escala entre estos límites.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>El escalado manual se restablece al valor máximo y mínimo de escalado automático.
-
 Si actualiza manualmente el recuento de instancias a un valor superior o inferior al máximo, el motor de escalado automático se ajusta automáticamente al valor mínimo (si está por debajo) o al máximo (si está por encima). Por ejemplo, establezca el intervalo entre 3 y 6. Si tiene una instancia en ejecución, el motor de escalabilidad automática escala a tres instancias cuando vuelve a ejecutarse. Del mismo modo, si establece manualmente la escalabilidad en ocho instancias, en la siguiente ejecución de escalabilidad automática se escalará de vuelta a seis instancias.  La escalabilidad manual es temporal a menos que restablezca también las reglas de escalabilidad automática.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Use siempre una combinación de reglas de escalado horizontal y reducción horizontal que realice un aumento y una disminución.
-Si usa un único elemento de la combinación, la escalabilidad automática solo ocurrirá en una dirección (escalabilidad o reducción horizontal) hasta que alcance el conteo máximo o mínimo de instancias que se ha definido en el perfil. Esta no es la mejor opción; idealmente, querrá que el recurso escale verticalmente en los momentos de uso elevado para garantizar la disponibilidad. De forma similar, en los momentos de poco uso querrá que el recurso se reduzca verticalmente para ahorrar costos.
+Si usa un único elemento de la combinación, la escalabilidad automática solo ocurrirá en una dirección (escalabilidad o reducción horizontal) hasta que alcance el conteo máximo o mínimo de instancias, según lo definido en el perfil. Esta no es la mejor opción; idealmente, querrá que el recurso escale verticalmente en los momentos de uso elevado para garantizar la disponibilidad. De forma similar, en los momentos de poco uso querrá que el recurso se reduzca verticalmente para ahorrar costos.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Elija la estadística adecuada para la métrica de diagnósticos
 Para las métricas de diagnóstico, puede elegir entre *Promedio*, *Mínimo*, *Máximo* y *Total* como métrica a partir de la que escalar. La estadística más común es *Promedio*.
@@ -78,7 +74,7 @@ En este caso
 > Si el motor de escalabilidad automática detecta oscilaciones podría producirse como resultado del escalado del número de instancias de destino, también intentará escalar a un número diferente de instancias entre el recuento actual y el recuento de destino. Si no se produce una oscilación en este intervalo, la escalabilidad automática continuará la operación de escalado con el nuevo destino.
 
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Consideraciones para establecer valores de umbral de escalado en métricas especiales
- En el caso de las métricas especiales, como la métrica longitud de cola de Service Bus o de Storage, el umbral es el promedio de mensajes disponibles por número actual de instancias. Elija cuidadosamente el valor de umbral para esta métrica.
+En el caso de las métricas especiales, como la métrica longitud de cola de Service Bus o de Storage, el umbral es el promedio de mensajes disponibles por número actual de instancias. Elija cuidadosamente el valor de umbral para esta métrica.
 
 Veamos esto con un ejemplo para procurar que entienda el comportamiento de mejor forma.
 
@@ -115,7 +111,6 @@ De forma similar, cuando el escalado automático regresa al perfil predeterminad
 ![configuración de escalado automático](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Consideraciones de escalado cuando hay varias reglas configuradas en un perfil
-
 Hay casos en los que puede que sea necesario establecer varias reglas en un perfil. El motor de escalabilidad automática usa el siguiente conjunto de reglas de escalado automático cuando se establecen varias reglas.
 
 Al *escalar horizontalmente*, el escalado automático se ejecuta si se cumple cualquier regla.

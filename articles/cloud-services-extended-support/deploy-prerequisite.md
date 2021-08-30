@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: bce09fad6ffa169a019628498a686226eff266c7
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: f21dc3251a64a3a432320e1d7a1f64abc124b61e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384989"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752080"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Requisitos previos para la implementación de Azure Cloud Services (soporte extendido)
 
@@ -35,6 +35,7 @@ En el caso de las redes virtuales que pertenecen al mismo grupo de recursos que 
        <Subnet name="<subnet-name>"/> 
      </Subnets> 
     </InstanceAddress> 
+  </AddressAssignments> 
 ```
 
 #### <a name="virtual-network-located-in-different-resource-group"></a>Red virtual ubicada en otro grupo de recursos
@@ -46,6 +47,7 @@ En el caso de las redes virtuales que pertenecen al mismo grupo de recursos que 
         <Subnet name="<subnet-name>"/> 
        </Subnets> 
      </InstanceAddress> 
+   </AddressAssignments>
 ```
 ### <a name="2-remove-the-old-plugins"></a>2) Eliminación de complementos antiguos
 
@@ -110,6 +112,9 @@ Las implementaciones que usaron los complementos de diagnóstico antiguos necesi
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
+## <a name="access-control"></a>Control de acceso
+
+La suscripción que contiene recursos de red debe tener acceso [de colaborador de red](../role-based-access-control/built-in-roles.md#network-contributor) o superior para Cloud Services (soporte extendido). Para más información, consulte el artículo sobre los [roles integrados de RBAC](../role-based-access-control/built-in-roles.md).
 
 ## <a name="key-vault-creation"></a>Creación de Key Vault 
 
@@ -118,5 +123,5 @@ Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
 - Implemente un servicio de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
-- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.yml) sobre Cloud Services (soporte extendido).
 - Visite el [repositorio de ejemplos de Cloud Services (soporte extendido)](https://github.com/Azure-Samples/cloud-services-extended-support)

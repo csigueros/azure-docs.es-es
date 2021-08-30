@@ -102,21 +102,21 @@
         - name: Envío y recepción de mensajes
           href: iot-hub-devguide-messaging.md
           items:
+            - name: Creación y lectura de mensajes de IoT Hub
+              href: iot-hub-devguide-messages-construct.md
+            - name: Elección de un protocolo de comunicación de dispositivos
+              href: iot-hub-devguide-protocols.md
+            - name: Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
+              href: iot-hub-devguide-messages-read-builtin.md
             - name: Uso del enrutamiento de mensajes para enviar mensajes del dispositivo a la nube
               href: iot-hub-devguide-messages-d2c.md
               items:
-                - name: Creación y lectura de mensajes de IoT Hub
-                  href: iot-hub-devguide-messages-construct.md
-                - name: Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
-                  href: iot-hub-devguide-messages-read-builtin.md
                 - name: Uso de puntos de conexión personalizados y reglas de enrutamiento para mensajes del dispositivo a la nube
                   href: iot-hub-devguide-messages-read-custom.md
                 - name: Incorporación de consultas a rutas de mensajes
                   href: iot-hub-devguide-routing-query-syntax.md
             - name: Envío de mensajes de nube a dispositivo desde IoT Hub
               href: iot-hub-devguide-messages-c2d.md
-            - name: Elección de un protocolo de comunicación
-              href: iot-hub-devguide-protocols.md
         - name: Reacción a eventos de IoT Hub con Event Grid
           href: iot-hub-event-grid.md
         - name: Carga de archivos desde un dispositivo
@@ -310,6 +310,8 @@
           href: iot-hub-ip-filtering.md
         - name: Administración del acceso a una red pública
           href: iot-hub-public-network-access.md
+        - name: Restricción del acceso de red saliente
+          href: iot-hub-restrict-outbound-network-access.md
         - name: Administración automática de dispositivos a escala
           items:
             - name: Usar Azure Portal

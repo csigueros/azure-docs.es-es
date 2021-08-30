@@ -404,7 +404,7 @@
           href: how-to-managed-cluster-configuration.md
         - name: Adición de una extensión del conjunto de escalado de máquina virtual a un tipo de nodo de clúster administrado
           href: how-to-managed-cluster-vmss-extension.md
-        - name: Incorporación de las reglas de grupo de seguridad de red y otras opciones de red de clúster administrado
+        - name: Configuración de los valores de red de un clúster administrado
           href: how-to-managed-cluster-networking.md
         - name: Configuración de la expansión de la zona de disponibilidad de un clúster administrado
           href: how-to-managed-cluster-availability-zones.md
@@ -414,14 +414,16 @@
           href: how-to-managed-cluster-managed-disk.md
         - name: Configuración de opciones de actualización de clústeres administrados
           href: how-to-managed-cluster-upgrades.md
-        - name: Implementación de secretos de aplicación de un clúster administrado
+        - name: Implementación de los secretos de una aplicación en un clúster administrado
           href: how-to-managed-cluster-application-secrets.md
-        - name: Implementación de aplicaciones de clúster administrados mediante la plantilla ARM
+        - name: Implementación de una aplicación en un clúster administrado mediante Azure Resource Manager
           href: how-to-managed-cluster-app-deployment-template.md
-        - name: Implementación de aplicaciones de clúster administrado con una identidad administrada
+        - name: Implementación de una aplicación con identidad administrada en un clúster administrado
           href: how-to-managed-cluster-application-managed-identity.md
         - name: Implementación de tipos de nodo sin estado en un clúster administrado
           href: how-to-managed-cluster-stateless-node-type.md
+        - name: Configuración del tipo de nodo secundario para el escalado grande en un clúster administrado
+          href: how-to-managed-cluster-large-virtual-machine-scale-sets.md
         - name: Uso de la identidad administrada para nodos de clúster administrados
           href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Configurado su entorno de desarrollo
@@ -828,6 +830,10 @@
           href: how-to-managed-identity-service-fabric-app-code.md
         - name: Concesión de acceso a otros recursos de Azure
           href: how-to-grant-access-other-resources.md
+    - name: Migración del clúster a una nueva región
+      items:
+        - name: Traslado de un clúster de Azure Service Fabric a una región nueva
+          href: service-fabric-cluster-region-move.md
     - name: Migración desde Cloud Services
       items:
         - name: Comparación de Cloud Services con Service Fabric

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1f58aa4e2aa4637dfb9fc8b29c52209975e3e367
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5e1bbd56d3fcfd087e294cb55c66edd2f22bd939
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796538"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765612"
 ---
 # <a name="cloud-tiering-overview"></a>Información general de nube por niveles
 La nube por niveles, una característica opcional de Azure File Sync, reduce la cantidad de almacenamiento local necesario al tiempo que mantiene el rendimiento de un servidor de archivos local.
@@ -31,8 +31,6 @@ La **directiva de espacio disponible del volumen** indica a Azure File Sync que 
 
 Por ejemplo, si la capacidad del disco local es de 200 GB y quiere que al menos 40 GB de la capacidad del disco local permanezcan siempre libres, debe establecer la directiva de espacio disponible del volumen en un 20 %. El espacio disponible en el volumen se aplica con respecto al volumen, y no a los directorios individuales o a los puntos de conexión de servidor. 
 
-Para saber cómo la directiva de espacio disponible del volumen afecta a los archivos descargados inicialmente cuando se agrega un nuevo punto de conexión de servidor, consulte la sección [Directivas de sincronización que afectan a la nube por niveles](#sync-policies-that-affect-cloud-tiering).
-
 #### <a name="date-policy"></a>Directiva de fecha
 Con la **directiva de fecha**, los archivos pasivos se organizan por niveles en la nube si no se ha tenido acceso a ellos (es decir, no se han leído ni se ha escrito en ellos) durante un número de días x. Por ejemplo, si observa que los archivos a los que no se ha accedido hace más de 15 días son normalmente archivos de archivado, debe establecer la directiva de fecha en 15 días. 
 
@@ -48,38 +46,20 @@ Para determinar la posición relativa de un archivo en ese mapa térmico, el sis
 
 Normalmente, la hora del último acceso está registrada y disponible. Sin embargo, cuando se crea un punto de conexión de servidor y está habilitada la nube por niveles, no ha pasado tiempo suficiente para observar el acceso al archivo. Si no existe una hora de último acceso válida, se usa la hora de la última modificación para evaluar la posición relativa en el mapa térmico.  
 
-La directiva de fecha funciona de la misma manera. Sin una hora de último acceso, la directiva de fecha actúa en función de la hora de la última modificación. Si esa hora no estuviera disponible, se pasa a la hora de creación del archivo. Con el tiempo, el sistema observa más y más solicitudes de acceso al archivo y empieza a usar automáticamente la hora de último acceso que ha registrado.
+La directiva de fecha funciona de la misma manera. Sin una hora de último acceso, la directiva de fecha actúa en función de la hora de la última modificación. Si esa hora no estuviera disponible, se pasa a la hora de creación del archivo. Con el tiempo, el sistema observa más solicitudes de acceso al archivo y empieza a usar automáticamente la hora de último acceso que ha registrado.
 
 > [!Note]
 > La nube por niveles no depende de la característica NTFS para el registro de la hora del último acceso. Esta característica NTFS está desactivada de forma predeterminada y, debido a consideraciones de rendimiento, no se recomienda habilitarla manualmente. La nube por niveles registra la hora del último acceso por separado.
 
-### <a name="sync-policies-that-affect-cloud-tiering"></a>Directivas de sincronización que afectan a la nube por niveles
+### <a name="proactive-recalling"></a>Recuperación proactiva
 
-Con la versión 11 del agente de Azure File Sync, existen dos directivas de Azure File Sync adicionales que se pueden establecer que afectan a la nube por niveles: **descarga inicial** y **recuperación proactiva**.
-
-#### <a name="initial-download"></a>Descarga inicial
-
-Cuando un servidor se conecta a un recurso compartido de archivos de Azure que contiene archivos, ahora puede decidir cómo quiere que el servidor descargue inicialmente los datos del recurso compartido de archivos. Cuando está habilitada la nube por niveles, tiene dos opciones. 
-
-![Captura de pantalla de descarga inicial cuando está habilitada la nube por niveles](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-3.png)  
-
-La primera opción consiste en recuperar primero el espacio de nombres y, luego, el contenido del archivo por la marca de tiempo de última modificación, hasta alcanzar la capacidad del disco local. Si tiene suficiente espacio en disco y sabe que los archivos que se modificaron por última vez deben almacenarse en la caché local, esta es la opción más adecuada. Los archivos que no se pueden almacenar localmente debido a la falta de espacio en disco se almacenan por niveles.        
-
-La segunda opción consiste en recuperar inicialmente solo el espacio de nombres y recuperar el contenido del archivo solo cuando se acceda a él. Esta opción es la más adecuada si quiere minimizar la capacidad usada en el disco local y desea que los usuarios decidan qué archivos deben almacenarse en la caché local. Con esta opción, todos los archivos se iniciarán como archivos almacenados por niveles.
-
-![Captura de pantalla de descarga inicial cuando está deshabilitada la nube por niveles](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-4.png)
-
-Cuando la nube por niveles está deshabilitada, tiene una tercera opción, que consiste en evitar todos los archivos almacenados por niveles. En esta situación, los archivos solo aparecerán en el servidor una vez que se hayan descargado por completo. Si tiene aplicaciones que requieren que los archivos completos estén presentes y no toleran archivos almacenados por niveles en su espacio de nombres, esta es la opción idónea.      
-
-#### <a name="proactive-recalling"></a>Recuperación proactiva
-
-Cuando se crea o se modifica un archivo, puede recuperarlo de forma proactiva en los servidores que especifique. Esta opción hace que el archivo nuevo o modificado esté fácilmente disponible para su consumo en cada servidor especificado. 
+Cuando se crea o se modifica un archivo, puede recuperarlo de forma proactiva en los servidores que especifique. La recuperación proactiva permite que el archivo nuevo o modificado esté fácilmente disponible para su consumo en cada servidor especificado. 
 
 Por ejemplo, una empresa distribuida por todo el mundo tiene sucursales en Estados Unidos y en la India. Por la mañana (hora de EE. UU.), los trabajadores de la información crean una carpeta y los archivos de un nuevo proyecto en el que trabajan todo el día. Azure File Sync sincronizará la carpeta y los archivos con el recurso compartido de archivos de Azure (punto de conexión de nube). Los trabajadores de la información de la India seguirán trabajando en el proyecto en su zona horaria. Cuando lleguen por la mañana, el servidor local de Azure File Sync habilitado en la India debe tener disponibles estos nuevos archivos a nivel local, de modo que el equipo de la India pueda trabajar eficazmente fuera de una caché local. Al habilitar este modo, se evita que el acceso inicial al archivo sea más lento debido a la recuperación a petición y permite que el servidor recupere los archivos de forma proactiva en cuanto se han modificado o creado en el recurso compartido de archivos de Azure.
 
-Si los archivos recuperados en el servidor no son realmente necesarios localmente, la recuperación innecesaria puede aumentar el tráfico de salida y los costos. Por tanto, habilite la recuperación proactiva solo cuando sepa que rellenar previamente la caché de un servidor con los cambios recientes en la nube tendrá un efecto positivo en los usuarios o las aplicaciones que usan los archivos de dicho servidor. 
+Si los archivos recuperados en el servidor no son necesarios localmente, la recuperación innecesaria puede aumentar el tráfico de salida y los costos. Por tanto, habilite la recuperación proactiva solo cuando sepa que rellenar previamente la caché de un servidor con los cambios recientes en la nube tendrá un efecto positivo en los usuarios o las aplicaciones que usan los archivos de dicho servidor. 
 
-Habilitar la recuperación proactiva también puede aumentar el uso de ancho de banda en el servidor y puede hacer que otro contenido relativamente nuevo en el servidor local se organice por niveles a la fuerza debido al aumento de los archivos que se recuperan. A su vez, esta situación puede conducir lugar a más recuperaciones si los servidores consideran que los archivos almacenados por niveles son activos. 
+Habilitar la recuperación proactiva también puede aumentar el uso de ancho de banda en el servidor y puede hacer que otro contenido relativamente nuevo en el servidor local se organice por niveles a la fuerza debido al aumento de los archivos que se recuperan. A su vez, la organización por niveles puede dar lugar a más recuperaciones si los servidores consideran que los archivos almacenados por niveles son activos. 
 
 :::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="Imagen que muestra el comportamiento de descarga del recurso compartido de archivos de Azure para un punto de conexión de servidor actualmente en vigor y un botón para abrir un menú que permite cambiarlo.":::
 
@@ -101,7 +81,7 @@ Por otro lado, en el caso de un archivo almacenado en un servidor de archivos lo
 
 ![Captura de pantalla de las propiedades de un archivo cuando no está almacenado por niveles (espacio de nombres + contenido del archivo).](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-1.png) 
 
-También es posible que un archivo se encuentre parcialmente organizado en niveles (o parcialmente recuperado). En el caso de un archivo parcialmente organizado en niveles, parte del archivo está en el disco. Esta situación puede suceder cuando aplicaciones, como reproductores multimedia o utilidades de compresión que admiten el acceso mediante streaming a los archivos, realizan una lectura parcial de estos. Azure File Sync es inteligente y solo recupera la información solicitada del recurso compartido de archivos de Azure conectado.
+También es posible que un archivo se encuentre parcialmente organizado en niveles (o parcialmente recuperado). En el caso de un archivo parcialmente organizado en niveles, solo parte del archivo se almacena en el disco. Es posible que tenga archivos parcialmente recuperados en el volumen si las aplicaciones que admiten el acceso de streaming a los archivos los leen parcialmente. Algunos ejemplos son reproductores multimedia y utilidades zip. Azure File Sync es eficaz y solo recupera la información solicitada del recurso compartido de archivos de Azure conectado.
 
 > [!NOTE]
 > El tamaño representa el tamaño lógico del archivo. El tamaño en disco representa el tamaño físico del flujo de archivos que se almacena en el disco.

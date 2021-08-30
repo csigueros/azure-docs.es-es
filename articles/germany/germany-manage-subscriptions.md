@@ -1,45 +1,41 @@
 ---
 title: Suscripciones de Azure Alemania | Microsoft Docs
-description: Información sobre la administración de suscripciones en Azure Alemania
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: En este artículo se proporciona información sobre la administración de suscripciones en Azure Alemania.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 5b39a9b69afea2efa1ab37c2cce059da3211b70a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: 052bbec655c8f888da6d58bf8048fdcd51e85922
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033525"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "117029009"
 ---
 # <a name="manage-and-connect-to-your-subscription-in-azure-germany"></a>Administración de suscripciones y conexión a estas en Azure Alemania
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 Azure Alemania presenta direcciones URL y puntos de conexión únicos para administrar su entorno. Es importante usar las conexiones adecuadas para administrar el entorno mediante Azure Portal o PowerShell. Después de conectarse al entorno de Azure Alemania, las operaciones normales para administrar un servicio funcionan si el componente se ha implementado.
 
-## <a name="connect-by-using-the-portal"></a>Conexión mediante el portal
-El [portal](https://portal.microsoftazure.de) es la principal manera que tiene la mayoría de la gente de conectarse a Azure Alemania. 
-
-> [!NOTE]
-> El nuevo portal (el que usa el modelo de implementación de Azure Resource Manager) solo está disponible para Azure Alemania.
+> [!IMPORTANT]
+>
+>Esto se aplica a los clientes de Azure en Microsoft Cloud Germany que compran servicios de Azure directamente a Microsoft con precios de pago por uso. 
+>
+>A partir del 14 de septiembre de 2019, se ha hecho efectivo un mandato nuevo de la Unión Europea que requiere que los pagos con tarjeta de crédito del cliente pasen por un desafío de autenticación sólida de clientes (SCA). Como resultado, los clientes que utilizan precios de pago por uso no pueden crear suscripciones nuevas ni agregar o actualizar la información de pago hasta que [migran a una región de Azure nueva](./germany-migration-main.md). 
+>
 >
 
-## <a name="create-subscriptions"></a>Creación de suscripciones
-Para crear suscripciones para su cuenta, vaya a la [página principal de la cuenta](https://account.windowsazure.de).
+## <a name="manage-subscription"></a>Administración de la suscripción
+Puede administrar los recursos de Azure y consultar la información de facturación de la suscripción en [Azure Portal](https://portal.microsoftazure.de). 
 
-## <a name="create-a-free-account"></a>Creación de una cuenta gratuita
-Existen [cuentas gratuitas](https://azure.microsoft.com/free/germany/) para Azure Alemania.
-
+## <a name="manage-account"></a>Administración de una cuenta
+Si desea administrar la información de su cuenta, como los detalles de contacto, visite el [Centro de cuentas](https://account.windowsazure.de).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información complementaria y actualizaciones, suscríbase al [blog de Azure Alemania](https://blogs.msdn.microsoft.com/azuregermany/).
+Aprenda a [migrar a una región de Azure nueva](./germany-migration-main.md).
 
 
 

@@ -7,16 +7,16 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ec2e7d2f80e19d2e001fec0a3949f469b33149d2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f527b33445ed55fbc64a08144a94ba9a05f38092
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957140"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112554485"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Uso de plantillas para crear entidades de Azure Data Factory
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory. 
+> Este artículo se aplica a la versión 1 de Data Factory.
 
 ## <a name="overview"></a>Información general
 Cuando utiliza Azure Data Factory para sus necesidades de integración de datos, es posible que tenga que reutilizar el mismo patrón en distintos entornos o implementar la misma tarea repetidamente dentro de la misma solución. Las plantillas le permiten implementar y administrar estos escenarios de una forma sencilla. Las plantillas de Azure Data Factory son ideales para los escenarios que implican la reutilización y la repetición.
@@ -39,12 +39,12 @@ Consulte los siguientes tutoriales para obtener instrucciones detalladas para cr
 ## <a name="data-factory-templates-on-github"></a>Plantillas de Data Factory en GitHub
 Consulte las siguientes plantillas de inicio rápido de Azure en GitHub:
 
-* [Creación de una factoría de datos para copiar datos de Azure Blob Storage a Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
-* [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) (Creación de una instancia de Data Factory con actividad de Hive en un clúster de Azure HDInsight)
-* [Create a Data factory to copy data from Salesforce to Azure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) (Creación de una instancia de Data Factory para copiar datos desde Salesforce en Azure Blobs)
-* [Creación de una factoría de datos que encadena actividades: copiar datos desde un servidor FTP en blobs de Azure, invocar un script de Hive en un clúster de HDInsight a petición para transformar los datos y copiar el resultado en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
+* [Creación de una factoría de datos para copiar datos de Azure Blob Storage a Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-blob-to-sql-copy)
+* [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-hive-transformation) (Creación de una instancia de Data Factory con actividad de Hive en un clúster de Azure HDInsight)
+* [Create a Data factory to copy data from Salesforce to Azure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-salesforce-to-blob-copy) (Creación de una instancia de Data Factory para copiar datos desde Salesforce en Azure Blobs)
+* [Creación de una factoría de datos que encadena actividades: copiar datos desde un servidor FTP en blobs de Azure, invocar un script de Hive en un clúster de HDInsight a petición para transformar los datos y copiar el resultado en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-ftp-hive-blob)
 
-No dude en compartir sus plantillas de Azure Data Factory en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/). Consulte la [Guía de contribución](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) cuando desarrolle plantillas que se puedan compartir a través de este repositorio.
+No dude en compartir sus plantillas de Azure Data Factory en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Consulte la [Guía de contribución](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) cuando desarrolle plantillas que se puedan compartir a través de este repositorio.
 
 Las secciones siguientes proporcionan detalles acerca de cómo definir los recursos de Data Factory en una plantilla de Resource Manager.
 
@@ -89,7 +89,7 @@ Puede definir una factoría de datos en la plantilla de Resource Manager como se
     "location": "East US"
 }
 ```
-El dataFactoryName se define en "variables" como:
+El valor dataFactoryName se define en "variables" como:
 
 ```JSON
 "dataFactoryName": "[concat('<myDataFactoryName>', uniqueString(resourceGroup().id))]",
@@ -169,7 +169,7 @@ Consulte [Almacenes de datos que se admiten](data-factory-data-movement-activiti
 }
 ```
 
-Consulte [Definición de canalizaciones](data-factory-create-pipelines.md#pipeline-json) para más información acerca de las propiedades JSON para definir la canalización específica y las actividades que desea implementar. Tenga en cuenta que el parámetro "dependsOn" especifica el nombre de la factoría de datos y todos los servicios vinculados o conjuntos de datos correspondientes. En el siguiente fragmento de código JSON se muestra un ejemplo de una canalización que copia datos de Azure Blob Storage en Azure SQL Database:
+Consulte [Definición de canalizaciones](data-factory-create-pipelines.md#pipeline-json) para más información acerca de las propiedades JSON para definir la canalización específica y las actividades que desea implementar. Tenga en cuenta que el parámetro "dependsOn" especifica el nombre de la factoría de datos y todos los conjuntos de datos o servicios vinculados correspondientes. En el siguiente fragmento de código JSON se muestra un ejemplo de una canalización que copia datos de Azure Blob Storage en Azure SQL Database:
 
 ```JSON
 "type": "datapipelines",

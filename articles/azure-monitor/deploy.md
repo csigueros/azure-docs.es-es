@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: dc73ac91320e1860c5c30f1b31962ad826a1038f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 769fae5791575d8f361aaee13347bb00f3fbe749
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076805"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616440"
 ---
 # <a name="deploy-azure-monitor"></a>Implementación de Azure Monitor
 Habilitar Azure Monitor para supervisar todos los recursos de Azure es una combinación de la configuración de los componentes de Azure Monitor y la configuración de los recursos de Azure para generar datos de supervisión para que Azure Monitor los recopile. En este artículo se describen los diferentes pasos necesarios para realizar una implementación completa de Azure Monitor con una configuración común para supervisar todos los recursos de la suscripción de Azure. Se proporcionan descripciones básicas de cada paso con vínculos a otra documentación para obtener información detallada sobre los requisitos de configuración.
@@ -129,7 +129,7 @@ La **supervisión sin código** es más fácil de implementar y se puede configu
 - [Aplicaciones hospedadas en Azure Web Apps](app/azure-web-apps.md)
 - [Aplicaciones de Java](app/java-in-process-agent.md)
 - [Aplicaciones ASP.NET hospedadas en IIS en una máquina virtual de Azure o un conjunto de escalado de máquinas virtuales de Azure](app/azure-vm-vmss-apps.md)
-- [Aplicaciones ASP.NET hospedadas en una máquina virtual en el entorno local de IIS](app/monitor-performance-live-website-now.md)
+- [Aplicaciones ASP.NET hospedadas en una máquina virtual en el entorno local de IIS](app/status-monitor-v2-overview.md)
 
 
 La **supervisión basada en código** es más personalizable y recopila telemetría adicional, pero requiere agregar una dependencia al código en los paquetes NuGet del SDK de Application Insights. Consulte los siguientes recursos para obtener más información sobre cómo habilitar la supervisión en función de la aplicación.

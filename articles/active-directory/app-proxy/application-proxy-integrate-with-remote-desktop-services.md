@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 07/12/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4a7a4fdcad177c6108399a0cb1e64327c3eac8f5
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: aa5c8ae942bb48c78526867eb44cc2084c056d48
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186957"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113649667"
 ---
 # <a name="publish-remote-desktop-with-azure-active-directory-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure Active Directory
 
@@ -42,7 +42,7 @@ En una implementación de RDS, el rol web de Escritorio remoto y el rol Puerta d
 ## <a name="requirements"></a>Requisitos
 
 - Los puntos de conexión de Acceso web y Puerta de enlace de Escritorio remoto deben estar en la misma máquina y compartir una raíz. Acceso de Escritorio remoto y Puerta de enlace de Escritorio remoto se publican como una sola aplicación con el proxy de aplicación para que pueda tener experiencia de inicio de sesión único entre las dos aplicaciones.
-- Ya debe tener [RDS implementados](/windows-server/remote/remote-desktop-services/rds-in-azure) y el [proxy de aplicación habilitado](../app-proxy/application-proxy-add-on-premises-application.md). Asegúrese de haber cumplido los requisitos previos para habilitar Application Proxy, como instalar el conector, abrir los puertos y las direcciones URL necesarios, y habilitar TLS 1.2 en el servidor.
+- Ya debe tener [RDS implementados](/windows-server/remote/remote-desktop-services/rds-in-azure) y el [proxy de aplicación habilitado](../app-proxy/application-proxy-add-on-premises-application.md). Asegúrese de haber cumplido los requisitos previos para habilitar Application Proxy, como instalar el conector, abrir los puertos y las direcciones URL necesarios, y habilitar TLS 1.2 en el servidor. Para saber qué puertos deben abrirse y otros detalles, vea [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md).
 - Los usuarios finales deben usar un explorador compatible para conectarse a Acceso web de Escritorio remoto o al cliente web de Escritorio remoto. Para más información, consulte [Compatibilidad con otras configuraciones de cliente](#support-for-other-client-configurations).
 - Al publicar la web del escritorio remoto, se recomienda usar el mismo FQDN interno y externo. Si el FQDN interno y externo son diferentes, debe desactivar la traducción del encabezado de solicitud para evitar que el cliente reciba enlaces no válidos.
 - Si usa Acceso web de Escritorio remoto en Internet Explorer, deberá habilitar el complemento ActiveX de RDS.

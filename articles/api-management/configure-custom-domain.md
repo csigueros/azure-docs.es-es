@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: a7032c64efa486c65830e013373239647a368540
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0e8dfaf4c03ee3cfd47271b2044a7d0d9480643
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92311137"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271983"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Configuración de un nombre de dominio personalizado para la instancia de Azure API Management
 
@@ -59,7 +59,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
     > Solo el punto de conexión **Puerta de enlace** está disponible para la configuración en el nivel Consumo.
     > Puede actualizar algunos o todos los puntos de conexión. Por lo general, los clientes actualizan **Puerta de enlace** (esta dirección URL se utiliza para llamar a la API expuesta a través de API Management) y **Portal** (dirección URL del portal del desarrollador).
     > Los puntos de conexión **Management** y **SCM** los usan internamente los propietarios de la instancia de API Management y, por tanto, se les asigna con menor frecuencia un nombre de dominio personalizado.
-    > El nivel **Premium** admite la configuración de varios nombres de host para el punto de conexión **Puerta de enlace**.
+    > Los niveles **Prémium** y **Desarrollador** admiten la configuración de varios nombres de host para el punto de conexión **Puerta de enlace**.
 
 1. Seleccione el punto de conexión que desee actualizar.
 1. En la ventana de la derecha, haga clic en **Personalizar**.
@@ -93,7 +93,7 @@ Al configurar DNS para el nombre de dominio personalizado, tiene dos opciones:
 -   Configurar un registro A que apunte a la dirección IP de la puerta de enlace de API Management.
 
 > [!NOTE]
-> Si bien la dirección IP de la instancia de API Management es estática, es posible que cambien en algunos escenarios. Debido a esto, se recomienda usar CNAME al configurar un dominio personalizado. Tenga en cuenta eso cuando elija el método de configuración de DNS. Más información en el [artículo de la documentación de IP](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) y las [Preguntas más frecuentes sobre API Management](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
+> Si bien la dirección IP de la instancia de API Management es estática, es posible que cambien en algunos escenarios. Debido a esto, se recomienda usar CNAME al configurar un dominio personalizado. Tenga en cuenta eso cuando elija el método de configuración de DNS. Más información en el [artículo de la documentación de IP](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) y las [Preguntas más frecuentes sobre API Management](api-management-faq.yml#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services-).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

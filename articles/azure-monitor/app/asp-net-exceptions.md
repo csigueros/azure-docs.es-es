@@ -4,12 +4,12 @@ description: Capture las excepciones de las aplicaciones ASP.NET junto con la te
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/19/2021
-ms.openlocfilehash: e992fcd16b678a89ae56ceaea4bd7d4ffb85c4fc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d81881318f6bbfa5c44b9cd947cf408cefa766ae
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110455087"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616251"
 ---
 # <a name="diagnose-exceptions-in-web-apps-with-application-insights"></a>Diagnóstico de excepciones en aplicaciones web con Application Insights
 
@@ -26,7 +26,7 @@ Para que se notifiquen las excepciones desde la aplicación de servidor, tenga e
   * **Aplicaciones web de Azure**: agregue la [extensión de Application Insights](./azure-web-apps.md).
   * **Aplicaciones hospedadas en IIS en VM de Azure y conjunto de escalado de máquinas virtuales de Azure**: agregue la [extensión de supervisión de aplicaciones](./azure-vm-vmss-apps.md).
   * Instale el [SDK de Application Insights](./asp-net.md) en su código de aplicación.
-  * **Servidores web de IIS**: ejecute el [agente de Application Insights](./monitor-performance-live-website-now.md).
+  * **Servidores web de IIS**: ejecute el [agente de Application Insights](./status-monitor-v2-overview.md).
   * **Aplicaciones web de Java**: habilite el [agente Java](./java-in-process-agent.md).
 
 ### <a name="client-side"></a>En el cliente
@@ -520,7 +520,7 @@ namespace WcfService4
 
 ## <a name="exception-performance-counters"></a>Contadores de rendimiento de excepciones
 
-Si tiene [instalado el agente de Application Insights](./monitor-performance-live-website-now.md) en el servidor, puede obtener un gráfico de la tasa de excepciones, medida por .NET. Esto incluye las excepciones de .NET, tanto controladas como no controladas.
+Si tiene [instalado el agente de Application Insights de Azure Monitor](./status-monitor-v2-overview.md) en el servidor, puede obtener un gráfico de la tasa de excepciones, medida por .NET. Esto incluye las excepciones de .NET, tanto controladas como no controladas.
 
 Abra una pestaña del Explorador de métricas, agregue un nuevo gráfico y seleccione **Tasa de excepciones**, que aparece debajo de Contadores de rendimiento.
 

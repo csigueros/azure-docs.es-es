@@ -3,14 +3,14 @@ title: Clientes compatibles con Update Management en Azure Automation
 description: En este artículo se describen los sistemas operativos Windows y Linux compatibles con Update Management en Azure Automation.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 07/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: b25cc49846f7cd7cba1bb121fcbb8ba93f3a9b02
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 888123d1e1b2b87313f44f8b266d969cbff5bcde
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895881"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460509"
 ---
 # <a name="operating-systems-supported-by-update-management"></a>Sistemas operativos compatibles con Update Management
 
@@ -20,6 +20,8 @@ En este artículo se detallan los sistemas operativos Windows y Linux compatible
 
 En la tabla siguiente se muestra una lista de sistemas operativos compatibles para evaluaciones de actualizaciones y parches. La aplicación de revisiones requiere un sistema Hybrid Runbook Worker, que se instala automáticamente al habilitar la máquina virtual o el servidor para la administración mediante Update Management. Para obtener información sobre los requisitos del sistema para Hybrid Runbook Worker, vea [Implementación de Hybrid Runbook Worker en Windows](../automation-windows-hrw-install.md#prerequisites) e [Implementación de Hybrid Runbook Worker en Linux](../automation-linux-hrw-install.md#prerequisites).
 
+Se supone que todos los sistemas operativos son x64. No se admite x86 para ningún sistema operativo.
+
 > [!NOTE]
 > La evaluación de la actualización de máquinas Linux solo se admite en determinadas regiones tal como se muestra en la [tabla de asignaciones](../how-to/region-mappings.md#supported-mappings) del área de trabajo de Log Analytics y la cuenta de Automation.
 
@@ -27,10 +29,11 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles pa
 |---------|---------|
 |Windows Server 2019 (Datacenter o Standard incluido Server Core)<br><br>Windows Server 2016 (Datacenter o Standard sin incluir Server Core)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management admite evaluaciones y parches para este sistema operativo. [Hybrid Runbook Worker](../automation-windows-hrw-install.md) es compatible con Windows Server 2008 R2. |
-|CentOS 6, 7 y 8 (x64)      | Los agentes de Linux requieren acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere `yum` para devolver los datos de seguridad que CentOS no tiene en sus versiones RTM. Para más información sobre la aplicación de revisiones basadas en clasificaciones en CentOS, consulte [Actualización de clasificaciones en Linux](view-update-assessments.md#linux).          |
-|Red Hat Enterprise 6, 7 y 8 (x64)     | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
-|SUSE Linux Enterprise Server 12, 15 y 15.1 (x64)     | Los agentes de Linux requieren acceso a un repositorio de actualización.     |
-|Ubuntu 14.04 LTS, 16.04 LTS y 18.04 LTS (x64)      |Los agentes de Linux requieren acceso a un repositorio de actualización.         |
+|CentOS 6, 7 y 8       | Los agentes de Linux requieren acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere `yum` para devolver los datos de seguridad que CentOS no tiene en sus versiones RTM. Para más información sobre la aplicación de revisiones basadas en clasificaciones en CentOS, consulte [Actualización de clasificaciones en Linux](view-update-assessments.md#linux).          |
+|Oracle Linux 6.x, 7.x, 8x | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
+|Red Hat Enterprise 6, 7 y 8      | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
+|SUSE Linux Enterprise Server 12, 15, 15.1 y 15.2      | Los agentes de Linux requieren acceso a un repositorio de actualización.     |
+|Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS y 20.04 LTS       |Los agentes de Linux requieren acceso a un repositorio de actualización.         |
 
 > [!NOTE]
 > Update Management no admite la automatización de la administración de actualizaciones de forma segura en todas las instancias de un conjunto de escalado de máquinas virtuales de Azure. La [actualización automática de imágenes de sistema operativo](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) es el método recomendado para administrar las actualizaciones de este tipo de imágenes en el conjunto de escalado.
@@ -47,7 +50,7 @@ En la tabla siguiente se enumeran los sistemas operativos no admitidos por Updat
 
 ## <a name="system-requirements"></a>Requisitos del sistema
 
-La información siguiente describe los requisitos específicos del sistema operativo. Para obtener más instrucciones, vea [Planeamiento de red](plan-deployment.md#ports). Para comprender los requisitos para TLS 1.2, consulte el artículo sobre el [cumplimiento de TLS 1.2 para Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+La información siguiente describe los requisitos específicos del sistema operativo. Para obtener más instrucciones, vea [Planeamiento de red](plan-deployment.md#ports). Para comprender los requisitos para TLS 1.2, consulte el artículo sobre [TLS 1.2 para Azure Automation](../automation-managing-data.md#tls-12-for-azure-automation).
 
 ### <a name="windows"></a>Windows
 

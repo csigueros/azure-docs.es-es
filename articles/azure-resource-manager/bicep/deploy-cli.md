@@ -4,13 +4,13 @@ description: Use Azure Resource Manager y la CLI de Azure para implementar recur
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: aa23bfd9d867b9e0d5d2724a2b1f41b9fbc8e5da
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/15/2021
+ms.openlocfilehash: 1feb5f2e858113086b9349c79dacb024570fb5a4
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954762"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635162"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-cli"></a>Implementación de recursos con Bicep y la CLI de Azure
 
@@ -147,6 +147,19 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 
 Use comillas dobles alrededor del código JSON que desee pasar al objeto.
 
+Puede usar una variable para contener los valores de parámetro. En Bash, establezca la variable en todos los valores de parámetro y agréguela al comando de implementación.
+
+```azurecli-interactive
+params="prefix=start suffix=end"
+
+az deployment group create \
+  --resource-group testgroup \
+  --template-file <path-to-bicep> \
+  --parameters $params
+```
+
+Sin embargo, si usa CLI de Azure con el símbolo del sistema (CMD) de Windows o PowerShell, establezca la variable en una cadena JSON. Incluya las comillas: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
+
 ### <a name="parameter-files"></a>Archivos de parámetros
 
 En lugar de pasar parámetros como valores en línea en el script, quizá le resulte más fácil usar un archivo JSON que contiene los valores de parámetro. El archivo de parámetros debe ser un archivo local. No se admiten los archivos de parámetros externos con la CLI de Azure. El archivo Bicep usa archivos de parámetros JSON.
@@ -169,7 +182,7 @@ Antes de implementar el archivo Bicep, puede obtener una vista previa de los cam
 
 ## <a name="deploy-template-specs"></a>Especificaciones de la implementación de la plantilla
 
-Actualmente, la CLI de Azure no admite la creación de especificaciones de plantilla mediante archivos Bicep. Sin embargo, puede crear un archivo Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. A continuación, se muestra un [ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep). También puede compilar el archivo Bicep en una plantilla ARM JSON mediante la CLI de Bicep y, a continuación, crear una especificación de plantilla con la plantilla JSON.
+Actualmente, la CLI de Azure no admite la creación de especificaciones de plantilla mediante archivos Bicep. Sin embargo, puede crear un archivo Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. A continuación, puede ver un [ejemplo](https://github.com/Azure/azure-docs-bicep-samples/blob/main/create-template-spec-using-bicep/azuredeploy.bicep). También puede compilar el archivo Bicep en una plantilla ARM JSON mediante la CLI de Bicep y, a continuación, crear una especificación de plantilla con la plantilla JSON.
 
 ## <a name="deployment-name"></a>Nombre de implementación
 
@@ -200,5 +213,5 @@ Para evitar conflictos con las implementaciones simultáneas y garantizar que la
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para revertir a una implementación correcta cuando se produce un error, consulte [Revertir en caso de error a una implementación correcta](../templates/rollback-on-error.md).
-* Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../templates/syntax.md).
+- Para entender cómo definir parámetros en el archivo, consulte [Nociones sobre la estructura y la sintaxis de los archivos Bicep](file.md).
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../templates/common-deployment-errors.md).

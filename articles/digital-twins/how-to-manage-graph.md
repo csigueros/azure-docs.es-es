@@ -1,5 +1,5 @@
 ---
-title: Administración del grafo de gemelos con relaciones
+title: Administración del grafo de gemelos y las relaciones
 titleSuffix: Azure Digital Twins
 description: Consulte cómo administrar un grafo de gemelos digitales conectándolos con relaciones.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c48f62d193af953ec080fcd559c9d7593428d99e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e43617a2874a7a6817dc8126bca8e1af79436eb2
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454622"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689970"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
@@ -20,7 +20,7 @@ El corazón de Azure Digital Twins es el [grafo de gemelos](concepts-twins-graph
 
 Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance-portal.md) en funcionamiento y que haya configurado el código de [autenticación](how-to-authenticate-client.md) en la aplicación cliente, puede crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins.
 
-Este artículo está centrado en la administración de las relaciones y el grafo en conjunto; para trabajar con gemelos digitales individuales, consulte [Procedimiento: Administración de Digital Twins](how-to-manage-twin.md).
+Este artículo está centrado en la administración de las relaciones y el grafo en conjunto. Si desea trabajar con gemelos digitales individuales, consulte [Administración de Digital Twins](how-to-manage-twin.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -52,13 +52,13 @@ En el ejemplo de código siguiente se muestra cómo crear una relación en la in
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod" highlight="13":::
 
-Ahora se puede llamar a esta función personalizada para crear una relación _contiene_ como esta: 
+Ahora se puede llamar a esta función personalizada para crear una relación _contiene_ de esta manera: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseCreateRelationship":::
 
 Si desea crear varias relaciones, puede repetir las llamadas al mismo método, con tipos de relación diferentes en el argumento. 
 
-Para más información sobre la clase auxiliar `BasicRelationship`, consulte [Conceptos: Uso de las API y los SDK de Azure Digital Twins](concepts-apis-sdks.md#serialization-helpers).
+Para más información sobre la clase auxiliar `BasicRelationship`, consulte [API y SDK de Azure Digital Twins](concepts-apis-sdks.md#serialization-helpers).
 
 ### <a name="create-multiple-relationships-between-twins"></a>Creación de varias relaciones entre gemelos
 
@@ -75,11 +75,19 @@ También puede crear varias instancias del mismo tipo de relación entre los mis
 
 ## <a name="list-relationships"></a>Enumeración de las relaciones
 
-Para acceder a la lista de relaciones de **salida** de un gemelo determinado del grafo, puede usar el método `GetRelationships()` de la siguiente forma:
+### <a name="list-properties-of-a-single-relationship"></a>Enumeración de las propiedades de una relación única
+
+Siempre puede deserializar los datos de la relación en un tipo de su elección. Para obtener acceso básico a una relación, utilice el tipo `BasicRelationship`. La clase de asistente `BasicRelationship` también proporciona acceso a las propiedades definidas en la relación, mediante un elemento `IDictionary<string, object>`. Para enumerar las propiedades, puede usar:
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
+
+### <a name="list-outgoing-relationships-from-a-digital-twin"></a>Enumeración de las relaciones de salida desde un gemelo digital
+
+Para acceder a la lista de relaciones de **salida** de un gemelo determinado del grafo, puede usar el método `GetRelationships()` de la siguiente forma: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
 
-Esto devuelve un elemento `Azure.Pageable<T>` o `Azure.AsyncPageable<T>`, en función de si se usa la versión sincrónica o asincrónica de la llamada.
+Este método devuelve un elemento `Azure.Pageable<T>` o `Azure.AsyncPageable<T>`, en función de si se usa la versión sincrónica o asincrónica de la llamada.
 
 Este es un ejemplo que recupera una lista de relaciones. Usa la llamada de SDK (resaltada) de un método personalizado que puede aparecer en el contexto de un programa más grande.
 
@@ -89,11 +97,11 @@ Ahora puede llamar a este método personalizado para ver las relaciones de salid
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindOutgoingRelationships":::
 
-Puede usar las relaciones recuperadas para navegar a otros gemelos del grafo. Para ello, lea el campo `target` de la relación que se devuelve y úselo como id. de la siguiente llamada a `GetDigitalTwin()`.
+Puede usar las relaciones recuperadas para navegar a otros gemelos en el grafo. Para ello, lea el campo `target` de la relación que se devuelve y úselo como el identificador para la llamada siguiente a `GetDigitalTwin()`.
 
-### <a name="find-incoming-relationships-to-a-digital-twin"></a>Búsqueda de relaciones de entrada para un gemelo digital
+### <a name="list-incoming-relationships-to-a-digital-twin"></a>Enumeración de relaciones de entrada para un gemelo digital
 
-Azure Digital Twins también dispone de una API para buscar todas las relaciones de **entrada** para un gemelo determinado. Suele ser útil para la navegación inversa o cuando se elimina un gemelo.
+Azure Digital Twins también dispone de una llamada de SDK para buscar todas las relaciones de **entrada** para un gemelo determinado. Este SDK suele ser útil para la navegación inversa o cuando se elimina un gemelo.
 
 >[!NOTE]
 > Las llamadas a `IncomingRelationship` no devuelven todo el cuerpo de la relación. Para más información sobre la clase `IncomingRelationship`, consulte su [documentación de referencia](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
@@ -123,9 +131,12 @@ Las relaciones se actualizan mediante el método `UpdateRelationship`.
 >[!NOTE]
 >Este método se usa para actualizar las **propiedades** de una relación. Si necesita cambiar el gemelo de origen o el de destino de la relación, deberá [eliminar la relación](#delete-relationships) y [volver a crear una](#create-relationships) con los nuevos gemelos.
 
-Los parámetros necesarios para la llamada de cliente son el identificador del gemelo de origen (el gemelo en el que se origina la relación), el identificador de la relación que se va a actualizar y un documento de [revisión de JSON](http://jsonpatch.com/) que contiene las propiedades y los nuevos valores que quiere actualizar.
+Los parámetros necesarios para la llamada de cliente son:
+- El identificador del gemelo de origen (el gemelo en el que se origina la relación).
+- El identificador de la relación que se va a actualizar.
+- Un documento de [revisión JSON](http://jsonpatch.com/) que contiene las propiedades y los valores nuevos que desea actualizar.
 
-Este es el código de ejemplo que muestra cómo utilizar este método. En este ejemplo se usa la llamada de SDK (resaltada) de un método personalizado que puede aparecer en el contexto de un programa más grande.
+A continuación se muestra el fragmento de código de ejemplo que muestra cómo se usa este método. En este ejemplo se usa la llamada de SDK (resaltada) de un método personalizado que puede aparecer en el contexto de un programa más grande.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod" highlight="6":::
 
@@ -158,7 +169,7 @@ Observe la siguiente tabla de datos, que describe un conjunto de gemelos digital
 | dtmi:example:Room;1    | Room1 | | | {"Temperature": 80} |
 | dtmi:example:Room;1    | Room0 | | | {"Temperature": 70} |
 
-Una forma de introducir estos datos en Azure Digital Twins es convertir la tabla en un archivo .csv y escribir código que interprete el archivo en comandos para crear gemelos y relaciones. El siguiente código de ejemplo ilustra la lectura de los datos del archivo .csv y la creación de un grafo gemelo en Azure Digital Twins.
+Una forma de llevar estos datos s Azure Digital Twins es convertir la tabla en un archivo .csv. Una vez convertida la tabla, se puede escribir código para interpretar el archivo en comandos a fin de crear gemelos y relaciones. El siguiente código de ejemplo ilustra la lectura de los datos del archivo .csv y la creación de un grafo gemelo en Azure Digital Twins.
 
 En el código siguiente, el archivo .csv se llama *data.csv* y hay un marcador de posición que representa el **nombre de host** de la instancia de Azure Digital Twins. El ejemplo también usa varios paquetes, que se pueden agregar al proyecto para que faciliten este proceso.
 
@@ -190,14 +201,14 @@ Luego siga estos pasos para configurar el código del proyecto:
       dotnet add package Azure.Identity
       ```
 
-También necesitará configurar las credenciales locales si desea ejecutar el ejemplo directamente. La siguiente sección le indicará cómo hacerlo.
+También necesitará configurar las credenciales locales si desea ejecutar el ejemplo directamente. En la sección siguiente se indica cómo realizar este proceso.
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
 ### <a name="run-the-sample"></a>Ejecución del ejemplo
 
 Ahora que ha completado la configuración, puede ejecutar el proyecto de código de ejemplo.
 
-Esta es la salida de consola del programa: 
+Esta es la salida de la consola del programa: 
 
 :::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Captura de pantalla de la salida de la consola que muestra los detalles de los gemelos y las relaciones entrantes y salientes de los gemelos." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
@@ -207,5 +218,5 @@ Esta es la salida de consola del programa:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo consultar un grafo de gemelos de Azure Digital Twins:
-* [Conceptos: Lenguaje de consulta](concepts-query-language.md)
-* [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md)
+* [Lenguaje de consulta](concepts-query-language.md)
+* [Consulta del grafo de gemelos](how-to-query-graph.md)

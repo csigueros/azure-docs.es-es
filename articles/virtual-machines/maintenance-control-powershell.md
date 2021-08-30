@@ -9,16 +9,18 @@ ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6a56e0e5f3d344f37b689daa0b9dd9f7d3263523
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ced9437fbb2a508772b8e22993e0af5bd2b69859
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672859"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595262"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Control de las actualizaciones con el control de mantenimiento y Azure PowerShell
 
 El control de mantenimiento permite decidir cuándo aplicar las actualizaciones de plataforma a la infraestructura de host de las máquinas virtuales aisladas y los hosts dedicados de Azure. En este tema se tratan las opciones de Azure PowerShell para el control de mantenimiento. Para más información sobre las ventajas de usar el control de mantenimiento, sus limitaciones y otras opciones de administración, consulte el artículo sobre la [administración de las actualizaciones de las distintas plataformas con control de mantenimiento](maintenance-control.md).
+
+Si busca información sobre el control de mantenimiento para conjuntos de escalado, vea [Control de mantenimiento para conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-maintenance-control.md).
  
 ## <a name="enable-the-powershell-module"></a>Habilitación del módulo de PowerShell
 
@@ -178,7 +180,7 @@ Get-AzMaintenanceUpdate `
 
 ## <a name="apply-updates"></a>Aplicación de actualizaciones
 
-Use [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) para aplicar las actualizaciones pendientes.
+Use [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) para aplicar las actualizaciones pendientes. La aplicación de llamadas de actualización puede tardar hasta 2 horas en completarse.
 
 ### <a name="isolated-vm"></a>Máquina virtual aislada
 

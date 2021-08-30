@@ -80,6 +80,8 @@
           href: delete-voice-assistant-application.md
     - name: Actualización de dispositivos Azure Percept
       items:
+        - name: Procedimiento para determinar una estrategia de actualización
+          href: how-to-determine-your-update-strategy.md
         - name: Configuración de actualizaciones por vía inalámbrica
           href: how-to-set-up-over-the-air-updates.md
         - name: Identificación del paquete de actualizaciones
@@ -120,6 +122,14 @@
           href: how-to-get-hardware-support.md
 - name: Referencia
   items:
+    - name: Versiones
+      items:
+        - name: Versiones de software para actualizaciones de OTA
+          href: software-releases-over-the-air-updates.md
+        - name: "Versiones del software Azure Percept\_DK para realizar actualizaciones a través de USB"
+          href: software-releases-usb-cable-updates.md
+        - name: "Notas de la versión del software Azure Percept\_DK"
+          href: azure-percept-devkit-software-release-notes.md
     - name: Fichas técnicas de los dispositivos Azure Percept
       items:
         - name: "Ficha técnica de Azure Percept\_DK"

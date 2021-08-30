@@ -7,12 +7,12 @@ ms.collection: linux
 ms.topic: conceptual
 ms.date: 04/08/2021
 ms.reviewer: davberg
-ms.openlocfilehash: 57892c7648be1bf05a84dcd7de5d4503fa412a3b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 2a00c966d7a1ba40d0ba27dc4f4ca3b386a44601
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483748"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587866"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Linux
 Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimiento de proceso para la alineación de VM de alto rendimiento de Azure con Ubuntu 18.04. Las puntuaciones de pruebas comparativas de proceso también están disponibles para las [máquinas virtuales de Windows](../windows/compute-benchmark-scores.md).
@@ -614,6 +614,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_M208ms_v2 | CPU Intel(R) Xeon(R) Platinum 8180M a 2,50 GHz | 208 | 4 | 5700,0 | 3 009 120 | 58 843 | 1,96 % | 42 |
 | Standard_M208ms_v2 | CPU Intel(R) Xeon(R) Platinum 8180M a 2,50 GHz | 208 | 8 | 5700,0 | 3 093 184 | 33 253 | 1,08 % | 42 |
+| Standard_M208s_v2 | CPU Intel(R) Xeon(R) Platinum 8180M a 2,50 GHz | 208 | 4 | 2850,0 | 3020 762 | 55 134 | 1,83 % | 84 |
 | Standard_M416s_v2 | CPU Intel(R) Xeon(R) Platinum 8180M a 2,50 GHz | 416 | 8 | 5700,0 | 5 959 252 | 93 933 | 1,58 % | 84 |
 | Standard_M416-208s_v2 | CPU Intel(R) Xeon(R) Platinum 8180M a 2,50 GHz | 208 | 4 | 5700,0 | 2 992 729 | 52 652 | 1,76 % | 14 |
 | Standard_M416-208s_v2 | CPU Intel(R) Xeon(R) Platinum 8180M a 2,50 GHz | 208 | 8 | 5700,0 | 3 085 232 | 36 568 | 1,19 % | 70 |
@@ -689,7 +690,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 
 ## <a name="about-coremark"></a>Acerca de CoreMark
 
-[CoreMark](https://www.eembc.org/coremark/faq.php) es un banco de pruebas que prueba la funcionalidad de un microcontrolador (MCU) o una unidad de procesamiento central (CPU). CoreMark no depende del sistema, por lo que funciona igual independientemente de la plataforma (por ejemplo, un procesador grande o de tipo little endian, ya sea de gama alta o baja). 
+[CoreMark](https://www.eembc.org/coremark/faq.php) es un banco de pruebas que prueba la funcionalidad de un microcontrolador (MCU) o de una unidad de procesamiento central (CPU). CoreMark no depende del sistema, por lo que funciona igual independientemente de la plataforma (por ejemplo, un procesador grande o de tipo little endian, ya sea de gama alta o baja). 
 
 Los números de Linux se procesaron ejecutando CoreMark en Ubuntu 18.04. CoreMark se configuró con el número de subprocesos establecido en el número de CPU virtuales y la simultaneidad establecida en `PThreads`. El número objetivo de iteraciones se ajustó basándose en el rendimiento esperado para proporcionar un tiempo de ejecución de al menos 20 segundos (suele ser mucho mayor). La puntuación final representa el número de iteraciones completadas dividido entre el número de segundos que tardó en ejecutarse la prueba. Cada prueba se ejecutó al menos siete veces en cada máquina virtual. Las fechas de la serie de pruebas aparecen más arriba. La prueba se ejecuta en varias máquinas virtuales de las regiones públicas de Azure donde eran compatibles en la fecha de ejecución. 
 

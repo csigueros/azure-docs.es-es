@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/05/2021
 ms.author: aahi
-ms.openlocfilehash: f8db386da9890be2a07f201243dbbb4beaf5c499
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: a55c281899495819ad8a537995867485b02c0af5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444078"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780151"
 ---
 # <a name="how-to-summarize-text-with-text-analytics-preview"></a>Resumen de texto con Text Analytics (versión preliminar)
 
@@ -87,7 +87,7 @@ Cada documento tiene los siguientes parámetros:
 Todos los documentos de una solicitud comparten los siguientes parámetros. Estos parámetros se pueden especificar en la definición `tasks` de la solicitud:
 * `model-version` para especificar qué versión del modelo se va a usar, siendo `latest` el valor predeterminado. Para obtener más información, consulte [Versión del modelo](../concepts/model-versioning.md). 
 * `sentenceCount` para especificar cuántas oraciones se devolverán, siendo `3` el valor predeterminado. El rango es de 1 a 20.
-* `sortBy` para especificar en qué orden se devolverán las oraciones extraídas. Los valores admitidos para `sortBy` son `Offset` y `Rank`, siendo `Offset` el predeterminado. El valor `Offset` es la posición inicial de una oración en el documento original.    
+* `sortyby` para especificar en qué orden se devolverán las oraciones extraídas. Los valores admitidos para `sortBy` son `Offset` y `Rank`, siendo `Offset` el predeterminado. El valor `Offset` es la posición inicial de una oración en el documento original.    
 
 ```json
 {

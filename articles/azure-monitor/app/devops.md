@@ -1,14 +1,14 @@
 ---
 title: 'Supervisión del rendimiento de aplicaciones web: Azure Application Insights'
-description: Cómo encaja Application Insights en el ciclo de devOps
+description: Cómo encaja Application Insights en el ciclo de DevOps
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: 78bba78cea4242324c14552c23ffb93d8736dee1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8124e8fdc184ab284d486ed167841043da8334a6
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084473"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616233"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detallados para servicios y aplicaciones web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>¿Por qué necesito Application Insights?
@@ -157,7 +157,7 @@ Cuando se genera una alerta, Application Insights puede crear automáticamente u
 ## <a name="next-steps"></a>Pasos siguientes
 Empezar a usar Application Insights es fácil. Tiene opciones principalmente para:
 
-* [Servidores IIS](./monitor-performance-live-website-now.md) y también para [Azure App Service](./app-insights-overview.md).
-* Instrumentar el proyecto durante el desarrollo. Puede hacerlo para aplicaciones de [ASP.NET](./asp-net.md) o [Java](./java-in-process-agent.md), así como para [Node.js](./nodejs.md) y [otros tipos](./platforms.md). 
+* [Servidores IIS](./status-monitor-v2-overview.md)
+* Instrumentar el proyecto durante el desarrollo. Puede hacerlo para aplicaciones de [ASP.NET](./asp-net.md) o [Java](./java-in-process-agent.md), así como para [Node.js](./nodejs.md) y un host de [otros tipos](./platforms.md). 
 * Instrumentar [cualquier página web](./javascript.md) agregando un fragmento de código corto.
 

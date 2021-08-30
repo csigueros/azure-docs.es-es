@@ -4,12 +4,12 @@ description: Creación de alertas mediante programación que notifiquen cuándo 
 ms.topic: conceptual
 ms.date: 9/4/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 34f8ec2eb47428f06ddcaf6b82a988f7f2b4b836
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6543e376f1cfa3ed2592972b997895c8bae68f01
+ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110703276"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113643584"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
 
@@ -314,7 +314,7 @@ Es fácil de configurar la alerta para filtrar solo estos tipos de eventos:
     ]
 }
 ```
-Tenga en cuenta que es posible que el campo de la causa sea null en algunos eventos. Es decir, una transición de estado tiene lugar (por ejemplo, pasa de disponible a no disponible) y el evento se registra inmediatamente a fin de evitar que la notificación se retrase. Por lo tanto, mediante la cláusula anterior puede provocar que una alerta no se desencadene, ya que el valor de la propiedad properties.clause se establecerá en null.
+Tenga en cuenta que es posible que el campo de la causa sea null en algunos eventos. Es decir, una transición de estado tiene lugar (por ejemplo, pasa de disponible a no disponible) y el evento se registra inmediatamente a fin de evitar que la notificación se retrase. Por lo tanto, mediante la cláusula anterior puede provocar que una alerta no se desencadene, ya que el valor de la propiedad properties.cause se establecerá en null.
 
 ## <a name="complete-resource-health-alert-template"></a>Completar la plantilla de alerta de Resource Health
 

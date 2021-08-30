@@ -4,17 +4,17 @@ description: Los ámbitos de cifrado ofrecen la posibilidad de administrar el ci
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 06/01/2021
+ms.date: 07/19/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d089ef587e209810fe0400871aba9a55cb9c0ed3
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: 0d8f1a7e0312ea350a5a34c13d8389b240c14476
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372663"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472475"
 ---
 # <a name="encryption-scopes-for-blob-storage"></a>Ámbitos de cifrado para Blob Storage
 
@@ -72,7 +72,7 @@ Al deshabilitar un ámbito de cifrado, las operaciones de lectura o escritura po
 
 Cuando se deshabilita un ámbito de cifrado, ya no se le facturará. Deshabilite los ámbitos de cifrado que no sean necesarios para evitar cargos innecesarios.
 
-Si el ámbito de cifrado está protegido con una clave administrada por el cliente y elimina la clave en el almacén de claves, los datos dejarán de estar accesibles. Asegúrese de deshabilitar también el ámbito de cifrado para evitar que se apliquen cargos.
+Si el ámbito de cifrado está protegido con una clave administrada por el cliente y revoca la clave en el almacén de claves, los datos dejarán de estar accesibles. Asegúrese de deshabilitar el ámbito de cifrado antes de revocar la clave en el almacén de claves a fin de evitar que se le cobre por el ámbito de cifrado.
 
 Tenga en cuenta que las claves administradas por el cliente están protegidas por la protección de eliminación y purga temporal en el almacén de claves, y que una clave eliminada está sujeta al comportamiento definido por esas propiedades. Para más información, consulte uno de los siguientes temas en la documentación de Azure Key Vault:
 

@@ -210,6 +210,8 @@
                   href: ../fundamentals/operational-checklist.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Detección y mitigación de amenazas
   items:
+    - name: Plan de copia de seguridad y restauración por ransomware
+      href: ../fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Protección contra amenazas
       href: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Análisis de amenazas

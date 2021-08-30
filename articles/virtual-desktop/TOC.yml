@@ -16,7 +16,7 @@
       href: getting-started-feature.md
 - name: Tutoriales
   items:
-    - name: 1. Creación de un grupo de hosts con Azure Portal
+    - name: 1. Creación de un grupo de hosts
       href: create-host-pools-azure-marketplace.md
     - name: 2. Administración de grupos de aplicaciones
       href: manage-app-groups.md
@@ -50,7 +50,7 @@
       href: powershell-module.md
     - name: Creación de un grupo de hosts y de hosts de sesión
       items:
-        - name: PowerShell
+        - name: Creación de un grupo de hosts mediante PowerShell o la CLI de Azure
           href: create-host-pools-powershell.md
         - name: "Implementación de un host de sesión unido a Azure\_AD"
           href: deploy-azure-ad-joined-vm.md
@@ -60,7 +60,7 @@
           href: configure-vm-gpu.md
         - name: Expansión de un grupo de hosts existente
           href: expand-existing-host-pool.md
-        - name: Administración de grupos de aplicaciones con PowerShell
+        - name: Administración de grupos de aplicaciones mediante PowerShell o la CLI de Azure
           href: manage-app-groups-powershell.md
     - name: Eliminación de un grupo de hosts
       href: delete-host-pool.md

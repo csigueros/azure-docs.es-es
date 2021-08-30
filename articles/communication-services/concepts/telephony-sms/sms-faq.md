@@ -6,15 +6,15 @@ author: prakulka
 manager: nmurav
 services: azure-communication-services
 ms.author: prakulka
-ms.date: 03/26/2021
+ms.date: 06/30/2021
 ms.topic: reference
 ms.service: azure-communication-services
-ms.openlocfilehash: cd35ccc7399580c0bc83d8668ea932c3a800f700
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c92a62c32c3c1a89efd3fecfeff8e72e0cbfe490
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290567"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467386"
 ---
 # <a name="sms-faq"></a>Preguntas más frecuentes sobre SMS
 
@@ -57,3 +57,7 @@ En los Estados Unidos, Azure Communication Services no comprueba los números de
 
 
 Sí, puede hacer una solicitud con varios destinatarios. Siga esta [guía de inicio rápido](../../quickstarts/telephony-sms/send.md?pivots=programming-language-csharp) para enviar mensajes a varios destinatarios.
+
+##  <a name="i-received-a-http-status-202-from-the-send-sms-api-but-the-sms-didnt-reach-my-phone-what-do-i-do-now"></a>Recibí un estado HTTP 202 desde la API Envío de SMS, pero mi teléfono no recibió el mensaje de texto. ¿Qué hago ahora?
+
+El estado 202 devuelto por el servicio significa que el mensaje se ha puesto en cola para su envío, no para su entrega. Use este [inicio rápido](../../quickstarts/telephony-sms/handle-sms-events.md) para suscribirse a eventos de informe de entrega y solución de problemas. Una vez configurados los eventos, revise el campo "deliveryStatus" del informe de entrega a fin de comprobar si la entrega se realizó correctamente o con errores.

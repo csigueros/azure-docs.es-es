@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 04/07/2021
-ms.openlocfilehash: de4d934144d6721db8c00d7199061842e518e44f
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 124b8679ad11eb9a39881cdcf39969360e3275a6
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031076"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114227817"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Supervisión de la referencia de datos de Azure Machine Learning
 
@@ -139,12 +139,34 @@ Proveedor de recursos y tipo: [Microsoft.MachineLearningServices/workspace](../a
 | AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
 | AmlComputeJobEvent | AmlComputeJobEvent |
 | AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
+| ModelsChangeEvent | ModelsChangeEvent |
+| ModelsReadEvent | ModelsReadEvent |
+| ModelsActionEvent | ModelsActionEvent |
+| DeploymentReadEvent | DeploymentReadEvent |
+| DeploymentEventACI | DeploymentEventACI |
+| DeploymentEventAKS | DeploymentEventAKS |
+| InferencingOperationAKS | InferencingOperationAKS |
+| InferencingOperationACI | InferencingOperationACI |
+| EnvironmentChangeEvent | EnvironmentChangeEvent |
+| EnvironmentReadEvent | EnvironmentReadEvent |
+| DataLabelChangeEvent | DataLabelChangeEvent |
+| DataLabelReadEvent | DataLabelReadEvent |
+| ComputeInstanceEvent | ComputeInstanceEvent |
+| DataStoreChangeEvent | DataStoreChangeEvent |
+| DataStoreReadEvent | DataStoreReadEvent |
+| DataSetChangeEvent | DataSetChangeEvent |
+| DataSetReadEvent | DataSetReadEvent |
+| PipelineChangeEvent | PipelineChangeEvent |
+| PipelineReadEvent | PipelineReadEvent |
+| RunEvent | RunEvent |
+| RunReadEvent | RunReadEvent |
+
 
 ## <a name="schemas"></a>Esquemas
 
 Los siguientes esquemas los usa Azure Machine Learning.
 
-### <a name="amlcomputejobevents-table"></a>Tabla AmlComputeJobEvents
+### <a name="amlcomputejobevent-table"></a>AmlComputeJobEvent table
 
 | Propiedad | Descripción |
 |:--- |:---|
@@ -173,7 +195,7 @@ Los siguientes esquemas los usa Azure Machine Learning.
 | JobErrorMessage | mensaje detallado de error de trabajo |
 | NodeId | Id. del nodo creado en el que se está ejecutando el trabajo |
 
-### <a name="amlcomputeclusterevents-table"></a>Tabla AmlComputeClusterEvents
+### <a name="amlcomputeclusterevent-table"></a>AmlComputeClusterEvent table
 
 | Propiedad | Descripción |
 |:--- |:--- |
@@ -216,7 +238,7 @@ Los siguientes esquemas los usa Azure Machine Learning.
 | ClusterErrorCodes | Código de error recibido durante la creación o el escalado de un clúster |
 | CreationApiVersion | Versión de API usada durante la creación del clúster |
 
-### <a name="amlcomputeclusternodeevents-table"></a>Tabla AmlComputeClusterNodeEvents
+### <a name="amlcomputeclusternodeevent-table"></a>AmlComputeClusterNodeEvent table
 
 | Propiedad | Descripción |
 |:--- |:--- |
@@ -240,6 +262,156 @@ Los siguientes esquemas los usa Azure Machine Learning.
 | StartTaskStartTime | Hora a la que se asignó la tarea a un nodo y se inició |
 | StartTaskEndTime | Hora a la que se asignó la tarea a un nodo y se terminó |
 | TotalE2ETimeInSeconds | Tiempo total en que el nodo estuvo activo |
+
+### <a name="amlcomputeinstanceevent-table"></a>AmlComputeInstanceEvent table
+
+| Propiedad | Descripción |
+|:--- |:--- |
+| Tipo | Nombre del evento de registro, AmlComputeInstanceEvent |
+| TimeGenerated | Hora (UTC) a la que se generó la entrada de registro |
+| Nivel | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
+| ResultType | Estado del evento. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
+| CorrelationId | GUID que se usa para agrupar un conjunto de eventos relacionados, según corresponda. |
+| OperationName | Nombre de la operación asociada a la entrada de registro |
+| Identidad | Identidad del usuario o la aplicación que realizó la operación. |
+| AadTenantId | El id. de inquilino de AAD para el que se envió la operación. |
+| AmlComputeInstanceName | "Nombre de la instancia de proceso asociada a la entrada de registro. |
+
+### <a name="amldatalabelevent-table"></a>AmlDataLabelEvent table
+
+| Propiedad | Descripción |
+|:--- |:--- |
+| Tipo | Nombre del evento de registro, AmlDataLabelEvent |
+| TimeGenerated | Hora (UTC) a la que se generó la entrada de registro |
+| Nivel | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
+| ResultType | Estado del evento. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
+| CorrelationId | GUID que se usa para agrupar un conjunto de eventos relacionados, según corresponda. |
+| OperationName | Nombre de la operación asociada a la entrada de registro |
+| Identidad | Identidad del usuario o la aplicación que realizó la operación. |
+| AadTenantId | El id. de inquilino de AAD para el que se envió la operación. |
+| AmlProjectId | Identificador único del proyecto de AML. |
+| AmlProjectName | Nombre del proyecto de AML. |
+| AmlLabelNames | Los nombres de clases de etiquetas que se crean para el proyecto. |
+| AmlDataStoreName | Nombre del almacén de datos donde se almacenan los datos del proyecto. |
+
+### <a name="amldatasetevent-table"></a>AmlDataSetEvent table
+
+| Propiedad | Descripción |
+|:--- |:--- |
+| Tipo | Nombre del evento de registro, AmlDataSetEvent |
+| TimeGenerated | Hora (UTC) a la que se generó la entrada de registro |
+| Nivel | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
+| ResultType | Estado del evento. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
+| AmlWorkspaceId | GUID e id. único del área de trabajo de AML. |
+| OperationName | Nombre de la operación asociada a la entrada de registro |
+| Identidad | Identidad del usuario o la aplicación que realizó la operación. |
+| AadTenantId | El id. de inquilino de AAD para el que se envió la operación. |
+| AmlDatasetId | Identificador del conjunto de datos de AML. |
+| AmlDatasetName | Nombre del conjunto de datos de AML. |
+
+### <a name="amldatastoreevent-table"></a>AmlDataStoreEvent table
+
+| Propiedad | Descripción |
+|:--- |:--- |
+| Tipo | Nombre del evento de registro, AmlDataStoreEvent |
+| TimeGenerated | Hora (UTC) a la que se generó la entrada de registro |
+| Nivel | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
+| ResultType | Estado del evento. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
+| AmlWorkspaceId | GUID e id. único del área de trabajo de AML. |
+| OperationName | Nombre de la operación asociada a la entrada de registro |
+| Identidad | Identidad del usuario o la aplicación que realizó la operación. |
+| AadTenantId | El id. de inquilino de AAD para el que se envió la operación. |
+| AmlDatastoreName | Nombre del almacén de datos de AML. |
+
+### <a name="amldeploymentevent-table"></a>AmlDeploymentEvent table
+
+| Propiedad | Descripción |
+|:--- |:--- |
+| Tipo | Nombre del evento de registro, AmlDeploymentEvent |
+| TimeGenerated | Hora (UTC) a la que se generó la entrada de registro |
+| Nivel | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
+| ResultType | Estado del evento. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
+| OperationName | Nombre de la operación asociada a la entrada de registro |
+| Identidad | Identidad del usuario o la aplicación que realizó la operación. |
+| AadTenantId | El id. de inquilino de AAD para el que se envió la operación. |
+| AmlServiceName | Nombre del servicio AML. |
+
+### <a name="amlinferencingevent-table"></a>AmlInferencingEvent table
+
+| Propiedad | Descripción |
+|:--- |:--- |
+| Tipo | Nombre del evento de registro, AmlInferencingEvent |
+| TimeGenerated | Hora (UTC) a la que se generó la entrada de registro |
+| Nivel | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
+| ResultType | Estado del evento. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
+| OperationName | Nombre de la operación asociada a la entrada de registro |
+| Identidad | Identidad del usuario o la aplicación que realizó la operación. |
+| AadTenantId | El id. de inquilino de AAD para el que se envió la operación. |
+| AmlServiceName | Nombre del servicio AML. |
+
+### <a name="amlmodelsevent-table"></a>AmlModelsEvent table
+
+| Propiedad | Descripción |
+|:--- |:--- |
+| Tipo | Nombre del evento de registro, AmlModelsEvent |
+| TimeGenerated | Hora (UTC) a la que se generó la entrada de registro |
+| Nivel | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
+| ResultType | Estado del evento. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
+| OperationName | Nombre de la operación asociada a la entrada de registro |
+| Identidad | Identidad del usuario o la aplicación que realizó la operación. |
+| AadTenantId | El id. de inquilino de AAD para el que se envió la operación. |
+| ResultSignature | Código de estado HTTP del evento. Entre los valores típicos se incluyen 200, 201, 202, etc. |
+| AmlModelName | Nombre del modelo de AML. |
+
+### <a name="amlpipelineevent-table"></a>AmlPipelineEvent table
+
+| Propiedad | Descripción |
+|:--- |:--- |
+| Tipo | Nombre del evento de registro, AmlPipelineEvent |
+| TimeGenerated | Hora (UTC) a la que se generó la entrada de registro |
+| Nivel | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
+| ResultType | Estado del evento. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
+| AmlWorkspaceId | GUID e id. único del área de trabajo de AML. |
+| AmlWorkspaceId | Nombre del área de trabajo de AML. |
+| OperationName | Nombre de la operación asociada a la entrada de registro |
+| Identidad | Identidad del usuario o la aplicación que realizó la operación. |
+| AadTenantId | El id. de inquilino de AAD para el que se envió la operación. |
+| AmlModuleId | GUID e identificador único del módulo.|
+| AmlModelName | Nombre del modelo de AML. |
+| AmlPipelineId | Identificador de la canalización de AML. |
+| AmlParentPipelineId | Identificador de la canalización de AML primaria (en caso de clonación). |
+| AmlPipelineDraftId | Identificador del borrador de canalización de AML. |
+| AmlPipelineDraftName | Nombre del borrador de canalización de AML. |
+| AmlPipelineEndpointId | Identificador del punto de conexión de canalización de AML. |
+| AmlPipelineEndpointName | Nombre del punto de conexión de canalización de AML. |
+
+
+### <a name="amlrunevent-table"></a>AmlRunEvent table
+
+| Propiedad | Descripción |
+|:--- |:--- |
+| Tipo | Nombre del evento de registro, AmlRunEvent |
+| TimeGenerated | Hora (UTC) a la que se generó la entrada de registro |
+| Nivel | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
+| ResultType | Estado del evento. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
+| OperationName | Nombre de la operación asociada a la entrada de registro |
+| AmlWorkspaceId | GUID e id. único del área de trabajo de AML. |
+| Identidad | Identidad del usuario o la aplicación que realizó la operación. |
+| AadTenantId | El id. de inquilino de AAD para el que se envió la operación. |
+| RunId | El identificador único de la ejecución. |
+
+### <a name="amlenvironmentevent--table"></a>AmlEnvironmentEvent  table
+
+| Propiedad | Descripción |
+|:--- |:--- |
+| Tipo | Nombre del evento de registro, AmlEnvironmentEvent |
+| TimeGenerated | Hora (UTC) a la que se generó la entrada de registro |
+| Nivel | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
+| OperationName | Nombre de la operación asociada a la entrada de registro |
+| Identidad | Identidad del usuario o la aplicación que realizó la operación. |
+| AadTenantId | El id. de inquilino de AAD para el que se envió la operación. |
+| AmlEnvironmentName | Nombre de la configuración del entorno de AML. |
+| AmlEnvironmentVersion | Nombre de la versión de configuración del entorno de AML. |
 
 
 ## <a name="see-also"></a>Consulte también

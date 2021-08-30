@@ -7,12 +7,12 @@ ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a0a7b24c2d28e27c44a130383e852838950abe49
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d6a1d252a6b9068697fe738d4d2b1c6bbf6ceeb5
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733200"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588280"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Uso de los comandos en una solución de Azure IoT Central
 
@@ -39,7 +39,7 @@ En la tabla siguiente se muestran las opciones de configuración de una funciona
 
 | Campo             |Descripción|
 |-------------------|-----------|
-|Display Name (Nombre para mostrar)       |Valor de comando usado en los paneles y formularios.|
+|Display Name (Nombre para mostrar)       |Valor del comando que se usa en los iconos del panel y los formularios de dispositivo.|
 | Nombre            | El nombre del comando. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. Este campo debe ser alfanumérico. El código del dispositivo usa este valor de **Name**.|
 | Capability Type (Tipo de funcionalidad) | Comando.|
 | Queue if offline (poner en cola si no hay conexión) | Indica si se va a convertir este comando en uno *sin conexión*. |

@@ -5,14 +5,15 @@ author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: da0a9b457127400bdeb67c671b2710447b37784e
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 3029f7756d50e509d7bd539dc5fde8de8a075424
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903207"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272210"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Alerta y supervisión de Data Factory mediante Azure Monitor
 
@@ -567,13 +568,13 @@ Estos son los atributos de registro de las operaciones de inicio, detención y m
 | Propiedad                   | Tipo   | Descripción                                                   | Ejemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | Hora del evento en formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | Nombre de la operación de SSIS IR                            | `Start/Stop/Maintenance` |
+| **operationName**          | String | Nombre de la operación de SSIS IR                            | `Start/Stop/Maintenance/Heartbeat` |
 | **category**               | String | Categoría de los registros de diagnóstico                               | `SSISIntegrationRuntimeLogs` |
 | **correlationId**          | String | Id. exclusivo para realizar el seguimiento de una operación determinada             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
 | **dataFactoryName**        | String | Nombre de la instancia de ADF                                          | `MyADFv2` |
 | **integrationRuntimeName** | String | Nombre de la instancia de SSIS IR                                      | `MySSISIR` |
 | **level**                  | String | Nivel de los registros de diagnóstico                                  | `Informational` |
-| **resultType**             | String | Resultado de la operación de SSIS IR                          | `Started/InProgress/Succeeded/Failed` |
+| **resultType**             | String | Resultado de la operación de SSIS IR                          | `Started/InProgress/Succeeded/Failed/Healthy/Unhealthy` |
 | **message**                | String | Mensaje de salida de la operación de SSIS IR                  | `The stopping of your SSIS integration runtime has succeeded.` |
 | **resourceId**             | String | Id. exclusivo del recurso de ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
@@ -895,9 +896,20 @@ Para más información sobre los atributos y las propiedades de los registros op
 
 Los registros de ejecución de los paquetes SSIS seleccionados siempre se envían a Log Analytics, independientemente de los métodos de invocación. Por ejemplo, puede invocar las ejecuciones de paquetes en SSDT habilitado para Azure mediante T-SQL en SSMS, el Agente SQL Server u otras herramientas designadas, y como ejecuciones desencadenadas o de depuración de las actividades de ejecución de paquetes SSIS en canalizaciones de ADF.
 
-Al consultar los registros de operaciones de SSIS IR en Log Analytics, puede usar las propiedades **OperationName** y **ResultType** que están establecidas en `Start/Stop/Maintenance` y `Started/InProgress/Succeeded/Failed`, respectivamente. 
+Al consultar los registros de operaciones de SSIS IR en Log Analytics, puede usar las propiedades **OperationName** y **ResultType** que están establecidas en `Start/Stop/Maintenance/Heartbeat` y `Started/InProgress/Succeeded/Failed/Healthy/Unhealthy`, respectivamente.
 
 ![Consulta de los registros de operaciones de SSIS IR en Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
+
+Para consultar el estado de un nodo de SSIS IR, puede establecer la propiedad **OperationName** en `Heartbeat`. Cada nodo suele enviar un registro `Heartbeat` por minuto a Log Analytics con la propiedad **ResultType** reflejando su estado, que es `Healthy` cuando está disponible para ejecuciones de paquete y `Unhealthy` cuando no. Por ejemplo, si su instancia de SSIS IR tiene dos nodos disponibles, usted verá en todo momento dos registros `Heartbeat` con la propiedad **ResultType** establecida en `Healthy`, en cualquier período de un minuto.
+
+![Consulta de los latidos de SSIS IR en Log Analytics](media/data-factory-monitor-oms/log-analytics-query-3.png)
+
+Puede consultar los siguientes patrones para detectar la no disponibilidad de sus nodos de SSIS IR:
+
+* Faltan registros `Heartbeat` en muchos períodos de un minuto a pesar de que su instancia de SSIS IR sigue en ejecución.
+* Hay registros `Heartbeat` con la propiedad **ResultType** establecida en `Unhealthy` en muchos períodos de un minuto a pesar de que su instancia de SSIS IR sigue en ejecución.
+
+Puede convertir las consultas anteriores en [alertas](../azure-monitor/alerts/alerts-unified-log.md) y acceder a su [página de supervisión de SSIS IR](monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) para confirmar cuándo las recibe.
 
 Al consultar los registros de ejecución de paquetes SSIS en Logs Analytics, puede combinarlos mediante las propiedades **OperationId**/**ExecutionId**/**CorrelationId**. **OperationId**/**ExecutionId** siempre se establecen en `1` para todas las operaciones o ejecuciones relacionadas con los paquetes que **no** están almacenados en SSISDB o se invocan mediante T-SQL.
 

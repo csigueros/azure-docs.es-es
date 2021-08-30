@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 4fcbcf145dc417d2a7f78913e70429c3929cd902
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: edd90071125c65b7d4af3d0065e92b30f35e5f65
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107508993"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114436959"
 ---
 # <a name="azcopy-v10-configuration-settings-azure-storage"></a>Opciones de configuración de AzCopy v10 (Azure Storage)
 
@@ -37,6 +37,8 @@ La tabla siguiente describe cada variable de entorno e incluye vínculos al cont
 | AZCOPY_CONCURRENCY_VALUE | Especifica el número de solicitudes simultáneas que pueden producirse. Puede usar esta variable para aumentar el rendimiento. Si el equipo tiene menos de cinco CPU, el valor de esta variable se establece en `32`. En caso contrario, el valor predeterminado es igual a 16 multiplicado por el número de CPU. El valor máximo predeterminado de esta variable es `3000`, pero puede establecerlo manualmente en un valor superior o inferior. Consulte [Aumento de la simultaneidad](storage-use-azcopy-optimize.md#increase-concurrency). |
 | AZCOPY_CONCURRENT_FILES | Invalida el número aproximado de archivos que están en curso en un momento dado al controlar el número de archivos para los que se inician simultáneamente las transferencias. |
 | AZCOPY_CONCURRENT_SCAN | Determina el grado máximo de paralelismo empleado en un examen. Solo afecta a los enumeradores paralelizados, como Azure Files blobs y los sistemas de archivos locales. |
+| AZCOPY_CONTENT_TYPE_MAP  | Invalida una o varias de las asignaciones de tipos MIME predeterminadas definidas por el sistema operativo. Establezca esta variable en la ruta de acceso de un archivo JSON que define cualquier asignación.  Este es el contenido de un archivo JSON de ejemplo: <br><br> {<br>&nbsp;&nbsp;"MIMETypeMapping": { <br>&nbsp;&nbsp;&nbsp;&nbsp;".323": "text/h323",<br>&nbsp;&nbsp;&nbsp;&nbsp;".aaf": "application/octet-stream",<br>&nbsp;&nbsp;&nbsp; ".aca": "application/octet-stream",<br>&nbsp;&nbsp;&nbsp;&nbsp;".accdb": "application/msaccess",<br>&nbsp;&nbsp;&nbsp;&nbsp;  }<br>}
+|
 | AZCOPY_DEFAULT_SERVICE_API_VERSION | Invalida la versión de la API de servicio para que AzCopy pueda dar cabida a entornos personalizados como Azure Stack. |
 | AZCOPY_DISABLE_HIERARCHICAL_SCAN | Solo se aplica cuando el origen es Azure Blobs. El examen simultáneo es más rápido, pero emplea la API de lista jerárquica, lo cual puede dar lugar a un aumento de las operaciones de E/S y el costo. Especifique "true" para ahorrar en costos, sacrificando el rendimiento. |
 | AZCOPY_JOB_PLAN_LOCATION | Invalida la ubicación en la que se almacenan los archivos del plan de trabajo (que se emplean para hacer un seguimiento del progreso y reanudar la actividad) con el fin de evitar que un disco se llene. |

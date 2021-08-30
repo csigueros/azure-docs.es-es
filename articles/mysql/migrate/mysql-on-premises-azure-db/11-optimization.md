@@ -1,5 +1,5 @@
 ---
-title: Optimización de la guía para la migración de MySQL en el entorno local a Azure Database for MySQL
+title: 'Migración de datos de un entorno local de MySQL a Azure Database for MySQL: optimización'
 description: Además de los registros de auditoría y actividad, el rendimiento del servidor también se puede supervisar con métricas de Azure.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: c207e4981adc64d92804c97a69225eacb89e2fac
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 4a1f279ad8eb81891a184700b1076bcec89b92e8
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082902"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296196"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-optimization"></a>Optimización de la guía para la migración de MySQL en el entorno local a Azure Database for MySQL
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-optimization"></a>Migración de datos de un entorno local de MySQL a Azure Database for MySQL: optimización
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -24,7 +26,7 @@ ms.locfileid: "112082902"
 
 ## <a name="monitoring-hardware-and-query-performance"></a>Supervisión del rendimiento de hardware y consultas
 
-Además de los registros de auditoría y actividad, el rendimiento del servidor también se puede supervisar con [métricas de Azure](/azure/azure-monitor/platform/data-platform-metrics). Las métricas de Azure se proporcionan con una frecuencia de un minuto y las alertas se pueden configurarse desde ellas. Para obtener más información, consulte [Supervisión en Azure Database for MySQL](/azure/mysql/concepts-monitoring) en que se proporciona información específica sobre el tipo de métricas que se pueden supervisar.
+Además de los registros de auditoría y actividad, el rendimiento del servidor también se puede supervisar con [métricas de Azure](../../../azure-monitor/essentials/data-platform-metrics.md). Las métricas de Azure se proporcionan con una frecuencia de un minuto y las alertas se pueden configurarse desde ellas. Para obtener más información, consulte [Supervisión en Azure Database for MySQL](../../concepts-monitoring.md) en que se proporciona información específica sobre el tipo de métricas que se pueden supervisar.
 
 Como se mencionó anteriormente, las métricas de supervisión, como el \_porcentaje de CPU o el porcentaje de memoria\_, pueden ser importantes al decidir actualizar el nivel de base de datos. Los valores altos coherentes podrían indicar que se requiere una actualización de nivel.
 
@@ -38,12 +40,12 @@ AzureDiagnostics
 | where Category == 'MySqlSlowLogs'
 | project TimeGenerated, LogicalServerName\_s, 
 event\_class\_s, start\_time\_t , q uery\_time\_d, 
-sql\_text\_s | top 5 by query\_time\_d desc
+sql\_text\_s| top 5 by query\_time\_d desc
 ```
 
 ## <a name="query-performance-insight"></a>Información de rendimiento de consultas
 
-Además de los aspectos básicos de supervisión del servidor, Azure proporciona herramientas para supervisar el rendimiento de las consultas de aplicaciones. La corrección o mejora de las consultas puede provocar aumentos significativos en el rendimiento de las consultas. Use la [herramienta Información de rendimiento de consultas](/azure/mysql/concepts-query-performance-insight) para analizar las consultas de ejecución más largas y determinar si es posible almacenar en caché esos elementos en el caso de que sean deterministas dentro de un período establecido, o bien modificar las consultas para aumentar su rendimiento.
+Además de los aspectos básicos de supervisión del servidor, Azure proporciona herramientas para supervisar el rendimiento de las consultas de aplicaciones. La corrección o mejora de las consultas puede provocar aumentos significativos en el rendimiento de las consultas. Use la [herramienta Información de rendimiento de consultas](../../concepts-query-performance-insight.md) para analizar las consultas de ejecución más largas y determinar si es posible almacenar en caché esos elementos en el caso de que sean deterministas dentro de un período establecido, o bien modificar las consultas para aumentar su rendimiento.
 
 `slow\_query\_log` se puede configurar para que muestre consultas lentas en los archivos de registro de MySQL (el valor predeterminado es DESACTIVADO). El parámetro de servidor `long\_query\_time` puede alertar a los usuarios de largos periodos de consulta (el valor predeterminado es 10 segundos).
 
@@ -83,6 +85,8 @@ Por ahora, han optado por supervisar los posibles problemas e implementar runboo
 
   - Considere la posibilidad de mover las regiones de los usuarios o si la aplicación debe cambiar.  
 
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Continuidad empresarial y recuperación ante desastres (BCDR)](./12-business-continuity-and-disaster-recovery.md)

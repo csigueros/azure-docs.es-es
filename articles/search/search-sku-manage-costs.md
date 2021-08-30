@@ -7,15 +7,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2021
-ms.openlocfilehash: a0d28be0bc9754ab678792f2dca294b4fb185bf0
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.date: 08/12/2021
+ms.openlocfilehash: 1e46601858ece67efa2bca9543083da8a0e2cc79
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018646"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861988"
 ---
-# <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Procedimientos para el cálculo y administración de los costos de un servicio Azure Cognitive Search
+# <a name="estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Cálculo y administración de los costos de un servicio de Azure Cognitive Search
 
 En este artículo obtendrá información sobre el modelo de precios y los eventos que se facturan, así como sugerencias para administrar el costo de ejecutar un servicio Azure Cognitive Search.
 
@@ -48,13 +48,14 @@ Una solución basada en Azure Cognitive Search puede incurrir en costos de las s
 
 + Cargos de ancho de banda (transferencia de datos salientes)
 
-+ Servicios complementarios necesarios para funcionalidades o características específicas:
++ Servicios complementarios necesarios para funcionalidades o características prémium específicas:
 
-  + Enriquecimiento con inteligencia artificial (requiere [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
-  + almacén de conocimiento (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
-  + enriquecimiento incremental (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), se aplica al enriquecimiento con inteligencia artificial)
-  + claves administradas por el cliente y cifrado doble (requiere [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
-  + puntos de conexión privados para un modelo de acceso sin Internet (requiere [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
+  + Enriquecimiento con IA mediante aptitudes facturables (requiere [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)). La extracción de imágenes también es facturable.
+  + Almacén de conocimiento (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + Enriquecimiento incremental (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/); se aplica al enriquecimiento con IA)
+  + Claves administradas por el cliente y cifrado doble (requiere [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + Puntos de conexión privados para un modelo de acceso sin Internet (requiere [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
+  + La búsqueda semántica es una característica prémium en los niveles Estándar (consulte la [página de precios de Cognitive Search](https://azure.microsoft.com/pricing/details/search/) para ver los costos). Puede [deshabilitar la búsqueda semántica](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) para evitar su uso por accidente.
 
 ### <a name="service-costs"></a>Costos de servicio
 
@@ -80,16 +81,19 @@ Puede eliminar por completo los cargos de salida de datos si crea el servicio Az
 
 ### <a name="ai-enrichment-with-cognitive-services"></a>Enriquecimientos de inteligencia artificial con Cognitive Services
 
-Para el [enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md), debe planear [asociar un recurso facturable de Azure Cognitive Services](cognitive-search-attach-cognitive-services.md), en la misma región que Azure Cognitive Search, en el plan de tarifa S0 para el procesamiento de pago por uso. No hay ningún costo fijo por asociar Cognitive Services. Solo se paga por el procesamiento que necesita.
+Para el [enriquecimiento con IA](cognitive-search-concept-intro.md) mediante aptitudes facturables, debe planear [asociar un recurso facturable de Azure Cognitive Services](cognitive-search-attach-cognitive-services.md), en la misma región que Azure Cognitive Search, en el plan de tarifa S0 para el procesamiento de pago por uso. No hay ningún costo fijo por asociar Cognitive Services. Solo se paga por el procesamiento que necesita.
 
 | Operación | Impacto en la facturación |
 |-----------|----------------|
 | Descifrado de documentos, extracción de texto | Gratuito |
-| Descifrado de documentos, extracción de imágenes | Se factura según el número de imágenes extraídas de los documentos. En una [configuración de indexador](/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** es el parámetro que desencadena la extracción de imágenes. Si **imageAction** está establecido en "none" (valor predeterminado), no se le cobrará por la extracción de imágenes. La tarifa por extracción de imágenes está documentada en la página de [detalles de precios](https://azure.microsoft.com/pricing/details/search/) de Azure Cognitive Search.|
-| [Aptitudes cognitivas integradas](cognitive-search-predefined-skills.md) | Se facturan a la misma tarifa que si se hubiera realizado la tarea mediante Cognitive Services directamente. |
-| Aptitudes personalizadas | Una aptitud personalizada es funcionalidad que proporciona el usuario. El costo de usar una aptitud personalizada depende completamente de si el código personalizado está llamando a otros servicios de uso medido. |
+| Descifrado de documentos, extracción de imágenes | Se factura según el número de imágenes extraídas de los documentos. En una [configuración de indexador](/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** es el parámetro que desencadena la extracción de imágenes. Si **imageAction** está establecido en "none" (valor predeterminado), no se le cobrará por la extracción de imágenes. Para conocer los cargos por la extracción de imágenes, consulte la [página de precios](https://azure.microsoft.com/pricing/details/search/). |
+| [Aptitudes integradas](cognitive-search-predefined-skills.md) basadas en Cognitive Services. | Se facturan a la misma tarifa que si se hubiera realizado la tarea mediante Cognitive Services directamente. Puede procesar 20 documentos por indexador al día de forma gratuita. Las cargas de trabajo más grandes o más frecuentes requieren una clave. |
+| [Aptitudes integradas](cognitive-search-predefined-skills.md) que no agregan enriquecimientos | Ninguno. Las aptitudes de utilidad no facturables incluyen Condicional, Conformador, Combinación de texto, División de texto. No hay efectos sobre la facturación, no hay requisitos principales de Cognitive Services y no hay límite de 20 documentos. |
+| Aptitudes personalizadas | Una aptitud personalizada es funcionalidad que proporciona el usuario. El costo de usar una aptitud personalizada depende completamente de si el código personalizado está llamando a otros servicios de uso medido.  No hay requisitos principales de Cognitive Services y no hay límite de 20 documentos en las aptitudes personalizadas.|
+| [Búsqueda de una entidad personalizada](cognitive-search-skill-custom-entity-lookup.md) | Medida por Azure Cognitive Search. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/search/#pricing). |
 
-La característica [enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md) le posibilita proporcionar una memoria caché que permite que el indexador sea más eficaz al ejecutar solo las aptitudes cognitivas necesarias si modifica el conjunto de aptitudes en el futuro, lo que le ahorra tiempo y dinero.
+> [!TIP]
+> El [enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md) reduce el costo del procesamiento del conjunto de aptitudes al almacenar en caché y volver a usar enriquecimientos que no están afectados por los cambios realizados en un conjunto de aptitudes. El almacenamiento en caché requiere Azure Storage (consulte los [precios](/pricing/details/storage/blobs/)), pero el costo acumulado de la ejecución del conjunto de aptitudes es menor si se pueden reutilizar los enriquecimientos existentes.
 
 ## <a name="tips-for-managing-costs"></a>Sugerencias para administrar costos
 

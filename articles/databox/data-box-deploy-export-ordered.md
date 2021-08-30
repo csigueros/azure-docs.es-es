@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 42476e2689cc503edc19e8e299a01ce922f1bf42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1151981eb96862493eb6a1740e46845c98f7e2ea
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98789202"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752007"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutorial: Creación de un pedido de exportación para Azure Data Box
 
@@ -80,7 +80,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
 6. En **Pedido**, especifique los detalles del pedido **Básico**. Escriba o seleccione la siguiente información.
 
-    |Configuración  |Value  |
+    |Configuración  |Valor  |
     |---------|---------|
     |Suscripción     | La suscripción se rellena automáticamente según la selección anterior.|
     |Resource group | Grupo de recursos especificado anteriormente. |
@@ -96,7 +96,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
 8. En **Seleccionar opción de exportación**, especifique los detalles de la opción de exportación. Escriba o seleccione la siguiente información y, luego, elija **Agregar**.
 
-    |Configuración  |Value  |
+    |Configuración  |Valor  |
     |---------|---------|
     |Cuenta de almacenamiento     | Cuenta de Azure Storage desde la que desea exportar los datos. |
     |Tipo de exportación     | Especifica el tipo de datos que se va a exportar de **Todos los objetos** y **Usar archivo XML**.<ul><li> **Todos los objetos**: especifica que el trabajo exporta todos los datos en función de la selección de **Opciones de transferencia**.</li><li> **Usar archivo XML**: especifica un archivo XML que contiene un conjunto de rutas de acceso y prefijos para los blobs o archivos que se van a exportar desde la cuenta de almacenamiento. El archivo XML debe estar en el contenedor seleccionado de la cuenta de almacenamiento; actualmente no se admite la selección desde recursos compartidos de archivos. Debe ser un archivo .xml que no esté vacío.</li></ul>        |
@@ -273,6 +273,11 @@ Una vez completada la preparación del dispositivo, comenzará la copia de datos
 Data Box copia los datos de las cuentas de almacenamiento de origen. Una vez completada la copia de datos, Data Box queda bloqueado y el portal mostrará el pedido en el estado **copia completada**.
 
 ![Pedido de exportación de Data Box, copia de datos completada](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-complete.png)
+
+La exportación de datos de Azure Storage a Data Box puede producir un error. Asegúrese de que los blobs no son blobs de archivo, ya que no se admite la exportación de estos blobs. 
+
+> [!NOTE]
+> En el caso de los blobs de archivo, debe rehidratar esos blobs antes de que se puedan exportar de la cuenta de Azure Storage a la instancia de Data Box. Para más información, consulte [Rehidratación de un blob de archivo]( ../storage/blobs/storage-blob-rehydration.md).
 
 Si el dispositivo no está disponible, recibirá una notificación. Si el dispositivo está disponible, Microsoft identifica que está listo para el envío y prepara dicho envío. Durante la preparación del dispositivo, se producen las siguientes acciones:
 

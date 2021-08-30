@@ -8,6 +8,8 @@
       href: automation-faq.md
     - name: Novedades
       href: whats-new.md
+    - name: Archivo de novedades
+      href: whats-new-archive.md
 - name: Guías de inicio rápido
   items:
     - name: 'Creación de una cuenta de Automation: Azure Portal'
@@ -61,9 +63,9 @@
   items:
     - name: Cuenta de Automation
       items:
-        - name: Creación de una cuenta de Automation desde Azure Portal
+        - name: 'Creación de una cuenta de Automation: Azure Portal'
           href: automation-create-standalone-account.md
-        - name: Creación de una cuenta de Automation con una plantilla de Resource Manager
+        - name: 'Creación de una cuenta de Automation: plantilla de Resource Manager'
           href: quickstart-create-automation-account-template.md
         - name: Identidad administrada
           items:

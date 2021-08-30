@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: 22e5bc0aa411fd4561094fc41d5d3e55a5dcdeb8
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 07/05/2021
+ms.openlocfilehash: f9ca1bbb2bc8556f972a55720b874b08587b06f1
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542823"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594972"
 ---
 # <a name="configure-a-solution-template-plan"></a>Configuración de un plan de plantilla de solución
 
@@ -99,7 +99,7 @@ Después de crear uno o varios planes, verá el nombre, el identificador y el ti
 Las acciones que están disponibles en la columna **Acción** de la pestaña **Información general del plan** varían en función del estado del plan y pueden incluir lo siguiente:
 
 - Si el estado del plan es **Borrador**, el vínculo de la columna **Acción** indicará **Eliminar borrador**.
-- Si el estado del plan es **Activo**, el vínculo de la columna **Acción** será **Stop sell plan** (Dejar de vender el plan) o **Sync private audience** (Sincronizar audiencia privada). El vínculo **Sync private audience** (Sincronizar público privado) publicará solo los cambios para el público privado, sin publicar ninguna otra actualización que haya podido realizar en la oferta.
+- Si el estado del plan es **Activo**, el vínculo de la columna **Acción** será **Stop distribution** (Detener la distribución) o **Sync private audience** (Sincronizar audiencia privada). El vínculo **Sync private audience** (Sincronizar público privado) publicará solo los cambios para el público privado, sin publicar ninguna otra actualización que haya podido realizar en la oferta.
 - Para crear otro plan para esta oferta, en la parte superior de la pestaña **Información general del plan**, seleccione **+ Crear nuevo plan**. Después, repita los pasos descritos en [Creación de planes para la oferta de Aplicación de Azure](azure-app-plans.md). En caso contrario, si ha terminado de crear planes, vaya a la sección siguiente: Pasos siguientes.
 
 ## <a name="next-steps"></a>Pasos siguientes

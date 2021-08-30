@@ -5,14 +5,14 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 07/14/2021
 ms.author: alkohli
-ms.openlocfilehash: 4839f8211e678f5fc2fb3572c7eaa545fbee6c6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 715af9d5bb67c74c91dc89a667cd9b4187b86f0d
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94961199"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221377"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Opciones para migrar datos desde la serie 8000 de StorSimple
 
@@ -43,9 +43,16 @@ Esta migración es compatible con Panzura y los clientes pueden comenzar solicit
 
 #### <a name="migrate-to-nasuni"></a>Migración a Nasuni
 
-El traslado de todo el entorno de StorSimple a una plataforma de servicios de archivos de alto rendimiento estable y segura es un procedimiento fácil con Nasuni. Nasuni ofrece la seguridad y el rendimiento del almacenamiento de archivos local, al mismo tiempo que se combina con la escalabilidad y la durabilidad de Azure.  Como principal proveedor de software independiente (ISV) de Azure, Nasuni reúne todas las herramientas necesarias para trasladar los datos de StorSimple a una plataforma moderna que le permita compartir y colaborar con sus archivos en varias ubicaciones.
+El traslado de todo el entorno de StorSimple a una plataforma de servicios de archivos de alto rendimiento estable y segura es un procedimiento fácil con Nasuni. Nasuni ofrece la seguridad y el rendimiento del almacenamiento de archivos local, al mismo tiempo que se combina con la escalabilidad y la durabilidad de Azure. Como principal proveedor de software independiente (ISV) de Azure, Nasuni reúne todas las herramientas necesarias para trasladar los datos de StorSimple a una plataforma moderna que le permita compartir y colaborar con sus archivos en varias ubicaciones.
 
 Comience hoy mismo: [Sitio web de Nasuni](https://info.nasuni.com/storsimple8000-webinar).
+
+#### <a name="migrate-to-netapp"></a>Migración a NetApp
+
+Los clientes de la serie 8000 de StorSimple pueden migrar a Azure NetApp Files (ANF) emparejado con la caché global de archivos (GFC) de NetApp para seguir almacenando datos críticos en Azure mientras se mantiene el contenido en sitios remotos. Los clientes pueden simplificar la infraestructura y el almacenamiento de TI centralizando datos no estructurados en Microsoft Azure mediante Azure NetApp Files para proporcionar acceso distribuido geográficamente y local rápido con la caché global de archivos de NetApp.
+
+Para obtener información general de las funcionalidades, las metodologías de implementación y la mitigación, consulte [Arquitectura de referencia: Compartir archivos empresariales distribuidos globalmente con Azure NetApp Files y la caché global de archivos de NetApp](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf), en NetApp.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
+
 
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity

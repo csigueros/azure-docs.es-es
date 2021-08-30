@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Streaming de aplicaciones remotas de Azure Virtual Desktop
-summary: Con el streaming de aplicaciones remotas de Azure Virtual Desktop, puede entregar aplicaciones a usuarios dentro y fuera de su organización. En estos tutoriales y guías encontrará más información al respecto.
+summary: Con el streaming de aplicaciones remotas de Azure Virtual Desktop, puede entregar aplicaciones como software como servicio (SaaS) a usuarios dentro y fuera de su organización.
 metadata:
   title: Streaming de aplicaciones remotas de Azure Virtual Desktop
   description: Uso del streaming de aplicaciones remotas de Azure Virtual Desktop para entregar aplicaciones a clientes dentro y fuera de su organización.
@@ -11,12 +11,12 @@ metadata:
   author: Heidilohr
   ms.author: helohr
   ms.date: 07/14/2021
-  ms.openlocfilehash: 2968fc3db34ed1db1e551daad3b3dfb3e2d036d9
-  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+  ms.openlocfilehash: a3284112e7afd83754e571c5dce7a9b6f9e43ad1
+  ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/14/2021
-  ms.locfileid: "113798648"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123036615"
 landingContent:
 - title: Streaming de aplicaciones remotas con Azure Virtual Desktop
   linkLists:

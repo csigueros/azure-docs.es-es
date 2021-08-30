@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/06/2021
+ms.date: 07/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f52e0b82b8a5a06aec322456253eb044141b75
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: f9ed7b31625275c808555534fcd49314444ab0ad
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794294"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114388153"
 ---
-# <a name="sign-ins-logs-in-azure-active-directory"></a>Registros de inicios de sesión en Azure Active Directory
+# <a name="sign-in-logs-in-azure-active-directory"></a>Registros de inicios de sesión en Azure Active Directory
 
 Como administrador de TI, quiere saber cómo funciona el entorno de TI. La información sobre el estado del sistema le permite evaluar si es necesario responder a posibles problemas y cómo hacerlo. 
 
@@ -76,7 +76,7 @@ El informe de actividad de inicio de sesión está disponible en [todas las edic
 
 Azure Portal ofrece varias opciones para acceder al registro. Por ejemplo, en el menú Azure Active Directory, puede abrir el registro en la sección **Supervisión**.  
 
-![Apertura de registros de inicios de sesión](./media/concept-sign-ins/sign-ins-logs-menu.png)
+![Apertura de los registros de inicios de sesión](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
 Además, puede acceder directamente a los registros de inicios de sesión mediante este vínculo: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
@@ -164,6 +164,10 @@ Puede filtrar los datos de un registro para restringirlo a un nivel que funcione
 ![Filtro de aplicación cliente](./media/concept-sign-ins/client-app-filter.png)
 
 
+> [!NOTE]
+> Debido a compromisos de privacidad, Azure AD rellena este campo en el inquilino principal en el caso de un escenario entre inquilinos.
+
+
 |Nombre|Autenticación moderna|Descripción|
 |---|:-:|---|
 |SMTP autenticado| |Utilizado por clientes POP e IMAP para enviar mensajes de correo electrónico.|
@@ -182,6 +186,10 @@ Puede filtrar los datos de un registro para restringirlo a un nivel que funcione
 |POP3| |Un cliente de correo heredado que utiliza POP3 para recuperar el correo electrónico.|
 |Servicios web de creación de informes| |Se usan para recuperar datos de informes en Exchange Online.|
 |Otros clientes| |Muestra todos los intentos de inicio de sesión de los usuarios en los que la aplicación cliente no está incluida o es desconocida.|
+
+
+
+
 
 
 
@@ -214,7 +222,7 @@ Puede filtrar los datos de un registro para restringirlo a un nivel que funcione
 
 ## <a name="download-sign-in-activities"></a>Descarga de actividades de inicio de sesión
 
-Haga clic en **Descargar** para crear un archivo CSV o JSON de los 250 000 registros más recientes. Empiece por [descargar los datos de inicios de sesión](quickstart-download-sign-in-report.md) si quiere trabajar con ellos fuera de Azure Portal.  
+Haga clic en **Descargar** para crear un archivo CSV o JSON de los 250 000 registros más recientes. Empiece por [descargar los datos de inicios de sesión](./howto-download-logs.md) si quiere trabajar con ellos fuera de Azure Portal.  
 
 ![Descargar](./media/concept-sign-ins/71.png "Descargar")
 
@@ -296,7 +304,7 @@ Al ver el informe de inicios de sesión, seleccione la pestaña **Detalles de au
 >- La fila **autenticación principal** no se registra inicialmente. 
 
 
-## <a name="usage-of-managed-applications&quot;></a>Uso de las aplicaciones administradas
+## <a name="usage-of-managed-applications"></a>Uso de las aplicaciones administradas
 
 Con una vista centrada en la aplicación de los datos de inicio de sesión, puede responder a preguntas tales como:
 
@@ -306,7 +314,7 @@ Con una vista centrada en la aplicación de los datos de inicio de sesión, pued
 
 El punto de entrada a estos datos son las tres aplicaciones principales de su organización. Los datos se incluyen en el informe de los últimos 30 días en la sección **Información general** en **Aplicaciones empresariales**.
 
-![Captura de pantalla que muestra dónde puede seleccionar Información general.](./media/concept-sign-ins/10.png &quot;Actividad de inicio de sesión")
+![Captura de pantalla que muestra dónde puede seleccionar Información general.](./media/concept-sign-ins/10.png "Actividad de inicio de sesión")
 
 Agregaciones semanales de los gráficos de uso de la aplicación de inicios de sesión para las tres aplicaciones principales en un período determinado. El valor predeterminado para el período es 30 días.
 
@@ -328,7 +336,6 @@ También puede tener acceso a los registros de actividad de Microsoft 365 media
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Códigos de error de los informes de actividad de inicio de sesión]()
 * [Directivas de retención de datos de Azure AD](reference-reports-data-retention.md)
 * [Latencias de informes de Azure AD](reference-reports-latencies.md)
 * [Aplicaciones de Microsoft en el informe de inicios de sesión](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)

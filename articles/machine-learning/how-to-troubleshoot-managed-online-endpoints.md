@@ -10,12 +10,13 @@ ms.author: petrodeg
 ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: f493cfc21ff3f5e2aa122bbbc08f24e1a759558e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: devplatv2
+ms.openlocfilehash: 9f50fd0ff60f819717dbcb1e3878b4caf56c563b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480951"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729784"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)
 
@@ -33,7 +34,7 @@ En la sección [Códigos de estado HTTP](#http-status-codes) se explica cómo se
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una **suscripción de Azure**. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Una **suscripción de Azure**. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 * La[CLI de Azure](/cli/azure/install-azure-cli).
 * El artículo [Instalación, configuración y uso de la CLI 2.0 (versión preliminar)](how-to-configure-cli.md).
 
@@ -51,7 +52,7 @@ Como parte de la implementación local, se llevan a cabo los pasos siguientes:
 - Docker compila una nueva imagen de contenedor o extrae una imagen existente de la caché local de Docker. Se usa una imagen existente si hay una que coincida con la parte del entorno del archivo de especificación.
 - Docker inicia un nuevo contenedor con artefactos locales montados, como archivos de modelo y código.
 
-Para más información, consulte [Implementación y depuración locales mediante puntos de conexión locales](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-using-local-endpoints).
+Para más información, consulte [Implementación y depuración locales mediante puntos de conexión locales](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
 
 ## <a name="get-container-logs"></a>Obtención de registros de contenedor
 
@@ -96,6 +97,10 @@ A continuación, se muestra una lista de errores de implementación comunes que 
 Antes de implementar un modelo, debe tener suficiente cuota de proceso. Esta cuota define la cantidad de núcleos virtuales disponibles por suscripción, área de trabajo, SKU y región. Cada implementación se resta de la cuota disponible y se vuelve a agregar después de la eliminación, en función del tipo de la SKU.
 
 Una posible mitigación es comprobar si hay implementaciones no utilizadas que se puedan eliminar. O bien, puede enviar una [solicitud de aumento de cuota](./how-to-manage-quotas.md).
+
+### <a name="err_1101-out-of-capacity"></a>ERR_1101: Out of capacity
+
+The specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Retry later or try deploying to a different region (ERR_1101: Sin capacidad. El tamaño de máquina virtual especificado no se pudo aprovisionar debido a la falta de capacidad de Azure Machine Learning. Vuelva a intentarlo más tarde o pruebe a realizar la implementación en otra región).
 
 ### <a name="err_1200-unable-to-download-user-container-image"></a>ERR_1200: Unable to download user container image (No se puede descargar la imagen de contenedor de usuarios)
 
@@ -150,6 +155,10 @@ Para más información sobre este error, ejecute:
 az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
 ```
 
+### <a name="err_1350-unable-to-download-user-model-not-enough-space-on-the-disk"></a>ERR_1350: Unable to download user model, not enough space on the disk (No se puede descargar el modelo de usuario, no hay suficiente espacio en el disco)
+
+Este problema se produce cuando el tamaño del modelo es mayor que el espacio disponible en disco. Pruebe una SKU con más espacio en disco.
+
 ### <a name="err_2100-unable-to-start-user-container"></a>ERR_2100: Unable to start user container (No se puede iniciar el contenedor de usuarios)
 
 Para ejecutar el archivo `score.py` proporcionado como parte de la implementación, Azure crea un contenedor que incluye todos los recursos que necesita `score.py` y ejecuta el script de puntuación en ese contenedor.
@@ -196,8 +205,7 @@ Al acceder a los puntos de conexión en línea administrados con solicitudes RES
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca de la implementación:
-
-* [Implementación y puntuación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)](how-to-deploy-managed-online-endpoints.md)
-* [Implementación segura para puntos de conexión en línea (versión preliminar)](how-to-safely-rollout-managed-endpoints.md)
+- [Implementación y puntuación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)](how-to-deploy-managed-online-endpoints.md)
+- [Implementación segura para puntos de conexión en línea (versión preliminar)](how-to-safely-rollout-managed-endpoints.md)
+- [Referencia de YAML sobre puntos de conexión en línea administrados (versión preliminar)](reference-yaml-endpoint-managed-online.md)
 

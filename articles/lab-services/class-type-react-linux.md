@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 05/16/2021
 ms.author: enewman
-ms.openlocfilehash: 60ac7c3a95564fad5c271c543beac875334b05a1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 96154718ce8e0ecff0ccdce0ded70272cdda828e
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483507"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991773"
 ---
 # <a name="set-up-lab-for-react-on-linux"></a>Configuración del laboratorio para React en Linux
 
@@ -85,6 +85,14 @@ Instale las extensiones React Developer Tools del explorador para que pueda insp
 - [Complemento React Developer Tools de FireFox](https://addons.mozilla.org/firefox/addon/react-devtools/)
 
 Para ejecutar la aplicación en modo de desarrollo, use el comando integrado `npm start`.  Las direcciones URL locales y de red se mostrarán en la salida del comando.  Para usar HTTPS en lugar de HTTP, consulte [Creación de una aplicación React mediante HTTPS en desarrollo](https://create-react-app.dev/docs/using-https-in-development).
+
+### <a name="update-firewall-settings"></a>Actualización de la configuración del firewall
+
+Las compilaciones oficiales de Ubuntu tienen recursos [iptables](https://help.ubuntu.com/community/IptablesHowTo) instalados y permitirán todo el tráfico entrante de forma predeterminada.  Sin embargo, si usa una máquina virtual que tenga un firewall más restrictivo, agregue una regla de entrada para permitir el tráfico al servidor NodeJS.  En el ejemplo siguiente se usan [iptables](https://help.ubuntu.com/community/IptablesHowTo) para permitir el tráfico al puerto 3000.
+
+```bash
+sudo iptables -I INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
+```
 
 >[!IMPORTANT]
 >Los instructores deben usar la plantilla de máquina virtual u otra máquina virtual de laboratorio para acceder al sitio web de un alumno.

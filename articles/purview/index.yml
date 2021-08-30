@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentación de Azure Purview
-summary: Aprenda a usar Azure Purview para que su organización pueda encontrar, conocer y consumir orígenes de datos.
+summary: Aprenda a usar Azure Purview para que su organización pueda encontrar, conocer, controlar y consumir orígenes de datos. Los tutoriales, la referencia de la API REST y otra documentación muestran cómo planear y configurar un repositorio de datos en el que se pueden detectar orígenes de datos disponibles y administrar el uso correcto.
 metadata:
   title: Documentación de Azure Purview
   description: Aprenda a usar Azure Purview para que su organización pueda encontrar, conocer y consumir orígenes de datos. Los tutoriales, la referencia de la API REST y otra documentación muestran cómo planear y configurar el repositorio de datos en el que los consumidores puedan detectar los orígenes de datos disponibles y adquirir los conocimientos aportados por expertos en la materia.
@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: whhender
   ms.author: whhender
-  ms.date: 06/09/2021
-  ms.openlocfilehash: 8db36ffb5f1d081e0e4dbb2cd6dbca02c7ddf726
-  ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+  ms.date: 08/26/2021
+  ms.openlocfilehash: fbe52bbe6bc7835dc80251f7dffcd31c7a999d52
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111904020"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122969739"
 landingContent:
 - title: Acerca de Azure Purview
   linkLists:
@@ -24,24 +24,30 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
-    - text: Uso de Purview Studio
-      url: use-purview-studio.md
     - text: Procedimientos recomendados de implementación
       url: deployment-best-practices.md
-    - text: Permisos de Data Catalog
+    - text: Uso de Purview Studio
+      url: use-purview-studio.md
+    - text: Información sobre el control de acceso a Purview
       url: catalog-permissions.md
-    - text: Tipos de archivo y orígenes de datos admitidos
-      url: sources-and-scans.md
-    - text: Linaje de datos
-      url: concept-data-lineage.md
+    - text: Información sobre el mapa de datos elásticos
+      url: catalog-permissions.md
+    - text: Examinar e ingerir orígenes
+      url: concept-scans-and-ingestion.md
 - title: Introducción
   linkLists:
   - linkListType: quickstart
     links:
     - text: 'Creación de una cuenta de Purview: Azure Portal'
       url: create-catalog-portal.md
-    - text: 'Creación de una cuenta de Purview: PowerShell/CLI'
-      url: create-catalog-powershell.md
+    - text: 'Creación de una colección: Azure Portal'
+      url: quickstart-create-collection.md
+  - linkListType: how-to-guide
+    links:
+    - text: Administración del acceso y las colecciones
+      url: how-to-create-and-manage-collections.md
+    - text: Conexión a orígenes
+      url: manage-credentials.md
   - linkListType: tutorial
     links:
     - text: Ejecución de Starter Kit y examen de datos
@@ -54,6 +60,8 @@ landingContent:
       url: tutorial-schemas-and-classifications.md
     - text: Creación de términos del glosario
       url: tutorial-import-create-glossary-terms.md
+    - text: Usar las API REST
+      url: tutorial-using-rest-apis.md
 - title: Registro y examen de orígenes de datos de Azure
   linkLists:
   - linkListType: how-to-guide
@@ -68,29 +76,15 @@ landingContent:
       url: register-scan-synapse-workspace.md
     - text: Examen de un Inquilino de Power BI
       url: register-scan-power-bi-tenant.md
-    - text: Examen de un grupo de SQL dedicado de Azure (antes denominado SQL DW)
-      url: register-scan-azure-synapse-analytics.md
     - text: Examen de Azure Blob Storage
       url: register-scan-azure-blob-storage-source.md
+    - text: Solución de problemas de conexiones
+      url: troubleshoot-connections.md
   - linkListType: tutorial
     links:
     - text: Incorporación de orígenes de Azure a escala
       url: tutorial-data-sources-readiness.md
-- title: Detección de datos
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Examen y linaje
-      url: tutorial-browse-and-view-lineage.md
-  - linkListType: how-to-guide
-    links:
-    - text: Uso de características de linaje de datos
-      url: catalog-lineage-user-guide.md
-    - text: Examen por tipo de recurso
-      url: how-to-browse-catalog.md
-    - text: Buscar recursos, términos, anotaciones y contactos
-      url: how-to-search-catalog.md
-- title: Mantenimiento de datos
+- title: Clasificación de los datos
   linkLists:
   - linkListType: tutorial
     links:
@@ -100,25 +94,45 @@ landingContent:
       url: tutorial-import-create-glossary-terms.md
   - linkListType: how-to-guide
     links:
+    - text: Aplicación de etiquetas de confidencialidad
+      url: create-sensitivity-label.md
     - text: Creación, edición y eliminación de las clasificaciones y reglas personalizadas
       url: create-a-custom-classification-and-classification-rule.md
     - text: Creación, importación y exportación de glosarios
       url: how-to-create-import-export-glossary.md
     - text: Recursos de edición masiva
       url: how-to-bulk-edit-assets.md
+- title: Detección de datos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Examen y linaje
+      url: tutorial-browse-and-view-lineage.md
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión a Azure Data Factory
+      url: how-to-link-azure-data-factory.md
+    - text: Uso de características de linaje de datos
+      url: catalog-lineage-user-guide.md
+    - text: Examen por tipo de recurso
+      url: how-to-browse-catalog.md
+    - text: Buscar recursos, términos, anotaciones y contactos
+      url: how-to-search-catalog.md
 - title: Examen de orígenes de datos que no sean de Azure
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Examen de SQL Server local
       url: register-scan-on-premises-sql-server.md
+    - text: Examen de Google BigQuery
+      url: register-scan-google-bigquery-source.md
     - text: Examen de Amazon S3
       url: register-scan-amazon-s3.md
     - text: Examen de Oracle
       url: register-scan-oracle-source.md
     - text: Examen de base de datos de metastore de Hive
       url: register-scan-hive-metastore-source.md
-- title: Reconocimiento del estado de sus datos
+- title: Comprensión de los datos
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -130,3 +144,13 @@ landingContent:
       url: classification-insights.md
     - text: Visualización de información de glosarios
       url: glossary-insights.md
+- title: Protección de la red
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Uso de puntos de conexión privados con Purview
+      url: catalog-private-link.md
+    - text: Network configuration (Configuración de red)
+      url: catalog-private-link-name-resolution.md
+    - text: Conexión a redes privadas
+      url: manage-integration-runtimes.md

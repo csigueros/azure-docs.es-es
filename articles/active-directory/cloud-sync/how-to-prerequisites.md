@@ -11,12 +11,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd2d660a0591506b59aaa1b11526175582d2785b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9dc0eed20ee392b668078425946b39ac6c6440c4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758778"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742889"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Requisitos previos de la sincronizar en la nube de Azure AD Connect
 En este artículo se proporciona una guía sobre cómo elegir y usar la sincronización en la nube de Azure Active Directory (Azure AD Connect) como solución de identidad.
@@ -109,6 +109,9 @@ Para habilitar TLS 1.2, siga estos pasos.
     ```
 
 1. Reinicie el servidor.
+## <a name="ntlm-requirement"></a>Requisito de NTLM
+
+No habilite NTLM en el servidor de Windows Server que ejecuta el agente de aprovisionamiento de Azure Active Directory Connect; si está habilitado, asegúrese de deshabilitarlo. 
 
 ## <a name="known-limitations"></a>Restricciones conocidas
 

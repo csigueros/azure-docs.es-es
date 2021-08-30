@@ -2,14 +2,14 @@
 title: Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica
 description: Muestra cómo aplicar etiquetas para organizar los recursos de Azure para la facturación y administración.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 07/29/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b5278408ac1adf1e12adf8f7facebd26e6d96d6d
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 9dc4b87713d5b397b900f19e83c297130a10be3c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111813914"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751366"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -843,12 +843,13 @@ Se aplican las siguientes limitaciones a las etiquetas:
 * Cada recurso, grupo de recursos y suscripción puede tener un máximo de 50 pares nombre-valor de etiqueta. Si necesita aplicar más etiquetas que el número máximo permitido, use una cadena JSON para el valor de etiqueta. La cadena JSON puede contener muchos valores que se aplican a un sol nombre de etiqueta. Un grupo de recursos o una suscripción puede contener muchos recursos con 50 pares clave-valor de etiqueta cada uno.
 * El nombre de etiqueta está limitado a 512 caracteres y el valor de la etiqueta, a 256. En las cuentas de almacenamiento, el nombre de etiqueta se limita a 128 caracteres y el valor de la etiqueta, a 256.
 * No se pueden aplicar etiquetas a recursos clásicos como Cloud Services.
+* Los grupos de direcciones IP de Azure y las directivas de Azure Firewall no admiten operaciones PATCH, lo que significa que no admiten la actualización de etiquetas mediante el portal. En su lugar, use los comandos de actualización para esos recursos. Por ejemplo, puede actualizar etiquetas para un grupo de direcciones IP con el comando [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update). 
 * Los nombres de etiqueta no pueden contener estos caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
    > * Las zonas Azure DNS y Traffic Manager no admiten el uso de espacios en la etiqueta o una etiqueta que empieza por un número.
    >
-   > * Azure Front Door no admite el uso de `#` en el nombre de la etiqueta.
+   > * Azure Front Door no admite el uso de `#` o `:` en el nombre de la etiqueta.
    >
    > * Los siguientes recursos de Azure solo admiten 15 etiquetas:
    >     * Azure Automation 

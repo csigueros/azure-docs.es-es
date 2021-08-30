@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2021
-ms.openlocfilehash: baa3508917180ebbaccb9ef8863fd4c5bf68ed74
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 07/05/2021
+ms.openlocfilehash: 39f7af59a808fbe0c4141e17cb709c014c91dd4d
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129376"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594902"
 ---
 # <a name="create-and-edit-plans-for-an-azure-container-offer"></a>Creación y edición de planes para una oferta de Azure Container
 
@@ -31,7 +31,7 @@ Después de crear un plan, la página de **Información general del plan** muest
 Las acciones disponibles en un plan varían en función del estado actual del plan. Entre ellas, las siguientes:
 
 - **Elimine el borrador** si el estado del plan es un Borrador.
-- **Detenga el plan de venta** si el estado el plan es Publicado.
+- **Detenga la distribución** si el estado del plan es Publicado.
 
 ## <a name="edit-a-plan"></a>Edición de un plan
 

@@ -4,12 +4,12 @@ description: Lenguajes, plataformas e integraciones disponibles para Application
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: fe71a2d402781625cf22abb91bc56e6e8994f03d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d388914badbd9ac8870a9d5e23370cd5b0319eea
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110079271"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616404"
 ---
 # <a name="supported-languages"></a>Idiomas compatibles
 
@@ -24,7 +24,7 @@ ms.locfileid: "110079271"
 ### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>Instrumentación de aplicaciones ya implementadas (sin código y basadas en agentes)
 * [Conjuntos de escalado de máquinas virtuales de Azure y Azure VM](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
-* [ASP.NET: para aplicaciones que ya están activas](./monitor-performance-live-website-now.md)
+* [ASP.NET: para aplicaciones web hospedadas con IIS](./status-monitor-v2-overview.md)
 * [Azure Cloud Services](./cloudservices.md), incluidos los roles web y de trabajo
 * [Funciones de Azure](../../azure-functions/functions-monitoring.md)
 ### <a name="instrumentation-through-code-sdks"></a>Instrumentación a través del código (SDK)
