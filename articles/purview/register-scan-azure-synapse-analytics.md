@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: f2797af01dad10c04c8a56cf52a584ea0f04af31
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 09dc3c20ca95f32ee4c8f01d6b4986adfcd3703e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656762"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751915"
 ---
 # <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Registro y examen de grupos de SQL dedicados (antes SQL DW)
 
@@ -27,8 +27,7 @@ Azure Synapse Analytics (anteriormente SQL DW) admite exámenes completos e inc
 
 ### <a name="known-limitations"></a>Restricciones conocidas
 
-> * Azure Purview no admite el examen de [vistas](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) en Azure Synapse Analytics.
-> * Azure Purview no admite más de 300 columnas en la pestaña Esquema y mostrará el mensaje "Additional-Columns-Truncated" (columnas adicionales truncadas). 
+> * Azure Purview no admite más de 300 columnas en la pestaña Esquema y mostrará el mensaje "Additional-Columns-Truncated" (Columnas adicionales truncadas). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -57,11 +56,11 @@ Ejemplo de la sintaxis de SQL para crear el usuario y conceder el permiso:
 CREATE USER [PurviewManagedIdentity] FROM EXTERNAL PROVIDER
 GO
 
-EXEC sp_addrolemember 'db_owner', [PurviewManagedIdentity]
+EXEC sp_addrolemember 'db_datareader', [PurviewManagedIdentity]
 GO
 ```
 
-La autenticación debe tener permiso para obtener los metadatos de la base de datos, los esquemas y las tablas. También debe ser capaz de consultar las tablas para realizar el muestreo para la clasificación. Es recomendable asignar el permiso `db_owner` a la identidad.
+La autenticación debe tener permiso para obtener los metadatos de la base de datos, los esquemas y las tablas. También debe ser capaz de consultar las tablas para realizar el muestreo para la clasificación. Es recomendable asignar el permiso `db_datareader` a la identidad.
 
 ### <a name="service-principal"></a>Entidad de servicio
 
@@ -97,14 +96,14 @@ Asimismo, debe crear un usuario de Azure AD en Azure Synapse Analytics siguiend
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
 GO
 
-ALTER ROLE db_owner ADD MEMBER [ServicePrincipalName]
+ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalName]
 GO
 ```
 
 > [!Note]
 > Purview necesitará el valor de **Id. de la aplicación (cliente)** y el **secreto de cliente** para el examen.
 
-### <a name="sql-authentication"></a>Autenticación SQL
+### <a name="sql-authentication"></a>Autenticación de SQL
 
 Puede seguir las instrucciones de [CREAR INICIO DE SESIÓN](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) para crear un inicio de sesión de Azure Synapse Analytics (anteriormente SQL DW) si aún no tiene uno.
 
@@ -120,13 +119,13 @@ Cuando el método de autenticación seleccionado sea **Autenticación de SQL**, 
 
 ## <a name="register-a-sql-dedicated-pool-formerly-sql-dw"></a>Registro de un grupo de SQL dedicado (antes SQL DW)
 
-Para registrar un nuevo servidor de Azure Synapse Analytics en el catálogo de datos, haga lo siguiente:
+Para registrar un nuevo grupo SQL dedicado en Purview, haga lo siguiente:
 
 1. Vaya a la cuenta de Purview.
-1. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+1. Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 1. Seleccione **Registrar**.
 1. En **Registro de orígenes**, seleccione **Grupo dedicado de SQL (antes SQL DW)** .
-1. Seleccione **Continuar**.
+1. Seleccione **Continuar**
 
 En la pantalla **Registrar orígenes (Azure Synapse Analytics)** , haga lo siguiente:
 
@@ -138,7 +137,35 @@ En la pantalla **Registrar orígenes (Azure Synapse Analytics)** , haga lo sigui
 
 :::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+
+Para crear y ejecutar un nuevo examen, siga estos pasos:
+
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+
+1. Seleccione el origen del grupo dedicado de SQL que ha registrado.
+
+1. Seleccione **New scan** (Nuevo examen).
+
+1. Seleccione la credencial para conectarse al origen de datos.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/sql-dedicated-pool-set-up-scan.png" alt-text="Configurar examen":::
+
+1. Elija los elementos adecuados de la lista para limitar el ámbito del examen a tablas específicas.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/scope-scan.png" alt-text="Ámbito del examen":::
+
+1. A continuación, seleccione un conjunto de reglas de examen. Puede elegir entre los valores predeterminados del sistema, los conjuntos de reglas personalizadas existentes o la creación de un conjunto de reglas en línea.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/select-scan-rule-set.png" alt-text="Conjunto de reglas de examen":::
+
+1. Elija el desencadenador del examen. Puede configurar una programación o ejecutar el examen una vez.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/trigger-scan.png" alt-text="trigger":::
+
+1. Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806ff92fcf75ff8d1c8e092d7ff4435751a9e7db
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a21505fc37ad3b7fb47af8c6b79262ebb654d800
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529908"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228040"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
@@ -29,10 +29,10 @@ En este artículo se explica cómo funciona la actualización de la pertenencia 
 Al conectar un dispositivo Windows con Azure AD mediante una unión a Azure AD, Azure AD agrega las siguientes entidades de seguridad al grupo de administradores locales del dispositivo:
 
 - El rol de administrador global de Azure AD
-- El rol de administrador de dispositivos de Azure AD 
+- Rol de administrador local de dispositivos unidos a Azure AD 
 - El usuario que realiza la unión a Azure AD   
 
-Al agregar los roles de Azure AD al grupo de administradores locales, puede actualizar los usuarios que pueden administrar un dispositivo en cualquier momento en Azure AD sin modificar nada en el dispositivo. Azure AD también agrega el rol de administrador de dispositivos de Azure AD al grupo de administradores locales para admitir el principio de privilegio mínimo (PoLP). Además de los administradores globales, también puede habilitar a los usuarios a los que *solo* se ha asignado el rol de administrador de dispositivos para administrar uno. 
+Al agregar los roles de Azure AD al grupo de administradores locales, puede actualizar los usuarios que pueden administrar un dispositivo en cualquier momento en Azure AD sin modificar nada en el dispositivo. Azure AD también agrega el rol de administrador local de dispositivos unidos a Azure AD al grupo de administradores locales para admitir el principio de privilegio mínimo (PoLP). Además de los administradores globales, también puede habilitar a los usuarios a los que *solo* se ha asignado el rol de administrador de dispositivos para administrar uno. 
 
 ## <a name="manage-the-global-administrators-role"></a>Administración del rol de administrador global
 
@@ -55,7 +55,7 @@ Para modificar el rol de administrador de dispositivos, configure **Administrado
 
 ![Otros administradores locales](./media/assign-local-admin/10.png)
 
->[!NOTE]
+> [!NOTE]
 > Esta opción requiere un inquilino de Azure AD Premium. 
 
 Los administradores de dispositivos se asignan a todos los dispositivos unidos a Azure AD. No se puede definir el ámbito de los administradores de dispositivos a un conjunto específico de dispositivos. La actualización del rol de administrador de dispositivos no necesariamente tiene un impacto inmediato en los usuarios afectados. En los dispositivos en los que un usuario ya ha iniciado sesión, la elevación de los privilegios tiene lugar cuando las *dos* acciones siguientes tienen lugar:
@@ -63,24 +63,32 @@ Los administradores de dispositivos se asignan a todos los dispositivos unidos a
 - Han pasado hasta cuatro horas para que Azure AD emita un nuevo token de actualización principal con los privilegios adecuados. 
 - El usuario cierra sesión y la vuelve a iniciar, sin bloquear o desbloquear, para actualizar su perfil.
 
->[!NOTE]
+> [!NOTE]
 > Las acciones anteriores no se aplican a los usuarios que no han iniciado sesión en el dispositivo pertinente previamente. En este caso, los privilegios de administrador se aplican inmediatamente después de su primer inicio de sesión en el dispositivo. 
 
 ## <a name="manage-administrator-privileges-using-azure-ad-groups-preview"></a>Administración de los privilegios de administrador con grupos de Azure AD (versión preliminar)
 
 A partir de la actualización de Windows 10 de 2004, se pueden usar grupos de Azure AD para administrar los privilegios de administrador en dispositivos unidos a Azure AD con la directiva de [grupos restringidos](/windows/client-management/mdm/policy-csp-restrictedgroups) de MDM. Esta directiva permite asignar usuarios individuales o grupos de Azure AD al grupo de administradores locales en un dispositivo unido a Azure AD, lo que le proporciona la granularidad para configurar diferentes administradores para distintos grupos de dispositivos. 
 
->[!NOTE]
-> A partir de la actualización de Windows 10 20H2, se recomienda usar la directiva de [usuarios y grupos locales](/windows/client-management/mdm/policy-csp-localusersandgroups) en lugar de la directiva de grupos restringidos
-
+> [!NOTE]
+> A partir de la actualización de Windows 10 20H2, se recomienda usar la directiva de [usuarios y grupos locales](/windows/client-management/mdm/policy-csp-localusersandgroups) en lugar de la directiva de grupos restringidos.
 
 Actualmente, no hay ninguna interfaz de usuario en Intune para administrar estas directivas y deben configurarse mediante [Configuración OMA-URI personalizada](/mem/intune/configuration/custom-settings-windows-10). Algunas consideraciones para usar cualquiera de estas directivas: 
 
 - La adición de grupos de Azure AD a través de la directiva requiere el SID del grupo, que se puede obtener mediante la ejecución de la [API de Microsoft Graph para grupos](/graph/api/resources/group). El SID se define mediante la propiedad `securityIdentifier` de la respuesta de la API.
+
 - Cuando se aplica la directiva de grupos restringidos, se quita cualquier miembro actual del grupo que no esté en la lista de miembros. Por lo tanto, la aplicación de esta directiva con nuevos miembros o grupos quitará a los administradores existentes, es decir, al usuario que se unió al dispositivo, el rol de administrador de dispositivos y el rol de administrador global del dispositivo. Para evitar la eliminación de los miembros existentes, debe configurarlos como parte de la lista de miembros en la Directiva de grupos restringidos. Esta limitación se soluciona si usa la directiva de usuarios y grupos locales que permite actualizaciones incrementales a la pertenencia a grupos
+
 - Los privilegios de administrador que usan ambas directivas solo se evalúan para los siguientes grupos conocidos en un dispositivo con Windows 10: administradores, usuarios, invitados, usuarios avanzados, usuarios de Escritorio remoto y usuarios de Administración remota. 
+
 - La administración de los administradores locales mediante grupos de Azure AD no es aplicable a los dispositivos unidos a Azure AD híbrido o dispositivos registrados de Azure AD.
+
 - Aunque la directiva de grupos restringidos existía antes de la actualización de Windows 10 de 2004, no admitía grupos de Azure AD como miembros del grupo de administradores locales de un dispositivo. 
+- Los grupos de Azure AD implementados en un dispositivo con cualquiera de las dos directivas no se aplican a las conexiones del Escritorio remoto. Para controlar los permisos de Escritorio remoto para dispositivos unidos a Azure AD, debe agregar el SID del usuario individual al grupo adecuado. 
+
+> [!IMPORTANT]
+> El inicio de sesión de Windows con Azure AD admite la evaluación de hasta 20 grupos para los derechos de administrador. Se recomienda no tener más de 20 grupos de Azure AD en cada dispositivo para garantizar que los derechos de administrador se asignen correctamente. Esta limitación también se aplica a los grupos anidados. 
+
 
 ## <a name="manage-regular-users"></a>Administración de los usuarios normales
 

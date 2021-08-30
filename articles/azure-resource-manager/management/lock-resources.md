@@ -2,14 +2,14 @@
 title: Bloqueo de recursos para impedir cambios
 description: Impida que los usuarios actualicen o eliminen recursos de Azure aplicando un bloqueo para todos los usuarios y roles.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 780957dec73177541e8677fb5f6551a6ad147797
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 27ab9d607f3b8fad669682e980bc0178e8dfad42
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951441"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122202067"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados
 
@@ -43,7 +43,9 @@ Aplicar bloqueos puede provocar resultados inesperados, ya que algunas operacion
 
 - Un bloqueo de solo lectura en una **cuenta de almacenamiento** impide que todos los usuarios muestren las claves de cuenta. La operación [Crear lista de claves](/rest/api/storagerp/storageaccounts/listkeys) de Azure Storage se controla a través de una solicitud POST para proteger el acceso a las claves de cuenta, que proporcionan acceso completo a los datos de la cuenta de almacenamiento. Cuando se configura un bloqueo de solo lectura para una cuenta de almacenamiento, los usuarios que no poseen las claves de cuenta deben usar las credenciales de Azure AD para acceder a los datos de blobs o colas. Un bloqueo de solo lectura también impide la asignación de roles de RBAC de Azure del ámbito a la cuenta de almacenamiento o a un contenedor de datos (contenedor de blobs o colas).
 
-- Un bloqueo de "no se puede eliminar" en una **cuenta de almacenamiento** no impide que se eliminen o modifiquen datos dentro de esa cuenta. Este tipo de bloqueo solo evita que se elimine la cuenta de almacenamiento, pero no protege los datos de blobs, colas, tablas o archivos que se encuentran dentro de esa cuenta.
+- Un bloqueo de "no se puede eliminar" en una **cuenta de almacenamiento** no impide que se eliminen o modifiquen datos dentro de esa cuenta. Este tipo de bloqueo solo protege la cuenta de almacenamiento en sí frente a la eliminación. Si una solicitud usa [operaciones de plano de datos](control-plane-and-data-plane.md#data-plane), el bloqueo de la cuenta de almacenamiento no protege los datos de blob, cola, tabla o archivo que contiene. Sin embargo, si la solicitud usa [operaciones de plano de control](control-plane-and-data-plane.md#control-plane), el bloqueo protege esos recursos.
+
+  Por ejemplo, si una solicitud usa [Recursos compartidos de archivos - Eliminar](/rest/api/storagerp/file-shares/delete), que es una operación de plano de control, se deniega la eliminación. Por ejemplo, si una solicitud usa [Eliminar recurso compartido](/rest/api/storageservices/delete-share), que es una operación de plano de control, se deniega la eliminación. Se recomienda usar las operaciones del plano de control.
 
 - Un bloqueo de solo lectura en una **cuenta de almacenamiento** no impide que se eliminen o modifiquen datos dentro de esa cuenta. Este tipo de bloqueo solo evita que se elimine o modifique la cuenta de almacenamiento, pero no protege los datos de blobs, colas, tablas o archivos que se encuentran dentro de esa cuenta.
 
@@ -60,6 +62,10 @@ Aplicar bloqueos puede provocar resultados inesperados, ya que algunas operacion
 - Un bloqueo de "no se puede eliminar" en un **grupo de recursos** impide que **Azure Machine Learning** escale automáticamente los [clústeres de proceso de Azure Machine Learning](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) para quitar nodos no usados.
 
 - Un bloqueo de solo lectura en una **suscripción** impide que **Azure Advisor** funcione correctamente. Advisor no puede almacenar los resultados de sus consultas.
+
+- Un bloqueo de solo lectura en una instancia de **Application Gateway** le impide obtener el estado de back-end de la puerta de enlace de aplicaciones. Esa [operación usa POST](/rest/api/application-gateway/application-gateways/backend-health), que está bloqueado por el bloqueo de solo lectura.
+
+- Un bloqueo de solo lectura en un **clúster de AKS** impide que todos los usuarios accedan a los recursos del clúster desde la sección **Recursos de Kubernetes** de la hoja del lado izquierdo del clúster de AKS en Azure Portal. Estas operaciones requieren una solicitud POST para la autenticación.
 
 ## <a name="who-can-create-or-delete-locks"></a>Quién puede crear o eliminar bloqueos
 

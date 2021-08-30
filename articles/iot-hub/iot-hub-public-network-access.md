@@ -6,21 +6,21 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: ece547ac7032e4629a2df48c34b0412ecdc15f54
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/07/2021
+ms.openlocfilehash: a729cd14c2f65b7ff4ab478f9efd25e13a1170b4
+ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072125"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113515589"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Administración del acceso a la red pública para su instancia de IoT Hub
 
-Para restringir el acceso solo al [punto de conexión privado para su instancia de IoT Hub en su red virtual](virtual-network-support.md), deshabilite el acceso a la red pública. Para ello, use Azure Portal o la API de `publicNetworkAccess`. También puede permitir el acceso público mediante el portal o la API de `publicNetworkAccess`.
+Para restringir el acceso solo a un [punto de conexión privado de un centro de IoT de la red virtual](virtual-network-support.md), deshabilite el acceso a la red pública. Para ello, use Azure Portal o la API de `publicNetworkAccess`. También puede permitir el acceso público mediante el portal o la API de `publicNetworkAccess`.
 
-## <a name="turn-off-public-network-access-using-azure-portal"></a>Desactivación del acceso a la red pública mediante Azure Portal
+## <a name="turn-off-public-network-access-using-the-azure-portal"></a>Desactivación del acceso a la red pública mediante Azure Portal
 
-1. Visite [Azure Portal](https://portal.azure.com).
+1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Vaya a su instancia de IoT Hub. Vaya a **Grupos de recursos**, elija el grupo adecuado y seleccione el IoT Hub.
 3. Seleccione **Redes** en el menú de la izquierda.
 4. En "Allow public network access to" (Permitir acceso a la red pública para), seleccione **Deshabilitado**.
@@ -30,13 +30,13 @@ Para restringir el acceso solo al [punto de conexión privado para su instancia 
 
 Para activar el acceso a la red pública, seleccione **Todas las redes** y **Guardar**.
 
-### <a name="accessing-the-iot-hub-after-disabling-public-network-access"></a>Obtención de acceso al servicio IoT Hub después de la deshabilitación del acceso a la red pública
+### <a name="accessing-the-iot-hub-after-disabling-the-public-network-access"></a>Acceso a IoT Hub después de la deshabilitación del acceso a la red pública
 
-Una vez deshabilitado el acceso a la red pública, el servicio IoT Hub solo es accesible a través de [su punto de conexión privado de red virtual mediante el vínculo privado de Azure](virtual-network-support.md). Esta restricción incluye el acceso a través de Azure Portal, ya que las llamadas API al servicio IoT Hub se realizan directamente mediante el explorador con sus credenciales.
+Una vez deshabilitado el acceso a la red pública, el servicio IoT Hub solo es accesible a través de [su punto de conexión privado de red virtual mediante el vínculo privado de Azure](virtual-network-support.md). Esta restricción incluye el acceso mediante Azure Portal, ya que las llamadas API al servicio IoT Hub se realizan directamente mediante el explorador con sus credenciales.
 
 ### <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>El punto de conexión de IoT Hub, la dirección IP y los puertos después de deshabilitar el acceso a la red pública
 
-IoT Hub es una plataforma como servicio (PaaS) multiinquilino, por lo que diferentes clientes comparten el mismo grupo de recursos de proceso, red y hardware de almacenamiento. Los nombres de host de IoT Hub se asignan a un punto de conexión público con una dirección IP enrutable públicamente a través de Internet. Diferentes clientes comparten este punto de conexión público de IoT Hub, que es accesible para todos los dispositivos de IoT a través de redes de área extensa y de redes locales. 
+IoT Hub es una plataforma como servicio (PaaS) multiinquilino, por lo que diferentes clientes comparten el mismo grupo de recursos de proceso, red y hardware de almacenamiento. Los nombres de host de IoT Hub se asignan a un punto de conexión público con una dirección IP enrutable públicamente a través de Internet. Diferentes clientes comparten este punto de conexión público de IoT Hub, que es accesible para todos los dispositivos de IoT a través de redes de área extensa y redes locales. 
 
 La deshabilitación del acceso a la red pública se aplica sobre un recurso de IoT Hub específico, lo que garantiza el aislamiento. Para mantener el servicio activo para otros recursos del cliente usando la ruta de acceso pública, su punto de conexión público aún se puede resolver, las direcciones IP aún se pueden detectar y los puertos permanecen abiertos. Esto no es motivo de preocupación, ya que Microsoft integra varias capas de seguridad para garantizar el aislamiento completo entre los inquilinos. Para más información, consulte [Aislamiento en la nube pública de Azure](../security/fundamentals/isolation-choices.md#tenant-level-isolation).
 
@@ -50,14 +50,14 @@ Hay un error con IoT Hub en el que el [punto de conexión compatible con el cent
 
 ## <a name="turn-on-network-access-using-azure-portal"></a>Activación del acceso a la red mediante Azure Portal
 
-1. Visite [Azure Portal](https://portal.azure.com).
+1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Vaya a su instancia de IoT Hub. Vaya a **Grupos de recursos**, elija el grupo adecuado y seleccione el centro de conectividad.
 3. Seleccione **Redes** en el menú de la izquierda.
 4. En "Permitir acceso a la red pública para", seleccione **Intervalos IP seleccionados**.
 5. En el cuadro de diálogo **Filtro IP** que se abre, seleccione **Agregar la dirección IP del cliente** y escriba un nombre y un intervalo de direcciones.
 6. Seleccione **Guardar**. Si el botón está atenuado, asegúrese de que la dirección IP del cliente ya se ha agregado como filtro IP.
 
-:::image type="content" source="media/iot-hub-publicnetworkaccess/turn-on-public-network-access.png" alt-text="Imagen que muestra en Azure Portal dónde activar el acceso a la red pública":::
+:::image type="content" source="media/iot-hub-publicnetworkaccess/turn-on-public-network-access.png" alt-text="Imagen que muestra dónde activar el acceso a la red pública en Azure Portal":::
 
 ### <a name="turn-on-all-network-ranges"></a>Activación de todos los intervalos de red
 

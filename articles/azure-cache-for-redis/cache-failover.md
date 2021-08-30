@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 91c62faf53bd0a0f81322316e5225579eaa6ca9d
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 69ddda7bd88218a3667b16bfdc9fa33aa5349ff6
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111813057"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112573947"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Conmutación por error y aplicación de revisiones para Azure Cache for Redis
 
@@ -19,7 +19,7 @@ Para crear aplicaciones cliente resistentes y correctas, es fundamental comprend
 
 En este artículo, encontrará esta información:  
 
-- Qué es una conmutación por error.
+- ¿Qué es la conmutación por error?
 - Cómo se produce una conmutación por error durante la aplicación de revisiones.
 - Cómo crear una aplicación cliente resistente.
 
@@ -78,12 +78,6 @@ El número de errores detectados por la aplicación cliente depende del número 
 
 La mayoría de las bibliotecas cliente intentan volver a conectarse a la memoria caché si están configuradas para ello. Sin embargo, en ocasiones, errores imprevistos pueden dejar los objetos de biblioteca en un estado irrecuperable. Si los errores continúan durante más tiempo del preconfigurado, se debe volver a crear el objeto de conexión. En Microsoft .NET y otros lenguajes orientados a objetos, se puede volver a crear la conexión sin necesidad de reiniciar la aplicación mediante [un patrón Lazy\<T\>](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
 
-### <a name="how-do-i-make-my-application-resilient"></a>¿Cómo hago que mi aplicación sea resistente?
-
-Dado que no es posible evitar las conmutaciones por error totalmente, escriba sus aplicaciones cliente para lograr resistencia a interrupciones de conexión y solicitudes con error. Aunque la mayoría de las bibliotecas cliente se vuelven a conectar automáticamente al punto de conexión de la caché, pocas intentan enviar de nuevo las solicitudes con error. En función del escenario de la aplicación, es posible que la lógica de reintento con retroceso tenga sentido.
-
-Para probar la resistencia de una aplicación cliente, use un [reinicio](cache-administration.md#reboot) como desencadenador manual para las interrupciones de conexión. Además, se recomienda [programar actualizaciones](cache-administration.md#schedule-updates) en una memoria caché. Indique al servicio de administración que aplique revisiones en tiempo de ejecución de Redis durante ventanas semanales especificadas. Normalmente, estas ventanas se establecen en períodos en los que el tráfico de la aplicación cliente es bajo, para evitar posibles incidentes.
-
 ### <a name="can-i-be-notified-in-advance-of-a-planned-maintenance"></a>¿Se puede recibir una notificación previa a un mantenimiento planeado?
 
 Azure Cache for Redis publica ahora notificaciones en un canal de publicación/suscripción llamado [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) unos 30 segundos antes de las actualizaciones planeadas. Las notificaciones se realizan en tiempo de ejecución. Se compilan especialmente para las aplicaciones que pueden usar disyuntores para omitir los comandos de caché o búfer, por ejemplo, durante las actualizaciones planeadas. No es un mecanismo que pueda notificarle con días u horas de antemano.
@@ -96,6 +90,22 @@ Algunos cambios en la configuración de red del lado cliente pueden desencadenar
 - Escalado del tamaño o número de instancias de su aplicación.
 
 Estos cambios pueden dar lugar a un problema de conectividad con una duración inferior a un minuto. Es probable que la aplicación cliente pierda la conexión a otros recursos de red externos, además del servicio Azure Cache for Redis.
+
+## <a name="build-in-resiliency"></a>Creación de resistencia
+
+No se pueden evitar completamente las conmutaciones por error. En su lugar, escriba las aplicaciones cliente para que sean resistentes a las interrupciones de la conexión y a las solicitudes con error. La mayoría de las bibliotecas cliente se vuelven a conectar automáticamente al punto de conexión de la memoria caché, pero pocas intentan enviar de nuevo las solicitudes con error. En función del escenario de la aplicación, es posible que la lógica de reintento con retroceso tenga sentido.
+
+### <a name="how-do-i-make-my-application-resilient"></a>¿Cómo hago que mi aplicación sea resistente?
+
+Consulte estos patrones de diseño para crear clientes resistentes, sobre todo los patrones de reintento e interruptores:
+
+- [Patrones de confiabilidad: patrones de diseño en la nube](/azure/architecture/framework/resiliency/reliability-patterns#resiliency)
+- [Guía de reintentos para los servicios de Azure: procedimientos recomendados para aplicaciones en la nube](/azure/architecture/best-practices/retry-service-specific)
+- [Implementar reintentos con retroceso exponencial](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff)
+
+Para probar la resistencia de una aplicación cliente, use un [reinicio](cache-administration.md#reboot) como desencadenador manual para las interrupciones de conexión.
+
+Además, se recomienda [programar actualizaciones](cache-administration.md#schedule-updates) en una caché para aplicar revisiones en tiempo de ejecución de Redis durante períodos semanales específicos. Normalmente, estas ventanas se establecen en períodos en los que el tráfico de la aplicación cliente es bajo, para evitar posibles incidentes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

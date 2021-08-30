@@ -7,16 +7,16 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 keywords: powershell, runbook, json, azure automation
-ms.openlocfilehash: 20dbf9f9bbf97ed0c24ea3a525c56c7cde2db428
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 7ea0e8209d244ad2b95e201ec7eb1e84f2038887
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834847"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587776"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Implementación de una plantilla de Azure Resource Manager en un runbook de PowerShell
 
-Puede escribir un [runbook de Azure Automation PowerShell](./learn/automation-tutorial-runbook-textual-powershell.md) que implemente un recurso de Azure mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Las plantillas le permiten usar Azure Automation para automatizar la implementación de los recursos de Azure. Puede mantener las plantillas de Resource Manager en una ubicación central segura como Azure Storage.
+Puede escribir un [runbook de PowerShell de Azure Automation](./learn/automation-tutorial-runbook-textual-powershell.md) que implemente un recurso de Azure mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Las plantillas le permiten usar Azure Automation para automatizar la implementación de los recursos de Azure. Puede mantener las plantillas de Resource Manager en una ubicación central segura como Azure Storage.
 
 En este artículo, crearemos un runbook de PowerShell que use una plantilla de Resource Manager almacenada en [Azure Storage](../storage/common/storage-introduction.md) para implementar una nueva cuenta de Azure Storage.
 

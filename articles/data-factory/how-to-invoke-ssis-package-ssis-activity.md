@@ -2,18 +2,19 @@
 title: Ejecución de un paquete SSIS con la actividad de ejecución de paquetes SSIS
 description: En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) desde una canalización de Azure Data Factory mediante la actividad de ejecución de paquetes SSIS.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 07/20/2020
-ms.openlocfilehash: 40e7d5c11a2ebc62e59c3d5d20dfefe18a33f9a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/04/2021
+ms.openlocfilehash: 3b8c15a764f3a196232e43ffd8d7fd7fe373355c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100391616"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739460"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante la actividad Ejecutar paquete SSIS de Azure Data Factory
 
@@ -37,9 +38,9 @@ En este paso, usa la interfaz de usuario de Data Factory o aplicación para crea
 
    ![Página principal de Data Factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 
-   En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización). 
+   En la página principal, seleccione **Orchestrate** (Organizar). 
 
-   ![Página de introducción](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
+   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
 
 1. En el cuadro de herramientas **Activities** (Actividades), expanda **General**. Después, arrastre la actividad **Ejecutar paquete SSIS** a la superficie del diseñador 
 

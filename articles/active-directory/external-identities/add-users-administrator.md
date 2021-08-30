@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5e538be52f21d169aefd350aa2781de0065f04f
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: c93b0199acf36666fb4c2801f44f21fe314a571b
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632953"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114227954"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal
 
@@ -47,7 +47,7 @@ Para agregar usuarios de colaboración B2B al directorio, siga estos pasos:
    - **Dirección de correo (obligatorio)** . La dirección de correo del usuario invitado.
    - **Mensaje personal (opcional)** Incluye un mensaje de bienvenida personal al usuario invitado.
    - **Grupos**: Puede agregar al usuario invitado a uno o varios de los grupos existentes, o puede hacerlo después.
-   -  **Roles**: Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD seleccionando **Usuario** junto a **Roles**.  
+   -  **Roles**: Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD seleccionando **Usuario** junto a **Roles**.  [Obtenga más información](../../role-based-access-control/role-assignments-external-users.md) sobre los roles de Azure para usuarios invitados externos.
 
    > [!NOTE]
    > No se admiten direcciones de correo electrónico de grupos; escriba la dirección de un usuario individual. Además, algunos proveedores de correo electrónico permiten a los usuarios agregar un signo más (+) y texto adicional a sus direcciones de correo electrónico, ya que ello sirve de ayuda a algunas funciones como el filtrado de la bandeja de entrada. Sin embargo, Azure AD no admite actualmente estos símbolos más (+) en las direcciones de correo electrónico. Para evitar problemas de entrega, omita el signo más y los caracteres siguientes hasta el símbolo @.

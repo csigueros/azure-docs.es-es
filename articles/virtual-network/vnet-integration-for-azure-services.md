@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: 007424969672167d7ca81b2130cda8e0a5da8000
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 8630451fe4ff8b3468b5c31168a417a72e8769f3
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110539428"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114386288"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integración de servicios de Azure con redes virtuales para el aislamiento de red
 
@@ -97,6 +97,9 @@ Para más información sobre las etiquetas de servicio y los servicios de Azure 
 
 ## <a name="compare-private-endpoints-and-service-endpoints"></a>Comparación de puntos de conexión privados y puntos de conexión de servicio
 
+>[!NOTE]
+> Microsoft recomienda usar Azure Private Link. Private Link ofrece mejores funcionalidades en términos de acceso privado a PaaS desde el entorno local, la protección contra la filtración de datos integrada y el servicio de asignación a la dirección IP privada en su propia red. Para más información, consulte [Azure Private Link](../private-link/private-link-overview.md).
+
 En lugar de mirar solo sus diferencias, vale la pena señalar que tanto los puntos de conexión de servicio como los puntos de conexión privados tienen características en común.
 
 Ambas características se usan para lograr control más detallado del firewall en el servicio de destino. Por ejemplo, restringir el acceso a las bases de datos o cuentas de almacenamiento de SQL Server. Sin embargo, cada uno se opera de manera diferente, como se describe con más detalle en las secciones anteriores.
@@ -105,12 +108,17 @@ Ambos enfoques superan el problema del [agotamiento de puertos de traducción de
 
 En ambos casos, todavía puede garantizar que el tráfico que entra en el servicio de destino pasará a través de un firewall de red o NVA. Este procedimiento es diferente para ambos enfoques. Cuando use puntos de conexión de servicio, debe configurar el punto de conexión de servicio en la subred de **firewall**, en lugar de la subred en la que está implementado el servicio de origen. Cuando se usan puntos de conexión privados, se coloca una ruta definida por el usuario (UDR) para la dirección IP del punto de conexión privado en la subred de **origen**. No en la subred del punto de conexión privado.
 
+Para comparar y comprender las diferencias, consulte la siguiente tabla.
+
 | Consideración                                                                                                                                    | Puntos de conexión de servicio                                                                                                           | Puntos de conexión privados                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ámbito en el que se aplica la configuración                                                                                                   | Servicio completo (por ejemplo, _todas_ las instancias de SQL Server o las cuentas de almacenamiento de _todos_ los clientes)                                      | Instancia individual (por ejemplo, una instancia de SQL Server o una cuenta de almacenamiento de _su_ propiedad)                                                                    |
+| Ámbito de servicio en el que se aplica la configuración                                                                                                   | Servicio completo (por ejemplo, _todas_ las instancias de SQL Server o las cuentas de almacenamiento de _todos_ los clientes)                                      | Instancia individual (por ejemplo, una instancia de SQL Server o una cuenta de almacenamiento de _su_ propiedad)                                                                    |
+|Protección contra la filtración de datos integrada: capacidad de que mover o copiar datos desde un recurso de PaaS protegido a otro recurso de PaaS sin protección por parte de un infiltrado malintencionado.| No | Sí|
+|Acceso privado al recurso de PaaS desde el entorno local| No| Sí|
+|Configuración de NSG necesaria para el acceso al servicio| Sí (mediante etiquetas de servicio)| No|
+| Se puede acceder al servicio sin usar ninguna dirección IP pública                                                                                       | No                                                                                                                          | Sí                                                                                                                                                               |
 | El tráfico de Azure a Azure permanece en la red troncal de Azure                                                                                       | Sí                                                                                                                         | Sí                                                                                                                                                               |
 | El servicio puede deshabilitar su dirección IP pública                                                                                                        | No                                                                                                                          | Sí                                                                                                                                                               |
-| Se puede acceder al servicio sin usar ninguna dirección IP pública                                                                                       | No                                                                                                                          | Sí                                                                                                                                                               |
 | Puede restringir fácilmente el tráfico procedente de una instancia de Azure Virtual Network                                                                             | Sí (permita el acceso desde subredes específicas o use NSG)                                                                   | No*                                                                                                                                                               |
 | Puede restringir fácilmente el tráfico procedente de un servidor local (VPN/ExpressRoute)                                                                           | N/D**                                                                                                                       | No*                                                                                                                                                               |
 | Requiere cambios de DNS                                                                                                                             | No                                                                                                                          | Sí (consulte la [configuración de DNS](../private-link/private-endpoint-dns.md))                                                                 |

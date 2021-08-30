@@ -3,12 +3,12 @@ title: Configuración de Azure Sentinel con Defender para IoT para desarrollador
 description: En este artículo se explica cómo configurar Azure Sentinel para recibir datos de la solución de Defender para IoT para creadores de dispositivos.
 ms.topic: how-to
 ms.date: 05/26/2021
-ms.openlocfilehash: 7f017dc155dcbfa50b3fac6712da1a11af08b65b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a470f55cc36625bd2236b40ea3766a138868f0a3
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689163"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183647"
 ---
 # <a name="connect-your-data-from-defender-for-iot-for-device-builders-to-azure-sentinel-public-preview"></a>Conexión de los datos de Defender para IoT para creadores de dispositivos a Azure Sentinel (versión preliminar pública)
 
@@ -56,5 +56,5 @@ Tras conectar una **Suscripción**, los datos del centro de conectividad están 
 
 En este documento, ha obtenido información sobre cómo conectar Defender para IoT a Azure Sentinel. Para obtener más información sobre la detección de amenazas y el acceso a datos de seguridad, consulte los siguientes artículos:
 
-- Aprenda a usar Azure Sentinel en el [Inicio rápido: Introducción a Azure Sentinel](/azure/sentinel/get-visibility).
+- Aprenda a usar Azure Sentinel en el [Inicio rápido: Introducción a Azure Sentinel](/azure/defender-for-iot/device-builders/articles/sentinel/get-visibility.md).
 - Aprenda a [acceder a los datos de seguridad de IoT](how-to-security-data-access.md).

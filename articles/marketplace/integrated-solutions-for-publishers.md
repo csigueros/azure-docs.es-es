@@ -4,15 +4,15 @@ description: Conozca los requisitos y los pasos para publicar soluciones integra
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: vikrambmsft
-ms.author: vikramb
-ms.date: 04/16/2020
-ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: Microsoft-BradleyWright
+ms.author: brwrigh
+ms.date: 06/22/2021
+ms.openlocfilehash: afdfce29840bbc88bdfc853e12e8109881f8366a
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880277"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113002037"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicación de una solución integrada
 
@@ -81,19 +81,13 @@ Una vez aprobada la nominación, utilice los recursos del programa vinculados pa
     * API existentes
     * Repositorio de datos unificado
 
-    Use estos recursos en el proceso de desarrollo:
+2. Identifique un jefe de proyectos multipartner para dirigir el plan de proyecto y la escala de tiempo resultantes de los talleres técnicos y empresariales.
 
-    * [Guía de discusión para el taller de decisiones empresariales](https://aka.ms/AA5qicx)
-    * [Guía de discusión para el taller de decisiones técnicas](https://aka.ms/AA5qid1)
-    * [Vídeo de Inicio rápido: Talleres de soluciones integradas](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
+3. Desarrolle la integración técnica completa de la solución.
 
-1. Identifique un jefe de proyectos multipartner para dirigir el plan de proyecto y la escala de tiempo resultantes de los talleres técnicos y empresariales.
+4. Determine los precios de la solución y el precio único que se anunciará en Microsoft AppSource o Azure Marketplace.
 
-1. Desarrolle la integración técnica completa de la solución.
-
-1. Determine los precios de la solución y el precio único que se anunciará en Microsoft AppSource o Azure Marketplace.
-
-1. Complete el material adjunto de marketing del anuncio de Microsoft AppSource o Azure Marketplace, por ejemplo:
+5. Complete el material adjunto de marketing del anuncio de Microsoft AppSource o Azure Marketplace, por ejemplo:
 
     * Nombre de la solución combinada.
     * Descripción de la solución integrada. Siga los [procedimientos recomendados para su inclusión en las listas de ofertas](./gtm-offer-listing-best-practices.md).
@@ -103,7 +97,7 @@ Una vez aprobada la nominación, utilice los recursos del programa vinculados pa
 
 ## <a name="publish-your-integrated-solution"></a>Publicación de la solución integrada
 
-Después de terminar la integración técnica y el material adjunto de marketing, consulte la guía del anunciante de [Servicios de consultoría de Azure Marketplace y AppSource](./plan-consulting-service-offer.md). Use este recurso para determinar si la solución se va a publicar en Microsoft AppSource o Azure Marketplace. También puede usar la guía para preparar los artefactos de publicación y completar el proceso de publicación.
+Una vez que termine la integración técnica, así como la documentación y el material adjunto de marketing, consulte la guía para publicadores de [servicios de consultoría para Microsoft AppSource y Azure Marketplace](./plan-consulting-service-offer.md) para determinar si la solución se publicará en Microsoft AppSource o en Azure Marketplace. Se recomienda usar la guía para preparar los artefactos de publicación y completar el proceso de publicación.
 
 Aunque hay cinco tipos de servicio disponibles para las ofertas de servicios de consultoría, una solución integrada debe ser una prueba de concepto o una implementación completa.
 

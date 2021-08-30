@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 918320cdb24442e551249e4e67d65e4ba85846c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 216ebdeb843f2faa76751f333e838c3cc32a6664
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027504"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539275"
 ---
 # <a name="optimize-costs-for-azure-files-with-reserved-capacity"></a>Optimización de costos para Azure Files con capacidad reservada
 Puede ahorrar en los costos de almacenamiento de los recursos compartidos de archivos de Azure con las reservas de capacidad. La capacidad reservada de Azure Files ofrece un descuento en la capacidad para los costos de almacenamiento cuando se compromete a una reserva durante un año o tres años. Una reserva proporciona una cantidad fija de capacidad de almacenamiento para el plazo de la reserva.
@@ -22,6 +22,13 @@ Puede ahorrar en los costos de almacenamiento de los recursos compartidos de arc
 La capacidad reservada de Azure Files puede reducir considerablemente los costos de capacidad por almacenar datos en los recursos compartidos de archivos de Azure. La cantidad que ahorre dependerá de la duración de la reserva, de la capacidad total que elija reservar y la configuración de nivel y redundancia que haya elegido para los recursos compartidos de archivos de Azure. La capacidad reservada ofrece un descuento en la facturación y no afecta el estado de los recursos compartidos de archivos de Azure.
 
 Para obtener información acerca de los precios de la capacidad de reserva de Azure Files, consulte [Precios de Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 ## <a name="reservation-terms-for-azure-files"></a>Términos de la reserva de Azure Files
 En las secciones siguientes se describen los términos de una reserva de capacidad de Azure Files.
@@ -35,9 +42,7 @@ La capacidad reservada de Azure Files está disponible en una suscripción únic
 Una reserva de capacidad de Azure Files solo cubre la cantidad de datos que se almacenan en una suscripción o un grupo de recursos compartidos. Los cargos por transferencia de datos, ancho de banda y transacciones no se incluyen en la reserva. En cuanto se compra una reserva, los cargos de capacidad que coincidan con los atributos de reserva se cobran según las tarifas de descuento, en lugar de las tarifas de pago por uso. Para más información sobre las reservas de Azure, consulte [¿Qué es Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
 ### <a name="supported-tiers-and-redundancy-options"></a>Niveles admitidos y opciones de redundancia
-La capacidad reservada de Azure Files solo está disponible para los recursos compartidos de archivos estándar implementados en cuentas de almacenamiento de uso general versión 2 (GPv2). La capacidad reservada no está disponible para los recursos compartidos de archivos de Azure en los niveles Premium u Optimizado para transacciones.
-
-Actualmente, solo los recursos compartidos de archivos de Azure en los niveles de acceso frecuente y esporádico son compatibles con las reservas. Todas las redundancias de almacenamiento son compatibles con las reservas. Para más información sobre las opciones de redundancia, consulte [Redundancia de Azure Files](storage-files-planning.md#redundancy).
+La capacidad reservada de Azure Files está disponible para los recursos compartidos de archivos premium, de acceso frecuente y de acceso esporádico. La capacidad reservada no está disponible para los recursos compartidos de archivos de Azure en el nivel de transacción optimizada. Todas las redundancias de almacenamiento son compatibles con las reservas. Para más información sobre las opciones de redundancia, consulte [Redundancia de Azure Files](storage-files-planning.md#redundancy).
 
 ### <a name="security-requirements-for-purchase"></a>Requisitos de seguridad para la compra
 Para adquirir capacidad reservada:
@@ -69,7 +74,7 @@ Siga estos pasos para adquirir la capacidad reservada:
    |**Ámbito**   |  Indica el número de suscripciones que pueden usar la ventaja de facturación asociada con la reserva. También controla cómo se aplica la reserva a suscripciones concretas. <br/><br/> Si selecciona **Compartido**, el descuento de la reserva se aplica a la capacidad de Azure Files en cualquier suscripción en el contexto de facturación. El contexto de facturación se basa en cómo se haya suscrito a Azure. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de pago por uso, el ámbito compartido incluye todas las suscripciones con tarifas de pago por uso creadas por el administrador de la cuenta.  <br/><br/>  Si selecciona **Suscripción única**, el descuento de reserva se aplica a la capacidad de Azure Files de la suscripción seleccionada. <br/><br/> Si selecciona **Grupo de recursos único**, el descuento de reserva se aplica a la capacidad de Azure Files de la suscripción seleccionada y al grupo de recursos seleccionado dentro de esa suscripción. <br/><br/> Puede cambiar el ámbito de reserva después de comprar la reserva.  |
    |**Suscripción**  | Suscripción que se usa para pagar la reserva de Azure Files. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): En el caso de una suscripción Enterprise, los cargos se deducirán del saldo de pago por adelantado de la inscripción de Azure (anteriormente llamado compromiso monetario) o se cobrarán como parte del uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
    | **Región** | La región donde está en vigor la reserva. |
-   | **Nivel** | Nivel de acceso en el que está en vigor la reserva. Entre las opciones se incluyen *Frecuente* y *Esporádico*. |
+   | **Nivel** | Nivel de acceso en el que está en vigor la reserva. Entre las opciones se incluyen *Premium*, *Frecuente* e *Inactivo*. |
    | **Redundancia** | La opción de redundancia para la reserva. Entre las opciones se incluyen *LRS*, *ZRS*, *GRS* y *GZRS*. Para más información sobre las opciones de redundancia, consulte [Redundancia de Azure Files](storage-files-planning.md#redundancy). |
    | **Frecuencia de facturación** | Indica la frecuencia con la que se factura la cuenta para la reserva. Entre las opciones se incluyen *Mensual* o *Por adelantado*. |
    | **Tamaño** | Cantidad de capacidad que se va a reservar. |

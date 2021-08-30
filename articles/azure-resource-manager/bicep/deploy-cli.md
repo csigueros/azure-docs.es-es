@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/15/2021
-ms.openlocfilehash: 1feb5f2e858113086b9349c79dacb024570fb5a4
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 5e46b920359615c34864d670363b11c451b416b3
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635162"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114295129"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-cli"></a>Implementación de recursos con Bicep y la CLI de Azure
 
@@ -156,7 +156,7 @@ az deployment group create \
   --resource-group testgroup \
   --template-file <path-to-bicep> \
   --parameters $params
-```
+``` 
 
 Sin embargo, si usa CLI de Azure con el símbolo del sistema (CMD) de Windows o PowerShell, establezca la variable en una cadena JSON. Incluya las comillas: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
 
@@ -182,7 +182,7 @@ Antes de implementar el archivo Bicep, puede obtener una vista previa de los cam
 
 ## <a name="deploy-template-specs"></a>Especificaciones de la implementación de la plantilla
 
-Actualmente, la CLI de Azure no admite la creación de especificaciones de plantilla mediante archivos Bicep. Sin embargo, puede crear un archivo Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. A continuación, puede ver un [ejemplo](https://github.com/Azure/azure-docs-bicep-samples/blob/main/create-template-spec-using-bicep/azuredeploy.bicep). También puede compilar el archivo Bicep en una plantilla ARM JSON mediante la CLI de Bicep y, a continuación, crear una especificación de plantilla con la plantilla JSON.
+Actualmente, la CLI de Azure no admite la creación de especificaciones de plantilla mediante archivos Bicep. Sin embargo, puede crear un archivo Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. A continuación, puede ver un [ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep). También puede compilar el archivo Bicep en una plantilla ARM JSON mediante la CLI de Bicep y, a continuación, crear una especificación de plantilla con la plantilla JSON.
 
 ## <a name="deployment-name"></a>Nombre de implementación
 

@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 05/13/2021
+ms.date: 07/16/2021
 ms.author: v-miegge
-ms.openlocfilehash: 009a29a4e296c8aa03163dd954cd242eec040027
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 57e9f35acc482c1d2d6d08dd1adce9780d706778
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470753"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114393011"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Solución de problemas de inicio de sesión en la suscripción a Azure
 
@@ -80,4 +80,4 @@ Otros artículos de solución de problemas relativos a la facturación y las sus
 
 ## <a name="contact-us-for-help"></a>Póngase en contacto con nosotros para obtener ayuda
 
-Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si tiene alguna pregunta o necesita ayuda, pero no puede iniciar sesión en Azure Portal, [cree una solicitud de soporte técnico](https://support.microsoft.com/oas/?prid=15470).

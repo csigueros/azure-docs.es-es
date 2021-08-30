@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 9fb40048a57955fc6a8e4a4e73361f545380f84e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 666dfb22036c3d7f1d88515f4b8118eaf133db8c
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971558"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594971"
 ---
 # <a name="configure-a-managed-application-plan"></a>Configuración de un plan de una aplicación administrada
 
@@ -194,7 +194,7 @@ Después de crear uno o varios planes, verá el nombre, el identificador y el ti
 Las acciones que están disponibles en la columna **Acción** de la pestaña **Información general del plan** varían en función del estado del plan y pueden incluir lo siguiente:
 
 - Si el estado del plan es **Borrador**, el vínculo de la columna **Acción** indicará **Eliminar borrador**.
-- Si el estado del plan es **Activo**, el vínculo de la columna **Acción** será **Stop sell plan** (Dejar de vender el plan) o **Sync private audience** (Sincronizar audiencia privada). El vínculo **Sync private audience** (Sincronizar público privado) publicará solo los cambios para el público privado, sin publicar ninguna otra actualización que haya podido realizar en la oferta.
+- Si el estado del plan es **Activo**, el vínculo de la columna **Acción** será **Stop distribution** (Detener la distribución) o **Sync private audience** (Sincronizar audiencia privada). El vínculo **Sync private audience** (Sincronizar público privado) publicará solo los cambios para el público privado, sin publicar ninguna otra actualización que haya podido realizar en la oferta.
 - Para crear otro plan para esta oferta, en la parte superior de la pestaña **Información general del plan**, seleccione **+ Crear nuevo plan**. Después, repita los pasos descritos en [Creación de planes para la oferta de Aplicación de Azure](azure-app-plans.md). En caso contrario, si ha terminado de crear planes, vaya a la sección siguiente: Pasos siguientes.
 
 ## <a name="next-steps"></a>Pasos siguientes

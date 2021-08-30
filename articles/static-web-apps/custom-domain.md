@@ -5,14 +5,14 @@ services: static-web-apps
 author: burkeholland
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 08/04/2021
 ms.author: buhollan
-ms.openlocfilehash: fd8df4e162b33aef8a0e929da818e8b961953d9b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 07da31c48d70f25a2364b4af242bc0d1331d7036
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066128"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750666"
 ---
 # <a name="set-up-a-custom-domain-with-free-certificate-in-azure-static-web-apps"></a>Configuración de un dominio personalizado con un certificado gratis en Azure Static Web Apps
 
@@ -174,13 +174,13 @@ Deberá configurar un registro TXT con el proveedor de dominio. Se recomienda Az
 
 1. Cree un conjunto de registros **TXT** con los siguientes valores.
 
-   | Configuración  | Valor                                       |
-   | -------- | ------------------------------------------- |
-   | Nombre     | `@` para un dominio raíz o especifique el subdominio |
-   | Tipo     | TXT                                         |
-   | TTL      | Deje el valor predeterminado                      |
-   | Unidad de TTL | Deje el valor predeterminado                      |
-   | Valor    | Pegar el código desde el Portapapeles          |
+   | Configuración  | Valor                                                                           |
+   | -------- | ------------------------------------------------------------------------------- |
+   | Nombre     | `@` para un dominio raíz o especifique `_dnsauth.<YOUR_SUBDOMAIN>` para el subdominio.         |
+   | Tipo     | TXT                                                                             |
+   | TTL      | Deje el valor predeterminado                                                          |
+   | Unidad de TTL | Deje el valor predeterminado                                                          |
+   | Valor    | Pegar el código desde el Portapapeles                                              |
 
 1. Seleccione **Aceptar**.
 
@@ -211,15 +211,15 @@ Deberá configurar un registro TXT con el proveedor de dominio. Se recomienda Az
 
 1. Cree un registro **TXT** con los siguientes valores.
 
-   | Configuración             | Valor                                       |
-   | ------------------- | ------------------------------------------- |
-   | Tipo                | TXT                                         |
-   | administrador de flujos de trabajo                | `@` para un dominio raíz o especifique el subdominio |
-   | Valor               | Pegar el código desde el Portapapeles          |
-   | TTL (si corresponde) | Deje el valor predeterminado                      |
+   | Configuración             | Valor                                                                        |
+   | ------------------- | ---------------------------------------------------------------------------- |
+   | Tipo                | TXT                                                                          |
+   | administrador de flujos de trabajo                | `@` para un dominio raíz o especifique `_dnsauth.<YOUR_SUBDOMAIN>` para el subdominio.      |
+   | Valor               | Pegar el código desde el Portapapeles                                           |
+   | TTL (si corresponde) | Deje el valor predeterminado                                                       |
 
 > [!NOTE]
-> Algunos proveedores de DNS cambiarán el "@" al dominio raíz (es decir, mydomain.com) automáticamente. Esto es lo esperado y el proceso de validación seguirá funcionando.
+> Algunos proveedores de DNS usan una convención diferente a "@" to indicate a root domain or they change the "@" para el dominio raíz (es decir, mydomain.com) automáticamente. Esto es lo esperado y el proceso de validación seguirá funcionando.
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-validate-txt.md)]
 
@@ -292,6 +292,38 @@ Ahora que el dominio raíz está configurado, el proveedor de DNS puede tardar v
 Ahora que el dominio raíz está configurado, el proveedor de DNS puede tardar varias horas en propagar los cambios en todo el mundo.
 
 ---
+
+## <a name="redirect-requests-to-a-default-domain"></a>Redirección de solicitudes a un dominio predeterminado
+
+Se puede acceder a la aplicación web estática mediante su dominio generado automáticamente y cualquier dominio personalizado que haya configurado. Opcionalmente, puede configurar la aplicación para redirigir todo el tráfico a un dominio predeterminado.
+
+### <a name="set-a-default-domain"></a>Establecimiento de un dominio predeterminado
+
+Al designar un dominio personalizado como dominio predeterminado de la aplicación, las solicitudes a otros dominios se redirigen automáticamente al dominio predeterminado. Solo se puede establecer un dominio personalizado como predeterminado.
+
+Siga estos pasos para establecer un dominio personalizado como predeterminado.
+
+1. Con la aplicación web estática abierta en Azure Portal, seleccione **Dominios personalizados** en el menú.
+
+1. Seleccione el dominio personalizado que quiere configurar como dominio predeterminado.
+
+1. Seleccione **Predeterminado**.
+
+   :::image type="content" source="media/custom-domain/set-default.png" alt-text="Establecimiento de un dominio personalizado como predeterminado":::
+
+1. Una vez completada la operación, actualice la tabla para confirmar que el dominio está marcado como "predeterminado".
+
+### <a name="unset-a-default-domain"></a>Anulación de un dominio predeterminado
+
+Para detener los dominios que redirigen a un dominio predeterminado, siga estos pasos.
+
+1. Con la aplicación web estática abierta en Azure Portal, seleccione **Dominios personalizados** en el menú.
+
+1. Seleccione el dominio personalizado que configuró como predeterminado.
+
+1. Seleccione **Unset default** (Anular predeterminado).
+
+1. Una vez completada la operación, actualice la tabla para confirmar que ningún dominio está marcado como "predeterminado".
 
 ## <a name="next-steps"></a>Pasos siguientes
 

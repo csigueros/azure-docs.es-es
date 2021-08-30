@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
-ms.openlocfilehash: 714197288708691cb35e887975d1fabbe27cb406
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/05/2021
+ms.openlocfilehash: ce68d4161762d47b8754cb69633a3918848085d0
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555387"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113593840"
 ---
 # <a name="create-plans-for-a-saas-offer"></a>Creación de planes para una oferta de SaaS
 
@@ -144,7 +144,7 @@ Después de crear uno o varios planes, verá el nombre del plan, el identificado
 Las acciones que están disponibles en la columna **Acción** de la pestaña **Información general del plan** varían en función del estado del plan y pueden incluir lo siguiente:
 
 - Si el estado del plan es **Borrador**, el vínculo de la columna **Acción** indicará **Eliminar borrador**.
-- Si el estado del plan está **activo**, el vínculo de la columna **Acción** será **Stop sell plan** (Detener el plan de venta) o **Sync private audience** (Sincronizar público privado). El vínculo **Sync private audience** (Sincronizar público privado) publicará solo los cambios para el público privado, sin publicar ninguna otra actualización que haya podido realizar en la oferta.
+- Si el estado del plan es **Activo**, el vínculo de la columna **Acción** será **Stop distribution of a plan** (Detener la distribución del plan) o **Sync private audience** (Sincronizar audiencia privada). El vínculo **Sync private audience** (Sincronizar público privado) publicará solo los cambios para el público privado, sin publicar ninguna otra actualización que haya podido realizar en la oferta.
 
 ## <a name="before-you-publish-your-offer"></a>Antes de publicar la oferta
 

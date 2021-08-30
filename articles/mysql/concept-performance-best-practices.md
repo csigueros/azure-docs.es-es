@@ -6,14 +6,16 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 7b5223bc08c470a0e8722b76b80473aaa235b51a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc47e06643f3bb4ebf986382e149e13fd9bbc968
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727165"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121781095"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Procedimientos recomendados para un rendimiento óptimo de Azure Database for MySQL: servidor único
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Obtenga información sobre cómo obtener el mejor rendimiento mientras trabaja con Azure Database for MySQL: servidor único. Al agregar nuevas funcionalidades a la plataforma, seguiremos perfeccionando las recomendaciones de esta sección.
 

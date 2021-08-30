@@ -2,26 +2,26 @@
 title: Conexión a instancias de BareMetal Infrastructure en Azure
 description: Aprenda a identificar e interactuar con las instancias de BareMetal mediante Azure Portal o la CLI de Azure.
 ms.topic: how-to
-ms.date: 04/06/2021
-ms.openlocfilehash: 5ae1a075254a8bcfd1f5978a5d41190bd34bf84d
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 07/13/2021
+ms.openlocfilehash: b9f5de92ed213d987c7dfac5b3e48f9b565bfff5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110576423"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767139"
 ---
 # <a name="connect-baremetal-infrastructure-instances-in-azure"></a>Conexión a instancias de BareMetal Infrastructure en Azure
 
-En este artículo se muestra cómo [Azure Portal](https://portal.azure.com/) muestra [instancias de BareMetal](concepts-baremetal-infrastructure-overview.md). En este artículo también se muestra qué puede realizar en Azure Portal con las instancias de BareMetal Infrastructure implementadas. 
+En este artículo, se muestra qué puede realizar en [Azure Portal](https://portal.azure.com/) con las instancias de BareMetal Infrastructure implementadas. 
  
 ## <a name="register-the-resource-provider"></a>Registrar el proveedor de recursos
-Un proveedor de recursos de Azure para instancias de BareMetal proporciona visibilidad de las instancias en Azure Portal. De manera predeterminada, la suscripción a Azure que se usa para las implementaciones de instancias de BareMetal registra el proveedor de recursos *BareMetalInfrastructure*. Si no ve las instancias de BareMetal implementadas, debe registrar el proveedor de recursos en la suscripción. 
+Un proveedor de recursos de Azure para instancias de BareMetal le permite ver las instancias en Azure Portal. De manera predeterminada, la suscripción a Azure que se usa para las implementaciones de instancias de BareMetal registra el proveedor de recursos *BareMetalInfrastructure*. Si no ve las instancias de BareMetal implementadas, registre el proveedor de recursos en la suscripción. 
 
-Para registrar el proveedor de recursos de instancias de BareMetal, utilice Azure Portal o la CLI de Azure.
+Para registrar el proveedor de recursos de instancias de BareMetal, utilice Azure Portal o la interfaz de la línea de comandos (CLI) de Azure.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
  
-Deberá mostrar su suscripción en Azure Portal y, luego, hacer doble clic en la suscripción que usó para implementar sus instancias de BareMetal.
+Deberá especificar su suscripción en Azure Portal y, luego, hacer doble clic en la suscripción que usó para implementar sus instancias de BareMetal.
  
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -34,7 +34,7 @@ Deberá mostrar su suscripción en Azure Portal y, luego, hacer doble clic en la
 1. Seleccione **Proveedores de recursos** y escriba **BareMetalInfrastructure** en la búsqueda. El proveedor de recursos debe estar **registrado**, como se muestra en la imagen.
  
 >[!NOTE]
->Si no lo está, seleccione **Registrar**.
+>Si el proveedor de recursos no está registrado, seleccione **Registrar**.
  
 :::image type="content" source="media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png" alt-text="Captura de pantalla que muestra las instancias de BareMetal registradas.":::
 
@@ -58,13 +58,13 @@ Para más información sobre los proveedores de recursos, consulte [Tipos y prov
 
 ## <a name="baremetal-instances-in-the-azure-portal"></a>Instancias de BareMetal en Azure Portal
  
-Al enviar una solicitud de implementación de instancias de BareMetal, especificará la suscripción de Azure que se va a conectar a estas instancias. Use la misma suscripción que para implementar la capa de aplicación que funciona con las instancias de BareMetal.
+Al enviar una solicitud de implementación de instancias de BareMetal, especifique la suscripción de Azure que se va a conectar a estas instancias. Use la misma suscripción que para implementar la capa de aplicación que funciona con las instancias de BareMetal.
  
-Durante la implementación de las instancias de BareMetal, se creará un [grupo de recursos de Azure](../azure-resource-manager/management/manage-resources-portal.md) en la suscripción de Azure que usó en la solicitud de implementación. Este nuevo grupo de recursos enumera todas las instancias de BareMetal que ha implementado en esa suscripción.
+Durante la implementación de las instancias de BareMetal, se creará un [grupo de recursos de Azure](../azure-resource-manager/management/manage-resources-portal.md) en la suscripción de Azure que usó en la solicitud de implementación. Este nuevo grupo de recursos enumera todas las instancias de BareMetal que implementó en esa suscripción.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. En la suscripción de BareMetal, en Azure Portal, seleccione **Grupos de recursos**.
+1. En Azure Portal, en la suscripción de BareMetal, seleccione **Grupos de recursos**.
  
    :::image type="content" source="media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Captura de pantalla que muestra la lista de grupos de recursos.":::
 
@@ -119,7 +119,7 @@ Las revisiones de hardware posibles son:
 >Rev 4.2 es la infraestructura BareMetal Infrastructure cuyo nombre se ha cambiado más reciente que usa la arquitectura Rev 4 existente. Rev 4 proporciona mayor proximidad a los hosts de máquina virtual (VM) de Azure. Tiene mejoras significativas en la latencia de red entre las máquinas virtuales de Azure y las instancias de SAP HANA. Puede tener acceso a sus instancias de BareMetal y administrarlas en Azure Portal. Para obtener más información, consulte [Administración de instancias de BareMetal mediante Azure Portal](concepts-baremetal-infrastructure-overview.md).
 
  
-Además, en el lado derecho, encontrará el nombre del [grupo con ubicación por proximidad de Azure](../virtual-machines/co-location.md), que se crea automáticamente para cada instancia implementada de BareMetal. Cuando implemente las máquinas virtuales de Azure que hospedan la capa de aplicación, haga referencia al grupo con ubicación por proximidad. Cuando use el grupo con ubicación por proximidad asociado a la instancia de BareMetal, asegúrese de que las máquinas virtuales de Azure se implementan cerca de la instancia de BareMetal.
+Además, en el lado derecho, encontrará el nombre del [grupo con ubicación por proximidad de Azure](../virtual-machines/co-location.md), que se crea automáticamente para cada instancia implementada de BareMetal. Cuando implemente las máquinas virtuales de Azure que hospedan la capa de aplicación, haga referencia al grupo con ubicación por proximidad. Use el grupo con ubicación por proximidad asociado a la instancia de BareMetal, para asegurarse de que las máquinas virtuales de Azure se implementan cerca de la instancia de BareMetal.
  
 >[!TIP]
 >Para encontrar la capa de aplicación en el mismo centro de datos de Azure que la revisión 4.x, consulte [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
@@ -142,7 +142,7 @@ Puede comprobar las actividades de una sola instancia de BareMetal. Una de las a
  
 :::image type="content" source="media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Captura de pantalla que muestra las actividades de la instancia de BareMetal." lightbox="media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
  
-Los cambios en los metadatos de la instancia en Azure también se anotan en el registro de actividad. Además del reinicio iniciado, puede ver la actividad de **escritura de BareMetallnstances**. Esta actividad no realiza ningún cambio en la propia instancia de BareMetal, sino que documenta los cambios en los metadatos de la unidad en Azure.
+Los cambios en los metadatos de la instancia en Azure también se anotan en el registro de actividad. Además del reinicio, puede ver la actividad de **escritura de BareMetallnstances**. Esta actividad no realiza ningún cambio en la propia instancia de BareMetal, sino que documenta los cambios en los metadatos de la unidad en Azure.
  
 Otra actividad que se registra es cuando se agrega o elimina una [etiqueta](../azure-resource-manager/management/tag-resources.md) en una instancia.
  
@@ -174,9 +174,16 @@ az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllab
 
 ## <a name="check-properties-of-an-instance"></a>Comprobación de las propiedades de una instancia
  
-Al adquirir las instancias, puede ir a la sección de propiedades para ver los datos recopilados sobre ellas. Los datos recopilados incluyen la conectividad de Azure, el back-end de almacenamiento, el identificador de circuito ExpressRoute, el identificador de recurso único y el identificador de suscripción. Esta información se usará en las solicitudes de soporte técnico o al configurar las instantáneas de almacenamiento.
+Al adquirir las instancias, puede ir a la sección de propiedades para ver los datos recopilados sobre ellas. Los datos recopilados incluyen:
+- Conectividad de Azure
+- Back-end de almacenamiento
+- Id. de circuito ExpressRoute
+- Identificador de recurso único
+- Id. de suscripción. 
+
+Esta información se usará en las solicitudes de soporte técnico o al configurar las instantáneas de almacenamiento.
  
-Otra parte crítica de la información que verá es la dirección IP de NFS de almacenamiento. Esta dirección aísla el almacenamiento en el **inquilino** de la pila de instancias de BareMetal. Usará esta dirección IP al editar el [archivo de configuración de las copias de seguridad de instantáneas de almacenamiento](../virtual-machines/workloads/sap/hana-backup-restore.md#set-up-storage-snapshots).
+Otra parte crítica de la información que verá es la dirección IP de NFS de almacenamiento. Esta dirección aísla el almacenamiento en el **inquilino** de la pila de instancias de BareMetal. Usará esta dirección IP para editar la [Configuración de la herramienta Azure Application Consistent Snapshot](../azure-netapp-files/azacsnap-cmd-ref-configure.md).
  
 :::image type="content" source="media/connect-baremetal-infrastructure/baremetal-instance-properties.png" alt-text="Captura de pantalla que muestra la configuración de propiedades de instancias de BareMetal." lightbox="media/connect-baremetal-infrastructure/baremetal-instance-properties.png":::
  
@@ -240,6 +247,7 @@ Un representante de soporte técnico tardará hasta cinco días laborables en co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre las carga de trabajo:
+Más información sobre las cargas de trabajo para BareMetal Infrastructure
 
-- [¿Qué es SAP HANA en Azure (instancias grandes)?](../virtual-machines/workloads/sap/hana-overview-architecture.md)
+> [!div class="nextstepaction"]
+> [¿Qué es SAP HANA en Azure (instancias grandes)?](../virtual-machines/workloads/sap/hana-overview-architecture.md)

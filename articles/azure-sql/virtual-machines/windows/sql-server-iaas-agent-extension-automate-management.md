@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a80770013d373dbbd1ca672fbd2153731b604f5c
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 619c29b2c28c04e1cbf4d4dcda8fe3048234e7dd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079560"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752176"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatización de la administración con la extensión del Agente de IaaS de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -78,6 +78,7 @@ En la siguiente tabla se detallan estas ventajas:
 | **Visualización del uso del disco en el portal** | Permite ver una representación gráfica del uso del disco por parte de los archivos de datos de SQL en Azure Portal.  <br/> Modo de administración: Completo | 
 | **Licencias flexibles** | Ahorre en el costo mediante la [transición sin problemas](licensing-model-azure-hybrid-benefit-ahb-change.md) de la característica traiga su propia licencia (también conocida como Ventaja híbrida de Azure) al modelo de licencias de pago por uso y viceversa. <br/> Modo de administración: Ligero y completo.| 
 | **Versión o edición flexibles** | Si decide cambiar la [versión ](change-sql-server-version.md) o la [edición](change-sql-server-edition.md) de SQL Server, puede actualizar los metadatos en Azure Portal sin tener que volver a implementar toda la VM con SQL Server.  <br/> Modo de administración: Ligero y completo.| 
+| **Integración del portal de Security Center** | Si ha habilitado [Azure Defender para SQL](../../../security-center/defender-for-sql-usage.md), puede ver las recomendaciones de Security Center directamente en el recurso [Máquinas virtuales de SQL](manage-sql-vm-portal.md) de Azure Portal. Consulte los [procedimientos recomendados de seguridad](security-considerations-best-practices.md) para obtener más información.  <br/> Modo de administración: Ligero y completo.| 
 
 
 ## <a name="management-modes"></a>Modos de administración
@@ -173,4 +174,4 @@ Para instalar la extensión de IaaS de SQL Server en SQL Server en las VM de Azu
 
 Para obtener más información sobre cómo ejecutar SQL Server en Azure Virtual Machines, consulte [¿Qué es SQL Server en Azure Virtual Machines?](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
-Para más información, consulte las [preguntas más frecuentes](frequently-asked-questions-faq.yml). 
+Para más información, consulte las [preguntas más frecuentes](frequently-asked-questions-faq.yml).

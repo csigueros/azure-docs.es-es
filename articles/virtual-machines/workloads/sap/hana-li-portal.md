@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/31/2020
+ms.date: 07/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07094e399f153f56746a931a4a100b3c0d38f92f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30d16b2042e2bfc8e11824fe64cf709413fd05d8
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772083"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113218392"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Control de instancias grandes de HANA en Azure mediante Azure Portal
 
@@ -123,7 +123,7 @@ La sección **Propiedades** incluye información importante que se obtiene cuand
 
 ![Parte superior de las propiedades de HANA (instancias grandes) en Azure Portal](./media/hana-li-portal/portal-properties-top.png)
 
-Los primeros elementos de datos ya aparecían en la pantalla de información general. Pero una parte importante de los datos es el identificador del circuito ExpressRoute, que obtuvo cuando se entregaron las primeras unidades implementadas. Puede que se le pidan esos datos en determinadas incidencias de soporte técnico. Una entrada de datos importante aparece en la parte inferior de la captura de pantalla. Este dato es la dirección IP del almacenamiento NFS principal que aísla el almacenamiento en el **inquilino** en la pila de HANA (instancias grandes). Esta dirección IP también es necesaria cuando se edita el [archivo de configuración de las copias de seguridad de las instantáneas de almacenamiento](./hana-backup-restore.md#set-up-storage-snapshots). 
+Los primeros elementos de datos ya aparecían en la pantalla de información general. Pero una parte importante de los datos es el identificador del circuito ExpressRoute, que obtuvo cuando se entregaron las primeras unidades implementadas. Puede que se le pidan esos datos en determinadas incidencias de soporte técnico. Una entrada de datos importante aparece en la parte inferior de la captura de pantalla. Este dato es la dirección IP del almacenamiento NFS principal que aísla el almacenamiento en el **inquilino** en la pila de HANA (instancias grandes). Esta dirección IP también es necesaria al editar con la [herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-configure.md). 
 
 A medida que se desplaza hacia abajo en el panel de propiedades, aparecen datos adicionales, como un identificador de recurso único para la unidad de HANA (instancias grandes) o el identificador de suscripción que se asignó a la implementación.
 

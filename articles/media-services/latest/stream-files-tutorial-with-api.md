@@ -2,7 +2,7 @@
 título: Carga, codificación y streaming con Media Services v3: Descripción de Azure Media Services: Tutorial que muestra cómo cargar un archivo, codificar vídeo y hacer streaming de contenido con Azure Media Services v3.
 services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
 
-ms.service: media-services ms.workload: ms.topic: tutorial ms.custom: mvc ms.date: 05/25/2021 ms.author: inhenkel
+ms.service: media-services ms.workload: ms.topic: tutorial ms.custom: mvc ms.date: 07/23/2021 ms.author: inhenkel
 ---
 
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutorial: Cargar, codificar y hacer streaming de vídeos con Media Services v3
@@ -29,11 +29,12 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no tiene instalado Visual Studio, puede obtener [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Cree una cuenta de Media Services](./account-create-how-to.md).<br/>Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos.
-- Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Deberá usarlas para acceder a la API.
+- Instale [Visual Studio Code para Windows, macOS o Linux](https://code.visualstudio.com/) o [Visual Studio 2019 para Windows o Mac](https://visualstudio.microsoft.com/).
+- Instale el [SDK para .NET 5.0](https://dotnet.microsoft.com/download).
+- [Cree una cuenta de Media Services](./account-create-how-to.md). Asegúrese de copiar los detalles de **acceso a la API** en formato JSON o de almacenar los valores necesarios para conectarse a la cuenta de Media Services en el formato de archivo *.env* que se usa en este ejemplo.
+- Siga los pasos que se indican en [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Las necesitará para acceder a la API de este ejemplo, o bien deberá especificarlas en el formato de archivo *.env*.
 
-## <a name="download-and-set-up-the-sample"></a>Descargar y configurar el ejemplo
+## <a name="download-and-configure-the-sample"></a>Descarga y configuración del ejemplo
 
 Clone un repositorio GitHub que contenga el ejemplo de .NET de streaming en la máquina con el siguiente comando:  
 
@@ -43,7 +44,7 @@ Clone un repositorio GitHub que contenga el ejemplo de .NET de streaming en la m
 
 El ejemplo se encuentra en la carpeta [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/UploadEncodeAndStreamFiles).
 
-Abra [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) en el proyecto que ha descargado. Sustituya los valores por las credenciales que obtuvo de [acceder a las API](./access-api-howto.md).
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 ## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>Examen del código que carga, codifica y transmite en secuencias
 
@@ -69,7 +70,7 @@ En el código que ha clonado al principio del artículo, la función `GetCredent
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsAsync)]
 
-En el caso de la autenticación interactiva, la función `GetCredentialsInteractiveAuthAsync` crea el objeto `ServiceClientCredentials` en función de una autenticación interactiva y los parámetros de conexión proporcionados en el archivo de configuración local (*appsettings.json*) o a través del archivo de variables de entorno *.env* en la raíz del repositorio. En ese caso, AADCLIENTID y AADSECRET no son necesarios en el archivo de variables de entorno o de configuración.
+En el caso de la autenticación interactiva, la función `GetCredentialsInteractiveAuthAsync` crea el objeto `ServiceClientCredentials` en función de una autenticación interactiva y los parámetros de conexión proporcionados en el archivo de configuración local (*appsettings.json*) o a través del archivo de variables de entorno *.env* en la raíz del repositorio. En ese caso, AADCLIENTID y AADSECRET no son necesarios en el archivo de variables de entorno ni de configuración.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
 

@@ -3,12 +3,12 @@ title: Incorporación de un servidor habilitado para Azure Arc a Azure Sentinel
 description: Aprenda a agregar servidores habilitados para Azure Arc a Azure Sentinel y a supervisar de forma proactiva su estado de seguridad.
 ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5c0af2c48db12eca6453415767e611b0993554ee
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: df3e6f9bb18618e490f482facf3c5837098f5001
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608272"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182929"
 ---
 # <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Incorporación de servidores habilitados para Azure Arc a Azure Sentinel
 
@@ -43,8 +43,8 @@ Azure Sentinel incluye una serie de conectores para las soluciones de Microsoft 
 
 Se recomienda instalar el agente de Log Analytics para Windows o Linux con Azure Policy.
 
-Una vez conectados los servidores habilitados para Arc, los datos comienzan a transmitirse a Azure Sentinel y podrá comenzar a trabajar con ellos. Puede ver los registros en los [libros integrados](/azure/sentinel/get-visibility) y comenzar a crear consultas en Log Analytics para [investigar los datos](/azure/sentinel/investigate-cases).
+Una vez conectados los servidores habilitados para Arc, los datos comienzan a transmitirse a Azure Sentinel y podrá comenzar a trabajar con ellos. Puede ver los registros en los [libros integrados](/azure/azure-arc/servers/articles/sentinel/get-visibility.md) y comenzar a crear consultas en Log Analytics para [investigar los datos](/azure/azure-arc/servers/articles/sentinel/investigate-cases.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Empiece a [detectar amenazas con Azure Sentinel](/azure/sentinel/detect-threats-built-in).
+Empiece a [detectar amenazas con Azure Sentinel](/azure/azure-arc/servers/articles/sentinel/detect-threats-built-in.md).

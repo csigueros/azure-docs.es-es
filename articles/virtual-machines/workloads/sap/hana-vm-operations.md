@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd70bccde30c2b844cfa6188a3fb06a075558a91
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 667995b505339ae4db500964c1ce81bef6d9d0fa
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143006"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467696"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -64,7 +64,7 @@ Implemente las máquinas virtuales en Azure mediante:
 - Los cmdlets de Azure PowerShell.
 - La CLI de Azure.
 
-También puede implementar una plataforma SAP HANA completamente instalada en los servicios de máquina virtual de Azure a través de la [plataforma en la nube de SAP](https://cal.sap.com/). El proceso de instalación se describe en [Implementación de SAP S/4HANA o BW/4HANA en Azure](./cal-s4h.md), o con la automatización publicada [aquí](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
+También puede implementar una plataforma SAP HANA completamente instalada en los servicios de máquina virtual de Azure a través de la [plataforma en la nube de SAP](https://cal.sap.com/). El proceso de instalación se describe en [Implementación de SAP S/4HANA o BW/4HANA en Azure](./cal-s4h.md), o con la automatización publicada en [GitHub](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 >[!IMPORTANT]
 > Para usar máquinas virtuales M208xx_v2, es preciso seleccionar la imagen de Linux en la galería de imágenes de máquina virtual de Azure. Para leer los detalles, consulte el artículo [Tamaños de máquina virtual optimizada para memoria](../../mv2-series.md).
@@ -211,7 +211,7 @@ En Azure IaaS, DT 2.0 solo se admite en una máquina virtual dedicada. No se per
 - M64-32ms 
 - E32sv3 
 
-Vea la descripción del tipo de máquina virtual [aquí](../../sizes-memory.md).
+Para más información sobre la descripción del tipo de VM, consulte [Tamaños de las máquinas virtuales de Azure: memoria](../../sizes-memory.md).
 
 Dada la idea básica de DT 2.0, que es la descarga de datos "semiactivos" con el fin de ahorrar costos, tiene sentido usar los tamaños de máquina virtual correspondientes. Sin embargo, no hay ninguna regla estricta referente a las combinaciones posibles. Depende de la carga de trabajo específica del cliente.
 
@@ -232,7 +232,7 @@ Son posibles todas las combinaciones de máquinas virtuales de la serie M certif
 
 Instalar DT 2.0 en una máquina virtual dedicada requiere un rendimiento de la red entre las máquinas virtuales de DT 2.0 y de SAP HANA de 10 Gb, como mínimo. Por lo tanto, es imprescindible colocar todas las máquinas virtuales dentro de la misma red virtual de Azure y habilitar las redes aceleradas de Azure.
 
-Consulte información adicional sobre las redes aceleradas de Azure [aquí](../../../virtual-network/create-vm-accelerated-networking-cli.md).
+Consulte información adicional sobre las redes aceleradas de Azure en [Creación de una máquina virtual Azure con Accelerated Networking mediante la CLI de Azure](../../../virtual-network/create-vm-accelerated-networking-cli.md).
 
 ### <a name="vm-storage-for-sap-hana-dt-20"></a>Almacenamiento de máquinas virtuales para DT 2.0 de SAP HANA
 
@@ -243,9 +243,9 @@ Según las instrucciones de procedimientos recomendados de DT 2.0, el rendimient
 
 Es necesario conectar varios discos de Azure a la máquina virtual de DT 2.0 y crear una matriz redundante de discos independientes de software (seccionado) en el nivel del sistema operativo para lograr el límite máximo de rendimiento de disco por máquina virtual. Un único disco de Azure no puede proporcionar el rendimiento para alcanzar el límite máximo para las máquinas virtuales en este sentido. Se requiere Azure Premium Storage para ejecutar DT 2.0. 
 
-- [Aquí](../../disks-types.md) puede encontrar detalles sobre los tipos de disco de Azure disponibles.
-- [Aquí](/previous-versions/azure/virtual-machines/linux/configure-raid) puede encontrar detalles sobre la creación de una matriz redundante de discos independientes de software a través de mdadm.
-- Los detalles sobre la configuración de LVM para crear un volumen seccionado con el máximo rendimiento se encuentran [aquí](/previous-versions/azure/virtual-machines/linux/configure-lvm).
+- Puede encontrar detalles sobre los tipos de discos de Azure disponibles en la página [Selección de un tipo de disco para máquinas virtuales IaaS de Azure: discos administrados](../../disks-types.md).
+- Puede encontrar detalles sobre la creación de software RAID mediante mdadm en la página [Configuración del software RAID en una máquina virtual Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+- Si desea detalles sobre la configuración de una VM Linux para crear un volumen seccionado para lograr un rendimiento máximo, consulte la página [Configuración de LVM en una máquina virtual que ejecuta Linux](/previous-versions/azure/virtual-machines/linux/configure-lvm).
 
 Según los requisitos de tamaño, existen diferentes opciones para alcanzar el máximo rendimiento de una máquina virtual. Estas son las configuraciones de disco para volúmenes de datos posibles para cada tipo de máquina virtual de DT 2.0 a fin de alcanzar el límite superior de rendimiento para las máquinas virtuales. La máquina virtual E32sv3 debe considerarse como un nivel de entrada para las cargas de trabajo menores. En caso de que resultara no ser suficientemente rápida, podría ser necesario cambiar el tamaño de la máquina virtual a M64-32ms estándar.
 Como la máquina virtual M64-32ms estándar tiene mucha memoria, la carga de E/S podría no alcanzar el límite, especialmente para cargas de trabajo con muchas lecturas. Por lo tanto, podrían ser suficientes menos discos en el conjunto seccionado, según la carga de trabajo específica del cliente. Sin embargo, por seguridad, se eligieron las configuraciones de disco siguientes a fin de garantizar el máximo rendimiento:
@@ -259,7 +259,7 @@ Como la máquina virtual M64-32ms estándar tiene mucha memoria, la carga de E/S
 
 Especialmente en el caso de que la carga de trabajo suponga muchas lecturas, podría aumentar el rendimiento de la E/S si se activa la memoria caché de host de Azure "de solo lectura", como se recomienda para los volúmenes de datos de software de base de datos. Sin embargo, la memoria caché del disco host de Azure del registro de transacciones debe ser "none" (ninguna). 
 
-En relación con el tamaño del volumen de registro, el punto de partida recomendado es el valor heurístico del 15 % del tamaño de datos. La creación del volumen de registro puede llevarse a cabo con diferentes tipos de disco de Azure, según los requisitos de costo y rendimiento. Para el volumen de registro, se requiere una capacidad de proceso de E/S alta.  En el caso de usar el tipo de máquina virtual M64-32ms, se recomienda habilitar el [Acelerador de escritura](../../how-to-enable-write-accelerator.md). Este Acelerador de escritura de Azure proporciona la latencia de escritura en disco óptima para el registro de transacciones (solo disponible para la serie M). Sin embargo, hay algunos elementos que deben tenerse en cuenta, como el número máximo de discos por tipo de máquina virtual. Puede encontrar detalles sobre el Acelerador de escritura [aquí](../../how-to-enable-write-accelerator.md).
+En relación con el tamaño del volumen de registro, el punto de partida recomendado es el valor heurístico del 15 % del tamaño de datos. La creación del volumen de registro puede llevarse a cabo con diferentes tipos de disco de Azure, según los requisitos de costo y rendimiento. Para el volumen de registro, se requiere una capacidad de proceso de E/S alta.  En el caso de usar el tipo de máquina virtual M64-32ms, se recomienda habilitar el [Acelerador de escritura](../../how-to-enable-write-accelerator.md). Este Acelerador de escritura de Azure proporciona la latencia de escritura en disco óptima para el registro de transacciones (solo disponible para la serie M). Sin embargo, hay algunos elementos que deben tenerse en cuenta, como el número máximo de discos por tipo de máquina virtual. Puede encontrar detalles sobre el Acelerador de escritura en la página [Acelerador de escritura de Azure](../../how-to-enable-write-accelerator.md).
 
 
 Estos son algunos ejemplos sobre cómo cambiar el tamaño del volumen de registro:

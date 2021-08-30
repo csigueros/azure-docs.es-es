@@ -8,12 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 11/30/2020
   ms.custom: synapse-cosmos-db
-  ms.openlocfilehash: 49c8546ebe4c06135c4a7848a46385643fbfbd2e
-  ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+  ms.openlocfilehash: ce507f756b766869960a06bd00a8b6ea98711205
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/22/2021
-  ms.locfileid: "111907458"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114442927"
 title: Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
 summary: >
   [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -26,6 +26,10 @@ sections:
   - question: >
       ¿Azure Synapse Link es compatible con todas las API de Azure Cosmos DB?
     answer: "Azure Synapse Link es compatible con SQL (Core) API de Azure Cosmos DB y Azure Cosmos DB API para MongoDB. \n"
+  - question: >
+      ¿Azure Synapse Link es compatible con Azure Cosmos DB sin servidor?
+    answer: >
+      Actualmente, no es posible habilitar la característica de Synapse Link en una cuenta sin servidor.
   - question: >
       ¿Azure Synapse Link es compatible con las cuentas de Azure Cosmos DB para varias regiones?
     answer: >
@@ -41,9 +45,6 @@ sections:
       ¿Se admite el almacén analítico en todas las regiones Azure Cosmos DB?
     answer: >
       Sí.
-  - question: >
-      ¿Se admite la copia de seguridad y restauración para las cuentas habilitadas para Azure Synapse Link?
-    answer: "En el caso de los contenedores con el almacén analítico activado, en este momento no se admite la copia de seguridad ni la restauración automáticas de los datos en el almacén analítico. \n\nCuando Synapse Link esté habilitado en una cuenta de base de datos, Azure Cosmos DB seguirá [haciendo copias de seguridad](./online-backup-and-restore.md) automáticamente, de los datos del almacén de transacciones (solo) de contenedores en el intervalo programado de copias de seguridad, como siempre. Es importante tener en cuenta que cuando un contenedor con un almacén analítico activado se restaura en una nueva cuenta, el contenedor se restaurará solo con el almacén transaccional y no se habilitará ningún almacén analítico. \n"
   - question: >
       ¿Puedo deshabilitar la característica Azure Synapse Link en mi cuenta de Azure Cosmos DB?
     answer: >
@@ -154,6 +155,14 @@ sections:
 
 
       Con los grupos de SQL sin servidor de Synapse, puede consultar el almacén analítico de Azure Cosmos DB; para ello, se crean previamente credenciales de SQL que almacenan las claves de cuenta y se hace referencia a ellas en la función OPENROWSET. Para más información, consulte el artículo [Consulta con grupos de SQL sin servidor en Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md).
+  - question: >
+      ¿Es posible usar claves administradas por el cliente con Azure Synapse Link?
+    answer: >
+      Sí, Azure Synapse Link admite la configuración de claves administradas por el cliente mediante la identidad administrada de la cuenta de Azure Cosmos DB. Puede cifrar sin problemas los datos de los almacenes transaccionales y analíticos con las mismas claves administradas por el cliente de una manera automática y transparente. Para más información, consulte el artículo sobre cómo [configurar claves administradas por el cliente mediante identidades administradas de las cuentas de Azure Cosmos DB](how-to-setup-cmk.md#using-managed-identity).
+  - question: >
+      ¿Azure Synapse Link proporciona aislamiento de red con redes virtuales administradas de Azure Synapse?
+    answer: >
+      Sí, puede controlar el acceso de red a los datos de los almacenes transaccionales y analíticos de forma independiente. El aislamiento de red se realiza mediante puntos de conexión privados administrados distintos para cada almacén, dentro de redes virtuales administradas en áreas de trabajo de Azure Synapse. Para más información, consulte el artículo [Configuración de puntos de conexión privados para almacenes analíticos](analytical-store-private-endpoints.md).
 - name: Tiempos de ejecución de Synapse
   questions:
   - question: >

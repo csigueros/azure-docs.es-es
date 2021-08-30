@@ -11,21 +11,21 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/18/2021
+ms.date: 07/19/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dfe81348b300f6b1b407898684316f668791d32
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 9ebd38cbff7d28515a7f60554a2ef755bdf6d04a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577984"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467764"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Escenarios admitidos para instancias grandes de HANA
 En este artículo se describen los escenarios admitidos y los detalles de arquitectura de HANA (instancias grandes) (HLI).
 
 >[!NOTE]
->Si el escenario que necesita no se menciona en este artículo, póngase en contacto con el equipo de Microsoft Service Management para que evalúe sus requisitos.
+>Si el escenario no se menciona en este artículo, póngase en contacto con el equipo de administración de servicios de Microsoft para que evalúe sus requisitos.
 Antes de configurar la unidad de HLI, valide el diseño con SAP o con su asociado de implementación de servicio.
 
 ## <a name="terms-and-definitions"></a>Términos y definiciones
@@ -41,7 +41,7 @@ Vamos a describir los términos y las definiciones usados en este artículo:
 - **HSR**: replicación del sistema de SAP HANA.
 
 ## <a name="overview"></a>Información general
-HANA (instancias grandes) admite una diversidad de arquitecturas que lo ayudan a cumplir con los requisitos empresariales. En las secciones siguientes se describen los escenarios de arquitectura y sus detalles de configuración. 
+HANA (instancias grandes) admite varias arquitecturas que lo ayudan a cumplir con los requisitos empresariales. En las secciones siguientes se describen los escenarios de arquitectura y sus detalles de configuración. 
 
 Los diseños de arquitectura extraídos lo son únicamente desde una perspectiva de infraestructura. Consulte con sus asociados de SAP o de implementación todo lo relativo a la implementación de HANA. Si sus escenarios no aparecen en este artículo, póngase en contacto con el equipo de cuentas Microsoft para revisar la arquitectura y obtener una solución para su caso.
 
@@ -58,7 +58,7 @@ En este artículo se describen los detalles de los dos componentes de cada arqui
 Cada servidor aprovisionado viene preconfigurado con conjuntos de interfaces Ethernet. Las interfaces Ethernet configuradas en cada unidad de HLI se clasifican en cuatro tipos:
 
 - **R.** : se usa para el acceso de cliente.
-- **B**: se usa para la comunicación nodo a nodo. Esta interfaz se configura en todos los servidores, sin importar la topología solicitada. Sin embargo, solo se usa en los escenarios de escalabilidad horizontal.
+- **B**: se usa para la comunicación nodo a nodo. Esta interfaz se configura en todos los servidores, sin importar la topología que solicite. Sin embargo, solo se usa en los escenarios de escalabilidad horizontal.
 - **C**: se usa para la conectividad nodo a almacenamiento.
 - **D**: se usa para la conexión de dispositivos nodo a iSCSI para la configuración de STONITH. Esta interfaz solo se configura cuando se solicita una configuración de HSR.  
 
@@ -78,19 +78,19 @@ La interfaz se elige en función de la topología configurada en la unidad de HL
 Si es necesario, puede definir más tarjetas NIC por su cuenta. Sin embargo, las configuraciones de NIC existentes *no se pueden* cambiar.
 
 >[!NOTE]
->Puede encontrar interfaces adicionales que sean interfaces físicas o uniones. Debe considerar solo las interfaces mencionadas previamente para su caso de uso. Puede omitir cualquier otra.
+>Puede encontrar interfaces adicionales que sean interfaces físicas o uniones. Considere solo las interfaces mencionadas previamente para su caso de uso. Omita cualquier otra.
 
 La distribución para las unidades con dos direcciones IP asignadas debería tener este aspecto:
 
 - La Ethernet "A" debe tener asignada una dirección IP que esté dentro del intervalo de direcciones del grupo de direcciones IP de servidor que envió a Microsoft. Esta dirección IP se debe mantener en el directorio */etc/hosts* del sistema operativo (SO).
 
-- La Ethernet "C" debe tener asignada una dirección IP que se usa para la comunicación con NFS. Esta dirección *no* es necesario mantenerla en el directorio *etc/hosts* para permitir el tráfico de instancia a instancia dentro del inquilino.
+- La Ethernet "C" debe tener asignada una dirección IP que se usa para la comunicación con NFS. *No* es necesario mantener esta dirección en el directorio *etc/hosts* para permitir el tráfico de instancia a instancia dentro del inquilino.
 
-En el caso de la implementación escalada de HANA o de la replicación del sistema HANA, no es adecuada una configuración de hoja con dos direcciones IP asignadas. Si solo tiene dos direcciones IP asignadas y quiere implementar este tipo de configuración, póngase en contacto con SAP HANA en Azure Service Management. Pueden asignarle una tercera dirección IP en una tercera VLAN. Para las unidades de HANA (instancias grandes) con tres direcciones IP asignadas en tres puertos NIC, se aplican estas reglas de uso:
+En el caso de la implementación escalada de HANA o de la replicación del sistema HANA, no es adecuada una configuración de hoja con dos direcciones IP asignadas. Si solo tiene dos direcciones IP asignadas y quiere implementar este tipo de configuración, póngase en contacto con SAP HANA en Azure Service Management. Pueden asignarle una tercera dirección IP en una tercera VLAN. En el caso de instancias grandes de HANA con tres direcciones IP asignadas en tres puertos NIC, se aplican estas reglas de uso:
 
 - La Ethernet "A" debe tener asignada una dirección IP que esté fuera del intervalo de direcciones del grupo de direcciones IP de servidor que envió a Microsoft. Esta dirección IP no se debe mantener en el directorio *etc/hosts* del sistema operativo.
 
-- La Ethernet "B" se debe mantener exclusivamente en el directorio *etc/hosts* para la comunicación entre las distintas instancias. Estas son las direcciones IP que se deben mantener en las configuraciones de HANA de escalabilidad horizontal como las direcciones IP que HANA usa para la configuración entre nodos.
+- La Ethernet "B" se debe mantener exclusivamente en el directorio *etc/hosts* para la comunicación entre las distintas instancias. Mantenga estas direcciones IP en las configuraciones de HANA de escalabilidad horizontal como las direcciones IP que HANA usa para la configuración entre nodos.
 
 - La Ethernet "C" debe tener asignada una dirección IP que se usa para la comunicación con el almacenamiento NFS. Este tipo de dirección no se debe mantener en el directorio *etc/hosts*.
 
@@ -200,7 +200,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ## <a name="single-node-with-dr-using-storage-replication"></a>Nodo único con recuperación ante desastres mediante replicación de almacenamiento
  
-Esta topología admite un nodo en una configuración de escalabilidad horizontal con uno o varios SID con la replicación basada en almacenamiento en el sitio de recuperación ante desastres para un SID principal. En el diagrama, solo se representa un sistema de un SID único en el sitio primario, pero también se admiten los sistemas de MCOS.
+Esta topología admite un nodo en una configuración de escalabilidad horizontal con uno o varios SID. La replicación basada en almacenamiento al sitio de recuperación ante desastres se usa para un SID primario. En el diagrama, solo se muestra un sistema de un SID único en el sitio primario, pero también se admiten los sistemas MCOS.
 
 ### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
 
@@ -241,7 +241,9 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ## <a name="single-node-with-dr-multipurpose-using-storage-replication"></a>Nodo único con recuperación ante desastres (multipropósito) mediante replicación de almacenamiento
  
-Esta topología admite un nodo en una configuración de escalabilidad horizontal con uno o varios SID con la replicación basada en almacenamiento en el sitio de recuperación ante desastres para un SID principal. En el diagrama, solo se representa un sistema de un SID único en el sitio primario, pero también se admiten los sistemas de varios SID (MCOS). En el sitio de recuperación ante desastres, la unidad HLI se usa para la instancia de QA mientras las operaciones de producción se ejecutan desde el sitio primario. Durante la conmutación por error de recuperación ante desastres (o prueba de conmutación por error), se retira la instancia de QA en el sitio de recuperación ante desastres.
+Esta topología admite un nodo en una configuración de escalabilidad horizontal con uno o varios SID. La replicación basada en almacenamiento al sitio de recuperación ante desastres se usa para un SID primario. 
+
+En el diagrama, solo se muestra un sistema de un SID único en el sitio primario, pero también se admiten los sistemas de varios SID (MCOS). En el sitio de recuperación ante desastres, la unidad de HLI se usa para la instancia de QA. Las operaciones de producción se ejecutan desde el sitio primario. Durante la conmutación por error de recuperación ante desastres (o prueba de conmutación por error), se retira la instancia de QA en el sitio de recuperación ante desastres.
 
 ### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
 
@@ -290,7 +292,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ## <a name="hsr-with-stonith-for-high-availability"></a>HSR con STONITH para alta disponibilidad
  
-Esta topología admite dos nodos para la configuración de replicación del sistema HANA. Esta configuración solo se admite para instancias únicas de HANA en un nodo. Esto significa que los escenarios MCOS *no* son compatibles.
+Esta topología admite dos nodos para la configuración de replicación del sistema HANA. Esta configuración solo se admite para instancias únicas de HANA en un nodo. *No* se admiten los escenarios MCOS.
 
 > [!NOTE]
 > A partir de diciembre de 2019, esta arquitectura se admite solo para el sistema operativo SUSE.
@@ -340,9 +342,9 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ## <a name="high-availability-with-hsr-and-dr-with-storage-replication"></a>Alta disponibilidad con HSR y recuperación ante desastres con replicación de almacenamiento
  
-Esta topología admite dos nodos para la configuración de replicación del sistema HANA. Se admite tanto la recuperación ante desastres normal como multipropósito. Estas configuraciones solo se admiten para instancias únicas de HANA en un nodo. Esto significa que los escenarios MCOS *no* son compatibles con estas configuraciones.
+Esta topología admite dos nodos para la configuración de replicación del sistema HANA. Se admite tanto la recuperación ante desastres normal como multipropósito. Estas configuraciones solo se admiten para instancias únicas de HANA en un nodo. Los escenarios MCOS *no* son compatibles con estas configuraciones.
 
-En el diagrama, el escenario multipropósito se representa en el sitio de recuperación ante desastres, la unidad HLI se usa para la instancia de QA mientras las operaciones de producción se ejecutan desde el sitio primario. Durante la conmutación por error de recuperación ante desastres (o prueba de conmutación por error), se retira la instancia de QA en el sitio de recuperación ante desastres. 
+En el diagrama, se muestra un escenario multipropósito en el sitio de recuperación ante desastres en el que se usa la unidad de HLI para la instancia de QA. Las operaciones de producción se ejecutan desde el sitio primario. Durante la conmutación por error de recuperación ante desastres (o prueba de conmutación por error), se retira la instancia de QA en el sitio de recuperación ante desastres. 
 
 ### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
 
@@ -399,7 +401,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ## <a name="host-auto-failover-11"></a>Conmutación por error automática de host (1+1)
  
-Esta topología admite dos nodos en una configuración de conmutación por error automática del host. Hay un nodo con un rol maestro o de trabajo y otro como nodo en espera. *SAP admite este escenario solo para S/4 HANA*. Para más información, consulte la [nota de OSS 2408419: compatibilidad con varios nodos de SAP S/4HANA](https://launchpad.support.sap.com/#/notes/2408419).
+Esta topología admite dos nodos en una configuración de conmutación por error automática del host. Hay un nodo con un rol principal/de trabajo y otro como nodo en espera. *SAP admite este escenario solo para S/4 HANA*. Para más información, consulte la [nota de OSS 2408419: compatibilidad con varios nodos de SAP S/4HANA](https://launchpad.support.sap.com/#/notes/2408419).
 
 
 
@@ -426,7 +428,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
 | --- | --- |
-|**En los nodos principales y de espera**|
+|**En los nodos principal y en espera**|
 |/hana/shared | Instalación de HANA para el SID de producción | 
 |/hana/data/SID/mnt00001 | Instalación de archivos de datos para el SID de producción | 
 |/hana/log/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
@@ -441,7 +443,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ## <a name="scale-out-with-standby"></a>Escalabilidad horizontal con espera
  
-Esta topología es compatible con varios nodos en una configuración de escalabilidad horizontal. Hay un nodo con el rol maestro, uno o más nodos con el rol de trabajo y uno o varios nodos como nodos en espera. Sin embargo, solo puede haber un nodo maestro en cualquier momento.
+Esta topología es compatible con varios nodos en una configuración de escalabilidad horizontal. Hay un nodo con el rol principal, uno o más nodos con el rol de trabajo y uno o varios nodos como nodos en espera. Sin embargo, solo puede haber un nodo principal en cualquier momento.
 
 
 ### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
@@ -467,7 +469,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
 | --- | --- |
-|**En los nodos principal, de trabajo y de espera**|
+|**En los nodos principal, de trabajo y en espera**|
 |/hana/shared | Instalación de HANA para el SID de producción | 
 |/hana/data/SID/mnt00001 | Instalación de archivos de datos para el SID de producción | 
 |/hana/log/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
@@ -476,7 +478,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ## <a name="scale-out-without-standby"></a>Escalabilidad horizontal sin espera
  
-Esta topología es compatible con varios nodos en una configuración de escalabilidad horizontal. Hay un nodo con el rol maestro y uno o varios nodos con el rol de trabajo. Sin embargo, solo puede haber un nodo maestro en cualquier momento.
+Esta topología es compatible con varios nodos en una configuración de escalabilidad horizontal. Hay un nodo con el rol principal y uno o varios nodos con un rol de trabajo. Sin embargo, solo puede haber un nodo principal en cualquier momento.
 
 
 ### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
@@ -515,7 +517,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ## <a name="scale-out-with-dr-using-storage-replication"></a>Escalabilidad horizontal con recuperación ante desastres mediante replicación de almacenamiento
  
-Esta topología es compatible con varios nodos en una configuración de escalabilidad horizontal con recuperación ante desastres. Se admite tanto la recuperación ante desastres normal como multipropósito. En el diagrama solo se representa la recuperación ante desastres de un propósito. Puede solicitar esta topología con o sin el nodo de espera.
+Esta topología es compatible con varios nodos en una configuración de escalabilidad horizontal con recuperación ante desastres. Se admite tanto la recuperación ante desastres normal como multipropósito. En el diagrama solo se muestra la recuperación ante desastres de un propósito. Puede solicitar esta topología con o sin el nodo de espera.
 
 
 ### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
@@ -562,7 +564,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ## <a name="single-node-with-dr-using-hsr"></a>Nodo único con recuperación ante desastres mediante HSR
  
-Esta topología admite un nodo en una configuración de escalado vertical con un SID, donde la replicación del sistema HANA se realiza en el sitio de recuperación ante desastres para un SID principal. En el diagrama, solo se representa un sistema de un SID único en el sitio primario, pero también se admiten los sistemas de varios SID (MCOS).
+Esta topología admite un nodo en una configuración de escalado vertical con un SID, donde la replicación del sistema HANA se realiza en el sitio de recuperación ante desastres para un SID principal. En el diagrama, solo se muestra un sistema de un SID único en el sitio primario, pero también se admiten los sistemas de varios SID (MCOS).
 
 ### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
 
@@ -603,7 +605,7 @@ Los siguientes puntos de montaje están preconfigurados en ambas unidades HLI (p
 
 ## <a name="single-node-hsr-to-dr-cost-optimized"></a>HSR de nodo único a recuperación ante desastres (optimizado para costo) 
  
- Esta topología admite un nodo en una configuración de escalado vertical con un SID, donde la replicación del sistema HANA se realiza en el sitio de recuperación ante desastres para un SID principal. En el diagrama, solo se representa un sistema de un SID único en el sitio primario, pero también se admiten los sistemas de varios SID (MCOS). En el sitio de recuperación ante desastres, una unidad HLI se usa para la instancia de QA mientras las operaciones de producción se ejecutan desde el sitio primario. Durante la conmutación por error de recuperación ante desastres (o prueba de conmutación por error), se retira la instancia de QA en el sitio de recuperación ante desastres.
+ Esta topología admite un nodo en una configuración de escalabilidad horizontal con un SID. La replicación del sistema HANA al sitio de recuperación ante desastres se usa para un SID primario. En el diagrama, solo se muestra un sistema de un SID único en el sitio primario, pero también se admiten los sistemas de varios SID (MCOS). En el sitio de recuperación ante desastres, una unidad de HLI se usa para la instancia de QA. Las operaciones de producción se ejecutan desde el sitio primario. Durante la conmutación por error de recuperación ante desastres (o prueba de conmutación por error), se retira la instancia de QA en el sitio de recuperación ante desastres.
 
 ### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
 
@@ -795,7 +797,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre lo siguiente:
+Obtenga información sobre la implementación de HANA (instancias grandes).
 
-- [Infraestructura y conectividad](./hana-overview-infrastructure-connectivity.md) para HANA (instancias grandes)
-- [Alta disponibilidad y recuperación ante desastres](./hana-overview-high-availability-disaster-recovery.md) para HANA (instancias grandes)
+> [!div class="nextstepaction"]
+> [Implementación de SAP HANA (instancias grandes)](./hana-overview-infrastructure-connectivity.md)

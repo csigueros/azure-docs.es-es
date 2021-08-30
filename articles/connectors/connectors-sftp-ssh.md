@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 08/05/2021
 tags: connectors
-ms.openlocfilehash: a19253e117f748b4d4045bfd2a29552018bba91e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 32638d71f2c700700be5eb1b2ad63f18969d82a0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781566"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750018"
 ---
 # <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>Creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -91,11 +91,12 @@ En la siguiente lista se describen las funcionalidades clave de SFTP-SSH que dif
 
 * La dirección del servidor SFTP y las credenciales de la cuenta, de modo que el flujo de trabajo pueda acceder a la cuenta de SFTP. También necesita acceso a una clave privada SSH y a la contraseña de clave privada SSH. Para cargar archivos de gran tamaño mediante fragmentación, necesita acceso de lectura y escritura para la carpeta raíz en el servidor SFTP. De lo contrario, recibirá un error "401 no autorizado".
 
-  El conector SFTP-SSH admite tanto la autenticación de clave privada como la autenticación de contraseña. Sin embargo, el conector SFTP-SSH *solo* admite estos formatos de clave privada, algoritmos y huellas digitales:
+  El conector SFTP-SSH admite tanto la autenticación de clave privada como la autenticación de contraseña. Sin embargo, el conector SFTP-SSH *solo* admite los formatos de clave privada, los algoritmos de cifrado, las huellas digitales y los algoritmos de intercambio de claves que figuran a continuación:
 
   * **Formatos de clave privada**: claves RSA (Rivest Shamir Adleman) y DSA (Digital Signature Algorithm) en formatos OpenSSH y ssh.com. Si la clave privada tiene el formato de archivo PuTTy (.ppk), en primer lugar [convierta la clave al formato de archivo OpenSSH (.pem)](#convert-to-openssh).
   * **Algoritmos de cifrado**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC y AES-256-CBC
   * **Huella digital**: MD5
+  * **Algoritmos de intercambio de claves:** curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group-exchange-sha1, diffie-hellman-group16-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1 y diffie-hellman-group1-sha1.
 
   Después de agregar un desencadenador o acción SFTP-SSH al flujo de trabajo, tiene que proporcionar información de conexión para el servidor SFTP. Cuando proporcione su clave privada SSH para esta conexión, ***no escriba ni edite manualmente la clave** _, ya que podría provocar un error en la conexión. En su lugar, asegúrese de _*_copiar la clave_*_ del archivo de clave privada SSH y _ *_pegar_** esa clave en los detalles de la conexión. Para obtener más información, consulte la sección [Conectarse a SFTP con SSH](#connect) que se detalla más adelante en este artículo.
 
@@ -259,9 +260,9 @@ En esta sección se describen posibles soluciones a errores o problemas comunes.
 
 Este error puede producirse cuando la aplicación lógica no puede establecer correctamente una conexión con el servidor SFTP. Este problema puede deberse a distintos motivos, por lo que pruebe estas opciones de solución de problemas:
 
-* El tiempo de espera de conexión es de 20 segundos. Compruebe que el servidor SFTP tenga un buen rendimiento y que los dispositivos intermedios, como los firewalls, no agreguen sobrecarga. 
+* El tiempo de espera de conexión es de 20 segundos. Compruebe que el servidor SFTP tenga un buen rendimiento y que los dispositivos intermedios, como los firewalls, no agreguen sobrecarga.
 
-* Si tiene configurado un firewall, asegúrese de agregar las direcciones **IP de los conectores administrados** a la lista aprobada. Para buscar las direcciones IP de la región de la aplicación lógica, consulte [Límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#multi-tenant-azure---outbound-ip-addresses).
+* Si tiene configurado un firewall, asegúrese de agregar a la lista aprobada las direcciones **IP de los conectores administrados** correspondientes a su región. Para buscar las direcciones IP de la región de su aplicación lógica, consulte [IP de salida de conectores administrados - Azure Logic Apps](/connectors/common/outbound-ip-addresses).
 
 * Si este error se produce de manera intermitente, cambie la opción **Directiva de reintentos** en la acción SFTP-SSH a un número de reintentos superior a los cuatro reintentos predeterminados.
 

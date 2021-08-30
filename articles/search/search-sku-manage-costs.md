@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.openlocfilehash: 1e46601858ece67efa2bca9543083da8a0e2cc79
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 6a371d3a9edf537e78f5a889139a053cb925518f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861988"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770838"
 ---
 # <a name="estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Cálculo y administración de los costos de un servicio de Azure Cognitive Search
 
@@ -93,7 +93,7 @@ Para el [enriquecimiento con IA](cognitive-search-concept-intro.md) mediante apt
 | [Búsqueda de una entidad personalizada](cognitive-search-skill-custom-entity-lookup.md) | Medida por Azure Cognitive Search. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/search/#pricing). |
 
 > [!TIP]
-> El [enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md) reduce el costo del procesamiento del conjunto de aptitudes al almacenar en caché y volver a usar enriquecimientos que no están afectados por los cambios realizados en un conjunto de aptitudes. El almacenamiento en caché requiere Azure Storage (consulte los [precios](/pricing/details/storage/blobs/)), pero el costo acumulado de la ejecución del conjunto de aptitudes es menor si se pueden reutilizar los enriquecimientos existentes.
+> El [enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md) reduce el costo del procesamiento del conjunto de aptitudes al almacenar en caché y volver a usar enriquecimientos que no están afectados por los cambios realizados en un conjunto de aptitudes. El almacenamiento en caché requiere Azure Storage (consulte los [precios](https://azure.microsoft.com/pricing/details/storage/blobs/)), pero el costo acumulado de la ejecución del conjunto de aptitudes es menor si se pueden reutilizar los enriquecimientos existentes.
 
 ## <a name="tips-for-managing-costs"></a>Sugerencias para administrar costos
 

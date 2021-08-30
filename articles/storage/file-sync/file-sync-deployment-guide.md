@@ -8,12 +8,12 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5825f170a1bd14fc577284b8a512ff40aa614546
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 42ca317d4838513bb23bed9f5aa1028cb964d382
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677153"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768590"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -410,89 +410,7 @@ Un punto de conexión de servidor representa una ubicación específica en un se
 - No se admite el cambio de la ruta de acceso o letra de unidad después de establecer un punto de conexión de servidor en un volumen. Asegúrese de que está usando una ruta de acceso final en el servidor registrado.
 - Un servidor registrado puede admitir varios puntos de conexión de servidor, pero un grupo de sincronización solo puede tener un punto de conexión de servidor por servidor registrado en un momento dado. Otros puntos de conexión de servidor dentro del grupo de sincronización deben estar en servidores registrados diferentes.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-Para agregar un punto de conexión de servidor, vaya al grupo de sincronización recién creado y seleccione **Agregar punto de conexión del servidor**.
-
-![Adición de un nuevo punto de conexión de servidor al panel Grupo de sincronización](media/storage-sync-files-deployment-guide/create-sync-group-part-2.png)
-
-En el panel **Agregar punto de conexión de servidor**, escriba la siguiente información para crear un punto de conexión de servidor:
-
-- **Servidor registrado**: el nombre del servidor o el clúster en el que se va a crear el punto de conexión de servidor.
-- **Ruta de acceso**: la ruta de acceso de Windows Server que se va a sincronizar como parte del grupo de sincronización.
-- **Nube por niveles**: un conmutador para habilitar o deshabilitar la nube por niveles. Con los niveles de la nube, los archivos que se usen o a los que se acceda con poca frecuencia se pueden colocar en capas en Azure Files.
-- **Espacio disponible del volumen**: la cantidad de espacio libre que se reserva en el volumen en el que reside el punto de conexión de servidor. Por ejemplo, si el espacio disponible del volumen se establece en el 50 % en un volumen con un único punto de conexión de servidor, casi la mitad de la cantidad de datos se coloca en capas en Azure Files. Con independencia de si la característica de niveles en la nube está habilitada, el recurso compartido de archivos de Azure siempre tiene una copia completa de los datos en el grupo de sincronización.
-- **Initial download mode** (Modo de descarga inicial): esta es una selección opcional, a partir de la versión 11 del agente, que puede ser útil cuando hay archivos en el recurso compartido de archivos de Azure, pero no en el servidor. Tal situación puede existir, por ejemplo, cuando se crea un punto de conexión de servidor para agregar otro servidor de sucursal a un grupo de sincronización o cuando se recupera de un desastre un servidor que no funciona. Si la nube por niveles está habilitada, el valor predeterminado es recuperar inicialmente solo el espacio de nombres, no el contenido del archivo. Esta opción es útil si cree que es preferible que las solicitudes de acceso de los usuarios decidan qué contenido de archivo se recupera en el servidor. Si la nube por niveles está deshabilitada, el valor predeterminado es que el espacio de nombres se descargue primero y, luego, se recuperen los archivos en función de la marca de tiempo de última modificación hasta que se alcance la capacidad local. Sin embargo, se puede cambiar el modo de descarga inicial para que se descargue solo el espacio de nombres. Existe un tercer modo que solo se puede usar si la nube por niveles está deshabilitada para este punto de conexión de servidor. Este modo evita que se recupere primero el espacio de nombres. Los archivos solo aparecerán en el servidor local si tienen la oportunidad de descargarse por completo. Este modo es útil si, por ejemplo, una aplicación necesita que haya archivos completos y no puede tolerar archivos en capas en su espacio de nombres.
-
-Para agregar el punto de conexión de servidor, seleccione **Crear**. Los archivos se mantienen ahora sincronizados entre el recurso compartido de archivos de Azure y Windows Server. 
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Ejecute los siguientes comandos de PowerShell para crear el punto de conexión de servidor y asegúrese de reemplazar `<your-server-endpoint-path>` y `<your-volume-free-space>` por los valores deseados; compruebe también el valor opcional de la directiva de descarga inicial opcional.
-
-```powershell
-$serverEndpointPath = "<your-server-endpoint-path>"
-$cloudTieringDesired = $true
-$volumeFreeSpacePercentage = <your-volume-free-space>
-# Optional property. Choose from: [NamespaceOnly] default when cloud tiering is enabled. [NamespaceThenModifiedFiles] default when cloud tiering is disabled. [AvoidTieredFiles] only available when cloud tiering is disabled.
-$initialDownloadPolicy = NamespaceOnly
-
-if ($cloudTieringDesired) {
-    # Ensure endpoint path is not the system volume
-    $directoryRoot = [System.IO.Directory]::GetDirectoryRoot($serverEndpointPath)
-    $osVolume = "$($env:SystemDrive)\"
-    if ($directoryRoot -eq $osVolume) {
-        throw [System.Exception]::new("Cloud tiering cannot be enabled on the system volume")
-    }
-
-    # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
-        -Name $registeredServer.FriendlyName `
-        -SyncGroup $syncGroup `
-        -ServerResourceId $registeredServer.ResourceId `
-        -ServerLocalPath $serverEndpointPath `
-        -CloudTiering `
-        -VolumeFreeSpacePercent $volumeFreeSpacePercentage `
-        -InitialDownloadPolicy $initialDownloadPolicy
-} else {
-    # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
-        -Name $registeredServer.FriendlyName `
-        -SyncGroup $syncGroup `
-        -ServerResourceId $registeredServer.ResourceId `
-        -ServerLocalPath $serverEndpointPath `
-        -InitialDownloadPolicy $initialDownloadPolicy
-}
-```
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-Use el comando [az storagesync sync-group server-endpoint](/cli/azure/storagesync/sync-group/server-endpoint#az_storagesync_sync_group_server_endpoint_create) para crear un punto de conexión de servidor.
-
-```azurecli
-# Create a new sync group server endpoint 
-az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
-                                                 --name myNewServerEndpointName
-                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96c286e0
-                                                 --server-local-path d:\myPath
-                                                 --storage-sync-service myStorageSyncServiceNAme
-                                                 --sync-group-name mySyncGroupName
-
-# Create a new sync group server endpoint with additional optional parameters
-az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
-                                                 --storage-sync-service myStorageSyncServiceName \
-                                                 --sync-group-name mySyncGroupName \
-                                                 --name myNewServerEndpointName \
-                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96c286e0 \
-                                                 --server-local-path d:\myPath \
-                                                 --cloud-tiering on \
-                                                 --volume-free-space-percent 85 \
-                                                 --tier-files-older-than-days 15 \
-                                                 --initial-download-policy NamespaceOnly [OR] NamespaceThenModifiedFiles [OR] AvoidTieredFiles
-                                                 --offline-data-transfer on \
-                                                 --offline-data-transfer-share-name myfilesharename \
-
-```
-
----
+[!INCLUDE [storage-files-sync-create-server-endpoint](../../../includes/storage-files-sync-create-server-endpoint.md)]
 
 ## <a name="configure-firewall-and-virtual-network-settings"></a>Configuración de los ajustes de red virtual y del firewall
 
@@ -576,7 +494,7 @@ Sin embargo, si cambia la programación de forma que se produzca una instantáne
 
 El número máximo predeterminado de instantáneas de VSS por volumen (64), así como la programación predeterminada para tomarlas, da como resultado un máximo de 45 días de versiones anteriores a partir de las que un trabajador de la información puede restaurar en función de cuántas instantáneas de VSS pueda almacenar en el volumen.
 
-Si el máximo de 64 instantáneas de VSS por volumen no corresponde a la configuración correcta, puede [cambiar ese valor mediante una clave del Registro](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+Si un máximo de 64 instantáneas de VSS por volumen no corresponde a la configuración correcta, [cambie ese valor mediante una clave del Registro](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Para que el nuevo límite surta efecto, debe volver a ejecutar el cmdlet para habilitar la compatibilidad con versiones anteriores en todos los volúmenes que se habilitaron anteriormente, con la marca -Force para que tenga en cuenta el nuevo número máximo de instantáneas de VSS por volumen. Esto dará lugar a un número de días compatibles recién calculado. Tenga en cuenta que este cambio solo se aplicará a los archivos recién organizados en capas y sobrescribirá cualquier personalización de la programación de VSS que haya realizado.
 
 <a id="proactive-recall"></a>
@@ -630,6 +548,6 @@ Para migrar una implementación de DFS-R a Azure File Sync:
 Para más información, consulte [Interoperabilidad de Azure File Sync con el sistema de archivos distribuido (DFS)](file-sync-planning.md#distributed-file-system-dfs).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Adición o eliminación de un punto de conexión de servidor de Azure File Sync ](file-sync-server-endpoint.md)
+- [Creación de un punto de conexión de servidor de Azure File Sync](file-sync-server-endpoint-create.md)
 - [Registro y cancelación del registro de un servidor con Azure File Sync](file-sync-server-registration.md)
 - [Supervisión de Azure File Sync](file-sync-monitoring.md)

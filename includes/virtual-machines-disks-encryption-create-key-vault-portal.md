@@ -1,19 +1,19 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/17/2021
+ms.date: 07/15/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f6cf40e7b384c9b0e88db679f9de8ac9bbba1607
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3e05dd70ab0919ca4429cee15ecfc9d6ac9ee627
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "112078783"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122262414"
 ---
 La configuración de claves administradas por el cliente para los discos requerirá la creación de recursos en un orden determinado, si lo hace por primera vez. En primer lugar, tendrá que crear y configurar una instancia de Azure Key Vault.
 
@@ -27,7 +27,7 @@ La configuración de claves administradas por el cliente para los discos requeri
     > [!IMPORTANT]
     > La instancia de Azure Key Vault, el conjunto de cifrado de disco, la VM, los discos y las instantáneas deben estar en la misma región y suscripción para que la implementación se realice correctamente.
 
-1. Seleccione **+Agregar** para crear una nueva instancia de Key Vault.
+1. Seleccione **+Crear** para crear una instancia de Key Vault.
 1. Cree un nuevo grupo de recursos.
 1. Escriba un nombre de almacén de claves, seleccione una región y seleccione un plan de tarifa.
 
@@ -47,7 +47,7 @@ La configuración de claves administradas por el cliente para los discos requeri
 1. Deje **Tipo de clave** establecido en **RSA** y **Tamaño de la clave RSA** establecido en **2048**.
 1. Rellene las selecciones restantes como desee y, a continuación, seleccione **Crear**.
 
-    ![Captura de pantalla de la hoja Crear una clave que aparece cuando se selecciona el botón Generar/importar](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
+    ![Captura de pantalla del panel "Crear una clave" que aparece cuando se selecciona el botón "Generar/importar"](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
 
 ### <a name="add-an-azure-rbac-role"></a>Adición de un rol RBAC de Azure
 
@@ -59,7 +59,7 @@ Ahora que ha creado el almacén de Azure Key Vault y una clave, debe agregar un 
 ## <a name="set-up-your-disk-encryption-set"></a>Configuración del conjunto de cifrado de disco
 
 1. Busque **conjuntos de cifrado de disco** y seleccione la opción.
-1. Abra la hoja **Conjuntos de cifrado de disco** y seleccione **+Agregar**.
+1. En el panel **Conjuntos de cifrado de disco**, seleccione **+Crear**.
 
     ![Captura de pantalla de la pantalla principal del portal de cifrado de discos. Resaltado del botón Agregar](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
 
@@ -74,4 +74,4 @@ Ahora que ha creado el almacén de Azure Key Vault y una clave, debe agregar un 
 1. Haga clic en **Seleccionar**.
 1. Seleccione **Revisar y crear** y, a continuación, **Crear**.
 
-    ![Captura de pantalla de la hoja de creación del cifrado de disco. Se muestra la suscripción, el grupo de recursos, el nombre del conjunto de cifrado de disco, la región y el selector de claves y de almacenes de claves.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
+    ![Captura de pantalla del panel de creación del cifrado de disco. Se muestra la suscripción, el grupo de recursos, el nombre del conjunto de cifrado de disco, la región y el selector de claves y de almacenes de claves.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)

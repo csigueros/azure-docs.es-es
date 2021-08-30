@@ -5,12 +5,12 @@ description: Obtenga información sobre las cuotas predeterminadas, los tamaños
 services: container-service
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 3e1e74834153584525d2093d2a1bb8ba8e991e5a
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: ea32c0e58894fe57a51cd22fccce8b2fb2fb0489
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011471"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762307"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)
 
@@ -38,16 +38,34 @@ Cada nodo en un clúster de AKS contiene una cantidad fija de recursos de proces
 - Standard_A0
 - Standard_A1
 - Standard_A1_v2
+- Standard_B1ls
 - Standard_B1s
 - Standard_B1ms
 - Standard_F1
 - Standard_F1s
+- Standard_A2
+- Standard_D1
+- Standard_D1_v2
+- Standard_DS1
+- Standard_DS1_v2
 
 Para obtener más información sobre los tipos de VM y sus recursos de proceso, consulte [Tamaños de las máquinas virtuales en Azure][vm-skus].
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
 Para obtener la lista más reciente con los lugares donde puede implementar y ejecutar clústeres, consulte [Disponibilidad de regiones de AKS][region-availability].
+
+## <a name="cluster-configuration-presets-in-the-azure-portal"></a>Valores preestablecidos de configuración del clúster en Azure Portal
+
+Al crear un clúster mediante Azure Portal, puede elegir una configuración preestablecida para personalizarlo rápidamente en función de su escenario. Puede modificar cualquiera de los valores preestablecidos en cualquier momento.
+
+| Valor preestablecido           | Descripción                                                            |
+|------------------|------------------------------------------------------------------------|
+| Estándar         | Mejor si no está seguro de qué elegir. Funciona bien con la mayoría de las aplicaciones. |
+| Desarrollo/pruebas         | Lo mejor es experimentar con AKS o implementar una aplicación de prueba. |
+| Optimizado para costos   | Lo mejor es reducir los costos de las cargas de trabajo de producción que pueden tolerar interrupciones. |
+| Procesamiento por lotes | Lo mejor para cargas de trabajo de aprendizaje automático, proceso intensivo y uso intensivo de gráficos. Adecuado para aplicaciones que requieren escalabilidad horizontal y vertical rápida del clúster. |
+| Acceso protegido  | La mejor opción para grandes empresas que necesitan un control total de la seguridad y la estabilidad. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

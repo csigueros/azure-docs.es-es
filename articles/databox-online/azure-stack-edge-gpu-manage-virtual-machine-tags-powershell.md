@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 07/12/2021
 ms.author: alkohli
-ms.openlocfilehash: be4348359e6b53c3e7454e9ab7c1af8ce8a7020a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 605a438e44220bc4eb97cc3718188d0458ea24d7
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305568"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113664510"
 ---
-# <a name="manage-vm-tags-on-azure-stack-edge-via-azure-powershell"></a>Administración de etiquetas de máquinas virtuales en el dispositivo Azure Stack Edge a través de Azure PowerShell
+# <a name="tag-vms-on-azure-stack-edge-via-azure-powershell"></a>Etiquetado de máquinas virtuales en Azure Stack Edge mediante Azure PowerShell
 
-En este artículo se describe cómo etiquetar máquinas virtuales (VM) que se ejecutan en los dispositivos Azure Stack Edge Pro con GPU mediante Azure PowerShell.
+En este artículo se describe cómo etiquetar máquinas virtuales (VM) que se ejecutan en los dispositivos Azure Stack Edge Pro con GPU mediante Azure PowerShell. 
 
 ## <a name="about-tags"></a>Acerca de las etiquetas
 
@@ -41,6 +41,8 @@ Antes de poder implementar una máquina virtual en el dispositivo a través de P
 
 ## <a name="add-a-tag-to-a-vm"></a>Adición de una etiqueta a una máquina virtual
 
+### <a name="az"></a>[Az](#tab/az)
+
 1. Configure algunos parámetros.
 
     ```powershell
@@ -52,7 +54,67 @@ Antes de poder implementar una máquina virtual en el dispositivo a través de P
 
     A continuación, se incluye una salida de ejemplo:
 
+    ```output
+    PS C:\WINDOWS\system32> $VMName = "myazvm"
+    PS C:\WINDOWS\system32> $VMRG = "myaseazrg"
+    PS C:\WINDOWS\system32> $TagName = "Organization"
+    PS C:\WINDOWS\system32> $TagValue = "Sales"
+    ```
+
+2. Obtenga el objeto de máquina virtual y sus etiquetas.
+
+   ```powershell
+   $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName
+   $tags = $VirtualMachine.Tags
+   ```
+
+3. Agregue la etiqueta y actualice la máquina virtual. La actualización de la máquina virtual puede tardar unos minutos.
+
+    Puede usar la marca **-Force** opcional para ejecutar el comando sin la confirmación del usuario.
+
     ```powershell
+    $tags.Add($TagName, $TagValue)
+    Set-AzResource -ResourceId $VirtualMachine.Id -Tag $tags -Force
+    ```
+
+    A continuación, se incluye una salida de ejemplo:
+
+    ```output
+    PS C:\WINDOWS\system32> $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName
+    PS C:\WINDOWS\system32> $tags = $VirtualMachine.Tags
+    PS C:\WINDOWS\system32> $tags.Add($TagName, $TagValue)
+    PS C:\WINDOWS\system32> Set-AzResource -ResourceID $VirtualMachine.ID -Tag $tags -Force   
+
+    Name              : myazvm
+    ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/myas
+                        eazrg/providers/Microsoft.Compute/virtualMachines/myazvm
+    ResourceName      : myazvm
+    ResourceType      : Microsoft.Compute/virtualMachines
+    ResourceGroupName : myaseazrg
+    Location          : dbelocal
+    SubscriptionId    : d64617ad-6266-4b19-45af-81112d213322
+    Tags              : {Organization}
+    Properties        : @{vmId=568a264f-c5d3-477f-a16c-4c5549eafa8c; hardwareProfile=;
+                        storageProfile=; osProfile=; networkProfile=; diagnosticsProfile=;
+                        provisioningState=Succeeded}
+    ```
+
+
+
+### <a name="azurerm"></a>[AzureRM](#tab/azurerm)
+
+1. Configure algunos parámetros.
+
+    ```powershell
+    $VMName = <VM Name>
+    $VMRG = <VM Resource Group>
+    $TagName = <Tag Name>
+    $TagValue = <Tag Value>   
+    ```
+
+    A continuación, se incluye una salida de ejemplo:
+
+    ```output
     PS C:\WINDOWS\system32> $VMName = "myasetestvm1"
     PS C:\WINDOWS\system32> $VMRG = "myaserg2"
     PS C:\WINDOWS\system32> $TagName = "Organization"
@@ -72,12 +134,12 @@ Antes de poder implementar una máquina virtual en el dispositivo a través de P
 
     ```powershell
     $tags.Add($TagName, $TagValue)
-    Set-AzureRmResource -ResourceId $VirtualMachine.Id -Tag $tags [-Force]
+    Set-AzureRmResource -ResourceId $VirtualMachine.Id -Tag $tags -Force
     ```
 
     A continuación, se incluye una salida de ejemplo:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VirtualMachine = Get-AzureRMVM -ResourceGroupName $VMRG -Name $VMName
     PS C:\WINDOWS\system32> $tags = $VirtualMachine.Tags
     PS C:\WINDOWS\system32> $tags.Add($TagName, $TagValue)
@@ -100,7 +162,11 @@ Antes de poder implementar una máquina virtual en el dispositivo a través de P
 
 Para más información, consulte [Add-AzureRMTag](/powershell/module/azurerm.tags/remove-azurermtag?view=azurermps-6.13.0&preserve-view=true).
 
+---
+
 ## <a name="view-tags-of-a-vm"></a>Visualización de las etiquetas de una máquina virtual
+
+### <a name="az"></a>[Az](#tab/az)
 
 Puede ver las etiquetas aplicadas a una máquina virtual específica que se ejecuta en el dispositivo. 
 
@@ -112,11 +178,45 @@ Puede ver las etiquetas aplicadas a una máquina virtual específica que se ejec
    ```
     A continuación, se incluye una salida de ejemplo:
 
-    ```powershell
+    ```output
+    PS C:\WINDOWS\system32> $VMName = "myazvm"
+    PS C:\WINDOWS\system32> $VMRG = "myaseazrg"
+    ```
+1. Obtenga el objeto de máquina virtual y sus etiquetas.
+
+   ```powershell
+   $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName
+   $VirtualMachine.Tags
+   ```
+    A continuación, se incluye una salida de ejemplo:
+
+    ```output
+    PS C:\WINDOWS\system32>  $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName     
+    PS C:\WINDOWS\system32> $VirtualMachine.Tags
+    
+    Key          Value
+    ---          -----
+    Organization Sales    
+    
+    PS C:\WINDOWS\system32>
+    ```
+
+
+### <a name="azurerm"></a>[AzureRM](#tab/azurerm)
+
+Puede ver las etiquetas aplicadas a una máquina virtual específica que se ejecuta en el dispositivo. 
+
+1. Defina los parámetros asociados a la máquina virtual cuyas etiquetas desea ver.
+
+   ```powershell
+   $VMName = <VM Name>
+   $VMRG = <VM Resource Group>
+   ```
+    A continuación, se incluye una salida de ejemplo:
+
+    ```output
     PS C:\WINDOWS\system32> $VMName = "myasetestvm1"
     PS C:\WINDOWS\system32> $VMRG = "myaserg2"
-    PS C:\WINDOWS\system32> $TagName = "Organization"
-    PS C:\WINDOWS\system32> $TagValue = "Sales"
     ```
 1. Obtenga el objeto de máquina virtual y sus etiquetas.
 
@@ -126,7 +226,7 @@ Puede ver las etiquetas aplicadas a una máquina virtual específica que se ejec
    ```
     A continuación, se incluye una salida de ejemplo:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VirtualMachine = Get-AzureRMVM -ResourceGroupName $VMRG -Name $VMName
     PS C:\WINDOWS\system32> $VirtualMachine
 
@@ -146,7 +246,49 @@ Puede ver las etiquetas aplicadas a una máquina virtual específica que se ejec
     
     PS C:\WINDOWS\system32>
     ```
+---
+
 ## <a name="view-tags-for-all-resources"></a>Visualización de las etiquetas de todos los recursos
+
+### <a name="az"></a>[Az](#tab/az)
+
+Para ver la lista actual de etiquetas de todos los recursos de la suscripción de Azure Resource Manager local (diferente de la suscripción de Azure) del dispositivo, use el comando `Get-AzTag`.
+
+
+Este es un ejemplo de salida cuando se ejecutan varias máquinas virtuales en el dispositivo y desea ver todas las etiquetas en todas las máquinas virtuales.
+
+```output
+PS C:\WINDOWS\system32> Get-AzTag
+
+Name         Count
+----         -----
+Organization 2
+
+PS C:\WINDOWS\system32>
+```
+
+La salida anterior indica que hay dos etiquetas `Organization` en las máquinas virtuales que se ejecutan en el dispositivo.
+
+Para ver más detalles, use el parámetro `-Detailed`.
+
+```output
+PS C:\WINDOWS\system32> Get-AzTag -Detailed |fl
+
+Name        : Organization
+ValuesTable :
+              Name         Count
+              ===========  =====
+              Sales        1
+              Engineering  1
+Count       : 2
+Values      : {Sales, Engineering}
+
+PS C:\WINDOWS\system32>
+```
+
+La salida anterior indica que, de las dos etiquetas, una máquina virtual se etiqueta como `Engineering` y la otra, como perteneciente a `Sales`.
+
+### <a name="azurerm"></a>[AzureRM](#tab/azurerm)
 
 Para ver la lista actual de etiquetas de todos los recursos de la suscripción de Azure Resource Manager local (diferente de la suscripción de Azure) del dispositivo, use el comando `Get-AzureRMTag`.
 
@@ -167,7 +309,7 @@ La salida anterior indica que hay tres etiquetas `Organization` en las máquinas
 
 Para ver más detalles, use el parámetro `-Detailed`.
 
-```powershell
+```output
 PS C:\WINDOWS\system32> Get-AzureRMTag -Detailed |fl
 
 Name        : Organization
@@ -185,7 +327,11 @@ PS C:\WINDOWS\system32>
 
 La salida anterior indica que fuera de las tres etiquetas, dos máquinas virtuales se etiquetan como `Engineering` y una se etiqueta como perteneciente a `Sales`.
 
+---
+
 ## <a name="remove-a-tag-from-a-vm"></a>Eliminación de una etiqueta de una máquina virtual
+
+### <a name="az"></a>[Az](#tab/az)
 
 1. Configure algunos parámetros. 
 
@@ -196,7 +342,85 @@ La salida anterior indica que fuera de las tres etiquetas, dos máquinas virtual
    ``` 
     A continuación, se incluye una salida de ejemplo:
 
+    ```output
+    PS C:\WINDOWS\system32> $VMName = "myaselinuxvm1"
+    PS C:\WINDOWS\system32> $VMRG = "myaserg1"
+    PS C:\WINDOWS\system32> $TagName = "Organization" 
+    ```
+2. Obtenga el objeto de VM.
+
     ```powershell
+    $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName
+    $VirtualMachine   
+    ```   
+
+    A continuación, se incluye una salida de ejemplo:
+
+    ```output
+    PS C:\WINDOWS\system32> $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName
+    PS C:\WINDOWS\system32> $VirtualMachine
+    
+    ResourceGroupName  : myaseazrg
+    Id                 : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/mya
+    seazrg/providers/Microsoft.Compute/virtualMachines/myazvm
+    VmId               : 568a264f-c5d3-477f-a16c-4c5549eafa8c
+    Name               : myazvm
+    Type               : Microsoft.Compute/virtualMachines
+    Location           : dbelocal
+    Tags               : {"Organization":"Sales"}
+    DiagnosticsProfile : {BootDiagnostics}
+    HardwareProfile    : {VmSize}
+    NetworkProfile     : {NetworkInterfaces}
+    OSProfile          : {ComputerName, AdminUsername, LinuxConfiguration, Secrets,
+    AllowExtensionOperations, RequireGuestProvisionSignal}
+    ProvisioningState  : Succeeded
+    StorageProfile     : {ImageReference, OsDisk, DataDisks}
+    
+    PS C:\WINDOWS\system32>
+    ```
+3. Quite la etiqueta y actualice la máquina virtual. Use la marca `-Force` opcional para ejecutar el comando sin la confirmación del usuario.
+
+    ```powershell
+    $tags = $VirtualMachine.Tags
+    $tags.Remove($TagName)
+    Set-AzResource -ResourceId $VirtualMachine.Id -Tag $tags -Force
+    ```
+    A continuación, se incluye una salida de ejemplo:
+
+    ```output
+    PS C:\WINDOWS\system32> $tags = $VirtualMachine.Tags
+    PS C:\WINDOWS\system32> $tags.Remove($TagName)
+    True
+    PS C:\WINDOWS\system32> Set-AzResource -ResourceId $VirtualMachine.Id -Tag $tags -Force
+    
+    Name              : myazvm
+    ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/myas
+                        eazrg/providers/Microsoft.Compute/virtualMachines/myazvm
+    ResourceName      : myazvm
+    ResourceType      : Microsoft.Compute/virtualMachines
+    ResourceGroupName : myaseazrg
+    Location          : dbelocal
+    SubscriptionId    : d64617ad-6266-4b19-45af-81112d213322
+    Tags              : {}
+    Properties        : @{vmId=568a264f-c5d3-477f-a16c-4c5549eafa8c; hardwareProfile=;
+                        storageProfile=; osProfile=; networkProfile=; diagnosticsProfile=;
+                        provisioningState=Succeeded}
+    
+    PS C:\WINDOWS\system32>
+    ```
+
+### <a name="azurerm"></a>[AzureRM](#tab/azurerm)
+
+1. Configure algunos parámetros. 
+
+    ```powershell
+    $VMName = <VM Name>
+    $VMRG = <VM Resource Group>
+    $TagName = <Tag Name>
+   ``` 
+    A continuación, se incluye una salida de ejemplo:
+
+    ```output
     PS C:\WINDOWS\system32> $VMName = "myaselinuxvm1"
     PS C:\WINDOWS\system32> $VMRG = "myaserg1"
     PS C:\WINDOWS\system32> $TagName = "Organization" 
@@ -210,7 +434,7 @@ La salida anterior indica que fuera de las tres etiquetas, dos máquinas virtual
 
     A continuación, se incluye una salida de ejemplo:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VirtualMachine = Get-AzureRMVM -ResourceGroupName $VMRG -Name $VMName
     ResourceGroupName : myaserg1
     Id                : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg1/providers/Microsoft.Compute/virtualMachines/myaselinuxvm1
@@ -235,7 +459,7 @@ La salida anterior indica que fuera de las tres etiquetas, dos máquinas virtual
     ```
     A continuación, se incluye una salida de ejemplo:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $tags = $Virtualmachine.Tags
     PS C:\WINDOWS\system32> $tags
     Key          Value
@@ -259,8 +483,9 @@ La salida anterior indica que fuera de las tres etiquetas, dos máquinas virtual
                         provisioningState=Succeeded}
     PS C:\WINDOWS\system32>
     ```
-
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a [administrar etiquetas a través de AzureRM PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0&preserve-view=true).
+- Obtenga información sobre el [Etiquetado de una máquina virtual en Azure mediante los cmdlets az en PowerShell](../virtual-machines/tag-powershell.md).
+- Obtenga información sobre cómo [Administrar etiquetas mediante los cmdlets de AzureRM en PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0&preserve-view=true).
