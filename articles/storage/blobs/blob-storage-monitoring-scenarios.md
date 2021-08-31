@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 07/30/2021
 ms.custom: monitoring
-ms.openlocfilehash: 1d09538b9ada9a355ed956640d13a10ad544b348
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 8a4d6ab98bd126d2b8ec98650821d191dec4ed6d
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122180408"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771414"
 ---
 # <a name="best-practices-for-monitoring-azure-blob-storage"></a>Procedimientos recomendados para supervisar Azure Blob Storage
 
@@ -155,8 +155,6 @@ La clave compartida y la autenticación sas no proporcionan ningún medio para a
 
 ## <a name="optimize-cost-for-infrequent-queries"></a>Optimización del coste de las consultas poco frecuentes
 
-Si mantiene grandes cantidades de datos de registro pero planea consultarlos solo ocasionalmente (por ejemplo, para cumplir las obligaciones de cumplimiento y seguridad), considere la posibilidad de archivar los registros en una cuenta de almacenamiento en lugar de usar Log Analytics. En el caso de un gran número de transacciones, el coste de usar Log Analytics podría ser alto en relación con el archivado en el almacenamiento y el uso de otras técnicas de consulta. Log Analytics tiene sentido en los casos en los que desea usar las funcionalidades enriquecidas de Log Analytics. Puede reducir el coste de consultar datos archivando los registros en una cuenta de almacenamiento y, a continuación, consultando esos registros en un área de trabajo de Synapse.
-
 Puede exportar registros a Log Analytics para obtener funcionalidades de consulta nativas enriquecidas. Si tiene transacciones masivas en la cuenta de almacenamiento, el coste de usar registros con Log Analytics puede ser alto. Consulte [Precios de Azure Log Analytics](https://azure.microsoft.com/pricing/details/monitor/). Si solo tiene previsto consultar registros ocasionalmente (por ejemplo, los registros de consulta para la auditoría de cumplimiento), puede considerar la posibilidad de reducir el coste total mediante la exportación de registros a la cuenta de almacenamiento y, a continuación, usar una solución de consulta sin servidor sobre los datos de registro, por ejemplo, Azure Synapse.
 
 Con Azure Synapse, puede crear un grupo de SQL sin servidores para consultar los datos de registro cuando sea necesario. Esto podría ahorrar costes significativamente. 
@@ -187,7 +185,7 @@ Con Azure Synapse, puede crear un grupo de SQL sin servidores para consultar los
 
    ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Consulte también
 
 - [Supervisión de Azure Blob Storage](monitor-blob-storage.md).
 - [Tutorial: Uso de consultas de Kusto en Azure Data Explorer y Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).

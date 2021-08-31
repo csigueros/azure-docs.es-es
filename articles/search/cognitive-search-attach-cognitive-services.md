@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.openlocfilehash: 0fe9a87e82ab391fc0e1ccfca95ad48a0ef5dc61
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: c5f29cb909dae7b8e362cdf37481111dbf75c8d9
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772470"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195414"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Cognitive Search
 
@@ -47,7 +47,7 @@ Puede omitir la clave y la sección Cognitive Services para conjuntos de aptitud
   Como se ha señalado, [la búsqueda de entidades personalizadas](cognitive-search-skill-custom-entity-lookup.md) es un caso especial, ya que requiere una clave, pero es [medida por la Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 > [!TIP]
-> Para reducir el coste del procesamiento del conjunto de habilidades, habilite [el enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md) para almacenar en caché y reutilizar cualquier enriquecimiento que no se vea afectado por los cambios realizados en un conjunto de habilidades. El almacenamiento en caché requiere Azure Storage (consulte los [precios](https://azure.microsoft.com/pricing/details/storage/blobs/)), pero el costo acumulado de la ejecución del conjunto de aptitudes es menor si se pueden reutilizar los enriquecimientos existentes, especialmente en los que usan extracción de imágenes y análisis.
+> Para reducir el coste del procesamiento del conjunto de habilidades, habilite [el enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md) para almacenar en caché y reutilizar cualquier enriquecimiento que no se vea afectado por los cambios realizados en un conjunto de habilidades. El almacenamiento en caché requiere Azure Storage (consulte los [precios](/pricing/details/storage/blobs/)), pero el costo acumulado de la ejecución del conjunto de aptitudes es menor si se pueden reutilizar los enriquecimientos existentes, especialmente en los que usan extracción de imágenes y análisis.
 
 ## <a name="same-region-requirement"></a>Requisito de la misma región
 

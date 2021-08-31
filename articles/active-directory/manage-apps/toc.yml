@@ -81,6 +81,8 @@
           href: certificate-signing-options.md
         - name: Administración de certificados
           href: manage-certificates-for-federated-single-sign-on.md
+        - name: Protección contra la suplantación de identidad en el consentimiento
+          href: protect-against-consent-phishing.md
         - name: Restricciones de inquilino
           href: tenant-restrictions.md
         - name: Configuración del cifrado de tokens SAML

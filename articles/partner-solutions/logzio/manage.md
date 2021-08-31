@@ -4,14 +4,14 @@ description: Aprenda a administrar la integración de Azure con Logz.io.
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 08/17/2021
+ms.date: 07/28/2021
 ms.author: tomfitz
-ms.openlocfilehash: e86b42694276c23f4d38809c9b40a7f92e39fa64
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 0b00e1b4b5cf868fdd70909a1ce42f0861f2e0b2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429436"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780050"
 ---
 # <a name="manage-the-logzio-integration-in-azure"></a>Administración de la integración de Logz.io en Azure
 
@@ -50,7 +50,7 @@ Para configurar los valores de diagnóstico, seleccione el recurso. En el panel 
 
 En la columna de **detalles de destino**, active la opción para **enviar a soluciones de asociados** para elegir Logz.io como destino. Esta opción solo está disponible después de crear un recurso de Logz.
 
-:::image type="content" source="./media/manage/configure-diagnostics.png" alt-text="Definir una configuración de diagnóstico.":::
+:::image type="content" source="./media/manage/configure-diagnostics.png" alt-text="Configuración de los valores de diagnóstico.":::
 
 ## <a name="view-monitored-resources"></a>Vista de los recursos supervisados
 

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 8/10/2021
+ms.date: 8/24/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d159f8ad1840f3351fa31ec78ceead9cdfd7d9b8
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 89d6597bd37ee61b5c42199b660fd2be80fc793a
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183970"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824664"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -23,7 +23,7 @@ En este artículo se tratan las notas de la versión de las versiones compatible
 ## <a name="supported-versions"></a>Versiones compatibles
 Se admiten las siguientes versiones de agentes de Azure File Sync:
 
-| Hito | Número de versión del agente | Fecha de la versión | Status |
+| Hito | Número de versión del agente | Fecha de la versión | Estado |
 |----|----------------------|--------------|------------------|
 | Versión V13: [KB4588753](https://support.microsoft.com/topic/632fb833-42ed-4e4d-8abd-746bd01c1064)| 13.0.0.0 | 12 de julio de 2021 | Compatible |
 | Versión V12.1: [KB4588751](https://support.microsoft.com/topic/497dc33c-d38b-42ca-8015-01c906b96132)| 12.1.0.0 | 20 de mayo de 2021 | Compatible |
@@ -35,7 +35,7 @@ Se admiten las siguientes versiones de agentes de Azure File Sync:
 ## <a name="unsupported-versions"></a>Versiones no admitidas
 Las siguientes versiones de agentes de Azure File Sync han expirado y ya no se admiten:
 
-| Hito | Número de versión del agente | Fecha de la versión | Status |
+| Hito | Número de versión del agente | Fecha de la versión | Estado |
 |----|----------------------|--------------|------------------|
 | Versión V10 | 10.0.0.0 - 10.1.0.0 | N/D | No compatible: las versiones del agente expiraron el 28 de junio de 2021. |
 | Versión V9 | 9.0.0.0 - 9.1.0.0 | N/D | No compatible: las versiones del agente expiraron el 16 de febrero de 2021. |
@@ -121,7 +121,6 @@ Los siguientes elementos no se sincronizan, pero el resto del sistema funciona c
 - Los clústeres de conmutación por error solo son compatibles con discos en clúster, pero no con volúmenes compartidos de clúster (CSV).
 - No se puede anidar un punto de conexión de servidor. Puede coexistir en el mismo volumen en paralelo con otro punto de conexión.
 - No almacene un archivo de paginación de aplicación o sistema operativo en una ubicación de punto de conexión de servidor.
-- Si se cambia el nombre del servidor, no se actualiza en el portal.
 
 ### <a name="cloud-endpoint"></a>Punto de conexión de nube
 - Azure File Sync admite realizar cambios directamente en el recurso compartido de archivos de Azure. Sin embargo, los cambios realizados en el recurso compartido de archivos de Azure primero deben ser detectados por un trabajo de detección de cambios de Azure File Sync. Se inicia un trabajo de detección de cambios para un punto de conexión de nube una vez cada 24 horas. Para sincronizar inmediatamente los archivos que se modifican en el recurso compartido de archivos de Azure, se puede usar el cmdlet [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) de PowerShell para iniciar de forma manual la detección de cambios en el recurso compartido. Además, los cambios realizados en un recurso compartido de archivos de Azure a través del protocolo de REST no actualizarán la hora de la última modificación de SMB y no se verán como cambios derivados de la sincronización.

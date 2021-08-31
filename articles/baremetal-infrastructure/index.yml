@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: Ajayan1008
   ms.author: v-hborys
-  ms.date: 04/14/2021
-  ms.openlocfilehash: 6682385741d8d72eafe6817194698b13e52a5865
-  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+  ms.date: 08/27/2021
+  ms.openlocfilehash: e5eb67ce6a1baa7c5764b927f9595b73518ebce3
+  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/26/2021
-  ms.locfileid: "122968869"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123109341"
 landingContent:
 - title: Acerca de BareMetal Infrastructure
   linkLists:
@@ -129,8 +129,8 @@ landingContent:
       url: ../virtual-machines/workloads/sap/azure-monitor-providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
     - text: 'Implementación de Azure Monitor para soluciones de SAP: Azure Portal'
       url: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-    - text: 'Implementación de Azure Monitor para soluciones de SAP: PowerShell'
-      url: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart-powershell.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: Configuración de alertas en Azure Monitor para soluciones de SAP
+      url: ../virtual-machines/workloads/sap/azure-monitor-alerts-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
   - linkListType: how-to-guide
     links:
     - text: Configuración de alta disponibilidad con STONITH

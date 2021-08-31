@@ -54,7 +54,7 @@ items:
         items:
           - name: Crear un área de trabajo
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: quickstart-create-workspace.md
                 displayName: quickstart
               - name: Azure CLI
@@ -653,7 +653,9 @@ items:
                 href: ./spark/apache-spark-azure-log-analytics.md
           - name: Orígenes de datos
             items:
-              - name: Azure Cosmos DB
+              - name: "Azure Cosmos DB Spark\_3"
+                href: ./synapse-link/how-to-query-analytical-store-spark-3.md
+              - name: "Azure Cosmos DB Spark\_2"
                 href: ./synapse-link/how-to-query-analytical-store-spark.md
               - name: Azure Data Explorer (Kusto)
                 href: ./spark/data-sources/apache-spark-kusto-connector.md
@@ -705,7 +707,9 @@ items:
                 href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
               - name: "Uso de Power\_BI y un grupo de SQL sin servidor para analizar Azure Cosmos\_DB"
                 href: ../cosmos-db/synapse-link-power-bi.md?context=/azure/synapse-analytics/context/context
-              - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con Apache Spark"
+              - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con Apache Spark\_3"
+                href: ./synapse-link/how-to-query-analytical-store-spark-3.md
+              - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con Apache Spark\_2"
                 href: ./synapse-link/how-to-query-analytical-store-spark.md
               - name: Copia de datos de Synapse Link a un grupo de SQL dedicado mediante Apache Spark
                 href: ./synapse-link/how-to-copy-to-sql-pool.md
@@ -730,15 +734,15 @@ items:
       - name: Conceptos
         items:
           - name: Canalización y actividad
-            href: ../data-factory/concepts-pipelines-activities.md?context=/azure/synapse-analytics/context/context
+            href: ../data-factory/concepts-pipelines-activities.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Servicios vinculados
-            href: ../data-factory/concepts-linked-services.md?context=/azure/synapse-analytics/context/context
+            href: ../data-factory/concepts-linked-services.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Conjuntos de datos
-            href: ../data-factory/concepts-datasets-linked-services.md?context=/azure/synapse-analytics/context/context
+            href: ../data-factory/concepts-datasets-linked-services.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Ejecución y desencadenador
-            href: ../data-factory/concepts-pipeline-execution-triggers.md?context=/azure/synapse-analytics/context/context
+            href: ../data-factory/concepts-pipeline-execution-triggers.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Tiempo de ejecución de integración
-            href: ../data-factory/concepts-integration-runtime.md?context=/azure/synapse-analytics/context/context
+            href: ../data-factory/concepts-integration-runtime.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Diferencias con respecto a Azure Data Factory
             href: ./data-integration/concepts-data-factory-differences.md
           - name: Flujos de datos
@@ -746,390 +750,392 @@ items:
               - name: Introducción al flujo de datos
                 href: concepts-data-flow-overview.md
               - name: Modo de depuración
-                href: ../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Desfase de esquema
-                href: ../data-factory/concepts-data-flow-schema-drift.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/concepts-data-flow-schema-drift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Patrones de columnas
-                href: ../data-factory/concepts-data-flow-column-pattern.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/concepts-data-flow-column-pattern.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Supervisión de Data Flow
-                href: ../data-factory/concepts-data-flow-monitoring.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/concepts-data-flow-monitoring.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Rendimiento de flujo de datos
-                href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+              - name: Rendimiento de Microsoft Integration Runtime
+                href: ../data-factory/concepts-integration-runtime-performance.md?context=/azure/synapse-analytics/context/context
               - name: Administración de grafo
-                href: ../data-factory/concepts-data-flow-manage-graph.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/concepts-data-flow-manage-graph.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Generador de expresiones
-                href: ../data-factory/concepts-data-flow-expression-builder.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/concepts-data-flow-expression-builder.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Lenguaje de expresiones
-                href: ../data-factory/data-flow-expression-functions.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-expression-functions.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Guías paso a paso
         items:
           - name: Autor
             items:
               - name: Creación visual de factorías de datos
-                href: ../data-factory/author-visually.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/author-visually.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Desarrollo y depuración iterativos
-                href: ../data-factory/iterative-development-debugging.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/iterative-development-debugging.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Conectores
             items:
               - name: Introducción a los conectores
-                href: ../data-factory/connector-overview.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-overview.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Servicio Web de Amazon Marketplace
-                href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon Redshift
-                href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon S3
-                href: ../data-factory/connector-amazon-simple-storage-service.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-amazon-simple-storage-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: "Almacenamiento compatible con Amazon\_S3"
-                href: ../data-factory/connector-amazon-s3-compatible-storage.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-amazon-s3-compatible-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Formato Avro
-                href: ../data-factory/format-avro.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/format-avro.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Azure Blob Storage
-                href: ../data-factory/connector-azure-blob-storage.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-blob-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
               - name: Azure Cognitive Search
-                href: ../data-factory/connector-azure-search.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-search.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: API de SQL de Azure Cosmos DB
-                href: ../data-factory/connector-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: API de Azure Cosmos DB para MongoDB
-                href: ../data-factory/connector-azure-cosmos-db-mongodb-api.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-cosmos-db-mongodb-api.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Explorador de datos de Azure
-                href: ../data-factory/connector-azure-data-explorer.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-data-explorer.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Azure Data Lake Storage Gen1
-                href: ../data-factory/connector-azure-data-lake-store.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-data-lake-store.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Azure Data Lake Storage Gen2
-                href: ../data-factory/connector-azure-data-lake-storage.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-data-lake-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Azure Database for MariaDB
-                href: ../data-factory/connector-azure-database-for-mariadb.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-database-for-mariadb.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Azure Database for MySQL
-                href: ../data-factory/connector-azure-database-for-mysql.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-database-for-mysql.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Azure Database for PostgreSQL
-                href: ../data-factory/connector-azure-database-for-postgresql.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-database-for-postgresql.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Azure Databricks Delta Lake
-                href: ../data-factory/connector-azure-databricks-delta-lake.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-databricks-delta-lake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Azure File Storage
-                href: ../data-factory/connector-azure-file-storage.md?context=/azure/synapse-analytics/context/context
-              - name: "Azure\_SQL\_Database"
-                href: ../data-factory/connector-azure-sql-database.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-file-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+              - name: Azure SQL Database
+                href: ../data-factory/connector-azure-sql-database.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Instancia administrada de Azure SQL
                 href: ../data-factory/connector-azure-sql-managed-instance.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
               - name: Azure Synapse Analytics
-                href: ../data-factory/connector-azure-sql-data-warehouse.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-sql-data-warehouse.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Azure Table Storage
-                href: ../data-factory/connector-azure-table-storage.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-azure-table-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Formato binario
-                href: ../data-factory/format-binary.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/format-binary.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Cassandra
-                href: ../data-factory/connector-cassandra.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-cassandra.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Formato Common Data Model
-                href: ../data-factory/format-common-data-model.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/format-common-data-model.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Concur
-                href: ../data-factory/connector-concur.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-concur.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Couchbase
-                href: ../data-factory/connector-couchbase.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-couchbase.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Dataverse
-                href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: DB2
-                href: ../data-factory/connector-db2.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-db2.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Formato de texto delimitado
-                href: ../data-factory/format-delimited-text.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/format-delimited-text.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Detalles
-                href: ../data-factory/connector-drill.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-drill.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Dynamics 365
-                href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Dynamics AX
-                href: ../data-factory/connector-dynamics-ax.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-dynamics-ax.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Dynamics CRM
-                href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Formato de Excel
-                href: ../data-factory/format-excel.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/format-excel.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Sistema de archivos
-                href: ../data-factory/connector-file-system.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-file-system.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: FTP
-                href: ../data-factory/connector-ftp.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-ftp.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: GitHub
-                href: ../data-factory/connector-github.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-github.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Google AdWords
-                href: ../data-factory/connector-google-adwords.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-google-adwords.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Google BigQuery
-                href: ../data-factory/connector-google-bigquery.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-google-bigquery.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Google Cloud Storage
-                href: ../data-factory/connector-google-cloud-storage.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-google-cloud-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Greenplum
-                href: ../data-factory/connector-greenplum.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-greenplum.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: HBase
-                href: ../data-factory/connector-hbase.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-hbase.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: HDFS
-                href: ../data-factory/connector-hdfs.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-hdfs.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Hive
-                href: ../data-factory/connector-hive.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-hive.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: HTTP
-                href: ../data-factory/connector-http.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-http.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: HubSpot
-                href: ../data-factory/connector-hubspot.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-hubspot.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Impala
-                href: ../data-factory/connector-impala.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-impala.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Informix
-                href: ../data-factory/connector-informix.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-informix.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Jira
-                href: ../data-factory/connector-jira.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-jira.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Formato JSON
-                href: ../data-factory/format-json.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/format-json.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Magento
-                href: ../data-factory/connector-magento.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-magento.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: MariaDB
-                href: ../data-factory/connector-mariadb.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-mariadb.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Marketo
-                href: ../data-factory/connector-marketo.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-marketo.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Microsoft Access
-                href: ../data-factory/connector-microsoft-access.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-microsoft-access.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: MongoDB
-                href: ../data-factory/connector-mongodb.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-mongodb.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
                 items:
                   - name: MongoDB (heredado)
-                    href: ../data-factory/connector-mongodb-legacy.md?context=/azure/synapse-analytics/context/context
+                    href: ../data-factory/connector-mongodb-legacy.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: MongoDB Atlas
-                href: ../data-factory/connector-mongodb-atlas.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-mongodb-atlas.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: MySQL
-                href: ../data-factory/connector-mysql.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-mysql.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Netezza
-                href: ../data-factory/connector-netezza.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-netezza.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: OData
-                href: ../data-factory/connector-odata.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-odata.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: ODBC
-                href: ../data-factory/connector-odbc.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-odbc.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Office 365
-                href: ../data-factory/connector-office-365.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-office-365.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Oracle
-                href: ../data-factory/connector-oracle.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Oracle Cloud Storage
-                href: ../data-factory/connector-oracle-cloud-storage.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-oracle-cloud-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Oracle Eloqua
-                href: ../data-factory/connector-oracle-eloqua.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-oracle-eloqua.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Oracle Responsys
-                href: ../data-factory/connector-oracle-responsys.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-oracle-responsys.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Oracle Service Cloud
-                href: ../data-factory/connector-oracle-service-cloud.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-oracle-service-cloud.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Formato ORC
-                href: ../data-factory/format-orc.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/format-orc.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Formato Parquet
-                href: ../data-factory/format-parquet.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/format-parquet.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: PayPal
-                href: ../data-factory/connector-paypal.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-paypal.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Phoenix
-                href: ../data-factory/connector-phoenix.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-phoenix.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: PostgreSQL
-                href: ../data-factory/connector-postgresql.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-postgresql.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Presto
-                href: ../data-factory/connector-presto.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-presto.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: QuickBooks Online
-                href: ../data-factory/connector-quickbooks.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-quickbooks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: REST
-                href: ../data-factory/connector-rest.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
               - name: Salesforce
-                href: ../data-factory/connector-salesforce.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-salesforce.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Salesforce Service Cloud
-                href: ../data-factory/connector-salesforce-service-cloud.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-salesforce-service-cloud.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Nube de marketing de Salesforce
-                href: ../data-factory/connector-salesforce-marketing-cloud.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-salesforce-marketing-cloud.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Centro abierto de SAP Business Warehouse
-                href: ../data-factory/connector-sap-business-warehouse-open-hub.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-sap-business-warehouse-open-hub.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
                 items:
                   - name: Carga de datos de SAP BW
-                    href: ../data-factory/load-sap-bw-data.md?context=/azure/synapse-analytics/context/context
+                    href: ../data-factory/load-sap-bw-data.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Expresión multidimensional de SAP Business Warehouse
-                href: ../data-factory/connector-sap-business-warehouse.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-sap-business-warehouse.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: SAP Cloud for Customer
-                href: ../data-factory/connector-sap-cloud-for-customer.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-sap-cloud-for-customer.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: SAP ECC
-                href: ../data-factory/connector-sap-ecc.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-sap-ecc.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: SAP HANA
-                href: ../data-factory/connector-sap-hana.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-sap-hana.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: SAP Table
-                href: ../data-factory/connector-sap-table.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-sap-table.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: ServiceNow
-                href: ../data-factory/connector-servicenow.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-servicenow.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: SFTP
-                href: ../data-factory/connector-sftp.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-sftp.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Lista de SharePoint Online
-                href: ../data-factory/connector-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Shopify
-                href: ../data-factory/connector-shopify.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-shopify.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Snowflake
-                href: ../data-factory/connector-snowflake.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-snowflake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Spark
-                href: ../data-factory/connector-spark.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-spark.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: SQL Server
-                href: ../data-factory/connector-sql-server.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-sql-server.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Square
-                href: ../data-factory/connector-square.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-square.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Sybase
-                href: ../data-factory/connector-sybase.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-sybase.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Teradata
-                href: ../data-factory/connector-teradata.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-teradata.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Vertica
-                href: ../data-factory/connector-vertica.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-vertica.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Tabla web
-                href: ../data-factory/connector-web-table.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-web-table.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Xero
-                href: ../data-factory/connector-xero.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-xero.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Formato XML
-                href: ../data-factory/format-xml.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/format-xml.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Zoho
-                href: ../data-factory/connector-zoho.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-zoho.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Mover datos
             items:
               - name: Copia de datos con la actividad de copia
-                href: ../data-factory/copy-activity-overview.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/copy-activity-overview.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Supervisión de actividad de copia
                 href: ../data-factory/copy-activity-monitoring.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Eliminación de archivos con la actividad de eliminación
-                href: ../data-factory/delete-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/delete-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Herramienta Copiar datos
-                href: ../data-factory/copy-data-tool.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/copy-data-tool.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Compatibilidad con formato y compresión
-                href: ../data-factory/supported-file-formats-and-compression-codecs.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/supported-file-formats-and-compression-codecs.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Rendimiento de actividad de copia
                 items:
                   - name: Guía de rendimiento y escalabilidad
-                    href: ../data-factory/copy-activity-performance.md?context=/azure/synapse-analytics/context/context
+                    href: ../data-factory/copy-activity-performance.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
                   - name: Solución de problemas de rendimiento
-                    href: ../data-factory/copy-activity-performance-troubleshooting.md?context=/azure/synapse-analytics/context/context
+                    href: ../data-factory/copy-activity-performance-troubleshooting.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
                   - name: Características de rendimiento
-                    href: ../data-factory/copy-activity-performance-features.md?context=/azure/synapse-analytics/context/context
+                    href: ../data-factory/copy-activity-performance-features.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Conservación de metadatos y listas de control de acceso
-                href: ../data-factory/copy-activity-preserve-metadata.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/copy-activity-preserve-metadata.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Esquema y asignación de tipos
-                href: ../data-factory/copy-activity-schema-and-type-mapping.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/copy-activity-schema-and-type-mapping.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Tolerancia a errores
-                href: ../data-factory/copy-activity-fault-tolerance.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/copy-activity-fault-tolerance.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Comprobación de la coherencia de los datos
-                href: ../data-factory/copy-activity-data-consistency.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/copy-activity-data-consistency.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Compatibilidad con formato y compresión (heredado)
-                href: ../data-factory/supported-file-formats-and-compression-codecs-legacy.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/supported-file-formats-and-compression-codecs-legacy.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Transformación de datos
-            href: ../data-factory/transform-data.md?context=/azure/synapse-analytics/context/context
+            href: ../data-factory/transform-data.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
             items:
               - name: Ejecución de una actividad de Data Flow
-                href: ../data-factory/control-flow-execute-data-flow-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-execute-data-flow-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de Synapse Notebook
                 href: synapse-notebook-activity.md
               - name: Actividad de procedimiento almacenado de grupo de Synapse SQL
                 href: ./data-integration/sql-pool-stored-procedure-activity.md
               - name: Actividad de función de Azure
-                href: ../data-factory/control-flow-azure-function-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-azure-function-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad personalizada
-                href: ../data-factory/transform-data-using-dotnet-custom-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-using-dotnet-custom-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de Jar en Databricks
-                href: ../data-factory/transform-data-databricks-jar.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-databricks-jar.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad Notebook de Databricks
-                href: ../data-factory/transform-data-databricks-notebook.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-databricks-notebook.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de Python en Databricks
-                href: ../data-factory/transform-data-databricks-python.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-databricks-python.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de comando de Data Explorer
-                href: /azure/data-explorer/data-factory-command-activity?context=/azure/synapse-analytics/context/context
+                href: /azure/data-explorer/data-factory-command-activity?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de U-SQL de Data Lake
-                href: ../data-factory/transform-data-using-data-lake-analytics.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-using-data-lake-analytics.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de HDInsight Hive
-                href: ../data-factory/transform-data-using-hadoop-hive.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-using-hadoop-hive.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de MapReduce de HDInsight
-                href: ../data-factory/transform-data-using-hadoop-map-reduce.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-using-hadoop-map-reduce.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de HDInsight Pig
-                href: ../data-factory/transform-data-using-hadoop-pig.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-using-hadoop-pig.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de HDInsight Spark
-                href: ../data-factory/transform-data-using-spark.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-using-spark.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de HDInsight Streaming
-                href: ../data-factory/transform-data-using-hadoop-streaming.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-using-hadoop-streaming.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de ejecución de canalización de Machine Learning
-                href: ../data-factory/transform-data-machine-learning-service.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-machine-learning-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de ejecución por lotes de Machine Learning Studio (clásico)
-                href: ../data-factory/transform-data-using-machine-learning.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-using-machine-learning.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de actualización de recursos de Machine Learning Studio (clásico)
-                href: ../data-factory/update-machine-learning-models.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/update-machine-learning-models.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de procedimiento almacenado
-                href: ../data-factory/transform-data-using-stored-procedure.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/transform-data-using-stored-procedure.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Servicios vinculados de proceso
-                href: ../data-factory/compute-linked-services.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/compute-linked-services.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Flujo de control
             items:
               - name: Actividad de anexión de variables
-                href: ../data-factory/control-flow-append-variable-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-append-variable-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de ejecución de canalización
-                href: ../data-factory/control-flow-execute-pipeline-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-execute-pipeline-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de filtro
-                href: ../data-factory/control-flow-filter-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-filter-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad ForEach
-                href: ../data-factory/control-flow-for-each-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-for-each-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de obtención de metadatos
-                href: ../data-factory/control-flow-get-metadata-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-get-metadata-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad If Condition
-                href: ../data-factory/control-flow-if-condition-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-if-condition-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de búsqueda
-                href: ../data-factory/control-flow-lookup-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-lookup-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Establecimiento de la actividad de variable
-                href: ../data-factory/control-flow-set-variable-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-set-variable-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad Until
-                href: ../data-factory/control-flow-until-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-until-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de validación
-                href: ../data-factory/control-flow-validation-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-validation-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de espera
-                href: ../data-factory/control-flow-wait-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-wait-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad web
-                href: ../data-factory/control-flow-web-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-web-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Actividad de webhook
-                href: ../data-factory/control-flow-webhook-activity.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-webhook-activity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Transformaciones de flujos de datos
             items:
               - name: Introducción a las transformaciones
-                href: ../data-factory/data-flow-transformation-overview.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-transformation-overview.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Agregado
-                href: ../data-factory/data-flow-aggregate.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-aggregate.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Alteración de fila
-                href: ../data-factory/data-flow-alter-row.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-alter-row.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: División condicional
-                href: ../data-factory/data-flow-conditional-split.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-conditional-split.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Columna derivada
-                href: ../data-factory/data-flow-derived-column.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-derived-column.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Exists
-                href: ../data-factory/data-flow-exists.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-exists.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Filter
-                href: ../data-factory/data-flow-filter.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-filter.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Acoplar
-                href: ../data-factory/data-flow-flatten.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-flatten.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Join
-                href: ../data-factory/data-flow-join.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-join.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Búsqueda
-                href: ../data-factory/data-flow-lookup.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-lookup.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Nueva rama
-                href: ../data-factory/data-flow-new-branch.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-new-branch.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Dinamización
-                href: ../data-factory/data-flow-pivot.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-pivot.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Rango
-                href: ../data-factory/data-flow-rank.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-rank.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Seleccionar
-                href: ../data-factory/data-flow-select.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-select.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Receptor
-                href: ../data-factory/data-flow-sink.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-sink.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Sort
-                href: ../data-factory/data-flow-sort.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-sort.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Source
-                href: ../data-factory/data-flow-source.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-source.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Clave suplente
-                href: ../data-factory/data-flow-surrogate-key.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-surrogate-key.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Union
-                href: ../data-factory/data-flow-union.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-union.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Anulación de dinamización
-                href: ../data-factory/data-flow-unpivot.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-unpivot.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Periodo
-                href: ../data-factory/data-flow-window.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-flow-window.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Parametrizar
             items:
               - name: Parametrizar servicios vinculados
                 href: ../data-factory/parameterize-linked-services.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Lenguaje de expresiones
-                href: ../data-factory/control-flow-expression-language-functions.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-expression-language-functions.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Variables del sistema
-                href: ../data-factory/control-flow-system-variables.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/control-flow-system-variables.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Parámetros de flujo de datos
-                href: ../data-factory/parameters-data-flow.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/parameters-data-flow.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Administración y supervisión
             items:
               - name: Ejecuciones de la canalización
@@ -1149,17 +1155,17 @@ items:
               - name: Creación de un desencadenador de ventana de saltos de tamaño constante
                 href: ../data-factory/how-to-create-tumbling-window-trigger.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante
-                href: ../data-factory/tumbling-window-trigger-dependency.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/tumbling-window-trigger-dependency.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: Guía de solución de problemas
             items:
               - name: Solución de problemas de actividad
-                href: ../data-factory/data-factory-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/data-factory-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Solución de problemas del conector
-                href: ../data-factory/connector-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/connector-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Integración e implementación continuas
-                href: ../data-factory/ci-cd-github-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/ci-cd-github-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Seguridad y control de acceso
-                href: ../data-factory/security-and-access-control-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context
+                href: ../data-factory/security-and-access-control-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Solución de problemas de los entornos de ejecución de integración autohospedados
                 href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
   - name: Machine Learning

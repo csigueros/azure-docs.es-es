@@ -7,7 +7,7 @@
       href: overview.md
     - name: 'Acerca de centros de conectividad, grupos y conexiones'
       href: key-concepts.md
-- name: Guías de inicio rápido
+- name: Guías de inicios rápidos
   expanded: true
   items:
     - name: Crear instancia
@@ -43,16 +43,14 @@
     - name: Streaming de cliente mediante un subprotocolo compatible con el servicio
       href: tutorial-subprotocol.md
     - name: Autenticación y permisos
-      href: 'https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions'
+      href: tutorial-permission.md
 - name: Guías paso a paso
   expanded: true
   items:
     - name: Desarrollar
       items:
-        - name: Uso de subprotocolos
-          href: 'https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols'
-        - name: Autenticación y permisos
-          href: 'https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions'
+        - name: Procedimientos para crear clientes de WebSocket
+          href: howto-websocket-connect.md
     - name: Seguridad
       items:
         - name: Protección de la clave de acceso
@@ -92,7 +90,15 @@
     - name: Desencadenador y enlaces de Azure Functions
       href: reference-functions-bindings.md
     - name: SDK de servidor
-      href: choose-server-sdks.md
+      items:
+        - name: 'SDK de servidor: C#'
+          href: reference-server-sdk-csharp.md
+        - name: 'SDK de servidor: Java'
+          href: reference-server-sdk-java.md
+        - name: 'SDK de servidor: JavaScript'
+          href: reference-server-sdk-js.md
+        - name: 'SDK de servidor: Python'
+          href: reference-server-sdk-python.md
     - name: API DE REST
       href: /rest/api/webpubsub
 - name: Recursos

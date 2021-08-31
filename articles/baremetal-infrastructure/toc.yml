@@ -75,6 +75,8 @@
               href: ../virtual-machines/workloads/sap/azure-monitor-providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
             - name: 'Implementación de Azure Monitor para soluciones de SAP: Azure Portal'
               href: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: Configuración de alertas en Azure Monitor para soluciones de SAP
+              href: ../virtual-machines/workloads/sap/azure-monitor-alerts-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
             - name: 'Implementación de Azure Monitor para soluciones de SAP: PowerShell'
               href: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart-powershell.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
             - name: Supervisión de referencia de datos
