@@ -3,16 +3,16 @@ title: Uso de Azure Security Center para proteger los hosts de Docker y los cont
 description: Protección de hosts de Docker y comprobación de su compatibilidad con el banco de pruebas de Docker de CIS.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 07/18/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b30e08a2739000d2a7ec14a95742f2654e1d2ea1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e421815fd962a62760c4d16106daa7f85fb1599
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98916241"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732553"
 ---
 # <a name="harden-your-docker-hosts"></a>Protección de los hosts de Docker
 
@@ -32,7 +32,7 @@ Cuando se detectan vulnerabilidades, se agrupan en una sola recomendación.
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
 |Roles y permisos necesarios:|**Lector** en el área de trabajo a la que se conecta el host.|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||
 
 ## <a name="identify-and-remediate-security-vulnerabilities-in-your-docker-configuration"></a>Identificación y corrección de vulnerabilidades de seguridad en la configuración de Docker
@@ -43,18 +43,21 @@ Cuando se detectan vulnerabilidades, se agrupan en una sola recomendación.
 
     En la página de recomendación se muestran los recursos afectados (hosts de Docker). 
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-found.png" alt-text="Recomendación para corregir vulnerabilidades en las configuraciones de seguridad de contenedores":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-found.png" alt-text="Recomendación para corregir vulnerabilidades en las configuraciones de seguridad de contenedores.":::
+
+    > [!NOTE]
+    > Las máquinas que no ejecutan Docker se mostrarán en la pestaña **Recursos no aplicables**. Aparecerán en Azure Policy como Conforme. 
 
 1. Para ver y corregir los controles de CIS en los que se produjo un error en un host específico, seleccione el host que desea investigar. 
 
     > [!TIP]
     > Si empezó en la página de inventario de recursos y ha llegado a esta recomendación desde ahí, seleccione el botón **Realizar acción** de la página de la recomendación.
     >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Botón Realizar acción para iniciar Log Analytics":::
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Botón Realizar acción para iniciar Log Analytics.":::
 
     Log Analytics se abre con una operación personalizada lista para ejecutarse. La consulta personalizada predeterminada incluye una lista de todas las reglas con errores que se han evaluado, junto con instrucciones para ayudarle a resolver los problemas.
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Página de Log Analytics con la consulta que muestra todos los controles de CIS con errores":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Página de Log Analytics con la consulta que muestra todos los controles de CIS con errores.":::
 
 1. Retoque los parámetros de consulta si es necesario.
 

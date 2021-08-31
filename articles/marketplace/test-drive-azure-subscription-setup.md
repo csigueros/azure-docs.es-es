@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 03/16/2020
-ms.openlocfilehash: c82f68ee35ae95a424c0847be9a9cc770185af43
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 3fe1862f951b83c6514bda061650b912e9230e46
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005742"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071573"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configuración de una suscripción a Azure Marketplace para las versiones de prueba hospedadas
 
@@ -72,7 +72,33 @@ Explica cómo configurar una suscripción a Azure Marketplace para versiones de 
 
         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Inicio de sesión en su cuenta.":::
 
-6. Agregue la aplicación de Azure creada anteriormente como usuario de la aplicación a la instancia de la versión de prueba de CRM.
+6. Cree un nuevo grupo de seguridad y agréguelo a la aplicación Canvas (Power Apps). Este paso solo es aplicable a las ofertas de aplicación Canvas (Power Apps).
+    1. Crear un nuevo grupo de seguridad.
+        1. Vaya a **Azure Active Directory**.
+        1. En **Administrar**, seleccione **Grupos**.
+        1. Seleccione **+ Nuevo grupo**.
+        1. Seleccione el tipo **Grupo de seguridad**. 
+        1. En **Nombre del grupo**, introduzca *TestDriveSecurityGroup*.
+        1. Agregue una descripción, como **Grupo de seguridad para pruebas**.
+        1. Deje el resto de campos tal como están y seleccione **Crear**.
+
+            :::image type="content" source="./media/test-drive/create-new-group.png" alt-text="Muestra cómo crear un nuevo grupo de seguridad.":::
+
+    1. Agregue el grupo de seguridad que acaba de crear a la aplicación Canvas (Power Apps).
+        1. Abra la página del portal **PowerApps** e inicie sesión.
+        1. Seleccione **Aplicaciones** y, luego, los puntos suspensivos de la aplicación.
+        1. Seleccione **Compartir**.
+        1. Busque el grupo de seguridad **TestDriveSecurityGroup** creado en el paso anterior.
+        1. Agregue **Permisos de datos** al grupo de seguridad.
+        1. Desactive la casilla de invitación de **envío por correo electrónico**.
+        1. Seleccione **Compartir**.
+    
+            > [!NOTE]
+            > Cuando se usa un origen de datos back-end distinto de CE/Dataverse para la aplicación Canvas (Power Apps):
+            > - Permita que el grupo de seguridad creado anteriormente acceda al origen de datos. Por ejemplo, un origen de datos de SharePoint.
+            > - Abra SharePoint y comparta la tabla de datos con el grupo de seguridad.
+
+7. Agregue la aplicación de Azure creada anteriormente como usuario de la aplicación a la instancia de la versión de prueba de CRM. Este paso solo es aplicable a las ofertas de Dynamics 365 Customer Engagement.
     1. Agregue un nuevo usuario a **Azure Active Directory**. Solo se requieren los valores de **Nombre** y **Nombre de usuario** (pertenecientes al mismo inquilino) para crear este usuario, deje los demás campos con los valores predeterminados. Copie el valor de nombre de usuario.
     2. Inicie sesión en **Instancia de CRM** y seleccione **Configuración** > **Seguridad** > **Usuarios**.
     3. Cambie la vista a **Usuarios de la aplicación**.

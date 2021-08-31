@@ -165,7 +165,7 @@
             - name: Recuperación de archivos de las copias de seguridad de máquina virtual de Azure
               href: backup-azure-restore-files-from-vm.md
             - name: Restauración de máquinas virtuales cifradas
-              href: backup-azure-vms-encryption.md
+              href: restore-azure-encrypted-virtual-machines.md
             - name: Restauración de la clave y el secreto para máquinas virtuales cifradas
               href: backup-azure-restore-key-secret.md
         - name: Administrar

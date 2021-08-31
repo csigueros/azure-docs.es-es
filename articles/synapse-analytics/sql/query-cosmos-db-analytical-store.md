@@ -10,12 +10,12 @@ ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 64a112fd29ee9e3fbb82d9b54322415569b3ff85
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: a0f3e5f707600933ce68e51634145cd3515c5d6a
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209543"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183020"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Consulta de datos de Azure Cosmos DB con un grupo de SQL sin servidor en Azure Synapse Link
 
@@ -23,7 +23,19 @@ Un grupo de SQL sin servidor permite analizar los datos de los contenedores de A
 
 Para consultar Azure Cosmos DB, se admite el área expuesta de [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) completa mediante la función [OPENROWSET](develop-openrowset.md), que incluye la mayoría de las [funciones y los operadores de SQL](overview-features.md). También puede almacenar los resultados de la consulta que lee los datos de Azure Cosmos DB junto con los de Azure Blob Storage o Azure Data Lake Storage mediante [create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). Actualmente no se pueden almacenar los resultados de las consultas de un grupo de SQL sin servidor en Azure Cosmos DB mediante CETAS.
 
-En este artículo, aprenderá a escribir una consulta con un grupo de SQL sin servidor que consultará datos de contenedores de Azure Cosmos DB que están habilitados con Azure Synapse Link. Después, puede obtener más información sobre la creación de vistas de un grupo de SQL sin servidor en contenedores de Azure Cosmos DB y cómo conectarlas a modelos de Power BI en [este tutorial](./tutorial-data-analyst.md). En este tutorial se usa un contenedor con un [esquema bien definido de Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation).
+En este artículo, aprenderá a escribir una consulta con un grupo de SQL sin servidor que consultará datos de contenedores de Azure Cosmos DB que están habilitados con Azure Synapse Link. Después, puede obtener más información sobre la creación de vistas de un grupo de SQL sin servidor en contenedores de Azure Cosmos DB y cómo conectarlas a modelos de Power BI en [este tutorial](./tutorial-data-analyst.md). En este tutorial se usa un contenedor con un [esquema bien definido de Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). También puede consultar el módulo de información sobre cómo [consultar Azure Cosmos DB con SQL sin servidor para Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).
+
+## <a name="prerequisites"></a>Requisitos previos
+
+- Asegúrese de que ha preparado el almacén analítico:
+  - Habilite el almacén analítico en [los contenedores de Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md#enable-azure-cosmos-db-analytical-store).
+  - Obtenga la cadena de conexión con una clave de solo lectura que usará para consultar el almacén analítico. 
+  - Obtenga la clave de solo lectura [que se usará para acceder al contenedor de Cosmos DB.](../../cosmos-db/database-security.md#primary-keys)
+- Asegúrese de que ha aplicado todos los [procedimientos recomendados,](best-practices-serverless-sql-pool.md) por ejemplo:
+  - Asegúrese de que el almacenamiento analítico de Cosmos DB está en la misma región que el grupo de SQL sin servidor.
+  - Asegúrese de que la aplicación cliente (Power BI, Analysis Service) se encuentra en la misma región que el grupo de SQL sin servidor.
+  - Si va a devolver una gran cantidad de datos (más de 80 GB), considere la posibilidad de usar una capa de almacenamiento en caché como Analysis Services y cargar las particiones de menos de 80 GB en el modelo de Analysis Services.
+  - Si va a filtrar datos mediante columnas de cadena, asegúrese de que usa la función `OPENROWSET` con la cláusula explícita `WITH` que tiene los tipos más pequeños posibles (por ejemplo, no use VARCHAR(1000) si sabe que la propiedad tiene hasta 5 caracteres).
 
 ## <a name="overview"></a>Información general
 
@@ -94,7 +106,7 @@ La clave maestra de la cuenta de la base de datos se ubica en las credenciales a
 
 ## <a name="sample-dataset"></a>Conjunto de datos de ejemplo
 
-Los ejemplos de este artículo se basan en datos de [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) (Casos de COVID-19 del Centro Europeo para la Prevención y Control de Enfermedades) y [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
+Los ejemplos de este artículo se basan en datos de [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](../../open-datasets/dataset-ecdc-covid-cases.md) (Casos de COVID-19 del Centro Europeo para la Prevención y Control de Enfermedades) y [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
 
 Puede ver la licencia y la estructura de los datos en estas páginas. También puede descargar datos de ejemplo para los conjuntos de datos [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) y [CORD-19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json).
 
@@ -164,7 +176,7 @@ Aunque la funcionalidad de inferencia de esquema automática en `OPENROWSET` pro
 
 La función `OPENROWSET` le permite especificar de forma explícita las propiedades que quiere leer de los datos del contenedor, junto a sus tipos de datos.
 
-Imagine que ha importado algunos datos del [conjunto de datos ECDC COVID](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) con la siguiente estructura en Azure Cosmos DB:
+Imagine que ha importado algunos datos del [conjunto de datos ECDC COVID](../../open-datasets/dataset-ecdc-covid-cases.md) con la siguiente estructura en Azure Cosmos DB:
 
 ```json
 {"date_rep":"2020-08-13","cases":254,"countries_and_territories":"Serbia","geo_id":"RS"}
@@ -426,22 +438,9 @@ GROUP BY geo_id
 
 En este ejemplo, el número de casos se almacena como valores `int32`, `int64` o `float64`. Todos los valores deben extraerse para calcular el número de casos por país.
 
-## <a name="known-issues"></a>Problemas conocidos
+## <a name="troubleshooting"></a>Solución de problemas
 
-- Un grupo de SQL sin servidor devolverá una advertencia en tiempo de compilación si la intercalación de columnas `OPENROWSET` no tiene codificación UTF-8. Puede cambiar fácilmente la intercalación predeterminada de todas las funciones `OPENROWSET` que se ejecutan en la base de datos actual mediante la instrucción T-SQL `alter database current collate Latin1_General_100_CI_AS_SC_UTF8`.
-
-En la tabla siguiente se enumeran los posibles errores y las acciones para solucionar problemas.
-
-| Error | Causa principal |
-| --- | --- |
-| Errores de sintaxis:<br/> - Sintaxis incorrecta cerca de `Openrowset`<br/> - `...` no es una opción de proveedor `BULK OPENROWSET` reconocida.<br/> - Sintaxis incorrecta cerca de `...` | Posibles causas principales:<br/> - No se usa CosmosDB como el primer parámetro.<br/> - Se usa un literal de cadena, en lugar de un identificador en el tercer parámetro.<br/> - No se especifica el tercer parámetro (nombre del contenedor). |
-| Se produjo un error en la cadena de conexión de CosmosDB. | - No se ha especificado la cuenta, la base de datos ni la clave. <br/> - Hay una opción en una cadena de conexión que no se reconoce.<br/> - Un signo de punto y coma (`;`) se coloca al final de la cadena de conexión. |
-| Error al resolver la ruta de acceso de CosmosDB: "Nombre de cuenta incorrecto" o "Nombre de base de datos incorrecto". | No se encuentra el nombre de cuenta, el nombre de la base de datos o el contenedor especificados, o bien no se han habilitado el almacenamiento analítico para la colección especificada.|
-| Error al resolver la ruta de acceso de CosmosDB: "Valor de secreto incorrecto" o "El secreto es nulo o está vacío". | La clave de cuenta falta o no es válida. |
-| La columna `column name` del tipo `type name` no es compatible con el tipo de datos externo `type name`. | El tipo de columna especificado en la cláusula `WITH` no coincide con el tipo del contenedor de Azure Cosmos DB. Intente cambiar el tipo de columna como se describe en la sección [Asignaciones de Azure Cosmos DB a tipos de SQL](#azure-cosmos-db-to-sql-type-mappings) o use el tipo `VARCHAR`. |
-| La columna contiene valores `NULL` en todas las celdas. | Es posible que el nombre de columna o la expresión de la ruta de acceso sean incorrectos en la cláusula `WITH`. El nombre de columna, o la expresión de la ruta de acceso después del tipo de columna, de la cláusula `WITH` debe coincidir con el nombre de alguna propiedad de la colección de Azure Cosmos DB. La comparación *distingue mayúsculas de minúsculas*. Por ejemplo, `productCode` y `ProductCode` son propiedades diferentes. |
-
-Puede informar sugerencias y problemas en la [página de comentarios de Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
+Revise la [página de autoauyda](resources-self-help-sql-on-demand.md#cosmos-db) para encontrar los problemas conocidos o los pasos de solución de problemas que pueden ayudarle a resolver posibles problemas con Cosmos DB.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -450,3 +449,5 @@ Para más información, consulte los siguientes artículos.
 - [Uso de Power BI y el grupo de SQL sin servidor con Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
 - [Creación y uso de vistas en el grupo de SQL sin servidor](create-use-views.md)
 - [Tutorial sobre la creación de vistas del grupo de SQL sin servidor en Azure Cosmos DB y su conexión a modelos de Power BI a través de DirectQuery](./tutorial-data-analyst.md)
+- Visite el [vínculo de Synapse para la página de autoayuda de Cosmos DB](resources-self-help-sql-on-demand.md#cosmos-db) si está obteniendo algunos errores o experimentando problemas de rendimiento.
+- Consulte el módulo de información sobre cómo [consultar Azure Cosmos DB con SQL sin servidor para Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).

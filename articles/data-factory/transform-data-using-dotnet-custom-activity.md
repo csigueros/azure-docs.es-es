@@ -1,32 +1,34 @@
 ---
 title: Uso de actividades personalizadas en una canalización
-description: Aprenda a crear actividades personalizadas mediante .NET y, luego, úselas en una canalización de Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a crear actividades personalizadas mediante .NET y, luego, úselas en una canalización de Azure Data Factory o de Azure Synapse Analytics.
 ms.service: data-factory
+ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ms.date: 11/26/2018
-ms.openlocfilehash: 3b5370baacc2bf82ae0575d44d00d1535a4549de
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e2b8ab8dd06bb290993ce80ad98d3e07ff727a49
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665441"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272074"
 ---
-# <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
+# <a name="use-custom-activities-in-an-azure-data-factory-or-azure-synapse-analytics-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory o Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-use-custom-activities.md)
 > * [Versión actual](transform-data-using-dotnet-custom-activity.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Hay dos tipos de actividades que puede usar en una canalización de Azure Data Factory.
+Hay dos tipos de actividades que puede usar en una canalización de Azure Data Factory o de Synapse.
 
 - [Actividades de movimiento de datos](copy-activity-overview.md) para mover datos entre [almacenes de datos de origen y receptor compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
-- [Actividades de transformación de datos](transform-data.md) para transformar datos mediante procesos como Azure HDInsight, Azure Batch y Azure Machine Learning.
+- [Actividades de transformación de datos](transform-data.md) para transformar datos mediante procesos como Azure HDInsight, Azure Batch y ML Studio (clásico).
 
-Para mover datos desde y hacia un almacén de datos incompatible con Data Factory, o para transformar o procesar datos de algún modo incompatible con Data Factory, puede crear una **actividad personalizada** con su propia lógica de desplazamiento o transformación de datos y usarla en una canalización. La actividad personalizada ejecuta la lógica del código personalizado en un grupo de máquinas virtuales de **Azure Batch**.
+Para mover datos desde y hacia un almacén de datos incompatible con el servicio, o para transformar o procesar datos de algún modo incompatible con el servicio, puede crear una **actividad personalizada** con su propia lógica de movimiento o transformación de datos y usarla en una canalización. La actividad personalizada ejecuta la lógica del código personalizado en un grupo de máquinas virtuales de **Azure Batch**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,7 +43,7 @@ Consulte los artículos siguientes si no está familiarizado con el servicio Azu
 
 ## <a name="azure-batch-linked-service"></a>Servicio vinculado de Azure Batch
 
-El siguiente JSON define un servicio vinculado de Azure Batch de ejemplo. Para obtener información detallada, vea [Compute environments supported by Azure Data Factory](compute-linked-services.md) (Entornos de proceso compatibles con Azure Data Factory).
+El siguiente JSON define un servicio vinculado de Azure Batch de ejemplo. Para obtener más información, consulte [Entorno de proceso compatibles](compute-linked-services.md)
 
 ```json
 {
@@ -109,7 +111,7 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 | command               | Comando de la aplicación personalizada que se va a ejecutar. Si la aplicación ya está disponible en el nodo del grupo de Azure Batch, se pueden omitir las propiedades resourceLinkedService y folderPath. Por ejemplo, puede especificar que el comando sea `cmd /c dir`, que el nodo del grupo de lotes de Windows admite de forma nativa. | Sí      |
 | resourceLinkedService | Servicio de Azure Storage vinculado a la cuenta de almacenamiento en la que está almacenada la aplicación personalizada | No &#42;       |
 | folderPath            | Ruta de acceso a la carpeta de la aplicación personalizada y todas sus dependencias<br/><br/>Si tiene dependencias que se almacenan en subcarpetas (es decir, en una estructura jerárquica de carpetas bajo *folderPath*) la estructura de carpetas se elimina cuando los archivos se copian en Azure Batch. Es decir, todos los archivos se copian en una sola carpeta sin subcarpetas. Para evitar este comportamiento, considere la posibilidad de comprimir los archivos, copiar el archivo comprimido y, a continuación, descomprimirlo con código personalizado en la ubicación deseada. | No &#42;       |
-| referenceObjects      | Matriz de servicios vinculados y conjuntos de datos existentes. Los servicios vinculados y los conjuntos de datos a los que se hace referencia se pasan a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a recursos de Data Factory | No       |
+| referenceObjects      | Matriz de servicios vinculados y conjuntos de datos existentes. Los servicios vinculados y los conjuntos de datos a los que se hace referencia se pasan a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a recursos del servicio | No       |
 | extendedProperties    | Propiedades definidas por el usuario que se pueden pasar a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a propiedades adicionales | No       |
 | retentionTimeInDays | Tiempo de retención de los archivos enviados para la actividad personalizada. El valor predeterminado es 30 días. | No |
 
@@ -148,7 +150,7 @@ Puede ejecutar directamente un comando mediante la actividad personalizada. En e
 
 ## <a name="passing-objects-and-properties"></a>Pasar objetos y propiedades
 
-En este ejemplo se muestra cómo usar las propiedades referenceObjects y extendedProperties para pasar objetos de Data Factory y propiedades definidas por el usuario a la aplicación personalizada.
+En este ejemplo se muestra cómo usar las propiedades referenceObjects y extendedProperties para pasar objetos y propiedades definidas por el usuario del servicio a la aplicación personalizada.
 
 ```json
 {
@@ -306,11 +308,11 @@ Si desea usar el contenido de stdout.txt en actividades de bajada, puede obtener
 
 ## <a name="pass-outputs-to-another-activity"></a>Resultados del paso a otra actividad
 
-Puede enviar los valores personalizados desde el código de una actividad personalizada a Azure Data Factory. Puede hacerlo escribiéndolos en `outputs.json` desde la aplicación. Data Factory copia el contenido de `outputs.json` y lo anexa a la salida de la actividad como el valor de la propiedad `customOutput`. (El límite de tamaño es de 2 MB). Si quiere consumir el contenido de `outputs.json` en las actividades posteriores, puede obtener el valor mediante la expresión `@activity('<MyCustomActivity>').output.customOutput`.
+Puede enviar los valores personalizados desde el código de una actividad personalizada al servicio. Puede hacerlo escribiéndolos en `outputs.json` desde la aplicación. El servicio copia el contenido de `outputs.json` y lo anexa a la salida de la actividad como el valor de la propiedad `customOutput`. (El límite de tamaño es de 2 MB). Si quiere consumir el contenido de `outputs.json` en las actividades posteriores, puede obtener el valor mediante la expresión `@activity('<MyCustomActivity>').output.customOutput`.
 
 ## <a name="retrieve-securestring-outputs"></a>Recuperación de salidas de SecureString
 
-Los valores de propiedades confidenciales designados como de tipo *SecureString*, tal y como se muestra en algunos de los ejemplos de este artículo, se enmascaran en la pestaña Supervisión de la interfaz de usuario de Data Factory.  Sin embargo, en la ejecución de la canalización real, una propiedad *SecureString* se serializa como JSON dentro del archivo `activity.json` como texto sin formato. Por ejemplo:
+Los valores de propiedades confidenciales designados como de tipo *SecureString*, tal y como se muestra en algunos de los ejemplos de este artículo, se enmascaran en la pestaña Supervisión de la interfaz de usuario.  Sin embargo, en la ejecución de la canalización real, una propiedad *SecureString* se serializa como JSON dentro del archivo `activity.json` como texto sin formato. Por ejemplo:
 
 ```json
 "extendedProperties": {
@@ -321,7 +323,7 @@ Los valores de propiedades confidenciales designados como de tipo *SecureString*
 }
 ```
 
-Esta serialización no es verdaderamente segura y no está pensada para serlo. La intención es sugerir que Data Factory enmascare el valor en la pestaña Supervisión.
+Esta serialización no es verdaderamente segura y no está pensada para serlo. La intención es una sugerencia al servicio para enmascarar el valor en la pestaña Supervisión.
 
 Para acceder a las propiedades de tipo *SecureString* desde una actividad personalizada, lea el archivo `activity.json`, que se coloca en la misma carpeta que su archivo .EXE, deserialice el archivo JSON y, a continuación, acceda a la propiedad JSON (extendedProperties => [propertyName] => valor).
 
@@ -329,13 +331,13 @@ Para acceder a las propiedades de tipo *SecureString* desde una actividad person
 
 En la versión 1 de Azure Data Factory, puede implementar una actividad de DotNet (personalizada) mediante la creación de un proyecto de la biblioteca de clases .NET con una clase que implementa el método `Execute` de la interfaz `IDotNetActivity`. Los servicios vinculados, los conjuntos de datos y las propiedades extendidas de la carga de JSON de una actividad de DotNet (personalizada) se pasan al método de ejecución como objetos fuertemente tipados. Para detalles sobre el comportamiento de la versión 1, consulte la [actividad de DotNet (personalizada) en la versión 1](v1/data-factory-use-custom-activities.md). Debido a esta implementación, el código de la actividad de DotNet de la versión 1 tiene como destino .NET Framework 4.5.2. La actividad de DotNet de la versión 1 también se debe ejecutar en nodos de grupo de Azure Batch basados en Windows.
 
-En la actividad personalizada de Azure Data Factory V2, no es necesario que implemente ninguna interfaz .NET. Ahora puede ejecutar directamente comandos, scripts y su propio código personalizado, compilado como ejecutable. Para configurar esta implementación, debe especificar la propiedad `Command` en conjunto con la propiedad `folderPath`. La actividad personalizada carga el ejecutable y sus dependencias en `folderpath` y ejecuta el comando en su lugar.
+En la actividad personalizada de las canalizaciones de Azure Data Factory V2 y Synapse, no es necesario que implemente ninguna interfaz .NET. Ahora puede ejecutar directamente comandos, scripts y su propio código personalizado, compilado como ejecutable. Para configurar esta implementación, debe especificar la propiedad `Command` en conjunto con la propiedad `folderPath`. La actividad personalizada carga el ejecutable y sus dependencias en `folderpath` y ejecuta el comando en su lugar.
 
-El ejecutable puede acceder a los servicios vinculados, a los conjuntos de datos (definidos en referenceObjects) y a las propiedades extendidas definidas en la carga de JSON de una actividad personalizada de Data Factory v2. Puede acceder a las propiedades requeridas mediante un serializador JSON como se muestra en el ejemplo de código SampleApp.exe anterior.
+El ejecutable puede acceder a los servicios vinculados, a los conjuntos de datos (definidos en referenceObjects) y a las propiedades extendidas definidas en la carga de JSON de una actividad personalizada de canalización de Data Factory v2 o de Synapse. Puede acceder a las propiedades requeridas mediante un serializador JSON como se muestra en el ejemplo de código SampleApp.exe anterior.
 
-Con los cambios introducidos en la actividad personalizada de Data Factory V2, puede escribir su lógica de código personalizado en el lenguaje que desee y ejecutarlo en sistemas operativos Windows o Linux que sean compatibles con Azure Batch.
+Con los cambios introducidos en la actividad personalizada de canalización de Data Factory V2 y Synapse, puede escribir su lógica de código personalizado en el lenguaje que desee y ejecutarlo en sistemas operativos Windows o Linux que sean compatibles con Azure Batch.
 
-En la tabla siguiente se describen las diferencias entre la actividad personalizada de la versión 2 de Data Factory y la actividad de DotNet (personalizada) de la versión 1 de Data Factory:
+En la tabla siguiente se describen las diferencias entre la actividad personalizada de canalización de Data Factory V2 y Synapse, y la actividad de DotNet (personalizada) de Data Factory V1:
 
 |Diferencias      | Actividad personalizada      | Actividad de DotNet (personalizada) de la versión 1      |
 | ---- | ---- | ---- |
@@ -356,11 +358,11 @@ Si tiene código .NET ya existente escrito para la actividad de DotNet (personal
   - Ya no es necesario el paquete NuGet Microsoft.Azure.Management.DataFactories.
   - Compile el código, cargue el ejecutable y sus dependencias en Azure Storage y defina la ruta de acceso en la propiedad `folderPath`.
 
-Para un ejemplo completo de cómo el archivo DLL entero y el ejemplo de canalización que se describen en el artículo [Uso de actividades personalizadas en una canalización de Azure Data Factory](./v1/data-factory-use-custom-activities.md) de la versión 1 de Data Factory se pueden reescribir como una actividad personalizada de Data Factory, consulte un [ejemplo de la actividad personalizada de Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
+Para un ejemplo completo de cómo el archivo DLL entero y el ejemplo de canalización que se describen en el artículo [Uso de actividades personalizadas en una canalización de Azure Data Factory](./v1/data-factory-use-custom-activities.md) de la versión 1 de Data Factory se pueden reescribir como una actividad personalizada de canalizaciones de Data Factory v2 y Synapse, consulte un [ejemplo de la actividad personalizada](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Escalado automático de Azure Batch
 
-También puede crear un grupo de Azure Batch con la característica **autoescala** . Por ejemplo, podría crear un grupo de Azure Batch con 0 VM dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes.
+También puede crear un grupo de Azure Batch con la característica **autoescala** . Por ejemplo, podría crear un grupo de Azure Batch con 0 máquinas virtuales dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes.
 
 La fórmula del ejemplo obtiene el comportamiento siguiente: Cuando el grupo se crea inicialmente, se inicia con una máquina virtual. La métrica $PendingTasks define el número de tareas que están en ejecución o activas (en cola). La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece TargetDedicated en consecuencia. Garantiza que TargetDedicated nunca supera las 25 VM. Por tanto, a medida que se envían nuevas tareas, el grupo crece automáticamente y a medida que estás se completan, las VM se liberan una a una y el escalado automático las reduce. startingNumberOfVMs y maxNumberofVMs se pueden adaptar a sus necesidades.
 
@@ -387,5 +389,5 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
-* [Actividad de ejecución por lotes de Azure Machine Learning Studio (clásico)](transform-data-using-machine-learning.md)
+* [Actividad de ejecución por lotes de ML Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

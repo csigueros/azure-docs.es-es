@@ -3,19 +3,19 @@ title: 'Audio Content Creation: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Audio Content Creation es una herramienta en línea que le permite personalizar y ajustar la salida de texto a voz de Microsoft para sus aplicaciones y productos.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.author: trbye
-ms.openlocfilehash: 94e060176b921529a42e28e8c735b0f1cdda5293
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.openlocfilehash: 087459b5831aa69c6e30e1dbe824d1902facbc2d
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075085"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419200"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Mejora de la síntesis con la herramienta Audio Content Creation
 
@@ -103,7 +103,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ```xml
 <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)">
     Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
     </voice>
 </speak>
@@ -141,9 +141,10 @@ Siga estos pasos para agregar un usuario a un recurso de voz para que pueda usar
 2. Haga clic en **Control de acceso (IAM).** Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles para esta suscripción.
     :::image type="content" source="media/audio-content-creation/access-control-roles.png" alt-text="Pestaña Asignación de roles":::
 3. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel Agregar asignación de roles. En la lista desplegable Rol, seleccione el rol **Usuario de Cognitive Services**. Si desea conceder al usuario la propiedad de este recurso de voz, puede seleccionar el rol **Propietario**.
-4. Seleccione un usuario de la lista. Si no ve el usuario en la lista, puede escribir en el cuadro Seleccionar para buscar nombres para mostrar y direcciones de correo electrónico en el directorio. Si el usuario no está en este directorio, puede especificar la [cuenta de Microsoft](https://account.microsoft.com/account) (que es de confianza para Azure Active Directory).
-5. Haga clic en **Guardar** para asignar el rol. El usuario recibirá una invitación por correo electrónico. Para aceptar la invitación, haga clic en **Aceptar invitación** > **Aceptar para unirse a Azure** en el correo electrónico. A continuación, se redirigirá al usuario a Azure Portal. El usuario no tiene que realizar ninguna otra acción en Azure Portal.
-6. Transcurridos unos instantes, al usuario se le asigna el rol Usuario de Cognitive Services en el ámbito del recurso de voz. El usuario puede visitar o actualizar la página [Creación de contenido de audio](https://aka.ms/audiocontentcreation) y elegir el recurso de voz para empezar. 
+4. Escriba la dirección de correo electrónico del usuario y seleccione el usuario en el directorio. La dirección de correo electrónico debe ser una **cuenta de Microsoft**, en la que confíe el directorio activo de Azure. Los usuarios pueden registrar fácilmente una [cuenta de Microsoft](https://account.microsoft.com/account) utilizando una dirección de correo electrónico personal. 
+5. Haga clic en **Guardar** para asignar el rol. 
+6. El usuario recibirá una invitación por correo electrónico. Para aceptar la invitación, haga clic en **Aceptar invitación** > **Aceptar para unirse a Azure** en el correo electrónico. A continuación, se redirigirá al usuario a Azure Portal. El usuario no tiene que realizar ninguna otra acción en Azure Portal. Transcurridos unos instantes, al usuario se le asigna el rol en el ámbito del recurso de voz y tendrá acceso a este recurso de voz. Si el usuario no recibió el correo electrónico de invitación, puede buscar la cuenta del usuario en "Asignaciones de roles" e ir dentro del perfil del usuario. Busque "Identidad" -> "Invitación aceptada" y haga clic en **(administrar)** para reenviar la invitación por correo electrónico. También puede copiar el vínculo de invitación a los usuarios. 
+7. El usuario ahora visita o actualiza la [Creación de contenido de audio](https://aka.ms/audiocontentcreation) del producto e inicia sesión con la cuenta Microsoft del usuario. Seleccione el bloque **Creación de contenido de audio** entre todos los productos de voz. Elija el recurso de voz en la ventana emergente o en la configuración de la esquina superior derecha de la página. Si el usuario no encuentra el recurso de voz disponible, compruebe si se encuentra en el directorio correcto. Para comprobar el directorio correcto, haga clic en el perfil de cuenta en la esquina superior derecha y haga clic en **Cambiar** junto al "Directorio actual". Si hay más de un directorio disponible, significa que tiene acceso a varios directorios. Cambie a directorios diferentes y vaya a la configuración para ver si el recurso de voz correcto está disponible. 
 
     :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Cuadro de diálogo Agregar rol":::
 
@@ -162,9 +163,9 @@ Los usuarios que están en el mismo recurso de voz verán el trabajo de los dem�
 Si desea que uno de los usuarios proporcione acceso a otros usuarios, debe conceder al usuario el rol de propietario del recurso de voz y establecer el usuario como lector de directorios de Azure.
 1. Agregue al usuario como propietario del recurso de voz. Consulte [Incorporación de usuarios a un recurso de voz](#add-users-to-a-speech-resource).
     :::image type="content" source="media/audio-content-creation/add-role.png" alt-text="Campo Propietario de rol":::
-1. En [Azure Portal](https://portal.azure.com/), seleccione el menú contraído de la parte superior izquierda. Haga clic en **Azure Active Directory** y, luego, en **Usuarios**.
-1. Busque en el cuenta de Microsoft del usuario y vaya a la página de detalles del usuario. Haga clic en **Roles asignados**.
-1. Haga clic en **Agregar asignaciones** -> **Lectores de directorios**.
+2. En [Azure Portal](https://portal.azure.com/), seleccione el menú contraído de la parte superior izquierda. Haga clic en **Azure Active Directory** y, luego, en **Usuarios**.
+3. Busque en el cuenta de Microsoft del usuario y vaya a la página de detalles del usuario. Haga clic en **Roles asignados**.
+4. Haga clic en **Agregar asignaciones** -> **Lectores de directorios**. Si el botón "Agregar asignaciones" está atenuado, significa que no tiene acceso. Solo el administrador global de este directorio puede agregar asignación a los usuarios.
 
 ## <a name="see-also"></a>Consulte también
 

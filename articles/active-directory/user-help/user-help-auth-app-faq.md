@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/30/2021
+ms.date: 06/21/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 6cc64c9b3ad3f177d50f3e659e8ea628ba485159
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f593141d425573888458b4b00858b17888c28e52
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764178"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752488"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
@@ -50,6 +50,12 @@ En Android, Microsoft recomienda permitir que la aplicación acceda a la ubicaci
 **P**: ¿Cómo se usa y almacena la información de mi ubicación?
 
 **R**: La aplicación Authenticator recopila la información de GPS para determinar en qué país se encuentra. El nombre del país y las coordenadas de la ubicación se envían de vuelta al sistema para determinar si puede acceder al recurso protegido. El nombre del país se almacena y se notifica al administrador de TI, pero las coordenadas reales nunca se guardan ni almacenan en servidores de Microsoft.
+
+### <a name="notification-blocks-sign-in"></a>Notificación de bloqueos de inicio de sesión
+
+**P**: Estoy intentando iniciar sesión y necesito seleccionar el número de mi aplicación que se muestra en la pantalla de inicio de sesión. Sin embargo, el mensaje de notificación de Authenticator está bloqueando la pantalla de inicio de sesión. ¿Qué puedo hacer?  
+
+**R**: Seleccione la opción "Ocultar" en la notificación para que pueda ver la pantalla de inicio de sesión y el número que necesita seleccionar. El mensaje volverá a aparecer después de 5 segundos y, a continuación, puede seleccionar el número correcto.
 
 ### <a name="registering-a-device"></a>Registro de un dispositivo
 
@@ -93,7 +99,7 @@ En Android, Microsoft recomienda permitir que la aplicación acceda a la ubicaci
 
 **R.** : La aplicación Authenticator recopila tres tipos de información:
 
-- Información de la cuenta que proporciona al momento de añadirla. Estos datos se pueden quitar mediante la eliminación de la cuenta.
+- Información de la cuenta que proporciona al momento de añadirla. Después de agregar la cuenta, en función de las características que habilite para la cuenta, es posible que los datos de la cuenta se sincronicen con la aplicación. Estos datos se pueden quitar mediante la eliminación de la cuenta.
 - Datos de registro de diagnóstico que solo están en la aplicación hasta que seleccione **Enviar comentarios** en el menú superior de la aplicación para enviar los registros a Microsoft. Estos registros pueden contener datos personales, como direcciones de correo electrónico, direcciones de servidor o direcciones IP. También pueden contener datos de dispositivo, como el nombre del dispositivo y la versión del sistema operativo. Los datos personales recopilados se limitan a la información necesaria para ayudar a solucionar problemas de la aplicación. Puede examinar estos archivos de registro en la aplicación en cualquier momento para ver la información que se recopila. Si envía los archivos de registro, los ingenieros de la aplicación de autenticación los usarán solo para solucionar los problemas notificados por los clientes.
 - Datos de uso no personalmente identificables, como "se ha iniciado el flujo de adición de cuenta/la cuenta se ha añadido correctamente" o "notificación aprobada". Estos datos son una parte integral de nuestras decisiones de ingeniería. Su uso nos ayuda a determinar dónde podemos mejorar las aplicaciones de forma que sea importante para usted. Verá una notificación de esta recopilación de datos cuando use la aplicación por primera vez. Le informa de que se puede desactivar en la página  **Configuración** de la aplicación. Puede activar o desactivar esta opción en cualquier momento.
 

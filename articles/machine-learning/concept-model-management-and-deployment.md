@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 author: jpe316
 ms.author: jordane
-ms.date: 03/17/2020
+ms.date: 07/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: 88a2dc2e38861cff540cfa1fcdc0b3f6e9651b04
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 0ef4715bb854905f8076ee116f672eee2d33a059
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439915"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860811"
 ---
 # <a name="mlops-model-management-deployment-lineage-and-monitoring-with-azure-machine-learning"></a>MLOps: administración de modelos, implementación, linaje y supervisión con Azure Machine Learning
 
@@ -39,6 +39,7 @@ Azure Machine Learning ofrece las siguientes funcionalidades de MLOps:
 - **Supervisión de las aplicaciones de ML para las incidencias relacionadas con ML y operativas**. Compare las entradas del modelo durante el entrenamiento y la inferencia, explore las métricas de un modelo específico e incluya supervisión y alertas en su infraestructura de ML.
 - **Automatización del ciclo de vida de un extremo a otro de Machine Learning con Azure Machine Learning y Azure Pipelines**. El uso de canalizaciones le permite actualizar con frecuencia los modelos, probar los modelos nuevos e implementar continuamente nuevos modelos de ML junto con sus otras aplicaciones y servicios.
 
+Para obtener más información sobre MLOps, consulte [Machine Learning DevOps (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops).
 ## <a name="create-reproducible-ml-pipelines"></a>Creación de canalizaciones de ML reproducibles
 
 Utilice canalizaciones de ML desde Azure Machine Learning para unir todos los pasos implicados en el proceso de entrenamiento del modelo.
@@ -94,9 +95,9 @@ Para más información sobre ONNX con Azure Machine Learning, consulte el artíc
 
 ### <a name="use-models"></a>Uso de modelos
 
-Los modelos de Machine Learning entrenados se implementan como servicios web en la nube o localmente. También puede implementar en dispositivos Azure IoT Edge. Las implementaciones utilizan matrices de puertas programable (FPGA) por CPU, GPU o campos para las inferencias. También puede usar modelos de Power BI.
+Los modelos de Machine Learning entrenados se implementan como servicios web en la nube o localmente. Las implementaciones utilizan matrices de puertas programable (FPGA) por CPU, GPU o campos para las inferencias. También puede usar modelos de Power BI.
 
-Cuando use un modelo como servicio web o dispositivo de IoT Edge, proporcione los siguientes elementos:
+Cuando use un modelo como servicio web, proporcione los siguientes elementos:
 
 * Los modelos que se usan para puntuar los datos enviados al servicio o dispositivo.
 * Un script de entrada. Este script acepta las solicitudes, usa los modelos para puntuar los datos y devuelve una respuesta.
@@ -105,7 +106,7 @@ Cuando use un modelo como servicio web o dispositivo de IoT Edge, proporcione lo
 
 También debe proporcionar la configuración de la plataforma de implementación de destino. Por ejemplo, el tipo de familia de la máquina virtual, la memoria disponible y número de núcleos cuando se implemente en Azure Kubernetes Service.
 
-Cuando se crea la imagen, también se agregan los componentes requeridos por Azure Machine Learning. Por ejemplo, los recursos necesarios para ejecutar el servicio web e interactuar con IoT Edge.
+Cuando se crea la imagen, también se agregan los componentes requeridos por Azure Machine Learning. Por ejemplo, los recursos necesarios para ejecutar el servicio web.
 
 #### <a name="batch-scoring"></a>Puntuación por lotes
 La puntuación por lotes son compatibles con las canalizaciones de ML. Para obtener más información, vea [Predicciones por lotes de macrodatos](./tutorial-pipeline-batch-scoring-classification.md).
@@ -135,12 +136,6 @@ Al implementar en Azure Kubernetes Service, puede usar el lanzamiento controlado
 * Cambio entre versiones del punto de conexión actualizando el porcentaje de tráfico en la configuración del punto de conexión.
 
 Para más información, consulte [Lanzamiento controlado de modelos de ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
-
-#### <a name="iot-edge-devices"></a>Dispositivos de IoT Edge
-
-Puede usar modelos con dispositivos IoT a través de los **módulos de Azure IoT Edge**. Los módulos de IoT Edge se implementan en un dispositivo de hardware, lo que permite la inferencia o puntuación de modelos en el dispositivo.
-
-Para obtener más información, consulte [Implementación de modelos](how-to-deploy-and-where.md).
 
 ### <a name="analytics"></a>Análisis
 

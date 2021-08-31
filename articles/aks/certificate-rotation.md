@@ -3,13 +3,13 @@ title: Rotación de certificados en Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo rotar los certificados en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 11/15/2019
-ms.openlocfilehash: b3ab6074dcbf79df8b2b0ff3369b94006343a2a6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 7/13/2021
+ms.openlocfilehash: ea488e281e52949eeb53fdeffb1dc26afb5a9b5e
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089873"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122066226"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotación de certificados en Azure Kubernetes Service (AKS)
 
@@ -33,17 +33,32 @@ AKS genera y usa los siguientes certificados, entidades de certificación y cuen
 * El cliente `kubectl` tiene un certificado para comunicarse con el clúster de AKS.
 
 > [!NOTE]
-> Los clústeres de AKS creados antes de marzo de 2019 tienen certificados que expiran después de dos años. Los clústeres creados después de marzo del 2019 o cualquier clúster que tenga rotados sus certificados tienen certificados de CA del clúster que expiran a los 30 años. El resto de certificados expira transcurridos dos años. Para comprobar cuándo se creó el clúster, use `kubectl get nodes` para ver la *Antigüedad* de los grupos de nodos.
+> Los clústeres de AKS creados antes de mayo de 2019 tienen certificados que expiran después de dos años. Los clústeres creados después de mayo del 2019 o cualquier clúster que tenga rotados sus certificados tienen certificados de CA del clúster que expiran a los 30 años. Todos los demás certificados de AKS, que usan la CA del clúster a para firmar, expirarán después de dos años y se rotarán automáticamente durante la actualización de la versión de AKS. Para comprobar cuándo se creó el clúster, use `kubectl get nodes` para ver la *Antigüedad* de los grupos de nodos.
 > 
-> Además, puede comprobar la fecha de expiración del certificado del clúster. Por ejemplo, el comando de Bash siguiente muestra los detalles del certificado para el clúster *myAKSCluster*.
+> Además, puede comprobar la fecha de expiración del certificado del clúster. Por ejemplo, el comando de bash siguiente muestra los detalles del certificado de cliente para el clúster *myAKSCluster* en el grupo de recursos *rg*.
 > ```console
-> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
+> kubectl config view --raw -o jsonpath="{.users[?(@.name == 'clusterUser_rg_myAKSCluster')].user.client-certificate-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
+
+* Comprobación de la fecha de expiración del certificado apiserver
+```console
+curl https://{apiserver-fqdn} -k -v 2>&1 |grep expire
+```
+
+* Comprobación de la fecha de expiración del certificado en el nodo del agente de VMAS
+```console
+az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+```
+
+* Comprobación de la fecha de expiración del certificado en el nodo del agente de Microsoft Azure Virtual Machine Scale Sets
+```console
+az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-id 0 --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+```
 
 ## <a name="rotate-your-cluster-certificates"></a>Rotar los certificados de clúster
 
 > [!WARNING]
-> La rotación de los certificados con `az aks rotate-certs` puede producir un tiempo de inactividad de hasta 30 minutos para el clúster de AKS.
+> La rotación de los certificados con `az aks rotate-certs` recreará todos los nodos y puede producir un tiempo de inactividad de hasta 30 minutos para el clúster de AKS.
 
 Use [az aks get-credentials][az-aks-get-credentials] para iniciar sesión en el clúster de AKS. Este comando también descarga y configura el certificado de cliente `kubectl` en el equipo local.
 

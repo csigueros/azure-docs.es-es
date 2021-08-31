@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.custom: data4ml
-ms.openlocfilehash: c4edd4317bf125b4aa8dd8ebf404613c7fab3ba8
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 54ed2504063cc3a0479d37127888ccb727fbd671
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290499"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736582"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas
 
@@ -26,7 +26,8 @@ Aprenda a crear y ejecutar proyectos para etiquetar imágenes o datos de texto e
 > [!Important]
 > Las imágenes de datos o texto deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar los archivos durante la creación del proyecto).
 
-Los datos de imagen pueden ser archivos de cualquiera de estos tipos: ".jpg", ".jpeg", ".png", ".jpe", ".jfif", ".bmp", ".tif", ".tiff". Cada archivo es un elemento que se va a etiquetar.
+Los datos de imagen pueden ser archivos de cualquiera de estos tipos: ".jpg", ".jpeg", ".png", ".jpe", ".jfif", ".bmp", ".tif", ".tiff", ".dcm" o ".dicom". Cada archivo es un elemento que se va a etiquetar.
+ 
 Los datos de texto pueden ser archivos ".txt" o ".csv".
 
 * En el caso de los archivos ".txt", cada archivo representa un elemento que se va a etiquetar.
@@ -44,7 +45,7 @@ El etiquetado de datos de Azure Machine Learning es una ubicación central para 
 - Los datos que quiere etiquetar, ya sea en archivos locales o en el almacenamiento de blobs de Azure.
 - Conjunto de etiquetas que quiere aplicar.
 - Instrucciones para el etiquetado.
-- Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
+- Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="create-a-data-labeling-project"></a>Creación de un proyecto de etiquetado de datos
@@ -66,7 +67,6 @@ Para crear un proyecto, seleccione **Agregar proyecto**. Asigne un nombre adecua
   * Elija un proyecto de tipo **Identificación del objeto (rectángulo de selección)** cuando quiera asignar una etiqueta y un rectángulo de selección a cada objeto de una imagen.
   * Elija un proyecto de tipo **Segmentación de instancias (polígono)** cuando desee asignar una etiqueta y dibujar un polígono alrededor de cada objeto dentro de una imagen.
 
-    
 * Seleccione **Siguiente** cuando esté listo para continuar.
 
 ### <a name="text-labeling-project-preview"></a>Proyecto de etiquetado de texto (versión preliminar)
@@ -100,7 +100,9 @@ Para crear un conjunto de datos a partir de los datos que ya ha almacenado en el
 
 1. Seleccione **Crear un conjunto de datos** > **De almacén de datos**.
 1. En **Nombre**, asigne un nombre al conjunto de datos.
-1. Elija el **tipo de conjunto de datos**.  Solo se admiten tipos de conjunto de datos de archivo para imágenes. Los tipos archivo y tabular están disponibles para el etiquetado de texto.
+1. Elija el **tipo de conjunto de datos**.  Solo se admiten tipos de conjunto de datos de archivo para imágenes. Para un proyecto de etiqueta de texto:
+    * Seleccione **Tabular** si usa un archivo .csv, donde cada fila es una respuesta.
+    * Seleccione **Archivo** si usa archivos .txt para cada respuesta.
 1. Seleccione el almacén de datos.
 1. Si los datos están en una subcarpeta del almacenamiento de blobs, elija **Examinar** para seleccionar la ruta de acceso.
     * Anexe "/**" a la ruta de acceso para incluir todos los archivos que haya en las subcarpetas de la ruta de acceso seleccionada.
@@ -115,7 +117,9 @@ Para cargar los datos directamente:
 
 1. Seleccione **Crear un conjunto de datos** > **De archivos locales**.
 1. En **Nombre**, asigne un nombre al conjunto de datos.
-1. Elija el **tipo de conjunto de datos**.  Solo se admiten tipos de conjunto de datos de archivo para imágenes. Los tipos archivo y tabular están disponibles para el etiquetado de texto.
+1. Elija el **tipo de conjunto de datos**.   Solo se admiten tipos de conjunto de datos de archivo para imágenes. Para un proyecto de etiqueta de texto:
+    * Seleccione **Tabular** si usa un archivo .csv, donde cada fila es una respuesta.
+    * Seleccione **Archivo** si usa archivos .txt para cada respuesta.
 1. *Opcional:* Seleccione **Configuración avanzada** para personalizar el almacén de datos, el contenedor y la ruta de acceso a los datos.
 1. Seleccione **Examinar** para seleccionar los archivos locales que se van a cargar.
 1. Proporcione una descripción para el conjunto de datos.
@@ -164,7 +168,7 @@ En el caso de los rectángulos de selección, estas son algunas preguntas import
 
 ## <a name="use-ml-assisted-data-labeling"></a>Uso del etiquetado de datos asistido por Machine Learning
 
-La página **Etiquetado asistido por ML** permite desencadenar modelos de Machine Learning automáticos para acelerar la tarea de etiquetado. Solo está disponible para el etiquetado de imágenes.
+La página **Etiquetado asistido por ML** permite desencadenar modelos de Machine Learning automáticos para acelerar la tarea de etiquetado. Solo está disponible para el etiquetado de imágenes. Las imágenes médicas (".dcm") no se incluyen en el etiquetado asistido.
 
 Al principio del proyecto de etiquetado, los elementos se presentan en orden aleatorio para reducir el posible sesgo. Sin embargo, los sesgos presentes en el conjunto de datos se reflejarán en el modelo entrenado. Por ejemplo, si el 80 % de los elementos son de una sola clase, aproximadamente el 80 % de los datos usados para entrenar el modelo serán de esa clase. Este entrenamiento no incluye el aprendizaje activo.
 
@@ -178,7 +182,7 @@ El número exacto de datos con etiqueta necesarios para iniciar el etiquetado co
 Como las etiquetas finales se siguen basando en la entrada del etiquetador, a veces esta tecnología se denomina etiquetado *con intervención humana*.
 
 > [!NOTE]
-> El etiquetado de datos asistido mediante ML no es compatible con las cuentas de almacenamiento predeterminadas que estén protegidas en una [red virtual](how-to-network-security-overview.md). Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos mediante ML. La cuenta de almacenamiento no predeterminada se puede proteger en la red virtual.
+> El etiquetado de datos asistido por ML no es compatible con las cuentas de almacenamiento predeterminadas que están protegidas en una [red virtual](how-to-network-security-overview.md). Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos mediante ML. La cuenta de almacenamiento no predeterminada se puede proteger en la red virtual.
 
 ### <a name="clustering"></a>Agrupación en clústeres
 

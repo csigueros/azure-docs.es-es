@@ -7,26 +7,21 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 1c74b716c6a22748a330fb3d325be3202ed89abc
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 08/12/2021
+ms.openlocfilehash: 4baadea0d78db64d97d1ae94317d7d506a141f41
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542773"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860889"
 ---
 # <a name="sentiment-cognitive-skill-v3"></a>Aptitud cognitiva Opinión (V3)
 
-> [!IMPORTANT] 
-> Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
-
-La aptitud **Opinión** V3 evalúa texto no estructurado y, para cada registro, proporciona etiquetas de opinión (como "negativa", "neutra" y "positiva") en función de la puntuación de confianza más alta que encontró el servicio a nivel de la oración y del documento. Esta aptitud utiliza los modelos de Machine Learning proporcionados por la versión 3 de [Text Analytics](../cognitive-services/text-analytics/overview.md) en Cognitive Services.
+La aptitud **Opinión** V3 evalúa texto no estructurado y, para cada registro, proporciona etiquetas de opinión (como "negativa", "neutra" y "positiva") en función de la puntuación de confianza más alta que encontró el servicio a nivel de la oración y del documento. Esta aptitud utiliza los modelos de Machine Learning proporcionados por la versión 3 de [Text Analytics](../cognitive-services/text-analytics/overview.md) en Cognitive Services. También expone las funcionalidades de minería de opiniones de [Text Analytics API](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining), que proporciona información más pormenorización sobre las opiniones relacionadas con atributos de productos o servicios en texto.
 
 > [!NOTE]
-> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
+> Esta aptitud está enlazada a Cognitive Services y necesita [un recurso facturable](cognitive-search-attach-cognitive-services.md) para las transacciones que superan los 20 documentos por indizador al día. La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://azure.microsoft.com/pricing/details/search/).
-
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.V3.SentimentSkill

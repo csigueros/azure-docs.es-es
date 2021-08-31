@@ -6,16 +6,16 @@ services: api-management
 documentationcenter: API Management
 author: mikebudzynski
 ms.service: api-management
-ms.topic: article
-ms.date: 04/15/2021
+ms.topic: troubleshooting
+ms.date: 07/30/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: afe41f7db56be5de56831d039a1161f1ee2c69f5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b7b7efda7ca28382ca1dfbdead64db9976d67bd4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285275"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747785"
 ---
 # <a name="api-management-developer-portal---frequently-asked-questions"></a>Portal para desarrolladores de API Management: Preguntas más frecuentes
 
@@ -149,6 +149,27 @@ El error de llamada también puede deberse a un certificado TLS/SSL, que se asig
 
 Si la versión local del portal para desarrolladores no puede guardar ni recuperar información de la cuenta de almacenamiento ni de la instancia de API Management, es posible que los tokens de SAS hayan expirado. Para corregirlo, genere nuevos tokens. Para obtener instrucciones, consulte el tutorial para [autohospedar el portal para desarrolladores](developer-portal-self-host.md#step-2-configure-json-files-static-website-and-cors-settings).
 
+## <a name="how-do-i-disable-sign-up-in-the-developer-portal"></a>¿Cómo se deshabilita el registro en el portal para desarrolladores?
+
+Si no necesita la funcionalidad de registro habilitada de forma predeterminada en el portal para desarrolladores, puede deshabilitarla con estos pasos:
+
+1. Vaya a la instancia de API Management en Azure Portal.
+1. En el menú de **Portal para desarrolladores**, seleccione **Identidades**.
+1. Elimine cada proveedor de identidades que aparezca en la lista. Seleccione cada proveedor, luego el menú contextual ( **...** ) y, por último, **Eliminar**.
+ 
+   :::image type="content" source="media/developer-portal-faq/delete-identity-providers.png" alt-text="Eliminación de proveedores de identidades":::
+ 
+1. Vaya a la interfaz administrativa del portal para desarrolladores.
+1. Quite los vínculos de **registro** y los elementos de navegación en el contenido del portal. Para obtener información sobre cómo personalizar el contenido del portal, consulte [Tutorial: Acceso y personalización del portal para desarrolladores.](api-management-howto-developer-portal-customize.md)
+ 
+   :::image type="content" source="media/developer-portal-faq/delete-navigation-item.png" alt-text="Eliminación de elementos de navegación":::
+ 
+1. Modifique el contenido de la página de **registro** para quitar los campos usados para escribir datos de identidad, en caso de que los usuarios naveguen directamente a ellos.
+   
+   Otra posibilidad es elimnar la página de **registro**. Actualmente, se usan las API de REST [contentItem](/rest/api/apimanagement/2021-01-01-preview/content-item) para enumerar y eliminar esta página.
+ 
+1. Guarde los cambios y [vuelva a publicar el portal](api-management-howto-developer-portal-customize.md#publish).
+
 ## <a name="how-can-i-remove-the-developer-portal-content-provisioned-to-my-api-management-service"></a>¿Cómo puedo quitar el contenido del portal para desarrolladores aprovisionado en mi servicio API Management?
 
 Proporcione los parámetros necesarios en el script `scripts.v3/cleanup.bat` en el [repositorio de GitHub](https://github.com/Azure/api-management-developer-portal) del portal para desarrolladores y ejecute el script.
@@ -167,10 +188,11 @@ Entre otros métodos de autenticación, el portal para desarrolladores admite el
 https://contoso.com/signin-sso?token=[user-specific token]
 ```
 ### <a name="generate-user-tokens"></a>Generación de tokens de usuario
-Puede generar *tokens específicos del usuario* (incluidos tokens de administrador) mediante la operación [Obtención del token de acceso compartido](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) de la [API REST de API Management](/rest/api/apimanagement/apimanagementrest/api-management-rest).
+Puede generar *tokens específicos del usuario* (incluidos tokens de administrador) mediante la operación [Obtención del token de acceso compartido](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token) de la [API REST de API Management](/rest/api/apimanagement/apimanagementrest/api-management-rest).
 
 > [!NOTE]
 > El token debe tener una codificación URL.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

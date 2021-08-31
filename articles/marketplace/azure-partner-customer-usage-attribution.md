@@ -6,12 +6,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/12/2021
 ms.custom: devx-track-terraform, devx-track-azurepowershell
-ms.openlocfilehash: b1f40ff5175de88e101bfe8f22f9593502e7d6d0
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 9536002cb5c3e30f32479b74e761d7128090af26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005886"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729778"
 ---
 # <a name="azure-customer-usage-attribution"></a>Atribución del uso de Azure por parte de los clientes
 
@@ -33,6 +33,11 @@ Existen casos de uso secundarios de la atribución del uso por parte de los clie
 ## <a name="commercial-marketplace-azure-apps"></a>Aplicaciones de Azure del marketplace comercial
 
 El seguimiento del uso de Azure de las aplicaciones de Azure publicadas en el marketplace comercial es, en gran medida, automático. Al cargar una plantilla de Resource Manager como parte de la [configuración técnica del plan de la aplicación de Azure del marketplace](./azure-app-solution.md#define-the-technical-configuration), el Centro de partners agregará un identificador de seguimiento legible por Azure Resource Manager.
+
+>[!NOTE]
+>Para asegurarse de que el uso de la aplicación se atribuyó con precisión en nuestros sistemas:
+>1. Si define el identificador de seguimiento en el tipo de recurso Microsoft.Resources/deployment por una variable, reemplace la variable por el identificador de seguimiento visible en Centro de partners en la página **Configuración técnica** del plan (consulte [Adición de un GUID a una plantilla de Resource Manager](#add-a-guid-to-a-resource-manager-template) a continuación).
+>2. Si la plantilla de Resource Manager usa recursos de tipo Microsoft.Resources/deployments para fines distintos de la atribución de uso del cliente, Microsoft no podrá agregar un identificador de seguimiento de atribución de uso del cliente en su nombre. Agregue un nuevo recurso de tipo Microsoft.Resources/deployments y añada el id. de seguimiento visible en el Centro de partners en la página **Configuración técnica** del plan (consulte [Agregar un GUID a una plantilla del Resource Manager](#add-a-guid-to-a-resource-manager-template) más abajo).
 
 Si usa las API de Azure Resource Manager, deberá agregar el identificador de seguimiento [según las instrucciones que se indican a continuación](#use-resource-manager-apis) para pasarlo a Azure Resource Manager a medida que el código implementa los recursos. Este identificador es visible en el Centro de partners en la página de configuración técnica del plan. 
 

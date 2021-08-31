@@ -5,14 +5,14 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 07/23/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 7528e11e24485fecc3e83773d98e119d98ca63cf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e2256ba6ad1f2f125b21e7cb59ab74b44864bce6
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968756"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122070778"
 ---
 # <a name="how-to-determine-and-download-the-best-update-package-for-ota-and-usb-updates"></a>Determinación y descarga del paquete de actualización más adecuado para las actualizaciones mediante OTA y USB
 
@@ -50,9 +50,9 @@ Con los elementos **model** y **swVersion** identificados en la sección anterio
 
 |model  |swVersion  |Método de actualización  |Vínculos de descarga  |Nota  |
 |---------|---------|---------|---------|---------|
-|PE-101     |2020.108.101.105, <br>2020.108.114.120, <br>2020.109.101.122, <br>2020.109.116.120, <br>2021.101.106.118        |**Solo USB**         |[Paquete de actualización mediante USB 2021.105.111.112](https://go.microsoft.com/fwlink/?linkid=2155734)         |Versión de mayo (2105)         |
-|PE-101     |2021.102.108.112 <br>         |OTA o USB        |[Manifiesto de OTA 2021.105.111.112 (PE-101)](https://go.microsoft.com/fwlink/?linkid=2155625)<br>[Paquete de actualización mediante OTA 2021.105.111.112](https://go.microsoft.com/fwlink/?linkid=2161538)<br>[Paquete de actualización mediante USB 2021.105.111.112](https://go.microsoft.com/fwlink/?linkid=2155734)          |Versión de mayo (2105)         |
-|APDK-101     |Todas las versiones de software        |OTA o USB       | [Manifiesto de OTA 2021.105.111.112 (APDK-101)](https://go.microsoft.com/fwlink/?linkid=2163554)<br>[Paquete de actualización mediante OTA 2021.105.111.112](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[Paquete de actualización mediante USB 2021.105.111.112](https://go.microsoft.com/fwlink/?linkid=2163555)        |Versión de mayo (2105)         |
+|PE-101     |Todas las versiones de software       |**Solo USB**         |[Paquete de actualización mediante USB 2021.107.129.116](https://go.microsoft.com/fwlink/?linkid=2169086)         |Versión de julio (2107)         |
+|APDK-101     |Cualquier versión de software anterior a 2021.106.111.115 |**Solo USB**         |[Paquete de actualización mediante USB 2021.107.129.116](https://go.microsoft.com/fwlink/?linkid=2169086)         |Versión de julio (2107)         |
+|APDK-101     |2021.106.111.115        |OTA o USB       |[Paquete de actualización mediante OTA 2021.107.129.116](https://go.microsoft.com/fwlink/?linkid=2169245)<br>[Paquete de actualización mediante USB 2021.107.129.116](https://go.microsoft.com/fwlink/?linkid=2169086)        |Versión de julio (2107)         |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

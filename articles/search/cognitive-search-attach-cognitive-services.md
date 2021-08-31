@@ -1,45 +1,53 @@
 ---
 title: Adjuntar Cognitive Services a un conjunto de aptitudes
 titleSuffix: Azure Cognitive Search
-description: Aprenda a asociar una suscripción todo en uno de Cognitive Services a una canalización de enriquecimiento de inteligencia artificial en Azure Cognitive Search.
-author: LuisCabrer
-ms.author: luisca
+description: Aprenda a asociar un recurso multiservicio de Cognitive Services a una canalización de enriquecimiento de inteligencia artificial en Azure Cognitive Search.
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: 77735166fafe9d39dff483baa89a4b31db31275d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: 0fe9a87e82ab391fc0e1ccfca95ad48a0ef5dc61
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577932"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772470"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Cognitive Search
 
-Al configurar una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) en Azure Cognitive Search, se puede enriquecer un número limitado de documentos de forma gratuita. En el caso de cargas de trabajo mayores y más frecuentes, hay que asociar un recurso "todo en uno" facturable de Cognitive Services. Las suscripciones "todo en uno" hacen referencia a "Cognitive Services" como oferta, en lugar de a servicios individuales, y el acceso se concede a través de una clave de API única.
+Al configurar una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) en Azure Cognitive Search, se puede enriquecer un número limitado de documentos de forma gratuita. En el caso de cargas de trabajo mayores y más frecuentes, hay que asociar un [recurso multiservicio facturable de Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md). Un recurso multservicio hace referencia a "Cognitive Services" como oferta, en lugar de a servicios individuales, y el acceso se concede a través de una clave de API única.
 
-Los recursos "todo en uno" de Cognitive Services impulsan las [aptitudes predefinidas](cognitive-search-predefined-skills.md) que se pueden incluir en los conjuntos de aptitudes:
+Una clave de recurso se especifica en un conjunto de aptitudes y permite a Microsoft cobrarle por el uso de estas API:
 
 + [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para el análisis de imágenes y el reconocimiento óptico de caracteres (OCR)
 + [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para la detección de idioma, el reconocimiento de entidades, el análisis de sentimiento y la extracción de frases clave
 + [Traducción de texto](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
-Las claves "todo en uno" de Cognitive Services se pueden incluir en la definición de cualquier conjunto de aptitudes. Cuando el número de transacciones es inferior a 20 al día, se absorbe el costo. Sin embargo, si se supera ese número, se requiere una clave de recurso válida para que el procesamiento continúe.
+La clave se usa para la facturación, pero no para las conexiones. Internamente, un servicio de búsqueda se conecta a Cognitive Services recurso que se encuentra en la [misma región física](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
-Es válida cualquier clave de recurso "todo en uno". Internamente, los servicios de búsqueda usarán el recurso que se encuentre en la misma región física, aunque la clave "todo en uno" sea para un recurso de otra región. La página de [disponibilidad del producto](https://azure.microsoft.com/global-infrastructure/services/?products=search) muestra la disponibilidad regional en paralelo.
+## <a name="key-requirements"></a>Requisitos principales
 
-> [!NOTE]
-> Si omite las aptitudes predefinidas en un conjunto de aptitudes, no se puede acceder a Cognitive Services, por lo que no se le cobrará, aunque el conjunto de aptitudes especifique una clave.
+Se requiere una clave de recurso para las habilidades facturables [incorporadas](cognitive-search-predefined-skills.md) que se utilizan más de 20 veces al día en el mismo indizador. Las aptitudes que hacen llamadas de back-end a Cognitive Services incluyen Vinculación de entidad, Reconocimiento de entidad, Análisis de imagen, Extracción de frases clave, Detección de idioma, OCR, Detección PII, Opinión o Traducción de texto.
+
+La [búsqueda de entidades personalizada](cognitive-search-skill-custom-entity-lookup.md) se mide en Azure Cognitive Search, no en Cognitive Services, pero requiere una clave de recurso de Cognitive Services para desbloquear transacciones más allá de 20 por indizador al día. Solo para esta aptitud, la clave de recurso desbloquea el número de transacciones, pero no está relacionada con la facturación.
+
+Puede omitir la clave y la sección Cognitive Services para conjuntos de aptitudes que consten únicamente de aptitudes personalizadas o aptitudes de utilidad (Condicional, Extracción de documentos, Conformador, Combinación de texto, División de texto). También puede omitir la sección si el uso de aptitudes facturables es inferior a 20 transacciones por indizador al día.
 
 ## <a name="how-billing-works"></a>Cómo funciona la facturación
 
 + Azure Cognitive Search usa la clave de recurso de Cognitive Services proporcionada por el usuario en un conjunto de aptitudes con objeto de facturar el enriquecimiento de imágenes y texto. La ejecución de aptitudes facturables tiene lugar al [precio de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-+ La extracción de imágenes es una operación de Azure Cognitive Search que se produce al descifrar documentos antes del enriquecimiento. La extracción de imágenes es facturable. Para ver los precios de la extracción de imágenes, consulte la [página de precios de Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
++ La extracción de imágenes es una operación de Azure Cognitive Search que se produce al descifrar documentos antes del enriquecimiento. La extracción de imágenes se factura en todos los niveles, a excepción de 20 extracciones diarias gratuitas en el nivel gratuito. Los costes de extracción de imágenes se aplican a los archivos de imagen dentro de blobs, a las imágenes insertadas en otros archivos (archivos PDF y otros archivos de aplicación) y a las imágenes extraídas mediante [Extracción de documentos](cognitive-search-skill-document-extraction.md). Para ver los precios de la extracción de imágenes, consulte la [página de precios de Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
 
-+ La extracción de texto también se produce durante la fase de descifrado de documentos. No es facturable.
++ La extracción de texto también se produce durante la fase de [descifrado de documentos](search-indexer-overview.md#document-cracking). No es facturable.
 
-+ Las aptitudes que no llaman a Cognitive Services, como las aptitudes Condicional, Conformador, Combinación de texto y División de texto, no son facturables.
++ Las aptitudes que no llaman a Cognitive Services, como las aptitudes Condicional, Conformador, Combinación de texto y División de texto, no son facturables. 
+
+  Como se ha señalado, [la búsqueda de entidades personalizadas](cognitive-search-skill-custom-entity-lookup.md) es un caso especial, ya que requiere una clave, pero es [medida por la Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
+
+> [!TIP]
+> Para reducir el coste del procesamiento del conjunto de habilidades, habilite [el enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md) para almacenar en caché y reutilizar cualquier enriquecimiento que no se vea afectado por los cambios realizados en un conjunto de habilidades. El almacenamiento en caché requiere Azure Storage (consulte los [precios](https://azure.microsoft.com/pricing/details/storage/blobs/)), pero el costo acumulado de la ejecución del conjunto de aptitudes es menor si se pueden reutilizar los enriquecimientos existentes, especialmente en los que usan extracción de imágenes y análisis.
 
 ## <a name="same-region-requirement"></a>Requisito de la misma región
 
@@ -62,9 +70,7 @@ Si usa el Asistente para la **importación de datos** para el enriquecimiento de
 
 ## <a name="use-billable-resources"></a>Uso de recursos facturables
 
-Para cargas de trabajo que creen más de 20 enriquecimientos al día, asegúrese de asociar un recurso facturable de Cognitive Services. Se recomienda asociar siempre un recurso facturable de Cognitive Services, incluso si nunca ha querido llamar a las API de Cognitive Services. Al asociar un recurso se invalida el límite diario.
-
-Solo se aplican cargos por las aptitudes que llaman a Cognitive Services APIs. No se le facturará por las [aptitudes personalizadas](cognitive-search-create-custom-skill-example.md) o aptitudes como la de [combinación de texto](cognitive-search-skill-textmerger.md), la de [división de texto](cognitive-search-skill-textsplit.md) y la de [conformador](cognitive-search-skill-shaper.md), que no están basadas en API.
+Para cargas de trabajo que creen más de 20 enriquecimientos facturables al día, asegúrese de asociar un recurso de Cognitive Services. 
 
 Si utiliza el Asistente para la **importación de datos**, puede configurar un recurso facturable en la página **Agregar enriquecimiento de AI (opcional)** .
 
@@ -119,7 +125,7 @@ Content-Type: application/json
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [
@@ -144,7 +150,7 @@ Content-Type: application/json
 
 ## <a name="example-estimate-costs"></a>Ejemplo: estimación de costos
 
-Para calcular los costos asociados con la indexación de búsqueda cognitiva, empiece con una idea de cómo debe verse un documento promedio para que pueda ejecutar algunos números. Un cálculo aproximado, por ejemplo, sería:
+Para calcular los costos asociados con la indexación de Cognitive Search, empiece con una idea de cómo debe verse un documento promedio para que pueda ejecutar algunos números. Un cálculo aproximado, por ejemplo, sería:
 
 + 1000 archivos PDF.
 + Seis páginas cada uno.

@@ -4,15 +4,16 @@ description: Use estas consultas de ejemplo para acceder mediante programación 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
-ms.date: 3/08/2021
-ms.openlocfilehash: 7d788448fb3f8a849f79e43fcb0737898f4c9e15
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 8/06/2021
+ms.openlocfilehash: ac276f495ac2a5eb3bee6ac0f682185cf8424611
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583580"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748233"
 ---
 # <a name="sample-queries-for-programmatic-analytics"></a>Consultas de ejemplo para análisis mediante programación
 
@@ -62,6 +63,8 @@ Estas consultas de ejemplo se aplican al informe de pedidos.
 | Informe de pedidos para un nombre de oferta específico durante los últimos 6 meses | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OfferName = ‘Example Offer Name’ TIMESPAN LAST_6_MONTHS` |
 | Informe de pedidos activos durante los últimos 6 meses | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Active’ TIMESPAN LAST_6_MONTHS` |
 | Informe de pedidos cancelados durante los últimos 6 meses | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Cancelled’ TIMESPAN LAST_6_MONTHS` |
+| Informe de pedidos con inicio de período, fecha de finalización del plazo y cargos estimados, moneda | `SELECT OrderId, TermStartId, TermEndId, estimatedcharges from ISVOrderV2 WHERE OrderStatus = ‘Active’ TIMESPAN LAST_6_MONTHS` |
+| Informe de pedidos de prueba activos durante los últimos 6 meses | `SELECT OrderId from ISVOrderV2 WHERE OrderStatus = ‘Active’ and HasTrial = ‘True’ TIMESPAN LAST_6_MONTHS` |
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes

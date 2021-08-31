@@ -58,6 +58,9 @@
             - name: Recursos
               displayName: 'iteration,copy,multiple,batches,child,condition,filter'
               href: loop-resources.md
+            - name: Módulos
+              displayName: 'iteration,copy,multiple,batches,condition,filter'
+              href: loop-modules.md
             - name: Propiedades
               displayName: 'iteration,copy,multiple'
               href: loop-properties.md
@@ -72,7 +75,7 @@
             - name: Resource group
               href: deploy-to-resource-group.md
               displayName: 'deployment commands,multiple resource groups'
-            - name: Suscripción
+            - name: Subscription
               href: deploy-to-subscription.md
               displayName: 'Azure Policy,policy,access control'
             - name: Grupo de administración

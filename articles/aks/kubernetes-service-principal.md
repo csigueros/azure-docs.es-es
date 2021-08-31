@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 637da84073d014effc05a25104c3233ff385b432
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 332866c49470ed47f3c3de65b03ffd07003f6d13
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752596"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253256"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
@@ -56,8 +56,10 @@ En el siguiente ejemplo de Azure PowerShell, no se especifica una entidad de ser
 New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
 ```
 
----
+> [!NOTE]
+> Para el error "Service principal clientID: 00000000-0000-0000-0000-000000000000 not found in Active Directory tenant 00000000-0000-0000-0000-000000000000", consulte [Consideraciones adicionales](#additional-considerations) para quitar el archivo `acsServicePrincipal.json`.
 
+---
 ## <a name="manually-create-a-service-principal"></a>Creación manual de una entidad de servicio
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
@@ -189,6 +191,7 @@ El elemento `Scope` de un recurso debe ser un identificador de recurso completo,
 
 > [!NOTE]
 > Si ha quitado la asignación del rol Colaborador del grupo de recursos del nodo, se pueden producir errores en las siguientes operaciones.
+> La concesión de permisos a los clústeres que utilizan la identidad administrada del sistema puede tardar hasta 60 minutos en completarse.
 
 Las secciones siguientes detallan las delegaciones comunes que es posible que deba realizar.
 
@@ -251,9 +254,9 @@ Cuando use entidades de servicio de AKS y Azure AD, tenga en cuenta lo siguiente
 - Cada entidad de servicio está asociada a una aplicación de Azure AD. La entidad de servicio de un clúster de Kubernetes puede asociarse con cualquier nombre de aplicación de Azure AD válido (por ejemplo, *https://www.contoso.org/example* ). La dirección URL de la aplicación no tiene por qué ser un punto de conexión real.
 - Al especificar el **identificador de cliente**, utilice el valor de `ApplicationId`.
 - En las VM del nodo de agente del clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo `/etc/kubernetes/azure.json`.
-- Cuando use el comando [New-AzAksCluster][new-azakscluster] para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo `~/.azure/aksServicePrincipal.json` de la máquina que se usa para ejecutar el comando.
-- Si no pasa específicamente una entidad de servicio en comandos adicionales de PowerShell de AKS, se usa la entidad de servicio predeterminada ubicada en `~/.azure/aksServicePrincipal.json`.
-- Opcionalmente, también puede quitar el archivo aksServicePrincipal.json y AKS creará una entidad de servicio.
+- Cuando use el comando [New-AzAksCluster][new-azakscluster] para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo `~/.azure/acsServicePrincipal.json` de la máquina que se usa para ejecutar el comando.
+- Si no pasa específicamente una entidad de servicio en comandos adicionales de PowerShell de AKS, se usa la entidad de servicio predeterminada ubicada en `~/.azure/acsServicePrincipal.json`.
+- Opcionalmente, también puede quitar el archivo acsServicePrincipal.json y AKS creará una entidad de servicio.
 - Al eliminar un clúster de AKS creado mediante [New-AzAksCluster][new-azakscluster], no se elimina la entidad de servicio que se ha creado automáticamente.
     - Para eliminar la entidad de servicio, consulte el clúster *ServicePrincipalProfile.ClientId* y, después, elimínelo con [Remove-AzADServicePrincipal][remove-azadserviceprincipal]. Reemplace los nombres de clúster y del grupo de recursos siguientes con los suyos propios.
 

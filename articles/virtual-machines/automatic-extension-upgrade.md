@@ -6,22 +6,22 @@ ms.service: virtual-machines
 ms.subservice: automatic-extension-upgrade
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 08/10/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a239b362cc7d85b45a5ae0c4f102471ae46cc450
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6af80da8c05df4f56fe04ae45169c5e1a63fcd9c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673590"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751726"
 ---
-# <a name="preview-automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Vista previa: Actualización automática de extensiones para máquinas virtuales y conjuntos de escalado en Azure
+# <a name="automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Actualización automática de extensiones para máquinas virtuales y conjuntos de escalado en Azure
 
-La actualización automática de extensiones está disponible en versión preliminar para las máquinas virtuales de Azure y Azure Virtual Machine Scale Sets. Cuando la actualización automática de extensiones está habilitada en una máquina virtual o en un conjunto de escalado, la extensión se actualiza automáticamente cada vez que el editor de la extensión publica una nueva versión de esta.
+La actualización automática de extensiones está disponible para las máquinas virtuales de Azure y Azure Virtual Machine Scale Sets. Cuando la actualización automática de extensiones está habilitada en una máquina virtual o en un conjunto de escalado, la extensión se actualiza automáticamente cada vez que el editor de la extensión publica una nueva versión de esta.
 
  La actualización automática de extensiones tiene las siguientes características:
-- Es compatible con máquinas virtuales de Azure y Azure Virtual Machine Scale Sets. No se admite actualmente Virtual Machine Scale Sets de Service Fabric.
+- Es compatible con máquinas virtuales de Azure y Azure Virtual Machine Scale Sets.
 - Las actualizaciones se aplican según un modelo de implementación de orden de disponibilidad (se detalla a continuación).
 - En el caso de un conjunto de escalado de máquinas virtuales, no se actualizará más del 20 % de las máquinas virtuales del conjunto de escalado en un único lote. El tamaño mínimo de lote es una única máquina virtual.
 - Funciona con todos los tamaños de máquina virtual y con extensiones de Windows y Linux.
@@ -30,20 +30,13 @@ La actualización automática de extensiones está disponible en versión prelim
 - Cada extensión admitida se inscribe individualmente, y puede elegir qué extensiones se van a actualizar automáticamente.
 - Se admite en todas las regiones de la nube pública.
 
-
-> [!IMPORTANT]
-> La actualización automática de extensiones se encuentra actualmente en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de versión preliminar pública que se describe a continuación.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 ## <a name="how-does-automatic-extension-upgrade-work"></a>¿Cómo funciona la actualización automática de extensiones?
 El proceso de actualización de extensiones reemplaza la versión de la extensión existente en una máquina virtual por una nueva versión de la misma extensión que ha publicado el editor de la extensión. El estado de la máquina virtual se supervisa después de instalar la nueva extensión. Si el estado de la máquina virtual no es correcto a los cinco minutos de finalizar la actualización, la versión de la extensión se revierte a la versión anterior.
 
 Las actualizaciones de extensiones con errores se reintentan automáticamente. Los reintentos se realizan cada pocos días automáticamente sin la intervención del usuario.
 
 ### <a name="availability-first-updates"></a>Actualizaciones por orden de disponibilidad
-El modelo de orden de disponibilidad de las actualizaciones orquestadas de la plataforma garantizará que se respeten las configuraciones de disponibilidad en Azure de varios niveles.
+El modelo de orden de disponibilidad de las actualizaciones orquestadas de la plataforma garantiza que se respeten las configuraciones de disponibilidad en Azure de varios niveles.
 
 En un grupo de máquinas virtuales que se vayan a actualizar, la plataforma Azure orquestará las actualizaciones:
 
@@ -54,7 +47,7 @@ En un grupo de máquinas virtuales que se vayan a actualizar, la plataforma Azur
 - El éxito de una actualización se mide realizando un seguimiento del estado de la máquina virtual después de la actualización. El seguimiento del estado de la máquina virtual se realiza a través de los indicadores de estado de la plataforma de la máquina virtual. En el caso de Virtual Machine Scale Sets, se realiza un seguimiento del estado de la máquina virtual a través de sondeos de estado de la aplicación o de la extensión Estado de la aplicación, si se aplica al conjunto de escalado.
 
 **Dentro de una región:**
-- Las máquinas virtuales de diferentes Availability Zones no se actualizan simultáneamente.
+- Las máquinas virtuales de diferentes Availability Zones no se actualizan simultáneamente con la misma actualización.
 - Las máquinas virtuales que no forman parte de un conjunto de disponibilidad se procesan por lotes, según la mejor opción, para evitar las actualizaciones simultáneas de todas las máquinas virtuales de una suscripción.  
 
 **Dentro de un "conjunto":**
@@ -76,75 +69,16 @@ El proceso anterior continúa hasta que se han actualizado todas las instancias 
 El orquestador de la actualización del conjunto de escalado comprueba el estado global del conjunto de escalado antes de actualizar cada lote. Al actualizar un lote, podría haber otras actividades de mantenimiento simultáneas planeadas o sin planear que podrían afectar al estado de las máquinas virtuales del conjunto de escalado. En tales casos, si más del 20 % de las instancias del conjunto de escalado tienen un estado incorrecto, la actualización del conjunto de escalado se detiene al final del lote actual.
 
 ## <a name="supported-extensions"></a>Extensiones admitidas
-La versión preliminar de la actualización automática de extensiones admite las siguientes extensiones (y se agregan más periódicamente):
-- Dependency Agent: [Windows](./extensions/agent-dependency-windows.md) y [Linux](./extensions/agent-dependency-linux.md)
-- [Extensión Estado de la aplicación](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md): Windows y Linux
-
-
-## <a name="enabling-preview-access"></a>Habilitación del acceso en versión preliminar
-Para habilitar la funcionalidad en versión preliminar, hay que participar en la característica **AutomaticExtensionUpgradePreview** por suscripción, como se detalla a continuación.
-
-### <a name="rest-api"></a>API DE REST
-En el ejemplo siguiente se describe cómo habilitar la versión preliminar para su suscripción:
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticExtensionUpgradePreview/register?api-version=2015-12-01`
-```
-
-El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos:
-
-```
-GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticExtensionUpgradePreview?api-version=2015-12-01`
-```
-
-Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2020-06-01`
-```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-Use el cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para habilitar la versión preliminar de su suscripción.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AutomaticExtensionUpgradePreview -ProviderNamespace Microsoft.Compute
-```
-
-El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName AutomaticExtensionUpgradePreview -ProviderNamespace Microsoft.Compute
-```
-
-Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="azure-cli"></a>Azure CLI
-Utilice [az feature register](/cli/azure/feature#az_feature_register) para habilitar la versión preliminar de su suscripción.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name AutomaticExtensionUpgradePreview
-```
-
-El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos:
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name AutomaticExtensionUpgradePreview
-```
-
-Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+La actualización automática de extensiones admite las siguientes extensiones (y se agregan más periódicamente):
+- Dependency Agent: [Linux](./extensions/agent-dependency-linux.md) y [Windows](./extensions/agent-dependency-windows.md)
+- [Extensión Application Health](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md): Linux y Windows
+- [Extensión Guest Configuration](./extensions/guest-configuration.md): Linux y Windows
+- Key Vault: [Linux](./extensions/key-vault-linux.md) y [Windows](./extensions/key-vault-windows.md)
 
 
 ## <a name="enabling-automatic-extension-upgrade"></a>Habilitación de la actualización automática de extensiones
-Para habilitar la actualización automática de extensiones para una extensión, debe asegurarse de que la propiedad *enableAutomaticUpgrade* esté establecida en *true* y de que se haya agregado a cada definición de extensión de manera individual.
 
+Para habilitar la actualización automática de extensiones para una extensión, debe asegurarse de que la propiedad `enableAutomaticUpgrade` esté establecida en `true` y de que se haya agregado a cada definición de extensión de manera individual.
 
 ### <a name="rest-api-for-virtual-machines"></a>API REST para Virtual Machines
 Para habilitar la actualización automática de extensiones para una extensión (en este ejemplo, la extensión Dependency Agent) en una máquina virtual de Azure, use lo siguiente:

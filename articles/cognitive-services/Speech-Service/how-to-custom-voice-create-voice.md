@@ -3,19 +3,19 @@ title: 'Creación de un proyecto de Voz personalizada: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Cuando esté listo para cargar los datos, vaya al portal de voz personalizada. Cree o seleccione un proyecto de voz personalizada. El proyecto debe compartir el idioma o configuración regional y las propiedades de género correctos con los datos que pretende usar para el entrenamiento de voz.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 449975a6f0b5799ce93dcb31f42e1a43a1d183f3
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.author: lajanuar
+ms.openlocfilehash: a380c66159304e8e5fabbc73c8a2c663f7d23c27
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412140"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122066469"
 ---
 # <a name="create-and-use-your-voice-model"></a>Creación y uso de un modelo de voz
 
@@ -42,9 +42,9 @@ En los pasos siguientes se supone que ha preparado los archivos de consentimient
 
 1. Vaya a **Texto a voz** > **Voz personalizada** > **seleccione un proyecto** > **Set up voice talent** (Configurar talento de voz).
 
-2. Haga clic en **Add voice talent** (Agregar talento de voz).
+2. Seleccione **Add voice talent** (Agregar talento de voz).
 
-3. A continuación, para definir las características de voz, haga clic en el **escenario de destino** que se va a usar. Describa los valores de **Características de voz** correspondientes.
+3. A continuación, para definir las características de voz, seleccione el **escenario de destino** que se va a usar. Describa los valores de **Características de voz** correspondientes.
 
 > [!NOTE]
 > Los escenarios que proporcione deben ser coherentes con lo que haya solicitado en el formulario.
@@ -54,99 +54,99 @@ En los pasos siguientes se supone que ha preparado los archivos de consentimient
 > [!NOTE]
 > Asegúrese de que la instrucción verbal se registra en la misma configuración que los datos de entrenamiento, incluido el entorno de grabación y el estilo de habla.
 
-5. Por último, vaya a **Revisar y enviar**, puede revisar la configuración y hacer clic en **Enviar**.
+5. Por último, vaya a **Review and create** (Revisar y enviar) para revisar la configuración y seleccione **Submit** (Enviar).
 
-## <a name="upload-your-datasets"></a>Cargar los conjuntos de datos
+## <a name="upload-your-data"></a>Creación del código
 
-Cuando esté listo para cargar los datos, vaya a la pestaña **Prepare training data** (Preparar datos de entrenamiento) para agregar su primer conjunto de entrenamiento y cargar datos.  Un conjunto de entrenamiento es un conjunto de expresiones de audio y los scripts de asignación que se usan para entrenar un modelo de voz. Puede usar un conjunto de entrenamiento para organizar los datos de entrenamiento. Se comprueba si los datos están preparados en cada conjunto de entrenamiento. Puede importar varios conjuntos de datos a un conjunto de entrenamiento.
+Cuando esté listo para cargar los datos, vaya a la pestaña **Prepare training data** (Preparar datos de entrenamiento) para agregar su primer conjunto de entrenamiento y cargar datos.  Un conjunto de entrenamiento es un conjunto de expresiones de audio y los scripts de asignación que se usan para entrenar un modelo de voz. Puede usar un conjunto de entrenamiento para organizar los datos de entrenamiento. Se comprueba si los datos están preparados en cada conjunto de entrenamiento. Puede importar varios datos a un conjunto de entrenamiento.
 
 Puede hacer lo siguiente para crear y revisar los datos de entrenamiento.
 
-1. En la pestaña **Prepare training data** (Preparar datos de entrenamiento), haga clic en **Add training set** (Agregar conjunto de entrenamiento) para escribir **Nombre** y **Descripción** > **Crear** para agregar un nuevo conjunto de entrenamiento.
+1. En la pestaña **Prepare training data** (Preparar datos de entrenamiento), seleccione **Add training set** (Agregar conjunto de entrenamiento) para escribir **Nombre** y **Descripción** > **Crear** para agregar un nuevo conjunto de entrenamiento.
 
    Una vez creado el conjunto de entrenamiento correctamente, podrá empezar a cargar los datos. 
 
-2. Para cargar datos, haga clic en **Upload data** > **Choose data type** > **Upload data** (Cargar datos > Elegir tipo de datos > Cargar datos) y **Specify the target training set** (Especificar el conjunto de entrenamiento objetivo) > Escriba los valores de **Nombre** y **Descripción** del conjunto de datos > revise la configuración y haga clic en **Cargar**.
+2. Para cargar datos, seleccione **Upload data** > **Choose data type** > **Upload data** (Cargar datos > Elegir tipo de datos > Cargar datos) y **Specify the target training set** (Especificar el conjunto de entrenamiento objetivo) > Escriba los valores de **Nombre** y **Descripción** de los datos > revise la configuración y seleccione **Submit** (Enviar).
 
 > [!NOTE]
->- Los nombres de audio duplicados se quitarán del entrenamiento. Asegúrese de que los conjuntos de datos que seleccione no contengan los mismos nombres de audio en el archivo ZIP o en varios archivos ZIP. Si los ID de expresión (ya sea en archivos de audio o de script) están duplicados, se rechazarán.
->- Si ha creado conjuntos de datos en la versión anterior de Speech Studio, debe especificar un conjunto de entrenamiento ellos de antemano para usarlos. De lo contrario, se anexará un signo de exclamación al nombre del conjunto de datos y no se podrá usar.
+>- Los nombres de audio duplicados se quitarán del entrenamiento. Asegúrese de que los datos que seleccione no contengan los mismos nombres de audio en el archivo ZIP o en varios archivos ZIP. Si los ID de expresión (ya sea en archivos de audio o de script) están duplicados, se rechazarán.
+>- Si ha creado archivos datos en la versión anterior de Speech Studio, debe especificar un conjunto de entrenamiento de antemano para usarlos. De lo contrario, se anexará un signo de exclamación al nombre de los datos y no se podrá usar.
 
-Cada conjunto de datos que cargue debe cumplir los requisitos del tipo de datos elegido. Es importante dar el formato correcto a los datos antes de cargarlos, lo que garantiza que el servicio Voz neuronal personalizada los procesará con precisión. Vaya a [Prepare training data](how-to-custom-voice-prepare-data.md) (Preparar datos de entrenamiento) y asegúrese de que los datos tienen el formato correcto.
+Cada conjunto que cargue debe cumplir los requisitos del tipo de datos elegido. Es importante dar el formato correcto a los datos antes de cargarlos, lo que garantiza que el servicio Voz neuronal personalizada los procesará con precisión. Vaya a [Prepare training data](how-to-custom-voice-prepare-data.md) (Preparar datos de entrenamiento) y asegúrese de que los datos tienen el formato correcto.
 
 > [!NOTE]
-> - En cambio, los usuarios con una suscripción estándar (S0) pueden cargar cinco conjuntos de datos a la vez. Si alcanza el límite, espere hasta que al menos uno de los conjuntos de datos finalice la importación. A continuación, inténtelo de nuevo.
-> - El número máximo de conjuntos de datos que se pueden importar por suscripción es de 10 archivos ZIP para usuarios de la suscripción gratuita (F0) y 500 para usuarios para la suscripción estándar (S0).
+> - En cambio, los usuarios con una suscripción estándar (S0) pueden cargar cinco archivos de datos a la vez. Si alcanza el límite, espere hasta que al menos uno de los archivos de datos finalice la importación. A continuación, inténtelo de nuevo.
+> - El número máximo de archivos de datos que se pueden importar por suscripción es de 10 archivos ZIP para usuarios de una suscripción gratuita (F0) y 500 para usuarios de la suscripción estándar (S0).
 
-Los conjuntos de datos se validan automáticamente una vez presionado el botón **Cargar**. La validación de datos incluye una serie de comprobaciones en los archivos de audio para comprobar su formato de archivo, el tamaño y la frecuencia de muestreo. Corrija los errores si los hay y vuelva a realizarla. 
+Los archivos de datos se validan automáticamente una vez presionado el botón **Submit** (Enviar). La validación de datos incluye una serie de comprobaciones en los archivos de audio para comprobar su formato de archivo, el tamaño y la frecuencia de muestreo. Corrija los errores si los hay y vuelva a realizarla. 
 
-Una vez cargados los datos, puede comprobar los detalles en la vista de detalles del conjunto de entrenamiento. En pestaña **Información general** puede comprobar la puntuación de las pronunciaciones y el nivel de ruido de cada conjunto de datos. La puntuación de las pronunciaciones abarca un rango del 0 al 100. Una puntuación por debajo de 70 normalmente indica un error en el discurso o que el guion no coincide. Un acento marcado puede reducir la puntuación de las pronunciaciones, y afectar a la voz digital que se ha creado.
+Una vez cargados los datos, puede comprobar los detalles en la vista de detalles del conjunto de entrenamiento. En pestaña **Overview** (Información general) puede comprobar la puntuación de las pronunciaciones y el nivel de ruido de los datos. La puntuación de las pronunciaciones abarca un rango del 0 al 100. Una puntuación por debajo de 70 normalmente indica un error en el discurso o que el guion no coincide. Un acento marcado puede reducir la puntuación de las pronunciaciones, y afectar a la voz digital que se ha creado.
 
 Una relación de la señal y el ruido (SNR) más alta indica un ruido más bajo en el audio. Por lo general, el audio puede alcanzar una SNR de más de 50 puntos si se graba en estudios profesionales. Un audio que tenga un valor de SNR por debajo de 20 puntos puede provocar un ruido obvio en la voz generada.
 
-Puede volver a grabar cualquier expresión que tenga una puntuación baja debido a la pronunciación o a la pobre relación entre el ruido y la señal. Si no es posible volver a realizar la grabación, considere la exclusión de esas expresiones del conjunto de datos.
+Puede volver a grabar cualquier expresión que tenga una puntuación baja debido a la pronunciación o a la pobre relación entre el ruido y la señal. Si no es posible volver a realizar la grabación, considere la exclusión de esas expresiones de los datos.
 
-En **Detalles de los datos** puede comprobar los detalles de los datos del conjunto de entrenamiento. Con algunos problemas típicos con los datos puede seguir las instrucciones del mensaje que se muestra para corregirlos antes del entrenamiento.
+En **Detalles de los datos** puede comprobar los detalles de los datos del conjunto de entrenamiento. Si hay presentes algunos problemas típicos en los datos puede seguir las instrucciones del mensaje que se muestra para corregirlos antes del entrenamiento.
 
 Los problemas se dividen en tres tipos. Consulte las tres tablas siguientes para comprobar los tipos de errores respectivos.
 
-El primer tipo de error que se enumera en la tabla siguiente debe corregirse manualmente; de lo contrario, los datos con estos errores se excluirán durante el entrenamiento. 
+El primer tipo de error que se enumera en la tabla siguiente debe corregirse manualmente; de lo contrario, los datos con estos errores se excluirán durante el entrenamiento.
 
-| Category | Nombre | Descripción | Sugerencia |
-| --------- | ----------- | ----------- | --------------------------- |
-| Script | Invalid separator (Separador no válido)| Estas líneas de script no tienen un separador válido TAB:{}.| Use TAB para separar el identificador y el contenido.|
-| Script | Invalid script ID (Id. de script no válido)| El formato del identificador de script no es válido.| El identificador de la línea de script debe ser numérico.|
-| Script | Script content duplicated (Contenido de script duplicado)| El contenido del script de la línea {} está duplicado con la línea {}.| El contenido de la línea de script debe ser único.|
-| Script | Script content too long (Contenido de script demasiado largo)| La línea de script tiene más caracteres que los 1000 máximos permitidos.| Debe tener menos de 1000 caracteres.|
-| Script | Script has no matching audio (El script no tiene audio correspondiente)| El identificador de la línea de script no tiene audio correspondiente.| Debe coincidir con el identificador de audio.|
-| Script | No valid script (Sin script válido)| No se encontró ningún script válido en este conjunto de datos.| Corrija las líneas de script problemáticas con ayuda de la lista de problemas detallada.|
-| Audio | Audio has no matching script (El audio no tiene ningún script que coincida)| El archivo de audio no coincide con el identificador del script.| El nombre del archivo WAV debe coincidir con el identificador del archivo de script.|
-| Audio | Invalid audio format (Formato de audio no válido)| El archivo WAV tiene un formato no válido y no se puede leer.| Compruebe el formato de archivo WAV mediante una herramienta de audio como sox.|
-| Audio | Low sampling rate (Velocidad de muestreo baja)| La velocidad de muestreo de audio es inferior a 16 KHz. | La frecuencia de muestreo del archivo WAV debe ser igual o mayor que 16 KHz. |
-| Audio | Audio duration too long (Audio demasiado largo)| La duración del audio es mayor que 30 segundos.| Divida el audio de larga duración en varios archivos para asegurarse de duren menos de 15 segundos cada uno.|
-| Audio | No valid audio (No hay audio válido)| No se encontró ningún audio válido en este conjunto de datos.| Corrija el audio problemático con la ayuda de la lista de problemas detallada.|
+| Category | Nombre | Descripción |
+| --------- | ----------- | --------------------------- |
+| Script | Invalid separator (Separador no válido)| Debe separar el id. de expresión y el contenido del script con un carácter de tabulación.|
+| Script | Invalid script ID (Id. de script no válido)| El id. de la línea del script debe ser numérico.|
+| Script | Script duplicado|Cada línea del contenido del script debe ser única. La línea está duplicada con 1{}.|
+| Script | El script es demasiado largo| El script debe tener menos de 1000 caracteres.|
+| Script | Sin audio correspondiente| El id. de cada expresión (cada línea del archivo del script) debe coincidir con el id. de audio.|
+| Script | No valid script (Sin script válido)| No se encontró ningún script válido en este conjunto de datos. Corrija las líneas del script que aparecen en la lista detallada de problemas.|
+| Audio | Sin script correspondiente| Ningún archivo de audio coincide con el id. del script. El nombre de los archivos wav debe coincidir con los de los archivos del script.|
+| Audio | Invalid audio format (Formato de audio no válido)| El formato de audio de los archivos .wav no es válido. Compruebe el formato de archivo wav mediante una herramienta de audio como [SoX](http://sox.sourceforge.net/).|
+| Audio | Low sampling rate (Velocidad de muestreo baja)| La frecuencia de muestreo de los archivos .wav no puede ser inferior a 16 KHz.|
+| Audio | El audio es demasiado largo| La duración del audio es mayor que 30 segundos. Divida el audio largo en varios archivos. Se recomienda que las expresiones duren menos de 15 segundos.|
+| Audio | No valid audio (No hay audio válido)| No se encontró ningún audio válido en este conjunto de datos. Compruebe los datos de audio y cárquelos de nuevo.|
 
-El segundo tipo de error que se enumera en la tabla siguiente se corregirá automáticamente, pero se recomienda comprobar los datos reparados. 
+El segundo tipo de error que se enumera en la tabla siguiente se corregirá automáticamente, pero se recomienda comprobar los datos reparados.
 
-| Category | Nombre | Descripción | Sugerencia |
-| --------- | ----------- | ----------- | --------------------------- |
-| Audio | Stereo audio (Audio en estéreo) | Solo se usará un canal de audio en estéreo para el entrenamiento del modelo de TTS.|     Use mono en la grabación de TTS o en la preparación de datos. Este audio se convierte a mono. Descargue el conjunto de datos normalizado y revíselo.|
-| Volumen | Volume peak out of range (Pico de volumen fuera del intervalo) |El pico de volumen no está dentro del intervalo de -3 dB (70 % del volumen máximo) a -6 dB (50 %). Ahora se ajusta automáticamente a -4 dB (65 %).|  Controle que el pico de volumen se encuentre en el intervalo adecuado durante la grabación o la preparación de los datos. Este audio se escala linealmente para su ajuste al intervalo máximo. Descargue el conjunto de datos normalizado y revíselo.|
-|Error de coincidencia | Long silence detected before first word (Se detectó un silencio largo antes de la primera palabra) | Se detectó un silencio largo antes de la primera palabra.| El silencio inicial se recorta a 200 ms. Descargue el conjunto de datos normalizado y revíselo. |
-| Error de coincidencia | Long silence detected after last word (Se detectó un silencio largo después de la última palabra) | Se detectó un silencio largo después de la última palabra. | El silencio final se recorta a 200 ms. Descargue el conjunto de datos normalizado y revíselo. |
-| Error de coincidencia |Start silence too short (Silencio de inicio demasiado breve) | El silencio de inicio dura menos de 100 ms. | El silencio de inicio se amplía a 100 ms. Descargue el conjunto de datos normalizado y revíselo. |
-| Error de coincidencia | End silence too short (Silencio final demasiado breve) | El silencio final dura menos de 100 ms. | El silencio final se amplía a 100 ms. Descargue el conjunto de datos normalizado y revíselo. |
+| Category | Nombre | Descripción |
+| --------- | ----------- | --------------------------- |
+| Audio | Audio estéreo corregido automáticamente | Use mono en las grabaciones de ejemplo de audio. Los canales de audio estéreo se combinan automáticamente en un canal mono, lo que puede provocar la pérdida de contenido.  Descargue el conjunto de datos normalizado y revíselo.|
+| Volumen | Corrección automática del pico de volumen |El pico de volumen no está dentro del intervalo de -3 dB (70 % del volumen máximo) a -6 dB (50 %). Controle el pico de volumen durante la grabación de ejemplo o la preparación de datos. Este audio se escala linealmente para ajustarse al intervalo máximo automáticamente (-4 dB o 65 %). Descargue el conjunto de datos normalizado y revíselo.|
+|Error de coincidencia | Silencio corregido automáticamente| Se detecta que el silencio al principio es superior a 200 ms y se ha recortado a 200 ms automáticamente. Descargue el conjunto de datos normalizado y revíselo. |
+| Error de coincidencia |Silencio corregido automáticamente | Se detecta que el silencio al final es superior a 200 ms y se ha recortado a 200 ms automáticamente. Descargue el conjunto de datos normalizado y revíselo. |
+| Error de coincidencia |Silencio corregido automáticamente |Se detecta que el silencio al principio es inferior a 100 ms y se ha ampliado a 100 ms automáticamente. Descargue el conjunto de datos normalizado y revíselo. |
+| Error de coincidencia |Silencio corregido automáticamente | Se detecta que el silencio al final es inferior a 100 ms y se ha ampliado a 100 ms automáticamente. Descargue el conjunto de datos normalizado y revíselo.|
 
 Si el tercer tipo de error que se enumera en la tabla siguiente no se corrige, aunque los datos con estos errores no se excluirán durante el entrenamiento, afectará a la calidad del entrenamiento. Para un entrenamiento de mayor calidad, se recomienda corregir manualmente estos errores. 
 
-| Category | Nombre | Descripción | Sugerencia |
-| --------- | ----------- | ----------- | --------------------------- |
-| Script | Contain digit 0-9 (Contiene dígito 0-9)| Estas líneas de script contienen un dígito del 0 al 9.| Las líneas de script contienen un dígito de 0 a 9. Amplíelas a palabras normalizadas y que coincidan con el audio. Por ejemplo, "123" a "ciento veintitrés".|
-| Script | Pronunciation confused word "{}" (Pronunciación confusa de la palabra "{}") | El script contiene la palabra de pronunciación confusa: "{}".| Amplíe la palabra a su pronunciación real. Por ejemplo, {}.|
-| Script | Question utterances too few (Demasiado pocas expresiones de pregunta)| Las líneas de script de preguntas son menos de 1/6 de las líneas de script totales.| Deben ser al menos 1/6 de líneas totales para que la fuente de voz exprese correctamente el tono de pregunta.|
-| Script | Exclamation utterances too few (Demasiado pocas expresiones de exclamación)| Las líneas de script de exclamación son menos de 1/6 de las líneas de script totales.| Deben ser al menos 1/6 de líneas totales para que la fuente de voz exprese correctamente el tono de exclamación.|
-| Audio| Low sampling rate for neural voice (Velocidad de muestreo baja para la voz neuronal) | La velocidad de muestreo de audio es menor que 24 KHz.|    La velocidad de muestreo del archivo WAV debe ser igual o mayor que 24 KHz para una voz neuronal de alta calidad.|
-| Volumen | Overall volume too low (Volumen general demasiado bajo) | El volumen de {} muestras es menor de -18 dB (10 % del volumen máximo).|     Controle el volumen medio hasta el intervalo adecuado durante la grabación o la preparación de los datos.|
-| Volumen | Volume truncation (Truncamiento del volumen)| Se detecta truncamiento del volumen en {} s.| Ajuste el equipo de grabación para evitar el truncamiento del volumen en su valor máximo.|
-| Volumen | Start silence not clean (Silencio de inicio con ruido) | Los primeros 100 ms de silencio tienen ruido. Detecte el volumen mayor que -40 dB (1 % del volumen máximo).|    Reduzca el ruido de fondo de la grabación y deje los 100 ms iniciales como silencio.|
-| Volumen| End silence not clean (Silencio final con ruido)| El último silencio de 100 ms tiene ruido. Detecte el volumen mayor que -40 dB (1 % del volumen máximo).|     Reduzca el ruido de la grabación y deje los 100 ms como silencio.|
-| Error de coincidencia | Script audio mismatch detected (Detectado error de coincidencia entre audio y script)| Hay una discrepancia entre el contenido del script y el audio. |     Revise el contenido del script y del audio para asegurarse de que coinciden y controle el ruido. Reduzca el silencio largo o divídalo en varias expresiones.|
-| Error de coincidencia | Extra audio energy detected before first word (Se detectó energía de audio adicional antes de la primera palabra) |    Se detectó energía de audio adicional antes de la primera palabra. También puede que el silencio de inicio antes de la primera palabra sea demasiado breve.|    Revise el contenido del script y del audio para asegurarse de que coinciden y controle el ruido. Deje también 100 ms de silencio antes de la primera palabra.|
-| Error de coincidencia | Extra audio energy detected after last word (Se detectó energía de audio adicional después de la última palabra)| Se detectó energía de audio adicional después de la última palabra. También puede que el silencio después de la última palabra sea demasiado breve.|    Revise el contenido del script y del audio para asegurarse de que coinciden y controle el ruido. Deje también 100 ms de silencio después de la última palabra.|
-| Error de coincidencia | Low signal-noise ratio (Relación entre señal y ruido de baja calidad) | La relación entre señal y ruido del audio es menor de {} dB.| Reduzca el ruido del audio durante la grabación o la preparación de los datos.|
-| Error de coincidencia | Recognize speech content fail (Error al reconocer el contenido de voz) | No se puede realizar el reconocimiento de voz en este audio.|  Compruebe el contenido del audio y del script para asegurarse de que el audio es una voz válida y coincide con el script.|
+| Category | Nombre | Descripción |
+| --------- | ----------- | --------------------------- |
+| Script | Texto no normalizado|Este script contiene dígitos entre el 0 y el 9. Escríbalos como palabras normalizadas y que coincidan con el audio. Por ejemplo: para "123", use "ciento veintitrés".|
+| Script | Texto no normalizado|Este script contiene símbolos {}. Normalice los símbolos para que coincidan con el audio. Por ejemplo: para "50 %", use "cincuenta por ciento".|
+| Script | No hay suficientes expresiones de pregunta| Al menos el 10 % de las expresiones totales deben ser frases de pregunta. Esto ayuda al modelo de voz a expresar correctamente un tono de interrogación.|
+| Script |No hay suficientes expresiones de exclamación| Al menos el 10 % de las expresiones totales deben ser frases de exclamación. Esto ayuda al modelo de voz a expresar correctamente un tono de exclamación.|
+| Audio| Low sampling rate for neural voice (Velocidad de muestreo baja para la voz neuronal) | Se recomienda que la frecuencia de muestreo de los archivos .wav sea de 24 KHz o superior para crear voces neuronales. Se subirá automáticamente a 24 KHz si es inferior.|
+| Volumen |Overall volume too low (Volumen general demasiado bajo)|El volumen no debe ser inferior a -18 dB (10 % del volumen máximo). Controle el volumen medio dentro del intervalo adecuado durante la grabación de ejemplo o la preparación de los datos.|
+| Volumen | Desbordamiento de volumen| El volumen desbordante se detecta en {}s. Ajuste el equipo de grabación para evitar el desbordamiento de volumen en su valor máximo.|
+| Volumen | Problema de silencio al principio | Los primeros 100 ms de silencio tienen ruido. Reduzca el nivel de ruido de la grabación y deje los primeros 100 ms del principio en modo silencioso.|
+| Volumen| Problema de silencio al final| Los últimos 100 ms de silencio tienen ruido.  Reduzca el nivel de ruido de la grabación y deje los últimos 100 ms del final en modo silencioso.|
+| Error de coincidencia | Palabras con puntuación baja|Revise el contenido del script y del audio para asegurarse de que coinciden y controle el ruido. Reduzca la longitud del silencio largo o divida el audio en varias expresiones si es demasiado largo.|
+| Error de coincidencia | Problema de silencio al principio |Antes de la primera palabra se oía audio adicional. Revise el script y el contenido de audio para asegurarse de que coinciden, controlan el nivel de ruido del suelo y hacen que los primeros 100 ms no se usen.|
+| Error de coincidencia | Problema de silencio al final| Después de la última palabra se oía audio adicional. Revise el script y el contenido de audio para asegurarse de que coinciden, controlan el nivel de ruido del suelo y hacen que los últimos 100 ms no se usen.|
+| Error de coincidencia | Low signal-noise ratio (Relación entre señal y ruido de baja calidad) | La relación entre señal y ruido del audio es menor de 20 dB. Se recomiendan al menos 35 dB.|
+| Error de coincidencia | No hay puntuación disponible |No se pudo reconocer el contenido de voz en este audio. Compruebe el contenido del audio y del script para asegurarse de que el audio es válido y coincide con el script.|
 
 ## <a name="train-your-custom-neural-voice-model"></a>Entrenamiento del modelo de voz neuronal personalizada
 
-Una vez validado el conjunto de datos, podrá usarlo para crear su modelo de voz neuronal personalizada.
+Una vez validados los archivos de datos, podrá usarlos para crear su modelo de voz neuronal personalizada.
 
-1. En la pestaña **Entrenar modelo**, haga clic en **Entrenar modelo** para crear un modelo de voz con los datos que ha cargado.
+1. En la pestaña **Train model** (Entrenar modelo), haga clic en **Train model** (Entrenar modelo) para crear un modelo de voz con los datos que ha cargado.
 
 2. Seleccione el método de entrenamiento neuronal para el modelo y el idioma de destino.
 
 De forma predeterminada, el modelo de voz se entrena en el mismo idioma de los datos de entrenamiento. También puede seleccionar crear un idioma secundario (versión preliminar) para el modelo de voz.  Compruebe los idiomas admitidos para la voz neuronal personalizada y la característica multilingüe: [idioma para la personalización](language-support.md#customization).
 
-3. A continuación, elija el conjunto de datos que desea usar para el entrenamiento y especifique un archivo del hablante.
+3. A continuación, elija los datos que desea usar para el entrenamiento y especifique un archivo del hablante.
 
 >[!NOTE]
 >- Debe seleccionar al menos 300 expresiones para crear una voz neuronal personalizada.
@@ -155,18 +155,18 @@ De forma predeterminada, el modelo de voz se entrena en el mismo idioma de los d
 
 4. A continuación, escriba los valores de **Nombre** y **Descripción** que le ayuden a identificar este modelo.
 
-Elija un nombre con cuidado. El nombre que escriba aquí será el nombre que use para especificar la voz en su solicitud de síntesis de voz como parte de la entrada de SSML. Solo se permiten letras, números y algunos signos de puntuación, como -, \_ y (","). Use nombres diferentes para los modelos de voz neuronal diferentes.
+Elija un nombre con cuidado. El nombre que escriba aquí será el nombre que use para especificar la voz en su solicitud de síntesis de voz como parte de la entrada de SSML. Solo se permiten letras, números y algunos signos de puntuación, como -, _ y (","). Use nombres diferentes para los modelos de voz neuronal diferentes.
 
-Un uso habitual del campo **Descripción** es registrar los nombres de los conjuntos de datos que se usaron para crear el modelo.
+Un uso habitual del campo **Descripción** es registrar los nombres de los datos que se usaron para crear el modelo.
 
-5. Revise la configuración y haga clic en **Enviar** para empezar a entrenar el modelo.
+5. Revise la configuración y seleccione **Submit** (Enviar) para empezar a entrenar el modelo.
 
 > [!NOTE]
-> Los nombres de audio duplicados se quitarán del entrenamiento. Asegúrese de que los conjuntos de datos que seleccione no contengan los mismos nombres de audio en varios archivos ZIP.
+> Los nombres de audio duplicados se quitarán del entrenamiento. Asegúrese de que los datos que seleccione no contengan los mismos nombres de audio en varios archivos ZIP.
 
 En la tabla **Entrenar modelo** se muestra una nueva entrada que corresponde a este modelo recién creado. En la tabla también se muestra el estado: Procesando, Correcto, Error.
 
-El estado que se muestra refleja el proceso de convertir el conjunto de datos en un modelo de voz, como se muestra aquí.
+El estado que se muestra refleja el proceso de convertir los datos en un modelo de voz, como se muestra aquí.
 
 | State | Significado |
 | ----- | ------- |
@@ -191,10 +191,10 @@ Una vez que haya creado y probado con éxito su modelo de voz, impleméntelo en 
 
 Para crear un punto de conexión de voz neuronal personalizado, haga lo siguiente.
 
-1. En la pestaña **Implementar modelo**, haga clic en **Implementación de modelos**. 
+1. En la pestaña **Deploy model** (Implementar modelo), seleccione **Deploy model** (Implementar modelo). 
 2. A continuación, escriba un valor para **Nombre** y **Descripción** para el punto de conexión personalizado.
 3. A continuación, seleccione el modelo de voz que le gustaría asociar a este punto de conexión. 
-4. Por último, haga clic en **Implementar** para crear el punto de conexión.
+4. Por último, haga clic en **Deploy** (Implementar) para crear el punto de conexión.
 
 Después de haber hecho clic en el botón **Implementar**, en la tabla de puntos de conexión verá una entrada para el nuevo punto de conexión. El proceso para crear instancias del nuevo punto de conexión puede llevar unos minutos. Cuando el estado de la implementación muestra el valor **Completado**, quiere decir que el punto de conexión está listo para su uso.
 

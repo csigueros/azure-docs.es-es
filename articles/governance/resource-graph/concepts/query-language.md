@@ -1,18 +1,18 @@
 ---
 title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
-ms.date: 06/11/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: f9a9d6b937256787d0457f150d5f3dfaca81d9cd
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 7d23a8958ebfa90658ec5769b077f07091eff89d
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020248"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861049"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
-El lenguaje de consulta de Azure Resource Graph admite numerosos operadores y funciones. Cada uno funciona en función del [lenguaje de consulta de Kusto (KQL)](/azure/kusto/query/index). Para información sobre el lenguaje de consulta usado por Resource Graph, comience con el [tutorial para KQL](/azure/kusto/query/tutorial).
+El lenguaje de consulta de Azure Resource Graph admite numerosos operadores y funciones. Cada uno funciona en función del [lenguaje de consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/index). Para información sobre el lenguaje de consulta usado por Resource Graph, comience con el [tutorial para KQL](/azure/data-explorer/kusto/query/tutorial).
 
 En este artículo se tratan los componentes de idioma admitidos por Resource Graph:
 
@@ -29,19 +29,20 @@ Resource Graph proporciona varias tablas para los datos que almacena sobre los t
 |Tabla de Resource Graph |¿Se puede usar `join` con otras tablas? |Descripción |
 |---|---|---|
 |Recursos |Sí |La tabla predeterminada, si no se ha definido ninguna en la consulta. La mayoría de los tipos de recursos y propiedades de Resource Manager están aquí. |
-|ResourceContainers |Sí |Incluye los datos y los tipos de recursos de suscripción (en versión preliminar: `Microsoft.Resources/subscriptions`) y grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|ResourceContainers |Sí |Incluye el grupo de administración (`Microsoft.Management/managementGroups`), la suscripción (`Microsoft.Resources/subscriptions`) y los tipos de datos del grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`) del grupo de recursos y los datos. |
 |AdvisorResources |Sí (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Advisor`. |
 |AlertsManagementResources |Sí (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.AlertsManagement`. |
 |ExtendedLocationResources |No |Incluye recursos _relacionados_ con `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |No |Incluye recursos _relacionados_ con `Microsoft.GuestConfiguration`. |
+|HealthResources|Sí |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth/availabilitystatuses`. |
 |KubernetesConfigurationResources |No |Incluye recursos _relacionados_ con `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Parcial, solo conectar _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Maintenance`. |
 |PatchAssessmentResources|No |Incluye los recursos _relacionados_ con la evaluación de revisiones de Azure Virtual Machines. |
 |PatchInstallationResources|No |Incluye los recursos _relacionados_ con la instalación de revisiones de Azure Virtual Machines. |
-|PolicyResources |No |Incluye recursos _relacionados_ con `Microsoft.PolicyInsights`. (**Versión preliminar**) |
+|PolicyResources |Sí |Incluye recursos _relacionados_ con `Microsoft.PolicyInsights`. |
 |RecoveryServicesResources |Parcial, solo unirse _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.DataProtection` y `Microsoft.RecoveryServices`. |
 |SecurityResources |Sí (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Security`. |
-|ServiceHealthResources |No (vista previa) |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth`. |
+|ServiceHealthResources |No (vista previa) |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth/events`. |
 |WorkloadMonitorResources |No |Incluye recursos _relacionados_ con `Microsoft.WorkloadMonitor`. |
 
 Para ver una lista completa, incluidos los tipos de recursos, consulte [Referencia: tablas y tipos de recursos admitidos](../reference/supported-tables-resources.md).
@@ -121,7 +122,7 @@ En primer lugar, esta consulta usa la consulta compartida y, a continuación, us
 
 ## <a name="supported-kql-language-elements"></a>Elementos del lenguaje KQL admitidos
 
-Resource Graph admite un subconjunto de todos los [tipos de datos](/azure/kusto/query/scalar-data-types/), [funciones escalares](/azure/kusto/query/scalarfunctions), [operadores escalares](/azure/kusto/query/binoperators) y [funciones de agregado](/azure/kusto/query/any-aggfunction) de KQL. Resource Graph admite [operadores tabulares](/azure/kusto/query/queries) específicos, algunos de los cuales tienen comportamientos distintos.
+Resource Graph admite un subconjunto de todos los [tipos de datos](/azure/data-explorer/kusto/query/scalar-data-types/), [funciones escalares](/azure/data-explorer/kusto/query/scalarfunctions), [operadores escalares](/azure/data-explorer/kusto/query/binoperators) y [funciones de agregado](/azure/data-explorer/kusto/query/any-aggfunction) de KQL. Resource Graph admite [operadores tabulares](/azure/data-explorer/kusto/query/queries) específicos, algunos de los cuales tienen comportamientos distintos.
 
 ### <a name="supported-tabulartop-level-operators"></a>Operadores de nivel superior o tabulares compatibles
 
@@ -129,22 +130,23 @@ Esta es la lista de operadores tabulares de KQL admitidos por Resource Graph con
 
 |KQL |Consulta de ejemplo de Resource Graph |Notas |
 |---|---|---|
-|[count](/azure/kusto/query/countoperator) |[Contador de almacenes de claves](../samples/starter.md#count-keyvaults) | |
-|[distinct](/azure/kusto/query/distinctoperator) |[Mostrar los recursos que contienen almacenamiento](../samples/starter.md#show-storage) | |
-|[extend](/azure/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[Almacén de claves con el nombre de la suscripción](../samples/advanced.md#join) |Tipos de combinación admitidos: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Límite de 3 `join` en una sola consulta, 1 de los cuales puede ser un elemento `join` entre tablas. Si todos los usos de `join` entre tablas se realiza entre _Resources_ y _ResourceContainers_, se permiten tres `join` entre tablas. No se permiten las estrategias de combinación personalizadas, como la combinación de difusión. Para conocer las tablas que pueden usar `join`, consulte [Tablas de Resource Graph](#resource-graph-tables). |
-|[limit](/azure/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Sinónimo de `take`. No funciona con [Skip](./work-with-data.md#skipping-records). |
-|[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador heredado, use `mv-expand` en su lugar. Máximo de _RowLimit_ de 400. El valor predeterminado es 128. |
-|[mv-expand](/azure/kusto/query/mvexpandoperator) |[Enumeración de Cosmos DB con ubicaciones de escritura concretas](../samples/advanced.md#mvexpand-cosmosdb) |Máximo de _RowLimit_ de 400. El valor predeterminado es 128. Límite de 2 `mv-expand` en una sola consulta.|
-|[order](/azure/kusto/query/orderoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Sinónimo de `sort` |
-|[project](/azure/kusto/query/projectoperator) |[List resources sorted by name](../samples/starter.md#list-resources) | |
-|[project-away](/azure/kusto/query/projectawayoperator) |[Eliminación de columnas de los resultados](../samples/advanced.md#remove-column) | |
-|[sort](/azure/kusto/query/sortoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Sinónimo de `order` |
-|[summarize](/azure/kusto/query/summarizeoperator) |[Count Azure resources](../samples/starter.md#count-resources) |Solo la primera página simplificada |
-|[take](/azure/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Sinónimo de `limit`. No funciona con [Skip](./work-with-data.md#skipping-records). |
-|[top](/azure/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-sorted) | |
-|[union](/azure/kusto/query/unionoperator) |[Combinación de los resultados de dos consultas para formar un solo resultado](../samples/advanced.md#unionresults) |Tabla única permitida: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_nombreDeColumna_\] _tabla_. Límite de 3 partes de `union` en una sola consulta. No se permite la resolución aproximada de tablas de segmento `union`. Se puede usar en una sola tabla o entre las tablas _Resources_ y _ResourceContainers_. |
-|[where](/azure/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
+|[count](/azure/data-explorer/kusto/query/countoperator) |[Contador de almacenes de claves](../samples/starter.md#count-keyvaults) | |
+|[distinct](/azure/data-explorer/kusto/query/distinctoperator) |[Mostrar los recursos que contienen almacenamiento](../samples/starter.md#show-storage) | |
+|[extend](/azure/data-explorer/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-os) | |
+|[join](/azure/data-explorer/kusto/query/joinoperator) |[Almacén de claves con el nombre de la suscripción](../samples/advanced.md#join) |Tipos de combinación admitidos: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join). Límite de 3 `join` en una sola consulta, 1 de los cuales puede ser un elemento `join` entre tablas. Si todos los usos de `join` entre tablas se realiza entre _Resources_ y _ResourceContainers_, se permiten tres `join` entre tablas. No se permiten las estrategias de combinación personalizadas, como la combinación de difusión. Para conocer las tablas que pueden usar `join`, consulte [Tablas de Resource Graph](#resource-graph-tables). |
+|[limit](/azure/data-explorer/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Sinónimo de `take`. No funciona con [Skip](./work-with-data.md#skipping-records). |
+|[mvexpand](/azure/data-explorer/kusto/query/mvexpandoperator) | | Operador heredado, use `mv-expand` en su lugar. Máximo de _RowLimit_ de 400. El valor predeterminado es 128. |
+|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[Enumeración de Cosmos DB con ubicaciones de escritura concretas](../samples/advanced.md#mvexpand-cosmosdb) |Máximo de _RowLimit_ de 400. El valor predeterminado es 128. Límite de 2 `mv-expand` en una sola consulta.|
+|[order](/azure/data-explorer/kusto/query/orderoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Sinónimo de `sort` |
+|[parse](/azure/data-explorer/kusto/query/parseoperator) |[Obtención de redes virtuales y subredes de interfaces de red](../samples/advanced.md#parse-subnets) |Es óptimo acceder directamente a las propiedades si existen en lugar de usar `parse`. |
+|[project](/azure/data-explorer/kusto/query/projectoperator) |[List resources sorted by name](../samples/starter.md#list-resources) | |
+|[project-away](/azure/data-explorer/kusto/query/projectawayoperator) |[Eliminación de columnas de los resultados](../samples/advanced.md#remove-column) | |
+|[sort](/azure/data-explorer/kusto/query/sortoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Sinónimo de `order` |
+|[summarize](/azure/data-explorer/kusto/query/summarizeoperator) |[Count Azure resources](../samples/starter.md#count-resources) |Solo la primera página simplificada |
+|[take](/azure/data-explorer/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Sinónimo de `limit`. No funciona con [Skip](./work-with-data.md#skipping-records). |
+|[top](/azure/data-explorer/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-sorted) | |
+|[union](/azure/data-explorer/kusto/query/unionoperator) |[Combinación de los resultados de dos consultas para formar un solo resultado](../samples/advanced.md#unionresults) |Tabla única permitida: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_nombreDeColumna_\] _tabla_. Límite de 3 partes de `union` en una sola consulta. No se permite la resolución aproximada de tablas de segmento `union`. Se puede usar en una sola tabla o entre las tablas _Resources_ y _ResourceContainers_. |
+|[where](/azure/data-explorer/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
 
 Hay un límite predeterminado de 3 operadores `join` y 3 operadores `mv-expand` en una única consulta del SDK de Resource Graph. Puede solicitar un aumento de estos límites para el inquilino en **Ayuda y soporte técnico**.
 
@@ -152,17 +154,16 @@ Para admitir la experiencia del portal "Abrir consulta", el explorador de Azure 
 
 ## <a name="query-scope"></a>Ámbito de la consulta
 
-El ámbito de las suscripciones desde las que una consulta devuelve los recursos depende del método de acceso a Resource Graph. La CLI de Azure y Azure PowerShell rellenan la lista de suscripciones que se van a incluir en la solicitud, en función del contexto del usuario autorizado. Cada lista de suscripciones se puede definir manualmente con las **suscripciones** y los parámetros de **suscripción**, respectivamente.
-En la API de REST y en todos los demás SDK, la lista de suscripciones en las que se incluyen los recursos debe definirse explícitamente como parte de la solicitud.
+El ámbito de las suscripciones o [grupos de administración](../../management-groups/overview.md) desde los que una consulta devuelve los recursos tiene como valor predeterminado una lista de suscripciones en función del contexto del usuario autorizado. Si no se define un grupo de administración o una lista de suscripciones, el ámbito de la consulta comprenderá todos los recursos, incluidos los recursos delegados de [Azure Lighthouse](../../../lighthouse/overview.md).
 
-Como **versión preliminar**, la versión de API de REST `2020-04-01-preview` agrega una propiedad para limitar el ámbito de la consulta a un [grupo de administración](../../management-groups/overview.md). Esta API de versión preliminar también hace que la propiedad de suscripción sea opcional. Si no se define un grupo de administración o una lista de suscripciones, el ámbito de la consulta comprenderá todos los recursos, incluidos los recursos delegados de [Azure Lighthouse](../../../lighthouse/overview.md), a los que puede acceder el usuario autenticado. La nueva propiedad `managementGroupId` toma el id. del grupo de administración, que es diferente del nombre del grupo de administración. Cuando se especifica `managementGroupId`, se incluyen los recursos de las primeras 5000 suscripciones de la jerarquía de grupos de administración especificada. `managementGroupId` no se puede usar al mismo tiempo que `subscriptions`.
+La lista de suscripciones o grupos de administración que se va a consultar se puede definir manualmente para cambiar el ámbito de los resultados. Por ejemplo, la propiedad `managementGroups` de la API de REST toma el id. del grupo de administración, que es diferente del nombre del grupo de administración. Cuando se especifica `managementGroups`, se incluyen los recursos de las primeras 5000 suscripciones de la jerarquía de grupos de administración especificada. `managementGroups` no se puede usar al mismo tiempo que `subscriptions`.
 
 Ejemplo: Consulte todos los recursos de la jerarquía del grupo de administración denominado "Mi grupo de administración" que cuenta con el id. "myMG".
 
 - URI DE LA API REST
 
   ```http
-  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
   ```
 
 - Cuerpo de la solicitud
@@ -170,7 +171,7 @@ Ejemplo: Consulte todos los recursos de la jerarquía del grupo de administraci�
   ```json
   {
       "query": "Resources | summarize count()",
-      "managementGroupId": "myMG"
+      "managementGroups": ["myMG"]
   }
   ```
 
