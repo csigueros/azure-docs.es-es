@@ -1,21 +1,21 @@
 ---
 title: Configuración de los detalles de descripción de la oferta de servicio administrado en el Centro de partners de Microsoft
-description: Obtenga más información sobre cómo configurar los detalles de la descripción de la oferta de servicio administrado en Azure Marketplace por medio del Centro de partners.
+description: Configure los detalles de la lista de ofertas de servicios administrados en Azure Marketplace.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
-ms.openlocfilehash: 5ab831ae6ab761804fc7a4665000a13ab61acadc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/12/2021
+ms.openlocfilehash: 1b2171c300fd52403da29d23f9f34d3f94961b3d
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97918048"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204505"
 ---
-# <a name="how-to-configure-your-managed-service-offer-listing-details"></a>Configuración de los detalles de la descripción de la oferta de servicio administrado
+# <a name="configure-managed-service-offer-listing-details"></a>Configuración de los detalles de la lista de ofertas de servicios administrados
 
 La información que especifique en la página **Descripción de la oferta** del Centro de partners se mostrará en Azure Marketplace. Esto incluye el nombre de la oferta, la descripción, los elementos multimedia y otros recursos de marketing.
 
@@ -32,7 +32,7 @@ En la página **Descripción de la oferta** del Centro de partners, proporcione 
 4. En el campo **Descripción**, describa la oferta de servicio administrado. En este cuadro puede escribir hasta 2000 caracteres de texto, incluidos los espacios y las etiquetas HTML. Para obtener información sobre el formato HTML, consulte [Etiquetas HTML admitidas en las descripciones de las ofertas](./supported-html-tags.md).
 5. En el cuadro **Vínculo a la directiva de privacidad**, escriba un vínculo (que comience por https) a la directiva de privacidad de su organización. Usted es responsable no solo de garantizar que la oferta cumpla la normativa y la legislación en lo relativo a la privacidad, sino también de proporcionar una directiva de privacidad válida.
 
-## <a name="useful-links"></a>Vínculos útiles
+## <a name="product-information-links"></a>Vínculos de información del producto
 
 Tiene la opción de proporcionar documentos en línea complementarios opcionales sobre su solución:
 
@@ -43,7 +43,7 @@ Tiene la opción de proporcionar documentos en línea complementarios opcionales
 
 Proporcione el nombre, la dirección de correo electrónico y el número de teléfono de dos personas de la empresa (usted mismo puede ser una de esas personas). Dichas personas serán un contacto de soporte técnico y otro de ingeniería. Usaremos esta información para comunicarnos con usted sobre la oferta. Esta información no se muestra a los clientes, pero se proporcionará a los asociados de Proveedor de soluciones en la nube (CSP).
 
-## <a name="support-urls"></a>Direcciones URL de soporte técnico
+## <a name="support-link"></a>Vínculo de soporte técnico
 
 Si tiene sitios web de soporte técnico para clientes globales de Azure o clientes de Azure Government, proporcione sus direcciones URL (que empiecen por https).
 
@@ -56,9 +56,9 @@ Si tiene sitios web de soporte técnico para clientes globales de Azure o client
 
 En **Logotipos**, cargue un logotipo **grande** en formato PNG, con unas dimensiones de entre 216 x 216 y 350 x 350 píxeles. El Centro de partners creará automáticamente logotipos de tamaño **mediano** y **pequeño** que podrá reemplazar más adelante.
 
-* El logotipo grande (entre 216 x 216 y 350 x 350 píxeles) aparece en la descripción de la oferta en Azure Marketplace.
-* El logotipo mediano (90 x 90 píxeles) se muestra cuando se crea un recurso.
-* El logotipo pequeño (48 x 48 píxeles) se usa en los resultados de búsqueda de Azure Marketplace.
+- El logotipo grande (entre 216 x 216 y 350 x 350 píxeles) aparece en la descripción de la oferta en Azure Marketplace.
+- El logotipo mediano (90 x 90 píxeles) se muestra cuando se crea un recurso.
+- El logotipo pequeño (48 x 48 píxeles) se usa en los resultados de búsqueda de Azure Marketplace.
 
 ### <a name="add-screenshots-optional"></a>Adición de capturas de pantalla (opcional)
 
@@ -78,8 +78,8 @@ Puede agregar vínculos a vídeos de YouTube o Vimeo que muestren la oferta. Est
 3. Arrastre y coloque un archivo PNG (1280 x 720 píxeles) en el cuadro **Miniatura** gris.
 4. Para agregar otro vídeo, repita los pasos 1 a 3.
 
-Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña: **Preview audience** (Público preliminar).
+Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña, **Público preliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Adición de un público en la versión preliminar](create-managed-service-offer-preview.md)
+- [Adición de un público en la versión preliminar](create-managed-service-offer-preview.md)

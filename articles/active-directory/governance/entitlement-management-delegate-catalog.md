@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 07/6/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b66ef767795b320368224e5ef855332a735b210
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 5afa05b8a529d8a9e9fceeb4a113f0b743acfc05
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714321"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286580"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delegación de la gobernanza del acceso en los creadores de catálogos desde la administración de derechos de Azure AD
 
-Un catálogo es un contenedor de recursos y paquetes de acceso. Creará un catálogo cuando quiera agrupar recursos relacionados y paquetes de acceso. De forma predeterminada, un administrador global o un administrador de usuarios pueden [crear un catálogo](entitlement-management-catalog-create.md) y agregar usuarios adicionales como propietarios de catálogo.
+Un catálogo es un contenedor de recursos y paquetes de acceso. Creará un catálogo cuando quiera agrupar recursos relacionados y paquetes de acceso. De manera predeterminada, un administrador global o un administrador de gobernanza de identidades pueden [crear un catálogo](entitlement-management-catalog-create.md) y agregar usuarios adicionales como propietarios de catálogo.
 
 Para delegar en usuarios que no son administradores de modo que puedan crear sus propios catálogos, puede agregarlos al rol de creador de catálogos definido en la administración de derechos de Azure AD. Puede agregar usuarios individuales o bien agregar un grupo, cuyos miembros pueden luego crear catálogos.  Después de crear un catálogo, pueden agregar recursos de su propiedad a ese catálogo.
 
@@ -63,8 +63,20 @@ Para permitir que los roles delegados, como creadores de catálogos y administra
 
     ![Configuración de usuario de Azure AD: portal de administración](./media/entitlement-management-delegate-catalog/user-settings.png)
 
+## <a name="manage-role-assignments-programmatically-preview"></a>Administración de asignaciones de roles mediante programación (versión preliminar)
+
+También puede ver y actualizar las asignaciones de roles específicas del catálogo de administración de derechos y los creadores de catálogo mediante Microsoft Graph.  Un usuario que tenga un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a Graph API para [enumerar las definiciones de roles](/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-beta&preserve-view=true) de la administración de derechos y [enumerar las asignaciones de roles](/graph/api/rbacapplication-list-roleassignments?view=graph-rest-beta&preserve-view=true) para esas definiciones de roles.
+
+Para recuperar una lista de los usuarios y grupos asignados al rol de creadores del catálogo, el rol con el identificador de definición `ba92d953-d8e0-4e39-a797-0cbedb0a89e8`, use la consulta de Graph.
+
+```http
+GET https://graph.microsoft.com/beta/roleManagement/entitlementManagement/roleAssignments?$filter=roleDefinitionId eq 'ba92d953-d8e0-4e39-a797-0cbedb0a89e8'&$expand=principal
+```
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación y administración de un catálogo de recursos](entitlement-management-catalog-create.md)
 - [Delegación de la gobernanza del acceso en administradores de paquetes de acceso](entitlement-management-delegate-managers.md)
+- [Delegación de la gobernanza del acceso a los propietarios de recursos](entitlement-management-delegate.md)
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 05/03/2021
 ms.author: memildin
-ms.openlocfilehash: 6fbfb138f8c4605b12c5c4ff6cd0ac8c9b0c43dd
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: ecedf0854d7d670cf88a8dcb729a01adaa88b646
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537722"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750673"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatización de respuestas a desencadenadores de Security Center
 
@@ -28,7 +28,7 @@ En este artículo se describe la característica de automatización de flujos de
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Gratuito|
 |Roles y permisos necesarios:|**Rol Administrador de seguridad** o **Propietario** en el grupo de recursos<br>También debe tener permisos de escritura para el recurso de destino.<br><br>Para trabajar con flujos de trabajo de Azure Logic Apps, también debe tener los siguientes roles o permisos de Logic Apps:<br> Son necesarios los permisos de - [Operador de aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-operator) o el acceso de lectura o desencadenamiento de aplicación lógica (este rol no puede crear ni editar aplicaciones lógicas, solo *ejecutar* las existentes).<br> Los permisos de - [Colaborador de la aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor) son necesarios para la creación y modificación de aplicaciones lógicas.<br>Si quiere usar conectores de aplicaciones lógicas, es posible que necesite credenciales adicionales para iniciar sesión en sus servicios respectivos (por ejemplo, en las instancias de Outlook, Teams o Slack).|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||
 
 
@@ -37,7 +37,7 @@ En este artículo se describe la característica de automatización de flujos de
 
 1. En la barra lateral de Security Center, seleccione **Automatización de flujos de trabajo**.
 
-    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Lista de automatizaciones de flujos de trabajo":::
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Lista de automatizaciones de flujos de trabajo.":::
 
     Desde esta página puede crear nuevas reglas de automatización, así como habilitar, deshabilitar o eliminar las existentes.
 
@@ -52,13 +52,13 @@ En este artículo se describe la característica de automatización de flujos de
 
     1. La aplicación lógica que se ejecutará cuando se cumplan las condiciones del desencadenador. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Panel para agregar automatizaciones del flujo de trabajo":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Panel para agregar automatizaciones de flujos de trabajo.":::
 
 1. En la sección Acciones, haga clic en **Crear una nueva** para comenzar el proceso de creación de la aplicación lógica.
 
     Se le dirigirá a Azure Logic Apps.
 
-    [![Creación de una aplicación lógica nueva](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
+    [![Creación de una nueva aplicación lógica.](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
 
 1. Escriba un nombre, un grupo de recursos y una ubicación, y haga clic en **Crear**.
 
@@ -78,11 +78,11 @@ En este artículo se describe la característica de automatización de flujos de
     > [!NOTE]
     > Si utiliza el desencadenador heredado "Cuando se desencadena una respuesta a una alerta de Azure Security Center", la característica de automatización de flujos de trabajo no iniciará su instancia de aplicación lógica. En su lugar, use cualquiera de los desencadenadores mencionados anteriormente. 
 
-    [![Aplicación lógica de ejemplo](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
+    [![Aplicación lógica de ejemplo.](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
 1. Una vez que haya definido la aplicación lógica, vuelva al panel de la definición de automatización del flujo de trabajo ("Agregar automatización de flujos de trabajo"). Haga clic en **Actualizar** para asegurarse de que la nueva aplicación lógica está disponible en la selección.
 
-    ![Actualizar](media/workflow-automation/refresh-the-list-of-logic-apps.png)
+    ![Actualizar.](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
 1. Seleccione la aplicación lógica y guarde la automatización. Tenga en cuenta que la lista desplegable de aplicaciones lógicas solo muestra las aplicaciones lógicas con los conectores de Security Center complementarios mencionados anteriormente.
 
@@ -93,7 +93,7 @@ También puede ejecutar Logic Apps manualmente al ver una alerta o recomendació
 
 Para ejecutar manualmente una aplicación lógica, abra una alerta o recomendación y haga clic en **Desencadenar aplicación lógica**:
 
-[![Desencadenar manualmente una aplicación lógica](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
+[![Desencadenar manualmente una aplicación lógica.](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
 
 ## <a name="configure-workflow-automation-at-scale-using-the-supplied-policies"></a>Configuración de la automatización de flujos de trabajo a escala mediante las directivas suministradas
@@ -118,11 +118,11 @@ Para implementar estas directivas:
     > [!TIP]
     > También puede encontrarlos buscando Azure Policy:
     > 1. Abra Azure Policy.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Acceso a Azure Policy":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Acceso a Azure Policy.":::
     > 2. En el menú Azure Policy, seleccione **Definiciones** y realice la búsqueda por nombre. 
 
 1. En la página pertinente de Azure Policy, seleccione **Asignar**.
-    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Asignación de Azure Policy":::
+    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Asignación de la directiva de Azure.":::
 
 1. Abra cada pestaña y establezca los parámetros como quiera:
     1. En la pestaña **Aspectos básicos**, establezca el ámbito de la directiva. Para usar la administración centralizada, asigne la directiva al grupo de administración que contiene las suscripciones que usarán la automatización de flujos de trabajo. 
@@ -131,7 +131,7 @@ Para implementar estas directivas:
         > Cada parámetro tiene información sobre herramientas que explica las opciones disponibles.
         >
         > La pestaña Parámetros de Azure Policy (1) proporciona acceso a opciones de configuración similares, como la página de automatización de flujos de trabajo de Security Center (2).
-        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Comparación de los parámetros de la automatización de flujos de trabajo con Azure Policy" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
+        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Comparación de los parámetros de la automatización de flujos de trabajo con Azure Policy." lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
 
     1. Opcionalmente, para aplicar esta asignación a las suscripciones existentes, abra la pestaña **Corrección** y seleccione la opción para crear una tarea de corrección.
 

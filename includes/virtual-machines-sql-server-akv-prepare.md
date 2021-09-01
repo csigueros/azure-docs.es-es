@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines-windows
 author: rothja
@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 3509185baa3a9d7be90c1fa4bd8000da4a8a6fe5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c33ad42eeb710edbffdf6448fc138eb6d6aae86
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95556584"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123078515"
 ---
 ## <a name="prepare-for-akv-integration"></a>Preparación para la integración de AKV
 Para usar la Integración de Azure Key Vault para configurar la máquina virtual de SQL Server, hay varios requisitos previos: 
@@ -60,7 +60,7 @@ Para poder usar Azure Key Vault para guardar las claves que se utilizarán para 
 New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 ```
 
-Cuando llegue al paso Creación de un Almacén de claves, tenga en cuenta la propiedad **vaultUri** devuelta, que es la dirección URL del Almacén de claves. En el ejemplo que se proporciona en ese paso, que se muestra a continuación, el nombre del almacén de claves es ContosoKeyVault, por lo que su dirección URL sería https://contosokeyvault.vault.azure.net/.
+Cuando llegue al paso Creación de un Almacén de claves, tenga en cuenta la propiedad **vaultUri** devuelta, que es la dirección URL del Almacén de claves. En el ejemplo que se proporciona en ese paso, que se muestra a continuación, el nombre del almacén de claves es ContosoKeyVault, por lo que su dirección URL sería `https://contosokeyvault.vault.azure.net/`.
 
 La URL de Key Vault se asigna posteriormente al parámetro **$akvURL** en el script de PowerShell para habilitar la integración de Azure Key Vault.
 

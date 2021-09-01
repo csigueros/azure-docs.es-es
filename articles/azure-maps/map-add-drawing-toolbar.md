@@ -7,14 +7,13 @@ ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: b00628ec5a9f41b027bf90b93421f3aa1404e97a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a548d516213b65406a2f47c27c9a1a82cfb6f4b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896402"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751425"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Agregar una barra de herramientas de dibujo a un mapa
 
@@ -69,7 +68,7 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Adición de 
 
 ## <a name="change-drawing-rendering-style"></a>Cambiar el estilo de representación de dibujo
 
-Se puede personalizar el estilo de las formas que se dibujan recuperando las capas subyacentes del administrador de dibujos usando la función `drawingManager.getLayers()` y, después, estableciendo opciones en las capas individuales. Los controladores de arrastre que aparecen para las coordenadas al editar una forma son marcadores HTML. El estilo de los controladores de arrastre se puede personalizar pasando opciones de marcador HTML en las opciones `dragHandleStyle` y `secondaryDragHandleStyle` del administrador de dibujos.  
+Se puede personalizar el estilo de las formas que se dibujan recuperando las capas subyacentes del administrador de dibujos con las funciones `drawingManager.getLayers()` y `drawingManager.getPreviewLayers()` y, después, estableciendo opciones en las capas individuales. Los controladores de arrastre que aparecen para las coordenadas al editar una forma son marcadores HTML. El estilo de los controladores de arrastre se puede personalizar pasando opciones de marcador HTML en las opciones `dragHandleStyle` y `secondaryDragHandleStyle` del administrador de dibujos.  
 
 El código siguiente obtiene las capas de representación del administrador de dibujos y modifica sus opciones para cambiar el estilo de representación del dibujo. En este caso, los puntos se representarán con un icono de marcador azul. Las líneas serán rojas y tendrán cuatro píxeles de ancho. Los polígonos tendrán el relleno verde y el contorno naranja. Después, cambia los estilos de los controladores de arrastre para que sean iconos cuadrados. 
 
@@ -100,6 +99,12 @@ layers.polygonOutlineLayer.setOptions({
     strokeColor: 'orange'
 });
 
+
+//Get preview rendering layers from the drawing manager and modify line styles to be dashed.
+var previewLayers = drawingManager.getPreviewLayers();
+previewLayers.lineLayer.setOptions({ strokeColor: 'red', strokeWidth: 4, strokeDashArray: [3,3] });
+previewLayers.polygonOutlineLayer.setOptions({ strokeColor: 'orange', strokeDashArray: [3, 3] });
+
 //Update the style of the drag handles that appear when editting.
 drawingManager.setOptions({
     //Primary drag handle that represents coordinates in the shape.
@@ -126,6 +131,8 @@ A continuación se muestra el ejemplo de código de ejecución completo de la fu
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>Cambiar el estilo de representación de dibujo</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+> [!NOTE]
+> Cuando está en modo de edición, se pueden girar las formas. La rotación se admite desde geometrías MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon y Rectangle. Las geometrías de punto y círculo no se pueden girar. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

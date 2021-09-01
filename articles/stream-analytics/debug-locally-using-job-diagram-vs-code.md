@@ -6,14 +6,14 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 25ad696ad345fbf672f6bf26eb3f35a13fb03ea5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bfa3e378e9627652810eb6ac1feaeb7b74522539
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019506"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750605"
 ---
-# <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Depuración de las consultas de Azure Stream Analytics localmente mediante un diagrama de trabajos de Visual Studio Code
+# <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code-preview"></a>Depuración de las consultas de Azure Stream Analytics localmente mediante un diagrama de trabajos de Visual Studio Code (Versión preliminar)
 
 Los trabajos de streaming que no generan ningún resultado ni resultados inesperados suelen requerir la solución de problemas. La extensión de Visual Studio Code para Azure Stream Analytics integra diagramas de trabajos, métricas, registros de diagnóstico y resultados intermedios que le ayudarán a aislar rápidamente el origen de un problema. Puede usar el diagrama de trabajos mientras prueba la consulta localmente para examinar el conjunto de resultados intermedio y las métricas de cada paso.
 

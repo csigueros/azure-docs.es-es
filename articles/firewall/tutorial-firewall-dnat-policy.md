@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 04/29/2021
+ms.date: 08/26/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b509bde062a8df059b2ff3f9e48fbbf9be9f97c5
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 2f863c9fc5bad369813ee37c51ded73e96980a54
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108280850"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034213"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-policy-dnat-using-the-azure-portal"></a>Tutorial: Filtrado del tráfico de entrada de Internet con la directiva DNAT de Azure Firewall mediante Azure Portal
 
@@ -151,7 +151,7 @@ Al finalizar la implementación, anote la dirección IP privada de la máquina v
 
    |Configuración  |Value  |
    |---------|---------|
-   |Suscripción     |\<your subscription\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |Seleccione **RG-DNAT-test**. |
    |Nombre     |**FW-DNAT-test**|
    |Region     |Seleccione la misma ubicación que usó anteriormente.|
@@ -227,7 +227,5 @@ Puede conservar los recursos relacionados con el firewall para el siguiente tuto
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-A continuación, puede supervisar los registros de Azure Firewall.
-
 > [!div class="nextstepaction"]
-> [Tutorial: Supervisión de los registros de Azure Firewall](./firewall-diagnostics.md)
+> [Implementación y configuración de Azure Firewall Prémium](premium-deploy.md)

@@ -6,18 +6,18 @@ manager: arjmands
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/18/2017
+ms.date: 07/13/2021
 ms.author: eustacea
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 7b0cf04adbf3da1f02e9f18b5e3c20760f9dbf53
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: bd8576994f47eb370c4e396253d9b8594fb43145
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147200"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114287177"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticación de dispositivos mediante certificados de entidades de certificación X.509
 
@@ -36,7 +36,7 @@ La característica de la entidad de certificación X.509 habilita la autenticaci
 
 ## <a name="prerequisite"></a>Requisito previo
 
-Para utilizar la característica de entidades de certificación X.509, es necesario tener una cuenta de IoT Hub.  [Obtenga información sobre cómo crear una instancia de IoT Hub](quickstart-send-telemetry-dotnet.md) si aún no tiene ninguna.
+Para utilizar la característica de entidades de certificación X.509, es necesario tener una cuenta de IoT Hub.  [Obtenga información sobre cómo crear una instancia de IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) si aún no tiene ninguna.
 
 ## <a name="how-to-get-an-x509-ca-certificate"></a>Cómo obtener un certificado de entidad de certificación X.509
 
@@ -82,7 +82,7 @@ Creación de un dispositivo X.509 para una instancia de IoT Hub
 
 Con el certificado de entidad de certificación X.509 registrado y los dispositivos registrados en una cadena de certificados de confianza, lo que falta es la autenticación del dispositivo cuando este se conecta, incluso por primera vez.  Cuando un dispositivo firmado con la entidad de certificación X.509, carga su cadena de certificados para la validación. La cadena incluye los certificados del dispositivo y la entidad de certificación intermedia.  Con esta información, IoT Hub autentica el dispositivo en un proceso de dos pasos.  IoT Hub valida criptográficamente la cadena de certificados para comprobar la coherencia interna y, a continuación, emite un desafío de prueba de posesión en el dispositivo.  IoT Hub declara que el dispositivo es auténtico en una respuesta de prueba de posesión satisfactoria del dispositivo.  Esta declaración asume que la clave privada del dispositivo está protegida y que solo el dispositivo puede responder correctamente a este desafío.  Se recomienda utilizar chips seguros como módulos de seguridad de hardware (HSM) en los dispositivos para proteger las claves privadas.
 
-Una conexión de dispositivo correcta a IoT Hub completa el proceso de autenticación y también es indicativa de una configuración apropiada.
+Una conexión de dispositivo correcta a IoT Hub completa el proceso de autenticación y también es indicativa de una configuración apropiada. Cada vez que se conecta un dispositivo, IoT Hub renegocia la sesión TLS y comprueba el certificado X.509 del dispositivo. 
 
 Obtenga información aquí sobre cómo [completar este paso para la conexión del dispositivo](./tutorial-x509-scripts.md).
 

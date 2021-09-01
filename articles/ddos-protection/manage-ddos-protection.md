@@ -3,8 +3,7 @@ title: Administración de Protección contra DDoS de Azure estándar mediante Az
 description: Aprenda a usar Azure DDoS Protection Estándar para mitigar un ataque.
 services: ddos-protection
 documentationcenter: na
-author: KumudD
-manager: mtillman
+author: aletheatoh
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
-ms.author: kumud
-ms.openlocfilehash: ae33d1695188e103c7c56374a5f39e8fc0d27430
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: yitoh
+ms.openlocfilehash: 803d89dedc59c53001f078492d956e5e50d5411b
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061415"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305129"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Inicio rápido: Creación y configuración de Azure DDoS Protection Estándar
 
@@ -42,7 +41,7 @@ En este inicio rápido, creará un plan de protección contra DDoS y lo vincular
 3. Seleccione **Crear**.
 4. Especifique o seleccione los siguientes valores y, a continuación, seleccione **Crear**:
 
-    |Configuración        |Valor                                              |
+    |Configuración        |Value                                              |
     |---------      |---------                                          |
     |Nombre           | Escriba _MyDdosProtectionPlan_.                     |
     |Subscription   | Seleccione su suscripción.                         |
@@ -57,7 +56,7 @@ En este inicio rápido, creará un plan de protección contra DDoS y lo vincular
 2. Seleccione **Redes** y **Red virtual**.
 3. Escriba o seleccione los siguientes valores, acepte los valores predeterminados restantes y seleccione **Crear**:
 
-    | Configuración         | Valor                                           |
+    | Configuración         | Value                                           |
     | ---------       | ---------                                       |
     | Nombre            | Escriba _MyVnet_.                                 |
     | Subscription    | Seleccione su suscripción.                                    |

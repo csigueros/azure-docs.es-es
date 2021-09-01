@@ -13,14 +13,14 @@ ms.date: 02/03/2020
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94174eeb943f4016fde8baf329fa6ba27768e486
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80881255"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039939"
 ---
-# <a name="how-to-configure-sso-on-macos-and-ios"></a>Procedimientos: Configuración del inicio de sesión único en macOS e iOS
+# <a name="configure-sso-on-macos-and-ios"></a>Configuración del inicio de sesión único en macOS e iOS
 
 La biblioteca de autenticación de Microsoft (MSAL) para macOS e iOS admite el inicio de sesión único (SSO) entre aplicaciones de macOS e iOS y los exploradores. En este artículo se tratan los siguientes escenarios de SSO:
 

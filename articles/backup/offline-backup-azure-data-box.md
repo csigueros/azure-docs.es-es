@@ -3,16 +3,16 @@ title: Copia de seguridad sin conexión con Azure Data Box
 description: Aprenda a usar Azure Data Box para propagar los datos de grandes copias de seguridad iniciales sin conexión desde el agente de MARS hasta un almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 78adc479ce5733e208d2334d30d7b88e4edf8d6b
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 7793259797a47eb0353de7ecb27686ea2eafa24c
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576098"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123185910"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Copia de seguridad sin conexión de Azure Backup con Azure Data Box
 
-Puede usar [Azure Data Box](../databox/data-box-overview.md) para propagar sus grandes copias de seguridad de MARS iniciales sin conexión (sin usar la red) a un almacén de Recovery Services. Este proceso ahorra tiempo y ancho de banda de red que, de otro modo, se consumirían al mover grandes cantidades de datos de copia de seguridad en línea a través de una red de alta latencia. Esta mejora está actualmente en versión preliminar. La copia de seguridad sin conexión basada en Azure Data Box proporciona dos ventajas diferenciadas sobre la [copia de seguridad sin conexión basada en el servicio Azure Import/Export](./backup-azure-backup-import-export.md):
+Puede usar [Azure Data Box](../databox/data-box-overview.md) para propagar sus grandes copias de seguridad de MARS iniciales sin conexión (sin usar la red) a un almacén de Recovery Services. Este proceso ahorra tiempo y ancho de banda de red que, de otro modo, se consumirían al mover grandes cantidades de datos de copia de seguridad en línea a través de una red de alta latencia.  La copia de seguridad sin conexión basada en Azure Data Box proporciona dos ventajas diferenciadas sobre la [copia de seguridad sin conexión basada en el servicio Azure Import/Export](./backup-azure-backup-import-export.md):
 
 - No es necesario adquirir sus propios discos y conectores compatibles con Azure. Azure Data Box envía los discos asociados a la [SKU de Data Box](https://azure.microsoft.com/services/databox/data/) seleccionada.
 - Azure Backup (agente de MARS) puede escribir directamente los datos de copia de seguridad en las SKU admitidas de Azure Data Box. Esta funcionalidad elimina la necesidad de aprovisionar una ubicación de almacenamiento provisional para los datos de copia de seguridad iniciales. Tampoco necesita utilidades para dar formato a los datos de los discos y copiarlos.

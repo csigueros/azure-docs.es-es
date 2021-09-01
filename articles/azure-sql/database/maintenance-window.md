@@ -7,15 +7,15 @@ ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 05/02/2021
-ms.openlocfilehash: 765c6c79bf28ad01ab0253e85affd5d4cd95ed78
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.date: 07/22/2021
+ms.openlocfilehash: 9f058cfc97821dc9ddcbedeeed1acf9ebb9919d3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031914"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751312"
 ---
 # <a name="maintenance-window-preview"></a>Ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ La característica de ventana de mantenimiento le permite configurar la programa
 
 ## <a name="overview"></a>Información general
 
-Azure realiza periódicamente el [mantenimiento planeado](planned-maintenance.md) de los recursos de SQL Database y SQL Managed Instance. Durante el evento de mantenimiento de Azure SQL, las bases de datos están totalmente disponibles, pero pueden estar sujetas a breves reconfiguraciones dentro de los SLA de disponibilidad respectivos para [SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database) y [SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance).
+Azure realiza periódicamente el [mantenimiento planeado](planned-maintenance.md) de los recursos de SQL Database y SQL Managed Instance. Durante el evento de mantenimiento de Azure SQL, las bases de datos están totalmente disponibles, pero pueden estar sujetas a breves reconfiguraciones dentro de los SLA de disponibilidad respectivos para [SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database) y [SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance).
 
 La ventana de mantenimiento está pensada para cargas de trabajo de producción que no son resistentes a las reconfiguraciones de base de datos o de instancia y no pueden absorber interrupciones de conexión breves causadas por eventos de mantenimiento planeado. Al elegir una ventana de mantenimiento preferida, puede minimizar el impacto del mantenimiento planeado, ya que se producirá fuera del horario comercial de máxima actividad. Las cargas de trabajo resistentes y las cargas de trabajo que no son de producción pueden depender de la directiva de mantenimiento predeterminada de Azure SQL.
 
@@ -80,21 +80,28 @@ La elección de una ventana de mantenimiento que no sea la predeterminada está 
 - Sudeste de Australia
 - Sur de Brasil
 - Centro de Canadá
+- Este de Canadá
+- Centro de la India
 - Centro de EE. UU.
 - Este de EE. UU.
 - Este de EE. UU. 2
 - Este de Asia
+- Sur de Francia
 - Centro-oeste de Alemania
 - Japón Oriental
+- Centro de Corea del Sur*
 - Centro-Norte de EE. UU.
 - Norte de Europa
 - Centro-Sur de EE. UU.
 - Sudeste de Asia
 - Sur de Reino Unido 2
 - Oeste de Reino Unido
+- Centro-Oeste de EE. UU.
 - Oeste de Europa
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
+
+*Solo está disponible para Azure SQL Managed Instance
 
 ## <a name="gateway-maintenance-for-azure-sql-database"></a>Mantenimiento de la puerta de enlace para Azure SQL Database
 
@@ -120,7 +127,7 @@ La duración esperada de la configuración de la ventana de mantenimiento en una
 > Se produce una breve reconfiguración al final de la operación de mantenimiento, que suele durar un máximo de 8 segundos, incluso en el caso de transacciones de larga duración interrumpidas. Para minimizar el impacto de la reconfiguración, debe programar la operación fuera de las horas punta.
 
 ### <a name="ip-address-space-requirements"></a>Requisitos de espacio de direcciones IP
-Cada nuevo clúster virtual de la subred requiere direcciones IP adicionales según la [asignación de la dirección IP del clúster virtual](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). El cambio de la ventana de mantenimiento de la instancia administrada existente también requiere una [capacidad de IP adicional temporal](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios), como en el escenario de escalado de núcleos virtuales para el nivel de servicio correspondiente.
+Cada nuevo clúster virtual de la subred requiere direcciones IP adicionales según la [asignación de la dirección IP del clúster virtual](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). El cambio de la ventana de mantenimiento de la instancia administrada existente también requiere una [capacidad de IP adicional temporal](../managed-instance/vnet-subnet-determine-size.md#update-scenarios), como en el escenario de escalado de núcleos virtuales para el nivel de servicio correspondiente.
 
 ### <a name="ip-address-change"></a>Cambio de direcciones IP
 La configuración y el cambio de la ventana de mantenimiento provoca un cambio de la dirección IP de la instancia, dentro del intervalo de direcciones IP de la subred.

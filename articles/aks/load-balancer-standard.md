@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 3f2219f5052aee0c0a9cd43aa87df8789adbcae2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 73c91e1c4d72fce5757b0b1a0caafc22e0fbcc60
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783096"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114230523"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Uso de Standard Load Balancer en Azure Kubernetes Service (AKS)
 
@@ -127,7 +127,7 @@ Requisitos para usar su propio prefijo o dirección IP pública:
 
 - Las direcciones IP públicas personalizadas deben crearse y ser propiedad del usuario. Las direcciones IP públicas administradas creadas por AKS no se pueden volver a usar como una dirección IP personalizada, ya que pueden provocar conflictos de administración.
 - Debe asegurarse de que la identidad de clúster de AKS (entidad de servicio o identidad administrada) tiene permisos para acceder a la dirección IP de salida. Según la [lista de permisos de dirección IP pública requeridos](kubernetes-service-principal.md#networking).
-- Asegúrese de que cumple [los requisitos previos y las restricciones](../virtual-network/public-ip-address-prefix.md#constraints) necesarios para configurar direcciones IP de salida o prefijos IP de salida.
+- Asegúrese de que cumple [los requisitos previos y las restricciones](../virtual-network/public-ip-address-prefix.md#limitations) necesarios para configurar direcciones IP de salida o prefijos IP de salida.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>Actualización del clúster con su propia dirección IP pública de salida
 
@@ -342,7 +342,7 @@ Con frecuencia, la causa principal del agotamiento de SNAT es un antipatrón de 
 ### <a name="steps"></a>Pasos
 1. Compruebe si las conexiones permanecen inactivas durante mucho tiempo y confíe en el tiempo de expiración de inactividad predeterminado para liberar ese puerto. En tal caso, puede que el tiempo de expiración predeterminado de 30 minutos se deba reducir para su escenario.
 2. Investigue la forma en que la aplicación crea conectividad saliente (por ejemplo la revisión del código o la captura de paquetes).
-3. Determine si esta actividad es el comportamiento esperado o si la aplicación no se comporta correctamente. Use las [métricas](../load-balancer/load-balancer-standard-diagnostics.md) y los [registros](../load-balancer/load-balancer-monitor-log.md) de Azure Monitor para apoyar sus conclusiones. Use la categoría "Error" para la métrica de conexiones SNAT como ejemplo.
+3. Determine si esta actividad es el comportamiento esperado o si la aplicación no se comporta correctamente. Use las [métricas](../load-balancer/load-balancer-standard-diagnostics.md) y los [registros](../load-balancer/monitor-load-balancer.md) de Azure Monitor para apoyar sus conclusiones. Use la categoría "Error" para la métrica de conexiones SNAT como ejemplo.
 4. Evalúe si se siguen los [patrones](#design-patterns) adecuados.
 5. Evalúe si el agotamiento de puertos SNAT debe mitigarse con [direcciones IP de salida + puertos de salida asignados adicionales](#configure-the-allocated-outbound-ports) .
 

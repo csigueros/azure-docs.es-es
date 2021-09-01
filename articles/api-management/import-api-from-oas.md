@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 05295efec3d7651c3a77dd5ad6e2c72b57a6c5a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fd06fa92d7ad028aa45d78268f5a992d4b2b862
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95994724"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186360"
 ---
 # <a name="import-an-openapi-specification"></a>Importación de una especificación OpenAPI
 
@@ -28,7 +28,6 @@ En este artículo aprenderá a:
 > [!div class="checklist"]
 > * Importación de una API de back-end de la especificación OpenAPI
 > * Prueba de la API en Azure Portal
-> * Pruebe la API en el Portal para desarrolladores
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

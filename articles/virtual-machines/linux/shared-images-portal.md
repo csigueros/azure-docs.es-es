@@ -8,15 +8,15 @@ ms.subservice: shared-image-gallery
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/04/2020
+ms.date: 06/21/2021
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: bf788466b57193e2191ef2d93d76bd948ec206f7
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 254fb1b4c21f8dd956c271e75ddf29f25c2bce15
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026622"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204454"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>Creación de un servicio Shared Image Gallery mediante el portal
 
@@ -32,9 +32,6 @@ La característica de galería de imágenes compartidas tiene varios tipos de re
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 <br>
-
-
-
 
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -60,6 +57,7 @@ Ahora puede crear una o varias máquinas virtuales. Este ejemplo crea una máqui
 1. En **Tamaño**, elija un tamaño de máquina virtual en la lista de tamaños disponibles y, después, elija **Seleccionar**.
 1. En **Cuenta de administrador**, si la máquina virtual de origen era generalizada, escriba el **nombre de usuario**  y la **clave pública SSH**. Si la máquina virtual de origen era especializada, estas opciones se atenuarán porque se usa la información de la máquina virtual de origen.
 1. Si desea permitir el acceso remoto a la máquina virtual, en **Puertos de entrada públicos**, elija **Permitir puertos seleccionados** y, a continuación, seleccione **SSH (22)** en la lista desplegable. Si no desea permitir el acceso remoto a la máquina virtual, deje **Ninguno** seleccionado en **Puertos de entrada públicos**.
+1. Seleccione **Otros** en Licencias, a menos que la imagen esté basada en RedHat o SLES.
 1. Cuando haya terminado, seleccione el botón **Revisar y crear** situado en la parte inferior de la página.
 1. Una vez que la máquina virtual haya superado la validación, seleccione **Crear** en la parte inferior de la página para iniciar la implementación.
 
@@ -77,6 +75,5 @@ Puede crear también recursos de galería de imágenes compartidas con plantilla
 - [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](../shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](../troubleshooting-shared-images.md).

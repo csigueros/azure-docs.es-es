@@ -1,15 +1,15 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: mikben
-ms.openlocfilehash: 45123517d1f2a53a6bf023d1af6fafc528cde856
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.author: rifox
+ms.openlocfilehash: aaf99113e3d7fd1190266976e9475e33272d338c
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339906"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "123078369"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 

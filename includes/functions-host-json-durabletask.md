@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 2c49bfee8f3b694ea635c836e06bfbe99ba9d758
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: bbe2473c570a9b31d0c56e1069d7798dc3475fd6
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112425936"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123078431"
 ---
 Configuración de [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -114,7 +114,7 @@ Los nombres de la central de tareas deben empezar por una letra y estar formados
 |trackingStoreConnectionStringName||Nombre de una cadena de conexión que se usará para las tablas de historial e instancias. Si no se especifica, se usa las conexiones `connectionStringName` (Durable 2.x) o `azureStorageConnectionStringName` (Durable 1.x).|
 |trackingStoreNamePrefix||Prefijo que se usará para las tablas de historial e instancias cuando se especifica `trackingStoreConnectionStringName`. Si no se establece, el valor de prefijo predeterminado será `DurableTask`. Si no se especifica `trackingStoreConnectionStringName`, las tablas de historial e instancias usarán el valor `hubName` como prefijo y se pasarán por alto todos los valores de configuración de `trackingStoreNamePrefix`.|
 |traceInputsAndOutputs |false|Un valor que indica si se realizará el seguimiento de las entradas y salidas de las llamadas de función. El comportamiento predeterminado al realizar el seguimiento de eventos de ejecución de funciones es incluir el número de bytes en las entradas y salidas serializadas de las llamadas de función. Este comportamiento proporciona información mínima sobre el aspecto de las entradas y salidas, sin sobredimensionar los registros o exponer por accidente información confidencial. Al establecer esta propiedad en true, el registro de funciones predeterminado registra todo el contenido de las entradas y salidas de función.|
-|logReplayEvents|false|Un valor que indica si se debe escribir eventos de reproducción de orquestación en Application Insights.|
+|traceReplayEvents|false|Un valor que indica si se debe escribir eventos de reproducción de orquestación en Application Insights.|
 |eventGridTopicEndpoint ||La dirección URL de un punto de conexión de tema personalizado de Azure Event Grid. Cuando se establece esta propiedad, se publican eventos de notificación del ciclo de vida de orquestación en este punto de conexión. Esta propiedad admite la resolución de la configuración de la aplicación.|
 |eventGridKeySettingName ||El nombre de la configuración de aplicación que contiene la clave usada para autenticarse con el tema personalizado de Azure Event Grid en `EventGridTopicEndpoint`.|
 |eventGridPublishRetryCount|0|El número de reintentos, si, al publicar en el tema de Event Grid, se produce un error.|

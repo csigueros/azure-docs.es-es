@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
-ms.openlocfilehash: 63fade17d10189cbe8e775b2a859902f1c2bb004
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6b086e92f36873c28f4e1d88c9a73f54fd4b20d3
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92151633"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114287797"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Desarrollar contenido para dispositivos móviles mediante los SDK de Azure IoT
 
@@ -23,13 +23,13 @@ El contenido que puede encontrar en Internet de las cosas puede hacer referencia
 Los SDK de Azure IoT Hub proporcionan compatibilidad con la plataforma de iOS nativa a través del SDK de C de Azure IoT Hub.  Se puede considerar como un SDK de iOS que se puede incorporar en el proyecto de Swift u Objective C XCode.  Hay dos maneras de utilizar el SDK de C en iOS:
 
 * Usar las bibliotecas de CocoaPod en el proyecto de XCode directamente.  
-* Descargar el código fuente para el SDK de C y la compilación para la plataforma de iOS referentes a las [instrucciones de compilación](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) para MacOS.  
+* Descargar el código fuente para el SDK de C y la compilación para la plataforma de iOS referentes a las [instrucciones de compilación](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) para macOS.  
 
 El SDK de C de Azure IoT Hub se escribe en C99 para obtener la máxima portabilidad en diferentes plataformas.  El proceso de portabilidad implica la escritura de una fina capa de adopción para los componentes específicos de la plataforma que se pueden encontrar aquí para [iOS](https://github.com/Azure/azure-c-shared-utility/tree/master/pal/ios-osx).  Se pueden aprovechar las características del SDK de C en la plataforma de iOS, incluyendo las primitivas de Azure IoT Hub admitidas y las características específicas del SDK como la directiva de reintentos para la confiabilidad de la red.  La interfaz del SDK para iOS también es similar a la interfaz del SDK de C para Azure IoT Hub.  
 
 Estos documentos le indicarán cómo desarrollar una aplicación de dispositivo o de servicio en dispositivo de iOS:
 
-* [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-ios.md) (Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub)  
+* [Quickstart: Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md) (Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub)  
 * [Send messages from the cloud to your device with IoT hub](iot-hub-ios-swift-c2d.md) (Enviar mensajes desde la nube al dispositivo con IoT Hub) 
 
 ### <a name="develop-with-azure-iot-hub-cocoapod-libraries"></a>Desarrollar bibliotecas de CocoaPod con Azure IoT Hub
@@ -43,11 +43,11 @@ Los SDK de Azure IoT Hub liberan un conjunto de bibliotecas de CocoaPod del proy
     * Agregue el archivo de encabezado a la dependencia.  Se incluye un archivo de encabezado en el [repositorio de ejemplos](https://github.com/Azure-Samples/azure-iot-samples-ios) como ejemplo. Para obtener más información, visite la página de documentación de Apple referente a [Objective-C](https://developer.apple.com/documentation/objectivec).
 
 ## <a name="develop-for-android-platform"></a>Desarrollo para la plataforma Android
-El SDK de Java de Azure IoT Hub es compatible con la plataforma Android.  Para la versión más reciente de la API específica probada, visite la [página de soporte técnico de la plataforma](iot-hub-device-sdk-platform-support.md).
+El SDK de Java de Azure IoT Hub es compatible con la plataforma Android.
 
 Estos documentos indican cómo desarrollar una aplicación de dispositivo o de servicio en dispositivo de Android mediante Gradle y Android Studio:
 
-* [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-android.md) (Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub)  
+* [Quickstart: Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md) (Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub)  
 * [Inicio rápido: Controla un dispositivo](quickstart-control-device-android.md) 
 
 ## <a name="next-steps"></a>Pasos siguientes

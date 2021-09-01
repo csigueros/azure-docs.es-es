@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/13/2021
+ms.date: 07/07/2021
 ms.author: memildin
-ms.openlocfilehash: 96c83cf3ba127f88c3ea8d90f648e4c5a8ba9d66
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 1d8feb49be378abed2a63030c6329e9e8a13d48a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062359"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750728"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportación continua de alertas y recomendaciones de seguridad
 
@@ -42,8 +42,8 @@ En este artículo se describe cómo configurar la exportación continua a áreas
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Gratuito|
-|Roles y permisos necesarios:|<ul><li>**Administrador de seguridad** o **Propietario** en el grupo de recursos.</li><li>Permisos de escritura para el recurso de destino.</li><li>Si utiliza las directivas "DeployIfNotExist" de Azure Policy que se describen a continuación, también necesitará permisos para asignar directivas.</li><li>Para exportar a un área de trabajo de Log Analytics:<ul><li>Si tiene la **solución SecurityCenterFree**, necesitará un mínimo de permisos de lectura para la solución del área de trabajo: `Microsoft.OperationsManagement/solutions/read`</li><li>Si no tiene la **solución SecurityCenterFree**, necesitará permisos de escritura para la solución del área de trabajo: `Microsoft.OperationsManagement/solutions/action`</li><li>Más información sobre las [soluciones de Azure Monitor y de área de trabajo de Log Analytics](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov, otros gobiernos<br>![Sí](./media/icons/yes-icon.png) China Gov|
+|Roles y permisos necesarios:|<ul><li>**Administrador de seguridad** o **Propietario** en el grupo de recursos.</li><li>Permisos de escritura para el recurso de destino.</li><li>Si utiliza las directivas "DeployIfNotExist" de Azure Policy que se describen a continuación, también necesitará permisos para asignar directivas.</li><li>Para exportar datos al centro de eventos, necesitará permiso de escritura en la directiva del centro de eventos.</li><li>Para exportar a un área de trabajo de Log Analytics:<ul><li>Si tiene la **solución SecurityCenterFree**, necesitará un mínimo de permisos de lectura para la solución del área de trabajo: `Microsoft.OperationsManagement/solutions/read`</li><li>Si no tiene la **solución SecurityCenterFree**, necesitará permisos de escritura para la solución del área de trabajo: `Microsoft.OperationsManagement/solutions/action`</li><li>Más información sobre las [soluciones de Azure Monitor y de área de trabajo de Log Analytics](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)| 
 |||
 
 
@@ -58,8 +58,8 @@ La exportación continua puede exportar los siguientes tipos de datos siempre qu
     - La recomendación "Es necesario corregir las vulnerabilidades de las máquinas virtuales" tendrá una recomendación "secundaria" para cada vulnerabilidad identificada por el analizador de vulnerabilidades.
     > [!NOTE]
     > Si va a configurar una exportación continua con la API REST, incluya siempre el elemento primario con los resultados. 
-- (Característica en versión preliminar) Puntuación segura por suscripción o por control.
-- (Característica en versión preliminar) Datos de cumplimiento normativo.
+- Puntuación segura por suscripción o por control.
+- Datos de cumplimiento normativo.
 
 
 ## <a name="set-up-a-continuous-export"></a>Configuración de una exportación continua 
@@ -73,28 +73,31 @@ Puede configurar la exportación continua desde las páginas de Security Center 
 Los pasos siguientes son necesarios si va a configurar una exportación continua a las área de trabajo de Log Analytics o a Azure Event Hubs.
 
 1. En la barra lateral de Security Center, seleccione **Precios y configuración**.
+
 1. Seleccione la suscripción específica para la que quiere configurar la exportación de datos.
+
 1. En la barra lateral de la página de configuración de esa suscripción, seleccione **Exportación continua**.
 
-    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Opciones de exportación en Azure Security Center":::
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Opciones de exportación en Azure Security Center.":::
 
     Aquí verá las opciones de exportación. Hay una pestaña para cada destino de exportación disponible. 
 
 1. Seleccione el tipo de datos que quiere exportar y elija los filtros que quiera de cada tipo (por ejemplo, exportar solo alertas de gravedad alta).
+
 1. Seleccione la frecuencia de exportación adecuada:
     - **Streaming**: las evaluaciones se enviarán cuando se actualice el estado de mantenimiento de un recurso (si no se produce ninguna actualización, no se enviarán datos).
-    - **Instantáneas**: se enviará una instantánea del estado actual de todas las evaluaciones de cumplimiento normativo cada semana (se trata de una característica en versión preliminar para las instantáneas semanales de datos de cumplimiento normativo y puntuaciones seguras).
+    - **Instantáneas**: se enviará una vez a la semana por suscripción una instantánea del estado actual de todas las evaluaciones de cumplimiento normativo. Esta característica en versión preliminar proporciona instantáneas semanales de las puntuaciones de seguridad y los datos de cumplimiento normativo. Para identificar los datos de la instantánea, busque el campo ``IsSnapshot``.
 
 1. Opcionalmente, si la selección incluye una de estas recomendaciones, puede incluir los resultados de la evaluación de vulnerabilidades junto con ellas:
-    - Se deben corregir las conclusiones de la evaluación de vulnerabilidades de las bases de datos SQL
-    - Es necesario corregir las conclusiones de la evaluación de vulnerabilidades de los servidores SQL Server en las máquinas (versión preliminar)
+    - Las bases de datos SQL deben tener resueltos los hallazgos de vulnerabilidades.
+    - Los servidores SQL de las máquinas deben tener resueltos los hallazgos de vulnerabilidades.
     - Es necesario corregir las vulnerabilidades de las imágenes de Azure Container Registry (con tecnología de Qualys)
     - Es necesario corregir las vulnerabilidades de las máquinas virtuales
     - Se deben instalar actualizaciones del sistema en las máquinas
 
     Para incluir los resultados con estas recomendaciones, habilite la opción de **incluir resultados de seguridad**.
 
-    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir la alternancia de los resultados de seguridad en la configuración de la exportación continua" :::
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir la alternancia de los resultados de seguridad en la configuración de la exportación continua." :::
 
 1. En el área "Destino de exportación", elija dónde quiere guardar los datos. Los datos se pueden guardar en el destino de una suscripción diferente (por ejemplo, en una instancia central del Centro de eventos o en un área de trabajo central de Log Analytics).
 1. Seleccione **Guardar**.
@@ -122,10 +125,6 @@ La API proporciona funcionalidad adicional que no está disponible en Azure Port
 
 En la [documentación de la API REST](/rest/api/securitycenter/automations) encontrará más información sobre la API de automatizaciones.
 
-
-
-
-
 ### <a name="deploy-at-scale-with-azure-policy"></a>[**Implementación a gran escala con Azure Policy**](#tab/azure-policy)
 
 ### <a name="configure-continuous-export-at-scale-using-the-supplied-policies"></a>Configuración de la exportación continua a gran escala con las directivas proporcionadas
@@ -147,11 +146,11 @@ Para implementar las configuraciones de la exportación continua en la organizac
     > [!TIP]
     > También puede encontrarlos buscando Azure Policy:
     > 1. Abra Azure Policy.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Acceso a Azure Policy":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Acceso a Azure Policy.":::
     > 2. En el menú Azure Policy, seleccione **Definiciones** y realice la búsqueda por nombre. 
 
 1. En la página pertinente de Azure Policy, seleccione **Asignar**.
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Asignación de Azure Policy":::
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Asignación de la directiva de Azure.":::
 
 1. Abra cada pestaña y establezca los parámetros como quiera:
     1. En la pestaña **Aspectos básicos**, establezca el ámbito de la directiva. Para usar la administración centralizada, asigne la directiva al grupo de administración que contiene las suscripciones que usarán la configuración de la exportación continua. 
@@ -160,7 +159,7 @@ Para implementar las configuraciones de la exportación continua en la organizac
         > Cada parámetro tiene información sobre herramientas que explica las opciones disponibles.
         >
         > La pestaña Parámetros de Azure Policy (1) proporciona acceso a opciones de configuración similares, como la página de exportación continua de Security Center (2).
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Comparación de los parámetros de la exportación continua con Azure Policy" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Comparación de los parámetros de la exportación continua con Azure Policy." lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. Opcionalmente, para aplicar esta asignación a las suscripciones existentes, abra la pestaña **Corrección** y seleccione la opción para crear una tarea de corrección.
 1. Revise la página de resumen y seleccione **Crear**.
 
@@ -179,7 +178,7 @@ El nombre de la solución Log Analytics que contiene estas tablas depende de si 
 > [!TIP]
 > Para ver los datos en el área de trabajo de destino, debe habilitar una de estas soluciones: **Security and Audit** o **SecurityCenterFree**.
 
-![Tabla *SecurityAlert* en Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+![Tabla *SecurityAlert* de Log Analytics.](./media/continuous-export/log-analytics-securityalert-solution.png)
 
 Para ver los esquemas de eventos de los tipos de datos exportados, visite el artículo sobre los [esquemas de tabla de Log Analytics](https://aka.ms/ASCAutomationSchemas).
 
@@ -194,7 +193,7 @@ Para ver las alertas y recomendaciones de Security Center en Azure Monitor, conf
 
 1. En la página **Alertas** de Azure Monitor, seleccione **Nueva regla de alerta**.
 
-    ![Página de alertas de Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
+    ![Página de alertas de Azure Monitor.](./media/continuous-export/azure-monitor-alerts.png)
 
 1. En la página de creación de reglas, configure la nueva regla (de la misma manera que configuraría una [regla de alertas de registro en Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)):
 
@@ -203,7 +202,7 @@ Para ver las alertas y recomendaciones de Security Center en Azure Monitor, conf
     * En **Condición**, seleccione **Custom log search** (Búsqueda de registros personalizada). En la página que aparece, configure la consulta, el período de retrospectiva y el período de frecuencia. En la consulta de búsqueda, puede escribir *SecurityAlert* o *SecurityRecommendation* para consultar los tipos de datos que Security Center exporta continuamente al habilitar la característica de exportación continua a Log Analytics. 
     
     * Opcionalmente, en [Grupo de acciones](../azure-monitor/alerts/action-groups.md), configure el grupo de acciones que desea desencadenar. Los grupos de acciones pueden desencadenar el envío de correo electrónico, los vales de ITSM, los webhooks, etc.
-    ![Regla de alerta de Azure Monitor](./media/continuous-export/azure-monitor-alert-rule.png)
+    ![Regla de alertas de Azure Monitor.](./media/continuous-export/azure-monitor-alert-rule.png)
 
 Ahora verá las nuevas alertas o recomendaciones de Azure Security Center (según las reglas de exportación continua configuradas y la condición definida en la regla de alerta de Azure Monitor) en las alertas de Azure Monitor, con el desencadenamiento automático de un grupo de acciones (si se proporciona).
 
@@ -211,7 +210,7 @@ Ahora verá las nuevas alertas o recomendaciones de Azure Security Center (segú
 
 Para descargar un informe en formato CSV con alertas o recomendaciones, abra las páginas **Alertas de seguridad** o **Recomendaciones** y seleccione el botón para **Download CSV report** (Descargar informe en CSV).
 
-:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Descargar datos de alertas como un archivo CSV" lightbox="./media/continuous-export/download-alerts-csv.png":::
+:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Descargar datos de alertas como un archivo CSV." lightbox="./media/continuous-export/download-alerts-csv.png":::
 
 > [!NOTE]
 > Estos informes contienen alertas y recomendaciones para los recursos de las suscripciones seleccionadas actualmente.
@@ -234,8 +233,8 @@ No. La exportación continua se creó para la transmisión de **eventos**:
 
 - Las **alertas** recibidas antes de habilitar la exportación no se exportarán.
 - Se envían **recomendaciones** cuando cambia el estado de cumplimiento de un recurso. Por ejemplo, cuando un recurso pasa de un estado correcto a otro incorrecto. Por lo tanto, como sucede con las alertas, no se exportarán las recomendaciones para los recursos que no hayan cambiado de estado desde que se habilitó la exportación.
-- La **puntuación segura (versión preliminar)** por control de seguridad o suscripción se envía cuando cambia la puntuación de un control de seguridad en 0,01 o más. 
-- El **estado de cumplimiento normativo (versión preliminar**) se envía cuando cambia el estado del cumplimiento del recurso.
+- La **puntuación de seguridad** por control de seguridad o suscripción se envía cuando cambia la puntuación de un control de seguridad en 0,01 o más. 
+- El **estado de cumplimiento normativo** se envía cuando cambia el estado del cumplimiento del recurso.
 
 
 

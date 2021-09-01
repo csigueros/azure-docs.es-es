@@ -5,13 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: e05a4cbbc5fefbfe8a92914ef480f32bdf43ca37
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/25/2021
+ms.openlocfilehash: 828748a2702233bfdabf3dc627e46956bf436020
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99560219"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289366"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
 
@@ -118,7 +118,7 @@ Le recomendamos usar conjuntos de datos de referencia de menos de 300 MB para o
 |3   |150 MB, o menos   |
 |6 y más   |5 GB, o menos    |
 
-La compatibilidad con la compresión no está disponible para los datos de referencia.
+La compatibilidad con la compresión no está disponible para los datos de referencia. En el caso de los conjuntos de datos de referencia de más de 300 MB, se recomienda usar Azure SQL Database como origen con la opción de [consulta diferencial](./sql-reference-data.md#delta-query) para obtener un rendimiento óptimo. Si la consulta diferencial no se usa en estos escenarios, verá picos en la métrica de retraso de la marca de agua cada vez que se actualice el conjunto de datos de referencia. 
 
 ## <a name="joining-multiple-reference-datasets-in-a-job"></a>Combinación de varios conjuntos de datos de referencia en un trabajo
 Solo puede unir una entrada de flujo con una entrada de datos de referencia en un paso de la consulta. Sin embargo, puede combinar varios conjuntos de datos de referencia si desglosa la consulta en varios pasos. A continuación se muestra un ejemplo.

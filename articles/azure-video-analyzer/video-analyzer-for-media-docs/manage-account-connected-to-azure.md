@@ -9,12 +9,12 @@ ms.topic: article
 ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 25d4b5a918fbb307698910f0184231689cb84a75
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 836cff6a8b55378089a6215b9d0c25e3fcac76c4
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112119392"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305182"
 ---
 # <a name="manage-a-video-analyzer-for-media-account-connected-to-azure"></a>Administración de una cuenta de Video Analyzer for Media conectada a Azure
 
@@ -59,14 +59,6 @@ En el cuadro de diálogo **Update connection to Azure Media Services** (Actualiz
 |Nombre del grupo de recursos de Azure Media Services|El nombre del grupo de recursos en el que creó la cuenta de Media Services.|
 |Identificador de aplicación|El identificador de aplicación de Azure AD (con permisos para la cuenta de Media Services especificada) que creó para esta cuenta de Video Analyzer for Media. <br/><br/>Para obtener el id. de la aplicación, vaya a Azure Portal. En la cuenta de Media Services, elija su cuenta y vaya a **Acceso de API**. Haga clic en **Conectarse a la API de Media Services con la entidad de servicio** -> **Aplicación de Azure AD**. Copie los parámetros pertinentes.|
 |Clave de la aplicación|La clave de aplicación de Azure AD asociada a la cuenta de Media Services que especificó anteriormente. <br/><br/>Para obtener la clave de aplicación, vaya a Azure Portal. En la cuenta de Media Services, elija su cuenta y vaya a **Acceso de API**. Haga clic en **Conectarse a la API de Media Services con la entidad de servicio** -> **Administrar aplicación** -> **Certificados y secretos**. Copie los parámetros pertinentes.|
-
-## <a name="autoscale-reserved-units"></a>Escalar automáticamente unidades reservadas
-
-En la página **Configuración** puede establecer el escalado automático de unidades reservadas de multimedia (RU). Si la opción es **Activado**, puede asignar el número máximo de unidades reservadas y asegurarse de que Video Analyzer for Media detiene o inicia las unidades reservadas automáticamente. Con esta opción, no tiene que pagar ningún costo adicional por el tiempo de inactividad, pero tampoco tiene que esperar mucho tiempo a que los trabajos de indexación se completen cuando la carga de indexación es elevada.
-
-El escalado automático no escalará por debajo de una unidad reservada ni por encima del límite predeterminado de la cuenta de Media Services. Con el fin de aumentar el límite, cree una solicitud de servicio. Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir una incidencia de soporte técnico, consulte [Cuotas y limitaciones](../../media-services/previous/media-services-quotas-and-limitations.md).
-
-![Escalado automático de unidades reservadas Video Analyzer for Media](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Errores y advertencias
 

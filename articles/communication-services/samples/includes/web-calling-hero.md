@@ -2,20 +2,20 @@
 title: Archivo de inclusión
 description: archivo de inclusión
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: a6fc7a8419c3c4b6173771c898a1a4331d3c5874
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.author: rifox
+ms.openlocfilehash: bf6fba4f8267c1fb52f6b6d5dbc09e033c81a99d
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114200911"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "123078208"
 ---
 En el **ejemplo de elementos principales de llamada grupal** de Azure Communication Services se muestra cómo se puede usar el SDK web de llamadas de Communication Services para crear una experiencia de llamada grupal.
 

@@ -1,32 +1,32 @@
 ---
 title: 'Azure SQL Managed Instance: retención de copias de seguridad a largo plazo'
-description: Obtenga información sobre cómo almacenar y restaurar copias de seguridad automatizadas en contenedores de Azure Blob Storage independientes para una instancia administrada de Azure SQL mediante PowerShell.
+description: Obtenga información sobre cómo almacenar y restaurar copias de seguridad automatizadas en contenedores de Azure Blob Storage independientes para una instancia administrada de Azure SQL mediante Azure Portal y PowerShell.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: backup-restore
 ms.custom: devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: shkale-msft
-ms.author: shkale
-ms.reviewer: mathoma, sstein
-ms.date: 02/25/2021
-ms.openlocfilehash: 1f2988a383620fa1e69b64841b93700f92313a5c
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: mathoma
+ms.date: 07/13/2021
+ms.openlocfilehash: cc25b431c6e1eb4cbb6b31cfc5f9b1a1a26f8a03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592529"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751242"
 ---
-# <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Administración de la retención de copias de seguridad a largo plazo de la instancia administrada de Azure SQL (PowerShell)
+# <a name="manage-azure-sql-managed-instance-long-term-backup-retention"></a>Administración de la retención de las copias de seguridad a largo plazo de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-En Azure SQL Managed Instance, puede configurar una directiva de [retención de copias de seguridad a largo plazo](../database/long-term-retention-overview.md) (LTR) como característica en versión preliminar pública. Esto permite conservar automáticamente copias de seguridad de bases de datos en contenedores de Azure Blob Storage independientes durante un máximo de 10 años. Posteriormente, puede recuperar una base de datos mediante estas copias de seguridad con PowerShell.
+En Azure SQL Managed Instance, puede configurar una directiva de [retención de copias de seguridad a largo plazo](../database/long-term-retention-overview.md) (LTR) como característica en versión preliminar pública. Esto permite conservar automáticamente copias de seguridad de bases de datos en contenedores de Azure Blob Storage independientes durante un máximo de 10 años. Posteriormente, puede recuperar una base de datos mediante esas copias de seguridad con Azure Portal y PowerShell.
 
    > [!IMPORTANT]
    > La LTR para las instancias administradas está disponible actualmente en versión preliminar pública en las regiones públicas de Azure. 
 
-En las siguientes secciones se explica cómo usar PowerShell para configurar la retención de copias de seguridad a largo plazo, ver las copias de seguridad en el almacén de Azure SQL y realizar una restauración a partir de una copia de seguridad del almacén de Azure SQL.
+En las siguientes secciones se explica cómo usar Azure Portal y PowerShell para configurar la retención de copias de seguridad a largo plazo, ver las copias de seguridad en el almacenamiento de Azure SQL y realizar una restauración a partir de una copia de seguridad del almacenamiento de Azure SQL.
 
 
 ## <a name="using-the-azure-portal"></a>Uso de Azure Portal

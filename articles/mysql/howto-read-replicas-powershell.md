@@ -5,16 +5,18 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 8/24/2020
+ms.date: 06/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fe33730fc11bfc18b7d67471e1077fb9490385d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4980692be64c2a8b3918d2dbaab5ef9c983f453
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94541953"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121779851"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Creación y administración de réplicas de lectura en Azure Database for MySQL mediante PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 En este artículo aprenderá a crear y administrar réplicas de lectura en el servicio Azure Database for MySQL mediante PowerShell. Para más información acerca de las réplicas de lectura, consulte la [introducción](concepts-read-replicas.md).
 
@@ -39,6 +41,8 @@ Si decide usar PowerShell de forma local, conéctese a su cuenta de Azure con el
 
 > [!IMPORTANT]
 > La característica de réplica de lectura solo está disponible para servidores de Azure Database for MySQL en los planes de tarifa De uso general u Optimizada para memoria. Asegúrese de que el servidor de origen esté en uno de estos planes de tarifa.
+>
+>Si GTID está habilitado en un servidor principal (`gtid_mode` = ON), las réplicas recién creadas también tendrán GTID habilitado y usarán la replicación basada en GTID. Para más información, consulte [Identificador de transacción global (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid).
 
 ### <a name="create-a-read-replica"></a>Creación de una réplica de lectura
 
@@ -66,7 +70,8 @@ Get-AzMySqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
   New-AzMySqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
-Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md).
+> [!NOTE]
+> Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md). 
 
 De forma predeterminada, las réplicas de lectura se crean con la misma configuración de servidor que el origen, a menos que se especifique el parámetro **Sku**.
 
@@ -106,6 +111,16 @@ Para eliminar un servidor de origen, puede ejecutar el cmdlet `Remove-AzMySqlSer
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
+
+### <a name="known-issue"></a>Problema conocido
+
+Hay dos generaciones de almacenamiento que usan los servidores de los niveles De uso general y Optimizado para memoria, Almacenamiento de uso general v1 (admite hasta 4 TB) y Almacenamiento de uso general v2 (admite almacenamiento de hasta 16 TB).
+El servidor de origen y el servidor de réplica deben tener el mismo tipo de almacenamiento. Como el [Almacenamiento de uso general v2](./concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage) no está disponible en todas las regiones, asegúrese de elegir la región de réplica correcta mientras usa la ubicación con PowerShell para la creación de réplicas de lectura. Para saber cómo identificar el tipo de almacenamiento del servidor de origen, consulte el vínculo [¿Cómo puedo determinar en qué tipo de almacenamiento se ejecuta mi servidor?](./concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on). 
+
+Si elige una región en la que no puede crear una réplica de lectura para el servidor de origen, se producirá el problema por el que la implementación seguirá ejecutándose como se muestra en la ilustración siguiente y, a continuación, se agotará el tiempo de espera con el error *"La operación de aprovisionamiento de recursos no se ha completado dentro del período de tiempo de espera permitido"* .
+
+[ :::image type="content" source="media/howto-read-replicas-powershell/replcia-ps-known-issue.png" alt-text="Error de la CLI de réplica de lectura":::](media/howto-read-replicas-powershell/replcia-ps-known-issue.png#lightbox)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

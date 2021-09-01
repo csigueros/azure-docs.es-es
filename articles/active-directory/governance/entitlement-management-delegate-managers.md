@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a33170fecab6efbe86568eb81b87637ca5da24
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 95c875c1a4ded86686120bb4de67904ef69a53c6
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714303"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286561"
 ---
 # <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Delegación de la gobernanza del acceso en administradores de paquetes de acceso en la administración de derechos de Azure AD
 
@@ -35,6 +35,8 @@ Para delegar la creación y administración de paquetes de acceso en un catálog
 En este vídeo se ofrece información general sobre el modo en que el propietario del catálogo delega la gobernanza del acceso en un administrador de paquetes de acceso.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq08]
+
+Además de los roles de propietario del catálogo y administrador de paquetes de acceso, también puede agregar usuarios al rol de lector del catálogo, que proporciona acceso de solo vista al catálogo, o al rol de administrador de asignaciones de paquetes de acceso, que permite a los usuarios cambiar las asignaciones, pero no acceder a paquetes o directivas.
 
 ## <a name="as-a-catalog-owner-delegate-to-an-access-package-manager"></a>Como propietario del catálogo, delegación en un administrador de paquetes de acceso
 

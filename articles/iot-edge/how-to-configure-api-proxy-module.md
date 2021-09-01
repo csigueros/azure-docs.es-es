@@ -2,7 +2,6 @@
 title: 'Configuración del módulo de proxy de API: Azure IoT Edge | Microsoft Docs'
 description: Obtenga información sobre cómo personalizar el módulo de proxy de API para las jerarquías de puertas de enlace IoT Edge.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 11/10/2020
 ms.topic: conceptual
@@ -12,25 +11,24 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: f55c3a1f699f8a087eb97eaba347a3f21c124cc9
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 100d67f30066b74fdcd6e70cfc714be7f7ee5ccd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307323"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750803"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Configuración del módulo de proxy de API para el escenario de jerarquías de puertas de enlace (versión preliminar)
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
-El módulo de proxy de API permite que los dispositivos IoT Edge envíen solicitudes HTTP a través de puertas de enlace en lugar de realizar conexiones directas a los servicios en la nube. Este artículo le guía por las opciones de configuración para que pueda personalizar el módulo para admitir los requisitos de las jerarquías de puertas de enlace.
+Este artículo le guía por las opciones de configuración del módulo de proxy de API, para que pueda personalizar el módulo y admitir los requisitos de las jerarquías de puertas de enlace.
 
->[!NOTE]
->Esta característica requiere IoT Edge versión 1.2, que se encuentra en versión preliminar pública, y la ejecución de contenedores Linux.
+El módulo de proxy de API simplifica la comunicación de los dispositivos IoT Edge cuando se implementan varios servicios que admiten el protocolo HTTPS y se enlazan al puerto 443. Esto es especialmente relevante en las implementaciones jerárquicas de dispositivos IoT Edge en arquitecturas aisladas de red basadas en ISA-95, como las descritas en [Dispositivos de nivel inferior de aislamiento de red](how-to-connect-downstream-iot-edge-device.md#network-isolate-downstream-devices), ya que los clientes de los dispositivos secundarios no pueden conectarse directamente a la nube.
 
-En algunas arquitecturas de red, los dispositivos IoT Edge detrás de las puertas de enlace no tienen acceso directo a la nube. Se producirá un error en todos los módulos que intenten conectarse a los servicios en la nube. El módulo de proxy de API admite dispositivos IoT Edge de nivel inferior en esta configuración mediante el redireccionamiento de las conexiones del módulo para que pasen por las capas de una jerarquía de puertas de enlace, en su lugar. Proporciona una manera segura para que los clientes se comuniquen con varios servicios a través de HTTPS sin tunelización, pero finalizando las conexiones en cada capa. El módulo de proxy de API sirve de módulo de proxy entre los dispositivos IoT Edge de una jerarquía de puertas de enlace hasta que alcanzan el dispositivo IoT Edge en la capa superior. En ese momento, los servicios que se ejecutan en el dispositivo IoT Edge de la capa superior controlan estas solicitudes, y el módulo de proxy de API envía por proxy todo el tráfico HTTP desde los servicios locales a la nube a través de un solo puerto.
+Por ejemplo, para permitir que los dispositivos IoT Edge secundarios extraigan imágenes de Docker, es necesario implementar un módulo del registro de Docker. Para permitir la carga de blobs, es necesario implementar un módulo de Azure Blob Storage en el mismo dispositivo IoT Edge. Ambos servicios usan HTTPS para comunicarse. El proxy de API habilita estas implementaciones en un dispositivo IoT Edge. En lugar de cada servicio, el módulo de proxy de API se enlaza al puerto 443 en el dispositivo host y enruta la solicitud al módulo de servicio correcto que se ejecuta en ese dispositivo por reglas configurables por el usuario. Los servicios individuales siguen siendo responsables de gestionar las solicitudes, incluidas la autenticación y autorización de los clientes.
 
-El módulo de proxy de API puede habilitar muchos escenarios para las jerarquías de puertas de enlace, incluida la posibilidad de permitir que los dispositivos de capas inferiores extraigan imágenes de contenedor o inserten blobs en el almacenamiento. La configuración de las reglas de proxy define cómo se enrutan los datos. En este artículo se describen varias opciones de configuración comunes.
+Sin el proxy de API, cada módulo de servicio tendría que enlazarse a un puerto independiente en el dispositivo host, lo que requeriría un cambio de configuración tedioso y propenso a errores en cada dispositivo secundario que se conecta al dispositivo IoT Edge principal.
 
 ## <a name="deploy-the-proxy-module"></a>Implementación del módulo de proxy
 
