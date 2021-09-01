@@ -3,12 +3,12 @@ title: Escenarios y diseño de aplicaciones
 description: Información general de las categorías de las aplicaciones de nube en Service Fabric. Describe el diseño de la aplicación que usa servicios con estado y sin estado.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 7d9459e6e0168657cf8e9062331fec0237f58c70
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 703adde38d195395ae07dea022da873754e1d2f1
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045763"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867143"
 ---
 # <a name="service-fabric-application-scenarios"></a>Escenarios de aplicación de Service Fabric
 
@@ -46,7 +46,7 @@ Considere la opción de usar la plataforma Service Fabric de Azure para los sigu
 
 ## <a name="application-design-case-studies"></a>Casos prácticos de diseño de aplicaciones
 
-En los sitios de [experiencias de los clientes](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) y [Microservicios en Azure](https://azure.microsoft.com/solutions/microservice-applications/) se publican estudios de casos que muestran el uso de Service Fabric para diseñar aplicaciones.
+En los sitios de [experiencias de los clientes](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) y [Microservicios en Azure](https://azure.microsoft.com/solutions/microservice-applications/) se publican estudios de casos que muestran el uso de Service Fabric para diseñar aplicaciones.
 
 ## <a name="designing-applications-composed-of-stateless-and-stateful-microservices"></a>Diseño de aplicaciones compuestas por microservicios sin y con estado
 

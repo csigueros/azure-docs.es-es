@@ -6,19 +6,19 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 7ad6a576262b8e722b16c81af544a9370c2b49b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8148d995dc7b2bb1e1ec7cac3557c1e88be4ce4a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93242269"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122653626"
 ---
 # <a name="supported-versions-for-azure-database-for-mysql---flexible-server"></a>Versiones admitidas para Azure Database for MySQL: Servidor flexible
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Actualmente, Azure Database for MySQL: Servidor flexible se encuentra en versión preliminar pública.
-
 
 El Servidor flexible de Azure Database for MySQL cuenta con tecnología de [MySQL Community Edition](https://www.mysql.com/products/community/), con el motor InnoDB.
 

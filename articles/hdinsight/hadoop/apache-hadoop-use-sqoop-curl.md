@@ -4,16 +4,16 @@ description: Sepa cómo enviar remotamente trabajos de Apache Sqoop a Azure HDIn
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/06/2020
-ms.openlocfilehash: 4de42bf30824fd71228aa27cc478a54ec3741da9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2a097e18f6e1f285335a89574efd720fd251e92
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98928363"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122653346"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Ejecución de trabajos de Apache Sqoop en HDInsight con Curl
 
-[!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
+[!INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
 En este documento aprenderá a utilizar Curl para ejecutar trabajos de Apache Sqoop en un clúster de Apache Hadoop en HDInsight. En este artículo se muestra cómo exportar datos desde Azure Storage y cómo importarlos en una base de datos de SQL Server mediante Curl. Este artículo es una continuación de [Uso de Apache Sqoop con Hadoop en HDInsight](./hdinsight-use-sqoop.md).
 

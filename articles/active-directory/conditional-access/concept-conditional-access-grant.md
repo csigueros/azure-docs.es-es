@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70cc20b51587a70e8a124b6f3b5d047ff827db83
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 695786a43291bdb0cb679d79cfa4e6d08cf67770
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034596"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867224"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -58,7 +58,7 @@ Al seleccionar esta casilla, los usuarios deberán ejecutar Azure AD Multi-Fact
 
 Las organizaciones que han implementado Microsoft Intune pueden usar la información que devuelven sus dispositivos para identificar aquellos que satisfacen los requisitos de cumplimiento específicos. Esta información del cumplimiento de las directivas se reenvía de Intune a Azure AD donde se pueden tomar decisiones de acceso condicional para conceder o bloquear el acceso a los recursos. Para más información sobre las directivas de cumplimiento, consulte el artículo [Establecimiento de reglas en los dispositivos para permitir el acceso a recursos de su organización con Intune](/intune/protect/device-compliance-get-started).
 
-Un dispositivo se puede marcar como compatible con Intune (para cualquier sistema operativo del dispositivo) o por el sistema MDM de terceros para dispositivos Windows 10. Jamf Pro es el único sistema MDM de terceros compatible. Puede encontrar más información sobre la integración en el artículo [Integración de Jamf Pro con Intune para cumplimiento](/intune/protect/conditional-access-integrate-jamf).
+Un dispositivo se puede marcar como compatible con Intune (para cualquier sistema operativo del dispositivo) o por el sistema MDM de terceros para dispositivos Windows 10. Puede encontrar una lista de sistemas MDM de terceros compatibles en el artículo [Compatibilidad con asociados de cumplimiento de dispositivos de terceros en Intune](/mem/intune/protect/device-compliance-partners).
 
 Los dispositivos deben estar registrados en Azure AD para poder marcarlos como compatibles. Puede encontrar más información sobre el registro del dispositivo en el artículo [¿Qué es una identidad de dispositivo?](../devices/overview.md)
 
@@ -72,7 +72,7 @@ Al usar el [flujo de OAuth de código de dispositivo](../develop/v2-oauth2-devic
 
 Las organizaciones pueden requerir que los intentos de acceso a las aplicaciones en la nube seleccionadas se tengan que realizar desde una aplicación cliente aprobada. Estas aplicaciones cliente aprobadas son compatibles con las [directivas de protección de aplicaciones de Intune](/intune/app-protection-policy) independientemente de cualquier otra solución de administración de dispositivos móviles (MDM).
 
-Con el fin de aprovechar este control de concesión, el acceso condicional requiere que el dispositivo esté registrado en Azure Active Directory, lo que requiere el uso de una aplicación de agente. La aplicación de agente puede ser Microsoft Authenticator para iOS, o bien Microsoft Authenticator o el portal de empresa de Microsoft para dispositivos Android. Si no hay ninguna aplicación de agente instalada en el dispositivo cuando el usuario intenta autenticarse, se le redirigirá a la tienda de aplicaciones adecuada para que instale la aplicación de agente necesaria.
+Con el fin de aplicar este control de concesión, el acceso condicional requiere que el dispositivo esté registrado en Azure Active Directory, lo que requiere el uso de una aplicación de agente. La aplicación de agente puede ser Microsoft Authenticator para iOS, o bien Microsoft Authenticator o el portal de empresa de Microsoft para dispositivos Android. Si no hay ninguna aplicación de agente instalada en el dispositivo cuando el usuario intenta autenticarse, se le redirigirá a la tienda de aplicaciones adecuada para que instale la aplicación de agente necesaria.
 
 Se ha confirmado que las siguientes aplicaciones cliente admiten esta configuración:
 
@@ -92,7 +92,7 @@ Se ha confirmado que las siguientes aplicaciones cliente admiten esta configurac
 - Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
-- Microsoft PowerApps
+- Microsoft Power Apps
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
@@ -122,7 +122,7 @@ Consulte el artículo [Uso obligatorio de aplicaciones cliente aprobadas para el
 
 En la directiva de acceso condicional, puede requerir que una [directiva de protección de aplicaciones de Intune](/intune/app-protection-policy) esté presente en la aplicación cliente antes de que el acceso esté disponible para las aplicaciones en la nube seleccionadas. 
 
-Con el fin de aprovechar este control de concesión, el acceso condicional requiere que el dispositivo esté registrado en Azure Active Directory, lo que requiere el uso de una aplicación de agente. La aplicación de agente puede ser Microsoft Authenticator para iOS o el portal de empresa de Microsoft para dispositivos Android. Si no hay ninguna aplicación de agente instalada en el dispositivo cuando el usuario intenta autenticarse, será redirigido a la tienda de aplicaciones para que instale la aplicación de agente.
+Con el fin de aplicar este control de concesión, el acceso condicional requiere que el dispositivo esté registrado en Azure Active Directory, lo que requiere el uso de una aplicación de agente. La aplicación de agente puede ser Microsoft Authenticator para iOS o el portal de empresa de Microsoft para dispositivos Android. Si no hay ninguna aplicación de agente instalada en el dispositivo cuando el usuario intenta autenticarse, será redirigido a la tienda de aplicaciones para que instale la aplicación de agente.
 
 Se requiere que las aplicaciones tengan el **SDK de Intune** con el **seguro de directivas** implementado y cumplan otros requisitos para admitir esta configuración. Los desarrolladores que implementan aplicaciones con el SDK de Intune pueden encontrar más información en la documentación del SDK sobre estos requisitos.
 
@@ -140,12 +140,13 @@ Se ha confirmado que las siguientes aplicaciones cliente admiten esta configurac
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
+- Equipos de Microsoft
 - Microsoft Word
 - MultiLine for Intune
 - Nine Mail - Email & Calendar
 
 > [!NOTE]
-> Microsoft Teams, Microsoft Kaizala, Microsoft Skype Empresarial y Microsoft Visio no admiten la concesión **Requerir la directiva de protección de aplicaciones**. Si necesita que estas aplicaciones funcionen, use exclusivamente la concesión **Requerir aplicaciones aprobadas**. El uso de la cláusula OR entre las dos concesiones no funciona para estas tres aplicaciones.
+> Microsoft Kaizala, Microsoft Skype Empresarial y Microsoft Visio no admiten la concesión **Requerir directiva de protección de aplicaciones**. Si necesita que estas aplicaciones funcionen, use exclusivamente la concesión **Requerir aplicaciones aprobadas**. El uso de la cláusula OR entre las dos concesiones no funciona para estas tres aplicaciones.
 
 **Comentarios:**
 
@@ -158,22 +159,22 @@ Consulte el artículo [Uso obligatorio de directivas de protección de aplicacio
 
 ### <a name="require-password-change"></a>Requerir cambio de contraseña 
 
-Cuando se detecta el riesgo del usuario, mediante las condiciones de la directiva de riesgo del usuario, los administradores pueden elegir que el usuario cambie la contraseña de forma segura mediante el autoservicio de restablecimiento de contraseña de Azure AD. Si se detecta un riesgo para el usuario, los usuarios pueden utilizar un autoservicio de restablecimiento de contraseña para que se corrijan automáticamente; esto cerrará el evento de riesgo de usuario para evitar que los administradores tengan ruidos innecesarios. 
+Cuando se detecta el riesgo del usuario, mediante las condiciones de la directiva de riesgo del usuario, los administradores pueden elegir que el usuario cambie la contraseña de forma segura mediante el autoservicio de restablecimiento de contraseña de Azure AD. Si se detecta un riesgo para el usuario, los usuarios pueden utilizar un autoservicio de restablecimiento de contraseña para que se corrijan automáticamente; este proceso cerrará el evento de riesgo de usuario para evitar que los administradores tengan ruidos innecesarios. 
 
 Cuando se solicita a un usuario que cambie su contraseña, primero será necesario para completar la autenticación multifactor. Querrá asegurarse de que todos los usuarios se hayan registrado para la autenticación multifactor, de modo que estén preparados en caso de que se detecte un riesgo para su cuenta.  
 
 > [!WARNING]
 > Los usuarios deben haberse registrado previamente para el autoservicio de restablecimiento de contraseña antes de desencadenar la directiva de riesgo de usuario. 
 
-Existe una restricción par cuando se configura una directiva mediante el control de cambios de contraseña.  
+Restricciones cuando se configura una directiva mediante el control de cambios de contraseña.  
 
-1. La directiva debe estar asignada a "todas las aplicaciones en la nube". Esto impide que un atacante use una aplicación diferente para cambiar la contraseña del usuario y restablecer el riesgo de la cuenta, simplemente al iniciar sesión en otra aplicación. 
+1. La directiva debe estar asignada a "todas las aplicaciones en la nube". Este requisito impide que un atacante use una aplicación diferente para cambiar la contraseña del usuario y restablece el riesgo de la cuenta mediante el inicio de sesión en otra aplicación. 
 1. Requerir cambio de contraseña no se puede usar con otros controles, como requerir un dispositivo compatible.  
 1. El control de cambio de contraseña solo se puede usar con la condición de asignación de grupo y usuario, condición de asignación de aplicación en la nube (que debe establecerse en todos) y condiciones de riesgo del usuario. 
 
 ### <a name="terms-of-use"></a>Términos de uso
 
-Si su organización ha redactado términos de uso, es posible que aparezcan opciones adicionales debajo de Conceder controles. Estas opciones permiten a los administradores exigir la aceptación de los términos de uso como una condición para acceder a los recursos protegidos por la directiva. Puede encontrar más información sobre los términos de uso en el artículo [Términos de uso de Azure Active Directory](terms-of-use.md).
+Si su organización ha redactado términos de uso, es posible que aparezcan otras opciones debajo de los controles de concesión. Estas opciones permiten a los administradores exigir la aceptación de los términos de uso como una condición para acceder a los recursos protegidos por la directiva. Puede encontrar más información sobre los términos de uso en el artículo [Términos de uso de Azure Active Directory](terms-of-use.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,25 +2,24 @@
 title: Aptitud cognitiva División de texto
 titleSuffix: Azure Cognitive Search
 description: Divida texto en fragmentos o páginas de texto en función de la longitud de una canalización de enriquecimiento con IA de Azure Cognitive Search.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 52aaeb01fef551eee350c6db662c2690ef7b3e78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: e5b907b89491721d2529f2caa303fc9e77d47169
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84981955"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862580"
 ---
 # <a name="text-split-cognitive-skill"></a>Aptitud cognitiva División de texto
 
 La aptitud **División de texto** divide el texto en fragmentos de texto. Puede especificar si desea dividir el texto en oraciones o en páginas de una longitud determinada. Esta aptitud es especialmente útil si hay requisitos de longitud de texto máxima en otras aptitudes de bajada. 
 
 > [!NOTE]
-> Esta aptitud no está enlazada a una API de Cognitive Services y no se le cobrará por usarla. Sin embargo, debe [adjuntar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) para invalidar la opción del recurso **Gratis**, que tiene un límite de unos pocos enriquecimientos al día.
+> Esta capacidad no está enlazada a Cognitive Services. No es facturable y no tiene ningún requisito de clave de Cognitive Services.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -31,9 +30,9 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
-| `textSplitMode`    | "pages" o "sentences" | 
-| `maximumPageLength` | Si textSplitMode se establece en "pages", se refiere a la longitud de página máxima medida por `String.Length`. El valor mínimo es 300.  Si textSplitMode se establece en "pages", el algoritmo intentará dividir el texto en fragmentos con un tamaño máximo definido en "maximumPageLenth". En este caso, el algoritmo hará todo lo posible para dividir el texto con un límite de oraciones con lo que el tamaño del fragmento puede ser ligeramente menor que "maximumPageLength". | 
-| `defaultLanguageCode` | (Opcional) Uno de los siguientes códigos de idioma: `da, de, en, es, fi, fr, it, ko, pt`. El valor predeterminado es inglés (en). Aspectos que se deben tener en cuenta:<ul><li>Si se pasa un formato “código de idioma-código de país”, solo se usa la parte “código de idioma” del formato.</li><li>Si el idioma no está en la lista anterior, la aptitud de división divide el texto en límites de carácter.</li><li>Proporcionar un código de idioma es útil para evitar cortar una palabra por la mitad para idiomas sin espacios como el chino, japonés y coreano.</li><li>Si no conoce el idioma (es decir, debe dividir el texto de la entrada en [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), el valor predeterminado de inglés (en) debe ser suficiente. </li></ul>  |
+| `textSplitMode`    | `pages` o `sentences` | 
+| `maximumPageLength` | Solo se aplica si `textSplitMode` está establecido en `pages`. Esto hace referencia a la longitud máxima de página en caracteres medida mediante `String.Length`. El valor mínimo es 300, el máximo es 100 000 y el valor predeterminado es 10 000.  El algoritmo hará todo lo posible para dividir el texto en los límites de oraciones, por lo que el tamaño de cada fragmento puede ser ligeramente menor que `maximumPageLength`. | 
+| `defaultLanguageCode` | (Opcional) Uno de los siguientes códigos de idioma: `am, bs, cs, da, de, en, es, et, fr, he, hi, hr, hu, fi, id, is, it, ja, ko, lv, no, nl, pl, pt-PT, pt-BR, ru, sk, sl, sr, sv, tr, ur, zh-Hans`. El valor predeterminado es inglés (en). Aspectos que se deben tener en cuenta:<ul><li>Proporcionar un código de idioma es útil para evitar cortar una palabra por la mitad para idiomas sin espacios como el chino, japonés y coreano.</li><li>Si no conoce el idioma (es decir, debe dividir el texto de la entrada en [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), el valor predeterminado de inglés (en) debe ser suficiente. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
@@ -41,7 +40,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Nombre de parámetro       | Descripción      |
 |----------------------|------------------|
 | `text`    | Texto que se dividirá en subcadenas. |
-| `languageCode`    | (Opcional) Código de idioma para el documento. Si no conoce el idioma (es decir, debe dividir el texto de la entrada en [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), es seguro quitar esta entrada.  |
+| `languageCode`    | (Opcional) Código de idioma para el documento. Si no conoce el idioma (es decir, debe dividir el texto de la entrada en [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), es seguro quitar esta entrada. Si el idioma no está en la lista admitida para el parámetro `defaultLanguageCode` anterior, se emitirá una advertencia y el texto no se dividirá.  |
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud 
 
@@ -128,7 +127,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 ```
 
 ## <a name="error-cases"></a>Casos de error
-Si no se admite un idioma, se genera una advertencia y el texto se divide en límites de carácter.
+Si no se admite un idioma, se genera una advertencia.
 
 ## <a name="see-also"></a>Consulte también
 

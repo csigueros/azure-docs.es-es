@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: b0f5bf01080d89e6dc6d6843312d96243b8526ba
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 5c8858e50707209b47eb61d554a8e4f7313c92c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484548"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731189"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Escalado de la migración sin agentes de máquinas virtuales de VMware a Azure
 
@@ -60,42 +60,45 @@ Para agregar un dispositivo de escalabilidad horizontal, siga los pasos que se m
 ### <a name="2-download-the-installer-for-the-scale-out-appliance"></a>2. Descarga del instalador para el dispositivo de escalabilidad horizontal
 
 En **Descargar el dispositivo de Azure Migrate**, haga clic en **Descargar**. Debe descargar el script del instalador de PowerShell para implementar el dispositivo de escalabilidad horizontal en un servidor existente que ejecute Windows Server 2016 y tenga la configuración de hardware necesaria (32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y acceso a Internet, ya sea directamente o a través de un proxy).
+
 :::image type="content" source="./media/how-to-scale-out-for-migration/download-scale-out.png" alt-text="Descarga del script para el dispositivo de escalabilidad horizontal":::
 
 > [!TIP]
 > Puede validar la suma de comprobación del archivo ZIP descargado con los siguientes pasos:
 >
-> 1. Abra un símbolo del sistema como administrador.
+> 1. En el servidor en el que descargó el archivo, abra una ventana de comandos de administrador.
 > 2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Ejemplo de uso para la nube pública: ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
-> 3. Descargue la versión más reciente del instalador del dispositivo de escalabilidad horizontal desde el portal si el código hash calculado no coincide con esta cadena: 1E6B6E3EE8B2A800818B925F5DA67EF7874DAD87E32847120B32F3E21F5960F9.
+    - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+> 3. Descargue la versión más reciente del instalador del dispositivo de escalabilidad horizontal desde el portal si el código hash calculado no coincide con esta cadena: b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Ejecución del script del instalador de Azure Migrate
-El script del instalador hace lo siguiente:
 
-- Instale el agente de puerta de enlace y el administrador de configuración de dispositivos para realizar más replicaciones de servidor simultáneas.
-- Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
-- Descarga e instala un módulo de reescritura de IIS.
-- Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
-- Crea los siguientes archivos en la ruta de acceso:
-    - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config
-    - **Archivos de registro**:%Programdata%\Microsoft Azure\Logs
-
-Ejecute el script como se indica a continuación:
-
-1. Extraiga el archivo ZIP en una carpeta del servidor que hospedará el dispositivo de escalabilidad horizontal.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
+1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
 2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
-3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo ZIP descargado.
-4. Ejecute el script denominado **AzureMigrateInstaller.ps1** con el comando siguiente:
+3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
+4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
 
-    - Para la nube pública: 
-    
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-    El script iniciará el administrador de configuración del dispositivo cuando finalice la ejecución.
+5. Seleccione las opciones de escenario, nube, configuración y conectividad para implementar el dispositivo deseado. Por ejemplo, la selección que se muestra a continuación configura un dispositivo de **escalabilidad horizontal** para iniciar replicaciones simultáneas en los servidores que se ejecutan en el entorno de VMware a un proyecto de Azure Migrate con **conectividad predeterminada** (punto de conexión público) en la **nube pública de Azure**.
 
-Si surge algún problema, puede acceder los registros de script en la ubicación: <br/> C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>marca de tiempo</em>.log para solucionar problemas.
+    :::image type="content" source="./media/how-to-scale-out-for-migration/script-vmware-scaleout-inline.png" alt-text="Captura de pantalla que muestra cómo configurar el escalado horizontal de los dispositivos." lightbox="./media/how-to-scale-out-for-migration/script-vmware-scaleout-expanded.png":::
+
+6. El script del instalador hace lo siguiente:
+
+    - Instale el agente de puerta de enlace y el administrador de configuración de dispositivos para realizar más replicaciones de servidor simultáneas.
+    - Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
+    - Descarga e instala un módulo de reescritura de IIS.
+    - Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
+    - Crea los siguientes archivos en la ruta de acceso:
+        - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config
+        - **Archivos de registro**:%Programdata%\Microsoft Azure\Logs
+
+Una vez que el script se haya ejecutado correctamente, el administrador de configuración del dispositivo se iniciará automáticamente.
+
+> [!NOTE]
+> En caso de que surja algún problema, puede acceder a los registros de script en C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para solucionarlo.
 
 
 ### <a name="4-configure-the-appliance"></a>4. Configuración del dispositivo
@@ -121,7 +124,8 @@ Antes de empezar, asegúrese de que se pueda acceder a [estos puntos de conexió
 
 1. Pegue la **clave del proyecto de Azure Migrate** copiada desde el portal. Si no tiene la clave, vaya a **Server Assessment > Detectar > Administrar los dispositivos existentes**, seleccione el nombre del dispositivo principal, busque el dispositivo de escalabilidad horizontal asociado a él y copie la clave correspondiente.
 1. Necesitará un código de dispositivo para autenticarse con Azure. Al hacer clic en **Iniciar sesión** se abrirá un modal con el código del dispositivo, tal como se muestra a continuación.
-:::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal que muestra el código del dispositivo":::
+
+   :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal que muestra el código del dispositivo":::
 
 1. Haga clic en **Copiar código e Iniciar sesión** para copiar el código del dispositivo y abrir un símbolo del sistema de inicio de sesión de Azure en una nueva pestaña del explorador. Si no aparece, asegúrese de que ha deshabilitado el bloqueador de elementos emergentes en el explorador.
 1. En la nueva pestaña, pegue el código del dispositivo e inicie sesión con su nombre de usuario y contraseña de Azure.

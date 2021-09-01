@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/22/2020
-ms.openlocfilehash: fcf222573ac16be54ae98777749306fee0847109
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 07/27/2021
+ms.openlocfilehash: d5d2d3a844d417b12ae2899cd5ce3d998731aab6
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749598"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860823"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
 El área de trabajo es el recurso de nivel superior para Azure Machine Learning, que proporciona un lugar centralizado para trabajar con todos los artefactos que crea al usar Azure Machine Learning.  El área de trabajo conserva un historial de las ejecuciones del entrenamiento, que incluye registros, métricas, resultados y una instantánea de sus scripts. Esta información se usa para determinar qué ejecución de entrenamiento crea el mejor modelo.  
 
-Una vez que tenga un modelo que le guste, regístrelo con el área de trabajo. Después, usará el modelo registrado y los scripts de puntuación para implementar en Azure Container Instances, en Azure Kubernetes Service o en una matriz de puerta programable en el campo (FPGA) como un punto de conexión HTTP basado en REST. También puede implementar el modelo en un dispositivo de Azure IoT Edge como un módulo.
+Una vez que tenga un modelo que le guste, regístrelo con el área de trabajo. Después, usará el modelo registrado y los scripts de puntuación para implementar en Azure Container Instances, en Azure Kubernetes Service o en una matriz de puerta programable en el campo (FPGA) como un punto de conexión HTTP basado en REST.
 
 ## <a name="taxonomy"></a>Taxonomía 
 
@@ -53,7 +53,6 @@ Puede interactuar con el área de trabajo de las siguientes formas:
     + [Azure Machine Learning Studio](https://ml.azure.com) 
     + [Diseñador de Azure Machine Learning](concept-designer.md) 
 + En cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro).
-+ En cualquier entorno de R con el [SDK de Azure Machine Learning para R (versión preliminar)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + En la línea de comandos con la [extensión de la CLI](./reference-azure-machine-learning-cli.md) de Azure Machine Learning
 + [Extensión Azure Machine Learning para VS Code](how-to-manage-resources-vscode.md#workspaces)
 
@@ -74,7 +73,7 @@ Las tareas de aprendizaje automático leen o escriben artefactos en el área de 
 
 También puede realizar las siguientes tareas de administración de áreas de trabajo:
 
-| Tarea de administración de áreas de trabajo   | Portal              | Estudio | SDK para Python/SDK para R       | CLI        | Código de VS
+| Tarea de administración de áreas de trabajo   | Portal              | Estudio | SDK de Python      | Azure CLI        | Código de VS
 |---------------------------|---------|---------|------------|------------|------------|
 | Crear un área de trabajo        | **&check;**     | | **&check;** | **&check;** | **&check;** |
 | Administración del acceso al área de trabajo    | **&check;**   || |  **&check;**    ||
@@ -96,6 +95,15 @@ Hay varias maneras de crear un área de trabajo:
 > [!NOTE]
 > El nombre del área de trabajo no distingue mayúsculas de minúsculas.
 
+## <a name="sub-resources"></a><a name="sub-resources"></a> Subrecursos
+
+Estos subrecursos son los recursos principales que se crean en el área de trabajo de AML.
+
+* Máquinas virtuales: proporcionan capacidad de proceso para el área de trabajo de AML y son una parte integral de la implementación y el entrenamiento de modelos.
+* Equilibrador de carga: se crea un equilibrador de carga de red para cada instancia de proceso y clúster de proceso, para administrar el tráfico incluso mientras está detenido el clúster o la instancia de proceso.
+* Red virtual: estas redes ayudan a los recursos de Azure a comunicarse entre sí, con Internet y con otras redes locales.
+* Ancho de banda: encapsula todas las transferencias de datos salientes entre regiones.
+
 ## <a name="associated-resources"></a><a name="resources"></a> Recursos asociados
 
 Al crear una nueva área de trabajo, se crean automáticamente varios recursos de Azure que el área de trabajo utiliza:
@@ -114,7 +122,7 @@ Al crear una nueva área de trabajo, se crean automáticamente varios recursos d
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): almacena secretos que usan los destinos de proceso y otra información confidencial que el área de trabajo necesita.
 
 > [!NOTE]
-> En su lugar, puede usar instancias de recursos de Azure existentes al crear el área de trabajo con el [SDK de Python](how-to-manage-workspace.md?tabs=python#create-a-workspace), el [SDK de R](https://azure.github.io/azureml-sdk-for-r/reference/create_workspace.html) o la CLI de Azure Machine Learning [con una plantilla de Resource Manager](how-to-create-workspace-template.md).
+> En su lugar, puede usar instancias de recursos de Azure existentes al crear el área de trabajo con el [SDK de Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) o la CLI de Azure Machine Learning [con una plantilla de Resource Manager](how-to-create-workspace-template.md).
 
 <a name="wheres-enterprise"></a>
 
@@ -128,9 +136,11 @@ En cualquiera de las ediciones, los clientes son responsables de los costos de l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+Para más información sobre cómo planear un área de trabajo para los requisitos de su organización, consulte [Organización y configuración de entornos de Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
+
 Para una introducción a Azure Machine Learning, consulte:
 
-+ [Información general de Azure Machine Learning](overview-what-is-azure-ml.md)
++ [¿Qué es Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 + [Creación y administración de un área de trabajo](how-to-manage-workspace.md)
 + [Tutorial: Introducción a Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Creación del primer modelo de clasificación con el aprendizaje automático automatizado](tutorial-first-experiment-automated-ml.md) 

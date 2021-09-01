@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 07/16/2021
 ms.author: b-juche
-ms.openlocfilehash: e16e95bbb65bde6c4c0b38b9c68c0f7287b8b9b3
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 13a63da9abf37f57842b34f32c3ff442f4214062
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795589"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114402781"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas de Azure NetApp Files
 
@@ -101,28 +101,26 @@ Puede consultar las métricas para un grupo de capacidad o un volumen si selecci
 
 ## <a name="throughput-metrics-for-capacity-pools"></a>Métricas de rendimiento de grupos de capacidad   
 
-* *Rendimiento del grupo asignado al volumen*    
-    Rendimiento total asignado a los volúmenes de un grupo de capacidad determinado. Es decir, el rendimiento total asignado a los volúmenes del grupo de capacidad.   
+* *Rendimiento asignado al grupo*    
+    Suma del rendimiento de todos los volúmenes que pertenecen al grupo.
+    
+* *Rendimiento aprovisionado para el grupo*   
+    Rendimiento aprovisionado de este grupo.
 
-* *Rendimiento consumido por el grupo*   
-    Rendimiento total consumido por los volúmenes de un grupo de capacidad determinado.   
-
-* *Porcentaje de rendimiento del grupo asignado al volumen*   
-    Porcentaje de rendimiento aprovisionado del grupo de capacidad que se asigna a los volúmenes.   
-
-* *Porcentaje de rendimiento consumido del grupo*    
-    Porcentaje de rendimiento aprovisionado del grupo de capacidad consumido por los volúmenes.
 
 ## <a name="throughput-metrics-for-volumes"></a>Métricas de rendimiento de los volúmenes   
 
-*  *Rendimiento asignado al volumen*    
-    Rendimiento del grupo de capacidad principal (MiB/s) asignado al volumen. Este es el rendimiento máximo que el volumen puede consumir.
+* *Rendimiento de lectura*   
+    Rendimiento de lectura en bytes por segundo.
+    
+* *Rendimiento total*   
+    Suma de todo el rendimiento en bytes por segundo.
 
-* *Rendimiento consumido por volumen*    
-    El rendimiento real (MiB/s) que utiliza el volumen.
+* *Rendimiento de escritura*    
+    Rendimiento de escritura en bytes por segundo.
 
-* *Porcentaje de rendimiento consumido del volumen*   
-    Porcentaje de rendimiento asignado que utiliza el volumen. Es decir, el *rendimiento consumido por volumen* como un porcentaje del *rendimiento asignado al volumen*.
+* *Otro rendimiento*   
+    Otro rendimiento (que no sea de lectura ni escritura) expresado en bytes por segundo.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

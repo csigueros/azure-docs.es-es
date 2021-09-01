@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: 21f8109fa1db49af8f2e84833466ed204d2f59fa
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 07/05/2021
+ms.openlocfilehash: f222245af177380a59f4c2adc9987b144a1c9b6f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536524"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864673"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Planes y precios de las ofertas del marketplace comercial
 
@@ -42,7 +42,7 @@ Los siguientes tipos de ofertas admiten planes:
 
 - Servicios de consultoría
 - Dynamics 365 Business Central
-- Dynamics 365 Customer Engagement & PowerApps
+- Dynamics 365 Customer Engagement & Power Apps
 - Dynamics 365 for Operations
 - Power BI app
 
@@ -146,7 +146,7 @@ En los planes de las ofertas de SaaS y de máquinas virtuales de Azure comercial
 > - Máquina virtual de Azure 
 > - SaaS 
 > - Dynamics 365 Business Central
-> - Dynamics 365 for Customer Engagement y Power Apps
+> - Dynamics 365 for Customer Engagement & Power Apps
 > - Dynamics 365 for Operations
 >
 > Para más información sobre las opciones de la descripción, consulte [Determinación de la opción de publicación](determine-your-listing-type.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6592add5e33ba240c0f1d9fdbd23d82adfe5229
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4174ea12f687e370eb1ff5508876e44a1430cdfb
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91258615"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864025"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>¿Cuáles son las dependencias de servicio del acceso condicional de Azure Active Directory? 
 
@@ -58,7 +58,7 @@ En la tabla siguiente se enumeran las dependencias de servicio adicionales que d
 |                     | SharePoint                                  | Con enlace en tiempo de ejecución  |
 | Outlook Groups      | Exchange                                    | Con enlace en tiempo de compilación |
 |                     | SharePoint                                  | Con enlace en tiempo de compilación |
-| PowerApps           | Administración de Microsoft Azure (portal y API) | Con enlace en tiempo de compilación |
+| Power Apps           | Administración de Microsoft Azure (portal y API) | Con enlace en tiempo de compilación |
 |                     | Microsoft Azure Active Directory              | Con enlace en tiempo de compilación |
 | proyecto             | Dynamics CRM                                | Con enlace en tiempo de compilación |
 | Skype Empresarial  | Exchange                                    | Con enlace en tiempo de compilación |

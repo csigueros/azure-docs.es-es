@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/8/2021
+ms.date: 06/30/2021
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ce694be685ff82e73551f792bf96451092423413
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: f55c5096f9205e75904a65724715104fe8bca849
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111809735"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121780494"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0
 
@@ -28,6 +28,8 @@ En este artículo se describe cómo programar directamente con el protocolo de l
 El flujo de concesión de credenciales de cliente de OAuth 2.0 permite que un servicio web (cliente confidencial) use sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. Para conseguir un mayor nivel de control, la plataforma de identidad de Microsoft también permite que el servicio que realiza la llamada use un certificado (en lugar de un secreto compartido) como credencial.  Como se utilizan las credenciales propias de las aplicaciones, estas credenciales se deben mantener seguras: _nunca_ publique esas credenciales en el código fuente, nunca las inserte en páginas web ni las use en una aplicación nativa ampliamente distribuida. 
 
 En el flujo de credenciales de cliente, un administrador concede los permisos directamente en la propia aplicación. Cuando la aplicación presenta un token a un recurso, este exige que la propia aplicación tenga autorización para realizar una acción, ya que no hay ningún usuario implicado en la autorización.  En este artículo se describen los pasos necesarios para [autorizar a una aplicación para que llame a una API](#application-permissions), además de [cómo obtener los tokens necesarios para llamar a esa API](#get-a-token).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -83,9 +85,6 @@ Si inicia la sesión del usuario en la aplicación, puede identificar la organiz
 
 Cuando esté listo para solicitar permisos al administrador de la organización, puede redirigir al usuario al *punto de conexión de consentimiento del administrador* de la Plataforma de identidad de Microsoft.
 
-> [!TIP]
-> Pruebe a ejecutar esta solicitud en Postman (Use su propio identificador de aplicación para obtener mejores resultados; la aplicación del tutorial no solicitará permisos útiles). [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ```HTTP
 // Line breaks are for legibility only.
 
@@ -115,7 +114,7 @@ En este momento, Azure AD exige que solo un administrador de inquilino pueda in
 Si el administrador aprueba los permisos para la aplicación, la respuesta correcta tendrá un aspecto similar al siguiente:
 
 ```HTTP
-GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=12345&admin_consent=True
 ```
 
 | Parámetro | Descripción |
@@ -143,9 +142,6 @@ Una vez que reciba una respuesta correcta desde el punto de conexión de aprovis
 
 Una vez que obtenga la autorización necesaria para la aplicación, siga con el proceso de adquisición de tokens de acceso para las API. Para obtener un token mediante la concesión de credenciales de cliente, envíe una solicitud POST a la Plataforma de identidad de Microsoft `/token`:
 
-> [!TIP]
-> Pruebe a ejecutar esta solicitud en Postman (Use su propio identificador de aplicación para obtener mejores resultados; la aplicación del tutorial no solicitará permisos útiles). [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primer caso: solicitud de token de acceso con un secreto compartido
 
 ```HTTP
@@ -155,7 +151,7 @@ Content-Type: application/x-www-form-urlencoded
 
 client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
-&client_secret=5ampl3Cr3dentia1s
+&client_secret=sampleCredentia1s
 &grant_type=client_credentials
 ```
 
@@ -195,11 +191,11 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | `client_assertion` | Obligatorio | Una aserción (JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación. Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para información sobre cómo registrar el certificado y el formato de la aserción.|
 | `grant_type` | Obligatorio | Se debe establecer en `client_credentials`. |
 
-Tenga en cuenta que los parámetros son casi iguales que en el caso de solicitud con un secreto compartido, salvo que el parámetro client_secret se sustituye por dos parámetros: client_assertion_type y client_assertion.
+Los parámetros de la solicitud basada en certificados solo difieren de una manera de la solicitud basada en secreto compartido: el parámetro `client_secret` se reemplaza por los parámetros `client_assertion_type` y `client_assertion`.
 
 ### <a name="successful-response"></a>Respuesta correcta
 
-Una respuesta correcta tiene el siguiente aspecto:
+Una respuesta correcta de cualquiera de los métodos tiene el siguiente aspecto:
 
 ```json
 {
@@ -214,6 +210,8 @@ Una respuesta correcta tiene el siguiente aspecto:
 | `access_token` | El token de acceso solicitado. La aplicación puede usar este token para autenticarse en el recurso protegido, como una API web. |
 | `token_type` | Indica el valor de tipo de token. El único tipo que la Plataforma de identidad de Microsoft admite es `bearer`. |
 | `expires_in` | La cantidad de tiempo que un token de acceso es válido (en segundos). |
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### <a name="error-response"></a>Respuesta de error
 

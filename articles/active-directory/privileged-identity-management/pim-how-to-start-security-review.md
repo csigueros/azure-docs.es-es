@@ -14,12 +14,12 @@ ms.date: 7/14/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76c18626f54f1862e01140b374e5fd185d1fe814
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: e8c7ac04450f8c9434b8a6c674792d777c53b149
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122196020"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864997"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Cree una revisión de acceso para los roles de Azure AD en Azure AD Privileged Identity Management (PIM).
 
@@ -49,8 +49,6 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 4. Vuelve a seleccionar **Roles de Azure AD** en **Administrar**.
 
 5. En Administrar, seleccione **Revisiones de acceso** y, luego, elija **Nueva** para crear una nueva revisión de acceso.
-
-    <kbd> ![Roles de Azure AD: lista de revisiones de acceso que muestra el estado de todas las revisiones.](./media/pim-how-to-start-security-review/access-reviews.png) </kbd>
 
 6. Ponga un nombre a la revisión de acceso. Opcionalmente, asigne a la revisión una descripción. El nombre y la descripción se muestran a los revisores.
 

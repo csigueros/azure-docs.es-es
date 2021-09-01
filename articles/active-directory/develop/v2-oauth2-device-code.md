@@ -9,22 +9,24 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 06/25/2021
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: marsma
 ms.custom: aaddev
-ms.openlocfilehash: 8c757f3e067aeac5d8145ca47b2eac145daba574
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 053f56f56c28560b700122a99fc2d97f4c8e0279
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88272457"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "122653644"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Flujo de concesión de autorización de dispositivo de OAuth 2.0 y la Plataforma de identidad de Microsoft
 
 La Plataforma de identidad de Microsoft admite la [concesión de autorización de dispositivo](https://tools.ietf.org/html/rfc8628), lo que permite que los usuarios inicien sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, un dispositivo IoT o una impresora.  Para habilitar este flujo, el dispositivo pide que el usuario visite una página web en su explorador en otro dispositivo para iniciar sesión.  Una vez que el usuario inicia sesión, el dispositivo es capaz de obtener tokens de acceso y tokens de actualización según sea necesario.
 
 En este artículo se describe cómo programar directamente con el protocolo de la aplicación.  Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -36,10 +38,6 @@ El flujo de código de dispositivo completo es similar al del diagrama siguiente
 
 El cliente debe primero realizar una comprobación con el servidor de autenticación para obtener un código de usuario y dispositivo que se usa para iniciar la autenticación. El cliente recopila esta solicitud desde el punto de conexión `/devicecode`. En esta solicitud, el cliente también debe incluir los permisos que necesita obtener por parte del usuario. Desde el momento en que se envía esta solicitud, el usuario tiene solo 15 minutos para iniciar sesión (el valor habitual de `expires_in`), por lo que solo se debe realizar esta solicitud cuando el usuario ha indicado que está listo para iniciar sesión.
 
-> [!TIP]
-> Pruebe a ejecutar esta solicitud en Postman
-> [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ```HTTP
 // Line breaks are for legibility only.
 
@@ -47,7 +45,7 @@ POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-scope=user.read%20openid%20profile
+&scope=user.read%20openid%20profile
 
 ```
 
@@ -85,9 +83,9 @@ Mientras el usuario se autentica en `verification_uri`, el cliente debe sondear 
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
-grant_type: urn:ietf:params:oauth:grant-type:device_code
-client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
-device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
+grant_type=urn:ietf:params:oauth:grant-type:device_code
+&client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&device_code=GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
 | Parámetro | Obligatorio | Descripción|
@@ -133,3 +131,5 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | `refresh_token` | Cadena opaca | Se emite si el parámetro `scope` original incluye `offline_access`.  |
 
 Puede usar el token de actualización para adquirir nuevos tokens de acceso y tokens de actualización con el mismo flujo que se indica en la [documentación del flujo de código de OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]

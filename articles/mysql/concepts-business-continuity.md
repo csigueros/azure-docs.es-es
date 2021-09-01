@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: e58508e561a33a73e6f6752fc12bc5938b8d7488
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a02457c177e509280a93d7e6939143da3f7e9a84
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309788"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652338"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---single-server"></a>Introducción a la continuidad empresarial con Azure Database for MySQL: servidor único
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 En este artículo se describen las funcionalidades de continuidad empresarial y recuperación ante desastres que proporciona Azure Database for MySQL. Conozca más información sobre opciones para recuperarse de eventos de interrupción que podrían provocar la pérdida de información o que su base de datos y aplicación dejen de estar disponibles. Sepa qué hacer en caso de que un error del usuario o la aplicación afecte a la integridad de los datos, se produzca una interrupción en una región de Azure o su aplicación requiera mantenimiento.
 
