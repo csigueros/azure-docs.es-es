@@ -1,18 +1,18 @@
 ---
 title: Análisis de registros y métricas en Azure Spring Cloud | Microsoft Docs
 description: Aprenda a analizar datos de diagnóstico en Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 7e2042294ebaefa2640873bb1ce941d9a60c7834
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e2d903f781e86670139347930289599bec6ee7e7
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128998"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015554"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Análisis de registros y métricas con la configuración de diagnóstico
 
@@ -56,9 +56,10 @@ Para empezar, habilite uno de estos servicios para recibir los datos. Para más 
 
 > [!NOTE]
 > 1. Puede transcurrir un intervalo de hasta 15 minutos desde que se emiten los registros o las métricas hasta que aparecen en la cuenta de almacenamiento, el centro de eventos o Log Analytics.
-> 1. Si se elimina o se mueve la instancia de Azure Spring Cloud, la operación no se realizará en cascada a los recursos de la **configuración de diagnósticos**. Los recursos de la **administración de diagnósticos** se deben eliminar manualmente antes de la operación en su elemento primario, es decir, la instancia de Azure Spring Cloud. De lo contrario, si se aprovisiona una nueva instancia de Azure Spring Cloud con el mismo id. de recurso que la eliminada o si la instancia de Azure Spring Cloud se vuelve a trasladar, los recursos de la **configuración de diagnósticos** anteriores siguen extendiéndola.
+> 1. Si se elimina o se mueve la instancia de Azure Spring Cloud, la operación no se realizará en cascada a los recursos de la **configuración de diagnósticos**. Los recursos de la **administración de diagnósticos** se deben eliminar manualmente antes de la operación en su elemento primario, la instancia de Azure Spring Cloud. De lo contrario, si se aprovisiona una nueva instancia de Azure Spring Cloud con el mismo id. de recurso que la eliminada o si la instancia de Azure Spring Cloud se vuelve a trasladar, los recursos de la **configuración de diagnósticos** anteriores siguen extendiéndola.
 
 ## <a name="view-the-logs-and-metrics"></a>Visualización de registros y métricas
+
 Existen varios métodos para ver los registros y las métricas, tal y como se describe en los apartados siguientes.
 
 ### <a name="use-the-logs-blade"></a>Uso de la hoja Registros
@@ -72,12 +73,14 @@ Existen varios métodos para ver los registros y las métricas, tal y como se de
     AppPlatformLogsforSpring
     | limit 50
     ```
+
    * Para ver las métricas, escriba una consulta simple como la siguiente:
 
     ```sql
     AzureMetrics
     | limit 50
     ```
+
 1. Para ver el resultado de la búsqueda, seleccione **Ejecutar**.
 
 ### <a name="use-log-analytics"></a>Uso de Log Analytics
@@ -92,6 +95,7 @@ Existen varios métodos para ver los registros y las métricas, tal y como se de
     AppPlatformLogsforSpring
     | limit 50
     ```
+
     * Para ver las métricas, escriba una consulta simple como la siguiente:
 
     ```sql
@@ -107,8 +111,9 @@ Existen varios métodos para ver los registros y las métricas, tal y como se de
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
-> [!NOTE]
-> `==` distingue mayúsculas de minúsculas, pero `=~` no.
+
+    > [!NOTE]
+    > `==` distingue mayúsculas de minúsculas, pero `=~` no.
 
 Para más información sobre el lenguaje de consulta que se utiliza en Log Analytics, consulte [Consultas de registros de Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos los registros de Log Analytics desde un cliente centralizado, eche un vistazo a [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
@@ -198,12 +203,14 @@ Hay una solución alternativa para convertir los seguimientos de la pila de vari
     </root>
 </configuration>
 ```
+
 Y después puede reemplazar el token por caracteres de nueva línea en Log Analytics como se indica a continuación:
 
 ```sql
 AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
+
 Es posible que pueda usar la misma estrategia para otras bibliotecas de registro de Java.
 
 ## <a name="next-steps"></a>Pasos siguientes

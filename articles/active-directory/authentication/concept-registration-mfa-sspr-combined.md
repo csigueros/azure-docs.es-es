@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 07/29/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c3d80a97b7be3127caaa4ce86dac8435dec1666
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 04f7b5a7757d402035e36aaf085de9033d046ba2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438457"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723164"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Introducción al registro de información de seguridad combinado para Azure Active Directory
 
@@ -34,7 +34,7 @@ En este artículo se describe qué es el registro de seguridad combinado. Para e
 
 Antes de habilitar la nueva experiencia, revise esta documentación centrada en el administrador y la documentación centrada en el usuario para asegurarse de que entiende las funciones y el efecto de esta característica. Con el fin de preparar a los usuarios para la nueva experiencia y ayudar a garantizar un lanzamiento satisfactorio, puede basar el aprendizaje en la [documentación de usuario](../user-help/security-info-setup-signin.md).
 
-El registro de información de seguridad combinado de Azure AD no está actualmente disponible para las nubes nacionales, como Azure Alemania o Azure China 21Vianet. Está disponible para Azure US Government.
+El registro de información de seguridad combinado de Azure AD está disponible para las nube de Azure US Government, pero no para Azure Alemania ni Azure China 21Vianet.
 
 > [!IMPORTANT]
 > Los usuarios que están habilitados para la versión preliminar original y la experiencia de registro combinado mejorada verán el nuevo comportamiento. Los usuarios que están habilitados para ambas experiencias solo ven la experiencia Mi cuenta. *Mi cuenta* se alinea con el aspecto del registro combinado y ofrece una experiencia perfecta a los usuarios. Los usuarios pueden ver Mi cuenta si van a [https://myaccount.microsoft.com](https://myaccount.microsoft.com).
@@ -69,12 +69,12 @@ El registro combinado admite los siguientes métodos y acciones de autenticació
 
 Como método de Multi-Factor Authentication predeterminado, los usuarios pueden establecer una de las opciones siguientes:
 
-- Microsoft Authenticator: notificación.
-- Aplicación autenticadora o token de hardware: código.
-- Llamada de teléfono.
-- Mensaje de texto.
+- Microsoft Authenticator: notificación de inserción
+- Aplicación Authenticator o token de hardware: código
+- llamada de teléfono
+- mensaje de texto
 
-A medida que agreguemos más métodos de autenticación a Azure AD, estos estarán disponibles en el registro combinado.
+Las aplicaciones de autenticadores de terceros no proporcionan notificaciones de inserción. A medida que agreguemos más métodos de autenticación a Azure AD, estos estarán disponibles en el registro combinado.
 
 ## <a name="combined-registration-modes"></a>Modo de registro combinado
 
@@ -85,9 +85,11 @@ Existen dos modos de registro combinado: interrupción y administración.
 
 En ambos modos, los usuarios que han registrado previamente un método que se puede usar para Multi-Factor Authentication necesitarán ejecutar Multi-Factor Authentication antes de acceder a su información de seguridad. Los usuarios deben confirmar su información antes de continuar usando sus métodos registrados previamente. 
 
+
+
 ### <a name="interrupt-mode"></a>Modo de interrupción
 
-El registro combinado respeta las directivas de Multi-Factor Authentication y SSPR, si ambos están habilitados para el inquilino. Estas directivas controlan si se interrumpe a un usuario para que se registre durante el inicio de sesión y los métodos que hay disponibles para el registro.
+El registro combinado cumple las directivas de Multi-Factor Authentication y SSPR, si ambos están habilitados para el inquilino. Estas directivas controlan si se interrumpe a un usuario para que se registre durante el inicio de sesión y los métodos que hay disponibles para el registro. Si solo se habilita una directiva de SSPR, los usuarios podrán omitir la interrupción del registro y completarlo más adelante.
 
 Los siguientes son algunos escenarios de ejemplo en los que a los usuarios se les puede solicitar el registro o la actualización de su información de seguridad:
 
@@ -101,10 +103,10 @@ Cuando se exige el registro, se les muestra a los usuarios el número mínimo de
 
 Considere el escenario de ejemplo siguiente:
 
-- Un usuario está habilitado para SSPR. La directiva SSPR requiere dos métodos para restablecer y ha habilitado el código de aplicación móvil, el correo y el teléfono.
-- Este usuario debe registrar dos métodos.
-   - De manera predeterminada, se le muestra al usuario la aplicación autenticadora y el teléfono.
-   - El usuario puede elegir registrar el correo en lugar de la aplicación autenticadora o el teléfono.
+- Un usuario está habilitado para SSPR. La directiva de SSPR requiere dos métodos para restablecer y tiene habilitados la aplicación Authenticator, el correo electrónico y el teléfono.
+- Cuando el usuario decide registrarse, se requieren dos métodos:
+   - De manera predeterminada, se le muestra al usuario la aplicación Authenticator y el teléfono.
+   - El usuario puede elegir registrar el correo en lugar de la aplicación Authenticator o el teléfono.
 
 El siguiente diagrama de flujo describe los métodos que se muestran a un usuario cuando se le interrumpe para que se registre durante el inicio de sesión:
 
@@ -139,6 +141,16 @@ Un usuario que previamente ha configurado al menos un método navega a [https://
 ### <a name="change-the-default-method-from-my-account"></a>Cambio del método predeterminado desde Mi cuenta
 
 Un usuario que previamente ha configurado al menos un método que se puede usar para Multi-Factor Authentication navega a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). El usuario cambia el método predeterminado actual a un método predeterminado distinto. Cuando termina, el usuario ve ese método predeterminado nuevo en la página de Información de seguridad.
+
+### <a name="switch-directory"></a>Cambiar de directorio
+
+Es posible que una identidad externa, como un usuario B2B, tenga que cambiar el directorio para cambiar la información de registro de seguridad de un inquilino de terceros. Además, los usuarios que acceden a un inquilino de recursos pueden confundirse cuando cambian la configuración de su inquilino principal, pero no ven los cambios reflejados en el inquilino de recursos. 
+
+Por ejemplo, un usuario establece las notificaciones de inserción de Microsoft Authenticator como autenticación principal para iniciar sesión en el inquilino principal y también tiene SMS y texto como otra opción. Este usuario también se configura con la opción de SMS y texto en un inquilino de recursos. Si este usuario quita SMS y texto como una de las opciones de autenticación en su inquilino principal, se confundirá cuando el acceso al inquilino de recursos le pida que responda a un mensaje SMS y texto. 
+
+Para cambiar el directorio en Azure Portal, haga clic en el nombre de la cuenta de usuario en la esquina superior derecha y haga clic en **Cambiar directorio**.
+
+![Los usuarios externos pueden cambiar de directorio.](media/concept-registration-mfa-sspr-combined/switch-directory.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

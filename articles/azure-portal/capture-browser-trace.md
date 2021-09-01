@@ -1,24 +1,27 @@
 ---
 title: Captura de un seguimiento del explorador para solucionar problemas
 description: Capture la información de red desde un seguimiento del explorador para ayudar a solucionar problemas con Azure Portal.
-ms.date: 03/25/2021
+ms.date: 08/16/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 63bc3e93187274db607b5f60216de461729801dc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d1db82c9671879c435a6dba73929d9a4eb183f7f
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563501"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228878"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Captura de un seguimiento del explorador para solucionar problemas
 
 Si está solucionando un problema con Azure Portal y necesita contactar con el soporte de Microsoft, se recomienda capturar primero un seguimiento del explorador e información adicional. La información que recopile puede proporcionar detalles importantes sobre el portal en el momento en que se produce el problema. Siga los pasos de este artículo para las herramientas de desarrollo en el explorador que usa: Google Chrome o Microsoft Edge (Chromium), Microsoft Edge (EdgeHTML), Apple Safari o Firefox.
 
+> [!IMPORTANT]
+> El equipo de soporte técnico de Microsoft usa estos seguimientos solo con fines de solución de problemas. Tenga en cuenta con quién comparte los seguimientos, ya que pueden contener información confidencial sobre el entorno.
+
 ## <a name="google-chrome-and-microsoft-edge-chromium"></a>Google Chrome y Microsoft Edge (Chromium)
 
 Google Chrome y Microsoft Edge (Chromium) se basan en el [proyecto de código abierto de Chromium](https://www.chromium.org/Home). En los pasos siguientes se muestra cómo usar las herramientas de desarrollo, que son muy similares en los dos exploradores. Para obtener más información, consulte [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) y [Herramientas de desarrollo de Microsoft Edge (Chromium)](/microsoft-edge/devtools-guide-chromium).
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Es importante iniciar sesión _antes_ de iniciar el seguimiento para que este no contenga información confidencial relacionada con el inicio de sesión. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Es importante iniciar sesión _antes_ de iniciar el seguimiento para que este no contenga información confidencial relacionada con el inicio de sesión.
 
 1. Empiece a grabar las acciones que se llevan a cabo en el portal mediante la [Grabación de acciones](https://support.microsoft.com/help/22878/windows-10-record-steps).
 
@@ -164,7 +167,7 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo en 
 
 En los pasos siguientes se muestra cómo usar las herramientas de desarrollo en Firefox. Para más información, consulte [Herramientas de desarrollo de Firefox](https://developer.mozilla.org/docs/Tools).
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Es importante iniciar sesión _antes_ de iniciar el seguimiento para que este no contenga información confidencial relacionada con el inicio de sesión. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Es importante iniciar sesión _antes_ de iniciar el seguimiento para que este no contenga información confidencial relacionada con el inicio de sesión.
 
 1. Empiece a grabar las acciones que se llevan a cabo en el portal. Use la [grabación de acciones](https://support.microsoft.com/help/22878/windows-10-record-steps) en Windows o consulte [Cómo grabar la pantalla en el Mac](https://support.apple.com/HT208721).
 
@@ -204,4 +207,5 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Introducción a Azure Portal](azure-portal-overview.md)
+- Más información sobre [Azure Portal](azure-portal-overview.md).
+- Obtenga información sobre cómo [abrir una solicitud de soporte técnico](supportability/how-to-create-azure-support-request.md) en Azure Portal.

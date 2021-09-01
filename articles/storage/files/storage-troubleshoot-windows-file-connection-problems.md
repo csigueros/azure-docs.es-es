@@ -8,12 +8,12 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ccaa432de640e7d4bf89675c750e965e0058f847
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b1541acc9ab6871418d1cb750d74d285f3228f92
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676116"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014864"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Solución de problemas de Azure Files en Windows (SMB)
 
@@ -21,6 +21,13 @@ En este artículo se enumeran los problemas habituales relacionados con Microsof
 
 > [!IMPORTANT]
 > El contenido de este artículo solo se aplica a los recursos compartidos SMB. Para obtener información sobre los recursos compartidos NFS, consulte el artículo sobre la [solución de problemas de los recursos compartidos de archivos NFS de Azure](storage-troubleshooting-files-nfs.md).
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Error 5 al montar un recurso compartido de archivos de Azure
@@ -175,6 +182,49 @@ Compruebe que las reglas de firewall y de red virtual están configuradas correc
 ### <a name="solution-for-cause-2"></a>Solución para la causa 2
 
 Vaya a la cuenta de almacenamiento donde se encuentra el recurso compartido de archivos de Azure, haga clic en **Control de acceso (IAM)** y compruebe que su cuenta de usuario tiene acceso a la cuenta de almacenamiento. Para obtener más información, consulte [cómo proteger su cuenta de almacenamiento mediante el control de acceso basado en roles de Azure (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
+
+## <a name="unable-to-modify-or-delete-an-azure-file-share-or-share-snapshots-because-of-locks-or-leases"></a>No se puede modificar o eliminar un recurso compartido de archivos de Azure (ni instantáneas de recursos compartidos) debido a bloqueos o concesiones
+Azure Files proporciona dos maneras de evitar la modificación o eliminación accidental de los recursos compartidos de archivos de Azure y las instantáneas de recursos compartidos: 
+
+- **Bloqueos de recursos de la cuenta de almacenamiento**: todos los recursos de Azure, incluida la cuenta de almacenamiento, admiten [bloqueos de recurso](../../azure-resource-manager/management/lock-resources.md). Un administrador o servicios de valor agregado como Azure Backup pueden poner bloqueos en la cuenta de almacenamiento. Existen dos variantes de bloqueos de recursos: "modify", que impide todas las modificaciones en la cuenta de almacenamiento y sus recursos, y "delete" que solo impide la eliminación de la cuenta de almacenamiento y sus recursos. Al modificar o eliminar recursos compartidos mediante el proveedor de recursos `Microsoft.Storage`, se aplicarán bloqueos de recursos en los recursos compartidos de archivos de Azure y en las instantáneas de recursos compartidos. La mayoría de las operaciones del portal, cmdlets de Azure PowerShell para Azure Files con `Rm` en el nombre (por ejemplo, `Get-AzRmStorageShare`) y los comandos de la CLI de Azure del grupo de comandos `share-rm` (por ejemplo, `az storage share-rm list`) usan el proveedor de recursos `Microsoft.Storage`. Algunas herramientas y utilidades como Explorador de Storage, cmdlets de administración heredados de PowerShell para Azure Files sin `Rm` en el nombre (por ejemplo, `Get-AzStorageShare`) y los comandos heredados de la CLI de Azure Files del grupo de comandos `share` (por ejemplo, `az storage share list`) usan API heredadas en la API de FileREST que omiten al proveedor de recursos `Microsoft.Storage` y a los bloqueos de recursos. Para más información sobre las API de administración heredadas expuestas en la API de FileREST, consulte el [plano de control en Azure Files](/rest/api/storageservices/file-service-rest-api#control-plane).
+
+- **Recurso compartido/concesiones de instantáneas de recurso compartido**: las concesiones de recursos compartidos son un tipo de bloqueo de propietario para recursos compartidos de Azure e instantáneas de recursos compartidos de archivos. Los administradores pueden poner concesiones en recursos compartidos de archivos de Azure individuales o en instantáneas de recursos compartidos de archivos con una llamada a la API a través de un script o mediante servicios de valor agregado, como Azure Backup. Cuando se pone una concesión en un recurso compartido de archivos de Azure o una instantánea de recurso compartido de archivos, la modificación o eliminación de estos se puede realizar con el *identificador de concesión*. Los usuarios también pueden liberar la concesión antes de las operaciones de modificación, las cuales requieren el identificador de concesión, o interrumpirla, en cuyo caso no se requiere el identificador de concesión. Para más información sobre las concesiones de recursos compartidos, consulte [Concesión de recursos compartidos](/rest/api/storageservices/lease-share).
+
+Dado que los bloqueos y concesiones de recursos pueden interferir con las operaciones del administrador previstas en la cuenta de almacenamiento o los recursos compartidos de archivos de Azure, puede que desee quitar los bloqueos o concesiones de recursos que se hayan puesto en los recursos de forma manual o automática mediante servicios de valor agregado, como Azure Backup. El siguiente script permite eliminar todos los bloqueos y concesiones de recursos. No olvide reemplazar `<resource-group>` y `<storage-account>` por los valores correctos para su entorno.
+
+Para ejecutar el siguiente script, debe [instalar la versión preliminar 3.10.1](https://www.powershellgallery.com/packages/Az.Storage/3.10.1-preview) del módulo de PowerShell para Azure Storage.
+
+> [!Important]  
+> Los servicios de valor agregado que toman bloqueos de recursos y concesiones de recursos compartidos o instantáneas de estos en los recursos de Azure Files pueden volver a aplicar periódicamente los bloqueos y concesiones. La modificación o eliminación de recursos bloqueados por servicios de valor agregado puede afectar al funcionamiento normal de esos servicios, como la eliminación de instantáneas de recursos compartidos administradas por Azure Backup.
+
+```PowerShell
+# Parameters for storage account resource
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName
+
+# Remove resource locks
+Get-AzResourceLock `
+        -ResourceType "Microsoft.Storage/storageAccounts" `
+        -ResourceGroupName $storageAccount.ResourceGroupName `
+        -ResourceName $storageAccount.StorageAccountName | `
+    Remove-AzResourceLock -Force | `
+    Out-Null
+
+# Remove share and share snapshot leases
+Get-AzStorageShare -Context $storageAccount.Context | `
+    Where-Object { $_.Name -eq $fileShareName } | `
+    ForEach-Object {
+        try {
+            $leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($_.ShareClient)
+            $leaseClient.Break() | Out-Null
+        } catch { }
+    }
+```
 
 <a id="open-handles"></a>
 ## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>No se puede modificar, mover/cambiar de nombre o eliminar un archivo o directorio
@@ -442,7 +492,6 @@ $StorageAccountName = "<storage-account-name-here>"
 
 Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
 ```
-
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

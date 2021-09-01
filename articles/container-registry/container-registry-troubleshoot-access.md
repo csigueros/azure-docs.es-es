@@ -2,13 +2,13 @@
 title: Solución de problemas de red con el registro
 description: Síntomas, causas y resolución de problemas comunes al acceder a un registro de contenedor de Azure en una red virtual o detrás de un firewall
 ms.topic: article
-ms.date: 03/30/2021
-ms.openlocfilehash: d9cfa0aa902fca1afd1033d40b33ccdf5baa56d7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 05/10/2021
+ms.openlocfilehash: 7ea4eb698f855a98df22e2e0426a0004c890290c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066683"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722442"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solución de problemas de red con el registro
 
@@ -34,7 +34,7 @@ Puede encontrarse con uno o varios de los siguientes:
 
 * Un firewall o proxy de cliente impide el acceso: [solución](#configure-client-firewall-access)
 * Las reglas de acceso de la red pública en el registro impiden el acceso: [solución](#configure-public-access-to-registry)
-* La configuración de la red virtual impide el acceso: [solución](#configure-vnet-access)
+* La configuración de la red virtual o el punto de conexión privado impide el acceso: [solución](#configure-vnet-access)
 * Intente integrar Azure Security Center u otros servicios de Azure concretos con un registro que tenga un punto de conexión privado, un punto de conexión de servicio o reglas de acceso con direcciones IP públicas: [solución](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>Diagnóstico detallado 
@@ -87,7 +87,11 @@ Vínculos relacionados:
 
 Confirme que la red virtual está configurada con un punto de conexión privado para Private Link o un punto de conexión de servicio (versión preliminar). Actualmente, no se admite un punto de conexión de Azure Bastion.
 
-Si se configura un punto de conexión privado, confirme que DNS resuelve el FQDN público del registro, como *myregistry.azurecr.io*, en la dirección IP privada del registro. Use una utilidad de red como `dig` o `nslookup` para la búsqueda de DNS. Asegúrese de que los [registros DNS estén configurados](container-registry-private-link.md#dns-configuration-options) para el FQDN del registro y para cada uno de los FQDN del punto de conexión de datos.
+Si se configura un punto de conexión privado, confirme que DNS resuelve el FQDN público del registro, como *myregistry.azurecr.io*, en la dirección IP privada del registro.
+
+  * Ejecute el comando [az acr check-health](/cli/azure/acr#az_acr_check_health) con el parámetro `--vnet` para confirmar el enrutamiento DNS al punto de conexión privado de la red virtual.
+  * Use una utilidad de red como `dig` o `nslookup` para la búsqueda de DNS. 
+  * Asegúrese de que los [registros DNS estén configurados](container-registry-private-link.md#dns-configuration-options) para el FQDN del registro y para cada uno de los FQDN del punto de conexión de datos. 
 
 Revise las reglas del grupo de seguridad de red y las etiquetas de servicio que se usan para limitar el tráfico que va desde otros recursos de la red hacia el registro. 
 
@@ -130,8 +134,8 @@ Si la [colección de registros de recursos](monitor-service.md) está habilitada
 
 Vínculos relacionados:
 
-* [Supervisión de Azure Container Registry](monitor-service.md)
-* [Preguntas frecuentes sobre Container Registry](container-registry-faq.md)
+* [Registros para la evaluación y auditoría de diagnóstico](./monitor-service.md)
+* [Preguntas frecuentes sobre Container Registry](container-registry-faq.yml)
 * [Base de referencia de Azure Security para Azure Container Registry](security-baseline.md)
 * [Procedimientos recomendados para Azure Container Registry](container-registry-best-practices.md)
 

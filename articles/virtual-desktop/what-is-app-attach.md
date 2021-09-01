@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 3da80de79490ce21ae99a4dd7dd36c08054cd666
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d55308876db0928bef4fdf3b89ace10305f7c47d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751584"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726014"
 ---
 # <a name="what-is-msix-app-attach"></a>¿Qué es la asociación de aplicaciones en formato .MSIX?
 
@@ -27,7 +27,7 @@ Puede proporcionar aplicaciones en Azure Virtual Desktop a través de uno de lo
 
 - Poner aplicaciones en una imagen maestra
 - Usar herramientas como SCCM o Intune para la administración central
-- Aprovisionamiento de aplicaciones dinámicas (AppV, VMWare AppVolumes o Citrix AppLayering)
+- Aprovisionamiento de aplicaciones dinámicas (AppV, VMware AppVolumes o Citrix AppLayering)
 - Crear scripts o herramientas personalizadas con Microsoft y una herramienta de terceros
 
 ## <a name="what-does-msix-app-attach-do"></a>¿Qué hace la conexión de aplicaciones MSIX?
@@ -56,4 +56,4 @@ En la tabla siguiente se compara la característica clave de la conexión de apl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si quiere obtener más información sobre la asociación de aplicaciones en formato MSIX, consulte nuestro [glosario](app-attach-glossary.md) y [Preguntas frecuentes](app-attach-faq.md). De lo contrario, empiece a trabajar con [Configuración de la asociación de aplicaciones](app-attach.md).
+Si quiere obtener más información sobre la asociación de aplicaciones en formato MSIX, consulte nuestro [glosario](app-attach-glossary.md) y [Preguntas frecuentes](app-attach-faq.yml). De lo contrario, empiece a trabajar con [Configuración de la asociación de aplicaciones](app-attach.md).

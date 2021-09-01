@@ -1,0 +1,186 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas más frecuentes sobre las plantillas de Resource Manager
+  description: Preguntas frecuentes sobre las plantillas de Azure Resource Manager.
+  ms.topic: article
+  ms.service: azure
+  ms.date: 03/03/2021
+  ms.author: tomfitz
+  author: tfitzmac
+  ms.openlocfilehash: ebfef385a73fbed737c9e77fc05546b3e00709e1
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253056"
+title: Preguntas más frecuentes sobre las plantillas de Resource Manager
+summary: En este artículo se responde a preguntas frecuentes sobre las plantillas de Azure Resource Manager.
+sections:
+- name: Introducción
+  questions:
+  - question: >
+      ¿Qué son las plantillas de Resource Manager y por qué deben usarse?
+    answer: >
+      Las plantillas de Resource Manager son archivos JSON en los que se define lo que se va a implementar en Azure. Las plantillas le ayudan a implementar una solución de infraestructura como código para Azure. Su organización puede implementar de forma repetida y confiable la infraestructura necesaria en diferentes entornos.
+
+
+      Consulte [¿Qué son las plantillas de Resource Manager?](overview.md) para más información sobre cómo las plantillas de Resource Manager le ayudan a administrar la infraestructura de Azure.
+  - question: >
+      ¿Cómo empezar con las plantillas?
+    answer: >
+      Para simplificar la creación de plantillas de Resource Manager, necesita las herramientas adecuadas. Se recomienda instalar [Visual Studio Code](https://code.visualstudio.com/) y la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Para obtener una introducción rápida a estas herramientas, consulte [Inicio rápido: Creación de plantillas de Resource Manager Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+
+
+      Cuando esté a punto para aprender a crear plantillas de Resource Manager, inicie la [serie de tutoriales para principiantes sobre las plantillas de Resource Manager](template-tutorial-create-first-template.md). Estos tutoriales le llevan paso a paso por el proceso de creación de una plantilla de Resource Manager. Obtendrá información sobre las diferentes secciones de la plantilla y cómo funcionarán en conjunto. Este contenido también está disponible como [módulo de Microsoft Learn](/learn/modules/authoring-arm-templates/).
+  - question: >
+      ¿Debo usar plantillas de Resource Manager o Terraform para realizar implementaciones en Azure?
+    answer: >
+      Use la opción que más le guste. Ambos servicios son útiles para automatizar las implementaciones en Azure.
+
+
+      Creemos que existen ventajas al usar plantillas de Resource Manager en otros servicios de infraestructura como código. Consulte [¿Por qué elegir plantillas de Resource Manager?](overview.md#why-choose-arm-templates) para más información sobre estas ventajas.
+- name: Build 2020
+  questions:
+  - question: >
+      He perdido la presentación en Microsoft Build 2020. ¿La presentación está disponible para su visualización?
+    answer: >
+      Sí, [puede verla cuando quiera](https://mybuild.microsoft.com/sessions/82984db4-37a4-4ed3-bf8b-13298841ed18?source=sessions).
+  - question: >
+      ¿Dónde puedo obtener más información sobre las nuevas características anunciadas en Build?
+    answer: >
+      Para obtener información general sobre las características que estamos desarrollando, únase al [grupo de Yammer para implementaciones de Azure Advisor](https://aka.ms/ARMMeet).
+
+
+      Para más información sobre el nuevo lenguaje de plantilla, [suscríbase a las notificaciones](https://aka.ms/armLangUpdates).
+
+
+      Para información sobre las especificaciones de plantilla, consulte [Especificaciones de plantilla de Azure Resource Manager](template-specs.md).
+- name: Creación y pruebas de plantillas
+  questions:
+  - question: >
+      ¿Dónde puedo obtener información sobre los procedimientos recomendados para las plantillas de Resource Manager?
+    answer: >
+      Para obtener recomendaciones sobre cómo implementar las plantillas, consulte [Procedimientos recomendados para plantilla de Resource Manager](./best-practices.md). Después de crear una plantilla, ejecute el [kit de herramientas para pruebas de plantillas de Azure Resource Manager](https://github.com/azure/arm-ttk). Permite comprobar si la plantilla coincide con los procedimientos recomendados.
+  - question: >
+      He configurado mi entorno mediante el portal. ¿Hay alguna manera de obtener la plantilla de un grupo de recursos existente?
+    answer: >
+      Sí, puede [exportar la plantilla](export-template-portal.md) desde un grupo de recursos. La plantilla exportada es un buen punto de partida para obtener información sobre las plantillas, pero probablemente querrá revisarla antes de usarla en un entorno de producción.
+
+
+      Al exportar la plantilla, puede seleccionar los recursos que quiera incluir en ella.
+  - question: >
+      ¿Puedo crear un grupo de recursos en una plantilla de Resource Manager e implementar recursos en él?
+    answer: >
+      Sí, puede crear un grupo de recursos en una plantilla al implementar la plantilla en el nivel de la suscripción de Azure. Para obtener un ejemplo de cómo crear un grupo de recursos e implementar recursos, consulte [Grupo de recursos y recursos](deploy-to-subscription.md#resource-groups).
+  - question: >
+      ¿Puedo crear una suscripción en una plantilla de Resource Manager?
+    answer: >
+      Sí; para obtener más información, consulte [Creación de suscripciones de Azure mediante programación con las API más recientes](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md).
+  - question: >
+      ¿Cómo se puede probar la plantilla antes de implementarla?
+    answer: >
+      Se recomienda ejecutar el [kit de herramientas para pruebas de plantillas de Resource Manager](https://github.com/azure/arm-ttk) y la [operación hipotética](./deploy-what-if.md) en las plantillas antes de implementarlas. El kit de herramientas para pruebas comprueba si la plantilla usa los procedimientos recomendados. Proporciona advertencias al identificar los cambios que podrían mejorar la implementación de la plantilla.
+
+
+      La operación hipotética muestra los cambios que la plantilla realizará en su entorno. Puede ver los cambios no deseados antes de que se implementen. La característica de hipótesis (what-if) también devuelve los errores que puede detectar durante la validación preparatoria. Por ejemplo, si la plantilla contiene un error sintáctico, devolverá el error. También devuelve los errores que puede determinar sobre el estado final de los recursos implementados. Por ejemplo, si la plantilla implementa una cuenta de almacenamiento con un nombre que ya está en uso, la característica de hipótesis devuelve ese error.
+  - question: >
+      ¿Dónde puedo encontrar información acerca de las propiedades que están disponibles para cada tipo de recurso?
+    answer: >
+      VS Code proporciona IntelliSense para trabajar con las propiedades del recurso. También puede ver las propiedades y descripciones en la [referencia de plantilla](/azure/templates/).
+  - question: >
+      He de crear varias instancias de un tipo de recurso. ¿Cómo puedo crear un iterador en mi plantilla?
+    answer: >
+      Use el elemento de copia para especificar más de una instancia. También puede usar la copia en [recursos](copy-resources.md), [propiedades](copy-properties.md), [variables](copy-variables.md) y [salidas](copy-outputs.md).
+- name: Lenguaje de plantilla
+  questions:
+  - question: >
+      He oído que se está trabajando en un nuevo lenguaje de plantilla. ¿Dónde puedo encontrar más información al respecto?
+    answer: >
+      Para obtener información sobre el nuevo lenguaje, consulte [¿Qué es Bicep (versión preliminar)?](../bicep/overview.md).
+  - question: >
+      ¿Hay un plan que admita la creación de plantillas en YAML?
+    answer: En este momento, no hay ningún plan que admita YAML. Creemos que el nuevo lenguaje de plantilla ofrecerá una solución que será más fácil de usar que YAML o JSON.
+  - question: >
+      ¿Podré seguir escribiendo plantillas en JSON cuando se haya publicado el nuevo lenguaje de plantilla?
+    answer: Sí, podrá seguir usando plantillas JSON.
+  - question: >
+      ¿Ofrecerán una herramienta para que pueda convertir mis plantillas JSON al nuevo lenguaje de plantilla?
+    answer: >
+      Sí. Consulte [Conversión de plantillas de ARM entre JSON y Bicep](../bicep/decompile.md).
+- name: Especificaciones de plantilla
+  questions:
+  - question: >
+      ¿Qué relación existe entre las especificaciones de plantilla y Azure Blueprints?
+    answer: Azure Blueprints usará especificaciones de plantilla en su implementación reemplazando el recurso `blueprint definition` por uno `template spec`. Se le facilitará una ruta de migración para convertir la definición del plano técnico en una especificación de plantilla, pero las API de definición del plano técnico seguirán siendo compatibles. No hay que realizar ningún cambio en el recurso `blueprint assignment`. Los planos técnicos seguirán siendo una experiencia de usuario para crear un entorno controlado de Azure.
+  - question: >
+      ¿Las especificaciones de plantilla reemplazan a las plantillas vinculadas?
+    answer: No, pero las especificaciones de plantilla están diseñadas para funcionar bien con plantillas vinculadas. No es necesario que mueva la plantilla vinculada a un punto de conexión accesible públicamente antes de implementar la plantilla principal. En su lugar, debe empaquetar la plantilla principal y sus artefactos juntos al crear la especificación de la plantilla.
+  - question: >
+      ¿Las especificaciones de plantilla se pueden compartir entre suscripciones?
+    answer: Sí, se pueden usar en suscripciones siempre que el usuario tenga acceso de lectura a la especificación de plantilla. Las especificaciones de plantilla no se pueden usar en los inquilinos.
+- name: Scripts en plantillas
+  questions:
+  - question: >
+      ¿Puedo incluir un script en mi plantilla para realizar tareas que no son posibles en una plantilla?
+    answer: >
+      Sí, use [scripts de implementación](deployment-script-template.md). Puede incluir scripts de Azure PowerShell o la CLI de Azure en las plantillas.
+  - question: >
+      ¿Puedo seguir usando extensiones de script personalizadas con Desired State Configuration (DSC)?
+    answer: Estas opciones siguen estando disponibles y no han cambiado. Los scripts de implementación están diseñados para realizar acciones que no están relacionadas con el invitado de la VM. Si ha de ejecutar un script en un sistema operativo host de una máquina virtual, la extensión de script personalizado o DSC sería una opción mejor. Sin embargo, los scripts de implementación tienen ventajas, como el establecimiento de la duración del tiempo de expiración.
+  - question: >
+      ¿Se admiten los scripts de implementación en Azure Government?
+    answer: Sí, puede usar scripts de implementación en US Gov Arizona y US Gov Virginia.
+- name: Vista previa de los cambios antes de la implementación
+  questions:
+  - question: >
+      ¿Puedo obtener una vista previa de los cambios que se producirán antes implementar una plantilla?
+    answer: >
+      Sí, use la [característica de hipótesis "what-if"](./deploy-what-if.md). Dicha característica evalúa el estado actual del entorno y lo compara con el estado que habrá después de la implementación. Puede examinar los cambios resumidos para asegurarse de que la plantilla no tiene ningún resultado inesperado.
+  - question: >
+      ¿Puedo usar la característica de hipótesis con los modos incremental y completo?
+    answer: >
+      Sí, se admiten ambos [modos de implementación](deployment-modes.md). Para obtener un ejemplo del uso del modo incremental, consulte el artículo sobre la [ejecución de la operación hipotética](./deploy-what-if.md#run-what-if-operation). Para obtener un ejemplo del uso del modo completo, consulte el artículo sobre la [confirmación de la eliminación](./deploy-what-if.md#confirm-deletion).
+  - question: >
+      ¿Funciona la característica de hipótesis con plantillas vinculadas?
+    answer: Sí, la característica de hipótesis evalúa el estado de la plantilla principal y sus plantillas vinculadas.
+  - question: >
+      ¿Puedo usar la característica de hipótesis en una canalización de Azure?
+    answer: Sí, puede usar la característica de hipótesis para comprobar que la canalización deba continuar.
+  - question: >
+      Cuando uso la característica de hipótesis, veo cambios en las propiedades que no están en mi plantilla. ¿Es previsible este "ruido"?
+    answer: >
+      Estamos trabajando para reducir el ruido. Para ayudarnos a mejorar, envíenos los problemas que tenga mediante nuestro repositorio de GitHub, en https://aka.ms/WhatIfIssues.
+- name: Visualizador de plantilla
+  questions:
+  - question: >
+      ¿Hay alguna manera de visualizar la plantilla de Resource Manager y sus recursos?
+    answer: >
+      Disponemos de una [extensión de VS Code aportada por la comunidad](https://aka.ms/ARMVisualizer) que realiza un gran trabajo de visualización de la plantilla de Resource Manager. Muestra los recursos que se van a implementar y las relaciones entre ellos.
+  - question: >
+      ¿Puedo usar el visualizador de plantillas fuera de VS Code?
+    answer: >
+      El visualizador de plantillas se encuentra en versión preliminar en el portal. Para más información, vea esta [breve sesión de Build](https://mybuild.microsoft.com/sessions/0525094b-1fd2-4f69-bfd6-6d2fff6ffe5f?source=sessions).
+- name: Límites de implementación
+  questions:
+  - question: >
+      ¿Cuántos grupos de recursos se pueden implementar en una sola operación de implementación?
+    answer: >
+      En el pasado, este límite era de cinco grupos de recursos. Se ha aumentado recientemente a 800 grupos de recursos. Para más información, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
+  - question: >
+      He recibido un error sobre la limitación a 800 implementaciones en el historial de implementación. ¿Cuál debo hacer?
+    answer: >
+      Estamos cambiando el modo en el que se mantiene el historial de implementación de un grupo de recursos. En el pasado, había que eliminar manualmente las implementaciones de este historial para evitar este error. A partir de junio de 2020, las implementaciones se eliminarán automáticamente del historial a medida que se acerque el límite. Para obtener más información, consulte [Eliminaciones automáticas del historial de implementaciones](deployment-history-deletions.md).
+
+
+      La eliminación de una implementación del historial no afecta a los recursos implementados.
+- name: Plantillas y DevOps
+  questions:
+  - question: >
+      ¿Puedo integrar plantillas de Resource Manager en Azure Pipelines?
+    answer: >
+      Sí. Para obtener una explicación de cómo usar la plantilla y las canalizaciones, consulte [Tutorial: Integración continua de plantillas de Resource Manager con Azure Pipelines](deployment-tutorial-pipeline.md) e [Integración de plantillas de Resource Manager con Azure Pipelines](add-template-to-azure-pipelines.md).
+  - question: >
+      ¿Puedo usar las acciones de GitHub para implementar una plantilla?
+    answer: >
+      Sí, consulte [Implementación de plantillas de Resource Manager con Acciones de GitHub](deploy-github-actions.md).
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n   Consulte [¿Qué son las plantillas de Resource Manager?](overview.md) para ver una introducción a las plantillas de Resource Manager."

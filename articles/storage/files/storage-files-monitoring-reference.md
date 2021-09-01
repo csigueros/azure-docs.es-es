@@ -9,16 +9,23 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 4575709a4fa7067b02228036fb2e2b4a60844e21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5dea90773340bb16b4f3c01e11affb2d4d2851b0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592317"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723386"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Files
 
 Vea [Supervisión de Azure Files](storage-files-monitoring.md) para más información sobre la recopilación y el análisis de datos de supervisión de Azure Files.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 ## <a name="metrics"></a>Métricas
 
@@ -44,7 +51,7 @@ En esta tabla se muestran las [métricas de Azure Files](../../azure-monitor/ess
 | FileCount   | El número de archivos que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 | FileShareCapacityQuota | Límite superior de la cantidad de almacenamiento que puede usar el servicio Azure Files en bytes. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024|
 | FileShareCount | El número de recursos compartidos de archivo que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
-| FileShareProvisionedIOPS | El número de IOPS aprovisionadas en un recurso compartido de archivos. Esta métrica solo se puede aplicar a un almacenamiento de archivos Premium. <br/><br/> Unidad: bytes <br/> Tipo de agregación: Average |
+| FileShareProvisionedIOPS | El número de IOPS aprovisionadas en un recurso compartido de archivos. Esta métrica solo se puede aplicar a un almacenamiento de archivos Premium. <br/><br/> Unidad: CountPerSecond <br/> Tipo de agregación: Average |
 | FileShareSnapshotCount | Número de instantáneas presentes en el recurso compartido en el servicio Azure Files de la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average | 
 |FileShareSnapshotSize|Cantidad de almacenamiento que usan las instantáneas del servicio Azure Files de la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average|
 

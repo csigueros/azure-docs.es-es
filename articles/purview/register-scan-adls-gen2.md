@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 137b77c09cc1ae4f18555568287324a373ca8786
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: fb277b2468d0cf4df5d28e412a5fb91f777b46bf
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109655431"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178967"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Registro y examen de Azure Data Lake Storage Gen2
 
@@ -25,6 +25,12 @@ El origen de datos de Azure Data Lake Storage Gen2 admite la funcionalidad sigui
 - **Exámenes completos e incrementales** para capturar metadatos y clasificaciones en Azure Data Lake Storage Gen2.
 
 - **Linaje** entre los recursos de datos de las actividades de copia y flujo de datos de ADF.
+
+En el caso de los tipos de archivo como csv, tsv, psv y ssv, el esquema se extrae cuando se implementan las siguientes lógicas:
+
+1. Los valores de la primera fila no están vacíos.
+2. Los valores de la primera fila son únicos.
+3. Los valores de la primera fila no son una fecha ni un número.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,14 +54,14 @@ Al elegir la **Identidad administrada** para configurar la conexión, primero de
 1. Establezca el **Rol** en el **Lector de datos de blobs de almacenamiento** y escriba el nombre de la cuenta de Azure Purview en el cuadro de entrada **Seleccionar**. A continuación, seleccione **Save** (Guardar) para dar esta asignación de rol a su cuenta de Purview.
 
 > [!Note]
-> Para obtener más información, consulte los pasos que se detallan en [Autorización del acceso a blobs y colas con Azure Active Directory](../storage/common/storage-auth-aad.md).
+> Para obtener más información, consulte los pasos que se detallan en [Autorización del acceso a blobs y colas con Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md).
 
 #### <a name="account-key"></a>Clave de cuenta
 
 Cuando el método de autenticación seleccionado es **Clave de cuenta**, debe obtener la clave de acceso y almacenarla en el almacén de claves:
 
 1. Vaya a la cuenta de almacenamiento de ADLS Gen2.
-1. Seleccione **Configuración > Claves de acceso**.
+1. Seleccione **Seguridad y redes > Claves de acceso**.
 1. Copie la *clave* y guárdela para usarla en los pasos siguientes.
 1. Vaya a almacén de claves.
 1. Seleccione **Configuración > Secretos**.
@@ -113,7 +119,7 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 Para registrar una nueva cuenta ADSL Gen2 en el catálogo de datos, haga lo siguiente:
 
 1. Vaya a la cuenta de Purview.
-2. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+2. Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 3. Seleccione **Registrar**.
 4. En **Registrar orígenes**, seleccione **Azure Data Lake Storage Gen2**.
 5. Seleccione **Continuar**
@@ -128,7 +134,35 @@ En la pantalla **Registrar orígenes (Azure Data Lake Storage Gen2)** , haga lo 
 
 :::image type="content" source="media/register-scan-adls-gen2/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+
+Para crear y ejecutar un nuevo examen, siga estos pasos:
+
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+
+1. Seleccione el origen de Azure Data Lake Storage Gen2 que registró.
+
+1. Seleccione **New scan** (Nuevo examen).
+
+1. Seleccione la credencial para conectarse al origen de datos.
+
+   :::image type="content" source="media/register-scan-adls-gen2/set-up-scan-adls-gen2.png" alt-text="Configurar examen":::
+
+1. Elija los elementos adecuados de la lista para limitar el ámbito del examen a carpetas o subcarpetas específicas.
+
+   :::image type="content" source="media/register-scan-adls-gen2/gen2-scope-your-scan.png" alt-text="Ámbito del examen":::
+
+1. A continuación, seleccione un conjunto de reglas de examen. Puede elegir entre los valores predeterminados del sistema, los conjuntos de reglas personalizadas existentes o la creación de un conjunto de reglas en línea.
+
+   :::image type="content" source="media/register-scan-adls-gen2/gen2-scan-rule-set.png" alt-text="Conjunto de reglas de examen":::
+
+1. Elija el desencadenador del examen. Puede configurar una programación o ejecutar el examen una vez.
+
+   :::image type="content" source="media/register-scan-adls-gen2/trigger-scan.png" alt-text="trigger":::
+
+1. Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

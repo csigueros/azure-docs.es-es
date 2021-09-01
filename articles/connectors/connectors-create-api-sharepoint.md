@@ -1,20 +1,20 @@
 ---
-title: Conexión a SharePoint desde Azure Logic Apps
+title: Conexión a SharePoint
 description: Supervisión y administración de recursos en SharePoint Online o SharePoint Server en el entorno local con Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 08/11/2021
 tags: connectors
-ms.openlocfilehash: 750253d5607262614cf8576c376b261616361266
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: e53fca8b0e9f8dbca3dba8bd684e71ef25c88738
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285455"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722524"
 ---
-# <a name="connect-to-sharepoint-resources-with-azure-logic-apps"></a>Conexión a recursos de SharePoint con Azure Logic Apps
+# <a name="connect-to-sharepoint-resources-using-azure-logic-apps"></a>Conexión a recursos de SharePoint mediante Azure Logic Apps
 
 Para automatizar las tareas que supervisan y administran recursos, como archivos, carpetas, listas y artículos, en SharePoint Online o en SharePoint Server local, puede crear flujos de trabajo de integración automatizados con Azure Logic Apps y el conector de SharePoint.
 
@@ -36,9 +36,16 @@ En el flujo de trabajo de la aplicación lógica, puede usar un desencadenador q
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
+* Las credenciales de la cuenta de Microsoft Office 365 que usa con SharePoint en las que inicia sesión con una [cuenta profesional o educativa](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool).
 
-* Dirección del sitio de SharePoint y credenciales de usuario. Necesita estas credenciales para poder autorizar el acceso del flujo de trabajo a la cuenta de SharePoint.
+  Necesita estas credenciales para poder autorizar el acceso del flujo de trabajo a la cuenta de SharePoint.
+
+  > [!NOTE]
+  > Si usa [Microsoft Azure operado por 21Vianet](https://portal.azure.cn), la autenticación de Azure Active Directory (Azure AD) solo funcionará con una cuenta de Microsoft Office 365 operada por 21Vianet (.cn), no con cuentas .com.
+
+* Su dirección del sitio de SharePoint
+
+* Una cuenta y una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * En el caso de las conexiones a un servidor de SharePoint local, debe [instalar y configurar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) en un equipo local y un [recurso de puerta de enlace de datos que ya se haya creado en Azure](../logic-apps/logic-apps-gateway-connection.md).
 
@@ -49,13 +56,17 @@ En el flujo de trabajo de la aplicación lógica, puede usar un desencadenador q
   * Para iniciar el flujo de trabajo con un desencadenador de SharePoint, necesita un flujo de trabajo de aplicación lógica en blanco.
   * Para agregar una acción de SharePoint, el flujo de trabajo ya debe tener un desencadenador.
 
+## <a name="connector-reference"></a>Referencia de conectores
+
+Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, revise la [página de referencia del conector](/connectors/sharepoint/).
+
 ## <a name="connect-to-sharepoint"></a>Conexión a SharePoint
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 ## <a name="add-a-trigger"></a>Incorporación de un desencadenador
 
-1. Desde Azure Portal, Visual Studio Code o Visual Studio, abra el flujo de la aplicación lógica en el Diseñador de aplicación lógica, si aún no está abierto.
+1. Desde Azure Portal, Visual Studio Code o Visual Studio, abra el flujo de la aplicación lógica en el diseñador visual, si aún no está abierto.
 
 1. En el cuadro de búsqueda del diseñador, escriba `sharepoint` como término de búsqueda. Seleccione el conector **SharePoint**.
 
@@ -74,7 +85,7 @@ En el flujo de trabajo de la aplicación lógica, puede usar un desencadenador q
 
 ## <a name="add-an-action"></a>Agregar una acción
 
-1. Desde Azure Portal, Visual Studio Code o Visual Studio, abra el flujo de la aplicación lógica en el Diseñador de aplicación lógica, si aún no está abierto.
+1. Desde Azure Portal, Visual Studio Code o Visual Studio, abra el flujo de la aplicación lógica en el diseñador visual, si aún no está abierto.
 
 1. Elija una de las siguientes opciones:
 
@@ -95,10 +106,6 @@ En el flujo de trabajo de la aplicación lógica, puede usar un desencadenador q
    Una vez que el flujo de trabajo crea correctamente la conexión, aparece la acción seleccionada.
 
 1. Proporcione la información para configurar la acción y continúe con la creación del flujo de trabajo.
-
-## <a name="connector-reference"></a>Referencia de conectores
-
-Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, revise la [página de referencia del conector](/connectors/sharepoint/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

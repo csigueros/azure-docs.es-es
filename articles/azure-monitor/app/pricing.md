@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/05/2021
+ms.date: 6/24/2021
 ms.reviewer: lagayhar
-ms.openlocfilehash: 1ed9fc345b1c8afe416b4b98c621fc1c9b48a557
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 39109106a100d2af8a9dad4e6009f4c73fea8f59
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795265"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195521"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -33,7 +33,7 @@ La opción Application Insights para [Habilitar la creación de alertas sobre la
 
 ### <a name="workspace-based-application-insights"></a>Application Insights basado en áreas de trabajo
 
-En el caso de los recursos de Application Insights que envían sus datos a un área de trabajo de Log Analytics, denominada [recursos de Application Insights basados en áreas de trabajo](create-workspace-resource.md), la facturación de la ingesta y retención de datos se realiza en el área de trabajo donde se encuentran los datos de Application Insights. Esto permite a los clientes aprovechar todas las opciones del [modelo de precios](../logs/manage-cost-storage.md#pricing-model) de Log Analytics, que incluye Reservas de capacidad además de Pago por uso. Log Analytics también tiene más opciones para la retención de datos, incluida la [retención por tipo de datos](../logs/manage-cost-storage.md#retention-by-data-type). Los tipos de datos de Application Insights en el área de trabajo obtienen 90 días de retención sin cargos. El uso de las pruebas web y la habilitación de las alertas sobre las dimensiones de la métrica personalizada todavía se notifica a través de Application Insights. Obtenga información sobre cómo realizar un seguimiento de los costos de retención y de ingesta de datos en Log Analytics mediante el [Uso y costos estimados](../logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Administración de costos + facturación de Azure](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) y [Consultas de Log Analytics](#data-volume-for-workspace-based-application-insights-resources). 
+En el caso de los recursos de Application Insights que envían sus datos a un área de trabajo de Log Analytics, denominada [recursos de Application Insights basados en áreas de trabajo](create-workspace-resource.md), la facturación de la ingesta y retención de datos se realiza en el área de trabajo donde se encuentran los datos de Application Insights. Esto permite aprovechar todas las opciones del [modelo de precios](../logs/manage-cost-storage.md#pricing-model) de Log Analytics, que incluye **Niveles de compromiso** además de Pago por uso. La opción de Niveles de compromiso ofrece precios hasta un 30 % inferiores a los de Pago por uso. Log Analytics también tiene más opciones para la retención de datos, incluida la [retención por tipo de datos](../logs/manage-cost-storage.md#retention-by-data-type). Los tipos de datos de Application Insights en el área de trabajo obtienen 90 días de retención sin cargos. El uso de las pruebas web y la habilitación de las alertas sobre las dimensiones de la métrica personalizada todavía se notifica a través de Application Insights. Obtenga información sobre cómo realizar un seguimiento de los costos de retención y de ingesta de datos en Log Analytics mediante el [Uso y costos estimados](../logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Administración de costos + facturación de Azure](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) y [Consultas de Log Analytics](#data-volume-for-workspace-based-application-insights-resources). 
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimación de los costos de administración de la aplicación
 
@@ -180,7 +180,7 @@ union (AppAvailabilityResults),
 
 Azure proporciona una gran cantidad de funcionalidades útiles en el centro [Azure Cost Management + Facturación](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json). Por ejemplo, la funcionalidad de "Análisis de costos" le permite ver los gastos de los recursos de Azure. Al agregar un filtro por tipo de recurso (en microsoft.insights/components para Application Insights), podrá realizar un seguimiento de los gastos. Después, para "Agrupar por", seleccione "Categoría del medidor" o "Medidor".  Para los recursos de Application Insights de los planes de precios actuales, la mayoría del uso se mostrará como Log Analytics de la Categoría del medidor, ya que hay un back-end de registros único para todos los componentes de Azure Monitor. 
 
-Puede obtener información sobre el uso mediante la [descarga del uso desde Azure Portal](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal).
+Puede obtener información sobre el uso mediante la [descarga del uso desde Azure Portal](../../cost-management-billing/understand/download-azure-daily-usage.md).
 En la hoja de cálculo descargada puede ver el uso por recurso de Azure al día. En esta hoja de cálculo de Excel, el uso de los recursos de Application Insights se puede encontrar filtrando, en primer lugar, la columna "Categoría de medición" para mostrar "Application Insights" y "Log Analytics" y, a continuación, agregando un filtro en la columna "Id. de instancia", que es "contiene microsoft.insights/components".  La mayor parte del uso de Application Insights se muestra en medidores con la Categoría de medición de Log Analytics, ya que hay un back-end de registros único para todos los componentes de Azure Monitor.  Con una Categoría de medición de Application Insights, solo se muestran recursos de Application Insights de los planes de tarifa heredados y las pruebas web de varios pasos.  El uso se muestra en la columna "Cantidad consumida" y la unidad de cada entrada se muestra en la columna "Unidad de medida".  Hay más detalles disponibles para ayudarle a [entender la factura de Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md).
 
 ## <a name="managing-your-data-volume"></a>Administración del volumen de datos
@@ -233,7 +233,7 @@ Para [cambiar el límite diario a través de Azure Resource Manager](./powershel
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Creación de alertas para el límite diario
 
-El límite diario de Application Insights crea un evento en el registro de actividades de Azure cuando los volúmenes de datos ingeridos alcanzan el nivel de advertencia o el nivel de límite diario.  Puede [crear una alerta basada en estos eventos del registro de actividad](../alerts/alerts-activity-log.md#create-with-the-azure-portal). Los nombres de señal de estos eventos son:
+El límite diario de Application Insights crea un evento en el registro de actividades de Azure cuando los volúmenes de datos ingeridos alcanzan el nivel de advertencia o el nivel de límite diario.  Puede [crear una alerta basada en estos eventos del registro de actividad](../alerts/alerts-activity-log.md#azure-portal). Los nombres de señal de estos eventos son:
 
 * Se alcanzó el umbral de advertencia de límite diario del componente Application Insights
 

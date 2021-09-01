@@ -2,13 +2,13 @@
 title: Novedades de Azure Backup
 description: Obtenga información acerca de las nuevas características de Azure Backup.
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: 7be5b96a8575c0bed9208ef5d700aca747411aa2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/05/2021
+ms.openlocfilehash: f2c4e3fa492a4dfe3c42ffb615442d3c6c449404
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959337"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122184086"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novedades de Azure Backup
 
@@ -18,6 +18,8 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
 
 ## <a name="updates-summary"></a>Resumen de actualizaciones
 
+- Julio de 2021
+  - [La compatibilidad con el nivel de acceso de archivo de SQL Server en máquinas virtuales de Azure para Azure Backup ya está disponible con carácter general](#archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available)
 - Mayo de 2021
   - [La copia de seguridad de blobs de Azure ya está disponible con carácter general](#backup-for-azure-blobs-is-now-generally-available)
 - Abril de 2021
@@ -44,6 +46,18 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
   - [Copia de seguridad de SAP HANA en Azure Virtual Machines de RHEL (en versión preliminar)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Almacenamiento con redundancia de zona para datos de copia de seguridad (en versión preliminar)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Eliminación temporal de las cargas de trabajo de SQL Server y SAP HANA en máquinas virtuales de Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available"></a>La compatibilidad con el nivel de acceso de archivo de SQL Server en máquinas virtuales de Azure para Azure Backup ya está disponible con carácter general
+
+Azure Backup permite mover los puntos de retención a largo plazo para Azure Virtual Machines y SQL Server en Azure Virtual Machines al nivel de acceso de archivo de bajo costo. También puede restaurar desde los puntos de recuperación en el nivel de acceso de archivo del almacén.
+
+Además de la funcionalidad de mover los puntos de recuperación:
+
+- Azure Backup proporciona recomendaciones para mover un conjunto específico de puntos de recuperación para copias de seguridad de Azure Virtual Machines que garantizarán un ahorro de costos.
+- Tiene la capacidad de mover todos sus puntos de recuperación a un elemento de copia de seguridad determinado de una vez mediante scripts de ejemplo.
+- Puede ver el uso del almacenamiento de archivo en el panel del almacén.
+
+Para obtener más información, consulte [Compatibilidad del nivel de acceso de archivo (versión preliminar)](./archive-tier-support.md).
 
 ## <a name="backup-for-azure-blobs-is-now-generally-available"></a>La copia de seguridad de blobs de Azure ya está disponible con carácter general
 
@@ -103,7 +117,7 @@ Para más información, consulte [Plantillas de Azure Resource Manager para Azur
 
 Azure Backup ahora admite las copias de seguridad incrementales para las bases de datos SAP HANA hospedadas en máquinas virtuales de Azure. Esto permite realizar copias de seguridad más rápidas y rentables de sus datos de SAP HANA.
 
-Para obtener más información, consulte las [distintas opciones disponibles durante la creación de una directiva de copia de seguridad](/azure/backup/sap-hana-faq-backup-azure-vm.yml#policy) y [cómo crear una directiva de copia de seguridad para las bases de datos SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
+Para obtener más información, consulte las [distintas opciones disponibles durante la creación de una directiva de copia de seguridad](/azure/backup/sap-hana-faq-backup-azure-vm#policy) y [cómo crear una directiva de copia de seguridad para las bases de datos SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
 ## <a name="backup-center-in-preview"></a>Centro de copia de seguridad (en versión preliminar)
 

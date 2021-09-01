@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 08/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4b357213f4e552fd791fb575d8b7a287b924c7f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6ad2014b8fce21eada9ced1e63a3511daa5e1891
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489077"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178059"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Configuración del registro y el inicio de sesión con una cuenta de Azure AD B2C de otro inquilino de Azure AD B2C
 
@@ -41,11 +41,19 @@ En este artículo se describe cómo configurar una federación con otro inquilin
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
+### <a name="verify-the-applications-publisher-domain"></a>Comprobación del dominio del publicador de la aplicación
+A partir de noviembre de 2020, los nuevos registros de aplicaciones se muestran como no comprobados en el mensaje de consentimiento del usuario, a menos que [se haya comprobado el dominio del publicador de la aplicación](../active-directory/develop/howto-configure-publisher-domain.md) ***y además*** se haya comprobado la identidad de la empresa con Microsoft Partner Network y se haya asociado a la aplicación. [Obtenga más información](../active-directory/develop/publisher-verification-overview.md) sobre este cambio. Tenga en cuenta que, en los flujos de usuario de Azure AD B2C, el dominio del publicador solo aparece cuando se usa una [cuenta de Microsoft](../active-directory-b2c/identity-provider-microsoft-account.md) u otro inquilino de Azure AD como proveedor de identidades. Para cumplir estos nuevos requisitos, haga lo siguiente:
+
+1. [Compruebe la identidad de la empresa con la cuenta de Microsoft Partner Network (MPN)](/partner-center/verification-responses). Este proceso comprueba la información sobre la empresa y el contacto principal de la empresa.
+1. Complete el proceso de comprobación del publicador para asociar la cuenta de MPN con el registro de la aplicación mediante una de las siguientes opciones:
+   - Si el registro de la aplicación para el proveedor de identidades de la cuenta de Microsoft está en un inquilino de Azure AD, [compruebe la aplicación en el portal de registro de aplicaciones](../active-directory/develop/mark-app-as-publisher-verified.md).
+   - Si el registro de la aplicación para el proveedor de identidades de la cuenta de Microsoft está en un inquilino de Azure AD B2C, [marque la aplicación como publicador comprobado mediante las API de Microsoft Graph](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (por ejemplo, mediante Probador de Graph). La interfaz de usuario para establecer el publicador comprobado de una aplicación está deshabilitada actualmente para inquilinos de Azure AD B2C.
+
 ## <a name="create-an-azure-ad-b2c-application"></a>Creación de una aplicación de Azure AD B2C
 
 Para permitir el inicio de sesión de los usuarios con una cuenta de otro inquilino de Azure AD B2C (por ejemplo, Fabrikam), en su instancia de Azure AD B2C (por ejemplo, Contoso):
 
-1. Cree un [flujo de usuario](tutorial-create-user-flows.md) o una [directiva personalizada](custom-policy-get-started.md).
+1. Cree un [flujo de usuario](tutorial-create-user-flows.md?pivots=b2c-user-flow) o una [directiva personalizada](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. A continuación, cree una aplicación en Azure AD B2C, como se describe en esta sección. 
 
 Para crear una aplicación:
@@ -229,7 +237,7 @@ Para definir Azure AD B2C como proveedor de notificaciones, agregue Azure AD�
 ## <a name="test-your-custom-policy"></a>Prueba de la directiva personalizada
 
 1. Seleccione la directiva de usuarios de confianza, por ejemplo `B2C_1A_signup_signin`.
-1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](tutorial-register-applications.md). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
 1. Seleccione el botón **Ejecutar ahora**.
 1. En la página de registro o de inicio de sesión, seleccione **Fabrikam** para iniciar sesión con el otro inquilino de Azure AD B2C.
 

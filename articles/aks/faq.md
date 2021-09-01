@@ -4,12 +4,12 @@ description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure
 ms.topic: conceptual
 ms.date: 05/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8feda70f346347a3559e2696d2912d2a976b0a63
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 612493d55adddea82e3e8d1e3d169eee963bfda2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890312"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724729"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -63,7 +63,7 @@ AKS se basa en diversos recursos de infraestructura de Azure, como los conjuntos
 Para habilitar esta arquitectura, cada implementación de AKS abarca dos grupos de recursos:
 
 1. Debe cree el primer grupo de recursos. Este grupo solo contiene el recurso del servicio de Kubernetes. El proveedor de recursos de AKS crea automáticamente el segundo grupo de recursos durante la implementación. Un ejemplo del segundo grupo de recursos es *MC_myResourceGroup_myAKSCluster_eastus*. Para obtener información sobre cómo especificar el nombre de este segundo grupo de recursos, consulte la sección siguiente.
-1. El segundo grupo de recursos, conocido como el *grupo de recursos del nodo*, contiene todos los recursos de infraestructura asociados con el clúster. Estos recursos incluyen las máquinas virtuales de nodos de Kubernetes, las redes virtuales y el almacenamiento. De forma predeterminada, el grupo de recursos del nodo tiene un nombre como *MC_myResourceGroup_myAKSCluster_eastus*. AKS elimina automáticamente el recurso del nodo cada vez que se elimina el clúster, por lo que solo se debe usar para los recursos que comparten el ciclo de vida del clúster.
+1. El segundo grupo de recursos, conocido como el *grupo de recursos del nodo*, contiene todos los recursos de infraestructura asociados con el clúster. Estos recursos incluyen las máquinas virtuales de nodos de Kubernetes, las redes virtuales y el almacenamiento. De forma predeterminada, el grupo de recursos del nodo tiene un nombre como *MC_myResourceGroup_myAKSCluster_eastus*. AKS elimina automáticamente el grupo de recursos del nodo cada vez que se elimina el clúster, por lo que solo se debe usar para los recursos que comparten el ciclo de vida del clúster.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>¿Puedo proporcionar mi propio nombre para el grupo de recursos del nodo de AKS?
 
@@ -286,6 +286,11 @@ El problema se resolvió con Kubernetes v1.20, consulte [Kubernetes 1.20: Contro
 ## <a name="can-i-use-fips-cryptographic-libraries-with-deployments-on-aks"></a>¿Puedo usar bibliotecas criptográficas de FIPS con implementaciones en AKS?
 
 Los nodos habilitados para FIPS están disponibles actualmente en versión preliminar en grupos de nodos basados en Linux. Para más información, consulte [Adición de un grupo de nodos habilitado para FIPS (versión preliminar)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview).
+
+## <a name="can-i-configure-nsgs-with-aks"></a>¿Se pueden configurar los grupos de seguridad de red con AKS?
+
+Si proporciona su propia subred, tendrá que administrar los grupos de seguridad de red (NSG) asociados a dicha subred. AKS solo modificará los grupos de seguridad de red en el nivel de NIC y no modificará ninguno de los grupos de seguridad de red asociados a esa subred. Si usa CNI, también debe asegurarse de que las reglas de seguridad de los grupos de seguridad de red permiten el tráfico entre el nodo y los rangos de CIDR del pod. Si usa kubenet, también debe asegurarse de que las reglas de seguridad de los grupos de seguridad de red permiten el tráfico entre el nodo y el CIDR del pod.
+
 
 <!-- LINKS - internal -->
 

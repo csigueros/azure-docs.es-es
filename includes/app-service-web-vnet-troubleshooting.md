@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f7e7e9261eb0ea2969dbfb752426ca16dd3b33c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95999467"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728078"
 ---
 La característica es fácil de configurar, aunque eso no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que quiere, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Dispone de dos consolas que puede usar. Una es la consola Kudu y la otra es la consola a la que se accede en Azure Portal. Para acceder a la consola Kudu desde la aplicación, vaya a **Herramientas** > **Kudu**. También puede tener acceso a la consola de Kudo en [sitename].scm.azurewebsites.net. Después de que se cargue el sitio web, vaya a la pestaña **Consola de depuración**. Para llegar a la consola hospedada en Azure Portal desde su aplicación, vaya a **Herramientas** > **Consola**.
 
@@ -43,7 +43,7 @@ Varias situaciones pueden impedir que la aplicación se comunique con un host y 
 Si estos elementos no resuelven el problema, plantéese cuestiones como las siguientes:
 
 **Integración con red virtual regional**
-* ¿El destino no es una dirección RFC 1918 y el valor WEBSITE_VNET_ROUTE_ALL no está establecido en 1?
+* ¿El destino no es una dirección RFC 1918 y no tiene la opción Enrutar todo habilitada?
 * ¿Hay un NSG que bloquea la salida de la subred de integración?
 * Si está usando una VPN o Azure ExpressRoute, ¿la puerta de enlace local está configurada para enrutar el tráfico de vuelta a Azure? Si puede acceder a los puntos de conexión de la red virtual pero no a los del entorno local, compruebe las rutas.
 * ¿Tiene permisos suficientes para configurar la delegación en la subred de integración? Al configurar la versión de Integración con red virtual que necesita una puerta de enlace, la subred de integración se delega en Microsoft.Web/serverFarms. La interfaz de usuario de integración de la red virtual delega la subred en Microsoft.Web/serverFarms automáticamente. Si la cuenta no tiene suficientes permisos de red para establecer la delegación, necesitará que un usuario que pueda configurar atributos en la subred de integración delegue la subred. Para delegar manualmente la subred de integración, vaya a la interfaz de usuario de la subred de Azure Virtual Network y establezca la delegación para Microsoft.Web/serverFarms.

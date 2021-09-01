@@ -2,17 +2,19 @@
 title: Traslado de recursos de red de Azure a una suscripción o un grupo de recursos nuevos
 description: Use Azure Resource Manager para trasladar redes virtuales y otros recursos de red a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: 0ac503a778b3de8945b074628242233f9bcd6a3b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 08/16/2021
+ms.openlocfilehash: 5a609b8c6a08136827062e0ae4107905aa1b8fe8
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129970"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252760"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Directrices para el traslado de recursos de red
 
 En este artículo, se explica cómo trasladar las redes virtuales y otros recursos de red en escenarios específicos.
+
+Durante el traslado, los recursos de red funcionarán sin interrupción.
 
 ## <a name="dependent-resources"></a>Recursos dependientes
 

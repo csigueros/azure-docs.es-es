@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 2c93471436030f9260f4fa0d95d656c27d382346
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5a3ed2de24127f09a901fb5bcb06c84124751d74
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047050"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183892"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervisión de máquinas virtuales de Azure con Azure Monitor
 En este artículo se describe cómo usar Azure Monitor para recopilar y analizar datos de supervisión de máquinas virtuales de Azure para mantener su estado. Las máquinas virtuales se pueden supervisar en términos de disponibilidad y rendimiento con Azure Monitor como cualquier [otro](../essentials/monitor-azure-resource.md) recurso de Azure, pero se diferencian de otros recursos en cuanto que también debe supervisar el sistema operativo invitado y las cargas de trabajo que se ejecutan en él. 
 
 > [!NOTE]
-> En este artículo se proporciona información general completa de los conceptos y las opciones para la supervisión de máquinas virtuales en Azure Monitor. Para empezar a supervisar rápidamente las máquinas virtuales sin centrarse en los conceptos subyacentes, consulte [Inicio rápido: Supervisión de máquinas virtuales de Azure con Azure Monitor](./quick-monitor-azure-vm.md).
+> En este artículo se proporciona información general completa de los conceptos y las opciones para la supervisión de máquinas virtuales en Azure Monitor. Para empezar a supervisar rápidamente las máquinas virtuales sin centrarse en los conceptos subyacentes, consulte [Inicio rápido: Supervisión de máquinas virtuales de Azure con Azure Monitor](./monitor-virtual-machine.md).
 
 
 ## <a name="differences-from-other-azure-resources"></a>Diferencias con respecto a otros recursos de Azure
@@ -85,7 +85,7 @@ Puede acceder a la configuración del área de trabajo directamente desde VM Ins
 
 ![Configuración del área de trabajo](media/monitor-vm-azure/workspace-configuration.png)
 
-Seleccione **Configuración avanzada** en el menú del área de trabajo y luego **Datos** para configurar los orígenes de datos. En el caso de los agentes de Windows, seleccione **Registros de eventos de Windows** y agregue registros de eventos comunes como *Sistema* y *Aplicación*. En el caso de los agentes de Linux, seleccione **Syslog** y agregue instalaciones comunes como *Kern* y *demonio*. Consulte [Orígenes de datos de agente en Azure Monitor](../agents/agent-data-sources.md) para obtener una lista de orígenes de datos disponibles e información sobre su configuración. 
+Seleccione **Agents configuration** (Configuración de agentes) en el menú del área de trabajo para configurar los orígenes de datos. En el caso de los agentes de Windows, seleccione **Registros de eventos de Windows** y agregue registros de eventos comunes como *Sistema* y *Aplicación*. En el caso de los agentes de Linux, seleccione **Syslog** y agregue instalaciones comunes como *Kern* y *demonio*. Consulte [Orígenes de datos de agente en Azure Monitor](../agents/agent-data-sources.md) para obtener una lista de orígenes de datos disponibles e información sobre su configuración. 
 
 ![Configuración de eventos](media/monitor-vm-azure/configure-events.png)
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: cd87d2261ab89b521829d1049a0c17db125a14f3
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: cc38ad6ee6dfc958be405db2969bd5c083e1c5c0
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063421"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195332"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Redes de Azure Dedicated HSM
 
@@ -39,7 +39,7 @@ Antes de aprovisionar un dispositivo HSM dedicado, los clientes primero deberán
 
 ### <a name="subnets"></a>Subredes
 
-Las subredes segmentan la red virtual en espacios de direcciones independientes utilizables por los recursos de Azure que coloque en ellos. Los HMS dedicados se implementan en una subred que se encuentra en la red virtual. Cada dispositivo HSM dedicado que se implementa en la subred del cliente recibirá una dirección IP privada de esta subred. La subred en la que se implementa el dispositivo HSM debe delegarse explícitamente al servicio: Microsoft.HardwareSecurityModules/dedicatedHSMs. Esto concede determinados permisos al servicio HSM para la implementación en la subred. La delegación a HSM dedicados impone ciertas restricciones de directiva en la subred. Actualmente no se admiten grupos de seguridad de red (NSG) ni rutas definidas por el usuario (UDR) en las subredes delegadas. En consecuencia, una vez que una subred se delega a HSM dedicados, solo puede usarse para implementar recursos HSM. Al implementar cualquier otro recurso de cliente en la subred se producirá un error.
+Las subredes segmentan la red virtual en espacios de direcciones independientes utilizables por los recursos de Azure que coloque en ellos. Los HMS dedicados se implementan en una subred que se encuentra en la red virtual. Cada dispositivo HSM dedicado que se implementa en la subred del cliente recibirá una dirección IP privada de esta subred. La subred en la que se implementa el dispositivo HSM debe delegarse explícitamente al servicio: Microsoft.HardwareSecurityModules/dedicatedHSMs. Esto concede determinados permisos al servicio HSM para la implementación en la subred. La delegación a HSM dedicados impone ciertas restricciones de directiva en la subred. Actualmente no se admiten grupos de seguridad de red (NSG) ni rutas definidas por el usuario (UDR) en las subredes delegadas. En consecuencia, una vez que una subred se delega a HSM dedicados, solo puede usarse para implementar recursos HSM. Al implementar cualquier otro recurso de cliente en la subred se producirá un error.  No hay requisito de tamaño en cuanto a la subred para Dedicated HSM; no obstante, cada dispositivo de HSM consumirá una IP privada, por lo que es aconsejable que la subred sea suficientemente grande como para acomodar tantos dispositivos de HSM como sean necesarios para la implementación.
 
 ### <a name="expressroute-gateway"></a>Puerta de enlace de ExpressRoute
 

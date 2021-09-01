@@ -15,12 +15,12 @@ ms.date: 04/27/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cf140468aa0743ab93eaa2fe2d1c35f5fa64b37
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f676ca94b6e1e6333a4cc4f862b60a02e71d24e9
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084814"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195209"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Creación de una revisión de acceso de los roles de recursos de Azure en Privileged Identity Management
 
@@ -31,7 +31,7 @@ La necesidad de acceso a los roles de recursos de Azure con privilegios para los
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] Para más información sobre las licencias para PIM, consulte [Requisitos de licencia para usar Privileged Identity Management](subscription-requirements.md).
 
 > [!Note]
->  Actualmente, se puede limitar el ámbito de una revisión de acceso a las entidades de servicio con acceso a Azure AD y roles de recursos de Azure (versión preliminar) con una edición de Azure Active Directory Premium P2 activa en el inquilino. El modelo de licencia de las entidades de servicio finalizará con la disponibilidad general de esta característica y es posible que se requieran licencias adicionales.
+> Actualmente, se puede limitar el ámbito de una revisión de acceso a las entidades de servicio con acceso a Azure AD y roles de recursos de Azure (versión preliminar) con una edición de Azure Active Directory Premium P2 activa en el inquilino. El modelo de licencia de las entidades de servicio finalizará con la disponibilidad general de esta característica y es posible que se requieran licencias adicionales.
 
 ## <a name="prerequisite-role"></a>Rol necesario
 
@@ -42,10 +42,12 @@ La necesidad de acceso a los roles de recursos de Azure con privilegios para los
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que esté asignado a uno de los roles necesarios.
 
 1. Seleccione **Identity Governance**.
- 
+
 1. En el menú de la izquierda, seleccione **Recursos de Azure** en **Azure AD Privileged Identity Management**.
 
 1. Seleccione el recurso que quiere administrar, por ejemplo, una suscripción.
+
+    ![Recursos de Azure: seleccione un recurso para crear una revisión de acceso.](./media/pim-resource-roles-start-access-review/access-review-select-resource.png)
 
 1. En Administrar, seleccione **Revisiones de acceso**.
 
@@ -65,7 +67,9 @@ La necesidad de acceso a los roles de recursos de Azure con privilegios para los
 
 1. Use el valor **Fin** para especificar cómo finalizar la serie de revisión de acceso periódica. La serie puede terminar de tres formas: se ejecuta continuamente para iniciar revisiones indefinidamente, hasta una fecha concreta, o hasta que se haya completado un número definido de veces. Un administrador de usuarios o un administrador de empresa puede detener la serie después de su creación cambiando la fecha en **Configuración**, de manera que termine en esa fecha.
 
-1. En la sección **Usuarios**, seleccione el ámbito de la revisión. Para revisar los usuarios, seleccione **Usuarios, o bien seleccione (versión preliminar) Entidades de servicio** para revisar las cuentas de equipo con acceso al rol de Azure.   
+1. En la sección **Usuarios**, seleccione el ámbito de la revisión. Para revisar los usuarios, seleccione **Usuarios, o bien seleccione (versión preliminar) Entidades de servicio** para revisar las cuentas de equipo con acceso al rol de Azure.
+
+    Cuando se selecciona **Usuarios**, la pertenencia a grupos asignada al rol se expande a los miembros individuales del grupo. Cuando se selecciona **Entidades de servicio**, solo se revisan las cuentas con pertenencia directa (no las que la reciben de grupos anidados).  
 
     ![Ámbito de los usuarios para revisar la pertenencia a rol de](./media/pim-resource-roles-start-access-review/users.png)
 
@@ -76,7 +80,7 @@ La necesidad de acceso a los roles de recursos de Azure con privilegios para los
     > Si selecciona más de un rol, se crearán varias revisiones de acceso. Por ejemplo, al seleccionar cinco roles, se crearán cinco revisiones de acceso independientes.
     Si va a crear una revisión de acceso de los **roles de Azure AD**, a continuación se muestra un ejemplo de la lista de revisión de pertenencia.
 
-1. En el **tipo de asignación**, defina el ámbito de la revisión según la asignación de la entidad de seguridad al rol. Elija **Eligible assignments only** (Solo asignaciones aptas), en versión preliminar, para revisar las asignaciones aptas (independientemente del estado de activación al crear la revisión) o **Active Assignments only** (Solo asignaciones activas), en versión preliminar, para revisar las asignaciones activas. Elija **All active and eligible assignments** (Todas las asignaciones activas y aptas) para revisar todas las asignaciones, independientemente del tipo.
+1. En el **tipo de asignación**, defina el ámbito de la revisión según la asignación de la entidad de seguridad al rol. Elija **Eligible assignments only** (Solo asignaciones aptas) para revisar las asignaciones aptas (independientemente del estado de activación al crear la revisión) o **Solo asignaciones activas** para revisar las asignaciones activas. Elija **All active and eligible assignments** (Todas las asignaciones activas y aptas) para revisar todas las asignaciones, independientemente del tipo.
 
     ![Lista de revisores de tipos de asignación](./media/pim-resource-roles-start-access-review/assignment-type-select.png)
 
@@ -119,7 +123,7 @@ La necesidad de acceso a los roles de recursos de Azure con privilegios para los
 
 1. Establezca **Notificaciones de correo** en **Habilitar** para que Azure AD envíe notificaciones de correo electrónico a los revisores cuando se inicia una revisión de acceso y a los administradores cuando se complete.
 
-1. Establezca **Avisos** en **Habilitar** para que Azure AD envíe recordatorios de revisiones de acceso en curso a los revisores que no hayan completado su revisión.
+1. Establezca **Recordatorios** en **Habilitar** para que Azure AD envíe recordatorios de revisiones de acceso en curso a todos los revisores. Los revisores recibirán los recordatorios a la mitad de la duración de la revisión, independientemente de si han completado su revisión en ese momento.
 1. El contenido del correo electrónico enviado a los revisores se genera automáticamente en función de los detalles de la revisión, como el nombre de esta, el nombre del recurso, la fecha de vencimiento, etc. Si necesita una forma de comunicar más información, como instrucciones adicionales o información de contacto, puede especificar estos detalles en el **correo electrónico de contenido adicional para el revisor** que se incluirá en la invitación y en los correos electrónicos de recordatorio enviados a los revisores asignados. La sección resaltada a continuación es donde se mostrará esta información.
 
     ![Contenido del correo electrónico enviado a los revisores con aspectos destacados](./media/pim-resource-roles-start-access-review/email-info.png)

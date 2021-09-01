@@ -2,24 +2,23 @@
 title: Entradas y salidas de referencia en los conjuntos de aptitudes
 titleSuffix: Azure Cognitive Search
 description: En este artículo se explica la sintaxis de la anotación y cómo hacer referencia a una anotación en las entradas y salidas de un conjunto de aptitudes en una canalización de enriquecimiento de IA en Azure Cognitive Search.
-manager: nitinme
-author: LuisCabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 26f8f5a4688eb5ccd472d7f402e6a543e318a7e2
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 6eb82e509d2e8c521438aedefd89977033967abf
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559858"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195863"
 ---
-# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Referencia a las anotaciones en un conjunto de aptitudes de Azure Cognitive Search
+# <a name="reference-annotations-in-an-azure-cognitive-search-skillset"></a>Referencia a las anotaciones en un conjunto de aptitudes de Azure Cognitive Search
 
 En este artículo aprenderá a hacer referencia a las anotaciones de las definiciones de aptitudes; para ello, usaremos ejemplos para ilustrar varios escenarios. Como el contenido de un documento fluye a través de un conjunto de aptitudes, este se enriquece con anotaciones. Las anotaciones se pueden utilizar como entradas para conseguir un mayor enriquecimiento de niveles inferiores, o se pueden asignar a un campo de salida en un índice. 
  
-Los ejemplos de este artículo se basan en el campo de *contenido* que crearon automáticamente los [indexadores de Azure Blob](search-howto-indexing-azure-blob-storage.md) como parte de la fase de descifrado de documentos. Cuando consulte los documentos de un contenedor de blobs, use un formato como `"/document/content"`, donde el campo de *contenido* forma parte del *documento*. 
+Los ejemplos de este artículo se basan en el campo de *contenido* que crearon automáticamente los [indexadores de Azure Blob](search-howto-indexing-azure-blob-storage.md) como parte de la fase de [descifrado de documentos](search-indexer-overview.md#document-cracking). Cuando consulte los documentos de un contenedor de blobs, use un formato como `"/document/content"`, donde el campo de *contenido* forma parte del *documento*. 
 
 ## <a name="background-concepts"></a>Conceptos de fondo
 
@@ -39,7 +38,7 @@ Debido a que el contexto predeterminado es `"/document"`, ahora se puede hacer r
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [

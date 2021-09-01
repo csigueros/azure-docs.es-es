@@ -7,19 +7,26 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9608e3bdaab033d58796a3841e8cd92d7a8a81ef
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 120f76666fb8ef55fd0cb51fe0c04b1d8448ce82
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777984"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252242"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configuración de una VPN de punto a sitio (P2S) en Linux para su uso con Azure Files
-Puede usar una conexión VPN de punto a sitio (P2S) para montar los recursos compartidos de archivos de Azure a través de SMB desde fuera de Azure, sin necesidad de abrir el puerto 445. Una conexión VPN de punto a sitio es una conexión VPN entre Azure y un cliente individual. Para usar una conexión VPN de punto a sitio con Azure Files, se debe configurar una conexión VPN de punto a sitio para cada cliente que quiera conectarse. Si tiene muchos clientes que necesitan conectarse a sus recursos compartidos de archivos de Azure desde la red local, puede usar una conexión VPN de sitio a sitio (S2S) en lugar de una conexión de punto a sitio para cada cliente. Para obtener más información, consulte [Configuración de una VPN de sitio a sitio para su uso con Azure Files](storage-files-configure-s2s-vpn.md).
+Puede usar una conexión VPN de punto a sitio (P2S) para montar los recursos compartidos de archivos de Azure desde fuera de Azure, sin necesidad de enviar los datos por la red Internet abierta. Una conexión VPN de punto a sitio es una conexión VPN entre Azure y un cliente individual. Para usar una conexión VPN de punto a sitio con Azure Files, se debe configurar una conexión VPN de punto a sitio para cada cliente que quiera conectarse. Si tiene muchos clientes que necesitan conectarse a sus recursos compartidos de archivos de Azure desde la red local, puede usar una conexión VPN de sitio a sitio (S2S) en lugar de una conexión de punto a sitio para cada cliente. Para obtener más información, consulte [Configuración de una VPN de sitio a sitio para su uso con Azure Files](storage-files-configure-s2s-vpn.md).
 
 Se recomienda que lea [Introducción a las redes de Azure Files](storage-files-networking-overview.md) antes de continuar con este artículo para obtener una descripción completa de las opciones de red disponibles para Azure Files.
 
-En este artículo se detallan los pasos para configurar una VPN de punto a sitio en Linux para montar recursos compartidos de archivos de Azure directamente en el entorno local. Si quiere enrutar el tráfico de Azure File Sync a través de una VPN, consulte [Configuración del proxy y el firewall de Azure File Sync](../file-sync/file-sync-firewall-and-proxy.md).
+En este artículo se detallan los pasos para configurar una VPN de punto a sitio en Linux para montar recursos compartidos de archivos de Azure directamente en el entorno local.
+
+## <a name="applies-to"></a>Se aplica a
+| Tipo de recurso compartido de archivos | SMB | NFS |
+|-|:-:|:-:|
+| Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 ## <a name="prerequisites"></a>Requisitos previos
 - La versión más reciente de la CLI de Azure. Para obtener más información sobre cómo instalar la CLI de Azure, consulte [Instalación de la CLI de Azure PowerShell](/cli/azure/install-azure-cli) y seleccione el sistema operativo. Si prefiere usar el módulo de Azure PowerShell en Linux, puede hacerlo. Sin embargo, las instrucciones siguientes son para la CLI de Azure.
@@ -34,7 +41,8 @@ La puerta de enlace de red virtual de Azure puede ofrecer conexiones VPN mediant
 > Comprobada con Ubuntu 18.10.
 
 ```bash
-sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils cifs-utils
+sudo apt update
+sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils cifs-utils unzip
 
 installDir="/etc/"
 ```
@@ -193,22 +201,7 @@ sudo ipsec up $virtualNetworkName
 ```
 
 ## <a name="mount-azure-file-share"></a>Montaje de un recurso compartido de archivos de Azure
-Ahora que ha configurado la VPN de punto a sitio, puede montar el recurso compartido de archivos de Azure. En el ejemplo siguiente se montará el recurso compartido de forma no persistente. Para montar de forma persistente, consulte [Uso de un recurso compartido de archivos de Azure con Linux](storage-how-to-use-files-linux.md). 
-
-```bash
-fileShareName="myshare"
-
-mntPath="/mnt/$storageAccountName/$fileShareName"
-sudo mkdir -p $mntPath
-
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
-
-smbPath="//$storageAccountPrivateIP/$fileShareName"
-sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
-```
+Ahora que ha configurado la VPN de punto a sitio, puede montar el recurso compartido de archivos de Azure. En el ejemplo siguiente se montará el recurso compartido de forma no persistente. Para montar de forma persistente, consulte [Montaje de un recurso compartido de archivos SMB en Linux](storage-how-to-use-files-linux.md) o [Montaje de un recurso compartido de archivos NFS en Linux](storage-files-how-to-mount-nfs-shares.md). 
 
 ## <a name="see-also"></a>Consulte también
 - [Introducción a las redes de Azure Files](storage-files-networking-overview.md)

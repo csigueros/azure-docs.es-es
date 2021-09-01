@@ -16,14 +16,17 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 08a14a1c97a1eae9c07c50334929fb16304e635a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 450a35eddf0316f75bfcd97d23cfccdb59acfb7d
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556526"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252228"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamaños de máquina virtual optimizada para memoria
+
+> [!TIP]
+> Pruebe la **[herramienta Selector de máquinas virtuales](https://aka.ms/vm-selector)** para buscar otros tamaños que se adapten mejor a la carga de trabajo.
 
 Los tamaños de máquinas virtuales optimizadas para memoria ofrecen una relación alta de memoria a CPU, que es excelente para servidores de bases de datos relacionales, memorias caché de medianas a grandes y análisis en memoria. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación.
 
@@ -35,7 +38,7 @@ Los tamaños de máquinas virtuales optimizadas para memoria ofrecen una relaci�
 
 - Las [series Ev3 y Esv3](ev3-esv3-series.md) tienen el procesador Intel&reg; Xeon&reg; 8171M de 2,1 GHz (Skylake) o el procesador Intel&reg; Xeon&reg; E5-2673 v4 de 2,3 GHz (Broadwell) en una configuración de Hyper-Threading. Gracias a esto, proporcionan una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general y la serie Ev3 se equipara con las máquinas virtuales de uso general de la mayoría de las demás nubes. Se ha ampliado la memoria (de 7 GiB/vCPU a 8 GiB/vCPU), y los límites de disco y red se han ajustado por núcleo para equipararse con el cambio a Hyper-Threading. La serie Ev3 es la continuación de los tamaños de máquina virtual de memoria alta de las familias D/Dv2.
 
-- Las [series Ev4 y Esv4](ev4-esv4-series.md) se ejecutan en los procesadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) de segunda generación en una configuración con Hyper-Threading y resultan muy convenientes para las diversas aplicaciones empresariales de uso intensivo de memoria y tienen hasta 504 GiB de RAM. Presenta las tecnologías [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Las series Ev4 y Esv4 no incluyen ningún disco temporal local. Para más información, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.md).
+- Las [series Ev4 y Esv4](ev4-esv4-series.md) se ejecutan en los procesadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) de segunda generación en una configuración con Hyper-Threading y resultan muy convenientes para las diversas aplicaciones empresariales de uso intensivo de memoria y tienen hasta 504 GiB de RAM. Presenta las tecnologías [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Las series Ev4 y Esv4 no incluyen ningún disco temporal local. Para más información, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.yml).
 
 - Las [series Edv4 y Edsv4](edv4-edsv4-series.md) se ejecutan en los procesadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) de segunda generación, y resultan muy convenientes para bases de datos muy grandes u otras aplicaciones que se benefician de recuentos muy elevados de vCPU y grandes cantidades de memoria. Además, estos tamaños de máquina virtual incluyen el rápido almacenamiento local en SSD, que es mayor, para las aplicaciones que se benefician del almacenamiento local de alta velocidad y baja latencia. Presenta una velocidad de reloj turbo de todos los núcleos de 3,4 GHz, las tecnologías [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) y las extensiones de vector avanzadas 512 de [Intel&reg; (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 

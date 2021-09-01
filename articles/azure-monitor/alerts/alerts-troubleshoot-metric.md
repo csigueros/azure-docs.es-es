@@ -4,13 +4,13 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 06/03/2021
-ms.openlocfilehash: cbbecb49acf556dc7a8ce6285d4b1b3581c39b3d
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 08/15/2021
+ms.openlocfilehash: 5aa39240b87f86dfaa1fbd44de8b6889939ec64f
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412907"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195067"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -287,6 +287,21 @@ Cuando una métrica exhibe grandes fluctuaciones, los umbrales dinámicos crean 
 3. La métrica exhibe un comportamiento irregular con una alta varianza (hay picos o pendientes en los datos).
 
 Cuando el límite inferior tiene un valor negativo, significa que la métrica podría alcanzar un valor cero dado el comportamiento irregular de la métrica. Puede plantearse la posibilidad de elegir una mayor sensibilidad o un valor de *Granularidad de agregación (período)* más alto para que el modelo sea menos sensible, o bien usar la opción *Omitir los datos antes del* para excluir una irregularidad reciente de los datos históricos que se usarán para generar el modelo.
+
+## <a name="the-dynamic-thresholds-alert-rule-is-too-noisy-fires-too-much"></a>La regla de alerta Umbrales dinámicos es demasiado ruidosa (se desencadena demasiadas veces)
+Para reducir la sensibilidad de la regla de alerta Umbrales dinámicos, use una de las siguientes opciones:
+1. Sensibilidad del umbral: establezca la sensibilidad en *Baja* para aumentar la tolerancia a las desviaciones.
+2. Número de infracciones (en *Configuración avanzada*): configure la regla de alerta para que se desencadene solo si se produce un número determinado de desviaciones en un período de tiempo especificado. Esto hará que la regla sea menos susceptible a las desviaciones transitorias.
+
+
+## <a name="the-dynamic-thresholds-alert-rule-is-too-insensitive-doesnt-fire"></a>La regla de alerta Umbrales dinámicos es demasiado insensible (no se desencadena)
+A veces, una regla de alerta no se desencadena incluso cuando se configura una alta sensibilidad. Esto suele ocurrir cuando la distribución de la métrica es muy irregular.
+Puede considerar alguna de las siguientes opciones:
+* Pase a supervisar una métrica complementaria que sea adecuada para su escenario (si procede). Por ejemplo, compruebe si hay cambios en la tasa de éxito, en lugar de en la tasa de errores.
+* Pruebe a seleccionar una granularidad de agregación (período) diferente. 
+* Compruebe si se ha producido un cambio drástico en el comportamiento de la métrica en los últimos 10 días (una interrupción). Un cambio brusco puede afectar a los umbrales superior e inferior calculados para la métrica y hacerlos más amplios. Espere unos días hasta que la interrupción ya no se tenga en cuenta en el cálculo de los umbrales o use la opción *Omitir los datos antes del* (en *Configuración avanzada*).
+* Si los datos tienen estacionalidad semanal, pero no hay suficiente historial disponible para la métrica, los umbrales calculados pueden dar lugar a límites superior e inferior amplios. Por ejemplo, el cálculo puede tratar los días laborables y los fines de semana de la misma manera, y crear bordes anchos que no siempre se ajusten a los datos. Esto debe resolverse automáticamente una vez que haya suficiente historial de métricas disponible, momento en el que se detectará la estacionalidad correcta y los umbrales calculados se actualizarán en consecuencia.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

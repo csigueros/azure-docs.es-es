@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e283ff2de003146c8228d36843f00ca8e4faced9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 2d7e096a0dbd730b2ec5f64589a5924340e32f66
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748578"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195544"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption para máquinas virtuales Windows
 
@@ -38,12 +38,13 @@ Para obtener información sobre los aspectos básicos de Azure Disk Encryption p
 
 Las máquinas virtuales Windows están disponibles en una [variedad de tamaños](../sizes-general.md). Azure Disk Encryption es compatible con las máquinas virtuales de Gen1 y Gen2. Azure Disk Encryption también está disponible para las VM con almacenamiento Premium.
 
-Azure Disk Encryption no está disponible en [VM básicas o de serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/) ni en las máquinas virtuales que tengan menos de 2 GB de memoria.  Azure Disk Encryption tampoco está disponible en las imágenes de VM sin discos temporales (Dv4, Dsv4, Ev4 y Esv4).  Consulte [Tamaños de máquina virtual de Azure sin disco temporal local](../azure-vms-no-temp-disk.md).  Para ver más excepciones, consulte [Azure Disk Encryption: escenarios no admitidos](disk-encryption-windows.md#unsupported-scenarios).
+Azure Disk Encryption no está disponible en [VM básicas o de serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/) ni en las máquinas virtuales que tengan menos de 2 GB de memoria.  Azure Disk Encryption tampoco está disponible en las imágenes de VM sin discos temporales (Dv4, Dsv4, Ev4 y Esv4).  Consulte [Tamaños de máquina virtual de Azure sin disco temporal local](../azure-vms-no-temp-disk.yml).  Para ver más excepciones, consulte [Azure Disk Encryption: escenarios no admitidos](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
 - Cliente Windows: Windows 8 y versiones posteriores.
-- Windows Server: Windows Server 2008 R2 y versiones posteriores.  
+- Windows Server: Windows Server 2008 R2 y versiones posteriores.
+- Sesión múltiple de Windows 10 Enterprise.  
  
 > [!NOTE]
 > Windows Server 2008 R2 requiere la instalación de .NET Framework 4.5 para el cifrado; instálelo desde Windows Update con la actualización opcional Microsoft .NET Framework 4.5.2 para sistemas basados en Windows Server 2008 R2 x64 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
@@ -63,7 +64,9 @@ Para habilitar Azure Disk Encryption, las máquinas virtuales deben cumplir los 
 
 Azure Disk Encryption usa el protector de claves externas de BitLocker para las máquinas virtuales Windows. Para las máquinas virtuales unidas en un dominio, no cree ninguna directiva de grupo que exija protectores de TPM. Para obtener información acerca de la directiva de grupo para "Permitir BitLocker sin un TPM compatible", consulte la [Referencia de la directiva de grupo de BitLocker](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
-La directiva de BitLocker en máquinas virtuales de unión a un dominio con directivas de grupo personalizadas debe incluir la siguiente configuración: [Configuración de almacenamiento de usuario de información de recuperación de BitLocker -> Permitir clave de recuperación de 256 bits](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption presentará un error cuando la configuración de la directiva de grupo personalizada para BitLocker sea incompatible. En máquinas que no tengan la configuración de directiva correcta, puede que sea necesario aplicar la nueva directiva, forzar la nueva directiva a actualizarse (gpupdate.exe /force) y luego reiniciar.
+La directiva de BitLocker en máquinas virtuales de unión a un dominio con directivas de grupo personalizadas debe incluir la siguiente configuración: [Configuración de almacenamiento de usuario de información de recuperación de BitLocker -> Permitir clave de recuperación de 256 bits](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption presentará un error cuando la configuración de la directiva de grupo personalizada para BitLocker sea incompatible. En máquinas que no tengan la configuración de directiva correcta, aplique la nueva directiva y fuerce la nueva directiva a actualizarse (gpupdate.exe /force).  Puede que sea necesario reiniciar.
+
+Las características de directiva de grupo de administración y supervisión de Microsoft Bitlocker (MBAM) no son compatibles con Azure Disk Encryption.
 
 > [!WARNING]
 > Azure Disk Encryption **no almacena las claves de recuperación**. Si la opción de seguridad [Inicio de sesión interactivo: umbral de bloqueo de cuenta del equipo](/windows/security/threat-protection/security-policy-settings/interactive-logon-machine-account-lockout-threshold) está habilitada, las máquinas solo se pueden recuperar si se proporciona una clave de recuperación a través de la consola serie. Puede encontrar instrucciones para asegurarse de que las directivas de recuperación adecuadas están habilitadas en el [plan de la guía de recuperación de BitLocker](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan).

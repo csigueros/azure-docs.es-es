@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/27/2021
-ms.openlocfilehash: d0390bd70080ea0174a81cce9538396321dec658
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 3a8c00dcb2bf016cf70f02dcfdebc5e55bf5d66c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539345"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178130"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Devolución de una respuesta semántica en Azure Cognitive Search
 
@@ -69,7 +69,7 @@ El parámetro "searchFields" es fundamental para devolver una respuesta de alta 
 
 + El elemento "searchFields" determina qué campos de cadena proporcionan tokens al modelo de extracción. Los mismos campos que producen leyendas también generan respuestas. Para obtener una guía precisa sobre cómo establecer este campo para que funcione con títulos y respuestas, consulte [Configurar searchFields](semantic-how-to-query-request.md#searchfields). 
 
-+ En el caso de "answers", la construcción de parámetros es `"answers": "extractive"`, donde el número de respuestas predeterminado devuelto es uno. Puede aumentar el número de respuestas si agrega un elemento `count` como se muestra en el ejemplo anterior, hasta un máximo de cinco.  En función de la experiencia del usuario de la aplicación y de cómo quiera representar los resultados, podría necesitar más de una respuesta.
++ En el caso de "answers", la construcción de parámetros es `"answers": "extractive"`, donde el número de respuestas predeterminado devuelto es uno. Puede aumentar el número de respuestas si agrega un elemento `count` como se muestra en el ejemplo anterior, hasta un máximo de diez.  En función de la experiencia del usuario de la aplicación y de cómo quiera representar los resultados, podría necesitar más de una respuesta.
 
 ## <a name="deconstruct-an-answer-from-the-response"></a>Deconstrucción de una respuesta a partir de la respuesta de la consulta
 

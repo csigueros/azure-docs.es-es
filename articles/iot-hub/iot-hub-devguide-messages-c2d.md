@@ -2,19 +2,18 @@
 title: Información sobre la mensajería de nube a dispositivo de Azure IoT Hub | Microsoft Docs
 description: En esta guía del desarrollador se debate el uso de la mensajería de nube a dispositivo con el centro de IoT. Incluye información sobre el ciclo de vida de los mensajes y las opciones de configuración.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 7bb3ca2b31eaef5c0639f30e0f2a329a37dfe7e0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: cc681d843d1fc68b3da6918724c7ad3e3ca5e37e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107761788"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727819"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envío de mensajes de la nube al dispositivo desde un centro de IoT
 
@@ -141,7 +140,7 @@ Cada centro de IoT expone las siguientes opciones de configuración para la mens
 | maxDeliveryCount          | Número máximo de entregas para las colas de nube a dispositivo por dispositivo | De 1 a 100; valor predeterminado: 10 |
 | feedback.ttlAsIso8601     | Retención de mensajes de comentarios del límite de servicio | Intervalo ISO_8601 hasta 2 días (mínimo 1 minuto); valor predeterminado: 1 hora |
 | feedback.maxDeliveryCount | Número máximo de entregas para la cola de comentarios | De 1 a 100; valor predeterminado: 10 |
-| feedback.lockDurationAsIso8601 | Número máximo de entregas para la cola de comentarios | Intervalo ISO_8601 de 5 a 300 segundos (mínimo 5 segundos); valor predeterminado: 60 segundos |
+| feedback.lockDurationAsIso8601 | Duración del bloqueo para la cola de comentarios | Intervalo ISO_8601 de 5 a 300 segundos (mínimo 5 segundos); valor predeterminado: 60 segundos |
 
 Puede establecer las opciones de configuración de una de las siguientes maneras:
 

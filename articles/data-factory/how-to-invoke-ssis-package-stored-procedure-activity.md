@@ -3,17 +3,18 @@ title: 'Ejecución de paquetes de SSIS con una actividad de procedimiento almace
 description: En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) desde una canalización de Azure Data Factory mediante la actividad de procedimiento almacenado.
 author: swinarko
 ms.service: data-factory
+ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 06/04/2021
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6260606fe56d4dfc6bac93e04e726b5fd3298777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08c0e844b941a8b8bc9ed110300b6bc3e5c1474c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100391514"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726856"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 
@@ -21,7 +22,7 @@ ms.locfileid: "100391514"
 
 En este artículo se describe cómo ejecutar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 En el tutorial de este artículo se usa Azure SQL Database para hospedar el catálogo de SSIS. También puede usar Instancia administrada de Azure SQL.
@@ -69,9 +70,10 @@ El primer paso es crear una factoría de datos con Azure Portal.
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Crear una canalización con una actividad de procedimiento almacenado
 En este paso, usa la interfaz de Data Factory para crear una canalización. Agrega una actividad de procedimiento almacenado a la canalización y lo configura para ejecutar el paquete SSIS mediante el uso del procedimiento almacenado sp_executesql. 
 
-1. En la página de introducción, haga clic en **Create pipeline** (Crear canalización): 
+1. En la página principal, haga clic en **Orquestar**: 
 
-    ![Página de introducción](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
+    ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
+
 2. En el cuadro de herramientas **Activities** (Actividades), expanda **General**, arrastre la actividad **Store Procedure** (Procedimiento almacenado) y colóquela en la superficie del diseñador de canalizaciones. 
 
     ![Operación de arrastrar y colocar la actividad de procedimiento almacenado](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)

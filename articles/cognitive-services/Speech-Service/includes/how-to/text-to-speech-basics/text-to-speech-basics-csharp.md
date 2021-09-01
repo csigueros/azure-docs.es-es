@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ae5c25eec6440a02d173c2f0dcc51a750d128796
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: 1a82c1dbad0ec34aaf4dededc7aa5fddca151207
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113280204"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122423241"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
@@ -62,7 +62,7 @@ Existen diversas maneras para inicializar un elemento [`SpeechConfig`](/dotnet/a
 * Con una suscripción: pase una clave y la región o ubicación asociada.
 * Con un punto de conexión: pase un punto de conexión del servicio de voz. La clave y el token de autorización son opcionales.
 * Con un host: pase una dirección de host. La clave y el token de autorización son opcionales.
-* Con un token de autorización: pase el token de autorización y la región o ubicación asociada.
+* Con un token de autorización: pase el token de autorización y la región o ubicación asociadas.
 
 En este ejemplo, se crea un elemento [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) mediante una clave de voz y una región o ubicación. Para obtener estas credenciales, siga los pasos descritos en [Prueba gratuita del servicio Voz](../../../overview.md#try-the-speech-service-for-free). Cree también código reutilizable básico para usarlo en el resto del artículo y que modificará cuando realice distintas personalizaciones.
 
@@ -189,7 +189,7 @@ En primer lugar, cree un archivo XML para la configuración de SSML en el direct
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -215,7 +215,7 @@ public static async Task SynthesizeAudioAsync()
 ```
 
 > [!NOTE]
-> Para cambiar la voz sin usar SSML, puede establecer la propiedad en `SpeechConfig` mediante `SpeechConfig.SpeechSynthesisVoiceName = "en-US-AriaNeural";`
+> Para cambiar la voz sin usar SSML, puede establecer la propiedad en `SpeechConfig` mediante `SpeechConfig.SpeechSynthesisVoiceName = "en-US-ChristopherNeural";`
 
 ## <a name="get-facial-pose-events"></a>Obtención de eventos de postura facial
 

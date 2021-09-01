@@ -2,15 +2,16 @@
 title: Uso de Key Vault al implementar la aplicación administrada
 description: Muestra cómo usar los secretos de acceso de Azure Key Vault al implementar Managed Applications
 author: tfitzmac
+ms.custom: subject-rbac-steps
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 08/16/2021
 ms.author: tomfitz
-ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5a6dc1de2ee574a69b8dab746a24bcf82b44d64
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81458290"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253168"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Acceso al secreto de Key Vault al implementar Azure Managed Applications
 
@@ -36,19 +37,9 @@ En este artículo se describe cómo configurar Key Vault para que funcione con M
 
 ## <a name="add-service-as-contributor"></a>Agregar servicio como colaborador
 
-1. Seleccione **Access Control (IAM)** .
+Asigne el rol de **Colaborador** al usuario del **proveedor de recursos del dispositivo** en el ámbito del almacén de claves.
 
-   ![Selección del control de acceso](./media/key-vault-access/access-control.png)
-
-1. Seleccione **Agregar asignación de roles**.
-
-   ![Seleccione Agregar](./media/key-vault-access/add-access-control.png)
-
-1. Seleccione **Colaborador** para el rol. Busque el **proveedor de recursos de dispositivos** y selecciónelo entre las opciones disponibles.
-
-   ![Búsqueda de proveedor](./media/key-vault-access/search-provider.png)
-
-1. Seleccione **Guardar**.
+Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="reference-key-vault-secret"></a>Referencia a secreto de Key Vault
 

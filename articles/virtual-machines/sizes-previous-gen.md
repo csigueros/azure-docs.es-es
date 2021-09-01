@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 90bc98d63b45e43c9325eed4fe019b18f52d0de8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f02c9699dc59db30f2291be1817f564dbc394998
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96500298"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252225"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generaciones anteriores de tamaños de máquina virtual
+
+> [!TIP]
+> Pruebe la **[herramienta Selector de máquinas virtuales](https://aka.ms/vm-selector)** para buscar otros tamaños que se adapten mejor a la carga de trabajo.
 
 En esta sección se proporciona información sobre las generaciones anteriores de tamaños de máquina virtual. Se pueden seguir usando estos tamaños, pero hay generaciones más recientes disponibles.
 

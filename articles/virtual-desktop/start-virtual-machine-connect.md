@@ -3,23 +3,19 @@ title: Iniciar máquina virtual al establecer la conexión - Azure
 description: Cómo configurar la característica Iniciar máquina virtual al establecer la conexión.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/21/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7e4ca9a6cfc87844bf74131b145c19aecd964554
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 301a2b0626b6dd40f90a8b693e3284c12d948fa1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752142"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728461"
 ---
-# <a name="start-virtual-machine-on-connect-preview"></a>Iniciar máquina virtual al establecer la conexión (versión preliminar)
+# <a name="start-virtual-machine-on-connect"></a>Iniciar máquina virtual al establecer la conexión
 
-> [!IMPORTANT]
-> La característica Iniciar VM al establecer la conexión se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-La característica Iniciar máquina virtual (VM) al establecer conexión (versión preliminar) permite ahorrar costos al permitir que los usuarios finales activen sus máquinas virtuales solo cuando las necesiten. A continuación, puede desactivar las máquinas virtuales cuando no se necesiten.
+La característica Iniciar máquina virtual al establecer la conexión permite ahorrar costos al permitir que los usuarios finales activen sus máquinas virtuales solo cuando las necesiten. A continuación, puede desactivar las máquinas virtuales cuando no se necesiten.
 
 >[!NOTE]
 >Tenga en cuenta que Azure Virtual Desktop (clásico) no admite esta característica.
@@ -30,12 +26,13 @@ Puede habilitar la característica Iniciar máquina virtual al establecer la con
 
 Los siguientes clientes de Escritorio remoto admiten la característica Iniciar VM al establecer la conexión:
 
-- [El cliente web](connect-web.md)
-- [El cliente de Windows (versión 1.2748 o posterior)](connect-windows-7-10.md)
-- [El cliente de Android (versión 10.0.10 o posterior)](connect-android.md)
-- [El cliente de macOS (versión 10.6.4 o posterior)](connect-macos.md)
-
-Puede buscar anuncios sobre actualizaciones y asistencia al cliente en el [foro Tech Community](https://aka.ms/wvdtc).
+- [El cliente web](./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [El cliente de Windows (versión 1.2.2061 o posterior)](./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [El cliente de Android (versión 10.0.10 o posterior)](./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [El cliente de macOS (versión 10.6.4 o posterior)](./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [El cliente de iOS (versión 10.2.5 o posterior)](./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [El cliente de Microsoft Store (versión 10.2.2005.0 o posterior)](./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- Los clientes ligeros enumerados en [Compatibilidad con clientes ligeros](./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Creación de un rol personalizado para Iniciar VM al establecer la conexión
 
@@ -69,7 +66,7 @@ Para asignar el rol personalizado:
 
 2. Seleccione el rol que acaba de crear.
 
-3. En la barra de búsqueda, escriba y seleccione **Azure Virtual Desktop**.
+3. En la barra de búsqueda, escriba y seleccione **Windows Virtual Desktop** (pronto se actualizará a "Azure Virtual Desktop").
 
       >[!NOTE]
       >Es posible que vea dos aplicaciones si ha implementado Azure Virtual Desktop (clásico). Asigne el rol a las dos aplicaciones que vea.
@@ -79,30 +76,33 @@ Para asignar el rol personalizado:
 
 ### <a name="create-a-custom-role-with-a-json-file-template"></a>Creación de un rol personalizado con una plantilla de archivo JSON
 
-Si usa un archivo JSON para crear el rol personalizado, en el ejemplo siguiente encontrará una plantilla básica que puede usar. Asegúrese de reemplazar el valor de identificador de suscripción por el identificador de suscripción al que quiere asignar el rol.
+Si usa un archivo JSON para crear el rol personalizado, en el ejemplo siguiente encontrará una plantilla básica que puede usar. Asegúrese de reemplazar el valor del identificador de suscripción de *AssignableScopes* por el identificador de suscripción al que quiere asignar el rol.
 
 ```json
 {
-    "properties": {
-        "roleName": "start VM on connect",
-        "description": "Friendly description.",
-        "assignableScopes": [
-            "/subscriptions/<SubscriptionID>"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Compute/virtualMachines/start/action",
-                    "Microsoft.Compute/virtualMachines/read"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
-            }
-        ]
-    }
+  "Name": "Start VM on connect (Custom)",
+  "IsCustom": true,
+  "Description": "Start VM on connect with AVD (Custom)",
+  "Actions": [
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/read"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/00000000-0000-0000-0000-000000000000"
+  ]
 }
 ```
+
+Para usar la plantilla JSON, guarde el archivo JSON, agregue la información de suscripción pertinente a *Ámbitos asignables* y, a continuación, ejecute el siguiente cmdlet en PowerShell:
+
+```powershell
+New-AzRoleDefinition -InputFile "C:\temp\filename"
+```
+
+Para más información sobre la creación de roles personalizados, consulte [Creación o actualización de roles personalizados de Azure mediante Azure PowerShell](../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template).
 
 ## <a name="configure-the-start-vm-on-connect-feature"></a>Configuración de la característica Iniciar VM al establecer la conexión
 

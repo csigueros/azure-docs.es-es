@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/26/2021
+ms.date: 08/04/2021
 ms.custom: generated
-ms.openlocfilehash: 37e90491b45f30ef8572d58e87968a1593febd95
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: a875ef75d3598095e745882d765f80012e09315b
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114726933"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195504"
 ---
 # <a name="azure-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure
 
@@ -433,6 +433,9 @@ Servicio de Azure: [Virtual Machines](../virtual-machines/index.yml), [Virtual M
 > | Microsoft.Compute/cloudServices/rebuild/action | Restablece la imagen inicial de todas las instancias de rol de un elemento CloudService. |
 > | Microsoft.Compute/cloudServices/delete/action | Elimina las instancias de rol de un elemento CloudService. |
 > | Microsoft.Compute/cloudServices/instanceView/read | Obtiene el estado de un elemento CloudService. |
+> | Microsoft.Compute/cloudServices/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de CloudService. |
+> | Microsoft.Compute/cloudServices/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de CloudService. |
+> | Microsoft.Compute/cloudServices/providers/Microsoft.Insights/metricDefinitions/read | Obtiene la definición de métricas de CloudService. |
 > | Microsoft.Compute/cloudServices/roleInstances/delete | Elimina una instancia de RoleInstance de CloudService. |
 > | Microsoft.Compute/cloudServices/roleInstances/read | Obtiene una instancia de RoleInstance de CloudService. |
 > | Microsoft.Compute/cloudServices/roleInstances/restart/action | Reinicia una instancia de rol de un elemento CloudService. |
@@ -441,6 +444,9 @@ Servicio de Azure: [Virtual Machines](../virtual-machines/index.yml), [Virtual M
 > | Microsoft.Compute/cloudServices/roleInstances/instanceView/read | Obtiene el estado de una instancia de rol de un elemento CloudService. |
 > | Microsoft.Compute/cloudServices/roles/read | Obtiene un rol de una solución CloudService. |
 > | Microsoft.Compute/cloudServices/roles/write | Escala instancias en un rol. |
+> | Microsoft.Compute/cloudServices/roles/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de los roles de CloudService. |
+> | Microsoft.Compute/cloudServices/roles/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de los roles de CloudService. |
+> | Microsoft.Compute/cloudServices/roles/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de métricas de los roles de CloudService. |
 > | Microsoft.Compute/cloudServices/updateDomains/read | Obtiene una lista de todos los dominios de actualización de un elemento CloudService. |
 > | Microsoft.Compute/diskAccesses/read | Obtiene las propiedades del recurso DiskAccess. |
 > | Microsoft.Compute/diskAccesses/write | Crea un nuevo recurso DiskAccess o actualiza uno ya existente. |
@@ -570,6 +576,10 @@ Servicio de Azure: [Virtual Machines](../virtual-machines/index.yml), [Virtual M
 > | Microsoft.Compute/virtualMachines/patchAssessmentResults/latest/softwarePatches/read | Recupera la lista de revisiones evaluadas durante la última operación de evaluación de revisiones. |
 > | Microsoft.Compute/virtualMachines/patchInstallationResults/read | Recupera el resumen de la última operación de instalación de revisiones. |
 > | Microsoft.Compute/virtualMachines/patchInstallationResults/softwarePatches/read | Recupera la lista de revisiones que se intentaron instalar durante la última operación de instalación de revisiones. |
+> | Microsoft.Compute/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de la máquina virtual. |
+> | Microsoft.Compute/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de la máquina virtual. |
+> | Microsoft.Compute/virtualMachines/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles para la máquina virtual. |
+> | Microsoft.Compute/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read | Lee las definiciones de métricas de las máquinas virtuales |
 > | Microsoft.Compute/virtualMachines/runCommands/read | Obtiene las propiedades de un comando de ejecución de máquinas virtuales. |
 > | Microsoft.Compute/virtualMachines/runCommands/write | Crea un nuevo comando de ejecución de máquinas virtuales o actualiza uno ya existente. |
 > | Microsoft.Compute/virtualMachines/runCommands/delete | Elimina el comando de ejecución de máquinas virtuales. |
@@ -600,6 +610,10 @@ Servicio de Azure: [Virtual Machines](../virtual-machines/index.yml), [Virtual M
 > | Microsoft.Compute/virtualMachineScaleSets/instanceView/read | Obtiene la vista de instancias del conjunto de escalado de máquinas virtuales. |
 > | Microsoft.Compute/virtualMachineScaleSets/networkInterfaces/read | Obtiene las propiedades de todas las interfaces de red de un conjunto de escalado de máquinas virtuales. |
 > | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | Obtiene el historial de las actualizaciones del sistema operativo de un conjunto de escalado de máquinas virtuales. |
+> | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico para el conjunto de escalado de máquinas virtuales. |
+> | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico para el conjunto de escalado de máquinas virtuales. |
+> | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles del conjunto de escalado de máquinas virtuales. |
+> | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | Lee las definiciones de métricas del conjunto de escalado de máquinas virtuales. |
 > | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | Obtiene las propiedades de todas las direcciones IP públicas de un conjunto de escalado de máquinas virtuales. |
 > | Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades/read | Obtiene el estado de actualización gradual más reciente de un conjunto de escalado de máquinas virtuales. |
 > | Microsoft.Compute/virtualMachineScaleSets/skus/read | Enumera las SKU válidas de un conjunto de escalado de máquinas virtuales ya existente. |
@@ -624,6 +638,7 @@ Servicio de Azure: [Virtual Machines](../virtual-machines/index.yml), [Virtual M
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/read | Obtiene las propiedades de una o todas las interfaces de red de una máquina virtual creada mediante el conjunto de escalado de máquinas virtuales. |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipConfigurations/read | Obtiene las propiedades de una o todas las configuraciones de IP de una interfaz de red creada mediante el conjunto de escalado de máquinas virtuales. Las configuraciones de IP representan direcciones IP privadas. |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipConfigurations/publicIPAddresses/read | Obtiene las propiedades de las direcciones IP públicas creadas mediante un conjunto de escalado de máquinas virtuales. El conjunto de escalado de máquinas virtuales puede crear a lo sumo una IP pública por ipconfiguration (IP privada). |
+> | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read | Lee la máquina virtual en las definiciones de métricas del conjunto de escalado. |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/runCommands/read | Obtiene las propiedades de un comando de ejecución para la máquina virtual en el conjunto de escalado de máquinas virtuales. |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/runCommands/write | Crea un nuevo comando de ejecución para la máquina virtual en el conjunto de escalado de máquinas virtuales o actualiza uno existente. |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/runCommands/delete | Elimina el comando de ejecución de la máquina virtual en el conjunto de escalado de máquinas virtuales. |
@@ -686,6 +701,10 @@ Servicio de Azure: [Content Delivery Network](../cdn/index.yml)
 > | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/read |  |
 > | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/write |  |
 > | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/delete |  |
+> | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de Microsoft.Cdn/cdnwebapplicationfirewallpolicies |
+> | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/providers/Microsoft.Insights/metricDefinitions/read | Obtiene los registros disponibles de Microsoft.Cdn. |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/edgenodes/write |  |
 > | Microsoft.Cdn/edgenodes/delete |  |
@@ -799,6 +818,9 @@ Servicio de Azure: [Content Delivery Network](../cdn/index.yml)
 > | Microsoft.Cdn/profiles/endpoints/origins/read |  |
 > | Microsoft.Cdn/profiles/endpoints/origins/write |  |
 > | Microsoft.Cdn/profiles/endpoints/origins/delete |  |
+> | Microsoft.Cdn/profiles/endpoints/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Cdn/profiles/endpoints/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Cdn/profiles/endpoints/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de Microsoft.Cdn/profiles/endpoints. |
 > | Microsoft.Cdn/profiles/getloganalyticslocations/read |  |
 > | Microsoft.Cdn/profiles/getloganalyticsmetrics/read |  |
 > | Microsoft.Cdn/profiles/getloganalyticsrankings/read |  |
@@ -812,6 +834,10 @@ Servicio de Azure: [Content Delivery Network](../cdn/index.yml)
 > | Microsoft.Cdn/profiles/origingroups/origins/read |  |
 > | Microsoft.Cdn/profiles/origingroups/origins/write |  |
 > | Microsoft.Cdn/profiles/origingroups/origins/delete |  |
+> | Microsoft.Cdn/profiles/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Cdn/profiles/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Cdn/profiles/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de Microsoft.Cdn/profiles. |
+> | Microsoft.Cdn/profiles/providers/Microsoft.Insights/metricDefinitions/read | Obtiene los registros disponibles de Microsoft.Cdn. |
 > | Microsoft.Cdn/profiles/rulesets/read |  |
 > | Microsoft.Cdn/profiles/rulesets/write |  |
 > | Microsoft.Cdn/profiles/rulesets/delete |  |
@@ -916,7 +942,10 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/register/action | Registra la suscripción |
 > | Microsoft.Network/unregister/action | Anula el registro de la suscripción |
 > | Microsoft.Network/checkTrafficManagerNameAvailability/action | Comprueba la disponibilidad de un nombre DNS relativo de Traffic Manager. |
+> | Microsoft.Network/internalNotify/action | Notificación de recursos de alias DNS. |
+> | Microsoft.Network/getDnsResourceReference/action | Solicitud de dependencia de recursos de alias DNS. |
 > | Microsoft.Network/checkFrontDoorNameAvailability/action | Comprueba si hay disponible un nombre de Front Door. |
+> | Microsoft.Network/privateDnsZonesInternal/action | Ejecuta las API internas de zonas DNS privadas. |
 > | Microsoft.Network/applicationGatewayAvailableRequestHeaders/read | Obtiene los encabezados de solicitud disponibles en Application Gateway. |
 > | Microsoft.Network/applicationGatewayAvailableResponseHeaders/read | Obtiene el encabezado de respuesta disponible en Application Gateway |
 > | Microsoft.Network/applicationGatewayAvailableServerVariables/read | Obtiene las variables de servidor disponibles en Application Gateway. |
@@ -928,17 +957,23 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/applicationGateways/delete | Elimina una instancia de Application Gateway |
 > | Microsoft.Network/applicationGateways/backendhealth/action | Obtiene el estado de back-end de una instancia de Application Gateway |
 > | Microsoft.Network/applicationGateways/getBackendHealthOnDemand/action | Obtiene el estado de back-end de una puerta de enlace de aplicación a petición para la configuración http y el grupo de back-end dados. |
+> | Microsoft.Network/applicationGateways/resolvePrivateLinkServiceId/action | Resuelve privateLinkServiceId para el recurso de vínculo privado de la puerta de enlace de aplicaciones. |
 > | Microsoft.Network/applicationGateways/start/action | Inicia una instancia de Application Gateway |
 > | Microsoft.Network/applicationGateways/stop/action | Detiene una instancia de Application Gateway |
 > | Microsoft.Network/applicationGateways/restart/action | Reinicia una instancia de Application Gateway. |
 > | Microsoft.Network/applicationGateways/migrateV1ToV2/action | Migración de v1 sku de Application Gateway a v2 sku |
 > | Microsoft.Network/applicationGateways/getMigrationStatus/action | Obtención del estado de v1 sku de Application Gateway a v2 sku |
+> | Microsoft.Network/applicationGateways/setSecurityCenterConfiguration/action | Establece la configuración del centro de seguridad de Application Gateway. |
+> | Microsoft.Network/applicationGateways/effectiveNetworkSecurityGroups/action | Obtiene la tabla de rutas configuradas en Application Gateway. |
+> | Microsoft.Network/applicationGateways/effectiveRouteTable/action | Obtiene la tabla de rutas configuradas en Application Gateway. |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Se une a un grupo de direcciones de back-end de una puerta de enlace de aplicaciones. No genera alertas. |
 > | Microsoft.Network/applicationGateways/privateEndpointConnections/read | Obtiene las conexiones de PrivateEndpoint de Application Gateway. |
 > | Microsoft.Network/applicationGateways/privateEndpointConnections/write | Actualiza la conexión de PrivateEndpoint de Application Gateway. |
 > | Microsoft.Network/applicationGateways/privateEndpointConnections/delete | Elimina la conexión de PrivateEndpoint de Application Gateway. |
 > | Microsoft.Network/applicationGateways/privateLinkConfigurations/read | Obtiene las configuraciones de Private Link de Application Gateway |
 > | Microsoft.Network/applicationGateways/privateLinkResources/read | Obtiene los recursos de PrivateLink de ApplicationGateway. |
+> | Microsoft.Network/applicationGateways/providers/Microsoft.Insights/logDefinitions/read | Obtiene los eventos de puerta de Application Gateway. |
+> | Microsoft.Network/applicationGateways/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de Application Gateway. |
 > | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read | Obtiene una directiva del WAF de Application Gateway. |
 > | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write | Crea una directiva del WAF de Application Gateway o actualiza una que ya existe. |
 > | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete | Elimina una directiva del WAF de Application Gateway. |
@@ -961,6 +996,8 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/read | Obtiene NetworkRuleCollection de Azure Firewall. |
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/write | Crea o actualiza NetworkRuleCollection de Azure Firewall. |
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/delete | Elimina NetworkRuleCollection de Azure Firewall. |
+> | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/logDefinitions/read | Obtiene los eventos de Azure Firewall. |
+> | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de Azure Firewall. |
 > | Microsoft.Network/azureWebCategories/read | Obtiene categorías web de Azure. |
 > | Microsoft.Network/azureWebCategories/getwebcategory/action | Busca WebCategory |
 > | Microsoft.Network/azureWebCategories/classifyUnknown/action | Clasifica WebCategory desconocido |
@@ -975,6 +1012,9 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/bastionHosts/createShareableLinks/action | Crea direcciones URL que se pueden compartir para las VM en un bastión y devuelve las direcciones URL. |
 > | Microsoft.Network/bastionHosts/deleteShareableLinks/action | Elimina las direcciones URL que se pueden compartir para las VM proporcionadas en un bastión. |
 > | Microsoft.Network/bastionHosts/deleteShareableLinksByToken/action | Elimina las direcciones URL que se pueden compartir para los tokens proporcionados en un bastión. |
+> | Microsoft.Network/bastionHosts/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.Network/bastionHosts/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.Network/bastionHosts/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros de auditoría disponibles del host bastión. |
 > | Microsoft.Network/bgpServiceCommunities/read | Obtiene las comunidades de servicio de BGP |
 > | Microsoft.Network/connections/read | Obtiene VirtualNetworkGatewayConnection |
 > | Microsoft.Network/connections/write | Crea o actualiza una VirtualNetworkGatewayConnection existente |
@@ -986,6 +1026,9 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/connections/stoppacketcapture/action | Detiene una captura de paquete de conexión de puerta de enlace de red virtual. |
 > | Microsoft.Network/connections/getikesas/action | Muestra las asociaciones de seguridad de IKE para la conexión. |
 > | Microsoft.Network/connections/resetconnection/action | Restablece la conexión de VNG |
+> | Microsoft.Network/connections/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de Connections. |
+> | Microsoft.Network/connections/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de Connections. |
+> | Microsoft.Network/connections/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de métricas de Connections |
 > | Microsoft.Network/connections/sharedKey/read | Obtiene el valor de SharedKey de VirtualNetworkGatewayConnection |
 > | Microsoft.Network/connections/sharedKey/write | Crea o actualiza una SharedKey de VirtualNetworkGatewayConnection existente |
 > | Microsoft.Network/customIpPrefixes/read | Obtiene una definición del prefijo de dirección IP personalizada. |
@@ -998,6 +1041,9 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/ddosProtectionPlans/write | Crea un plan DDoS Protection o actualiza un plan DDoS Protection.  |
 > | Microsoft.Network/ddosProtectionPlans/delete | Elimina un plan DDoS Protection. |
 > | Microsoft.Network/ddosProtectionPlans/join/action | Unirse a un plan de DDoS Protection. No genera alertas. |
+> | Microsoft.Network/ddosProtectionPlans/ddosProtectionPlanProxies/read | Obtiene una definición del proxy del plan DDoS Protection. |
+> | Microsoft.Network/ddosProtectionPlans/ddosProtectionPlanProxies/write | Crea un proxy del plan DDoS Protection o actualiza un proxy del plan DDoS Protection ya existente. |
+> | Microsoft.Network/ddosProtectionPlans/ddosProtectionPlanProxies/delete | Elimina un proxy del plan DDoS Protection. |
 > | Microsoft.Network/dnsForwardingRulesets/read | Obtiene un conjunto de reglas de reenvío de DNS en formato JSON. |
 > | Microsoft.Network/dnsForwardingRulesets/write | Crea o actualiza un conjunto de reglas de reenvío de DNS. |
 > | Microsoft.Network/dnsForwardingRulesets/delete | Elimina un conjunto de reglas de reenvío de DNS en formato JSON. |
@@ -1040,6 +1086,9 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/dnszones/NS/read | Obtiene el conjunto de registros de DNS del tipo NS |
 > | Microsoft.Network/dnszones/NS/write | Crea o actualiza el conjunto de registros de DNS del tipo NS |
 > | Microsoft.Network/dnszones/NS/delete | Elimina el conjunto de registros de DNS del tipo NS |
+> | Microsoft.Network/dnszones/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de la zona DNS. |
+> | Microsoft.Network/dnszones/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de la zona DNS. |
+> | Microsoft.Network/dnszones/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de métrica de la zona DNS. |
 > | Microsoft.Network/dnszones/PTR/read | Obtiene el conjunto de registros del tipo "PTR", en formato JSON. El conjunto de registros contiene una lista de registros, así como el TTL, las etiquetas y ETag. |
 > | Microsoft.Network/dnszones/PTR/write | Crea o actualiza un conjunto de registros del tipo "PTR" dentro de una zona DNS. Los registros especificados reemplazarán a los registros actuales en el conjunto de registros. |
 > | Microsoft.Network/dnszones/PTR/delete | Quita el conjunto de registros de un determinado nombre y del tipo "PTR" de una zona DNS. |
@@ -1059,6 +1108,7 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/expressRouteCircuits/write | Crea o actualiza un ExpressRouteCircuit existente |
 > | Microsoft.Network/expressRouteCircuits/join/action | Unirse a un circuito de ExpressRoute. No genera alertas. |
 > | Microsoft.Network/expressRouteCircuits/delete | Elimina un ExpressRouteCircuit |
+> | Microsoft.Network/expressRouteCircuits/nrpinternalupdate/action | Crea o actualiza ExpressRouteCircuit. |
 > | Microsoft.Network/expressRouteCircuits/authorizations/read | Obtiene una autorización de ExpressRouteCircuit |
 > | Microsoft.Network/expressRouteCircuits/authorizations/write | Crea o actualiza una autorización de ExpressRouteCircuit existente |
 > | Microsoft.Network/expressRouteCircuits/authorizations/delete | Elimina una autorización de ExpressRouteCircuit |
@@ -1070,11 +1120,20 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/expressRouteCircuits/peerings/connections/write | Crea o actualiza un recurso de conexión de ExpressRouteCircuit existente. |
 > | Microsoft.Network/expressRouteCircuits/peerings/connections/delete | Elimina una conexión de ExpressRouteCircuit. |
 > | Microsoft.Network/expressRouteCircuits/peerings/peerConnections/read | Obtiene la conexión del circuito del mismo nivel de ExpressRoute. |
+> | Microsoft.Network/expressRouteCircuits/peerings/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de emparejamientos de los circuitos de ExpressRoute. |
+> | Microsoft.Network/expressRouteCircuits/peerings/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de emparejamientos de los circuitos de ExpressRoute. |
+> | Microsoft.Network/expressRouteCircuits/peerings/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de métrica de los emparejamientos de circuitos ExpressRoute. |
 > | Microsoft.Network/expressRouteCircuits/peerings/routeTables/read | Obtiene un RouteTable de emparejamiento de ExpressRouteCircuit |
 > | Microsoft.Network/expressRouteCircuits/peerings/routeTablesSummary/read | Obtiene un resumen de RouteTable de emparejamiento de ExpressRouteCircuit |
 > | Microsoft.Network/expressRouteCircuits/peerings/stats/read | Obtiene estadísticas de emparejamiento de ExpressRouteCircuit |
+> | Microsoft.Network/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de los circuitos de ExpressRoute. |
+> | Microsoft.Network/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de los circuitos de ExpressRoute. |
+> | Microsoft.Network/expressRouteCircuits/providers/Microsoft.Insights/logDefinitions/read | Obtiene los eventos de los circuitos ExpressRoute. |
+> | Microsoft.Network/expressRouteCircuits/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de métrica de los circuitos ExpressRoute. |
 > | Microsoft.Network/expressRouteCircuits/stats/read | Obtiene un estado de ExpressRouteCircuit |
 > | Microsoft.Network/expressRouteCrossConnections/read | Obtiene la conexión cruzada de Express Route. |
+> | Microsoft.Network/expressRouteCrossConnections/write | Crea o actualiza la conexión cruzada de Express Route. |
+> | Microsoft.Network/expressRouteCrossConnections/delete | Elimina la conexión cruzada de Express Route. |
 > | Microsoft.Network/expressRouteCrossConnections/serviceProviders/action | Repone la conexión cruzada de Express Route. |
 > | Microsoft.Network/expressRouteCrossConnections/join/action | Unirse a una conexión cruzada de ExpressRoute. No genera alertas. |
 > | Microsoft.Network/expressRouteCrossConnections/peerings/read | Obtiene un emparejamiento de la conexión cruzada de Express Route. |
@@ -1084,10 +1143,13 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/expressRouteCrossConnections/peerings/routeTables/read | Obtiene la tabla de rutas del emparejamiento de la conexión cruzada de Express Route. |
 > | Microsoft.Network/expressRouteCrossConnections/peerings/routeTableSummary/read | Obtiene el resumen de la tabla de ruta del emparejamiento de la conexión cruzada de Express Route. |
 > | Microsoft.Network/expressRouteGateways/read | Obtiene la puerta de enlace de Express Route. |
+> | Microsoft.Network/expressRouteGateways/write | Crea o actualiza la puerta de enlace de Express Route. |
+> | Microsoft.Network/expressRouteGateways/delete | Elimina la puerta de enlace de Express Route. |
 > | Microsoft.Network/expressRouteGateways/join/action | Unirse a una puerta de enlace de ExpressRoute. No genera alertas. |
 > | Microsoft.Network/expressRouteGateways/expressRouteConnections/read | Obtiene una conexión de Express Route. |
 > | Microsoft.Network/expressRouteGateways/expressRouteConnections/write | Crea una conexión de Express Route o actualiza una conexión de Express Route existente. |
 > | Microsoft.Network/expressRouteGateways/expressRouteConnections/delete | Elimina una conexión de Express Route. |
+> | Microsoft.Network/expressRouteGateways/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de métricas de las puertas de enlace de ExpressRoute. |
 > | Microsoft.Network/expressRoutePorts/read | Obtiene ExpressRoutePortsPort. |
 > | Microsoft.Network/expressRoutePorts/write | Crea o actualiza ExpressRoutePorts. |
 > | Microsoft.Network/expressRoutePorts/join/action | Unirse a puertos de ExpressRoute. No genera alertas. |
@@ -1095,6 +1157,7 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/expressRoutePorts/generateloa/action | Genera LOA para ExpressRoutePorts |
 > | Microsoft.Network/expressRoutePorts/authorizations/read | Obtiene una autorización de ExpressRoutePorts. |
 > | Microsoft.Network/expressRoutePorts/links/read | Obtiene ExpressRouteLink. |
+> | Microsoft.Network/expressRoutePorts/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de métricas de los puertos ExpressRoute. |
 > | Microsoft.Network/expressRoutePortsLocations/read | Obtiene ubicaciones de puertos de ExpressRoute. |
 > | Microsoft.Network/expressRouteServiceProviders/read | Obtiene los proveedores de servicios de ExpressRoute |
 > | Microsoft.Network/firewallPolicies/read | Obtiene una directiva de firewall. |
@@ -1127,6 +1190,10 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/frontDoors/loadBalancingSettings/read | Obtiene la configuración del equilibrio de carga. |
 > | Microsoft.Network/frontDoors/loadBalancingSettings/write | Crea o actualiza la configuración del equilibrio de carga. |
 > | Microsoft.Network/frontDoors/loadBalancingSettings/delete | Crea o actualiza la configuración del equilibrio de carga. |
+> | Microsoft.Network/frontdoors/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso Frontdoor. |
+> | Microsoft.Network/frontdoors/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso Frontdoor. |
+> | Microsoft.Network/frontdoors/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de los recursos de Frontdoor. |
+> | Microsoft.Network/frontdoors/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de los recursos de Frontdoor. |
 > | Microsoft.Network/frontDoors/routingRules/read | Obtiene una regla de enrutamiento. |
 > | Microsoft.Network/frontDoors/routingRules/write | Crea o actualiza una regla de enrutamiento. |
 > | Microsoft.Network/frontDoors/routingRules/delete | Elimina una regla de enrutamiento. |
@@ -1159,6 +1226,10 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/loadBalancers/backendAddressPools/backendPoolAddresses/read | Enumera las direcciones de back-end del grupo de direcciones del back-end de Load Balancer. |
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Obtiene una definición de configuración de dirección IP de front-end del equilibrador de carga |
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Combina una configuración de dirección IP de front-end del equilibrador de carga. No genera alertas. |
+> | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/read | Obtiene una definición de grupo de back-end de la dirección IP de front-end del equilibrador de carga. |
+> | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/write | Crea un grupo de back-end de la dirección IP de front-end del equilibrador de carga o actualiza un grupo de back-end de la dirección IP pública existente del equilibrador de carga. |
+> | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/delete | Elimina un grupo de back-end de la dirección IP de front-end del equilibrador de carga. |
+> | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/join/action | Permite la unión a un grupo de back-end de la dirección IP de front-end del equilibrador de carga. No genera alertas. |
 > | Microsoft.Network/loadBalancers/inboundNatPools/read | Obtiene una definición de conjuntos NAT de entrada del equilibrador de carga |
 > | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Se une a conjuntos NAT de entrada del equilibrador de carga. No genera alertas. |
 > | Microsoft.Network/loadBalancers/inboundNatRules/read | Obtiene una definición de reglas NAT de entrada del equilibrador de carga |
@@ -1170,13 +1241,26 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/loadBalancers/outboundRules/read | Obtiene una definición de reglas de salida del equilibrador de carga. |
 > | Microsoft.Network/loadBalancers/probes/read | Obtiene un sondeo del equilibrador de carga |
 > | Microsoft.Network/loadBalancers/probes/join/action | Permite usar sondeos de un equilibrador de carga. Por ejemplo, con este permiso, la propiedad healthProbe de un conjunto de escalado de máquinas virtuales puede hacer referencia al sondeo. No genera alertas. |
+> | Microsoft.Network/loadBalancers/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de Load Balancer. |
+> | Microsoft.Network/loadBalancers/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de Load Balancer. |
+> | Microsoft.Network/loadBalancers/providers/Microsoft.Insights/logDefinitions/read | Obtiene los eventos de Load Balancer. |
+> | Microsoft.Network/loadBalancers/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de Load Balancer. |
 > | Microsoft.Network/loadBalancers/virtualMachines/read | Obtiene referencias a todas las máquinas virtuales de un equilibrador de carga |
 > | Microsoft.Network/localnetworkgateways/read | Obtiene LocalNetworkGateway |
 > | Microsoft.Network/localnetworkgateways/write | Crea o actualiza una LocalNetworkGateway existente |
 > | Microsoft.Network/localnetworkgateways/delete | Elimina LocalNetworkGateway |
 > | Microsoft.Network/locations/checkAcceleratedNetworkingSupport/action | Comprueba el soporte de redes aceleradas |
+> | Microsoft.Network/locations/batchValidatePrivateEndpointsForResourceMove/action | Valida los puntos de conexión privados en lotes para el traslado de recursos. |
+> | Microsoft.Network/locations/batchNotifyPrivateEndpointsForResourceMove/action | Envía una notificación al punto de conexión privado de los lotes para el movimiento de recursos. |
 > | Microsoft.Network/locations/checkPrivateLinkServiceVisibility/action | Comprueba la visibilidad del servicio Private Link. |
+> | Microsoft.Network/locations/validateResourceOwnership/action | Valida la propiedad de recurso. |
+> | Microsoft.Network/locations/setResourceOwnership/action | Establece la propiedad de recurso. |
+> | Microsoft.Network/locations/effectiveResourceOwnership/action | Obtiene la propiedad de recurso efectiva. |
+> | Microsoft.Network/locations/setAzureNetworkManagerConfiguration/action | Establece la configuración de Azure Network Manager. |
+> | Microsoft.Network/locations/getAzureNetworkManagerConfiguration/action | Obtiene la configuración de Azure Network Manager. |
 > | Microsoft.Network/locations/bareMetalTenants/action | Asigna o valida un inquilino sin sistema operativo |
+> | Microsoft.Network/locations/commitInternalAzureNetworkManagerConfiguration/action | Confirma la configuración interna de AzureNetworkManager en ANM. |
+> | Microsoft.Network/locations/internalAzureVirtualNetworkManagerOperation/action | Operación interna de AzureVirtualNetworkManager en ANM. |
 > | Microsoft.Network/locations/setLoadBalancerFrontendPublicIpAddresses/action | SetLoadBalancerFrontendPublicIpAddresses tiene como destino las configuraciones IP de front-end de dos equilibradores de carga. Los identificadores de Azure Resource Manager de las configuraciones de dirección IP se proporcionan en el cuerpo de la solicitud. |
 > | Microsoft.Network/locations/autoApprovedPrivateLinkServices/read | Obtiene los servicios de Private Link autorizados automáticamente. |
 > | Microsoft.Network/locations/availableDelegations/read | Obtiene las delegaciones disponibles |
@@ -1187,6 +1271,9 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/locations/dnsResolverOperationStatuses/read | Obtiene el estado de una operación de resolución DNS. |
 > | Microsoft.Network/locations/operationResults/read | Obtiene el resultado de una operación POST o DELETE asincrónica |
 > | Microsoft.Network/locations/operations/read | Obtiene el recurso de operaciones que representa el estado de una operación asincrónica |
+> | Microsoft.Network/locations/privateLinkServices/privateEndpointConnectionProxies/read | Obtiene un recurso de proxy de conexión de punto de conexión privado. |
+> | Microsoft.Network/locations/privateLinkServices/privateEndpointConnectionProxies/write | Crea un proxy de conexión de punto de conexión privado o actualiza uno ya existente. |
+> | Microsoft.Network/locations/privateLinkServices/privateEndpointConnectionProxies/delete | Elimina un recurso de proxy de conexión de punto de conexión privado. |
 > | Microsoft.Network/locations/serviceTagDetails/read | GetServiceTagDetails |
 > | Microsoft.Network/locations/serviceTags/read | Obtiene las etiquetas de servicio. |
 > | Microsoft.Network/locations/supportedVirtualMachineSizes/read | Obtiene tamaños de máquinas virtuales admitidas |
@@ -1196,6 +1283,7 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/masterCustomIpPrefixes/write | Crea un prefijo de dirección IP personalizada maestra o actualiza uno que ya existe. |
 > | Microsoft.Network/masterCustomIpPrefixes/delete | Elimina un prefijo de dirección IP personalizada maestra. |
 > | Microsoft.Network/natGateways/join/action | Une a una puerta de enlace NAT Gateway. |
+> | Microsoft.Network/natGateways/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de NAT Gateway. |
 > | Microsoft.Network/networkExperimentProfiles/read | Obtiene un perfil de Internet Analyzer. |
 > | Microsoft.Network/networkExperimentProfiles/write | Crea o actualiza un perfil de Internet Analyzer. |
 > | Microsoft.Network/networkExperimentProfiles/delete | Elimina un perfil de Internet Analyzer. |
@@ -1216,9 +1304,11 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/networkInterfaces/effectiveRouteTable/action | Obtiene la tabla de rutas configuradas en la interfaz de red de la máquina virtual |
 > | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action | Obtiene los grupos de seguridad de red configurados en la interfaz de red de la máquina virtual |
 > | Microsoft.Network/networkInterfaces/UpdateParentNicAttachmentOnElasticNic/action | Actualiza la NIC primaria asociada a la NIC elástica. |
+> | Microsoft.Network/networkInterfaces/diagnosticIdentity/read | Obtiene la identidad de diagnóstico del recurso. |
 > | Microsoft.Network/networkInterfaces/ipconfigurations/read | Obtiene una definición de configuración de dirección IP de la interfaz de red.  |
 > | Microsoft.Network/networkInterfaces/ipconfigurations/join/action | Combina una configuración de dirección IP de interfaz de red. No genera alertas. |
 > | Microsoft.Network/networkInterfaces/loadBalancers/read | Obtiene todos los equilibradores de carga de los que forma parte la interfaz de red |
+> | Microsoft.Network/networkInterfaces/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de la interfaz de red. |
 > | Microsoft.Network/networkInterfaces/tapConfigurations/read | Obtiene una configuración de Tap de interfaz de red. |
 > | Microsoft.Network/networkInterfaces/tapConfigurations/write | Crea una configuración de Tap de interfaz de red o actualiza una ya existente. |
 > | Microsoft.Network/networkInterfaces/tapConfigurations/delete | Elimina una configuración de Tap de interfaz de red. |
@@ -1233,6 +1323,9 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/networkSecurityGroups/delete | Elimina un grupo de seguridad de red |
 > | Microsoft.Network/networkSecurityGroups/join/action | Se une a un grupo de seguridad de red. No genera alertas. |
 > | Microsoft.Network/networkSecurityGroups/defaultSecurityRules/read | Obtiene una definición de regla de seguridad predeterminada |
+> | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de los grupos de seguridad de red. |
+> | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de los grupos de seguridad de red; esta operación se complementa con el proveedor de recursos de Insights. |
+> | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Obtiene los eventos del grupo de seguridad de red. |
 > | Microsoft.Network/networkSecurityGroups/securityRules/read | Obtiene una definición de regla de seguridad |
 > | Microsoft.Network/networkSecurityGroups/securityRules/write | Crea una regla de seguridad o actualiza una que ya existe |
 > | Microsoft.Network/networkSecurityGroups/securityRules/delete | Elimina una regla de seguridad |
@@ -1261,6 +1354,7 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/networkWatchers/connectionMonitors/read | Obtiene los detalles del monitor de conexión. |
 > | Microsoft.Network/networkWatchers/connectionMonitors/write | Crea un monitor de conexión. |
 > | Microsoft.Network/networkWatchers/connectionMonitors/delete | Elimina un monitor de conexión. |
+> | Microsoft.Network/networkWatchers/connectionMonitors/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles del monitor de conexión. |
 > | Microsoft.Network/networkWatchers/flowLogs/read | Obtiene detalles del registro de flujo. |
 > | Microsoft.Network/networkWatchers/flowLogs/write | Crea un registro de flujo. |
 > | Microsoft.Network/networkWatchers/flowLogs/delete | Elimina un registro de flujo. |
@@ -1290,6 +1384,10 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Obtiene el estado de la conexión de VPN de P2S para P2SVpnGateway. |
 > | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealthdetailed/action | Obtiene el estado de la conexión de VPN de P2S detallado para P2SVpnGateway. |
 > | Microsoft.Network/p2sVpnGateways/disconnectp2svpnconnections/action | Desconecta las conexiones VPN P2S. |
+> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de VPN Gateway P2S. |
+> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de VPN Gateway P2S; esta operación se complementa con el proveedor de recursos de Insights. |
+> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/logDefinitions/read | Obtiene los eventos de VPN Gateway P2S. |
+> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de VPN Gateway P2S. |
 > | Microsoft.Network/privateDnsOperationResults/read | Obtiene los resultados de una operación de DNS privado. |
 > | Microsoft.Network/privateDnsOperationStatuses/read | Obtiene el estado de una operación de DNS privado. |
 > | Microsoft.Network/privateDnsZones/read | Obtiene las propiedades de una zona de DNS privado en formato JSON. Tenga en cuenta que este comando no recupera las redes virtuales a las que está vinculada la zona de DNS privado ni los conjuntos de registros de la zona. |
@@ -1309,6 +1407,9 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/privateDnsZones/MX/read | Obtiene el conjunto de registros de tipo "MX" dentro de una zona de DNS privado en formato JSON. El conjunto de registros contiene una lista de registros, así como el TTL, las etiquetas y ETag. |
 > | Microsoft.Network/privateDnsZones/MX/write | Crea o actualiza un conjunto de registros del tipo "MX" dentro de una zona de DNS privado. Los registros especificados reemplazarán a los registros actuales en el conjunto de registros. |
 > | Microsoft.Network/privateDnsZones/MX/delete | Elimina el conjunto de registros de un determinado nombre y del tipo "MX" de una zona de DNS privado. |
+> | Microsoft.Network/privateDnsZones/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de la zona DNS privada. |
+> | Microsoft.Network/privateDnsZones/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de la zona DNS privada. |
+> | Microsoft.Network/privateDnsZones/providers/Microsoft.Insights/metricDefinitions/read | Obtiene la configuración de métricas de la zona DNS privada. |
 > | Microsoft.Network/privateDnsZones/PTR/read | Obtiene el conjunto de registros de tipo "PTR" dentro de una zona de DNS privado en formato JSON. El conjunto de registros contiene una lista de registros, así como el TTL, las etiquetas y ETag. |
 > | Microsoft.Network/privateDnsZones/PTR/write | Crea o actualiza un conjunto de registros del tipo "PTR" dentro de una zona de DNS privado. Los registros especificados reemplazarán a los registros actuales en el conjunto de registros. |
 > | Microsoft.Network/privateDnsZones/PTR/delete | Elimina el conjunto de registros de un determinado nombre y del tipo "PTR" de una zona de DNS privado. |
@@ -1326,21 +1427,38 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/privateDnsZones/virtualNetworkLinks/delete | Elimina el vínculo de una zona de DNS privado a una red virtual. |
 > | Microsoft.Network/privateEndpointRedirectMaps/read | Obtiene un RedirectMap de un punto de conexión privado |
 > | Microsoft.Network/privateEndpointRedirectMaps/write | Crea un mapa de redirección desde un punto de conexión privado o actualiza uno ya existente. |
+> | Microsoft.Network/privateEndpoints/pushPropertiesToResource/action | Operación para insertar actualizaciones de las propiedades de un punto de conexión privado desde un cliente NRP |
 > | Microsoft.Network/privateEndpoints/read | Obtiene un recurso de punto de conexión privado. |
 > | Microsoft.Network/privateEndpoints/write | Crea un nuevo punto de conexión privado o actualiza uno ya existente. |
 > | Microsoft.Network/privateEndpoints/delete | Elimina un recurso de punto de conexión privado. |
 > | Microsoft.Network/privateEndpoints/privateDnsZoneGroups/read | Obtiene un grupo de zona de DNS privado. |
 > | Microsoft.Network/privateEndpoints/privateDnsZoneGroups/write | Coloca un grupo de zona de DNS privado. |
+> | Microsoft.Network/privateEndpoints/privateLinkServiceProxies/read | Obtiene un recurso de proxy de servicio de vínculo privado. |
+> | Microsoft.Network/privateEndpoints/privateLinkServiceProxies/write | Crea un proxy de servicio de vínculo privado o actualiza uno ya existente. |
+> | Microsoft.Network/privateEndpoints/privateLinkServiceProxies/delete | Elimina un recurso de proxy de servicio de vínculo privado. |
+> | Microsoft.Network/privateEndpoints/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles del punto de conexión privado. |
 > | Microsoft.Network/privateLinkServices/read | Obtiene un recurso de servicio de vínculo privado. |
 > | Microsoft.Network/privateLinkServices/write | Crea un nuevo servicio de vínculo privado o actualiza uno ya existente. |
 > | Microsoft.Network/privateLinkServices/delete | Elimina un recurso de servicio de vínculo privado. |
+> | Microsoft.Network/privateLinkServices/notifyPrivateEndpointMove/action | Notifica a un servicio Private Link conectado el traslado del punto de conexión privado. |
+> | Microsoft.Network/privateLinkServices/privateEndpointConnectionProxies/read | Obtiene un recurso de proxy de conexión de punto de conexión privado. |
+> | Microsoft.Network/privateLinkServices/privateEndpointConnectionProxies/write | Crea un proxy de conexión de punto de conexión privado o actualiza uno ya existente. |
+> | Microsoft.Network/privateLinkServices/privateEndpointConnectionProxies/delete | Elimina un recurso de proxy de conexión de punto de conexión privado. |
 > | Microsoft.Network/privateLinkServices/privateEndpointConnections/read | Obtiene una definición de conexión de punto de conexión privado. |
 > | Microsoft.Network/privateLinkServices/privateEndpointConnections/write | Crea una nueva conexión de punto de conexión privado o actualiza una ya existente. |
 > | Microsoft.Network/privateLinkServices/privateEndpointConnections/delete | Elimina una conexión de punto de conexión privado. |
+> | Microsoft.Network/privateLinkServices/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles del servicio Private Link. |
 > | Microsoft.Network/publicIPAddresses/read | Obtiene una definición de la dirección ip pública. |
 > | Microsoft.Network/publicIPAddresses/write | Crea una dirección Ip pública o actualiza una que ya existe.  |
 > | Microsoft.Network/publicIPAddresses/delete | Elimina una dirección IP pública. |
 > | Microsoft.Network/publicIPAddresses/join/action | Se une a una dirección IP pública. No genera alertas. |
+> | Microsoft.Network/publicIPAddresses/dnsAliases/read | Obtiene un recurso de alias de DNS de dirección IP pública. |
+> | Microsoft.Network/publicIPAddresses/dnsAliases/write | Crea un recurso de alias de DNS de dirección IP pública. |
+> | Microsoft.Network/publicIPAddresses/dnsAliases/delete | Elimina un recurso de alias de DNS de dirección IP pública. |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de la dirección IP pública. |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de la dirección IP pública. |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Obtiene las definiciones de registro de la dirección IP pública. |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de las métricas de la dirección IP pública. |
 > | Microsoft.Network/publicIPPrefixes/read | Obtiene una definición del prefijo de dirección IP pública. |
 > | Microsoft.Network/publicIPPrefixes/write | Crea un prefijo de dirección IP pública o actualiza uno que ya existe. |
 > | Microsoft.Network/publicIPPrefixes/delete | Elimina un prefijo de dirección IP pública. |
@@ -1387,6 +1505,10 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/read | Obtiene un punto de conexión anidado que pertenece a un perfil de Traffic Manager, incluidas todas las propiedades de ese punto de conexión anidado. |
 > | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/write | Agrega un nuevo punto de conexión anidado en un perfil de Traffic Manager ya existente o actualiza las propiedades de un punto de conexión anidado ya existente en dicho perfil de Traffic Manager. |
 > | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/delete | Elimina un punto de conexión anidado de un perfil de Traffic Manager existente. Traffic Manager dejará de enrutar el tráfico al punto de conexión anidado eliminado. |
+> | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de Traffic Manager. |
+> | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de Traffic Manager; esta operación se complementa con el proveedor de recursos de Insights. |
+> | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/logDefinitions/read | Obtiene los eventos de Traffic Manager. |
+> | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de Traffic Manager. |
 > | Microsoft.Network/trafficManagerUserMetricsKeys/read | Obtiene la clave de nivel de suscripción que se usa para recopilar métricas del usuario en tiempo real. |
 > | Microsoft.Network/trafficManagerUserMetricsKeys/write | Crea una clave de nivel de suscripción que se usará para recopilar métricas del usuario en tiempo real. |
 > | Microsoft.Network/trafficManagerUserMetricsKeys/delete | Elimina la clave de nivel de suscripción que se usa para recopilar métricas del usuario en tiempo real. |
@@ -1436,6 +1558,10 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | microsoft.network/virtualNetworkGateways/natRules/read | Obtiene un recurso de la regla de NAT. |
 > | microsoft.network/virtualNetworkGateways/natRules/write | Pone un recurso de la regla de NAT. |
 > | microsoft.network/virtualNetworkGateways/natRules/delete | Elimina un recurso de la regla de NAT. |
+> | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de la puerta de enlace de red virtual. |
+> | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de la puerta de enlace de red virtual; esta operación se complementa con el proveedor de recursos de Insights. |
+> | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/logDefinitions/read | Obtiene los eventos de la puerta de enlace de red virtual. |
+> | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de la puerta de enlace de red virtual. |
 > | Microsoft.Network/virtualNetworks/read | Obtiene la definición de red virtual |
 > | Microsoft.Network/virtualNetworks/write | Crea una red virtual o actualiza una que ya existe |
 > | Microsoft.Network/virtualNetworks/delete | Elimina una red virtual |
@@ -1445,9 +1571,18 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/virtualNetworks/BastionHosts/action | Obtiene las referencias del host de tipo bastión en una red virtual. |
 > | Microsoft.Network/virtualNetworks/bastionHosts/default/action | Obtiene las referencias del host de tipo bastión en una red virtual. |
 > | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | Comprueba si la dirección IP está disponible en la red virtual especificada |
+> | Microsoft.Network/virtualNetworks/customViews/read | Obtiene la definición de una vista personalizada de Virtual Network. |
+> | Microsoft.Network/virtualNetworks/customViews/get/action | Obtiene el contenido de una vista personalizada de Virtual Network. |
 > | Microsoft.Network/virtualNetworks/dnsForwardingRulesets/read | Obtiene un conjunto de reglas de reenvío de DNS para red virtual en formato JSON. |
 > | Microsoft.Network/virtualNetworks/dnsResolvers/read | Obtiene una resolución DNS para red virtual en formato JSON. |
 > | Microsoft.Network/virtualNetworks/privateDnsZoneLinks/read | Obtiene las propiedades del vínculo de una zona de DNS privado a una red virtual en formato JSON. |
+> | Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de Virtual Network. |
+> | Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de Virtual Network. |
+> | Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/logDefinitions/read | Obtiene las definiciones de registro de Virtual Network. |
+> | Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles para PingMesh. |
+> | Microsoft.Network/virtualNetworks/remoteVirtualNetworkPeeringProxies/read | Obtiene una definición de un proxy emparejamiento de redes virtuales. |
+> | Microsoft.Network/virtualNetworks/remoteVirtualNetworkPeeringProxies/write | Crea un proxy de emparejamiento de redes virtuales o actualiza uno que ya existe. |
+> | Microsoft.Network/virtualNetworks/remoteVirtualNetworkPeeringProxies/delete | Elimina un proxy de emparejamiento de redes virtuales. |
 > | Microsoft.Network/virtualNetworks/subnets/read | Obtiene una definición de subred de red virtual |
 > | Microsoft.Network/virtualNetworks/subnets/write | Crea una subred de red virtual o actualiza una que ya existe |
 > | Microsoft.Network/virtualNetworks/subnets/delete | Elimina una subred de red virtual |
@@ -1459,7 +1594,19 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/virtualNetworks/subnets/contextualServiceEndpointPolicies/read | Obtiene directivas de un punto de conexión de servicio contextual. |
 > | Microsoft.Network/virtualNetworks/subnets/contextualServiceEndpointPolicies/write | Crea una directiva de un punto de conexión de servicio contextual o actualiza una directiva de un punto de conexión de servicio contextual existente. |
 > | Microsoft.Network/virtualNetworks/subnets/contextualServiceEndpointPolicies/delete | Elimina una directiva de un punto de conexión de servicio contextual. |
+> | Microsoft.Network/virtualNetworks/subnets/resourceNavigationLinks/read | Obtiene la definición del vínculo de navegación de recursos. |
+> | Microsoft.Network/virtualNetworks/subnets/resourceNavigationLinks/write | Crea un vínculo de navegación de recursos o actualiza uno ya existente. |
+> | Microsoft.Network/virtualNetworks/subnets/resourceNavigationLinks/delete | Elimina un vínculo de navegación de recursos. |
+> | Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/read | Obtiene la definición de un vínculo de una asociación de servicio |
+> | Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/write | Crea un vínculo de una asociación de servicio o actualiza un vínculo de una asociación de servicio existente |
+> | Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/delete | Elimina el vínculo de una asociación de servicio |
+> | Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/validate/action | Valida un vínculo de una asociación de servicio |
+> | Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/details/read | Obtiene la definición del detalle del vínculo de una asociación de servicio |
 > | Microsoft.Network/virtualNetworks/subnets/virtualMachines/read | Obtiene referencias a todas las máquinas virtuales de una subred de red virtual |
+> | Microsoft.Network/virtualNetworks/taggedTrafficConsumers/read | Obtiene la definición del consumidor de tráfico etiquetado. |
+> | Microsoft.Network/virtualNetworks/taggedTrafficConsumers/write | Crea un consumidor de tráfico etiquetado o actualiza uno ya existente. |
+> | Microsoft.Network/virtualNetworks/taggedTrafficConsumers/delete | Elimina un consumidor de tráfico etiquetado. |
+> | Microsoft.Network/virtualNetworks/taggedTrafficConsumers/validate/action | Valida un consumidor de tráfico etiquetado. |
 > | Microsoft.Network/virtualNetworks/usages/read | Obtiene los usos de IP para cada subred de la red virtual. |
 > | Microsoft.Network/virtualNetworks/virtualMachines/read | Obtiene referencias a todas las máquinas virtuales de una red virtual |
 > | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read | Obtiene una definición de emparejamiento de redes virtuales |
@@ -1469,6 +1616,9 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/virtualNetworkTaps/join/action | Unirse a un punto de acceso de terminal de red virtual. No genera alertas. |
 > | Microsoft.Network/virtualNetworkTaps/delete | Elimina Virtual Network Tap. |
 > | Microsoft.Network/virtualNetworkTaps/write | Crea o actualiza Virtual Network Tap. |
+> | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/read | Obtiene un proxy de configuración de Tap de interfaz de red. |
+> | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/write | Crea un proxy de configuración de Tap de interfaz de red o actualiza una ya existente. |
+> | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/delete | Elimina un proxy de configuración de Tap de interfaz de red. |
 > | Microsoft.Network/virtualRouters/read | Obtiene un objeto VirtualRouter. |
 > | Microsoft.Network/virtualRouters/write | Crea un objeto VirtualRouter o actualiza uno existente. |
 > | Microsoft.Network/virtualRouters/delete | Elimina un enrutador virtual. |
@@ -1476,6 +1626,7 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/virtualRouters/peerings/read | Obtiene un objeto VirtualRouterPeering. |
 > | Microsoft.Network/virtualRouters/peerings/write | Crea un objeto VirtualRouterPeering o actualiza uno existente. |
 > | Microsoft.Network/virtualRouters/peerings/delete | Elimina un objeto VirtualRouterPeering. |
+> | Microsoft.Network/virtualRouters/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de métricas de VirtualRouter. |
 > | Microsoft.Network/virtualWans/delete | Elimina una red WAN virtual. |
 > | Microsoft.Network/virtualWans/read | Obtiene una red WAN virtual. |
 > | Microsoft.Network/virtualWans/write | Crea o actualiza una red WAN virtual. |
@@ -1488,7 +1639,13 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.network/virtualWans/p2sVpnServerConfigurations/write | Crea una configuración P2SVpnServerConfiguration de Virtual WAN o actualiza una ya existente. |
 > | Microsoft.network/virtualWans/p2sVpnServerConfigurations/delete | Elimina una configuración P2SVpnServerConfiguration de Virtual WAN. |
 > | Microsoft.Network/virtualwans/supportedSecurityProviders/read | Obtiene los proveedores de seguridad de VirtualWan compatibles. |
+> | Microsoft.Network/virtualWans/virtualHubProxies/read | Obtiene la definición de un proxy de concentrador virtual. |
+> | Microsoft.Network/virtualWans/virtualHubProxies/write | Crea a un proxy de concentrador virtual o actualiza uno ya existente, |
+> | Microsoft.Network/virtualWans/virtualHubProxies/delete | Elimina un proxy de un concentrador virtual. |
 > | Microsoft.Network/virtualWans/virtualHubs/read | Obtiene todos los concentradores virtuales que hacen referencia a una red WAN virtual. |
+> | Microsoft.Network/virtualWans/vpnSiteProxies/read | Obtiene la definición del proxy de un sitio VPN. |
+> | Microsoft.Network/virtualWans/vpnSiteProxies/write | Crea el proxy de un sitio VPN o actualiza uno ya existente. |
+> | Microsoft.Network/virtualWans/vpnSiteProxies/delete | Elimina el proxy de un sitio VPN. |
 > | Microsoft.Network/virtualWans/vpnSites/read | Obtiene todos los sitios VPN que hacen referencia a una red WAN virtual. |
 > | Microsoft.Network/vpnGateways/read | Obtiene un elemento VpnGateway. |
 > | Microsoft.Network/vpnGateways/write | Establece un elemento VpnGateway. |
@@ -1500,6 +1657,10 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | microsoft.network/vpnGateways/natRules/read | Obtiene un recurso de la regla de NAT. |
 > | microsoft.network/vpnGateways/natRules/write | Pone un recurso de la regla de NAT. |
 > | microsoft.network/vpnGateways/natRules/delete | Elimina un recurso de la regla de NAT. |
+> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de VPN Gateway. |
+> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de VPN Gateway; esta operación se complementa con el proveedor de recursos de Insights. |
+> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/logDefinitions/read | Obtiene los eventos de VPN Gateway. |
+> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de VPN Gateway. |
 > | microsoft.network/vpnGateways/vpnConnections/read | Obtiene un elemento VpnConnection. |
 > | microsoft.network/vpnGateways/vpnConnections/write | Establece un elemento VpnConnection. |
 > | microsoft.network/vpnGateways/vpnConnections/delete | Elimina un elemento VpnConnection. |
@@ -1511,6 +1672,9 @@ Servicio de Azure: [Application Gateway](../application-gateway/index.yml), [Azu
 > | Microsoft.Network/vpnServerConfigurations/read | Obtiene un objeto VpnServerConfiguration. |
 > | Microsoft.Network/vpnServerConfigurations/write | Crea o actualiza VpnServerConfiguration. |
 > | Microsoft.Network/vpnServerConfigurations/delete | Elimina un objeto VpnServerConfiguration. |
+> | Microsoft.Network/vpnServerConfigurations/p2sVpnGatewayProxies/read | Obtiene una definición de proxy de P2SVpnGateway. |
+> | Microsoft.Network/vpnServerConfigurations/p2sVpnGatewayProxies/write | Crea a un proxy de P2SVpnGateway o actualiza a uno ya existente. |
+> | Microsoft.Network/vpnServerConfigurations/p2sVpnGatewayProxies/delete | Elimina un proxy de P2SVpnGateway. |
 > | Microsoft.Network/vpnsites/read | Obtiene el recurso de un sitio VPN. |
 > | Microsoft.Network/vpnsites/write | Crea o actualiza el recurso de un sitio VPN. |
 > | Microsoft.Network/vpnsites/delete | Elimina el recurso de un sitio VPN. |
@@ -1622,6 +1786,10 @@ Servicio de Azure: [Azure Data Share](../data-share/index.yml)
 > | Microsoft.DataShare/accounts/read | Lee una cuenta de Data Share. |
 > | Microsoft.DataShare/accounts/write | Escribe una cuenta de Data Share. |
 > | Microsoft.DataShare/accounts/delete | Elimina una cuenta de Data Share. |
+> | Microsoft.DataShare/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.DataShare/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.DataShare/accounts/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de la cuenta. |
+> | Microsoft.DataShare/accounts/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de la cuenta. |
 > | Microsoft.DataShare/accounts/shares/read | Lee un recurso compartido de Data Share. |
 > | Microsoft.DataShare/accounts/shares/write | Escribe un recurso compartido de Data Share. |
 > | Microsoft.DataShare/accounts/shares/delete | Elimina un recurso compartido de Data Share. |
@@ -1691,6 +1859,7 @@ Servicio de Azure: [Azure NetApp Files](../azure-netapp-files/index.yml)
 > | Microsoft.NetApp/locations/read | Lee un recurso de comprobación de disponibilidad. |
 > | Microsoft.NetApp/locations/checknameavailability/action | Comprueba si el nombre de recurso está disponible. |
 > | Microsoft.NetApp/locations/checkfilepathavailability/action | Compruebe si la ruta de acceso al archivo está disponible. |
+> | Microsoft.NetApp/locations/checkinventory/action | Comprueba el inventario de ReservedCapacity. |
 > | Microsoft.NetApp/locations/operationresults/read | Lee un recurso resultante de la operación. |
 > | Microsoft.NetApp/netAppAccounts/read | Lee un recurso de cuenta. |
 > | Microsoft.NetApp/netAppAccounts/write | Escribe un recurso de cuenta. |
@@ -1705,6 +1874,10 @@ Servicio de Azure: [Azure NetApp Files](../azure-netapp-files/index.yml)
 > | Microsoft.NetApp/netAppAccounts/capacityPools/read | Lee un recurso de grupo. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/write | Escribe un recurso de grupo. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/delete | Elimina un recurso de grupo. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/logDefinitions/read | Obtiene las definiciones de registros del recurso. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles del recurso de volumen. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read | Lee un recurso de volumen. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write | Escribe un recurso de volumen. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/delete | Elimina un recurso de volumen. |
@@ -1715,16 +1888,21 @@ Servicio de Azure: [Azure NetApp Files](../azure-netapp-files/index.yml)
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/AuthorizeReplication/action | Autoriza la replicación del volumen de origen. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ResyncReplication/action | Vuelve a sincronizar la replicación en el volumen de destino. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/DeleteReplication/action | Elimina la replicación en el volumen de destino. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/PoolChange/action | Mueve el volumen a otro grupo. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/read | Lee un recurso de copia de seguridad. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/write | Escribe un recurso de copia de seguridad. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/delete | Elimina un recurso de copia de seguridad. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/BackupStatus/read |  |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/MountTargets/read | Lee un recurso de destino de montaje. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles del recurso de volumen. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ReplicationStatus/read | Lee los estados de la replicación de volúmenes. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/RestoreStatus/read |  |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/read | Lee un recurso de instantánea. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write | Escribe un recurso de instantánea. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/delete | Elimina un recurso de instantánea. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/subvolumes/write | Escribe un recurso de subvolumen. |
 > | Microsoft.NetApp/netAppAccounts/ipsecPolicies/read | Lee un recurso de directiva de IPSec. |
 > | Microsoft.NetApp/netAppAccounts/ipsecPolicies/write | Escribe un recurso de directiva de IPSec. |
 > | Microsoft.NetApp/netAppAccounts/ipsecPolicies/delete | Elimina un recurso de directiva de IPSec. |
@@ -1790,6 +1968,10 @@ Servicio de Azure: [Storage](../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/write | Establece la directiva de inmutabilidad del contenedor de blobs. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/lock/action | Bloquea la directiva de inmutabilidad del contenedor de blobs. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/read | Obtiene la directiva de inmutabilidad del contenedor de blobs. |
+> | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/logDefinitions/read | Obtiene la definición de registro del blob. |
+> | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/metricDefinitions/read | Obtiene la lista de definiciones de métricas de almacenamiento de Microsoft. |
 > | Microsoft.Storage/storageAccounts/consumerDataSharePolicies/read |  |
 > | Microsoft.Storage/storageAccounts/consumerDataSharePolicies/write |  |
 > | Microsoft.Storage/storageAccounts/dataSharePolicies/delete |  |
@@ -1804,6 +1986,10 @@ Servicio de Azure: [Storage](../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/fileServices/read | Muestra las instancias de File service. |
 > | Microsoft.Storage/storageAccounts/fileServices/write | Coloca las propiedades de File service. |
 > | Microsoft.Storage/storageAccounts/fileServices/read | Obtiene las propiedades del servicio de archivos. |
+> | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/logDefinitions/read | Obtiene la definición de registro del archivo. |
+> | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read | Obtiene la lista de definiciones de métricas de almacenamiento de Microsoft. |
 > | Microsoft.Storage/storageAccounts/fileServices/shares/delete | Elimina el recurso compartido de archivos. |
 > | Microsoft.Storage/storageAccounts/fileServices/shares/read | Obtiene el recurso compartido de archivos. |
 > | Microsoft.Storage/storageAccounts/fileServices/shares/lease/action |  |
@@ -1833,11 +2019,18 @@ Servicio de Azure: [Storage](../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/privateEndpointConnections/read | Obtiene la conexión de punto de conexión privado. |
 > | Microsoft.Storage/storageAccounts/privateEndpointConnections/write | Establece la conexión de punto de conexión privado. |
 > | Microsoft.Storage/storageAccounts/privateLinkResources/read | Obtiene los identificadores de grupo de la cuenta de almacenamiento. |
+> | Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/metricDefinitions/read | Obtiene la lista de definiciones de métricas de almacenamiento de Microsoft. |
 > | Microsoft.Storage/storageAccounts/queueServices/read |  |
 > | Microsoft.Storage/storageAccounts/queueServices/write |  |
 > | Microsoft.Storage/storageAccounts/queueServices/read | Obtiene las propiedades de Queue service. |
 > | Microsoft.Storage/storageAccounts/queueServices/read | Devuelve las propiedades o las estadísticas de Queue service. |
 > | Microsoft.Storage/storageAccounts/queueServices/write | Devuelve el resultado de establecer las propiedades de Queue service. |
+> | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/logDefinitions/read | Obtiene la definición de registro de la cola. |
+> | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/metricDefinitions/read | Obtiene la lista de definiciones de métricas de almacenamiento de Microsoft. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read |  |
@@ -1851,6 +2044,10 @@ Servicio de Azure: [Storage](../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/tableServices/write |  |
 > | Microsoft.Storage/storageAccounts/tableServices/read | Obtiene propiedades o estadísticas de Table Service. |
 > | Microsoft.Storage/storageAccounts/tableServices/write | Define las propiedades de Table Service. |
+> | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/logDefinitions/read | Obtiene la definición de registro de la tabla. |
+> | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/metricDefinitions/read | Obtiene la lista de definiciones de métricas de almacenamiento de Microsoft. |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/delete |  |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/read |  |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/read |  |
@@ -2168,6 +2365,10 @@ Servicio de Azure: [Azure Spring Cloud](../spring-cloud/index.yml)
 > | Microsoft.AppPlatform/Spring/detectors/read | Permite obtener los detectores para una instancia de servicio específica de Azure Spring Cloud. |
 > | Microsoft.AppPlatform/Spring/monitoringSettings/read | Permite obtener la configuración de supervisión para una instancia de servicio específica de Azure Spring Cloud. |
 > | Microsoft.AppPlatform/Spring/monitoringSettings/write | Permite crear o actualizar la configuración de supervisión para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/providers/Microsoft.Insights/logDefinitions/read | Obtiene definiciones de registros de la instancia de servicio de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/providers/Microsoft.Insights/metricDefinitions/read | Obtiene definiciones de métricas de la instancia de servicio de Azure Spring Cloud. |
 > | **DataAction** | **Descripción** |
 > | Microsoft.AppPlatform/Spring/configService/read | Permite leer el contenido de la configuración (por ejemplo, application.yaml) para una instancia de servicio específica de Azure Spring Cloud. |
 > | Microsoft.AppPlatform/Spring/configService/read | Permite leer la información de registro de aplicaciones de usuario para una instancia de servicio específica de Azure Spring Cloud. |
@@ -2249,6 +2450,9 @@ Servicio de Azure: [Azure Maps](../azure-maps/index.yml)
 > | Microsoft.Maps/accounts/eventGridFilters/delete | Elimina un filtro de Event Grid. |
 > | Microsoft.Maps/accounts/eventGridFilters/read | Obtiene un filtro de Event Grid. |
 > | Microsoft.Maps/accounts/eventGridFilters/write | Crea o actualiza un filtro de Event Grid. |
+> | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.Maps/accounts/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles para las cuentas de Maps |
 > | Microsoft.Maps/operations/read | Lee las operaciones del proveedor. |
 > | Microsoft.Maps/resourceTypes/read | Lee los resourceTypes del proveedor. |
 > | **DataAction** | **Descripción** |
@@ -2321,6 +2525,9 @@ Servicio de Azure: [Media Services](../media-services/index.yml)
 > | Microsoft.Media/mediaservices/liveEvents/liveOutputs/read | Lee cualquier salida en vivo |
 > | Microsoft.Media/mediaservices/liveEvents/liveOutputs/write | Crea o actualiza cualquier salida en vivo. |
 > | Microsoft.Media/mediaservices/liveEvents/liveOutputs/delete | Elimina cualquier salida en vivo |
+> | Microsoft.Media/mediaservices/liveEvents/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Media/mediaservices/liveEvents/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Media/mediaservices/liveEvents/providers/Microsoft.Insights/metricDefinitions/read | Obtiene una lista de definiciones de métricas de eventos en directo de Media Services. |
 > | Microsoft.Media/mediaservices/liveOutputOperations/read | Lee cualquier operación de Salida en vivo |
 > | Microsoft.Media/mediaservices/privateEndpointConnections/read | Lee cualquier operación de conexión de punto de conexión privado. |
 > | Microsoft.Media/mediaservices/privateEndpointConnectionProxies/read | Lee cualquier proxy de conexión de punto de conexión privado. |
@@ -2331,6 +2538,10 @@ Servicio de Azure: [Media Services](../media-services/index.yml)
 > | Microsoft.Media/mediaservices/privateEndpointConnections/write | Crea la conexión de punto de conexión privado. |
 > | Microsoft.Media/mediaservices/privateEndpointConnections/delete | Elimina la conexión de punto de conexión privado. |
 > | Microsoft.Media/mediaservices/privateLinkResources/read | Lee cualquier recurso de Private Link. |
+> | Microsoft.Media/mediaservices/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Media/mediaservices/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Media/mediaservices/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de una cuenta de Media Services. |
+> | Microsoft.Media/mediaservices/providers/Microsoft.Insights/metricDefinitions/read | Obtiene la lista de definiciones de métricas de Media Services. |
 > | Microsoft.Media/mediaservices/streamingEndpointOperations/read | Lee cualquier operación del punto de conexión de streaming |
 > | Microsoft.Media/mediaservices/streamingEndpoints/read | Lee cualquier punto de conexión de streaming |
 > | Microsoft.Media/mediaservices/streamingEndpoints/write | Crea o actualiza cualquier punto de conexión de streaming |
@@ -2338,6 +2549,9 @@ Servicio de Azure: [Media Services](../media-services/index.yml)
 > | Microsoft.Media/mediaservices/streamingEndpoints/start/action | Inicia cualquier operación del punto de conexión de streaming |
 > | Microsoft.Media/mediaservices/streamingEndpoints/stop/action | Detiene cualquier operación del punto de conexión de streaming |
 > | Microsoft.Media/mediaservices/streamingEndpoints/scale/action | Escala cualquier operación del punto de conexión de streaming |
+> | Microsoft.Media/mediaservices/streamingEndpoints/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Media/mediaservices/streamingEndpoints/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Media/mediaservices/streamingEndpoints/providers/Microsoft.Insights/metricDefinitions/read | Obtiene la lista de definiciones de métricas de punto de conexión de streaming de Media Services. |
 > | Microsoft.Media/mediaservices/streamingLocators/read | Lee cualquier localizador de streaming |
 > | Microsoft.Media/mediaservices/streamingLocators/write | Crea o actualiza cualquier localizador de streaming |
 > | Microsoft.Media/mediaservices/streamingLocators/delete | Elimina cualquier localizador de streaming. |
@@ -2405,12 +2619,16 @@ Servicio de Azure: [Azure Search](../search/index.yml)
 > | Microsoft.Search/searchServices/debugSessions/delete | Elimina una sesión de depuración. |
 > | Microsoft.Search/searchServices/debugSessions/execute/action | Usa una sesión de depuración, obtiene datos de ejecución o evalúa expresiones en ella. |
 > | Microsoft.Search/searchServices/deleteQueryKey/delete | Elimina las claves de consulta. |
+> | Microsoft.Search/searchServices/diagnosticSettings/read | Obtiene la lectura de la configuración de diagnóstico del recurso. |
+> | Microsoft.Search/searchServices/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
 > | Microsoft.Search/searchServices/indexers/read | Devuelve un indexador o su estado, o devuelve una lista de indexadores o sus estados. |
 > | Microsoft.Search/searchServices/indexers/write | Crea un indexador, modifica sus propiedades o administra su ejecución. |
 > | Microsoft.Search/searchServices/indexers/delete | Elimina un indexador. |
 > | Microsoft.Search/searchServices/indexes/read | Devuelve un índice o sus estadísticas, devuelve una lista de índices o sus estadísticas, o prueba los componentes de análisis léxico de un índice. |
 > | Microsoft.Search/searchServices/indexes/write | Crea un índice o modifica sus propiedades. |
 > | Microsoft.Search/searchServices/indexes/delete | Elimina un índice. |
+> | Microsoft.Search/searchServices/logDefinitions/read | Obtiene los registros disponibles del servicio de búsqueda. |
+> | Microsoft.Search/searchServices/metricDefinitions/read | Obtiene las métricas disponibles del servicio de búsqueda. |
 > | Microsoft.Search/searchServices/privateEndpointConnectionProxies/validate/action | Valida una llamada de creación de conexión de punto de conexión privado desde NRP. |
 > | Microsoft.Search/searchServices/privateEndpointConnectionProxies/write | Crea un servidor proxy de conexión de punto de conexión privado con los parámetros especificados o actualiza las propiedades o etiquetas del servidor proxy de conexión de punto de conexión privado especificado. |
 > | Microsoft.Search/searchServices/privateEndpointConnectionProxies/read | Devuelve la lista de servidores proxy de conexión de punto de conexión privado u obtiene las propiedades del servidor proxy de conexión de punto de conexión privado especificado. |
@@ -2471,6 +2689,10 @@ Servicio de Azure: [Servicio Azure SignalR](../azure-signalr/index.yml)
 > | Microsoft.SignalRService/SignalR/privateEndpointConnections/read | Lee una conexión del punto de conexión privado. |
 > | Microsoft.SignalRService/SignalR/privateEndpointConnections/delete | Elimina la conexión de punto de conexión privado. |
 > | Microsoft.SignalRService/SignalR/privateLinkResources/read | Enumera recursos de Private Link. |
+> | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de un recurso de SignalR. |
+> | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de un recurso de SignalR. |
 > | Microsoft.SignalRService/SignalR/sharedPrivateLinkResources/write | Escribe un recurso compartido de Private Link. |
 > | Microsoft.SignalRService/SignalR/sharedPrivateLinkResources/read | Lee un recurso compartido de Private Link. |
 > | Microsoft.SignalRService/SignalR/sharedPrivateLinkResources/delete | Elimina un recurso compartido de Private Link. |
@@ -2491,6 +2713,10 @@ Servicio de Azure: [Servicio Azure SignalR](../azure-signalr/index.yml)
 > | Microsoft.SignalRService/WebPubSub/privateEndpointConnections/read | Lee una conexión del punto de conexión privado. |
 > | Microsoft.SignalRService/WebPubSub/privateEndpointConnections/delete | Elimina la conexión de punto de conexión privado. |
 > | Microsoft.SignalRService/WebPubSub/privateLinkResources/read | Enumera recursos de Private Link. |
+> | Microsoft.SignalRService/WebPubSub/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.SignalRService/WebPubSub/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.SignalRService/WebPubSub/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de un recurso de WebPubSub. |
+> | Microsoft.SignalRService/WebPubSub/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de un recurso de WebPubSub. |
 > | Microsoft.SignalRService/WebPubSub/sharedPrivateLinkResources/write | Escribe un recurso compartido de Private Link. |
 > | Microsoft.SignalRService/WebPubSub/sharedPrivateLinkResources/read | Lee un recurso compartido de Private Link. |
 > | Microsoft.SignalRService/WebPubSub/sharedPrivateLinkResources/delete | Elimina un recurso compartido de Private Link. |
@@ -2555,6 +2781,7 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | microsoft.web/apimanagementaccounts/apis/localizeddefinitions/write | Actualiza las definiciones localizadas de API para las cuentas de API Management. |
 > | microsoft.web/apimanagementaccounts/connectionacls/read | Obtiene las ACL de Connection de las cuentas de API Management. |
 > | microsoft.web/availablestacks/read | Obtiene las pilas disponibles. |
+> | microsoft.web/billingmeters/read | Obtiene la lista de medidores de facturación. |
 > | Microsoft.Web/certificates/Read | Obtiene la lista de certificados. |
 > | Microsoft.Web/certificates/Write | Agrega un nuevo certificado o actualiza uno existente. |
 > | Microsoft.Web/certificates/Delete | Elimina un certificado existente. |
@@ -2576,6 +2803,7 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | microsoft.web/connections/listconsentlinks/action | Enumera los vínculos de consentimiento de las conexiones. |
 > | microsoft.web/connections/listConnectionKeys/action | Enumera las claves de conexiones de API. |
 > | microsoft.web/connections/revokeConnectionKeys/action | Revoca las claves de conexiones de API. |
+> | Microsoft.Web/connections/providers/Microsoft.Insights/metricDefinitions/Read | Obtiene las métricas disponibles de las conexiones de API. |
 > | Microsoft.Web/customApis/Read | Obtiene la lista de API personalizadas. |
 > | Microsoft.Web/customApis/Write | Crea o actualiza una API personalizada. |
 > | Microsoft.Web/customApis/Delete | Elimina una API personalizada. |
@@ -2611,14 +2839,24 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | Microsoft.Web/hostingEnvironments/multiRolePools/Write | Crea un nuevo grupo de front-end en un entorno de App Service o actualiza uno que ya existe |
 > | microsoft.web/hostingenvironments/multirolepools/metricdefinitions/read | Obtiene las definiciones de métricas de los grupos MultiRole de los entornos de hospedaje. |
 > | microsoft.web/hostingenvironments/multirolepools/metrics/read | Obtiene las métricas de los grupos MultiRole de los entornos de hospedaje. |
+> | Microsoft.Web/hostingEnvironments/multiRolePools/providers/Microsoft.Insights/metricDefinitions/Read | Obtiene las métricas disponibles para el multirol de App Service Environment. |
 > | microsoft.web/hostingenvironments/multirolepools/skus/read | Obtiene las SKU de los grupos MultiRole de los entornos de hospedaje. |
 > | microsoft.web/hostingenvironments/multirolepools/usages/read | Obtiene los usos de los grupos MultiRole de los entornos de hospedaje. |
 > | microsoft.web/hostingenvironments/operations/read | Obtiene las operaciones de los entornos de hospedaje. |
 > | microsoft.web/hostingenvironments/outboundnetworkdependenciesendpoints/read | Obtiene los puntos de conexión de red de todas las dependencias de salida. |
+> | Microsoft.Web/hostingEnvironments/privateEndpointConnectionProxies/Read | Lee servidores proxy de conexión de punto de conexión privado. |
+> | Microsoft.Web/hostingEnvironments/privateEndpointConnectionProxies/Write | Crea o actualiza servidores proxy de conexión de punto de conexión privado. |
+> | Microsoft.Web/hostingEnvironments/privateEndpointConnectionProxies/Delete | Elimina los servidores proxy de conexión de punto de conexión privado. |
+> | Microsoft.Web/hostingEnvironments/privateEndpointConnectionProxies/validate/action | Valida los servidores proxy de conexión de punto de conexión privado. |
+> | Microsoft.Web/hostingEnvironments/privateEndpointConnectionProxies/operations/Read | Lee operaciones de proxy de conexión de punto de conexión privado. |
 > | Microsoft.Web/hostingEnvironments/privateEndpointConnections/Write | Aprueba o rechaza una conexión de punto de conexión privado. |
 > | Microsoft.Web/hostingEnvironments/privateEndpointConnections/Read | Obtiene una conexión de punto de conexión privado o la lista de conexiones de punto de conexión privado. |
 > | Microsoft.Web/hostingEnvironments/privateEndpointConnections/Delete | Elimina una conexión de punto de conexión privado. |
 > | Microsoft.Web/hostingEnvironments/privateLinkResources/Read | Obtención de recursos de vínculos privados. |
+> | microsoft.web/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | microsoft.web/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | microsoft.web/hostingenvironments/providers/Microsoft.Insights/logDefinitions/read | Lee definiciones de registros de entornos de hospedaje. |
+> | Microsoft.Web/hostingEnvironments/providers/Microsoft.Insights/metricDefinitions/Read | Obtiene las métricas disponibles de App Service Environment. |
 > | microsoft.web/hostingenvironments/serverfarms/read | Obtiene los planes de App Service de los entornos de hospedaje. |
 > | microsoft.web/hostingenvironments/sites/read | Obtiene las instancias de Web Apps de los entornos de hospedaje. |
 > | microsoft.web/hostingenvironments/usages/read | Obtiene los usos de los entornos de hospedaje. |
@@ -2626,6 +2864,7 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | Microsoft.Web/hostingEnvironments/workerPools/Write | Crea un nuevo grupo de trabajo en un entorno de App Service o actualiza uno que ya existe |
 > | microsoft.web/hostingenvironments/workerpools/metricdefinitions/read | Obtiene las definiciones de métricas de los grupos de trabajo de los entornos de hospedaje. |
 > | microsoft.web/hostingenvironments/workerpools/metrics/read | Obtiene las métricas de los grupos de trabajo de los entornos de hospedaje. |
+> | Microsoft.Web/hostingEnvironments/workerPools/providers/Microsoft.Insights/metricDefinitions/Read | Obtiene las métricas disponibles para el conjunto de trabajo de App Service Environment. |
 > | microsoft.web/hostingenvironments/workerpools/skus/read | Obtiene las SKU de los grupos de trabajo de los entornos de hospedaje. |
 > | microsoft.web/hostingenvironments/workerpools/usages/read | Obtiene los usos de los grupos de trabajo de los entornos de hospedaje. |
 > | microsoft.web/ishostingenvironmentnameavailable/read | Averigua si el nombre del entorno de hospedaje está disponible. |
@@ -2637,6 +2876,7 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | Microsoft.Web/kubeEnvironments/join/action | Se une a un entorno de Kubernetes. |
 > | Microsoft.Web/kubeEnvironments/operations/read | Obtiene las operaciones de un entorno de Kubernetes. |
 > | Microsoft.Web/listSitesAssignedToHostName/Read | Obtiene los nombres de sitios asignados al nombre de host. |
+> | Microsoft.Web/locations/GetNetworkPolicies/action | Lee las directivas de intención de red. |
 > | microsoft.web/locations/extractapidefinitionfromwsdl/action | Extrae la definición de API de WSDL para las ubicaciones. |
 > | microsoft.web/locations/listwsdlinterfaces/action | Enumera las interfaces de WSDL para las ubicaciones. |
 > | microsoft.web/locations/deleteVirtualNetworkOrSubnets/action | Notificación de eliminación de red virtual o subred para las ubicaciones. |
@@ -2673,6 +2913,9 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | microsoft.web/serverfarms/metricdefinitions/read | Obtiene las definiciones de métricas de los planes de App Service. |
 > | microsoft.web/serverfarms/metrics/read | Obtiene las métricas de los planes de App Service. |
 > | microsoft.web/serverfarms/operationresults/read | Obtiene los resultados de la operación de planes de App Service. |
+> | microsoft.web/serverfarms/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | microsoft.web/serverfarms/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.Web/serverfarms/providers/Microsoft.Insights/metricDefinitions/Read | Obtiene las métricas disponibles para un plan de App Service. |
 > | microsoft.web/serverfarms/sites/read | Obtiene las instancias de Web Apps de los planes de App Service. |
 > | microsoft.web/serverfarms/skus/read | Obtiene las SKU de los planes de App Service. |
 > | microsoft.web/serverfarms/usages/read | Obtiene los usos de los planes de App Service. |
@@ -2718,6 +2961,7 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | microsoft.web/sites/backups/delete | Elimina las copias de seguridad de Web Apps. |
 > | microsoft.web/sites/backups/write | Actualiza las copias de seguridad de aplicaciones web. |
 > | Microsoft.Web/sites/basicPublishingCredentialsPolicies/Read | Enumera los métodos de publicación que se permiten para una aplicación web |
+> | Microsoft.Web/sites/basicPublishingCredentialsPolicies/Write | Enumera los métodos de publicación que se permiten para una aplicación web |
 > | Microsoft.Web/sites/basicPublishingCredentialsPolicies/ftp/Read | Obtiene si las credenciales de publicación de FTP se permiten para una aplicación web |
 > | Microsoft.Web/sites/basicPublishingCredentialsPolicies/ftp/Write | Actualiza si las credenciales de publicación de FTP se permiten para una aplicación web |
 > | Microsoft.Web/sites/basicPublishingCredentialsPolicies/scm/Read | Obtiene si las credenciales de publicación de SCM se permiten para una aplicación web |
@@ -2826,6 +3070,11 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | microsoft.web/sites/premieraddons/read | Obtiene complementos Premier de Web Apps. |
 > | microsoft.web/sites/premieraddons/write | Actualiza complementos Premier de Web Apps. |
 > | microsoft.web/sites/privateaccess/read | Obtiene datos en torno a la habilitación del acceso a sitio privado y redes virtuales autorizadas que pueden acceder al sitio. |
+> | Microsoft.Web/sites/privateEndpointConnectionProxies/Read | Lee servidores proxy de conexión de punto de conexión privado. |
+> | Microsoft.Web/sites/privateEndpointConnectionProxies/Write | Crea o actualiza servidores proxy de conexión de punto de conexión privado. |
+> | Microsoft.Web/sites/privateEndpointConnectionProxies/Delete | Elimina los servidores proxy de conexión de punto de conexión privado. |
+> | Microsoft.Web/sites/privateEndpointConnectionProxies/validate/action | Valida los servidores proxy de conexión de punto de conexión privado. |
+> | Microsoft.Web/sites/privateEndpointConnectionProxies/operations/Read | Lee operaciones de proxy de conexión de punto de conexión privado. |
 > | Microsoft.Web/sites/privateEndpointConnections/Write | Aprueba o rechaza una conexión de punto de conexión privado. |
 > | Microsoft.Web/sites/privateEndpointConnections/Read | Obtiene una conexión de punto de conexión privado o la lista de conexiones de punto de conexión privado. |
 > | Microsoft.Web/sites/privateEndpointConnections/Delete | Elimina una conexión de punto de conexión privado. |
@@ -2833,6 +3082,10 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | microsoft.web/sites/processes/read | Obtiene los procesos de Web Apps. |
 > | microsoft.web/sites/processes/modules/read | Obtiene los módulos de procesos de Web Apps. |
 > | microsoft.web/sites/processes/threads/read | Obtiene los subprocesos de procesos de Web Apps. |
+> | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | microsoft.web/sites/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles para la aplicación web. |
+> | Microsoft.Web/sites/providers/Microsoft.Insights/metricDefinitions/Read | Obtiene las métricas disponibles de Web Apps. |
 > | microsoft.web/sites/publiccertificates/delete | Elimina los certificados públicos de Web Apps. |
 > | microsoft.web/sites/publiccertificates/read | Obtiene los certificados públicos de Web Apps. |
 > | microsoft.web/sites/publiccertificates/write | Actualiza los certificados públicos de Web Apps. |
@@ -2876,6 +3129,7 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | microsoft.web/sites/slots/backups/restore/action | Restaura las copias de seguridad de ranuras de Web Apps. |
 > | microsoft.web/sites/slots/backups/delete | Elimina las copias de seguridad de ranuras de Web Apps. |
 > | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/Read | Enumera si las credenciales de publicación se permiten para la ranura de una aplicación web |
+> | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/Write | Enumera si las credenciales de publicación se permiten para la ranura de una aplicación web |
 > | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/ftp/Read | Obtiene si las credenciales de publicación de FTP se permiten para la ranura de una aplicación web |
 > | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/ftp/Write | Actualiza si las credenciales de publicación de FTP se permiten para la ranura de una aplicación web |
 > | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/scm/Read | Obtiene si las credenciales de publicación de SCM se permiten para la ranura de una aplicación web |
@@ -2960,6 +3214,10 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | microsoft.web/sites/slots/premieraddons/read | Obtiene complementos Premier de ranuras de Web Apps. |
 > | microsoft.web/sites/slots/premieraddons/write | Actualiza complementos Premier de ranuras de Web Apps. |
 > | microsoft.web/sites/slots/processes/read | Obtiene los procesos de ranuras de Web Apps. |
+> | microsoft.web/sites/slots/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | microsoft.web/sites/slots/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | microsoft.web/sites/slots/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles para las ranuras de la aplicación web. |
+> | Microsoft.Web/sites/slots/providers/Microsoft.Insights/metricDefinitions/Read | Obtiene las métricas disponibles para la ranura de Web Apps. |
 > | microsoft.web/sites/slots/publiccertificates/read | Obtiene los certificados públicos de las ranuras de Web Apps. |
 > | microsoft.web/sites/slots/publiccertificates/write | Crea o actualiza los certificados públicos de las ranuras de Web Apps. |
 > | microsoft.web/sites/slots/publiccertificates/delete | Elimina los certificados públicos de las ranuras de aplicaciones web. |
@@ -3032,10 +3290,16 @@ Servicio de Azure: [App Service](../app-service/index.yml), [Azure Functions](..
 > | Microsoft.Web/staticSites/customdomains/Read | Enumera los dominios personalizados para un sitio estático. |
 > | Microsoft.Web/staticSites/customdomains/validate/Action | Valida un dominio personalizado que se puede agregar a un sitio estático. |
 > | Microsoft.Web/staticSites/functions/Read | Enumera las funciones de un sitio estático. |
+> | Microsoft.Web/staticSites/privateEndpointConnectionProxies/validate/action | Valida servidores proxy de conexión de punto de conexión privado para sitios estáticos. |
+> | Microsoft.Web/staticSites/privateEndpointConnectionProxies/Write | Crea o actualiza servidores proxy de conexión de punto de conexión privado para sitios estáticos. |
+> | Microsoft.Web/staticSites/privateEndpointConnectionProxies/Delete | Elimina servidores proxy de conexión de punto de conexión privado para sitios estáticos. |
+> | Microsoft.Web/staticSites/privateEndpointConnectionProxies/Read | Obtiene servidores proxy de conexión de punto de conexión privado para sitios estáticos. |
+> | Microsoft.Web/staticSites/privateEndpointConnectionProxies/operations/Read | Lee operaciones de proxy de conexión de punto de conexión privado para sitios estáticos. |
 > | Microsoft.Web/staticSites/privateEndpointConnections/Write | Aprueba o rechaza una conexión de punto de conexión privado de un sitio estático. |
 > | Microsoft.Web/staticSites/privateEndpointConnections/Read | Obtiene una conexión de punto de conexión privado o la lista de conexiones de punto de conexión privado de un sitio estático. |
 > | Microsoft.Web/staticSites/privateEndpointConnections/Delete | Elimina una conexión de punto de conexión privado de un sitio estático. |
 > | Microsoft.Web/staticSites/privateLinkResources/Read | Obtiene recursos de Private Link. |
+> | Microsoft.Web/staticSites/providers/Microsoft.Insights/metricDefinitions/Read | Obtiene las métricas disponibles para sitios estáticos. |
 > | Microsoft.Web/staticSites/userProvidedFunctionApps/Delete | Desasocia una aplicación de funciones proporcionada por el usuario desde un sitio estático. |
 > | Microsoft.Web/staticSites/userProvidedFunctionApps/Read | Obtiene aplicaciones de funciones proporcionadas por el usuario del sitio estático. |
 > | Microsoft.Web/staticSites/userProvidedFunctionApps/Write | Registro de una aplicación de funciones proporcionada por el usuario con un sitio estático. |
@@ -3148,6 +3412,10 @@ Servicio de Azure: [Container Registry](../container-registry/index.yml)
 > | Microsoft.ContainerRegistry/registries/privateEndpointConnections/read | Obtiene las propiedades de conexión de punto de conexión privado o enumera todas las conexiones de punto de conexión privado para el registro de contenedor especificado. |
 > | Microsoft.ContainerRegistry/registries/privateEndpointConnections/write | Aprueba o rechaza la conexión del punto de conexión privado. |
 > | Microsoft.ContainerRegistry/registries/privateEndpointConnections/delete | Elimina la conexión del punto de conexión privado. |
+> | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles para Microsoft ContainerRegistry. |
+> | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles para Microsoft Container Registry |
 > | Microsoft.ContainerRegistry/registries/pull/read | Extrae u obtiene imágenes de un registro de contenedor. |
 > | Microsoft.ContainerRegistry/registries/push/write | Inserta o escribe imágenes en un registro de contenedor. |
 > | Microsoft.ContainerRegistry/registries/quarantine/read | Extrae u obtiene imágenes en cuarentena de un registro de contenedor |
@@ -3231,12 +3499,22 @@ Servicio de Azure: [Azure Kubernetes Service (AKS)](../aks/index.yml)
 > | Microsoft.ContainerService/managedClusters/commandResults/read | Recupera el resultado del comando emitido anterior. |
 > | Microsoft.ContainerService/managedClusters/detectors/read | Obtiene el detector del clúster administrado. |
 > | Microsoft.ContainerService/managedClusters/diagnosticsState/read | Obtiene el estado de diagnóstico del clúster. |
+> | Microsoft.ContainerService/managedClusters/eventGridFilters/read | Obtiene el filtro de eventgrid. |
+> | Microsoft.ContainerService/managedClusters/eventGridFilters/write | Crea o actualiza el filtro de eventgrid. |
+> | Microsoft.ContainerService/managedClusters/eventGridFilters/delete | Elimina un filtro de eventgrid. |
+> | Microsoft.ContainerService/managedClusters/extensionaddons/read | Obtiene un complemento de extensión. |
+> | Microsoft.ContainerService/managedClusters/extensionaddons/write | Crea un complemento de extensión o actualiza uno existente. |
+> | Microsoft.ContainerService/managedClusters/extensionaddons/delete | Elimina un complemento de extensión. |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/read | Obtiene una configuración de mantenimiento. |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/write | Crea una configuración de mantenimiento o actualiza una existente. |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/delete | Elimina una configuración de mantenimiento. |
 > | Microsoft.ContainerService/managedClusters/availableAgentPoolVersions/read | Obtiene la conexión de un punto de conexión privado. |
 > | Microsoft.ContainerService/managedClusters/privateEndpointConnections/write | Aprueba o rechaza una conexión de punto de conexión privado. |
 > | Microsoft.ContainerService/managedClusters/privateEndpointConnections/delete | Elimina la conexión de punto de conexión privado. |
+> | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene el valor de diagnóstico del recurso de un clúster administrado |
+> | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza el valor de diagnóstico del recurso de un clúster administrado |
+> | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles del clúster administrado. |
+> | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de Managed Cluster |
 > | Microsoft.ContainerService/managedClusters/upgradeProfiles/read | Obtiene el perfil de actualización del clúster. |
 > | Microsoft.ContainerService/openShiftClusters/read | Obtiene un clúster de Open Shift. |
 > | Microsoft.ContainerService/openShiftClusters/write | Crea un nuevo clúster de Open Shift o actualiza uno existente. |
@@ -3654,6 +3932,9 @@ Servicio de Azure: [Factoría de datos](../data-factory/index.yml)
 > | Microsoft.DataFactory/datafactories/linkedServices/read | Lee cualquier servicio vinculado. |
 > | Microsoft.DataFactory/datafactories/linkedServices/delete | Elimina cualquier servicio vinculado. |
 > | Microsoft.DataFactory/datafactories/linkedServices/write | Crea o actualiza cualquier servicio vinculado. |
+> | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de las factorías de datos. |
 > | Microsoft.DataFactory/datafactories/runs/loginfo/read | Lee un identificador URI de SAS en un contenedor de blobs que contiene los registros. |
 > | Microsoft.DataFactory/datafactories/tables/read | Lee cualquier conjunto de datos. |
 > | Microsoft.DataFactory/datafactories/tables/delete | Elimina cualquier conjunto de datos. |
@@ -3744,6 +4025,10 @@ Servicio de Azure: [Factoría de datos](../data-factory/index.yml)
 > | Microsoft.DataFactory/factories/privateEndpointConnections/write | Crea o actualiza una conexión de punto de conexión privado. |
 > | Microsoft.DataFactory/factories/privateEndpointConnections/delete | Elimina la conexión de punto de conexión privado. |
 > | Microsoft.DataFactory/factories/privateLinkResources/read | Lee un recurso de Private Link. |
+> | Microsoft.DataFactory/factories/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.DataFactory/factories/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.DataFactory/factories/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de las factorías. |
+> | Microsoft.DataFactory/factories/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de las factorías. |
 > | Microsoft.DataFactory/factories/queryFeaturesValue/read | Lee los valores de las características de control de exposición en una lista de características. |
 > | Microsoft.DataFactory/factories/querypipelineruns/read | Lee el resultado de las ejecuciones de canalización de consulta. |
 > | Microsoft.DataFactory/factories/querytriggerruns/read | Lee el resultado de las ejecuciones de desencadenador. |
@@ -4267,6 +4552,10 @@ Servicio de Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/delete | Elimina una conexión de punto de conexión privado de una cuenta de base de datos. |
 > | Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/operationResults/read | Leer el estado de la operación asincrónica privateEndpointConnenctions. |
 > | Microsoft.DocumentDB/databaseAccounts/privateLinkResources/read | Lee un recurso de vínculo privado o enumera todos los recursos de vínculo privado de una cuenta de base de datos. |
+> | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/logDefinitions/read | Obtiene las categorías de registro disponibles para la cuenta de base de datos. |
+> | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles para la cuenta de base de datos. |
 > | Microsoft.DocumentDB/databaseAccounts/readonlykeys/read | Lee las claves de solo lectura de la cuenta de base de datos. |
 > | Microsoft.DocumentDB/databaseAccounts/region/databases/collections/metrics/read | Lee las métricas de la colección regional. |
 > | Microsoft.DocumentDB/databaseAccounts/region/databases/collections/partitionKeyRangeId/metrics/read | Lee las métricas de nivel de clave de partición de la cuenta de base de datos regional. |
@@ -4352,6 +4641,7 @@ Servicio de Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure
 > | Microsoft.Sql/instancePools/write | Crea o actualiza un grupo de instancias. |
 > | Microsoft.Sql/instancePools/delete | Elimina un grupo de instancias. |
 > | Microsoft.Sql/instancePools/usages/read | Obtiene la información de uso de un grupo de instancias. |
+> | Microsoft.Sql/locations/deleteVirtualNetworkOrSubnets/action | Elimina las reglas de red virtual asociadas a una red o subred virtual. |
 > | Microsoft.Sql/locations/read | Obtiene las ubicaciones disponibles para una suscripción determinada. |
 > | Microsoft.Sql/locations/administratorAzureAsyncOperation/read | Obtiene el resultado de las operaciones de administrador asincrónico de Azure de instancia administrada. |
 > | Microsoft.Sql/locations/administratorOperationResults/read | Obtiene el resultado de las operaciones de administrador de instancia administrada. |
@@ -4833,6 +5123,10 @@ Servicio de Azure: [Azure Analysis Services](../analysis-services/index.yml)
 > | Microsoft.AnalysisServices/servers/suspend/action | Suspende la instancia de Analysis Server. |
 > | Microsoft.AnalysisServices/servers/resume/action | Reanuda la instancia de Analysis Server. |
 > | Microsoft.AnalysisServices/servers/listGatewayStatus/action | Enumera el estado de la puerta de enlace asociada con el servidor. |
+> | Microsoft.AnalysisServices/servers/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de Analysis Server. |
+> | Microsoft.AnalysisServices/servers/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de Analysis Server. |
+> | Microsoft.AnalysisServices/servers/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de los servidores. |
+> | Microsoft.AnalysisServices/servers/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de Analysis Server. |
 > | Microsoft.AnalysisServices/servers/skus/read | Recupera la información de SKU disponible del servidor. |
 > | Microsoft.AnalysisServices/skus/read | Recupera la información de las SKU. |
 
@@ -4897,6 +5191,10 @@ Servicio de Azure: [Análisis de Data Lake](../data-lake-analytics/index.yml)
 > | Microsoft.DataLakeAnalytics/accounts/firewallRules/write | Crea o actualiza una regla de firewall. |
 > | Microsoft.DataLakeAnalytics/accounts/firewallRules/delete | Elimina una regla de firewall. |
 > | Microsoft.DataLakeAnalytics/accounts/operationResults/read | Obtiene el resultado de una operación de la cuenta de DataLakeAnalytics. |
+> | Microsoft.DataLakeAnalytics/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de la cuenta de DataLakeAnalytics. |
+> | Microsoft.DataLakeAnalytics/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de la cuenta de DataLakeAnalytics. |
+> | Microsoft.DataLakeAnalytics/accounts/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de la cuenta de DataLakeAnalytics. |
+> | Microsoft.DataLakeAnalytics/accounts/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de la cuenta de DataLakeAnalytics. |
 > | Microsoft.DataLakeAnalytics/accounts/storageAccounts/read | Obtiene información acerca de una cuenta de almacenamiento vinculada a una cuenta de DataLakeAnalytics. |
 > | Microsoft.DataLakeAnalytics/accounts/storageAccounts/write | Crea o actualiza una cuenta de almacenamiento vinculada a una cuenta de DataLakeAnalytics. |
 > | Microsoft.DataLakeAnalytics/accounts/storageAccounts/delete | Anula la vinculación de una cuenta de almacenamiento a la cuenta de DataLakeAnalytics. |
@@ -4935,6 +5233,10 @@ Servicio de Azure: [Azure Data Lake Store](../storage/blobs/data-lake-storage-in
 > | Microsoft.DataLakeStore/accounts/firewallRules/delete | Elimina una regla de firewall. |
 > | Microsoft.DataLakeStore/accounts/mountpoints/read | Obtiene información sobre un punto de montaje. |
 > | Microsoft.DataLakeStore/accounts/operationResults/read | Obtiene el resultado de una operación de la cuenta de DataLakeStore. |
+> | Microsoft.DataLakeStore/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de la cuenta de DataLakeStore. |
+> | Microsoft.DataLakeStore/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de la cuenta de DataLakeStore. |
+> | Microsoft.DataLakeStore/accounts/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de la cuenta de DataLakeStore. |
+> | Microsoft.DataLakeStore/accounts/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de la cuenta de DataLakeStore. |
 > | Microsoft.DataLakeStore/accounts/shares/read | Obtiene información sobre un recurso compartido. |
 > | Microsoft.DataLakeStore/accounts/shares/write | Crea o actualiza un recurso compartido. |
 > | Microsoft.DataLakeStore/accounts/shares/delete | Elimina un recurso compartido. |
@@ -4945,6 +5247,7 @@ Servicio de Azure: [Azure Data Lake Store](../storage/blobs/data-lake-storage-in
 > | Microsoft.DataLakeStore/accounts/virtualNetworkRules/write | Crea o actualiza una regla de red virtual. |
 > | Microsoft.DataLakeStore/accounts/virtualNetworkRules/delete | Elimina una regla de red virtual. |
 > | Microsoft.DataLakeStore/locations/checkNameAvailability/action | Comprueba la disponibilidad de un nombre de cuenta de DataLakeStore. |
+> | Microsoft.DataLakeStore/locations/deleteVirtualNetworkOrSubnets/action | Elimina redes virtuales o subredes en cuentas de DataLakeStore. |
 > | Microsoft.DataLakeStore/locations/capability/read | Obtiene información sobre la capacidad de una suscripción acerca del uso de DataLakeStore. |
 > | Microsoft.DataLakeStore/locations/operationResults/read | Obtiene el resultado de una operación de la cuenta de DataLakeStore. |
 > | Microsoft.DataLakeStore/locations/usages/read | Obtiene información de la utilización de cuotas de una suscripción en relación con el uso de DataLakeStore. |
@@ -5058,17 +5361,27 @@ Servicio de Azure: [HDInsight](../hdinsight/index.yml)
 > | Microsoft.HDInsight/clusters/getGatewaySettings/action | Obtiene la configuración de puerta de enlace para el clúster de HDInsight. |
 > | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Actualiza la configuración de puerta de enlace para el clúster de HDInsight. |
 > | Microsoft.HDInsight/clusters/configurations/action | Obtiene las configuraciones de un clúster de HDInsight |
+> | Microsoft.HDInsight/clusters/executeScriptActions/action | Ejecuta acciones de script para clústeres de HDInsight. |
+> | Microsoft.HDInsight/clusters/resolvePrivateLinkServiceId/action | Resuelve identificadores del servicio Private Link para clústeres de HDInsight. |
+> | Microsoft.HDInsight/clusters/privateEndpointConnectionsApproval/action | Aprueba automáticamente conexiones de punto de conexión privado para clústeres de HDInsight. |
 > | Microsoft.HDInsight/clusters/applications/read | Obtiene una aplicación para clúster de HDInsight. |
 > | Microsoft.HDInsight/clusters/applications/write | Crea o actualiza una aplicación para clúster de HDInsight. |
 > | Microsoft.HDInsight/clusters/applications/delete | Elimina una aplicación para clúster de HDInsight. |
 > | Microsoft.HDInsight/clusters/configurations/read | Obtiene las configuraciones de un clúster de HDInsight |
+> | Microsoft.HDInsight/clusters/executeScriptActions/azureasyncoperations/read | Obtiene el estado de la acción de script para clústeres de HDInsight. |
+> | Microsoft.HDInsight/clusters/executeScriptActions/operationresults/read | Obtiene el estado de la acción de script para clústeres de HDInsight. |
 > | Microsoft.HDInsight/clusters/extensions/write | Crea la extensión de clúster para el clúster de HDInsight. |
 > | Microsoft.HDInsight/clusters/extensions/read | Obtiene la extensión de clúster para el clúster de HDInsight. |
 > | Microsoft.HDInsight/clusters/extensions/delete | Elimina la extensión de clúster para el clúster de HDInsight. |
+> | Microsoft.HDInsight/clusters/privateLinkResources/read | Obtiene recursos de Private Link para clústeres de HDInsight. |
 > | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso de clúster de HDInsight. |
 > | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso de clúster de HDInsight. |
 > | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles del clúster de HDInsight. |
 > | Microsoft.HDInsight/clusters/roles/resize/action | Cambia el tamaño de un clúster de HDInsight |
+> | Microsoft.HDInsight/clusters/scriptActions/read | Obtiene acciones de script guardadas para clústeres de HDInsight. |
+> | Microsoft.HDInsight/clusters/scriptActions/delete | Elimina acciones de script guardadas para clústeres de HDInsight. |
+> | Microsoft.HDInsight/clusters/scriptExecutionHistory/read | Obtiene el historial de acciones de script para clústeres de HDInsight. |
+> | Microsoft.HDInsight/clusters/scriptExecutionHistory/promote/action | Promueve acciones de script para clústeres de HDInsight. |
 > | Microsoft.HDInsight/locations/capabilities/read | Obtiene las funcionalidades de la suscripción |
 > | Microsoft.HDInsight/locations/checkNameAvailability/read | Comprueba la disponibilidad del nombre |
 
@@ -5136,6 +5449,10 @@ Servicio de Azure: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnections/read | Lee una conexión de punto de conexión privado. |
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnections/write | Escribe las conexiones de punto de conexión privado. |
 > | Microsoft.Kusto/Clusters/PrivateLinkResources/read | Lee recursos de Private Link |
+> | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/logDefinitions/read | Obtiene la configuración de registros de diagnóstico del recurso. |
+> | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de métricas del recurso |
 > | Microsoft.Kusto/Clusters/SKUs/read | Lee un recurso de SKU del clúster. |
 > | Microsoft.Kusto/Clusters/SKUs/PrivateEndpointConnectionProxyValidation/action | Valida un proxy de conexión de punto de conexión privado. |
 > | Microsoft.Kusto/Deployments/Preflight/action | Ejecuta una operación de comprobación previa. |
@@ -5162,6 +5479,10 @@ Servicio de Azure: [Power BI Embedded](/azure/power-bi-embedded/)
 > | Microsoft.PowerBIDedicated/capacities/delete | Elimina la capacidad de Power BI. |
 > | Microsoft.PowerBIDedicated/capacities/suspend/action | Suspende la capacidad. |
 > | Microsoft.PowerBIDedicated/capacities/resume/action | Reanuda la funcionalidad. |
+> | Microsoft.PowerBIDedicated/capacities/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.PowerBIDedicated/capacities/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.PowerBIDedicated/capacities/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de las funcionalidades dedicadas de Power BI |
+> | Microsoft.PowerBIDedicated/capacities/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de la capacidad de Power BI. |
 > | Microsoft.PowerBIDedicated/capacities/skus/read | Recupera información de la SKU disponible de la capacidad. |
 > | Microsoft.PowerBIDedicated/locations/checkNameAvailability/action | Comprueba que el nombre del recurso dedicado de Power BI sea válido y no esté en uso. |
 > | Microsoft.PowerBIDedicated/locations/checkNameAvailability/action | Comprueba que el nombre del recurso dedicado de Power BI sea válido y no esté en uso. |
@@ -5203,6 +5524,10 @@ Servicio de Azure: [Azure Purview](../purview/index.yml)
 > | Microsoft.Purview/accounts/privateEndpointConnections/read | Lee la conexión del punto de conexión privado. |
 > | Microsoft.Purview/accounts/privateEndpointConnections/write | Crea o actualiza una conexión de punto de conexión privado. |
 > | Microsoft.Purview/accounts/privateEndpointConnections/delete | Elimina la conexión de punto de conexión privado. |
+> | Microsoft.Purview/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Purview/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.Purview/accounts/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles del catálogo. |
+> | Microsoft.Purview/accounts/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles del catálogo. |
 > | Microsoft.Purview/getDefaultAccount/read | Obtiene la cuenta predeterminada para el ámbito. |
 > | Microsoft.Purview/locations/operationResults/read | Supervisa operaciones asincrónicas. |
 > | Microsoft.Purview/operations/read | Lee todas las operaciones disponibles del proveedor de Microsoft Purview. |
@@ -5273,15 +5598,22 @@ Servicio de Azure: [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/locations/operationResults/read | Lee todos los resultados de operaciones asincrónicas. |
 > | Microsoft.Synapse/locations/operationStatuses/read | Lee todos los estados de operaciones asincrónicas. |
 > | Microsoft.Synapse/operations/read | Lee las operaciones disponibles del proveedor de recursos de Azure Synapse Analytics. |
+> | Microsoft.Synapse/privateEndpoints/notify/action | Notifica el movimiento del punto de conexión privado. |
 > | Microsoft.Synapse/privateLinkHubs/write | Cree cualquier PrivateLinkHubs. |
 > | Microsoft.Synapse/privateLinkHubs/read | Lee cualquier PrivateLinkHubs. |
 > | Microsoft.Synapse/privateLinkHubs/delete | Elimina PrivateLinkHubs. |
+> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnectionProxies/validate/action | Valida conexiones de punto de conexión privado del proxy de PrivateLinkHub. |
+> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnectionProxies/write | Crea o actualiza conexiones de punto de conexión privado del proxy de PrivateLinkHub. |
+> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnectionProxies/read | Lee cualquier proxy de conexión de punto de conexión privado. |
+> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnectionProxies/delete | Elimina conexiones de punto de conexión privado del proxy de PrivateLinkHub. |
+> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnectionProxies/updatePrivateEndpointProperties/action | Actualiza las propiedades del proxy de conexión de punto de conexión privado del centro de Private Link. |
 > | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/write | Crea o actualiza una conexión de puntos de conexión privados de PrivateLinkHub |
 > | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/read | Lee todas las conexiones de puntos de conexión privados de PrivateLinkHub |
 > | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/delete | Elimina las conexiones de puntos de conexión privados de PrivateLinkHub |
 > | Microsoft.Synapse/privateLinkHubs/privateLinkResources/read | Obtiene una lista de los recursos de Private Link |
 > | Microsoft.Synapse/resourceGroups/operationStatuses/read | Lee todos los estados de operaciones asincrónicas. |
 > | Microsoft.Synapse/SKUs/read | Lee un recurso de SKU. |
+> | Microsoft.Synapse/userAssignedIdentities/notify/action | Notifica la eliminación de identidades asignadas por el usuario. |
 > | Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action | Reemplaza todas las reglas de firewall de IP del área de trabajo. |
 > | Microsoft.Synapse/workspaces/write | Crea o actualiza todas las áreas de trabajo. |
 > | Microsoft.Synapse/workspaces/read | Lee todas las áreas de trabajo. |
@@ -5297,6 +5629,10 @@ Servicio de Azure: [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/bigDataPools/write | Crea o actualiza todos los grupos de Spark. |
 > | Microsoft.Synapse/workspaces/bigDataPools/read | Lee todos los grupos de Spark. |
 > | Microsoft.Synapse/workspaces/bigDataPools/delete | Elimina todos los grupos de Spark. |
+> | Microsoft.Synapse/workspaces/bigDataPools/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de un grupo de macrodatos. |
+> | Microsoft.Synapse/workspaces/bigDataPools/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de un grupo de macrodatos. |
+> | Microsoft.Synapse/workspaces/bigDataPools/providers/Microsoft.Insights/logdefinitions/read | Obtiene las definiciones de registro de un grupo de macrodatos. |
+> | Microsoft.Synapse/workspaces/bigDataPools/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de grupos de macrodatos. |
 > | Microsoft.Synapse/workspaces/extendedAuditingSettings/write | Crea o actualiza la configuración de la auditoría del servidor SQL Server extendida. |
 > | Microsoft.Synapse/workspaces/extendedAuditingSettings/read | Lee la configuración de la auditoría del servidor SQL Server extendida predeterminada. |
 > | Microsoft.Synapse/workspaces/firewallRules/write | Crea o actualiza todas las reglas de firewall de IP. |
@@ -5356,18 +5692,31 @@ Servicio de Azure: [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnectionProxies/write | Escribe un proxy de conexión de punto de conexión privado. |
 > | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnectionProxies/delete | Elimina un proxy de conexión de punto de conexión privado. |
 > | Microsoft.Synapse/workspaces/kustoPools/PrivateLinkResources/read | Lee recursos de Private Link |
+> | Microsoft.Synapse/workspaces/kustoPools/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.Synapse/workspaces/kustoPools/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.Synapse/workspaces/kustoPools/providers/Microsoft.Insights/logDefinitions/read | Obtiene la configuración de registros de diagnóstico del recurso. |
+> | Microsoft.Synapse/workspaces/kustoPools/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de métricas del recurso |
 > | Microsoft.Synapse/workspaces/kustoPools/SKUs/read | Lee un recurso de SKU del clúster. |
 > | Microsoft.Synapse/workspaces/libraries/read | Lee artefactos de biblioteca |
 > | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/write | Actualiza la configuración de control de SQL de una identidad administrada en el área de trabajo |
 > | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/read | Obtiene la configuración de control de SQL de la identidad administrada |
 > | Microsoft.Synapse/workspaces/operationResults/read | Lee todos los resultados de operaciones asincrónicas. |
 > | Microsoft.Synapse/workspaces/operationStatuses/read | Lee todos los estados de operaciones asincrónicas. |
+> | Microsoft.Synapse/workspaces/privateEndpointConnectionProxies/validate/action | Valida un proxy de conexión de punto de conexión privado. |
+> | Microsoft.Synapse/workspaces/privateEndpointConnectionProxies/write | Crea o actualiza un proxy de conexión de punto de conexión privado. |
+> | Microsoft.Synapse/workspaces/privateEndpointConnectionProxies/read | Lee cualquier proxy de conexión de punto de conexión privado. |
+> | Microsoft.Synapse/workspaces/privateEndpointConnectionProxies/delete | Elimina un proxy de conexión del punto de conexión privado. |
+> | Microsoft.Synapse/workspaces/privateEndpointConnectionProxies/updatePrivateEndpointProperties/action | Actualiza las propiedades del proxy de conexión de punto de conexión privado. |
 > | Microsoft.Synapse/workspaces/privateEndpointConnections/write | Crea o actualiza una conexión de punto de conexión privado. |
 > | Microsoft.Synapse/workspaces/privateEndpointConnections/read | Lee cualquier conexión de punto de conexión privado. |
 > | Microsoft.Synapse/workspaces/privateEndpointConnections/delete | Elimina la conexión de punto de conexión privado. |
 > | Microsoft.Synapse/workspaces/PrivateEndpointConnections/read | Lee una conexión de punto de conexión privado. |
 > | Microsoft.Synapse/workspaces/PrivateEndpointConnections/write | Escribe las conexiones de punto de conexión privado. |
 > | Microsoft.Synapse/workspaces/privateLinkResources/read | Obtiene una lista de los recursos de Private Link |
+> | Microsoft.Synapse/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de un área de trabajo. |
+> | Microsoft.Synapse/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de un área de trabajo. |
+> | Microsoft.Synapse/workspaces/providers/Microsoft.Insights/logDefinitions/read | Obtiene las definiciones de registro de las áreas de trabajo de Synapse. |
+> | Microsoft.Synapse/workspaces/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de métricas de las áreas de trabajo. |
 > | Microsoft.Synapse/workspaces/recoverableSqlpools/read | Obtiene los grupos de SQL Analytics recuperables, que son los recursos que representan las copias de seguridad con replicación geográfica de los grupos de SQL Analytics. |
 > | Microsoft.Synapse/workspaces/restorableDroppedSqlPools/read | Obtiene un grupo de SQL eliminado que se puede restaurar |
 > | Microsoft.Synapse/workspaces/scopePools/write | Crea o actualiza todos los grupos de ámbitos. |
@@ -5415,6 +5764,10 @@ Servicio de Azure: [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/sqlPools/operationResults/read | Lee todos los resultados de operaciones asincrónicas. |
 > | Microsoft.Synapse/workspaces/sqlPools/operations/read | Lee todas las operaciones de los grupos de SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/operationStatuses/read | Lee todos los resultados de operaciones asincrónicas. |
+> | Microsoft.Synapse/workspaces/sqlPools/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de un grupo de SQL. |
+> | Microsoft.Synapse/workspaces/sqlPools/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de un grupo de SQL. |
+> | Microsoft.Synapse/workspaces/sqlPools/providers/Microsoft.Insights/logdefinitions/read | Obtiene las definiciones de registro de un grupo de SQL. |
+> | Microsoft.Synapse/workspaces/sqlPools/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de grupos de SQL. |
 > | Microsoft.Synapse/workspaces/sqlPools/recommendedSensitivityLabels/read | Lee todas las etiquetas de confidencialidad recomendadas del grupo de SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/recommendedSensitivityLabels/write | Actualiza por lotes las etiquetas de confidencialidad recomendadas. |
 > | Microsoft.Synapse/workspaces/sqlPools/replicationLinks/read | Lee todos los vínculos de replicación del grupo de SQL Analytics. |
@@ -5472,6 +5825,10 @@ Servicio de Azure: [Azure Blockchain Service](../blockchain/workbench/index.yml)
 > | Microsoft.Blockchain/blockchainMembers/write | Crea o actualiza un miembro de la cadena de bloques. |
 > | Microsoft.Blockchain/blockchainMembers/delete | Elimina un miembro existente de la cadena de bloques. |
 > | Microsoft.Blockchain/blockchainMembers/listApiKeys/action | Obtiene o enumera las claves de API de un miembro existente de la cadena de bloques. |
+> | Microsoft.Blockchain/blockchainMembers/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.Blockchain/blockchainMembers/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.Blockchain/blockchainMembers/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de Microsoft Blockchain. |
+> | Microsoft.Blockchain/blockchainMembers/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de Microsoft Blockchain. |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Obtiene o enumera los nodos de transacción de miembro de la cadena de bloques existentes. |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/write | Crea o actualiza un nodo de transacción de un miembro de la cadena de bloques. |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/delete | Elimina un nodo de transacción de un miembro existente de la cadena de bloques. |
@@ -5479,6 +5836,9 @@ Servicio de Azure: [Azure Blockchain Service](../blockchain/workbench/index.yml)
 > | Microsoft.Blockchain/cordaMembers/read | Obtiene o enumera los miembros existentes de Blockchain Corda. |
 > | Microsoft.Blockchain/cordaMembers/write | Crea o actualiza un miembro de Blockchain Corda. |
 > | Microsoft.Blockchain/cordaMembers/delete | Elimina un miembro existente de Blockchain Corda. |
+> | Microsoft.Blockchain/cordaMembers/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.Blockchain/cordaMembers/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.Blockchain/cordaMembers/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de Microsoft Blockchain. |
 > | Microsoft.Blockchain/locations/checkNameAvailability/action | Comprueba que el nombre del recurso es válido y que no está en uso. |
 > | Microsoft.Blockchain/locations/blockchainMemberOperationResults/read | Obtiene los resultados de las operaciones de los miembros de la cadena de bloques. |
 > | Microsoft.Blockchain/operations/read | Enumera todas las operaciones del proveedor de recursos de cadena de bloques de Microsoft. |
@@ -5572,8 +5932,14 @@ Servicio de Azure: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/privateEndpointConnections/write | Escribe las conexiones de punto de conexión privado. |
 > | Microsoft.CognitiveServices/accounts/privateEndpointConnections/delete | Elimina las conexiones de punto de conexión privado. |
 > | Microsoft.CognitiveServices/accounts/privateLinkResources/read | Lee los recursos de Private Link para una cuenta. |
+> | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. |
+> | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles para la cuenta de Cognitive Services. |
+> | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles para Cognitive Services. |
 > | Microsoft.CognitiveServices/accounts/skus/read | Lee las SKU disponibles para un recurso existente. |
 > | Microsoft.CognitiveServices/accounts/usages/read | Obtiene el uso de cuota para un recurso existente. |
+> | Microsoft.CognitiveServices/deletedAccounts/read | Enumera las cuentas eliminadas. |
+> | Microsoft.CognitiveServices/deletedAccounts/read | Enumera las cuentas eliminadas. |
 > | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Lee las SKU disponibles para una suscripción. |
 > | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Lee las SKU disponibles para una suscripción. |
 > | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Notificación de Microsoft.Network de la eliminación de redes o subredes virtuales. |
@@ -5583,8 +5949,21 @@ Servicio de Azure: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Notificación de Microsoft.Network de la eliminación de redes o subredes virtuales. |
 > | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Lee las SKU disponibles para una suscripción. |
 > | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Notificación de Microsoft.Network de la eliminación de redes o subredes virtuales. |
+> | Microsoft.CognitiveServices/locations/deletedAccounts/read | Obtiene la cuenta eliminada. |
+> | Microsoft.CognitiveServices/locations/deletedAccounts/purge/action | Purga la cuenta eliminada. |
+> | Microsoft.CognitiveServices/locations/deletedAccounts/read | Obtiene la cuenta eliminada. |
+> | Microsoft.CognitiveServices/locations/deletedAccounts/purge/action | Purga la cuenta eliminada. |
+> | Microsoft.CognitiveServices/locations/deletedAccounts/read | Obtiene la cuenta eliminada. |
+> | Microsoft.CognitiveServices/locations/deletedAccounts/purge/action | Purga la cuenta eliminada. |
+> | Microsoft.CognitiveServices/locations/deletedAccounts/read | Obtiene la cuenta eliminada. |
+> | Microsoft.CognitiveServices/locations/deletedAccounts/purge/action | Purga la cuenta eliminada. |
 > | Microsoft.CognitiveServices/locations/operationresults/read | Lee el estado de una operación asincrónica. |
 > | Microsoft.CognitiveServices/Operations/read | Enumera todas las operaciones disponibles. |
+> | Microsoft.CognitiveServices/skus/read | Lee las SKU disponibles en Cognitive Services. |
+> | Microsoft.CognitiveServices/skus/read | Lee las SKU disponibles en Cognitive Services. |
+> | Microsoft.CognitiveServices/skus/read | Lee las SKU disponibles en Cognitive Services. |
+> | Microsoft.CognitiveServices/skus/read | Lee las SKU disponibles en Cognitive Services. |
+> | Microsoft.CognitiveServices/skus/read | Lee las SKU disponibles en Cognitive Services. |
 > | **DataAction** | **Descripción** |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/write | Crea y entrena un modelo de detección de anomalías de multivariante.<br>La solicitud debe incluir un parámetro de origen para indicar un URI de Azure Storage al que se pueda acceder externamente (preferiblemente un URI de firma de acceso compartido).<br>Todas las series temporales usadas para generar el modelo deben comprimirse en un solo archivo.<br>Cada serie temporal estará en un único archivo .csv en el que la primera columna sea la marca de tiempo y la segunda columna sea el valor. |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/delete | Elimina un modelo de multivariante existente según modelId. |
@@ -6432,10 +6811,13 @@ Servicio de Azure: [Machine Learning Service](../machine-learning/index.yml)
 > | Acción | Descripción |
 > | --- | --- |
 > | Microsoft.MachineLearningServices/register/action | Registra la suscripción al proveedor de recursos de Machine Learning Services |
+> | Microsoft.MachineLearningServices/locations/deleteVirtualNetworkOrSubnets/action | Elimina las referencias a redes virtuales o subredes asociadas a las áreas de trabajo del servicio Machine Learning. |
 > | Microsoft.MachineLearningServices/locations/updateQuotas/action | Actualiza la cuota de cada familia de máquinas virtuales en un nivel de suscripción o de área de trabajo. |
+> | Microsoft.MachineLearningServices/locations/computeoperationsstatus/read | Obtiene el estado de una operación de proceso específica. |
 > | Microsoft.MachineLearningServices/locations/quotas/read | Obtiene las cuotas de área de trabajo asignadas actualmente basadas en VMFamily. |
 > | Microsoft.MachineLearningServices/locations/usages/read | Informe de uso para recursos de proceso de AML en una suscripción |
 > | Microsoft.MachineLearningServices/locations/vmsizes/read | Obtiene los tamaños de máquinas virtuales admitidos. |
+> | Microsoft.MachineLearningServices/locations/workspaceOperationsStatus/read | Obtiene el estado de una operación de un área de trabajo determinada. |
 > | Microsoft.MachineLearningServices/operations/read | Obtiene todas las operaciones del proveedor de recursos de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/virtualclusters/read | Obtiene los clústeres virtuales de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/virtualclusters/write | Crea o actualiza los clústeres virtuales de Machine Learning Services. |
@@ -6448,6 +6830,7 @@ Servicio de Azure: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/listKeys/action | Enumera los secretos un área de trabajo de Machine Learning Services |
 > | Microsoft.MachineLearningServices/workspaces/resynckeys/action | Resincroniza los secretos un área de trabajo de Machine Learning Services |
 > | Microsoft.MachineLearningServices/workspaces/listStorageAccountKeys/action | Enumera las claves de cuenta de almacenamiento de un área de trabajo de Machine Learning Services |
+> | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionsApproval/action | Aprueba o rechaza una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
 > | Microsoft.MachineLearningServices/workspaces/batchEndpoints/read | Obtiene los puntos de conexión de inferencia por lotes en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/batchEndpoints/write | Crea o actualiza el punto de conexión de inferencia por lotes en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/batchEndpoints/delete | Elimina el punto de conexión de inferencia por lotes en las áreas de trabajo de Machine Learning Services. |
@@ -6463,6 +6846,12 @@ Servicio de Azure: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/batchEndpoints/jobs/read | Lee el trabajo en el punto de conexión de la inferencia por lotes en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/batchEndpoints/jobs/write | Crea o actualiza el trabajo en el punto de conexión de inferencia por lotes en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/batchEndpoints/jobs/delete | Elimina el trabajo en el punto de conexión de inferencia por lotes en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/codes/read | Lea el código de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/codes/write | Crea o actualiza el código de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/codes/delete | Elimina el código de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/codes/versions/read | Lee las versiones de código de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/codes/versions/write | Crea o actualiza las versiones de código de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/codes/versions/delete | Elimina las versiones de código de las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/computes/read | Obtiene los recursos de proceso en las áreas de trabajo de Machine Learning Services |
 > | Microsoft.MachineLearningServices/workspaces/computes/write | Crea o actualiza los recursos de proceso en las áreas de trabajo de Machine Learning Services |
 > | Microsoft.MachineLearningServices/workspaces/computes/delete | Elimina los recursos de proceso en las áreas de trabajo de Machine Learning Services |
@@ -6477,6 +6866,11 @@ Servicio de Azure: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/connections/read | Obtiene las conexiones del área de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/connections/write | Crea o actualiza las conexiones de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/connections/delete | Elimina las conexiones de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/data/read | Lee el contenedor de datos de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/data/delete | Elimina el contenedor de datos de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/data/versions/read | Lee las versiones de datos de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/data/versions/write | Crea o actualiza las versiones de datos de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/data/versions/delete | Elimina las versiones de datos de las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/read | Obtiene los detectores de desfase de datos en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/write | Crea o actualiza los detectores de desfase de datos en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/delete | Elimina los detectores de desfase de datos en las áreas de trabajo de Machine Learning Services. |
@@ -6508,6 +6902,8 @@ Servicio de Azure: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/environments/versions/write | Crea o actualiza las versiones de los entornos en las áreas de trabajo de Machine Learning Services |
 > | Microsoft.MachineLearningServices/workspaces/environments/versions/delete | Elimina la versión de entorno en las áreas de trabajo de Machine Learning Services |
 > | Microsoft.MachineLearningServices/workspaces/eventGridFilters/read | Obtiene un filtro de Event Grid para un área de trabajo determinada. |
+> | Microsoft.MachineLearningServices/workspaces/eventGridFilters/write | Crea o actualiza un filtro de Event Grid de un área de trabajo determinada. |
+> | Microsoft.MachineLearningServices/workspaces/eventGridFilters/delete | Elimina un filtro de Event Grid de un área de trabajo determinada. |
 > | Microsoft.MachineLearningServices/workspaces/experiments/read | Obtiene los experimentos en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/experiments/write | Crea o actualiza experimentos en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/experiments/delete | Elimina los experimentos en las áreas de trabajo de Machine Learning Services. |
@@ -6516,6 +6912,11 @@ Servicio de Azure: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/experiments/runs/write | Crea o actualiza ejecuciones en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/experiments/runs/delete | Elimina las ejecuciones en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/features/read | Obtiene todas las características habilitadas de un área de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/jobs/read | Lee trabajos de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/jobs/write | Crea o actualiza trabajos de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/jobs/delete | Elimina trabajos de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/jobs/cancel/action | Cancela trabajos de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/jobs/operationresults/read | Lee trabajos de las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/labeling/export/action | Exporta las etiquetas de los proyectos de etiquetado en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/labeling/labels/read | Obtiene las etiquetas de los proyectos de etiquetado en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/labeling/labels/write | Crea las etiquetas de los proyectos de etiquetado en las áreas de trabajo de Machine Learning Services. |
@@ -6543,6 +6944,9 @@ Servicio de Azure: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/models/write | Crea o actualiza modelos en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/models/delete | Elimina los modelos en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/models/package/action | Empaqueta los modelos en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/models/versions/read | Lee las versiones de modelos de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/models/versions/write | Crea o actualiza las versiones de modelos de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/models/versions/delete | Elimina las versiones de modelos de las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/modules/read | Obtiene módulos en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/modules/write | Crea o actualiza módulos en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/notebooks/samples/read | Obtiene los cuadernos de ejemplo. |
@@ -6554,9 +6958,39 @@ Servicio de Azure: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/notebooks/vm/read | Obtiene las VM de cuadernos para un área de trabajo determinada. |
 > | Microsoft.MachineLearningServices/workspaces/notebooks/vm/write | Cambia el estado de la VM de cuadernos. |
 > | Microsoft.MachineLearningServices/workspaces/notebooks/vm/delete | Elimina una VM de cuadernos. |
+> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/read | Obtiene los puntos de conexión de inferencia en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/write | Crea o actualiza el punto de conexión de inferencia en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/delete | Elimina un punto de conexión de inferencia en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineendpoints/regeneratekeys/action | Acción de regeneración de claves para puntos de conexión en línea de áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action | Puntúa los puntos de conexión en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineendpoints/token/action | Recupera el token de autenticación para puntuar los puntos de conexión en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineendpoints/listkeys/action | Recupera las claves de autenticación para puntuar los puntos de conexión en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/checkNameAvailability/read | Comprueba el nombre de un punto de conexión de inferencia en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/read | Obtiene las implementaciones en un punto de conexión de inferencia en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineendpoints/deployments/getlogs/action | Obtiene los registros de implementación de un punto de conexión de inferencia en línea de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/write | Crea o actualiza la implementación de un punto de conexión de inferencia en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/delete | Elimina una implementación en un punto de conexión de inferencia en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/checkNameAvailability/read | Comprueba el nombre de la implementación de un punto de conexión de inferencia en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineendpoints/deployments/operationresults/read | Obtiene el resultado de la operación de implementaciones de un punto de conexión de inferencia en línea de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineendpoints/deployments/operationsstatus/read | Obtiene el estado de la operación de implementaciones de un punto de conexión de inferencia en línea de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/skus/read | Obtiene la configuración de ampliación de SKU de la implementación de un punto de conexión de inferencia en línea en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineendpoints/operationresults/read | Comprueba el resultado de la operación del punto de conexión en línea para un punto de conexión de inferencia en línea de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/onlineendpoints/operationsstatus/read | Comprueba el estado de la operación del punto de conexión en línea para un punto de conexión de inferencia en línea de las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/read | Obtiene borradores de canalización en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write | Crea o actualiza borradores de canalización en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/delete | Elimina borradores de canalización en las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/read | Permite ver el estado de un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/write | Permite cambiar el estado de un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/delete | Permite eliminar un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/validate/action | Permite validar un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read | Permite ver el estado de una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write | Cambia el estado de una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/delete | Elimina una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.MachineLearningServices/workspaces/privateLinkResources/read | Obtiene los recursos de vínculo privado disponibles para la instancia especificada de las áreas de trabajo de Machine Learning Services. |
+> | Microsoft.MachineLearningServices/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.MachineLearningServices/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.MachineLearningServices/workspaces/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de las áreas de trabajo de Azure Machine Learning. |
+> | Microsoft.MachineLearningServices/workspaces/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de las áreas de trabajo de Azure Machine Learning. |
 > | Microsoft.MachineLearningServices/workspaces/reports/read | Obtiene informes personalizados en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/reports/write | Crea o actualiza informes personalizados en las áreas de trabajo de Machine Learning Services. |
 > | Microsoft.MachineLearningServices/workspaces/reports/delete | Elimina informes personalizados en las áreas de trabajo de Machine Learning Services. |
@@ -6787,6 +7221,9 @@ Servicio de Azure: [IoT Central](../iot-central/index.yml)
 > | Microsoft.IoTCentral/IoTApps/read | Obtiene una sola aplicación de IoT Central. |
 > | Microsoft.IoTCentral/IoTApps/write | Crea o actualiza una aplicación de IoT Central. |
 > | Microsoft.IoTCentral/IoTApps/delete | Elimina una aplicación de IoT Central. |
+> | Microsoft.IoTCentral/IoTApps/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.IoTCentral/IoTApps/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.IoTCentral/IoTApps/providers/Microsoft.Insights/metricDefinitions/read | Obtiene todas las definiciones de métricas disponibles de Azure IoT Central. |
 > | Microsoft.IoTCentral/operations/read | Obtiene todas las operaciones disponibles en las aplicaciones de IoT Central. |
 
 ### <a name="microsoftiotsecurity"></a>Microsoft.IoTSecurity
@@ -6806,6 +7243,7 @@ Servicio de Azure: [seguridad de IoT](../iot-fundamentals/iot-security-architect
 > | Microsoft.IoTSecurity/defenderSettings/downloadManagerActivation/action | Descarga un archivo de activación del administrador. |
 > | Microsoft.IoTSecurity/deviceGroups/read | Obtiene un grupo de dispositivos. |
 > | Microsoft.IoTSecurity/devices/read | Obtiene dispositivos. |
+> | Microsoft.IoTSecurity/locations/read | Obtiene la ubicación. |
 > | Microsoft.IoTSecurity/onPremiseSensors/read | Obtiene los sensores de IoT locales. |
 > | Microsoft.IoTSecurity/onPremiseSensors/write | Crea o actualiza sensores de IoT locales. |
 > | Microsoft.IoTSecurity/onPremiseSensors/delete | Elimina los sensores de IoT locales. |
@@ -6877,9 +7315,22 @@ Servicio de Azure: [Time Series Insights](../time-series-insights/index.yml)
 > | Microsoft.TimeSeriesInsights/environments/eventsources/read | Obtiene las propiedades de un origen del evento. |
 > | Microsoft.TimeSeriesInsights/environments/eventsources/write | Crea un nuevo origen del evento para un entorno o actualiza un origen del evento ya existente. |
 > | Microsoft.TimeSeriesInsights/environments/eventsources/delete | Elimina el origen del evento. |
+> | Microsoft.TimeSeriesInsights/environments/eventsources/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.TimeSeriesInsights/environments/eventsources/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.TimeSeriesInsights/environments/eventsources/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles del origen del evento. |
+> | Microsoft.TimeSeriesInsights/environments/eventsources/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de los orígenes de los eventos. |
+> | Microsoft.TimeSeriesInsights/environments/privateEndpointConnectionProxies/read | Obtiene las propiedades del proxy de conexión del punto de conexión privado. |
+> | Microsoft.TimeSeriesInsights/environments/privateEndpointConnectionProxies/write | Crea un proxy de conexión de punto de conexión privado para un entorno o actualiza uno ya existente. |
+> | Microsoft.TimeSeriesInsights/environments/privateEndpointConnectionProxies/delete | Elimina el proxy de conexión de punto de conexión privado. |
+> | Microsoft.TimeSeriesInsights/environments/privateEndpointConnectionProxies/validate/action | Valida el objeto de proxy de conexión de punto de conexión privado antes de la creación. |
+> | Microsoft.TimeSeriesInsights/environments/privateEndpointConnectionProxies/operationresults/read | Valida el estado de la operación de proxy de conexión de punto de conexión privado. |
 > | Microsoft.TimeSeriesInsights/environments/privateendpointConnections/read | Obtiene las propiedades de conexión del punto de conexión privado. |
 > | Microsoft.TimeSeriesInsights/environments/privateendpointConnections/write | Crea una nueva conexión de punto de conexión privado para un entorno o actualiza una ya existente. |
 > | Microsoft.TimeSeriesInsights/environments/privateendpointConnections/delete | Elimina la conexión del punto de conexión privado. |
+> | Microsoft.TimeSeriesInsights/environments/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.TimeSeriesInsights/environments/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.TimeSeriesInsights/environments/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de los entornos. |
+> | Microsoft.TimeSeriesInsights/environments/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles para los entornos. |
 > | Microsoft.TimeSeriesInsights/environments/referencedatasets/read | Obtiene las propiedades de un conjunto de datos referencia. |
 > | Microsoft.TimeSeriesInsights/environments/referencedatasets/write | Crea un conjunto de datos de referencia para un entorno o actualiza un conjunto de datos de referencia ya existente. |
 > | Microsoft.TimeSeriesInsights/environments/referencedatasets/delete | Elimina un conjunto de datos de referencia. |
@@ -7096,6 +7547,7 @@ Servicio de Azure: [API Management](../api-management/index.yml)
 > | Microsoft.ApiManagement/service/openidConnectProviders/delete | Elimina el proveedor de OpenID Connect especificado de la instancia del servicio API Management. |
 > | Microsoft.ApiManagement/service/openidConnectProviders/listSecrets/action | Obtiene secretos del proveedor de OpenID Connect específicos. |
 > | Microsoft.ApiManagement/service/operationresults/read | Obtiene el estado actual de una operación de larga duración |
+> | Microsoft.ApiManagement/service/outboundNetworkDependenciesEndpoints/read | Obtiene el estado de dependencia de la red de salida de los recursos de los que depende el servicio. |
 > | Microsoft.ApiManagement/service/policies/read | Enumera todas las definiciones de directivas globales del servicio API Management u obtiene la definición de directivas globales del servicio API Management. |
 > | Microsoft.ApiManagement/service/policies/write | Crea o actualiza la configuración de directivas globales del servicio API Management. |
 > | Microsoft.ApiManagement/service/policies/delete | Elimina la configuración de directivas globales del servicio API Management. |
@@ -7142,6 +7594,10 @@ Servicio de Azure: [API Management](../api-management/index.yml)
 > | Microsoft.ApiManagement/service/properties/write | Crea o actualiza una propiedad o actualiza la propiedad especificada. |
 > | Microsoft.ApiManagement/service/properties/delete | Elimina la propiedad especificada de la instancia del servicio API Management. |
 > | Microsoft.ApiManagement/service/properties/listSecrets/action | Obtiene los secretos de la propiedad especificada por su identificador. |
+> | Microsoft.ApiManagement/service/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del servicio ApiManagement. |
+> | Microsoft.ApiManagement/service/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del servicio de ApiManagement. |
+> | Microsoft.ApiManagement/service/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles del servicio de API Management. |
+> | Microsoft.ApiManagement/service/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles del servicio de API Management. |
 > | Microsoft.ApiManagement/service/quotas/read | Obtiene los valores de cuota. |
 > | Microsoft.ApiManagement/service/quotas/write | Establece el valor actual del contador de cuota. |
 > | Microsoft.ApiManagement/service/quotas/periods/read | Obtener el valor del contador de cuota del período. |
@@ -7296,6 +7752,9 @@ Servicio de Azure: [Azure Stack Edge](../databox-online/azure-stack-edge-overvie
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Elimina los pedidos. |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/listDCAccessCode/action | ArmApiDesc_action_listDCAccessCode_orders |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/operationResults/read | Enumera u obtiene el resultado de la operación. |
+> | Microsoft.DataBoxEdge/dataBoxEdgeDevices/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso. |
+> | Microsoft.DataBoxEdge/dataBoxEdgeDevices/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.DataBoxEdge/dataBoxEdgeDevices/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas de nivel de dispositivo de Data Box Edge disponibles. |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Enumera u obtiene los roles. |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Enumera u obtiene los roles. |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Crea o actualiza los roles. |
@@ -7795,6 +8254,9 @@ Servicio de Azure: [Azure Active Directory Domain Services](../active-directory-
 > | Microsoft.AAD/domainServices/oucontainer/write | Escribe en el contenedor de unidades organizativas. |
 > | Microsoft.AAD/domainServices/oucontainer/delete | Elimina el contenedor de unidades organizativas. |
 > | Microsoft.AAD/domainServices/OutboundNetworkDependenciesEndpoints/read | Obtiene los puntos de conexión de red de todas las dependencias de salida |
+> | Microsoft.AAD/domainServices/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del servicio de dominio. |
+> | Microsoft.AAD/domainServices/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso de servicio de dominio. |
+> | Microsoft.AAD/domainServices/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles del servicio de dominio. |
 > | Microsoft.AAD/locations/operationresults/read |  |
 > | Microsoft.AAD/Operations/read |  |
 
@@ -7808,6 +8270,9 @@ Servicio de Azure: Azure Active Directory
 > | microsoft.aadiam/azureADMetrics/read | Lee la definición de métricas de Azure AD. |
 > | microsoft.aadiam/azureADMetrics/write | Crea y actualiza la definición de métricas de Azure AD. |
 > | microsoft.aadiam/azureADMetrics/delete | Elimina la definición de métricas de Azure AD. |
+> | microsoft.aadiam/azureADMetrics/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | microsoft.aadiam/azureADMetrics/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | microsoft.aadiam/azureADMetrics/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de azureADMetrics. |
 > | microsoft.aadiam/diagnosticsettings/write | Escribir en una configuración de diagnóstico. |
 > | microsoft.aadiam/diagnosticsettings/read | Leer una configuración de diagnóstico. |
 > | microsoft.aadiam/diagnosticsettings/delete | Eliminar una configuración de diagnóstico. |
@@ -7827,6 +8292,9 @@ Servicio de Azure: Azure Active Directory
 > | microsoft.aadiam/privateLinkForAzureAD/privateLinkResources/read | Leer PrivateLinkResources |
 > | microsoft.aadiam/privateLinkForAzureAD/privateLinkResources/write | Crear y actualizar PrivateLinkResources |
 > | microsoft.aadiam/privateLinkForAzureAD/privateLinkResources/delete | Eliminar PrivateLinkResources |
+> | microsoft.aadiam/tenants/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | microsoft.aadiam/tenants/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | microsoft.aadiam/tenants/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de los inquilinos. |
 
 ### <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -7966,11 +8434,25 @@ Servicio de Azure: [Key Vault](../key-vault/index.yml)
 > | Microsoft.KeyVault/managedHSMs/read | Permite ver las propiedades de un HSM administrado. |
 > | Microsoft.KeyVault/managedHSMs/write | Permite crear un nuevo HSM administrado o actualizar las propiedades de uno existente. |
 > | Microsoft.KeyVault/managedHSMs/delete | Permite eliminar un HSM administrado. |
+> | Microsoft.KeyVault/managedHSMs/PrivateEndpointConnectionsApproval/action | Aprueba o rechaza una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/managedHSMs/privateEndpointConnectionProxies/read | Permite ver el estado de un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/managedHSMs/privateEndpointConnectionProxies/write | Permite cambiar el estado de un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/managedHSMs/privateEndpointConnectionProxies/delete | Permite eliminar un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/managedHSMs/privateEndpointConnectionProxies/validate/action | Permite validar un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/managedHSMs/privateEndpointConnections/read | Permite ver el estado de una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/managedHSMs/privateEndpointConnections/write | Cambia el estado de una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/managedHSMs/privateEndpointConnections/delete | Elimina una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/managedHSMs/privateLinkResources/read | Obtiene los recursos de vínculo privado disponibles de la instancia especificada de HSM administrado. |
+> | Microsoft.KeyVault/managedHSMs/providers/Microsoft.Insights/diagnosticSettings/Read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.KeyVault/managedHSMs/providers/Microsoft.Insights/diagnosticSettings/Write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.KeyVault/managedHSMs/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de un HSM administrado. |
+> | Microsoft.KeyVault/managedHSMs/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles para un almacén de claves. |
 > | Microsoft.KeyVault/operations/read | Enumera las operaciones disponibles en el proveedor de recursos de Microsoft.KeyVault. |
 > | Microsoft.KeyVault/vaults/read | Ve las propiedades de un almacén de claves |
 > | Microsoft.KeyVault/vaults/write | Crea un almacén de claves nuevo o actualiza las propiedades de uno que ya existe. Es posible que ciertas propiedades requieran más permisos. |
 > | Microsoft.KeyVault/vaults/delete | Elimina un almacén de claves. |
 > | Microsoft.KeyVault/vaults/deploy/action | Permite el acceso a secretos en un almacén de claves al implementar recursos de Azure |
+> | Microsoft.KeyVault/vaults/PrivateEndpointConnectionsApproval/action | Aprueba o rechaza una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
 > | Microsoft.KeyVault/vaults/accessPolicies/write | Actualiza una directiva de acceso existente mediante combinación o sustitución, o bien agrega una directiva de acceso nueva a un almacén de claves. |
 > | Microsoft.KeyVault/vaults/eventGridFilters/read | Notifica a Microsoft.KeyVault que se visualiza una suscripción de Event Grid para Key Vault. |
 > | Microsoft.KeyVault/vaults/eventGridFilters/write | Notifica a Microsoft.KeyVault que se crea una nueva suscripción de Event Grid para Key Vault. |
@@ -7981,6 +8463,18 @@ Servicio de Azure: [Key Vault](../key-vault/index.yml)
 > | Microsoft.KeyVault/vaults/keys/read | Enumera las claves de un almacén especificado o lee la versión actual de una clave especificada. |
 > | Microsoft.KeyVault/vaults/keys/write | Crea la primera versión de una clave nueva si no existe. Si ya existe, se devuelve la clave existente sin ninguna modificación. Esta API no crea versiones posteriores y no actualiza las claves existentes. |
 > | Microsoft.KeyVault/vaults/keys/versions/read | Enumera las versiones de una clave especificada o lee la versión especificada de una clave. |
+> | Microsoft.KeyVault/vaults/privateEndpointConnectionProxies/read | Permite ver el estado de un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/vaults/privateEndpointConnectionProxies/write | Permite cambiar el estado de un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/vaults/privateEndpointConnectionProxies/delete | Permite eliminar un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/vaults/privateEndpointConnectionProxies/validate/action | Permite validar un proxy de conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/vaults/privateEndpointConnections/read | Permite ver el estado de una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/vaults/privateEndpointConnections/write | Cambia el estado de una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/vaults/privateEndpointConnections/delete | Elimina una conexión a un recurso de punto de conexión privado del proveedor Microsoft.Network. |
+> | Microsoft.KeyVault/vaults/privateLinkResources/read | Obtiene los recursos de vínculo privado disponibles de la instancia especificada de Key Vault. |
+> | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles para un almacén de claves. |
+> | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles para un almacén de claves. |
 > | Microsoft.KeyVault/vaults/secrets/read | Puede ver las propiedades de un secreto, pero no su valor. |
 > | Microsoft.KeyVault/vaults/secrets/write | Crea un secreto nuevo o actualiza el valor de uno que ya existe. |
 > | **DataAction** | **Descripción** |
@@ -8068,21 +8562,42 @@ Servicio de Azure: [Centro de seguridad](../security-center/index.yml)
 > | Microsoft.Security/deviceSecurityGroups/read | Obtiene los grupos de seguridad de dispositivos IoT. |
 > | Microsoft.Security/informationProtectionPolicies/read | Obtiene las directivas de protección de información correspondientes al recurso. |
 > | Microsoft.Security/informationProtectionPolicies/write | Actualiza las directivas de protección de información correspondientes al recurso. |
+> | Microsoft.Security/iotDefenderSettings/read | Obtiene la configuración de IoT Defender. |
+> | Microsoft.Security/iotDefenderSettings/write | Crea o actualiza la configuración de IoT Defender. |
+> | Microsoft.Security/iotDefenderSettings/delete | Elimina la configuración de IoT Defender. |
+> | Microsoft.Security/iotDefenderSettings/PackageDownloads/action | Obtiene información de paquetes de IoT Defender que se pueden descargar. |
+> | Microsoft.Security/iotDefenderSettings/DownloadManagerActivation/action | Descarga el archivo de activación del administrador con datos de la cuota de suscripción. |
 > | Microsoft.Security/iotSecuritySolutions/write | Crea o actualiza las soluciones de seguridad de IoT. |
 > | Microsoft.Security/iotSecuritySolutions/delete | Elimina las soluciones de seguridad de IoT. |
 > | Microsoft.Security/iotSecuritySolutions/read | Obtiene las soluciones de seguridad de IoT. |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtiene el modelo de análisis de seguridad de IoT. |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtiene tipos de alerta de IoT |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtiene tipos de alerta de IoT |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtiene alertas de IoT |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtiene alertas de IoT |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtiene tipos de recomendación de IoT |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtiene tipos de recomendación de IoT |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtiene recomendaciones de IoT |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtiene recomendaciones de IoT |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtiene dispositivos. |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedAlerts/read | Obtiene las alertas agregadas de IoT. |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedAlerts/dismiss/action | Descarta las alertas agregadas de IoT. |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedRecommendations/read | Obtiene las recomendaciones agregadas de IoT. |
+> | Microsoft.Security/iotSensors/read | Obtiene sensores de IoT. |
+> | Microsoft.Security/iotSensors/write | Crea o actualiza sensores de IoT. |
+> | Microsoft.Security/iotSensors/delete | Elimina sensores de IoT. |
+> | Microsoft.Security/iotSensors/DownloadActivation/action | Descarga el archivo de activación de los sensores de IoT. |
+> | Microsoft.Security/iotSensors/TriggerTiPackageUpdate/action | Desencadena la actualización del paquete de inteligencia sobre amenazas. |
+> | Microsoft.Security/iotSensors/DownloadResetPassword/action | Descarga el archivo de contraseñas restablecidas para sensores de IoT. |
+> | Microsoft.Security/iotSite/read | Obtiene el sitio de IoT. |
+> | Microsoft.Security/iotSite/write | Crea o actualiza el sitio de IoT. |
+> | Microsoft.Security/iotSite/delete | Elimina el sitio de IoT. |
 > | Microsoft.Security/locations/read | Obtiene la ubicación de los datos de seguridad. |
 > | Microsoft.Security/locations/alerts/read | Obtiene todas las alertas de seguridad disponibles. |
 > | Microsoft.Security/locations/alerts/dismiss/action | Descarta una alerta de seguridad. |
 > | Microsoft.Security/locations/alerts/activate/action | Activa una alerta de seguridad. |
+> | Microsoft.Security/locations/alerts/resolve/action | Resuelve una alerta de seguridad. |
+> | Microsoft.Security/locations/alerts/simulate/action | Simula una alerta de seguridad. |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/read | Obtiene las directivas just-in-time de acceso de red |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/write | Crea una nueva directiva just-in-time de acceso de red o actualiza una que ya existe |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | Elimina la directiva de acceso de red Just-In-Time. |
@@ -8097,6 +8612,10 @@ Servicio de Azure: [Centro de seguridad](../security-center/index.yml)
 > | Microsoft.Security/pricings/read | Obtiene la configuración de precios del ámbito. |
 > | Microsoft.Security/pricings/write | Actualiza la configuración de precios del ámbito. |
 > | Microsoft.Security/pricings/delete | Elimina la configuración de precios del ámbito. |
+> | Microsoft.Security/secureScoreControlDefinitions/read | Obtiene la definición de control de puntuación de seguridad. |
+> | Microsoft.Security/secureScoreControls/read | Obtiene el control de puntuación de seguridad calculada para la suscripción. |
+> | Microsoft.Security/secureScores/read | Obtiene la puntuación de seguridad calculada para la suscripción. |
+> | Microsoft.Security/secureScores/secureScoreControls/read | Obtiene el control de puntuación de seguridad calculada para el cálculo de la puntuación de seguridad. |
 > | Microsoft.Security/securityContacts/read | Obtiene el contacto de seguridad. |
 > | Microsoft.Security/securityContacts/write | Actualiza el contacto de seguridad. |
 > | Microsoft.Security/securityContacts/delete | Elimina el contacto de seguridad. |
@@ -8739,6 +9258,11 @@ Servicio de Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/validate/action | Valida un proxy de conexión del punto de conexión privado. |
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/write | Crea o actualiza un proxy de conexión de punto de conexión privado |
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/delete | Elimina un proxy de conexión del punto de conexión privado. |
+> | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/operationsstatus/read | Obtiene el estado de una operación de larga duración en un proxy de conexión de punto de conexión privado. |
+> | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/operationsstatus/read | Obtiene el estado de una operación de larga duración en un proxy de conexión de punto de conexión privado. |
+> | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/operationsstatus/read | Obtiene el estado de una operación de larga duración en un proxy de conexión de punto de conexión privado. |
+> | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/operationsstatus/read | Obtiene el estado de una operación de larga duración en un proxy de conexión de punto de conexión privado. |
+> | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/operationsstatus/read | Obtiene el estado de una operación de larga duración en un proxy de conexión de punto de conexión privado. |
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnections/read | Obtiene la conexión de punto de conexión privado. |
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnections/write | Actualiza una conexión de punto de conexión privado |
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnections/delete | Elimina una conexión de punto de conexión privado. |
@@ -8790,26 +9314,31 @@ Servicio de Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/ServerSites/delete | Elimina el sitio de importación. |
 > | Microsoft.OffAzure/ServerSites/refresh/action | Actualiza los objetos dentro de un sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/updateProperties/action | Actualiza las propiedades de las máquinas de un sitio. |
+> | Microsoft.OffAzure/ServerSites/updateTags/action | Actualiza las etiquetas de las máquinas de un sitio. |
 > | Microsoft.OffAzure/ServerSites/read | Obtiene las propiedades de un sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/write | Crea o actualiza el sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/delete | Elimina el sitio de importación. |
 > | Microsoft.OffAzure/ServerSites/refresh/action | Actualiza los objetos dentro de un sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/updateProperties/action | Actualiza las propiedades de las máquinas de un sitio. |
+> | Microsoft.OffAzure/ServerSites/updateTags/action | Actualiza las etiquetas de las máquinas de un sitio. |
 > | Microsoft.OffAzure/ServerSites/read | Obtiene las propiedades de un sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/write | Crea o actualiza el sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/delete | Elimina el sitio de importación. |
 > | Microsoft.OffAzure/ServerSites/refresh/action | Actualiza los objetos dentro de un sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/updateProperties/action | Actualiza las propiedades de las máquinas de un sitio. |
+> | Microsoft.OffAzure/ServerSites/updateTags/action | Actualiza las etiquetas de las máquinas de un sitio. |
 > | Microsoft.OffAzure/ServerSites/read | Obtiene las propiedades de un sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/write | Crea o actualiza el sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/delete | Elimina el sitio de importación. |
 > | Microsoft.OffAzure/ServerSites/refresh/action | Actualiza los objetos dentro de un sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/updateProperties/action | Actualiza las propiedades de las máquinas de un sitio. |
+> | Microsoft.OffAzure/ServerSites/updateTags/action | Actualiza las etiquetas de las máquinas de un sitio. |
 > | Microsoft.OffAzure/ServerSites/read | Obtiene las propiedades de un sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/write | Crea o actualiza el sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/delete | Elimina el sitio de importación. |
 > | Microsoft.OffAzure/ServerSites/refresh/action | Actualiza los objetos dentro de un sitio de Server. |
 > | Microsoft.OffAzure/ServerSites/updateProperties/action | Actualiza las propiedades de las máquinas de un sitio. |
+> | Microsoft.OffAzure/ServerSites/updateTags/action | Actualiza las etiquetas de las máquinas de un sitio. |
 > | Microsoft.OffAzure/ServerSites/jobs/read | Obtiene las propiedades de un trabajo de Server. |
 > | Microsoft.OffAzure/ServerSites/jobs/read | Obtiene las propiedades de un trabajo de Server. |
 > | Microsoft.OffAzure/ServerSites/jobs/read | Obtiene las propiedades de un trabajo de Server. |
@@ -8817,14 +9346,19 @@ Servicio de Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/ServerSites/jobs/read | Obtiene las propiedades de un trabajo de Server. |
 > | Microsoft.OffAzure/ServerSites/machines/read | Obtiene las propiedades de una máquina de Server. |
 > | Microsoft.OffAzure/ServerSites/machines/write | Escribe las propiedades de una máquina de Server. |
+> | Microsoft.OffAzure/ServerSites/machines/delete | Elimina las propiedades de una máquina de servidor. |
 > | Microsoft.OffAzure/ServerSites/machines/read | Obtiene las propiedades de una máquina de Server. |
 > | Microsoft.OffAzure/ServerSites/machines/write | Escribe las propiedades de una máquina de Server. |
+> | Microsoft.OffAzure/ServerSites/machines/delete | Elimina las propiedades de una máquina de servidor. |
 > | Microsoft.OffAzure/ServerSites/machines/read | Obtiene las propiedades de una máquina de Server. |
 > | Microsoft.OffAzure/ServerSites/machines/write | Escribe las propiedades de una máquina de Server. |
+> | Microsoft.OffAzure/ServerSites/machines/delete | Elimina las propiedades de una máquina de servidor. |
 > | Microsoft.OffAzure/ServerSites/machines/read | Obtiene las propiedades de una máquina de Server. |
 > | Microsoft.OffAzure/ServerSites/machines/write | Escribe las propiedades de una máquina de Server. |
+> | Microsoft.OffAzure/ServerSites/machines/delete | Elimina las propiedades de una máquina de servidor. |
 > | Microsoft.OffAzure/ServerSites/machines/read | Obtiene las propiedades de una máquina de Server. |
 > | Microsoft.OffAzure/ServerSites/machines/write | Escribe las propiedades de una máquina de Server. |
+> | Microsoft.OffAzure/ServerSites/machines/delete | Elimina las propiedades de una máquina de servidor. |
 > | Microsoft.OffAzure/ServerSites/operationsstatus/read | Obtiene las propiedades de un estado de operación de Server. |
 > | Microsoft.OffAzure/ServerSites/operationsstatus/read | Obtiene las propiedades de un estado de operación de Server. |
 > | Microsoft.OffAzure/ServerSites/operationsstatus/read | Obtiene las propiedades de un estado de operación de Server. |
@@ -8851,6 +9385,7 @@ Servicio de Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/refresh/action | Actualiza los objetos dentro de un sitio de VMware. |
 > | Microsoft.OffAzure/VMwareSites/exportapplications/action | Exporta las aplicaciones de VMware y los datos de roles a xls |
 > | Microsoft.OffAzure/VMwareSites/updateProperties/action | Actualiza las propiedades de las máquinas de un sitio. |
+> | Microsoft.OffAzure/VMwareSites/updateTags/action | Actualiza las etiquetas de las máquinas de un sitio. |
 > | Microsoft.OffAzure/VMwareSites/generateCoarseMap/action | Genera la asignación aproximada de la lista de máquinas. |
 > | Microsoft.OffAzure/VMwareSites/generateDetailedMap/action | Genera la asignación aproximada de VMware detallado. |
 > | Microsoft.OffAzure/VMwareSites/clientGroupMembers/action | Enumera los miembros del grupo de clientes seleccionado. |
@@ -8863,6 +9398,7 @@ Servicio de Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/refresh/action | Actualiza los objetos dentro de un sitio de VMware. |
 > | Microsoft.OffAzure/VMwareSites/exportapplications/action | Exporta las aplicaciones de VMware y los datos de roles a xls |
 > | Microsoft.OffAzure/VMwareSites/updateProperties/action | Actualiza las propiedades de las máquinas de un sitio. |
+> | Microsoft.OffAzure/VMwareSites/updateTags/action | Actualiza las etiquetas de las máquinas de un sitio. |
 > | Microsoft.OffAzure/VMwareSites/generateCoarseMap/action | Genera la asignación aproximada de la lista de máquinas. |
 > | Microsoft.OffAzure/VMwareSites/generateDetailedMap/action | Genera la asignación aproximada de VMware detallado. |
 > | Microsoft.OffAzure/VMwareSites/clientGroupMembers/action | Enumera los miembros del grupo de clientes seleccionado. |
@@ -8875,6 +9411,7 @@ Servicio de Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/refresh/action | Actualiza los objetos dentro de un sitio de VMware. |
 > | Microsoft.OffAzure/VMwareSites/exportapplications/action | Exporta las aplicaciones de VMware y los datos de roles a xls |
 > | Microsoft.OffAzure/VMwareSites/updateProperties/action | Actualiza las propiedades de las máquinas de un sitio. |
+> | Microsoft.OffAzure/VMwareSites/updateTags/action | Actualiza las etiquetas de las máquinas de un sitio. |
 > | Microsoft.OffAzure/VMwareSites/generateCoarseMap/action | Genera la asignación aproximada de la lista de máquinas. |
 > | Microsoft.OffAzure/VMwareSites/generateDetailedMap/action | Genera la asignación aproximada de VMware detallado. |
 > | Microsoft.OffAzure/VMwareSites/clientGroupMembers/action | Enumera los miembros del grupo de clientes seleccionado. |
@@ -8887,6 +9424,7 @@ Servicio de Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/refresh/action | Actualiza los objetos dentro de un sitio de VMware. |
 > | Microsoft.OffAzure/VMwareSites/exportapplications/action | Exporta las aplicaciones de VMware y los datos de roles a xls |
 > | Microsoft.OffAzure/VMwareSites/updateProperties/action | Actualiza las propiedades de las máquinas de un sitio. |
+> | Microsoft.OffAzure/VMwareSites/updateTags/action | Actualiza las etiquetas de las máquinas de un sitio. |
 > | Microsoft.OffAzure/VMwareSites/generateCoarseMap/action | Genera la asignación aproximada de la lista de máquinas. |
 > | Microsoft.OffAzure/VMwareSites/generateDetailedMap/action | Genera la asignación aproximada de VMware detallado. |
 > | Microsoft.OffAzure/VMwareSites/clientGroupMembers/action | Enumera los miembros del grupo de clientes seleccionado. |
@@ -8899,6 +9437,7 @@ Servicio de Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/refresh/action | Actualiza los objetos dentro de un sitio de VMware. |
 > | Microsoft.OffAzure/VMwareSites/exportapplications/action | Exporta las aplicaciones de VMware y los datos de roles a xls |
 > | Microsoft.OffAzure/VMwareSites/updateProperties/action | Actualiza las propiedades de las máquinas de un sitio. |
+> | Microsoft.OffAzure/VMwareSites/updateTags/action | Actualiza las etiquetas de las máquinas de un sitio. |
 > | Microsoft.OffAzure/VMwareSites/generateCoarseMap/action | Genera la asignación aproximada de la lista de máquinas. |
 > | Microsoft.OffAzure/VMwareSites/generateDetailedMap/action | Genera la asignación aproximada de VMware detallado. |
 > | Microsoft.OffAzure/VMwareSites/clientGroupMembers/action | Enumera los miembros del grupo de clientes seleccionado. |
@@ -9547,6 +10086,9 @@ Servicio de Azure: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/notificationSettings/write | Establece la configuración de notificaciones del usuario del área de trabajo. |
 > | Microsoft.OperationalInsights/workspaces/notificationSettings/delete | Elimina la configuración de notificaciones del usuario del área de trabajo. |
 > | microsoft.operationalinsights/workspaces/operations/read | Obtiene el estado de una operación del área de trabajo de Operational Insights. |
+> | Microsoft.OperationalInsights/workspaces/providers/Microsoft.Insights/diagnosticSettings/Read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.OperationalInsights/workspaces/providers/Microsoft.Insights/diagnosticSettings/Write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.OperationalInsights/workspaces/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de un área de trabajo. |
 > | Microsoft.OperationalInsights/workspaces/query/read | Ejecuta consultas en los datos del área de trabajo. |
 > | Microsoft.OperationalInsights/workspaces/query/AACAudit/read | Lee datos de la tabla AACAudit |
 > | Microsoft.OperationalInsights/workspaces/query/AACHttpRequest/read | Lee datos de la tabla AACHttpRequest. |
@@ -9616,6 +10158,7 @@ Servicio de Azure: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/AmlDataSetEvent/read | Lee datos de la tabla AmlDataSetEvent. |
 > | Microsoft.OperationalInsights/workspaces/query/AmlDataStoreEvent/read | Lee datos de la tabla AmlDataStoreEvent. |
 > | Microsoft.OperationalInsights/workspaces/query/AmlDeploymentEvent/read | Lee datos de la tabla AmlDeploymentEvent. |
+> | Microsoft.OperationalInsights/workspaces/query/AmlEnvironmentEvent/read | Lee los datos de la tabla AmlEnvironmentEvent. |
 > | Microsoft.OperationalInsights/workspaces/query/AmlInferencingEvent/read | Lee datos de la tabla AmlInferencingEvent. |
 > | Microsoft.OperationalInsights/workspaces/query/AmlModelsEvent/read | Lee datos de la tabla AmlModelsEvent. |
 > | Microsoft.OperationalInsights/workspaces/query/AmlOnlineEndpointConsoleLog/read | Lectura de datos de la tabla AmlOnlineEndpointConsoleLog |
@@ -9873,6 +10416,13 @@ Servicio de Azure: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/SucceededIngestion/read | Lee los datos de la tabla SucceededIngestion. |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseBigDataPoolApplicationsEnded/read | Lee datos de la tabla SynapseBigDataPoolApplicationsEnded. |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseBuiltinSqlPoolRequestsEnded/read | Lee datos de la tabla SynapseBuiltinSqlPoolRequestsEnded. |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXCommand/read | Lee los datos de la tabla SynapseDXCommand. |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXFailedIngestion/read | Lee los datos de la tabla SynapseDXFailedIngestion. |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXIngestionBatching/read | Lee los datos de la tabla SynapseDXIngestionBatching. |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXQuery/read | Lee los datos de la tabla SynapseDXQuery. |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXSucceededIngestion/read | Lee los datos de la tabla SynapseDXSucceededIngestion. |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXTableDetails/read | Lee los datos de la tabla SynapseDXTableDetails. |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXTableUsageStatistics/read | Lee los datos de la tabla SynapseDXTableUsageStatistics. |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseGatewayApiRequests/read | Lee datos de la tabla SynapseGatewayApiRequests. |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseGatewayEvents/read | Lee datos de la tabla SynapseGatewayEvents. |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseIntegrationActivityRuns/read | Lee los datos de la tabla SynapseIntegrationActivityRuns. |
@@ -10128,6 +10678,10 @@ Servicio de Azure: [Automation](../automation/index.yml)
 > | Microsoft.Automation/automationAccounts/credentials/getCount/action | Lee el número de credenciales |
 > | Microsoft.Automation/automationAccounts/credentials/write | Crea o actualiza un recurso de credencial de Azure Automation |
 > | Microsoft.Automation/automationAccounts/credentials/delete | Elimina un recurso de credencial de Azure Automation |
+> | Microsoft.Automation/automationAccounts/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.Automation/automationAccounts/diagnosticSettings/write | Establece la configuración de diagnóstico del recurso. |
+> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Lee los recursos de Hybrid Runbook Worker |
+> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Elimina los recursos de Hybrid Runbook Worker |
 > | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Lee los recursos de Hybrid Runbook Worker |
 > | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Elimina los recursos de Hybrid Runbook Worker |
 > | Microsoft.Automation/automationAccounts/jobs/runbookContent/action | Obtiene el contenido del runbook de Azure Automation en el momento de la ejecución del trabajo |
@@ -10143,6 +10697,7 @@ Servicio de Azure: [Automation](../automation/index.yml)
 > | Microsoft.Automation/automationAccounts/jobSchedules/write | Crea una programación de trabajos de Azure Automation |
 > | Microsoft.Automation/automationAccounts/jobSchedules/delete | Elimina una programación de trabajos de Azure Automation |
 > | Microsoft.Automation/automationAccounts/linkedWorkspace/read | Obtiene el área de trabajo vinculada a la cuenta de Automation. |
+> | Microsoft.Automation/automationAccounts/logDefinitions/read | Obtiene los registros disponibles en la cuenta de Automation. |
 > | Microsoft.Automation/automationAccounts/modules/read | Obtiene un módulo de PowerShell de Azure Automation. |
 > | Microsoft.Automation/automationAccounts/modules/getCount/action | Obtiene el número de módulos de PowerShell de la cuenta de Automation. |
 > | Microsoft.Automation/automationAccounts/modules/write | Crea o actualiza un módulo de PowerShell de Azure Automation. |
@@ -10170,6 +10725,7 @@ Servicio de Azure: [Automation](../automation/index.yml)
 > | Microsoft.Automation/automationAccounts/privateEndpointConnections/delete | Elimina una conexión de punto de conexión privado de Azure Automation. |
 > | Microsoft.Automation/automationAccounts/privateLinkResources/read | Lee los puntos de conexión privados en información del grupo. |
 > | Microsoft.Automation/automationAccounts/privateLinkResources/read | Lee los puntos de conexión privados en información del grupo. |
+> | Microsoft.Automation/automationAccounts/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las definiciones de las métricas de Automation. |
 > | Microsoft.Automation/automationAccounts/python2Packages/read | Obtiene un paquete de Python 2 de Azure Automation. |
 > | Microsoft.Automation/automationAccounts/python2Packages/write | Crea o actualiza un paquete de Python 2 de Azure Automation. |
 > | Microsoft.Automation/automationAccounts/python2Packages/delete | Elimina un paquete de Python 2 de Azure Automation. |
@@ -10260,10 +10816,19 @@ Servicio de Azure: [Batch](../batch/index.yml)
 > | Microsoft.Batch/batchAccounts/pools/delete | Elimina un grupo de una cuenta de Batch. |
 > | Microsoft.Batch/batchAccounts/pools/stopResize/action | Detiene un operación en curso de cambio de tamaño en un grupo de una cuenta de Batch. |
 > | Microsoft.Batch/batchAccounts/pools/disableAutoscale/action | Deshabilita el escalado automático de un grupo de una cuenta de Batch. |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/validate/action | Valida un proxy de conexión de punto de conexión privado en una cuenta de Batch. |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/write | Crea un proxy de conexión de punto de conexión privado en una cuenta de Batch. |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/read | Obtiene el proxy de conexión de punto de conexión privado de una cuenta de Batch. |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/delete | Elimina un proxy de conexión de punto de conexión privado de una cuenta de Batch. |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxyResults/read | Obtiene los resultados de una operación de proxy de conexión de un punto de conexión privado de una cuenta de Batch de larga duración. |
 > | Microsoft.Batch/batchAccounts/privateEndpointConnectionResults/read | Obtiene los resultados de una operación de conexión de un punto de conexión privado de una cuenta de Batch de larga ejecución. |
 > | Microsoft.Batch/batchAccounts/privateEndpointConnections/write | Actualiza una conexión de punto de conexión privado existente en una cuenta de Batch. |
 > | Microsoft.Batch/batchAccounts/privateEndpointConnections/read | Obtiene una conexión de punto de conexión privado o muestra las conexiones de punto de conexión privado en una cuenta de Batch. |
 > | Microsoft.Batch/batchAccounts/privateLinkResources/read | Obtiene las propiedades de un recurso de Private Link o muestra los recursos de Private Link en una cuenta de Batch. |
+> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
+> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles del servicio de Batch. |
+> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles del servicio de Batch. |
 > | Microsoft.Batch/locations/checkNameAvailability/action | Comprueba que el nombre de la cuenta sea válido y que no esté en uso. |
 > | Microsoft.Batch/locations/accountOperationResults/read | Obtiene los resultados de una operación de cuenta de Batch de larga ejecución. |
 > | Microsoft.Batch/locations/cloudServiceSkus/read | Enumera los tamaños de máquina virtual del servicio en la nube compatibles con Batch disponibles en la ubicación especificada |
@@ -10545,6 +11110,7 @@ Servicio de Azure: [Azure Arc](../azure-arc/index.yml)
 > | Microsoft.HybridCompute/unregister/action | Anula el registro de la suscripción del proveedor de recursos Microsoft.HybridCompute. |
 > | Microsoft.HybridCompute/locations/operationresults/read | Lee el estado de una operación en el proveedor de recursos Microsoft.HybridCompute. |
 > | Microsoft.HybridCompute/locations/operationstatus/read | Lee el estado de una operación en el proveedor de recursos Microsoft.HybridCompute. |
+> | Microsoft.HybridCompute/locations/privateLinkScopes/read | Lee todos los detalles de cualquier objeto privateLinkScopes de Azure Arc. |
 > | Microsoft.HybridCompute/locations/updateCenterOperationResults/read | Lee el estado de una operación del centro de actualizaciones en las máquinas. |
 > | Microsoft.HybridCompute/machines/read | Leer cualquier máquina de Azure Arc |
 > | Microsoft.HybridCompute/machines/write | Escribe las máquinas de Azure Arc. |
@@ -10563,6 +11129,10 @@ Servicio de Azure: [Azure Arc](../azure-arc/index.yml)
 > | Microsoft.HybridCompute/privateLinkScopes/read | Lee cualquier privateLinkScopes de Azure Arc. |
 > | Microsoft.HybridCompute/privateLinkScopes/write | Escribe cualquier objeto privateLinkScopes de Azure Arc. |
 > | Microsoft.HybridCompute/privateLinkScopes/delete | Elimina cualquier objeto privateLinkScopes de Azure Arc. |
+> | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnectionProxies/read | Lee cualquier objeto privateEndpointConnectionProxies de Azure Arc. |
+> | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnectionProxies/write | Escriba un objeto privateEndpointConnectionProxies de Azure Arc. |
+> | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnectionProxies/delete | Elimina un objeto privateEndpointConnectionProxies de Azure Arc. |
+> | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnectionProxies/validate/action | Valida un objeto privateEndpointConnectionProxies de Azure Arc. |
 > | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/read | Lee cualquier objeto privateEndpointConnections de Azure Arc. |
 > | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/write | Escribe cualquier objeto privateEndpointConnections de Azure Arc. |
 > | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/delete | Elimina cualquier objeto privateEndpointConnections de Azure Arc. |
@@ -11061,8 +11631,8 @@ Servicio de Azure: [Recuperación de sitios](../site-recovery/index.yml)
 > | microsoft.recoveryservices/Vaults/backupProtectionContainers/read | Devuelve todos los contenedores que pertenecen a la suscripción |
 > | microsoft.recoveryservices/Vaults/backupProtectionIntents/read | Enumera todas las intenciones de protección de la copia de seguridad. |
 > | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/delete | La operación Eliminar proxy de ResourceGuard elimina el recurso de Azure especificado de tipo "Proxy de ResourceGuard". |
-> | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/read | Obtiene la lista de servidores proxy de ResourceGuard para un recurso. |
 > | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/read | La operación Obtener proxy de ResourceGuard devuelve un objeto que representa el recurso de Azure de tipo "Proxy de ResourceGuard". |
+> | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/read | Obtiene la lista de servidores proxy de ResourceGuard para un recurso. |
 > | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/unlockDelete/action | La operación Desbloquear la eliminación de proxy de ResourceGuard desbloquea la siguiente operación crítica de eliminación. |
 > | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/write | La operación Crear proxy de ResourceGuard crea un recurso de Azure de tipo "Proxy de ResourceGuard". |
 > | microsoft.recoveryservices/Vaults/backupstorageconfig/read | Devuelve la configuración de almacenamiento del almacén de Recovery Services. |
@@ -11084,6 +11654,10 @@ Servicio de Azure: [Recuperación de sitios](../site-recovery/index.yml)
 > | microsoft.recoveryservices/Vaults/privateEndpointConnections/delete | Elimina solicitudes de punto de conexión privado. Esta llamada la realiza el administrador de copias de seguridad. |
 > | microsoft.recoveryservices/Vaults/privateEndpointConnections/write | Aprueba o rechaza solicitudes de punto de conexión privado. Esta llamada la realiza el administrador de copias de seguridad. |
 > | microsoft.recoveryservices/Vaults/privateEndpointConnections/operationsStatus/read | Devuelve el estado de la operación al conectar con un punto de conexión privado. |
+> | Microsoft.RecoveryServices/Vaults/providers/Microsoft.Insights/diagnosticSettings/read | Diagnósticos de Azure Backup. |
+> | Microsoft.RecoveryServices/Vaults/providers/Microsoft.Insights/diagnosticSettings/write | Diagnósticos de Azure Backup. |
+> | Microsoft.RecoveryServices/Vaults/providers/Microsoft.Insights/logDefinitions/read | Registros de Azure Backup. |
+> | Microsoft.RecoveryServices/Vaults/providers/Microsoft.Insights/metricDefinitions/read | Métricas de Azure Backup. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | La operación Registrar contenedor de servicios se puede usar para registrar un contenedor con servicio de recuperación. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | La operación Obtener contenedores se puede usar para obtener los contenedores registrados para un recurso. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/delete | La operación Anular registro de contenedor se puede usar para eliminar el registro de un contenedor. |

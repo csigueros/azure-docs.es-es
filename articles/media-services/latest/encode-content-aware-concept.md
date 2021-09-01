@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8b48c6b0ef84458fa54692994d8e295d25114dd8
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 0b87b37b98ada136597faa3ac5d990d6e08e9865
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111434"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179423"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Use el valor predeterminado de la codificación en función del contenido para encontrar el valor de velocidad de bits óptimo para una resolución dada
 
@@ -29,7 +29,7 @@ Debe tener en cuenta el contenido que va a procesar y personalizar o ajustar la 
 
 El valor predeterminado de [streaming adaptable](encode-autogen-bitrate-ladder.md) de Microsoft soluciona parcialmente el problema de la variabilidad de calidad y resolución de los vídeos de origen. El contenido de nuestros clientes es muy variado: algunos vídeos tienen una resolución de 1080p, otros 720p y algunos tienen resoluciones de SD e inferiores. Además, no todo el contenido de origen está en formato mezzanine de alta calidad procedente de estudios de televisión o cinematográficos. El valor preestablecido de streaming adaptable soluciona estos problemas garantizando que la escala de velocidad de bits nunca supere la resolución o la velocidad de bits media del archivo mezzanine de entrada. Sin embargo, las únicas propiedades del origen que examina este valor predeterminado son la resolución y la velocidad de bits.
 
-## <a name="the-content-aware-encoding"></a>Codificación en función del contenido
+## <a name="the-content-aware-encoding-preset"></a>El valor predeterminado de codificación en función del contenido
 
 El valor predeterminado de codificación en función del contenido amplía el mecanismo de "streaming con velocidad de bits adaptable", para lo que incorpora una lógica personalizada que permite al codificador buscar el valor óptimo de velocidad de bits para una resolución determinada sin requerir un análisis de cálculo exhaustivo. Este valor predefinido produce un conjunto de archivos MP4s alineados con GOP. Dado cualquier contenido de entrada, el servicio realiza un análisis ligero inicial del mismo y usa los resultados para determinar automáticamente el número óptimo de capas, la velocidad de bits adecuada y la configuración de resolución para la entrega a través del streaming adaptable. Este valor predefinido resulta particularmente eficaz en los vídeos de complejidad media y baja, donde los archivos de salida tendrán velocidades de bits más lentas que el valor predefinido de streaming adaptable, pero una calidad que seguirá ofreciendo una buena experiencia a los visores. La salida contendrá archivos MP4 con el vídeo y audio intercalados.
 
@@ -53,6 +53,12 @@ A continuación encontrará los resultados de otra categoría de contenido de or
 
 **Ilustración 4: Curva de RD mediante VMAF para entradas de baja calidad (a 1080p)**
 
+## <a name="8-bit-hevc-h265-support"></a>Compatibilidad con HEVC de 8 bits (H.265)
+
+El codificador estándar de Azure Media Services ahora admite la codificación HEVC (H.265) de 8 bits. El contenido de HEVC se puede entregar y empaquetar a través del empaquetador dinámico con el formato "hev1".
+
+Hay disponible una nueva codificación .NET personalizada con un ejemplo de HEVC en el [repositorio de Git Hub media-services-v3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC). Además de la codificación personalizada, AMS también admite otros nuevos valores preestablecidos de codificación HEVC integrados que puede ver en nuestras [notas de la versión de febrero de 2021](https://docs.microsoft.com/azure/media-services/latest/release-notes#february-2021).
+
 ## <a name="how-to-use-the-content-aware-encoding-preset"></a>Uso del valor predeterminado de codificación en función del contenido 
 
 Puede crear transformaciones que usen este valor preestablecido como se indica a continuación. 
@@ -60,7 +66,7 @@ Puede crear transformaciones que usen este valor preestablecido como se indica a
 Consulte la sección [Pasos siguientes](#next-steps) para ver otros tutoriales que usan salidas para la transformación. El recurso de la salida se puede entregar desde los puntos de conexión de streaming de Media Services en protocolos como MPEG-DASH y HLS (como se muestra en los tutoriales).
 
 > [!NOTE]
-> Asegúrese de usar el valor preestablecido **ContentAwareEncoding**, en lugar de ContentAwareEncodingExperimental.
+> Asegúrese de usar el valor preestablecido **ContentAwareEncoding**, en lugar de ContentAwareEncodingExperimental. O bien, si desea codificar con HEVC, puede usar **H265ContentAwareEncoding**.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -79,7 +85,7 @@ TransformOutput[] output = new TransformOutput[]
 ```
 
 > [!NOTE]
-> Los trabajos de codificación que usan el valor predeterminado `ContentAwareEncoding` se facturan en función de los minutos de salida. 
+> Los trabajos de codificación que usan el valor predeterminado `ContentAwareEncoding` se facturan únicamente en función de los minutos de salida. AMS usa la codificación de dos pasos y no hay ningún cargo adicional asociado con el uso de ninguno de los valores preestablecidos más allá de lo que aparece en nuestra [página de precios](https://azure.microsoft.com/pricing/details/media-services/#overview).
   
 ## <a name="next-steps"></a>Pasos siguientes
 

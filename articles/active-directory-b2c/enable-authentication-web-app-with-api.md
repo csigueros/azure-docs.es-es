@@ -1,47 +1,48 @@
 ---
-title: Habilitación de la autenticación en una web que llama a una API web mediante bloques de creación de Azure Active Directory B2C
-description: Los bloques de creación de una aplicación web de ASP.NET que llama a una API web mediante Azure Active Directory B2C.
+title: Habilitación de la autenticación en aquellas aplicación web que llaman a una API web mediante bloques de creación de Azure Active Directory B2C
+description: En este artículo se tratan los bloques de creación de una aplicación web de ASP.NET que llama a una API web mediante Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 06/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 53c81633508bef928faf8919c618b9ad30dd3844
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: fd1d47f879ead2913d5fbfa85febde50a8950907
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112073192"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723198"
 ---
-# <a name="enable-authentication-in-your-own-web-application-that-calls-a-web-api-using-azure-active-directory-b2c"></a>Habilitación de la autenticación en su propia aplicación web que llama a una API web mediante Azure Active Directory B2C
+# <a name="enable-authentication-in-web-apps-that-call-a-web-api-by-using-azure-ad-b2c"></a>Habilitación de la autenticación en aplicaciones web que llaman a una API web mediante Azure AD B2C
 
-En este artículo se muestra cómo agregar la autenticación de Azure Active Directory B2C (Azure AD B2C) a su propia aplicación web de ASP.NET que llama a una API web. Aprenda a crear una aplicación web de ASP.NET Core con middleware de ASP.NET Core que usa el protocolo [OpenID Connect](openid-connect.md). Use este artículo junto con el artículo [Configuración de la autenticación en una aplicación web de ejemplo que llama a una API web](configure-authentication-sample-web-app-with-api.md) cuando sustituya la aplicación web de ejemplo por la suya propia.
+En este artículo se muestra cómo agregar la autenticación de Azure Active Directory B2C (Azure AD B2C) a una aplicación web de ASP.NET que llama a una API web. Aprenda a crear una aplicación web de ASP.NET Core con middleware de ASP.NET Core que use el protocolo [OpenID Connect](openid-connect.md). 
 
-Este artículo se centra en el proyecto de aplicación web. Para obtener instrucciones sobre cómo crear la API web, consulte el [ejemplo de la API web de la lista de tareas](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C).
+Para usar este artículo con el artículo sobre la [configuración de la autenticación en una aplicación web de ejemplo que llama a una API web](configure-authentication-sample-web-app-with-api.md), sustituya la aplicación web de ejemplo por la suya propia.
 
-## <a name="prerequisites"></a>Prerrequisitos
+Este artículo se centra en el proyecto de una aplicación web. Para obtener instrucciones sobre cómo crear la API web, consulte el [ejemplo de API web de una lista de tareas](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C).
 
-Revise los requisitos previos y los pasos de integración de [Configuración de la autenticación en una aplicación web de ejemplo que llama a una API web](configure-authentication-sample-web-app-with-api.md).
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="create-a-web-app-project"></a>Creación de un proyecto de aplicación web
+Consulte los requisitos previos y los pasos de integración en el artículo sobre la [configuración de la autenticación en una aplicación web de ejemplo que llama a una API web](configure-authentication-sample-web-app-with-api.md).
 
-Puede usar un proyecto de aplicación web MVC de ASP.NET existente o crear uno nuevo. Para crear un nuevo proyecto, abra un shell de comandos y escriba el siguiente comando:
+En las siguientes secciones se indica paso a paso cómo agregar la autenticación de Azure Active Directory B2C (Azure AD B2C) a una aplicación web de ASP.NET.
+
+## <a name="step-1-create-a-web-app-project"></a>Paso 1: Creación de un proyecto de aplicación web
+
+Puede usar un proyecto de la aplicación web Model View Controller (MVC) de ASP.NET existente o crear uno nuevo. Para crear un proyecto, abra un shell de comandos y ejecute el siguiente comando:
 
 ```dotnetcli
 dotnet new mvc -o mywebapp
 ```
 
-El comando anterior:
+El comando anterior crea una aplicación web MVC. El parámetro `-o mywebapp` crea un directorio llamado *mywebapp* con los archivos de código fuente de la aplicación.
 
-* Crea una nueva aplicación web MVC.  
-* El parámetro `-o mywebapp` crea un directorio llamado *mywebapp* con los archivos de código fuente de la aplicación.
-
-## <a name="add-the-authentication-libraries"></a>Adición de las bibliotecas de autenticación
+## <a name="step-2-add-the-authentication-libraries"></a>Paso 2: Adición de las bibliotecas de autenticación
 
 En primer lugar, agregue la biblioteca web de identidad de Microsoft. Se trata de un conjunto de bibliotecas de ASP.NET Core que simplifican la adición de la compatibilidad con la autenticación y la autorización de Azure AD B2C en la aplicación web. La biblioteca Microsoft Identity Web configura la canalización de autenticación con la autenticación basada en cookies. Se encarga de enviar y recibir mensajes de autenticación HTTP, la validación de tokens, la extracción de notificaciones, etc.
 
@@ -61,10 +62,7 @@ Install-Package Microsoft.Identity.Web
 Install-Package Microsoft.Identity.Web.UI
 ```
 
----
-
-
-## <a name="initiate-the-authentication-libraries"></a>Inicio de las bibliotecas de autenticación
+## <a name="step-3-initiate-the-authentication-libraries"></a>Paso 3: Inicio de las bibliotecas de autenticación
 
 El middleware Microsoft Identity Web usa una clase de inicio que se ejecuta cuando se inicia el proceso de hospedaje. En este paso, agregará el código necesario para iniciar las bibliotecas de autenticación.
 
@@ -79,7 +77,7 @@ using Microsoft.Identity.Web.UI;
 
 Dado que Microsoft Identity Web usa la autenticación basada en cookies para proteger la aplicación web, el código siguiente establece la configuración de cookies *SameSite*. A continuación, lee la configuración de la aplicación `AzureADB2C` e inicia el controlador de middleware con su vista. 
 
-Reemplace la función `ConfigureServices(IServiceCollection services)` por el fragmento de código siguiente. 
+Reemplace la función `ConfigureServices(IServiceCollection services)` por el siguiente fragmento de código: 
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -93,7 +91,7 @@ public void ConfigureServices(IServiceCollection services)
         options.HandleSameSiteCookieCompatibility();
     });
 
-    // Configuration to sign-in users with Azure AD B2C
+    // Configuration to sign in users with Azure AD B2C
     services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAdB2C")
             // Enable token acquisition to call downstream web API
             .EnableTokenAcquisitionToCallDownstreamApi(new string[] { Configuration["TodoList:TodoListScope"] })
@@ -111,7 +109,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-El código siguiente agrega la directiva de cookies y usa el modelo de autenticación. Reemplace la función `Configure` por el fragmento de código siguiente. 
+El siguiente código agrega la directiva de cookies y usa el modelo de autenticación. Reemplace la función `Configure` por el siguiente fragmento de código: 
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -149,9 +147,9 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 };
 ```
 
-## <a name="add-the-ui-elements"></a>Adición de elementos de la interfaz de usuario
+## <a name="step-4-add-the-ui-elements"></a>Pas 4: Adición de elementos de la interfaz de usuario
 
-Para agregar elementos de la interfaz de usuario, use una vista parcial. La vista parcial contiene lógica para comprobar si un usuario ha iniciado sesión o no. Si el usuario no ha iniciado sesión, la vista parcial representa el botón de inicio de sesión. Si el usuario ha iniciado sesión, se muestra el nombre para mostrar del usuario y el botón de cerrar sesión.
+Para agregar elementos de la interfaz de usuario, use una vista parcial. La vista parcial contiene lógica para comprobar si un usuario ha iniciado sesión. Si el usuario no ha iniciado sesión, la vista parcial representa el botón de inicio de sesión. Si el usuario ha iniciado sesión, aparece el nombre para mostrar del usuario y el botón para cerrar sesión.
   
 Cree un nuevo archivo `_LoginPartial.cshtml` dentro de la carpeta `Views/Shared` con el siguiente fragmento de código:
 
@@ -161,8 +159,7 @@ Cree un nuevo archivo `_LoginPartial.cshtml` dentro de la carpeta `Views/Shared`
 {
     <ul class="nav navbar-nav navbar-right">
         <li class="navbar-text">Hello @User.Identity.Name</li>
-        <!-- The Account controller is not defined in this project. Instead, it is part of Microsoft.Identity.Web.UI nuget package and
-            it defines some well known actions such as SignUp/In, SignOut and EditProfile-->
+        <!-- The Account controller is not defined in this project. Instead, it is part of Microsoft.Identity.Web.UI nuget package, and it defines some well-known actions, such as SignUp/In, SignOut, and EditProfile. -->
         <li class="navbar-btn">
             <form method="get" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="EditProfile">
                 <button type="submit" class="btn btn-primary" style="margin-right:5px">Edit Profile</button>
@@ -215,7 +212,7 @@ Reemplace este elemento con el siguiente código de Razor:
 
 El código de Razor anterior incluye un vínculo a las acciones `Claims` y `TodoList` que creará en los siguientes pasos.
 
-## <a name="add-the-claims-view"></a>Adición de la vista de notificaciones
+## <a name="step-5-add-the-claims-view"></a>Paso 5: Adición de la vista de notificaciones
 
 Para ver las notificaciones del token de identificador en la carpeta `Views/Home`, agregue la vista `Claims.cshtml`.
 
@@ -243,9 +240,9 @@ Para ver las notificaciones del token de identificador en la carpeta `Views/Home
 </table>
 ```
 
-En este paso, agregará la acción `Claims` que vincula la vista *Claims.cshtml* al controlador *Home*. Usa el atributo `[Authorize]`, que limita el acceso a la acción Claims a los usuarios autenticados.  
+En este paso, agregará la acción `Claims` que vincula la vista *Claims.cshtml* al controlador *Home*. Usa el atributo `[Authorize]`, que limita el acceso a la acción Claims a los usuarios autenticados.
 
-En el controlador `/Controllers/HomeController.cs`, agregue la siguiente acción.
+En el controlador */Controllers/HomeController.cs*, agregue la siguiente acción:
 
 ```csharp
 [Authorize]
@@ -261,9 +258,9 @@ Agregue la siguiente declaración `using` al comienzo de la clase:
 using Microsoft.AspNetCore.Authorization;
 ```
 
-## <a name="add-the-to-do-list-view"></a>Adición de la vista de lista de tareas pendientes
+## <a name="step-6-add-the-todolistcshtml-view"></a>Paso 6: Adición de la vista TodoList.cshtml
 
-Para llamar a la API web de tareas pendientes, debe tener un token de acceso con los ámbitos adecuados. En este paso, accederá y actuará en el controlador `Home`. En la carpeta `Views/Home`, agregue la vista `TodoList.cshtml`.
+Para llamar a la API web TodoList.cshtml, debe tener un token de acceso con los ámbitos adecuados. En este paso, se agrega una acción al controlador `Home`. En la carpeta `Views/Home`, agregue la vista `TodoList.cshtml`.
 
 ```razor
 @{
@@ -279,7 +276,7 @@ Para llamar a la API web de tareas pendientes, debe tener un token de acceso con
 
 Después de agregar la vista, agregue la acción `TodoList` que vincula la vista *TodoList.cshtml* al controlador *Home*. Usa el atributo `[Authorize]`, que limita el acceso a la acción TodoList a los usuarios autenticados.  
 
-En el controlador `/Controllers/HomeController.cs`, agregue el siguiente miembro de clase de acción e inyecte el servicio de adquisición de tokens en el controlador.
+En el controlador */Controllers/HomeController.cs*, agregue el siguiente miembro de clase de acción e inyecte el servicio de adquisición de tokens en el controlador.
 
 ```csharp
 public class HomeController : Controller
@@ -301,7 +298,7 @@ public class HomeController : Controller
 }
 ```
 
-Después, agregue la acción siguiente. La acción muestra cómo llamar a una API web junto con el token de portador. 
+Ahora agregue la siguiente acción, que muestra cómo llamar a una API web junto con el token de portador. 
 
 ```csharp
 [Authorize]
@@ -324,22 +321,23 @@ public async Task<IActionResult> TodoListAsync()
 }
 ```
 
-## <a name="add-the-app-settings"></a>Adición de la configuración de la aplicación
+## <a name="step-7-add-the-app-settings"></a>Paso 7: Adición de la configuración de la aplicación
 
-La configuración del proveedor de identidades de Azure AD B2C se almacena en el archivo `appsettings.json`. Abra appsettings.json y agregue la configuración de la aplicación como se describe en [Paso 5: Configuración de la aplicación web de ejemplo](configure-authentication-sample-web-app-with-api.md#step-5-configure-the-sample-web-app).
+La configuración del proveedor de identidades de Azure AD B2C se almacena en el archivo *appsettings.json*. Abra *appsettings.json* y agregue la configuración de la aplicación, como se describe en "Paso 5: Configuración de la aplicación web de ejemplo" del artículo sobre la [configuración de la autenticación en una aplicación web de ejemplo que llama a una API web mediante Azure AD B2C](configure-authentication-sample-web-app-with-api.md#step-5-configure-the-sample-web-app).
 
-## <a name="run-your-application"></a>Ejecución de la aplicación
+## <a name="step-8-run-your-application"></a>Paso 8: Ejecución de la aplicación
 
 1. Compile y ejecute el proyecto.
-1. Vaya a https://localhost:5001. 
-1. Seleccione **SignIn/Up** (Iniciar sesión o registrarse).
-1. Complete el proceso de inicio de sesión o registro.
+1. Vaya a https://localhost:5001 y seleccione **SignIn/Up**.
+1. Complete el proceso de inicio de sesión o de registro.
 
-Después de autenticarse correctamente, verá el nombre para mostrar en la barra de navegación. 
+Una vez que se haya autenticado correctamente en la aplicación, compruebe el nombre para mostrar en la barra de navegación. 
 
-* Para ver las notificaciones que devuelve el token de Azure AD B2C a la aplicación, seleccione **Notificaciones**.
+* Para ver las notificaciones que el token de Azure AD B2C devuelve a la aplicación, seleccione **Notificaciones**.
 * Para ver el token de acceso, seleccione **Lista de tareas pendientes**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo [personalizar y mejorar la experiencia de autenticación de Azure AD B2C para la aplicación web](enable-authentication-web-application-options.md).
+Aprenda a :
+* [Personalizar y mejorar la experiencia de la autenticación de Azure AD B2C en su aplicación web](enable-authentication-web-application-options.md)
+* [Habilitar la autenticación en su propia API web](enable-authentication-web-api.md)

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/09/2020
+ms.date: 08/11/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec237af8cd0c79d5a7b62aad0bc6521e5cf3d7e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 7a3cf21ef2493ef6a93397e6d6601e326d0ef0d3
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059248"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252821"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Actualización automática
 La actualización automática de Azure AD Connect es una característica que comprueba periódicamente si hay versiones más recientes de Azure AD Connect. Si el servidor tiene habilitada la actualización automática y se encuentra una versión más reciente para la que el servidor es apto, se realizará una actualización automática a esa versión más reciente.
@@ -50,6 +50,22 @@ En la actualización automática se utiliza Azure AD Connect Health como infraes
 
 
 Si la IU de **Synchronization Service Manager** se está ejecutando en el servidor, la actualización se suspenderá hasta que la IU se cierre.
+
+>[!NOTE]
+> No todas las versiones de Azure AD Connect están disponibles para la actualización automática. El estado de lanzamiento indica si una versión está disponible para la actualización automática o solo para la descarga. Si la actualización automática estaba habilitada en el servidor de Azure AD Connect, ese servidor se actualizará automáticamente a la versión más reciente de Azure AD Connect que se lanza para la actualización automática siempre que **su configuración sea [apta](#auto-upgrade-eligibility)** para esa actualización. Para más información, consulte el artículo [Azure AD Connect: historial de versiones](reference-connect-version-history.md)
+
+## <a name="auto-upgrade-eligibility"></a>Requisitos para la actualización automática
+Para optar a una actualización automática, no debe cumplir ninguna de las condiciones siguientes:
+
+| Mensaje de resultado | Descripción |
+| --- | --- |
+|UpgradeNotSupportedCustomizedSyncRules|Ha agregado sus propias reglas personalizadas a la configuración.|
+|UpgradeNotSupportedInvalidPersistedState|La instalación no es una configuración rápida ni una actualización de DirSync.|
+|UpgradeNotSupportedNonLocalDbInstall|No se está utilizando una base de datos de SQL Server Express LocalDB.|
+|UpgradeNotSupportedLocalDbSizeExceeded|El tamaño de la base de datos local es mayor o igual que 8 GB.|
+|UpgradeNotSupportedAADHealthUploadDisabled|Las cargas de datos de estado se han deshabilitado en el portal.|
+
+
 
 ## <a name="troubleshooting"></a>Solución de problemas
 Si la instalación de Connect no se actualiza según lo esperado, siga estos pasos para detectar dónde se produce el error.

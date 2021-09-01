@@ -1,26 +1,26 @@
 ---
-title: Migración de recursos de identidad de Azure desde Azure Alemania a Azure global
+title: Migración de recursos de identidad de Azure de Azure Alemania a Azure global
 description: En este artículo se proporciona información sobre cómo migrar los recursos de identidad de Azure desde Azure Alemania a Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: 07ecaa564f2fda21967ab6f0c30c06fa876e4171
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41f8019d8732560754be4757845f22f436cfcf70
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033527"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "117029142"
 ---
 # <a name="migrate-identity-resources-to-global-azure"></a>Migración de recursos de identidad a Azure global
 
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 En este artículo se proporciona información que puede ayudarle a migrar los recursos de identidad de Azure desde Azure Alemania a Azure global.
 
-La guía acerca de la identidad o los inquilinos está pensada solo para clientes de Azure. Si se utilizan inquilinos comunes de Azure Active Directory (Azure AD) para Azure y O365 (u otros productos de Microsoft), existen complejidades en la migración de identidades y hay que ponerse en contacto primero con el administrador de cuentas antes de utilizar esta guía de migración.
+Las instrucciones sobre la identidad o inquilinos está pensada solo para los clientes de Azure. Si se utilizan inquilinos comunes de Azure Active Directory (Azure AD) para Azure y Microsoft 365 (u otros productos de Microsoft), existen complejidades en la migración de identidades, por lo que es aconsejable ponerse en contacto con el administrador de cuentas antes de utilizar esta guía de migración.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -123,9 +123,9 @@ $_.ObjectId | Format-Table}
 ```
 Para obtener más información:
 
-- Más información acerca de las [soluciones de identidad híbrida](../active-directory/choose-hybrid-identity-solution.md).
-- Lea la entrada de blog [Use Azure AD Connect with multiple clouds](https://blogs.technet.microsoft.com/ralfwi/2017/01/24/using-adconnect-with-multiple-clouds/) (Uso de Azure AD Connect con varias nubes) para aprender distintas formas de realizar la sincronización con diferentes entornos de nube.
-- Más información acerca de [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+- Más información acerca de las [soluciones de identidad híbrida](../active-directory/hybrid/whatis-hybrid-identity.md).
+- Lea la entrada de blog [Use Azure AD Connect with multiple clouds](/archive/blogs/ralfwi/using-adconnect-with-multiple-clouds) (Uso de Azure AD Connect con varias nubes) para aprender distintas formas de realizar la sincronización con diferentes entornos de nube.
+- Más información acerca de [Azure Active Directory](../active-directory/index.yml).
 - Más información acerca de los [nombres de dominio personalizados](../active-directory/fundamentals/add-custom-domain.md).
 - Aprenda a [importar datos de CSV en Azure DB](/powershell/azure/active-directory/importing-data).
 
@@ -149,21 +149,21 @@ Para obtener más información:
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Debe volver a crear los usuarios y volver a definir la instancia de Azure Multi-factor Authentication en el nuevo entorno. 
+Debe volver a crear los usuarios y volver a definir la instancia de Azure AD Multi-Factor Authentication en el nuevo entorno. 
 
 Para obtener una lista de cuentas de usuario para las que la autenticación multifactor está habilitada o es obligatoria:
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 1. Seleccione **Usuarios** > **Todos los usuarios** > **Autenticación multifactor**.
 1. Cuando se le redirija a la página del servicio de autenticación multifactor, establezca los filtros apropiados para obtener una lista de usuarios.
 
-Para obtener más información:
+Para más información:
 
-- Más información acerca de [Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
+- Más información sobre [Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de las distintas herramientas, técnicas y recomendaciones para migrar los recursos en las siguientes categorías de servicio:
+Obtenga información sobre herramientas, técnicas y recomendaciones para migrar los recursos en las siguientes categorías de servicio:
 
 - [Proceso](./germany-migration-compute.md)
 - [Redes](./germany-migration-networking.md)

@@ -11,21 +11,21 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/17/2021
+ms.date: 08/16/2021
 tags: azure-synapse
-ms.openlocfilehash: d6b51d32b691919e0f0947d3ddb58d184424b9ad
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: e61660a5c559012cbf4940356bd1a204f3203db6
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534416"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228775"
 ---
 # <a name="data-discovery--classification"></a>Clasificación y detección de datos
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 La clasificación y detección de datos está integrada en Azure SQL Database, Instancia administrada de Azure SQL y Azure Synapse Analytics. Ofrece funcionalidades básicas para detectar, clasificar, etiquetar e informar de los datos confidenciales de las bases de datos.
 
-Los datos más confidenciales pueden incluir información empresarial, financiera, sanitaria o personal. La detección y clasificación de estos datos puede representar un rol fundamental en el enfoque de la protección de la información de la organización. Puede servir como infraestructura para lo siguiente:
+Los datos más confidenciales pueden incluir información empresarial, financiera, sanitaria o personal. Puede servir como infraestructura para lo siguiente:
 
 - Ayudar a satisfacer los estándares de privacidad de datos y los requisitos de cumplimiento normativo.
 - Varios escenarios de seguridad, como el acceso de supervisión (auditoría) a información confidencial.
@@ -36,11 +36,11 @@ Los datos más confidenciales pueden incluir información empresarial, financier
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>¿Qué es la clasificación y detección de datos?
 
-La clasificación y detección de datos constituye un nuevo paradigma de protección de la información para SQL Database, SQL Managed Instance y Azure Synapse, destinado no solo a proteger la base de datos, sino también los datos. Actualmente admite las siguientes funcionalidades:
+La clasificación y detección de datos admite actualmente las siguientes funcionalidades:
 
 - **Detección y recomendaciones:** el motor de clasificación examina la base de datos e identifica las columnas que contienen datos potencialmente confidenciales. A continuación, le proporciona una manera sencilla de revisar y aplicar la clasificación recomendada a través de Azure Portal.
 
-- **Etiquetado:** puede aplicar etiquetas de clasificación de confidencialidad de forma persistente a las columnas, usando los nuevos atributos de metadatos que se han agregado al motor de base de datos de SQL Server. A continuación, estos metadatos se pueden utilizar en escenarios de auditoría y protección basados en la confidencialidad.
+- **Etiquetado:** puede aplicar etiquetas de clasificación de confidencialidad de forma persistente a las columnas, usando los nuevos atributos de metadatos que se han agregado al motor de base de datos de SQL Server. A continuación, estos metadatos se pueden utilizar en escenarios de auditoría basados en la confidencialidad.
 
 - **Confidencialidad del conjunto de resultados de consulta:** la confidencialidad del conjunto de resultados de consulta se calcula en tiempo real con fines de auditoría.
 
@@ -64,7 +64,7 @@ La función de clasificación y detección de datos incluye un conjunto integrad
 
 Se define y personaliza la taxonomía de clasificación en una ubicación central para toda la organización de Azure. Esa ubicación se encuentra en [Azure Security Center](../../security-center/security-center-introduction.md), como parte de la directiva de seguridad. Solo un usuario con derechos administrativos en el grupo de administración raíz de la organización puede realizar esta tarea.
 
-Como parte de la administración de directivas de protección de la información, puede definir etiquetas personalizadas, clasificarlas y asociarlas con un conjunto seleccionado de tipos de información. También puede agregar sus propios tipos de información personalizados y configurarlos con patrones de cadena. Los patrones se agregan a la lógica de detección para identificar este tipo de datos en las bases de datos.
+Como parte de la administración de directivas, puede definir etiquetas personalizadas, clasificarlas y asociarlas con un conjunto de tipos de información seleccionado. También puede agregar sus propios tipos de información personalizados y configurarlos con patrones de cadena. Los patrones se agregan a la lógica de detección para identificar este tipo de datos en las bases de datos.
 
 Para más información, consulte [Personalización de la directiva de SQL Information Protection en Azure Security Center (versión preliminar)](../../security-center/security-center-info-protection-policy.md).
 
@@ -112,7 +112,7 @@ Una vez definida la directiva de toda la organización, puede continuar con la c
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Auditoría del acceso a datos confidenciales
 
-Un aspecto importante del paradigma de protección de la información es la capacidad de supervisar el acceso a información confidencial. [Auditoría de Azure SQL](../../azure-sql/database/auditing-overview.md) se ha mejorado para incluir un nuevo campo en el registro de auditoría denominado `data_sensitivity_information`. Este campo registra las clasificaciones de confidencialidad (etiquetas) de los datos devueltos por una consulta. Este es un ejemplo:
+Un aspecto importante de la clasificación es la capacidad de supervisar el acceso a información confidencial. [Auditoría de Azure SQL](../../azure-sql/database/auditing-overview.md) se ha mejorado para incluir un nuevo campo en el registro de auditoría denominado `data_sensitivity_information`. Este campo registra las clasificaciones de confidencialidad (etiquetas) de los datos devueltos por una consulta. Este es un ejemplo:
 
 ![Registro de auditoría](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 

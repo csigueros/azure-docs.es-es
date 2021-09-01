@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: f2d9d9afb1e31f959c4e219c0c95e435c966ccd1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: a095d2f6e05957e4a3daac76f3ac745e5a20de4a
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757074"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228983"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Descripción del acceso a la máquina virtual Just-in-Time (JIT)
 
@@ -56,11 +56,11 @@ Cuando un usuario solicita acceso a una máquina virtual, Security Center compru
 
 En el diagrama siguiente se muestra la lógica que Security Center aplica al decidir cómo clasificar las máquinas virtuales compatibles: 
 
-[![Flujo de lógica de máquina virtual (VM) Just-in-Time (JIT)](media/just-in-time-explained/jit-logic-flow.png)](media/just-in-time-explained/jit-logic-flow.png#lightbox)
+[![Flujo de lógica de máquina virtual (VM) Just-in-Time (JIT)](media/just-in-time-explained/jit-logic-flow.png)](media/just-in-time-explained/jit-logic-flow.png#lightbox).
 
 Cuando Security Center encuentra una máquina que puede beneficiarse de JIT, agrega esa máquina a la pestaña **Recursos incorrectos** de la recomendación. 
 
-![Recomendación de acceso a la máquina virtual (VM) Just-in-Time (JIT)](./media/just-in-time-explained/unhealthy-resources.png)
+![Recomendación de acceso a la máquina virtual (VM) Just-in-Time (JIT).](./media/just-in-time-explained/unhealthy-resources.png)
 
 
 ## <a name="faq---just-in-time-virtual-machine-access"></a>Preguntas frecuentes: Acceso a máquinas virtuales Just-In-Time
@@ -74,7 +74,7 @@ Los roles **Lector** y **SecurityReader** pueden ver el estado y los parámetros
 Si quiere crear roles personalizados que puedan funcionar con JIT, necesita los detalles de la tabla siguiente.
 
 > [!TIP]
-> Para crear un rol con privilegios mínimos para los usuarios que necesiten solicitar acceso JIT a una máquina virtual y no realizar ninguna otra operación JIT, use el [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) de las páginas de la comunidad de GitHub de Security Center.
+> Para crear un rol con privilegios mínimos para los usuarios que necesiten solicitar acceso JIT a una máquina virtual y no realizar ninguna otra operación JIT, use el [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) de las páginas de la comunidad de GitHub de Security Center.
 
 | Para permitir a los usuarios: | Permisos que se deben establecer|
 | --- | --- |
@@ -89,9 +89,7 @@ Si quiere crear roles personalizados que puedan funcionar con JIT, necesita los 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta página se ha explicado _por qué_ se debe usar el acceso a la máquina virtual (VM) Just-in-Time (JIT). 
-
-Avance al artículo de procedimientos para obtener información sobre cómo habilitar Just-In-Time y solicitar acceso a las máquinas virtuales habilitadas para acceso Just-In-Time:
+En esta página se ha explicado _por qué_ se debe usar el acceso a la máquina virtual (VM) Just-in-Time (JIT). Para más información sobre _cómo_ para habilitar JIT y solicitar acceso a las máquinas virtuales habilitadas para JIT, consulte lo siguiente:
 
 > [!div class="nextstepaction"]
 > [Procedimientos para proteger los puertos de administración con acceso Just-in-Time](security-center-just-in-time.md)

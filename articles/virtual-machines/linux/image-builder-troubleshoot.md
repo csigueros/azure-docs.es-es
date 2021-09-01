@@ -1,24 +1,34 @@
 ---
 title: Solución de problemas del servicio Azure Image Builder
 description: Solución de errores y problemas comunes al usar el servicio Azure VM Image Builder
-author: cynthn
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 85296a7b7de8e1bce03d39ab8c96c8444fe1dffb
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 91b60204c8fddd892fbaacf00a7588cf1a64854d
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440959"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122180361"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Solución de problemas del servicio Azure Image Builder
-
 Este artículo le ayuda a solucionar problemas conocidos que se pueden producir al usar el servicio Azure Image Builder.
+
+## <a name="prerequisites"></a>Requisitos previos
+Al crear una compilación, asegúrese de que cumple los siguientes requisitos previos:
+    
+- El servicio Image Builder se comunica con la máquina virtual de compilación mediante WinRM o SSH; NO deshabilite esta configuración como parte de la compilación.
+- Image Builder creará recursos como parte de la compilación, compruebe que Azure Policy no impide que AIB cree o use los recursos necesarios.
+  - Creación de un grupo de recursos IT_
+  - Creación de una cuenta de almacenamiento sin firewall
+- Compruebe Azure Policy no instala características no deseadas en la máquina virtual de compilación, como extensiones de Azure.
+-   Asegúrese de que Image Builder tenga los permisos correctos para leer y escribir imágenes y para conectarse a Azure Storage. Revise la documentación de permisos para la [CLI](./image-builder-permissions-cli.md) o [PowerShell](./image-builder-permissions-powershell.md).
+- Se producirá un error de Image Builder en la compilación si los scripts o comandos en línea producen errores (códigos de salida distintos de cero); asegúrese de que ha probado y comprobado que los scripts personalizados se ejecutan sin errores (código de salida 0) o que requieren una entrada de usuario. Para más información, consulte la siguiente [documentación](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images).
 
 Los errores de AIB se pueden producir en dos áreas:
 - Envío de la plantilla de imagen

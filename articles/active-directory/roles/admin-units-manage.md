@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78468c9528c4502ce691dec183c261b9636325f8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 34a6a353593d733cf50325049cd88034fb16c9ca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094337"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723119"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Administración de unidades administrativas en Azure Active Directory
 
@@ -42,7 +42,9 @@ Puede agregar una unidad administrativa mediante Azure Portal o PowerShell.
 
 ### <a name="azure-portal"></a>Portal de Azure
 
-1. En Azure Portal, vaya a Azure AD. A continuación, en el panel de la izquierda, seleccione **Unidades administrativas**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [centro de administración de Azure AD](https://aad.portal.azure.com).
+
+1. Seleccione **Azure Active Directory** > **Unidades administrativas**.
 
     ![Captura de pantalla en la que se muestra el vínculo "Unidades administrativas" en Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
 
@@ -84,11 +86,15 @@ En Azure AD, puede quitar una unidad administrativa que ya no necesite como uni
 
 ### <a name="azure-portal"></a>Portal de Azure
 
-1. En Azure Portal, vaya a **Azure AD** y, luego, seleccione **Unidades administrativas**. 
-1. Seleccione la unidad administrativa que quiera eliminar y, a continuación, seleccione **Eliminar**. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [centro de administración de Azure AD](https://aad.portal.azure.com).
+
+1. Seleccione **Azure Active Directory** > **Unidades administrativas**.
+ 
+1. Seleccione la unidad administrativa que quiera eliminar y, a continuación, seleccione **Eliminar**.
+
 1. Para confirmar que quiere eliminar la unidad administrativa, seleccione **Sí**. Se elimina la unidad administrativa.
 
-![Captura de pantalla del botón Eliminar de la unidad administrativa y de la ventana de confirmación](./media/admin-units-manage/select-admin-unit-to-delete.png)
+    ![Captura de pantalla del botón Eliminar de la unidad administrativa y de la ventana de confirmación](./media/admin-units-manage/select-admin-unit-to-delete.png)
 
 ### <a name="powershell"></a>PowerShell
 

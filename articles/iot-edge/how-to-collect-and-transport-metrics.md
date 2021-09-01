@@ -2,19 +2,18 @@
 title: 'Recopilación y transporte de métricas: Azure IoT Edge'
 description: Uso de Azure Monitor para supervisar de forma remota las métricas integradas de IoT Edge
 author: veyalla
-manager: philmea
 ms.author: veyalla
-ms.date: 06/09/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b7c849bd00991eb243c9620c1b08bede7f239170
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 60a01c9e3a3e8643ad7d993db34d299fdc5ef145
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904578"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014599"
 ---
 # <a name="collect-and-transport-metrics-preview"></a>Recopilación y transporte de métricas (versión preliminar)
 
@@ -24,18 +23,34 @@ Puede supervisar de forma remota la flota de IoT Edge mediante Azure Monitor, as
 
 ## <a name="architecture"></a>Architecture
 
-[![Arquitectura de supervisión de métricas](./media/how-to-collect-and-transport-metrics/arch.png)](./media/how-to-collect-and-transport-metrics/arch.png#lightbox)
+# <a name="iot-hub"></a>[IoT Hub](#tab/iothub)
+
+[![Arquitectura de supervisión de métricas con IoT Hub](./media/how-to-collect-and-transport-metrics/arch.png)](./media/how-to-collect-and-transport-metrics/arch.png#lightbox)
 
 | Nota | Descripción |
 |-|-|
 |  1 | Todos los módulos deben emitir métricas mediante el [modelo de datos de Prometheus](https://prometheus.io/docs/concepts/data_model/). Aunque las [métricas integradas](how-to-access-built-in-metrics.md) permiten obtener una amplia visibilidad de la carga de trabajo de forma predeterminada, los módulos personalizados también se pueden usar para emitir métricas específicas del escenario con el fin de mejorar la solución de supervisión. Obtenga información sobre cómo instrumentar módulos personalizados mediante las bibliotecas de código abierto en el artículo [Adición de métricas personalizadas](how-to-add-custom-metrics.md). |
-|  2️ | El [módulo del recopilador de métricas](https://aka.ms/edgemon-metric-collector) es un módulo de IoT Edge que proporciona Microsoft y que recopila las métricas del módulo de carga de trabajo y las transporta fuera del dispositivo. La recopilación de métricas usa un modelo de *extracción*. La frecuencia de recopilación, los puntos de conexión y los filtros se pueden configurar para controlar los datos que han salido del módulo. Para obtener más información, consulte más adelante la sección [Configuración del recopilador de métricas](#metrics-collector-configuration) de este artículo. |
+|  2️ | El [módulo del recopilador de métricas](https://aka.ms/edgemon-metrics-collector) es un módulo de IoT Edge que proporciona Microsoft y que recopila las métricas del módulo de carga de trabajo y las transporta fuera del dispositivo. La recopilación de métricas usa un modelo de *extracción*. La frecuencia de recopilación, los puntos de conexión y los filtros se pueden configurar para controlar los datos que han salido del módulo. Para obtener más información, consulte más adelante la sección [Configuración del recopilador de métricas](#metrics-collector-configuration) de este artículo. |
 |  3️ | Tiene dos opciones para enviar métricas desde el módulo del recopilador de métricas a la nube. La *opción 1* envía las métricas a Log Analytics.<sup>1</sup> Las métricas recopiladas se ingieren en el área de trabajo de Log Analytics especificada mediante una tabla nativa fija denominada `InsightsMetrics`. El esquema de esta tabla es compatible con el modelo de datos de métricas de Prometheus.<br><br> Asimismo, esta opción debe obtener acceso al área de trabajo que se encuentra en el puerto de salida 443. El id. y la clave del área de trabajo de Log Analytics deben especificarse como parte de la configuración del módulo. Para habilitarla en redes restringidas, consulte más adelante la sección [Habilitación en escenarios de acceso de red restringido](#enable-in-restricted-network-access-scenarios) de este artículo.
 |  4️ | Cada entrada de métrica contiene `ResourceId`, que se especificó como parte de la [configuración del módulo](#metrics-collector-configuration). Esta asociación vincula automáticamente la métrica con el recurso especificado (por ejemplo, IoT Hub). Como resultado, las [plantillas del libro de IoT Edge mantenidas](how-to-explore-curated-visualizations.md) pueden recuperar métricas mediante la emisión de consultas en el recurso. <br><br> Este enfoque también permite que varios centros de IoT compartan de forma segura una única área de trabajo de Log Analytics como una base de datos de métricas. |
 |  5️ | La *opción 2* envía las métricas a IoT Hub.<sup>1</sup> El módulo recopilador se puede configurar para enviar las métricas recopiladas como mensajes JSON con codificación UTF-8 de [dispositivo a nube](../iot-hub/iot-hub-devguide-messages-d2c.md) a través del módulo `edgeHub`. Esta opción desbloquea la supervisión de dispositivos de IoT Edge bloqueados que han obtenido acceso externo solo al punto de conexión de IoT Hub. También permite la supervisión de dispositivos secundarios de IoT Edge en una configuración anidada en la que los dispositivos secundarios solo pueden acceder a su dispositivo primario. |
-|  6️ | Cuando las métricas se enrutan a IoT Hub, es necesario configurar un flujo de trabajo en la nube (una sola vez). El flujo de trabajo procesa los mensajes que llegan desde el módulo del recopilador de métricas y los envía al área de trabajo de Log Analytics. Asimismo, el flujo de trabajo habilita la funcionalidad de [visualizaciones](how-to-explore-curated-visualizations.md) y [alertas mantenidas](how-to-create-alerts.md) incluso en las métricas que llegan a través de esta ruta de acceso opcional. Consulte la sección [Enrutamiento de métricas a través de la nube](#route-metrics-through-iot-hub) para obtener más información sobre cómo configurar este flujo de trabajo en la nube. |
+|  6️ | Cuando las métricas se enrutan a IoT Hub, es necesario configurar un flujo de trabajo en la nube (una sola vez). El flujo de trabajo procesa los mensajes que llegan desde el módulo del recopilador de métricas y los envía al área de trabajo de Log Analytics. Asimismo, el flujo de trabajo habilita la funcionalidad de [visualizaciones](how-to-explore-curated-visualizations.md) y [alertas mantenidas](how-to-create-alerts.md) incluso en las métricas que llegan a través de esta ruta de acceso opcional. Consulte la sección [Enrutamiento de métricas a través de la nube](#route-metrics) para obtener más información sobre cómo configurar este flujo de trabajo en la nube. |
 
 <sup>1</sup> Actualmente, el uso de la *opción 1* para transportar directamente las métricas a Log Analytics desde el dispositivo de IoT Edge es la opción más sencilla que requiere una configuración mínima. La primera opción es preferible a menos que el escenario específico exija el enfoque de la *opción 2* para que el dispositivo de IoT Edge se comunique solo con IoT Hub.
+
+# <a name="iot-central"></a>[IoT Central](#tab/iotcentral)
+
+[![Arquitectura de supervisión de métricas con IoT Central](./media/how-to-collect-and-transport-metrics/arch-iot-central.png)](./media/how-to-collect-and-transport-metrics/arch-iot-central.png#lightbox)
+
+| Nota | Descripción |
+|-|-|
+|  1 | Todos los módulos deben emitir métricas mediante el [modelo de datos de Prometheus](https://prometheus.io/docs/concepts/data_model/). Aunque las [métricas integradas](how-to-access-built-in-metrics.md) permiten obtener una amplia visibilidad de la carga de trabajo de forma predeterminada, los módulos personalizados también se pueden usar para emitir métricas específicas del escenario con el fin de mejorar la solución de supervisión. Obtenga información sobre cómo instrumentar módulos personalizados mediante las bibliotecas de código abierto en el artículo [Adición de métricas personalizadas](how-to-add-custom-metrics.md). |
+|  2️ | El [módulo del recopilador de métricas](https://aka.ms/edgemon-metrics-collector) es un módulo de IoT Edge que proporciona Microsoft y que recopila las métricas del módulo de carga de trabajo y las transporta fuera del dispositivo. La recopilación de métricas usa un modelo de *extracción*. La frecuencia de recopilación, los puntos de conexión y los filtros se pueden configurar para controlar los datos que han salido del módulo. Para obtener más información, consulte más adelante la sección [Configuración del recopilador de métricas](#metrics-collector-configuration) de este artículo. |
+|  3️ | Tiene dos opciones para enviar métricas desde el módulo del recopilador de métricas a la nube. La *opción 1* envía las métricas a Log Analytics. Las métricas recopiladas se ingieren en el área de trabajo de Log Analytics especificada mediante una tabla nativa fija denominada `InsightsMetrics`. El esquema de esta tabla es compatible con el modelo de datos de métricas de Prometheus.<br><br> Asimismo, esta opción debe obtener acceso al área de trabajo que se encuentra en el puerto de salida 443. El id. y la clave del área de trabajo de Log Analytics deben especificarse como parte de la configuración del módulo. Para habilitarla en redes restringidas, consulte más adelante la sección [Habilitación en escenarios de acceso de red restringido](#enable-in-restricted-network-access-scenarios) de este artículo.
+|  4️ | Cada entrada de métrica contiene `ResourceId`, que se especificó como parte de la [configuración del módulo](#metrics-collector-configuration). Esta asociación vincula automáticamente la métrica con el recurso especificado (por ejemplo, IoT Central). Como resultado, las [plantillas del libro de IoT Edge mantenidas](how-to-explore-curated-visualizations.md) pueden recuperar métricas mediante la emisión de consultas en el recurso. <br><br> Este enfoque también permite que varias aplicaciones de IoT Central compartan de forma segura una única área de trabajo de Log Analytics como una base de datos de métricas. |
+|  5️ | La *opción 2* envía las métricas a IoT Central. Esta opción permite a un operador ver las métricas y la telemetría del dispositivo en una sola ubicación. El módulo recopilador se puede configurar para enviar las métricas recopiladas como [mensajes JSON con codificación UTF-8 de dispositivo a nube](../iot-hub/iot-hub-devguide-messages-d2c.md) a través del módulo `edgeHub`. Esta opción desbloquea la supervisión de dispositivos de IoT Edge bloqueados que han obtenido acceso externo solo al punto de conexión de IoT Central. También permite la supervisión de dispositivos secundarios de IoT Edge en una configuración anidada en la que los dispositivos secundarios solo pueden acceder a su dispositivo primario. |
+
+---
 
 ## <a name="metrics-collector-module"></a>Módulo del recopilador de métricas
 
@@ -49,18 +64,43 @@ También está disponible en el [Marketplace de los módulos de IoT Edge](https:
 
 Toda la configuración del recopilador de métricas se realiza mediante variables de entorno. Como mínimo, es necesario especificar las variables que se indican en la tabla siguiente marcadas como **Requeridas**.
 
+# <a name="iot-hub"></a>[IoT Hub](#tab/iothub)
+
 | Nombre de la variable de entorno | Descripción |
 |-|-|
-| `ResourceId` | Id. de recurso del centro de IoT con el que se comunica el dispositivo. Para ver los pasos para recuperar el identificador de recurso, consulte la sección de [Id. de recurso](#resource-id).  <br><br>  **Obligatorio** <br><br> Valor predeterminado: *ninguno*. |
+| `ResourceId` | Id. de recurso del centro de IoT con el que se comunica el dispositivo. Para más información, consulte la sección [Identificador de recurso](#resource-id).  <br><br>  **Obligatorio** <br><br> Valor predeterminado: *ninguno*. |
 | `UploadTarget` |  Controla si las métricas se envían directamente a Azure Monitor a través de HTTPS o a IoT Hub como mensajes D2C. Para obtener más información, consulte [Carga de destino](#upload-target). <br><br>Puede ser **AzureMonitor** o **IoTMessage**.  <br><br>  **No necesario** <br><br> Valor predeterminado: *AzureMonitor*. |
 | `LogAnalyticsWorkspaceId` | [Id. del área de trabajo de Log Analytics](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key). <br><br>Solo es **necesario** si *UploadTarget* es *AzureMonitor*. <br><br>Valor predeterminado: *ninguno*. |
 | `LogAnalyticsSharedKey` | [Clave del área de trabajo de Log Analytics](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key). <br><br>Solo es **necesaria** si *UploadTarget* es *AzureMonitor*.   <br><br> Valor predeterminado: *ninguno*. |
+| `ScrapeFrequencyInSecs` | Intervalo de tiempo periódico en segundos en el que se recopilan y transportan las métricas.<br><br>  Ejemplo: *600*. <br><br>  **No necesario** <br><br> Valor predeterminado: *300* |
 | `MetricsEndpointsCSV` | Lista separada por comas de los puntos de conexión de los que se recopilan las métricas de Prometheus. Todos los puntos de conexión del módulo de los que se recopilan las métricas deben aparecer en esta lista.<br><br>  Ejemplo: *http://edgeAgent:9600/metrics , http://edgeHub:9600/metrics, http://MetricsSpewer:9417/metrics* . <br><br>  **No necesario** <br><br> Valor predeterminado: *http://edgeHub:9600/metrics , http://edgeAgent:9600/metrics* . |
 | `AllowedMetrics` | Lista de métricas que se recopilarán; se omitirán todas las demás métricas. Se establece en una cadena vacía que se vaya a deshabilitar. Para obtener más información, consulte [Permitir y no permitir listas](#allow-and-disallow-lists). <br><br>Ejemplo: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics ]*<br><br>  **No necesario** <br><br> Valor predeterminado: *vacío*. |
 | `BlockedMetrics` | Lista de métricas que se omitirán. Invalida *AllowedMetrics*, por lo que no se notifica una métrica si se incluye en ambas listas. Para obtener más información, consulte [Permitir y no permitir listas](#allow-and-disallow-lists). <br><br>   Ejemplo: *metricToIgnore{quantile=0.5}[endpoint=http://VeryNoisyModule:9001/metrics ], docker_container_disk_write_bytes*<br><br>  **No necesario**  <br><br>Valor predeterminado: *vacío*. |
 | `CompressForUpload` | Los controles son la compresión que se debe usar al cargar las métricas. Se aplica a todos los destinos de la carga.<br><br>  Ejemplo: *true*. <br><br>    **No necesario** <br><br>  Valor predeterminado: *true*. |
+| `AzureDomain` | Especifica el dominio de Azure de nivel superior que se usará al ingerir métricas directamente en Log Analytics. <br><br>  Ejemplo: *azure.us* <br><br>    **No necesario** <br><br>  Valor predeterminado: *azure.com* |
+
+# <a name="iot-central"></a>[IoT Central](#tab/iotcentral)
+
+| Nombre de la variable de entorno | Descripción |
+|-|-|
+| `ResourceId` | Identificador de recurso de la aplicación de IoT Central con la que se comunica el dispositivo. Para más información, consulte la sección [Identificador de recurso](#resource-id).  <br><br>  **Obligatorio** <br><br> Valor predeterminado: *ninguno*. |
+| `UploadTarget` |  Controla si las métricas se envían directamente a Azure Monitor a través de HTTPS o a IoT Central como mensajes D2C. Para obtener más información, consulte [Carga de destino](#upload-target). <br><br>Puede ser **AzureMonitor** o **IoTMessage**.  <br><br>  **No necesario** <br><br> Valor predeterminado: *AzureMonitor*. |
+| `LogAnalyticsWorkspaceId` | [Id. del área de trabajo de Log Analytics](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key). <br><br>Solo es **necesario** si *UploadTarget* es *AzureMonitor*. <br><br>Valor predeterminado: *ninguno*. |
+| `LogAnalyticsSharedKey` | [Clave del área de trabajo de Log Analytics](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key). <br><br>Solo es **necesaria** si *UploadTarget* es *AzureMonitor*.   <br><br> Valor predeterminado: *ninguno*. |
+| `ScrapeFrequencyInSecs` | Intervalo de tiempo periódico en segundos en el que se recopilan y transportan las métricas.<br><br>  Ejemplo: *600*. <br><br>  **No necesario** <br><br> Valor predeterminado: *300* |
+| `MetricsEndpointsCSV` | Lista separada por comas de los puntos de conexión de los que se recopilan las métricas de Prometheus. Todos los puntos de conexión del módulo de los que se recopilan las métricas deben aparecer en esta lista.<br><br>  Ejemplo: *http://edgeAgent:9600/metrics , http://edgeHub:9600/metrics, http://MetricsSpewer:9417/metrics* . <br><br>  **No necesario** <br><br> Valor predeterminado: *http://edgeHub:9600/metrics , http://edgeAgent:9600/metrics* . |
+| `AllowedMetrics` | Lista de métricas que se recopilarán; se omitirán todas las demás métricas. Se establece en una cadena vacía que se vaya a deshabilitar. Para obtener más información, consulte [Permitir y no permitir listas](#allow-and-disallow-lists). <br><br>Ejemplo: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics ]*<br><br>  **No necesario** <br><br> Valor predeterminado: *vacío*. |
+| `BlockedMetrics` | Lista de métricas que se omitirán. Invalida *AllowedMetrics*, por lo que no se notifica una métrica si se incluye en ambas listas. Para obtener más información, consulte [Permitir y no permitir listas](#allow-and-disallow-lists). <br><br>   Ejemplo: *metricToIgnore{quantile=0.5}[endpoint=http://VeryNoisyModule:9001/metrics ], docker_container_disk_write_bytes*<br><br>  **No necesario**  <br><br>Valor predeterminado: *vacío*. |
+| `CompressForUpload` | Los controles son la compresión que se debe usar al cargar las métricas. Se aplica a todos los destinos de la carga.<br><br>  Ejemplo: *true*. <br><br>    **No necesario** <br><br>  Valor predeterminado: *true*. |
+| `AzureDomain` | Especifica el dominio de Azure de nivel superior que se usará al ingerir métricas directamente en Log Analytics. <br><br>  Ejemplo: *azure.us* <br><br>    **No necesario** <br><br>  Valor predeterminado: *azure.com* |
+
+Para más información sobre IoT Edge e IoT Central, consulte [Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central](../iot-central/core/concepts-iot-edge.md).
+
+---
 
 ### <a name="resource-id"></a>Id. de recurso
+
+# <a name="iot-hub"></a>[IoT Hub](#tab/iothub)
 
 El módulo del recopilador de métricas requiere el id. de Azure Resource Manager del centro de IoT al que pertenece el dispositivo de IoT Edge. Proporcione este id. como valor de la variable de entorno **ResourceID**.
 
@@ -77,10 +117,34 @@ Puede encontrar el id. de recurso en la página **Propiedades** del centro de Io
 O bien, recupere el id. con el comando [az resource show](/cli/azure/resource#az_resource_show):
 
 ```azurecli-interactive
-az resource show -g \<group> -n \<name> --resource-type "Microsoft.Devices/IoTHubs"`
+az resource show -g <resource group> -n <hub name> --resource-type "Microsoft.Devices/IoTHubs"
 ```
 
+# <a name="iot-central"></a>[IoT Central](#tab/iotcentral)
+
+El módulo del recopilador de métricas requiere el identificador de Azure Resource Manager de la aplicación de IoT Central a la que pertenece el dispositivo de IoT Edge. Proporcione este id. como valor de la variable de entorno **ResourceID**.
+
+El id. de recurso tiene el formato siguiente:
+
+```input
+/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.IoTCentral/IoTApps/<iot central app name>
+```
+
+Puede encontrar el identificador de recurso en la página **Propiedades** de la aplicación de IoT Central en Azure Portal.
+
+:::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id-iot-central.png" alt-text="Recupere el identificador de recurso de las propiedades de IoT Central.":::
+
+O bien, recupere el id. con el comando [az resource show](/cli/azure/resource#az_resource_show):
+
+```azurecli-interactive
+az resource show -g <resource group> -n <application name> --resource-type "Microsoft.IoTCentral/IoTApps"
+```
+
+---
+
 ### <a name="upload-target"></a>Destino de carga
+
+# <a name="iot-hub"></a>[IoT Hub](#tab/iothub)
 
 La opción de configuración **UploadTarget** controla si las métricas se envían directamente a Azure Monitor o a IoT Hub.
 
@@ -103,6 +167,32 @@ Si establece **UploadTarget** en **IoTMessage**, las métricas del módulo se pu
     }
 }]
 ```
+
+# <a name="iot-central"></a>[IoT Central](#tab/iotcentral)
+
+La opción de configuración **UploadTarget** controla si las métricas se envían directamente a Azure Monitor o a IoT Central.
+
+Si establece **UploadTarget** en **IoTMessage**, las métricas del módulo se publican como mensajes de IoT. Estos mensajes se emiten como JSON con codificación UTF8 desde el punto de conexión `/messages/modules/<module name>/outputs/metricOutput`. El formato es como sigue:
+
+```json
+[{
+    "TimeGeneratedUtc": "<time generated>",
+    "Name": "<prometheus metric name>",
+    "Value": <decimal value>,
+    "Label": {
+        "<label name>": "<label value>"
+    }
+}, {
+    "TimeGeneratedUtc": "2020-07-28T20:00:43.2770247Z",
+    "Name": "docker_container_disk_write_bytes",
+    "Value": 0.0,
+    "Label": {
+        "name": "AzureMonitorForIotEdgeModule"
+    }
+}]
+```
+
+---
 
 ### <a name="allow-and-disallow-lists"></a>Permitir y no permitir listas
 
@@ -167,7 +257,9 @@ La recopilación de métricas de módulos locales usa el protocolo HTTP. Excluya
 
 Establezca el valor `NO_PROXY` en una lista separada por comas de nombres de host que se deben excluir. Use nombres de módulo para los nombres de host. Por ejemplo: *edgeHub,edgeAgent,myCustomModule*.
 
-## <a name="route-metrics-through-iot-hub"></a>Enrutamiento de métricas a través de IoT Hub
+## <a name="route-metrics"></a>Métricas de ruta
+
+# <a name="iot-hub"></a>[IoT Hub](#tab/iothub)
 
 A veces es necesario ingerir métricas a través de IoT Hub en lugar de enviarlas directamente a Log Analytics. Por ejemplo, al supervisar [dispositivos de IoT Edge en una configuración anidada](tutorial-nested-iot-edge.md) donde los dispositivos secundarios solo tienen acceso al centro de IoT Edge de su dispositivo primario. Otro ejemplo es cuando implementa un dispositivo de IoT Edge con acceso de red saliente solo a IoT Hub.
 
@@ -176,7 +268,7 @@ Para habilitar la supervisión en este escenario, el módulo del recopilador de 
 >[!TIP]
 >No olvide agregar una ruta de edgeHub para entregar mensajes de métricas desde el módulo recopilador a IoT Hub. Su aspecto es similar a `FROM /messages/modules/replace-with-collector-module-name/* INTO $upstream`.
 
-Esta opción requiere una configuración adicional para entregar los mensajes de métricas que llegan de IoT Hub al área de trabajo de Log Analytics. Sin esta configuración, las demás partes de la integración, como las [visualizaciones](how-to-explore-curated-visualizations.md) y [alertas mantenidas](how-to-create-alerts.md), no funcionarán.
+Esta opción requiere una [configuración adicional](how-to-collect-and-transport-metrics.md#sample-cloud-workflow) para entregar los mensajes de métricas que llegan de IoT Hub al área de trabajo de Log Analytics. Sin esta configuración, las demás partes de la integración, como las [visualizaciones](how-to-explore-curated-visualizations.md) y [alertas mantenidas](how-to-create-alerts.md), no funcionarán.
 
 >[!NOTE]
 >Tenga en cuenta que tendrá costos adicionales con esta opción. Los mensajes de métricas se cuentan en la cuota de mensajes de IoT Hub. También se le cobrará por los recursos de ingesta y flujo de trabajo en la nube de Log Analytics.
@@ -184,6 +276,124 @@ Esta opción requiere una configuración adicional para entregar los mensajes de
 ### <a name="sample-cloud-workflow"></a>Flujo de trabajo en la nube de ejemplo
 
 Un flujo de trabajo en la nube que entrega mensajes de métricas de IoT Hub a Log Analytics está disponible como parte del [ejemplo de registro y supervisión de IoT Edge](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution#monitoring-architecture-reference). Este ejemplo se puede implementar en los recursos de nube existentes o puede servirle como referencia de implementación de la producción.
+
+# <a name="iot-central"></a>[IoT Central](#tab/iotcentral)
+
+A veces es necesario ingerir métricas a través de IoT Central en lugar de enviarlas directamente a Log Analytics. Por ejemplo, al supervisar [dispositivos de IoT Edge en una configuración anidada](tutorial-nested-iot-edge.md) donde los dispositivos secundarios solo tienen acceso al centro de IoT Edge de su dispositivo primario. Otro ejemplo es cuando implementa un dispositivo de IoT Edge con acceso de red saliente solo a IoT Central.
+
+Para habilitar la supervisión en este escenario, el módulo del recopilador de métricas se puede configurar para enviar métricas como mensajes de dispositivo a nube (D2C) a través del módulo edgeHub. Esta capacidad se puede activar si establece la variable de entorno `UploadTarget` en `IoTMessage` en la [configuración](#metrics-collector-configuration) del recopilador.
+
+En el siguiente manifiesto de implementación de ejemplo se muestra la configuración:
+
+```json
+{
+  "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {}
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            // ...
+          },
+          "edgeHub": {
+            // ...
+          }
+        },
+        "modules": {
+          "SimulatedTemperatureSensor": {
+            // ...
+          },
+          "AzureMonitorForIotEdgeModule": {
+            "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-metrics-collector:1.0",
+                "createOptions": "{\"HostConfig\":{\"LogConfig\":{\"Type\":\"json-file\",\"Config\":{\"max-size\":\"4m\",\"max-file\":\"7\"}}}}"
+            },
+            "type": "docker",
+            "env": {
+              "UploadTarget": {
+                "value": "IotMessage"
+              },
+              "ResourceId": {
+                "value": "/subscriptions/{your subscription id}/IOTC/providers/Microsoft.IoTCentral/IoTApps/{your app name}"
+              },
+              "MetricsEndpointsCSV": {
+                "value": "http://edgeHub:9600/metrics,http://edgeAgent:9600/metrics"
+              },
+              "ScrapeFrequencyInSecs": {
+                "value": "30"
+              },
+              "AllowedMetrics": {
+                "value": ""
+              },
+              "BlockedMetrics": {
+                "value": ""
+              },
+              "CompressForUpload": {
+                "value": "false"
+              },
+              "TransformForIoTCentral": {
+                "value": "true"
+              }
+            },
+            "status": "running",
+            "restartPolicy": "always",
+            "version": "1.0"
+          }
+        }
+      }
+    },
+    "$edgeHub": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+          "temperatureupload": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO $upstream",
+          "metricupload": "FROM /messages/modules/AzureMonitorForIotEdgeModule/outputs/metricOutput INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 7200
+        }
+      }
+    },
+    "SimulatedTemperatureSensor": {
+      // ...
+    },
+    "AzureMonitorForIotEdgeModule": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "scrapeFrequencySecs": 30,
+        "metricsFormat": "Json",
+        "syncTarget": "IoTHub"
+      }
+    }
+  }
+}
+```
+
+>[!TIP]
+>No olvide agregar una ruta de edgeHub para entregar mensajes de métricas desde el módulo recopilador a IoT Central. Su aspecto es similar a `FROM /messages/modules/replace-with-collector-module-name/* INTO $upstream`.
+
+Para ver las métricas del dispositivo IoT Edge de la aplicación de IoT:
+
+* Agregue la **interfaz estándar para métricas de IoT Edge** como interfaz heredada en la [plantilla de dispositivo](../iot-central/core/concepts-device-templates.md):
+
+    :::image type="content" source="media/how-to-collect-and-transport-metrics/add-metrics-interface.png" alt-text="Agregue la interfaz estándar para métricas de IoT Edge.":::
+
+* Use los valores de telemetría definidos en la interfaz para crear todos los [paneles](../iot-central/core/howto-manage-dashboards.md) que necesite para supervisar los dispositivos IoT Edge:
+
+    :::image type="content" source="media/how-to-collect-and-transport-metrics/iot-edge-metrics-telemetry.png" alt-text="Métricas de IoT Edge disponibles como telemetría.":::
+
+>[!NOTE]
+>Tenga en cuenta que tendrá costos adicionales con esta opción. Los mensajes de métricas se cuentan en la cuota de mensajes de IoT Central.
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

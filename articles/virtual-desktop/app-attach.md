@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1ff5ea8c4bb0af326b37d0e4ff2185be22393f16
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6b54afdb77bd1fc3a958b959dad4fcb030e1fe2f
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745446"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228781"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach"></a>Creación de scripts de PowerShell para la asociación de aplicaciones en formato MSIX (versión preliminar)
 
@@ -200,6 +200,9 @@ Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 #endregion
 ```
 
+>[!NOTE]
+>Puede apagar el dispositivo incluso mientras el punto de **$volumeGuid** permanece después de ejecutar el script para quitar el "stage".
+
 ## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>Configuración de scripts de simulación para el agente de asociación de aplicaciones en formato MSIX
 
 Después de crear los scripts, los usuarios pueden ejecutarlos manualmente o configurarlos para que se ejecuten de manera automática en como scripts de inicio, inicio de sesión, cierre de sesión y apagado. Para más información sobre estos tipos de scripts, consulte el artículo sobre cómo [usar los scripts de inicio, apagado, inicio de sesión y cierre de sesión en una directiva de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
@@ -210,6 +213,9 @@ Cada uno de estos scripts automáticos ejecuta una fase de los scripts de asocia
 - El script de inicio de sesión ejecuta el script para registrar.
 - El script de cierre de sesión ejecuta el script para eliminar del registro.
 - El script de apagado ejecuta el script para quitar del "stage".
+
+>[!NOTE]
+>Puede ejecutar el programador de tareas con el script para agregar al "stage" Para ejecutar el script, establezca el desencadenador de tareas en **Cuando el equipo arranque** y, a continuación, habilite **Ejecutar con los privilegios más elevados**.
 
 ## <a name="use-packages-offline"></a>Uso de paquetes sin conexión
 

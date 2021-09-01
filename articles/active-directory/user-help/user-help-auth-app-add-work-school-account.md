@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/11/2021
+ms.date: 08/09/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 329ddb32282d91ec5e990753057aea606622a266
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 276590a295b59465184a9afa2f7ce5efea7bb8eb
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535191"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228702"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Agregar la cuenta profesional o educativa a la aplicación Microsoft Authenticator
 
@@ -45,9 +45,9 @@ Para agregar una cuenta iniciando sesión en la cuenta profesional o educativa c
 
    - Si no tiene suficientes métodos de autenticación en su cuenta para obtener un token de autenticación sólida, no podrá continuar con la adición de una cuenta.
 
-   - Si recibe el mensaje `You might be signing in from a location that is restricted by your admin`, el administrador no ha habilitado esta característica para ponerla a su disposición. Puede intentar configurar su cuenta escaneando un código QR desde la página **Comprobación de seguridad adicional** o en  [Información de seguridad](https://mysignins.microsoft.com/security-info).
+   - Si recibe el mensaje `You might be signing in from a location that is restricted by your admin`, el administrador no ha habilitado esta característica y probablemente haya configurado una directiva de acceso condicional de registro de la información de seguridad. Póngase en contacto con el administrador de su cuenta profesional o educativa para usar este método de autenticación.
 
-1. Si el administrador le ha permitido usar el inicio de sesión en el teléfono con la aplicación Authenticator, podrá realizar el registro del dispositivo para configurar el inicio de sesión en el teléfono sin contraseña y Azure Multi-Factor Authentication (MFA). Sin embargo, podrá configurar MFA tanto si está habilitado para el inicio de sesión por teléfono como si no.
+1. Si el administrador le ha permitido usar el inicio de sesión en el teléfono con la aplicación Authenticator, podrá realizar el registro del dispositivo para configurar el inicio de sesión en el teléfono sin contraseña y Azure AD Multi-Factor Authentication. Sin embargo, podrá configurar la autenticación multifactor tanto si está habilitado para el inicio de sesión por teléfono como si no.
 
 1. En este punto, se le podría pedir que escanee un código QR proporcionado por su organización para configurar una cuenta de autenticación multifactor local en la aplicación. Solo es necesario hacer esto si su organización usa un servidor MFA local.
 
@@ -69,7 +69,10 @@ Para agregar una cuenta mediante el escaneo de un código QR, haga lo siguiente:
 1. Abra la aplicación Microsoft Authenticator, seleccione el icono de signo más ![Seleccionar el icono de signo más en dispositivos iOS o Android](media/user-help-auth-app-add-work-school-account/plus-icon.png) y seleccione **Agregar cuenta** y, a continuación, seleccione **Cuenta profesional o educativa**, seguido de **Escanear un código QR**.
    Si no tiene una cuenta configurada en la aplicación Authenticator, verá un botón azul grande que indica **Agregar cuenta**.
 
-Si no se le pide que use la cámara para escanear un código QR, en la configuración del teléfono, asegúrese de que la aplicación Authenticator tenga acceso a la cámara del teléfono.
+Si no se le pide que use la cámara para escanear un código QR, en la configuración del teléfono, asegúrese de que la aplicación Authenticator tenga acceso a la cámara del teléfono. Después de agregar la cuenta mediante un código QR, puede configurar el inicio de sesión en el teléfono. Si recibe el mensaje "Es posible que inicie sesión desde una ubicación restringida por el administrador", el administrador no ha habilitado esta característica y probablemente haya configurado una directiva de acceso condicional de registro de la información de seguridad. Póngase en contacto con el administrador de su cuenta profesional o educativa para usar este método de autenticación. Si el administrador *le ha permitido* usar el inicio de sesión en el teléfono con la aplicación Authenticator, podrá realizar el registro del dispositivo para configurar el inicio de sesión en el teléfono sin contraseña y Azure AD Multi-Factor Authentication.
+
+>[!Note]
+> Para las organizaciones gubernamentales de Estados Unidos, la única manera de agregar una cuenta de inicio de sesión en el teléfono es agregarla mediante la opción [Iniciar sesión con sus credenciales](#sign-in-with-your-credentials), en lugar de actualizar desde una cuenta basada en código QR.
 
 ## <a name="sign-in-on-a-remote-computer"></a>Inicio de sesión en un equipo remoto
 

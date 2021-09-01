@@ -3,19 +3,19 @@ title: Introducción a Speech Studio - Servicio Voz
 titleSuffix: Azure Cognitive Services
 description: Speech Studio es un conjunto de herramientas basadas en la interfaz de usuario para compilar e integrar características del servicio Voz de Azure en las aplicaciones.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.author: trbye
-ms.openlocfilehash: ddf7b85f5775ee25a260f19ae81e43afff95facb
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.author: lajanuar
+ms.openlocfilehash: 6042a129308b7be478b2bd1a45379ad56f62aca6
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902345"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122067061"
 ---
 # <a name="what-is-speech-studio"></a>¿Qué es el Speech Studio?
 
@@ -23,16 +23,12 @@ ms.locfileid: "111902345"
 
 ## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 
-Para poder usar [Speech Studio](https://speech.microsoft.com) necesita tener una cuenta de Azure y una suscripción al servicio Voz. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](overview.md#try-the-speech-service-for-free).
+Para poder usar [Speech Studio](https://speech.microsoft.com) es preciso tener una cuenta de Azure y agregar un recurso del servicio Voz. Si no dispone de una cuenta y un recurso, [pruebe el servicio Voz de forma gratuita](overview.md#try-the-speech-service-for-free).
 
-> [!NOTE]
-> Asegúrese de crear una suscripción estándar (S0). No se admiten las suscripciones Gratis (F0).
+Tras crear una cuenta de Azure y un recurso del servicio Voz:
 
-Tras crear una cuenta de Azure y una suscripción al servicio Voz:
-
-1. Inicie sesión en [Speech Studio](https://speech.microsoft.com).
-1. Seleccione la suscripción que necesita para trabajar y crear un proyecto de voz.
-1. Si desea modificarla, seleccione el botón del engranaje en el menú superior.
+1. Inicie sesión en [Speech Studio](https://speech.microsoft.com) con su cuenta de Azure.
+1. Seleccione el recurso del servicio Voz que necesita para empezar (los recursos se pueden cambiar en cualquier momento en "Configuración" en el menú superior).
 
 ## <a name="speech-studio-features"></a>Características de Speech Studio
 

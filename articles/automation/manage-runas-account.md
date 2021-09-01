@@ -3,15 +3,15 @@ title: Administración de una cuenta de ejecución de Azure Automation
 description: En este artículo se describe cómo administrar una cuenta de ejecución de Azure Automation con PowerShell o desde Azure Portal.
 services: automation
 ms.subservice: ''
-ms.date: 05/17/2021
+ms.date: 08/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d2d615df07e89e1fc2d4e63066d320002718d200
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b6248ee0815d90be83030931c011bb2e8208eeaa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059687"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723016"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Administración de una cuenta de ejecución de Azure Automation
 
@@ -23,7 +23,7 @@ En este artículo se explica cómo administrar una cuenta de ejecución o una cu
    * Cómo renovar un certificado de una entidad de certificación (CA) empresarial o de terceros
    * Administración de permisos de la cuenta de ejecución
 
-Para obtener más información acerca de la autenticación de cuentas de Azure Automation e instrucciones relacionadas con los escenarios de automatización de procesos, consulte [Introducción a la autenticación de cuentas de Automation](automation-security-overview.md).
+Para más información acerca de la autenticación de cuentas de Azure Automation, los permisos necesarios para administrar la cuenta de ejecución y las instrucciones relacionadas con los escenarios de automatización de procesos, consulte [Introducción a la autenticación de cuentas de Automation](automation-security-overview.md).
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovación de un certificado autofirmado
 
@@ -60,8 +60,8 @@ Cada certificado tiene una fecha de expiración integrada. Si el certificado que
 1. Importe el certificado renovado siguiendo los pasos que se indican en [Creación de un certificado](./shared-resources/certificates.md#create-a-new-certificate). Automation requiere que el certificado tenga la siguiente configuración:
 
    * Especifique el **proveedor de servicios criptográficos AES y RSA mejorado de Microsoft**.
-   * Marcado como exportable
-   * Configurado para usar el algoritmo SHA256
+   * Marcado como exportable.
+   * Configurado para usar el algoritmo SHA256.
    * Guardado en el formato `*.pfx` o `*.cer`. 
 
    Después de importar el certificado, anote o copie el valor de **huella digital** del certificado. Este valor se usa para actualizar las propiedades de conexión de ejecución con el nuevo certificado. 

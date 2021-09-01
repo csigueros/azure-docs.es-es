@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: 5d81b8321fe574be39a23a99521521516b86cfbb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: de9f88d7505f91c9075167a5adf81e3e5463cf0b
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971266"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178133"
 ---
 # <a name="plan-a-microsoft-dynamics-365-offer"></a>Planeamiento de una oferta de Microsoft Dynamics 365
 
@@ -31,7 +31,7 @@ Estas son las opciones de licencia disponibles para las ofertas de Dynamics 365
 | Ponerse en contacto conmigo | Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para obtener más información sobre cómo configurar CRM, consulte la sección **Clientes potenciales** de la página **Configuración de la oferta** del tipo de oferta. |
 | Evaluación gratuita (anuncio) | Ofrezca a sus clientes una evaluación gratuita de uno, tres o seis meses. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft. |
 | Obténgalo ahora (de forma gratuita) | Muestre la oferta a los clientes gratis. |
-| Obtenerlo ahora | Permite administrar las licencias de terceros en el Centro de partners.<br>Actualmente solo está disponible para el siguiente tipo de oferta:<ul><li>Dynamics 365 for Customer Engagement y Power Apps</li></ul><br>Para obtener más información sobre esta opción, vea [Administración de licencias de aplicaciones de terceros por medio de Microsoft](third-party-license.md). |
+| Obtenerlo ahora | Permite administrar las licencias de app0 de ISV en el Centro de partners.<br>Actualmente solo está disponible para el siguiente tipo de oferta:<ul><li>Dynamics 365 for Customer Engagement y Power Apps</li></ul><br>Para obtener más información sobre esta opción, vea [Administración de licencias de aplicaciones de ISV](isv-app-license.md). |
 |||
 
 ## <a name="test-drive"></a>Versión de prueba
@@ -85,8 +85,7 @@ Después de analizar los elementos de planeamiento descritos anteriormente, sele
 
 | Guía de publicación    | Notas  |
 | :------------------- | :-------------------|
-| [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) | Al realizar la compilación para Enterprise Edition, revise primero el [proceso y las directrices de publicación](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source) adicionales. |
-| [Dynamics 365 for Business Central](dynamics-365-business-central-offer-setup.md) |   |
-| [Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md) | En primer lugar, revise [estos procesos y directrices de publicación](/dynamics365/customer-engagement/developer/publish-app-appsource) adicionales. |
-| [Power BI](./power-bi-app-offer-setup.md) | En primer lugar, revise [estos procesos y directrices de publicación](/power-bi/developer/office-store) adicionales. |
-|||
+| [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) | Al realizar la compilación para Enterprise Edition, revise primero el [proceso y las directrices de publicación](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source) adicionales. Los tipos de productos son: comercio, finanzas, recursos humanos, operaciones de proyectos y administración de cadenas de suministros. |
+| [Dynamics 365 for Business Central](dynamics-365-business-central-offer-setup.md) | N/D |
+| [Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md) | En primer lugar, revise [estos procesos y directrices de publicación](/dynamics365/customer-engagement/developer/publish-app-appsource) adicionales. Los tipos de productos son: atención al cliente, voz del cliente, operaciones de proyectos, Field Service, marketing, Mixed Reality, Power Apps, Power Automate, Power Virtual Agents, Project Service Automation y ventas. |
+|

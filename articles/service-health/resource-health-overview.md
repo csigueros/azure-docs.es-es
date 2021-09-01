@@ -3,12 +3,12 @@ title: Introducción a Azure Resource Health
 description: Obtenga información sobre cómo Azure Resource Health ayuda a diagnosticar problemas en los servicios que afectan a los recursos de Azure y a obtener soporte técnico para resolverlos.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 903a86d216e118f783411b38ef7ad75ad004df7f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 532c7001b12efb2917c906f7607fef33bac194ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786262"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728580"
 ---
 # <a name="resource-health-overview"></a>Introducción a Resource Health
  
@@ -76,7 +76,7 @@ Puede tener acceso al historial de hasta 30 días en la sección **Historial de 
 
 ## <a name="root-cause-information"></a>Información de la causa principal
 
-Si Azure tiene más información sobre la causa principal de una falta de disponibilidad iniciada por la plataforma, esa información puede publicarse en el estado del recurso hasta 72 horas después de la falta de disponibilidad inicial. Esta información solo está disponible para la máquina virtual en este momento. 
+Si Azure tiene más información sobre la causa principal de una falta de disponibilidad iniciada por la plataforma, esa información puede publicarse en el estado del recurso hasta 72 horas después de la falta de disponibilidad inicial. Esta información solo está disponible para las máquinas virtuales en este momento. 
 
 ## <a name="get-started"></a>Introducción
 
@@ -96,4 +96,4 @@ Otra manera de acceder a Resource Health es seleccionar **Todos los servicios** 
 
 Consulte estas referencias para obtener más información sobre Resource Health:
 -  [Tipos de recursos y comprobaciones de estado en Azure Resource Health](resource-health-checks-resource-types.md)
--  [Preguntas más frecuentes sobre Azure Resource Health](resource-health-faq.md)
+-  [Preguntas más frecuentes sobre Azure Resource Health](resource-health-faq.yml)

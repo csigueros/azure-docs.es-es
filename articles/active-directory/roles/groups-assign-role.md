@@ -1,6 +1,6 @@
 ---
-title: Asignación de un rol a un grupo en la nube en Azure Active Directory | Microsoft Docs
-description: Asigne un rol de Azure AD a un grupo al que se puedan asignar roles en Azure Portal, PowerShell o Graph API.
+title: 'Asignación de roles de Azure AD a grupos: Azure Active Directory'
+description: Asigne roles de Azure AD a aquellos grupos a los que se puedan asignar roles en Azure Portal, PowerShell o Graph API.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 05/14/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e585624cac534634f4927fcbb61993ca98aab4a6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 35982d62a0e92b5f4647243cde5920529d6c2989
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085895"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723112"
 ---
-# <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Asignación de un rol a un grupo en la nube en Azure Active Directory
+# <a name="assign-azure-ad-roles-to-groups"></a>Asignación de roles de Azure AD a grupos
 
 En esta sección se describe cómo un administrador de TI puede asignar el rol de Azure Active Directory (Azure AD) a un grupo de Azure AD.
 
@@ -28,7 +28,7 @@ En esta sección se describe cómo un administrador de TI puede asignar el rol d
 
 - Una licencia de Azure AD Premium P1 o P2
 - Administrador global o administrador de roles con privilegios
-- Módulo de AzureADPreview al usar PowerShell
+- Módulo AzureAD al usar PowerShell
 - Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
 
 Para más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
@@ -37,9 +37,9 @@ Para más información, consulte [Requisitos previos para usar PowerShell o Prob
 
 La asignación de un grupo a un rol de Azure AD es similar a la asignación de usuarios y entidades de seguridad de servicio, salvo que solo se pueden usar los grupos que admiten la asignación de roles. En Azure Portal, solo se muestran los grupos a los que se pueden asignar roles.
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [centro de administración de Azure AD](https://aad.portal.azure.com).
 
-1. Seleccione los roles de **Azure Active Directory** > **y los administradores** y, a continuación, seleccione el rol que quiera asignar.
+1. Seleccione los roles de **Azure Active Directory** > **y los administradores** y, después, seleccione el rol que desee asignar.
 
 1. En la página ***Nombre de rol** _, seleccione > _*Agregar asignación**.
 
@@ -70,7 +70,7 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk 
 ### <a name="create-a-role-assignment"></a>Crear una asignación de rol
 
 ```powershell
-$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
+$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
 ```
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
@@ -82,20 +82,18 @@ POST https://graph.microsoft.com/beta/groups
 {
 "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
 "displayName": "Contoso_Helpdesk_Administrators",
-"groupTypes": [
-"Unified"
-],
-"mailEnabled": true,
-"securityEnabled": true
+"groupTypes": [],
+"mailEnabled": false,
+"securityEnabled": true,
 "mailNickname": "contosohelpdeskadministrators",
-"isAssignableToRole": true,
+"isAssignableToRole": true
 }
 ```
 
 ### <a name="get-the-role-definition"></a>Obtención de la definición de rol
 
 ```
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq ‘Helpdesk Administrator’
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq 'Helpdesk Administrator'
 ```
 
 ### <a name="create-the-role-assignment"></a>Creación de la asignación de roles
@@ -110,5 +108,5 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Uso de grupos en la nube para administrar asignaciones de roles](groups-concept.md)
-- [Solución de problemas de roles asignados a grupos en la nube](groups-faq-troubleshooting.md)
+- [Uso de grupos de Azure AD para administrar asignaciones de roles](groups-concept.md)
+- [Solución de problemas de roles de Azure AD asignados a grupos](groups-faq-troubleshooting.yml)

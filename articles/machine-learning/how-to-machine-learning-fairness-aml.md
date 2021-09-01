@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: 3b71347f9375ebb24befe665c031af9cd7ad7cc3
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 86916a14c79e9e2432dc5fb03da66081d4bab737
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884847"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014825"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Uso de Azure Machine Learning con el paquete de código abierto Fairlearn para evaluar la equidad de los modelos de ML (versión preliminar)
 
@@ -31,7 +31,7 @@ En esta guía paso a paso, aprenderá a usar el paquete Python de código abiert
 
 ## <a name="azure-machine-learning-fairness-sdk"></a>SDK de equidad Azure Machine Learning 
 
-El SDK de equidad Azure Machine Learning, `azureml-contrib-fairness`, integra el paquete de código abierto de Python, [Fairlearn](http://fairlearn.github.io), dentro de Azure Machine Learning. Para más información acerca de la integración de Fairlearn en Azure Machine Learning, consulte estos [cuadernos de muestra](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Para más información sobre Fairlearn, consulte la [guía de ejemplo](https://fairlearn.org/v0.6.0/auto_examples/) y los [cuadernos de muestra](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
+El SDK de equidad Azure Machine Learning, `azureml-contrib-fairness`, integra el paquete de código abierto de Python, [Fairlearn](http://fairlearn.github.io), dentro de Azure Machine Learning. Para más información acerca de la integración de Fairlearn en Azure Machine Learning, consulte estos [cuadernos de muestra](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Para más información sobre Fairlearn, consulte la [guía de ejemplo](https://fairlearn.org/main/auto_examples/) y los [cuadernos de muestra](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
 
 Use los siguientes comandos para instalar los paquetes `azureml-contrib-fairness` y `fairlearn`:
 ```bash
@@ -64,7 +64,7 @@ En el ejemplo siguiente se muestra cómo usar el paquete de equidad. Cargaremos 
     from sklearn.compose import make_column_selector as selector
     from sklearn.pipeline import Pipeline
     
-    from fairlearn.widget import FairlearnDashboard
+    from raiwidgets import FairnessDashboard
 
     # Load the census dataset
     data = fetch_openml(data_id=1590, as_frame=True)
@@ -126,12 +126,12 @@ En el ejemplo siguiente se muestra cómo usar el paquete de equidad. Cargaremos 
     # Train the model on the test data
     lr_predictor.fit(X_train, y_train)
 
-    # (Optional) View this model in Fairlearn's fairness dashboard, and see the disparities which appear:
-    from fairlearn.widget import FairlearnDashboard
-    FairlearnDashboard(sensitive_features=A_test, 
-                       sensitive_feature_names=['Race', 'Sex'],
-                       y_true=y_test,
-                       y_pred={"lr_model": lr_predictor.predict(X_test)})
+    # (Optional) View this model in the fairness dashboard, and see the disparities which appear:
+    from raiwidgets import FairnessDashboard
+    FairnessDashboard(sensitive_features=A_test, 
+                      sensitive_feature_names=['Race', 'Sex'],
+                      y_true=y_test,
+                      y_pred={"lr_model": lr_predictor.predict(X_test)})
     ```
 
 2. Inicie sesión en Azure Machine Learning y registre el modelo.
@@ -227,7 +227,7 @@ En el ejemplo siguiente se muestra cómo usar el paquete de equidad. Cargaremos 
     1. Si registró el modelo original siguiendo los pasos anteriores, puede seleccionar **Modelos** en el panel izquierdo para verlo.
     1. Seleccione un modelo y luego, la pestaña **Equidad** para ver el panel de visualización de la explicación.
 
-    Para obtener más información sobre el panel de visualización y lo que contiene, consulte la [guía del usuario](https://fairlearn.org/v0.6.0/user_guide/assessment.html#fairlearn-dashboard) de Fairlearn.
+    Para obtener más información sobre el panel de visualización y lo que contiene, consulte la [guía del usuario](https://fairlearn.org/main/user_guide/assessment.html#fairlearn-dashboard) de Fairlearn.
 
 ## <a name="upload-fairness-insights-for-multiple-models"></a>Cargar información de equidad para varios modelos
 
@@ -271,7 +271,7 @@ Para comparar varios modelos y ver cómo difieren sus evaluaciones de equidad, p
 
 3. Cargar el panel de Fairlearn localmente
 
-    Antes de cargar la información de equidad en Azure Machine Learning, puede examinar estas predicciones en un panel de Fairlearn invocado localmente. 
+    Antes de cargar la información de equidad en Azure Machine Learning, puede examinar estas predicciones en un panel de Fairness invocado localmente. 
 
 
 
@@ -281,12 +281,12 @@ Para comparar varios modelos y ver cómo difieren sus evaluaciones de equidad, p
     for n, p in model_dict.items():
         ys_pred[n] = p.predict(X_test)
 
-    from fairlearn.widget import FairlearnDashboard
+    from raiwidgets import FairnessDashboard
 
-    FairlearnDashboard(sensitive_features=A_test, 
-                    sensitive_feature_names=['Race', 'Sex'],
-                    y_true=y_test.tolist(),
-                    y_pred=ys_pred)
+    FairnessDashboard(sensitive_features=A_test, 
+                      sensitive_feature_names=['Race', 'Sex'],
+                      y_true=y_test.tolist(),
+                      y_pred=ys_pred)
     ```
 
 3. Calcular previamente las métricas de equidad.
@@ -338,14 +338,14 @@ Para comparar varios modelos y ver cómo difieren sus evaluaciones de equidad, p
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Cargar información de equidad no mitigada y mitigada
 
-Puede usar los [algoritmos de mitigación](https://fairlearn.org/v0.6.0/user_guide/mitigation.html) de Fairlearn, comparar sus modelos mitigados generados con el modelo no mitigado original y navegar por los equilibrios de rendimiento/equidad entre los modelos comparados.
+Puede usar los [algoritmos de mitigación](https://fairlearn.org/main/user_guide/mitigation.html) de Fairlearn, comparar sus modelos mitigados generados con el modelo no mitigado original y navegar por los equilibrios de rendimiento/equidad entre los modelos comparados.
 
-Para ver un ejemplo que demuestre el uso del algoritmo de mitigación de la [Búsqueda de cuadrícula](https://fairlearn.org/v0.6.0/user_guide/mitigation.html#grid-search) (que crea una colección de modelos mitigados con diferentes elementos de equidad y rendimiento), consulte este [cuaderno de muestra](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
+Para ver un ejemplo que demuestre el uso del algoritmo de mitigación de la [Búsqueda de cuadrícula](https://fairlearn.org/main/user_guide/mitigation.html#grid-search) (que crea una colección de modelos mitigados con diferentes elementos de equidad y rendimiento), consulte este [cuaderno de muestra](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
 
 La carga de la información de equidad de varios modelos en una sola ejecución le permitirá comparar los modelos con respecto a la equidad y el rendimiento. Puede hacer clic en cualquiera de los modelos mostrados en el gráfico de comparación de modelos para ver la información detallada sobre la equidad de un modelo determinado.
 
 
-[![Panel de comparación de modelos de Fairlearn](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)
+[![Panel de equidad de comparación de modelos](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)
     
 
 ## <a name="next-steps"></a>Pasos siguientes

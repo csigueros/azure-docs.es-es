@@ -2,24 +2,33 @@
 title: Habilitación de los discos compartidos para Azure Managed Disks
 description: Configuración de un disco administrado de Azure con discos compartidos, con el fin de poder compartirlo entre varias máquinas virtuales
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 08/16/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9061e3621d8232c82a126a60bebe16bb32ce6d29
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: d2a770dd007c801d2192ff08349966ff915bdd0a
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673369"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253090"
 ---
 # <a name="enable-shared-disk"></a>Habilitación del disco compartido
 
 En este artículo se describe cómo habilitar la característica de discos compartidos en Azure Managed Disks. Los discos compartidos de Azure son una nueva característica de Azure Managed Disks que permite conectar un disco administrado a varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure. 
 
 Si busca información conceptual sobre los discos administrados que tienen habilitados discos compartidos, consulte [Discos compartidos de Azure](disks-shared.md).
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Los scripts y comandos de este artículo requieren:
+
+- La versión 6.0.0 o posterior del módulo de Azure Powershell.
+
+Or
+- La versión más reciente de la CLI de Azure.
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -41,6 +50,27 @@ Para implementar un disco administrado con la característica de disco compartid
 
 > [!IMPORTANT]
 > El valor de `maxShares` solo se puede establecer o cambiar cuando se desmonta un disco de todas las VM. Consulte los [tamaños de disco](#disk-sizes) para ver los valores permitidos para `maxShares`.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Inicie sesión en Azure Portal. 
+1. Busque y seleccione **Discos**.
+1. Seleccione **+ Crear** para crear un nuevo disco.
+1. Rellene los detalles y seleccione una región adecuada y, a continuación, seleccione **Cambiar tamaño**.
+
+    :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Captura de pantalla del panel Crear un disco administrado, cambio de tamaño resaltado." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
+
+1. Seleccione el tamaño de SSD Premium que desee y seleccione **Aceptar**.
+
+    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="Captura de pantalla de la SKU de disco, SSD Premium resaltado." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+
+1. Continúe con la implementación hasta llegar al panel **Avanzado**.
+1. Seleccione **Sí** para **Habilitar disco compartido** y seleccione la cantidad de **recursos compartidos máximos** que desea.
+
+    :::image type="content" source="media/disks-shared-enable/enable-premium-shared-disk.png" alt-text="Captura de pantalla del panel Avanzado, Habilitar disco compartido resaltado y establecer en Sí" lightbox="media/disks-shared-enable/enable-premium-shared-disk.png":::.
+
+1. Seleccione **Revisar + crear**.
+
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -64,6 +94,76 @@ Antes de usar la siguiente plantilla, reemplace `[parameters('dataDiskName')]`, 
 
 ---
 
+### <a name="deploy-a-standard-ssd-as-a-shared-disk"></a>Implementación de un SSD Estándar como un disco compartido
+
+Para implementar un disco administrado con la característica de disco compartido habilitada, use la nueva propiedad `maxShares` y defina un valor mayor que 1. Esto permite que el disco se pueda compartir en varias VM.
+
+> [!IMPORTANT]
+> El valor de `maxShares` solo se puede establecer o cambiar cuando se desmonta un disco de todas las VM. Consulte los [tamaños de disco](#disk-sizes) para ver los valores permitidos para `maxShares`.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Actualmente no se puede implementar un SSD estándar compartido a través de Azure Portal. Use la CLI de Azure, el módulo Azure PowerShell o una plantilla de Azure Resource Manager.
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli
+az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku StandardSSD_LRS --max-shares 2
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType StandardSSD_LRS -CreateOption Empty -MaxSharesCount 2
+
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
+```
+
+# <a name="resource-manager-template"></a>[Plantilla de Resource Manager](#tab/azure-resource-manager)
+
+Introduzca sus propios valores en esta plantilla de Azure Resource Manager, antes de usarla:
+
+```rest
+{ 
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "dataDiskName": {
+      "type": "string",
+      "defaultValue": "mySharedDisk"
+    },
+    "dataDiskSizeGB": {
+      "type": "int",
+      "defaultValue": 1024
+    },
+    "maxShares": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/disks",
+      "name": "[parameters('dataDiskName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-07-01",
+      "sku": {
+        "name": "StandardSSD_LRS"
+      },
+      "properties": {
+        "creationData": {
+          "createOption": "Empty"
+        },
+        "diskSizeGB": "[parameters('dataDiskSizeGB')]",
+        "maxShares": "[parameters('maxShares')]"
+      }
+    }
+  ] 
+}
+```
+
+---
+
 ### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>Implementación de un disco Ultra como un disco compartido
 
 Para implementar un disco administrado con la característica de disco compartido habilitada, cambie el parámetro `maxShares` por un valor mayor que 1. Esto permite que el disco se pueda compartir en varias VM.
@@ -71,6 +171,22 @@ Para implementar un disco administrado con la característica de disco compartid
 > [!IMPORTANT]
 > El valor de `maxShares` solo se puede establecer o cambiar cuando se desmonta un disco de todas las VM. Consulte los [tamaños de disco](#disk-sizes) para ver los valores permitidos para `maxShares`.
 
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Inicie sesión en Azure Portal. 
+1. Busque y seleccione **Discos**.
+1. Seleccione **+ Crear** para crear un nuevo disco.
+1. Introduzca la información, después, seleccione **Cambiar tamaño**.
+1. Seleccione disco ultra para la **SKU de disco**.
+
+    :::image type="content" source="media/disks-shared-enable/select-ultra-shared-disk.png" alt-text="Captura de pantalla de la SKU de disco, disco ultra resaltado." lightbox="media/disks-shared-enable/select-ultra-shared-disk.png":::
+
+1. Seleccione el tamaño del disco que desee y seleccione **Aceptar**.
+1. Continúe con la implementación hasta llegar al panel **Avanzado**.
+1. Seleccione **Sí** para **Habilitar disco compartido** y seleccione la cantidad de **recursos compartidos máximos** que desea.
+1. Seleccione **Revisar + crear**.
+
+    :::image type="content" source="media/disks-shared-enable/enable-ultra-shared-disk.png" alt-text="Captura de pantalla del panel Avanzado, Habilitar disco compartido resaltado." lightbox="media/disks-shared-enable/enable-ultra-shared-disk.png":::
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

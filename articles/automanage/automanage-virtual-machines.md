@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 00ee1b6e9772100cbc4abf9c79260a231bbd27af
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 73fb4adaf1c14256beef23cc9ce7ec53bd020937
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755148"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723022"
 ---
 # <a name="preview-azure-automanage-for-virtual-machines"></a>Versión preliminar: Azure Automanage para máquinas virtuales
 
@@ -35,6 +35,9 @@ Azure Automanage también supervisa automáticamente las desviaciones y las corr
 
 Automanage no almacena ni procesa los datos de clientes fuera de la geografía en la que se encuentran las máquinas virtuales. En la región Sudeste Asiático, Automanage no almacena ni procesa datos fuera de esa región.
 
+> [!NOTE]
+> Automanage se puede habilitar en máquinas virtuales de Azure, así como en servidores habilitados para Arc. Automanage no está disponible en la nube del Gobierno de EE. UU. en este momento.
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de intentar habilitar Azure Automanage en las máquinas virtuales, debe tener en cuenta varios requisitos previos.
@@ -43,6 +46,7 @@ Antes de intentar habilitar Azure Automanage en las máquinas virtuales, debe te
 - Las máquinas virtuales deben estar en una región admitida (véase a continuación)
 - El usuario debe tener los permisos correctos (véase a continuación)
 - Automanage no admite suscripciones de espacio aislado en este momento
+- Automanage no admite Windows 10 en este momento.
 
 ### <a name="supported-regions"></a>Regiones admitidas
 Automanage solo admite máquinas virtuales que se encuentran en las siguientes regiones:

@@ -3,14 +3,15 @@ metadata:
   title: 'Preguntas más frecuentes: copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure'
   description: Busque las respuestas a preguntas habituales sobre la copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure con Azure Backup.
   ms.reviewer: vijayts
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
   ms.date: 05/07/2021
-  ms.openlocfilehash: 0c53b52f38103790ae5439e33d81c268756b5eec
-  ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+  ms.openlocfilehash: b9d0efe909cd82cec1b3ade53882b3a3935b0353
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/07/2021
-  ms.locfileid: "111907562"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253195"
 title: Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 summary: >
   Este artículo responde preguntas comunes sobre las copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con el servicio [Azure Backup](backup-overview.md).
@@ -117,7 +118,7 @@ sections:
   - question: >
       ¿Por qué no puedo ver una base de datos agregada para una instancia protegida automáticamente?
     answer: >
-      Una base de datos que [se agrega a una instancia protegida automáticamente](backup-sql-server-database-azure-vms.md#enable-auto-protection) puede no aparecer inmediatamente entre los elementos protegidos. Esto se debe a que la detección normalmente se ejecuta cada ocho horas. Sin embargo, puede detectar y proteger nuevas bases de datos de inmediato si ejecuta manualmente una detección seleccionando **Volver a detectar bases de datos**, tal como se muestra en la siguiente imagen:
+      Una base de datos que [se agrega a una instancia protegida automáticamente](backup-sql-server-database-azure-vms.md#enable-auto-protection) puede no aparecer inmediatamente entre los elementos protegidos. Esto se debe a que la detección se ejecuta normalmente cada 8 horas y la protección real del sistema puede tardar más tiempo, ya que depende del tamaño de la máquina virtual. Sin embargo, puede detectar nuevas bases de datos de inmediato si ejecuta manualmente una detección seleccionando **Volver a detectar bases de datos**, tal como se muestra en la siguiente imagen:
 
         ![Detectar manualmente una base de datos recién agregada](./media/backup-azure-sql-database/view-newly-added-database.png)
   - question: >

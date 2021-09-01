@@ -2,19 +2,18 @@
 title: 'Recepción de notificaciones sobre problemas mediante alertas: Azure IoT Edge'
 description: Uso de reglas de alertas de Azure Monitor para la supervisión a gran escala
 author: veyalla
-manager: philmea
 ms.author: veyalla
 ms.date: 06/08/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 14deb9a8a8ecaf67306ab8e29b2dfea7fa130c00
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 1de507f113f5bf457a4394be9e5fb86c37291e95
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904577"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015487"
 ---
 # <a name="get-notified-about-issues-using-alerts-preview"></a>Recepción de notificaciones sobre problemas mediante alertas (versión preliminar)
 
@@ -22,11 +21,14 @@ ms.locfileid: "111904577"
 
 Use [alertas de registro de Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md) para supervisar los dispositivos IoT Edge a gran escala. Como se resalta en la [arquitectura de la solución](how-to-collect-and-transport-metrics.md#architecture), Log Analytics de Azure Monitor se usa como base de datos de métricas. Esta integración desbloquea funcionalidades de alerta eficaces y flexibles mediante alertas de registro centradas en los recursos.
 
+> [!IMPORTANT]
+> Esta característica solo está disponible actualmente para IoT Hub, no para IoT Central.
+
 ## <a name="create-an-alert-rule"></a>Crear una regla de alerta
 
 Puede [crear una regla de alertas de registro](../azure-monitor/alerts/alerts-log.md) para supervisar una amplia variedad de condiciones en toda la flota de dispositivos.
 
-Se proporcionan consultas de alerta de [KQL](https://aka.ms/kql) de ejemplo en el recurso de IoT Hub. Las consultas que funcionan sobre datos de métricas de dispositivos perimetrales van precedidas de *IoT Edge* en su título. Use estos ejemplos tal y como están o modifíquelos según sea necesario para crear una consulta para su necesidad exacta.
+Se proporcionan consultas de alerta de [KQL](/azure/data-explorer/kusto/query/) de ejemplo en el recurso de IoT Hub. Las consultas que funcionan sobre datos de métricas de dispositivos perimetrales van precedidas de *IoT Edge* en su título. Use estos ejemplos tal y como están o modifíquelos según sea necesario para crear una consulta para su necesidad exacta.
 
 Para acceder a las consultas de alerta de ejemplo, siga estos pasos:
 
@@ -66,4 +68,4 @@ Haga clic en el nombre de la regla de alertas para ver más contexto sobre la al
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Mejore la solución de supervisión con [métricas de módulos personalizados](how-to-add-custom-metrics.md). 
+Mejore la solución de supervisión con [métricas de módulos personalizados](how-to-add-custom-metrics.md).

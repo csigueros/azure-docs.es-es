@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 08/02/2021
 ms.author: b-juche
-ms.openlocfilehash: 3158d4fae313afcb1fef69ba7a2728df4d235175
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 522c9e590f1f63a12bd4f52f56eac0798ba78aa7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111525343"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729230"
 ---
 # <a name="linux-concurrency-best-practices-for-azure-netapp-files---session-slots-and-slot-table-entries"></a>Procedimientos recomendados de simultaneidad de Linux para Azure NetApp Files: ranuras de sesión y entradas de tabla de ranuras
 
-Este artículo le ayudará a comprender los procedimientos recomendados de simultaneidad sobre las ranuras de sesión y las entradas de tabla de ranuras para el protocolo NFS de Azure NetApp Files. 
+Este artículo le ayudará a comprender los procedimientos recomendados de simultaneidad sobre las ranuras de sesión y las entradas de la tabla de ranuras para el protocolo NFS de Azure NetApp Files. 
 
 ## <a name="nfsv3"></a>NFSv3
 
@@ -48,7 +48,7 @@ Un nivel de simultaneidad de 155 es suficiente para lograr 155 000 operaciones N
 
 Si quiere obtener más información, consulte el documento [Rendimiento de la base de datos de Oracle en volúmenes individuales de Azure NetApp Files](performance-oracle-single-volumes.md).
 
-El valor ajustable `sunrpc.max_tcp_slot_table_entries` es un parámetro de ajuste del nivel de conexión.  *Como procedimiento recomendado, establezca este valor en 128 o menos por conexión, sin superar las 3000 ranuras en todo el entorno.*
+El valor ajustable `sunrpc.max_tcp_slot_table_entries` es un parámetro de ajuste del nivel de conexión.  *Como procedimiento recomendado, establezca este valor en 128 o menos por conexión, sin superar las 10 000 ranuras en todo el entorno.*
 
 ### <a name="examples-of-slot-count-based-on-concurrency-recommendation"></a>Ejemplos de recuento de ranuras en función de la recomendación de simultaneidad 
 
@@ -109,7 +109,7 @@ En el ejemplo 4 se usa el valor reducido `sunrpc.max_tcp_slot_table_entry` por c
         * El cliente no podrá emitir más de 8 solicitudes activas al servidor por conexión.
         * El servidor no aceptará más de 128 solicitudes activas de esta conexión.
 
-Al usar NFS v3, *debe mantener colectivamente el número de ranuras del punto de conexión de almacenamiento en 2000 como máximo*. Es mejor establecer el valor por conexión de `sunrpc.max_tcp_slot_table_entries` en menos de 128 cuando una aplicación escala horizontalmente en muchas conexiones de red (`nconnect` y HPC en general y EDA en particular).  
+Al usar NFS v3, *debe mantener colectivamente el número de ranuras del punto de conexión de almacenamiento en 10 000 como máximo*. Es mejor establecer el valor por conexión de `sunrpc.max_tcp_slot_table_entries` en menos de 128 cuando una aplicación escala horizontalmente en muchas conexiones de red (`nconnect` y HPC en general y EDA en particular).  
 
 ### <a name="how-to-calculate-the-best-sunrpcmax_tcp_slot_table_entries"></a>Cómo calcular el mejor `sunrpc.max_tcp_slot_table_entries` 
 
@@ -129,7 +129,7 @@ En la tabla siguiente aparece un estudio de muestra de simultaneidad con latenci
 
 ### <a name="how-to-calculate-concurrency-settings-by-connection-count"></a>Cómo calcular la configuración de simultaneidad mediante el recuento de conexiones
 
-Por ejemplo, la carga de trabajo es una granja de EDA y 200 clientes dirigen carga de trabajo al mismo punto de conexión de almacenamiento (un punto de conexión de almacenamiento es una dirección IP de almacenamiento). A continuación, se calcula la tasa de E/S necesaria y se divide la simultaneidad entre la granja.
+Por ejemplo, si la carga de trabajo es una granja de EDA y 1250 clientes dirigen la carga de trabajo al mismo punto de conexión de almacenamiento (un punto de conexión de almacenamiento es una dirección IP de almacenamiento), se calcula la tasa de E/S necesaria y se divide la simultaneidad entre la granja.
 
 Suponga que la carga de trabajo es de 4000 MiB/s con un tamaño medio de operación de 256 KiB y una latencia media de 10 ms. Para calcular la simultaneidad, use la siguiente fórmula:
 
@@ -139,7 +139,7 @@ El cálculo se traduce en una simultaneidad de 160:
  
 `(160 = 16,000 × 0.010)`
 
-Dada la necesidad de 200 clientes, podría establecer de forma segura `sunrpc.max_tcp_slot_table_entries` en 2 por cliente para alcanzar los 4000 MiB/s.  Sin embargo, puede decidir compilar capacidad de aumento adicional si establece el número por cliente en 4 o incluso 8 y mantenerlo por debajo del límite máximo de 2000 ranuras recomendado. 
+Dada la necesidad de 1250 clientes, podría establecer de forma segura `sunrpc.max_tcp_slot_table_entries` en 2 por cliente para alcanzar los 4000 MiB/s.  Sin embargo, puede decidir crear capacidad de aumento adicional si establece el número por cliente en 4 o incluso 8 y mantenerlo por debajo del límite máximo de 10 000 ranuras recomendado. 
 
 ### <a name="how-to-set-sunrpcmax_tcp_slot_table_entries-on-the-client"></a>Cómo configurar `sunrpc.max_tcp_slot_table_entries` en el cliente
 
@@ -266,5 +266,9 @@ En el ejemplo siguiente se muestra el paquete 14 (máximo de solicitudes del ser
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
+* [Procedimientos recomendados de E/S directa de Linux para Azure NetApp Files](performance-linux-direct-io.md)
+* [Procedimientos recomendados de caché del sistema de archivos de Linux para Azure NetApp Files](performance-linux-filesystem-cache.md)
 * [Procedimientos recomendados de las opciones de montaje de NFS de Linux para Azure NetApp Files](performance-linux-mount-options.md)
+* [Procedimientos recomendados de lectura anticipada de NFS de Linux](performance-linux-nfs-read-ahead.md)
+* [Procedimientos recomendados de SKU de máquinas virtuales de Azure](performance-virtual-machine-sku.md) 
 * [Bancos de pruebas de rendimiento para Linux](performance-benchmarks-linux.md) 
