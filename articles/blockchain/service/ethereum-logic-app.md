@@ -4,16 +4,20 @@ description: Uso del conector Ethereum Blockchain con Azure Logic Apps para dese
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
-ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0eb4056567692ddb221f3207ac92b3373f6bdff2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96763798"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122652194"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Uso del conector Ethereum Blockchain con Azure Logic Apps
 
-Use el [conector Ethereum Blockchain](/connectors/blockchainethereum/) con [Azure Logic Apps](../../logic-apps/index.yml) para realizar acciones y responder a eventos de contrato inteligente. En este artículo, se explica cómo puede utilizarse el conector Ethereum Blockchain para enviar información de cadenas de bloques a otro servicio o para llamar a una función de cadena de bloques. Supongamos que desea crear un microservicio basado en REST que devuelva información de un libro de contabilidad de cadena de bloques. Mediante el uso de una aplicación lógica, puede aceptar solicitudes HTTP que consulten la información almacenada en un libro de contabilidad de cadena de bloques.
+Use el [conector Ethereum Blockchain](/connectors/blockchainethereum/) con [Azure Logic Apps](../../logic-apps/index.yml) para realizar acciones y responder a eventos de contrato inteligente.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+En este artículo, se explica cómo puede utilizarse el conector Ethereum Blockchain para enviar información de cadenas de bloques a otro servicio o para llamar a una función de cadena de bloques. Supongamos que desea crear un microservicio basado en REST que devuelva información de un libro de contabilidad de cadena de bloques. Mediante el uso de una aplicación lógica, puede aceptar solicitudes HTTP que consulten la información almacenada en un libro de contabilidad de cadena de bloques.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

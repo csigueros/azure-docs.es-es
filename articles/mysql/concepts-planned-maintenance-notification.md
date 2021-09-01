@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c6d1bfbf1592da3a5e632eb875221225630aed3f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5e40d255ed250b11542c0a2065ee46915798ac1b
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108679"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122651873"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notificación de mantenimiento planeado en Azure Database for MySQL: servidor único
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Obtenga información sobre cómo prepararse para eventos de mantenimiento planeado en Azure Database for MySQL.
 

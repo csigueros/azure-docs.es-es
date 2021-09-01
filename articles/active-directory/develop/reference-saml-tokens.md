@@ -13,12 +13,12 @@ ms.date: 03/29/2021
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: c23028e4cbbeb7e92fd8b0a7fb6b6b81a54a0806
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2d49a112413c482751f51d67f2fb3990dcfe52c2
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132240"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219975"
 ---
 # <a name="saml-token-claims-reference"></a>Referencia de notificaciones de token SAML
 
@@ -154,7 +154,7 @@ Este es un ejemplo de token SAML típico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre la administración de directivas del ciclo de vida de los tokens mediante Microsoft Graph API, consulte [Introducción a los recursos de directiva de Azure AD](/graph/api/resources/policy).
+* Para más información sobre la administración de directivas del ciclo de vida de los tokens mediante Microsoft Graph API, consulte [Introducción a los recursos de directiva de Azure AD](/graph/api/resources/policy-overview).
 * Agregue [notificaciones opcionales y personalizadas](active-directory-optional-claims.md) a los tokens de la aplicación.
 * Use el [inicio de sesión único (SSO) con SAML](single-sign-on-saml-protocol.md).
 * Use el [protocolo SAML de cierre de sesión único de Azure](single-sign-out-saml-protocol.md).

@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 02/13/2020
-ms.openlocfilehash: 95b5a7650e0990f13149daeed87da8e261ec37e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3697130dd0d623a71158121c572aba7a52be28c7
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93241130"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652013"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Solución de problemas del cifrado de datos en Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 En este artículo se describe cómo identificar y resolver problemas habituales que se producen en Azure Database for MySQL cuando se configura con cifrado de datos mediante una clave administrada por el cliente.
 

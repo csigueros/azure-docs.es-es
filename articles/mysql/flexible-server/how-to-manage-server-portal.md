@@ -6,15 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 7a01863b3a0c29e94550be67ca957655cff32660
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5500a197b7cb2566b3ea78b6c2acba9403a7a8ae
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90931905"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122651872"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Administración de Azure Database for MySQL: servidor flexible (versión preliminar) mediante Azure Portal
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL: servidor flexible está actualmente en versión preliminar pública.
@@ -22,6 +23,7 @@ ms.locfileid: "90931905"
 En este artículo se muestra cómo administrar los servidores flexibles de Azure Database for MySQL (versión preliminar). Las tareas de administración incluyen el escalado de los procesos y el almacenamiento, el restablecimiento de la contraseña de administrador del servidor y la eliminación del servidor.
 
 ## <a name="sign-in"></a>Iniciar sesión
+
 Inicie sesión en [Azure Portal](https://portal.azure.com). Vaya al recurso de servidor flexible en Azure Portal.
 
 ## <a name="scale-compute-and-storage"></a>Escalado de proceso y almacenamiento
@@ -35,7 +37,8 @@ Tras crear el servidor, puede escalar entre los distintos [planes de tarifa](htt
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/howto-manage-server-portal/scale-server.png" alt-text="Escalado del almacenamiento del servidor flexible":::
 
-   > [!Important]
+   
+> [!IMPORTANT]
    > - El almacenamiento no se puede reducir verticalmente.
    > - El escalado de los núcleos virtuales provoca un reinicio del servidor.
 

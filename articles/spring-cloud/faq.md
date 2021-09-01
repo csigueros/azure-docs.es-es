@@ -1,19 +1,19 @@
 ---
 title: Preguntas frecuentes acerca de Azure Spring Cloud | Microsoft Docs
 description: En este artículo se responden las preguntas más frecuentes sobre Azure Spring Cloud.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a60634175ff06780372331bef6b28de2edbfea33
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5cc02d09efda462a2feaaa77ff74dff9dedd2041
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144644"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860808"
 ---
 # <a name="azure-spring-cloud-faq"></a>Preguntas frecuentes de Azure Spring Cloud
 
@@ -29,7 +29,7 @@ Azure Spring Cloud mejora la experiencia de diagnóstico de aplicaciones para lo
 
 ### <a name="how-secure-is-azure-spring-cloud"></a>¿Es seguro Azure Spring Cloud?
 
-La seguridad y la privacidad se encuentran entre las principales prioridades para los clientes de Azure y de Azure Spring Cloud. Azure permite garantizar que solo los clientes tienen acceso a los datos, registros o configuraciones de la aplicación mediante el cifrado seguro de todos estos datos. 
+La seguridad y la privacidad se encuentran entre las principales prioridades para los clientes de Azure y de Azure Spring Cloud. Azure permite garantizar que solo los clientes tienen acceso a los datos, registros o configuraciones de la aplicación mediante el cifrado seguro de todos estos datos.
 
 * Las instancias de servicio de Azure Spring Cloud están aisladas unas de otras.
 * Azure Spring Cloud proporciona administración completa de certificados y TLS/SSL.
@@ -46,13 +46,15 @@ Azure Spring Cloud es un servicio regional. Todos los datos de cliente de Azure 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>¿Cuáles son las limitaciones conocidas de Azure Spring Cloud?
 
 Azure Spring Cloud tiene las limitaciones conocidas siguientes:
-    
+
 * `spring.application.name` se sustituirá por el nombre de la aplicación que se usó para crear cada aplicación.
 * El valor predeterminado de `server.port` es el puerto 1025. Si se aplica cualquier otro valor, se invalidará. También debe respetar esta configuración y no especificar el puerto del servidor en el código.
 * Azure Portal y las plantillas de Azure Resource Manager no admiten la carga de paquetes de aplicación. Solo puede cargar paquetes de aplicación al implementar la aplicación a través de la CLI de Azure.
 
-### <a name="what-pricing-tiers-are-available"></a>¿Qué planes de tarifa están disponibles? 
+### <a name="what-pricing-tiers-are-available"></a>¿Qué planes de tarifa están disponibles?
+
 ¿Cuál debo usar y cuáles son los límites dentro de cada plan?
+
 * Azure Spring Cloud ofrece dos planes de tarifa: Básico y Estándar. El plan Básico está destinado a desarrollo y pruebas y a probar Azure Spring Cloud. El plan Estándar está optimizado para ejecutar el tráfico de producción de uso general. Consulte [Detalle de precios de Azure Spring Cloud](https://azure.microsoft.com/pricing/details/spring-cloud/) para obtener información sobre los límites y la comparación de niveles de las características.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>¿Cómo puedo realizar comentarios y notificar incidencias?
@@ -74,7 +76,7 @@ Azure Spring Cloud es compatible con Java 8 y 11. Consulte las [versiones del s
 Se ha identificado un problema con Spring Boot 2.4 y se está trabajando con la comunidad de Spring para resolverlo. Mientras tanto, incluya estas dos dependencias para habilitar la autenticación TLS entre las aplicaciones y Eureka.
 
 ```xml
-<dependency> 
+<dependency>
     <groupId>com.sun.jersey</groupId>
     <artifactId>jersey-client</artifactId>
     <version>1.19.4</version>
@@ -102,6 +104,7 @@ Sí. Para más información, consulte el [Tutorial: uso del seguimiento distribu
 ### <a name="what-resource-types-does-service-binding-support"></a>¿Qué tipos de recursos admiten el enlace de servicios?
 
 Actualmente se admiten tres servicios:
+
 * Azure Cosmos DB
 * Azure Database for MySQL
 * Azure Cache for Redis.
@@ -113,14 +116,13 @@ Sí.
 
 ### <a name="how-many-outbound-public-ip-addresses-does-an-azure-spring-cloud-instance-have"></a>¿Cuántas IP publicas de salida tiene una instancia de Azure Spring Cloud?
 
-El número de IP públicas de salida puede variar en función de los niveles y otros factores. 
+El número de IP públicas de salida puede variar en función de los niveles y otros factores.
 
 | Tipo de instancia de Azure Spring Cloud | Número predeterminado de IP públicas de salida |
 | -------------------------------- | ---------------------------------------------- |
 | Instancias de nivel Básico             | 1                                              |
 | Instancias de nivel Estándar          | 2                                              |
 | Instancias de inserción de red virtual         | 1                                              |
-
 
 ### <a name="can-i-increase-the-number-of-outbound-public-ip-addresses"></a>¿Puedo aumentar el número de IP públicas de salida?
 
@@ -153,7 +155,7 @@ Las versiones LTS y MTS del JDK tienen actualizaciones de seguridad trimestrales
 
 ### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>¿Cuánto tiempo se admitirán las versiones LTS de Java 8 y Java 11?
 
-Consulte [Soporte técnico de Java a largo plazo para Azure y Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Consulte [Soporte técnico de Java a largo plazo para Azure y Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 
 * Java 8 LTS tiene soporte técnico hasta diciembre de 2030.
 * Java 11 LTS tiene soporte técnico hasta septiembre de 2027.
@@ -186,6 +188,7 @@ Las actualizaciones de seguridad críticas (puntuación CVE >= 9) aplicables a A
 ## <a name="deployment"></a>Implementación
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>¿Admite Azure Spring Cloud la implementación blue-green?
+
 Sí. Para obtener más información, consulte [Configuración de un entorno de ensayo](./how-to-staging-environment.md).
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>¿Puedo acceder a Kubernetes para manipular mis contenedores de aplicaciones?
@@ -204,6 +207,7 @@ Sí.  Para obtener más información, vea [Configurar un dominio](./how-to-setup
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>¿Cuáles son los procedimientos recomendados para migrar los microservicios de Spring Cloud existentes a Azure Spring Cloud?
 
 Al migrar los microservicios de Spring Cloud existentes a Azure Spring Cloud, es una buena idea realizar los siguientes procedimientos recomendados:
+
 * Todas las dependencias de la aplicación deben resolverse.
 * Es preciso preparar las entradas de configuración, las variables de entorno y los parámetros de JVM para que pueda compararlos con los de la implementación en Azure Spring Cloud.
 * Si quiere usar el enlace de servicios, examine los servicios de Azure y asegúrese de que ha establecido los permisos de acceso adecuados.
@@ -225,21 +229,21 @@ Después de la migración, supervise las métricas de la CPU y RAM, y el tráfic
 Hasta el 3 de diciembre de 2022. Consulte [Visualización de la directiva de compatibilidad de .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 ::: zone-end
 
-
 ## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>¿Cuáles son las repercusiones del registro de servicio que raramente no está disponible?
 
-En un escenario que rara vez sucede, puede ver algunos errores como 
-```
+En algunos escenarios que rara vez se han producido, es posible que vea algunos errores como el siguiente en los registros de la aplicación:
+
+```output
 RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
 ```
-desde los registros de aplicaciones. Este es un problema introducido por Spring Framework con una tasa muy baja debido a la inestabilidad de la red o a otros problemas de red. 
+
+Este es un problema introducido por el marco de Spring con una tasa muy baja debido a la inestabilidad de la red o a otros problemas de la red.
 
 No debe haber ninguna repercusión en la experiencia del usuario, ya que el cliente Eureka tiene una directiva de reintentos y latido para poder encargarse de ello. Puede considerarlo como un error transitorio y omitirlo de forma segura.
 
 Mejoraremos esta parte y evitaremos este error de las aplicaciones de los usuarios en breve.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

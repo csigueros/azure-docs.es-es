@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 124661c57f779b9f8a639debcc093ed15e717694
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2e0cd1477f5fd7931093b14dced433e71c76236
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946471"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122652896"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Ejecución de consultas de Apache Hive con Apache Hadoop en HDInsight mediante REST
 
-[!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
+[!INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
 Obtenga información acerca de cómo usar la API REST de WebHCat para ejecutar consultas de Apache Hive con Apache Hadoop en un clúster de Azure HDInsight.
 

@@ -6,15 +6,15 @@ author: ddematheu2
 manager: chrispalm
 services: azure-communication-services
 ms.author: dademath
-ms.date: 05/11/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 4176bdf61cafdf50aef71e76b832a0e669f1535c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 86ef660c5d4b0f0132218df1df37c8934f27ec08
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468810"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122653293"
 ---
 # <a name="ui-library-overview"></a>Introducción a la Biblioteca de interfaz de usuario
 
@@ -53,8 +53,8 @@ Los desarrolladores pueden crear fácilmente instancias de la composición media
 
 | Compuesto    | Casos de uso  | 
 | ------------ | ---------- |
-| [CallComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-callcomposite--basic-example) | Experiencia de llamada que permite a los usuarios iniciar una llamada o unirse a ella. Dentro de la experiencia, los usuarios pueden configurar sus dispositivos, participar en la llamada con vídeo y ver a otros participantes, incluidos los participantes con el vídeo encendido. La interoperabilidad de Teams se consigue con la funcionalidad de sala de espera para que el usuario espere a ser admitido. |
-| [ChatComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-chatcomposite--basic-example)    | Experiencia de chat en la que el usuario puede enviar y recibir mensajes. Los eventos de subproceso, como escribir, leer o la entrada y salida de los participantes, se muestran al usuario como parte del subproceso de chat.                                                                                                                          |
+| [CallComposite](https://azure.github.io/communication-ui-library/?path=/story/composites-call--basic-example) | Experiencia de llamada que permite a los usuarios iniciar una llamada o unirse a ella. Dentro de la experiencia, los usuarios pueden configurar sus dispositivos, participar en la llamada con vídeo y ver a otros participantes, incluidos los participantes con el vídeo encendido. La interoperabilidad de Teams se consigue con la funcionalidad de sala de espera para que el usuario espere a ser admitido. |
+| [ChatComposite](https://azure.github.io/communication-ui-library/?path=/story/composites-chat--basic-example)    | Experiencia de chat en la que el usuario puede enviar y recibir mensajes. Los eventos de subproceso, como escribir, leer o la entrada y salida de los participantes, se muestran al usuario como parte del subproceso de chat.                                                                                                                          |
 
 ## <a name="ui-component-overview"></a>Introducción a los componentes de interfaz de usuario
 
@@ -63,17 +63,16 @@ Los componentes de interfaz de usuario admiten personalización para proporciona
 
 | Área    | Componente    | Descripción       |
 | ------- | ------------ | ----------------- |
-| Llamar | [Diseño de cuadrícula](https://azure.github.io/communication-ui-library/?path=/story/ui-components-gridlayout--grid-layout-component)                | Componente de cuadrícula para organizar los iconos de vídeo en una cuadrícula NxN.                                            |
-|         | [Icono de vídeo](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile-component)                   | Componente que muestra la secuencia de vídeo cuando está disponible y un componente estático predeterminado cuando no lo está.        |
-|         | [Barra de control](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar-component)                | Contenedor para organizar DefaultButtons para enlazar con acciones de llamada específicas, como silencio o uso compartido de pantalla. |
+| Llamar | [Diseño de cuadrícula](https://azure.github.io/communication-ui-library/?path=/story/ui-components-gridlayout--grid-layout)                | Componente de cuadrícula para organizar los iconos de vídeo en una cuadrícula NxN.                                            |
+|         | [Icono de vídeo](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile)                   | Componente que muestra la secuencia de vídeo cuando está disponible y un componente estático predeterminado cuando no lo está.        |
+|         | [Barra de control](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar)                | Contenedor para organizar DefaultButtons para enlazar con acciones de llamada específicas, como silencio o uso compartido de pantalla. |
 |         | [VideoGallery](https://azure.github.io/communication-ui-library/?path=/story/ui-components-video-gallery--video-gallery)                                           | Componente inmediato de la galería de vídeos que cambia dinámicamente a medida que se agregan participantes.               |
-| Chat    | [Subproceso de mensaje](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagethread--message-thread-component)       | Contenedor que representa mensajes de chat, mensajes del sistema y mensajes personalizados.                          |
-|         | [Cuadro de envío](https://azure.github.io/communication-ui-library/?path=/story/ui-components-sendbox--send-box-component)                         | Componente de entrada de texto con un botón de envío discreto.                                                   |
-|         | [Indicador de estado del mensaje](https://azure.github.io/communication-ui-library/?path=/story/ui-components-message-status-indicator--message-status-indicator)        | Componente de recepción de lectura de varios estados para mostrar el estado del mensaje enviado.                                   |
-|         | [Indicador de escritura](https://azure.github.io/communication-ui-library/?path=/story/ui-components-typingindicator--typing-indicator-component) | Componente de texto para representar a los participantes que escriben activamente en un subproceso.                      |
-| Comunes  | [Elemento de participante](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantitem--participant-item-component) | Componente común para representar una llamada o un participante de chat, incluido el avatar y el nombre para mostrar.            |
-|         | [Lista de participantes](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participant-list--participant-list)                                 | Componente común para representar una lista de participantes de llamada o chat, incluidos el avatar y el nombre para mostrar       |
-
+| Chat    | [Subproceso de mensaje](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagethread--message-thread)       | Contenedor que representa mensajes de chat, mensajes del sistema y mensajes personalizados.                          |
+|         | [Cuadro de envío](https://azure.github.io/communication-ui-library/?path=/story/ui-components-sendbox--send-box)                         | Componente de entrada de texto con un botón de envío discreto.                                                   |
+|         | [Indicador de estado del mensaje](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagestatusindicator--message-status-indicator)        | Componente de recepción de lectura de varios estados para mostrar el estado del mensaje enviado.                                   |
+|         | [Indicador de escritura](https://azure.github.io/communication-ui-library/?path=/story/ui-components-typingindicator--typing-indicator) | Componente de texto para representar a los participantes que escriben activamente en un subproceso.                      |
+| Comunes  | [Elemento de participante](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantitem--participant-item) | Componente común para representar una llamada o un participante de chat, incluido el avatar y el nombre para mostrar.            |
+|         | [Lista de participantes](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantlist--participant-list)                                 | Componente común para representar una lista de participantes de llamada o chat, incluidos el avatar y el nombre para mostrar       |
 
 ## <a name="what-ui-artifact-is-best-for-my-project"></a>¿Qué artefacto de interfaz de usuario es el mejor para mi proyecto?
 

@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
-ms.openlocfilehash: 032c070a9485fc4720ae7966a0991bc0c5ae3921
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8c2dc7cef889a0488352ace443771d118b0d0613
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104867855"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122652286"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Ejecución de consultas de Apache Hive mediante el SDK de .NET para HDInsight
 
-[!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
+[!INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
 Obtenga información sobre cómo enviar consultas de Apache Hive mediante el SDK de .NET para HDInsight. Escriba un programa C# para enviar una consulta de Hive para enumerar tablas de Hive y mostrar los resultados.
 
@@ -139,7 +139,7 @@ La salida de la aplicación debe ser similar a:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a enviar consultas de Apache Hive mediante el SDK para .NET de HDInsight. Para más información, vea los siguientes artículos:
+En este artículo, ha aprendido a enviar consultas de Apache Hive mediante el SDK para .NET de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
 * [Introducción a Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Creación de clústeres de Apache Hadoop en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)

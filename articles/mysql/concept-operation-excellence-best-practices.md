@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: e1d84483a701bf7fb4e6c50b9dc4f4f89993c64d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85048e9a5fccc520cab5bb319ee0b6f81b06f4fd
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96354920"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122653053"
 ---
 # <a name="best-practices-for-server-operations-on-azure-database-for-mysql--single-server"></a>Procedimientos recomendados para las operaciones de servidor en Azure Database for MySQL: servidor único
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Obtenga información sobre los procedimientos recomendados para trabajar con Azure Database for MySQL. A medida que agregamos nuevas funcionalidades a la plataforma, seguiremos centrándonos en perfeccionar los procedimientos recomendados que se detallan en esta sección.
 

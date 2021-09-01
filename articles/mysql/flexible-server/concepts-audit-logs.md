@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 1232a0753c988f5a28ebba28f9819aa67ce28603
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af4356a4f432572920bd07fd8d7ea8c7e5f6663e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718750"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652788"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Seguimiento de la actividad de base de datos con Registros de auditoría en el Servidor flexible de Azure Database for MySQL
 
-> [!IMPORTANT] 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > El Servidor flexible de Azure Database for MySQL está actualmente en versión preliminar pública.
 
 El Servidor flexible de Azure Database for MySQL proporciona a los usuarios la capacidad de configurar registros de auditoría. Los registros de auditoría se pueden usar para realizar un seguimiento de la actividad de nivel de base de datos, incluidos los eventos de conexión, administración, DDL y DML. Estos tipos de registros se usan normalmente para fines de cumplimiento.

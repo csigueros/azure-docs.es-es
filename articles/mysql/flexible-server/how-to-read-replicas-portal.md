@@ -5,15 +5,17 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 10/26/2020
-ms.openlocfilehash: fd303804706f9ae210e6714cc8698c94c39ebef6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/17/2021
+ms.openlocfilehash: 61e2f33511e6a200258ed16b5ef191e153553db8
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106860"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652992"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-portal"></a>Creación y administración de réplicas de lectura en el servidor flexible de Azure Database for MySQL mediante Azure Portal
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Réplicas de lectura en Azure Database for MySQL: Servidor flexible está en versión preliminar.
@@ -21,7 +23,10 @@ ms.locfileid: "105106860"
 En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en el servidor flexible de Azure Database for MySQL mediante Azure Portal.
 
 > [!Note]
-> La réplica no se admite en el servidor con alta disponibilidad habilitada. 
+>
+> * La réplica no se admite en el servidor con alta disponibilidad habilitada. 
+>
+> * Si GTID está habilitado en un servidor principal (`gtid_mode` = ON), las réplicas recién creadas también tendrán GTID habilitado y usarán la replicación basada en GTID. Para más información, consulte [Identificador de transacción global (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -30,7 +35,7 @@ En este artículo, obtendrá información sobre cómo crear y administrar las r�
 ## <a name="create-a-read-replica"></a>Creación de una réplica de lectura
 
 > [!IMPORTANT]
-> Cuando se crea una réplica para un origen que no tiene réplicas existentes, el origen se reiniciará primero a fin de prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
+>Cuando se crea una réplica para un origen que no tiene réplicas existentes, el origen se reiniciará primero a fin de prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
 
 Para crear un servidor de réplica de lectura, puede seguir estos siguientes pasos:
 
@@ -60,7 +65,7 @@ Una vez creado el servidor de réplica, puede verlo en la hoja **Replicación**.
 ## <a name="stop-replication-to-a-replica-server"></a>Detención de la replicación en un servidor de réplica
 
 > [!IMPORTANT]
-> La detención la replicación en un servidor es irreversible. Una vez detenida la replicación entre un origen y una réplica, la operación no se puede deshacer. Después, el servidor de réplica se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor no puede volver a convertirse en una réplica.
+>La detención la replicación en un servidor es irreversible. Una vez detenida la replicación entre un origen y una réplica, la operación no se puede deshacer. Después, el servidor de réplica se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor no puede volver a convertirse en una réplica.
 
 Para detener la replicación entre un servidor de origen y un servidor de réplicas desde Azure Portal, siga estos pasos:
 
@@ -103,7 +108,7 @@ Para eliminar un servidor de réplica de lectura en Azure Portal, siga estos pas
 ## <a name="delete-a-source-server"></a>Eliminación de un servidor de origen
 
 > [!IMPORTANT]
-> Al eliminar un servidor de origen, se detiene la replicación en todos los servidores de réplica y se elimina el propio servidor de origen. Los servidores de réplica se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
+>Al eliminar un servidor de origen, se detiene la replicación en todos los servidores de réplica y se elimina el propio servidor de origen. Los servidores de réplica se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
 
 Para eliminar un servidor de origen en Azure Portal, siga estos pasos:
 

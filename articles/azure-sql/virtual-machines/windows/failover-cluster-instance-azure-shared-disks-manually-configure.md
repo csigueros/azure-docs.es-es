@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 49a369c439465a7a93cba1aea983d23a54da206e
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: f58b3ea4a3d6a7fd1607410b1b9d521f57cb26bb
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569517"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219664"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -196,7 +196,7 @@ Es preciso que los directorios de datos de FCI estén en los discos compartidos 
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registro con el proveedor de recursos de VM de SQL
 
-Para administrar la VM con SQL Server desde el portal, regístrela con la extensión Agente de IaaS de SQL en [modo de administración ligera](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode); actualmente, es el único modo que se admite con FCI y SQL Server en las VM de Azure. 
+Para administrar la VM con SQL Server desde el portal, regístrela con la extensión Agente de IaaS de SQL en [modo de administración ligera](sql-agent-extension-manually-register-single-vm.md#lightweight-mode); actualmente, es el único modo que se admite con FCI y SQL Server en las VM de Azure. 
 
 Registre una VM con SQL Server en modo ligero con PowerShell:  
 

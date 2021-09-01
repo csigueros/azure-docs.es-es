@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: d311ea3158e1f9d53c51fe239103039849597d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7550fafa0a1fdf67baca4f9c777a4a064f522728
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579192"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652447"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Registros de consultas lentas en Azure Database for MySQL con servidor flexible (versión preliminar)
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Actualmente, Azure Database for MySQL con servidor flexible se encuentra en versión preliminar pública.
 
 En Azure Database for MySQL con servidor flexible, los usuarios pueden configurar registros de consultas lentas y acceder a ellos. De forma predeterminada, los registros de consultas lentas están deshabilitados y se pueden habilitar para ayudar a identificar los cuellos de botella de rendimiento durante la solución de problemas.
@@ -33,7 +35,7 @@ Entre los parámetros que se pueden ajustar para controlar el comportamiento de 
 - **log_throttle_queries_not_using_indexes**: limita el número de consultas que no son de índice que se pueden escribir en el registro de consultas lentas. Este parámetro surte efecto cuando `log_queries_not_using_indexes` se establece en *Activado*.
 
 > [!IMPORTANT]
-> Si las tablas no están indexadas y se establecen los parámetros `log_queries_not_using_indexes` y `log_throttle_queries_not_using_indexes` en **Activado**, el rendimiento de MySQL puede verse afectado, ya que todas las consultas que se ejecuten en estas tablas no indexadas se escribirán en el registro de consultas lentas.
+>Si las tablas no están indexadas y se establecen los parámetros `log_queries_not_using_indexes` y `log_throttle_queries_not_using_indexes` en **Activado**, el rendimiento de MySQL puede verse afectado, ya que todas las consultas que se ejecuten en estas tablas no indexadas se escribirán en el registro de consultas lentas.
 
 Consulte la [documentación rel registro de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) de MySQL para obtener una descripción completa de los parámetros de registro de consultas lentas.
 

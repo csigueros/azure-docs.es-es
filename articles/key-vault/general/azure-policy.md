@@ -7,12 +7,12 @@ ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: cddc7b931bf59412d4a7ec8e6b0eecfe148f3d5e
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: dcbbe63754bdcfc4ded249720b58940e0c219bf9
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749283"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861559"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar Azure Key Vault con Azure Policy
 
@@ -35,7 +35,7 @@ Escenarios de uso de ejemplo:
 
 ## <a name="available-built-in-policy-definitions"></a>Definiciones de Directiva "Integradas" disponibles
 
-Key Vault ha creado un conjunto de directivas que se pueden usar para administrar los objetos de clave, certificado y secreto. Estas directivas están "Integradas", lo que significa que no requieren que se escriba ningún JSON personalizado para habilitarlas y están disponibles en el Azure Portal que se va a asignar. Todavía puede personalizar determinados parámetros para ajustarse a las necesidades de su organización.
+Key Vault ha creado un conjunto de directivas que se pueden usar para administrar almacenes de claves y los objetos de clave, certificado y secreto. Estas directivas están "Integradas", lo que significa que no requieren que se escriba ningún JSON personalizado para habilitarlas y están disponibles en el Azure Portal que se va a asignar. Todavía puede personalizar determinados parámetros para ajustarse a las necesidades de su organización.
 
 # <a name="certificate-policies"></a>[Directivas de certificado](#tab/certificates)
 
@@ -58,7 +58,7 @@ Esta directiva permite administrar la acción de duración especificada para los
 
 ### <a name="certificates-should-be-issued-by-the-specified-integrated-certificate-authority-preview"></a>La entidad de certificación integrada especificada debe emitir los certificados (versión preliminar)
 
-Si usa una Key Vault entidad de certificación integrada (DigiCert o GlobalSign) y quiere que los usuarios usen uno de estos proveedores o cualquiera de ellos, puede usar esta directiva para auditar o aplicar la selección. Esta directiva también se puede utilizar para auditar o denegar la creación de certificados autofirmados en el almacén de claves.
+Si usa una Key Vault entidad de certificación integrada (DigiCert o GlobalSign) y quiere que los usuarios usen uno de estos proveedores o cualquiera de ellos, puede usar esta directiva para auditar o aplicar la selección. Esta directiva evaluará la entidad de certificación seleccionada en la directiva de emisión del certificado y el proveedor de la entidad de certificación definido en el almacén de claves. Esta directiva también se puede utilizar para auditar o denegar la creación de certificados autofirmados en el almacén de claves.
 
 ### <a name="certificates-should-be-issued-by-the-specified-non-integrated-certificate-authority-preview"></a>La entidad de certificación integrada especificada debe emitir los certificados (versión preliminar)
 
@@ -159,6 +159,20 @@ Si un secreto está demasiado cerca de la expiración, un retraso de la organiza
 
 Administre los requisitos de cumplimiento de su organización. Para ello, especifique la cantidad máxima de tiempo en días que un secreto puede ser válido en el almacén de claves. Los secretos que son válidos durante más tiempo que el umbral establecido se marcarán como no compatibles. También puede usar esta directiva para bloquear la creación de nuevos secretos que tienen establecida una fecha de expiración mayor que el período de validez máximo que especifique.
 
+# <a name="key-vault-policies"></a>[Directivas de Key Vault](#tab/keyvault)
+
+### <a name="key-vault-should-use-a-virtual-network-service-endpoint"></a>Key Vault debe usar un punto de conexión del servicio de red virtual
+
+Esta directiva audita toda instancia de Key Vault no configurada para usar un punto de conexión del servicio de red virtual.
+
+### <a name="resource-logs-in-key-vault-should-be-enabled"></a>Los registros de recursos de Key Vault deben estar habilitados
+
+Habilitación de la auditoría de los registros de recursos. De esta forma, puede volver a crear seguimientos de actividad con fines de investigación en caso de incidentes de seguridad o riesgos para la red.
+
+### <a name="key-vaults-should-have-purge-protection-enabled"></a>Los almacenes de claves deben tener habilitada la protección contra operaciones de purga
+
+La eliminación malintencionada de un almacén de claves puede provocar una pérdida de datos permanente. Un usuario malintencionado de la organización puede eliminar y purgar los almacenes de claves. La protección contra purgas le protege frente a ataques internos mediante la aplicación de un período de retención obligatorio para almacenes de claves eliminados temporalmente. Ningún usuario de su organización o Microsoft podrá purgar los almacenes de claves durante el período de retención de eliminación temporal.
+
 ---
 
 ## <a name="example-scenario"></a>Escenario de ejemplo
@@ -240,3 +254,4 @@ Asignar una directiva con un efecto de "denegación" puede tardar hasta 30 minut
 
 - Para más información sobre el [servicio de Azure Policy](../../governance/policy/overview.md)
 - Vea ejemplos de Key Vault: [Definiciones de directivas integradas en Key Vault](../../governance/policy/samples/built-in-policies.md#key-vault)
+- Más información sobre la [guía de Azure Security Benchmark en Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline?source=docs#network-security)

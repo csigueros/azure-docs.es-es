@@ -13,18 +13,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8688f0a477f3fa0a5fced64c288e14132f041299
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 1b3a60f93ce225a85bedfb78a71defff1a830c93
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492450"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122652265"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-rest"></a>Generación de miniaturas mediante Encoder Standard con REST
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Puede utilizar Media Encoder Standard para generar una o varias vistas en miniatura de la entrada de vídeo en formatos de archivo de imagen [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), o [BMP](https://en.wikipedia.org/wiki/BMP_file_format).
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
 
 ## <a name="recommended-reading-and-practice"></a>Práctica y lectura recomendadas
 

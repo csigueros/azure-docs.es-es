@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 40af2660f0052a876ef9310bc2426295ba67558b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a1c642ba4c1274e245dbcc407e1c09dc7e61742
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94541494"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652852"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Conexión de aplicaciones a Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 En este documento se enumeran todos los tipos de cadena de conexión que Azure Database for MySQL admite, junto con plantillas y ejemplos. Su cadena de conexión puede tener otros parámetros y configuraciones.
 
 - Para obtener el certificado, consulte [Configuración de SSL](./howto-configure-ssl.md).

@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: 87c44e5d56e59b0bf003e8e7d25f3351f58a8984
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4f7bb09b193da84b4d3f613fdd9c96790976f128
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065487"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652823"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Traslado de un servidor de Azure Database for MySQL a otra región mediante Azure Portal
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Hay varios escenarios para mover un servidor de Azure Database for MySQL existente de una región a otra. Por ejemplo, es posible que quiera mover un servidor de producción a otra región como parte de la planificación de la recuperación ante desastres.
 

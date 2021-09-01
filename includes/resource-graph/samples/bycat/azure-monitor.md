@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/09/2021
+ms.date: 08/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 0f0a010ab9b3d3a3e0fce7a1fa08cf390cf5be16
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 181dbf431451fe6b890299affa717d30927cd2d0
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861248"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309637"
 ---
 ### <a name="list-all-azure-arc-enabled-kubernetes-clusters-with-azure-monitor-extension"></a>Lista de todos los clústeres de Kubernetes habilitados para Azure Arc con la extensión Azure Monitor
 

@@ -4,16 +4,16 @@ description: Aprenda a utilizar Azure PowerShell desde una estación de trabajo 
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 62ac9d5243c719af73cfd30b3a5190a2e7344668
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ac2bbac1f920bd4cb3a6042de58993f15c0ccdbd
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559293"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122652478"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Uso de Apache Sqoop con Hadoop en HDInsight
 
-[!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
+[!INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
 Aprenda a utilizar Apache Sqoop en HDInsight para importar y exportar datos entre un clúster de HDInsight y Azure SQL Database.
 
@@ -75,7 +75,7 @@ El clúster, la instancia de SQL Database y otros objetos se crean a través de 
 
 2. Especifique las siguientes propiedades:
 
-    |Campo |Valor |
+    |Campo |Value |
     |---|---|
     |Suscripción |Seleccione la suscripción de Azure en la lista desplegable.|
     |Resource group |Seleccione el grupo de recursos en la lista desplegable o cree uno nuevo.|

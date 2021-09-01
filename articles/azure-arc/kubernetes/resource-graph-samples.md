@@ -1,18 +1,18 @@
 ---
 title: Consultas de ejemplo de Azure Resource Graph para Kubernetes habilitado para Azure Arc
 description: Consultas de ejemplo de Azure Resource Graph para Kubernetes habilitado para Azure Arc en las que se muestra el uso de tipos de recursos y tablas para acceder a recursos y propiedades relacionados con Kubernetes habilitado para Azure Arc.
-ms.date: 08/09/2021
+ms.date: 08/31/2021
 ms.topic: sample
 ms.service: azure-arc
 author: mgoedtel
 ms.author: magoedte
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 44ea2994088d34e71547ca8c813adeccced8868e
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: aeeecafd477cc633be5b93d932f7b3ec3c48afa8
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861433"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123308683"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-arc-enabled-kubernetes"></a>Consultas de ejemplo de Azure Resource Graph para Kubernetes habilitado para Azure Arc
 

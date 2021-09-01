@@ -12,14 +12,14 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 8ca10c54cff14bd9301e06a891bcb1f7013959f9
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: ff363550b44286cb7140f533981229565fdf795f
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176475"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032241"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedimientos: Configuración de las condiciones del servicio y a la declaración de privacidad para una aplicación
+# <a name="configure-terms-of-service-and-privacy-statement-for-an-app"></a>Configuración de las condiciones del servicio y a la declaración de privacidad para una aplicación
 
 Los desarrolladores que crean y administran las aplicaciones multiinquilino que se integran con Azure Active Directory (Azure AD) y cuentas Microsoft deben incluir vínculos a los términos del servicio y la declaración de privacidad de la aplicación. Las condiciones del servicio y la declaración de privacidad se exponen a los usuarios mediante la experiencia de consentimiento del usuario. Ayudan a los usuarios a saber que pueden confiar en la aplicación. Las condiciones del servicio y la declaración de privacidad son especialmente importantes para las aplicaciones multiinquilino orientadas al usuario: aplicaciones utilizadas por varios directorios o que están disponibles para cualquier cuenta Microsoft.
 

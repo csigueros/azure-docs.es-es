@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 4b218a9481fdd5970fd6fc8fa6a1d071161e5b58
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 468244b786d418117f12b445d86b67580db913da
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313371"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652584"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql-single-server"></a>Descripción de los cambios en la entidad de certificación raíz para un solo servidor de Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Un solo servidor de Azure Database for MySQL ha completado correctamente el cambio de certificado raíz el **15 de febrero de 2021 (15/02/2021)** como parte de los procedimientos recomendados de seguridad y mantenimiento estándar. En este artículo se proporcionan más detalles sobre los cambios, los recursos afectados y los pasos necesarios para asegurarse de que la aplicación mantenga la conectividad con el servidor de bases de datos.
 

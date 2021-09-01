@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: fa845e7c402073a64f51d75b1da51f56142eee2e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54e619491a52828475143fbe5656736063e84c9d
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98630508"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652166"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registros de auditoría en Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Los usuarios tienen disponible el registro de auditoría en Azure Database for MySQL. El registro de auditoría se puede usar para realizar un seguimiento de la actividad a nivel de la base de datos y se usa normalmente para cumplimiento.
 

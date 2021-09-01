@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 08/23/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ac87d5040cd572635d81be51308f48a57ddd38e3
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: a82dc471e8b92fb936750a05c515b4701a135344
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335475"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221301"
 ---
 ::: zone target="docs"
 
@@ -116,20 +116,17 @@ Una vez que haya recibido el dispositivo, tiene que realizar el cableado y conex
 Realice los pasos siguientes para configurar el dispositivo mediante la interfaz de usuario web local y la interfaz de usuario del portal.
 
 1. Configure el adaptador Ethernet en portátil que usa para conectarse al dispositivo con la dirección IP estática 192.168.100.5 y la subred 255.255.255.0. 
-2. Conéctese al puerto MGMT del dispositivo y acceda a la interfaz de usuario web local en https\://192.168.100.10. Esto puede tardar hasta 5 minutos tras encender el dispositivo.
-3. Haga clic en **Details** (Detalles) y haga clic en **Go on to the webpage** (Continuar a la página web).
+1. Conéctese al puerto MGMT del dispositivo y acceda a la interfaz de usuario web local en https\://192.168.100.10. Esto puede tardar hasta 5 minutos tras encender el dispositivo.
+1. Haga clic en **Details** (Detalles) y haga clic en **Go on to the webpage** (Continuar a la página web).
 
    ![Conexión a la interfaz de usuario web local](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
-4. Verá la página de **inicio de sesión** de la interfaz de usuario web local. Asegúrese de que el número de serie del dispositivo coincide tanto en la interfaz de usuario del portal como en la interfaz de usuario web local. En este momento, el dispositivo está bloqueado.
-5. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-6. Descargue las credenciales del dispositivo del portal. Vaya a **General > Device details** (General > Detalles del dispositivo). Copie el valor de **Device password** (Contraseña del dispositivo). La contraseña del dispositivo está asociada a un determinado orden en el portal. 
+1. Verá la página de **inicio de sesión** de la interfaz de usuario web local. Asegúrese de que el número de serie del dispositivo coincide tanto en la interfaz de usuario del portal como en la interfaz de usuario web local. En este momento, el dispositivo está bloqueado.
 
-    ![Obtención de las credenciales del dispositivo](media/data-box-deploy-set-up/data-box-device-credentials.png)
+1. [!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
     
-    
-7. Proporcione la contraseña del dispositivo que obtuvo en Azure Portal en el paso anterior para iniciar sesión en la interfaz de usuario web local del dispositivo. Haga clic en **Iniciar sesión**.
-8. En el **Panel** , asegúrese de que las interfaces de red están configuradas. 
+1. Proporcione la contraseña del dispositivo que obtuvo en Azure Portal en el paso anterior para iniciar sesión en la interfaz de usuario web local del dispositivo. Haga clic en **Iniciar sesión**.
+1. En el **Panel**, asegúrese de que las interfaces de red están configuradas. 
    - Si DHCP está habilitado en el entorno, las interfaces de red se configuran automáticamente. 
    - Si DHCP no está habilitado, vaya a **Set network interfaces** (Establecer interfaces de red) y asigne direcciones IP estáticas si es necesario.
 
@@ -146,9 +143,9 @@ Después de haber completado la configuración del dispositivo, puede conectarse
 ## <a name="connect-your-device"></a>Conexión del dispositivo
 
 1. Para obtener la contraseña del dispositivo, vaya a **General > Detalles del dispositivo** en [Azure Portal](https://portal.azure.com).
-2. Asigne una dirección IP estática 192.168.100.5 y la subred 255.255.255.0 al adaptador Ethernet en el equipo que usa para conectarse a Data Box. Acceda a la interfaz de usuario web local del dispositivo en `https://192.168.100.10`. La conexión puede tardar hasta 5 minutos tras encender el dispositivo. 
-3. Inicie sesión con la contraseña desde Azure Portal. Ve un error que indica un problema con el certificado de seguridad del sitio web. Siga las instrucciones específicas del explorador para continuar a la página web.
-4. De manera predeterminada, la configuración de red para la interfaz de datos de 10 Gbps (o 1 Gbps) se establece como DHCP. Si es necesario, puede configurar esta interfaz como estática y proporcionar una dirección IP. 
+1. Asigne una dirección IP estática 192.168.100.5 y la subred 255.255.255.0 al adaptador Ethernet en el equipo que usa para conectarse a Data Box. Acceda a la interfaz de usuario web local del dispositivo en `https://192.168.100.10`. La conexión puede tardar hasta 5 minutos tras encender el dispositivo. 
+1. Inicie sesión con la contraseña desde Azure Portal. Ve un error que indica un problema con el certificado de seguridad del sitio web. Siga las instrucciones específicas del explorador para continuar a la página web.
+1. De manera predeterminada, la configuración de red para la interfaz de datos de 10 Gbps (o 1 Gbps) se establece como DHCP. Si es necesario, puede configurar esta interfaz como estática y proporcionar una dirección IP. 
 
 ::: zone-end
 

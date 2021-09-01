@@ -1,19 +1,21 @@
 ---
 title: Configurar los nodos de transacción de Azure Blockchain Service
 description: Cómo configurar los nodos de transacción de Azure Blockchain Service
-ms.date: 11/20/2019
+ms.date: 05/11/2021
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 0b659fa9f15cd41e9e55de526747d470046cafa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 436c7721bac29e8a18a333e385f12a70e0701ba5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101091257"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122652155"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar los nodos de transacción de Azure Blockchain Service
 
 Los nodos de transacciones se usan para enviar transacciones de cadenas de bloques a Azure Blockchain Service a través de un punto de conexión público. El nodo de transacciones predeterminado contiene la clave privada de la cuenta de Ethereum registrada en la cadena de bloques y, por lo tanto, no se puede eliminar.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 Para ver los detalles del nodo de transacción predeterminado:
 
@@ -99,7 +101,7 @@ Puede ver los detalles de la clave de acceso de un nodo de transacción y copiar
 
 ### <a name="firewall-rules"></a>Reglas de firewall
 
-Las reglas de firewall permiten limitar las direcciones IP que pueden intentar autenticarse en el nodo de transacción.  Si no hay reglas de firewall configuradas para el nodo de transacción, ninguna entidad puede acceder a él.  
+Las reglas de firewall permiten limitar las direcciones IP que pueden intentar autenticarse en el nodo de transacción.  Si no hay reglas de firewall configuradas para el nodo de transacción, ninguna entidad puede acceder a él.
 
 Para ver las reglas de firewall de un nodo de transacción, vaya a uno de los nodos de transacción del miembro de Azure Blockchain Service y seleccione **Reglas de firewall** en la configuración.
 

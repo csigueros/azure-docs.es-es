@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 4ef1408d5f7afc3b78ab021cdd25eedd75110849
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 2c55f2fa9bed7290d77baafd6adcc08d0f2875c0
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776939"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652393"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Administración de un servidor flexible de Azure Database for MySQL (versión preliminar) mediante la CLI de Azure
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
@@ -21,6 +23,7 @@ ms.locfileid: "107776939"
 En este artículo se muestra cómo administrar un servidor flexible (versión preliminar) implementado en Azure. Entre las tareas de administración se incluyen el escalado de proceso y almacenamiento, el restablecimiento de contraseñas de administración y la visualización de detalles del servidor.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar. En este artículo es necesario que ejecute la versión 2.0 de la CLI de Azure, o cualquier versión posterior, de forma local. Para ver la versión instalada, ejecute el comando `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 Será preciso que inicie sesión en su cuenta mediante el comando [az login](/cli/azure/reference-index#az_login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** para su cuenta de Azure.
@@ -35,8 +38,8 @@ Seleccione la suscripción específica en su cuenta mediante el comando [az acco
 az account set --subscription <subscription id>
 ```
 
-> [!Important]
-> Si aún no ha creado un servidor flexible, créelo para empezar a trabajar con esta guía de procedimientos.
+> [!IMPORTANT]
+>Si aún no ha creado un servidor flexible, créelo para empezar a trabajar con esta guía de procedimientos.
 
 ## <a name="scale-compute-and-storage"></a>Escalado de proceso y almacenamiento
 
@@ -55,8 +58,8 @@ resource-group | myresourcegroup | Especifique el nombre del grupo de recursos d
 sku-name|Standard_D4ds_v4|Escriba el nombre del nivel de proceso y el tamaño. Sigue la convención Standard_ {tamaño de máquina virtual} en abreviatura. Para más información, consulte los [planes de tarifa](../concepts-pricing-tiers.md).
 storage-size | 6144 | La capacidad de almacenamiento del servidor (la unidad es megabytes). El mínimo es 5120 y aumenta en incrementos de 1024.
 
-> [!Important]
-> - El almacenamiento se puede escalar verticalmente (pero no reducir)
+> [!IMPORTANT]
+>- El almacenamiento se puede escalar verticalmente (pero no reducir)
 
 
 ## <a name="manage-mysql-databases-on-a-server"></a>Administre bases de datos de MySQL en un servidor.
@@ -75,8 +78,8 @@ La contraseña del rol Administrador se puede cambiar con este comando.
 az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --admin-password <new-password>
 ```
 
-> [!Important]
->  Asegúrese de que tiene su longitud oscila entre 8 y 128 caracteres.
+> [!IMPORTANT]
+> Asegúrese de que tiene su longitud oscila entre 8 y 128 caracteres.
 > Debe contener caracteres de tres de las categorías siguientes: Letras del alfabeto inglés mayúsculas y minúsculas, números y caracteres no alfanuméricos.
 
 ## <a name="delete-a-server"></a>Eliminación de un servidor

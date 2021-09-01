@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 361af28932226640db077bf4949f7bd472ceb986
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 9ddf3885931e527e4fd82037d9e82693fb6afa5f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166584"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122652579"
 ---
 # <a name="restore-a-deleted-azure-database-for-mysql-server"></a>Restauración de un servidor de Azure Database for MySQL eliminado
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Cuando se elimina un servidor, la copia de seguridad del servidor de bases de datos se puede conservar hasta cinco días en el servicio. Solo se puede acceder a la copia de seguridad de la base de datos y restaurarla desde la suscripción de Azure en la que residía originalmente el servidor. Se pueden seguir los siguientes pasos recomendados para recuperar un recurso del servidor MySQL eliminado en un plazo de cinco días desde el momento de la eliminación del servidor. Los pasos recomendados solo funcionarán si la copia de seguridad del servidor todavía está disponible y no se ha eliminado del sistema. 
 
