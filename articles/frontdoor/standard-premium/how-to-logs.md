@@ -5,14 +5,14 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.date: 03/15/2021
+ms.date: 08/26/2021
 ms.author: duau
-ms.openlocfilehash: 531f4a9c9f535779e451ca316a8a5867f6cdaba5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5446c240d1d07b5b99fe6f91a031617756a6018c
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573904"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967597"
 ---
 # <a name="azure-front-door-standardpremium-preview-logging"></a>Registro de Azure Front Door Estándar y Premium (versión preliminar)
 
@@ -83,7 +83,7 @@ Azure Front Door actualmente proporciona solicitudes de API individuales con cad
 | UserAgent | Tipo de explorador utilizado por el cliente. |
 | ClientIp | Dirección IP del cliente que realizó la solicitud original. Si hubiera un encabezado X-Forwarded-For en la solicitud, la dirección IP del cliente se seleccionaría del mismo. |
 | SocketIp | Dirección IP de la conexión directa con el perímetro de AFD. Si el cliente usaba un proxy HTTP o un equilibrador de carga para enviar la solicitud, el valor de SocketIp es la dirección IP del proxy o del equilibrador de carga. |
-| Latencia | El período de tiempo desde que el servidor perimetral de AFD recibe la solicitud de un cliente hasta el momento en que AFD envía el último byte de la respuesta al cliente, en milisegundos. Este campo no tiene en cuenta la latencia de red y el almacenamiento en búfer de TCP. |
+| timeTaken | El período de tiempo desde que el servidor perimetral de AFD recibe la solicitud de un cliente hasta el momento en que AFD envía el último byte de la respuesta al cliente, en milisegundos. Este campo no tiene en cuenta la latencia de red y el almacenamiento en búfer de TCP. |
 | RequestProtocol | Protocolo especificado por el cliente en la solicitud: HTTP, HTTPS. |
 | SecurityProtocol | La versión del protocolo TLS/SSL utilizada por la solicitud o null si no hay cifrado. Entre los valores posibles se incluyen: SSLv3, TLSv1, TLSv1.1 y TLSv1.2 |
 | SecurityCipher | Cuando el valor del protocolo de la solicitud es HTTPS, este campo indica el cifrado TLS/SSL negociado por el cliente y AFD para el cifrado. |

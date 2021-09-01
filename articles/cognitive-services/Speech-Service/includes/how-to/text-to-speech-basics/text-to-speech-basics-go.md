@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
 ms.author: yulili
-ms.openlocfilehash: 54647867ab0a0d2c1333f80121aeab49a2efc959
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: 7c64db9a503caff0bb2cda3e7dc576bb3e72884d
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113280241"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122423321"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz.
 
@@ -279,7 +279,7 @@ En primer lugar, cree un archivo XML para la configuración de SSML en el direct
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -289,7 +289,7 @@ A continuación, debe cambiar la solicitud de síntesis de voz para que haga ref
 La solicitud es básicamente la misma, pero en lugar de usar la función `SpeakTextAsync()`, se usa `SpeakSsmlAsync()`. Esta función espera una cadena XML, por lo que lo primero que se debe hacer es cargar la configuración de SSML como una cadena. Desde aquí, el objeto de resultado es exactamente el mismo que el de los ejemplos anteriores.
 
 > [!NOTE]
-> Para cambiar la voz sin usar SSML, puede establecer la propiedad en `SpeechConfig` mediante `speechConfig.SetSpeechSynthesisVoiceName("en-US-AriaNeural")`
+> Para cambiar la voz sin usar SSML, puede establecer la propiedad en `SpeechConfig` mediante `speechConfig.SetSpeechSynthesisVoiceName("en-US-ChristopherNeural")`
 
 ## <a name="get-facial-pose-events"></a>Obtención de eventos de postura facial
 

@@ -2,18 +2,19 @@
 title: 'Novedades: Personalizer'
 titleSuffix: Azure Cognitive Services
 description: Este artículo contiene noticias sobre Personalizer.
-manager: nitinme
-services: cognitive-services
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/28/2021
-ms.openlocfilehash: e181dd8618d571a2aea4af5475f8c6ac06a94f8b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 4c4d4151342211712f63d254630cc480dd761235
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698701"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830246"
 ---
 # <a name="whats-new-in-personalizer"></a>Novedades en Personalizer
 

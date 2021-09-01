@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: a9166131ce288b63de7e73b7a793c187a366908e
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 6e816919d41dbae62c33028c5d35c996654d7f26
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213946"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258298"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicación web que inicia sesión de usuarios: Configuración del código
 
@@ -247,7 +247,7 @@ Para agregar la autenticación con la Plataforma de identidad de Microsoft (ante
 > [!NOTE]
 > Si desea empezar directamente con las nuevas plantillas de ASP.NET Core para la Plataforma de identidad de Microsoft, que aprovecha Microsoft.Identity.Web, puede descargar un paquete NuGet en versión preliminar que contiene plantillas de proyecto para .NET Core 3.1 y .NET 5.0. Después, una vez instalado, puede crear directamente una instancia de aplicaciones web ASP.NET Core (MVC o Blazor). Para obtener más información, consulte [Plantillas de proyecto de aplicaciones web de Microsoft.Identity.Web](https://aka.ms/ms-id-web/webapp-project-templates). Este es el enfoque más sencillo, ya que realizará todos los pasos que se indican a continuación de manera automática.
 >
-> Si prefiere iniciar el proyecto con el proyecto web de ASP.NET Core predeterminado actual en Visual Studio o mediante `dotnet new mvc --auth SingleAuth` o `dotnet new webapp --auth SingleAuth`, verá código como el siguiente:
+> Si prefiere iniciar el proyecto con el proyecto web de ASP.NET Core predeterminado actual en Visual Studio o mediante `dotnet new mvc --auth SingleOrg` o `dotnet new webapp --auth SingleOrg`, verá código como el siguiente:
 >
 >```c#
 >  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)

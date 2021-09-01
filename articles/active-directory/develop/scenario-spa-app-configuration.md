@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: f049f49893b2ce1a895b9d175cbc308ee2868043
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 7654178d9f3393fd7ff5a0a79da5d1f71c741bbf
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357578"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222174"
 ---
 # <a name="single-page-application-code-configuration"></a>Aplicación de página única: Configuración del código
 
@@ -36,6 +36,8 @@ En una biblioteca MSAL, la información de registro de aplicación se pasa como 
 # <a name="javascript-msaljs-v2"></a>[JavaScript (MSAL.js v2)](#tab/javascript2)
 
 ```javascript
+import * as Msal from "@azure/msal-browser"; // if using CDN, 'Msal' will be available in global scope
+
 // Configuration object constructed.
 const config = {
     auth: {
@@ -44,7 +46,7 @@ const config = {
 };
 
 // create PublicClientApplication instance
-const publicClientApplication = new PublicClientApplication(config);
+const publicClientApplication = new Msal.PublicClientApplication(config);
 ```
 
 Para más información sobre las opciones configurables, consulte [Inicialización de aplicaciones con MSAL.js](msal-js-initializing-client-applications.md).
@@ -52,6 +54,8 @@ Para más información sobre las opciones configurables, consulte [Inicializaci�
 # <a name="javascript-msaljs-v1"></a>[JavaScript (MSAL.js v1)](#tab/javascript1)
 
 ```javascript
+import * as Msal from "msal"; // if using CDN, 'Msal' will be available in global scope
+
 // Configuration object constructed.
 const config = {
     auth: {
@@ -60,7 +64,7 @@ const config = {
 };
 
 // create UserAgentApplication instance
-const userAgentApplication = new UserAgentApplication(config);
+const userAgentApplication = new Msal.UserAgentApplication(config);
 ```
 
 Para más información sobre las opciones configurables, consulte [Inicialización de aplicaciones con MSAL.js](msal-js-initializing-client-applications.md).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: c0abbf8dc928dc20778d748e16eea5ae8b775282
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ba6df6b29c9d7b9b388b34dab163a132272c6200
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557097"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223914"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Indexación de blobs JSON con el indexador de blobs de Azure Cognitive Search
 
@@ -75,7 +75,7 @@ api-key: [admin key]
 
 ### <a name="json-example-single-hotel-json-files"></a>Ejemplo de JSON (archivos JSON de hotel individuales)
 
-El [conjunto de datos del documento JSON del hotel](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotel-json-documents) en GitHub es útil para probar el análisis de JSON, donde cada blob representa un archivo JSON con estructura. Los archivos de datos se pueden cargar en Blob Storage y se puede usar el **Asistente para importar datos** para evaluar rápidamente cómo se analiza este contenido en documentos de búsqueda individuales. 
+El [conjunto de datos del documento JSON del hotel](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels/hotel-json-documents) en GitHub es útil para probar el análisis de JSON, donde cada blob representa un archivo JSON con estructura. Los archivos de datos se pueden cargar en Blob Storage y se puede usar el **Asistente para importar datos** para evaluar rápidamente cómo se analiza este contenido en documentos de búsqueda individuales. 
 
 El conjunto de datos consta de cinco blobs, cada uno de los cuales contiene un documento del hotel con una colección de direcciones y una colección de habitaciones. El indexador de blobs detecta ambas colecciones y refleja la estructura de los documentos de entrada en el esquema de índice.
 
@@ -110,7 +110,7 @@ api-key: [admin key]
 
 ### <a name="jsonarrays-example-clinical-trials-sample-data"></a>Ejemplo de jsonArrays (datos de ejemplo de pruebas clínicas)
 
-El [conjunto de datos JSON de pruebas clínicas](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-json) en GitHub es útil para probar el análisis de matrices JSON. Los archivos de datos se pueden cargar en Blob Storage y se puede usar el **Asistente para importar datos** para evaluar rápidamente cómo se analiza este contenido en documentos de búsqueda individuales. 
+El [conjunto de datos JSON de pruebas clínicas](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-json) en GitHub es útil para probar el análisis de matrices JSON. Los archivos de datos se pueden cargar en Blob Storage y se puede usar el **Asistente para importar datos** para evaluar rápidamente cómo se analiza este contenido en documentos de búsqueda individuales. 
 
 El conjunto de datos consta de ocho blobs, y cada uno de ellos contiene una matriz JSON de entidades, hasta un total de cien entidades. Las entidades varían en lo que se refiere a los campos que se rellenan, pero el resultado final es un documento de búsqueda por entidad, desde todas las matrices y en todos los blobs.
 
@@ -166,12 +166,6 @@ api-key: [admin key]
     "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
 }
 ```
-
-### <a name="jsonlines-example-caselaw-sample-data"></a>Ejemplo de jsonLines (datos de ejemplo de caselaw)
-
-El [conjunto de datos JSON de caselaw](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) en GitHub es útil para probar el análisis de líneas nuevas de JSON. Como sucede en otros ejemplo, puede cargar estos datos en Blob Storage y usar el Asistente para **importar datos** para evaluar rápidamente el impacto del modo de análisis en los blobs individuales.
-
-El conjunto de datos consta de un blob que contiene 10 entidades JSON separadas por una nueva línea, donde cada entidad describe un único caso legal. El resultado final es un documento de búsqueda por entidad.
 
 ## <a name="map-json-fields-to-search-fields"></a>Asignación de campos JSON a campos de búsqueda
 
