@@ -3,16 +3,16 @@ title: Implementación de plantillas de aplicaciones lógicas
 description: Obtenga información sobre cómo implementar plantillas de Azure Resource Manager creadas para Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: article
-ms.date: 08/25/2020
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/04/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f8a71aa4545316313f4ef2d9f349646ca8769d7
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 8be8361b58e4b1b1fad3f41b29958a360e206890
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278441"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733777"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementación de plantillas de Azure Resource Manager para Azure Logic Apps
 
@@ -93,11 +93,11 @@ Para más información acerca de la integración continua e implementación cont
 
 * [Integración de plantillas de Resource Manager con Azure Pipelines](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
 * [Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines](../azure-resource-manager/templates/deployment-tutorial-pipeline.md)
-* [Ejemplo: Conexión a colas de Azure Service Bus desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Ejemplo: Conexión a cuentas de Azure Storage desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Ejemplo: Conexión a una función de aplicación de funciones para Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Ejemplo: Conexión a una cuenta de integración desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
-* [Ejemplo: Organización de Azure Pipelines mediante Azure Logic Apps](/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
+* [Ejemplo: Organización de Azure Pipelines mediante Azure Logic Apps](https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration)
+* [Ejemplo: Conexión a cuentas de Azure Storage desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/storage-account-connections)
+* [Ejemplo: Conexión a colas de Azure Service Bus desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/service-bus-connections)
+* [Ejemplo: Conexión a una acción de Azure Functions para Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/function-app-actions)
+* [Ejemplo: Conexión a una cuenta de integración desde Azure Logic Apps e implementación con Azure Pipelines en Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/integration-account-connections)
 
 Aquí puede encontrar los pasos generales de alto nivel para usar Azure Pipelines:
 
@@ -123,14 +123,14 @@ Después de la implementación, la aplicación lógica funciona de un extremo a 
 
 Estas son algunas sugerencias para controlar la autorización de las conexiones:
 
+* Para autorizar manualmente las conexiones de OAuth, abra la aplicación lógica en el diseñador de aplicaciones lógicas, ya sea en Azure Portal o en Visual Studio. Al autorizar la conexión, puede aparecer una página de confirmación para permitir el acceso.
+
 * Autorice previamente y comparta los recursos de conexión de API entre las aplicaciones lógicas que se encuentran en la misma región. Las conexiones de API existen como recursos de Azure independientemente de las aplicaciones lógicas. Aunque las aplicaciones lógicas tengan dependencias de los recursos de conexión de API, estos no tienen dependencias de las aplicaciones lógicas y permanecen después de eliminar las aplicaciones lógicas dependientes. Además, las aplicaciones lógicas pueden usar conexiones de API que existen en otros grupos de recursos. Sin embargo, el diseñador de aplicaciones lógicas admite la creación de conexiones de API solo en el mismo grupo de recursos que las aplicaciones lógicas.
 
   > [!NOTE]
   > Si está pensando en compartir las conexiones de API, asegúrese de que la solución pueda [controlar los posibles problemas de limitación](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). La limitación se produce en el nivel de conexión, por lo que reutilizar la misma conexión entre varias aplicaciones lógicas podría aumentar la posibilidad de que se produzcan problemas de limitación.
 
 * A menos que su escenario implique servicios y sistemas que requieran la autenticación multifactor, puede usar un script de PowerShell para dar su consentimiento a cada conexión de OAuth mediante la ejecución de un trabajo de integración continua, como una cuenta de usuario normal en una máquina virtual que tenga sesiones activas del explorador con las autorizaciones y el consentimiento ya proporcionado. Por ejemplo, puede reasignar el script de ejemplo proporcionado por el [proyecto LogicAppConnectionAuth en el repositorio de GitHub de Logic Apps](https://github.com/logicappsio/LogicAppConnectionAuth).
-
-* Para autorizar manualmente las conexiones de OAuth, abra la aplicación lógica en el diseñador de aplicaciones lógicas, ya sea en Azure Portal o en Visual Studio.
 
 * Si usa una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) de Azure Active Directory (Azure AD) en lugar de autorizar las conexiones, aprenda a [especificar parámetros de entidad de servicio en la plantilla de aplicación lógica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
 

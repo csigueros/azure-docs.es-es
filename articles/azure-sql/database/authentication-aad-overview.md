@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, sstein
-ms.date: 04/23/2020
-ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: vanto
+ms.date: 08/11/2021
+ms.openlocfilehash: 51494c02ea56c68945377b50869a1bad2be6718f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96454291"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735583"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Uso de la autenticación de Azure Active Directory
 
@@ -152,6 +152,7 @@ Se admiten los siguientes métodos de autenticación para las entidades de segur
 - Solo se puede configurar un administrador de Azure AD (un usuario o grupo) en un servidor de SQL Database o Azure Synapse al mismo tiempo.
   - La incorporación de entidades de seguridad (inicios de sesión) de un servidor de Azure AD para Instancia administrada de SQL ofrece la posibilidad de crear varias de estas entidades que se pueden agregar al rol `sysadmin`.
 - Inicialmente, solo un administrador de Azure AD para el servidor puede conectarse al servidor o a la instancia administrada con una cuenta de Azure Active Directory. El administrador de Active Directory puede configurar los usuarios de la base de datos de Azure AD sucesivos.
+- No se admite que los usuarios y las entidades de servicio de Azure AD (aplicaciones de Azure AD) que forman parte de más de 2048 grupos de seguridad de Azure AD inicien sesión en la base de datos en SQL Database, Instancia administrada o Azure Synapse.
 - Se recomienda establecer el tiempo de espera de conexión a 30 segundos.
 - SQL Server 2016 Management Studio y SQL Server Data Tools para Visual Studio 2015 (versión 14.0.60311.1 abril de 2016 o posterior) admiten la autenticación de Azure Active Directory. (La autenticación de Azure AD es compatible con el **proveedor de datos .NET Framework para SqlServer**; al menos la versión 4.6 de .NET Framework). Por lo tanto, las versiones más recientes de estas herramientas y aplicaciones de capa de datos (DAC y BACPAC) pueden usar la autenticación de Azure AD.
 - A partir de la versión 15.0.1, la [utilidad sqlcmd](/sql/tools/sqlcmd-utility) y la [utilidad bcp](/sql/tools/bcp-utility) admiten la autenticación interactiva de Active Directory con Multi-Factor Authentication.

@@ -2,17 +2,18 @@
 title: Control de código fuente
 description: Aprenda a configurar el control de código fuente en Azure Data Factory
 ms.service: data-factory
+ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/26/2021
-ms.openlocfilehash: 77f5d940c06ef5a2a504033225b42b7ddd2c17c1
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 06/04/2021
+ms.openlocfilehash: 1dc73117d1d9fc470ae284461e520c9d45358e87
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903279"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730124"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -55,9 +56,9 @@ Hay cuatro maneras diferentes de conectar un repositorio de Git a la factoría d
 
 ### <a name="configuration-method-1-home-page"></a>Método de configuración 1: Página de inicio
 
-En la página principal de Azure Data Factory, seleccione **Set up code repository** (Configurar el repositorio de código).
+En la página principal de Azure Data Factory, seleccione **Set up code repository** (Configurar el repositorio de código) en la parte superior.
 
-![Configuración de un repositorio de código desde la página principal](media/author-visually/configure-repo.png)
+![Configuración de un repositorio de código desde la página principal](media/doc-common-process/set-up-code-repository.png)
 
 ### <a name="configuration-method-2-authoring-canvas"></a>Método de configuración 2: Lienzo de creación
 

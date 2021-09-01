@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Procedimientos recomendados de seguridad con Azure Digital Twins
 author: baanders
 ms.author: baanders
-ms.date: 3/18/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: db58b523f1280847815587a5037c2348335482b6
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: a2d81d9ffbb79d0f05c8e0bf44fbe9d8967cf02f
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616178"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253772"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -58,7 +58,7 @@ Puede asignar roles de dos maneras:
 * mediante el panel de control de acceso (IAM) de Azure Digital Twins en Azure Portal (consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md))
 * mediante comandos de la CLI para agregar o quitar un rol
 
-Para obtener pasos más detallados sobre cómo hacerlo, pruébelo en el [Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro](tutorial-end-to-end.md).
+Para obtener pasos más detallados sobre cómo hacerlo, pruébelo en el [Tutorial: Conexión de una solución de un extremo a otro](tutorial-end-to-end.md) de Azure Digital Twins.
 
 Para más información sobre cómo se definen los roles integrados, consulte [Descripción de definiciones de roles](../role-based-access-control/role-definitions.md) en la documentación de RBAC de Azure. Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
 
@@ -92,7 +92,7 @@ Azure admite dos tipos de identidades administradas: asignadas por el sistema y 
 
 Puede usar una identidad administrada asignada por el sistema para que la instancia de Azure Digital Twins se autentique en un [punto de conexión definido por el usuario](concepts-route-events.md#create-an-endpoint). Azure Digital Twins admite la autenticación basada en identidades asignadas por el sistema en los puntos de conexión de destinos de [centro de eventos](../event-hubs/event-hubs-about.md) y  [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) , y en un punto de conexión de [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md)  para los [eventos de mensajes con problemas de entrega](concepts-route-events.md#dead-letter-events). Actualmente, los puntos de conexión de [Event Grid](../event-grid/overview.md) no se admiten para las identidades administradas.
 
-Para obtener instrucciones sobre cómo habilitar una identidad administrada por el sistema para Azure Digital Twins y usarla para enrutar eventos, vea [Procedimiento para habilitar una identidad administrada para el enrutamiento de eventos (versión preliminar)](./how-to-enable-managed-identities-portal.md) .
+Para obtener instrucciones sobre cómo habilitar una identidad administrada por el sistema para Azure Digital Twins y usarla para enrutar eventos, consulte el artículo sobre el [enrutamiento de eventos con una identidad administrada](how-to-route-with-managed-identity.md).
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Acceso a redes privadas con Azure Private Link (versión preliminar)
 
@@ -106,7 +106,7 @@ El punto de conexión privado usa una dirección IP del espacio de direcciones 
 
 La configuración de un punto de conexión privado para la instancia de Azure Digital Twins le permite protegerla y eliminar la exposición pública, además de evitar la filtración de datos desde la red virtual.
 
-Para obtener instrucciones sobre cómo configurar Private Link para Azure Digital Twins, vea [Procedimiento para habilitar el acceso privado con Private Link (versión preliminar)](./how-to-enable-private-link-portal.md) .
+Para obtener instrucciones sobre cómo configurar Private Link para Azure Digital Twins, consulte el artículo en el que se indica cómo [habilitar el acceso privado con Private Link (versión preliminar)](./how-to-enable-private-link.md).
 
 ### <a name="design-considerations"></a>Consideraciones de diseño 
 
@@ -157,8 +157,8 @@ Para resolver este error, puede realizar una de las acciones siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Vea estos conceptos en acción en [Procedimiento: Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md).
+* Estos conceptos se pueden ver en acción en [Configuración de una instancia de Azure Digital Twins y autenticación](how-to-set-up-instance-portal.md).
 
-* Vea cómo interactuar con estos conceptos del código de la aplicación cliente en [Procedimiento: Escritura de código de autenticación de aplicación](how-to-authenticate-client.md).
+* Consulte cómo interactuar con estos conceptos desde el código de la aplicación cliente en [Escritura de código de autenticación de aplicación cliente](how-to-authenticate-client.md).
 
 * Obtenga más información sobre [Azure RBAC](../role-based-access-control/overview.md).

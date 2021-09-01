@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 792801c568255b471487c14b6a812942298ad0d4
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 925c468ff744df8b543618e4282ec9b6a9dda78a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906555"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723060"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -64,6 +64,8 @@ Para poder habilitar varias espacios de implementación, la aplicación debe eje
 
 El nuevo espacio de implementación no tiene contenido, aunque se clone la configuración de otro espacio. Por ejemplo, puede [publicar en esta ranura mediante Git](./deploy-local-git.md). La implementación en el espacio se puede realizar desde otra rama del repositorio o desde otro repositorio.
 
+La dirección URL de la ranura tendrá el formato `http://sitename-slotname.azurewebsites.net`. Para mantener la longitud de la dirección URL dentro de los límites de DNS necesarios, el nombre del sitio se truncará a 40 caracteres, el nombre de la ranura se truncará a 19 caracteres y se anexarán otros 4 caracteres aleatorios para asegurarse de que el nombre de dominio resultante sea único. 
+
 <a name="AboutConfiguration"></a>
 
 ## <a name="what-happens-during-a-swap"></a>Qué ocurre durante un intercambio
@@ -94,6 +96,9 @@ Al intercambiar dos ranuras (normalmente de una ranura de ensayo a la ranura de 
 1. Ahora que la ranura de origen tiene la aplicación que se preparó previamente antes del intercambio, realice la misma operación; aplique la configuración y reinicie las instancias.
 
 Durante intercambio, todo el trabajo de inicialización de las aplicaciones intercambiadas se realiza en la ranura de origen. La ranura de destino permanece en línea mientras la de origen se está preparando, independientemente de en qué punto el intercambio se realice o no correctamente. Para intercambiar una ranura de ensayo con la de producción, asegúrese de que esta última es siempre la de destino. De este modo, el intercambio no afecta a la aplicación de producción.
+
+> [!NOTE]
+> Las instancias de las instancias de producción anteriores (las que se intercambiarán en el almacenamiento provisional después de esta operación de intercambio) se reciclarán rápidamente en el último paso del proceso de intercambio. En caso de que tenga operaciones de larga duración en la aplicación, se abandonarán cuando se reciclen los nodos de trabajo. Esto también se aplica a las aplicaciones de funciones. Por lo tanto, el código de la aplicación se debe escribir de una forma tolerante a errores. 
 
 ### <a name="which-settings-are-swapped"></a>¿Qué configuración se intercambia?
 
@@ -173,7 +178,7 @@ Si aparecen errores en el espacio de destino (por ejemplo, el espacio de producc
 ## <a name="configure-auto-swap"></a>Configuración del intercambio automático
 
 > [!NOTE]
-> El intercambio automático no se admite en las aplicaciones web en Linux.
+> El intercambio automático no se admite en aplicaciones web en Linux y Web App for Containers.
 
 El intercambio automático optimiza los escenarios de Azure DevOps en los que se desee implementar una aplicación continuamente sin arranques en frío ni tiempos de inactividad para los clientes de la aplicación. Cuando se habilita el intercambio automático para una ranura a producción, cada vez que se insertan los cambios de código en esa ranura, App Service [cambia automáticamente la aplicación a producción](#swap-operation-steps) después de que se haya preparado en la de origen.
 

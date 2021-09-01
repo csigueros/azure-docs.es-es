@@ -2,14 +2,14 @@
 title: 'Recepción de eventos mediante el host del procesador de eventos: Azure Event Hubs | Microsoft Docs'
 description: En este artículo se describe el host del procesador de eventos de Azure Event Hubs, que simplifica la administración de los eventos de punto de comprobación, concesión y lectura en paralelo.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 08/04/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d97b446993d3f0a280c1f4fadb237726ac09228a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0e10a472c261c14fcdd3debf1caaf9f00fdeb5e0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313426"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733900"
 ---
 # <a name="event-processor-host"></a>Host del procesador de eventos
 > [!NOTE]
@@ -84,6 +84,9 @@ A continuación, cree una instancia de una instancia de [EventProcessorHost](/do
 - **consumerGroupName:** Event Hubs usa **$Default** como nombre del grupo de consumidores predeterminado, pero es recomendable crear un grupo de consumidores para sus necesidades específicas de procesamiento.
 - **eventHubConnectionString:** la cadena de conexión al centro de eventos que se puede recuperar desde Azure Portal. Esta cadena de conexión debe tener permisos de **escucha** en el centro de eventos.
 - **storageConnectionString:** la cuenta de almacenamiento que se usa para la administración de recursos internos.
+
+> [!IMPORTANT]
+> No habilite la característica de eliminación flexible en la cuenta de almacenamiento que se usa como almacén de puntos de control. 
 
 Por último, los consumidores registran la instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) con el servicio Event Hubs. Al registrar una clase de procesador de eventos con una instancia de EventProcessorHost, se inicia el procesamiento de eventos. El proceso de registro indica al servicio Event Hubs que debe esperar que la aplicación del consumidor consuma eventos de algunas de sus particiones y que debe invocar el código de implementación de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) siempre que envíe eventos para su consumo. 
 

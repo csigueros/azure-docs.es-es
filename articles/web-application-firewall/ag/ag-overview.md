@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: babd628280ebaee408d44dfacfaf6a5e14f57019
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: ea3bc751d91e72c68bd9900f07c3c2e8aae38212
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481830"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729442"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>¿Qué es el firewall de aplicaciones web de Azure en Azure Application Gateway?
 
@@ -41,7 +41,7 @@ En esta sección se describen las ventajas principales que el firewall de aplica
 
 * Creación de directivas de WAF personalizadas para distintos sitios detrás del mismo WAF 
 
-* Protección de las aplicaciones web de bots malintencionados con el conjunto de reglas de reputación de IP (versión preliminar)
+* Protección de las aplicaciones web de bots malintencionados con el conjunto de reglas de reputación de IP
 
 ### <a name="monitoring"></a>Supervisión
 
@@ -69,8 +69,8 @@ En esta sección se describen las ventajas principales que el firewall de aplica
 - Límites de tamaño de solicitud configurables con límites inferior y superior.
 - Las listas de exclusión le permiten omitir determinados atributos de una solicitud de una evaluación del WAF. Un ejemplo común son los tokens insertados de Active Directory que se usan para campos de contraseña o autenticación.
 - Cree reglas personalizadas para satisfacer las necesidades específicas de las aplicaciones.
-- Filtre geográficamente el tráfico para permitir o impedir que determinados países o regiones obtengan acceso a las aplicaciones. (versión preliminar)
-- Proteja sus aplicaciones de bots con el conjunto de reglas de mitigación de bots. (versión preliminar)
+- Filtre geográficamente el tráfico para permitir o impedir que determinados países o regiones obtengan acceso a las aplicaciones.
+- Proteja sus aplicaciones de bots con el conjunto de reglas de mitigación de bots.
 - Inspección de JSON y XML en el cuerpo de la solicitud
 
 ## <a name="waf-policy-and-rules"></a>Reglas y directiva de WAF
@@ -99,19 +99,13 @@ Para más información, consulte [Reglas y grupos de reglas de CRS de firewall d
 
 Application Gateway también admite reglas personalizadas. Con las reglas personalizadas, puede crear reglas propias que se evalúan en cada solicitud que pasa por el WAF. Estas reglas tienen una prioridad mayor que el resto de las reglas de los conjuntos de reglas administrados. Si se cumple un conjunto de condiciones, se realiza una acción para permitir o bloquear. 
 
-El operador geomatch está ahora disponible en versión preliminar pública para reglas personalizadas. Para más información, consulte [Reglas personalizadas de geomatch](custom-waf-rules-overview.md#geomatch-custom-rules-preview).
-
-> [!NOTE]
-> El operador geomatch para reglas personalizadas se encuentra actualmente en versión preliminar pública y se proporciona con un Acuerdo de nivel de servicio de versión preliminar. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+El operador geomatch está ahora disponible en versión preliminar pública para reglas personalizadas. Para más información, consulte [Reglas personalizadas de geomatch](custom-waf-rules-overview.md#geomatch-custom-rules).
 
 Para más información sobre las reglas personalizadas, consulte [Reglas personalizadas para Application Gateway](custom-waf-rules-overview.md).
 
-### <a name="bot-mitigation-preview"></a>Mitigación de bots (versión preliminar)
+### <a name="bot-mitigation"></a>Mitigación de bot
 
 Se puede habilitar un conjunto de reglas de protección contra bots administrado para que WAF bloquee o registre las solicitudes de direcciones IP malintencionadas conocidas, junto con el conjunto de reglas administrado. Las direcciones IP proceden de la fuente Inteligencia sobre amenazas de Microsoft. Intelligent Security Graph impulsa la inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center.
-
-> [!NOTE]
-> Actualmente, el conjunto de reglas de protección contra bots se encuentra en versión preliminar pública y se proporciona con un Acuerdo de nivel de servicio de versión preliminar. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si la protección contra bots está habilitada, las solicitudes entrantes que coincidan con las IP de cliente de bots malintencionados se registran en el firewall; consulte más información a continuación. Puede acceder a los registros de WAF desde la cuenta de almacenamiento, el centro de eventos o el análisis de registros. 
 

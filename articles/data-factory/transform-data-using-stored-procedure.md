@@ -1,18 +1,20 @@
 ---
 title: Transformación de datos mediante la actividad de procedimiento almacenado
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Explica cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en una base de datos o una base de datos de almacenamiento de datos de Azure SQL desde una canalización de Data Factory.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 11/27/2018
-ms.openlocfilehash: b9ba2f9de82522d4348fa341ad0b41d43c3eebcc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3815bfca83d6dcf789a780a2d82ff1d4bb62285
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375653"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271977"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de procedimiento almacenado de SQL Server en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -74,17 +76,12 @@ En la tabla siguiente se describen estas propiedades JSON:
 | storedProcedureParameters | Especifique los valores para los parámetros del procedimiento almacenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para pasar valores de parámetros y su tipo compatible con el origen de datos. Si necesita pasar NULL para un parámetro, use `"param1": { "value": null }` (todo en minúsculas). | No       |
 
 ## <a name="parameter-data-type-mapping"></a>Asignación de tipos de datos de parámetros
-El tipo de datos que especifique para el parámetro es el tipo de Azure Data Factory que se asigna al tipo de datos del origen de datos que está usando. Puede encontrar las asignaciones de tipos de datos para el origen de datos en el área conectores. A continuación, se indican algunos ejemplos:
+El tipo de datos que especifique para el parámetro es el tipo de Azure Data Factory que se asigna al tipo de datos del origen de datos que está usando. Puede encontrar las descripciones de las asignaciones de tipos de datos para el origen de datos en la documentación sobre los conectores. Por ejemplo:
 
-| Origen de datos          | Asignación de tipos de datos |
-| ---------------------|-------------------|
-| Azure Synapse Analytics | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
-| Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
-| Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
-| SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
-
-
-
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#data-type-mapping-for-azure-synapse-analytics)
+- [Asignación de tipo de datos para Azure SQL Database](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database)
+- [Asignación de tipos de datos para Oracle](connector-oracle.md#data-type-mapping-for-oracle)
+- [Asignación de tipos de datos para SQL Server](connector-sql-server.md#data-type-mapping-for-sql-server)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
@@ -96,5 +93,5 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
-* [Actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)](transform-data-using-machine-learning.md)
+* [Actividad de ejecución por lotes de ML Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

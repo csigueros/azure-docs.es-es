@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: ae919a12dc1c50fcb30d08128e4ebf2faa2b2ccb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32a85b4409f36846a14e21d2f3894b7dbae1ec30
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674167"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723345"
 ---
 # <a name="table-data-types-in-synapse-sql"></a>Tipos de datos de tabla en SQL de Synapse
 
-En este artículo, encontrará recomendaciones para definir tipos de datos de tabla en Synapse SQL. 
+En este artículo, encontrará recomendaciones para definir tipos de datos de tabla en un grupo dedicado de Synapse SQL. 
 
 ## <a name="data-types"></a>Tipos de datos
 
-SQL de Synapse admite los tipos de datos más usados habitualmente. Para obtener una lista de los tipos de datos admitidos, consulte [tipos de datos](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes&preserve-view=true) en la instrucción CREATE TABLE. 
+El grupo dedicado de Synapse SQL admite los tipos de datos usados más comúnmente. Para obtener una lista de los tipos de datos admitidos, consulte [tipos de datos](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes&preserve-view=true) en la instrucción CREATE TABLE. Para Synapse SQL sin servidor, consulte el artículo [Consulta de archivos de almacenamiento con un grupo de SQL sin servidor en Azure Synapse Analytics](./query-data-storage.md) y [Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics](./develop-openrowset.md).
 
 ## <a name="minimize-row-length"></a>Minimizar la longitud de fila
 
@@ -33,6 +33,7 @@ Minimizar el tamaño de los tipos de datos acorta la longitud de fila, lo que co
 - Evite definir las columnas de caracteres con una longitud predeterminada de gran tamaño. Por ejemplo, si el valor más largo es de 25 caracteres, defina la columna como VARCHAR(25).
 - Evite el uso de [NVARCHAR][NVARCHAR] cuando solo necesite VARCHAR.
 - Utilice NVARCHAR(4000) o VARCHAR(8000) cuando sea posible en lugar de NVARCHAR(MAX) o VARCHAR(MAX).
+- Evite el uso de valores float y decimales con una escala de 0 (cero).  Deben ser TINYINT, SMALLINT, INT o BIGINT.
 
 > [!NOTE]
 > Si usa tablas externas de PolyBase para cargar las tablas de Synapse SQL, la longitud definida para la fila de la tabla no puede superar 1 MB. Cuando una fila con datos de longitud variable supera 1 MB, puede cargar la fila con BCP, pero no con PolyBase.

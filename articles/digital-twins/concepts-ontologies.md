@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Más información sobre ontologías del sector basadas en DTDL para el modelado en0 un determinado dominio
 author: baanders
 ms.author: baanders
-ms.date: 2/12/2021
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 17411f3c0a12e544d3204b2194e53d9565b164a9
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: d87f6a7a536f4dc9d15d87fe141f14760cab8aaa
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061909"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253755"
 ---
 # <a name="what-is-an-ontology"></a>¿Qué es una ontología? 
 
-El vocabulario de una solución de Azure Digital Twins se define mediante [modelos](concepts-models.md) que describen los tipos de entidad que existen en su entorno.
+El vocabulario de una solución de Azure Digital Twins se define mediante [modelos](concepts-models.md) que describen los tipos de entidades que existen en su entorno.
 
 A veces, cuando la solución está asociada a un sector determinado, puede ser más fácil y eficaz comenzar con un conjunto de modelos para ese sector que ya exista en lugar de crear su propio modelo desde cero. Estos conjuntos de modelos ya existentes se denominan **ontologías**. 
 
@@ -42,9 +42,9 @@ Hay tres posibles estrategias para la integración de ontologías estándar del 
 
 | Estrategia | Descripción | Recursos |
 | --- | --- | --- |
-| **Adoptar** | puede iniciar la solución con una ontología de DTDL de código abierto que se ha creado a partir de estándares del sector profusamente adoptados. Puede usar estos conjuntos de modelos directamente o extenderlos con sus propias adiciones para una solución personalizada. | [Conceptos:&nbsp;Adopción de&nbsp;ontologías&nbsp;estándar del sector](concepts-ontologies-adopt.md)<br><br>[Conceptos:&nbsp;Extensión de&nbsp;ontologías](concepts-ontologies-extend.md) |
-| **Convertir** | Si ya tiene modelos existentes representados en otro formato estándar, puede convertirlos en DTDL para usarlos con Azure Digital Twins. | [Conceptos:&nbsp;Conversión de&nbsp;ontologías](concepts-ontologies-convert.md)<br><br>[Conceptos:&nbsp;Extensión de&nbsp;ontologías](concepts-ontologies-extend.md) |
-| **Autor** | Siempre puede desarrollar sus propios modelos de DTDL personalizados desde cero, mediante cualquier estándar del sector aplicable como inspiración. | [Conceptos: Modelos de DTDL](concepts-models.md) |
+| **Adoptar** | puede iniciar la solución con una ontología de DTDL de código abierto que se ha creado a partir de estándares del sector profusamente adoptados. Puede usar estos conjuntos de modelos directamente o extenderlos con sus propias adiciones para una solución personalizada. | [Adopción de&nbsp;una&nbsp;ontología del sector](concepts-ontologies-adopt.md)<br><br>[Extensión&nbsp;de las ontologías](concepts-ontologies-extend.md) |
+| **Convertir** | Si ya tiene modelos existentes representados en otro formato estándar, puede convertirlos en DTDL para usarlos con Azure Digital Twins. | [Conversión de&nbsp;ontologías](concepts-ontologies-convert.md)<br><br>[Extensión&nbsp;de las ontologías](concepts-ontologies-extend.md) |
+| **Autor** | Siempre puede desarrollar sus propios modelos de DTDL personalizados desde cero, mediante cualquier estándar del sector aplicable como inspiración. | [Modelos de DTDL](concepts-models.md) |
 
 ### <a name="using-ontology-strategies-in-a-model-development-path"></a>Uso de estrategias de ontología en un procedimiento de desarrollo de modelos
 
@@ -64,8 +64,8 @@ Después, debería poder usar los modelos en la instancia de Azure Digital Twins
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre las estrategias de adopción, conversión y creación de ontologías:
-* [Conceptos: Adopción de ontologías estándar del sector](concepts-ontologies-adopt.md)
-* [Conceptos: Conversión de ontologías](concepts-ontologies-convert.md)
-* [Procedimientos: Administración de modelos DTDL](how-to-manage-model.md)
+* [Adopción de ontologías estándar del sector](concepts-ontologies-adopt.md)
+* [Conversión de ontologías](concepts-ontologies-convert.md)
+* [Administración de modelos DTDL](how-to-manage-model.md)
 
-O bien, obtenga información sobre cómo se usan los modelos para crear gemelos digitales: [Conceptos: Gemelos digitales y grafo de gemelos](concepts-twins-graph.md).
+O bien, obtenga información sobre cómo se usan los modelos para crear gemelos digitales: [Explicación del concepto de gemelos digitales y su grafo gemelo](concepts-twins-graph.md).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: bdf5f2708daee0a3dc05ec8bc3d861633a3b7b7f
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 083a568f6fad664c59073e2f6858900302e9d971
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590583"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729759"
 ---
 # <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>Uso de la IA para procesar y analizar el contenido de los blobs en Azure Cognitive Search
 
@@ -62,7 +62,7 @@ El enriquecimiento con IA es un complemento de una canalización de indexación 
 
 Para indexar los blobs de Azure Storage se utiliza el [indexador de blobs](search-howto-indexing-azure-blob-storage.md), que se puede invocar mediante el Asistente para **importar datos**, una API REST o un SDK. Cuando el origen de datos que utiliza el indexador es un contenedor de blobs de Azure, se invoca a un indexador de blobs. Para indexar un subconjunto de blobs, cree un directorio virtual, que luego puede pasar como parámetro, o filtre por una extensión de tipo de archivo.
 
-Un indexador realiza el "descifrado de documentos", abriendo un blob para inspeccionar el contenido. Después de conectarse al origen de datos, es el primer paso de la canalización. En el caso de los datos de blob, aquí es donde se detectan los archivos PDF, los documentos de Office, las imágenes y otros tipos de contenido. El descifrado de documentos con extracción de texto no tiene ningún cargo. El descifrado de documentos con extracción de imágenes se cobra aplicando las tarifas que puede encontrar en la [página de precios](https://azure.microsoft.com/pricing/details/search/).
+Un indizador [realiza el "descifrado de documentos"](search-indexer-overview.md#document-cracking) y abre un blob para inspeccionar el contenido. Después de conectarse al origen de datos, es el primer paso de la canalización. En el caso de los datos de blob, aquí es donde se detectan los archivos PDF, los documentos de Office, las imágenes y otros tipos de contenido. El descifrado de documentos con extracción de texto no tiene ningún cargo. El descifrado de documentos con extracción de imágenes se cobra aplicando las tarifas que puede encontrar en la [página de precios](https://azure.microsoft.com/pricing/details/search/).
 
 Aunque se descifrarán todos los documentos, el enriquecimiento solo se produce si se proporcionan explícitamente las aptitudes para hacerlo. Por ejemplo, si la canalización consiste exclusivamente en el análisis de imágenes, se omite el texto del contenedor o de los documentos.
 
@@ -82,7 +82,7 @@ Un *conjunto de aptitudes* es la colección de aptitudes que se usa en una canal
 
 Las aptitudes personalizadas pueden parecer complejas, pero pueden ser sencillas y directas en términos de implementación. Si ya tiene paquetes que proporcionan coincidencia de patrones o modelos de clasificación, el contenido que extraiga de los blobs podría pasarse a estos modelos para su procesamiento. Dado que el enriquecimiento con IA se basado en Azure, el modelo debe estar también en Azure. Algunas metodologías de hospedaje comunes son [funciones](cognitive-search-create-custom-skill-example.md) o [contenedores](https://github.com/Microsoft/SkillsExtractorCognitiveSearch) de Azure.
 
-Las aptitudes integradas que usan la tecnología de Cognitive Services requieren una clave de suscripción integral de [Cognitive Services](cognitive-search-attach-cognitive-services.md) que proporcione acceso al recurso. Las claves integrales ofrecen análisis de imágenes, detección de idioma, traducción de texto y análisis de texto. Otras aptitudes integradas son características de Azure Cognitive Search y no requieren ninguna clave o servicio adicionales. El conformador, divisor y combinador de texto son ejemplos de aptitudes auxiliares que a veces se necesitan para diseñar la canalización.
+Las aptitudes integradas que usan la tecnología de Cognitive Services requieren una clave de suscripción integral de [Cognitive Services](cognitive-search-attach-cognitive-services.md) que proporcione acceso al recurso. Las claves integrales ofrecen análisis de imágenes, detección de idioma, traducción de texto y análisis de texto. Otras aptitudes integradas son características de Azure Cognitive Search y no requieren ninguna clave o servicio adicionales. El conformador, divisor y combinador son ejemplos de aptitudes auxiliares que a veces se necesitan para diseñar la canalización.
 
 Si solo usa aptitudes personalizadas y aptitudes de utilidad integradas, no hay ninguna dependencia ni costos asociados a Cognitive Services.
 

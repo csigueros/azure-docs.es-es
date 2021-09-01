@@ -2,24 +2,22 @@
 title: Creación de colecciones para los portales Mis aplicaciones en Azure Active Directory | Microsoft Docs
 description: Use colecciones de Mis aplicaciones para personalizar las páginas de Mis aplicaciones con el fin de que los usuarios finales reciban una experiencia más sencilla. Organice las aplicaciones en grupos con pestañas independientes.
 services: active-directory
-documentationcenter: ''
-author: mtillman
+author: davidmu1
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.author: mtillman
-ms.reviewer: kasimpso
+ms.author: davidmu
+ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 239bd084a1a593211a544b86ba8b24ed9c13624a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e47e7900fd6d678e07b4fb4ccfe02b17f734c67f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077689"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727632"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Creación de colecciones en el portal Mis aplicaciones
 
@@ -71,15 +69,13 @@ Para crear una colección, debe tener una licencia de Azure AD Premium P1 o P2.
 
 11. Seleccione **Revisar + crear**. Aparecen las propiedades de la nueva colección.
 
-
 ## <a name="view-audit-logs"></a>Visualización de registros de auditoría
 
 Los registros de auditoría registran las operaciones de colecciones de Mis aplicaciones, incluidas las acciones de los usuarios finales de creación de colecciones. Los siguientes eventos se generan desde Mis aplicaciones:
 
-* Crear colección
-* Editar colección
-* Eliminar colección
-* Inicio de una aplicación (usuario final)
+* Creación de una colección de administradores
+* Edición de una colección de administradores
+* Eliminación de una colección de administradores
 * Adición de aplicaciones de autoservicio (usuario final)
 * Eliminación de aplicaciones de autoservicio (usuario final)
 
@@ -89,11 +85,12 @@ Puede obtener acceso a los registros de auditoría de [Azure Portal](https://po
 
 En la página Mis aplicaciones, un usuario puede seleccionar **Mi cuenta** > **Ver mi cuenta** para abrir la configuración de su cuenta. En la página de Azure AD **Mi cuenta**, los usuarios pueden administrar la información de seguridad, los dispositivos, las contraseñas, etc. También pueden tener acceso a la configuración de su cuenta de Office.
 
-En caso de que necesite enviar una solicitud de soporte técnico por un problema con la página de la cuenta de Azure AD o la cuenta de Office, siga estos pasos para que la solicitud se gestione correctamente: 
+En caso de que necesite enviar una solicitud de soporte técnico por un problema con la página de la cuenta de Azure AD o la cuenta de Office, siga estos pasos para que la solicitud se gestione correctamente:
 
 * En caso de tener problemas con la página **"Mi cuenta" de Azure AD**, abra una solicitud de soporte técnico desde Azure Portal. Vaya a **Azure Portal** > **Azure Active Directory** > **Nueva solicitud de soporte técnico**.
 
-* En caso de tener problemas con la página **"Mi cuenta" de Office**, abra una solicitud de soporte técnico desde el centro de administración de Microsoft 365. Vaya a **Centro de administración de Microsoft 365** > **Soporte técnico**. 
+* En caso de tener problemas con la página **"Mi cuenta" de Office**, abra una solicitud de soporte técnico desde el centro de administración de Microsoft 365. Vaya a **Centro de administración de Microsoft 365** > **Soporte técnico**.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 [Experiencias de usuario final para aplicaciones en Azure Active Directory](end-user-experiences.md)

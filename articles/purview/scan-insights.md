@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: 7807659a30127f39bb79ad99bdb733c12eb1d25d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c5a3b9b312e093d7bee5c0c555e8e2eab0c531b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100548698"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731142"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Información de exámenes sobre los datos de Azure Purview
 
@@ -62,7 +62,7 @@ En Azure Purview, puede registrar y examinar los tipos de origen. Puede ver el e
 
     :::image type="content" source="./media/scan-insights/main-graph.png" alt-text="Ver el estado del examen a lo largo del tiempo":::
 
-4. Para explorar más detalladamente un examen específico, haga clic en el **nombre del examen** que le conectará con el historial de exámenes dentro de la experiencia de **orígenes** de Azure Purview. En la página Historial de ejecución, puede obtener el identificador de la ejecución que le ayudará en la investigación de errores.
+4. Para explorar más detalladamente un examen específico, haga clic en el **nombre del examen**, lo que le conectará con el historial de exámenes dentro de la experiencia de **Mapa de datos** de Azure Purview. En la página Historial de ejecución, puede obtener el identificador de la ejecución que le ayudará en la investigación de errores.
 
     :::image type="content" source="./media/scan-insights/scan-status.png" alt-text="Ver detalles del examen":::
 
@@ -74,4 +74,4 @@ En Azure Purview, puede registrar y examinar los tipos de origen. Puede ver el e
 
 * Más información sobre los **informes** de Azure Purview con [información de datos](./concept-insights.md)
 
-* Más información sobre la experiencia de **orígenes** de Azure Purview con [Administrar orígenes de datos](./manage-data-sources.md)
+* Más información sobre la experiencia de **Mapa de datos** de Azure Purview con [Administrar orígenes de datos](./manage-data-sources.md)

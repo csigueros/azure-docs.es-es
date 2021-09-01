@@ -1,18 +1,20 @@
 ---
 title: Transformación de datos mediante un script de U-SQL
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Aprenda a procesar o transformar datos mediante la ejecución de scripts de U-SQL en el servicio de proceso Azure Data Lake Analytics.
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 08/01/2018
-ms.openlocfilehash: 94b584f0bea01754a4e955d1418a7a9a2e9aeace
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abb3d151e943dd539fe7c2e349b662412ab24f7c
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373919"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271974"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Procesamiento de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -46,7 +48,7 @@ El servicio vinculado de Azure Data Lake Analytics requiere una autenticación d
 * Clave de la aplicación 
 * Id. de inquilino
 
-Conceda permiso de entidad de seguridad de servicio a su instancia de Azure Data Lake Analytics mediante el [Asistente para agregar usuarios](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
+Conceda permiso de entidad de servicio a su instancia de Azure Data Lake Analytics mediante el [Asistente para agregar usuarios](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
 Para usar la autenticación de la entidad de servicio, especifique las siguientes propiedades:
 
@@ -193,5 +195,5 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
-* [Actividad de ejecución por lotes de Azure Machine Learning Studio (clásico)](transform-data-using-machine-learning.md)
+* [Actividad de ejecución por lotes de ML Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

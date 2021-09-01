@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8a67cb97487e1082aed976712ded5383008531b1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ae3f62141fdcdb1185f493eceeef7124fe11f869
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957119"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727854"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -130,7 +130,7 @@ La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independient
 
   > **Cuándo se debe usar**: cuando la aplicación almacene datos no relacionales, como pares de clave-valor (tablas), blobs, recursos compartidos de archivos o mensajes (colas).
   >
-  > **Introducción**: Elija uno de estos tipos de almacenamiento: [blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tablas](../../cosmos-db/tutorial-develop-table-dotnet.md), [colas](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [archivos](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Para empezar**: elija uno de estos tipos de almacenamiento: [blobs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tablas](../../cosmos-db/tutorial-develop-table-dotnet.md), [colas](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [archivos](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 * **Azure SQL Database**: versión para Azure del motor de Microsoft SQL Server para almacenar datos tabulares relacionales en la nube. SQL Database ofrece un rendimiento predecible, escalabilidad sin tiempo de inactividad, continuidad empresarial y protección de datos.
 
@@ -244,7 +244,9 @@ Azure proporciona dos maneras de administrar las aplicaciones y los servicios de
 
 * Un panel configurable
 * Herramientas de administración de recursos de Azure
-* Acceso a la configuración de suscripción y a la información de facturación. Para más información, consulte la [Introducción a Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+* Acceso a la configuración de suscripción y a la información de facturación.
+
+Para más información, consulte la [Introducción a Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 
 ### <a name="rest-apis"></a>API de REST
 
@@ -338,4 +340,4 @@ Azure proporciona un conjunto de API de REST de facturación que dan acceso a in
 
 Aunque es difícil calcular los costos con anterioridad, Azure tiene herramientas que pueden ayudarle. Tiene una [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para ayudar a estimar el costo de los recursos implementados. También puede usar la hoja de facturación del portal y las API de REST de facturación para calcular los costos futuros, en función del consumo actual.
 
->**Introducción**: Vea [Información general sobre las API de consumo de Azure](../../cost-management-billing/manage/consumption-api-overview.md).
+>**Introducción**: Para más información, consulte [Información general sobre las API de consumo de Azure](../../cost-management-billing/manage/consumption-api-overview.md).

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/23/2020
+ms.date: 08/12/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5e44e2e1eb37e808e60134a6fba5051552e84029
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b2cae7f3c338ea5966ea8e37821e7ae0ebd746d
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85389350"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271437"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Definiciones de cookies para Azure AD B2C
 
@@ -44,7 +44,7 @@ En la tabla siguiente se indican las cookies empleadas en Azure AD B2C.
 | `x-ms-cpim-admin` | main.b2cadmin.ext.azure.com | Fin de [sesión del explorador](session-behavior.md) | Contiene datos de pertenencia de usuario entre inquilinos. Los inquilinos de los que es miembro un usuario y el nivel de pertenencia (administrador o usuario). |
 | `x-ms-cpim-slice` | b2clogin.com, login.microsoftonline.com, dominio con marca | Fin de [sesión del explorador](session-behavior.md) | Se utiliza para enrutar las solicitudes a la instancia de producción adecuada. |
 | `x-ms-cpim-trans` | b2clogin.com, login.microsoftonline.com, dominio con marca | Fin de [sesión del explorador](session-behavior.md) | Se utiliza para realizar un seguimiento de las transacciones (número de solicitudes de autenticación a Azure AD B2C) y la transacción actual. |
-| `x-ms-cpim-sso:{Id}` | b2clogin.com, login.microsoftonline.com, dominio con marca | Fin de [sesión del explorador](session-behavior.md) | Se utiliza para mantener la sesión de SSO. |
+| `x-ms-cpim-sso:{Id}` | b2clogin.com, login.microsoftonline.com, dominio con marca | Fin de [sesión del explorador](session-behavior.md) | Se utiliza para mantener la sesión de SSO. Esta cookie se establece en `persistent` cuando se habilita [Mantener la sesión iniciada](session-behavior.md#enable-keep-me-signed-in-kmsi).|
 | `x-ms-cpim-cache:{id}_n` | b2clogin.com, login.microsoftonline.com, dominio con marca | Fin de [sesión del explorador](session-behavior.md), autenticación correcta | Se utiliza para mantener el estado de la solicitud. |
 | `x-ms-cpim-csrf` | b2clogin.com, login.microsoftonline.com, dominio con marca | Fin de [sesión del explorador](session-behavior.md) | Token de falsificación de solicitud entre sitios usado para la protección frente a falsificación de solicitud entre sitios. |
 | `x-ms-cpim-dc` | b2clogin.com, login.microsoftonline.com, dominio con marca | Fin de [sesión del explorador](session-behavior.md) | Se utiliza para el enrutamiento de red de Azure AD B2C. |

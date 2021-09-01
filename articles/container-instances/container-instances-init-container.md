@@ -3,12 +3,12 @@ title: Ejecución de contenedores de inicialización
 description: Ejecute los contenedores de inicialización en Azure Container Instances para realizar tareas de instalación en un grupo de contenedores antes de que se ejecuten los contenedores de la aplicación.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 9ccaf1a67d6ca3bcff422acb591b528cc72a9608
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a108e76f76fb773d0f982a38b6415f9cd9937001
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763944"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181343"
 ---
 # <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Ejecución de un contenedor de inicialización para tareas de configuración en un grupo de contenedores
 
@@ -36,7 +36,7 @@ En este artículo se muestra cómo usar una plantilla de Azure Resource Manager 
 
 Para empezar, copie el siguiente código JSON en un nuevo archivo denominado `azuredeploy.json`. La plantilla configura un grupo de contenedores con un contenedor de inicialización y dos contenedores de aplicaciones:
 
-* El contenedor *init1* ejecuta la imagen [busybox](https://hub.docker.com/_/busybox) desde Docker Hub. Se suspende durante 60 segundos y, a continuación, escribe una cadena de línea de comandos en un archivo de un [volumen emptyDir](container-instances-volume-emptydir.md).
+* El contenedor *init1* ejecuta la imagen [busybox](https://hub.docker.com/_/busybox). Se suspende durante 60 segundos y, a continuación, escribe una cadena de línea de comandos en un archivo de un [volumen emptyDir](container-instances-volume-emptydir.md).
 * Ambos contenedores de aplicaciones ejecutan la imagen de contenedor `aci-wordcount` de Microsoft:
     * El contenedor *Hamlet* ejecuta la aplicación de recuento de palabras en su configuración predeterminada y cuenta la frecuencia de palabras en la obra de Shakespeare *Hamlet*.
     * El contenedor de la aplicación *Juliet* lee la cadena de línea de comandos del volumen emptyDir para ejecutar la aplicación de recuento de palabras en su lugar, en la obra *Romeo y Julieta* de Shakespeare.
@@ -68,7 +68,7 @@ Para obtener más información y ejemplos del uso de la imagen de `aci-wordcount
                 {
                     "name": "init1",
                     "properties": {
-                        "image": "busybox",
+                        "image": "mcr.microsoft.com/aks/e2e/library-busybox:master.210714.1",
                         "environmentVariables": [],
                         "volumeMounts": [
                             {

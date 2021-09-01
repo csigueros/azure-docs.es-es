@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 669304159a525248dbd4f9d1c3f7b34660274b74
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 323e6960a111d8227c14cf38046807ad6c1cada6
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110486543"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122260969"
 ---
 Azure Instance Metadata Service (IMDS) le proporciona información sobre las instancias de máquina virtual que se ejecutan actualmente. Puede usarlo para administrar y configurar las máquinas virtuales.
 Esta información incluye las SKU, almacenamiento, configuraciones de red y próximos eventos de mantenimiento. Para ver una lista completa de los datos disponibles, consulte el [resumen de categorías de los puntos de conexión](#endpoint-categories).
@@ -40,8 +40,10 @@ Puede usar este código de ejemplo para recuperar todos los metadatos de una ins
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | ConvertTo-Json -Depth 64
 ```
+
+`-NoProxy` requiere PowerShell V6 o posterior. Consulte nuestro [repositorio](https://github.com/microsoft/azureimds) para acceder a ejemplos con versiones de PowerShell anteriores.
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
 
@@ -70,6 +72,9 @@ El servicio rechazará cualquier solicitud que no cumpla **ambos** requisitos.
 
 > [!IMPORTANT]
 > IMDS **no** es un canal para datos confidenciales. La API no está autenticada y está abierta a todos los procesos de la máquina virtual. La información expuesta a través de este servicio se debe considerar como información compartida con todas las aplicaciones que se ejecutan dentro de la máquina virtual.
+
+Si no es necesario que todos los procesos de la máquina virtual accedan al punto de conexión de IMDS, puede establecer reglas de firewall locales para limitar el acceso. Por ejemplo, si solo un servicio de sistema conocido necesita acceder al servicio de metadatos de instancia, puede establecer una regla de firewall en el punto de conexión de IMDS permitiendo solo el acceso a los procesos específicos o denegando el acceso para el resto de los procesos. 
+
 
 ## <a name="proxies"></a>Servidores proxy
 
@@ -194,7 +199,7 @@ Para acceder a un formato de respuesta que no sea el predeterminado, especifique
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -249,6 +254,8 @@ Cuando no especifique la versión, obtendrá un error con una lista de las versi
 - 2020-12-01
 - 01-01-2021
 - 2021-02-01
+- 2021-03-01
+- 2021-05-01
 
 ### <a name="swagger"></a>Swagger
 
@@ -392,7 +399,6 @@ El objeto de disco del sistema operativo contiene la información siguiente sobr
 | `diffDiskSettings` | Configuración de discos efímeros
 | `diskSizeGB` | Tamaño del disco en GB
 | `image`   | Disco duro virtual de la imagen de usuario de origen
-| `lun`     | Número de unidad lógica del disco
 | `managedDisk` | Parámetros de disco administrado
 | `name`    | Nombre del disco
 | `vhd`     | Disco duro virtual
@@ -400,22 +406,30 @@ El objeto de disco del sistema operativo contiene la información siguiente sobr
 
 La matriz de discos de datos contiene una lista de discos de datos conectados a la máquina virtual. Cada objeto de disco de datos contiene la información siguiente:
 
-data | Descripción |
------|-------------|
-| `caching` | Requisitos de almacenamiento en caché
-| `createOption` | Información sobre cómo se ha creado la máquina virtual
-| `diffDiskSettings` | Configuración de discos efímeros
-| `diskSizeGB` | Tamaño del disco en GB
-| `encryptionSettings` | Configuración de cifrado para el disco
-| `image` | Disco duro virtual de la imagen de usuario de origen
-| `managedDisk` | Parámetros de disco administrado
-| `name` | Nombre del disco
-| `osType` | Tipo de sistema operativo incluido en el disco
-| `vhd` | Disco duro virtual
-| `writeAcceleratorEnabled` | Si writeAccelerator está habilitado o no en el disco
+data | Descripción | Versión introducida |
+|------|-----------|--------------------|
+| `bytesPerSecondThrottle`* | Cuota de lectura/escritura de disco en bytes | 2021-05-01
+| `caching` | Requisitos de almacenamiento en caché | 2019-06-01
+| `createOption` | Información sobre cómo se ha creado la máquina virtual | 2019-06-01
+| `diffDiskSettings` | Configuración de discos efímeros | 2019-06-01
+| `diskCapacityBytes`* | Tamaño del disco en bytes | 2021-05-01
+| `diskSizeGB` | Tamaño del disco en GB | 2019-06-01
+| `encryptionSettings` | Configuración de cifrado para el disco | 2019-06-01
+| `image` | Disco duro virtual de la imagen de usuario de origen | 2019-06-01
+| `isSharedDisk`* | Identifica si el disco se comparte entre los recursos | 2021-05-01
+| `isUltraDisk` | Identifica si el disco de datos es un disco Ultra | 2021-05-01
+| `lun`     | Número de unidad lógica del disco | 2019-06-01
+| `managedDisk` | Parámetros de disco administrado | 2019-06-01
+| `name` | Nombre del disco | 2019-06-01
+| `opsPerSecondThrottle`* | Cuota de lectura/escritura de disco en IOPS | 2021-05-01
+| `osType` | Tipo de sistema operativo incluido en el disco | 2019-06-01
+| `vhd` | Disco duro virtual | 2019-06-01
+| `writeAcceleratorEnabled` | Si writeAccelerator está habilitado o no en el disco | 2019-06-01
+
+\* Estos campos solo se rellenan para discos Ultra; serán cadenas vacías de discos no Ultra.
 
 El objeto del disco de recursos contiene el tamaño del [disco temporal local](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) asociado a la máquina virtual, si es que tiene uno, en kilobytes.
-Si no hay [ningún disco temporal local para la máquina virtual](../articles/virtual-machines/azure-vms-no-temp-disk.md), este valor es 0. 
+Si no hay [ningún disco temporal local para la máquina virtual](../articles/virtual-machines/azure-vms-no-temp-disk.yml), este valor es 0. 
 
 | data | Descripción | Versión introducida |
 |------|-------------|--------------------|
@@ -434,10 +448,9 @@ Si no hay [ningún disco temporal local para la máquina virtual](../articles/vi
 
 ### <a name="get-user-data"></a>Obtención de los datos del usuario
 
-Al crear una nueva máquina virtual, puede especificar un conjunto de datos que se usarán durante o después del aprovisionamiento de la máquina virtual y recuperarlos a través de IMDS. Para configurar los datos de usuario, use la plantilla de inicio rápido [aquí](https://aka.ms/ImdsUserDataArmTemplate). En el ejemplo siguiente se muestra cómo recuperar estos datos a través de IMDS.
+Al crear una nueva máquina virtual, puede especificar un conjunto de datos que se usarán durante o después del aprovisionamiento de la máquina virtual y recuperarlos a través de IMDS. Compruebe la experiencia de datos del usuario final [aquí](../articles/virtual-machines/user-data.md). 
 
-> [!NOTE]
-> Esta característica se lanza con la versión `2021-01-01` y depende de una actualización de la plataforma Azure, que actualmente se está implantando y es posible que aún no esté disponible en todas las regiones.
+Para configurar los datos de usuario, use la plantilla de inicio rápido [aquí](https://aka.ms/ImdsUserDataArmTemplate). En el ejemplo siguiente se muestra cómo recuperar estos datos a través de IMDS. Esta característica se publica con la versión `2021-01-01` y versiones posteriores.
 
 > [!NOTE]
 > Aviso de seguridad: IMDS está abierto a todas las aplicaciones de la máquina virtual; no se deben colocar datos confidenciales en los datos de usuario.
@@ -446,7 +459,7 @@ Al crear una nueva máquina virtual, puede especificar un conjunto de datos que 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-$userData = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text"
+$userData = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text"
 [System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($userData))
 ```
 
@@ -468,7 +481,7 @@ Como proveedor de servicios, es posible que necesite hacer seguimiento de la can
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -496,7 +509,7 @@ Puede consultar estos datos directamente a través de IMDS.
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -523,13 +536,13 @@ Es posible que se hayan aplicado etiquetas a las máquinas virtuales de Azure pa
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tags?api-version=2017-08-01&format=text"
 ```
 
 ---
@@ -547,7 +560,7 @@ El campo `tags` es una cadena con las etiquetas delimitadas por puntos y coma. E
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -613,7 +626,7 @@ Como proveedor de servicios, es posible que reciba una llamada de soporte técni
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -671,20 +684,25 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "sku": "2019-Datacenter",
     "storageProfile": {
         "dataDisks": [{
+            "bytesPerSecondThrottle": "979202048",
             "caching": "None",
             "createOption": "Empty",
+            "diskCapacityBytes": "274877906944",
             "diskSizeGB": "1024",
             "image": {
-                "uri": ""
+              "uri": ""
             },
+            "isSharedDisk": "false",
+            "isUltraDisk": "true",
             "lun": "0",
             "managedDisk": {
-                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                "storageAccountType": "Standard_LRS"
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/MicrosoftCompute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
             },
             "name": "exampledatadiskname",
+            "opsPerSecondThrottle": "65280",
             "vhd": {
-                "uri": ""
+              "uri": ""
             },
             "writeAcceleratorEnabled": "false"
         }],
@@ -775,20 +793,25 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "sku": "18.04-LTS",
     "storageProfile": {
         "dataDisks": [{
+            "bytesPerSecondThrottle": "979202048",
             "caching": "None",
             "createOption": "Empty",
+            "diskCapacityBytes": "274877906944",
             "diskSizeGB": "1024",
             "image": {
-                "uri": ""
+              "uri": ""
             },
+            "isSharedDisk": "false",
+            "isUltraDisk": "true",
             "lun": "0",
             "managedDisk": {
-                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                "storageAccountType": "Standard_LRS"
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
             },
             "name": "exampledatadiskname",
+            "opsPerSecondThrottle": "65280",
             "vhd": {
-                "uri": ""
+              "uri": ""
             },
             "writeAcceleratorEnabled": "false"
         }],
@@ -848,7 +871,7 @@ Azure tiene varias nubes soberanas, como [Azure Government](https://azure.micros
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -882,7 +905,7 @@ Aquí se enumeran las nubes y los valores del entorno de Azure.
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -927,7 +950,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -1021,7 +1044,7 @@ Los proveedores de Azure Marketplace quieren asegurarse de que su software tiene
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```

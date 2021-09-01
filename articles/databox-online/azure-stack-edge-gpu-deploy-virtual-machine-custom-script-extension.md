@@ -6,22 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 08/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 2d2e7d403ab3e9cc7e8e17de53b6e821ec24caa1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6ed084e26b12851985e2b3b906be1367b7b4a437
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438019"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736771"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Implementación de una extensión de script personalizado en máquinas virtuales que se ejecutan en el dispositivo Azure Stack Edge Pro
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-La extensión de script personalizado descarga y ejecuta scripts o comandos en máquinas virtuales que se ejecutan en los dispositivos Azure Stack Edge Pro. En este artículo se detalla cómo instalar y ejecutar la extensión de script personalizado mediante el uso de una plantilla de Azure Resource Manager. 
-
-Este artículo se aplica a los dispositivos de Azure Stack Edge con GPU, Azure Stack Edge Pro R y Azure Stack Edge Mini R.
+La extensión de script personalizado descarga y ejecuta scripts o comandos en máquinas virtuales que se ejecutan en los dispositivos Azure Stack Edge Pro. En este artículo se detalla cómo instalar y ejecutar la extensión de script personalizado mediante el uso de una plantilla de Azure Resource Manager.
 
 ## <a name="about-custom-script-extension"></a>Acerca de la extensión de script personalizado
 
@@ -72,7 +70,7 @@ If your script is on a local server, then you may still need additional firewall
 
     En el ejemplo siguiente, el puerto 2 estaba conectado a Internet y se usaba para habilitar la red de proceso. Si ha identificado que Kubernetes no es necesario en el paso anterior, puede omitir la dirección IP del nodo de Kubernetes y la asignación de direcciones IP del servicio externo.
 
-    ![Habilitación de la configuración de proceso en el puerto conectado a Internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
+    ![Captura de pantalla del panel Proceso de un dispositivo Azure Stack Edge. La configuración de Proceso del puerto 2 está resaltada.](media/azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension/enable-compute-network-1.png)
 
 ## <a name="install-custom-script-extension"></a>Instalación de la extensión de script personalizado
 
@@ -239,7 +237,7 @@ Los archivos especificados se descargan en la siguiente carpeta de la máquina v
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
-donde <n> es un entero decimal que puede variar entre las ejecuciones de la extensión. El valor 1.* coincide con el valor `typeHandlerVersion` actual y real de la extensión. Por ejemplo, el directorio real de esta instancia era `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0`. 
+donde *n* es un entero decimal que puede variar entre las ejecuciones de la extensión. El valor 1.* coincide con el valor `typeHandlerVersion` actual y real de la extensión. Por ejemplo, el directorio real de esta instancia era `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0`. 
 
 
 En esta instancia, el comando a ejecutar para la extensión personalizada era: `md C:\\Users\\Public\\Documents\\test`. Cuando la extensión se haya instalado correctamente, puede comprobar que el directorio se ha creado en la máquina virtual en la ruta de acceso especificada en el comando. 

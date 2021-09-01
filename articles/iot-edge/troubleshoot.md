@@ -2,18 +2,17 @@
 title: 'Solución de problemas: Azure IoT Edge | Microsoft Docs'
 description: Use este artículo para obtener información sobre las aptitudes de diagnóstico estándar para Azure IoT Edge, como la recuperación de los registros y el estado del componente.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 05/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0ab6ddcf3566164746dce8e0b9ff4b4a2aa32b84
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 3bca470114b5fb22409d86c333e92f93155759f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537989"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735149"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Solución de problemas del dispositivo IoT Edge
 
@@ -125,6 +124,12 @@ También puede usar la llamada de método directo integrada [UploadSupportBundle
 
 > [!WARNING]
 > La salida del comando `support-bundle` puede contener nombres de hosts, de dispositivos y de módulos, información registrada por los módulos, etc. Tenga esto en cuenta si comparte la salida en un foro público.
+
+## <a name="review-metrics-collected-from-the-runtime"></a>Revisión de las métricas recopiladas del entorno de ejecución
+
+Los módulos del entorno de ejecución de Azure IoT Edge generan métricas que le ayudarán a supervisar y comprender el estado de los dispositivos IoT Edge. Agregue el módulo **metrics-collector** a las implementaciones para controlar la recopilación de estas métricas y su envío a la nube para facilitar la supervisión.
+
+Para más información, consulte [Recopilación y transporte de métricas](how-to-collect-and-transport-metrics.md).
 
 ## <a name="check-your-iot-edge-version"></a>Comprobación de la versión de IoT Edge
 

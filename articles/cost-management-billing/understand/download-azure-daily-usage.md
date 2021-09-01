@@ -8,19 +8,20 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.openlocfilehash: 141da3dfab9996110952ec266733271582e66ff9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.custom: devx-track-azurecli
+ms.date: 07/28/2020
+ms.openlocfilehash: b5f1090c11844e1ca75c2296275588e5123a9d92
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439190"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737022"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visualización y descarga de los datos de uso y los cargos de Azure
 
-Puede descargar un desglose diario del uso y los cargos de Azure en Azure Portal. Solo determinados roles tienen permiso para obtener la información de uso de Azure, como el administrador de la cuenta o el administrador de Enterprise. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](../manage/manage-billing-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
+Puede descargar un desglose diario del uso y los cargos de Azure en Azure Portal. También puede obtener los datos de uso mediante la CLI de Azure. Solo determinados roles tienen permiso para obtener la información de uso de Azure, como el administrador de la cuenta o el administrador de Enterprise. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](../manage/manage-billing-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
 
-Si tiene un contrato de cliente de Microsoft (MCA), debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación para ver los datos de uso y los cargos de Azure.  Si tiene un contrato Microsoft Partner Agreement (MPA), solo el administrador global o el agente de administrador de la organización asociada pueden ver y descargar el uso y los cargos de Azure. [Compruebe el tipo de la cuenta de facturación en Azure Portal](#check-your-billing-account-type).
+Si tiene un contrato de cliente de Microsoft (MCA), debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación para ver los datos de uso y los cargos de Azure.  Si tiene un contrato Microsoft Partner Agreement (MPA), solo el administrador global o el agente de administrador de la organización asociada pueden ver y descargar el uso y los cargos de Azure.
 
 Según el tipo de suscripción que utilice, las opciones para descargar el uso y los cargos varían.
 
@@ -43,11 +44,33 @@ Para ver y descargar los datos de uso como cliente de EA, debe ser administrador
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Busque *Administración de costos + facturación*.  
     ![Captura de pantalla que muestra la búsqueda en Azure Portal.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+1. Si tiene acceso a varias cuentas de facturación, seleccione el ámbito de facturación de su cuenta de Contrato Enterprise.
 1. Seleccione **Uso + cargos**.
 1. Seleccione **Descargar** para el mes que quiere descargar.  
     ![Captura de pantalla que muestra la página de facturas de Cost Management + Billing para clientes de EA.](./media/download-azure-daily-usage/download-usage-ea.png)
 
-## <a name="download-usage-for-pending-charges"></a>Descarga del uso para cargos pendientes
+## <a name="download-usage-for-your-microsoft-customer-agreement"></a>Descarga del uso para el contrato de cliente de Microsoft
+
+Para ver y descargar datos de uso de un perfil de facturación, debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación.
+
+### <a name="download-usage-for-billed-charges"></a>Descarga del uso para los cargos facturados
+
+1. Busque **Administración de costos + facturación**.
+2. Seleccione un perfil de facturación.
+3. Seleccione **Facturas**.
+4. En la cuadrícula de la factura, busque la fila de la factura correspondiente a los datos de uso que quiere descargar.
+5. Haga clic en el botón de puntos suspensivos (`...`) al final de la fila.
+6. En el menú contextual de descarga, seleccione **Uso y cargos de Azure**.
+
+### <a name="download-usage-for-open-charges"></a>Descarga del uso para los cargos abiertos
+
+También puede descargar el uso del mes hasta la fecha para el período de facturación actual; esto es, los cargos que aún no se han facturado.
+
+1. Busque **Administración de costos + facturación**.
+2. Seleccione un perfil de facturación.
+3. En la hoja **Información general**, haga clic en **Uso y cargos de Azure**.
+
+### <a name="download-usage-for-pending-charges"></a>Descarga del uso para cargos pendientes
 
 Si tiene un contrato de cliente de Microsoft, puede descargar el uso mensual hasta la fecha para el período de facturación actual. Estos cargos de utilización que todavía no se han facturado.
 
@@ -55,11 +78,52 @@ Si tiene un contrato de cliente de Microsoft, puede descargar el uso mensual has
 2. Busque *Administración de costos + facturación*.
 3. Seleccione un perfil de facturación. En función de su acceso, es posible que tenga que seleccionar primero una cuenta de facturación.
 4. En el área **Información general**, busque los vínculos de descarga debajo de los cargos recientes.
-5. Seleccione **Descargar uso y precios**.  
-    :::image type="content" source="./media/download-azure-daily-usage/open-usage01.png" alt-text="Captura de pantalla que muestra la descarga desde Información general" lightbox="./media/download-azure-daily-usage/open-usage01.png" :::.
+5. Seleccione **Descargar uso y precios**.
 
-## <a name="check-your-billing-account-type"></a>Comprobación del tipo de cuenta de facturación
-[!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
+## <a name="get-usage-data-with-azure-cli"></a>Obtención de los datos de uso con la CLI de Azure
+
+Empiece por preparar el entorno para la CLI de Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Después de iniciar sesión, use el comando [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) para consultar la información de uso mensual hasta la fecha de su suscripción:
+
+```azurecli
+az costmanagement query --timeframe MonthToDate --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+```
+
+También puede restringir la consulta mediante el parámetro **--dataset-filter** u otros parámetros:
+
+```azurecli
+az costmanagement query --timeframe MonthToDate --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
+   --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
+```
+
+El parámetro **--dataset-filter** toma una cadena JSON o `@json-file`.
+
+También tiene la opción de usar los comandos [az costmanagement export](/cli/azure/costmanagement/export) para exportar datos de uso a una cuenta de almacenamiento de Azure. Puede descargar los datos aquí.
+
+1. Cree un grupo de recursos o use uno existente. Para crear un grupo de recursos, ejecute el comando [az group create](/cli/azure/group#az_group_create):
+
+   ```azurecli
+   az group create --name TreyNetwork --location "East US"
+   ```
+
+1. Cree una cuenta de almacenamiento para recibir las exportaciones o use una existente. Para crear una cuenta, use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create):
+
+   ```azurecli
+   az storage account create --resource-group TreyNetwork --name cmdemo
+   ```
+
+1. Ejecute el comando [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) para crear la exportación:
+
+   ```azurecli
+   az costmanagement export create --name DemoExport --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
+   --storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
+   ```
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

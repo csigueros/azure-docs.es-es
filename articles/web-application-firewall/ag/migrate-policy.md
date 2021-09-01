@@ -5,19 +5,19 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/16/2020
+ms.date: 07/30/2021
 ms.author: ant
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d6ad68ef3d490d4fb95e8ce1fc658e80d7eb507a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d11c27e96ad214535008cefad5a926b46c316fa7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668463"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729407"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migración de directivas de firewall de aplicaciones web con Azure PowerShell
 
-Este script facilita la transición de una configuración de WAF o una directiva de WAF solo de reglas personalizadas a una directiva de WAF completa. Es posible que vea una advertencia en el portal en la que se indica que *migre a la directiva de WAF*, o bien, puede que desee usar las nuevas características de WAF, como reglas personalizadas de GeoMatch (versión preliminar), directivas de WAF por sitio y por URI (versión preliminar) o el conjunto de reglas de mitigación de bots (versión preliminar). Para usar cualquiera de estas características, necesita una directiva de WAF completa asociada a la puerta de enlace de aplicaciones. 
+Este script facilita la transición de una configuración de WAF o una directiva de WAF solo de reglas personalizadas a una directiva de WAF completa. Es posible que vea una advertencia en el portal en la que se indica que *migre a una directiva de WAF*, o bien, puede que desee usar las nuevas características de WAF, como reglas personalizadas de Geomatch, la directiva de WAF por sitio y por URI (versión preliminar) o el conjunto de reglas de mitigación de bots. Para usar cualquiera de estas características, necesita una directiva de WAF completa asociada a la puerta de enlace de aplicaciones. 
 
 Para más información sobre cómo crear una nueva directiva de WAF, consulte [Creación de directivas de firewall de aplicaciones web para Application Gateway](create-waf-policy-ag.md). Para más información sobre la migración, consulte [Migración a una directiva de WAF](create-waf-policy-ag.md#migrate-to-waf-policy).
 

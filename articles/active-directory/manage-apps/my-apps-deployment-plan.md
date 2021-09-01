@@ -2,25 +2,26 @@
 title: Planeamiento de la configuración de Aplicaciones de Azure Active Directory
 description: Guía de planeamiento para usar eficazmente mis aplicaciones en su organización.
 services: active-directory
-author: barbaraselden
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/29/2020
-ms.author: baselden
-ms.openlocfilehash: 8cf1a671eeb4861919a389b02f45fee998d880e3
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 07/25/2021
+ms.author: davidmu
+ms.reviewer: lenalepa
+ms.openlocfilehash: 36da44521169c516888489bd0ac60015adcc432f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317224"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733669"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planeamiento de la configuración de Aplicaciones de Azure Active Directory
 
 > [!NOTE]
-> Este artículo va dirigido a aquellos profesionales de TI que necesitan planear la configuración del portal Aplicaciones de su organización. 
+> Este artículo va dirigido a aquellos profesionales de TI que necesitan planear la configuración del portal Aplicaciones de su organización.
 >
 > **Para ver la documentación para el usuario final, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md)** .
 
@@ -30,17 +31,16 @@ Aplicación, de Azure Active Directory (Azure AD), es un portal web para inicia
 
 ## <a name="why-configure-my-apps"></a>Razones para configurar Aplicaciones
 
-El portal Aplicaciones está disponible para los usuarios de forma predeterminada y no se puede desactivar. Es importante configurarlo para que funcione de la mejor forma posible y para que sea útil. 
+El portal Aplicaciones está disponible para los usuarios de forma predeterminada y no se puede desactivar. Es importante configurarlo para que funcione de la mejor forma posible y para que sea útil.
 
 En él aparecen todas las aplicaciones empresariales de Azure Active Directory que cumplen estas dos condiciones:
 
-* La propiedad visibility de la aplicación se ha establecido en true. 
+* La propiedad visibility de la aplicación se ha establecido en true.
 
 * La aplicación se ha asignado a algún usuario o grupo. Aparece para los usuarios asignados.
 
 La configuración del portal garantiza que las personas adecuadas puedan encontrar fácilmente las aplicaciones adecuadas.
 
- 
 ### <a name="how-is-the-my-apps-portal-used"></a>¿Cómo se usa el portal Aplicaciones?
 
 Los usuarios acceden al portal Aplicaciones para:
@@ -69,11 +69,9 @@ Los administradores pueden configurar:
 
 * Personalización de marca de empresa que se muestra en Aplicaciones
 
- 
-
 ## <a name="plan-consent-configuration"></a>Planeamiento de la configuración del consentimiento
 
-### <a name="user-consent-for-applications"></a>Consentimiento del usuario para las aplicaciones 
+### <a name="user-consent-for-applications"></a>Consentimiento del usuario para las aplicaciones
 
 Para que un usuario pueda iniciar sesión en una aplicación y la aplicación pueda acceder a los datos de su organización, el usuario o administrador debe conceder los permisos de la aplicación. Puede configurar si se permite el consentimiento del usuario y en qué condiciones. **Microsoft recomienda permitir solo el consentimiento del usuario para las aplicaciones de los editores comprobados.**
 
@@ -81,7 +79,7 @@ Para obtener más información, consulte [Configuración del consentimiento de l
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>Consentimiento del propietario de un grupo para las aplicaciones que acceden a los datos
 
-Los propietarios de grupos y equipos pueden dar permiso a aplicaciones tales como las aplicaciones que publican otros proveedores, para obtener acceso a los datos de la organización asociados al grupo. Consulte [Consentimiento específico de recursos en Microsoft Teams](/microsoftteams/resource-specific-consent) para obtener más información. 
+Los propietarios de grupos y equipos pueden dar permiso a aplicaciones tales como las aplicaciones que publican otros proveedores, para obtener acceso a los datos de la organización asociados al grupo. Consulte [Consentimiento específico de recursos en Microsoft Teams](/microsoftteams/resource-specific-consent) para obtener más información.
 
 Puede configurar si quiere permitir o deshabilitar esta característica.
 
@@ -97,13 +95,11 @@ Aunque Aplicaciones no suele dar problemas a los usuarios, es importante estar p
 
 Microsoft proporciona [plantillas personalizables para correos electrónicos y otras comunicaciones](https://aka.ms/APTemplates) de Aplicaciones. Puede adaptar estos recursos para su uso en otros canales de comunicación, como resulte adecuado para su cultura corporativa.
 
- 
-
 ## <a name="plan-your-sso-configuration"></a>Planeación de la configuración del inicio de sesión único
 
 Es aconsejable que todas las aplicaciones del portal tengan el inicio de sesión único habilitado para que los usuarios puedan usarlas sin problemas sin tener que escribir sus credenciales.
 
-Azure AD admite varias opciones de inicio de sesión único. 
+Azure AD admite varias opciones de inicio de sesión único.
 
 * Para más información al respecto, consulte [Opciones de inicio de sesión único en Azure AD](sso-options.md).
 
@@ -111,16 +107,16 @@ Azure AD admite varias opciones de inicio de sesión único.
 
 ### <a name="use-federated-sso-if-possible"></a>Uso de SSO federado siempre que sea posible
 
-Para que el usuario tenga la mejor experiencia posible en la página Aplicaciones, empiece por la integración de las aplicaciones en la nube disponibles para el inicio de sesión único federado (OpenID Connect o SAML). El inicio de sesión único federado permite a los usuarios tener una experiencia coherente de un solo clic en las superficies de inicio de las aplicaciones y tiende a ser más sólido en el control de la configuración.
+Para que el usuario tenga la mejor experiencia posible en la página Aplicaciones, empiece por la integración de las aplicaciones en la nube disponibles para el inicio de sesión (SSO) único federado como el OpenID Connect o SAML. El inicio de sesión único federado permite a los usuarios tener una experiencia coherente de un solo clic cuando inician sesión en las aplicaciones y tiende a ser más sólido en el control de la configuración.
 
-Para más información sobre cómo configurar las aplicaciones como software como servicio (SaaS) para poder usar el inicio de sesión único, vea el [plan de implementación de SSO de SaaS]. /Desktop/plan-sso-deployment.md).
+Para obtener más información sobre cómo configurar el inicio de sesión único para la aplicación, consulte [Planear la implementación de inicio de sesión único](plan-sso-deployment.md).
 
 ### <a name="considerations-for-special-sso-circumstances"></a>Consideraciones sobre el inicio de sesión único en circunstancias especiales
 
 > [!TIP]
 > Para mejorar la experiencia del usuario, utilice el inicio de sesión único federado con Azure AD (OpenID Connect o SAML) cuando las aplicaciones lo admitan, en lugar del inicio de sesión único basado en contraseña y ADFS.
 
-Para iniciar sesión en aplicaciones que usan contraseña para el inicio de sesión único o en aplicaciones a las que accede Azure AD Application Proxy, los usuarios deben instalar y usar la extensión de inicio de sesión seguro de Aplicaciones. A los usuarios se les solicita que instalen la extensión la primera vez que inician la aplicación de Application Proxy o con inicio de sesión único mediante contraseña. 
+Para iniciar sesión en aplicaciones que usan contraseña para el inicio de sesión único o en aplicaciones a las que accede Azure AD Application Proxy, los usuarios deben instalar y usar la extensión de inicio de sesión seguro de Aplicaciones. A los usuarios se les solicita que instalen la extensión la primera vez que inician la aplicación de Application Proxy o con inicio de sesión único mediante contraseña.
 
 ![Captura de pantalla de](./media/my-apps-deployment-plan/ap-dp-install-myapps.png)
 
@@ -138,7 +134,7 @@ Esta extensión permite a los usuarios iniciar cualquier aplicación desde su ba
 
 #### <a name="plan-for-mobile-access"></a>Planeación del acceso móvil
 
-En el caso de las aplicaciones que usan el inicio de sesión único mediante contraseña o a las que se accede mediante [Microsoft Azure AD Application Proxy](../app-proxy/application-proxy.md), debe usar Microsoft Edge para dispositivos móviles. Para otras aplicaciones, se puede usar cualquier explorador para dispositivos móviles. 
+En el caso de las aplicaciones que usan el inicio de sesión único mediante contraseña o a las que se accede mediante [Microsoft Azure AD Application Proxy](../app-proxy/application-proxy.md), debe usar Microsoft Edge para dispositivos móviles. Para otras aplicaciones, se puede usar cualquier explorador para dispositivos móviles.
 
 ### <a name="linked-sso"></a>Inicio de sesión único vinculado
 
@@ -150,7 +146,7 @@ De forma predeterminada, tanto las aplicaciones a las que el usuario tiene acces
 
 ### <a name="plan-my-apps-collections"></a>Planeamiento de las colecciones de Aplicaciones
 
-Todas las aplicaciones de Azure AD a las que algún usuario tenga acceso aparecerán en Aplicaciones en la colección Todas las aplicaciones. Use las colecciones para agrupar aplicaciones relacionadas y presentarlas en una pestaña independiente, lo que facilita su búsqueda. Por ejemplo, puede usar colecciones para crear agrupaciones lógicas de aplicaciones para roles de trabajo específicos, tareas, proyectos, etc. 
+Todas las aplicaciones de Azure AD a las que algún usuario tenga acceso aparecerán en Aplicaciones en la colección **Aplicaciones**. Use las colecciones para agrupar aplicaciones relacionadas y presentarlas en una pestaña independiente, lo que facilita su búsqueda. Por ejemplo, puede usar colecciones para crear agrupaciones lógicas de aplicaciones para roles de trabajo específicos, tareas, proyectos, etc.
 
 Los usuarios finales también pueden personalizar su experiencia. Para ello deben:
 
@@ -163,19 +159,19 @@ Los usuarios finales también pueden personalizar su experiencia. Para ello debe
 Hay una opción para ocultar aplicaciones en el portal Aplicaciones y, al mismo tiempo, permitir el acceso desde otras ubicaciones, como el portal de Microsoft 365. Más información: [Ocultación de una aplicación de la experiencia del usuario en Azure Active Directory](hide-application-from-user-portal.md)
 
 > [!IMPORTANT]
-> Desde Aplicaciones solo se puede acceder a las 950 aplicaciones a las que los usuarios tienen acceso, entre las que se encuentran las aplicaciones que ha ocultado el usuario o el administrador. 
+> Desde Aplicaciones solo se puede acceder a las 950 aplicaciones a las que los usuarios tienen acceso, entre las que se encuentran las aplicaciones que ha ocultado el usuario o el administrador.
 
 ### <a name="plan-self-service-group-management-membership"></a>Planeamiento de la pertenencia a la administración grupos de autoservicio
 
 Puede permitir que los usuarios creen y administren sus propios grupos de seguridad o grupos de Microsoft 365 en Azure AD. El propietario del grupo puede aprobar o rechazar solicitudes de pertenencia y delegar el control de la pertenencia a grupos. Las características de administración de grupos de autoservicio no están disponibles para grupos de seguridad habilitados para correo electrónico o listas de distribución.
 
-Para planear la pertenencia a grupos de autoservicio, determine si va a permitir que todos los usuarios de la organización creen y administren los grupos, o solo un subconjunto de usuarios. Si va a permitir a un subconjunto de usuarios, deberá configurar un grupo al que se agreguen esas personas. 
+Para planear la pertenencia a grupos de autoservicio, determine si va a permitir que todos los usuarios de la organización creen y administren los grupos, o solo un subconjunto de usuarios. Si va a permitir a un subconjunto de usuarios, deberá configurar un grupo al que se agreguen esas personas.
 
 Consulte [Configuración de la administración de grupos de autoservicio en Azure Active Directory](../enterprise-users/groups-self-service-management.md) para más información sobre cómo habilitar estos escenarios.
 
 ### <a name="plan-self-service-application-access"></a>Planeamiento del acceso de la aplicación de autoservicio
 
-Puede permitir que los usuarios detecten aplicaciones y soliciten acceso a ellas mediante el panel Aplicaciones. Para ello, lo primero que debe hacer es: 
+Puede permitir que los usuarios detecten aplicaciones y soliciten acceso a ellas mediante el panel Aplicaciones. Para ello, lo primero que debe hacer es:
 
 * Habilitar la administración de grupos de autoservicio.
 
@@ -196,7 +192,6 @@ Azure AD proporciona [informes que ofrecen datos técnicos y información empre
 | Tipos de informes| Permisos y uso de la aplicación| Actividad de aprovisionamiento de cuentas| Revise quién accede a las aplicaciones |
 | Acciones posibles| Auditar el acceso; revocar los permisos| Corregir los errores de aprovisionamiento| Revocar el acceso |
 
-
 Azure AD mantiene la mayoría de los datos de auditoría durante 30 días. Los datos están disponibles a través del portal de administración de Azure o de la API para que pueda descargarlos en los sistemas de análisis.
 
 #### <a name="auditing"></a>Auditoría
@@ -213,7 +208,6 @@ Realice las siguientes pruebas tanto con dispositivos que sean de propiedad la e
 
 #### <a name="application-sso-access-test-case-examples"></a>Ejemplos de casos de prueba de acceso con el inicio de sesión único de aplicación:
 
-
 | Oportunidad de negocio| Resultado esperado |
 | - | - |
 | El usuario inicia sesión en el portal Aplicaciones.| El usuario puede iniciar sesión y ver sus aplicaciones. |
@@ -223,15 +217,12 @@ Realice las siguientes pruebas tanto con dispositivos que sean de propiedad la e
 | El usuario inicia una aplicación desde el portal de Microsoft 365.| El usuario inicia sesión automáticamente en la aplicación. |
 | El usuario inicia una aplicación desde Managed Browser.| El usuario inicia sesión automáticamente en la aplicación. |
 
-
 #### <a name="application-self-service-capabilities-test-case-examples"></a>Casos de prueba de ejemplo de las funcionalidades de autoservicio de aplicaciones
-
 
 | Oportunidad de negocio| Resultado esperado |
 | - | - |
 | El usuario puede administrar la pertenencia a la aplicación.| El usuario puede agregar o quitar miembros con acceso a la aplicación. |
 | El usuario puede editar la aplicación.| El usuario puede editar la descripción y las credenciales de la aplicación en el caso de aplicaciones de inicio de sesión único con contraseña. |
-
 
 ### <a name="rollback-steps"></a>Pasos de reversión
 
@@ -248,7 +239,6 @@ Use el rol con menos privilegios para realizar una tarea necesaria en Azure Acti
 | Administrador de aplicaciones| Atestación de usuarios en la aplicación, configuración en usuarios con permisos| None |
 | Administradores de infraestructura| Propietario de la sustitución de certificados| Administrador global |
 | Propietario de la empresa o parte interesada| Atestación de usuarios en la aplicación, configuración en usuarios con permisos| None |
-
 
 Puede usar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) para administrar los roles con el fin de permitir la auditoría, control y revisión de acceso adicionales para los usuarios con permisos de directorio.
 

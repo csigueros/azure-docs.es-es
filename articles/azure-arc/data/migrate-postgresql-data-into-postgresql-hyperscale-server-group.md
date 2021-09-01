@@ -1,6 +1,6 @@
 ---
 title: Migración de datos de una base de datos de PostgreSQL a un grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc
-titleSuffix: Azure Arc enabled database services
+titleSuffix: Azure Arc-enabled database services
 description: Migración de datos de una base de datos de PostgreSQL a un grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc
 services: azure-arc
 ms.service: azure-arc
@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 06860f9d09db7a9e9497431620e15cc5e3168206
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 25e19ac7512c26e9e6985d033ec46d76b4c5233a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411636"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729383"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Migración de una base de datos de PostgreSQL a un grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc
 
@@ -45,6 +45,8 @@ Para realizar esta operación de copia de seguridad y restauración, puede usar 
 - `psql`
 - ...
 
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 ## <a name="example"></a>Ejemplo
 Ahora se ilustrarán estos pasos con la herramienta `pgAdmin`.
 Fíjese en la configuración siguiente:
@@ -73,8 +75,8 @@ La copia de seguridad se completa correctamente:
 > [!NOTE]
 > Para registrar una instancia de Postgres en la herramienta `pgAdmin`, debe usar la dirección IP pública de la instancia en el clúster de Kubernetes y establecer el puerto y el contexto de seguridad correctamente. Encontrará estos detalles en la línea del punto de conexión `psql` después de ejecutar el comando siguiente:
 
-```console
-azdata arc postgres endpoint list -n postgres01
+```azurecli
+az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 Devuelve un resultado como el siguiente:
 ```console
@@ -128,8 +130,8 @@ Dentro de la instalación de Arc puede usar `psql` para conectarse a la instanci
 
 1. Enumere los puntos de conexión de ayuda de la cadena de conexión `psql`:
 
-   ```console
-   azdata arc postgres endpoint list -n postgres01
+   ```azurecli
+   az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
    [
      {
        "Description": "PostgreSQL Instance",
@@ -194,6 +196,6 @@ Dentro de la instalación de Arc puede usar `psql` para conectarse a la instanci
     * [Diseño de una base de datos multiinquilino](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Diseño de un panel de análisis en tiempo real](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> *En estos documentos, omita las secciones **Inicio de sesión en Azure Portal** y **Creación de una instancia de Azure Database for PostgreSQL: Hiperescala (Citus)** . Implemente los pasos restantes en la implementación de Azure Arc. Esas secciones son específicas de Hiperescala (Citus) de Azure Database for PostgreSQL que se ofrece como un servicio PaaS en la nube de Azure, pero las demás partes de los documentos se aplican directamente a Hiperescala de PostgreSQL habilitada para Azure Arc.
+> *En estos documentos, omita las secciones **Inicio de sesión en Azure Portal** y **Creación de una instancia de Azure Database for PostgreSQL: Hiperescala (Citus)** . Implemente los pasos restantes en la implementación de Azure Arc. Esas secciones son específicas de Hiperescala (Citus) de Azure Database for PostgreSQL que se ofrece como un servicio PaaS en la nube de Azure, pero las demás partes de los documentos se aplican directamente a Hiperescala de PostgreSQL habilitada para Azure Arc.
 
 - [Escalado del grupo de servidores Hiperescala de Azure Database for PostgreSQL](scale-out-in-postgresql-hyperscale-server-group.md)

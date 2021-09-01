@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 62723a0fee6a3f696c517bc642fdac8cfa80a6b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec4f09249bda14eb29d7dc9704a6096848a78557
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557427"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122194987"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalación de controladores de GPU de AMD en máquinas virtuales de la serie N con Windows
 
@@ -33,7 +33,9 @@ Para conocer las especificaciones básicas, las capacidades de almacenamiento y 
 
 | SO | Controlador |
 | -------- |------------- |
-| Sesión múltiple de Windows 10 Enterprise: compilación 1909 <br/><br/>Windows 10: compilación 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe) |
+| Windows 10: compilación 2009, 2004, 1909 <br/><br/>Sesión múltiple de Windows 10 Enterprise: compilación 2009, 2004, 1909 <br/><br/>Windows Server 2016 (versión 1607)<br/><br/>Windows Server 2019 (versión 1909) | [21.Q2](https://download.microsoft.com/download/3/4/8/3481cf8d-1706-49b0-aa09-08c9468305ab/AMD-Azure-NVv4-Windows-Driver-21Q2.exe) (.exe) |
+
+La versión anterior del controlador compatible en compilaciones de Windows hasta 1909 es [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe)
 
  > [!NOTE]
    >  Si usa la compilación 1903/1909, puede que tenga que actualizar la siguiente directiva de grupo para conseguir el rendimiento óptimo. Estos cambios no son necesarios en ninguna otra compilación de Windows.
@@ -41,12 +43,12 @@ Para conocer las especificaciones básicas, las capacidades de almacenamiento y 
    >  [Configuración del equipo->Directivas->Configuración de Windows->Plantillas administrativas->Componentes de Windows->Servicios de Escritorio remoto->Host de sesión de Escritorio remoto->Entorno de sesión remota], establezca la directiva [Use WDDM graphics display driver for Remote Desktop Connections] (Usar controlador de gráficos WDDM para conexiones de Escritorio remoto) como deshabilitada.
    >  
 
-
+ 
 ## <a name="driver-installation"></a>Instalación del controlador
 
 1. Conéctese mediante Escritorio remoto a cada máquina virtual de la serie NVv4.
 
-2. Si necesita desinstalar la versión anterior del controlador, descargue la utilidad de limpieza de AMD [aquí](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). No use la utilidad que se incluye con la versión anterior del controlador.
+2. Si necesita desinstalar la versión anterior del controlador, descargue la [utilidad de limpieza de AMD ](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). No use la utilidad que se incluye con la versión anterior del controlador.
 
 3. Descargue e instale el controlador más reciente.
 

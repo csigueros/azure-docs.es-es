@@ -8,16 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: c5e683e1f5af42a69fac45c20f52169834967649
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c618ae7f63c1191bf440b5629057660531dd3d7c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788140"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121721771"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Pasos rápidos: Creación y uso de un par de claves pública-privada SSH para máquinas virtuales Linux en Azure
 
 Con un par de claves SSH puede crear una máquinas virtuales en Azure que usen claves SSH para la autenticación. En este artículo se muestra cómo generar y usar rápidamente un par de archivos de claves pública-privada SSH para máquinas virtuales Linux. Estos pasos se pueden completar con Azure Cloud Shell o un host de macOS o de Linux. 
+
+Para obtener ayuda acerca de la solución de problemas con SSH, consulte [Solución de problemas de conexión SSH a una máquina virtual Linux de Azure que producen error o se rechazan](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 > [!NOTE]
 > De forma predeterminada, las máquinas virtuales creadas con claves SSH están configuradas con las contraseñas deshabilitadas, lo que aumenta considerablemente la dificultad para tratar de adivinarlas por fuerza bruta. 
@@ -88,6 +90,12 @@ Con la clave pública implementada en la máquina virtual de Azure y la clave pr
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
+
+Si se conecta a esta máquina virtual por primera vez, se le pedirá que compruebe la huella digital del host. Es tentador aceptar simplemente la huella digital que se presenta, pero ese enfoque le expone a un posible ataque de tipo Man in the middle. Debe validar siempre la huella digital del host. Solo debe hacerlo la primera vez que se conecte desde un cliente. Para obtener la huella digital del host a través del portal, use la característica "Ejecutar comando" para ejecutar el comando `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
+
+:::image type="content" source="media/ssh-from-windows/run-command-validate-host-fingerprint.png" alt-text="Captura de pantalla que muestra el uso de la característica &quot;Ejecutar comando&quot; para validar la huella digital del host.":::
+
+Para ejecutar el comando mediante la CLI, use [`az vm run-command invoke`](/cli/azure/vm/run-command).
 
 Si especificó una frase de contraseña al crear el par de claves, escríbala cuando se lo soliciten durante el proceso de inicio de sesión. La máquina virtual se agrega al archivo ~/.ssh/known_hosts y no se le pedirá que se conecte de nuevo hasta que se modifique la clave pública de la máquina virtual de Azure o se quite el nombre del servidor de ~/.ssh/known_hosts.
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre el clúster básico y los componentes de
 services: container-service
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: b8a342730a6f37a5498e59e883b0f77b8bfabbb2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 4db6ee6d117f7743147dad43dcfff98dd99fd76d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372436"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733649"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -153,7 +153,7 @@ En un clúster de AKS con varios grupos de nodos, es posible que tenga que indic
 
 Los selectores de nodo le permiten definir varios parámetros, por ejemplo, el sistema operativo del nodo, para controlar dónde se debe programar un pod.
 
-El siguiente ejemplo básico programa una instancia de NGINX en un nodo Linux mediante el selector de nodos *"beta.kubernetes.io/os": linux*:
+El siguiente ejemplo básico programa una instancia de NGINX en un nodo Linux mediante el selector de nodos *"kubernetes.io/os": linux*:
 
 ```yaml
 kind: Pod
@@ -165,7 +165,7 @@ spec:
     - name: myfrontend
       image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
-    "beta.kubernetes.io/os": linux
+    "kubernetes.io/os": linux
 ```
 
 Para más información sobre cómo controlar pods en grupos de nodos, consulte [Procedimientos recomendados para las características avanzadas del programador en AKS][operator-best-practices-advanced-scheduler].

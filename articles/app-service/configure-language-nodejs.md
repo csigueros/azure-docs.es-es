@@ -6,16 +6,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 97db865f2c590a9d7700ee53a0380604885a8155
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: da7d617ab92ed0e9c7564813006e3a0c044a48b6
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076660"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195761"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configuración de una aplicación de Node.js para Azure App Service
 
-Las aplicaciones de Node.js deben implementarse con todas las dependencias de NPM. El motor de implementación de App Service ejecuta `npm install --production` automáticamente al implementar un [repositorio de Git](deploy-local-git.md) o un [paquete Zip](deploy-zip.md) con la automatización de compilaciones habilitada. Sin embargo, si implementa los archivos con [FTP/S](deploy-ftp.md), deberá cargar manualmente los paquetes necesarios.
+Las aplicaciones de Node.js deben implementarse con todas las dependencias de NPM. El motor de implementación de App Service ejecuta `npm install --production` automáticamente al implementar un [repositorio de Git](deploy-local-git.md) o un [paquete Zip](deploy-zip.md) [con la automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation). Sin embargo, si implementa los archivos con [FTP/S](deploy-ftp.md), deberá cargar manualmente los paquetes necesarios.
 
 Esta guía incluye conceptos clave e instrucciones para los desarrolladores de Node.js que realizan implementaciones en App Service. Si nunca ha usado Azure App Service, siga primero la [guía de inicio rápido de Node.js](quickstart-nodejs.md) y el [tutorial de Node.js con MongoDB](tutorial-nodejs-mongodb-app.md).
 
@@ -29,7 +29,7 @@ Para mostrar la versión actual de Node.js, ejecute el siguiente comando en [Clo
 az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
 ```
 
-Para mostrar todas las versiones compatibles de Node.js, ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com):
+Para mostrar todas las versiones compatibles de Node.js, vaya a `https://<sitename>.scm.azurewebsites.net/api/diagnostics/runtime` o ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes | grep node
@@ -63,7 +63,7 @@ Para establecer la aplicación en una [versión compatible de Node.js](#show-nod
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_NODE_DEFAULT_VERSION="10.15"
 ```
 
-Esta configuración especifica la versión de Node.js que usa, tanto en tiempo de ejecución como durante la restauración automatizada de paquetes durante la automatización de compilaciones de App Service.
+Esta configuración especifica la versión de Node.js que usa, tanto en tiempo de ejecución como durante la restauración automatizada de paquetes durante la automatización de compilaciones de App Service. Esta configuración solo reconoce las versiones secundarias principales, no se admite el moniker _LTS_.
 
 > [!NOTE]
 > Debe establecer la versión de Node.js en el archivo `package.json` del proyecto. El motor de implementación se ejecuta en un proceso independiente que contiene todas las versiones compatibles de Node.js.
@@ -119,7 +119,7 @@ app.listen(port, () => {
 
 ## <a name="customize-build-automation"></a>Personalización de la automatización de compilaciones
 
-Si implementa la aplicación utilizando paquetes Git o zip con la automatización de compilaciones activada, la automatización de compilaciones de App Service se ejecutará en este orden:
+Si implementa la aplicación mediante paquetes Git o zip [con la automatización de compilaciones activada](deploy-zip.md#enable-build-automation), la automatización de compilaciones de App Service se ejecutará en este orden:
 
 1. Ejecute el script personalizado si lo especifica `PRE_BUILD_SCRIPT_PATH`.
 1. Ejecute `npm install` sin marcas, lo que incluye los scripts de npm `preinstall` y `postinstall` y también instala `devDependencies`.
@@ -241,7 +241,7 @@ process.env.NODE_ENV
 
 ## <a name="run-gruntbowergulp"></a>Ejecutar Grunt, Bower o Gulp
 
-De manera predeterminada, la automatización de compilaciones de App Service ejecuta `npm install --production` cuando reconoce que una aplicación de Node.js se implementa a través de Git o implementación zip con la automatización de compilaciones habilitada. Si la aplicación requiere alguna de las herramientas de automatización más populares, como Grunt, Bower o Gulp, deberá suministrar un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) para ejecutarla.
+De manera predeterminada, la automatización de compilaciones de App Service ejecuta `npm install --production` cuando reconoce que una aplicación de Node.js se implementa a través de Git o a través de implementación zip [con la automatización de compilaciones habilitada](deploy-zip.md#enable-build-automation). Si la aplicación requiere alguna de las herramientas de automatización más populares, como Grunt, Bower o Gulp, deberá suministrar un [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) para ejecutarla.
 
 Para habilitar que el repositorio ejecute estas herramientas, deberá agregarlas a las dependencias en el archivo *package.json.* Por ejemplo:
 
@@ -320,7 +320,7 @@ fi
 
 ## <a name="detect-https-session"></a>Detección de sesión de HTTPS
 
-En App Service, la [terminación de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a su aplicación en forma de solicitudes HTTP sin cifrar. Si su aplicación lógica necesita comprobar si las solicitudes de usuario están cifradas, inspeccione el encabezado `X-Forwarded-Proto`.
+En App Service, la [terminación de TLS/SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a la aplicación como solicitudes HTTP sin cifrar. Si su aplicación lógica necesita comprobar si las solicitudes de usuario están cifradas, inspeccione el encabezado `X-Forwarded-Proto`.
 
 Los marcos web más usados le permiten acceder a la información de `X-Forwarded-*` en el patrón de aplicación estándar. En [Express](https://expressjs.com/), puede usar [trust proxy](https://expressjs.com/guide/behind-proxies.html). Por ejemplo:
 
@@ -384,6 +384,6 @@ Cuando una aplicación de Node.js en funcionamiento se comporta de manera difere
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [P+F sobre App Service en Linux](faq-app-service-linux.md)
+> [P+F sobre App Service en Linux](faq-app-service-linux.yml)
 
 ::: zone-end

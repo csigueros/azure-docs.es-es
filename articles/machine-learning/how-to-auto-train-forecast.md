@@ -1,26 +1,25 @@
 ---
-title: Entrenamiento automático de un modelo de previsión de series temporales
+title: Configuración de AutoML para la previsión de series temporales
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar Azure Machine Learning para entrenar un modelo de regresión de previsión de series temporales mediante aprendizaje automático automatizado.
+description: Configure AutoML de Azure Machine Learning para entrenar modelos de previsión de series temporales con el SDK de Azure Machine Learning para Python.
 services: machine-learning
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: contperf-fy21q1, automl
-ms.date: 08/20/2020
-ms.openlocfilehash: ae5aacf48fdc038e485226476509e14c551bfbfa
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
+ms.date: 06/11/2021
+ms.openlocfilehash: 87ee8e4b5d28628ae09eec83d7f72f44e762e34f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785212"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182292"
 ---
-# <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
+# <a name="set-up-automl-to-train-a-time-series-forecasting-model-with-python"></a>Configuración de AutoML para entrenar un modelo de previsión de series temporales con Python
 
-
-En este artículo aprenderá a configurar y entrenar un modelo de regresión de previsión de series temporales con aprendizaje automático automatizado, AutoML, en el [SDK de Python de Azure Machine Learning](/python/api/overview/azure/ml/). 
+En este artículo, obtendrá información sobre cómo configurar el entrenamiento de AutoML para modelos de previsión de series temporales con el aprendizaje automático automatizado de Azure Machine Learning en el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/).
 
 Para ello, haremos lo siguiente: 
 
@@ -29,9 +28,10 @@ Para ello, haremos lo siguiente:
 > * Configurar parámetros específicos de las serie temporales en un objeto [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 > * Ejecutar predicciones con los datos de serie temporal.
 
-Para obtener una experiencia con poco código, vea el [tutorial de previsión de la demanda con el automatizado de aprendizaje automático](tutorial-automated-ml-forecast.md) para obtener un ejemplo de previsión de serie temporal que usa el aprendizaje automático automatizado en [Azure Machine Learning Studio](https://ml.azure.com/).
+Para una experiencia con poco código, consulte [Tutorial: Previsión de la demanda con aprendizaje automático automatizado](tutorial-automated-ml-forecast.md) para ver un ejemplo de previsión de series temporales con AutoML en [Estudio de Azure Machine Learning](https://ml.azure.com/).
 
 A diferencia de los métodos de series temporales clásicos, en el aprendizaje automático automatizado, los valores de series temporales anteriores se "dinamizan" para convertirse en dimensiones adicionales del regresor, junto con otros indicadores. Este enfoque incorpora varias variables contextuales y su relación entre sí durante el entrenamiento. Dado que varios factores pueden influir en una previsión, este método se adapta bien a los escenarios de previsión reales. Por ejemplo, al prever ventas, las interacciones de las tendencias históricas, la tasa de cambio y el precio son motores conjuntos del resultado de ventas. 
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,9 +41,10 @@ Para realizar este artículo, necesitará lo siguiente
 
 * En este artículo se presupone una familiarización con la configuración de un experimento de aprendizaje de automático automatizado. Siga el [tutorial](tutorial-auto-train-models.md) o los [procedimientos](how-to-configure-auto-train.md) para ver los principales modelos de diseño del experimento de aprendizaje automático automatizado.
 
+    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 ## <a name="preparing-data"></a>Preparación de los datos
 
-La diferencia más importante entre el tipo de tarea de regresión de previsión y el de regresión en AutoML es que se incluye una característica en los datos que representa una serie de tiempo válida. Una serie de tiempo normal tiene una frecuencia coherente y bien definida, y un valor en cada punto de un intervalo de tiempo continuo. 
+La diferencia más importante entre el tipo de tarea de regresión de previsión y el de regresión en ML automatizado es que se incluye una característica en los datos que representa una serie de tiempo válida. Una serie de tiempo normal tiene una frecuencia coherente y bien definida, y un valor en cada punto de un intervalo de tiempo continuo. 
 
 Tenga en cuenta la siguiente instantánea de un archivo `sample.csv`.
 Este es un conjunto de datos de ventas diarios para una empresa que tiene dos almacenes diferentes, A y B. 
@@ -116,7 +117,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
-Obtenga más información sobre cómo AutoML aplica la validación cruzada para [evitar un sobreajuste de los modelos](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+Obtenga más información sobre cómo AutoML aplica la validación cruzada para [evitar un sobreajuste de los modelos](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
 ## <a name="configure-experiment"></a>Configuración del experimento
 
@@ -365,19 +366,28 @@ best_run, fitted_model = local_run.get_output()
 
 Use la mejor iteración del modelo para la previsión de valores para el conjunto de datos de prueba.
 
-La función `forecast()` permite especificaciones de cuándo se deben iniciar las predicciones, a diferencia de `predict()`, que se usa normalmente para las tareas de clasificación y regresión.
+La función [forecast_quantiles()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#forecast-quantiles-x-values--typing-any--y-values--typing-union-typing-any--nonetype----none--forecast-destination--typing-union-typing-any--nonetype----none--ignore-data-errors--bool---false-----azureml-data-abstract-dataset-abstractdataset) permite especificaciones de cuándo se deben iniciar las predicciones, a diferencia del método `predict()`, que se usa normalmente para las tareas de clasificación y regresión. El método forecast_quantiles() genera de manera predeterminada una previsión de punto o una previsión de media o mediana que no tiene un cono de incertidumbre en torno a ella. 
 
-En el siguiente ejemplo, primero se reemplazan todos los valores de `y_pred` con `NaN`. En este caso, el origen de la previsión estará al final de los datos de entrenamiento. Sin embargo, si reemplazó solo la segunda mitad de `y_pred` con `NaN`, la función dejó intactos los valores numéricos de la primera, pero realizó la previsión de los valores de `NaN` de la segunda mitad. La función devuelve tanto los valores previstos como las características alineadas.
+En el siguiente ejemplo, primero se reemplazan todos los valores de `y_pred` con `NaN`. En este caso, el origen de la previsión está al final de los datos de entrenamiento. Sin embargo, si reemplazó solo la segunda mitad de `y_pred` con `NaN`, la función dejó intactos los valores numéricos de la primera, pero realizó la previsión de los valores de `NaN` de la segunda mitad. La función devuelve tanto los valores previstos como las características alineadas.
 
-También puede usar el parámetro `forecast_destination` de la función `forecast()` para la previsión de valores hasta una fecha especificada.
+También puede usar el parámetro `forecast_destination` de la función `forecast_quantiles()` para la previsión de valores hasta una fecha especificada.
 
 ```python
 label_query = test_labels.copy().astype(np.float)
 label_query.fill(np.nan)
-label_fcst, data_trans = fitted_model.forecast(
+label_fcst, data_trans = fitted_model.forecast_quantiles(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
+A menudo, los clientes quieren comprender las predicciones en un cuantil específico de la distribución. Por ejemplo, cuando se usa la previsión para controlar el inventario, como artículos de alimentación o máquinas virtuales para un servicio en la nube. En tales casos, el punto de control suele ser algo parecido a "queremos que el elemento tenga existencias y no esté agotado el 99 % del tiempo". A continuación se muestra cómo especificar qué cuantiles desea ver para las predicciones, como el percentil 50 o 95. Si no especifica un cuantil, como en el ejemplo de código mencionado anteriormente, solo se generan las predicciones del percentil 50. 
+
+```python
+# specify which quantiles you would like 
+fitted_model.quantiles = [0.05,0.5, 0.9]
+fitted_model.forecast_quantiles(
+    test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+```
+ 
 Calcule la raíz del error cuadrático medio (RMSE) entre los valores de `actual_labels` reales y los previstos en `predict_labels`.
 
 ```python
@@ -387,7 +397,8 @@ from math import sqrt
 rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
-
+ 
+ 
 Ahora que se ha determinado la precisión del modelo global, el siguiente paso más realista es usar este para prever valores futuros desconocidos. 
 
 Proporcione un conjunto de datos en el mismo formato que el de prueba (`test_data`) pero con fechas y horas futuras y el conjunto de predicción resultante son los valores previstos para cada paso de la serie temporal. Supongamos que los últimos registros de la serie temporal en el conjunto de datos fueron del 31/12/2018. Para prever la demanda para el día siguiente (o para los períodos que necesite previsión, <= `forecast_horizon`), cree un único registro de serie de tiempo para cada almacén para el 01/01/2019.
@@ -398,13 +409,13 @@ day_datetime,store,week_of_year
 01/01/2019,A,1
 ```
 
-Repita los pasos necesarios para cargar estos datos futuros a una trama de datos y ejecute `best_run.forecast(test_data)` para predecir los valores futuros.
+Repita los pasos necesarios para cargar estos datos futuros a una trama de datos y ejecute `best_run.forecast_quantiles(test_data)` para predecir los valores futuros.
 
 > [!NOTE]
 > Las predicciones en el ejemplo no se admiten para la previsión con aprendizaje automático automatizado cuando se habilitan `target_lags` o `target_rolling_window_size`.
 
-
 ## <a name="example-notebooks"></a>Cuadernos de ejemplo
+
 Consulte los [cuadernos de ejemplo de previsión](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para ejemplos de código detallados de la configuración de predicciones avanzada, que incluye:
 
 * [detección y caracterización de festividades](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
@@ -417,5 +428,4 @@ Consulte los [cuadernos de ejemplo de previsión](https://github.com/Azure/Machi
 
 * Obtenga más información sobre [cómo y dónde implementar un modelo](how-to-deploy-and-where.md).
 * Obtenga más información sobre la [Capacidad de interpretación: explicaciones de los modelos en el aprendizaje automático automatizado (versión preliminar)](how-to-machine-learning-interpretability-automl.md). 
-* Obtenga información sobre cómo entrenar varios modelos con AutoML en [Acelerador de soluciones de muchos modelos](https://aka.ms/many-models).
-* Siga el [tutorial](tutorial-auto-train-models.md) para obtener un ejemplo de un extremo a otro para crear experimentos con el aprendizaje automático automatizado.
+* Consulte [Tutorial: Entrenamiento de un modelo de regresión con AutoML y Python](tutorial-auto-train-models.md) para obtener un ejemplo completo para crear experimentos con aprendizaje automático automatizado.

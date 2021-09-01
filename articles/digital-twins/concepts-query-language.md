@@ -4,24 +4,24 @@ titleSuffix: Azure Digital Twins
 description: Información sobre los aspectos básicos del lenguaje de consulta de Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 4/22/2021
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8a5a092da37b453b719669109bd4924b032c0604
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 00bc85b06bd734a075ff9a9ca2baf3fe58e95623
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616229"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253631"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Acerca del lenguaje de consulta para Azure Digital Twins
 
 Recuerde que el centro de Azure Digital Twins es el [grafo de gemelos](concepts-twins-graph.md), que se crea partir de gemelos digitales y relaciones. 
 
-Este grafo se puede consultar para obtener información sobre los gemelos digitales y las relaciones que contiene. Estas consultas se escriben en un lenguaje de consulta personalizado similar a SQL al que se conoce como **lenguaje de consulta de Azure Digital Twins**. Es similar al [lenguaje de consulta de IoT Hub](../iot-hub/iot-hub-devguide-query-language.md) con muchas características comparables.
+Este grafo se puede consultar para obtener información sobre los gemelos digitales y las relaciones que contiene. Estas consultas se escriben en un lenguaje de consulta personalizado similar a SQL al que se conoce como **lenguaje de consulta de Azure Digital Twins**. Este lenguaje es similar al [lenguaje de consulta de IoT Hub](../iot-hub/iot-hub-devguide-query-language.md) con muchas características comparables.
 
-En este artículo se describen los aspectos básicos del lenguaje de consulta y sus funcionalidades. Para ver ejemplos más detallados de la sintaxis de consulta y cómo ejecutar solicitudes de consulta, consulte  [Consulta del grafo gemelo de Azure Digital Twins](how-to-query-graph.md).
+En este artículo se describen los aspectos básicos del lenguaje de consulta y sus funcionalidades. Puede ver ejemplos más detallados de la sintaxis de consulta y cómo ejecutar solicitudes de consulta en [Consulta del grafo gemelo de Azure Digital Twins](how-to-query-graph.md).
 
 ## <a name="about-the-queries"></a>Acerca de las consultas
 
@@ -31,7 +31,7 @@ Puede usar el lenguaje de consulta de Azure Digital Twins para recuperar gemelos
 * relationships
   - propiedades de las relaciones
 
-Para enviar una consulta al servicio desde una aplicación cliente, usará la [API Query](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins. Una manera de usar la API es a mediante uno de los [SDK de Azure Digital Twins](concepts-apis-sdks.md#overview-data-plane-apis).
+Para enviar una consulta al servicio desde una aplicación cliente, usará la [API de consulta](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins. Una manera de usar la API es a mediante uno de los [SDK de Azure Digital Twins](concepts-apis-sdks.md#overview-data-plane-apis).
 
 [!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
@@ -47,4 +47,4 @@ Al escribir consultas para Azure Digital Twins, tenga en cuenta las consideracio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo escribir consultas y ver ejemplos de código de cliente en [Procedimientos para consultar el grafo de gemelos](how-to-query-graph.md).
+Obtenga información sobre cómo escribir consultas y ver ejemplos de código de cliente en [Consulta del grafo gemelo de Azure Digital Twins](how-to-query-graph.md).

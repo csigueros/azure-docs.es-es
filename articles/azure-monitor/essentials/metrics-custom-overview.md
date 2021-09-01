@@ -5,13 +5,13 @@ author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/13/2021
-ms.openlocfilehash: e6db49d34c39df2e1863dfa51914e30e9f1e1636
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.date: 06/01/2021
+ms.openlocfilehash: a456db938d1607565525aea7ab2e9b43bc368aeb
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897098"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195200"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas en Azure Monitor (versión preliminar)
 
@@ -192,10 +192,7 @@ Durante la versión preliminar pública, la capacidad de publicar métricas pers
 |Región de Azure |Prefijo del punto de conexión regional|
 |---|---|
 | Todas las regiones de la nube pública | https://<azure_region_code>.monitoring.azure.com |
-| **Azure Government** | |
-| US Gov: Arizona | https:\//usgovarizona.monitoring.azure.us |
-| **China** | |
-| Este de China 2 | https:\//chinaeast2.monitoring.azure.cn |
+
 
 ## <a name="latency-and-storage-retention"></a>Latencia y retención del almacenamiento
 
@@ -234,9 +231,9 @@ De nuevo, este límite no corresponde a una métrica individual. Corresponde a l
 
 Si tiene una variable en el nombre o una dimensión de cardinalidad alta, puede ocurrir lo siguiente:
 - Las métricas se vuelven poco confiables debido a la limitación
-- El explorador de métricas deja de funcionar
+- Explorador de métricas no funcionará
 - Las alertas y las notificaciones se vuelven impredecibles
-- Los costos pueden aumentar inesperadamente: Microsoft no realiza ningún cobro mientras las métricas personalizadas con dimensiones están en versión preliminar pública. Sin embargo, una vez que los cargos comiencen en el futuro, incurrirá en cargos inesperados. La intención es cobrar por el consumo de métricas en función del número de series temporales supervisadas y el número de llamadas API realizadas.  
+- Los costos pueden aumentar inesperadamente: Microsoft no realizará ningún cobro de las métricas personalizadas con dimensiones mientras esta característica se encuentre en versión preliminar pública. Sin embargo, una vez que los cargos comiencen en el futuro, incurrirá en cargos inesperados. La intención es cobrar por el consumo de métricas en función del número de series temporales supervisadas y el número de llamadas API realizadas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Use métricas personalizadas desde distintos servicios: 

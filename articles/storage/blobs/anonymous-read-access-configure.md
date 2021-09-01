@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ba46c98a97b1ef7576cd54ab6227a18bb9cb059f
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: f8149be4e7e22366cf5d2ce130d3b6ec596ac782
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664937"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272006"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configuración de acceso de lectura público anónimo a contenedores y blobs
 
@@ -36,10 +36,10 @@ El acceso público a los datos siempre está prohibido de forma predeterminada. 
 
 En la tabla siguiente se resume el modo en que ambas opciones afectan a acceso público a un contenedor.
 
-| Configuración de acceso público | El acceso público está deshabilitado para un contenedor (configuración predeterminada) | El acceso público para un contenedor está establecido en Contenedor | El acceso público para un contenedor está establecido en Blob |
+|   | El nivel de acceso público del contenedor se establece en Privado (configuración predeterminada). | El nivel de acceso público del contenedor se establece en Contenedor. | El nivel de acceso público del contenedor se establece en Blob. |
 |--|--|--|--|
-| El acceso público no está permitido para la cuenta de almacenamiento | No hay acceso público a ningún contenedor de la cuenta de almacenamiento. | No hay acceso público a ningún contenedor de la cuenta de almacenamiento. La configuración de la cuenta de almacenamiento invalida la configuración del contenedor. | No hay acceso público a ningún contenedor de la cuenta de almacenamiento. La configuración de la cuenta de almacenamiento invalida la configuración del contenedor. |
-| El acceso público está permitido para la cuenta de almacenamiento (configuración predeterminada) | No hay acceso público a este contenedor (configuración predeterminada). | Se permite el acceso público a este contenedor y sus blobs. | Se permite el acceso público a los blobs de este contenedor, pero no al propio contenedor. |
+| **El acceso público no está permitido para la cuenta de almacenamiento** | No hay acceso público a ningún contenedor de la cuenta de almacenamiento. | No hay acceso público a ningún contenedor de la cuenta de almacenamiento. La configuración de la cuenta de almacenamiento invalida la configuración del contenedor. | No hay acceso público a ningún contenedor de la cuenta de almacenamiento. La configuración de la cuenta de almacenamiento invalida la configuración del contenedor. |
+| **El acceso público está permitido para la cuenta de almacenamiento (configuración predeterminada)** | No hay acceso público a este contenedor (configuración predeterminada). | Se permite el acceso público a este contenedor y sus blobs. | Se permite el acceso público a los blobs de este contenedor, pero no al propio contenedor. |
 
 ## <a name="allow-or-disallow-public-read-access-for-a-storage-account"></a>Habilitación o deshabilitación del permiso de acceso de lectura público a una cuenta de almacenamiento
 
@@ -79,7 +79,7 @@ $location = "<location>"
 
 # Create a storage account with AllowBlobPublicAccess set to true (or null).
 New-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS
     -AllowBlobPublicAccess $false
@@ -89,7 +89,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 # Set AllowBlobPublicAccess set to false
 Set-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -AllowBlobPublicAccess $false
 
 # Read the AllowBlobPublicAccess property.
@@ -209,7 +209,7 @@ Cuando el acceso público no está permitido en la cuenta de almacenamiento, no 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para actualizar el nivel de acceso público de uno o varios contenedores con PowerShell, llame al comando [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl). Para autorizar esta operación, use la clave de su cuenta, una cadena de conexión o una firma de acceso compartido (SAS). La operación [Set Container ACL](/rest/api/storageservices/set-container-acl) (Establecer ACL de contenedor) que establece el nivel de acceso público del contenedor no admite la autorización con Azure AD. Para obtener más información, consulte [Permisos para llamar a operaciones de datos de blobs y colas](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Para actualizar el nivel de acceso público de uno o varios contenedores con PowerShell, llame al comando [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl). Para autorizar esta operación, use la clave de su cuenta, una cadena de conexión o una firma de acceso compartido (SAS). La operación [Set Container ACL](/rest/api/storageservices/set-container-acl) (Establecer ACL de contenedor) que establece el nivel de acceso público del contenedor no admite la autorización con Azure AD. Para obtener más información, consulte [Permisos para llamar a operaciones de datos de blobs y colas](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 En el ejemplo siguiente se crea un contenedor con el acceso público deshabilitado y, a continuación, se actualiza la configuración de acceso público del contenedor para permitir el acceso anónimo al contenedor y sus blobs. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
 
@@ -240,7 +240,7 @@ Cuando el acceso público no está permitido en la cuenta de almacenamiento, no 
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para actualizar el nivel de acceso público de uno o varios contenedores con la CLI de Azure, llame al comando [az storage container set permission](/cli/azure/storage/container#az_storage_container_set_permission). Para autorizar esta operación, use la clave de su cuenta, una cadena de conexión o una firma de acceso compartido (SAS). La operación [Set Container ACL](/rest/api/storageservices/set-container-acl) (Establecer ACL de contenedor) que establece el nivel de acceso público del contenedor no admite la autorización con Azure AD. Para obtener más información, consulte [Permisos para llamar a operaciones de datos de blobs y colas](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Para actualizar el nivel de acceso público de uno o varios contenedores con la CLI de Azure, llame al comando [az storage container set permission](/cli/azure/storage/container#az_storage_container_set_permission). Para autorizar esta operación, use la clave de su cuenta, una cadena de conexión o una firma de acceso compartido (SAS). La operación [Set Container ACL](/rest/api/storageservices/set-container-acl) (Establecer ACL de contenedor) que establece el nivel de acceso público del contenedor no admite la autorización con Azure AD. Para obtener más información, consulte [Permisos para llamar a operaciones de datos de blobs y colas](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 En el ejemplo siguiente se crea un contenedor con el acceso público deshabilitado y, a continuación, se actualiza la configuración de acceso público del contenedor para permitir el acceso anónimo al contenedor y sus blobs. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
 
@@ -301,4 +301,4 @@ Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 
 - [Impedir el acceso de lectura público anónimo a contenedores y blobs](anonymous-read-access-prevent.md)
 - [Acceso anónimo a contenedores y blobs públicos con .NET](anonymous-read-access-client.md)
-- [Autorización del acceso a Azure Storage](../common/storage-auth.md)
+- [Autorización del acceso a Azure Storage](../common/authorize-data-access.md)
