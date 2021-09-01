@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, sstein
-ms.date: 05/11/2021
-ms.openlocfilehash: 4d06ec600f71e682c9faadf3760ee76bb41c40b2
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.reviewer: vanto
+ms.date: 08/11/2021
+ms.openlocfilehash: 29479aa35146630162226ff392f3924bc59ea8ae
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021004"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735626"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configuración y administración de la autenticación de Azure AD con Azure SQL
 
@@ -302,7 +302,7 @@ Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Serve
 El parámetro de entrada **DisplayName** acepta tanto el nombre para mostrar de Azure AD, como el nombre principal de usuario. Por ejemplo, ``DisplayName="John Smith"`` y ``DisplayName="johns@contoso.com"``. En los grupos de Azure AD solo se admite el nombre para mostrar de Azure AD.
 
 > [!NOTE]
-> El comando ```Set-AzSqlServerActiveDirectoryAdministrator``` de Azure PowerShell no le impedirá aprovisionar administradores de Azure AD para usuarios no admitidos. Es posible aprovisionar un usuario no admitido, pero no podrá conectarse a una base de datos.
+> El comando `Set-AzSqlServerActiveDirectoryAdministrator` de Azure PowerShell no le impedirá aprovisionar administradores de Azure AD para usuarios no admitidos. Es posible aprovisionar un usuario no admitido, pero no podrá conectarse a una base de datos.
 
 En el ejemplo siguiente se usa el elemento opcional **ObjectID**:
 
@@ -386,10 +386,14 @@ Sin embargo, el uso de la autenticación de Azure Active Directory con SQL Datab
 > [!WARNING]
 > No se admiten caracteres especiales, como los dos puntos (`:`) o la "y" comercial (`&`), en los nombres de usuario de las instrucciones `CREATE LOGIN` y `CREATE USER` de T-SQL.
 
+> [!IMPORTANT]
+> No se admite que los usuarios y las entidades de servicio de Azure AD (aplicaciones de Azure AD) que forman parte de más de 2048 grupos de seguridad de Azure AD inicien sesión en la base de datos en SQL Database, Instancia administrada o Azure Synapse.
+
+
 Para crear un usuario de base de datos independiente basada en Azure AD (que no sea el administrador del servidor que es el propietario de la base de datos), conéctese a la base de datos con una identidad de Azure AD, como un usuario con al menos el permiso **ALTER ANY USER** . Después, use la sintaxis de Transact-SQL siguiente:
 
 ```sql
-CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
+CREATE USER [<Azure_AD_principal_name>] FROM EXTERNAL PROVIDER;
 ```
 
 *Azure_AD_principal_name* puede ser el nombre principal de usuario de un usuario de Azure AD, o el nombre para mostrar de un grupo de Azure AD.

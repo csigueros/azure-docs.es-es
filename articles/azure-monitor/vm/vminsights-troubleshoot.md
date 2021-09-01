@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: 59b4f38efde2416687702647031d2b37553ff8ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7bcce4d18f6bcfe299a31dae3eb036bef12da9b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103555158"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729282"
 ---
 # <a name="troubleshoot-vm-insights"></a>Solución de problemas de VM insights
 En este artículo se proporciona información para la solución de los problemas que surgen al habilitar o usar VM insights.
@@ -39,12 +39,12 @@ Si sigue viendo un mensaje que indica que la máquina virtual debe incorporarse,
 | Sistema operativo | Agentes | 
 |:---|:---|
 | Windows | MicrosoftMonitoringAgent<br>Microsoft.Azure.Monitoring.DependencyAgent |
-| Linux | OMSAgentForLinux<br>DependencyAgentForLinux |
+| Linux | OMSAgentForLinux<br>DependencyAgentLinux |
 
 Si no ve las dos extensiones del sistema operativo en la lista de extensiones instaladas, deben instalarse. Si aparecen las extensiones pero su estado no aparece como *Aprovisionamiento realizado correctamente*, hay que quitar la extensión y volver a instalarla.
 
 ### <a name="do-you-have-connectivity-issues"></a>¿Tiene problemas de conectividad?
-En máquinas Windows, puede usar la herramienta *TestCloudConnectivity* para identificar el problema de conectividad. La herramienta se instala de forma predeterminada con el agente en la carpeta *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*. Ejecute la herramienta en un símbolo del sistema con privilegios elevados. Devolverá resultados y resaltará dónde se produce un error en la prueba. 
+En máquinas Windows, puede usar la herramienta *TestCloudConnectivity* para identificar el problema de conectividad. Esta herramienta se instala de manera predeterminada con el agente en la carpeta *%SystemRoot%\Archivos de programa\Microsoft Monitoring Agent\Agent*. Ejecute la herramienta en un símbolo del sistema con privilegios elevados. Devolverá resultados y resaltará dónde se produce un error en la prueba. 
 
 ![Herramienta TestCloudConnectivity](media/vminsights-troubleshoot/test-cloud-connectivity.png)
 
@@ -61,17 +61,17 @@ Si los agentes parecen estar instalados correctamente pero no ve ningún dato en
 ### <a name="has-your-log-analytics-workspace-reached-its-data-limit"></a>¿El área de trabajo Log Analytics ha alcanzado su límite de datos?
 Compruebe las [reservas de capacidad y los precios de la ingesta de datos](https://azure.microsoft.com/pricing/details/monitor/).
 
-### <a name="is-your-virtual-machine-sending-log-and-performance-data-to-azure-monitor-logs"></a>¿La máquina virtual envía datos de registro y de rendimiento a los registros de Azure Monitor?
+### <a name="is-your-virtual-machine-agent-connected-to-azure-monitor-logs"></a>¿El agente de máquina virtual está conectado a los registros de Azure Monitor?
 
 Abra Log Analytics desde **Registros** en el menú Azure Monitor de Azure Portal. Realice la consulta siguiente para el equipo:
 
 ```kuso
-Usage 
-| where Computer == "my-computer" 
-| summarize sum(Quantity), any(QuantityUnit) by DataType
+Heartbeat
+| where Computer == "my-computer"
+| sort by TimeGenerated desc 
 ```
 
-Si no ve ningún dato, puede que tenga problemas con el agente. Consulte la sección anterior para obtener información sobre la solución de problemas del agente.
+Si no ve ningún dato o si el equipo no ha enviado un latido recientemente, es posible que tenga problemas con el agente. Consulte la sección anterior para obtener información sobre la solución de problemas del agente.
 
 ## <a name="virtual-machine-doesnt-appear-in-map-view"></a>La máquina virtual no aparece en la vista de mapa
 

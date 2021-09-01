@@ -3,25 +3,25 @@ title: 'Grabación de ejemplos de voz personalizada: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Para crear una voz personalizada con calidad de producción, prepare un guion sólido, contrate un buen actor de voz y realice la grabación de manera profesional.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: erhopf
-ms.openlocfilehash: 0c58369392940dbb34e222693cb026f4fd84c8bd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.author: lajanuar
+ms.openlocfilehash: 6384cd5a7f4fdd2441bcf14f24f8f36bd2f73d12
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458989"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122070239"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
 
-Crear una voz neuronal personalizada con alta calidad de producción desde cero no es una tarea ocasional. El componente central de una voz neuronal personalizada es una gran colección de muestras de audio de voz humana. Es fundamental que estas grabaciones de audio sean de alta calidad. Elija un actor de voz que tenga experiencia en esta clase de grabaciones y un ingeniero de grabación que las grabe con un equipo profesional.
+Crear una voz neuronal personalizada con alta calidad de producción desde cero no es una tarea fácil. El componente central de una voz neuronal personalizada es una gran colección de muestras de audio de voz humana. Es fundamental que estas grabaciones de audio sean de alta calidad. Elija un actor de voz que tenga experiencia en esta clase de grabaciones y un ingeniero de grabación que las grabe con un equipo profesional.
 
-No obstante, para poder realizar estas grabaciones, necesita un guion: las palabras que dirá el actor de voz para crear las muestras de audio. Para obtener mejores resultados, el guion debe tener una buena cobertura fonética y variedad suficiente para entrenar el modelo de voz neuronal personalizada.
+No obstante, para poder realizar estas grabaciones, necesita un guion: las palabras que dirá el actor de voz para crear las muestras de audio.
 
 Muchos detalles pequeños pero importantes intervienen en la creación de una grabación de voz profesional. Esta guía es una guía básica de un proceso que le ayudará a obtener resultados buenos y uniformes.
 
@@ -32,9 +32,6 @@ Muchos detalles pequeños pero importantes intervienen en la creación de una gr
 Esta frase se usará para comprobar si los datos de entrenamiento se corresponden con la persona que otorga el consentimiento. Para más información sobre la comprobación del talento de voz, consulte [aquí](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 > Voz neuronal personalizada está disponible con acceso limitado. Asegúrese de comprender los [requisitos de IA responsable](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) y [aplicar el acceso aquí](https://aka.ms/customneural). 
-
-> [!TIP]
-> Para conseguir resultados de máxima calidad, considere la posibilidad de acudir a Microsoft para ayudar a desarrollar su voz neuronal personalizada. Microsoft posee una gran experiencia en producir voces de alta calidad para sus propios productos, como Cortana y Office.
 
 ## <a name="voice-recording-roles"></a>Roles de grabación de voz
 
@@ -51,11 +48,11 @@ Un usuario individual puede desempeñar más de un rol. En esta guía se da por 
 
 ## <a name="choose-your-voice-talent"></a>Elección del actor de voz
 
-Los actores con experiencia en voz en off o en poner voz a personajes serán unos buenos actores de voz neuronal personalizada. También pueden desempeñar bien este rol presentadores y locutores. Elija un actor cuya voz natural le guste. Aunque se pueden crear voces de "personaje" únicas, para los actores de voz es mucho más difícil conseguir locuciones uniformes y el esfuerzo puede dar lugar a que fuercen la voz. El único factor más importante para elegir el actor de voz es la uniformidad. Las grabaciones deben sonar como que si se realizaran el mismo día en la misma sala. Puede aproximarse a este ideal con unas buenas prácticas y una buena ingeniería de grabación.
+Los actores con experiencia en voz en off o en poner voz a personajes serán unos buenos actores de voz neuronal personalizada. También pueden desempeñar bien este rol presentadores y locutores. Elija un actor cuya voz natural le guste. Aunque se pueden crear voces de "personaje" únicas, para los actores de voz es mucho más difícil conseguir locuciones uniformes y el esfuerzo puede dar lugar a que fuercen la voz. El único factor más importante para elegir el actor de voz es la uniformidad. Las grabaciones del mismo estilo de voz deben sonar como si se realizaran el mismo día en la misma sala. Puede aproximarse a este ideal con unas buenas prácticas y una buena ingeniería de grabación.
 
 Su actor de voz es la otra mitad de la ecuación. Debe ser capaz de hablar a una velocidad, con un nivel de volumen y un tono uniformes. Es obligatorio una dicción clara. El actor también debe ser capaz de controlar estrictamente la variación de su tono, el efecto emocional y los manierismos del habla. La grabación de muestras de voz puede causar más fatiga que otros trabajos de voz. La mayoría de los actores de voz pueden grabar durante dos o tres horas al día. Limite las sesiones a tres o cuatro a la semana, con un día de descanso entre medias si es posible.
 
-Colabore con el actor de voz para desarrollar una "persona" que defina el sonido y el tono emocional general de la voz neuronal personalizada. En el proceso, identificará lo que suena "neutro" para esa persona. Mediante la funcionalidad de Voz neuronal personalizada, puede entrenar un modelo que hable con emociones. Defina "estilos de habla" y pida al talento de voz que lea el script de tal manera que reproduzca los estilos que desea.  
+Colabore con el actor de voz para desarrollar una "persona" que defina el sonido y el tono emocional general de la voz neuronal personalizada. En el proceso, identificará lo que suena "neutro" para esa persona. Mediante la funcionalidad de Voz neuronal personalizada, puede entrenar un modelo que hable con emociones. Defina "estilos de habla" y pida al actor de voz que lea el guión de tal manera que reproduzca los estilos que desea.  
 
 Es posible que, por ejemplo, una persona tenga una personalidad animada por naturaleza. Por tanto, "su" voz puede transmitir una nota de optimismo incluso aunque hable de forma neutra. Sin embargo, tal rasgo de personalidad debe ser sutil y uniforme. Escuche las lecturas de voces existentes para hacerse una idea de lo que busca.
 
@@ -68,15 +65,71 @@ El punto de partida de cualquier sesión de grabación de voz neuronal personali
 
 Los enunciados del guion pueden proceder de cualquier parte: ficción, no ficción, transcripciones de voces, informes de noticias y cualquier cosa disponible en formato impreso. Si quiere asegurarse de que su voz funcione bien con clases de palabras específicas (como terminología médica o jerga de programación), podría incluir oraciones de trabajos académicos o documentos técnicos. Para obtener una breve descripción de los posibles problemas legales, vea la sección ["Aspectos legales"](#legalities). También puede escribir su propio texto.
 
-Las expresiones no tienen que proceder de la misma fuente, o de la misma clase de fuente. Incluso no es necesario que tengan nada que ver unos con otros. Sin embargo, si va a usar frases hechas (por ejemplo, "Ha iniciado sesión correctamente") en la aplicación de voz, asegúrese de incluirlas en el guion. De esta forma, la voz neuronal personalizada tendrá una mejor oportunidad de pronunciar bien esas frases. Y si decide usar una grabación en lugar de voz sintetizada, ya la tendrá en la misma voz.
+Las expresiones no tienen que proceder de la misma fuente, o de la misma clase de fuente. Incluso no es necesario que tengan nada que ver unos con otros. Sin embargo, si va a usar frases hechas (por ejemplo, "Ha iniciado sesión correctamente") en la aplicación de voz, asegúrese de incluirlas en el guion. De esta forma, la voz neuronal personalizada tendrá una mayor probabilidad de pronunciar bien esas frases.
 
-Si bien la uniformidad es importante a la hora de elegir un actor de voz, la variedad es lo que distingue un buen guion. El guion debe incluir muchas palabras y frases diferentes con diversas longitudes de frase, estructuras y estados de ánimo. Cada sonido del idioma se debe representar varias veces y en varios contextos (lo que se conoce como *cobertura fonética*).
+Se recomienda que los guiones de grabación incluyan frases generales y oraciones específicas del dominio. Por ejemplo, si planea grabar 2000 frases, 1000 de ellas podrían ser frases generales, otras 1000 podrían ser frases del dominio de destino o caso de uso de la aplicación.  
 
-Además, el texto debe incorporar todas las formas en que puede representarse un sonido determinado al escribir, y colocar cada sonido en distintos lugares en las oraciones. Se deben incluir tanto oraciones afirmativas como preguntas y se deben leer con la entonación adecuada.
+Proporcionamos [guiones de ejemplo en los dominios "General", "Chat" y "Servicio al cliente" de cada idioma](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) para ayudarle a preparar los guiones de grabación. Puede usar estos guiones compartidos de Microsoft para las grabaciones directamente o usarlos como referencia para crear los suyos propios. La creación de una voz neuronal personalizada requiere al menos 300 frases grabadas como datos de entrenamiento.
 
-Es difícil escribir un guión que proporcione datos *suficientes* para permitir que Speech Studio genere una buena voz. En la práctica, la manera más sencilla de crear un guion que logre una sólida cobertura fonética es incluir un gran número de muestras. Las voces estándar que proporciona Microsoft se han creado a partir de decenas de miles de expresiones. Deberá estar preparado para grabar unos cuantos miles de expresiones como mínimo para generar una voz neuronal personalizada con calidad de producción.
+Puede seleccionar los guiones específicos del dominio entre las frases que se usarán para leer con la voz personalizada.
 
-Compruebe el guion con mucho cuidado para detectar posibles errores. Si es posible, que otra persona también lo revise. Cuando repase el guion con el actor de voz, es probable que detecte algunos errores más.
+### <a name="script-selection-criteria"></a>Criterios de selección del guión
+
+A continuación se muestran algunas directrices generales que puede seguir para crear un buen corpus (ejemplos de audio grabado) para el entrenamiento de Voz neuronal personalizada.
+
+-  Equilibra el guión para que abarque los distintos tipos de frases del dominio, incluidas afirmaciones, preguntas, exclamaciones, oraciones largas y cortas.
+
+   En general, cada frase debe contener entre 4 y 30 palabras. Es necesario que no se incluya ninguna oración duplicada en el guión.<br>
+   Para obtener información sobre cómo equilibrar los distintos tipos de frases, consulte la tabla siguiente.
+   
+   | Tipos de frases | Cobertura |
+   | :--------- | :--------------------------- |
+   | Frases afirmativas | Las frases afirmativas constituyen la parte principal del guión y suponen aproximadamente el 70-80 % de las frases. |
+   | Frases interrogativas | Las frases interrogativas deberían suponer entre el 10 y el 20 % del guión, incluyendo entre un 5 y un 10 % con tono ascendente y un 5-10 % con tono descendente. |
+   | Frases exclamativas| Las frases de exclamación deben suponer entre el 10 % y el 20 % de los guiones.|
+   | Respuestas cortas| Los guiones de respuestas cortas también deberían suponer aproximadamente el 10 % de las expresiones totales, con entre 5 y 7 palabras en cada caso. |
+
+   > [!NOTE]
+   > Con respecto a las respuestas cortas, esto en realidad significa que las palabras o frases únicas deben estar incluidas y separadas por comas. Esto ayuda a un actor de voz a hacer una breve pausa en la coma al leer el guión.
+
+   Algunos de los procedimientos recomendados son los siguientes:
+    - Distribución equilibrada de los componentes de las frases, como verbos, sustantivos, adjetivos, etc.  
+    - Inclusión equilibrada de distintas pronunciaciones. Incluya todas las letras de la A a la Z para que el motor de TTS aprenda a pronunciar cada letra en el estilo definido.
+    - El texto debe ser legible, comprensible y de sentido común para que el hablante lo lea.
+    - Evite patrones demasiado similares de palabras o frases, como "fácil" y "más fácil".
+    - Incluya formatos diferentes de números: para direcciones, unidades, teléfonos, cantidades, fechas, etc., en todos los tipos de oraciones.  
+    - Incluya oraciones ortográficas si es algo que la voz de TTS usará para leer. Por ejemplo, "Manzana se escribe M A N Z A N A".
+
+- No coloque varias oraciones en una sola línea o expresión. Separe cada línea por expresiones.
+
+- Asegúrese de que la frase sea sencilla. Por lo general, no incluya demasiadas palabras que no sean estándar, como números o abreviaturas, ya que suelen ser difíciles de leer. Es posible que alguna aplicación tenga que leer muchos números o acrónimos. En este caso, puede incluir estas palabras, pero normalícelas en su forma hablada.  
+
+   A continuación se muestran algunos procedimientos recomendados, por ejemplo:
+    - En el caso de líneas con abreviaturas, en lugar de "p.ej.", tiene "por ejemplo".
+    - Para las líneas con dígitos, en lugar de "112", tiene "uno uno dos".
+    - En el caso de las líneas con acrónimos, en lugar de "ABC", tiene "A B C". Teniendo eso en cuenta, asegúrese de que el actor de voz pronuncia estas palabras de la manera esperada. Haga que el guión y las grabaciones coincidan de forma coherente durante el proceso de entrenamiento.  
+
+   > [!NOTE]
+   > Los scripts preparados para el actor de voz deben seguir las convenciones de lectura nativas, como 50 % y 45 USD, mientras que los scripts usados para el entrenamiento deben estar normalizados para garantizar que los guiones coincidan con el contenido de audio, como *cincuenta por ciento* y *cuarenta y cinco dólares*. Compare los guiones utilizados para el entrenamiento con las grabaciones del actor de voz para asegurarse de que coinciden.
+
+- El guion debe incluir muchas palabras y frases diferentes con diferentes longitudes de frase, estructuras y estados de ánimo.  
+
+- Compruebe el guion con mucho cuidado para detectar posibles errores. Si es posible, que otra persona también lo revise. Cuando repase el guion con el actor de voz, es probable que detecte algunos errores más.
+
+### <a name="typical-defects-of-a-script"></a>Defectos típicos de un guión
+
+La mala calidad del guión puede afectar negativamente a los resultados del entrenamiento. Para lograr resultados de entrenamiento de alta calidad, es fundamental evitar los defectos.
+
+Los defectos de los guiones suelen pertenecer a las siguientes categorías:
+
+| Category | Ejemplo |
+| :--------- | :--------------------------- |
+| Incluir contenido sin sentido de alguna forma. | |
+| Frases incompletas. |- "Esta fue la última", (sin sujeto ni significado concretos) <br>- "El ya es obviamente gracioso (sin comillas al final, es una frase incompleta) |
+| Erratas en las frases. | - Empezar la frase con una letra minúscula<br>- No poner puntuación final cuando es necesario<br> - Errores ortográficos <br>- Falta de puntuación: ningún punto al final (excepto en titulares)<br>- Terminar con símbolos, a excepción de comas, signos de interrogación o exclamación <br>- Formato incorrecto, como:<br>    &emsp;- 45$ (debería ser $45)<br>      &emsp; - Sin espacios o con espacios excesivos entre palabras y signos de puntuación |
+|Duplicación de un formato similar. Uno por cada patrón es suficiente. |- "Ahora es la 1 de la tarde en Nueva York"<br>- "Ahora son las 2 de la tarde en Nueva York"<br>- "Ahora son las 3 de la tarde en Nueva York"<br>- "Ahora es la 1 de la tarde en Seattle"<br>- "Ahora es la 1 de la tarde en Washington D.C". |
+|Palabras extranjeras poco frecuentes: en nuestro guión solo se pueden aceptar palabras extranjeras utilizadas habitualmente. |  |
+|Emoticonos o cualquier otro símbolo poco frecuente. |  |
 
 ### <a name="script-format"></a>Formato del guion
 
@@ -84,11 +137,11 @@ Puede escribir el guion en Microsoft Word. El guion se usará durante la sesión
 
 Un formato de guion básico contiene tres columnas:
 
-* El número del enunciado, empezando por el 1. La numeración permite que todas las personas del estudio puedan consultar una expresión concreta ("probemos de nuevo el número 356"). Puede usar la característica de numeración de párrafos de Word para numerar las filas de la tabla de forma automática.
-* Una columna en blanco donde escribirá el número de toma o el código de tiempo de cada expresión para ayudarle a encontrarla en la grabación finalizada.
-* El propio texto del enunciado.
+- El número del enunciado, empezando por el 1. La numeración permite que todas las personas del estudio puedan consultar una expresión concreta ("probemos de nuevo el número 356"). Puede usar la característica de numeración de párrafos de Word para numerar las filas de la tabla de forma automática.
+- Una columna en blanco donde escribirá el número de toma o el código de tiempo de cada expresión para ayudarle a encontrarla en la grabación finalizada.
+- El propio texto del enunciado.
 
-![Script de ejemplo](media/custom-voice/script.png)
+ ![Script de ejemplo](media/custom-voice/script.png)
 
 > [!NOTE]
 > La mayoría de los estudios graban en segmentos cortos conocidos como *tomas*. Cada toma contiene normalmente de 10 a 24 expresiones. Basta con anotar el número de toma para después poder encontrar una expresión. Si graba en un estudio que prefiere realizar grabaciones más largas, querrá anotar entonces el código de tiempo. El estudio tendrá una gran pantalla de tiempo.
@@ -113,9 +166,72 @@ Afortunadamente, es posible evitar estos problemas por completo. Hay muchas fuen
 
 ## <a name="recording-your-script"></a>Grabación del guion
 
-Grabe el guion en un estudio de grabación profesional especializado en trabajos de voz. Dispondrá de una cabina de grabación, el equipo adecuado y las personas adecuadas correctas utilizarlo. Vale la pena no escatimar en la grabación.
+Grabe el guion en un estudio de grabación profesional especializado en trabajos de voz. Dispondrá de una cabina de grabación, el equipo adecuado y las personas adecuadas correctas utilizarlo. Se recomienda no escatimar en la grabación.
 
 Revise el proyecto con el ingeniero de grabación del estudio y escuche sus consejos. La grabación debe tener poca o ninguna compresión de rango dinámico (máximo 4:1). Es esencial que el audio tenga un volumen uniforme y una elevada relación señal-ruido, y que esté libre de sonidos no deseados.
+
+### <a name="recording-requirements"></a>Requisitos de grabación
+
+Para lograr resultados de entrenamiento de alta calidad, siga los siguientes requisitos durante la grabación o preparación de los datos:
+
+- Buena pronunciación
+
+- Velocidad natural: ni demasiado lento ni demasiado rápido entre archivos de audio.
+
+- Volumen adecuado, prosodia y pausas: estable dentro de la misma frase o entre frases, pausas correctas según la puntuación.
+
+- Sin ruido durante la grabación
+
+- Adecuado al diseño de la persona
+
+- Sin acento incorrecto: ajustado al diseño de destino
+
+- Sin pronunciación incorrecta
+
+Puede consultar la especificación siguiente para prepararse para los ejemplos de audio como procedimiento recomendado.
+
+| Propiedad | Value |
+| :--------- | :--------------------------- |
+| Formato de archivo | *.wav, Mono |
+| Frecuencia de muestreo |  24 KHz |
+| Formato de ejemplo | 16 bits, PCM |
+| Niveles máximos de volumen | -3 dB a -6 dB |
+| SNR |  > 35 dB |
+| Silencio |  - Debe haber algún silencio (se recomiendan 100 ms) al principio y al final, pero no más de 200 ms<br>- Silencio entre palabras o frases < -30 dB<br>- Silencio en el archivo de audio después de pronunciar la última palabra <-60 dB |
+| Ruido del entorno, eco |   - El nivel de ruido al inicio del archivo de sonido antes de hablar < -70 dB |
+
+> [!Note]
+> Puede grabar con una mayor frecuencia de muestreo y profundidad de bits, por ejemplo en el formato de 48 KHz, 24 bits, PCM. Durante el entrenamiento de voz personalizado, se bajará el muestreo a 24 KHz, 16 bits, PCM, automáticamente.
+
+### <a name="typical-audio-errors"></a>Errores de audio típicos
+
+Para obtener resultados de entrenamiento de alta calidad, se recomienda encarecidamente evitar errores de audio. Los errores de audio normalmente implican las siguientes categorías:
+
+- El nombre del archivo de audio no coincide con el identificador del guión.
+- El archivo WAR tiene un formato no válido y no se puede leer.
+- La velocidad de muestreo de audio es inferior a 16 KHz. También se recomienda que la velocidad de muestreo del archivo WAV sea igual o mayor que 24 KHz para una voz neuronal de alta calidad.
+- El pico de volumen no está dentro del intervalo de -3 dB (70 % del volumen máximo) a -6 dB (50 %).  
+- Desbordamiento de la forma de onda. Es decir, la forma de onda en su valor máximo se corta y, por tanto, no está completa.
+
+   ![desbordamiento de la forma de onda](media/custom-voice/overflow.png)
+
+- La parte de silencio no está limpia, hay ruido ambiente, ruidos de la boca y eco.
+
+  Por ejemplo, el audio siguiente contiene el ruido del entorno entre las frases.
+
+   ![ruido del entorno](media/custom-voice/environment-noise.png)
+
+   El ejemplo siguiente contiene ruidos de desplazamiento de corriente continua (DC offset) o eco.
+
+   ![Desplazamiento de corriente continua o eco](media/custom-voice/dc-offset-noise.png)
+
+- El volumen general es demasiado bajo. Los datos se etiquetarán como un problema si el volumen es inferior a -18 dB (10 % del volumen máximo). Asegúrese de que todos los archivos de audio sean coherentes en el mismo nivel de volumen.
+
+  ![volumen general](media/custom-voice/overall-volume.png)
+
+- No hay silencio antes de la primera palabra o después de la última. Además, el silencio inicial o final no debe ser superior a 200 ms ni inferior a 100 ms.
+
+  ![Sin silencio](media/custom-voice/no-silence.png)
 
 ### <a name="do-it-yourself"></a>Hágalo usted mismo
 
@@ -135,7 +251,7 @@ Use un atril para sostener el guion. Evite inclinar el atril para que pueda refl
 
 La persona que use el equipo de grabación, el ingeniero, debe estar en una habitación distinta de la del actor, con algún medio para comunicarse con él en la cabina de grabación (un *circuito de radio).*
 
-La grabación debe contener el menor ruido posible; el objetivo es una relación señal-ruido de 80 db o superior.
+La grabación debe contener el menor ruido posible; el objetivo es una relación señal-ruido de 80 db o superior.
 
 Escuche con atención la grabación de silencio en la cabina, averigüe de dónde proceden los ruidos y elimine la causa. Las fuentes habituales de ruido son los conductos de ventilación, los balastros de tubos fluorescentes, el tráfico de carreteras cercanas y los ventiladores de los equipos (incluso los portátiles pueden tener ventiladores). Los micrófonos y cables pueden captar el ruido eléctrico de los cables cercanos de CA, normalmente un zumbido o murmullo. Un zumbido también se puede producir por un *bucle de tierra*, que se genera al conectar un equipo a más de un circuito eléctrico.
 
@@ -150,7 +266,7 @@ Aquí, se usa la mayor parte del rango (alto), pero los picos más altos de la s
 
 Grabe directamente en el equipo informático mediante una interfaz de audio de alta calidad o un puerto USB, según el micrófono que vaya a usar. Si es analógico, use lo básico: micrófono, preamplificador, interfaz de audio, equipo informático. Tanto [Avid Pro Tools](https://www.avid.com/en/pro-tools) como [Adobe Audition](https://www.adobe.com/products/audition.html) se pueden usar con licencia mensual por un módico precio. Si su presupuesto es muy reducido, pruebe la aplicación gratuita [Audacity](https://www.audacityteam.org/).
 
-Grabe con sonido monofónico de 16 bits a 44,1 kHz (calidad de CD) o mejor. El más moderno actualmente es 24 bits a 48 kHz, si el equipo lo admite. Debe reducir la calidad del audio hasta 16 bits a 24 kHz antes de enviarlo a Speech Studio. Aun así, vale la pena tener una grabación original de alta calidad en caso de que sea necesario realizar modificaciones.
+Grabe con sonido monofónico de 16 bits a 44,1 KHz (calidad de CD) o mejor. El más moderno actualmente es 24 bits a 48 kHz, si el equipo lo admite. Debe reducir la calidad del audio hasta 16 bits a 24 KHz antes de enviarlo a Speech Studio. Aun así, vale la pena tener una grabación original de alta calidad en caso de que sea necesario realizar modificaciones.
 
 Lo ideal es tener distintas personas en los roles de director, ingeniero y actor. No intente hacerlo todo usted mismo. En caso de emergencia, la misma persona puede ser el director y el ingeniero.
 
@@ -178,11 +294,11 @@ El actor *no* debe agregar pausas claras entre las palabras. La frase debe fluir
 
 Al comienzo de la sesión, cree una grabación de referencia, o *archivo de ajuste,* de un enunciado típico. Pida al actor que repita esta línea cada página o página y media. Cada vez, compare la nueva grabación con la referencia. Esta práctica ayuda al actor a mantenerse en un volumen, tono y entonación constantes. Mientras tanto, el ingeniero puede usar el archivo de ajuste como referencia para los niveles y la uniformidad general del sonido.
 
-El archivo de ajuste es especialmente importante cuando se reanuda la grabación tras un descanso, u otro día. Lo reproducirá varias veces para el actor y le hará repetirlo cada vez hasta que la coincidencia sea perfecta.
+El archivo de ajuste es especialmente importante cuando se reanuda la grabación tras un descanso, u otro día. Reprodúzcalo varias veces para el actor y hágalo que lo repita hasta que la coincidencia sea perfecta.
 
 Entrene a su actor para respirar profundamente y hacer una pausa durante un momento antes de cada enunciado. Grabe un par de segundos de silencio entre enunciados. Las palabras se deben pronunciar de la misma manera cada vez que aparezcan, en función del contexto. Es importante mantener la coherencia en la pronunciación y en la entonación de las palabras.
 
-Grabe un silencio de aproximadamente cinco segundos antes de la primera grabación para capturar el "tono de la sala". Esta práctica ayuda a Speech Studio a compensar cualquier rastro de ruido que pueda quedar en las grabaciones.
+Grabe un silencio de aproximadamente cinco segundos antes de la primera grabación para capturar el "tono de la sala". Este procedimiento ayuda a Speech Studio a compensar el ruido de las grabaciones.
 
 > [!TIP]
 > Lo que realmente necesita es captar al actor de voz, por lo que puede hacer una grabación monofónica (un solo canal) de esas líneas concretas. Sin embargo, si graba en estéreo, puede usar el segundo canal para grabar la charla en la sala de control y capturar los comentarios de líneas o cortes determinados. Quite esta pista de la versión que se carga en Speech Studio.
@@ -198,17 +314,17 @@ Haga pausas cada cierto tiempo y ofrezca bebidas para ayudar a mantener la voz d
 
 ### <a name="after-the-session"></a>Después de la sesión
 
-Los estudios de grabación modernos funcionan en equipos informáticos. Al final de la sesión, recibirá uno o varios archivos de audio, no una cinta. Estos archivos tendrán probablemente el formato WAV o AIFF en calidad de CD (16 bits a 44,1 kHz) o superior. 24 bits a 48 kHz es lo habitual y deseable. Por lo general, no se necesitan velocidades de muestreo más altas, como 96 kHz.
+Los estudios de grabación modernos funcionan en equipos informáticos. Al final de la sesión, recibirá uno o varios archivos de audio, no una cinta. Estos archivos tendrán probablemente el formato WAV o AIFF en calidad de CD (16 bits a 44,1 KHz) o mejor. 16 bits a 24 kHz es lo habitual y deseable. La frecuencia de muestreo predeterminada para una voz neuronal personalizada es de 24 KHz.  Se recomienda usar una frecuencia de muestreo de 24 KHz para los datos de entrenamiento. Por lo general, no se necesitan velocidades de muestreo más altas, como 96 KHz.
 
 Speech Studio requiere que cada expresión proporcionada esté en su propio archivo. Los archivos de audio entregados por el estudio contienen varias expresiones. Así que la principal tarea de posproducción es separar las grabaciones y prepararlas para su envío. Es posible que el ingeniero de grabación haya colocado marcadores en el archivo (o proporcionado una lista de pistas independiente) para indicar dónde comienza cada expresión.
 
 Use sus notas para encontrar exactamente los cortes que quiera y, después, use una utilidad de edición de sonido, como [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), o la aplicación gratuita [Audacity](https://www.audacityteam.org/) para copiar las expresiones en un archivo nuevo.
 
-Deje solamente unos 0,2 segundos de silencio al principio y al final de cada clip, excepto para el primero. Ese archivo debe empezar con cinco segundos completos de silencio. No use un editor de audio para "poner a cero" las partes de silencio del archivo. Incluir el "tono de la sala" ayudará a los algoritmos a compensar los ruidos de fondo que hayan podido quedar.
+Deje solamente unos 0,2 segundos de silencio al principio y al final de cada clip, excepto para el primero. Ese archivo debe empezar con cinco segundos completos de silencio. No use un editor de audio para "poner a cero" las partes de silencio del archivo. Incluir el "tono de la sala" ayudará a los algoritmos a compensar los ruidos de fondo que hayan podido quedar.
 
 Escuche atentamente cada archivo. En esta fase, puede editar pequeños sonidos no deseados que pasó por alto durante la grabación, como ligeros ruidos con los labios antes de una línea, pero tenga cuidado de no quitar la voz real. Si no puede corregir un archivo, elimínelo del conjunto de datos y tome nota de que lo ha hecho.
 
-Convierta todos los archivos a 16 bits y una velocidad de muestreo de 24 kHz antes de guardar y, si graba la charla del estudio, quite el segundo canal. Guarde cada archivo en formato WAV y nombre los archivos con el número de enunciado del guion.
+Convierta todos los archivos a 16 bits y una velocidad de muestreo de 24 KHz antes de guardar y, si graba la charla del estudio, quite el segundo canal. Guarde cada archivo en formato WAV y nombre los archivos con el número de enunciado del guion.
 
 Por último, cree la *transcripción* que asocia cada archivo WAV con una versión de texto del enunciado correspondiente. [Creación de una voz personalizada](./how-to-custom-voice-create-voice.md) incluye los detalles del formato necesario. Puede copiar el texto directamente del guion. Después, cree un archivo ZIP de los archivos WAV y de la transcripción de texto.
 

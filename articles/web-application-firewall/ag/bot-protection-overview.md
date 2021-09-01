@@ -5,24 +5,21 @@ description: En este artículo se proporciona información general sobre la prot
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 05/20/2020
+ms.date: 07/30/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e01f9ac8966223e11ad218af7bf6fbb2462f28f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19453e987c276ae2716e06900ea2fc8ecc2a6ba6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83714906"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729427"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway-bot-protection-overview"></a>Información general de protección contra bots del firewall de aplicaciones web de Azure en Azure Application Gateway
 
 Aproximadamente el 20 % de todo el tráfico de Internet procede de bots maliciosos. Hacen cosas como recopilar, analizar y buscar vulnerabilidades en sus aplicaciones web. Cuando estos bots se detienen en el firewall de aplicaciones web (WAF), no pueden atacarle. Tampoco pueden usar sus recursos y servicios, como los back-ends y demás infraestructura subyacente.
 
 Puede habilitar un conjunto de reglas de protección contra bots administrado para que WAF bloquee o registre las solicitudes de direcciones IP malintencionadas conocidas. Las direcciones IP proceden de la fuente Inteligencia sobre amenazas de Microsoft. Intelligent Security Graph impulsa la inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center.
-
-> [!IMPORTANT]
-> El conjunto de reglas de protección contra bots se encuentra en versión preliminar pública y se proporciona con un Acuerdo de nivel de servicio de versión preliminar. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte  [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
 
 ## <a name="use-with-owasp-rulesets"></a>Uso con conjuntos de reglas de OWASP
 
@@ -63,4 +60,4 @@ A continuación se muestra una entrada de registro de ejemplo para la protecció
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configure la protección contra bots para el Firewall de aplicaciones web en Azure Application Gateway (versión preliminar)](bot-protection.md)
+- [Configure la protección contra bots para el Firewall de aplicaciones web en Azure Application Gateway](bot-protection.md)

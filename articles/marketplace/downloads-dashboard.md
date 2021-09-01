@@ -4,32 +4,33 @@ description: Obtenga información sobre cómo acceder a las solicitudes de desca
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: b014fd1a63865b8faac82a72dae25cadeadef280
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.reviewer: sroy
+ms.date: 08/21/2020
+ms.openlocfilehash: b0771ee85fc486d4fbcc4fb181b1ce0b7b7d47dd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542626"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731194"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Panel Descargas del análisis de marketplace comercial
 
 En este artículo se proporciona información sobre el panel Descargas del Centro de partners. En este panel se muestra una lista de las solicitudes de descarga de los últimos 30 días.
 
-Para acceder al panel Descargas, abra el panel **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** en el marketplace comercial.
-
 >[!NOTE]
-> Para obtener definiciones detalladas de la terminología de análisis, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](analytics-faq.md).
+> Para obtener definiciones detalladas de la terminología de análisis, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](analytics-faq.yml).
 
 ## <a name="downloads-dashboard"></a>Panel Descargas
 
-El panel **Descargas** del menú **Analizar** muestra las solicitudes de las descargas que contienen más de 1000 filas de datos de clientes o pedidos.
+El [panel Descargas](https://go.microsoft.com/fwlink/?linkid=2165766) muestra las solicitudes de las descargas que contienen más de 1000 filas de datos de clientes o pedidos.
 
 Recibirá una notificación emergente con un vínculo al panel **Descargas** cada vez que solicite una descarga con más de 1000 filas de datos. Estas descargas de datos estarán disponibles durante un período de 30 días y, a continuación, se quitarán.
 
 ## <a name="lifetime-export-of-commercial-marketplace-analytics-reports"></a>Exportación de la duración de los informes de análisis de marketplace comercial
+
+Para acceder al panel Descargas, abra el panel **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** en el marketplace comercial.
 
 En la página Descargas, el usuario final puede hacer lo siguiente:
 
@@ -54,9 +55,9 @@ Un usuario puede programar descargas asincrónicas de informes en la sección De
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre los informes de análisis disponibles en el marketplace comercial del Centro de partners, consulte [Análisis del marketplace comercial en el Centro de partners](analytics.md).
-- Para ver los gráficos, las tendencias y los valores de datos agregados que resuman la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](summary-dashboard.md).
+- Para ver los gráficos, las tendencias y los valores de datos agregados que resumen la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](summary-dashboard.md).
 - Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de marketplace comercial](orders-dashboard.md).
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](usage-dashboard.md).
 - Para obtener información detallada acerca de los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](customer-dashboard.md).
 - Para tener una vista consolidada de comentarios de los clientes sobre las ofertas de Azure Marketplace y AppSource, consulte [Panel Calificaciones y opiniones de los análisis de marketplace comercial](ratings-reviews.md).
-- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](analytics-faq.md).
+- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](analytics-faq.yml).

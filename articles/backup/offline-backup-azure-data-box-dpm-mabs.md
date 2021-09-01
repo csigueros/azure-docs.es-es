@@ -2,19 +2,18 @@
 title: Copia de seguridad sin conexión con Azure Data Box para DPM y MABS
 description: Puede usar Azure Data Box para propagar datos de copia de seguridad inicial sin conexión desde DPM y MABS.
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/29/2021
+ms.openlocfilehash: 568baf7351555511b58dba59bec404688a646126
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96752556"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730297"
 ---
-# <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagación sin conexión mediante Azure Data Box para DPM y MABS (versión preliminar)
+# <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs"></a>Propagación sin conexión mediante Azure Data Box para DPM y MABS
 
 > [!NOTE]
-> Esta característica se aplica a Data Protection Manager (DPM) 2019 UR2 y versiones posteriores.<br><br>
-> Esta característica está actualmente en versión preliminar para Microsoft Azure Backup Server (MABS). Si le interesa usar Azure Data Box para la propagación sin conexión con MABS, puede ponerse en contacto con nosotros en [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
+> Esta característica se aplica a Data Protection Manager (DPM) 2019 UR2 (y versiones posteriores) y a MABS v3 UR2 (y versiones posteriores).
 
 En este artículo se explica cómo usar Azure Data Box para propagar datos de copia de seguridad inicial sin conexión desde DPM y MABS a un almacén de Azure Recovery Services.
 
@@ -217,9 +216,15 @@ Para asegurarse de que el error se debe al [problema](#issue) anterior, realice 
 
 #### <a name="step-1"></a>Paso 1
 
-Compruebe si aparece el siguiente mensaje de error en la consola de DPM o MABS en el momento de configurar la copia de seguridad sin conexión:
+Compruebe si aparece uno de los siguientes mensajes de error en la consola de DPM o MABS en el momento de configurar la copia de seguridad sin conexión:
 
-![Agente de Azure Recovery Services](./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent.png)
+**No se puede crear la directiva Copia de seguridad sin conexión para la cuenta actual de Azure, ya que la información de autenticación de este servidor no se pudo cargar en Azure. (Id.: 100242)**
+
+:::image type="content" source="./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent.png" alt-text="Agente de Azure Recovery Services.":::
+
+**No se pueden realizar llamadas de servicio a Azure necesarias para consultar el estado del trabajo de importación y mover los datos de copia de seguridad al almacén de Recovery Services.** (Id.:100230)
+
+:::image type="content" source="./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent-error-screen.png" alt-text="Captura de pantalla de la pantalla de error del agente de Azure Recovery Services.":::
 
 #### <a name="step-2"></a>Paso 2
 

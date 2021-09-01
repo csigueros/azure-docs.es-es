@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95e774b1f10f07a447ec168aa7716bab799acd73
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91929649"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732577"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Actualización a la API de REST más reciente de Azure Cognitive Search
 
@@ -85,7 +85,7 @@ A partir de las versiones 2019-05-06 y 2019-05-06-Preview de la API, la API del 
 
 #### <a name="named-entity-recognition-cognitive-skill-is-now-discontinued"></a>La aptitud cognitiva de reconocimiento de entidades se ha interrumpido
 
-Si llamó a la aptitud [Reconocimiento de entidades de nombre](cognitive-search-skill-named-entity-recognition.md) en el código, se producirá un error en la llamada. La funcionalidad de reemplazo es [Reconocimiento de entidades](cognitive-search-skill-entity-recognition.md). Podrá reemplazar la referencia de la aptitud sin cambios adicionales. La firma de la API es la misma para las dos versiones. 
+Si llamó a la aptitud [Reconocimiento de entidades de nombre](cognitive-search-skill-named-entity-recognition.md) en el código, se producirá un error en la llamada. La funcionalidad de reemplazo es [Aptitud Reconocimiento de entidades (V3)](cognitive-search-skill-entity-recognition-v3.md). Siga las recomendaciones de las [Aptitudes de Cognitive Search en desuso](cognitive-search-skill-deprecated.md) para migrar a una aptitud admitida.
 
 ### <a name="upgrading-complex-types"></a>Actualización de tipos complejos
 

@@ -10,16 +10,16 @@ ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 373c3e28e1d2dffdde8e8483a78c23174bd6513a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ee5213adf10ddc7ea17c93011989e52fe570b3ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678602"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729557"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configuración de conexiones VPN S2S activo-activo con Azure VPN Gateway
 
-Este artículo le guiará por los pasos para crear conexiones activo-activo entre entornos locales y de red virtual a red virtual mediante el modelo de implementación de Resource Manager y PowerShell. También puede configurar una puerta de enlace activo-activo en Azure Portal.
+Este artículo le guiará por los pasos para crear conexiones activo-activo entre entornos locales y conexiones de red virtual a red virtual mediante el [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md) y PowerShell. También puede configurar una puerta de enlace activo-activo en Azure Portal.
 
 ## <a name="about-highly-available-cross-premises-connections"></a>Acerca de las conexiones entre entornos locales de alta disponibilidad
 Para lograr una alta disponibilidad en la conectividad de red virtual a red virtual y entre entornos locales, debe implementar varias puertas de enlace VPN y establecer varias conexiones en paralelo entre sus redes y Azure. Consulte [Conectividad de alta disponibilidad entre locales y de red virtual a red virtual](vpn-gateway-highlyavailable.md) para obtener información general de las opciones de conectividad y la topología.
@@ -122,7 +122,7 @@ $gw1ipconf2 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet $sub
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. Creación de la puerta de enlace VPN con una configuración activo-activo
-Cree la puerta de enlace de red virtual para TestVNet1. Tenga en cuenta que hay dos entradas de GatewayIpConfig y la marca EnableActiveActiveFeature está establecida. Se tardan unos 45 minutos o algo más en crear una puerta de enlace.
+Cree la puerta de enlace de red virtual para TestVNet1. Tenga en cuenta que hay dos entradas de GatewayIpConfig y la marca EnableActiveActiveFeature está establecida. La creación de una puerta de enlace puede tardar un tiempo (45 minutos o más en completarse, según la SKU seleccionada).
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN -EnableActiveActiveFeature -Debug

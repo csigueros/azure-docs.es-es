@@ -1,34 +1,30 @@
 ---
 title: Servicios de proceso de Azure Alemania | Microsoft Docs
-description: Proporciona una comparación de los servicios de proceso de Azure Alemania
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: Este tema proporciona una comparación detallada de los servicios de proceso para Azure Alemania.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 579e5138d5bfe93fcdc1f53f28c442125b8a69b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: e6c2e89f1ddce1bd88d3b8ce0ccf7e82364afa32
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033499"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "117029232"
 ---
 # <a name="azure-germany-compute-services"></a>Servicios de proceso de Azure Alemania
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 ## <a name="virtual-machines"></a>Virtual Machines
-Para más información acerca del servicio Azure Virtual Machines y cómo usarlo, consulte [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para más información acerca del servicio Azure Virtual Machines y cómo usarlo, consulte [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="variations"></a>Variaciones
 Estos productos (máquinas virtuales) están disponibles en Azure Alemania:
 
-| Productos | Centro de Alemania | Noreste de Alemania |
+| Productos | Centro de Alemania | Nordeste de Alemania |
 | --- | --- | --- |
 | Basic_A0 | Y | Y |
 | Basic_A1 | Y | Y |
@@ -144,9 +140,4 @@ Estos productos (máquinas virtuales) están disponibles en Azure Alemania:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información complementaria y actualizaciones, suscríbase al [blog de Azure Alemania](https://blogs.msdn.microsoft.com/azuregermany/).
-
-
-
-
-
+Para información complementaria y actualizaciones, suscríbase al [blog de Azure Alemania](/archive/blogs/azuregermany/).
