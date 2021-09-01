@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/11/2021
 ms.author: alkohli
-ms.openlocfilehash: d683f49cadb384ef59d3bae819156733691813cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81a906e6d1a5630ed7b40092d997ba0f81c7220b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88183503"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750608"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Introducción a la solución StorSimple Data Manager
 
@@ -27,7 +27,7 @@ ms.locfileid: "88183503"
 
 Microsoft Azure StorSimple usa el almacenamiento en la nube como una extensión de la solución local y organiza automáticamente los datos en niveles entre el almacenamiento local y el almacenamiento en la nube. Los datos se almacenan en la nube en un formato comprimido y desduplicado para obtener la máxima eficacia y reducir los costos. Como los datos se almacenan en formato de StorSimple, no es fácilmente compatible con otras aplicaciones en la nube que pueda querer usar.
 
-StorSimple Data Manager le permite acceder y utilizar sin problemas los datos en formato de StorSimple en la nube. Para ello, transforma el formato de StorSimple en archivos y blobs nativos que puede usar con otros servicios como Azure Media Services, Azure HDInsights y Azure Machine Learning.
+StorSimple Data Manager le permite acceder y utilizar sin problemas los datos en formato de StorSimple en la nube. Para ello, transforma el formato de StorSimple en archivos y blobs nativos que puede usar con otros servicios como Azure Media Services, Azure HDInsight y Azure Machine Learning.
 
 Es artículo proporciona una introducción a la solución StorSimple Data Manager. También se explica cómo puede usar este servicio para escribir aplicaciones que usen datos de StorSimple y otros servicios de Azure en la nube.
 
@@ -92,8 +92,10 @@ StorSimple Data Manager no recopila ni muestra información personal. Para obten
 
 Actualmente el servicio tiene las siguientes limitaciones:
 - StorSimple Data Manager actualmente no funciona con los volúmenes que están cifrados con BitLocker. Si intenta ejecutar el servicio con una unidad cifrada, verá errores en el trabajo.
+- No se puede habilitar un firewall en la cuenta de almacenamiento donde se almacenan las copias de seguridad de StorSimple. Si habilita un firewall en la cuenta de almacenamiento, se producirá un error en los trabajos. 
 - No se conservarán algunos metadatos de archivos (como las ACL) en los datos transformados.
 - Este servicio solo funciona con volúmenes NTFS.
+- StorSimple Data Manager no admite la migración de discos duros virtuales (VHD). Para migrar discos duros virtuales, puede usar Azure Data Box o el servicio Azure File Sync.
 - Las longitudes de ruta de acceso de archivo deben contener menos de 256 caracteres, de lo contrario se producirá un error en el trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes

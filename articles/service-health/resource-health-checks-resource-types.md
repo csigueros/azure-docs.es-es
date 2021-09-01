@@ -2,13 +2,13 @@
 title: Tipos de recursos que compatibles con Azure Resource Health | Microsoft Docs
 description: Tipos de recursos que se admiten a través de Azure Resource Health
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 1b0958732a96786b2fb86b2b145f5cb8d36c0c5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/05/2021
+ms.openlocfilehash: 2b3c2944cff20db2feb3236ca7381107f3db6061
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97883374"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741962"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -264,7 +264,13 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |---|
 |<ul><li>¿Está el servidor en funcionamiento?</li><li>¿Se ejecuta Internet Information Server?</li><li>¿Funciona el equilibrador de carga?</li><li>¿Se puede acceder a la aplicación web desde el centro de datos?</li><li>¿Hospeda la cuenta de almacenamiento el contenido del sitio disponible?</li></ul>|
 
+## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/vaults
+
+| Comprobaciones ejecutadas |
+| --- |
+|<ul><li>¿Se produce un error en las operaciones de copia de seguridad en los elementos de copia de seguridad configurados en este almacén debido a causas que están fuera del control del usuario?</li><li>¿Se produce un error en las operaciones de restauración en los elementos de copia de seguridad configurados en este almacén debido a causas que están fuera del control de usuario?</li></ul> |
+
 ## <a name="next-steps"></a>Pasos siguientes
 -  Consulte la [introducción al panel de Azure Service Health](service-health-overview.md) y la [introducción a Azure Resource Health](resource-health-overview.md) para más información sobre ellos. 
--  [Preguntas más frecuentes sobre Azure Resource Health](resource-health-faq.md)
+-  [Preguntas más frecuentes sobre Azure Resource Health](resource-health-faq.yml)
 - Configure alertas de forma que se le notifiquen los problemas de estado. Para más información, consulte el artículo de [configuración de alertas para eventos de Service Health](./alerts-activity-log-service-notifications-portal.md).

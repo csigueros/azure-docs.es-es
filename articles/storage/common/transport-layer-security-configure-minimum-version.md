@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 07/07/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 91fd04f24989df64aa294690fdedfd472c79f379
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c69e8a5030717dd76a887968f40034595b9cd939
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677255"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739026"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Aplicación de una versión mínima necesaria de Seguridad de la capa de transporte (TLS) para las solicitudes a una cuenta de almacenamiento
 
@@ -24,7 +24,7 @@ La comunicación entre una aplicación cliente y una cuenta de Azure Storage se 
 
 Actualmente, Azure Storage admite tres versiones del protocolo TLS: 1.0, 1.1 y 1.2. Azure Storage usa TLS 1.2 en puntos de conexión HTTP públicos. Sin embargo, TLS 1.0 y TLS 1.1 se siguen admitiendo gracias a la compatibilidad con versiones anteriores.
 
-De forma predeterminada, las cuentas de Azure Storage permiten a los clientes enviar y recibir datos con la versión más antigua de TLS (TLS 1.0) y con las versiones posteriores. Para aplicar medidas de seguridad más estrictas, puede configurar la cuenta de almacenamiento para que los clientes deban enviar y recibir datos con una versión más reciente de TLS. Si una cuenta de almacenamiento requiere una versión mínima de TLS, se producirá un error en todas las solicitudes realizadas con una versión anterior.
+Las cuentas de Azure Storage permiten a los clientes enviar y recibir datos con la versión más antigua de TLS (TLS 1.0) y con las versiones posteriores. Para aplicar medidas de seguridad más estrictas, puede configurar la cuenta de almacenamiento para que los clientes deban enviar y recibir datos con una versión más reciente de TLS. Si una cuenta de almacenamiento requiere una versión mínima de TLS, se producirá un error en todas las solicitudes realizadas con una versión anterior.
 
 En este artículo se describe cómo usar un marco de tipo DRAG (detección-corrección-auditoría-gobernanza) para administrar continuamente una Seguridad de la capa de transporte segura para las cuentas de almacenamiento.
 
@@ -94,7 +94,9 @@ Si está seguro de que el tráfico de los clientes que usan versiones anteriores
 
 Para configurar la versión mínima de TLS para una cuenta de almacenamiento, establezca la versión **MinimumTlsVersion** de la cuenta. Esta propiedad está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Para más información sobre el modelo de implementación de Azure Resource Manager, consulte [Introducción a las cuentas de almacenamiento](storage-account-overview.md).
 
-La propiedad **MinimumTlsVersion** no se establece de manera predeterminada y no devuelve un valor hasta que se establece de manera explícita.  Si el valor de la propiedad es **NULL**, la cuenta de almacenamiento permite las solicitudes enviadas con la versión 1.0 o posterior de TLS.
+El valor predeterminado de la propiedad **MinimumTlsVersion** es diferente en función de cómo se establezca. Al crear una cuenta de almacenamiento con Azure Portal, la versión mínima de TLS se establece en 1.2 de forma predeterminada. Al crear una cuenta de almacenamiento con PowerShell, la CLI de Azure o una plantilla de Azure Resource Manager, la propiedad **MinimumTlsVersion** no se establece de forma predeterminada y no devuelve un valor hasta que se establece explícitamente.
+
+Cuando la propiedad **MinimumTlsVersion** no está establecida, su valor se puede mostrar como **null** o como una cadena vacía, en función del contexto. Si el valor de la propiedad no está establecido, la cuenta de almacenamiento permitirá las solicitudes enviadas con la versión 1.0 o posterior de TLS.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -121,7 +123,7 @@ $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
 New-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
@@ -131,7 +133,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
 Set-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.

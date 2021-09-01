@@ -4,14 +4,14 @@ description: Proteja el acceso a las entradas, las salidas, los desencadenadores
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, azla
-ms.topic: conceptual
-ms.date: 05/01/2021
-ms.openlocfilehash: 50087ed6066ba97a866cc2fd40901397a3825e37
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.topic: how-to
+ms.date: 07/29/2021
+ms.openlocfilehash: 296a743924de2093ff9418333bdf8ef7e2f6f0f1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983931"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731290"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -40,7 +40,7 @@ Para obtener más información sobre la seguridad en Azure, consulte estos temas
 
 Las llamadas entrantes que una aplicación lógica recibe a través de un desencadenador basado en solicitud, como el desencadenador [Request](../connectors/connectors-native-reqres.md) (Solicitud) o el desencadenador [HTTP Webhook](../connectors/connectors-native-webhook.md) (Webhook de HTTP), admiten el cifrado y se protegen con la [versión 1.2 de Seguridad de la capa de transporte (TLS), como mínimo](https://en.wikipedia.org/wiki/Transport_Layer_Security), que antes se conocía como Capa de sockets seguros (SSL). Logic Apps aplica esta versión al recibir una llamada entrante al desencadenador Request (Solicitud) o una devolución de llamada al desencadenador o acción HTTP Webhook (Webhook de HTTP). Si obtiene errores de protocolo de enlace TLS, asegúrese de usar TLS 1.2. Para más información, consulte [Solución del problema de TLS 1.0](/security/solving-tls1-problem).
 
-Las llamadas de entrada admiten estos conjuntos de cifrado:
+Para las llamadas entrantes, use los siguientes conjuntos de cifrado:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -50,6 +50,24 @@ Las llamadas de entrada admiten estos conjuntos de cifrado:
 * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+
+> [!NOTE]
+> Para obtener compatibilidad con las versiones anteriores, Azure Logic Apps admite actualmente algunos conjuntos de cifrado antiguos. Sin embargo, *no use* conjuntos de cifrado antiguos cuando desarrolle nuevas aplicaciones, ya que estos conjuntos *puede que no* se admitan en el futuro. 
+>
+> Por ejemplo, puede encontrar los siguientes conjuntos de cifrado si inspecciona los mensajes de protocolo de enlace TLS mientras usa el servicio Azure Logic Apps o mediante una herramienta de seguridad en la dirección URL de la aplicación lógica. Recuerde que *no debe usar* estos conjuntos antiguos:
+>
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+> * TLS_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_RSA_WITH_AES_256_CBC_SHA256
+> * TLS_RSA_WITH_AES_128_CBC_SHA256
+> * TLS_RSA_WITH_AES_256_CBC_SHA
+> * TLS_RSA_WITH_AES_128_CBC_SHA
+> * TLS_RSA_WITH_3DES_EDE_CBC_SHA
 
 En la siguiente lista se incluyen más formas de limitar el acceso a los desencadenadores que reciben llamadas entrantes a la aplicación lógica para que solo los clientes autorizados puedan llamar a la aplicación lógica:
 
@@ -553,8 +571,17 @@ En la plantilla de ARM, especifique los intervalos IP mediante la sección `acce
 
 ### <a name="secure-data-in-run-history-by-using-obfuscation"></a>Protección del historial de ejecución mediante ofuscación
 
-Muchos desencadenadores y acciones cuentan con una configuración para proteger las entradas, las salidas, o ambas, en el historial de ejecución de una aplicación lógica. Antes de usar esta configuración para proteger los datos, hay algunos aspectos que se deben tener en cuenta:
+Muchos desencadenadores y acciones cuentan con una configuración para proteger las entradas, las salidas, o ambas, en el historial de ejecución de una aplicación lógica. Todos los *[conectores administrados](/connectors/connector-reference/connector-reference-logicapps-connectors) y [conectores personalizados](/connectors/custom-connectors/)* admiten estas opciones. Sin embargo, las siguientes [operaciones integradas](../connectors/built-in.md) ***no admiten estas opciones***:
+     
+| Proteger entradas: no se admite | Proteger salidas: no se admite |
+|-----------------------------|------------------------------|
+| Anexar a la variable de matriz <br>Anexar a la variable de cadena <br>Reducir variable <br>For Each <br>Si <br>Incrementar variable <br>Inicializar la variable <br>Periodicidad <br>Ámbito <br>Establecer la variable <br>Switch <br>Terminate <br>Until | Anexar a la variable de matriz <br>Anexar a la variable de cadena <br>Compose <br>Reducir variable <br>For Each <br>Si <br>Incrementar variable <br>Inicializar la variable <br>Parse JSON <br>Periodicidad <br>Response <br>Ámbito <br>Establecer la variable <br>Switch <br>Terminate <br>Until <br>Esperar |
+|||
 
+#### <a name="considerations-for-securing-inputs-and-outputs"></a>Consideraciones para proteger las entradas y salidas
+
+Antes de usar esta configuración para proteger los datos, hay algunos aspectos que se deben tener en cuenta:
+                 
 * Cuando se ocultan las entradas o las salidas de un desencadenador o una acción, Logic Apps no envía los datos protegidos a Azure Log Analytics. Además, no se pueden agregar [propiedades con seguimiento](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) al desencadenador o acción para su supervisión.
 
 * La [API de Logic Apps para controlar el historial del flujo de trabajo](/rest/api/logic/) no devuelve salidas protegidas.
@@ -953,7 +980,7 @@ Si la opción [Básica](../active-directory-b2c/secure-rest-api.md) está dispon
 
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticación** | `type` | Sí | Básico | Tipo de autenticación que se debe usar. |
+| **Autenticación** | `type` | Sí | Básica | Tipo de autenticación que se debe usar. |
 | **Nombre de usuario** | `username` | Sí | <*nombre-de-usuario*>| Nombre de usuario para autenticar el acceso al extremo del servicio de destino. |
 | **Contraseña** | `password` | Sí | <*contraseña*> | Contraseña para autenticar el acceso al extremo del servicio de destino. |
 ||||||
@@ -1027,7 +1054,7 @@ En los desencadenadores Request (Solicitud), se puede usar [Azure Active Directo
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticación** | `type` | Sí | **Active Directory OAuth** <br>or <br>`ActiveDirectoryOAuth` | Tipo de autenticación que se debe usar. Actualmente, Logic Apps sigue el [protocolo OAuth 2.0](../active-directory/develop/v2-overview.md). |
-| **Autoridad** | `authority` | No | <*URL-for-authority-token-issuer*> | La dirección URL de la autoridad que proporciona el token de acceso. De manera predeterminada, este valor es `https://login.windows.net`. |
+| **Autoridad** | `authority` | No | <*URL-for-authority-token-issuer*> | Dirección URL de la autoridad que proporciona el token de acceso, como `https://login.microsoftonline.com/` para las regiones de servicio globales de Azure. Para otras nubes nacionales, consulte [Puntos de conexión de Azure AD de autenticación: elección de una autoridad de identidad](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints). |
 | **Inquilino** | `tenant` | Sí | <*tenant-ID*> | El identificador del inquilino de Azure AD |
 | **Audiencia** | `audience` | Sí | <*resource-to-authorize*> | Recurso que quiere usar para la autorización; por ejemplo, `https://management.core.windows.net/` |
 | **Id. de cliente** | `clientId` | Sí | <*client-ID*> | El identificador de cliente para la aplicación que solicita autorización |
@@ -1121,7 +1148,7 @@ Cuando la opción [Identidad administrada](../active-directory/managed-identitie
    | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
    |---------------------|-----------------|----------|-------|-------------|
    | **Autenticación** | `type` | Sí | **Identidad administrada** <br>or <br>`ManagedServiceIdentity` | Tipo de autenticación que se debe usar. |
-   | **Identidad administrada** | `identity` | Sí | * **Identidad administrada asignada por el sistema** <br>or <br>`SystemAssigned` <p><p>* <*nombre de identidad asignado por el usuario*> | Identidad administrada que se debe usar. |
+   | **Identidad administrada** | `identity` | Sí | * **Identidad administrada asignada por el sistema** <br>or <br>`SystemAssigned` <p><p>* <*Id. de identidad asignada por el usuario*> | Identidad administrada que se debe usar. |
    | **Audiencia** | `audience` | Sí | <*Id-recurso-destino*> | El Id. de recurso para el recurso de destino al que quiere obtener acceso. <p>Por ejemplo, `https://storage.azure.com/` hace que los [tokens de acceso](../active-directory/develop/access-tokens.md) para la autenticación sean válidos con todas las cuentas de almacenamiento. Sin embargo, también puede especificar una dirección URL de servicio raíz, como `https://fabrikamstorageaccount.blob.core.windows.net` para una cuenta de almacenamiento específica. <p>**Nota**: La propiedad **Audiencia** puede estar oculta en algunos desencadenadores o acciones. Para que la propiedad sea visible, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Público**. <p><p>**Importante**: Asegúrese de que el identificador de este recurso de destino *coincide exactamente* con el valor esperado en Azure AD, incluida toda barra diagonal necesaria al final. Por lo tanto, el Id. de recurso de `https://storage.azure.com/` para todas las cuentas de Azure Blob Storage requiere una barra diagonal final. Sin embargo, el Id. de recurso de una cuenta de almacenamiento específica no requiere una barra diagonal final. Para buscar estos Id. de recursos, consulte [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
@@ -1162,11 +1189,11 @@ Si su organización no permite la conexión a recursos específicos mediante el 
 
 ## <a name="isolation-guidance-for-logic-apps"></a>Guía de aislamiento para aplicaciones lógicas
 
-Puede usar Azure Logic Apps en [Azure Government](../azure-government/documentation-government-welcome.md) admitiendo todos los niveles de impacto en las regiones que se describen en la [guía de aislamiento de nivel de impacto 5 de Azure Government](../azure-government/documentation-government-impact-level-5.md#azure-logic-apps) y [Guía de requisitos de seguridad (SRG) de informática en la nube del Departamento de Defensa de Estados Unidos](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). Para cumplir estos requisitos, Logic Apps admite la funcionalidad para que cree y ejecute flujos de trabajo en un entorno con recursos dedicados de modo que pueda reducir el impacto en el rendimiento de otros inquilinos de Azure en las aplicaciones lógicas y evitar compartir recursos informáticos con otros inquilinos.
+Puede usar Azure Logic Apps en [Azure Government](../azure-government/documentation-government-welcome.md), que admite todos los niveles de impacto en las regiones que se describen en la [guía de aislamiento de nivel de impacto 5 de Azure Government](../azure-government/documentation-government-impact-level-5.md). Para cumplir estos requisitos, Logic Apps admite la funcionalidad para que cree y ejecute flujos de trabajo en un entorno con recursos dedicados de modo que pueda reducir el impacto en el rendimiento de otros inquilinos de Azure en las aplicaciones lógicas y evitar compartir recursos informáticos con otros inquilinos.
 
 * Para ejecutar su propio código o realizar la transformación XML, [cree y llame a una función de Azure](../logic-apps/logic-apps-azure-functions.md), en vez de usar la [funcionalidad de código en línea](../logic-apps/logic-apps-add-run-inline-code.md) o proporcionar [ensamblados para usarlos como mapas](../logic-apps/logic-apps-enterprise-integration-maps.md), respectivamente. Asimismo, configure el entorno de hospedaje de la aplicación de funciones para cumplir los requisitos de aislamiento.
 
-  Por ejemplo, para cumplir los requisitos de nivel de impacto 5, cree la aplicación de funciones con el [plan de App Service](../azure-functions/dedicated-plan.md) mediante el plan de tarifa [**aislado**](../app-service/overview-hosting-plans.md) junto con una instancia de [App Service Environment (ASE)](../app-service/environment/intro.md) que también usa el plan de tarifa **aislado**. En este entorno, las aplicaciones de funciones se ejecutan en máquinas virtuales y redes virtuales de Azure dedicadas, que proporcionan aislamiento de red sobre el aislamiento de proceso para las aplicaciones y las máximas posibilidades de escalabilidad horizontal. Para obtener más información, consulte la [guía de aislamiento de nivel de impacto 5 de Azure Government: Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
+  Por ejemplo, para cumplir los requisitos de nivel de impacto 5, cree la aplicación de funciones con el [plan de App Service](../azure-functions/dedicated-plan.md) mediante el plan de tarifa [**aislado**](../app-service/overview-hosting-plans.md) junto con una instancia de [App Service Environment (ASE)](../app-service/environment/intro.md) que también usa el plan de tarifa **aislado**. En este entorno, las aplicaciones de funciones se ejecutan en máquinas virtuales y redes virtuales de Azure dedicadas, que proporcionan aislamiento de red sobre el aislamiento de proceso para las aplicaciones y las máximas posibilidades de escalabilidad horizontal.
 
   Para más información, revise la siguiente documentación:
 

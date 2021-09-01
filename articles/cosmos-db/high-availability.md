@@ -4,15 +4,15 @@ description: En este artículo se describe cómo Azure Cosmos DB ofrece una alta
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 07/07/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ac1e77d99707cdaa34ef42eb9b327a62f4e864c0
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: c11a151876677e06a32364b050538f233cc2b9c4
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365372"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228693"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>¿Cómo proporciona Azure Cosmos DB la alta disponibilidad?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -49,8 +49,8 @@ Azure Cosmos DB proporciona Acuerdos de Nivel de Servicio completos que abarcan 
 
 |Tipo de operación  | Región única |Varias regiones (operaciones de escritura en una única región)|Varias regiones (operaciones de escritura de varias regiones) |
 |---------|---------|---------|-------|
-|Escrituras    | 99,99    |99,99   |99,999|
-|Lecturas     | 99,99    |99,999  |99,999|
+|Escrituras   | 99,99   |99,99   |99,999|
+|Lecturas    | 99,99   |99,999  |99,999|
 
 > [!NOTE]
 > En la práctica, la disponibilidad de escritura real para modelos de posible coherencia, prefijo coherente, sesión y obsolescencia limitada es significativamente mayor que los SLA publicados. La disponibilidad de lectura real para todos los niveles de coherencia es significativamente mayor que los SLA publicados.
@@ -109,15 +109,15 @@ Al configurar las escrituras en varias regiones para la cuenta de Azure Cosmos, 
 
 En la tabla siguiente se resume la funcionalidad de alta disponibilidad de varias configuraciones de cuenta:
 
-|KPI|Una sola región sin zonas de disponibilidad|Una sola región con zonas de disponibilidad|Varias regiones, operaciones de escritura en una sola región con zonas de disponibilidad|Varias regiones, operaciones de escritura en varias regiones con zonas de disponibilidad|
-|---------|---------|---------|---------|---------|
-|Contrato de Nivel de Servicio de disponibilidad de escritura | 99,99% | 99,995 % | 99,995 % | 99,999 % |
-|Contrato de Nivel de Servicio de disponibilidad de lectura  | 99,99% | 99,995 % | 99,995 % | 99,999 % |
-|Errores de zona: pérdida de datos | Pérdida de datos | No se produce pérdida de datos | No se produce pérdida de datos | No se produce pérdida de datos |
-|Errores de zona: disponibilidad | Pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad |
-|Interrupción regional: pérdida de datos | Pérdida de datos |  Pérdida de datos | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](./consistency-levels.md). | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](./consistency-levels.md).
-|Interrupción regional: disponibilidad | Pérdida de disponibilidad | Pérdida de disponibilidad | No hay pérdida de disponibilidad en caso de error de la región de lectura y temporal en caso de error de la región de escritura | Sin pérdida de disponibilidad |
-|Precio (***1** _) | N/D | Unidades de solicitud aprovisionadas x 1,25 | Unidades de solicitud aprovisionadas x 1,25 (_*_2_**) | Velocidad de operaciones de escritura en varias regiones |
+|KPI|Una sola región sin zonas de disponibilidad|Una sola región con zonas de disponibilidad|Varias regiones, operaciones de escritura en una sola región sin zonas de disponibilidad|Varias regiones, operaciones de escritura en una sola región con zonas de disponibilidad|Varias regiones, operaciones de escritura en varias regiones con o sin zonas de disponibilidad|
+|---------|---------|---------|---------|---------|---------|
+|Contrato de Nivel de Servicio de disponibilidad de escritura | 99,99% | 99,995 % | 99,99% | 99,995 % | 99,999 % |
+|Contrato de Nivel de Servicio de disponibilidad de lectura  | 99,99% | 99,995 % | 99,999 % | 99,999 % | 99,999 % |
+|Errores de zona: pérdida de datos | Pérdida de datos | No se produce pérdida de datos | No se produce pérdida de datos | No se produce pérdida de datos | No se produce pérdida de datos |
+|Errores de zona: disponibilidad | Pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad |
+|Interrupción regional: pérdida de datos | Pérdida de datos |  Pérdida de datos | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](./consistency-levels.md). | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](./consistency-levels.md). | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](./consistency-levels.md).
+|Interrupción regional: disponibilidad | Pérdida de disponibilidad | Pérdida de disponibilidad | No hay pérdida de disponibilidad en caso de error de la región de lectura y temporal en caso de error de la región de escritura | No hay pérdida de disponibilidad en caso de error de la región de lectura y temporal en caso de error de la región de escritura | Sin pérdida de disponibilidad |
+|Precio (***1** _) | N/D | Unidades de solicitud aprovisionadas x 1,25 | Unidades de solicitud aprovisionadas x n regiones | Unidades de solicitud aprovisionadas x velocidad de 1,25 x n regiones (_*_2_**) | Velocidad de escritura de varias regiones x n regiones |
 
 ***1*** En el caso de las cuentas sin servidor, las unidades de solicitud se multiplican por un factor de 1,25.
 

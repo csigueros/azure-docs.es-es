@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 08/10/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: 5c16a0245361dfa7e3ff160f5ffa45154555aa0b
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: ccca7f1deeeef49b734313c30d13290e47b6ab57
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495337"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727980"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -25,54 +25,34 @@ Los contenedores le permiten ejecutar algunas de las API del servicio de voz en 
 
 Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para las sólidas funcionalidades de la nube y la localidad del perímetro. Hay varios contenedores disponibles, que usan los mismos [precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) que los servicios de Voz de Azure basados en la nube.
 
-
-> [!IMPORTANT]
-> Los siguientes contenedores de Voz están ahora disponibles con carácter general:
-> * Conversión de voz en texto estándar
-> * Conversión de voz a texto personalizada
-> * Conversión de texto a voz estándar
-> * Texto a voz neuronal
->
-> Los siguientes contenedores de voz están en versión preliminar controlada.
-> * Identificación de idioma de la voz 
->
-> Para usar los contenedores de voz, debe enviar una solicitud en línea y esperar a que se apruebe. Para obtener más información, consulte la sección **Solicitud de aprobación para ejecutar el contenedor** más adelante.
-
-| Contenedor | Características | Más reciente |
-|--|--|--|
-| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.12.0 |
-| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.12.0 |
-| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.14.0 |
-| Identificación de idioma de la voz | Detecte el idioma que se habla en los archivos de audio. | 1,0 |
-| Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.6.0 |
+| Contenedor | Características | Más reciente | Estado de la versión |
+|--|--|--|--|
+| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.13.0 | Disponibilidad general |
+| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.13.0 | Disponibilidad general |
+| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.14.1 | Disponibilidad general |
+| Identificación de idioma de la voz | Detecte el idioma que se habla en los archivos de audio. | 1.3.0 | Versión preliminar "validada" |
+| Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.8.0 | Disponibilidad general |
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Requisitos previos para poder usar los contenedores de Voz:
+> [!IMPORTANT]
+> Para usar los contenedores de voz, debe enviar una solicitud en línea y esperar a que se apruebe. Para obtener más información, consulte la sección **Solicitud de aprobación para ejecutar el contenedor** más adelante.
 
-| Obligatorio | Propósito |
-|--|--|
-| Motor de Docker | Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br> |
-| Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos. |
-| Recurso de Voz | Para usar estos contenedores, debe tener:<br><br>Recurso de _Voz_ de Azure para obtener la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas Introducción y Claves de **Voz** de Azure Portal. Los dos son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Información general**. |
+Debe cumplir los siguientes requisitos previos para poder usar los contenedores del servicio de Voz. Si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
+
+* [Docker](https://docs.docker.com/) instalado en un equipo host. Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. 
+    * En Windows, Docker también debe estar configurado de forma que admita los contenedores de Linux.
+    * Debe estar familiarizado con los [conceptos de Docker](https://docs.docker.com/get-started/overview/). 
+* Un <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="recurso de creación de un "  target="_blank">recurso del servicio de Voz </a> con el [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) gratuito (F0) o estándar (S).
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## <a name="the-host-computer"></a>El equipo host
+
+## <a name="host-computer-requirements-and-recommendations"></a>Recomendaciones y requisitos del equipo host
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
-
-### <a name="advanced-vector-extension-support"></a>Compatibilidad con la extensión avanzada de vector
-
-El **host** es el equipo que ejecuta el contenedor de Docker. El host *debe ser compatible* con las [extensiones avanzadas de vector](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Puede comprobar la compatibilidad con AVX2 en los hosts de Linux con el comando siguiente:
-
-```console
-grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
-```
-> [!WARNING]
-> El equipo host es *necesario* para admitir AVX2. El contenedor *no* funcionará correctamente sin compatibilidad con AVX2.
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 
@@ -92,6 +72,16 @@ El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory`
 
 > [!NOTE]
 > Los valores mínimos y recomendados se basan en los límites de Docker y *no* en los recursos de la máquina host. Por ejemplo, partes de la asignación de memoria de contenedores de voz a texto de un modelo grande de lenguaje, y se *recomienda* que todo el archivo se ajuste en memoria, que es de 4 a 6 GB adicionales. Además, la primera ejecución de cualquier contenedor puede tardar más, dado que los modelos se van a paginar en la memoria.
+
+### <a name="advanced-vector-extension-support"></a>Compatibilidad con la extensión avanzada de vector
+
+El **host** es el equipo que ejecuta el contenedor de Docker. El host *debe ser compatible* con las [extensiones avanzadas de vector](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Puede comprobar la compatibilidad con AVX2 en los hosts de Linux con el comando siguiente:
+
+```console
+grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
+```
+> [!WARNING]
+> El equipo host es *necesario* para admitir AVX2. El contenedor *no* funcionará correctamente sin compatibilidad con AVX2.
 
 ## <a name="request-approval-to-the-run-the-container"></a>Solicitud de aprobación para ejecutar el contenedor
 
@@ -263,7 +253,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/language-d
 
 ## <a name="how-to-use-the-container"></a>Uso del contenedor
 
-Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice el siguiente proceso para trabajar con el contenedor.
+Una vez que el contenedor esté en el [equipo host](#host-computer-requirements-and-recommendations), utilice el siguiente proceso para trabajar con el contenedor.
 
 1. [Ejecute el contenedor](#run-the-container-with-docker-run) con la configuración de facturación requerida. Hay más [ejemplos](speech-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles.
 1. [Consulta del punto de conexión de predicción del contenedor](#query-the-containers-prediction-endpoint).
@@ -516,16 +506,6 @@ Este comando:
 * Asigna 1 núcleo de CPU y 1 gigabyte (GB) de memoria.
 * Expone el puerto TCP 5003 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
-
-Si solo envía solicitudes de identificación de idioma de voz, tendrá que establecer el valor de `phraseDetection` del cliente de voz en `None`.  
-
-```python
-speech_config.set_service_property(
-      name='speechcontext-phraseDetection.Mode',
-      value='None',
-      channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-   )
-```
 
 Si desea ejecutar este contenedor con el contenedor de conversión de voz en texto, puede usar esta [imagen de Docker](https://hub.docker.com/r/antsu/on-prem-client). Una vez iniciados los dos contenedores, use este comando de Docker Run para ejecutar `speech-to-text-with-languagedetection-client`.
 

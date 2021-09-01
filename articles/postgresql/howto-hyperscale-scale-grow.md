@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/07/2021
-ms.openlocfilehash: 9746c6509673d3268a4afa15bcbeee9fa676d8c1
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/03/2021
+ms.openlocfilehash: 12c4cd7848b0d58fd6b91e27e254ccc613ff5676
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554415"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751910"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Escalado de un grupo de servidores Hiperescala (Citus)
 
@@ -24,8 +24,7 @@ Para agregar nodos, vaya a la pestaña **Compute + storage** (Proceso y almacena
 
 > [!NOTE]
 >
-> Un grupo de servidores de Hiperescala (Citus) creado con el [nivel básico (versión preliminar)](concepts-hyperscale-tiers.md) no tiene ningún trabajo. Al aumentar el número de trabajos, el grupo de servidores se convierte automáticamente en el nivel estándar.
-> Después de convertir un grupo de servidores al nivel estándar, no puede cambiarlo de nuevo al nivel básico.
+> Los grupos de servidores de Hiperescala (Citus) creados con el [nivel básico](concepts-hyperscale-tiers.md) no tienen trabajos. Al aumentar el número de trabajos, el grupo de servidores se convierte automáticamente en el nivel estándar.  Después de convertir un grupo de servidores al nivel estándar, no puede cambiarlo de nuevo al nivel básico.
 
 :::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Controles deslizantes de recursos":::
 
@@ -35,7 +34,7 @@ Haga clic en el botón **Guardar** para que el valor cambiado surta efecto.
 > Una vez que se ha aumentado y guardado, el número de nodos de trabajo no se puede reducir con el control deslizante.
 
 > [!NOTE]
-> Para aprovechar los nodos recién agregados, tiene que [reequilibrar las particiones de la tabla distribuida](howto-hyperscale-scale-rebalance.md), lo que significa mover algunas [particiones](concepts-hyperscale-distributed-data.md#shards) de los nodos existentes a los nuevos.
+> Para aprovechar los nodos recién agregados, tiene que [reequilibrar las particiones de la tabla distribuida](howto-hyperscale-scale-rebalance.md), lo que significa mover algunas [particiones](concepts-hyperscale-distributed-data.md#shards) de los nodos existentes a los nuevos. El reequilibrio puede funcionar en segundo plano y no requiere tiempo de inactividad.
 
 ## <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentar o disminuir los núcleos virtuales de los nodos
 

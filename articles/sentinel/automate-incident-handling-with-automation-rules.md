@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 869693765463589c3e94aef9a1cee17867117c5d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 1244959bac7a2c530444e3d4b36691d4f760529a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072689"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731053"
 ---
 # <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>Automatización del control de incidentes en Azure Sentinel con las reglas de automatización
 
@@ -42,7 +42,7 @@ Las reglas de automatización están conformadas por varios componentes:
 
 La creación de un incidente desencadena reglas de automatización. 
 
-Tema de revisión: las reglas de análisis crean los incidentes a partir de las alertas. Hay varios tipos de reglas de análisis, como se explica en el tutorial [Detección de amenazas con reglas de análisis integradas en Azure Sentinel](tutorial-detect-threats-built-in.md).
+Tema de revisión: las reglas de análisis crean los incidentes a partir de las alertas. Hay varios tipos de reglas de análisis, como se explica en el tutorial [Detección de amenazas con reglas de análisis integradas en Azure Sentinel](detect-threats-built-in.md).
 
 ### <a name="conditions"></a>Condiciones
 
@@ -54,7 +54,7 @@ Se pueden definir acciones para que se ejecuten cuando se cumplan las condicione
 
 - Cambiar el estado de un incidente para mantener el flujo de trabajo actualizado.
 
-  - Al cambiar a "closed", especifique el [motivo de cierre](tutorial-investigate-cases.md#closing-an-incident) y agregue un comentario. Esto le ayudará a realizar un seguimiento del rendimiento y la eficacia, y a realizar ajustes para reducir los [falsos positivos](false-positives.md).
+  - Al cambiar a "closed", especifique el [motivo de cierre](investigate-cases.md#closing-an-incident) y agregue un comentario. Esto le ayudará a realizar un seguimiento del rendimiento y la eficacia, y a realizar ajustes para reducir los [falsos positivos](false-positives.md).
 
 - Cambiar la gravedad de un incidente: puede volver a evaluar y cambiar la prioridad en función de la presencia, la ausencia, los valores o los atributos de las entidades implicadas en el incidente.
 
@@ -122,7 +122,14 @@ Puede agregar automáticamente etiquetas de texto libre a los incidentes para ag
 
 Las reglas de automatización se ejecutan secuencialmente, según el orden que se determine. Cada regla de automatización se ejecuta na vez finalizada la ejecución de la anterior. Dentro de una regla de automatización, todas las acciones se ejecutan de manera secuencial en el orden en que se definieron.
 
-En el caso de las acciones del cuaderno de estrategias, hay un retraso de dos minutos entre el inicio de una acción del cuaderno y la siguiente acción de la lista.
+En una regla de automatización, las acciones del cuaderno de estrategias se pueden tratar de forma diferente en algunas circunstancias, según los criterios siguientes:
+
+| Tiempo de ejecución del cuaderno de estrategias | La regla de automatización pasa a la siguiente acción... |
+| ----------------- | --------------------------------------------------- |
+| Menos de un segundo | Inmediatamente después de que se completa el cuaderno de estrategias |
+| Menos de dos minutos | Hasta dos minutos después de que el cuaderno de estrategias haya empezado a ejecutarse,<br>pero no más de diez segundos después de que se complete el cuaderno de estrategias |
+| Más de dos minutos | Dos minutos después de que el cuaderno de estrategias haya empezado a ejecutarse,<br>independientemente de si se completó o no |
+|
 
 ### <a name="permissions-for-automation-rules-to-run-playbooks"></a>Permisos para que las reglas de automatización ejecuten cuadernos de estrategias
 

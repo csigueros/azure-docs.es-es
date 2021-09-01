@@ -2,13 +2,13 @@
 title: Configuración de la copia de seguridad operativa para blobs de Azure
 description: Aprenda a configurar y administrar la copia de seguridad operativa para blobs de Azure.
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: cb2bc525018b33eb3441a8ed949d3e808c5051d8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 08/06/2021
+ms.openlocfilehash: b437aa0df073267b07b3e74bc3a778e7aa274031
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108767508"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722678"
 ---
 # <a name="configure-operational-backup-for-azure-blobs"></a>Configuración de la copia de seguridad operativa para blobs de Azure
 
@@ -27,6 +27,7 @@ Azure Backup le permite configurar fácilmente la copia de seguridad operativa p
 - Permite conservar los datos para su restauración durante un máximo de 360 días. Sin embargo, las duraciones de retención largas pueden dar lugar a que la operación de restauración tarde más tiempo.
 - La solución se puede usar para realizar restauraciones solo en la cuenta de almacenamiento de origen y puede que se sobrescriban datos.
 - Si elimina un contenedor de la cuenta de almacenamiento llamando a la operación Eliminar contenedor, dicho contenedor no se puede restaurar con una operación de restauración. En lugar de eliminar un contenedor completo, elimine blobs individuales, por si desea restaurarlos más adelante. Además, Microsoft recomienda habilitar la eliminación temporal de los contenedores, además de la copia de seguridad operativa, como protección contra la eliminación accidental de contenedores.
+- Asegúrese de que el proveedor **Microsoft.DataProtection** esté registrado en la suscripción.
 - Consulte la [matriz de compatibilidad](blob-backup-support-matrix.md) para más información sobre los escenarios admitidos, las limitaciones y la disponibilidad.
 
 ## <a name="create-a-backup-vault"></a>Creación de un almacén de Backup

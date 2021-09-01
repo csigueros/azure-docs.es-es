@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/12/2021
 ms.author: tamram
-ms.reviewer: sohamnc
+ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0262cdd348c03dafd378af95374beacf2bc77c23
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5e38cfeae5ad8593e5ee69059f4bdb903b04aa42
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679276"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178304"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account"></a>Impedir la autorización con clave compartida para una cuenta de Azure Storage
 
 Cada solicitud segura a una cuenta de Azure Storage debe estar autorizada. De forma predeterminada, las solicitudes se pueden autorizar con credenciales de Azure Active Directory (Azure AD) o mediante la clave de acceso de la cuenta para la autorización con clave compartida. De estos dos tipos de autorización, Azure AD proporciona mayor seguridad y facilidad de uso a través de la clave compartida y es el que Microsoft recomienda. Para exigir que los clientes usen Azure AD para autorizar las solicitudes, puede denegar las solicitudes a la cuenta de almacenamiento que están autorizadas con la clave compartida.
 
-Cuando se impide la autorización con clave compartida para una cuenta de almacenamiento, Azure Storage rechaza todas las solicitudes posteriores a esa cuenta autorizadas con las claves de acceso de la cuenta. Solo se realizarán correctamente las solicitudes protegidas que estén autorizadas con Azure AD. Para más información sobre el uso de Azure AD, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](storage-auth-aad.md).
+Cuando se impide la autorización con clave compartida para una cuenta de almacenamiento, Azure Storage rechaza todas las solicitudes posteriores a esa cuenta autorizadas con las claves de acceso de la cuenta. Solo se realizarán correctamente las solicitudes protegidas que estén autorizadas con Azure AD. Para obtener más información sobre el uso de Azure AD, consulte [Autorización del acceso a datos en Azure Storage](authorize-data-access.md).
 
 En este artículo se describe cómo detectar solicitudes enviadas con la autorización con clave compartida y cómo corregir la autorización con clave compartida para la cuenta de almacenamiento.
 
@@ -107,7 +107,7 @@ También puede configurar una regla de alerta basada en esta consulta para que l
 
 ## <a name="remediate-authorization-via-shared-key"></a>Corrección de la autorización mediante clave compartida
 
-Después de haber analizado cómo se autorizan las solicitudes a la cuenta de almacenamiento, puede tomar medidas para evitar el acceso a través de una clave compartida. Pero antes, debe actualizar las aplicaciones que usan la autorización de clave compartida para usar Azure AD en su lugar. Puede supervisar los registros y las métricas tal y como se describe en [Detección del tipo de autorización que usan las aplicaciones cliente](#detect-the-type-of-authorization-used-by-client-applications) para realizar el seguimiento de la transición. Para más información sobre el uso de Azure AD con los datos de blobs y colas, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](storage-auth-aad.md).
+Después de haber analizado cómo se autorizan las solicitudes a la cuenta de almacenamiento, puede tomar medidas para evitar el acceso a través de una clave compartida. Pero antes, debe actualizar las aplicaciones que usan la autorización de clave compartida para usar Azure AD en su lugar. Puede supervisar los registros y las métricas tal y como se describe en [Detección del tipo de autorización que usan las aplicaciones cliente](#detect-the-type-of-authorization-used-by-client-applications) para realizar el seguimiento de la transición. Para obtener más información sobre el uso de Azure AD para acceder a datos en una cuenta de almacenamiento, consulte [Autorización del acceso a datos en Azure Storage](authorize-data-access.md).
 
 Cuando esté seguro de que puede rechazar de forma segura las solicitudes que están autorizadas con la clave compartida, puede establecer la propiedad **AllowSharedKeyAccess** de la cuenta de almacenamiento en **false**.
 
@@ -247,6 +247,6 @@ Denegar el acceso con clave compartida para una cuenta de almacenamiento no afec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Autorización del acceso a datos en Azure Storage](storage-auth.md)
-- [Autorización del acceso a blobs y colas con Azure Active Directory](storage-auth-aad.md)
+- [Autorización del acceso a datos en Azure Storage](./authorize-data-access.md)
+- [Autorización del acceso a blobs y colas con Azure Active Directory](authorize-data-access.md)
 - [Autorización con clave compartida](/rest/api/storageservices/authorize-with-shared-key)

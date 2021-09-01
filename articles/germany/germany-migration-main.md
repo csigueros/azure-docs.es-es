@@ -1,36 +1,38 @@
 ---
 title: Migración de Azure Germany a Azure global
 description: Introducción a la migración de los recursos de Azure desde Azure Germany a Azure global.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: 386f5af2ef186dcde2971601b44eb9cbd53883dd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37dde9cf2f105c3e8e8c3dc86e59340c205f9254
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033676"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "117029163"
 ---
 # <a name="overview-of-migration-guidance-for-azure-germany"></a>Introducción a la guía de migración para Azure Alemania
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 Los artículos de esta sección se han creado para ayudarle a migrar las cargas de trabajo desde Azure Germany a Azure global. Aunque [Azure Migration Center](https://azure.microsoft.com/migration/) proporciona herramientas que le ayudan a migrar recursos, algunas de las herramientas de Azure Migration Center son útiles solo para las migraciones que ocurren en el mismo inquilino o en la misma región.
 
 Las dos regiones de Alemania son completamente independientes de Azure global. Las nubes de Azure global y de Alemania tienen sus propias instancias independientes de Azure Active Directory (Azure AD). Debido a esto, los inquilinos de Azure Alemania están separados de los inquilinos de Azure global. En este artículo se describen las herramientas de migración que están disponibles cuando se migra entre *diferentes* inquilinos.
 
-Las instrucciones sobre la identidad o inquilinos está pensada solo para los clientes de Azure. Si se utilizan inquilinos comunes de Azure Active Directory (Azure AD) para Azure y O365 (u otros productos de Microsoft), existen complejidades en la migración de identidades y hay que ponerse en contacto primero con el administrador de cuentas antes de utilizar esta guía de migración.
+Las instrucciones sobre la identidad o inquilinos está pensada solo para los clientes de Azure. Si usa inquilinos comunes de Azure Active Directory (Azure AD) para Azure y Microsoft 365 (u otros productos de Microsoft), existen dificultades en la migración de identidades y primero debe consultar el artículo [Acciones y efectos de las fases de migración desde Microsoft Cloud Deutschland](/microsoft-365/enterprise/ms-cloud-germany-transition-phases?view=o365-worldwide). Si tiene alguna pregunta, póngase en contacto con el administrador de cuentas o con el soporte técnico de Microsoft.
+
+Los proveedores de soluciones en la nube de Azure deben realizar pasos adicionales para dar soporte técnico a los clientes durante la transición a la nueva región del centro de datos alemán y después de esta. Obtenga más información sobre estos [pasos adicionales](/microsoft-365/enterprise/ms-cloud-germany-transition-add-csp).
 
 ## <a name="migration-process"></a>Proceso de migración
 
 El proceso que se utiliza para migrar una carga de trabajo de Azure Alemania a Azure global suele ser similar al proceso que se utiliza para migrar aplicaciones a la nube. Los pasos del proceso de migración son:
 
-![Imagen que muestra los cuatro pasos del proceso de migración: Evaluar, planear, migrar y validar](./media/germany-migration-main/migration-steps.png)
+![Imagen que muestra los cuatro pasos del proceso de migración: Evaluar, Planear, Migrar y Validar](./media/germany-migration-main/migration-steps.png)
 
-### <a name="assess"></a>Evaluación
+### <a name="assess"></a>Evaluar
 
 Es importante entender la huella de Azure Alemania de la organización mediante la reunión de propietarios de cuentas de Azure, administradores de suscripciones, administradores de inquilinos y equipos de finanzas y contabilidad. Las personas que trabajan con estos roles pueden proporcionar una imagen completa del uso de Azure para una organización grande.
 
@@ -51,7 +53,7 @@ Al final de esta fase, tendrá:
 En la fase de planeación, complete las tareas siguientes:
 
 - Utilice el resultado del análisis de dependencia completado en la etapa de evaluación para definir los componentes relacionados. Considere la posibilidad de migrar todos los componentes relacionados juntos en un *paquete de migración*.
-- (Opcional) Utilice la migración como una oportunidad de aplicar los [criterios Gartner 5-R](https://www.gartner.com/newsroom/id/1684114) y optimizar la carga de trabajo.
+- (Opcional) Utilice la migración como una oportunidad de aplicar los [criterios Gartner 5-R](https://www.gartner.com/en/documents/3873016/evaluation-criteria-for-cloud-management-platforms-and-t) y optimizar la carga de trabajo.
 - Determine el entorno de destino en Azure global:
   1. Identifique al inquilino de Azure global de destino (cree uno, si es necesario).
   1. Cree las suscripciones.
@@ -85,20 +87,20 @@ Estos términos se utilizan en los artículos sobre la migración de Azure Alema
 - **Identificador de suscripción de origen**: el identificador de la suscripción de recursos en Azure Alemania. Puede tener más de una suscripción en el mismo inquilino. Asegúrese siempre de que está usando la suscripción correcta.
 - **Región de origen**: cualquier región de Centro de Alemania (**germanycentral**) o Nordeste de Alemania (**germanynortheast**), en función de donde se encuentre el recurso que desea migrar.
 
-**Destino**describe hacia dónde está migrando los recursos **:**
+**Destino** describe hacia dónde está migrando los recursos **:**
 
 - **Nombre del inquilino de destino**: el nombre del inquilino en Azure global.
-- **Identificador de inquilino de destino**: el identificador del inquilino en Azure global.
-- **Identificación de suscripción de destino**: el identificador de la suscripción para el recurso en Azure global.
-- **Target region** (Región de destino): Puede usar casi cualquier región de Azure global. Es probable que quiera migrar los recursos a Oeste de Europa (**westeurope**) o a Norte de Europa (**northeurope**).
+- **Identificador del inquilino de destino**: el identificador del inquilino en Azure global.
+- **Identificador de la suscripción de destino**: el identificador de la suscripción para el recurso en Azure global.
+- **Región de destino**: puede usar casi cualquier región de Azure global. Es probable que quiera migrar los recursos a Oeste de Europa (**westeurope**) o a Norte de Europa (**northeurope**).
 
 > [!NOTE]
-> Compruebe que el servicio de Azure que está migrando se ofrece en la región de destino. Todos los servicios de Azure que están disponibles en Azure Alemania están disponibles en Oeste de Europa. Todos los servicios de Azure que están disponibles en Azure Alemania están disponibles en Norte de Europa, excepto para Azure Machine Learning Studio máquinas virtuales y para las máquinas virtuales de la serie G/GS en Azure Virtual Machines.
+> Compruebe que el servicio de Azure que está migrando se ofrece en la región de destino. Todos los servicios de Azure que están disponibles en Azure Alemania están disponibles en Oeste de Europa. Todos los servicios de Azure que están disponibles en Azure Alemania están disponibles en Norte de Europa, excepto para Azure Machine Learning Studio (clásico) y para las máquinas virtuales de la serie G/GS de Azure Virtual Machines.
 
 Es una buena idea marcar los portales de origen y destino en el explorador:
 
 - El portal de Azure Alemania se encuentra en [https://portal.microsoftazure.de/](https://portal.microsoftazure.de/).
-- El portal de Azure global está en [ https://portal.azure.com/ ](https://portal.azure.com/).
+- El portal de Azure global está en [https://portal.azure.com/](https://portal.azure.com/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

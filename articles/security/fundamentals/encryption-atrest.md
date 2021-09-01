@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6c302b10baad157cd70751d49fe6d50911c2ce75
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: a73965d0ec5d0d3fbcf665d648137e1153506721
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074797"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746232"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -38,7 +38,7 @@ El cifrado es la codificación segura de los datos usados para proteger la confi
 - Se usa una clave de cifrado simétrico para cifrar datos mientras se escriben en el almacenamiento.
 - La misma clave de cifrado se utiliza para descifrar los datos tal y como se prepararon para su uso en la memoria.
 - Se pueden particionar datos y se pueden usar claves diferentes para cada partición.
-- Las claves deben almacenarse en una ubicación segura con el control de acceso basado en identidades y directivas de auditoría. Las claves de cifrado de datos se cifran a menudo con la clave de cifrado de claves en Azure Key Vault para limitar aún más el acceso.
+- Las claves deben almacenarse en una ubicación segura con el control de acceso basado en identidades y directivas de auditoría. Las claves de cifrado de datos que se almacenan fuera de ubicaciones seguras se cifran con una clave de cifrado de claves que se conserva en una ubicación segura.
 
 En la práctica, los escenarios de control y administración de la clave, así como las convicciones de escala y disponibilidad, requieren construcciones adicionales. A continuación se describen los componentes y conceptos del cifrado en reposo de Microsoft Azure.
 
@@ -75,7 +75,7 @@ Se usa más de una clave de cifrado en una implementación de cifrado en reposo.
 - **Clave de cifrado de datos (DEK)** : Una clave simétrica AES256 usada para cifrar una partición o un bloque de datos.  Un único recurso puede tener muchas particiones y muchas claves de cifrado de datos. Cifrar cada bloque de datos con una clave diferente dificulta los ataques de análisis criptográficos. Se necesita acceso a las DEK por la instancia de proveedor o aplicación de recursos que cifra y descifra un bloque específico. Cuando se reemplaza una DEK con una nueva clave, solo se deben volver a cifrar los datos de su bloque asociado con una nueva clave.
 - **Clave de cifrado de claves (KEK)** : una clave de cifrado utilizada para cifrar las claves de cifrado de datos. El uso de una clave de cifrado de claves que siempre permanece en Key Vault permite a las propias claves de cifrado de datos cifrarse y controlarse. La entidad que tiene acceso a la KEK puede ser diferente de la entidad que requiere la DEK. Una entidad puede adaptar el acceso a la DEK para limitar el acceso de cada DEK a una partición específica. Puesto que la KEK es necesaria para descrifrar la DEK, la KEK es de manera eficaz un punto único por el que se pueden eliminar de forma eficaz las DEK mediante la eliminación de la KEK.
 
-Las claves de cifrado de datos cifradas con las claves de cifrado de claves se almacenan por separado y solo una entidad con acceso a la clave de cifrado de claves puede descifrar dichas claves de cifrado de datos. Se admiten diferentes modelos de almacenamiento de claves. Consulte los [modelos de cifrado de datos](encryption-models.md) para obtener más información.
+Los proveedores de recursos y las instancias de aplicación almacenan las claves de cifrado de datos cifradas con las claves de cifrado de claves, a menudo como metadatos sobre los datos protegidos por las claves de cifrado de datos. Solo una entidad con acceso a la clave de cifrado de claves puede descifrar estas claves de cifrado de datos. Se admiten diferentes modelos de almacenamiento de claves. Consulte los [modelos de cifrado de datos](encryption-models.md) para obtener más información.
 
 ## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Cifrado en reposo en servicios en la nube de Microsoft
 

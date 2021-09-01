@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: mathoma
 ms.date: 12/18/2018
-ms.openlocfilehash: 35e13b483141e841d9cca5a2e5d3aa3c77ee7b4a
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: aacb8863fcb26f5551459e0fe7ad2d4faeede4e0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017620"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744884"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Creación, configuración y administración de trabajos elásticos (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -85,18 +85,18 @@ Establezca el número de bases de datos simultáneas que ejecuta un trabajo esta
 ### <a name="idempotent-scripts"></a>Scripts idempotentes
 Los scripts de T-SQL de un trabajo deben ser [idempotentes](https://en.wikipedia.org/wiki/Idempotence). **Idempotente** significa que si el script se ejecuta correctamente y se vuelve a ejecutar, produce el mismo resultado. Un script puede producir errores debido a problemas de red transitorios. En ese caso, el trabajo volverá a intentar ejecutar automáticamente el script un número de veces predefinido antes de desistir. Un script idempotente produce el mismo resultado aunque se ejecute correctamente dos veces (o más).
 
-Una táctica sencilla es probar la existencia de un objeto antes de crearlo.
-
+Una táctica sencilla es probar la existencia de un objeto antes de crearlo. A continuación, se muestra un ejemplo hipotético:
 
 ```sql
-IF NOT EXISTS (some_object)
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE [name] = N'some_object')
+    print 'Object does not exist'
     -- Create the object
+ELSE
+    print 'Object exists'
     -- If it exists, drop the object before recreating it.
 ```
 
 De forma similar, un script debe ser capaz de comprobar lógicamente y contrarrestar las condiciones que encuentre para ejecutarse correctamente.
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
