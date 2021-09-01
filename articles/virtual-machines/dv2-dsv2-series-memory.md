@@ -1,5 +1,5 @@
 ---
-title: 'Máquinas virtuales de las series Dv2 y DSv2 optimizadas para memoria: Azure Virtual Machines'
+title: 'Máquinas virtuales de las series Dv2 y Dsv2 optimizadas para memoria: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de la serie Dv2 y DSv2.
 author: joelpelley
 ms.service: virtual-machines
@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f07e4542e380e4e8057d9011a6b613e9ad55a058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3a3feb844d9c29aa63c0a85d3b3391c8ab654a6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560334"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740076"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Series Dv2 y DSv2 optimizadas para memoria
 
@@ -28,7 +28,7 @@ Los tamaños de la serie Dv2 se ejecutan en procesadores Intel® Xeon® Platinum
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
-[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible (*se requieren 4 vCPU como mínimo*)<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 <br> 
 
@@ -40,7 +40,7 @@ Los tamaños de la serie Dv2 se ejecutan en procesadores Intel® Xeon® Platinum
 | Standard_D14_v2 | 16 | 112 | 800 | 48000/750/375 | 64/64x500 | 8|12000 |
 | Standard_D15_v2 <sup>1</sup> | 20 | 140 | 1000 | 60000/937/468 | 64/64x500 | 8|25000 <sup>2</sup> |
 
-<sup>1</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
+<sup>1</sup> La instancia está aislada en el hardware dedicado a un solo cliente.<br>
 <sup>2</sup> 25 000 Mbps con redes aceleradas.
 
 ## <a name="dsv2-series-11-15"></a>DSv2-series 11-15
@@ -53,7 +53,7 @@ Los tamaños de la serie DSv2 se ejecutan en procesadores Intel® Xeon® Platinu
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
-[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible (*se requieren 4 vCPU como mínimo*)<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br> 
 
@@ -68,7 +68,7 @@ Los tamaños de la serie DSv2 se ejecutan en procesadores Intel® Xeon® Platinu
 <sup>1</sup> El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie DSv2 puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para información detallada, consulte [Azure Premium Storage: Diseño de alto rendimiento](./premium-storage-performance.md).
 <sup>2</sup> La instancia está aislada en el hardware basado en Intel Haswell y se dedica a un solo cliente.  
 <sup>3</sup> Tamaños de núcleos restringidos disponibles.  
-<sup>4</sup> 25 000 Mbps con redes aceleradas.
+<sup>4</sup> 25 000 Mbps con redes aceleradas.<br>
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

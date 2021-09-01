@@ -6,20 +6,22 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: 224f46f16f03f53009c3f7beb55d252c5ce5e1e7
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 08/03/2021
+ms.openlocfilehash: 330f102dffb392540879d8d583e02a68fbe436c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316162"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745165"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Registro de auditoría en Azure Database for PostgreSQL: Hiperescala (Citus)
 
-El registro de auditoría de actividades de base de datos en Azure Database for PostgreSQL: Hiperescala (Citus) está disponible a través de la extensión de auditoría de PostgreSQL: [pgAudit](https://www.pgaudit.org/). pgAudit proporciona un registro de auditoría de objeto o sesión detallado.
-
 > [!IMPORTANT]
-> pgAudit se encuentra en versión preliminar en Azure Database for PostgreSQL: Hiperescala (Citus).
+> La extensión pgAudit de Hiperescala (Citus) está actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+>
+> Puede ver la lista completa de características nuevas en [Características en versión preliminar de Hiperescala (Citus)](hyperscale-preview-features.md).
+
+El registro de auditoría de actividades de base de datos en Azure Database for PostgreSQL: Hiperescala (Citus) está disponible a través de la extensión de auditoría de PostgreSQL: [pgAudit](https://www.pgaudit.org/). pgAudit proporciona un registro de auditoría de objeto y sesión detallado.
 
 Si desea obtener registros de nivel de recurso de Azure para operaciones como el escalado de procesos y de almacenamiento, consulte el [registro de actividad de Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
@@ -28,7 +30,7 @@ De forma predeterminada, las instrucciones de registro de pgAudit se emiten junt
 
 ## <a name="enabling-pgaudit"></a>Habilitación de pgAudit
 
-La extensión pgAudit está preinstalada y habilitada en todos los nodos del grupo de servidores de Hiperescala (Citus). No se requiere ninguna acción para habilitarla.
+La extensión pgAudit está preinstalada y habilitada en la mayoría de los nodos del grupo de servidores de Hiperescala (Citus). Si no está habilitado en los nodos, abra una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="pgaudit-settings"></a>Configuración de pgAudit
 

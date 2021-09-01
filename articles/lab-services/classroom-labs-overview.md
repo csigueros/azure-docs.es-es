@@ -2,13 +2,13 @@
 title: Acerca de los laboratorios de Azure Lab Services| Microsoft Docs
 description: 'Aprenda a configurar rápidamente un entorno de laboratorio de clase en la nube: configure un laboratorio con una máquina virtual de plantilla con el software necesario para la clase y ponga una copia de la máquina virtual a disposición de cada alumno de la clase.'
 ms.topic: overview
-ms.date: 06/26/2020
-ms.openlocfilehash: 79d6f1cc9f2a6d8d8be872359a4677b36602eea5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/26/2021
+ms.openlocfilehash: 6e91d833a86f2f326ca966b36679946ed1455f6e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434811"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965053"
 ---
 # <a name="introduction-to-labs"></a>Introducción a los laboratorios
 Azure Lab Services le permite configurar rápidamente un entorno de laboratorio educativo en la nube. Un profesor crea un laboratorio educativo, aprovisiona máquinas virtuales Windows o Linux, instala el software y las herramientas que se necesiten en el aula y las pone a disposición de los alumnos. Los alumnos se conectan a las máquinas virtuales (VM) del laboratorio y las usan para sus proyectos, tareas y ejercicios de clase. 

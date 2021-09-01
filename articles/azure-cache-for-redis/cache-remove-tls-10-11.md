@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 4fb4025d10990c0f499a16bbb6bc308eb74c00cf
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: f9c6f8cc3c973d3172166514815018979f744173
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655176"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744924"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Quitar TLS 1.0 y 1.1 del uso de Azure Cache for Redis
 
@@ -23,7 +23,7 @@ Como parte de este trabajo, realizaremos los siguientes cambios en Azure Cache f
 * **Fase 2:** se dejarán de admitir TLS 1.1 y TLS 1.0. Después de ese cambio, la aplicación debe usar TLS 1.2 o posterior para comunicarse con la caché. Se espera que el servicio Azure Cache for Redis esté disponible mientras se migra para la compatibilidad con TLS 1.2 o posterior.
 
   > [!NOTE]
-  > Se prevé inicialmente que la fase 2 no comience antes del 31 de diciembre de 2020. Sin embargo, se recomienda encarecidamente empezar a planear este cambio ahora y actualizar los clientes de manera anticipada para que admitan TLS1.2 o posterior. 
+  > La fase 2 se ha pospuesto debido a la COVID-19. Se recomienda encarecidamente empezar a planear este cambio ahora y actualizar los clientes de manera anticipada para que admitan TLS 1.2, o cualquier versión posterior. 
   >
 
 Como parte de este cambio, también se quitará la compatibilidad con conjuntos de cifrado anteriores que no son seguros. Nuestros conjuntos de cifrado compatibles están restringidos a los siguientes cuando la caché está configurada con TLS 1.2 como mínimo:
@@ -43,7 +43,7 @@ Las fechas en las que estos cambios surten efecto son:
 | Azure China 21Vianet |  13 de marzo de 2020    | Pospuesto debido a la COVID-19  |
 
 > [!NOTE]
-> Se prevé inicialmente que la fase 2 no comience antes del 31 de diciembre de 2020. Este artículo se actualizará cuando se fijen fechas específicas.
+> La fase 2 se ha pospuesto debido a la COVID-19. Este artículo se actualizará cuando se fijen fechas específicas.
 >
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Compruebe si la aplicación ya es compatible

@@ -2,7 +2,6 @@
 title: Introducción a los dispositivos gemelos de Azure IoT Hub (Java) | Microsoft Docs
 description: Describe cómo usar dispositivos gemelos de IoT Hub de Azure para agregar etiquetas y, luego, usar una consulta de IoT Hub. El SDK de dispositivos de Azure IoT para Java se usa con el fin de implementar la aplicación de dispositivo y el SDK de servicios Azure IoT para Java con el objetivo de implementar una aplicación de servicio que agrega las etiquetas y ejecuta la consulta de IoT Hub.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: 53a82ba545fa1709d1b79f3ff6b18f1817736bb7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 044eb2543c2476cd53d73e78a6ac810b2bafa1ca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217863"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748404"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introducción a los dispositivos gemelos (Java)
 
@@ -408,6 +407,6 @@ En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después,
 
 Use los siguientes recursos para obtener información sobre cómo:
 
-* Enviar telemetría desde dispositivos con el tutorial [Introducción a IoT Hub](quickstart-send-telemetry-java.md).
+* Enviar telemetría desde dispositivos con el tutorial [Introducción a IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java).
 
-* Controlar los dispositivos de forma interactiva (por ejemplo, encender un ventilador desde una aplicación controlada por el usuario), con el tutorial [Uso de métodos directos](quickstart-control-device-java.md).
+* Controlar los dispositivos de forma interactiva (por ejemplo, encender un ventilador desde una aplicación controlada por el usuario), con el artículo de inicio rápido [Uso de métodos directos](./quickstart-control-device.md?pivots=programming-language-java).

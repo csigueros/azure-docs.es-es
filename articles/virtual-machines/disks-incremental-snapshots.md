@@ -2,18 +2,18 @@
 title: Creación de una instantánea incremental
 description: Conozca las instantáneas incrementales para discos administrados y cómo crearlas mediante Azure Portal, el módulo de Azure PowerShell y Azure Resource Manager.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 08/10/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ccb008ae74c67d243399cd810b43fc968755937a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: bbd87d8f8e4c140c1ced76a3c60e82d3066d2f5a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673573"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745005"
 ---
 # <a name="create-an-incremental-snapshot-for-managed-disks"></a>Creación de una instantánea incremental para discos administrados
 
@@ -23,10 +23,47 @@ ms.locfileid: "110673573"
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](../../includes/virtual-machines-disks-incremental-snapshots-restrictions.md)]
 
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Puede usar la CLI de Azure para crear una instantánea incremental. Debe instalar la versión más reciente de la CLI de Azure. Consulte los artículos siguientes para obtener información sobre cómo [instalar](/cli/azure/install-azure-cli) o [actualizar](/cli/azure/update-azure-cli) la CLI de Azure.
 
-Puede usar Azure PowerShell para crear y administrar recursos compartidos de archivos. Necesitará la versión más reciente de Azure PowerShell y el siguiente comando la instalará o actualizará la instalación existente a la más reciente:
+El siguiente script creará una instantánea incremental de un disco determinado:
+
+```azurecli
+# Declare variables
+diskName="yourDiskNameHere"
+resourceGroupName="yourResourceGroupNameHere"
+snapshotName="desiredSnapshotNameHere"
+
+# Get the disk you need to backup
+yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --output tsv)
+
+# Create the snapshot
+az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true
+```
+
+Puede identificar las instantáneas incrementales del mismo disco con la propiedad `SourceResourceId` de las instantáneas. `SourceResourceId` es el identificador de recursos de Azure Resource Manager del disco principal.
+
+Puede usar `SourceResourceId` para crear una lista de todas las instantáneas asociadas a un disco determinado. Reemplace `yourResourceGroupNameHere` por su valor y, a continuación, puede usar el ejemplo siguiente para enumerar las instantáneas incrementales existentes:
+
+
+```azurecli
+# Declare variables and create snapshot list
+subscriptionId="yourSubscriptionId"
+resourceGroupName="yourResourceGroupNameHere"
+diskName="yourDiskNameHere"
+
+az account set --subscription $subscriptionId
+
+diskId=$(az disk show -n $diskName -g $resourceGroupName --query [id] -o tsv)
+
+az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremental]" -g $resourceGroupName --output table
+```
+
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Puede usar el módulo Azure PowerShell para crear una instantánea incremental. Necesitará la versión más reciente del módulo Azure PowerShell. El siguiente comando la instalará o actualizará la instalación existente a la versión más reciente:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
@@ -51,9 +88,10 @@ New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
 
 Puede identificar las instantáneas incrementales desde el mismo disco con las propiedades `SourceResourceId` y `SourceUniqueId` de las instantáneas. `SourceResourceId` es el identificador de recursos de Azure Resource Manager del disco principal. `SourceUniqueId` es el valor heredado de la propiedad `UniqueId` del disco. Si fuera a eliminar un disco y después creara otro con el mismo nombre, el valor de la propiedad `UniqueId` cambiaría.
 
-Puede usar `SourceResourceId` y `SourceUniqueId` para crear una lista de todas las instantáneas asociadas a un disco determinado. Reemplace `<yourResourceGroupNameHere>` por su valor y, a continuación, puede usar el ejemplo siguiente para enumerar las instantáneas incrementales existentes:
+Puede usar `SourceResourceId` y `SourceUniqueId` para crear una lista de todas las instantáneas asociadas a un disco determinado. Reemplace `yourResourceGroupNameHere` por su valor y, a continuación, puede usar el ejemplo siguiente para enumerar las instantáneas incrementales existentes:
 
 ```PowerShell
+$resourceGroupName = "yourResourceGroupNameHere"
 $snapshots = Get-AzSnapshot -ResourceGroupName $resourceGroupName
 
 $incrementalSnapshots = New-Object System.Collections.ArrayList

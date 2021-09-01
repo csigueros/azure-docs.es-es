@@ -3,12 +3,12 @@ title: Azure Media Services como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Media Services con Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b5772a2332e1864d0b8df0d4e102006b29b6a61e
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: c3b40f1a40cd0a5ee611a00f2f0361a8a522d3ad
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120119"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014573"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services como origen de Event Grid
 
@@ -28,8 +28,9 @@ Para registrarse para todos los eventos, puede suscribirse al evento JobStateCha
 | Microsoft.Media.JobScheduled| Permite obtener un evento cuando el trabajo realiza la transición al estado programado. |
 | Microsoft.Media.JobProcessing| Permite obtener un evento cuando el trabajo realiza la transición al estado de procesamiento en curso. |
 | Microsoft.Media.JobCanceling| Permite obtener un evento cuando el trabajo realiza la transición al estado de cancelación en curso. |
+| Microsoft.Media.JobFinished| Permite obtener un evento cuando el trabajo realiza la transición al estado finalizado. Se trata de un estado final que incluye las salidas del trabajo.|
 | Microsoft.Media.JobCanceled| Permite obtener un evento cuando el trabajo realiza la transición al estado cancelado. Se trata de un estado final que incluye las salidas del trabajo.|
-| Microsoft.Media.JobErrored | Permite obtener un evento cuando el trabajo realiza la transición al estado de error. Se trata de un estado final que incluye las salidas del trabajo.|
+| Microsoft.Media.JobErrored| Permite obtener un evento cuando el trabajo realiza la transición al estado de error. Se trata de un estado final que incluye las salidas del trabajo.|
 
 Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
 
@@ -285,8 +286,6 @@ El objeto data tiene las siguientes propiedades:
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
 
-# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
-
 En este ejemplo se muestra el esquema del evento **JobOutputStateChange**:
 
 ```json
@@ -394,115 +393,6 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventConnectio
   }
 ]
 ```
-
-# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
-
-En este ejemplo se muestra el esquema del evento **JobOutputStateChange**:
-
-```json
-[{
-  "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
-  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
-  "type": "Microsoft.Media.JobOutputStateChange",
-  "time": "2018-10-12T16:25:56.0242854",
-  "id": "dde85f46-b459-4775-b5c7-befe8e32cf90",
-  "data": {
-    "previousState": "Processing",
-    "output": {
-      "@odata.type": "#Microsoft.Media.JobOutputAsset",
-      "assetName": "output-7640689F",
-      "error": null,
-      "label": "VideoAnalyzerPreset_0",
-      "progress": 100,
-      "state": "Finished"
-    },
-    "jobCorrelationData": {
-      "testKey1": "testValue1",
-      "testKey2": "testValue2"
-    }
-  },
-  "specversion": "1.0"
-}]
-```
-
-### <a name="joboutputscheduled-joboutputprocessing-joboutputfinished-joboutputcanceling-joboutputcanceled-joboutputerrored"></a>JobOutputScheduled, JobOutputProcessing, JobOutputFinished, JobOutputCanceling, JobOutputCanceled, JobOutputErrored
-
-Para cada cambio de estado JobOutput, el esquema de ejemplo tiene un aspecto similar al siguiente:
-
-```json
-[{
-  "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
-  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
-  "type": "Microsoft.Media.JobOutputProcessing",
-  "time": "2018-10-12T16:12:18.0061141",
-  "id": "f1fd5338-1b6c-4e31-83c9-cd7c88d2aedb",
-  "data": {
-    "previousState": "Scheduled",
-    "output": {
-      "@odata.type": "#Microsoft.Media.JobOutputAsset",
-      "assetName": "output-7640689F",
-      "error": null,
-      "label": "VideoAnalyzerPreset_0",
-      "progress": 0,
-      "state": "Processing"
-    },
-    "jobCorrelationData": {
-      "testKey1": "testValue1",
-      "testKey2": "testValue2"
-    }
-  },
-  "specversion": "1.0"
-}]
-```
-### <a name="joboutputprogress"></a>JobOutputProgress
-
-El esquema de ejemplo es similar al siguiente:
-
- ```json
-[{
-  "source": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
-  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
-  "type": "Microsoft.Media.JobOutputProgress",
-  "time": "2018-12-10T18:20:12.1514867",
-  "id": "00000000-0000-0000-0000-000000000000",
-  "data": {
-    "jobCorrelationData": {
-      "TestKey1": "TestValue1",
-      "testKey2": "testValue2"
-    },
-    "label": "VideoAnalyzerPreset_0",
-    "progress": 86
-  },
-  "specversion": "1.0"
-}]
-```
-
-### <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
-
-En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventConnectionRejected**: 
-
-```json
-[
-  {
-    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaServices/<account-name>",
-    "subject": "/LiveEvents/MyLiveEvent1",
-    "type": "Microsoft.Media.LiveEventConnectionRejected",
-    "time": "2018-01-16T01:57:26.005121Z",
-    "id": "b303db59-d5c1-47eb-927a-3650875fded1",
-    "data": { 
-      "streamId":"Mystream1",
-      "ingestUrl": "http://abc.ingest.isml",
-      "encoderIp": "118.238.251.xxx",
-      "encoderPort": 52859,
-      "resultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
-    },
-    "specversion": "1.0"
-  }
-]
-```
-
----
-
 
 El objeto data tiene las siguientes propiedades:
 
@@ -934,21 +824,25 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIngestHea
     "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
     "subject": "liveEvent/mle1",
     "eventType": "Microsoft.Media.LiveEventIngestHeartbeat",
-    "eventTime": "2018-08-07T23:17:57.4610506",
+    "eventTime": "2021-05-14T23:50:00.324",
     "id": "7f450938-491f-41e1-b06f-c6cd3965d786",
     "data": {
-      "trackType": "audio",
-      "trackName": "audio",
-      "bitrate": 160000,
-      "incomingBitrate": 155903,
-      "lastTimestamp": "15336837535253637",
-      "timescale": "10000000",
-      "overlapCount": 0,
-      "discontinuityCount": 0,
-      "nonincreasingCount": 0,
-      "unexpectedBitrate": false,
-      "state": "Running",
-      "healthy": true
+      "trackType":"video",
+      "trackName":"video",
+      "bitrate":2500000,
+      "incomingBitrate":2462597,
+      "lastTimestamp":"106999",
+      "timescale":"1000",
+      "overlapCount":0,
+      "discontinuityCount":0,
+      "nonincreasingCount":0,
+      "unexpectedBitrate":false,
+      "state":"Running",
+      "healthy":true,
+      "lastFragmentArrivalTime":"2021-05-14T23:50:00.324",
+      "ingestDriftValue":"0",
+      "transcriptionState":"",
+      "transcriptionLanguage":""
     },
     "dataVersion": "1.0",
     "metadataVersion": "1"
@@ -1006,6 +900,11 @@ El objeto data tiene las siguientes propiedades:
 | `unexpectedBitrate` | bool | Si las velocidades de bits esperadas y reales superan el límite permitido en los últimos 20 segundos. Es "true" si, y solo si, la velocidad de bits incomingBitrate >= 2* O incomingBitrate <= bitrate/2 O IncomingBitrate = 0. |
 | `state` | string | Estado del evento en directo. |
 | `healthy` | bool | Indica si la ingesta está en buen estado según los recuentos y las marcas. Estará en buen estado si este tiene el valor "true" y si overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
+| `lastFragmentArrivalTime` | string |La última marca de tiempo en UTC en la que un fragmento llegó al punto de conexión de ingesta. El ejemplo de formato de fecha es "2020-11-11 12:12:12:888999" |
+| `ingestDriftValue` | string | Indica la velocidad del retraso, en segundos por minuto, de los datos de audio o vídeo entrantes durante el último minuto. El valor es mayor que cero si los datos llegan al evento en directo más lentamente de lo esperado en el último minuto; cero si los datos llegaron sin retraso; y "n/a" si no se han recibido datos de audio o vídeo. Por ejemplo, si tiene un codificador de contribución que envía contenido en directo y pierde velocidad debido a problemas de procesamiento o latencia de red, es posible que solo pueda entregar un total de 58 segundos de audio o vídeo en un minuto. Esto se notificaría como un desfase de 2 segundos por minuto. Si el codificador puede ponerse al día y enviar los 60 segundos o más, de datos por minuto, verá que este valor se notifica como 0. Si se ha producido una desconexión o una discontinuidad del codificador, este valor puede aparecer como 0, ya que no tiene en cuenta las interrupciones en los datos, solo los datos que se retrasan en las marcas de tiempo.|
+| `transcriptionState` | string | Este valor está "Activado" para los latidos de pista de audio si la transcripción en vivo está activada; de lo contrario, verá una cadena vacía. Este estado solo es aplicable al tipo de pista de "audio" para la transcripción en directo. Todas las demás pistas tendrán un valor vacío.|
+| `transcriptionLanguage` | string  | Código de idioma (en formato BCP-47) del idioma de transcripción. Por ejemplo, "de-de" indica alemán (Alemania). El valor está vacío para los latidos de la pista de vídeo o cuando la transcripción en directo está desactivada. |
+
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 

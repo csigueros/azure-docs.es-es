@@ -2,16 +2,16 @@
 title: 'Inicio rápido: adición de llamadas a una aplicación de iOS mediante Azure Communication Services'
 description: En este inicio rápido, aprenderá a usar Calling SDK de Azure Communication Services para iOS.
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: de2e9fd9cb44b855dbc1db8d1d355be092d6c83e
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 2c1340e41471ab25f00d7ad0a9e678dfeb65470f
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112536209"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122970260"
 ---
 En este inicio rápido aprenderá a iniciar una llamadas con Calling SDK de Azure Communication Services para iOS.
 

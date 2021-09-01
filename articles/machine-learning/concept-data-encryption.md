@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 04/21/2021
-ms.openlocfilehash: ab71dc6f02c87997a680722e3553f2739c378dc4
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 08/02/2021
+ms.openlocfilehash: 2a838d2c1206cbc1a73e00d3ff41337400a08676
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111371294"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742073"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Cifrado de datos con Azure Machine Learning
 
@@ -36,6 +36,9 @@ La marca `hbi_workspace` controla la cantidad de [datos que Microsoft recopila p
 * Inicia el cifrado del disco temporal local en el clúster de proceso de Azure Machine Learning, siempre que no haya creado ningún clúster anterior en esa suscripción. En caso contrario, debe generar una incidencia de soporte técnico para habilitar el cifrado del disco temporal de los clústeres de proceso. 
 * Limpia el disco temporal local entre ejecuciones.
 * Pasa de forma segura las credenciales de la cuenta de almacenamiento, el registro de contenedor y la cuenta SSH desde la capa de ejecución a los clústeres de proceso mediante el almacén de claves.
+
+> [!TIP]
+> La marca `hbi_workspace` no afecta al cifrado en tránsito, solo al cifrado en reposo.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
@@ -59,7 +62,7 @@ Para habilitar el aprovisionamiento de una instancia de Cosmos DB en su suscripc
 
 * Si aún no lo ha hecho, registre los proveedores de recursos de Microsoft.MachineLearning y Microsoft.DocumentDB en su suscripción.
 
-* Use los parámetros que se indican más abajo al crear el área de trabajo de Azure Machine Learning. Ambos parámetros son obligatorios y se admiten en SDK, CLI, API REST y plantillas de Resource Manager.
+* Use los parámetros que se indican más abajo al crear el área de trabajo de Azure Machine Learning. Ambos parámetros son obligatorios y se admiten en SDK, la CLI de Azure, API REST y las plantillas de Resource Manager.
 
     * `resource_cmk_uri`: Este parámetro es el URI de recurso completo de la clave administrada por el cliente en el almacén de claves e incluye la [información de versión de la clave](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
 
@@ -120,11 +123,11 @@ Este proceso permite cifrar los datos y el disco del sistema operativo de las m�
 
 ### <a name="machine-learning-compute"></a>Proceso de Machine Learning
 
-El disco del sistema operativo de cada nodo de proceso almacenado en Azure Storage se cifra mediante claves administradas por Microsoft en las cuentas de almacenamiento de Azure Machine Learning. Este destino de proceso es efímero y, por lo general, los clústeres se reducen verticalmente cuando no hay ninguna ejecución en cola. La máquina virtual subyacente se desaprovisiona y el disco del sistema operativo se elimina. Azure Disk Encryption no se admite con el disco del sistema operativo. 
+**Clúster de proceso** El disco del sistema operativo de cada nodo de proceso almacenado en Azure Storage se cifra mediante claves administradas por Microsoft en las cuentas de almacenamiento de Azure Machine Learning. Este destino de proceso es efímero y, por lo general, los clústeres se reducen verticalmente cuando no hay ninguna ejecución en cola. La máquina virtual subyacente se desaprovisiona y el disco del sistema operativo se elimina. Azure Disk Encryption no se admite con el disco del sistema operativo. 
 
-Cada máquina virtual tiene también un disco local temporal para las operaciones del sistema operativo. Si quiere, puede usar el disco para almacenar temporalmente los datos de entrenamiento. El disco se cifra de forma predeterminada para las áreas de trabajo con el parámetro `hbi_workspace` establecido en `TRUE`. Este entorno solo dura el tiempo de la ejecución, y la compatibilidad con el cifrado se limita únicamente a las claves administradas por el sistema.
+Cada máquina virtual tiene también un disco local temporal para las operaciones del sistema operativo. Si quiere, puede usar el disco para almacenar temporalmente los datos de entrenamiento. Si el área de trabajo se creó con el parámetro `hbi_workspace` establecido en `TRUE`, el disco temporal se cifra. Este entorno solo dura el tiempo de la ejecución y la compatibilidad con el cifrado se limita únicamente a las claves administradas por el sistema.
 
-El disco del sistema operativo de la instancia de proceso se cifra mediante claves administradas por Microsoft en las cuentas de almacenamiento de Azure Machine Learning. El disco temporal local en la instancia de proceso se cifra con claves administradas por Microsoft para las áreas de trabajo con el parámetro `hbi_workspace` establecido en `TRUE`.
+**Instancia de proceso** El disco del sistema operativo de la instancia de proceso se cifra mediante claves administradas por Microsoft en las cuentas de almacenamiento de Azure Machine Learning. Si el área de trabajo se creó con el parámetro `hbi_workspace` establecido en `TRUE`, el disco temporal local en la instancia de proceso se cifra con claves administradas por Microsoft. El cifrado de claves administradas por el cliente no se admite para el disco del sistema operativo y el disco temporal.
 
 ### <a name="azure-databricks"></a>Azure Databricks
 
@@ -146,11 +149,11 @@ Para proteger las llamadas externas realizadas al punto de conexión de puntuaci
 
 ### <a name="microsoft-collected-data"></a>Datos recopilados por Microsoft
 
-Microsoft puede recopilar información de identificación no relacionada con el usuario, como los nombres de los recursos (por ejemplo, el nombre del conjunto de datos o el nombre del experimento de aprendizaje automático) o las variables de entorno de trabajo con fines de diagnóstico. Todos estos datos se almacenan mediante claves administradas por Microsoft en el almacenamiento hospedado en suscripciones propiedad de Microsoft, y siguen los [estándares de tratamiento de los datos y la directiva de privacidad estándar de Microsoft](https://privacy.microsoft.com/privacystatement).
+Microsoft puede recopilar información de identificación no relacionada con el usuario, como los nombres de los recursos (por ejemplo, el nombre del conjunto de datos o el nombre del experimento de aprendizaje automático) o las variables de entorno de trabajo con fines de diagnóstico. Todos estos datos se almacenan mediante claves administradas por Microsoft en el almacenamiento hospedado en suscripciones propiedad de Microsoft, y siguen los [estándares de tratamiento de los datos y la directiva de privacidad estándar de Microsoft](https://privacy.microsoft.com/privacystatement). Estos datos se conservan en la misma región que el área de trabajo.
 
 Microsoft también recomienda no almacenar información confidencial (como secretos de clave de cuenta) en variables de entorno. Nosotros no encargamos de registrar, cifrar y almacenar las variables de entorno. Del mismo modo, al asignar nombres [run_id](/python/api/azureml-core/azureml.core.run%28class%29), evite incluir información confidencial, como nombres de usuario o nombres de proyectos secretos. Esta información puede aparecer en los registros de telemetría a los que pueden acceder los ingenieros de Soporte técnico de Microsoft.
 
-Puede dejar de participar en la recopilación de datos de diagnóstico si establece el parámetro `hbi_workspace` en `TRUE` mientras aprovisiona el área de trabajo. Esta función se admite cuando se usa el SDK de Python de AzureML, la CLI, las API REST o las plantillas de Azure Resource Manager.
+Puede dejar de participar en la recopilación de datos de diagnóstico si establece el parámetro `hbi_workspace` en `TRUE` mientras aprovisiona el área de trabajo. Esta función se admite cuando se usa el SDK de Python de AzureML, la CLI de Azure, las API REST o las plantillas de Azure Resource Manager.
 
 ## <a name="using-azure-key-vault"></a>Uso de Azure Key Vault
 

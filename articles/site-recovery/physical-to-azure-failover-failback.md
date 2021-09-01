@@ -5,12 +5,12 @@ services: site-recovery
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2019
-ms.openlocfilehash: 68427d264b6d2eea1a38e3b8bc5273409221c126
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 607e7e679d378992bcb25785d2a5fd6c1045a08e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579917"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739027"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos replicados en Azure
 
@@ -70,7 +70,7 @@ Después de la conmutación por error debe [configurar Azure](site-recovery-fail
 Después de realizar la conmutación por error a Azure, vuelva a proteger las máquinas virtuales de Azure, para lo que debe replicarlas en el sitio local. Luego, después de que se hayan replicado, puede conmutarlas por recuperación al entorno local, para lo que debe realizar una conmutación por error desde Azure al sitio local.
 
 1. Los servidores físicos replicados en Azure mediante Site Recovery solo pueden realizar conmutaciones por recuperación como máquinas virtuales de VMware. Esto significa que necesita una infraestructura de VMware para realizar conmutaciones por recuperación. Siga los pasos descritos en [este artículo](vmware-azure-prepare-failback.md) para prepararse para la reprotección y la conmutación por recuperación. Esto incluye la configuración de un servidor de procesos en Azure y un servidor de destino maestro local, así como la configuración de una VPN de sitio a sitio, o del emparejamiento privado de ExpressRoute para la conmutación por recuperación.
-2. Asegúrese de que el servidor de configuración local está en ejecución y conectado a Azure. Durante la conmutación por error a Azure, es posible que no se pueda acceder al sitio local y el servidor de configuración puede estar no disponible o apagado. Durante la conmutación por recuperación, la VM debe encontrarse en la base de datos del servidor de configuración. En caso contrario, la conmutación por recuperación no será correcta.
+2. Asegúrese de que el servidor de configuración local esté en ejecución y conectado a Azure. Durante la conmutación por error a Azure, es posible que no se pueda acceder al sitio local y el servidor de configuración puede estar no disponible o apagado. Durante la conmutación por recuperación, la VM debe encontrarse en la base de datos del servidor de configuración. En caso contrario, la conmutación por recuperación no será correcta.
 3. Elimine todas las instantáneas en el servidor de destino maestro local. La reprotección no funcionará si existe alguna instantánea.  Las instantáneas de la VM se combinan automáticamente durante los trabajos de reprotección.
 4. Si va a reproteger máquinas virtuales agrupadas en un grupo de replicación para asegurar la coherencia de varias máquinas virtuales, asegúrese de que todas tienen el mismo sistema operativo (Windows o Linux) y de que el servidor de destino maestro que va a implementar tiene el mismo tipo de sistema operativo. Todas las máquinas virtuales de un grupo de replicación deben usar el mismo servidor de destino maestro.
 5. Abra [los puertos necesarios](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) para realizar la conmutación por recuperación.

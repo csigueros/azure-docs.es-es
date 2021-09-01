@@ -3,12 +3,12 @@ title: Niveles premium y estándar de Azure Service Bus
 description: En este artículo se describen los niveles estándar y premium de Azure Service Bus. Compara estos niveles y proporciona diferencias técnicas.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: f0cc6b6d7b9026d9be23e36a587b7ce667ba1652
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: c6c520219c383a21d8d2e134d0798f3cb5058c2d
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111811269"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202428"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Niveles de mensajería Premium y Estándar de Service Bus
 
@@ -24,7 +24,7 @@ En la tabla siguiente, se resaltan algunas de las principales diferencias.
 | Rendimiento predecible |Latencia variable |
 | Precio fijo |Precios según la variante de pago por uso |
 | Posibilidad de escalar y de reducir verticalmente la carga de trabajo |N/D |
-| Tamaño de mensaje de hasta 1 MB. Este límite se puede aumentar en el futuro. Para las actualizaciones importantes más recientes del servicio, consulte [Mensajería en el blog de Azure](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Tamaño de mensaje de hasta 256 KB |
+| Tamaño de mensaje de hasta 1 MB. Actualmente existe [compatibilidad con cargas de mensajes de hasta 100 MB](#large-messages-support-preview) en versión preliminar. |Tamaño de mensaje de hasta 256 KB |
 
 La **mensajería Premium de Service Bus** proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo de cliente se ejecute de forma aislada. Este contenedor de recursos se llama *unidad de mensajería*. A cada espacio de nombres premium se le asigna al menos una unidad de mensajería. Puede comprar 1, 2, 4, 8 o 16 unidades de mensajería para cada espacio de nombres Premium de Service Bus. Una sola carga de trabajo o entidad puede abarcar varias unidades de mensajería y el número de unidades de mensajería puede cambiarse a voluntad. El resultado es un rendimiento predecible y repetible para su solución basada en Service Bus.
 
@@ -66,7 +66,7 @@ Al aprovisionar un espacio de nombres Premium de Azure Service Bus, debe especif
 
 El número de unidades de mensajería asignadas al espacio de nombres Premium de Service Bus se puede **ajustar dinámicamente** para factorizar el cambio (aumento o disminución) de las cargas de trabajo.
 
-Hay una serie de factores que se deben tener en cuenta a la hora de decidir el número de unidades de mensajería para la arquitectura:
+Hay varios factores que se deben tener en cuenta a la hora de decidir el número de unidades de mensajería que va a tener una arquitectura:
 
 - Comience con ***1 o 2 unidades de mensajería*** asignadas al espacio de nombres.
 - Estudie las métricas de uso de la CPU en [Métricas de uso de recursos](monitor-service-bus-reference.md#resource-usage-metrics) para el espacio de nombres.
@@ -89,10 +89,32 @@ Para obtener información sobre cómo configurar un espacio de nombres de Servic
 
 La introducción a la mensajería premium es muy sencilla y el proceso es similar al de la mensajería estándar. Comience por [crear un espacio de nombres](service-bus-create-namespace-portal.md) en [Azure Portal](https://portal.azure.com). Asegúrese de que selecciona **Premium** en **Plan de tarifa**. Haga clic en **Ver todos los detalles de los precios** para ver más información sobre cada nivel.
 
-![create-premium-namespace][create-premium-namespace]
+:::image type="content" source="./media/service-bus-premium-messaging/select-premium-tier.png" alt-text="Captura de pantalla que muestra la selección del nivel Premium al crear un espacio de nombres.":::
 
 También puede crear un [espacios de nombres premium con plantillas de Azure Resource Manager](https://azure.microsoft.com/resources/templates/servicebus-pn-ar/).
 
+## <a name="large-messages-support-preview"></a>Compatibilidad con mensajes grandes (versión preliminar)
+Los espacios de nombres de nivel Prémium de Azure Service Bus admiten la capacidad de enviar cargas de mensajes grandes, de hasta 100 MB. Esta característica está destinada principalmente a cargas de trabajo heredadas que han usado cargas de mensajes mayores en otros agentes de mensajería empresarial y buscan migrar sin problemas a Azure Service Bus.
+
+Estas son algunas consideraciones que deben tenerse en cuenta al enviar mensajes grandes en Azure Service Bus:
+   * Solo se admite en espacios de nombres de nivel Prémium de Azure Service Bus.
+   * Solo se admite cuando se usa el protocolo AMQP. No se admite cuando se usa el protocolo SBMP.
+   * Se admite cuando se usa el [SDK de cliente de Java Message Service (JMS) 2.0](how-to-use-java-message-service-20.md) y otros SDK de cliente de lenguaje.
+   * El envío de mensajes grandes dará lugar a una disminución del rendimiento y una mayor latencia.
+   * Aunque se admiten cargas de mensajes de 100 MB, se recomienda que las cargas de mensajes sean lo más pequeñas posible, con el fin de garantizar un rendimiento confiable desde el espacio de nombres de Service Bus.
+   * El tamaño máximo del mensaje solo se aplica a los mensajes enviados a la cola o al tema. El límite de tamaño no se aplica para la operación de recepción. Esto permite actualizar el tamaño máximo del mensaje para una cola (o tema) determinada.
+
+### <a name="enabling-large-messages-support-for-a-new-queue-or-topic"></a>Habilitación de la compatibilidad con mensajes de gran tamaño en una nueva cola (o tema)
+
+Para habilitar la compatibilidad con mensajes grandes, establezca el tamaño máximo del mensaje al crear una cola (o tema), como se muestra a continuación. 
+
+:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview.png" alt-text="Captura de pantalla que muestra cómo habilitar la compatibilidad con mensajes grandes en una cola existente.":::
+
+### <a name="enabling-large-messages-support-for-an-existing-queue-or-topic"></a>Habilitación de la compatibilidad con mensajes de gran tamaño en una cola (o tema) existente
+
+También puede habilitar la compatibilidad con mensajes grandes para colas existentes (o temas), actualizando el **tamaño máximo del mensaje** en la **_información general_** de esa cola (o tema) específica, como se muestra a continuación.
+
+:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview-update.png" alt-text="Captura de pantalla de la página Crear cola con compatibilidad con mensajes grandes habilitada.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -102,6 +124,4 @@ Para más información sobre Mensajería de Service Bus, consulte los vínculos 
 - [Introducción a la mensajería Premium de Azure Service Bus (entrada de blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducción a la mensajería Premium de Azure Service Bus (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 
-<!--Image references-->
 
-[create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png

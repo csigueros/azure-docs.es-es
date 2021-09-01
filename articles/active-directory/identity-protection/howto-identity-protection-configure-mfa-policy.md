@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d2bfaef8f00f6246dfef17145666c817ed26d9d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94835873"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747851"
 ---
 # <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>Instrucciones: Configuración de la directiva de registro de Azure AD Multi-Factor Authentication
 
@@ -40,14 +40,12 @@ Para más información sobre Azure AD Multi-Factor Authentication, consulte [¿
    1. En **Asignaciones**
       1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
          1. Opcionalmente, puede optar por excluir usuarios de la directiva.
-   1. En **Controles**
-      1. Asegúrese de que la casilla **Requerir registro de Azure AD MFA** está activada y elija **Seleccionar**.
    1. **Aplicar directiva** - **Activado**
    1. **Guardar**
 
 ## <a name="user-experience"></a>Experiencia del usuario
 
-Azure Active Directory Identity Protection solicitará a los usuarios que se registren la próxima vez que inicien sesión de forma interactiva y tendrán 14 días para completar el registro. Durante este período de 14 días, pueden omitir el registro, pero al final del período se les pedirá que se registren para poder completar el proceso de inicio de sesión.
+Azure Active Directory Identity Protection solicitará a los usuarios que se registren la próxima vez que inicien sesión de forma interactiva y tendrán 14 días para completar el registro. Durante este período de 14 días, pueden omitir el registro si no se requiere MFA como condición, pero al final del período se les pedirá que se registren para poder completar el proceso de inicio de sesión.
 
 Para obtener información general de la experiencia de usuario relacionada, consulte:
 

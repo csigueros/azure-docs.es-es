@@ -4,12 +4,12 @@ description: Obtenga información sobre los conceptos y las técnicas de Azure F
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 4e5d239416a14d2d769020283f43f2dbcf150e64
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 93ac3458e2d9954c9ec17294fe89199d11cc765f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539805"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741392"
 ---
 # <a name="azure-functions-developer-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -97,7 +97,7 @@ Esta es una tabla de todos los enlaces admitidos.
 
 El proyecto de función hace referencia a la información de conexión por nombre de su proveedor de configuración. No acepta directamente los detalles de conexión, lo que permite que se modifiquen en todos los entornos. Por ejemplo, una definición de desencadenador podría incluir una propiedad `connection`. Esta podría hacer referencia a una cadena de conexión, pero no puede establecer la cadena de conexión directamente en un objeto `function.json`. En su lugar, debe establecer `connection` en el nombre de una variable de entorno que contenga la cadena de conexión.
 
-El proveedor de configuración predeterminado utiliza variables de entorno. Estas podrían establecerse mediante la [Configuración de la aplicación](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) cuando se ejecutan en el servicio Azure Functions, o desde el [archivo de configuración local](functions-run-local.md#local-settings-file) cuando el desarrollo se realiza localmente.
+El proveedor de configuración predeterminado utiliza variables de entorno. Estas podrían establecerse mediante la [Configuración de la aplicación](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) cuando se ejecutan en el servicio Azure Functions, o desde el [archivo de configuración local](functions-develop-local.md#local-settings-file) cuando el desarrollo se realiza localmente.
 
 ### <a name="connection-values"></a>Valores de conexión
 
@@ -126,7 +126,7 @@ Las conexiones basadas en identidades son compatibles con las extensiones de des
 
 Las conexiones de almacenamiento que usa el entorno de ejecución de Functions (`AzureWebJobsStorage`) también pueden configurarse con una conexión basada en identidades. Consulte [Conexión al almacenamiento de host con una identidad](#connecting-to-host-storage-with-an-identity) a continuación.
 
-Cuando se hospeda en el servicio de Azure Functions, las conexiones basadas en identidades usan una [identidad administrada](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). Se usa la identidad asignada por el sistema de forma predeterminada. Cuando se ejecuta en otros contextos, como el desarrollo local, se usa la identidad del desarrollador en su lugar, aunque se puede personalizar mediante parámetros de conexión alternativos.
+Cuando se hospeda en el servicio de Azure Functions, las conexiones basadas en identidades usan una [identidad administrada](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). La identidad asignada por el sistema se usa de manera predeterminada, aunque se puede especificar una identidad asignada por el usuario con las propiedades `credential` y `clientID`. Cuando se ejecuta en otros contextos, como el desarrollo local, se usa la identidad del desarrollador en su lugar, aunque se puede personalizar mediante parámetros de conexión alternativos.
 
 #### <a name="grant-permission-to-the-identity"></a>Concesión de permiso a la identidad
 
@@ -151,12 +151,14 @@ Una conexión basada en identidades para un servicio de Azure acepta las siguien
 |---|---|---|---|
 | URI de servicio | Blob de Azure<sup>1</sup>, Cola de Azure | `<CONNECTION_NAME_PREFIX>__serviceUri` | URI del plano de datos del servicio al que se está conectando. |
 | Espacio de nombres completo | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | Espacio de nombres completo de Event Hubs y Service Bus. |
+| Credencial de token | (Opcional) | `<CONNECTION_NAME_PREFIX>__credential` | Define cómo se debe obtener un token para la conexión. Solo se recomienda cuando se especifica una identidad asignada por el usuario, cuando se debe establecer en "managedidentity". Esto solo es válido cuando se hospeda en el servicio Azure Functions. |
+| Id. de cliente | (Opcional) | `<CONNECTION_NAME_PREFIX>__clientId` | Cuando `credential` se establece en "managedidentity", esta propiedad especifica la identidad asignada por el usuario que se usará al obtener un token. La propiedad acepta un identificador de cliente correspondiente a una identidad asignada por el usuario asignada a la aplicación. Si no se especifica, se usará la identidad asignada por el sistema. Esta propiedad se usa de forma diferente en [escenarios de desarrollo locales](#local-development-with-identity-based-connections), en los que no se debe establecer el elemento `credential`. |
 
 <sup>1</sup> Los URI de Blob service y Queue service son necesarios para el blob de Azure.
 
 Es posible que se admitan opciones adicionales para un tipo de conexión determinado. Consulte la documentación del componente que realiza la conexión.
 
-##### <a name="local-development"></a>Desarrollo local
+##### <a name="local-development-with-identity-based-connections"></a>Desarrollo local con conexiones basadas en identidades
 
 Cuando se ejecuta localmente, la configuración anterior indica al tiempo de ejecución que use la identidad del desarrollador local. La conexión intentará obtener un token de las siguientes ubicaciones, en orden:
 

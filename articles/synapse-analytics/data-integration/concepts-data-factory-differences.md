@@ -6,15 +6,15 @@ author: kromerm
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 08/25/2021
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 314c52384910728c0250101e72501de0ae0b89a1
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 46a94faaf3159f93cce34f2d6816185af62f286f
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555009"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966901"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integración de datos en Azure Synapse Analytics frente a Azure Data Factory
 
@@ -37,7 +37,6 @@ Consulte la tabla siguiente para ver la disponibilidad de las características:
 | **Integración del repositorio GIT** | Integración de GIT | ✓ | ✓ |
 | **Supervisión**           | Supervisión de trabajos de Spark para el flujo de datos | ✗ | ✓<br><small>*Aproveche los grupos de Spark en Synapse* |
 |                          | Integración con Azure Monitor | ✓ | ✗ |
-| **Lineage** | Admite la publicación de datos de linaje de canalización en Purview.  | ✓ | ✗ |  
 
 > [!Note]
 > **Período de vida** es una configuración Azure Integration Runtime que permite que el clúster de Spark *permanezca semiactivo* durante un período de tiempo después de la ejecución del flujo de datos.

@@ -7,12 +7,12 @@ ms.date: 05/12/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 01be1037b38e2991a2266c37dfd3ca026ca874ff
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: f69b7174ec37a38fd972f53daaaf09776a279cea
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846435"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745095"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exención de recursos y recomendaciones de la puntuación de seguridad 
 
@@ -36,7 +36,7 @@ En tales casos, puede crear una exención para una recomendación para:
 | Precios:                        | Se trata de una funcionalidad prémium de Azure Policy que se ofrece a los clientes de Azure Defender sin costo adicional. En el caso de otros usuarios, pueden aplicarse cargos en el futuro.                                                                                                                                                                 |
 | Roles y permisos necesarios: | **Propietario** o **Colaborador de la directiva de recursos** para crear una exención<br>Para crear una regla, necesita permisos para editar directivas en Azure Policy.<br>Obtenga más información en [Permisos de Azure RBAC en Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
 | Limitaciones:                    | Solo se pueden crear exenciones para las recomendaciones incluidas en la iniciativa predeterminada de Azure Security Center, [Azure Security Benchmark](/security/benchmark/azure/introduction) o cualquiera de las iniciativas normativas estándar proporcionadas. No se pueden crear exenciones para las recomendaciones que se generan a partir de iniciativas personalizadas. Obtenga más información sobre las relaciones entre [directivas, iniciativas y recomendaciones](security-policy-concept.md). |
-| Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)                                                                                                                                                                                         |
+| Nubes:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
 ## <a name="define-an-exemption"></a>Definición de una exención
@@ -88,11 +88,11 @@ Para crear una regla de exención:
 
     - La franja de información en la parte superior de la página de detalles de la recomendación actualiza el número de recursos exentos:
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Número de recursos exentos":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Número de recursos exentos.":::
 
 1. Para revisar los recursos exentos, abra la pestaña **No aplicable**:
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modificación de una exención":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modificación de una exención.":::
 
     La razón de cada exención se incluye en la tabla (1).
 

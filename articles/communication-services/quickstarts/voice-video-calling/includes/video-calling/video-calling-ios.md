@@ -1,21 +1,21 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
-ms.author: mikben
-ms.openlocfilehash: e134173fdcd72c637be990b92a278d848ce6527b
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.author: rifox
+ms.openlocfilehash: c2d280de30997996902def6f04eb1d35c956999a
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112536215"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966016"
 ---
 Puede empezar a usar Azure Communication Services con Calling SDK de Azure Communication Services para agregar llamadas individuales de vídeo a la aplicación. Aprenderá a iniciar videollamadas y a responder a ellas con Calling SDK de Azure Communication Services para iOS.
 
 ## <a name="sample-code"></a>Código de ejemplo
 
-Si quiere ir directamente al final, puede descargar este inicio rápido como ejemplo desde [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
+Si quiere ir directamente al final, puede descargar esta guía de inicio rápido como ejemplo desde [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Obtenga una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

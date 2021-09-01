@@ -4,15 +4,16 @@ description: Más información sobre el funcionamiento de Azure Private Link en 
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/10/2021
-ms.openlocfilehash: 9d41ff8d2b0bfd1e83f15366e152398f5de8ccf9
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.date: 06/16/2021
+ms.openlocfilehash: f4ae3d0653ce99be2017b1ef08ca0645c599ee10
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020984"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740988"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para Azure Data Factory
 
@@ -46,7 +47,7 @@ Con la compatibilidad de Private Link para Azure Data Factory, puede:
 
 Las comunicaciones con el servicio Azure Data Factory pasan a través de Private Link y ayudan a ofrecer conectividad privada segura. 
 
-![Diagrama de Private Link para la arquitectura de Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
+:::image type="content" source="./media/data-factory-private-link/private-link-architecture.png" alt-text="Diagrama de Private Link para la arquitectura de Azure Data Factory.":::
 
 La habilitación del servicio Private Link para cada uno de los canales de comunicación anteriores ofrece la siguiente funcionalidad:
 - **Admitido**:
@@ -60,7 +61,7 @@ La habilitación del servicio Private Link para cada uno de los canales de comun
    > Para las funcionalidades que no se admiten actualmente deberá configurar el dominio y el puerto previamente mencionados en la red virtual o el firewall corporativo. 
 
    > [!NOTE]
-   > La conexión a Azure Data Factory a través de un punto de conexión privado solo es aplicable al entorno de ejecución de integración autohospedado en la factoría de datos. No se admite en Synapse.
+   > La conexión a Azure Data Factory a través de un punto de conexión privado solo es aplicable al entorno de ejecución de integración autohospedado en la factoría de datos. No es compatible con Azure Synapse.
 
 > [!WARNING]
 > Si habilita Private Link en Azure Data Factory y bloquea el acceso público al mismo tiempo, asegúrese de que, al crear un servicio vinculado, las credenciales se almacenan en un almacén de claves de Azure. De lo contrario, las credenciales no funcionarán.
@@ -199,7 +200,7 @@ Por último, debe crear el punto de conexión privado en la factoría de datos.
     | Parámetro | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Selección de un grupo de recursos |
     | **Detalles de instancia** |  |
     | Nombre  | Escriba un nombre para el punto de conexión. |

@@ -7,12 +7,12 @@ metadata:
   ms.topic: article
   ms.date: 07/08/2020
   ms.author: radeltch
-  ms.openlocfilehash: ac0646f0fca867402477acac9bca62753f275fdd
-  ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+  ms.openlocfilehash: 903d2e2b2413f4ad92a6f0fb88871f4410e464b4
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/16/2021
-  ms.locfileid: "114393723"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122967156"
 title: Preguntas frecuentes acerca de Azure Monitor para soluciones de SAP (versión preliminar)
 summary: "## <a name=\"frequently-asked-questions\"></a>Preguntas más frecuentes\n\nEn este artículo, se ofrecen respuestas a preguntas frecuentes (P+F) sobre Azure Monitor para soluciones de SAP.  \n"
 sections:
@@ -82,4 +82,4 @@ sections:
   - question: >
       ¿Es necesario reiniciar las instancias de SAP después de realizar configuraciones del sistema para configurar el proveedor de SAP NetWeaver?
     answer: "Sí, una vez que tenga métodos desprotegidos mediante cambios de configuración de SAP, deberá reiniciar los sistemas de SAP correspondientes para asegurarse de que se actualicen los cambios de configuración.  \n"
-additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nMás información sobre Azure Monitor para soluciones de SAP.\n\n> [!div class=\"nextstepaction\"]\n> [Azure Monitor para soluciones de SAP](azure-monitor-overview.md)"
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nMás información sobre Azure Monitor para soluciones de SAP.\n\n> [!div class=\"nextstepaction\"]\n> [Supervisión de SAP en Azure](monitor-sap-on-azure.md)"

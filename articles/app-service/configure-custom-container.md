@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 02/23/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 7648482fcf1d3618c02e4c8c8cf18aa521013baf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 22a953058084b4f828160cc9ba99c14a5313c9fb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078281"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747781"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configuración de un contenedor de Linux personalizado para Azure App Service
 
@@ -233,7 +233,7 @@ En PowerShell:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_MEMORY_LIMIT_MB"=2000}
 ```
 
-El valor se define en MB y debe ser menor y igual que la memoria física total del host. Por ejemplo, en un plan de App Service con 8 GB de RAM, el total acumulado de `WEBSITE_MEMORY_LIMIT_MB` para todas las aplicaciones no debe ser superior a 8 GB. Encontrará más información sobre la cantidad de memoria disponible en cada plan de tarifa en [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/), en la sección del **plan de contenedor Premium (Windows)** .
+El valor se define en MB y debe ser menor y igual que la memoria física total del host. Por ejemplo, en un plan de App Service con 8 GB de RAM, el total acumulado de `WEBSITE_MEMORY_LIMIT_MB` para todas las aplicaciones no debe ser superior a 8 GB. Encontrará más información sobre la cantidad de memoria disponible en cada plan de tarifa en [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/), en la sección **Plan de servicio Premium v3**.
 
 ## <a name="customize-the-number-of-compute-cores"></a>Personalización del número de núcleos de proceso
 
@@ -259,7 +259,7 @@ Get-ComputerInfo | ft CsNumberOfLogicalProcessors # Total number of enabled logi
 Get-ComputerInfo | ft CsNumberOfProcessors # Number of physical processors.
 ```
 
-Los procesadores pueden ser multithreading o tener varios núcleos. Encontrará más información sobre el número de núcleos disponibles en cada plan de tarifa en [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/), en la sección del **plan de contenedor Premium (Windows)** .
+Los procesadores pueden ser multithreading o tener varios núcleos. Encontrará más información sobre el número de núcleos disponibles en cada plan de tarifa en [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/), en la sección **Plan de servicio Premium v3**.
 
 ## <a name="customize-health-ping-behavior"></a>Personalización del comportamiento del ping de estado
 
@@ -386,6 +386,7 @@ La aplicación de varios contenedores está actualmente en versión preliminar. 
 - Identidades administradas
 - CORS
 - No se admite la integración con la red virtual en escenarios de Docker Compose.
+- En este momento, Docker Compose en Azure App Services tiene un límite de 4.000 caracteres.
 
 ### <a name="docker-compose-options"></a>Opciones de Docker Compose
 
@@ -431,4 +432,5 @@ Las listas siguientes muestran opciones de configuración admitidas y no admitid
 
 O consulte estos recursos adicionales:
 
-[Carga de certificados en contenedores de Linux y Windows](configure-ssl-certificate-in-code.md#load-certificate-in-linuxwindows-containers)
+- [Variables de entorno y configuración de la aplicación en Azure App Service](reference-app-settings.md)
+- [Carga de certificados en contenedores de Linux y Windows](configure-ssl-certificate-in-code.md#load-certificate-in-linuxwindows-containers)

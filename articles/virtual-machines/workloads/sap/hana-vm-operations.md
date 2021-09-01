@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 667995b505339ae4db500964c1ce81bef6d9d0fa
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: e83b7b8fd3e1667dbf6f402be2f7dd52a6381340
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467696"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965725"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -143,7 +143,7 @@ La configuración básica de un nodo de máquina virtual para escalabilidad hori
 - Todos los demás volúmenes de disco no se comparten entre los diferentes nodos y no se basan en NFS. Más adelante en este documento se proporcionan las configuraciones de instalación y los pasos para la escalabilidad horizontal de instalaciones HANA con los recursos no compartidos **/hana/data** y **/hana/log**. Para conocer el almacenamiento certificado para HANA que se puede usar, consulte el artículo [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md).
 
 
-Para ajustar el tamaño de los volúmenes o discos, debe consultar el documento [Requisitos de almacenamiento de TDI para SAP HANA](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). El tamaño necesario depende del número de nodos de trabajo. En el documento se incluye una fórmula que debe aplicar para obtener la capacidad necesaria del volumen.
+Para ajustar el tamaño de los volúmenes o discos, debe consultar el documento [Requisitos de almacenamiento de TDI para SAP HANA](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf). El tamaño necesario depende del número de nodos de trabajo. En el documento se incluye una fórmula que debe aplicar para obtener la capacidad necesaria del volumen.
 
 El otro criterio de diseño que se muestra en los gráficos de la configuración de un único nodo para una máquina virtual de SAP HANA de escalabilidad horizontal es la red virtual, o mejor dicho la configuración de subred. SAP recomienda encarecidamente una separación del tráfico orientado al cliente y a la aplicación de las comunicaciones entre los nodos HANA. Como se muestra en los gráficos, esto se logra al tener dos VNIC diferentes conectados a la máquina virtual. Ambos VNIC están en subredes diferentes, con dos direcciones IP distintas. Puede controlar el flujo del tráfico con reglas de enrutamiento mediante grupos de seguridad de red o rutas definidas por el usuario.
 

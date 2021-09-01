@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Descubra cómo Azure Digital Twins usa modelos personalizados para describir las entidades del entorno.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f99309302c594d407a0d65d0ab61a8ece860695b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8590f10f521841d0f483b82bd2e8e9e7d0b3528d
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082332"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253486"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
@@ -28,7 +28,7 @@ Los modelos de Azure Digital Twins se definen con el lenguaje de definición de
 
 Puede ver las especificaciones del lenguaje completas de DTDL en GitHub: [Lenguaje de definición de gemelos digitales (DTDL), versión 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-DTDL se basa en JSON-LD y es independiente del lenguaje de programación. DTDL no es exclusivo de Azure Digital Twins, sino que también se usa para presentar datos de dispositivo en otros servicios de IoT, como [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Azure Digital Twins usa la **versión 2** de DTDL (el uso de DTDL versión 1 con Azure Digital Twins ahora está en desuso). 
+DTDL se basa en JSON-LD y es independiente del lenguaje de programación. DTDL no es exclusivo de Azure Digital Twins, sino que también se usa para presentar datos de dispositivo en otros servicios de IoT, como [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md). Azure Digital Twins usa la **versión 2** de DTDL (el uso de DTDL versión 1 con Azure Digital Twins ahora está en desuso). 
 
 En el resto de este artículo se resume el uso del lenguaje en Azure Digital Twins.
 
@@ -94,6 +94,8 @@ Este modelo describe un modelo Home, con un valor de **property** como identific
 
 En esta sección se explican con mayor detalle las **propiedades** y la **telemetría** de los modelos de DTDL.
 
+Para obtener una lista completa de los campos que pueden aparecer como parte de una propiedad, consulte [Propiedad en la especificación dtdl v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property). Para obtener una lista completa de los campos que pueden aparecer como parte de la telemetría, consulte [Telemetría en la especificación dtdl v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#telemetry).
+
 ### <a name="difference-between-properties-and-telemetry"></a>Diferencia entre propiedades y telemetría
 
 A continuación se ofrecen instrucciones adicionales para distinguir entre **propiedades** y **telemetría** de DTDL en Azure Digital Twins.
@@ -152,11 +154,16 @@ En el ejemplo siguiente se muestra un modelo Sensor con telemetría de tipo sem�
 
 En esta sección se explican con mayor detalle las **relaciones** en los modelos de DTDL.
 
+Para obtener una lista completa de los campos que pueden aparecer como parte de una relación, consulte [Relación en la especificación DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship).
+
 ### <a name="basic-relationship-example"></a>Ejemplo básico de relación
 
 Este es un ejemplo básico de una relación en un modelo de DTDL. En este ejemplo se muestra una relación en un modelo Home que le permite conectarse a un modelo Floor.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json" highlight="12-18":::
+
+>[!NOTE]
+>En las relaciones, `@id` es un campo opcional. Si no se proporciona el valor de `@id`, el procesador de la interfaz de gemelo digital asignará uno.
 
 ### <a name="targeted-and-non-targeted-relationships"></a>Relaciones con y sin destino
 
@@ -180,14 +187,18 @@ En el siguiente ejemplo se muestra otra versión del modelo Home, en el que la r
 
 En esta sección se explican con mayor detalle los **componentes** en los modelos de DTDL.
 
+Para obtener una lista completa de los campos que pueden aparecer como parte de un componente, consulte [Componente en la especificación DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component).
+
 ### <a name="basic-component-example"></a>Ejemplo de componente básico
 
-Este es un ejemplo básico de un componente en un modelo de DTDL. En este ejemplo se muestra un modelo Room que usa un componente termostato.
+Este es un ejemplo básico de un componente en un modelo de DTDL. En este ejemplo se muestra un modelo Room que usa un modelo de termostato como componente.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="15-19, 28-41":::
 
-> [!NOTE]
-> Tenga en cuenta que la interfaz del componente (componente termostato) se define en la misma matriz que la interfaz que la usa (Room). Los componentes se deben definir de esta manera en las llamadas API para encontrar la interfaz.
+Si otros modelos de esta solución también deben contener un termostato, pueden hacer referencia al mismo modelo de termostato que un componente en sus propias definiciones, al igual que hace Room.
+
+> [!IMPORTANT]
+> La interfaz del componente (el termostato en el ejemplo anterior) debe definirse en la misma matriz que cualquier interfaz que lo use (Room en el ejemplo anterior) para que se pueda encontrar la referencia del componente.
 
 ## <a name="model-inheritance"></a>Herencia de modelo
 
@@ -225,7 +236,7 @@ En esta sección se describe con más detalle el conjunto de ejemplos actual.
 
 ### <a name="model-uploader"></a>Usuario de carga del modelo 
 
-Una vez que haya terminado de crear, extender o seleccionar los modelos, puede cargarlos en la instancia de Azure Digital Twins para que estén disponibles para su uso en la solución. Esto se realiza mediante las [API de Azure Digital Twins](concepts-apis-sdks.md), tal y como se describe en [Procedimiento: Administración de modelos DTDL](how-to-manage-model.md#upload-models).
+Una vez que haya terminado de crear, extender o seleccionar los modelos, puede cargarlos en la instancia de Azure Digital Twins para que estén disponibles para su uso en la solución. Esto se realiza mediante las [API de Azure Digital Twins](concepts-apis-sdks.md), tal y como se describe en [Administración de modelos de Azure Digital Twins](how-to-manage-model.md#upload-models).
 
 Sin embargo, si tiene muchos modelos para cargar, o si estos tienen muchas interdependencias que dificultarían la ordenación de las cargas individuales, puede usar el [ejemplo del usuario de carga de modelos de Azure Digital Twins](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels) para cargar muchos modelos a la vez. Siga las instrucciones que se proporcionan con el ejemplo para configurar y usar este proyecto para cargar modelos en su propia instancia.
 
@@ -235,9 +246,9 @@ Una vez que cargue los modelos en la instancia de Azure Digital Twins, podrá ve
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo crear modelos basados en ontologías estándar del sector: [Conceptos: ¿Qué es una ontología?](concepts-ontologies.md) 
+* Obtenga información sobre cómo crear modelos basados en ontologías estándar del sector: [¿Qué es una ontología?](concepts-ontologies.md)
 
-* Analice en profundidad la administración de modelos con operaciones de API: [Procedimiento: Administración de modelos DTDL](how-to-manage-model.md)
+* Analice en profundidad la administración de modelos con operaciones de API: [Administración de modelos de Azure Digital Twins](how-to-manage-model.md)
 
-* Obtenga información sobre cómo se usan los modelos para crear gemelos digitales: [Conceptos: Gemelos digitales y grafo de gemelos](concepts-twins-graph.md)
+* Obtenga información sobre cómo se usan los modelos para crear gemelos digitales: [Explicación del concepto de gemelos digitales y su grafo gemelo](concepts-twins-graph.md).
 

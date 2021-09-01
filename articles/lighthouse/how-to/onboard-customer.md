@@ -1,15 +1,15 @@
 ---
 title: Incorporación de un cliente a Azure Lighthouse
 description: Aprenda a incorporar un cliente a Azure Lighthouse para permitir que los usuarios de su inquilino accedan a sus recursos y los administren.
-ms.date: 05/25/2021
+ms.date: 08/16/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: de0520f7ed8be24ac19b4738828890877456f734
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 533841e958d7873c4961814f7398ec539fd6a6fd
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078966"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253227"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
@@ -31,8 +31,8 @@ El proceso de incorporación requiere que se tomen medidas desde el inquilino de
 
 Para incorporar el inquilino de un cliente, este debe tener una suscripción activa a Azure. Necesitará saber:
 
-- El identificador del inquilino del proveedor de servicios (donde va a administrar los recursos del cliente)
-- El identificador del inquilino del cliente (cuyos recursos administrará el proveedor de servicios)
+- El identificador del inquilino del proveedor de servicios (donde va a administrar los recursos del cliente). Si [crea la plantilla en Azure Portal](#create-your-template-in-the-azure-portal), este valor se proporciona automáticamente.
+- El identificador del inquilino del cliente (cuyos recursos administrará el proveedor de servicios).
 - Los identificadores de suscripción de cada suscripción específica del inquilino del cliente que administrará el proveedor de servicios (o que contenga los grupos de recursos que administrará el proveedor de servicios).
 
 Si aún no tiene estos valores de identificador, puede recuperarlos de una de las siguientes maneras. Asegúrese y use estos valores exactos en su implementación.
@@ -121,33 +121,62 @@ az role definition list --name "<roleName>" | grep name
 
 ## <a name="create-an-azure-resource-manager-template"></a>Creación de una plantilla de Azure Resource Manager
 
-Para incorporar el cliente, deberá crear una plantilla de [Azure Resource Manager](../../azure-resource-manager/index.yml) para la oferta con la información siguiente. Los valores **mspOfferName** y **mspOfferDescription** serán visibles para el cliente en la [página de proveedores de servicios](view-manage-service-providers.md) de Azure Portal.
+Para incorporar el cliente, deberá crear una plantilla de [Azure Resource Manager](../../azure-resource-manager/index.yml) para la oferta con la información siguiente. Los valores **mspOfferName** y **mspOfferDescription** serán visibles para el cliente en la [página de proveedores de servicios](view-manage-service-providers.md) de Azure Portal una vez que la plantilla se implementa en el inquilino del cliente.
 
 |Campo  |Definición  |
 |---------|---------|
 |**mspOfferName**     |Nombre que describe esta definición. Este valor se muestra al cliente como el título de la oferta y debe ser un valor único.        |
-|**mspOfferDescription**     |Breve descripción de la oferta (por ejemplo, "oferta de administración de VM de Contoso").      |
+|**mspOfferDescription**     |Breve descripción de la oferta (por ejemplo, "oferta de administración de VM de Contoso"). Este campo es opcional, pero se recomienda para que los clientes comprendan claramente su oferta.   |
 |**managedByTenantId**     |El identificador de inquilino.          |
 |**authorizations**     |Los valores de **principalId** para los usuarios/grupos/SPN del inquilino, cada uno de ellos con un valor de **principalIdDisplayName** para ayudar a su cliente a entender el propósito de la autorización y asignarla a un valor de **roleDefinitionId** integrado para especificar el nivel de acceso.      |
 
-El proceso de incorporación requiere una plantilla de Azure Resource Manager (proporcionada en el [repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/)) y un archivo de parámetros correspondiente que se modifica para que coincida con la configuración y para definir las autorizaciones.
+Puede crear esta plantilla en Azure Portal o modificando manualmente las plantillas proporcionadas en nuestro [repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/). 
 
 > [!IMPORTANT]
 > El proceso que se describe aquí requiere una implementación independiente para cada suscripción que se está incorporando, incluso si va a incorporar suscripciones en el mismo inquilino de cliente. También se necesitan implementaciones independientes si se incorporan varios grupos de recursos en distintas suscripciones del mismo inquilino del cliente. Sin embargo, la incorporación de varios grupos de recursos dentro de una sola suscripción puede realizarse en una implementación.
 >
 > También se necesitan implementaciones independientes para varias ofertas que se aplican a la misma suscripción (o grupos de recursos dentro de una suscripción). Cada oferta aplicada debe usar un valor de **mspOfferName** diferente.
 
+### <a name="create-your-template-in-the-azure-portal"></a>Creación de la plantilla en Azure Portal
+
+Para crear la plantilla en Azure Portal, vaya a **Mis clientes** y seleccione **Crear plantilla ARM** en la página de información general.
+
+En la página **Crear oferta de plantilla ARM**, proporcione su **nombre** y una **descripción** opcional. Estos valores se usarán en **mspOfferName** y **mspOfferDescription** en la plantilla. El valor **managedByTenantId** se proporcionará automáticamente, en función del inquilino de Azure AD en el que ha iniciado sesión.
+
+A continuación, seleccione **Suscripción** o **Grupo de recursos**, en función del ámbito del cliente que desee incorporar. Si selecciona **Grupo de recursos**, tendrá que proporcionar el nombre del grupo de recursos para incorporarlo. Puede seleccionar el icono **+** para agregar grupos de recursos adicionales según sea necesario. (Todos los grupos de recursos deben estar en la misma suscripción de cliente).
+
+Por último, para crear las autorizaciones, seleccione **+ Agregar autorización**. Para cada una de las autorizaciones, proporcione los detalles siguientes:
+
+1. Seleccione **Tipo de entidad de seguridad** según el tipo de cuenta que desee incluir en la autorización. Este puede ser **Usuario**, **Grupo** o **Entidad de servicio**. En este ejemplo, elegiremos **Usuario**.
+1. Seleccione el enlace **+ Seleccionar usuario** para abrir el panel de selección. Puede usar el campo de búsqueda para buscar el usuario que desea agregar. Una vez que lo haya hecho, haga clic en **Seleccionar**. El campo **Id. de la entidad de seguridad** del usuario se rellenará automáticamente.
+1. Revise el campo **Nombre para mostrar** (rellenado según el usuario que seleccionó) y haga los cambios que desee.
+1. Seleccione el **rol** que va a asignar al usuario.
+1. En tipo de **Acceso**, seleccione **Permanente** o **Elegible**. Si selecciona **Elegible**, deberá especificar opciones para la duración máxima, la autenticación multifactor y si se requiere o no aprobación. Para más información, consulte [Creación de autorizaciones aptas](create-eligible-authorizations.md). La característica de autorizaciones aptas se encuentra actualmente en versión preliminar pública y no se puede usar con entidades de servicio.
+1. Seleccione **Agregar** para crear la autorización.
+
+:::image type="content" source="../media/add-authorization.png" alt-text="Captura de pantalla de la sección Agregar autorización de Azure Portal.":::
+
+Después de seleccionar **Agregar**, volverá a la pantalla **Crear oferta de plantilla ARM**. Puede seleccionar **+ Agregar autorización** de nuevo para agregar tantas autorizaciones como sea necesario.
+
+Cuando haya agregado todas las autorizaciones, seleccione **Ver plantilla**. En esta pantalla, verá un archivo .json que corresponde a los valores especificados. Seleccione **Descargar** para guardar una copia de este archivo .json. Esta plantilla se puede [implementar en el inquilino del cliente](#deploy-the-azure-resource-manager-template). También puede editarla manualmente si necesita realizar cambios. Tenga en cuenta que el archivo no se almacena en Azure Portal.
+
+### <a name="create-your-template-manually"></a>Creación manual de la plantilla
+
+Puede crear la plantilla a partir de una plantilla de Azure Resource Manager (proporcionada en el [repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/)) y un archivo de parámetros correspondiente que se modifica para que coincida con la configuración y para definir las autorizaciones. Si lo prefiere, puede incluir toda la información directamente en la plantilla, en lugar de usar un archivo de parámetros independiente.
+
 La plantilla que elija dependerá de si se incorpora una suscripción completa, un grupo de recursos o varios grupos de recursos dentro de una suscripción. También proporcionamos una plantilla que se puede usar para los clientes que han adquirido una oferta de servicios administrados que ha publicado en Azure Marketplace, si prefiere incorporar sus suscripciones de esta manera.
 
 |Para incorporar esto  |Use esta plantilla de Azure Resource Manager  |Y modifique este archivo de parámetros |
 |---------|---------|---------|
-|Subscription   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
+|Suscripción   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
 |Resource group   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
 |Varios grupos de recursos de una suscripción   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |Suscripción (al usar una oferta publicada en Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
+Si desea incluir [autorizaciones elegibles](create-eligible-authorizations.md#create-eligible-authorizations-using-azure-resource-manager-templates) (actualmente en versión preliminar pública), seleccione la plantilla correspondiente en la sección [delegated-resource-management-eligible-authorizations](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations) de nuestro repositorio de ejemplos.
+
 > [!TIP]
-> Aunque no se puede incorporar un grupo de administración completo en una implementación, es posible [implementar una directiva en el nivel de grupo de administración](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). La directiva usa el [efecto deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists)para comprobar si cada suscripción del grupo de administración se ha delegado en el inquilino de administración especificado y, en caso contrario, creará la asignación en función de los valores proporcionados. Tendrá acceso a todas las suscripciones del grupo de administración, aunque tendrá que trabajar en ellas como si fueran suscripciones individuales (en lugar de realizar acciones en el grupo de administración en su conjunto).
+> Aunque no se puede incorporar un grupo de administración completo en una implementación, es posible implementar una directiva para [incorporar cada suscripción en un grupo de administración](onboard-management-group.md). Tendrá acceso a todas las suscripciones del grupo de administración, aunque tendrá que trabajar en ellas como si fueran suscripciones individuales (en lugar de realizar acciones en el recurso del grupo de administración directamente).
 
 En el ejemplo siguiente se muestra un archivo **delegatedResourceManagement.parameters.json**, que se usará para incorporar una suscripción. Los archivos de parámetros del grupo de recursos (situados en la carpeta [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) son similares, pero también incluyen un parámetro **rgName** para identificar los grupos de recursos específicos que se incorporarán.
 
@@ -204,26 +233,38 @@ En el ejemplo siguiente se muestra un archivo **delegatedResourceManagement.para
 
 La última autorización del ejemplo anterior agrega un valor de **principalId** con el rol de administrador de acceso de usuario (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Al asignar este rol, debe incluir la propiedad **delegatedRoleDefinitionIds** y uno o más roles integrados de Azure compatibles. El usuario creado en esta autorización podrá asignar estos roles a las [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) en el inquilino del cliente, algo necesario para [implementar directivas que pueden corregirse](deploy-policy-remediation.md).  El usuario también puede crear incidentes de soporte técnico. No se aplicará a este **principalId** ningún otro permiso asociado normalmente al rol Administrador de acceso de usuario.
 
-## <a name="deploy-the-azure-resource-manager-templates"></a>Implementación de las plantillas de Azure Resource Manager
+## <a name="deploy-the-azure-resource-manager-template"></a>Implementación de la plantilla de Azure Resource Manager
 
-Una vez actualizado el archivo de parámetros, un usuario del inquilino del cliente debe implementar la plantilla de Azure Resource Manager en su inquilino. Se necesita una implementación independiente para cada suscripción que quiera incorporar (o para cada suscripción que contenga grupos de recursos que quiera incorporar).
+Una vez que haya creado la plantilla, un usuario del inquilino del cliente debe implementarla en su inquilino. Se necesita una implementación independiente para cada suscripción que quiera incorporar (o para cada suscripción que contenga grupos de recursos que quiera incorporar).
 
 > [!IMPORTANT]
 > Esta implementación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente, que tenga el rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](../../role-based-access-control/built-in-roles.md#owner), para la suscripción que se va a incorporar (o que contenga los grupos de recursos que se están incorporando). Para buscar usuarios que puedan delegar la suscripción, un usuario del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 >
 > Si la suscripción se creó con el [programa Proveedor de soluciones en la nube (CSP)](../concepts/cloud-solution-provider.md), cualquier usuario que tenga el rol de [agente de administración](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) en el inquilino del proveedor de servicios puede realizar la implementación.
 
-La implementación puede realizarse en Azure Portal, mediante PowerShell o la CLI de Azure, como se muestra a continuación.
-
-### <a name="azure-portal"></a>Azure portal
-
-1. En nuestro [repositorio de GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), seleccione el botón **Deploy to Azure** (Implementar en Azure) que se muestra junto a la plantilla que quiera usar. La plantilla se abrirá en Azure Portal.
-1. Escriba los valores de **Msp Offer Name** (nombre de oferta de MSP), **Msp Offer Description** (descripción de la oferta de MSP), **Managed by Tenant Id** (administrado por id. de inquilino) y **Authorizations** (autorizaciones). Si lo prefiere, puede seleccionar **Editar parámetros** para especificar valores de `mspOfferName`, `mspOfferDescription`, `managedbyTenantId` y `authorizations` directamente en el archivo de parámetros. Asegúrese de actualizar estos valores, en lugar de usar los valores predeterminados de la plantilla.
-1. Seleccione **Revisar y crear** y, luego, **Crear**.
-
-Transcurridos unos minutos, se mostrará una notificación indicando que la implementación se ha completado.
+La implementación puede realizarse mediante PowerShell, la CLI de Azure o Azure Portal, como se muestra a continuación.
 
 ### <a name="powershell"></a>PowerShell
+
+Para implementar únicamente una plantilla:
+
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+# Deploy Azure Resource Manager template using template and parameter file locally
+New-AzSubscriptionDeployment -Name <deploymentName> `
+                 -Location <AzureRegion> `
+                 -TemplateFile <pathToTemplateFile> `
+                 -Verbose
+
+# Deploy Azure Resource Manager template that is located externally
+New-AzSubscriptionDeployment -Name <deploymentName> `
+                 -Location <AzureRegion> `
+                 -TemplateUri <templateUri> `
+                 -Verbose
+```
+
+Para implementar una plantilla con un archivo de parámetros independiente:
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -245,6 +286,26 @@ New-AzSubscriptionDeployment -Name <deploymentName> `
 
 ### <a name="azure-cli"></a>Azure CLI
 
+Para implementar únicamente una plantilla:
+
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
+# Deploy Azure Resource Manager template using template and parameter file locally
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-file <pathToTemplateFile> \
+                         --verbose
+
+# Deploy external Azure Resource Manager template, with local parameter file
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-uri <templateUri> \
+                         --verbose
+```
+
+Para implementar una plantilla con un archivo de parámetros independiente:
+
 ```azurecli-interactive
 # Log in first with az login if you're not using Cloud Shell
 
@@ -262,6 +323,16 @@ az deployment sub create --name <deploymentName> \
                          --parameters <parameterFile> \
                          --verbose
 ```
+
+### <a name="azure-portal"></a>Azure portal
+
+Con esta opción, puede modificar la plantilla directamente en Azure Portal y, a continuación, implementarla. Esto lo debe hacer un usuario en el inquilino del cliente.
+
+1. En nuestro [repositorio de GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), seleccione el botón **Deploy to Azure** (Implementar en Azure) que se muestra junto a la plantilla que quiera usar. La plantilla se abrirá en Azure Portal.
+1. Escriba los valores de **Msp Offer Name** (nombre de oferta de MSP), **Msp Offer Description** (descripción de la oferta de MSP), **Managed by Tenant Id** (administrado por id. de inquilino) y **Authorizations** (autorizaciones). Si lo prefiere, puede seleccionar **Editar parámetros** para especificar valores de `mspOfferName`, `mspOfferDescription`, `managedbyTenantId` y `authorizations` directamente en el archivo de parámetros. Asegúrese de actualizar estos valores, en lugar de usar los valores predeterminados de la plantilla.
+1. Seleccione **Revisar y crear** y, luego, **Crear**.
+
+Transcurridos unos minutos, se mostrará una notificación indicando que la implementación se ha completado.
 
 ## <a name="confirm-successful-onboarding"></a>Confirmar la incorporación correcta
 

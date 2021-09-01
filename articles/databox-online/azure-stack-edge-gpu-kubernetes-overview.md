@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 72ba07090e6ce67501761d97876aa136f146d61c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 22a66ca16d8d2cb7ade82cb665f50cc9aae4b27b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437934"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747359"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes en el dispositivo Azure Stack Edge Pro con GPU
 
@@ -45,7 +45,12 @@ En el diagrama siguiente se ilustra la implementación de Kubernetes en un dispo
 
 Para más información sobre la arquitectura de clúster de Kubernetes, consulte los [Conceptos básicos de Kubernetes](https://kubernetes.io/docs/concepts/architecture/).
 
+Los nodos maestro y de trabajo son máquinas virtuales que consumen CPU y memoria. Al implementar cargas de trabajo de Kubernetes, es importante comprender los requisitos de proceso de las máquinas virtuales maestras y de trabajo.
 
+|Tipo de máquina virtual de Kubernetes|Requisito de CPU y memoria|
+|---------|---------|
+|Máquina virtual maestra|4 núcleos, 4 GB de RAM|
+|Máquina virtual de trabajo|12 núcleos, 32 GB de RAM|
 <!--The Kubernetes cluster control plane components make global decisions about the cluster. The control plane has:
 
 - *kubeapiserver* that is the front end of the Kubernetes API and exposes the API.
